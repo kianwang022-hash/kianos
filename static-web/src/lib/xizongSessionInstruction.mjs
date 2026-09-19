@@ -39,11 +39,21 @@ function normalizeStep(raw, index) {
   };
 
   if (kind === 'MEMORY_REVIEW') {
-    const rawCardIds = (Array.isArray(raw.card_ids) ? raw.card_ids : [])
-      .map((id) => clean(id, 240)).filter(Boolean);
-    if (!rawCardIds.length) fail('MEMORY_CARD_IDS_REQUIRED', stepId);
-    if (new Set(rawCardIds).size !== rawCardIds.length) fail('MEMORY_CARD_IDS_DUPLICATE', stepId);
-    return { ...base, card_ids: rawCardIds };
+    const rawTargets = Array.isArray(raw.targets) ? raw.targets : [];
+    if (!rawTargets.length) fail('MEMORY_TARGETS_REQUIRED', stepId);
+    const targets = rawTargets.map((target, targetIndex) => {
+      if (!target || typeof target !== 'object' || Array.isArray(target)) {
+        fail('MEMORY_TARGET_INVALID', stepId + ':' + targetIndex);
+      }
+      const cardId = clean(target.card_id || target.cardId, 240);
+      const sourceHash = clean(target.source_hash || target.sourceHash, 160);
+      if (!cardId || !sourceHash) fail('MEMORY_TARGET_IDENTITY_REQUIRED', stepId + ':' + targetIndex);
+      return { card_id: cardId, source_hash: sourceHash };
+    });
+    if (new Set(targets.map((target) => target.card_id)).size !== targets.length) {
+      fail('MEMORY_TARGET_DUPLICATE', stepId);
+    }
+    return { ...base, targets };
   }
 
   if (kind === 'PRACTICE_SET') {
@@ -188,9 +198,9 @@ function stepIsComplete(storage, instruction, step) {
 
   if (step.kind === 'MEMORY_REVIEW') {
     const memory = normalizeXizongMemoryState(readJson(storage, XIZONG_MEMORY_STORAGE_KEY, null));
-    return step.card_ids.every((cardId) =>
+    return step.targets.every((target) =>
       memory.evidence.some((row) =>
-        row?.cardId === cardId
+        row?.cardId === target.card_id
         && Number.isFinite(Date.parse(row?.at))
         && Date.parse(row.at) >= activatedAt
       )
@@ -252,8 +262,12 @@ export function activateXizongSessionNext(storage, instruction, {
   try {
     if (next.step.kind === 'MEMORY_REVIEW') {
       const memory = normalizeXizongMemoryState(readJson(storage, XIZONG_MEMORY_STORAGE_KEY, null));
-      for (const cardId of next.step.card_ids) {
-        if (!memory.cards[cardId]) fail('MEMORY_CARD_UNKNOWN', cardId);
+      for (const target of next.step.targets) {
+        const card = memory.cards[target.card_id];
+        if (!card) fail('MEMORY_CARD_UNKNOWN', target.card_id);
+        if (String(card.sourceHash || '') !== target.source_hash) {
+          fail('MEMORY_SOURCE_REVISION_MISMATCH', target.card_id);
+        }
       }
       // Do not mutate attention / weakWeight. The Memory workspace should render the
       // exact session-selected cards from the active Session instruction.
