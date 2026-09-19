@@ -36,15 +36,11 @@ jobs:
           [[ "$GOT_2011" == "$EXPECT_2011" ]] && echo "EXACT_2011=YES" || echo "EXACT_2011=NO"
           [[ "$GOT_2026" == "$EXPECT_2026" ]] && echo "EXACT_2026=YES" || echo "EXACT_2026=NO"
 
-          if [[ "$GOT_2011" == "$EXPECT_2011" ]]; then
-            echo "B64_2011_BEGIN"
-            base64 -w 0 recovery/2011-writing-b.bin
-            echo
-            echo "B64_2011_END"
-          fi
-          if [[ "$GOT_2026" == "$EXPECT_2026" ]]; then
-            echo "B64_2026_BEGIN"
-            base64 -w 0 recovery/2026-writing-b.bin
-            echo
-            echo "B64_2026_END"
-          fi
+          echo "B64_2011_BEGIN"
+          base64 -w 0 recovery/2011-writing-b.bin
+          echo
+          echo "B64_2011_END"
+          echo "B64_2026_BEGIN"
+          base64 -w 0 recovery/2026-writing-b.bin
+          echo
+          echo "B64_2026_END"
