@@ -110,7 +110,7 @@ Exact cleanup inventory should be created **when this lane activates**, from the
 
 ## Active platform lane
 
-### Chat-owned Home + Learner Data / Chat Handoff Closure — **TARGETED CLOSURE PASS · FINAL REGRESSION ACTIVE**
+### Chat-owned Home + Learner Data / Chat Handoff Closure — **CLOSED · GATE 4 PASS · GATE 5 ENGINEERING FREEZE**
 
 Chat-owned Home cutover: **LANDED on main via PR #483 (`d252157e`)**.
 
@@ -122,9 +122,15 @@ The private durable checkpoint transport now lives outside the disposable Git Cu
 
 Xizong Final Audit integration is now **CLOSED on main via PR #496 (`00f1a87e`)**. Its approved learner-state/evidence keys are captured through the shared private checkpoint, restore only into an empty Xizong durable store, an unreadable existing checkpoint authorizes zero replacement writes, and the typed Xizong Chat Return is integrated with exact object/Source/evidence/Resume binding.
 
-Shared handoff + Home integration is implemented in **PR #499** (`work/shared-handoff-closure-20260919`), stacked on English integration PR #498 so it can consume the accepted English evidence/private-checkpoint interfaces without duplicating them. Targeted proof is PASS: English + Politics attach to the one existing `kianos.daily-learning-packet.v1`; Politics private checkpoint and typed Chat diagnosis import are batch-bound, stale/conflict-safe and replay-idempotent; Home exposes one learner-facing `复制今日学习包` action and composes Xizong v3 + English evidence + Politics evidence without inventing missing evidence. Shared Study Timer run `35419390373` passed the exact candidate build, shared-handoff suite and browser timer regression.
+English final integration is **LANDED on main via PR #498** (`216165c05140e90c2ac0afbbf3cace1b956898d8`). Kian explicitly removed its final Mac-presentation release hold; Learner U remains UNTESTED until genuine study.
 
-Existing pieces already exist: Shared Study Timer, Daily Learning Packet composition, subject Return/Handoff packets, and GitHub→Mac Current sync. The missing work is integration, not a new packet ecosystem.
+Shared handoff + Home integration is **LANDED on main via PR #499** (`a6be8ae38a09b45465f5ae992989f122bfa73f4b`). English + Politics attach to the one existing `kianos.daily-learning-packet.v1`; Politics private checkpoint and typed Chat diagnosis import are batch/provenance-bound, stale/conflict-safe and replay-idempotent; Home exposes one learner-facing `复制今日学习包` action and composes Xizong v3 + English evidence + Politics evidence without inventing missing evidence. Kian accepted the final macOS/PingFang Home presentation before promotion.
+
+Final Gate 4 is **PASS** on the reconciled PR #500 candidate `601afe43bdce50db9aa943d3c7318206c637c284`. Final Cross-subject Regression run `35422745025` passed **31/31 checks** across cold Home fail-closed behavior, exact Chat Plan consumption, one-click three-subject Daily Learning Packet, Xizong/English/Politics Timer switching, Politics typed Return apply/replay/conflict/provenance, private checkpoint capture, disposable Current-mirror sync, Astro restart, fresh-browser restore and post-restore packet reproduction.
+
+The final run exposed and closed one real integration defect before PASS: cold Home had `next=null` internally but retained a hidden fallback link to Xizong. No-plan Home now removes the href entirely and therefore cannot silently choose a subject.
+
+The platform integration closure is complete. Reopen this lane only for a concrete learner-visible or durability defect; do not create a second packet/return/checkpoint ecosystem.
 
 Current sequence:
 
@@ -137,8 +143,8 @@ Chat-owned plan boundary ✅
 → Politics daily evidence + private checkpoint + typed Return ✅ #499
 → one cross-subject Daily Learning Packet entry ✅ #499
 → Home consumes final interfaces ✅ #499
-→ final cross-subject browser/restart regression ⏳ #500
-→ launch / broad engineering freeze
+→ final cross-subject browser/restart/Current-sync regression ✅ #500 · 31/31
+→ launch / broad engineering freeze ✅
 ```
 
 Target flow:
@@ -207,7 +213,7 @@ CI green is not visual acceptance.
 - **Politics:** learner-facing material UI is fully landed. PR #470 merged after Kian Human Gate; Practice preserves the proven Workbench, uses exact-ID AI `takeaway` + AI `chat_explanation`, forbids Xiao1000 historical explanation from learner-facing fallback, and returns to the safest exact Chengfeng locator when one exists. Reopen only a concrete learner-visible defect.
 - **English:** landed; fix only concrete launch-visible defects.
 - **Lexical:** Vocabulary v2 learner-surface closure and English exact handoff/return are accepted; normal use only unless a concrete defect appears.
-- **Platform:** UI/CSS ownership consolidation remains independent non-redesign maintenance. Shared learner-data / Chat handoff + Home integration have targeted PASS in PR #499. Final cross-subject learner regression is active in stacked PR #500; after English #498 promotion, reconcile the stack to `main`, rerun affected proof, then freeze broad website engineering.
+- **Platform:** Gates 1–4 are closed and Gate 5 engineering freeze is active. Shared learner-data / Chat handoff + Home integration are landed through #498/#499; the reconciled #500 candidate passed final cross-subject regression 31/31. Broad platform construction is closed. Continue only concrete learner-visible/durability defects or explicitly bounded non-redesign maintenance such as the separate CSS ownership consolidation lane.
 
 Exact branch/PR/cursor state must be read from the active owner/ref before work.
 
