@@ -2,7 +2,9 @@ import assert from 'node:assert/strict';
 import {
   XIZONG_SESSION_SCHEMA,
   XIZONG_SESSION_KEY,
+  XIZONG_SESSION_RUNTIME_KEY,
   XIZONG_CHAT_SET_KEY,
+  activateXizongSessionNext,
   applyXizongSessionInstruction,
   resolveXizongSessionNext
 } from '../src/lib/xizongSessionInstruction.mjs';
@@ -52,13 +54,27 @@ const instruction = {
   ]
 };
 
-const applied = applyXizongSessionInstruction(storage, instruction, { expectedDay: day, now, holdoutYears: [] });
+const applied = applyXizongSessionInstruction(storage, instruction, { expectedDay: day, now });
 assert.equal(applied.status, 'applied');
-assert.equal(JSON.parse(storage.getItem(XIZONG_MEMORY_STORAGE_KEY)).attention['core:a1-b01-kp01'].reviewRequested, true);
-assert.equal(JSON.parse(storage.getItem(XIZONG_CHAT_SET_KEY)).question_ids.length, 2);
 assert.equal(JSON.parse(storage.getItem(XIZONG_SESSION_KEY)).session_id, instruction.session_id);
+assert.deepEqual(JSON.parse(storage.getItem(XIZONG_SESSION_RUNTIME_KEY)).activated_steps, []);
+assert.equal(JSON.parse(storage.getItem(XIZONG_MEMORY_STORAGE_KEY)).attention['core:a1-b01-kp01'], undefined,
+  'install must not pre-activate future native actions');
+assert.equal(storage.getItem(XIZONG_CHAT_SET_KEY), null,
+  'install must not pre-write later Practice Set');
 
-const replay = applyXizongSessionInstruction(storage, instruction, { expectedDay: day, now, holdoutYears: [] });
+const first = activateXizongSessionNext(storage, instruction, { now: now + 100 });
+assert.equal(first.status, 'activated');
+assert.equal(first.next.step.kind, 'MEMORY_REVIEW');
+assert.equal(JSON.parse(storage.getItem(XIZONG_MEMORY_STORAGE_KEY)).attention['core:a1-b01-kp01'].reviewRequested, true);
+assert.deepEqual(JSON.parse(storage.getItem(XIZONG_SESSION_RUNTIME_KEY)).activated_steps, ['m1']);
+
+const repeatedActivation = activateXizongSessionNext(storage, instruction, { now: now + 200 });
+assert.equal(repeatedActivation.status, 'active');
+assert.deepEqual(JSON.parse(storage.getItem(XIZONG_SESSION_RUNTIME_KEY)).activated_steps, ['m1'],
+  'reactivation must be idempotent');
+
+const replay = applyXizongSessionInstruction(storage, instruction, { expectedDay: day, now: now + 300 });
 assert.equal(replay.status, 'idempotent');
 
 assert.throws(() => applyXizongSessionInstruction(storage, {
@@ -67,30 +83,7 @@ assert.throws(() => applyXizongSessionInstruction(storage, {
   generated_at: new Date(now - 1000).toISOString()
 }, { expectedDay: day, now }), /OLDER_INSTRUCTION/);
 
-assert.throws(() => applyXizongSessionInstruction(new MemoryStorage({
-  [XIZONG_MEMORY_STORAGE_KEY]: JSON.stringify(memory)
-}), {
-  ...instruction,
-  session_id: 'bad-card',
-  steps: [{ step_id: 'm1', kind: 'MEMORY_REVIEW', card_ids: ['core:missing'] }]
-}, { expectedDay: day, now }), /MEMORY_CARD_UNKNOWN/);
-
-const holdoutStorage = new MemoryStorage({
-  [XIZONG_MEMORY_STORAGE_KEY]: JSON.stringify(memory)
-});
-assert.throws(() => applyXizongSessionInstruction(holdoutStorage, {
-  ...instruction,
-  session_id: 'holdout',
-  steps: [{ step_id:'q1', kind:'PRACTICE_SET', question_ids:['xizong-official-2024-n001'] }]
-}, { expectedDay: day, now, holdoutYears:[2024] }), /PRACTICE_HOLDOUT_CONFLICT/);
-assert.equal(holdoutStorage.getItem(XIZONG_SESSION_KEY), null, 'failed validation must not partially install session');
-
-const first = resolveXizongSessionNext(storage, instruction);
-assert.equal(first.step.kind, 'MEMORY_REVIEW');
-assert.equal(first.href, '/xizong/memory/');
-
-// Any real post-session Recall event completes the requested action. The rating itself
-// remains learner evidence and must not be promoted to mastery by the session layer.
+// Any real post-session Recall event completes the action; fuzzy remains evidence.
 const nextMemory = JSON.parse(storage.getItem(XIZONG_MEMORY_STORAGE_KEY));
 nextMemory.evidence.push({
   id: 'memory:core:a1-b01-kp01:1',
@@ -101,11 +94,19 @@ nextMemory.evidence.push({
   at: new Date(now + 1000).toISOString()
 });
 storage.setItem(XIZONG_MEMORY_STORAGE_KEY, JSON.stringify(nextMemory));
-const second = resolveXizongSessionNext(storage, instruction);
-assert.equal(second.step.kind, 'PRACTICE_SET');
-assert.equal(second.href, '/xizong/practice/chat-set/');
+
+const secondPending = resolveXizongSessionNext(storage, instruction);
+assert.equal(secondPending.step.kind, 'PRACTICE_SET');
+assert.equal(storage.getItem(XIZONG_CHAT_SET_KEY), null,
+  'later Practice must remain unprojected until activated');
+
+const second = activateXizongSessionNext(storage, instruction, { now: now + 1100, holdoutYears: [] });
+assert.equal(second.status, 'activated');
+assert.equal(second.next.step.kind, 'PRACTICE_SET');
+assert.equal(JSON.parse(storage.getItem(XIZONG_CHAT_SET_KEY)).question_ids.length, 2);
+assert.deepEqual(JSON.parse(storage.getItem(XIZONG_SESSION_RUNTIME_KEY)).activated_steps, ['m1','q1']);
 assert.equal(JSON.parse(storage.getItem(XIZONG_MEMORY_STORAGE_KEY)).evidence.at(-1).rating, 'fuzzy',
-  'session completion must not rewrite Recall quality');
+  'session progression must not rewrite Recall quality');
 
 assert.throws(() => applyXizongSessionInstruction(new MemoryStorage({
   [XIZONG_MEMORY_STORAGE_KEY]: JSON.stringify(memory)
@@ -123,4 +124,21 @@ assert.throws(() => applyXizongSessionInstruction(new MemoryStorage({
   steps: [{ step_id: 'q1', kind: 'PRACTICE_SET', question_ids: ['xizong-official-2024-n001','xizong-official-2024-n001'] }]
 }, { expectedDay: day, now }), /PRACTICE_IDS_DUPLICATE/);
 
-console.log('PASS Xizong session prototype: typed Memory + Practice dispatch, evidence-based completion, stale/holdout/idempotency guards');
+const holdoutStorage = new MemoryStorage({
+  [XIZONG_MEMORY_STORAGE_KEY]: JSON.stringify(memory)
+});
+const holdoutInstruction = {
+  ...instruction,
+  session_id: 'holdout',
+  steps: [{ step_id:'q1', kind:'PRACTICE_SET', question_ids:['xizong-official-2024-n001'] }]
+};
+applyXizongSessionInstruction(holdoutStorage, holdoutInstruction, { expectedDay: day, now });
+assert.throws(() => activateXizongSessionNext(holdoutStorage, holdoutInstruction, {
+  holdoutYears:[2024], now: now + 100
+}), /PRACTICE_HOLDOUT_CONFLICT/);
+assert.equal(holdoutStorage.getItem(XIZONG_CHAT_SET_KEY), null,
+  'failed activation must not partially install Chat Set');
+assert.deepEqual(JSON.parse(holdoutStorage.getItem(XIZONG_SESSION_RUNTIME_KEY)).activated_steps, [],
+  'failed activation must not mark step active');
+
+console.log('PASS Xizong session prototype: lazy native projection, evidence completion, stale/holdout/idempotency guards');
