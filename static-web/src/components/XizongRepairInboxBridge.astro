@@ -50,15 +50,22 @@ const allowedKpIds = (block?.kpRecords || []).map((kp) => kp.kpId).filter(Boolea
         .filter((row) => !incomingIds.has(String(row?.kpId || row?.kp_id || row || '')));
       ext.reviewPlan = [...existing, ...incoming];
       ext.reviewIndex = 0;
-      const inboxId = `${String(inbox?.sourceSystemId || '')}:${String(inbox?.importedAt || '')}`;
+      const sourceHandoffId = String(inbox?.sourceHandoffId || '');
+      const sourceSystemId = String(inbox?.sourceSystemId || '');
+      const eventType = sourceHandoffId ? 'BLOCK_CHAT_RETURN_IMPORTED' : 'SYSTEM_WU_PLAN_IMPORTED';
+      const evidenceOrigin = sourceHandoffId ? 'BLOCK_CHAT_RETURN' : 'SYSTEM_WU_CHAT_RETURN';
+      const inboxId = sourceHandoffId || `${sourceSystemId}:${String(inbox?.importedAt || '')}`;
       const history = Array.isArray(ext.evidenceHistory) ? ext.evidenceHistory : [];
-      const alreadyRecorded = inboxId && history.some((row) => row?.type === 'SYSTEM_WU_PLAN_IMPORTED' && row?.inbox_id === inboxId);
+      const alreadyRecorded = inboxId && history.some((row) => row?.type === eventType && row?.inbox_id === inboxId);
       if (!alreadyRecorded) {
         ext.evidenceHistory = [...history, {
           at: new Date().toISOString(),
-          type: 'SYSTEM_WU_PLAN_IMPORTED',
+          type: eventType,
           evidence_role: 'REPAIR_ONLY',
+          evidence_origin: evidenceOrigin,
           inbox_id: inboxId,
+          source_handoff_id: sourceHandoffId || null,
+          source_return_id: String(inbox?.sourceReturnId || '') || null,
           kp_ids: incoming.map((row) => row.kpId),
           source_question_ids: [...new Set(incoming.flatMap((row) => row.sourceQuestionIds || []))]
         }].slice(-400);
