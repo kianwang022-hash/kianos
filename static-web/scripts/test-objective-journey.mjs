@@ -280,7 +280,7 @@ async function chromiumJourney() {
     schema: 'kianos.english.objective_review_return.v1', task: 'cloze', objectId: closeId,
     ...closeIdentity,
     threads: [], newClaims: [], claimUpdates: [{ claimId, status: 'CLOSED', evidence: '' }]
-  });
+  }, { expectSuccess: false });
   clozeClaims = await storeClaims(page, 'cloze');
   check(clozeClaims.find((claim) => claim.claimId === claimId)?.status === 'TRANSFER_PENDING', 'closure_without_fresh_evidence_rejected');
 
