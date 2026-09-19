@@ -110,6 +110,28 @@ await check('no-plan-is-quiet-and-card-hidden', async () => {
   }
 });
 
+
+await check('explicit-zero-item-plan-means-no-memory-work', async () => {
+  const zeroPlan = {
+    ...plan,
+    plan_id: 'synthetic-zero-plan',
+    items: []
+  };
+  const { context, page } = await contextWith(zeroPlan);
+  try {
+    await page.goto(base + '/politics/memory/');
+    await page.locator('[data-memory-empty]').waitFor({ state: 'visible' });
+    assert.equal(await page.locator('[data-memory-card]').isVisible(), false);
+    assert.equal(await page.locator('[data-memory-complete]').isVisible(), false);
+    const evidence = JSON.parse(await page.evaluate((key) => localStorage.getItem(key) || '[]', POLITICS_MEMORY_EVIDENCE_KEY));
+    assert.equal(evidence.length, 0);
+    await shot(page, '00b-zero-plan');
+    return { planned_count: 0 };
+  } finally {
+    await context.close();
+  }
+});
+
 await check('active-plan-hides-answer-until-reveal', async () => {
   const { context, page } = await contextWith(plan);
   try {
