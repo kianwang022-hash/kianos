@@ -51,6 +51,13 @@ const t6 = '2026-09-12T15:00:00.000Z';
 function completeFreshTask(task, id, firstDraft, at) {
   const freshTask = { ...task, id };
   let record = createInitialWritingRecord(freshTask, [], at);
+  record.binding = {
+    source_hash: freshTask.sourceHash,
+    prior_exposure: 'unseen',
+    assistance: 'unassisted',
+    legacy_unversioned: false,
+    timing_status: 'uncalibrated'
+  };
   record = lockFirstAttempt(record, {
     planMode: 'direct',
     firstPlan: '',
@@ -60,6 +67,8 @@ function completeFreshTask(task, id, firstDraft, at) {
     schema: WRITING_REVIEW_RETURN_SCHEMA,
     taskId: freshTask.id,
     reviewOf: 'FIRST_DRAFT',
+    attemptSubmittedAt: record.firstSubmittedAt,
+    sourceHash: freshTask.sourceHash,
     verdict: 'PASS_ACCEPTABLE',
     firstFailureLayer: null,
     repairScope: null,
@@ -71,6 +80,13 @@ function completeFreshTask(task, id, firstDraft, at) {
 }
 
 let origin = createInitialWritingRecord(big, [], t0);
+origin.binding = {
+  source_hash: big.sourceHash,
+  prior_exposure: 'unseen',
+  assistance: 'unassisted',
+  legacy_unversioned: false,
+  timing_status: 'uncalibrated'
+};
 origin = lockFirstAttempt(origin, {
   planMode: 'direct',
   firstPlan: '',
@@ -80,6 +96,8 @@ const rootReview = validateWritingReviewReturn({
   schema: WRITING_REVIEW_RETURN_SCHEMA,
   taskId: big.id,
   reviewOf: 'FIRST_DRAFT',
+  attemptSubmittedAt: origin.firstSubmittedAt,
+  sourceHash: big.sourceHash,
   verdict: 'REPAIR_NEEDED',
   firstFailureLayer: 'Content',
   repairScope: 'central claim development',
@@ -92,6 +110,9 @@ const originRepair = validateWritingRepairReturn({
   schema: WRITING_REPAIR_RETURN_SCHEMA,
   taskId: big.id,
   repairOf: 'REGENERATION',
+  attemptSubmittedAt: origin.firstSubmittedAt,
+  regenerationSubmittedAt: origin.regenerationSubmittedAt,
+  sourceHash: big.sourceHash,
   verdict: 'REPAIR_COMPLETE',
   reason: 'The named content gap is repaired.',
   memoryAdmission: {
