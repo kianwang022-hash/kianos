@@ -46,3 +46,31 @@ sync latest GitHub
 ```
 
 It does **not** mean “wait here until this batch reaches frontier”.
+
+
+## Final sweep mode
+
+Current campaign phase is `PRODUCTION_SWEEP_ONLY`.
+
+C keeps the continuous conveyor, but now **all** materialization/audit work is deferred until A/C finish Production.
+
+Remaining C sweep:
+
+```text
+o1001–o1100
+→ o0901–o1000
+→ o0801–o0900
+→ o0701–o0800
+```
+
+The already-approved o1101–o1150 proposal stays frozen in backlog.
+
+For every new C batch:
+- Fresh Read;
+- Self Attack;
+- freeze smallest proposal;
+- Human Gate only for genuinely new material scope;
+- after `p`, immediately continue;
+- if no new material delta, auto-freeze and continue.
+
+Do not materialize, audit, rebuild FLOBs or merge during this phase.

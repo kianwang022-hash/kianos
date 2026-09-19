@@ -30,3 +30,39 @@ Before consuming `p` or emitting a mutation package, reread:
 If B has completed the live frontier audit, A records any still-valid approval for its own proposal, then prioritizes frontier reconciliation before later-batch materialization.
 
 Any cross-batch semantic dependency follows the live shared-semantic-claim protocol. A's ordinal range never gives it private ownership of related Word/Sense/Family/Form/Construction/Relation/Test truth.
+
+
+## Final sweep mode
+
+Current campaign phase is `PRODUCTION_SWEEP_ONLY`.
+
+A's job now is only:
+
+```text
+Fresh Read 100 owners
+→ Self Attack
+→ freeze smallest proposal
+→ if new material delta exists, show only that delta
+→ Kian p
+→ record approval
+→ immediately start next A batch
+```
+
+During this phase A must **not**:
+- materialize approved backlog;
+- launch B audit;
+- reconcile old B findings;
+- rebuild FLOBs;
+- merge semantic candidates;
+- invent a newer standard.
+
+A's remaining Production sweep after the already-approved o0101–o0200 batch is:
+
+```text
+o0301–o0400
+→ o0401–o0500
+→ o0501–o0600
+→ o0601–o0700
+```
+
+If a batch has no genuinely new material delta, freeze it automatically and continue without asking Kian.

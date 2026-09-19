@@ -10,6 +10,34 @@ Shared-platform routing is inherited from `AUTHORITY_INHERITANCE_CONTRACT.md` an
 
 ---
 
+## Final semantic freeze — ACTIVE 2026-09-19
+
+Canonical broad semantic freeze:
+`content/lexical/FINAL_SEMANTIC_FREEZE.md`
+
+Current campaign phase:
+
+```text
+PRODUCTION_SWEEP_ONLY
+A + C finish o0001–o1150 final-standard Production first
+B audit paused
+materialization paused
+merge paused
+```
+
+This is the **last broad semantic backfill**.
+
+The final broad-review scope is exactly `o0001–o1150`. The already accepted full catalog `o1151–o7946` is not broadly reopened by this campaign.
+
+After final closure, default policy becomes:
+
+```text
+PRESERVE
++ evidence-triggered local repair only
+```
+
+No future Chat may launch another broad lexical semantic re-review merely because a newer style, taxonomy, or audit method seems preferable. Broad reopening requires explicit Kian revocation of the freeze.
+
 ## Current state
 
 **Active lane:** Lexical Baseline v2 Re-validation — ACTIVE  

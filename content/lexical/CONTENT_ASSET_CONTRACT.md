@@ -830,3 +830,22 @@ Do not turn the 7,946-word rebuild into:
 The target is:
 
 > **trustworthy lexical truth, reliable Fast-Pass safety for simple words, rich high-value Depth for risky words, first-class Expansion for refinement, and local repairability without manufacturing review debt.**
+
+
+---
+
+## Final broad semantic freeze
+
+Broad semantic review is frozen by:
+
+`content/lexical/FINAL_SEMANTIC_FREEZE.md`
+
+This contract remains the semantic ruler. The freeze prevents future Chats from inventing a newer broad generation and replaying it across accepted catalog owners.
+
+After final closure:
+- accepted content defaults to PRESERVE;
+- semantic mutations are evidence-triggered and local;
+- STYLE_POLISH, a newer taxonomy, a newer audit method, or a different Chat preference cannot justify broad re-review;
+- broad semantic reopening requires explicit Kian revocation of the freeze.
+
+This freeze does not prevent correction of concrete factual, identity, ownership, decision, structure, phraseology, register/form, productive-value or testability defects. It prevents another **broad semantic campaign without concrete local evidence**.

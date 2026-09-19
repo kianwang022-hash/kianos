@@ -1,5 +1,23 @@
 # LexicalOS Three-Chat Semantic Runtime
 
+> **FINAL SWEEP OVERRIDE — 2026-09-19**
+>
+> `content/lexical/FINAL_SEMANTIC_FREEZE.md` is now the highest orchestration boundary for broad semantic work.
+>
+> Current phase = **PRODUCTION_SWEEP_ONLY**.
+>
+> Until A/C finish the exact o0001–o1150 final-standard Production sweep:
+>
+> - A/C continue Fresh Read + Self Attack + smallest proposal batches;
+> - Human Gate appears only for genuinely new material delta;
+> - after approval, freeze backlog and immediately continue;
+> - B audit launch is paused;
+> - candidate materialization / FLOB rebuild / merge is paused;
+> - no new semantic standard may be introduced.
+>
+> After Production sweep completion, the system will enter a separate materialize → B audit → reconciliation → merge phase under the same frozen ruler.
+
+
 Status: **ACTIVE orchestration authority for final-standard backfill**  
 Semantic authority remains: `CONTENT_ASSET_CONTRACT.md`  
 Execution authority remains: `CONTENT_EXECUTION.md`  
@@ -78,7 +96,7 @@ serialized:
 main mutation / shared Relation reconciliation / FLOB acceptance
 ```
 
-Only the batch marked `MATERIALIZE_ALLOWED` on the live board may write canonical semantic owners.
+Outside PRODUCTION_SWEEP_ONLY, only the batch marked `MATERIALIZE_ALLOWED` on the live board may write canonical semantic owners. During PRODUCTION_SWEEP_ONLY, no backfill batch materializes.
 
 A later batch may proceed through:
 
