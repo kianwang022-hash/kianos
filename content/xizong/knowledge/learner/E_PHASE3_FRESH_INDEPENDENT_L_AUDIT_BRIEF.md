@@ -2,7 +2,7 @@
 
 Status: **READY FOR FRESH INDEPENDENT AUDITOR**  
 Scope: E — Reproductive / Breast  
-Object under audit: `content/xizong/knowledge/learner/e-reproductive-breast-learning.json`
+Object under audit: `content/xizong/knowledge/learner/e-reproductive-breast-learning-candidate.json`
 
 ## 0｜Role
 
@@ -36,7 +36,7 @@ Form a provisional answer to:
 
 Only then read:
 
-`content/xizong/knowledge/learner/e-reproductive-breast-learning.json`
+`content/xizong/knowledge/learner/e-reproductive-breast-learning-candidate.json`
 
 Attack it as a hypothesis.
 
@@ -164,9 +164,10 @@ Write fresh independent evidence:
 
 `content/xizong/knowledge/learner/E_PHASE3_FRESH_INDEPENDENT_L_ACCEPTANCE.md`
 
-Then update in the same branch:
+Then promote the candidate into the live Learning-owner namespace in the same branch:
 
-- E Learning JSON → accepted L status;
+- create `content/xizong/knowledge/learner/e-reproductive-breast-learning.json` from the accepted/repaired candidate with `status = CURRENT`, non-candidate authority and accepted construction status;
+- delete `e-reproductive-breast-learning-candidate.json`;
 - E `CURRENT.md`;
 - E `ACCEPTANCE.md`;
 - `content/xizong/CONTENT_MAINLINE.md`.
