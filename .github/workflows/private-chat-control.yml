@@ -35,6 +35,8 @@ on:
       - "static-web/src/lib/privateControl*.mjs"
       - "static-web/scripts/privateControl*.mjs"
       - "static-web/scripts/privateEnglish*.mjs"
+      - "static-web/scripts/privateDaily*.mjs"
+      - "static-web/scripts/privateLearner*.mjs"
       - "static-web/scripts/privateExternalReadingBridge.mjs"
       - "static-web/src/components/EnglishResume.astro"
       - "static-web/src/components/EnglishSessionControl.astro"
@@ -47,9 +49,14 @@ on:
       - "static-web/astro.config.mjs"
       - "static-web/scripts/test-private-control-*.mjs"
       - "static-web/scripts/test-english-generated-*.mjs"
+      - "static-web/scripts/test-english-evidence-resume.mjs"
       - "static-web/scripts/test-english-external-combined-store.mjs"
       - "static-web/scripts/test-english-home-*.mjs"
       - "static-web/scripts/test-daily-learning-packet.mjs"
+      - "static-web/scripts/test-private-daily-learning-packet.mjs"
+      - "static-web/scripts/test-private-daily-learning-packet-relay.mjs"
+      - "static-web/scripts/test-private-daily-learning-packet-bridge.mjs"
+      - "static-web/scripts/test-private-checkpoint-blur-flush.mjs"
       - ".github/workflows/private-chat-control.yml"
 
 concurrency:
