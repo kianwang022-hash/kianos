@@ -25,6 +25,7 @@ function readJson(storage, key, fallback = null) {
 function xizongEvidencePresent(packet) {
   if (!record(packet)) return false;
   if (packet.current_block) return true;
+  if (Number(packet?.summary?.memory_today || 0) > 0) return true;
   if (Number(packet?.summary?.active_repairs || 0) > 0) return true;
   return Object.entries(packet.summary || {})
     .some(([key, value]) => key.endsWith('_events') || key === 'question_attempts'
