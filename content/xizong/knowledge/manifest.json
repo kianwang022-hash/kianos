@@ -6,12 +6,13 @@
   "identity": {
     "numbered_systems": 8,
     "numbered_blocks": 159,
-    "numbered_canonical_kps": 2514,
+    "numbered_canonical_kps": 2517,
     "retained_overlay": {
       "id": "O9",
       "description": "病理 U019 肿瘤总论",
       "stable_kp_count": 22,
-      "included_in_2514_count": false
+      "included_in_2514_count": false,
+      "count_compatibility_note": "Legacy field name included_in_2514_count is retained for backward compatibility; O9 is excluded from the current numbered_canonical_kps total of 2517."
     }
   },
   "macro_domain_taxonomy": {
@@ -31,23 +32,33 @@
       },
       "B": {
         "label": "Digestive-Metabolic-Endocrine-Tumor",
-        "system_owners": ["systems/b-digestive-metabolic-endocrine-tumor/"]
+        "system_owners": [
+          "systems/b-digestive-metabolic-endocrine-tumor/"
+        ]
       },
       "C": {
         "label": "Hematology-Immunity-Infection",
-        "system_owners": ["systems/c-hematology-immunity-infection/"]
+        "system_owners": [
+          "systems/c-hematology-immunity-infection/"
+        ]
       },
       "D": {
         "label": "Neuro-Sensory-Motor-Orthopedics",
-        "system_owners": ["systems/d-neuro-sensory-motor-orthopedics/"]
+        "system_owners": [
+          "systems/d-neuro-sensory-motor-orthopedics/"
+        ]
       },
       "E": {
         "label": "Reproductive-Breast",
-        "system_owners": ["systems/e-reproductive-breast/"]
+        "system_owners": [
+          "systems/e-reproductive-breast/"
+        ]
       },
       "F": {
         "label": "Remaining-Clinical",
-        "system_owners": ["systems/f-remaining-clinical/"]
+        "system_owners": [
+          "systems/f-remaining-clinical/"
+        ]
       }
     }
   },
@@ -78,7 +89,7 @@
     },
     "overlay": {
       "owner": "overlays/o9-tumor-general/",
-      "rule": "O9 remains a separately retained overlay and is not counted inside the numbered 2514 canonical KPs."
+      "rule": "O9 remains a separately retained overlay and is not counted inside the numbered canonical KP total (currently 2517)."
     }
   },
   "stable_roots": {
