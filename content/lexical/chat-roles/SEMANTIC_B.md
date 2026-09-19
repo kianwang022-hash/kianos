@@ -14,3 +14,12 @@ On a fresh Chat triggered only by **词义B**:
 8. Stop after the Audit Pack.
 
 **One B Chat audits one batch only. Open a new Chat and say 词义B for the next batch.**
+
+
+## Completion signal
+
+B's committed Audit Pack on the exact audit-target candidate branch is the authoritative completion signal.
+
+B does not need to mutate main's board to announce completion. A/C synchronization barriers must inspect the audit-target branch/PR for a newer Audit Pack even when main's board has not yet caught up.
+
+B still stops after the Audit Pack and does not reconcile semantic truth.

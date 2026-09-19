@@ -64,6 +64,8 @@ C does **not** independently audit its own candidate.
 
 A and C may perform semantic review in parallel, but canonical semantic mutation is **frontier-serialized**.
 
+**Important:** assigning A from the low end and C from the high end reduces ordinary Word-batch overlap only. It does **not** solve cross-word Relation/Form concurrency. A Relation can connect any two ordinals, so Relation/Form truth follows the shared-owner protocol below, never lane geography.
+
 Rule:
 
 ```text
@@ -93,12 +95,21 @@ It must then re-freeze against the latest main before materialization. This prev
 
 ## 3. Producer allocation during o0001–o1150 backfill
 
-After bootstrap o0001–o0100:
+The semantic review lanes now approach from opposite ends to reduce ordinary Word-batch collision:
 
-- A owns: o0101–o0200, o0301–o0400, o0501–o0600, o0701–o0800, o0901–o1000, o1101–o1150.
-- C owns: o0201–o0300, o0401–o0500, o0601–o0700, o0801–o0900, o1001–o1100.
+- **A moves low → high**.
+- **C moves high → low**.
+- the already-completed C lookahead `o0201–o0300` is preserved and is **not** redone.
 
-This is an allocation rule only. It does not authorize mutation out of frontier order.
+Current review allocation after the preserved batches:
+
+```text
+A: o0101–o0200 → o0301–o0400 → o0401–o0500 → o0501–o0600 → o0601–o0700
+C: o1101–o1150 → o1001–o1100 → o0901–o1000 → o0801–o0900 → o0701–o0800
+preserved C work: o0201–o0300
+```
+
+Allocation is only about who performs the fresh Word review. It never grants ownership of a cross-word Relation/Form object and never authorizes stale canonical mutation.
 
 ## 4. Human Gate rule
 
@@ -122,14 +133,58 @@ Backfill must actively challenge old blueprint inflation. Removing a prebuilt Te
 
 ## 6. Shared-owner concurrency rule
 
-Before A or C proposes a cross-range Relation/Form mutation:
+Cross-word Relation/Form truth is **not owned by A or C's ordinal range**.
 
-1. inspect the live board;
-2. inspect current main and the other in-flight producer's declared shared write-set if present;
-3. if both lanes touch the same shared Word / Relation / Form owner, later lane becomes `SHARED_OWNER_WAIT`;
-4. never resolve the collision by independently writing two competing shared-owner versions.
+A/C may discover the same shared boundary independently, but the first durable action is to publish a **shared-owner claim** on the live board, keyed by the semantic object (existing relation_id when known; otherwise a canonical participant/type key).
 
-Shared-owner truth is reconciled only against the latest accepted main.
+Rules:
+
+1. before proposing a cross-word Relation/Form mutation, read the live board's `shared_owner_claims`;
+2. if the semantic object is already claimed, do not create a competing Relation/Form proposal from scratch;
+3. if the new lane agrees, attach its batch as another consumer and mark `FOLLOW_SHARED_OWNER`;
+4. if it disagrees materially, mark `SHARED_OWNER_RECONCILE_REQUIRED`; no lane may land that shared object until reconciliation;
+5. a claim does **not** permanently assign the Relation to the first lane that noticed it;
+6. the actual write lease is granted only when a candidate reaches serialized materialization and refreezes against latest main;
+7. after one candidate lands the shared truth, every later candidate must reread latest main and either reuse the existing Relation/Form or drop its now-satisfied duplicate intent;
+8. the mutation executor's stale-hash guards remain the final mechanical stop against overwriting newer shared truth.
+
+Thus:
+
+```text
+parallel semantic discovery
+→ shared claim / coalesce
+→ one serialized write lease
+→ latest-main write
+→ later lanes follow existing truth
+```
+
+Opposite-direction review is a throughput optimization. **Shared-owner claim + serialized latest-main write is the correctness mechanism.**
+
+## 6A. `p` is a synchronization barrier
+
+A user message `p` never means “blindly continue from this Chat's cached state”.
+
+Before A or C consumes a `p`, it must freshly read:
+
+1. current `main@HEAD`;
+2. `content/lexical/execution/three-chat-board.json`;
+3. the current frontier candidate PR head;
+4. the current B audit target branch/PR for a newer Audit Pack, even if the board is stale;
+5. the other Production lane's current shared write-set / shared-owner claims;
+6. its own frozen proposal identity.
+
+Then resolve in this order:
+
+```text
+record the user's approval against the still-current proposal
+→ if B has completed the live frontier audit, switch first to frontier reconciliation
+→ if shared-owner state changed, coalesce/reconcile before materialization
+→ only then materialize a candidate that is currently allowed
+```
+
+If the proposal itself materially changed since it was shown to Kian, the old `p` cannot authorize the changed semantic delta; show only the new bounded delta.
+
+This synchronization barrier exists specifically because separate Chats do not receive each other's messages in real time. GitHub is the rendezvous point.
 
 ## 7. Fresh-chat boot sequence
 
