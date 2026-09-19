@@ -9,7 +9,9 @@ on:
       - 'static-web/scripts/install-current-macos.sh'
       - 'static-web/scripts/kianos-current-doctor.mjs'
       - 'static-web/scripts/kianos-current-open.mjs'
+      - 'static-web/scripts/kianos-current-backup.mjs'
       - 'static-web/scripts/test-current-real-use-readiness.mjs'
+      - 'static-web/scripts/test-current-backup.mjs'
       - '.github/workflows/current-real-use-readiness.yml'
   push:
     branches: [main]
@@ -20,7 +22,9 @@ on:
       - 'static-web/scripts/install-current-macos.sh'
       - 'static-web/scripts/kianos-current-doctor.mjs'
       - 'static-web/scripts/kianos-current-open.mjs'
+      - 'static-web/scripts/kianos-current-backup.mjs'
       - 'static-web/scripts/test-current-real-use-readiness.mjs'
+      - 'static-web/scripts/test-current-backup.mjs'
       - '.github/workflows/current-real-use-readiness.yml'
 
 permissions:
@@ -41,6 +45,9 @@ jobs:
         run: |
           node --check scripts/kianos-current-doctor.mjs
           node --check scripts/kianos-current-open.mjs
+          node --check scripts/kianos-current-backup.mjs
           bash -n scripts/install-current-macos.sh
       - name: Verify real-use startup contract
-        run: node scripts/test-current-real-use-readiness.mjs
+        run: |
+          node scripts/test-current-real-use-readiness.mjs
+          node scripts/test-current-backup.mjs
