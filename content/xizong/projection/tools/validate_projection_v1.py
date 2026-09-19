@@ -204,8 +204,9 @@ def select_text(text: str, selector: dict) -> str:
     if st == 'STRUCTURE_AFTER_ANCHOR':
         anchor = selector.get('anchor')
         require(nonempty(anchor), 'SELECTOR', 'anchor missing')
-        found = [i for i, l in enumerate(lines) if outside[i] and anchor in l]
-        require(len(found) == 1 and text.count(anchor) == 1, 'SELECTOR', 'anchor ambiguous/missing')
+        normalized_anchor = anchor.strip()
+        found = [i for i, l in enumerate(lines) if outside[i] and l.strip() == normalized_anchor]
+        require(len(found) == 1, 'SELECTOR', 'anchor ambiguous/missing')
         i = found[0] + 1
         occurrence = selector.get('occurrence', 1)
         require(type(occurrence) is int and occurrence == 1, 'SELECTOR', 'v1 uses first adjacent structure only')
