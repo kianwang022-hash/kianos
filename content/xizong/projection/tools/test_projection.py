@@ -106,7 +106,7 @@ def run_suite(root: Path = ROOT) -> dict:
         ('missing_binding_type_guard',b1,lambda a:a['learning_support']['recall_spine'].pop('value_type'),'TYPE'),
         ('missing_source_id',b1,lambda a:a['objects'][1]['binding'].update(source_id='missing'),'SOURCE'),
         ('selector_unknown',b1,lambda a:a['objects'][1]['binding']['selector'].update(type='SEMANTIC_SEARCH'),'SELECTOR'),
-        ('heading_fuzzy_typo',b1,lambda a:a['objects'][-1]['binding']['selector'].update(value='总 Framewor'),'SELECTOR'),
+        ('framework_anchor_fuzzy_typo',b1,lambda a:a['objects'][-1]['binding']['selector'].update(anchor='# 总 Framewor'),'SELECTOR'),
         ('remove_neutral_flag',b1,lambda a:a['views']['KP_RECALL_FRONT'].pop('protection'),'VISIBILITY'),
         ('remove_required_view',b1,lambda a:a['views'].pop('KP_RECALL_FRONT'),'VISIBILITY'),
         ('expose_recall_spine_via_support',b1,lambda a:a['views']['KP_RECALL_FRONT'].update(learning_support_keys=['recall_spine']),'VISIBILITY'),
