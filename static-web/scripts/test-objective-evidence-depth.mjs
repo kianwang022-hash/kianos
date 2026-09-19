@@ -78,6 +78,27 @@ async function claimsFor(page, task) {
   }, task);
 }
 
+async function declareSyntheticUnseen(page, objectId) {
+  await page.evaluate((id) => {
+    const key = 'kianos-english-material-exposure-v1';
+    const ledger = JSON.parse(localStorage.getItem(key) || '{"schema":"kianos.english.material-exposure.v1","materials":{}}');
+    if (ledger?.materials?.[id]?.events?.length) throw new Error('SYNTHETIC_UNSEEN_ALREADY_EXPOSED:' + id);
+    ledger.schema = 'kianos.english.material-exposure.v1';
+    ledger.materials ||= {};
+    ledger.materials[id] = {
+      object_id: id,
+      events: [],
+      declaration: {
+        state: 'unseen',
+        basis: 'learner_statement',
+        observed_at: new Date().toISOString(),
+        note: 'SYNTHETIC TEST testimony only; not Kian learner evidence.'
+      }
+    };
+    localStorage.setItem(key, JSON.stringify(ledger));
+  }, objectId);
+}
+
 async function openImporter(page) {
   const toggle = page.locator('[data-transfer-toggle]');
   await toggle.waitFor({ state: 'visible' });
@@ -86,11 +107,15 @@ async function openImporter(page) {
   await page.locator('[data-transfer-input]').waitFor({ state: 'visible' });
 }
 
-async function importReturn(page, payload) {
+async function importReturn(page, payload, { expectSuccess = true, expectHide = true } = {}) {
   await openImporter(page);
   await page.locator('[data-transfer-input]').fill(returnText(payload));
   await page.locator('[data-transfer-apply]').click();
-  await page.waitForFunction(() => document.querySelector('[data-transfer-import]')?.hasAttribute('hidden'));
+  if (expectSuccess && expectHide) {
+    await page.waitForFunction(() => document.querySelector('[data-transfer-import]')?.hasAttribute('hidden'));
+  } else if (expectSuccess) {
+    await page.waitForFunction(() => /已应用/.test(document.querySelector('[data-transfer-status]')?.textContent || ''));
+  }
 }
 
 async function copyHandoff(page, selector) {
@@ -152,20 +177,29 @@ async function readingAEvidence(browser) {
 
     const firstId = qid(repair.questions[0], 0);
     const secondId = qid(repair.questions[1], 1);
+    const repairAttempt = await page.evaluate((id) =>
+      JSON.parse(localStorage.getItem(`kianos-reading-attempt-v1:${id}`) || 'null'), repairId);
+    const repairIdentity = {
+      attemptSubmittedAt: repairAttempt?.submittedAt,
+      sourceHash: repairAttempt?.binding?.source_hash
+    };
+    check(Boolean(repairIdentity.attemptSubmittedAt && repairIdentity.sourceHash), 'reading_a_repair_attempt_identity_present');
 
     await importReturn(page, {
       schema: 'kianos.english.objective_review_return.v1', task: 'reading_a', objectId: repairId,
+      ...repairIdentity,
       threads: [{
         threadId: 'ra-diagnosis-only', scope: 'shared', itemIds: [firstId, secondId], route: 'reading_a',
         summary: 'diagnosed but not re-executed', repairCompleted: false, repairEvidence: ''
       }],
       newClaims: [{ sourceThreadId: 'ra-diagnosis-only', statement: 'diagnosis must not become durable debt' }],
       claimUpdates: []
-    });
+    }, { expectSuccess: false });
     check((await claimsFor(page, 'reading_a')).length === 0, 'reading_a_diagnosis_only_creates_no_claim');
 
     await importReturn(page, {
       schema: 'kianos.english.objective_review_return.v1', task: 'reading_a', objectId: repairId,
+      ...repairIdentity,
       threads: [{
         threadId: 'ra-reading-owner', scope: 'shared', itemIds: [firstId, secondId], route: 'reading',
         summary: 'passage representation failure belongs to Reading', repairCompleted: true,
@@ -173,11 +207,12 @@ async function readingAEvidence(browser) {
       }],
       newClaims: [{ sourceThreadId: 'ra-reading-owner', statement: 'must not duplicate Reading-owned debt' }],
       claimUpdates: []
-    });
+    }, { expectSuccess: false });
     check((await claimsFor(page, 'reading_a')).length === 0, 'reading_a_reading_owner_creates_no_objective_claim');
 
     const completed = {
       schema: 'kianos.english.objective_review_return.v1', task: 'reading_a', objectId: repairId,
+      ...repairIdentity,
       threads: [{
         threadId: 'ra-task-repair', scope: 'shared', itemIds: [firstId, secondId], route: 'reading_a',
         summary: 'two options shared one over-broad evidence-boundary failure', repairCompleted: true,
@@ -193,8 +228,9 @@ async function readingAEvidence(browser) {
 
     await importReturn(page, {
       schema: 'kianos.english.objective_review_return.v1', task: 'reading_a', objectId: repairId,
+      ...repairIdentity,
       threads: [], newClaims: [], claimUpdates: [{ claimId, status: 'CLOSED', evidence: 'same passage correction' }]
-    });
+    }, { expectSuccess: false });
     claims = await claimsFor(page, 'reading_a');
     check(claims[0]?.status === 'TRANSFER_PENDING', 'reading_a_same_object_cannot_close_claim');
 
@@ -206,36 +242,50 @@ async function readingAEvidence(browser) {
     check(claims[0]?.status === 'TRANSFER_PENDING', 'reading_a_clean_carry_does_not_auto_close_claim');
 
     const close = loadReadingById(closeId);
+    await declareSyntheticUnseen(page, closeId);
     await page.goto(`${BASE}/reading/${encodeURIComponent(closeId)}/`, { waitUntil: 'domcontentloaded' });
     await answerReadingA(page, close, loadReadingAnswersById(closeId), { wrongIndices: [0] });
+    const closeAttempt = await page.evaluate((id) =>
+      JSON.parse(localStorage.getItem(`kianos-reading-attempt-v1:${id}`) || 'null'), closeId);
+    const closeIdentity = { attemptSubmittedAt: closeAttempt?.submittedAt, sourceHash: closeAttempt?.binding?.source_hash };
+    check(Boolean(closeIdentity.attemptSubmittedAt && closeIdentity.sourceHash), 'reading_a_close_attempt_identity_present');
     const closePacket = await copyHandoff(page, '[data-reading-passage-copy-chat]');
     check(closePacket.includes(claimId) && closePacket.includes('ACTIVE TRANSFER CLAIMS'), 'reading_a_fresh_problem_carries_pending_claim_opportunistically');
     await importReturn(page, {
       schema: 'kianos.english.objective_review_return.v1', task: 'reading_a', objectId: closeId,
+      ...closeIdentity,
       threads: [], newClaims: [], claimUpdates: [{ claimId, status: 'CLOSED', evidence: '' }]
-    });
+    }, { expectSuccess: false });
     claims = await claimsFor(page, 'reading_a');
     check(claims[0]?.status === 'TRANSFER_PENDING', 'reading_a_close_requires_explicit_fresh_evidence');
     await importReturn(page, {
       schema: 'kianos.english.objective_review_return.v1', task: 'reading_a', objectId: closeId,
+      ...closeIdentity,
       threads: [], newClaims: [], claimUpdates: [{ claimId, status: 'CLOSED', evidence: 'fresh passage directly exercised the same scope-boundary adjudication and execution was stable' }]
     });
     claims = await claimsFor(page, 'reading_a');
     check(claims[0]?.status === 'CLOSED', 'reading_a_relevant_fresh_evidence_closes_claim');
 
     const reopen = loadReadingById(reopenId);
+    await declareSyntheticUnseen(page, reopenId);
     await page.goto(`${BASE}/reading/${encodeURIComponent(reopenId)}/`, { waitUntil: 'domcontentloaded' });
     await answerReadingA(page, reopen, loadReadingAnswersById(reopenId), { wrongIndices: [0] });
+    const reopenAttempt = await page.evaluate((id) =>
+      JSON.parse(localStorage.getItem(`kianos-reading-attempt-v1:${id}`) || 'null'), reopenId);
+    const reopenIdentity = { attemptSubmittedAt: reopenAttempt?.submittedAt, sourceHash: reopenAttempt?.binding?.source_hash };
+    check(Boolean(reopenIdentity.attemptSubmittedAt && reopenIdentity.sourceHash), 'reading_a_reopen_attempt_identity_present');
     const reopenPacket = await copyHandoff(page, '[data-reading-passage-copy-chat]');
     check(reopenPacket.includes(claimId) && reopenPacket.includes('RECENT CLOSED CLAIMS'), 'reading_a_fresh_problem_surfaces_reopen_candidate');
     await importReturn(page, {
       schema: 'kianos.english.objective_review_return.v1', task: 'reading_a', objectId: reopenId,
+      ...reopenIdentity,
       threads: [], newClaims: [], claimUpdates: [{ claimId, status: 'REOPENED', evidence: '' }]
-    });
+    }, { expectSuccess: false });
     claims = await claimsFor(page, 'reading_a');
     check(claims[0]?.status === 'CLOSED', 'reading_a_reopen_requires_contradictory_evidence');
     await importReturn(page, {
       schema: 'kianos.english.objective_review_return.v1', task: 'reading_a', objectId: reopenId,
+      ...reopenIdentity,
       threads: [], newClaims: [], claimUpdates: [{ claimId, status: 'REOPENED', evidence: 'fresh passage reproduced the same over-broad scope acceptance under a new option contrast' }]
     });
     claims = await claimsFor(page, 'reading_a');
@@ -262,20 +312,29 @@ async function readingBEvidence(browser) {
 
     const firstId = qid(repairItem.questions[0], 0);
     const secondId = qid(repairItem.questions[1], 1);
+    const repairAttempt = await page.evaluate((id) =>
+      JSON.parse(localStorage.getItem(`kianos-reading-b-attempt-v1:${id}`) || 'null'), repairItem.objectId);
+    const repairIdentity = {
+      attemptSubmittedAt: repairAttempt?.submittedAt,
+      sourceHash: repairAttempt?.binding?.source_hash
+    };
+    check(Boolean(repairIdentity.attemptSubmittedAt && repairIdentity.sourceHash), 'reading_b_repair_attempt_identity_present');
 
     await importReturn(page, {
       schema: 'kianos.english.objective_review_return.v1', task: 'reading_b', objectId: repairItem.objectId,
+      ...repairIdentity,
       threads: [{
         threadId: 'rb-diagnosis-only', scope: 'coupled', itemIds: [firstId, secondId], route: 'reading_b',
         summary: 'swap diagnosed but not repaired', repairCompleted: false, repairEvidence: ''
       }],
       newClaims: [{ sourceThreadId: 'rb-diagnosis-only', statement: 'diagnosis must not become durable debt' }],
       claimUpdates: []
-    });
+    }, { expectSuccess: false });
     check((await claimsFor(page, 'reading_b')).length === 0, 'reading_b_diagnosis_only_creates_no_claim');
 
     await importReturn(page, {
       schema: 'kianos.english.objective_review_return.v1', task: 'reading_b', objectId: repairItem.objectId,
+      ...repairIdentity,
       threads: [{
         threadId: 'rb-reading-owner', scope: 'local', itemIds: [firstId], route: 'reading',
         summary: 'local discourse representation issue belongs to Reading', repairCompleted: true,
@@ -283,11 +342,12 @@ async function readingBEvidence(browser) {
       }],
       newClaims: [{ sourceThreadId: 'rb-reading-owner', statement: 'must not duplicate Reading-owned debt' }],
       claimUpdates: []
-    });
+    }, { expectSuccess: false });
     check((await claimsFor(page, 'reading_b')).length === 0, 'reading_b_reading_owner_creates_no_objective_claim');
 
     const completed = {
       schema: 'kianos.english.objective_review_return.v1', task: 'reading_b', objectId: repairItem.objectId,
+      ...repairIdentity,
       threads: [{
         threadId: 'rb-coupled-repair', scope: 'coupled', itemIds: [firstId, secondId], route: 'reading_b',
         summary: 'two placements were swapped because local fit was accepted before global reconciliation', repairCompleted: true,
@@ -303,8 +363,9 @@ async function readingBEvidence(browser) {
 
     await importReturn(page, {
       schema: 'kianos.english.objective_review_return.v1', task: 'reading_b', objectId: repairItem.objectId,
+      ...repairIdentity,
       threads: [], newClaims: [], claimUpdates: [{ claimId, status: 'CLOSED', evidence: 'same set correction' }]
-    });
+    }, { expectSuccess: false });
     claims = await claimsFor(page, 'reading_b');
     check(claims[0]?.status === 'TRANSFER_PENDING', 'reading_b_same_object_cannot_close_claim');
 
@@ -315,37 +376,51 @@ async function readingBEvidence(browser) {
     claims = await claimsFor(page, 'reading_b');
     check(claims[0]?.status === 'TRANSFER_PENDING', 'reading_b_clean_carry_does_not_auto_close_claim');
 
+    await declareSyntheticUnseen(page, closeItem.objectId);
     await page.goto(`${BASE}/reading-b/${encodeURIComponent(closeItem.objectId)}/`, { waitUntil: 'domcontentloaded' });
     await page.locator('[data-objective-root]').waitFor({ state: 'visible' });
     await answerReadingB(page, closeItem, loadReadingBAnswersById(closeItem.objectId), { swapFirstPair: true });
+    const closeAttempt = await page.evaluate((id) =>
+      JSON.parse(localStorage.getItem(`kianos-reading-b-attempt-v1:${id}`) || 'null'), closeItem.objectId);
+    const closeIdentity = { attemptSubmittedAt: closeAttempt?.submittedAt, sourceHash: closeAttempt?.binding?.source_hash };
+    check(Boolean(closeIdentity.attemptSubmittedAt && closeIdentity.sourceHash), 'reading_b_close_attempt_identity_present');
     const closePacket = await copyHandoff(page, '[data-objective-copy-chat]');
     check(closePacket.includes(claimId) && closePacket.includes('ACTIVE TRANSFER CLAIMS'), 'reading_b_fresh_problem_carries_pending_claim_opportunistically');
     await importReturn(page, {
       schema: 'kianos.english.objective_review_return.v1', task: 'reading_b', objectId: closeItem.objectId,
+      ...closeIdentity,
       threads: [], newClaims: [], claimUpdates: [{ claimId, status: 'CLOSED', evidence: '' }]
-    });
+    }, { expectSuccess: false });
     claims = await claimsFor(page, 'reading_b');
     check(claims[0]?.status === 'TRANSFER_PENDING', 'reading_b_close_requires_explicit_fresh_evidence');
     await importReturn(page, {
       schema: 'kianos.english.objective_review_return.v1', task: 'reading_b', objectId: closeItem.objectId,
+      ...closeIdentity,
       threads: [], newClaims: [], claimUpdates: [{ claimId, status: 'CLOSED', evidence: 'fresh set directly exercised the same global reconciliation procedure and execution was stable' }]
     });
     claims = await claimsFor(page, 'reading_b');
     check(claims[0]?.status === 'CLOSED', 'reading_b_relevant_fresh_evidence_closes_claim');
 
+    await declareSyntheticUnseen(page, reopenItem.objectId);
     await page.goto(`${BASE}/reading-b/${encodeURIComponent(reopenItem.objectId)}/`, { waitUntil: 'domcontentloaded' });
     await page.locator('[data-objective-root]').waitFor({ state: 'visible' });
     await answerReadingB(page, reopenItem, loadReadingBAnswersById(reopenItem.objectId), { swapFirstPair: true });
+    const reopenAttempt = await page.evaluate((id) =>
+      JSON.parse(localStorage.getItem(`kianos-reading-b-attempt-v1:${id}`) || 'null'), reopenItem.objectId);
+    const reopenIdentity = { attemptSubmittedAt: reopenAttempt?.submittedAt, sourceHash: reopenAttempt?.binding?.source_hash };
+    check(Boolean(reopenIdentity.attemptSubmittedAt && reopenIdentity.sourceHash), 'reading_b_reopen_attempt_identity_present');
     const reopenPacket = await copyHandoff(page, '[data-objective-copy-chat]');
     check(reopenPacket.includes(claimId) && reopenPacket.includes('RECENT CLOSED CLAIMS'), 'reading_b_fresh_problem_surfaces_reopen_candidate');
     await importReturn(page, {
       schema: 'kianos.english.objective_review_return.v1', task: 'reading_b', objectId: reopenItem.objectId,
+      ...reopenIdentity,
       threads: [], newClaims: [], claimUpdates: [{ claimId, status: 'REOPENED', evidence: '' }]
-    });
+    }, { expectSuccess: false });
     claims = await claimsFor(page, 'reading_b');
     check(claims[0]?.status === 'CLOSED', 'reading_b_reopen_requires_contradictory_evidence');
     await importReturn(page, {
       schema: 'kianos.english.objective_review_return.v1', task: 'reading_b', objectId: reopenItem.objectId,
+      ...reopenIdentity,
       threads: [], newClaims: [], claimUpdates: [{ claimId, status: 'REOPENED', evidence: 'fresh set reproduced the same local-fit-before-global-reconciliation failure under a new map' }]
     });
     claims = await claimsFor(page, 'reading_b');
