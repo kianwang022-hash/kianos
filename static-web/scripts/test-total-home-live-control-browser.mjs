@@ -92,6 +92,46 @@ try{
     await ctx.close();
   }
 
+  // English transport must work even when Total Home is not open.
+  {
+    const ctx=await browser.newContext({viewport:{width:1512,height:982},timezoneId:'Asia/Shanghai'});
+    const page=await ctx.newPage();
+    await page.goto(BASE+'/reading/',{waitUntil:'domcontentloaded'});
+    const row=await page.evaluate(async ()=>{
+      const response=await fetch('/__kianos-private/control/english-session-catalog',{cache:'no-store'});
+      const data=await response.json();
+      return (data.rows||[]).find(x=>x.task==='reading_a') || (data.rows||[])[0] || null;
+    });
+    check(Boolean(row?.object_id&&row?.source_hash),'english_off_home_catalog_available');
+
+    const generatedAt='2026-09-19T21:18:20.000Z';
+    const sessionId='off-home-english-session';
+    const command={
+      schema:'kianos.control-browser-command.v1',
+      command_id:'off-home-english-command-001',command_hash:'off-home-english',
+      study_day:studyDay,generated_at:generatedAt,expires_at:null,
+      operations:[{
+        kind:'english.session',
+        payload:{
+          schema:'kianos.english.session-instruction.v1',session_id:sessionId,
+          study_day:studyDay,generated_at:generatedAt,current_step:0,
+          steps:[{
+            step_id:'e1',task:row.task,object_id:row.object_id,source_hash:row.source_hash,
+            label:'Off-Home Reading',note:'catalog transport proof',params:{}
+          }],
+          return_policy:{on_finish:'english_home'}
+        }
+      }]
+    };
+    await page.evaluate(async ({command,studyDay,now})=>{
+      const mod=await import('/src/lib/privateControlRuntime.mjs');
+      await mod.applyPrivateControlCommand(localStorage,command,{day:studyDay,now});
+    },{command,studyDay,now});
+    const stored=await page.evaluate(()=>JSON.parse(localStorage.getItem('kianos-english-session-instruction-v1')||'null'));
+    check(stored?.session_id===sessionId,'english_session_applies_off_home',stored?.session_id||'');
+    await ctx.close();
+  }
+
   // English: a normal source-native task arrives through the same shared control relay.
   {
     const ctx=await browser.newContext({viewport:{width:1512,height:982},timezoneId:'Asia/Shanghai'});
