@@ -111,7 +111,7 @@ No Source, Block or KP identity changed.
 
 Candidate owner:
 
-`content/xizong/knowledge/learner/e-reproductive-breast-learning.json`
+`content/xizong/knowledge/learner/e-reproductive-breast-learning-candidate.json`
 
 Construction evidence:
 
