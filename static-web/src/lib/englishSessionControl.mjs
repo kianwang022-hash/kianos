@@ -12,6 +12,7 @@ export const ENGLISH_SESSION_TASKS = Object.freeze([
   'reading_a',
   'cloze',
   'reading_b',
+  'external_reading',
   'translation',
   'writing',
   'full_paper'
@@ -21,6 +22,7 @@ const LAST_LOCATION_KEYS = Object.freeze({
   reading_a: 'kianos-reading-last-location-v1',
   cloze: 'kianos-cloze-last-location-v1',
   reading_b: 'kianos-reading-b-last-location-v1',
+  external_reading: 'kianos-english-external-reading-last-location-v1',
   translation: 'kianos-translation-last-location-v1',
   writing: 'kianos-writing-last-location-v1'
 });
@@ -234,7 +236,7 @@ export function writeEnglishSessionInstruction(storage, input, expectedDay = nul
 }
 
 export function englishStepIsComplete(storage, step) {
-  const prefixes = {reading_a:'kianos-reading-attempt-v1:',cloze:'kianos-cloze-attempt-v1:',reading_b:'kianos-reading-b-attempt-v1:',translation:'kianos-translation-attempt-v2:',writing:'kianos-writing-runtime-v1:'};
+  const prefixes = {reading_a:'kianos-reading-attempt-v1:',cloze:'kianos-cloze-attempt-v1:',reading_b:'kianos-reading-b-attempt-v1:',external_reading:'kianos-english-external-reading-attempt-v1:',translation:'kianos-translation-attempt-v2:',writing:'kianos-writing-runtime-v1:'};
   if (step?.task === 'full_paper') {
     const exam = readEnglishExamSession(storage);
     return exam?.paper_id === step.object_id && Boolean(step.source_hash) && exam.source_hash === step.source_hash && exam.status === 'RELEASED';
@@ -268,6 +270,7 @@ export function englishSessionStepHref(step, base = '/') {
     reading_a: 'reading',
     cloze: 'cloze',
     reading_b: 'reading-b',
+    external_reading: 'external-reading',
     translation: 'translation',
     writing: 'writing',
     full_paper: 'english-exam'
@@ -338,7 +341,7 @@ function productiveEvidence(storage, task) {
 
 
 export function englishAttemptInventory(storage) {
-  const prefixes={reading_a:'kianos-reading-attempt-v1:',cloze:'kianos-cloze-attempt-v1:',reading_b:'kianos-reading-b-attempt-v1:',translation:'kianos-translation-attempt-v2:',writing:'kianos-writing-runtime-v1:'};
+  const prefixes={reading_a:'kianos-reading-attempt-v1:',cloze:'kianos-cloze-attempt-v1:',reading_b:'kianos-reading-b-attempt-v1:',external_reading:'kianos-english-external-reading-attempt-v1:',translation:'kianos-translation-attempt-v2:',writing:'kianos-writing-runtime-v1:'};
   const rows=[];
   for(let i=0;i<Number(storage.length||0);i+=1){
     const key=storage.key(i);
@@ -364,6 +367,7 @@ export function buildEnglishEvidencePacket(storage, { day, now = Date.now() } = 
       reading_a: objectiveEvidence(storage, LAST_LOCATION_KEYS.reading_a, 'kianos-reading-attempt-v1:'),
       cloze: objectiveEvidence(storage, LAST_LOCATION_KEYS.cloze, 'kianos-cloze-attempt-v1:'),
       reading_b: objectiveEvidence(storage, LAST_LOCATION_KEYS.reading_b, 'kianos-reading-b-attempt-v1:'),
+      external_reading: objectiveEvidence(storage, LAST_LOCATION_KEYS.external_reading, 'kianos-english-external-reading-attempt-v1:'),
       translation: productiveEvidence(storage, 'translation'),
       writing: productiveEvidence(storage, 'writing')
     }),
@@ -405,7 +409,7 @@ export function buildEnglishChatHandoffText(storage, { day, now = Date.now() } =
     'WHAT CHAT SHOULD DO',
     '- Explain the current English situation in normal language and choose a next action only when that is useful.',
     '- If the learner only asked for review/diagnosis, answer normally; no website return object is required.',
-    '- If the learner wants the website to Resume an exact next task, include ONE JSON object matching RETURN_SHAPE. Replace the angle-bracket placeholders; task must be one of reading_a, cloze, reading_b, translation, writing, full_paper. Use exact Current object ids; never invent ids.',
+    '- If the learner wants the website to Resume an exact next task, include ONE JSON object matching RETURN_SHAPE. Replace the angle-bracket placeholders; task must be one of reading_a, cloze, reading_b, external_reading, translation, writing, full_paper. Use exact Current object ids; never invent ids.',
     '',
     'RETURN_SHAPE',
     JSON.stringify(returnShape, null, 2),
