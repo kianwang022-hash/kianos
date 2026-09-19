@@ -1,0 +1,98 @@
+name: English Fresh Independent Verification
+on:
+  push:
+    branches: [work/english-final-independent-audit-20260919-r2]
+    paths:
+      - .github/workflows/english-fresh-independent.yml
+      - .github/english-audit-harness.py
+      - static-web/scripts/test-english-fresh-*
+      - static-web/src/lib/english*.mjs
+      - static-web/src/lib/lexicalEnglishEvidence.mjs
+      - static-web/src/lib/lexicalEvidence.mjs
+      - static-web/src/components/English*.astro
+permissions:
+  contents: write
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Persist corrected harness if present
+        run: |
+          set -euo pipefail
+          if test -f .github/english-audit-harness.py; then
+            python .github/english-audit-harness.py
+            git rm .github/english-audit-harness.py
+            git add static-web/scripts/test-english-fresh-browser.py
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'test(english): verify visible focus, framed Chat export and real restart diagnostics'
+            git push origin HEAD:work/english-final-independent-audit-20260919-r2
+          fi
+          mkdir -p static-web/.qa/english-fresh
+          git rev-parse HEAD > static-web/.qa/english-fresh/TESTED_HEAD.txt
+      - name: Independent boundaries
+        working-directory: static-web
+        env:
+          AUDIT_OUTPUT: .qa/english-fresh/boundaries.json
+        run: |
+          set -euo pipefail
+          node scripts/test-english-fresh-boundaries.mjs | tee .qa/english-fresh/boundaries.log
+      - name: Install execution dependencies
+        working-directory: static-web
+        run: |
+          set -euo pipefail
+          npm install --no-audit --no-fund
+          cp package-lock.json .qa/english-fresh/resolved-package-lock.json
+          pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Current synthetic browser and physical profile restart
+        working-directory: static-web
+        env:
+          AUDIT_OUTPUT_DIR: .qa/english-fresh
+        run: |
+          set -euo pipefail
+          node scripts/prepare-english-fresh-browser.mjs
+          npm run dev -- --host 127.0.0.1 --port 4333 > .qa/english-fresh/server.log 2>&1 &
+          python - <<'PY'
+          import time, urllib.request
+          for i in range(60):
+            try:
+              urllib.request.urlopen('http://127.0.0.1:4333/english-exam/audit-synthetic/', timeout=5)
+              break
+            except Exception: time.sleep(1)
+          else: raise RuntimeError('Current synthetic server unavailable')
+          PY
+          python scripts/test-english-fresh-browser.py | tee .qa/english-fresh/browser.log
+          python - <<'PY'
+          import json
+          r=json.load(open('.qa/english-fresh/browser-results.json'))
+          assert r['fail'] == 0, r
+          PY
+      - name: Remove fixtures and build actual Current
+        if: always()
+        working-directory: static-web
+        run: |
+          set -euo pipefail
+          node scripts/prepare-english-fresh-browser.mjs --clean
+          npm run build > .qa/english-fresh/build.log 2>&1
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: english-fresh-independent-verified
+          path: |
+            static-web/.qa/english-fresh/*.json
+            static-web/.qa/english-fresh/*.txt
+            static-web/.qa/english-fresh/*.log
+            static-web/.qa/english-fresh/*.png
+          retention-days: 14
