@@ -4,6 +4,10 @@ on:
   pull_request:
     paths:
       - '.github/workflows/final-cross-subject-regression.yml'
+      - 'static-web/src/layouts/**'
+      - 'static-web/src/styles/**'
+      - 'static-web/src/pages/**'
+      - 'static-web/scripts/test-ui-css-ownership.mjs'
       - 'static-web/src/components/ExamOrchestratorHome.astro'
       - 'static-web/src/lib/dailyLearningPacket.mjs'
       - 'static-web/src/lib/dailyLearningPacketRuntime.mjs'
@@ -28,6 +32,10 @@ on:
   push:
     paths:
       - '.github/workflows/final-cross-subject-regression.yml'
+      - 'static-web/src/layouts/**'
+      - 'static-web/src/styles/**'
+      - 'static-web/src/pages/**'
+      - 'static-web/scripts/test-ui-css-ownership.mjs'
       - 'static-web/src/components/ExamOrchestratorHome.astro'
       - 'static-web/src/lib/dailyLearningPacket.mjs'
       - 'static-web/src/lib/dailyLearningPacketRuntime.mjs'
