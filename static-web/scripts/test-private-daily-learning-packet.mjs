@@ -196,6 +196,22 @@ assert.equal(packet.total_minutes,70);
 assert.equal(packet.subjects.xizong.evidence.schema,'kianos.xizong.study_packet.v3');
 assert.equal(packet.subjects.xizong.evidence.current.block_id,block.blockId);
 assert.equal(packet.subjects.xizong.evidence.learning_state.current_stage,'kp_recall');
+assert.equal(packet.subjects.xizong.forecast_progress.schema,'kianos.xizong.forecast-progress.v1');
+assert.equal(packet.subjects.xizong.forecast_progress.canonical_scope.systems,8);
+assert.equal(packet.subjects.xizong.forecast_progress.canonical_scope.blocks,159);
+assert.equal(packet.subjects.xizong.forecast_progress.canonical_scope.canonical_kp,2517);
+assert.ok(
+  packet.subjects.xizong.forecast_progress.runtime_evidence.observed_blocks>=1,
+  'current Xizong Block must appear in forecast runtime evidence'
+);
+assert.ok(
+  packet.subjects.xizong.forecast_progress.runtime_evidence.no_runtime_evidence_blocks
+    < packet.subjects.xizong.forecast_progress.canonical_scope.blocks
+);
+assert.match(
+  packet.subjects.xizong.forecast_progress.evidence_boundary,
+  /does not prove/
+);
 
 assert.equal(packet.subjects.english.evidence.schema,'kianos.english.evidence.v1');
 assert.equal(packet.subjects.english.evidence.resume.status,'ready');
