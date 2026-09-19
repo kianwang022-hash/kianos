@@ -159,8 +159,8 @@ has(recallPage, '<XizongRuntimeStageGuard system={system} />', 'system-recall-gu
 has(practicePage, '<XizongSystemEvidenceGuard system={system} sweep={sweep} />', 'practice-evidence-guard-not-mounted');
 has(practiceUi, "let holdoutYears = data.allowHoldout ? [] : readJson(holdoutKey, []);", 'holdout-not-empty-by-default');
 has(practiceUi, "if (data?.scopeKind === 'SYSTEM')", 'system-practice-release-gate-missing');
-has(practiceUi, "kianos:xizong:system-recall:", 'system-practice-does-not-read-recall-evidence');
-has(practiceUi, "if (!recallState?.completedAt)", 'system-practice-does-not-fail-closed-before-recall');
+has(practiceUi, "import { inspectXizongSystemCompletion, hasXizongSystemRecall } from '../lib/xizongMemoryAutoRelease.mjs';", 'system-practice-completion-owner-import-missing');
+has(practiceUi, "!inspectXizongSystemCompletion(data.completionRequirements, localStorage).complete || !hasXizongSystemRecall(localStorage, initialSystemId)", 'system-practice-does-not-fail-closed-before-recall');
 has(practiceUi, 'data-question-uncertain', 'uncertain-control-missing');
 has(practiceUi, "currentUncertain ? 'uncertain' : 'stable'", 'correct-unsure-evidence-missing');
 has(practiceUi, "if (data.holdoutRequired !== false && !holdoutYears.length) { renderGate(); return; }", 'question-sweep-prerequisite-gate');
