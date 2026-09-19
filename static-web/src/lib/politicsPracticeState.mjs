@@ -246,6 +246,53 @@ export function politicsReviewPacket(catalog, snapshot, options = {}) {
   };
 }
 
+
+function politicsForecastProgress(catalog,snapshot){
+  const units=Array.isArray(catalog?.units)?catalog.units:[];
+  const rows=units.map((unit,index)=>{
+    const questionIds=Array.isArray(unit?.questionIds)?unit.questionIds:[];
+    const observedQuestionIds=questionIds.filter((questionId)=>
+      Boolean(findPoliticsFirstAttempt(snapshot?.attempts||{units:{}},questionId)?.attempt)
+    );
+    return{
+      unit_key:String(unit?.key||''),
+      unit_id:String(unit?.id||''),
+      subject:String(unit?.subject||''),
+      chapter:String(unit?.chapter||''),
+      catalog_index:index,
+      expected_questions:questionIds.length,
+      first_attempt_questions:observedQuestionIds.length,
+      question_coverage_complete:
+        questionIds.length>0&&observedQuestionIds.length===questionIds.length
+    };
+  });
+
+  const lastUnitId=String(snapshot?.last?.unit_id||'');
+  const currentIndex=rows.findIndex((row)=>
+    row.unit_id===lastUnitId||row.unit_key===lastUnitId
+  );
+  const observedUnits=rows.filter((row)=>row.first_attempt_questions>0);
+  const coverageComplete=rows.filter((row)=>row.question_coverage_complete);
+
+  return{
+    schema:'kianos.politics.forecast-progress.v1',
+    catalog_units:rows.length,
+    units_with_first_attempt_evidence:observedUnits.length,
+    units_with_complete_question_coverage:coverageComplete.length,
+    complete_question_coverage_unit_keys:coverageComplete
+      .map((row)=>row.unit_key)
+      .filter(Boolean),
+    current_navigation:{
+      unit_id:lastUnitId||null,
+      catalog_index:currentIndex>=0?currentIndex:null,
+      structural_units_after_current:
+        currentIndex>=0?Math.max(0,rows.length-currentIndex-1):null
+    },
+    evidence_boundary:
+      'Question coverage is a first-attempt/progression signal only; it does not prove long-term mastery or that every source-learning obligation is complete.'
+  };
+}
+
 export function politicsDailyEvidencePacket(catalog, snapshot, {
   day,
   now = Date.now(),
@@ -285,6 +332,7 @@ export function politicsDailyEvidencePacket(catalog, snapshot, {
     study_day: day,
     generated_at: new Date(now).toISOString(),
     catalog_revision: catalog?.revision || null,
+    forecast_progress: politicsForecastProgress(catalog, snapshot),
     resume: resume ? {
       href: resume.href,
       title: resume.title,
