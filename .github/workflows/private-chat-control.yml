@@ -19,7 +19,7 @@ on:
       - "static-web/src/layouts/BaseFrame.astro"
       - "static-web/astro.config.mjs"
       - "static-web/scripts/test-private-control-*.mjs"
-      - "static-web/scripts/test-private-resume-relay.mjs"
+      - "static-web/scripts/test-private-resume-*.mjs"
       - "static-web/scripts/test-english-generated-*.mjs"
       - "static-web/scripts/test-english-external-combined-store.mjs"
       - "static-web/scripts/test-english-home-*.mjs"
@@ -67,6 +67,7 @@ jobs:
         run: |
           node scripts/test-private-control-relay.mjs
           node scripts/test-private-resume-relay.mjs
+          node scripts/test-private-resume-bridge.mjs
           node scripts/test-daily-learning-packet.mjs
           node scripts/test-english-generated-daily-packet.mjs
           node scripts/test-english-generated-drill-store.mjs
