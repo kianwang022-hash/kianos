@@ -25,8 +25,8 @@ for (const forbidden of ['buildExamPlan(', 'readExamDemand(', "from './examDeman
 for (const required of ['readExamChatPlan', 'buildChatControlledExamReadModel', "root.dataset.strategyOwner = 'chat'"]) {
   if (!client.includes(required)) fail('CHAT_CONTROL_PRODUCTION_BINDING_MISSING', required);
 }
-if (!home.includes('具体安排由 Chat 决定')) fail('HOME_CHAT_AUTHORITY_COPY_MISSING');
-if (home.includes('保存并重排')) fail('HOME_LOCAL_REPLAN_COPY_REGRESSION');
+// Chat ownership is a runtime/contract invariant, not mandatory learner-facing copy.
+if (home.includes('保存并重排') || home.includes('自动重排三科')) fail('HOME_LOCAL_REPLAN_COPY_REGRESSION');
 if (!contract.includes('## 0｜Current control boundary — Chat owns orchestration')) fail('CHAT_AUTHORITY_CONTRACT_MISSING');
 if (!contract.includes('no production learner surface may call it')) fail('LEGACY_PLANNER_PRODUCTION_BAN_MISSING');
 
