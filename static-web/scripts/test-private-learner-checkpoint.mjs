@@ -19,6 +19,7 @@ import {
   SHARED_CONTROL_CHECKPOINT_SCHEMA
 } from '../src/lib/sharedControlCheckpoint.mjs';
 import {
+  initPrivateCheckpointAutosave,
   restoreSharedControlFromPrivate,
   saveSharedControlToPrivate,
   sharedControlStorageIsEmpty
@@ -452,6 +453,66 @@ assert.equal(lexicalConflict.getItem(EXAM_CHAT_PLAN_KEY), null,
   'Lexical conflict must reject before shared control is restored');
 assert.equal(lexicalConflict.getItem(xizongStudyKey), null,
   'Lexical conflict must reject before Xizong is partially restored');
+
+
+const originalFetch = globalThis.fetch;
+const originalDocumentDescriptor = Object.getOwnPropertyDescriptor(globalThis, 'document');
+const visibilityListeners = new Set();
+const fakeDocument = {
+  visibilityState: 'visible',
+  addEventListener(type, handler) {
+    if (type === 'visibilitychange') visibilityListeners.add(handler);
+  },
+  removeEventListener(type, handler) {
+    if (type === 'visibilitychange') visibilityListeners.delete(handler);
+  }
+};
+Object.defineProperty(globalThis, 'document', {
+  configurable: true,
+  writable: true,
+  value: fakeDocument
+});
+
+let backgroundCheckpointWrites = 0;
+globalThis.fetch = async (_input, init = {}) => {
+  const method = String(init?.method || 'GET').toUpperCase();
+  if (method === 'GET') {
+    return new Response(JSON.stringify({ status: 'missing', checkpoint: null }), {
+      status: 404,
+      headers: { 'content-type': 'application/json' }
+    });
+  }
+  if (method === 'PUT') {
+    backgroundCheckpointWrites += 1;
+    return new Response(JSON.stringify({ status: 'saved', checkpoint_id: 'background-test' }), {
+      status: 200,
+      headers: { 'content-type': 'application/json' }
+    });
+  }
+  throw new Error('UNEXPECTED_BACKGROUND_CHECKPOINT_METHOD:' + method);
+};
+
+try {
+  const autosave = initPrivateCheckpointAutosave(source, {
+    intervalMs: 60 * 60 * 1000,
+    debounceMs: 60 * 60 * 1000,
+    now: () => now
+  });
+  assert.equal(visibilityListeners.size, 1, 'autosave must register one background visibility listener');
+  fakeDocument.visibilityState = 'hidden';
+  for (const handler of [...visibilityListeners]) handler();
+  await new Promise((resolve) => setTimeout(resolve, 25));
+  assert.equal(backgroundCheckpointWrites, 1, 'backgrounding the learner page must flush one private checkpoint');
+  autosave.stop();
+  assert.equal(visibilityListeners.size, 0, 'stopping autosave must remove the visibility listener');
+} finally {
+  globalThis.fetch = originalFetch;
+  if (originalDocumentDescriptor) {
+    Object.defineProperty(globalThis, 'document', originalDocumentDescriptor);
+  } else {
+    delete globalThis.document;
+  }
+}
 
 console.log('PASS private learner checkpoint foundation: Xizong + English + Politics + Lexical atomic capture/restore + safe conflicts');
 
