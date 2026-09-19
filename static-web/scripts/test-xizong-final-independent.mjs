@@ -110,7 +110,34 @@ let browser;
 const studyKey='kianos-xizong-astro-v2:xizong:circulation-b01';const evKey='kianos-xizong-memory-review-v2:xizong:circulation-b01';
 async function context(){const c=await browser.newContext({viewport:{width:1512,height:982}});const page=await c.newPage();page.setDefaultTimeout(8000);return {c,page};}
 async function visit(page,url){await page.goto(base+url,{waitUntil:'networkidle',timeout:30000});await page.waitForTimeout(150);}
-async function beginRecall(page,system='circulation',slug='b01'){await visit(page,`/xizong/${system}/${slug}/`);await page.locator('[data-stage-next="logic_group"]').click();await page.locator('[data-source-contact-done]').click();await page.waitForTimeout(150);await page.locator('body').click({position:{x:1,y:1}});}
+async function beginRecall(page,system='circulation',slug='b01'){
+ await visit(page,`/xizong/${system}/${slug}/`);
+ const root=page.locator('[data-xizong-v6-block]');
+ const currentStage=async()=>root.locator('[data-study-stage]:visible').first().getAttribute('data-study-stage');
+ let stage=await currentStage();
+ if(stage==='block_learn'){
+   await root.locator('[data-study-stage="block_learn"]:visible [data-stage-next="logic_group"]:visible').click();
+   await page.waitForTimeout(100); stage=await currentStage();
+ }
+ if(stage==='source_contact'){
+   await root.locator('[data-study-stage="source_contact"]:visible [data-source-contact-done]:visible').click();
+   await page.waitForTimeout(120); stage=await currentStage();
+ }
+ if(stage==='logic_group'){
+   await root.locator('[data-study-stage="logic_group"]:visible [data-enter-group]:visible').click();
+   await page.waitForTimeout(100); stage=await currentStage();
+ }
+ if(stage==='kp_learn'){
+   await root.locator('[data-study-stage="kp_learn"]:visible [data-group-lecture-done]:visible').click();
+   await page.waitForTimeout(120); stage=await currentStage();
+ }
+ if(stage==='ttsx_checkpoint'){
+   await root.locator('[data-study-stage="ttsx_checkpoint"]:visible [data-ttsx-done]:visible').click();
+   await page.waitForTimeout(120); stage=await currentStage();
+ }
+ assert.equal(stage,'kp_recall');
+ await page.locator('body').click({position:{x:1,y:1}});
+}
 async function state(page,key){return page.evaluate(k=>JSON.parse(localStorage.getItem(k)||'null'),key);}
 async function seedCompletedSystem(page, systemId='circulation') {
  const sys=loadXizongSystem(systemId);
