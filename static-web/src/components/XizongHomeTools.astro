@@ -40,6 +40,7 @@ const {
     validateXizongSessionInstruction
   } from '../lib/xizongSessionInstruction.mjs';
   import { studyDayAt } from '../lib/studyTimer.mjs';
+  import { readXizongPendingChatReturnState } from '../lib/xizongPendingChatReturn.mjs';
 
   const root = document.querySelector('[data-xizong-home-tools]');
   if (root instanceof HTMLElement) {
@@ -57,6 +58,21 @@ const {
     const stage = root.querySelector('[data-xizong-continue-stage]');
     const position = root.querySelector('[data-xizong-continue-position]');
     const action = root.querySelector('[data-xizong-continue-action]');
+
+    let pendingReturnNext = null;
+    try {
+      const pendingState = readXizongPendingChatReturnState(localStorage);
+      const pendingRows = Object.values(pendingState.pending_by_object || {})
+        .filter((row) => typeof row?.return_href === 'string' && row.return_href.startsWith('/xizong/'))
+        .sort((a, b) => String(b.received_at || '').localeCompare(String(a.received_at || '')));
+      const row = pendingRows[0] || null;
+      if (row) pendingReturnNext = {
+        href: row.return_href,
+        object_id: row.object_id,
+        block_id: row.block_id,
+        received_at: row.received_at
+      };
+    } catch {}
 
     let chatSessionNext = null;
     try {
@@ -104,7 +120,15 @@ const {
       return views[current] || ['继续学习', block?.label || '当前模块', '继续 →'];
     };
 
-    if (chatSessionNext && link instanceof HTMLAnchorElement) {
+    if (pendingReturnNext && link instanceof HTMLAnchorElement) {
+      link.href = pendingReturnNext.href;
+      setText(location, '西综 · Chat 更新');
+      setText(title, '核对当前 Block');
+      setText(detail, 'Chat Return 已到达；进入当前 Block 后会用最新学习证据重新校验。');
+      setText(stage, '待安全应用');
+      setText(position, pendingReturnNext.block_id || '当前 Block');
+      setText(action, '继续 →');
+    } else if (chatSessionNext && link instanceof HTMLAnchorElement) {
       link.href = chatSessionNext.href;
       setText(location, '西综 · Chat 安排');
       setText(title, chatSessionNext.step?.label || (
@@ -179,6 +203,10 @@ const {
         attentionRoot.hidden = !visible;
       }
     }
+
+    window.addEventListener('kianos:xizong-pending-chat-return', () => {
+      window.location.reload();
+    });
 
     window.addEventListener('kianos:private-control-consumed', (event) => {
       const detail = event instanceof CustomEvent ? event.detail : null;
