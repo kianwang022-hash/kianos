@@ -21,67 +21,35 @@
     "shared_semantic_dependency_control": "BOARD_CLAIM_PLUS_LATEST_MAIN_REFREEZE_PLUS_EXECUTOR_HASH_GUARD"
   },
   "frontier": {
-    "accepted_main_head": "0e653cf9d67a44b96d85ba35c1913cc6add267d0",
-    "current_candidate_id": "BF00",
+    "accepted_main_head": "a8968c6abb5409acee1971808e6e30944f155e39",
+    "current_candidate_id": "BF01",
     "range": [
-      1,
-      100
+      101,
+      200
     ],
-    "candidate_pr": 525,
-    "state": "AUDIT_COMPLETE_RECONCILIATION_REQUIRED",
+    "candidate_pr": null,
+    "state": "MATERIALIZE_ALLOWED",
     "integration_owner": "A",
-    "audit_brief": "content/lexical/semantic-audit/O0001_O0100_FINAL_STANDARD_FRESH_AUDIT_BRIEF.md",
-    "audit_pack": "content/lexical/semantic-audit/O0001_O0100_FINAL_STANDARD_FRESH_AUDIT_PACK.md",
-    "audit_pack_commit": "53a871f1a54b053161c141c546432c51bb0e2b1a",
-    "audit_findings": [
-      "o0029 access",
-      "o0057 act",
-      "o0066 add",
-      "o0084 adult",
-      "o0085 advance"
-    ]
+    "proposal_path": "content/lexical/execution/manifests/o0101-o0200.final-standard-backfill-proposal.md",
+    "human_gate": {
+      "approved": true,
+      "approved_at": "2026-09-19",
+      "approval_ref": "Kian p on o0101-o0200 final-standard proposal",
+      "proposal_path": "content/lexical/execution/manifests/o0101-o0200.final-standard-backfill-proposal.md",
+      "proposal_blob_sha": "4d83a7b22341a56a7b577b6861843a307a33b246"
+    }
   },
   "audit_target": {
-    "candidate_id": "BF00",
+    "candidate_id": "BF01",
     "range": [
-      1,
-      100
+      101,
+      200
     ],
-    "candidate_pr": 525,
-    "candidate_branch": "work/lexical-continuous-backfill-o0001-o0100",
-    "brief": "content/lexical/semantic-audit/O0001_O0100_FINAL_STANDARD_FRESH_AUDIT_BRIEF.md",
-    "state": "B_AUDIT_COMPLETE",
-    "after_completion": "A_RECONCILES; B_STOPS",
-    "audit_pack": "content/lexical/semantic-audit/O0001_O0100_FINAL_STANDARD_FRESH_AUDIT_PACK.md",
-    "audit_pack_commit": "53a871f1a54b053161c141c546432c51bb0e2b1a",
-    "result": "HOLD_FOR_SOL",
-    "findings": [
-      {
-        "ordinal": 29,
-        "word": "access",
-        "handoff": "BOUNDED_RECONCILIATION"
-      },
-      {
-        "ordinal": 57,
-        "word": "act",
-        "handoff": "BOUNDED_RECONCILIATION"
-      },
-      {
-        "ordinal": 66,
-        "word": "add",
-        "handoff": "BOUNDED_RECONCILIATION"
-      },
-      {
-        "ordinal": 84,
-        "word": "adult",
-        "handoff": "BOUNDED_RECONCILIATION"
-      },
-      {
-        "ordinal": 85,
-        "word": "advance",
-        "handoff": "NEW_SCOPE_GATE_ONLY_IF_ROMANTIC_SEXUAL_ADVANCES_BECOMES_LEARNER_VISIBLE"
-      }
-    ]
+    "candidate_pr": null,
+    "candidate_branch": "work/lexical-continuous-backfill-o0101-o0200",
+    "brief": null,
+    "state": "WAITING_CANDIDATE_MATERIALIZATION",
+    "after_completion": "OPEN_FRESH_B_AFTER_CANDIDATE_AND_AUDIT_BRIEF_EXIST"
   },
   "lanes": {
     "A": {
@@ -92,7 +60,7 @@
           101,
           200
         ],
-        "state": "DELTA_APPROVED_WAIT_FOR_FRONTIER",
+        "state": "MATERIALIZE_ALLOWED",
         "review_head": "2fd29bf2e32e7e09d4300948e42a59a2821fe59e",
         "review_branch": "lexical-final-standard-review-a-o0101-o0200",
         "proposal_commit": "bfb959126bc12f98861081114ee5fbe032d0c541",
@@ -132,7 +100,7 @@
           "new relation among↔between",
           "new relation amount↔number"
         ],
-        "next_action": "Wait for BF00 to close. Before BF01 materialization, run the p synchronization barrier again, refreeze latest main and semantic dependencies, then emit a Final Mutation Package.",
+        "next_action": "Refreeze latest main and all material semantic dependencies, reconcile any drift/shared claims, emit one Final Mutation Package on work/lexical-continuous-backfill-o0101-o0200, rebuild/read back 7,946 FLOBs, then create the fresh B audit brief.",
         "semantic_dependency_policy": "Before p/materialization, refresh all related Word/Sense/Family/Form/Construction/Relation/Test dependencies and emit exact semantic_dependency_read_set in the mutation package.",
         "human_gate": {
           "approved": true,
@@ -145,7 +113,9 @@
       "bootstrap_integration": {
         "candidate_id": "BF00",
         "pr": 525,
-        "action": "Fresh B audit is complete at 53a871f1. Reconcile access/act/add/adult/advance; only a genuinely new learner-visible advance branch may require a bounded Human Gate."
+        "state": "CLOSED",
+        "merge_commit": "a8968c6abb5409acee1971808e6e30944f155e39",
+        "action": "No further BF00 work."
       },
       "scheduled_ranges": [
         [
@@ -489,5 +459,16 @@
       "write_lease_candidate": null,
       "semantic_scope": "register/source-definition reconciliation while preserving accepted crazy↔mad boundary"
     }
-  ]
+  ],
+  "last_closed": {
+    "candidate_id": "BF00",
+    "range": [
+      1,
+      100
+    ],
+    "pr": 525,
+    "merge_commit": "a8968c6abb5409acee1971808e6e30944f155e39",
+    "result": "FRESH_AUDIT_RECONCILED_AND_MERGED",
+    "final_learner_objects": 7946
+  }
 }
