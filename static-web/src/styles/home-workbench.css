@@ -529,6 +529,322 @@ body#kianos-workspace.surfaceBody-home .homeL3SupportLinks nav a {
   text-decoration: none;
 }
 
+
+/* Final learner-facing Home refinement.
+   Keep the first screen editorial and task-led; internal runtime vocabulary stays out of sight. */
+body#kianos-workspace.surfaceBody-home {
+  font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, "Noto Sans CJK SC", sans-serif;
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Header {
+  margin-bottom: 14px;
+  padding: 8px 2px 17px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Header .pageKicker,
+body#kianos-workspace.surfaceBody-home .homeL3Support .pageKicker {
+  font-size: 16px;
+  letter-spacing: normal;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Header h1 {
+  margin-top: 5px;
+  font-size: 36px;
+  line-height: 1.15;
+  letter-spacing: normal;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subtitle {
+  margin-top: 6px;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Gate {
+  min-width: 238px;
+  padding: 10px 14px;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Gate span {
+  font-size: 16px;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Gate strong {
+  font-size: 19px;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Grid {
+  grid-template-columns: minmax(0, 1fr) 350px;
+  gap: 14px;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subjects,
+body#kianos-workspace.surfaceBody-home .homeL3Support {
+  border-radius: 16px;
+  box-shadow: none;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3SectionHead {
+  padding: 16px 22px;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3SectionHead h2 {
+  font-size: 23px;
+  letter-spacing: normal;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3SectionHead span {
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subject {
+  padding: 19px 22px 20px;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3SubjectIdentity {
+  gap: 0;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subject h2 {
+  font-size: 24px;
+  letter-spacing: normal;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Meta,
+body#kianos-workspace.surfaceBody-home .homeL3TaskLinks {
+  margin-left: 0;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Meta {
+  margin-top: 5px;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3ActionSurface {
+  margin-top: 12px;
+}
+
+/* Xizong: one clean resume row. Exact runtime stage stays underneath, not as Home chrome. */
+body#kianos-workspace.surfaceBody-home .homeL3Subject .xzHomeSectionHead {
+  display: none;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subject .xzHomeContinue {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px;
+  padding: 14px 16px;
+  border: 0;
+  border-radius: 11px;
+  background: #f5f7f5;
+  color: var(--study-ink);
+  text-decoration: none;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subject .xzHomeContinue:hover {
+  background: var(--study-green-soft);
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subject .xzHomeContinueCopy {
+  display: grid;
+  min-width: 0;
+  gap: 3px;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subject .xzHomeContinueCopy > span {
+  overflow: hidden;
+  color: var(--study-muted);
+  font-size: 16px;
+  font-weight: var(--study-weight-body);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subject .xzHomeContinueCopy > strong {
+  overflow: hidden;
+  color: var(--study-ink);
+  font-size: 20px;
+  font-weight: var(--study-weight-title);
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subject .xzHomeContinueCopy > p {
+  margin: 0;
+  color: var(--study-muted);
+  font-size: 16px;
+  font-weight: var(--study-weight-body);
+  line-height: 1.45;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subject .xzHomeContinueState {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subject .xzHomeContinueState > span,
+body#kianos-workspace.surfaceBody-home .homeL3Subject .xzHomeContinueState > strong {
+  display: none;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subject .xzHomeContinueState > b {
+  color: var(--study-green);
+  font-size: 17px;
+  font-weight: var(--study-weight-shell);
+  white-space: nowrap;
+}
+
+/* Politics: Home needs the return point, not a nested dashboard inside the subject row. */
+body#kianos-workspace.surfaceBody-home .homeL3Subject .politicsTodayCard,
+body#kianos-workspace.surfaceBody-home .homeL3Subject .politicsRecentCard {
+  display: none;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subject .politicsContinueCard {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 4px 18px;
+  padding: 14px 16px;
+  border: 0;
+  border-radius: 11px;
+  background: #f7f6f1;
+  color: var(--study-ink);
+  text-decoration: none;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subject .politicsContinueCard .politicsHomeEyebrow {
+  display: none;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subject .politicsContinueCard > strong {
+  grid-column: 1;
+  overflow: hidden;
+  font-size: 20px;
+  font-weight: var(--study-weight-title);
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subject .politicsContinueCard > small {
+  grid-column: 1;
+  color: var(--study-muted);
+  font-size: 16px;
+  font-weight: var(--study-weight-body);
+  line-height: 1.45;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Subject .politicsContinueCard > b {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  color: var(--study-green);
+  font-size: 17px;
+  font-weight: var(--study-weight-shell);
+  white-space: nowrap;
+}
+
+/* English stays lightweight when there is no exact Chat-selected Resume. */
+body#kianos-workspace.surfaceBody-home .homeL3TaskLinks {
+  margin-top: 10px;
+  gap: 6px 18px;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3TaskLinks a {
+  font-size: 17px;
+}
+
+/* Today: one quiet daily summary, not an operator console. */
+body#kianos-workspace.surfaceBody-home .homeL3Support .examToday {
+  padding: 20px;
+  border: 0;
+  box-shadow: none;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Support .examTodayHead h2 {
+  margin: 0;
+  font-size: 27px;
+  line-height: 1.2;
+  letter-spacing: normal;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Support .examCapacity {
+  margin: 9px 0 12px;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Support .examSubjectAllocation {
+  grid-template-columns: 52px minmax(0, 1fr) auto;
+  padding: 11px 0;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Support .examSubjectAllocation strong {
+  font-size: 18px;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Support .examSubjectAllocation span {
+  font-size: 16px;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Support .examSubjectAllocation b {
+  font-size: 19px;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Support .examNext {
+  margin: 15px 0;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Support .examNext > span {
+  font-size: 16px;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Support .examNext > a {
+  margin-top: 3px;
+  font-size: 19px;
+  line-height: 1.4;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Support .examTodayFoot {
+  gap: 8px 14px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--study-line);
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Support .examQuiet {
+  font-size: 16px;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Support .examDailyPacketButton {
+  margin-left: auto;
+  padding: 8px 11px;
+  border-radius: 9px;
+  background: var(--study-green-soft);
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Support .examDailyPacketStatus {
+  min-height: 0;
+  margin: 10px 0 0;
+  font-size: 16px;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Support .examDailyPacketStatus:empty {
+  display: none;
+}
+
 @media (min-width: 1101px) and (max-height: 820px) {
   body#kianos-workspace.surfaceBody-home .homeL3Header { padding-block: 14px; }
   body#kianos-workspace.surfaceBody-home .homeL3Subject { padding-block: 11px; }
