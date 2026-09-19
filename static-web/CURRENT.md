@@ -230,6 +230,50 @@ CI green is not visual acceptance.
 
 ---
 
+## Concrete reopened durability defect — Fresh Subject Chat Resume transport
+
+State: **PROTOTYPE / TARGETED PROOF PASS · PR #558 · NOT ACCEPTED / NOT MERGED**
+
+Real learner-visible defect found by fresh ChatGPT Project smoke tests:
+
+```text
+private KianOS learner Resume exists locally
+→ fresh Xizong / English / Politics Project Chat cannot read it
+→ learner is asked for a manual Resume handoff
+```
+
+Bounded candidate:
+
+```text
+existing private learner checkpoint
+→ minimal continuation-only projection
+→ private Personal runtime mailbox
+→ fresh Subject Project Chat
+```
+
+Hard boundary:
+- no second learner ledger;
+- no Wrong / Uncertain / Recall / mastery transport;
+- no subject semantic change;
+- stale mailbox fails closed;
+- local checkpoint save must survive relay failure.
+
+Current proof:
+- Resume projection + negative evidence-leakage proof PASS;
+- root-only/idempotent Git relay proof PASS;
+- relay failure cannot break private checkpoint save PASS;
+- Private Chat Control build/browser acceptance PASS;
+- Shared Study Timer PASS;
+- Authority Consistency PASS;
+- Semantic Base self-test remains the identical pre-existing main red and is not owned here;
+- Final Cross-subject Regression pending.
+
+Next:
+- finish cross-subject regression;
+- real Mac publish to private Personal runtime branch;
+- fresh three-subject Project `继续` proof;
+- Human Gate before merge/normal use.
+
 ## Current next actions
 
 - **Xizong:** learner-facing material UI is landed through whole-paper/year Hidden → Seal → score → same-Workbench Review. Block/TTSX, System Recall, Practice front/back, global retained W/U/Marked and whole-paper are all in `main` with real macOS Human Gates closed. Reopen only concrete defects. Typed Chat Return and durable learner-data recovery stay with the shared Learner Data / Chat Handoff lane.
