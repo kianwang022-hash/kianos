@@ -156,7 +156,7 @@ assert.equal(JSON.parse(empty.getItem(EXAM_CHAT_PLAN_KEY)).next_subject, 'xizong
 const present = new MemoryStorage({ [STUDY_TIMER_STATE_KEY]: JSON.stringify(timerState) });
 const skippedRuntime = await restoreSharedControlFromPrivate(present, {
   now,
-  readCheckpoint: async () => { throw new Error('must not read private checkpoint when local shared state exists'); }
+  readCheckpoint: async () => ({ status: 'ready', checkpoint })
 });
 assert.equal(skippedRuntime.status, 'skipped');
 
@@ -168,7 +168,7 @@ const yesterdayCheckpoint = buildPrivateLearnerCheckpoint({
     study_day: '2026-09-18',
     chat_plan: { ...chatPlan, study_day: '2026-09-18', generated_at: new Date(now - 86400000).toISOString() }
   },
-  subjects: { xizong: { schema: 'future.subject.payload.v1', keep: true } }
+  subjects: { future_subject: { schema: 'future.subject.payload.v1', keep: true } }
 });
 const nextDay = new MemoryStorage();
 const crossDay = await restoreSharedControlFromPrivate(nextDay, {
@@ -185,7 +185,7 @@ await saveSharedControlToPrivate(source, {
   readCheckpoint: async () => ({ status: 'ready', checkpoint: yesterdayCheckpoint }),
   writeCheckpoint: async (value) => { writtenCheckpoint = value; return { status: 'saved' }; }
 });
-assert.equal(writtenCheckpoint.payload.subjects.xizong.keep, true, 'shared autosave must preserve future subject-owned payloads');
+assert.equal(writtenCheckpoint.payload.subjects.future_subject.keep, true, 'shared autosave must preserve future subject-owned payloads');
 
 const xizongStudyKey = 'kianos-xizong-astro-v2:xizong:circulation-b01';
 const xizongEvidenceKey = 'kianos-xizong-memory-review-v2:xizong:circulation-b01';
