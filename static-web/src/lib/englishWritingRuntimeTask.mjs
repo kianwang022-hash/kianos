@@ -5,7 +5,8 @@ export const WRITING_TRUE_EXAM_ENTRY_POLICY = Object.freeze({
   schema: 'kianos.english.writing.true-exam-entry.v1',
   selection: 'learner-or-Chat-selected-source-ready-current-writing-task',
   learnerExposure: 'explicit task opening; targeted synthetic calibration is recommended when ability is not established, never a completion prerequisite',
-  protectedCatalogVisibleBeforeGate: false,
+  protectedCatalogVisibleBeforeGate: true,
+  protectedPromptVisibleBeforeOpen: false,
   engineeringAttemptConsumesTrueExam: false
 });
 
