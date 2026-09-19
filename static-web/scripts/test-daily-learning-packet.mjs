@@ -88,10 +88,15 @@ const chatText = serializeDailyLearningPacketForChat(packet);
 assert.match(chatText, /^KIANOS_DAILY_LEARNING_HANDOFF_V1/m);
 assert.match(chatText, /HOW TO READ IT/);
 assert.match(chatText, /WHAT CHAT SHOULD DO/);
+assert.match(chatText, /LEARN state/);
+assert.match(chatText, /kianos\.exam\.chat-plan\.v1/);
+assert.match(chatText, /same study_day/);
+assert.match(chatText, /kianos-chat-plan-<study_day>\.json/);
 assert.match(chatText, /CURRENT\.md/);
+assert.doesNotMatch(chatText, /route through .*CURRENT\.md/i);
 assert.match(chatText, /DAILY_PACKET_JSON/);
 assert.match(chatText, /"total_minutes": 90/);
-assert.match(chatText, /Missing evidence means unknown/);
+assert.match(chatText, /missing evidence means unknown/i);
 
 const withXizong = attachDailySubjectPacket(packet, 'xizong', { schema: 'xizong.daily.v1', completed_blocks: ['B03'] });
 assert.equal(withXizong.subjects.xizong.evidence.completed_blocks[0], 'B03');

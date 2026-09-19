@@ -59,6 +59,28 @@ known domain/task
 
 Do **not** enter an engineering `CURRENT.md` merely because one exists.
 
+### Daily learner handoff
+
+A message containing `KIANOS_DAILY_LEARNING_HANDOFF_V1` or a `kianos.daily-learning-packet.v1` object is itself **LEARN** state.
+
+Use it as:
+
+```text
+Daily Learning Packet
+→ read factual time / capacity / subject-owned evidence
+→ preserve missing evidence as unknown
+→ if Kian asks to start / continue / arrange today, apply EXAM_ORCHESTRATOR_CONTRACT planning policy
+→ return one valid kianos.exam.chat-plan.v1 for the same study_day
+→ when file generation is available, attach it as kianos-chat-plan-<study_day>.json containing only that plan object
+→ otherwise provide the exact JSON object with that filename so it can be saved unchanged
+→ learner imports that plan into Home
+→ study
+```
+
+Do not route through root engineering `CURRENT.md` by default just because GitHub is available. Read an exact subject Learning/Content owner only when the learner question actually requires semantic/source context. BUILD / UI / CONTROL requests remain separate.
+
+Subject-specific diagnosis/repair still uses that subject's existing typed Return contract. The Daily Packet is evidence/planning input; it is not a universal mutation packet.
+
 ## BUILD
 
 ```text

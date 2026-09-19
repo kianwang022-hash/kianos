@@ -154,6 +154,8 @@ assert.equal(packet.subjects.politics.time.minutes, 30);
 const text = serializeDailyLearningPacketForChat(packet);
 assert.match(text, /"schema": "kianos\.english\.evidence\.v1"/);
 assert.match(text, /"schema": "kianos\.politics\.study_packet\.v1"/);
-assert.match(text, /Missing evidence means unknown/);
+assert.match(text, /LEARN state/);
+assert.match(text, /kianos\.exam\.chat-plan\.v1/);
+assert.match(text, /missing evidence means unknown/i);
 
 console.log('PASS subject daily packets: English + Politics attach to one shared Daily Learning Packet');
