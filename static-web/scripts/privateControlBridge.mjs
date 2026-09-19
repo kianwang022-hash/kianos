@@ -1,7 +1,6 @@
 import {
   readPrivateControlCommand,
   readPrivateControlReceipt,
-  writePrivateControlCommand,
   writePrivateControlReceipt
 } from './privateControlStore.mjs';
 
@@ -52,19 +51,12 @@ export function privateControlBridge({ privateDir } = {}) {
               : json(res, 404, { status:'missing', command:null, receipt });
           }
 
-          // PUT is deliberately only a local/prototype ingress. The final remote relay
-          // should write through the background service, not expose a network listener.
-          if (req.method === 'PUT') {
-            const command = writePrivateControlCommand(await readBody(req), privateDir);
-            return json(res, 200, { status:'saved', command_id:command.command_id });
-          }
-
           if (req.method === 'POST') {
             const receipt = writePrivateControlReceipt(await readBody(req), privateDir);
             return json(res, 200, { status:'saved', command_id:receipt.command_id, receipt_status:receipt.status });
           }
 
-          res.setHeader('allow', 'GET, PUT, POST');
+          res.setHeader('allow', 'GET, POST');
           return json(res, 405, { status:'method_not_allowed' });
         } catch (error) {
           const message = error instanceof Error ? error.message : String(error);
