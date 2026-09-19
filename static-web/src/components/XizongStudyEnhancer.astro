@@ -43,6 +43,7 @@ const packetMeta = {
 
   <div class="xv6DockPacket">
     <button type="button" data-copy-study-packet>复制学习包给 Chat</button>
+    <button type="button" data-import-chat-return>导入 Chat Return</button>
     <small data-study-packet-status>带当前真实断点与学习证据</small>
   </div>
 
@@ -73,6 +74,12 @@ const packetMeta = {
     markedFragments,
     activeRepairTasks
   } from '../lib/xizongMemoryModel.mjs';
+  import {
+    applyXizongChatReturn,
+    buildXizongChatExport,
+    buildXizongChatHandoff,
+    writeXizongChatHandoff
+  } from '../lib/xizongChatReturn.mjs';
 
   const dock = document.querySelector('[data-xizong-study-dock]');
   const root = document.querySelector('[data-xizong-v6-block]');
@@ -125,6 +132,7 @@ const packetMeta = {
       return recallCards[currentIndex()]?.querySelector('.portedRecallAnswer:not([hidden])') || recallCards[currentIndex()] || null;
     };
     const packetButton = dock.querySelector('[data-copy-study-packet]');
+    const returnButton = dock.querySelector('[data-import-chat-return]');
     const packetStatus = dock.querySelector('[data-study-packet-status]');
 
     const buildStudyPacket = () => {
@@ -300,13 +308,43 @@ const packetMeta = {
     });
 
     packetButton?.addEventListener('click', async () => {
-      const packet = buildStudyPacket();
-      const text = JSON.stringify(packet, null, 2);
       try {
-        await navigator.clipboard.writeText(text);
-        if (packetStatus) packetStatus.textContent = '已复制，直接粘给 Chat';
-      } catch {
-        window.prompt('复制西综学习包给 Chat', text);
+        const packet = buildStudyPacket();
+        const handoff = writeXizongChatHandoff(localStorage, buildXizongChatHandoff(packet, {
+          returnHref: window.location.pathname + window.location.search + window.location.hash
+        }));
+        const exportPacket = buildXizongChatExport(packet, handoff);
+        const text = JSON.stringify(exportPacket, null, 2);
+        try {
+          await navigator.clipboard.writeText(text);
+          if (packetStatus) packetStatus.textContent = '已复制；Chat Return 会绑定这次学习现场';
+        } catch {
+          window.prompt('复制西综学习包给 Chat', text);
+        }
+      } catch (error) {
+        if (packetStatus) packetStatus.textContent = '学习包身份未能安全绑定，未导出 Return 合同。';
+      }
+    });
+
+    returnButton?.addEventListener('click', () => {
+      const text = window.prompt('粘贴 Chat 返回的 kianos.xizong.chat_return.v1 JSON');
+      if (!text) return;
+      try {
+        const result = applyXizongChatReturn(localStorage, text, { currentPacket: buildStudyPacket() });
+        if (result.status === 'already_applied') {
+          if (packetStatus) packetStatus.textContent = '这份 Return 已经导入过；没有重复创建 Repair。';
+          return;
+        }
+        const repairCount = result.return_packet?.repairs?.length || 0;
+        if (packetStatus) packetStatus.textContent = repairCount
+          ? `已安全导入 ${repairCount} 个最小 Repair；回到原中断位置。`
+          : 'Chat 判定无需 Repair；保持原中断位置继续。';
+        if (repairCount && result.return_href) window.location.assign(result.return_href);
+      } catch (error) {
+        const message = String(error?.message || error);
+        if (packetStatus) packetStatus.textContent = message.includes('STALE_EVIDENCE')
+          ? '导出后学习证据已经变化；未写入，请重新复制当前学习包。'
+          : 'Chat Return 未通过对象/版本校验；没有改动学习状态。';
       }
     });
 
