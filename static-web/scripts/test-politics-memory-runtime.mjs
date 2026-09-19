@@ -103,6 +103,7 @@ const replacement = {
   plan_id: 'p2',
   study_day: day,
   generated_at: new Date(now + 5000).toISOString(),
+  catalog_revision: catalog.revision,
   phase: 'FIRST_ROUND',
   supersedes_plan_id: 'p1',
   items: [{ candidate_id: extracted[0].id, reason: 'Chat replanned after new evidence' }]
