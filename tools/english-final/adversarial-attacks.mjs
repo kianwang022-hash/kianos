@@ -47,8 +47,59 @@ await check('lexical.freshness-cannot-be-invented-by-return',async()=>{const s=n
 await check('lexical.exact-kind-ordinal-and-revision',()=>{for(const change of [{ordinal:2},{target_kind:'construction'},{target_id:'another-sense'},{source_hash:'word-r0'}])assert.throws(()=>validateCurrentLexicalTarget({...thread.lexicalEvidence,...change},descriptor));});
 await check('translation.typed-return-stale-rejected-and-pass-replay-stable',()=>{const prompts=[{id:'q1'}];let s=T.blankTranslationState(prompts);s.drafts.q1='第一版';s=T.freezeWholeAttempt(s,prompts,at(0)).state;s.binding={source_hash:'tr1'};s.stage='diagnosis';const v={schema:T.TRANSLATION_RETURN_SCHEMA,task:'synthetic-translation',attemptSubmittedAt:at(0),sourceHash:'tr1',decision:'PASS'};assert.throws(()=>T.applyTranslationReturn(s,{...v,attemptSubmittedAt:at(-1)},prompts,null,{task:v.task}));const first=T.applyTranslationReturn(s,v,prompts,null,{task:v.task,now:at(1)});assert.deepEqual(T.applyTranslationReturn(first.state,v,prompts,first.ledger,{task:v.task,now:at(2)}),first);assert.equal(first.state.firstAttempts.q1,'第一版');});
 await check('writing.typed-review-and-regeneration-bind-to-same-first-evidence',()=>{const task={id:'synthetic-writing',kind:'small',sourceKind:'synthetic',sourceHash:'w1',learnerTask:{directions:'Write an invitation.'}};let r=W.createInitialWritingRecord(task,[],at(0));r.binding={source_hash:'w1'};r=W.lockFirstAttempt(r,{planMode:'direct',firstDraft:'Please join us on Friday.'},at(1));const value={schema:W.WRITING_REVIEW_RETURN_SCHEMA,taskId:task.id,attemptSubmittedAt:r.firstSubmittedAt,sourceHash:'w1',reviewOf:'FIRST_DRAFT',verdict:'REPAIR_NEEDED',firstFailureLayer:W.WRITING_FAILURE_LAYERS[0],repairScope:'missing invitation detail',smallestRepair:'Give a location.',reason:'Synthetic missing requirement.'};r=W.applyWritingReviewReturn(r,value,at(2));r=W.lockWritingRegeneration(r,'Please join us at the library.',at(3));const packet=W.buildWritingRepairCheckPacket(task,r);assert.equal(packet.attemptSubmittedAt,r.firstSubmittedAt);const ret={schema:W.WRITING_REPAIR_RETURN_SCHEMA,taskId:task.id,attemptSubmittedAt:r.firstSubmittedAt,regenerationSubmittedAt:r.regenerationSubmittedAt,sourceHash:'w1',repairOf:'REGENERATION',verdict:'REPAIR_COMPLETE',reason:'Requirement now supplied',memoryAdmission:{admit:false}};assert.throws(()=>W.applyWritingRepairReturn(r,{...ret,regenerationSubmittedAt:at(-1)}));const result=W.applyWritingRepairReturn(r,ret,at(4));assert.equal(result.firstDraft,'Please join us on Friday.');assert.equal(result.state,'REPAIR_COMPLETE');assert.deepEqual(W.applyWritingRepairReturn(result,ret,at(5)),result);});
-// Explicitly executed shared-owner deficiencies are reported, not papered over with an English service.
-let writes=0;await saveSharedControlToPrivate(new Storage(),{now,readCheckpoint:async()=>({status:'unavailable'}),writeCheckpoint:async()=>{writes++;}});if(writes)knownBlockers.push({id:'shared.checkpoint-read-failure-can-write-empty-subjects',owner:'static-web/src/lib/privateCheckpointRuntime.mjs',observed:'write occurred after read was unavailable'});
-const cp=buildPrivateLearnerCheckpoint({studyDay:'2026-09-19',now,shared:captureSharedControlCheckpoint(new Storage(),{studyDay:'2026-09-19',now}),subjects:{english:{schema:'kianos.english.private-payload.v1',entries:{[key]:'{}'}}}});
-try{const storage=new Storage();await restoreSharedControlFromPrivate(storage,{now,readCheckpoint:async()=>({status:'ready',checkpoint:cp})});if(storage.getItem(key)===null)knownBlockers.push({id:'shared.restore-does-not-dispatch-english-payload',owner:'privateCheckpointRuntime + shared subject-adapter integration',observed:'English payload present but English key not restored'});}catch(e){knownBlockers.push({id:'shared.restore-subject-contract-unintegrated',observed:e.message});}
+// Shared private-checkpoint durability is exercised here because English must not
+// paper over a platform defect with a subject-local persistence service.
+await check('recovery.shared-unavailable-read-cannot-write',async()=>{
+  let writes=0;
+  await assert.rejects(
+    ()=>saveSharedControlToPrivate(new Storage(),{
+      now,
+      readCheckpoint:async()=>({status:'unavailable',error:'synthetic read outage'}),
+      writeCheckpoint:async()=>{writes++;}
+    }),
+    /PRIVATE_CHECKPOINT_READ_UNSAFE/
+  );
+  assert.equal(writes,0);
+});
+await check('recovery.shared-restores-english-and-lexical-subjects',async()=>{
+  const lexicalKey='kianos-lexical-ledger-v1';
+  const cp=buildPrivateLearnerCheckpoint({
+    studyDay:'2026-09-19',
+    now,
+    shared:captureSharedControlCheckpoint(new Storage(),{studyDay:'2026-09-19',now}),
+    subjects:{
+      english:{schema:'kianos.english.private-payload.v1',entries:{[key]:'{\"english\":true}'}},
+      lexical:{schema:'kianos.lexical.private-payload.v1',entries:{[lexicalKey]:'{\"lexical\":true}'}}
+    }
+  });
+  const storage=new Storage();
+  const restored=await restoreSharedControlFromPrivate(storage,{now,readCheckpoint:async()=>({status:'ready',checkpoint:cp})});
+  assert.equal(restored.status,'restored');
+  assert.equal(restored.restored_subject_entries,2);
+  assert.equal(storage.getItem(key),'{\"english\":true}');
+  assert.equal(storage.getItem(lexicalKey),'{\"lexical\":true}');
+});
+await check('recovery.shared-subject-conflict-is-atomic',async()=>{
+  const lexicalKey='kianos-lexical-ledger-v1';
+  const source=new Storage();
+  source.setItem('kianos-exam-profile-v1','{\"remote\":true}');
+  const cp=buildPrivateLearnerCheckpoint({
+    studyDay:'2026-09-19',
+    now,
+    shared:captureSharedControlCheckpoint(source,{studyDay:'2026-09-19',now}),
+    subjects:{
+      english:{schema:'kianos.english.private-payload.v1',entries:{[key]:'{\"remote\":true}'}},
+      lexical:{schema:'kianos.lexical.private-payload.v1',entries:{[lexicalKey]:'{\"remote\":true}'}}
+    }
+  });
+  const storage=new Storage();
+  storage.setItem(key,'{\"local\":true}');
+  const before=[...storage.data];
+  await assert.rejects(
+    ()=>restoreSharedControlFromPrivate(storage,{now,readCheckpoint:async()=>({status:'ready',checkpoint:cp})}),
+    /CONFLICT_KEEP_LOCAL/
+  );
+  assert.deepEqual([...storage.data],before);
+  assert.equal(storage.getItem(lexicalKey),null);
+});
 const result={synthetic_only:true,checks,known_shared_blockers:knownBlockers};fs.writeFileSync(out+'/adversarial-attacks.json',JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));if(checks.some(c=>c.status==='FAIL'))process.exitCode=1;
