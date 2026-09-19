@@ -109,6 +109,13 @@ const failureLabel = (mode) => Array.isArray(mode)
 </section>
 
 <script>
+  import {
+    XIZONG_SESSION_KEY,
+    XIZONG_SESSION_RUNTIME_KEY,
+    validateXizongSessionInstruction
+  } from '../lib/xizongSessionInstruction.mjs';
+  import { studyDayAt } from '../lib/studyTimer.mjs';
+
   document.querySelectorAll('[data-xizong-system-exit]').forEach((root) => {
     const systemId = root.getAttribute('data-xizong-system-exit') || '';
     const recallKey = `kianos:xizong:system-recall:${systemId}:v1`;
@@ -121,9 +128,40 @@ const failureLabel = (mode) => Array.isArray(mode)
 
     let recallState = readJson(recallKey, { completedAt: null, history: [] });
     if (!Array.isArray(recallState.history)) recallState.history = [];
-    const requestedRound = new URLSearchParams(location.search).get('after_round') || '';
+    const params = new URLSearchParams(location.search);
+    const requestedRound = params.get('after_round') || '';
+    const requestedSessionId = params.get('session') || '';
+    const requestedStepId = params.get('step') || '';
     const sweepState = readJson(`kianos:xizong:system-question-sweep:${systemId}:v1`, {});
     const afterRoundId = requestedRound && requestedRound === sweepState?.round?.id ? requestedRound : '';
+
+    let chatSessionRecall = false;
+    if (requestedSessionId && requestedStepId) {
+      try {
+        const instruction = validateXizongSessionInstruction(
+          readJson(XIZONG_SESSION_KEY, null),
+          studyDayAt(Date.now())
+        );
+        const runtime = readJson(XIZONG_SESSION_RUNTIME_KEY, null);
+        const step = instruction?.session_id === requestedSessionId
+          && runtime?.session_id === requestedSessionId
+          && Number.isInteger(Number(runtime?.current_step))
+          ? instruction.steps[Number(runtime.current_step)]
+          : null;
+        const activatedAt = Date.parse(runtime?.activated_at || '');
+        const alreadyCompleted = Array.isArray(recallState.history)
+          && recallState.history.some((row) =>
+            Number.isFinite(Date.parse(row?.completed_at))
+            && Number.isFinite(activatedAt)
+            && Date.parse(row.completed_at) >= activatedAt
+          );
+        chatSessionRecall = step?.step_id === requestedStepId
+          && step?.kind === 'SYSTEM_RECALL'
+          && step?.system_id === systemId
+          && Number.isFinite(activatedAt)
+          && !alreadyCompleted;
+      } catch {}
+    }
     root.dataset.systemRecallCommitted = 'false';
     root.dataset.systemRecallEventId = globalThis.crypto?.randomUUID?.() || `system-recall-${Date.now()}`;
     const workspace = root.querySelector('[data-recall-workspace]');
@@ -203,5 +241,6 @@ const failureLabel = (mode) => Array.isArray(mode)
 
     render();
     if (afterRoundId && recallState.afterRoundId !== afterRoundId) openRecall();
+    else if (chatSessionRecall) openRecall();
   });
 </script>
