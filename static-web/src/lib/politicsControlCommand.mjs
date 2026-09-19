@@ -9,6 +9,24 @@ export const POLITICS_CONTROL_RECEIPT_PREFIX = 'kianos-politics-control-receipt-
 const clean = (value, max = 500) => String(value ?? '').trim().slice(0, max);
 const record = (value) => value !== null && typeof value === 'object' && !Array.isArray(value);
 
+function stableHash(text) {
+  let hash = 2166136261;
+  for (const char of String(text || '')) {
+    hash ^= char.charCodeAt(0);
+    hash = Math.imul(hash, 16777619);
+  }
+  return (hash >>> 0).toString(16).padStart(8, '0');
+}
+
+function commandSignature(command) {
+  return stableHash(JSON.stringify({
+    command_id: command.command_id,
+    study_day: command.study_day,
+    issued_at: command.issued_at,
+    payload: command.payload
+  }));
+}
+
 function fail(code, detail = '') {
   throw new Error('POLITICS_CONTROL_' + code + (detail ? ':' + detail : ''));
 }
@@ -44,6 +62,7 @@ export function applyPoliticsControlCommand(storage, catalog, input, options = {
   if (!storage?.getItem || !storage?.setItem) fail('STORAGE_UNAVAILABLE');
   const command = validatePoliticsControlCommand(input, options);
   const receiptKey = POLITICS_CONTROL_RECEIPT_PREFIX + command.command_id;
+  const signature = commandSignature(command);
   const previous = storage.getItem(receiptKey);
 
   if (previous != null) {
@@ -51,6 +70,7 @@ export function applyPoliticsControlCommand(storage, catalog, input, options = {
     try { receipt = JSON.parse(previous); }
     catch { fail('RECEIPT_UNREADABLE', command.command_id); }
     if (receipt?.command_id !== command.command_id) fail('RECEIPT_CONFLICT', command.command_id);
+    if (receipt?.command_signature !== signature) fail('COMMAND_REPLAY_CONFLICT', command.command_id);
     return { status: 'idempotent', receipt };
   }
 
@@ -65,6 +85,7 @@ export function applyPoliticsControlCommand(storage, catalog, input, options = {
       study_day: command.study_day,
       applied_at: new Date(Number(options.now ?? Date.now())).toISOString(),
       status: /STALE|DAY_MISMATCH|CATALOG_MISMATCH|STALE_BATCH/.test(message) ? 'STALE' : 'REJECTED',
+      command_signature: signature,
       error: message
     };
     storage.setItem(receiptKey, JSON.stringify(receipt));
@@ -77,6 +98,7 @@ export function applyPoliticsControlCommand(storage, catalog, input, options = {
     study_day: command.study_day,
     applied_at: new Date(Number(options.now ?? Date.now())).toISOString(),
     status: result.status === 'idempotent' ? 'IDEMPOTENT' : 'APPLIED',
+    command_signature: signature,
     batch_id: result.value?.batch_id || null,
     return_signature: result.value?.return_signature || null
   };
