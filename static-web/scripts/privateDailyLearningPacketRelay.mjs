@@ -54,10 +54,19 @@ function nonTimeMaterialPacket(value){
   }
   if(packet.schedule&&typeof packet.schedule==='object'){
     delete packet.schedule.time;
+    if(packet.schedule.capacity&&typeof packet.schedule.capacity==='object'){
+      delete packet.schedule.capacity.actualMinutes;
+      delete packet.schedule.capacity.remainingMinutes;
+    }
   }
   for(const subject of ['xizong','english','politics']){
     if(packet.subjects?.[subject]&&typeof packet.subjects[subject]==='object'){
       delete packet.subjects[subject].time;
+      const plan=packet.subjects[subject].plan;
+      if(plan&&typeof plan==='object'){
+        delete plan.actualMinutes;
+        delete plan.remainingMinutes;
+      }
     }
   }
   return packet;
