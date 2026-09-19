@@ -228,16 +228,19 @@ try{
     await ctx.close();
   }
 
-  // Visual contract: Total Home no longer exposes the three large subject dashboard cards.
+  // Visual contract: preserve the existing Total Home. The left three-subject
+  // execution/navigation surface stays visible; the right rail owns one normal Next Action.
   {
     const ctx=await context();
     const page=await ctx.newPage();
     await page.goto(BASE+'/',{waitUntil:'networkidle'});
-    check(await page.locator('.homeL3Subjects').count()===0,'legacy_three_subject_dashboard_removed');
-    check(await page.locator('.homeFallbackNav').count()===1,'subject_homes_reduced_to_fallback_nav');
-    check(await page.locator('[data-exam-next]').count()===1,'single_next_action_surface');
-    check(await page.locator('[data-home-subject-route-bridge]').count()===1,'one_headless_route_bridge');
-    check(await page.locator('[data-home-subject-route-bridge]').isHidden(),'headless_route_bridge_not_learner_visible');
+    check(await page.locator('.homeL3Subjects').count()===1,'current_three_subject_home_preserved');
+    check(await page.locator('[data-home-subject="xizong"]').count()===1,'current_xizong_home_surface_preserved');
+    check(await page.locator('[data-home-subject="english"]').count()===1,'current_english_home_surface_preserved');
+    check(await page.locator('[data-home-subject="politics"]').count()===1,'current_politics_home_surface_preserved');
+    check(await page.locator('.homeFallbackNav').count()===0,'no_replacement_fallback_home_ui');
+    check(await page.locator('[data-exam-next]').count()===1,'single_right_rail_next_action');
+    check(await page.locator('[data-home-subject-route-bridge]').count()===0,'no_parallel_headless_route_owner');
     check(await page.locator('[data-english-resume-link]').count()===1,'one_english_route_owner');
     check(await page.locator('[data-xizong-home-tools]').count()===1,'one_xizong_route_owner');
     check(await page.locator('[data-politics-home-tools]').count()===1,'one_politics_route_owner');
