@@ -213,19 +213,24 @@ export function initPrivateCheckpointAutosave(storage, {
   const storageHandler = (event) => {
     if (SHARED_STORAGE_KEYS.includes(event?.key)) schedule();
   };
-  const visibilityHandler = () => {
-    if (globalThis.document?.visibilityState !== 'hidden') return;
+  const flushNow = () => {
     if (timer) {
       clearTimeout(timer);
       timer = null;
     }
     void checkpoint();
   };
+  const visibilityHandler = () => {
+    if (globalThis.document?.visibilityState !== 'hidden') return;
+    flushNow();
+  };
+  const blurHandler = () => flushNow();
 
   globalThis.addEventListener?.('kianos:study-timer-change', schedule);
   globalThis.addEventListener?.('kianos:exam-plan-read-model', schedule);
   globalThis.addEventListener?.('storage', storageHandler);
   globalThis.addEventListener?.('focus', schedule);
+  globalThis.addEventListener?.('blur', blurHandler);
   globalThis.document?.addEventListener?.('visibilitychange', visibilityHandler);
 
   interval = setInterval(() => void checkpoint(), intervalMs);
@@ -242,6 +247,7 @@ export function initPrivateCheckpointAutosave(storage, {
       globalThis.removeEventListener?.('kianos:exam-plan-read-model', schedule);
       globalThis.removeEventListener?.('storage', storageHandler);
       globalThis.removeEventListener?.('focus', schedule);
+      globalThis.removeEventListener?.('blur', blurHandler);
       globalThis.document?.removeEventListener?.('visibilitychange', visibilityHandler);
     }
   };
