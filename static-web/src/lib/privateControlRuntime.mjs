@@ -255,10 +255,10 @@ export function applyPrivateControlCommand(storage, rawCommand, {
     } else if (command.target === 'xizong.chat_return') {
       // The private control layer has already enforced command identity/replay/time ordering.
       // A newer trusted Return may replace an older unconsumed Return for the same Block.
-      stageXizongChatReturn(storage, command.payload, { now, replace: true });
+      stageXizongChatReturn(storage, command.payload, { now, replace: true, studyDay: command.study_day });
     } else if (command.target === 'xizong.system_wu_return') {
       // Stage only. The exact System Practice page owns current-W/U + reviewed-relation validation.
-      stageXizongSystemWuReturn(storage, command.payload, { now, replace: true });
+      stageXizongSystemWuReturn(storage, command.payload, { now, replace: true, studyDay: command.study_day });
     } else {
       fail('TARGET_UNIMPLEMENTED', command.target);
     }
