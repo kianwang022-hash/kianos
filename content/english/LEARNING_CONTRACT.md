@@ -300,13 +300,44 @@ Rules:
 
 ---
 
-## 13｜Fresh material
+## 13｜Fresh material and External Reading
 
-Unseen true-exam, TPO, IELTS, and other held-out material is limited diagnostic capital.
+Unseen true-exam material remains limited diagnostic capital. Use synthetic / exposed material for teaching and software validation when sufficient, and consume protected true-exam material for real performance, calibration, or high-value transfer — not to close a database state.
 
-Use synthetic / exposed material for teaching and software validation when sufficient.
+**External Reading has a different primary job:** add high-quality reading volume after ordinary English-I papers stop providing enough growth stimulus.
 
-Consume fresh material for real performance, calibration, or high-value transfer — not to close a database state.
+Current preferred source order:
+
+1. legacy TOEFL / TPO academic reading, especially the existing TPO 56–65 pool;
+2. IELTS Academic reading, especially the existing IELTS 17–19 pool;
+3. selected periodical reading only when it adds a useful topic/style range that the two exam-grade pools do not provide.
+
+External Reading may share the Reading workspace geometry and low-friction evidence plumbing, but **source identity does not grant Reading-A cognition**.
+
+```text
+English-I Reading A
+→ English-I question demand / evidence boundary / option adjudication
+
+legacy TOEFL / TPO
+→ reading-growth material
+→ source-native TOEFL question semantics only when those questions are actually imported
+
+IELTS Academic
+→ reading-growth material
+→ source-native IELTS question semantics only when those questions are actually imported
+
+questionless article / passage-only import
+→ read / comprehend / optionally note or Chat-repair
+→ no invented questions
+```
+
+Therefore:
+
+- do not teach TOEFL/IELTS question methods as if they were English-I Reading-A methods;
+- do not reinterpret TOEFL/IELTS questions through the Reading-A Skill Map merely because the same visual workspace is reused;
+- shared gains such as proposition representation, discourse tracking, reading speed, lexical access and long-passage stamina may transfer naturally across sources;
+- future TOEFL preparation may build source-native TOEFL task semantics on top of the same imported TPO material without rewriting English-I Reading logic;
+- Content may describe source/pool identity and intended use, but it must not claim Kian's actual exposure state. Real exposure remains private learner evidence shared across ordinary study, External Reading and mock wherever the material identity is the same.
 
 ---
 
@@ -383,3 +414,17 @@ STRUCTURAL ≠ EXECUTED ≠ ADVERSARIAL ≠ REAL learner evidence
 A validator may protect invariants, but it must not define a decomposition as correct merely because it can count exact Blocks, pages, strings, or runtime states.
 
 When a simpler implementation preserves knowledge truth and the same learning value with lower learner burden, the simpler implementation wins.
+
+
+## 18｜Fresh final-audit operational clarifications
+
+These clarify existing Learning Logic; they do not add a prerequisite course.
+
+- **Entry:** task-first assumes the minimum ability to start that specific task, not proficiency in another task. When unknown, use a bounded synthetic/exposed attempt or the precise First Learning node. Writing Small and Big must not borrow readiness from reading ability. Reading a Guide is not evidence of independent performance. Already-established ability needs no compulsory synthetic completion.
+- **Stable exit:** correct/acceptable work may leave cheaply. This is an exit decision, not mastery. Known answer memory, assistance, missing requirements or failure of an explicitly agreed time budget disqualify a stable-transfer claim. No task budget means timing is uncalibrated, not that the website may invent a deadline or repair debt. Do not require explanations from every correct answer.
+- **Timed uncertainty:** a repair search order is not permission to spend unlimited exam time. At the exam boundary preserve the best available answer/output and unresolved uncertainty; no learning workflow may prevent timely delivery.
+- **Exposure:** Content defaults describe a pool/object policy, not Kian's exposure history. Missing private records mean unknown. A learner statement may establish unseen status before a clean attempt; it cannot erase recorded exposure. Ordinary study and mock have separate answer states but one material identity/exposure truth. Merely using another page, device or session does not make a material fresh again.
+- **First evidence:** bind task identity, consumed Content revision, attempt identity, first output and any later repair. A Content update must not silently reinterpret an old attempt. Same-item reconstruction remains repair evidence.
+- **Lexical:** exact target and exact demand both matter. Recognition must not close a Production claim. Lookup alone does not mutate Lexical learning state. A formal multi-target return validates fully before any task/lexical mutation; replay cannot manufacture a second event.
+- **Chat:** the website may follow the already-explicit Chat task order, never rank other tasks. Potentially eligible evidence is not automatically semantically relevant to a pending target. Same task kind does not select a target for the learner.
+- **External:** External Reading is a Reading-growth source adapter, not a second English-I Reading-A course. TPO 56–65 is the preferred academic-growth pool and IELTS 17–19 the secondary pool; periodicals are optional breadth. Adapters reuse the Reading workspace only where interaction semantics fit, preserve source-native question identity, use the same private exposure ledger, and never treat Content metadata as learner testimony. Unsupported question forms fail closed; questionless reading stays questionless.

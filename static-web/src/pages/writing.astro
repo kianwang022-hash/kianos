@@ -1,12 +1,13 @@
 ---
 import Base from '../layouts/Base.astro';
 import { inspectWritingSyntheticTasks, listWritingSyntheticTasks } from '../lib/englishWritingSynthetic.mjs';
-import { inspectWritingTrueExamEntry } from '../lib/englishWritingRuntimeSourceTruth.mjs';
+import { inspectWritingTrueExamEntry, listWritingRuntimeTasks } from '../lib/englishWritingRuntimeSourceTruth.mjs';
 
 const base = import.meta.env.BASE_URL;
 const state = inspectWritingSyntheticTasks();
 const tasks = listWritingSyntheticTasks();
 const trueExam = inspectWritingTrueExamEntry();
+const examChoices = listWritingRuntimeTasks().filter(t => t.sourceKind === 'exam').map(t => ({id:t.id, year:t.year, kind:t.kind}));
 const payload = JSON.stringify({ tasks, trueExam: trueExam.firstExam }).replace(/</g, '\\u003c');
 ---
 <Base
@@ -20,13 +21,13 @@ const payload = JSON.stringify({ tasks, trueExam: trueExam.firstExam }).replace(
       <div>
         <span>Writing · 完整写作</span>
         <h2>写完整篇，复盘，继续。</h2>
-        <p>先用两篇起步练习建立完整输出。第一版会保留在本机；稳定的作文直接结束，真正影响未来表现的问题才值得修。</p>
+        <p>还不能独立成文时，用起步练习找到缺口；会的直接进入任务。第一版会保留，稳定的作文不欠一轮修改。</p>
       </div>
       <aside>
         <strong>{state.status === 'ready' ? `${tasks.length} 个起步练习` : '暂不可用'}</strong>
         <span>一次完成一整篇</span>
         <span>第一版保存在本机</span>
-        <span>完成起步练习后开放首篇真题</span>
+        <span>起步练习可跳过；真题由你选择</span>
       </aside>
     </section>
 
@@ -55,14 +56,12 @@ const payload = JSON.stringify({ tasks, trueExam: trueExam.firstExam }).replace(
     )}
 
     <section class="writingTrueExamShield" data-true-exam-shield>
-      <div>
-        <span>首篇真题</span>
-        <strong data-true-exam-title>现在不展示真题目录</strong>
-      </div>
-      <p data-true-exam-copy>先各完成一篇 Small / Big 起步练习。两种模式都真正写过以后，再开放第一篇真题；在进入前不会提前展示题面解析或写作提示。</p>
-      <a class="writingTrueExamEntry" data-true-exam-entry hidden href={`${base}writing/${encodeURIComponent(trueExam.firstExam.id)}/`}>
-        开始第一篇 clean 真题 →
-      </a>
+      <div><span>真题写作</span><strong>选择任务，进入后再打开题面</strong></div>
+      <p>这里只列年份与任务类型，不展示内容。未见题目留给真正的独立作答，不为了完成记录提前消耗。</p>
+      <select data-writing-exam-select aria-label="选择写作任务">
+        {examChoices.map(t => <option value={t.id}>{t.year} · {t.kind === 'small' ? 'Small Writing' : 'Big Writing'}</option>)}
+      </select>
+      <a class="writingTrueExamEntry" data-true-exam-entry href={`${base}writing/${encodeURIComponent(trueExam.firstExam.id)}/`}>进入选定任务 →</a>
     </section>
 
     <section class="writingRuntimeBoundary">
@@ -103,17 +102,11 @@ const payload = JSON.stringify({ tasks, trueExam: trueExam.firstExam }).replace(
       if (card instanceof HTMLElement) card.dataset.complete = finalStates.has(taskState) ? 'true' : 'false';
     });
 
-    const qualified = completed === tasks.length && tasks.length === 2;
-    const shield = root.querySelector('[data-true-exam-shield]');
-    const examEntry = root.querySelector('[data-true-exam-entry]');
-    const examTitle = root.querySelector('[data-true-exam-title]');
-    const examCopy = root.querySelector('[data-true-exam-copy]');
-    if (shield instanceof HTMLElement) shield.dataset.syntheticComplete = qualified ? 'true' : 'false';
-    if (examEntry instanceof HTMLElement) examEntry.hidden = !qualified;
-    if (qualified) {
-      if (examTitle) examTitle.textContent = '第一篇 clean 真题已解锁';
-      if (examCopy) examCopy.textContent = '现在只开放这一篇真题；进入前仍不展示范文、解析、主题总结或针对该题的写作思路。先独立完成自己的第一版。';
-    }
+    const select = root.querySelector('[data-writing-exam-select]');
+    const entry = root.querySelector('[data-true-exam-entry]');
+    const updateEntry = () => { if (select instanceof HTMLSelectElement && entry instanceof HTMLAnchorElement) entry.href = `${root.dataset.base}writing/${encodeURIComponent(select.value)}/`; };
+    select?.addEventListener('change', updateEntry);
+    updateEntry();
   }
 </script>
 

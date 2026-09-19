@@ -9,7 +9,8 @@ function optionEntries(options) {
   return Object.entries(options).map(([label, value]) => ({ label, text: typeof value === 'string' ? value : String(value?.text || value?.content || value?.value || '') }));
 }
 ---
-<section class="clozeRuntime" data-objective-root data-objective-task="cloze" data-objective-object={item.objectId} data-objective-storage-key={storageKey} data-objective-answers-ready="false">
+<section class="clozeRuntime" data-objective-root data-english-source-hash={item.sourceHashes?.renderedObject} data-objective-task="cloze" data-objective-object={item.objectId} data-objective-storage-key={storageKey} data-objective-answers-ready="false">
+  <script type="application/json" data-english-task-snapshot set:html={JSON.stringify({material:item.material,context:item.context,questions:item.questions.map(({id,ordinal,prompt,options})=>({id,ordinal,prompt,options}))}).replace(/</g, "\\u003c")}></script>
   <header class="clozeRuntimeHeader">
     <div>
       <span>Cloze · Slot Constraint → Best Fit</span>
@@ -73,6 +74,7 @@ function optionEntries(options) {
 </section>
 
 <script>
+  import {inspectEnglishAttempt, saveEnglishAttempt, archiveEnglishAttempt, taskMetadata, preserveEnglishFailure} from "../lib/englishLearnerEvidence.mjs";
   document.querySelectorAll('[data-objective-root][data-objective-task="cloze"]').forEach((root) => {
     if (!(root instanceof HTMLElement)) return;
     const baseStorageKey = root.getAttribute('data-objective-storage-key') || '';
@@ -103,15 +105,17 @@ function optionEntries(options) {
       trajectory: {},
       results: {}
     });
+    const metadata=taskMetadata(root,"cloze",objectId);
+    const inspected=inspectEnglishAttempt(localStorage,storageKey,metadata,{sessionId:examSessionId,root});
     const read = () => {
       try {
-        const saved = JSON.parse(localStorage.getItem(storageKey) || 'null');
+        const saved = inspected;
         return saved?.objectId === root.getAttribute('data-objective-object') ? { ...blankState(), ...saved } : blankState();
       } catch { return blankState(); }
     };
     let state = read();
-    const save = () => localStorage.setItem(storageKey, JSON.stringify(state));
-    if (examSessionId && !localStorage.getItem(storageKey)) save();
+    const save = () => saveEnglishAttempt(localStorage,storageKey,state,metadata,{sessionId:examSessionId,root});
+    save();
 
     const formalOf = (row) => {
       try { return normalizeAnswer(JSON.parse(row.getAttribute('data-answer') || '""')); }

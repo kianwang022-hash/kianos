@@ -5,6 +5,7 @@ const base = import.meta.env.BASE_URL;
 <span data-objective-answer-gate data-task={task} data-answer-route={answerRoute} data-base={base} hidden></span>
 
 <script>
+  import {readEnglishExamSession} from '../lib/englishExamSession.mjs';
   document.querySelectorAll('[data-objective-answer-gate]').forEach((gate) => {
     if (!(gate instanceof HTMLElement)) return;
     const task = gate.getAttribute('data-task') || '';
@@ -87,6 +88,8 @@ const base = import.meta.env.BASE_URL;
     };
 
     const loadAnswers = async () => {
+      const activeExam=readEnglishExamSession(localStorage);
+      if(root.dataset.englishReadonly==='true' || (activeExam&&activeExam.status!=='RELEASED'&&activeExam.steps.some(s=>s.object_id===objectId)))return false;
       if (ready) {
         decorateSubmittedReview();
         return true;

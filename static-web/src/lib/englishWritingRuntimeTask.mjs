@@ -3,9 +3,10 @@ import { listWritingTasks, loadWritingById } from './englishWriting.mjs';
 
 export const WRITING_TRUE_EXAM_ENTRY_POLICY = Object.freeze({
   schema: 'kianos.english.writing.true-exam-entry.v1',
-  selection: 'first-source-ready-current-writing-task-in-canonical-source-order',
-  learnerExposure: 'one protected task only after both synthetic gates are terminal',
-  protectedCatalogVisibleBeforeGate: false,
+  selection: 'learner-or-Chat-selected-source-ready-current-writing-task',
+  learnerExposure: 'explicit task opening; targeted synthetic calibration is recommended when ability is not established, never a completion prerequisite',
+  protectedCatalogVisibleBeforeGate: true,
+  protectedPromptVisibleBeforeOpen: false,
   engineeringAttemptConsumesTrueExam: false
 });
 
@@ -156,9 +157,7 @@ function normalizeExamTask(source) {
 
 export function listWritingRuntimeTasks() {
   const synthetic = listWritingSyntheticTasks();
-  const firstExamSummary = listWritingTasks().find((task) => task?.sourceReady);
-  if (!firstExamSummary) return synthetic;
-  return [...synthetic, normalizeExamTask(loadWritingById(firstExamSummary.id))];
+  return [...synthetic, ...listWritingExamRuntimeTasks()];
 }
 
 export function getFirstProtectedTrueExamTask() {
@@ -199,7 +198,5 @@ export function loadWritingExamRuntimeTask(id) {
 export function loadWritingRuntimeTask(id) {
   const synthetic = listWritingSyntheticTasks();
   if (synthetic.some((task) => task.id === id)) return loadWritingSyntheticTask(id);
-  const firstExam = getFirstProtectedTrueExamTask();
-  if (firstExam.id === id) return firstExam;
-  throw new Error(`WRITING_RUNTIME_ROUTE_NOT_RELEASED:${id}`);
+  return loadWritingExamRuntimeTask(id);
 }

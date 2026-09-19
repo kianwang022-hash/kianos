@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+import '../styles/reading.css';
+import '../styles/reading-interaction.css';
+import '../styles/reading-repair.css';
+import '../styles/reading-navigation.css';
+import '../styles/english-reading-vertical.css';
+import ExternalReadingWorkspace from '../components/ExternalReadingWorkspace.astro';
+---
+<Base
+  title="External Reading"
+  kicker="English · Reading Growth"
+  description=""
+  sourcePath="content/english/external/manifest.json"
+  objectId="english:external-reading"
+  active="english"
+  showLead={false}
+>
+  <ExternalReadingWorkspace />
+</Base>

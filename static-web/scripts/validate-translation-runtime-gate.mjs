@@ -81,6 +81,8 @@ check(invalidStageSaved.stage === 'decision', 'complete saved attempt with inval
 
 // 4) Review route + handoff contract must preserve whole-set first evidence and default to no Reference.
 state = routeAttemptToReview(frozen.state);
+state.binding = { source_hash: 'translation-runtime-gate-v1', prior_exposure: 'unknown', assistance: 'unassisted', legacy_unversioned: false };
+state.firstEvidenceMeta = { ...state.binding, timing_status: 'uncalibrated' };
 check(state.stage === 'diagnosis', 'Need Review must enter diagnosis');
 const workspace = read('../src/components/TranslationWorkspace.astro');
 check(workspace.includes('FIRST TRANSLATION · IMMUTABLE'), 'handoff must include immutable first translation');
@@ -113,6 +115,8 @@ expectThrows(
 // 6) Valid repair return must route only the addressed slice into Reconstruction.
 const repairPayload = parseTranslationReturn(packet({
   task: 'task-a',
+  attemptSubmittedAt: state.firstSubmittedAt,
+  sourceHash: state.binding.source_hash,
   decision: 'REPAIR_NEEDED',
   primary_failure: {
     layer: 'English Representation',
@@ -148,6 +152,8 @@ const originalLedger = JSON.stringify(ledger);
 const badSegmentWithUpdate = {
   schema: TRANSLATION_RETURN_SCHEMA,
   task: 'task-b',
+  attemptSubmittedAt: state.firstSubmittedAt,
+  sourceHash: state.binding.source_hash,
   decision: 'REPAIR_NEEDED',
   primary_failure: {
     layer: 'English Representation',
@@ -185,6 +191,8 @@ check((repaired.state.reconstructions || []).length === 1, 'saved Reconstruction
 // 9) A reusable repair may enter TRANSFER_PENDING, but same-task reconstruction never closes it.
 const reusablePayload = parseTranslationReturn(packet({
   task: 'task-a',
+  attemptSubmittedAt: state.firstSubmittedAt,
+  sourceHash: state.binding.source_hash,
   decision: 'REPAIR_NEEDED',
   primary_failure: {
     layer: 'English Representation',

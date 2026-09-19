@@ -3,6 +3,7 @@ import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { chromium } from 'playwright';
 import { listWritingSyntheticTasks } from '../src/lib/englishWritingSynthetic.mjs';
+import { listTranslationSets, loadTranslationById } from '../src/lib/englishTranslationSourceTruth.mjs';
 
 const BASE = 'http://127.0.0.1:4321';
 const auditDir = path.resolve(process.cwd(), '../ffv-audit');
@@ -101,11 +102,13 @@ function reviewPass(taskId) {
   };
 }
 
-function reviewRepair(taskId) {
+function reviewRepair(task, record) {
   return {
     schema: 'kianos.english.writing.review-return.v1',
-    taskId,
+    taskId: task.id,
     reviewOf: 'FIRST_DRAFT',
+    attemptSubmittedAt: record.firstSubmittedAt,
+    sourceHash: task.sourceHash,
     verdict: 'REPAIR_NEEDED',
     firstFailureLayer: 'Content',
     repairScope: 'the explanation after the core claim',
@@ -114,11 +117,14 @@ function reviewRepair(taskId) {
   };
 }
 
-function repairCompleteNoDebt(taskId) {
+function repairCompleteNoDebt(task, record) {
   return {
     schema: 'kianos.english.writing.repair-return.v1',
-    taskId,
+    taskId: task.id,
     repairOf: 'REGENERATION',
+    attemptSubmittedAt: record.firstSubmittedAt,
+    regenerationSubmittedAt: record.regenerationSubmittedAt,
+    sourceHash: task.sourceHash,
     verdict: 'REPAIR_COMPLETE',
     reason: 'The learner independently supplied the missing mechanism; no reusable long-term target is justified from this one synthetic case.',
     memoryAdmission: { admit: false }
@@ -183,11 +189,12 @@ async function repairReturnJourney(browser, task) {
 
     // Structured return remains supported, but it is intentionally an advanced evidence path.
     await openAdvancedReview(page);
-    await page.locator('[data-review-return]').fill(JSON.stringify(reviewRepair(task.id)));
+    let record = await readWritingRecord(page, task.id);
+    await page.locator('[data-review-return]').fill(JSON.stringify(reviewRepair(task, record)));
     await page.locator('[data-import-review]').click();
     await page.locator('[data-runtime-stage="repair"]').waitFor({ state: 'visible' });
 
-    let record = await readWritingRecord(page, task.id);
+    record = await readWritingRecord(page, task.id);
     check(record?.state === 'REPAIR_NEEDED', 'problem_enters_smallest_repair');
     check(record?.reviewReturn?.firstFailureLayer === 'Content', 'repair_preserves_first_meaningful_failure');
     check(await page.locator('[data-writing-evidence-panel]').isHidden(), 'active_repair_has_no_transfer_attention');
@@ -196,7 +203,7 @@ async function repairReturnJourney(browser, task) {
     await page.goto(`${BASE}/english/`, { waitUntil: 'domcontentloaded' });
     check(await page.locator('[data-english-resume]').isHidden(), 'website_does_not_auto_rank_active_writing_repair');
 
-    await page.evaluate((taskId) => {
+    await page.evaluate(({ taskId, taskSourceHash }) => {
       const day = new Date().toLocaleDateString('en-CA');
       localStorage.setItem('kianos-english-session-instruction-v1', JSON.stringify({
         schema: 'kianos.english.session-instruction.v1',
@@ -208,12 +215,13 @@ async function repairReturnJourney(browser, task) {
           step_id: 'writing-repair',
           task: 'writing',
           object_id: taskId,
+          source_hash: taskSourceHash,
           label: 'Writing repair',
           note: 'FFV exact repair return'
         }],
         return_policy: { on_finish: 'english_home' }
       }));
-    }, task.id);
+    }, { taskId: task.id, taskSourceHash: task.sourceHash });
     await page.reload({ waitUntil: 'domcontentloaded' });
     await page.locator('[data-english-resume]').waitFor({ state: 'visible' });
     check((await page.locator('[data-english-resume-title]').textContent()) === 'Writing repair', 'chat_session_surfaces_selected_writing_repair');
@@ -227,7 +235,8 @@ async function repairReturnJourney(browser, task) {
     await page.locator('[data-lock-regeneration]').click();
     await page.locator('[data-runtime-stage="repair-check"]').waitFor({ state: 'visible' });
 
-    await page.locator('[data-repair-return]').fill(JSON.stringify(repairCompleteNoDebt(task.id)));
+    record = await readWritingRecord(page, task.id);
+    await page.locator('[data-repair-return]').fill(JSON.stringify(repairCompleteNoDebt(task, record)));
     await page.locator('[data-import-repair]').click();
     await page.locator('[data-runtime-stage="repair-complete"]').waitFor({ state: 'visible' });
 
@@ -276,11 +285,13 @@ async function repairReturnJourney(browser, task) {
 
     // Cross-lane learner state remains evidence only. Website must not recreate
     // the retired cross-task priority table; Chat owns Resume selection.
+    const translationSummary = listTranslationSets()[0];
+    const translationTask = loadTranslationById(translationSummary.id);
     await setJson(page, 'kianos-translation-last-location-v1', {
-      id: 'translation-reconstruct-fixture',
-      title: 'Translation · unfinished reconstruction',
+      id: translationTask.objectId,
+      title: translationTask.title,
       state: 'RECONSTRUCT',
-      href: '/translation/',
+      href: `/translation/${encodeURIComponent(translationTask.objectId)}/`,
       updatedAt: '2026-09-13T10:02:00.000Z'
     });
     await setJson(page, 'kianos-writing-last-location-v1', {
@@ -304,7 +315,8 @@ async function repairReturnJourney(browser, task) {
       steps: [{
         step_id: 'translation-reconstruct',
         task: 'translation',
-        object_id: 'translation-reconstruct-fixture',
+        object_id: translationTask.objectId,
+        source_hash: translationTask.sourceHashes.renderedObject,
         label: 'Translation · unfinished reconstruction',
         note: 'Chat selected from current English evidence'
       }],
@@ -313,7 +325,7 @@ async function repairReturnJourney(browser, task) {
     await page.reload({ waitUntil: 'domcontentloaded' });
     await page.locator('[data-english-resume]').waitFor({ state: 'visible' });
     check((await page.locator('[data-english-resume-title]').textContent()) === 'Translation · unfinished reconstruction', 'chat_session_owns_cross_lane_resume_selection');
-    check((await page.locator('[data-english-resume-link]').getAttribute('href'))?.includes('translation-reconstruct-fixture'), 'chat_session_routes_to_selected_cross_lane_object');
+    check((await page.locator('[data-english-resume-link]').getAttribute('href'))?.includes(translationTask.objectId), 'chat_session_routes_to_selected_cross_lane_object');
 
     await clearEnglishResumeFixtures(page);
   } finally {

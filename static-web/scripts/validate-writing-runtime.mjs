@@ -60,6 +60,7 @@ const t2 = '2026-09-12T12:10:00.000Z';
 const t3 = '2026-09-12T12:15:00.000Z';
 
 let planned = createInitialWritingRecord(small, [], t0);
+planned.binding = { source_hash: small.sourceHash, prior_exposure: 'unknown', assistance: 'unassisted', legacy_unversioned: false };
 expectThrow(() => lockFirstAttempt(planned, { planMode: 'planned', firstPlan: '', firstDraft: 'Complete draft.' }, t1), 'PLANNED_MODE_MUST_CAPTURE_REAL_PLAN');
 planned = lockFirstAttempt(planned, {
   planMode: 'planned',
@@ -71,6 +72,7 @@ check(planned.firstPlan === 'inform change -> bring device -> reply if absent', 
 check(planned.firstDraft.includes('complete synthetic first draft'), 'FIRST_DRAFT_NOT_PRESERVED');
 
 let direct = createInitialWritingRecord(big, [], t0);
+direct.binding = { source_hash: big.sourceHash, prior_exposure: 'unknown', assistance: 'unassisted', legacy_unversioned: false };
 direct = lockFirstAttempt(direct, {
   planMode: 'direct',
   firstPlan: '',
@@ -89,6 +91,8 @@ const passReturn = validateWritingReviewReturn({
   schema: WRITING_REVIEW_RETURN_SCHEMA,
   taskId: small.id,
   reviewOf: 'FIRST_DRAFT',
+  attemptSubmittedAt: planned.firstSubmittedAt,
+  sourceHash: small.sourceHash,
   verdict: 'PASS_ACCEPTABLE',
   firstFailureLayer: null,
   repairScope: null,
@@ -104,6 +108,8 @@ const repairReturn = validateWritingReviewReturn({
   schema: WRITING_REVIEW_RETURN_SCHEMA,
   taskId: big.id,
   reviewOf: 'FIRST_DRAFT',
+  attemptSubmittedAt: direct.firstSubmittedAt,
+  sourceHash: big.sourceHash,
   verdict: 'REPAIR_NEEDED',
   firstFailureLayer: 'Content',
   repairScope: 'development after the core message',
@@ -124,6 +130,9 @@ const completeNoDebt = validateWritingRepairReturn({
   schema: WRITING_REPAIR_RETURN_SCHEMA,
   taskId: big.id,
   repairOf: 'REGENERATION',
+  attemptSubmittedAt: repairRecord.firstSubmittedAt,
+  regenerationSubmittedAt: repairRecord.regenerationSubmittedAt,
+  sourceHash: big.sourceHash,
   verdict: 'REPAIR_COMPLETE',
   reason: 'The named development gap is now repaired.',
   memoryAdmission: { admit: false }
@@ -137,6 +146,9 @@ const completeWithTarget = validateWritingRepairReturn({
   schema: WRITING_REPAIR_RETURN_SCHEMA,
   taskId: big.id,
   repairOf: 'REGENERATION',
+  attemptSubmittedAt: repairRecord.firstSubmittedAt,
+  regenerationSubmittedAt: repairRecord.regenerationSubmittedAt,
+  sourceHash: big.sourceHash,
   verdict: 'REPAIR_COMPLETE',
   reason: 'The repair works, but the repeated generation problem is reusable across prompts.',
   memoryAdmission: {
@@ -155,6 +167,9 @@ const stillDownstream = validateWritingRepairReturn({
   schema: WRITING_REPAIR_RETURN_SCHEMA,
   taskId: big.id,
   repairOf: 'REGENERATION',
+  attemptSubmittedAt: repairRecord.firstSubmittedAt,
+  regenerationSubmittedAt: repairRecord.regenerationSubmittedAt,
+  sourceHash: big.sourceHash,
   verdict: 'REPAIR_STILL_NEEDED',
   continuation: WRITING_REPAIR_CONTINUATIONS.INDEPENDENT_DOWNSTREAM,
   nextFailureLayer: 'Language',
@@ -171,6 +186,9 @@ expectThrow(() => validateWritingRepairReturn({
   schema: WRITING_REPAIR_RETURN_SCHEMA,
   taskId: big.id,
   repairOf: 'REGENERATION',
+  attemptSubmittedAt: repairRecord.firstSubmittedAt,
+  regenerationSubmittedAt: repairRecord.regenerationSubmittedAt,
+  sourceHash: big.sourceHash,
   verdict: 'REPAIR_STILL_NEEDED',
   continuation: WRITING_REPAIR_CONTINUATIONS.INDEPENDENT_DOWNSTREAM,
   nextFailureLayer: 'Task',

@@ -8,6 +8,7 @@ import {
   WRITING_TRUE_EXAM_ENTRY_POLICY,
   getFirstProtectedTrueExamTask,
   inspectWritingTrueExamEntry,
+  listWritingExamRuntimeTasks,
   listWritingRuntimeTasks,
   loadWritingRuntimeTask
 } from '../src/lib/englishWritingRuntimeTask.mjs';
@@ -48,7 +49,8 @@ assert.ok(expectedFirst, 'CURRENT Writing source must expose a source-ready prot
 const entry = inspectWritingTrueExamEntry();
 assert.equal(entry.status, 'ready');
 assert.equal(entry.policy.schema, WRITING_TRUE_EXAM_ENTRY_POLICY.schema);
-assert.equal(entry.policy.protectedCatalogVisibleBeforeGate, false);
+assert.equal(entry.policy.protectedCatalogVisibleBeforeGate, true);
+assert.equal(entry.policy.protectedPromptVisibleBeforeOpen, false);
 assert.equal(entry.policy.engineeringAttemptConsumesTrueExam, false);
 assert.deepEqual(entry.syntheticGateIds, synthetic.map((task) => task.id));
 assert.equal(entry.firstExam.id, expectedFirst.id, 'entry selection must use canonical source order, not a UI-specific hard-code');
@@ -69,11 +71,22 @@ assert.deepEqual(examTask.officialEvidence?.context, sourceTask.context);
 assert.equal(forbiddenPaths(examTask.learnerTask).length, 0, 'clean true-exam learner projection must not leak answers/analysis/model prose');
 
 const routes = listWritingRuntimeTasks();
-assert.equal(routes.length, 3, 'current cold-start learner route exposes two synthetic calibration tasks plus one protected true-exam entry');
-assert.deepEqual(routes.slice(0, 2).map((task) => task.id), synthetic.map((task) => task.id));
-assert.equal(routes[2].id, examTask.id);
+const examRoutes = listWritingExamRuntimeTasks();
+assert.equal(routes.length, synthetic.length + examRoutes.length,
+  'current learner route exposes skippable synthetic calibration plus every source-ready exam identity');
+assert.deepEqual(routes.slice(0, synthetic.length).map((task) => task.id), synthetic.map((task) => task.id));
+assert.deepEqual(
+  routes.slice(synthetic.length).map((task) => task.id),
+  examRoutes.map((task) => task.id),
+  'exam choices must preserve Current source-ready catalog order'
+);
+assert.equal(routes[synthetic.length].id, examTask.id);
 assert.equal(loadWritingRuntimeTask(examTask.id).sourceKind, 'exam');
-assert.throws(() => loadWritingRuntimeTask(currentExamCatalog.find((task) => task.id !== examTask.id)?.id || '__missing__'), /WRITING_RUNTIME_ROUTE_NOT_RELEASED/);
+assert.ok(examRoutes.every((task) => task.sourceKind === 'exam'));
+if (examRoutes.length > 1) {
+  assert.equal(loadWritingRuntimeTask(examRoutes[1].id).sourceKind, 'exam',
+    'a learner-selected source-ready exam identity must be loadable without synthetic completion');
+}
 
 const fakeExam = {
   id: 'WRITING-EXAM-FIXTURE',
@@ -90,22 +103,24 @@ const route = read('src/pages/writing/[id].astro');
 const gate = read('src/components/WritingProtectedExamGate.astro');
 assert.match(home, /data-true-exam-entry/);
 assert.match(home, /data-writing-task-card/);
-assert.match(home, /completed === tasks\.length/);
 assert.match(home, /finalStates/);
+assert.match(home, /起步练习可跳过；真题由你选择/, 'Home must state that calibration is skippable');
+assert.match(home, /data-writing-exam-select/, 'source-ready exam identities must be learner-selectable without calibration completion');
 assert.doesNotMatch(home, /data-synthetic-gate/, 'manual first-learning checkbox must not own true-exam qualification');
 assert.match(route, /WritingProtectedExamGate/);
 assert.match(route, /listWritingRuntimeTasks/);
-assert.match(gate, /PASS_ACCEPTABLE/);
-assert.match(gate, /REPAIR_COMPLETE/);
-assert.match(gate, /TRANSFER_PENDING/);
+assert.match(gate, /data-writing-open-task/, 'protected prompt must require an explicit open action');
 assert.match(gate, /data-exam-runtime/);
+assert.match(gate, /kianos:writing-task-opened/, 'opening must explicitly release the existing runtime');
+assert.doesNotMatch(gate, /localStorage\.setItem/, 'unopened protected gate must not create learner state or exposure');
 
 console.log(JSON.stringify({
   schema: 'kianos.english.writing.true-exam-entry-validation.v2',
   status: 'PASS',
   checks: {
     canonicalFirstExamSelection: true,
-    onlyOneProtectedExamReleased: true,
+    sourceReadyExamCatalogSelectable: true,
+    protectedPromptHiddenUntilOpen: true,
     cleanProjectionPreserved: true,
     sourcePromptMaterialContextPreserved: true,
     sharedRuntimeAcceptsExamShapeViaSyntheticFixture: true,

@@ -157,10 +157,11 @@ export function sourceTruthBlocks(unit, prefix = 'm') {
 export function overlayQuestion(question, unit) {
   const id = String(question?.id || question?.question_id || '');
   const replacement = unit?.question_overlays?.[id] || {};
+  const replacementOptions = optionEntries(replacement.options);
   const projected = {
     ...learnerSafeClone(question),
     ...(replacement.prompt ? { prompt: replacement.prompt } : {}),
-    ...(replacement.options ? { options: learnerSafeClone(replacement.options) } : {})
+    ...(replacementOptions.length ? { options: learnerSafeClone(replacement.options) } : {})
   };
   return learnerSafeClone(projected);
 }
@@ -247,8 +248,9 @@ export function projectObjectiveSourceTruth(item) {
   if (directions) context.directions = directions;
 
   let candidates = item?.candidates || [];
-  if (unit.shared_option_pool && typeof unit.shared_option_pool === 'object') {
-    candidates = optionEntries(unit.shared_option_pool);
+  const sharedOptions = optionEntries(unit.shared_option_pool);
+  if (sharedOptions.length) {
+    candidates = sharedOptions;
   } else if (item?.task === 'cloze') {
     const seen = new Set();
     candidates = questions.flatMap((question) => optionEntries(question?.options)).filter((entry) => {
@@ -350,7 +352,8 @@ export function projectWritingRuntimeSourceTruth(task) {
       }
     : {
         ...(task.learnerTask || {}),
-        visual_scenario: [...visuals, ...contexts, ...materials].join('\n\n') || task.learnerTask?.visual_scenario || '',
+        visual_scenario: '', // Original visual, not provenance prose or an interpreted substitute.
+        images: (context.images || []).map(image => ({asset_path:image.asset_path, alt:'原始题面图表', asset_sha256:image.asset_sha256})),
         directions: officialPrompt || task.learnerTask?.directions || '',
         official: officialEvidence
       };

@@ -86,11 +86,15 @@ async function openImporter(page) {
   await page.locator('[data-transfer-input]').waitFor({ state: 'visible' });
 }
 
-async function importReturn(page, payload) {
+async function importReturn(page, payload, { expectSuccess = true, expectHide = true } = {}) {
   await openImporter(page);
   await page.locator('[data-transfer-input]').fill(returnText(payload));
   await page.locator('[data-transfer-apply]').click();
-  await page.waitForFunction(() => document.querySelector('[data-transfer-import]')?.hasAttribute('hidden'));
+  if (expectSuccess && expectHide) {
+    await page.waitForFunction(() => document.querySelector('[data-transfer-import]')?.hasAttribute('hidden'));
+  } else if (expectSuccess) {
+    await page.waitForFunction(() => /已应用/.test(document.querySelector('[data-transfer-status]')?.textContent || ''));
+  }
 }
 
 async function failPersistenceOnceThenImport(page, payload, task) {
@@ -192,8 +196,16 @@ async function readingARuntime(browser) {
     );
     const firstId = qid(repair.questions[0], 0);
     const secondId = qid(repair.questions[1], 1);
+    const repairAttempt = await page.evaluate((id) =>
+      JSON.parse(localStorage.getItem(`kianos-reading-attempt-v1:${id}`) || 'null'), repairId);
+    const repairIdentity = {
+      attemptSubmittedAt: repairAttempt?.submittedAt,
+      sourceHash: repairAttempt?.binding?.source_hash
+    };
+    check(Boolean(repairIdentity.attemptSubmittedAt && repairIdentity.sourceHash), 'reading_a_repair_attempt_identity_present');
     const completedReturn = {
       schema: 'kianos.english.objective_review_return.v1', task: 'reading_a', objectId: repairId,
+      ...repairIdentity,
       threads: [{
         threadId: 'ra-runtime-repair', scope: 'shared', itemIds: [firstId, secondId], route: 'reading_a',
         summary: 'option adjudication over-expanded the decisive evidence boundary', repairCompleted: true,
@@ -206,7 +218,7 @@ async function readingARuntime(browser) {
     let claims = await claimsFor(page, 'reading_a');
     check(claims.length === 1 && claims[0].status === 'TRANSFER_PENDING', 'reading_a_repair_return_persists_pending_claim');
     const claimId = claims[0].claimId;
-    await importReturn(page, completedReturn);
+    await importReturn(page, completedReturn, { expectSuccess: true, expectHide: false });
     claims = await claimsFor(page, 'reading_a');
     check(claims.length === 1 && claims[0].claimId === claimId, 'reading_a_duplicate_return_is_idempotent');
 
@@ -297,8 +309,16 @@ async function readingBRuntime(browser) {
 
     const firstId = qid(repairItem.questions[0], 0);
     const secondId = qid(repairItem.questions[1], 1);
+    const repairAttempt = await page.evaluate((id) =>
+      JSON.parse(localStorage.getItem(`kianos-reading-b-attempt-v1:${id}`) || 'null'), repairItem.objectId);
+    const repairIdentity = {
+      attemptSubmittedAt: repairAttempt?.submittedAt,
+      sourceHash: repairAttempt?.binding?.source_hash
+    };
+    check(Boolean(repairIdentity.attemptSubmittedAt && repairIdentity.sourceHash), 'reading_b_repair_attempt_identity_present');
     await importReturn(page, {
       schema: 'kianos.english.objective_review_return.v1', task: 'reading_b', objectId: repairItem.objectId,
+      ...repairIdentity,
       threads: [{
         threadId: 'rb-local-reading', scope: 'local', itemIds: [firstId], route: 'reading',
         summary: 'local discourse representation issue belongs to Reading', repairCompleted: true,
@@ -306,11 +326,12 @@ async function readingBRuntime(browser) {
       }],
       newClaims: [{ sourceThreadId: 'rb-local-reading', statement: 'must not duplicate Reading-owned work' }],
       claimUpdates: []
-    });
+    }, { expectSuccess: false });
     check((await claimsFor(page, 'reading_b')).length === 0, 'reading_b_local_reading_thread_does_not_duplicate_task_debt');
 
     const completedReturn = {
       schema: 'kianos.english.objective_review_return.v1', task: 'reading_b', objectId: repairItem.objectId,
+      ...repairIdentity,
       threads: [{
         threadId: 'rb-coupled-runtime', scope: 'coupled', itemIds: [firstId, secondId], route: 'reading_b',
         summary: 'two placements were swapped because local fit was accepted before global reconciliation', repairCompleted: true,
@@ -323,7 +344,7 @@ async function readingBRuntime(browser) {
     let claims = await claimsFor(page, 'reading_b');
     check(claims.length === 1 && claims[0].status === 'TRANSFER_PENDING', 'reading_b_coupled_repair_persists_pending_claim');
     const claimId = claims[0].claimId;
-    await importReturn(page, completedReturn);
+    await importReturn(page, completedReturn, { expectSuccess: true, expectHide: false });
     claims = await claimsFor(page, 'reading_b');
     check(claims.length === 1 && claims[0].claimId === claimId, 'reading_b_duplicate_return_is_idempotent');
 
