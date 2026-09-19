@@ -9,7 +9,7 @@ import {
 } from '../src/lib/privateControlRuntime.mjs';
 import { EXAM_CHAT_PLAN_KEY } from '../src/lib/examChatPlan.mjs';
 import { XIZONG_MEMORY_STORAGE_KEY, createXizongMemoryState } from '../src/lib/xizongMemoryModel.mjs';
-import { XIZONG_SESSION_KEY } from '../src/lib/xizongSessionInstruction.mjs';
+import { XIZONG_SESSION_KEY, XIZONG_CHAT_SET_KEY } from '../src/lib/xizongSessionInstruction.mjs';
 
 class MemoryStorage {
   constructor(entries = {}) { this.map = new Map(Object.entries(entries)); }
@@ -37,7 +37,7 @@ const planPayload = {
 
 const c1 = {
   schema: PRIVATE_CONTROL_COMMAND_SCHEMA,
-  command_id: 'cmd-1',
+  command_id: 'cmd-plan-1',
   issued_at: new Date(t0).toISOString(),
   study_day: day,
   target: 'exam.chat_plan',
@@ -50,16 +50,14 @@ assert.equal(r1.status, 'APPLIED');
 assert.equal(JSON.parse(storage.getItem(EXAM_CHAT_PLAN_KEY)).next_subject, 'xizong');
 
 const replay = applyPrivateControlCommand(storage, c1, { expectedDay: day, now: t0 + 2000 });
-assert.equal(replay.command_id, 'cmd-1');
+assert.equal(replay.command_id, 'cmd-plan-1');
 assert.equal(readPrivateControlRuntimeState(storage).receipts.length, 1, 'replay must not create another receipt');
 
-const stale = applyPrivateControlCommand(storage, {
+assert.throws(() => applyPrivateControlCommand(storage, {
   ...c1,
-  command_id: 'cmd-old',
-  issued_at: new Date(t0 - 1000).toISOString()
-}, { expectedDay: day, now: t0 + 3000 });
-assert.equal(stale.status, 'STALE');
-assert.equal(JSON.parse(storage.getItem(EXAM_CHAT_PLAN_KEY)).next_subject, 'xizong');
+  payload: { ...planPayload, next_subject: 'english' }
+}, { expectedDay: day, now: t0 + 2500 }), /COMMAND_ID_CONFLICT/,
+'same command id with different payload must fail');
 
 const memory = createXizongMemoryState();
 memory.cards['core:a1-b01-kp01'] = {
@@ -71,50 +69,75 @@ memory.cards['core:a1-b01-kp01'] = {
 };
 storage.setItem(XIZONG_MEMORY_STORAGE_KEY, JSON.stringify(memory));
 
-const c2 = {
+const x1 = {
   schema: PRIVATE_CONTROL_COMMAND_SCHEMA,
-  command_id: 'cmd-2',
-  issued_at: new Date(t0 + 5000).toISOString(),
+  command_id: 'cmd-xz-1',
+  issued_at: new Date(t0 + 3000).toISOString(),
   study_day: day,
   target: 'xizong.session',
-  supersedes: 'cmd-old',
   payload: {
     schema: 'kianos.xizong.session-instruction.v1',
     session_id: 'xz-session-1',
     study_day: day,
-    generated_at: new Date(t0 + 5000).toISOString(),
+    generated_at: new Date(t0 + 3000).toISOString(),
     current_step: 0,
-    steps: [{ step_id:'m1', kind:'MEMORY_REVIEW', card_ids:['core:a1-b01-kp01'] }]
+    steps: [
+      { step_id:'m1', kind:'MEMORY_REVIEW', card_ids:['core:a1-b01-kp01'] },
+      { step_id:'q1', kind:'PRACTICE_SET', question_ids:['xizong-official-2024-n001'] }
+    ]
   }
 };
 
-const badSupersede = applyPrivateControlCommand(storage, c2, { expectedDay: day, now: t0 + 6000 });
-assert.equal(badSupersede.status, 'REJECTED');
-assert.equal(storage.getItem(XIZONG_SESSION_KEY), null, 'bad supersede must not mutate subject state');
-
-const latestId = readPrivateControlRuntimeState(storage).receipts.at(-1).command_id;
-const c3 = { ...c2, command_id: 'cmd-3', supersedes: latestId, issued_at: new Date(t0 + 7000).toISOString(),
-  payload: { ...c2.payload, session_id:'xz-session-2', generated_at:new Date(t0 + 7000).toISOString() } };
-const r3 = applyPrivateControlCommand(storage, c3, { expectedDay: day, now: t0 + 8000 });
-assert.equal(r3.status, 'APPLIED');
-assert.equal(JSON.parse(storage.getItem(XIZONG_SESSION_KEY)).session_id, 'xz-session-2');
+const xr1 = applyPrivateControlCommand(storage, x1, { expectedDay: day, now: t0 + 4000 });
+assert.equal(xr1.status, 'APPLIED');
+assert.equal(JSON.parse(storage.getItem(XIZONG_SESSION_KEY)).session_id, 'xz-session-1');
 assert.equal(JSON.parse(storage.getItem(XIZONG_MEMORY_STORAGE_KEY)).attention['core:a1-b01-kp01'].reviewRequested, true);
+assert.equal(storage.getItem(XIZONG_CHAT_SET_KEY), null,
+  'control receipt may activate current step but must not pre-project later step');
 
-const invalidCard = {
-  ...c3,
-  command_id: 'cmd-4',
-  issued_at: new Date(t0 + 9000).toISOString(),
-  supersedes: 'cmd-3',
+const stateAfterTwoTargets = readPrivateControlRuntimeState(storage);
+assert.equal(stateAfterTwoTargets.active_by_target['exam.chat_plan'].command_id, 'cmd-plan-1');
+assert.equal(stateAfterTwoTargets.active_by_target['xizong.session'].command_id, 'cmd-xz-1',
+  'independent targets must coexist');
+
+const wrongSupersede = {
+  ...x1,
+  command_id: 'cmd-xz-bad',
+  issued_at: new Date(t0 + 5000).toISOString(),
+  supersedes: 'not-active',
+  payload: { ...x1.payload, session_id:'xz-bad', generated_at:new Date(t0 + 5000).toISOString() }
+};
+const rejected = applyPrivateControlCommand(storage, wrongSupersede, { expectedDay: day, now: t0 + 6000 });
+assert.equal(rejected.status, 'REJECTED');
+assert.equal(readPrivateControlRuntimeState(storage).active_by_target['xizong.session'].command_id, 'cmd-xz-1',
+  'rejected command must not replace active target command');
+
+const x2 = {
+  ...x1,
+  command_id: 'cmd-xz-2',
+  issued_at: new Date(t0 + 7000).toISOString(),
+  supersedes: 'cmd-xz-1',
   payload: {
-    ...c3.payload,
-    session_id: 'xz-bad',
-    generated_at: new Date(t0 + 9000).toISOString(),
-    steps: [{step_id:'m1',kind:'MEMORY_REVIEW',card_ids:['core:missing']}]
+    ...x1.payload,
+    session_id:'xz-session-2',
+    generated_at:new Date(t0 + 7000).toISOString(),
+    steps:[{step_id:'m2',kind:'MEMORY_REVIEW',card_ids:['core:a1-b01-kp01']}]
   }
 };
-const rejected = applyPrivateControlCommand(storage, invalidCard, { expectedDay: day, now: t0 + 10000 });
-assert.equal(rejected.status, 'REJECTED');
-assert.equal(JSON.parse(storage.getItem(XIZONG_SESSION_KEY)).session_id, 'xz-session-2',
-  'rejected newer command must preserve prior subject state');
+const xr2 = applyPrivateControlCommand(storage, x2, { expectedDay: day, now: t0 + 8000 });
+assert.equal(xr2.status, 'APPLIED');
+assert.equal(JSON.parse(storage.getItem(XIZONG_SESSION_KEY)).session_id, 'xz-session-2');
+assert.equal(readPrivateControlRuntimeState(storage).active_by_target['xizong.session'].command_id, 'cmd-xz-2');
 
-console.log('PASS private control prototype: typed dispatch, replay, stale, supersede and rejected-command isolation');
+const staleX = {
+  ...x2,
+  command_id: 'cmd-xz-old',
+  issued_at: new Date(t0 + 6500).toISOString(),
+  supersedes: 'cmd-xz-2',
+  payload: { ...x2.payload, session_id:'xz-old', generated_at:new Date(t0 + 6500).toISOString() }
+};
+const stale = applyPrivateControlCommand(storage, staleX, { expectedDay: day, now: t0 + 9000 });
+assert.equal(stale.status, 'STALE');
+assert.equal(JSON.parse(storage.getItem(XIZONG_SESSION_KEY)).session_id, 'xz-session-2');
+
+console.log('PASS private control prototype: per-target control slots, signature replay guard, stale/supersede isolation');
