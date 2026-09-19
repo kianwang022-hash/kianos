@@ -172,9 +172,10 @@ try {
 
   const visibleText = await page.locator('main, [data-exam-home]').allInnerTexts();
   const combined = visibleText.join('\n');
-  for (const forbidden of ['CONTINUE', 'SYSTEM GUIDE', 'BLOCK FRAMEWORK', 'KP RECALL', 'Chat 安排下一步', 'evidence']) {
+  for (const forbidden of ['CONTINUE', 'SYSTEM GUIDE', 'BLOCK FRAMEWORK', 'KP RECALL', 'Chat 安排下一步', 'evidence', 'undefined']) {
     check(!combined.includes(forbidden), 'home_no_engineering_copy_' + forbidden.replace(/\W+/g, '_'));
   }
+  check((await page.locator('[data-exam-next]').innerText()).startsWith('西综 · '), 'home_next_action_has_subject_label');
   check(await page.locator('.politicsTodayCard').isHidden(), 'home_no_nested_politics_today_dashboard');
   check(await page.locator('.politicsRecentCard').isHidden(), 'home_no_nested_politics_recent_dashboard');
 
