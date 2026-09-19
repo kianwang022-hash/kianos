@@ -24,6 +24,9 @@ function politicsReviewBatchId(catalog, review, { day = '', filter = 'all', subj
     scope: { filter: String(filter || 'all'), subject: String(subject || 'all') },
     items: review.items.map((item) => ({
       question_id: item.id,
+      current_unit_key: item.unitKey,
+      current_unit_id: item.unitId,
+      current_unit_href: item.unitHref,
       first_owner: item.firstAttemptOwnerKey,
       first_observed_at: item.firstAttempt?.observed_at || null,
       first_outcome: item.firstAttempt?.outcome || null,
