@@ -39,7 +39,7 @@ Accepted K audit entry:
 
 Learning candidate owner:
 
-`content/xizong/knowledge/learner/e-reproductive-breast-learning.json`
+`content/xizong/knowledge/learner/e-reproductive-breast-learning-candidate.json`
 
 Learning construction evidence:
 
