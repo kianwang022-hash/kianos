@@ -39,19 +39,27 @@ Read the candidate Acceptance for the executed path matrix, current proof refs,
 remaining dependencies and historical reconciliation. This cursor is routing,
 not a duplicate Acceptance ledger and not learner progress.
 
-Next work is bounded to the named closures:
+Post-audit closure state:
 
-1. shared private learner-data capture/restore and failed-read write safety;
-2. accepted typed Xizong Chat Return plus exact interrupted-task Resume;
-3. authoritative recovery of the unresolved B1 inline original-image references;
-4. remaining actual-Mac visual/Human Gate, including long System-spine readability.
+1. shared private learner-data capture/restore + failed-read write safety → **CLOSED ON MAIN** via PR #492 / `b7dc77db`;
+2. typed Xizong Chat Return + exact interrupted Resume → **IN #491 CANDIDATE** with Ubuntu/macOS bounded proof; final latest-main merge-ref proof is active;
+3. B1 KP03 original inline PNGs → **SOURCE MISSING**; neither Current nor archived Git history ever contained the files, so engineering must not guess replacements;
+4. long System-spine readability → **HUMAN GATE PASS** on real macOS 14, 1512×982; accepted production files are in this candidate.
 
-The shared-data defect belongs to the shared platform. Do not create a Xizong
-shadow checkpoint store. Incomplete Systems retain their own readiness owners.
+The next engineering action is therefore only:
 
-Revalidate only the affected paths after each real closure, then reconsider
-integration readiness. A synthetic browser run, screenshot, merge or work cursor
-never creates learner `U`.
+```text
+latest-main PR #491 merge-ref
+→ rerun fresh independent probes + bounded regression
+→ reconcile Acceptance headline
+→ merge if no new learner-facing blocker appears
+```
+
+The missing B1 originals remain a scoped upstream Source limitation and should
+be filled only if/when the authoritative files are recovered. Do not reopen the
+broad audit, build a Xizong shadow checkpoint store, or manufacture substitute
+media. Incomplete Systems retain their own readiness owners. Real learner `U`
+remains real-use-only.
 
 ---
 
