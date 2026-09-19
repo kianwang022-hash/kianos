@@ -1,7 +1,8 @@
 import {
   XIZONG_MEMORY_STORAGE_KEY,
   activeRepairTasks,
-  normalizeXizongMemoryState
+  normalizeXizongMemoryState,
+  todayMemoryQueue
 } from './xizongMemoryModel.mjs';
 import { studyDayAt } from './studyTimer.mjs';
 
@@ -238,13 +239,33 @@ export function buildXizongDailyEvidencePacket(storage, {
       system_recall: systemRecallEvents
     },
     current: {
+      memory_today: todayMemoryQueue(memory).map((card) => ({
+        card_id: String(card?.id || ''),
+        family: String(card?.family || ''),
+        system_id: String(card?.systemId || ''),
+        canonical_id: String(card?.canonicalId || ''),
+        block_id: String(card?.blockId || ''),
+        kp_id: String(card?.kpId || ''),
+        display_id: String(card?.displayId || ''),
+        title: String(card?.title || ''),
+        source_hash: String(card?.sourceHash || ''),
+        weak_weight: Number(card?.weakWeight || 0),
+        review_requested: card?.reviewRequested === true
+      })),
       active_repairs: activeRepairTasks(memory).map((task) => ({
         task_id: String(task?.id || ''),
         system_id: String(task?.systemId || ''),
         block_id: String(task?.blockId || ''),
         kp_id: String(task?.kpId || ''),
+        title: String(task?.title || ''),
+        reason: String(task?.reason || ''),
+        action: String(task?.action || ''),
         priority: String(task?.priority || ''),
-        origin: String(task?.origin || '')
+        origin: String(task?.origin || ''),
+        source_question_ids: Array.isArray(task?.sourceQuestionIds) ? task.sourceQuestionIds.map(String) : [],
+        block_href: String(task?.blockHref || ''),
+        return_href: String(task?.returnHref || ''),
+        created_at: String(task?.createdAt || '')
       }))
     },
     coverage: {
@@ -261,7 +282,8 @@ export function buildXizongDailyEvidencePacket(storage, {
       source_contact: 'original Lecture contact confirmation',
       block_recall: 'first-pass Block reconstruction completion timestamp; repeated later-pass Block Recall is not yet a separate executor',
       block_complete: 'first-pass Block completion timestamp; not a mastery claim beyond the existing completion contract',
-      system_recall: 'append-preserved System reconstruction event when current prototype history exists; legacy latest-only state remains labeled'
+      system_recall: 'append-preserved System reconstruction event when current prototype history exists; legacy latest-only state remains labeled',
+      memory_today: 'current native attention queue only; presence is not mastery debt and Chat may thin, defer, or ignore it based on current evidence'
     }
   };
 
@@ -275,6 +297,7 @@ export function buildXizongDailyEvidencePacket(storage, {
     question_attempts: questionEvents.length,
     repair_events: repairEvents.length,
     system_recall_events: systemRecallEvents.length,
+    memory_today: packet.current.memory_today.length,
     active_repairs: packet.current.active_repairs.length
   };
 
