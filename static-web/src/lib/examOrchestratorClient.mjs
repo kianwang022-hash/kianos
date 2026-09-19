@@ -22,6 +22,14 @@ import { buildExamStudyTimeOverlay } from './examStudyTime.mjs';
 import { buildChatControlledExamReadModel } from './examPlanReadModel.mjs';
 import { buildHomeDailyLearningPacket } from './dailyLearningPacketRuntime.mjs';
 import { serializeDailyLearningPacketForChat } from './dailyLearningPacket.mjs';
+import {
+  XIZONG_SESSION_KEY,
+  activateXizongSessionNext,
+  validateXizongSessionInstruction
+} from './xizongSessionInstruction.mjs';
+import { readXizongPendingChatReturnState } from './xizongPendingChatReturn.mjs';
+import { readXizongSystemWuPendingState } from './xizongSystemWuReturn.mjs';
+import { resolvePoliticsMemoryResume } from './politicsMemoryRuntime.mjs';
 
 const names = { xizong: '西综', english: '英语', politics: '政治' };
 const PRODUCT_FAMILIES = ['xizong', 'english', 'english-exam', 'reading', 'cloze', 'reading-b', 'external-reading', 'translation', 'writing', 'politics', 'vocabulary'];
@@ -57,9 +65,11 @@ export function initExamHome(root) {
   const $$ = (selector) => [...root.querySelectorAll(selector)];
   const catalog = JSON.parse($('[data-exam-catalog]').textContent);
   const politicsCatalog = JSON.parse($('[data-exam-daily-politics-catalog]')?.textContent || 'null');
+  const politicsMemoryCatalog = JSON.parse($('[data-exam-politics-memory-catalog]')?.textContent || 'null');
   const xizongPacketIndex = JSON.parse($('[data-exam-daily-xizong-index]')?.textContent || '[]');
   $('[data-exam-catalog]').remove();
   $('[data-exam-daily-politics-catalog]')?.remove();
+  $('[data-exam-politics-memory-catalog]')?.remove();
   $('[data-exam-daily-xizong-index]')?.remove();
 
   let bytes = null;
@@ -128,6 +138,104 @@ export function initExamHome(root) {
       : { href: fallback, title: label, sessionRef: null };
   };
 
+  const safeControlledHref = (href) => {
+    const raw = typeof href === 'string' ? href : '';
+    const base = catalog.base || '/';
+    const normalized = base !== '/' && raw.startsWith('/') && !raw.startsWith(base)
+      ? `${base.replace(/\/$/, '')}${raw}`
+      : raw;
+    return safeProductHref(normalized, base);
+  };
+
+  const latestXizongTypedReturn = () => {
+    try {
+      const today = day();
+      const blockPending = readXizongPendingChatReturnState(localStorage);
+      const systemPending = readXizongSystemWuPendingState(localStorage);
+      const candidates = [
+        ...Object.values(blockPending.pending_by_object || {})
+          .filter((row) => (!row?.study_day || row.study_day === today)
+            && typeof row?.return_href === 'string'
+            && row.return_href.startsWith('/xizong/'))
+          .map((row) => ({
+            kind: 'BLOCK_RETURN',
+            href: row.return_href,
+            title: '核对当前 Block',
+            sessionRef: row.return_id || row.return_packet?.return_id || null,
+            receivedAt: row.received_at || ''
+          })),
+        ...Object.values(systemPending.pending_by_system || {})
+          .filter((row) => (!row?.study_day || row.study_day === today) && row?.system_id)
+          .map((row) => ({
+            kind: 'SYSTEM_WU_RETURN',
+            href: '/xizong/practice/' + encodeURIComponent(row.system_id) + '/',
+            title: '核对当前 W/U',
+            sessionRef: row.return_id || row.return_packet?.return_id || null,
+            receivedAt: row.received_at || ''
+          }))
+      ].sort((a, b) => String(b.receivedAt).localeCompare(String(a.receivedAt)));
+      const current = candidates[0] || null;
+      const href = safeControlledHref(current?.href);
+      return current && href && current.sessionRef
+        ? { href, title: current.title, sessionRef: current.sessionRef }
+        : null;
+    } catch {
+      return null;
+    }
+  };
+
+  const xizongChatContinue = (fallback) => {
+    const typedReturn = latestXizongTypedReturn();
+    if (typedReturn) return typedReturn;
+
+    try {
+      const raw = JSON.parse(localStorage.getItem(XIZONG_SESSION_KEY) || 'null');
+      if (!raw) return fallback;
+      const instruction = validateXizongSessionInstruction(raw, day());
+      let holdoutYears = [];
+      try {
+        const parsed = JSON.parse(localStorage.getItem('kianos:xizong:full-paper-holdout-years:v1') || '[]');
+        holdoutYears = Array.isArray(parsed) ? parsed : [];
+      } catch {}
+      const result = activateXizongSessionNext(localStorage, instruction, {
+        holdoutYears,
+        now: Date.now()
+      });
+      const next = result?.next || null;
+      const href = safeControlledHref(next?.href);
+      if (!next || !href) return fallback;
+      return {
+        href,
+        title: next.step?.label || (
+          next.step?.kind === 'MEMORY_REVIEW' ? 'Memory 回收'
+            : next.step?.kind === 'PRACTICE_SET' ? 'Chat 自选题'
+              : next.step?.kind === 'SYSTEM_RECALL' ? '系统回忆'
+                : next.step?.kind === 'BLOCK_RETURN' ? '回到当前 Block'
+                  : '继续当前复习'
+        ),
+        sessionRef: instruction.session_id
+      };
+    } catch {
+      return fallback;
+    }
+  };
+
+  const politicsChatContinue = (fallback) => {
+    try {
+      const memory = resolvePoliticsMemoryResume(localStorage, politicsMemoryCatalog, { expectedDay: day() });
+      if (memory?.status !== 'ACTIVE') return fallback;
+      const href = safeControlledHref(`${catalog.base}politics/memory/`);
+      if (!href) return fallback;
+      return {
+        href,
+        title: memory.candidate?.prompt ? `今日记忆 · ${memory.candidate.prompt}` : '今日记忆',
+        sessionRef: memory.plan?.plan_id || memory.plan_id || null
+      };
+    } catch {
+      return fallback;
+    }
+  };
+
   function publishPlanReadModel() {
     root.__kianosExamPlanReadModel = readModel;
     root.dispatchEvent(new CustomEvent('kianos:exam-plan-read-model', { detail: readModel, bubbles: true }));
@@ -135,18 +243,22 @@ export function initExamHome(root) {
   }
 
   function render() {
+    const xizongNative = nativeLink(
+      '[data-xizong-continue]',
+      '[data-xizong-continue-title]',
+      `${catalog.base}xizong/`,
+      '选择西综学习位置'
+    );
+    const politicsNative = nativeLink(
+      '[data-politics-continue]',
+      '[data-politics-continue-title]',
+      `${catalog.base}politics/`,
+      '选择政治学习位置'
+    );
     const native = {
-      xizong: { subject: 'xizong', ...nativeLink('[data-xizong-continue]', '[data-xizong-continue-title]', `${catalog.base}xizong/`, '选择西综学习位置') },
+      xizong: { subject: 'xizong', ...xizongChatContinue(xizongNative) },
       english: { subject: 'english', ...nativeLink('[data-english-resume-link]', '[data-english-resume-title]', `${catalog.base}english/`, '选择英语完整任务') },
-      politics: {
-        subject: 'politics',
-        ...nativeLink(
-          '[data-politics-continue]',
-          '[data-politics-continue-title]',
-          `${catalog.base}politics/`,
-          '选择政治学习位置'
-        )
-      }
+      politics: { subject: 'politics', ...politicsChatContinue(politicsNative) }
     };
 
     const sourceProfile = readable ? profile : emptyExamProfile();
@@ -502,13 +614,16 @@ export function initExamHome(root) {
       detail: { subject: null }
     }));
   };
-  window.addEventListener('kianos:study-timer-change', refreshFromExternalTime);
-  window.addEventListener('kianos:control-command-applied', () => {
-    if ($$('dialog').some((dialog) => dialog.open)) return;
+  const refreshFromControl = () => {
+    if ($('dialog').some((dialog) => dialog.open)) return;
     load();
     render();
     requestSubjectContinues();
-  });
+  };
+  window.addEventListener('kianos:study-timer-change', refreshFromExternalTime);
+  window.addEventListener('kianos:control-command-applied', refreshFromControl);
+  window.addEventListener('kianos:private-control-consumed', refreshFromControl);
+  window.addEventListener('kianos:politics-memory-plan-updated', refreshFromControl);
   window.addEventListener('kianos:subject-continue-updated', (event) => {
     if (!event?.detail?.subject) return;
     if (!$$('dialog').some((dialog) => dialog.open)) render();
