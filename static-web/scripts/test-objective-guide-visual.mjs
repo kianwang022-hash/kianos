@@ -58,6 +58,7 @@ function assertSingleVisualOwner() {
   const basePath = path.join(webRoot, 'src/layouts/Base.astro');
   const routeSource = fs.readFileSync(routePath, 'utf8');
   const baseSource = fs.readFileSync(basePath, 'utf8');
+  const englishSource = fs.readFileSync(path.join(webRoot, 'src/styles/english.css'), 'utf8');
 
   check(
     routeSource.includes("import '../styles/english-objective-guide.css';"),
@@ -65,6 +66,7 @@ function assertSingleVisualOwner() {
   );
   check(!/<style(?:\s|>)/i.test(routeSource), 'objective_guide_has_no_inline_style_layer');
   check(!baseSource.includes('english-objective-guide.css'), 'objective_guide_visual_owner_not_global_base_layer');
+  check(!englishSource.includes('objectiveLearn'), 'objective_guide_has_no_legacy_english_css_owner');
 }
 
 const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4322'], {
