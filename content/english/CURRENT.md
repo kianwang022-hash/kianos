@@ -13,10 +13,9 @@ Shared-platform routing follows `AUTHORITY_INHERITANCE_CONTRACT.md` and `AUTHORI
 
 ## Current engineering state
 
-**Integration PR:** #498 — `work/english-final-integration-20260919-v3`  
-**Current base:** `main@d7406f578677bcd6e7944223dfb02f4000014872`  
-**Latest product-proof head:** `d6323cb318e653f53197e3ea09eeb15a7d122e4d`  
-**Branch relation:** ahead of Current main, behind by 0 at reconciliation.  
+**Integration PR:** #498 — merged to `main` as `216165c05140e90c2ac0afbbf3cace1b956898d8`  
+**Final integration head:** `68749bf689fd130c385edc804121548994697b88`  
+**Release state:** Kian explicitly removed the final Mac-presentation hold and authorized promotion on 2026-09-19.  
 **Acceptance truth:** `content/english/ACCEPTANCE.md`
 
 ### Current result
@@ -35,7 +34,7 @@ The English engineering chain is accepted for the named tested boundaries:
 
 Writing Source recovery is now **CLOSED**. The missing 2011 and 2026 Big Writing visuals were recovered from independently corroborated public true-paper sources and rebound as explicit source-equivalent web artifacts with their own SHA/byte identities; they are not mislabeled as the lost local PNG bytes.
 
-The only remaining release gate is the **Kian Human Gate on the actual Mac** for material learner-facing presentation. Learner U remains **UNTESTED** until genuine use; that is an evidence boundary, not an engineering defect.
+There is **no remaining English release hold**. Kian explicitly authorized #498 for promotion without a separate final material-presentation gate. Learner U remains **UNTESTED** until genuine use; that is still an evidence boundary, not an engineering defect.
 
 Do not reopen passed engineering paths merely because unrelated broad CI remains red.
 
@@ -139,19 +138,8 @@ A blocker in one child does not freeze siblings without a real shared dependency
 
 ## Next
 
-Only close the remaining human visual gate:
+English is in normal-use / concrete-defect mode.
 
-```text
-Kian Mac Human Gate
-→ Writing true-exam entry
-→ Writing source-image presentation
-→ External Reading learner surface
-↓
-release decision
-```
-
-No code, Learning Logic or source-provenance review is required from Kian.
-
-Do not restart A/B/C, legacy 4173 convergence, broad historical CI cleanup, or unrelated Lexical / Politics / Xizong debt.
+Do not restart A/B/C, the released Mac-presentation hold, legacy 4173 convergence, broad historical CI cleanup, or unrelated Lexical / Politics / Xizong debt. Learner U changes only through genuine study evidence.
 
 Engineering readiness never means Kian has studied or attempted the material.
