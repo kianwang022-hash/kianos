@@ -29,8 +29,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "农作物；收成；农作物；庄稼；一批；一群",
-          "label_en": "the yield from plants in a single growing season; a cultivated plant grown commercially on a large scale; a collection of people or things appearing together",
+          "label_cn": "农作物；庄稼；收成；一批、一群",
+          "label_en": "a cultivated plant or its harvest; a group appearing together",
           "pos": "noun",
           "sense_ids": [
             "sense:crop:9aaef3be78a85852",
@@ -39,17 +39,18 @@
           ]
         },
         {
-          "label_cn": "修剪；剪短；出现；发生",
-          "label_en": "cut or trim (hair, etc.) short; appear unexpectedly or incidentally",
+          "label_cn": "修剪、剪短；突然出现、发生",
+          "label_en": "to trim short; to appear or occur unexpectedly",
           "pos": "verb",
           "sense_ids": [
-            "sense:crop:eb39fa51100b5a3f"
+            "sense:crop:eb39fa51100b5a3f",
+            "sense:crop:50859cd78e0e58b7"
           ]
         }
       ],
-      "core_meaning_cn": "农作物；收成",
-      "core_meaning_en": "plants grown for food or the harvest from them",
-      "mental_model_cn": "农作物；收成",
+      "core_meaning_cn": "农作物/收成；修剪；crop up 突然出现或发生",
+      "core_meaning_en": "a crop or harvest; to trim; crop up = appear unexpectedly",
+      "mental_model_cn": "名词围绕“长出来的一批东西”；动词常见高价值结构 crop up = 问题、情况突然出现。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -163,14 +164,14 @@
         "confidence": "medium",
         "definition_cn": "突然或意外出现",
         "definition_en": "to appear unexpectedly or incidentally",
-        "governing_pattern": "crop up",
+        "governing_pattern": "vi. + up",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:crop:50859cd78e0e58b7",
         "sense_label_en": "to appear unexpectedly or incidentally",
         "sort_order": 999,
-        "transitivity": "vt"
+        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -303,7 +304,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1161-1168.json",
     "source_content_hash": "3bebd73e9cc6a3dfeb034d7cf98e4852dfd742329faeb2d800c97e54281756c9",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

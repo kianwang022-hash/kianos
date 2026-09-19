@@ -4,17 +4,18 @@
   "word_id": "word:cup",
   "word": "cup",
   "record": {
-    "card_version": "v4",
+    "card_version": "v2",
     "confusables": [],
     "constructions": [],
     "content_hash": "649637a1f219b58f07afe457ae7dbc0a07e6702b624b6ad2c9fe8eef6c2f3cc3",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "杯子，茶杯；一杯的量；杯状物，凹处；杯（美国液量单位，等于8液量盎司）",
-          "label_en": "a small open container used for drinking, usually with a handle; the quantity a cup will hold; any cup-shaped concavity; a United States liquid unit equal to 8 fluid ounces",
+          "label_cn": "杯子；一杯的量；杯状物；杯（容量单位）",
+          "label_en": "a drinking cup; the amount it holds; a cup-shaped object; a unit of capacity",
           "pos": "noun",
           "sense_ids": [
+            "sense:cup:91ff50c9156258f1",
             "sense:cup:ea0f01a0f82f536f",
             "sense:cup:63cb65d3705c58d1",
             "sense:cup:016bb664e59151a2"
@@ -30,13 +31,13 @@
           ]
         }
       ],
-      "core_meaning_cn": "杯子或杯状物",
-      "core_meaning_en": "a small open container for drinking, or its contents",
-      "mental_model_cn": "杯子或杯状物",
+      "core_meaning_cn": "杯子；一杯的量或杯状物",
+      "core_meaning_en": "a drinking cup, the amount it holds, or a cup-shaped object",
+      "mental_model_cn": "先抓最普通的“喝东西的杯子”，再扩展到一杯的量、杯状结构和容量单位。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": false,
+    "needs_delta_review": true,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [],
@@ -311,7 +312,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1185-1192.json",
     "source_content_hash": "649637a1f219b58f07afe457ae7dbc0a07e6702b624b6ad2c9fe8eef6c2f3cc3",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }
