@@ -19,6 +19,12 @@ on:
       - "static-web/src/components/XizongHomeTools.astro"
       - "static-web/src/components/XizongBlockV6.astro"
       - "static-web/src/components/XizongSystemExitRuntime.astro"
+      - "static-web/astro.config.mjs"
+      - "static-web/src/layouts/BaseFrame.astro"
+      - "static-web/src/lib/privateControlClient.mjs"
+      - "static-web/scripts/privateControlBridge.mjs"
+      - "static-web/scripts/privateControlStore.mjs"
+      - "static-web/scripts/test-private-control-browser.mjs"
       - ".github/workflows/chat-control-transport-prototype.yml"
 
 jobs:
@@ -45,3 +51,31 @@ jobs:
       - name: Xizong session private durability
         working-directory: static-web
         run: node scripts/test-xizong-session-checkpoint.mjs
+
+
+  browser-roundtrip:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    defaults:
+      run:
+        working-directory: static-web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Install isolated browser acceptance tool
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Execute private control round trip
+        run: node scripts/test-private-control-browser.mjs
+      - name: Upload control browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: private-control-browser
+          path: static-web/.qa/private-control-browser.json
+          if-no-files-found: warn
