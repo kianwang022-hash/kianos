@@ -403,7 +403,7 @@ def self_test(registry: dict) -> None:
             "root authority must invalidate Timer",
         ),
         (
-            {"static-web/src/layouts/Base.astro"},
+            {"static-web/src/layouts/BaseFrame.astro"},
             {"static-web/src/pages/english/index.astro"},
             True,
             "shared shell must invalidate learner surface",
