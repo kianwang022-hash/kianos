@@ -96,22 +96,20 @@ const politicsHref = firstSubject && firstChapter ? `${base}politics/${firstSubj
   <div class="homeL3Grid">
     <section class="homeL3Subjects" aria-label="三科状态与 Continue">
       <header class="homeL3SectionHead">
-        <h2>Continue</h2>
-        <span>回到最近位置，或自由选择任务</span>
+        <h2>继续学习</h2>
+        <span>回到上次停下的位置，或直接开始新的任务</span>
       </header>
 
       <article class="homeL3Subject" data-home-subject="xizong">
         <header class="homeL3SubjectHead">
           <div class="homeL3SubjectIdentity">
-            <span class="homeL3Ordinal">01</span>
             <div class="homeL3SubjectTitle">
               <h2>西医综合</h2>
-              <span class="homeL3Availability">{xizongSystems.length ? `${xizongSystems.length} 个 System 已开放` : '暂未开放'}</span>
             </div>
           </div>
           <a class="homeL3OverviewLink" href={`${base}xizong/`}>知识地图 →</a>
         </header>
-        <p class="homeL3Meta">原讲义连续学习 · 框架定位 · 主动 Recall</p>
+        <p class="homeL3Meta">原讲义连续学习 · 框架定位 · 主动回忆</p>
         <div class="homeL3ActionSurface">
           <XizongHomeTools firstHref={xizongHref} firstLabel={firstSystem ? `${firstSystem.canonicalId} · ${firstSystem.title}` : '查看西综入口'} resumeIndex={xizongResumeIndex} />
         </div>
@@ -120,10 +118,8 @@ const politicsHref = firstSubject && firstChapter ? `${base}politics/${firstSubj
       <article class="homeL3Subject" data-home-subject="english">
         <header class="homeL3SubjectHead">
           <div class="homeL3SubjectIdentity">
-            <span class="homeL3Ordinal">02</span>
             <div class="homeL3SubjectTitle">
               <h2>English</h2>
-              <span class="homeL3Availability">{englishReady ? '可开始' : '部分任务已开放'}</span>
             </div>
           </div>
           <a class="homeL3OverviewLink" href={`${base}english/`}>英语工作台 →</a>
@@ -144,10 +140,8 @@ const politicsHref = firstSubject && firstChapter ? `${base}politics/${firstSubj
       <article class="homeL3Subject" data-home-subject="politics">
         <header class="homeL3SubjectHead">
           <div class="homeL3SubjectIdentity">
-            <span class="homeL3Ordinal">03</span>
             <div class="homeL3SubjectTitle">
               <h2>政治</h2>
-              <span class="homeL3Availability">{politicsSubjects.length} 科 · {politicsChapters} 章{politicsHealth.status === 'ready' ? '可进入' : '，部分开放'}</span>
             </div>
           </div>
           <a class="homeL3OverviewLink" href={`${base}politics/`}>五科总览 →</a>
@@ -161,14 +155,6 @@ const politicsHref = firstSubject && firstChapter ? `${base}politics/${firstSubj
 
     <aside class="homeL3Support" aria-label="今日安排与学习支持">
       <ExamOrchestratorHome xizongPacketIndex={xizongPacketIndex} />
-      <section class="homeL3SupportLinks">
-        <a href={`${base}vocabulary/`}>Vocabulary →</a>
-        <nav aria-label="英语 Guide">
-          <a href={`${base}objective-learn/`}>Objective Guide</a>
-          <a href={`${base}translation-learn/`}>Translation Guide</a>
-          <a href={`${base}writing-learn/`}>Writing Guide</a>
-        </nav>
-      </section>
     </aside>
   </div>
 </Base>
