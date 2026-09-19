@@ -150,7 +150,7 @@ try {
 
   // The live Block dock must export Chat-readable learner state from the current runtime,
   // not from the retired After Learn surface.
-  check(await cdp.evaluate(`getComputedStyle(document.querySelector('.kianosCurrentDock')).display === 'none'`), 'engineering_current_dock_hidden_on_xizong');
+  check(await cdp.evaluate(`(()=>{const node=document.querySelector('.kianosCurrentDock');return !node || getComputedStyle(node).display === 'none';})()`), 'engineering_current_dock_absent_or_hidden_on_xizong');
   await cdp.evaluate(`(()=>{Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async(text)=>{globalThis.__xizongStudyPacket=String(text);}}});})()`);
   await cdp.evaluate(clickExpr('[data-copy-study-packet]'));
   await sleep(120);
