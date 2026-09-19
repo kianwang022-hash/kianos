@@ -94,6 +94,8 @@ try{
 
   // Total Home exports one Daily Learning Packet. Current Block must receive a stable Return contract.
   await page.goto(BASE+'/',{waitUntil:'domcontentloaded'});
+  const importDetails=page.locator('[data-exam-import-details]');
+  await importDetails.evaluate((el)=>{ el.open=true; });
   const copy=page.locator('[data-exam-copy-daily]');
   await copy.waitFor({state:'visible'});
   await copy.click();
