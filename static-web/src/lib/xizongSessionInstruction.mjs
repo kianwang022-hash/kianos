@@ -46,9 +46,10 @@ function normalizeStep(raw, index) {
         fail('MEMORY_TARGET_INVALID', stepId + ':' + targetIndex);
       }
       const cardId = clean(target.card_id || target.cardId, 240);
+      const blockId = clean(target.block_id || target.blockId, 200);
       const sourceHash = clean(target.source_hash || target.sourceHash, 160);
-      if (!cardId || !sourceHash) fail('MEMORY_TARGET_IDENTITY_REQUIRED', stepId + ':' + targetIndex);
-      return { card_id: cardId, source_hash: sourceHash };
+      if (!cardId || !blockId || !sourceHash) fail('MEMORY_TARGET_IDENTITY_REQUIRED', stepId + ':' + targetIndex);
+      return { card_id: cardId, block_id: blockId, source_hash: sourceHash };
     });
     if (new Set(targets.map((target) => target.card_id)).size !== targets.length) {
       fail('MEMORY_TARGET_DUPLICATE', stepId);
@@ -265,7 +266,12 @@ export function activateXizongSessionNext(storage, instruction, {
       for (const target of next.step.targets) {
         const card = memory.cards[target.card_id];
         if (!card) fail('MEMORY_CARD_UNKNOWN', target.card_id);
-        if (String(card.sourceHash || '') !== target.source_hash) {
+        if (String(card.blockId || '') !== target.block_id) {
+          fail('MEMORY_BLOCK_IDENTITY_MISMATCH', target.card_id);
+        }
+        const releasedBlock = memory.releasedBlocks?.[target.block_id];
+        if (!releasedBlock) fail('MEMORY_RELEASE_OWNER_MISSING', target.block_id);
+        if (String(releasedBlock.sourceHash || '') !== target.source_hash) {
           fail('MEMORY_SOURCE_REVISION_MISMATCH', target.card_id);
         }
       }
