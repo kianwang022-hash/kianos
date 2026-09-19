@@ -29,6 +29,7 @@ on:
       - 'static-web/scripts/privateExternalReadingBridge.mjs'
       - 'static-web/scripts/test-external-reading-content.mjs'
       - 'static-web/scripts/test-external-reading-session-control.mjs'
+      - 'static-web/scripts/test-english-private-checkpoint.mjs'
       - 'static-web/scripts/test-external-reading-browser.mjs'
       - 'static-web/scripts/externalReadingSyntheticFixture.mjs'
       - 'tools/english-external/**'
@@ -74,6 +75,7 @@ on:
       - 'static-web/scripts/privateExternalReadingBridge.mjs'
       - 'static-web/scripts/test-external-reading-content.mjs'
       - 'static-web/scripts/test-external-reading-session-control.mjs'
+      - 'static-web/scripts/test-english-private-checkpoint.mjs'
       - 'static-web/scripts/test-external-reading-browser.mjs'
       - 'static-web/scripts/externalReadingSyntheticFixture.mjs'
       - 'tools/english-external/**'
@@ -113,6 +115,9 @@ jobs:
       - name: Install runtime
         working-directory: static-web
         run: npm install --no-audit --no-fund
+      - name: Validate English + External private checkpoint
+        working-directory: static-web
+        run: node scripts/test-english-private-checkpoint.mjs
       - name: Validate External Reading private-content boundary
         working-directory: static-web
         run: node scripts/test-external-reading-content.mjs
