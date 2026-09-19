@@ -261,4 +261,20 @@ const staleDayReplay = applyPrivateControlCommand(staleDayStorage, staleDayComma
 assert.equal(staleDayReplay.status,'STALE');
 assert.equal(readPrivateControlRuntimeState(staleDayStorage).receipts.length,1);
 
-console.log('PASS private control prototype: transactional per-target dispatch + replay/stale/supersede/cross-day isolation');
+// A future-dated command cannot lock the target against later legitimate commands.
+const futureStorage = new MemoryStorage();
+const futureCommand = {
+  ...c1,
+  command_id:'future-plan',
+  issued_at:new Date(t0 + 10 * 60_000).toISOString(),
+  payload:{...planPayload,generated_at:new Date(t0 + 10 * 60_000).toISOString()}
+};
+const futureReceipt = applyPrivateControlCommand(futureStorage, futureCommand, {
+  expectedDay:day,
+  now:t0
+});
+assert.equal(futureReceipt.status,'REJECTED');
+assert.equal(readPrivateControlRuntimeState(futureStorage).active_by_target['exam.chat_plan'],undefined);
+assert.equal(futureStorage.getItem(EXAM_CHAT_PLAN_KEY),null);
+
+console.log('PASS private control prototype: transactional per-target dispatch + replay/stale/supersede/cross-day/future-time isolation');
