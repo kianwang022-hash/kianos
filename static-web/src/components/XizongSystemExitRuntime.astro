@@ -119,7 +119,8 @@ const failureLabel = (mode) => Array.isArray(mode)
       try { localStorage.setItem(key, JSON.stringify(value)); return true; } catch { return false; }
     };
 
-    let recallState = readJson(recallKey, { completedAt: null });
+    let recallState = readJson(recallKey, { completedAt: null, history: [] });
+    if (!Array.isArray(recallState.history)) recallState.history = [];
     const requestedRound = new URLSearchParams(location.search).get('after_round') || '';
     const sweepState = readJson(`kianos:xizong:system-question-sweep:${systemId}:v1`, {});
     const afterRoundId = requestedRound && requestedRound === sweepState?.round?.id ? requestedRound : '';
@@ -163,7 +164,18 @@ const failureLabel = (mode) => Array.isArray(mode)
     });
     complete?.addEventListener('click', () => {
       if (root.inert || root.hidden || workspace?.hidden || reveal?.hidden !== false || root.dataset.systemRecallCommitted === 'true') return;
-      const nextState = { ...recallState, completedAt:new Date().toISOString(), afterRoundId: afterRoundId || null };
+      const completedAt = new Date().toISOString();
+      const recallEvent = {
+        event_id: root.dataset.systemRecallEventId || `system-recall-${Date.now()}`,
+        completed_at: completedAt,
+        after_round_id: afterRoundId || null
+      };
+      const nextState = {
+        ...recallState,
+        completedAt,
+        afterRoundId: afterRoundId || null,
+        history: [...(Array.isArray(recallState.history) ? recallState.history : []), recallEvent].slice(-200)
+      };
       if (!writeJson(recallKey, nextState)) {
         window.alert('本机保存失败：System Recall 没有记录完成。');
         return;
