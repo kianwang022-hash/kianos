@@ -155,7 +155,8 @@ def audit_current_sync(registry: dict) -> None:
     shared = registry.get("shared_platform", {})
     runtime_owner = str(shared.get("current_sync_mutation_owner", ""))
     bootstrap_installer = str(shared.get("current_sync_bootstrap_installer", ""))
-    allowed = {runtime_owner, bootstrap_installer}
+    private_control_sync_owner = str(shared.get("private_control_sync_mutation_owner", ""))
+    allowed = {runtime_owner, bootstrap_installer, private_control_sync_owner}
     scripts_root = REPO / "static-web" / "scripts"
     mutators: list[str] = []
     mutation_signatures = (
@@ -177,6 +178,8 @@ def audit_current_sync(registry: dict) -> None:
 
     check(runtime_owner in mutators, "CURRENT_SYNC_RUNTIME_OWNER_NOT_DETECTED", runtime_owner)
     check(bootstrap_installer in mutators, "CURRENT_SYNC_BOOTSTRAP_NOT_DETECTED", bootstrap_installer)
+    if private_control_sync_owner:
+        check(private_control_sync_owner in mutators, "PRIVATE_CONTROL_SYNC_OWNER_NOT_DETECTED", private_control_sync_owner)
     for path in mutators:
         check(path in allowed, "CURRENT_SYNC_UNREGISTERED_MUTATION_PATH", path)
 

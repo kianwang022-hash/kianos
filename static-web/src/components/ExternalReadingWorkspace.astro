@@ -107,6 +107,8 @@ const base=import.meta.env.BASE_URL;
     const readingOnly=root.querySelector('[data-external-reading-only]');
     const questionsBox=root.querySelector('[data-external-questions]');
     const questionCount=root.querySelector('[data-external-question-count]');
+    const questionOriginLabel=root.querySelector('[data-external-question-mode] .externalReadingQuestionHeader span');
+    const questionOriginNote=root.querySelector('[data-external-question-mode] .externalReadingQuestionHeader strong');
     const modeButton=root.querySelector('[data-external-mode]');
     const submit=root.querySelector('[data-external-submit]');
     const finish=root.querySelector('[data-external-finish]');
@@ -252,14 +254,18 @@ const base=import.meta.env.BASE_URL;
 
     const renderState=()=>{
       if(!active||!state)return;
+      const requiresQuestions=active.completion_requirement==='QUESTIONS_SUBMITTED';
+      if(requiresQuestions&&state.mode==='READ_ONLY')state.mode='QUESTIONS';
       const readOnly=state.mode==='READ_ONLY';
       if(modeButton instanceof HTMLButtonElement){
+        modeButton.hidden=requiresQuestions;
         modeButton.setAttribute('aria-pressed',String(readOnly));
         modeButton.textContent=readOnly?'带原题阅读':'只读文章';
       }
       if(questionMode instanceof HTMLElement)questionMode.hidden=readOnly;
       if(readingOnly instanceof HTMLElement)readingOnly.hidden=!readOnly;
       if(submit instanceof HTMLButtonElement)submit.hidden=readOnly||state.submitted;
+      if(finish instanceof HTMLButtonElement)finish.hidden=requiresQuestions;
       renderQuestions();
       if(state.submitted&&result instanceof HTMLElement){
         result.hidden=false;
@@ -267,7 +273,7 @@ const base=import.meta.env.BASE_URL;
         const correct=outcomes.filter(v=>v==='correct').length;
         const scoreable=outcomes.filter(v=>v!=='unscored').length;
         setText(score,`${correct} / ${scoreable}`);
-        setText(resultMeta,scoreable<active.questions.length?`${active.questions.length-scoreable} item(s) keep source-native/manual review`:'source-backed result');
+        setText(resultMeta,active.question_origin==='CHAT_GENERATED'?'Chat-generated practice · not true-paper calibration':(scoreable<active.questions.length?`${active.questions.length-scoreable} item(s) keep source-native/manual review`:'source-backed result'));
         setText(summary,state.uncertain.length?'保留了 Uncertain；只处理真正值得修的地方。':'做完即可离开；不会自动生成复习债。');
       }else if(result instanceof HTMLElement)result.hidden=true;
       setText(progress,state.stage==='completed'?'Completed':readOnly?'Reading only':`${Object.keys(state.answers||{}).length}/${active.questions.length} answered`);
@@ -288,7 +294,11 @@ const base=import.meta.env.BASE_URL;
           passage_number:active.passage_number,
           title:active.title,
           paragraphs:active.passage_paragraphs,
-          questions:(active.questions||[]).map(({question_id,ordinal,prompt,options,response_kind})=>({question_id,ordinal,prompt,options,response_kind}))
+          questions:(active.questions||[]).map(({question_id,ordinal,prompt,options,response_kind,origin})=>({question_id,ordinal,prompt,options,response_kind,origin})),
+          question_origin:active.question_origin||'SOURCE_NATIVE',
+          drill_origin:active.drill_origin||null,
+          completion_requirement:active.completion_requirement||'READ_ONLY_OK',
+          training_target:active.training_target||null
         }
       };
       storageKey=attemptKey(active.object_id);
@@ -310,15 +320,19 @@ const base=import.meta.env.BASE_URL;
       if(workspace instanceof HTMLElement)workspace.hidden=false;
       setText(title,active.title||active.object_id);
       setText(passageTitle,active.title||active.object_id);
-      setText(kind,active.source_format==='TOEFL_LEGACY'?'TPO · LEGACY TOEFL':'IELTS · ACADEMIC');
-      setText(source,`${active.collection}${active.test?' · Test '+active.test:''} · Passage ${active.passage_number}`);
+      const generated=active.question_origin==='CHAT_GENERATED';
+      setText(kind,generated?(active.drill_origin==='CHAT_GENERATED_ON_EXTERNAL_SOURCE'?'SOURCE + CHAT DRILL':'CHAT · SYNTHETIC'):(active.source_format==='TOEFL_LEGACY'?'TPO · LEGACY TOEFL':'IELTS · ACADEMIC'));
+      setText(source,generated&&active.drill_origin==='CHAT_GENERATED_SYNTHETIC'?('Chat-generated · '+(active.training_target?.kind||'English drill')):`${active.collection}${active.test?' · Test '+active.test:''} · Passage ${active.passage_number}`);
+      setText(questionOriginLabel,generated?'CHAT-GENERATED DRILL':'SOURCE-NATIVE QUESTIONS');
+      setText(questionOriginNote,generated?'题目由 Chat 生成 · 只作训练证据，不冒充原题':'原题身份保留 · 不套考研题型法');
       if(paragraphs instanceof HTMLElement){
         paragraphs.innerHTML='';
         for(const row of active.passage_paragraphs||[]){const p=document.createElement('p');p.textContent=typeof row==='string'?row:(row.text||'');paragraphs.appendChild(p);}
       }
       const warnings=[...new Set(active.warnings||[])];
-      if(sourceNote instanceof HTMLDetailsElement)sourceNote.hidden=!warnings.length;
-      setText(sourceNoteText,warnings.length?`这份历史 Source 仍保留已知 OCR / visual QA debt：${warnings.join(' · ')}。系统只做机械或 hash-bound 清理，不猜正文。`:'');
+      const generatedNote=generated?`训练目标：${active.training_target?.note||active.training_target?.kind||'当前 Chat 指定训练'}。题目是 Chat-generated，不是 TOEFL / IELTS / 考研原题。`:'';
+      if(sourceNote instanceof HTMLDetailsElement)sourceNote.hidden=!(warnings.length||generatedNote);
+      setText(sourceNoteText,generatedNote||(warnings.length?`这份历史 Source 仍保留已知 OCR / visual QA debt：${warnings.join(' · ')}。系统只做机械或 hash-bound 清理，不猜正文。`:''));
       if(tick)clearInterval(tick);
       const update=()=>setText(timer,formatTime((Date.now()-Date.parse(state.startedAt))/1000));
       update();tick=setInterval(update,1000);

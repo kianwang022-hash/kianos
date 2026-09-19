@@ -5,6 +5,10 @@ import {
   STUDY_TIMER_SCHEMA
 } from '../src/lib/studyTimer.mjs';
 import { buildDailyLearningPacket, attachDailySubjectPacket, serializeDailyLearningPacketForChat } from '../src/lib/dailyLearningPacket.mjs';
+import {
+  CONTROL_LOCAL_RECEIPT_KEY,
+  CONTROL_RECEIPT_SCHEMA
+} from '../src/lib/privateControlCommand.mjs';
 
 class MemoryStorage {
   constructor(entries = {}) { this.map = new Map(Object.entries(entries)); }
@@ -24,6 +28,14 @@ const storage = new MemoryStorage({
     lastSeenAt: t0,
     revision: 2,
     updatedAt: t0
+  }),
+  [CONTROL_LOCAL_RECEIPT_KEY]: JSON.stringify({
+    schema: CONTROL_RECEIPT_SCHEMA,
+    command_id: 'control-20260917-proof-001',
+    command_hash: 'hash-001',
+    status: 'APPLIED',
+    observed_at: '2026-09-17T01:59:00.000Z',
+    error: null
   }),
   [STUDY_TIMER_LEDGER_KEY]: JSON.stringify({
     schema: STUDY_TIMER_SCHEMA,
@@ -83,6 +95,9 @@ assert.equal(packet.subjects.xizong.plan.remainingMinutes, 300);
 assert.deepEqual(packet.subjects.politics.evidence, politicsEvidence);
 assert.equal(packet.subjects.xizong.evidence, null);
 assert.equal(packet.schedule.capacity.remainingMinutes, 510);
+assert.equal(packet.control.schema, CONTROL_RECEIPT_SCHEMA);
+assert.equal(packet.control.command_id, 'control-20260917-proof-001');
+assert.equal(packet.control.status, 'APPLIED');
 
 const chatText = serializeDailyLearningPacketForChat(packet);
 assert.match(chatText, /^KIANOS_DAILY_LEARNING_HANDOFF_V1/m);
@@ -98,6 +113,8 @@ assert.doesNotMatch(chatText, /route through .*CURRENT\.md/i);
 assert.match(chatText, /DAILY_PACKET_JSON/);
 assert.match(chatText, /"total_minutes": 90/);
 assert.match(chatText, /missing evidence means unknown/i);
+assert.match(chatText, /"command_id": "control-20260917-proof-001"/);
+assert.match(chatText, /transport receipt only/i);
 
 const withXizong = attachDailySubjectPacket(packet, 'xizong', { schema: 'xizong.daily.v1', completed_blocks: ['B03'] });
 assert.equal(withXizong.subjects.xizong.evidence.completed_blocks[0], 'B03');

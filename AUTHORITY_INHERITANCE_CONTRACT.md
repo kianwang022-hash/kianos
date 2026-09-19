@@ -114,7 +114,8 @@ The learner-facing global shell has one implementation chain:
 
 ```text
 shared platform contract
-→ static-web/src/layouts/Base.astro
+→ static-web/src/layouts/Base.astro (style/import entry)
+→ static-web/src/layouts/BaseFrame.astro (global shell markup/runtime host)
 → static-web/src/lib/sharedNavigation.mjs
 → static-web/src/styles/shared-shell.css
 → subject surfaces consume it
@@ -178,6 +179,15 @@ origin/main
 ```
 
 This synchronization is repository-wide. English, Xizong, Politics, Lexical, Home, and support assets do **not** own separate GitHub→localhost sync daemons.
+
+A separate private control mirror may exist only for private Chat control transport. It must:
+- be registered as a distinct Shared Platform owner;
+- live outside the disposable public Current mirror;
+- carry control instructions rather than learner/canonical content;
+- never reset or mutate the public KianOS repository;
+- fail closed when its private source cannot be read.
+
+Current registered implementation: `static-web/scripts/privateControlRelaySync.mjs`.
 
 Local personal-development worktrees may intentionally diverge, but they are not the automatic Current mirror and must not be presented as if GitHub changes automatically mutate that workspace.
 

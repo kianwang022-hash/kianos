@@ -2,8 +2,17 @@ const finiteOrNull = (value) => Number.isFinite(value) ? value : null;
 const cloneContinue = (value, fallbackSubject = null) => value?.href ? {
   subject: value.subject || fallbackSubject || null,
   href: value.href,
-  title: value.title || ''
+  title: value.title || '',
+  sessionRef: value.sessionRef || value.session_ref || null
 } : null;
+
+const exactContinueForInstruction = (value, instruction, fallbackSubject = null) => {
+  const next = cloneContinue(value, fallbackSubject);
+  if (!next) return null;
+  const expectedRef = instruction?.session_ref || null;
+  if (!expectedRef) return next;
+  return next.sessionRef === expectedRef ? next : null;
+};
 
 // Read-only learner scheduler projection. This does not make scheduling decisions;
 // buildExamPlan remains the policy owner. Home may consume this without knowing
@@ -131,7 +140,7 @@ export function buildChatControlledExamReadModel({
       requiredMinutes: null,
       scoreGap: null,
       confidence: plan ? 'chat-plan' : 'unknown',
-      continue: cloneContinue(nativeContinue?.[subject], subject),
+      continue: exactContinueForInstruction(nativeContinue?.[subject], instruction, subject),
       sessionRef: instruction?.session_ref || null,
       note: instruction?.note || ''
     };
@@ -140,8 +149,9 @@ export function buildChatControlledExamReadModel({
   const capacityRemaining = Number.isFinite(dayCapacity)
     ? Math.max(0, Math.round(dayCapacity) - actualTotal)
     : null;
+  const nextInstruction = plan?.next_subject ? plan?.subjects?.[plan.next_subject] || null : null;
   const next = plan?.next_subject
-    ? cloneContinue(nativeContinue?.[plan.next_subject], plan.next_subject)
+    ? exactContinueForInstruction(nativeContinue?.[plan.next_subject], nextInstruction, plan.next_subject)
     : null;
   const attention = plan?.attention?.text
     ? {

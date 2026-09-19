@@ -13,8 +13,8 @@ import { PRACTICE_KEYS } from '../src/lib/politicsPracticeState.mjs';
 
 const PORT = 4346;
 const BASE = `http://127.0.0.1:${PORT}`;
-const DAY = '2026-09-19';
-const NOW = Date.parse('2026-09-19T04:00:00.000Z');
+const DAY = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+const NOW = Date.now();
 const VIEWPORT = { width: 1512, height: 982 };
 const auditDir = path.resolve(process.cwd(), '.qa');
 fs.mkdirSync(auditDir, { recursive: true });

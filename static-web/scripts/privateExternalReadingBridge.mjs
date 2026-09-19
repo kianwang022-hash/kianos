@@ -1,9 +1,9 @@
+import { ensureExternalReadingPrivateBundle } from './privateExternalReadingStore.mjs';
 import {
-  ensureExternalReadingPrivateBundle,
-  externalReadingAnswers,
-  externalReadingCatalog,
-  externalReadingPassage
-} from './privateExternalReadingStore.mjs';
+  englishExternalCombinedAnswers,
+  englishExternalCombinedCatalog,
+  englishExternalCombinedPassage
+} from './privateEnglishExternalStore.mjs';
 
 const ROOT='/__kianos-private/external-reading';
 
@@ -34,20 +34,18 @@ export function privateExternalReadingBridge(options = {}){
         try{
           const state=ensureExternalReadingPrivateBundle(options);
           if(url.pathname===ROOT+'/status'||url.pathname===ROOT+'/catalog'){
-            const catalog=externalReadingCatalog(state);
+            const catalog=englishExternalCombinedCatalog({sourceState:state});
             return json(res,catalog.status==='ready'?200:catalog.status==='missing_source'?404:503,catalog);
           }
           if(url.pathname===ROOT+'/passage'){
-            if(state.status!=='ready')return json(res,503,{status:state.status,error:state.error||null,missing:state.missing||[]});
             const id=String(url.searchParams.get('id')||'').trim();
             if(!id)return json(res,400,{status:'error',error:'EXTERNAL_READING_OBJECT_ID_REQUIRED'});
-            return json(res,200,{status:'ready',passage:externalReadingPassage(id,state)});
+            return json(res,200,{status:'ready',passage:englishExternalCombinedPassage(id,{sourceState:state})});
           }
           if(url.pathname===ROOT+'/answers'){
-            if(state.status!=='ready')return json(res,503,{status:state.status,error:state.error||null,missing:state.missing||[]});
             const id=String(url.searchParams.get('id')||'').trim();
             if(!id)return json(res,400,{status:'error',error:'EXTERNAL_READING_OBJECT_ID_REQUIRED'});
-            return json(res,200,{status:'ready',answers:externalReadingAnswers(id,state)});
+            return json(res,200,{status:'ready',answers:englishExternalCombinedAnswers(id,{sourceState:state})});
           }
           return json(res,404,{status:'not_found'});
         }catch(error){

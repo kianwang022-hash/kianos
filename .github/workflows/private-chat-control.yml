@@ -1,0 +1,93 @@
+name: Private Chat Control
+
+on:
+  push:
+    paths:
+      - "static-web/src/lib/privateControl*.mjs"
+      - "static-web/scripts/privateControl*.mjs"
+      - "static-web/scripts/privateEnglish*.mjs"
+      - "static-web/scripts/privateExternalReadingBridge.mjs"
+      - "static-web/src/components/EnglishResume.astro"
+      - "static-web/src/components/EnglishSessionControl.astro"
+      - "static-web/src/components/ExternalReadingWorkspace.astro"
+      - "static-web/src/lib/englishSessionControl.mjs"
+      - "static-web/src/lib/examPlanReadModel.mjs"
+      - "static-web/src/lib/examOrchestratorClient.mjs"
+      - "static-web/src/lib/dailyLearningPacket.mjs"
+      - "static-web/src/layouts/BaseFrame.astro"
+      - "static-web/astro.config.mjs"
+      - "static-web/scripts/test-private-control-*.mjs"
+      - "static-web/scripts/test-english-generated-*.mjs"
+      - "static-web/scripts/test-english-external-combined-store.mjs"
+      - "static-web/scripts/test-english-home-*.mjs"
+      - "static-web/scripts/test-daily-learning-packet.mjs"
+      - ".github/workflows/private-chat-control.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "static-web/src/lib/privateControl*.mjs"
+      - "static-web/scripts/privateControl*.mjs"
+      - "static-web/scripts/privateEnglish*.mjs"
+      - "static-web/scripts/privateExternalReadingBridge.mjs"
+      - "static-web/src/components/EnglishResume.astro"
+      - "static-web/src/components/EnglishSessionControl.astro"
+      - "static-web/src/components/ExternalReadingWorkspace.astro"
+      - "static-web/src/lib/englishSessionControl.mjs"
+      - "static-web/src/lib/examPlanReadModel.mjs"
+      - "static-web/src/lib/examOrchestratorClient.mjs"
+      - "static-web/src/lib/dailyLearningPacket.mjs"
+      - "static-web/src/layouts/BaseFrame.astro"
+      - "static-web/astro.config.mjs"
+      - "static-web/scripts/test-private-control-*.mjs"
+      - "static-web/scripts/test-english-generated-*.mjs"
+      - "static-web/scripts/test-english-external-combined-store.mjs"
+      - "static-web/scripts/test-english-home-*.mjs"
+      - "static-web/scripts/test-daily-learning-packet.mjs"
+      - ".github/workflows/private-chat-control.yml"
+
+concurrency:
+  group: private-chat-control-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Unit and transport proof
+        working-directory: static-web
+        run: |
+          node scripts/test-private-control-relay.mjs
+          node scripts/test-daily-learning-packet.mjs
+          node scripts/test-english-generated-daily-packet.mjs
+          node scripts/test-english-generated-drill-store.mjs
+          node scripts/test-english-external-combined-store.mjs
+          node scripts/test-exam-plan-read-model.mjs
+          node scripts/test-english-home-no-cross-subject-autoswitch.mjs
+
+      - name: Install runtime
+        working-directory: static-web
+        run: npm install --no-audit --no-fund
+
+      - name: Build candidate site
+        working-directory: static-web
+        run: npm run build
+
+      - name: Install Chromium
+        working-directory: static-web
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+
+      - name: Browser acceptance
+        working-directory: static-web
+        run: |
+          node scripts/test-english-generated-drill-browser.mjs
+          node scripts/test-english-generated-stale-import-browser.mjs
+          node scripts/test-english-home-exact-workspace-browser.mjs
+          node scripts/test-private-control-browser.mjs

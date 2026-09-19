@@ -43,7 +43,7 @@ try{
   const requests=[];
   page.on('request',request=>requests.push(request.url()));
 
-  await page.goto(base+'/external-reading/',{waitUntil:'networkidle'});
+  await page.goto(base+'/external-reading/',{waitUntil:'domcontentloaded'});
   await page.locator('[data-external-status]').filter({hasText:'External Content ready'}).waitFor();
   const counts=await page.locator('[data-external-counts]').textContent();
   assert.match(counts,/TPO 10\/10/);
@@ -53,7 +53,7 @@ try{
   assert.match(counts,/36 passages/);
   assert.match(counts,/480 questions/);
 
-  await page.goto(base+'/external-reading/?id=tpo56-p1',{waitUntil:'networkidle'});
+  await page.goto(base+'/external-reading/?id=tpo56-p1',{waitUntil:'domcontentloaded'});
   await page.locator('[data-external-workspace]').waitFor({state:'visible'});
   await page.locator('[data-external-title]').filter({hasText:'Synthetic TPO 56 P1'}).waitFor({state:'visible'});
   assert.equal(await page.locator('[data-external-questions] [data-question]').count(),14);
@@ -76,12 +76,13 @@ try{
   const debtKeys=await page.evaluate(()=>Object.keys(localStorage).filter(key=>/transfer|repair/i.test(key)&&/external/i.test(key)));
   assert.deepEqual(debtKeys,[],'External submit must not manufacture repair/transfer debt');
 
-  await page.reload({waitUntil:'networkidle'});
+  await page.reload({waitUntil:'domcontentloaded'});
+  await page.locator('[data-external-result]').waitFor({state:'visible'});
   assert.equal(await page.locator('[data-external-result]').isVisible(),true);
   const afterReload=await page.locator('[data-external-questions] [data-question]').first().locator('.portedReadingAnswerStrip').textContent();
   assert.match(afterReload,/正式答案\s*A/);
 
-  await page.goto(base+'/external-reading/?id=tpo57-p1',{waitUntil:'networkidle'});
+  await page.goto(base+'/external-reading/?id=tpo57-p1',{waitUntil:'domcontentloaded'});
   await page.locator('[data-external-mode]').click();
   assert.equal(await page.locator('[data-external-reading-only]').isVisible(),true);
   assert.equal(await page.locator('[data-external-question-mode]').isVisible(),false);

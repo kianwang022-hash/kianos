@@ -1,6 +1,20 @@
 import { STUDY_SUBJECTS, buildDailyStudyTimePacket } from './studyTimer.mjs';
+import {
+  CONTROL_LOCAL_RECEIPT_KEY,
+  validateControlReceipt
+} from './privateControlCommand.mjs';
 
 const cloneJson = (value) => value == null ? null : JSON.parse(JSON.stringify(value));
+
+function controlReceipt(storage) {
+  try {
+    const raw = storage?.getItem?.(CONTROL_LOCAL_RECEIPT_KEY);
+    if (!raw) return null;
+    return validateControlReceipt(JSON.parse(raw));
+  } catch {
+    return null;
+  }
+}
 
 function subjectPacket(subjectPackets, subject) {
   const value = subjectPackets?.[subject];
@@ -35,6 +49,7 @@ export function buildDailyLearningPacket({
     generated_at: new Date(now).toISOString(),
     total_minutes: time.total_minutes,
     timer: cloneJson(time.timer),
+    control: cloneJson(controlReceipt(storage)),
     schedule: plan ? {
       schema: plan.schema || null,
       phase: cloneJson(plan.phase),
@@ -78,6 +93,7 @@ export function serializeDailyLearningPacketForChat(packet) {
     '- This handoff is LEARN state, not project-control state. Do not open root engineering CURRENT.md by default merely because GitHub is available.',
     '- If semantic/source context is actually needed, read only the exact subject Learning/Content owner required for that learner question.',
     '- The schedule is a current plan/capacity snapshot, not proof that the learner completed the planned work.',
+    '- control, when present, is transport receipt only. APPLIED means the Website accepted the command; it does not mean the learner completed or mastered the task.',
     '',
     'WHAT CHAT SHOULD DO',
     '- Summarize only what the packet actually proves; stable work should not create review debt and missing evidence means unknown.',

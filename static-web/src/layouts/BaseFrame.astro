@@ -164,6 +164,7 @@ const currentStatusUrl = `${base}__kianos-current.json`;
     initPrivateCheckpointAutosave,
     restoreSharedControlFromPrivate
   } from '../lib/privateCheckpointRuntime.mjs';
+  import { initPrivateControlRuntime } from '../lib/privateControlRuntime.mjs';
 
   void (async () => {
     let restored = null;
@@ -180,5 +181,6 @@ const currentStatusUrl = `${base}__kianos-current.json`;
     const dock = document.querySelector('[data-study-timer-dock]');
     if (dock instanceof HTMLElement) initStudyTimerDock(dock, timer);
     initPrivateCheckpointAutosave(localStorage);
+    initPrivateControlRuntime(localStorage);
   })();
 </script>

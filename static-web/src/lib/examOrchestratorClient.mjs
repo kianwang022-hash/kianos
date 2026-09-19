@@ -25,7 +25,7 @@ import { buildHomeDailyLearningPacket } from './dailyLearningPacketRuntime.mjs';
 import { serializeDailyLearningPacketForChat } from './dailyLearningPacket.mjs';
 
 const names = { xizong: '西综', english: '英语', politics: '政治' };
-const PRODUCT_FAMILIES = ['xizong', 'english', 'reading', 'cloze', 'reading-b', 'translation', 'writing', 'politics', 'vocabulary'];
+const PRODUCT_FAMILIES = ['xizong', 'english', 'english-exam', 'reading', 'cloze', 'reading-b', 'external-reading', 'translation', 'writing', 'politics', 'vocabulary'];
 
 function safeProductHref(href, base = '/') {
   if (typeof href !== 'string' || !href.startsWith(base) || href.startsWith('//')) return null;
@@ -123,9 +123,10 @@ export function initExamHome(root) {
     const node = document.querySelector(selector);
     const visible = node && !node.closest('[hidden]');
     const href = visible ? safeProductHref(node.getAttribute('href'), catalog.base) : null;
+    const sessionRef = visible ? String(node.getAttribute('data-session-ref') || '').trim() || null : null;
     return href
-      ? { href, title: document.querySelector(titleSelector)?.textContent?.trim() || label }
-      : { href: fallback, title: label };
+      ? { href, title: document.querySelector(titleSelector)?.textContent?.trim() || label, sessionRef }
+      : { href: fallback, title: label, sessionRef: null };
   };
 
   function publishPlanReadModel() {
@@ -493,7 +494,22 @@ export function initExamHome(root) {
   const refreshFromExternalTime = () => {
     if (!$$('dialog').some((dialog) => dialog.open)) render();
   };
+  const requestSubjectContinues = () => {
+    window.dispatchEvent(new CustomEvent('kianos:subject-continue-requested', {
+      detail: { subject: null }
+    }));
+  };
   window.addEventListener('kianos:study-timer-change', refreshFromExternalTime);
+  window.addEventListener('kianos:control-command-applied', () => {
+    if ($$('dialog').some((dialog) => dialog.open)) return;
+    load();
+    render();
+    requestSubjectContinues();
+  });
+  window.addEventListener('kianos:subject-continue-updated', (event) => {
+    if (!event?.detail?.subject) return;
+    if (!$$('dialog').some((dialog) => dialog.open)) render();
+  });
   window.addEventListener('storage', (event) => {
     if (![EXAM_PROFILE_KEY, EXAM_CHAT_PLAN_KEY, null].includes(event.key)) return;
     if ($$('dialog').some((dialog) => dialog.open)) {
@@ -512,5 +528,9 @@ export function initExamHome(root) {
 
   load();
   render();
-  setTimeout(render, 250);
+  queueMicrotask(requestSubjectContinues);
+  setTimeout(() => {
+    requestSubjectContinues();
+    render();
+  }, 250);
 }

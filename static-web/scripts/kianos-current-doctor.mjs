@@ -174,6 +174,22 @@ if (siteOk) {
     record('FAIL', 'Private checkpoint bridge', checkpoint.error || `HTTP ${checkpoint.status} · ${checkpoint.value?.status || 'unexpected response'}`);
   }
 
+  const control = await fetchJson('/__kianos-private/control/status');
+  if (control.status === 200 && control.value?.status === 'ready') {
+    const relay = control.value?.relay || {};
+    if (relay.state === 'ready') {
+      record('PASS', 'Private Chat control relay', relay.command_status || 'ready');
+    } else if (relay.state === 'disabled') {
+      record('WARN', 'Private Chat control relay', 'disabled');
+    } else if (relay.state === 'degraded') {
+      record('WARN', 'Private Chat control relay', relay.error || 'private repo unavailable');
+    } else {
+      record('WARN', 'Private Chat control relay', relay.state || 'not initialized');
+    }
+  } else {
+    record('WARN', 'Private Chat control relay', control.error || `HTTP ${control.status}`);
+  }
+
   const external = await fetchJson('/__kianos-private/external-reading/status');
   if (external.status === 200 && external.value?.status === 'ready') {
     const counts = external.value?.counts || {};

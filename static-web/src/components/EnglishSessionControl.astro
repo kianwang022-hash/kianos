@@ -53,7 +53,9 @@ const catalogPayload=JSON.stringify(englishSessionCatalog()).replace(/</g,"\\u00
             task: 'external_reading',
             object_id: row.object_id,
             source_hash: row.content_hash,
-            label: row.title || row.object_id
+            label: row.title || row.object_id,
+            study_day: row.study_day || null,
+            origin: row.origin || null
           }));
           catalog = [...catalog, ...rows];
         }

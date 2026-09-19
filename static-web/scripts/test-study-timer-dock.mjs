@@ -8,13 +8,14 @@ const root = path.resolve(here, '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 
 const base = read('src/layouts/Base.astro');
+const frame = read('src/layouts/BaseFrame.astro');
 const component = read('src/components/StudyTimerDock.astro');
 const client = read('src/lib/studyTimerDockClient.mjs');
 const css = read('src/styles/study-timer.css');
 
-assert.match(base, /StudyTimerDock/, 'Shared Shell must mount the timer dock.');
-assert.match(base, /initStudyTimerDock/, 'Shared Shell must hydrate the timer dock.');
-assert.match(base, /study-timer\.css/, 'Shared Shell must import the timer visual owner.');
+assert.match(frame, /StudyTimerDock/, 'Shared Shell frame must mount the timer dock.');
+assert.match(frame, /initStudyTimerDock/, 'Shared Shell frame must hydrate the timer dock.');
+assert.match(base, /study-timer\.css/, 'Shared Shell entry must import the timer visual owner.');
 
 for (const subject of ['xizong', 'politics', 'english']) {
   assert.match(component, new RegExp(`data-study-timer-switch="${subject}"`), `Dock must expose ${subject} switching.`);
