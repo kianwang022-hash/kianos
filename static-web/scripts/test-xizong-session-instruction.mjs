@@ -20,6 +20,15 @@ class MemoryStorage {
 const day = '2026-09-20';
 const now = Date.parse('2026-09-20T01:00:00Z');
 const memory = createXizongMemoryState();
+memory.releasedBlocks['a1-b01'] = {
+  blockId: 'a1-b01',
+  systemId: 'circulation',
+  sourceHash: 'h1',
+  releasedAt: new Date(now).toISOString(),
+  refreshedAt: new Date(now).toISOString(),
+  coreCardIds: ['core:a1-b01-kp01'],
+  precisionCardIds: []
+};
 memory.cards['core:a1-b01-kp01'] = {
   id: 'core:a1-b01-kp01',
   family: 'CORE',
@@ -42,7 +51,7 @@ const instruction = {
     {
       step_id: 'm1',
       kind: 'MEMORY_REVIEW',
-      targets: [{ card_id:'core:a1-b01-kp01', source_hash:'h1' }],
+      targets: [{ card_id:'core:a1-b01-kp01', block_id:'a1-b01', source_hash:'h1' }],
       reason: 'Chat wants one bounded delayed recall'
     },
     {
@@ -116,8 +125,8 @@ assert.throws(() => applyXizongSessionInstruction(new MemoryStorage({
   ...instruction,
   session_id: 'dup-memory',
   steps: [{ step_id: 'm1', kind: 'MEMORY_REVIEW', targets: [
-    { card_id:'core:a1-b01-kp01', source_hash:'h1' },
-    { card_id:'core:a1-b01-kp01', source_hash:'h1' }
+    { card_id:'core:a1-b01-kp01', block_id:'a1-b01', source_hash:'h1' },
+    { card_id:'core:a1-b01-kp01', block_id:'a1-b01', source_hash:'h1' }
   ] }]
 }, { expectedDay: day, now }), /MEMORY_TARGET_DUPLICATE/);
 
@@ -139,7 +148,7 @@ const staleMemoryInstruction = {
   steps:[{
     step_id:'m1',
     kind:'MEMORY_REVIEW',
-    targets:[{card_id:'core:a1-b01-kp01',source_hash:'new-hash'}]
+    targets:[{card_id:'core:a1-b01-kp01',block_id:'a1-b01',source_hash:'new-hash'}]
   }]
 };
 applyXizongSessionInstruction(staleMemoryStorage, staleMemoryInstruction, {
@@ -176,7 +185,7 @@ assert.throws(() => applyXizongSessionInstruction(new MemoryStorage({
   session_id:'bad-nav',
   steps:[
     {step_id:'n1',kind:'NAVIGATE',href:'/xizong/circulation/'},
-    {step_id:'m1',kind:'MEMORY_REVIEW',targets:[{card_id:'core:a1-b01-kp01',source_hash:'h1'}]}
+    {step_id:'m1',kind:'MEMORY_REVIEW',targets:[{card_id:'core:a1-b01-kp01',block_id:'a1-b01',source_hash:'h1'}]}
   ]
 }, {expectedDay:day,now}), /NAVIGATE_MUST_BE_TERMINAL/);
 
