@@ -358,15 +358,27 @@ function xizongForecastBlockRecords(record) {
     return rows;
   }
 
-  const blocksPath = SYSTEMS_ROOT + '/' + record.dirName + '/blocks';
-  if (!fs.existsSync(absolute(blocksPath))) {
-    throw new Error('CURRENT_XIZONG_FORECAST_BLOCKS_MISSING:' + record.identity.systemId);
+  const systemRoot = SYSTEMS_ROOT + '/' + record.dirName;
+  if (!fs.existsSync(absolute(systemRoot))) {
+    throw new Error('CURRENT_XIZONG_FORECAST_SYSTEM_DIR_MISSING:' + record.identity.systemId);
   }
 
-  const rows = fs.readdirSync(absolute(blocksPath))
-    .filter((name) => /\.md$/i.test(name))
-    .map((name) => {
-      const relativePath = blocksPath + '/' + name;
+  const markdownFiles = [];
+  const walk = (relativeDir) => {
+    const entries = fs.readdirSync(absolute(relativeDir), { withFileTypes: true });
+    for (const entry of entries) {
+      const relativePath = relativeDir + '/' + entry.name;
+      if (entry.isDirectory()) {
+        walk(relativePath);
+        continue;
+      }
+      if (entry.isFile() && /\.md$/i.test(entry.name)) markdownFiles.push(relativePath);
+    }
+  };
+  walk(systemRoot);
+
+  const rows = markdownFiles
+    .map((relativePath) => {
       const source = readText(relativePath);
       const frontmatter = source.match(/^---\s*\n([\s\S]*?)\n---/m)?.[1] || '';
       const field = (key) => {
