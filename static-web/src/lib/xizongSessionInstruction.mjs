@@ -265,6 +265,7 @@ function stepComplete(storage, instruction, runtime, step) {
 
   if (step.kind === 'MEMORY_REVIEW') {
     const memory = normalizeXizongMemoryState(parseJson(storage, XIZONG_MEMORY_STORAGE_KEY, null));
+    validateMemoryTargets(memory, step);
     const activatedAt = Date.parse(runtime.activated_at);
     return step.targets.every((target) =>
       memory.evidence.some((event) =>
@@ -449,6 +450,8 @@ export function resolveXizongSessionNext(storage, instructionInput = null, runti
   const suffix = '?session=' + encodeURIComponent(instruction.session_id)
     + '&step=' + encodeURIComponent(step.step_id);
   if (step.kind === 'MEMORY_REVIEW') {
+    const memory = normalizeXizongMemoryState(parseJson(storage, XIZONG_MEMORY_STORAGE_KEY, null));
+    validateMemoryTargets(memory, step);
     return { index: runtime.current_step, step, href: '/xizong/memory/' + suffix, active: Boolean(runtime.activated_at) };
   }
   if (step.kind === 'PRACTICE_SET') {
