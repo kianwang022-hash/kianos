@@ -108,6 +108,55 @@ try{
     await ctx.close();
   }
 
+  // Xizong typed Return: Total Home must route straight back to the exact Block.
+  {
+    const ctx=await context();
+    const page=await ctx.newPage();
+    const returnId='total-home-xizong-return';
+    await page.addInitScript(({studyDay,returnId})=>{
+      const receivedAt=new Date().toISOString();
+      localStorage.setItem('kianos:xizong:pending-chat-return:v1',JSON.stringify({
+        schema:'kianos.xizong.pending-chat-return.v1',
+        pending_by_object:{
+          'xizong:circulation-b01':{
+            handoff_id:'handoff-fixture',
+            return_id:returnId,
+            object_id:'xizong:circulation-b01',
+            system_id:'circulation',
+            block_id:'circulation-b01',
+            source_hash:'fixture-source',
+            evidence_version:'ev-fixture',
+            return_href:'/xizong/circulation/b01/',
+            study_day:studyDay,
+            received_at:receivedAt,
+            return_packet:{
+              schema:'kianos.xizong.chat_return.v1',
+              return_id:returnId,
+              handoff_id:'handoff-fixture',
+              decision:'NO_ACTION',
+              repairs:[]
+            }
+          }
+        },
+        last_receipt:null
+      }));
+      localStorage.setItem('kianos-exam-chat-plan-v1',JSON.stringify({
+        schema:'kianos.exam.chat-plan.v1',study_day:studyDay,generated_at:receivedAt,
+        subjects:{
+          xizong:{target_minutes:30,role:'返回当前 Block',note:'typed Return',session_ref:returnId},
+          english:null,politics:null
+        },
+        next_subject:'xizong',attention:null
+      }));
+    },{studyDay,returnId});
+    await page.goto(BASE+'/',{waitUntil:'networkidle'});
+    const href=await page.locator('[data-exam-next]').getAttribute('href');
+    check(href==='/xizong/circulation/b01/'||href?.endsWith('/xizong/circulation/b01/'),
+      'xizong_return_total_home_points_exact_block',href||'');
+    check(!/^\/xizong\/?$/.test(href||''),'xizong_return_does_not_stop_at_subject_home',href||'');
+    await ctx.close();
+  }
+
   // English: Total Home must go straight to the exact Chat-selected task.
   {
     const catalog=englishSessionCatalog();
