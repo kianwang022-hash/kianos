@@ -1,183 +1,158 @@
 # English Current
 
-Role: **English engineering Work Cursor + scope router**
+Role: **English engineering work cursor + scope router**  
 Parent: root `CURRENT.md`
 
-This file does not own English Learning Logic, canonical Content, Acceptance Truth or learner progress.
+This file does not own English Learning Logic, canonical Content, Acceptance Truth, learner history, or shared-platform authority.
 
 A bare `继续英语 / 继续 Reading / 继续 Translation / 继续 Writing / 继续词汇` is a learner request unless the active conversation is clearly BUILD / UI / CONTROL work.
+
+Shared-platform routing follows `AUTHORITY_INHERITANCE_CONTRACT.md` and `AUTHORITY_OWNERSHIP.json`. English may consume shared Shell / navigation / checkpoint capabilities, but it does not become their durable owner.
 
 ---
 
 ## Current engineering state
 
-Fresh independent final audit has executed against `c8ae5404fcaf57f3bf5f8c583b1a0249e0907f9b` and produced a repaired candidate.
+**Integration PR:** #498 — `work/english-final-integration-20260919-v3`  
+**Current base:** `main@d7406f578677bcd6e7944223dfb02f4000014872`  
+**Latest product-proof head:** `d6323cb318e653f53197e3ea09eeb15a7d122e4d`  
+**Branch relation:** ahead of Current main, behind by 0 at reconciliation.  
+**Acceptance truth:** `content/english/ACCEPTANCE.md`
 
-**Active ref:** `audit/english-final-independent-20260919`
-**Result:** read `content/english/ACCEPTANCE.md` from that ref, not a missing/stale main copy.
-**Stage:** independent execution/reconciliation complete; English-wide release **BLOCKED**.
-**Remaining:** exact 2011/2026 Big Writing originals; material Mac Kian Human Gate. External Reading remains inventory-only and must not be described as executable.
-**Next:** obtain the bounded Source/Human Gate inputs; revalidate only the affected Source/presentation slices. Shared English+Lexical checkpoint durability is closed for the tested boundary. Do not restart A/B/C or broad historical CI.
-**U:** UNTESTED; no synthetic evidence becomes learner history.
+### Current result
 
-Task brief: `FINAL_LEARNER_ACCEPTANCE_BRIEF.md` on the active ref. Candidate tests/fixes are not deployed on main merely because this cursor routes to them. Historical child PASS is retained only within the narrowed path boundaries recorded by the fresh result.
+The English engineering chain is accepted for the named tested boundaries:
 
-Shared Visual Foundation + Shared Shell are now cross-system Current on `main` through #389. English is **not** the current owner/writer of Shared Shell merely because older UI work once used that assignment.
+- Objective — Reading A / Cloze / all four Part B forms;
+- Translation;
+- Writing Runtime / Evidence / exact return;
+- English ↔ Lexical exact handoff;
+- Chat Resume;
+- one 180-minute whole-paper session;
+- shared private checkpoint durability for English + Lexical;
+- English navigation hierarchy;
+- External Reading compiler / private-source bridge / synthetic browser journey.
 
-Current English product work is therefore narrow:
+Release is still **BLOCKED** only by bounded non-synthetic gates:
 
-```text
-preserve accepted English task blueprints
-→ inherit current Shared Visual / Shell
-→ repair only real launch-visible implementation defects
-→ reuse shared task Runtime where cognition matches
-```
+1. exact Big Writing original bytes for 2011 and 2026 remain unavailable;
+2. material learner-facing presentation changes require Kian Human Gate on the actual Mac;
+3. learner U remains **UNTESTED** until genuine use.
 
-Do not reopen English learning architecture for styling convenience.
+Do not reopen passed engineering paths merely because unrelated broad CI remains red.
 
 ---
 
-## Architecture v2 owner map
+## External Reading — Current truth
+
+External Reading is a **continuous English Content lane**, not a one-off importer and not a replacement for 考研 Reading A strategy.
+
+Current source pools:
+
+- TOEFL TPO 56–65 — primary growth pool;
+- IELTS Academic 17–19 — secondary growth pool.
+
+Boundary:
 
 ```text
-RULE / MODEL
-→ content/english/LEARNING_CONTRACT.md
+public repo
+→ source identity / manifest / schema / compiler / runtime contract
 
-CONTENT
-→ content/english/manifest.json
-→ exact Objective / Translation / Writing canonical owners
-→ content/lexical/ for Lexical backend truth
+private Mac source bundle
+→ copyrighted source bytes
 
-VISUAL
-→ static-web/PRESENTATION_CONTRACT.md
-→ static-web/ENGLISH_PRODUCT_BRIEF.md
-→ exact English/task visual owner
-
-ENGINEERING
-→ SYSTEM_CONTRACT.md
-→ English SourceTruth adapters / task Runtime / renderer under static-web/
-
-WEBSITE
-→ consumes the three responsibilities above; never becomes a second Content owner
-
-CONTROL
-→ this CURRENT + exact child CURRENT; reads state and routes work only
+learner surface
+→ accepted Reading-family architecture where compatible
+→ source-native task cognition preserved
+→ no automatic takeover of 考研答题逻辑
 ```
 
-Historical `S/K/L/P/R/E` labels may remain inside Acceptance/CURRENT evidence summaries. They are **acceptance dimensions, not Architecture-v2 layers or owners**.
+Synthetic engineering fixtures may test the path. Protected fresh learner material must not be consumed merely to prove engineering.
+
+---
 
 ## Learner product placement
 
 ```text
 English
-├─ Reading A
-├─ Cloze
-├─ Part B
+├─ Objective
+│  ├─ Reading A
+│  ├─ Cloze
+│  └─ Part B
 ├─ Translation
 ├─ Writing
 ├─ Vocabulary / Lexical
 └─ External Reading
 ```
 
-Lexical keeps an independent backend canonical owner at `content/lexical/`, but learner-facing Vocabulary / Lexical belongs under English.
+Lexical keeps its canonical backend under `content/lexical/`; learner-facing Vocabulary / Lexical remains under English.
 
-External Reading is another Reading data/source path, not an independent UI family. Compatible External Reading content uses the accepted Reading task family / blueprint / Runtime.
+---
+
+## Owner map
+
+| Responsibility | Current owner |
+| --- | --- |
+| English Rule / Model | `content/english/LEARNING_CONTRACT.md` |
+| English Content / source map | `content/english/manifest.json` + exact module owner |
+| Objective | `content/english/modules/objective/` |
+| Translation | `content/english/modules/translation/` |
+| Writing | `content/english/modules/writing/` |
+| External Reading | `content/english/external/` + `tools/english-external/` |
+| Lexical canonical Content | `content/lexical/` |
+| English visual blueprint | `static-web/ENGLISH_PRODUCT_BRIEF.md` |
+| Shared presentation / shell | registered upstream shared owner |
+| Runtime implementation | exact `static-web/` owner |
+| English work routing | this file |
+| English final acceptance | `content/english/ACCEPTANCE.md` |
+
+Historical S/K/L/P/R/E labels may remain in evidence summaries; they are acceptance dimensions, not Architecture-v2 owners.
 
 ---
 
 ## Module router
 
-| Scope | Engineering Work Cursor | Acceptance Truth |
+| Scope | Engineering cursor | Acceptance |
 | --- | --- | --- |
-| Objective — Reading A / Cloze / Part B | `content/english/modules/objective/CURRENT.md` | `content/english/modules/objective/ACCEPTANCE.md` |
+| Objective | `content/english/modules/objective/CURRENT.md` | `content/english/modules/objective/ACCEPTANCE.md` |
 | Translation | `content/english/modules/translation/CURRENT.md` | `content/english/modules/translation/ACCEPTANCE.md` |
 | Writing | `content/english/modules/writing/CURRENT.md` | `content/english/modules/writing/ACCEPTANCE.md` |
-| Vocabulary / Lexical backend | `content/lexical/CURRENT.md` | `content/lexical/ACCEPTANCE.md` when acceptance is relevant |
+| External Reading | `content/english/external/CURRENT.md` | English-wide Acceptance boundary |
+| Vocabulary / Lexical | `content/lexical/CURRENT.md` | `content/lexical/ACCEPTANCE.md` when relevant |
 
 A blocker in one child does not freeze siblings without a real shared dependency.
 
 ---
 
-## Stable owners
+## Runtime rules that stay frozen
 
-- English Rule / Model → `content/english/LEARNING_CONTRACT.md`
-- Source / Content map → `content/english/manifest.json`
-- Objective Content / semantics → `content/english/modules/objective/`
-- Translation Content / semantics → `content/english/modules/translation/`
-- Writing Content / semantics → `content/english/modules/writing/`
-- Lexical canonical Content → `content/lexical/`
-- shared Visual / presentation → `static-web/PRESENTATION_CONTRACT.md`, `static-web/UI_STYLE_BRIEF.md`, `static-web/KIAN_UI_PREFERENCES.md`
-- accepted English surface blueprints → `static-web/ENGLISH_PRODUCT_BRIEF.md`
-- shared Engineering → `SYSTEM_CONTRACT.md`
-- actual surface/runtime implementation → exact `static-web/` owner
-
-`content/english/continuation.json` remains retired and is not a normal read.
+- Task-first; First Learning is targeted and skippable.
+- Wrong / Uncertain is evidence, not automatic diagnosis or mandatory repair.
+- Reading A current question means focus, not hiding the full question set.
+- Each Part B form keeps its own source-native cognition.
+- Translation / Writing preserve learner first output before reference or Chat help.
+- Lookup must not silently mutate Lexical learning state.
+- Cross-task strategy belongs to Chat; website executes validated explicit instructions.
+- Whole paper is one 180-minute session; Seal is irreversible; subjective work is not fake-auto-scored.
+- Unknown exposure is not equivalent to unseen.
+- Shared private restore is atomic across the tested English + Lexical boundary.
 
 ---
 
-## Change routing
+## Next
 
-### Content / semantic change
-
-```text
-exact English task or Lexical canonical owner
-→ targeted acceptance only when required
-→ main
-→ existing learner surface consumes Current
-```
-
-Do not create a second content copy in page code.
-
-### Visual change
+Only close bounded remaining gates:
 
 ```text
-shared visual issue → shared Visual owner
-English-wide issue → English visual owner
-accepted task geometry → preserve frozen blueprint unless Kian explicitly reopens it
+recover exact 2011 / 2026 Big Writing original bytes if available
++
+Kian Mac Human Gate for material changed learner-facing presentation
+↓
+revalidate only affected Source / presentation slices
+↓
+release decision
 ```
 
-### Runtime / behavior change
+Do not restart A/B/C, legacy 4173 convergence, broad historical CI cleanup, or unrelated Lexical / Politics / Xizong debt.
 
-```text
-approved English behavior
-→ exact runtime/renderer owner
-→ targeted functional proof
-```
-
-Runtime must not redefine English Learning Logic.
-
----
-
-## Fresh-Chat entry
-
-Known English engineering task should normally need only:
-
-```text
-English CURRENT
-→ exact Rule / Visual / Engineering owner required by the request
-→ exact task/surface owner
-→ work
-```
-
-For learner continuation, do not start here. Resume from actual learner/runtime state and read the Learning Contract only when needed to interpret the next action.
-
----
-
-## Truth boundary
-
-```text
-Artifact Truth
-≠ Acceptance Truth
-≠ Learner Truth
-≠ Work Cursor
-```
-
-Engineering readiness never means Kian has studied or attempted the module.
-
----
-
-## Current stop rule
-
-Do not restart legacy `4173` convergence, retired Shared-Shell writer assignments or old branch histories as Current work.
-
-For launch, preserve the accepted English task geometry, inherit current shared Visual, fix concrete learner-visible defects, prove representative behavior, and stop.
+Engineering readiness never means Kian has studied or attempted the material.
