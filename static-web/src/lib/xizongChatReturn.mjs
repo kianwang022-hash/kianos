@@ -1,3 +1,9 @@
+import {
+  XIZONG_MEMORY_STORAGE_KEY,
+  normalizeXizongMemoryState,
+  setRepairTasks
+} from './xizongMemoryModel.mjs';
+
 export const XIZONG_CHAT_HANDOFF_SCHEMA = 'kianos.xizong.chat_handoff.v1';
 export const XIZONG_CHAT_RETURN_SCHEMA = 'kianos.xizong.chat_return.v1';
 export const XIZONG_CHAT_HANDOFF_PREFIX = 'kianos-xizong-chat-handoff-v1:';
@@ -317,84 +323,130 @@ export function applyXizongChatReturn(storage, input, {
 } = {}) {
   if (!storage?.getItem || !storage?.setItem) fail('STORAGE_UNAVAILABLE');
   const raw = parseXizongChatReturn(input);
-  const handoff = readXizongChatHandoff(storage, raw.handoff_id);
-  const receiptKey = XIZONG_CHAT_RETURN_PREFIX + handoff.handoff_id;
-  const existingReceiptRaw = storage.getItem(receiptKey);
-  const rawSignature = fingerprint(raw);
-  if (existingReceiptRaw != null) {
-    let existing;
-    try { existing = JSON.parse(existingReceiptRaw); } catch { fail('RECEIPT_CORRUPT'); }
-    if (existing?.return_id === clean(raw.return_id, 160) && existing?.return_signature === rawSignature) {
-      return {
-        status: 'already_applied',
-        return_packet: clone(existing.return_packet || raw),
-        resume: clone(handoff.resume),
-        return_href: handoff.return_href
-      };
-    }
-    fail('RETURN_CONFLICT');
+  const handoffId = text(raw.handoff_id, 160);
+  if (!handoffId) fail('RETURN_HANDOFF_REQUIRED');
+  const handoff = readXizongChatHandoff(storage, handoffId);
+  const valid = validateXizongChatReturn(raw, { handoff, currentPacket });
+  const receiptKey = receiptKeyFor(handoff.handoff_id);
+  const existing = storage.getItem(receiptKey);
+  if (existing != null) {
+    let receipt;
+    try { receipt = JSON.parse(existing); } catch { fail('RECEIPT_CORRUPT', handoff.handoff_id); }
+    if (receipt?.schema !== 'kianos.xizong.chat_return_receipt.v1') fail('RECEIPT_SCHEMA_INVALID');
+    if (receipt.return_id !== valid.return_id) fail('RETURN_CONFLICT', handoff.handoff_id);
+    if (JSON.stringify(receipt.return_packet) !== JSON.stringify(valid)) fail('RETURN_CONFLICT', handoff.handoff_id);
+
+    const memory = normalizeXizongMemoryState(
+      JSON.parse(storage.getItem(XIZONG_MEMORY_STORAGE_KEY) || 'null')
+    );
+    const taskIds = (valid.repairs || []).map((repair) =>
+      'repair:block-chat:' + handoff.origin.block_id + ':' + repair.kp_id
+    );
+    return {
+      status: 'already_applied',
+      return_packet: valid,
+      return_href: handoff.return_href,
+      receipt,
+      repair_tasks: (memory.repairTasks || []).filter((task) => taskIds.includes(String(task?.id || '')))
+    };
   }
 
-  const validated = validateXizongChatReturn(raw, handoff, currentPacket);
-  const inboxKey = 'kianos-xizong-repair-inbox-v1:' + handoff.origin.object_id;
-  const beforeInbox = storage.getItem(inboxKey);
-  const beforeReceipt = existingReceiptRaw;
+  const importedAt = new Date(now).toISOString();
+  const inboxKey = repairInboxKeyFor(handoff.origin.object_id);
+  const memoryBefore = storage.getItem(XIZONG_MEMORY_STORAGE_KEY);
+  const inboxBefore = storage.getItem(inboxKey);
+  const receiptBefore = storage.getItem(receiptKey);
+
+  const plans = valid.repairs.map((repair) => ({
+    kpId: repair.kp_id,
+    reason: repair.reason,
+    action: repair.action,
+    priority: repair.priority,
+    sourceQuestionIds: [...repair.source_question_ids]
+  }));
+
+  let repairTasks = [];
+  let nextMemory = null;
+  if (plans.length) {
+    const memory = normalizeXizongMemoryState(
+      memoryBefore == null ? null : JSON.parse(memoryBefore)
+    );
+    const cards = Object.values(memory.cards || {});
+    repairTasks = plans.map((plan) => {
+      const coreCard = cards.find((card) =>
+        String(card?.family || '') === 'CORE'
+        && String(card?.kpId || '') === plan.kpId
+        && String(card?.blockId || '') === handoff.origin.block_id
+      ) || null;
+      return {
+        id: 'repair:block-chat:' + handoff.origin.block_id + ':' + plan.kpId,
+        cardId: coreCard?.id || '',
+        kpId: plan.kpId,
+        blockId: handoff.origin.block_id,
+        systemId: handoff.origin.system_id,
+        title: [currentPacket?.current?.block_label, plan.kpId].filter(Boolean).join(' · '),
+        reason: plan.reason,
+        action: plan.action,
+        priority: plan.priority,
+        origin: 'BLOCK_CHAT_RETURN',
+        sourceQuestionIds: [...plan.sourceQuestionIds],
+        blockHref: handoff.return_href,
+        returnHref: handoff.return_href,
+        createdAt: importedAt,
+        status: 'ACTIVE'
+      };
+    });
+    const incomingIds = new Set(repairTasks.map((task) => task.id));
+    const preserved = (memory.repairTasks || []).filter((task) => !incomingIds.has(String(task?.id || '')));
+    nextMemory = setRepairTasks(memory, [...preserved, ...repairTasks]);
+  }
+
+  const receipt = {
+    schema: 'kianos.xizong.chat_return_receipt.v1',
+    handoff_id: handoff.handoff_id,
+    return_id: valid.return_id,
+    imported_at: importedAt,
+    return_packet: valid,
+    repair_task_ids: repairTasks.map((task) => task.id)
+  };
+
+  const rollback = () => {
+    try {
+      if (memoryBefore == null) storage.removeItem?.(XIZONG_MEMORY_STORAGE_KEY);
+      else storage.setItem(XIZONG_MEMORY_STORAGE_KEY, memoryBefore);
+      if (inboxBefore == null) storage.removeItem?.(inboxKey);
+      else storage.setItem(inboxKey, inboxBefore);
+      if (receiptBefore == null) storage.removeItem?.(receiptKey);
+      else storage.setItem(receiptKey, receiptBefore);
+    } catch {
+      fail('RETURN_ROLLBACK_INCOMPLETE', handoff.handoff_id);
+    }
+  };
 
   try {
-    if (validated.decision === 'REPAIR') {
-      let inbox = { plans: [] };
-      if (beforeInbox != null) {
-        try { inbox = JSON.parse(beforeInbox); } catch { fail('REPAIR_INBOX_CORRUPT'); }
-      }
-      const existingPlans = Array.isArray(inbox?.plans) ? inbox.plans : [];
-      const incomingKp = new Set(validated.repairs.map((row) => row.kp_id));
-      const preserved = existingPlans.filter((row) => !incomingKp.has(String(row?.kpId || row?.kp_id || '')));
-      const plans = validated.repairs.map((row) => ({
-        kpId: row.kp_id,
-        reason: row.reason || 'Chat identified a bounded repair target.',
-        action: row.action || 'Re-run this KP before returning to the interrupted task.',
-        priority: row.priority,
-        sourceQuestionIds: row.source_question_ids,
-        sourceHandoffId: handoff.handoff_id,
-        sourceReturnId: validated.return_id,
-        blockHref: handoff.return_href,
-        returnHref: handoff.return_href
-      }));
+    if (plans.length) {
       storage.setItem(inboxKey, JSON.stringify({
-        ...inbox,
-        importedAt: new Date(now).toISOString(),
+        importedAt,
         sourceSystemId: handoff.origin.system_id,
         sourceHandoffId: handoff.handoff_id,
-        sourceReturnId: validated.return_id,
-        plans: [...preserved, ...plans]
+        sourceReturnId: valid.return_id,
+        sourceHash: handoff.origin.source_hash,
+        returnHref: handoff.return_href,
+        plans
       }));
+      storage.setItem(XIZONG_MEMORY_STORAGE_KEY, JSON.stringify(nextMemory));
     }
-
-    storage.setItem(receiptKey, JSON.stringify({
-      schema: XIZONG_CHAT_RETURN_SCHEMA,
-      return_id: validated.return_id,
-      handoff_id: handoff.handoff_id,
-      applied_at: new Date(now).toISOString(),
-      decision: validated.decision,
-      repair_kp_ids: validated.repairs.map((row) => row.kp_id),
-      evidence_version: handoff.origin.evidence_version,
-      return_signature: rawSignature,
-      return_packet: validated
-    }));
+    storage.setItem(receiptKey, JSON.stringify(receipt));
   } catch (error) {
-    try {
-      if (beforeInbox == null) storage.removeItem?.(inboxKey);
-      else storage.setItem(inboxKey, beforeInbox);
-      if (beforeReceipt == null) storage.removeItem?.(receiptKey);
-      else storage.setItem(receiptKey, beforeReceipt);
-    } catch {}
+    rollback();
     throw error;
   }
 
   return {
     status: 'applied',
-    return_packet: validated,
-    resume: clone(handoff.resume),
-    return_href: handoff.return_href
+    return_packet: valid,
+    return_href: handoff.return_href,
+    receipt,
+    repair_tasks: repairTasks
   };
 }
