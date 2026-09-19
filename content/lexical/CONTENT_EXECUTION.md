@@ -286,22 +286,31 @@ This section changes **transport only**. It does not reduce fresh-read coverage,
 
 ## 5B. Final Mutation Executor — mechanical candidate landing
 
-After Human approval and fresh Independent Audit/reconciliation have produced a final semantic decision, the semantic Chat should stop hand-writing GitHub files one by one.
+Once an approved semantic write is allowed by the serialized frontier, the semantic Chat should stop hand-writing GitHub files one by one.
 
-The normal mechanical handoff is:
+The same mechanical executor is used at both write stages:
 
 ```text
-A/C final semantic reconciliation
-→ content/lexical/execution/final-mutation-package.json
-→ Lexical Apply Final Mutation Package workflow
-→ exact stale-hash checks
-→ apply only declared Word / Relation / Test / receipt JSON mutations
-→ rebuild all 7,946 Final Learner Objects
-→ bounded lexical validation
-→ mechanical receipt
-→ commit candidate branch
-→ PR / final merge remains an explicit Chat/human landing decision
+Stage 1 · approved candidate materialization
+Kian-approved Production delta
+→ frontier = MATERIALIZE_ALLOWED
+→ final-mutation-package.json
+→ executor
+→ candidate semantic files + 7,946 FLOB rebuild
+→ fresh Independent Audit
+
+Stage 2 · post-audit correction, only when needed
+A/C semantic reconciliation
+→ frontier = RECONCILE_ALLOWED / AUDIT_CORRECTION_ALLOWED
+→ bounded final-mutation-package.json
+→ executor
+→ corrected candidate + 7,946 FLOB rebuild
+
+Then:
+→ candidate PR / final merge remains an explicit Chat/human landing decision
 ```
+
+A clean Independent Audit that requires no semantic mutation skips Stage 2.
 
 Authority boundary:
 
@@ -337,7 +346,7 @@ Executor:
 Workflow:
 `.github/workflows/lexical-apply-final-mutation-package.yml`
 
-This is the preferred post-reconciliation write path. Direct per-file Chat writes remain a bounded fallback only when the executor itself is broken or the required mutation is outside its declared safe capability.
+This is the preferred write path both after the Human Gate and after any audit reconciliation. Direct per-file Chat writes remain a bounded fallback only when the executor itself is broken or the required mutation is outside its declared safe capability.
 
 
 ---
