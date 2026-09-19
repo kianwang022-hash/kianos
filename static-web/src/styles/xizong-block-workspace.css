@@ -37,7 +37,7 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyCon
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 3px 12px;
+  padding: 1px 12px;
   border-bottom: 1px solid var(--xz-block-line);
   color: var(--xz-block-muted);
 }
@@ -45,11 +45,13 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyCon
   color: var(--xz-block-green);
   font-size: 15px;
   font-weight: 700;
+  line-height: 1.2;
   text-decoration: none;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyContextRow > span {
   font-size: 15px;
   font-weight: 600;
+  line-height: 1.2;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyShellActions {
   display: flex;
@@ -61,15 +63,16 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyShe
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyShellActions > span {
   font-size: 15px;
   font-weight: 600;
+  line-height: 1.2;
   opacity: .72;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyIdentity {
-  min-height: 52px;
+  min-height: 44px;
   display: grid;
   grid-template-columns: minmax(0,1fr) auto;
   gap: 16px;
   align-items: center;
-  padding: 7px 14px 8px;
+  padding: 5px 14px;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyIdentity > div > span {
   display: none;
@@ -78,7 +81,7 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyIde
   margin: 0;
   font-size: 23px;
   font-weight: 740;
-  line-height: 1.28;
+  line-height: 1.2;
   letter-spacing: 0;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyIdentityMeta {
@@ -89,13 +92,11 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyIde
   display: block;
   font-size: 15px;
   font-weight: 680;
+  line-height: 1.2;
+  white-space: nowrap;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyIdentityMeta small {
-  display: block;
-  margin-top: 2px;
-  color: var(--xz-block-muted);
-  font-size: 15px;
-  opacity: .68;
+  display: none;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyTabs {
   display: none;
@@ -845,14 +846,15 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6ProgressMin
 }
 
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzBlockFrameworkPreviewButton {
-  min-height: 26px;
-  padding: 3px 8px;
+  min-height: 24px;
+  padding: 2px 8px;
   border: 1px solid var(--xz-block-line);
   border-radius: 6px;
   background: #fff;
   color: var(--xz-block-green);
   font-size: 15px;
   font-weight: 700;
+  line-height: 1.2;
   cursor: pointer;
   white-space: nowrap;
 }
