@@ -45,9 +45,13 @@ jobs:
         run: npm run build
       - name: Prove Total Home one-click direct workspaces
         run: node scripts/test-total-home-direct-workspace-browser.mjs
+      - name: Prove live control updates open Home
+        run: node scripts/test-total-home-live-control-browser.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: total-home-direct-workspace
-          path: static-web/.qa/total-home-direct/
+          path: |
+            static-web/.qa/total-home-direct/
+            static-web/.qa/total-home-live-control/
           retention-days: 14
