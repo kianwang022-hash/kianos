@@ -1,202 +1,75 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "kianos.english.external_reading_object.v2",
-  "title": "KianOS External Reading Import Object",
+  "$id": "kianos.english.external_public_identity.v1",
+  "title": "KianOS External Reading Public Identity",
+  "description": "Metadata-only public identity. Copyrighted source bytes and private learner exposure do not belong here.",
   "type": "object",
   "required": [
-    "schema",
     "object_id",
-    "source",
-    "content"
+    "source_family",
+    "source_format",
+    "collection",
+    "passage_number",
+    "question_count",
+    "source_owner",
+    "source_quality"
   ],
   "properties": {
-    "schema": {
-      "const": "kianos.english.external_reading_object.v2"
-    },
     "object_id": {
+      "type": "string",
+      "pattern": "^(tpo[0-9]+-p[0-9]+|ielts[0-9]+-t[0-9]+-p[0-9]+|external-[A-Za-z0-9._:-]+)$"
+    },
+    "source_family": {
+      "enum": [
+        "TOEFL_TPO",
+        "IELTS_ACADEMIC",
+        "PERIODICAL_READING",
+        "OTHER_READING"
+      ]
+    },
+    "source_format": {
+      "enum": [
+        "TOEFL_LEGACY",
+        "IELTS_ACADEMIC",
+        "ARTICLE",
+        "OTHER"
+      ]
+    },
+    "collection": {
       "type": "string",
       "minLength": 1
     },
-    "source": {
-      "type": "object",
-      "required": [
-        "kind",
-        "source_id",
-        "format"
-      ],
-      "properties": {
-        "kind": {
-          "enum": [
-            "TPO_READING",
-            "IELTS_READING",
-            "PERIODICAL_READING",
-            "OTHER_READING"
-          ]
-        },
-        "source_id": {
-          "type": "string",
-          "minLength": 1
-        },
-        "format": {
-          "enum": [
-            "TOEFL_LEGACY",
-            "IELTS_ACADEMIC",
-            "ARTICLE",
-            "OTHER"
-          ]
-        },
-        "title": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "publication": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "published_at": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "locator": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "description": "Stable private/local locator sufficient to recover the original material. Shared Content should not copy copyrighted source bytes merely for completeness."
-        }
-      },
-      "additionalProperties": true
-    },
-    "role": {
-      "enum": [
-        "READING_GROWTH",
-        "TOEFL_PREP_BRIDGE",
-        "ORDINARY_PRACTICE"
-      ],
-      "default": "READING_GROWTH"
-    },
-    "content": {
-      "type": "object",
-      "required": [
-        "paragraphs"
-      ],
-      "properties": {
-        "title": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "paragraphs": {
-          "type": "array",
-          "minItems": 1,
-          "items": {
-            "type": "object",
-            "required": [
-              "id",
-              "text"
-            ],
-            "properties": {
-              "id": {
-                "type": "string",
-                "minLength": 1
-              },
-              "text": {
-                "type": "string",
-                "minLength": 1
-              }
-            },
-            "additionalProperties": false
-          }
-        }
-      },
-      "additionalProperties": false
-    },
-    "questions": {
-      "type": "array",
-      "default": [],
-      "description": "Optional source-native questions. Empty is valid. Runtime must not invent questions or reinterpret unsupported source forms as English-I Reading-A questions.",
-      "items": {
-        "type": "object",
-        "required": [
-          "id",
-          "prompt",
-          "interaction"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "minLength": 1
-          },
-          "ordinal": {
-            "type": [
-              "integer",
-              "null"
-            ],
-            "minimum": 1
-          },
-          "prompt": {
-            "type": "string",
-            "minLength": 1
-          },
-          "interaction": {
-            "enum": [
-              "SINGLE_CHOICE",
-              "MULTI_CHOICE",
-              "TEXT",
-              "UNSUPPORTED_SOURCE_NATIVE"
-            ]
-          },
-          "options": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
-          },
-          "answer": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "source_question_type": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "note": {
-            "type": [
-              "string",
-              "null"
-            ]
-          }
-        },
-        "additionalProperties": true
-      }
-    },
-    "study_note": {
+    "test": {
       "type": [
-        "string",
+        "integer",
         "null"
       ],
-      "description": "Optional shared note about why this import is useful. Never store Kian's private exposure/attempt/timing/diagnosis here."
+      "minimum": 1
+    },
+    "passage_number": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "question_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "source_owner": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_quality": {
+      "enum": [
+        "CANDIDATE_NOT_PROVEN_CLEAN",
+        "PROVEN_CLEAN",
+        "SOURCE_BLOCKED"
+      ]
+    },
+    "known_source_flags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
     }
   },
   "additionalProperties": true
