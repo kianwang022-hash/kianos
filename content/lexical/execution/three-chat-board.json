@@ -251,7 +251,7 @@
           901,
           1000
         ],
-        "state": "WAITING_BOUNDED_HUMAN_DELTA_GATE",
+        "state": "HUMAN_GATE_RECONCILIATION_REQUIRED_PAUSED",
         "allowed_now": [
           "freeze current main and export review bundle",
           "fresh owner/module judgment",
@@ -268,7 +268,7 @@
           "invent a newer semantic standard"
         ],
         "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
-        "next_action": "Kian reviews only the two genuinely new material deltas in PR #546. On p, approve exactly those two plus the reported bounded corrections/Test changes, freeze BF09 backlog, and immediately continue C to o0801-o0900.",
+        "next_action": "Pause C here. Reconcile BF09 proposal drift against frozen review evidence and FINAL_SEMANTIC_FREEZE v1. Do not advance to o0801-o0900 unless Kian later asks to continue.",
         "review_head": "f860eff88e88e85bbc687dfbe8e7f4c5f6e55c5f",
         "review_branch": "work/lexical-final-backfill-c-o0901-o1000",
         "review_request_commit": "e959927b9b73d0f90dadfc6fcf8fd3d5eb7026df",
@@ -300,7 +300,31 @@
           "reciprocal confirm↔conform confusable Relation; shared word:conform@o1001"
         ],
         "semantic_freshness_note": "Review froze from main f860eff8. Drift comparison before proposal freeze showed only three-chat-board and Xizong changes; no o0901-o1000 Word/Relation/Form owner or final semantic contract changed. FINAL_SEMANTIC_FREEZE v1 still governs.",
-        "content_upgrades": 23
+        "content_upgrades": 23,
+        "user_instruction": {
+          "received_at": "2026-09-20",
+          "instruction": "Approve/write the just-shown BF09 delta, but do not advance C to the next batch.",
+          "approved_displayed_scope": [
+            "o0913 commence → commencement high-leverage family Expansion",
+            "o0999 confirm booking/reservation/order/appointment definite-arrangement branch"
+          ],
+          "advance_after_approval": false
+        },
+        "gate_reconciliation": {
+          "reason": "Current PR #546 Section B drifted after the displayed user-facing gate. Current branch now gates comfort zone / common sense / conflict of interest instead of the two items shown to Kian.",
+          "current_proposal_pr": 546,
+          "current_proposal_path": "content/lexical/execution/manifests/o0901-o1000.final-semantic-sweep-c-proposal.md",
+          "current_unapproved_delta_owners": [
+            909,
+            922,
+            1000
+          ],
+          "user_approved_displayed_delta_owners": [
+            913,
+            999
+          ],
+          "rule": "Do not treat Kian's approval as authorizing unseen current proposal items. Reconcile semantic proposal against the frozen review evidence before any approval write or canonical mutation."
+        }
       },
       "scheduled_ranges": [
         [
