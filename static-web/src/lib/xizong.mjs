@@ -382,55 +382,65 @@ function xizongForecastBlockRecords(record) {
     return rows;
   }
 
-  const systemRoot = SYSTEMS_ROOT + '/' + record.dirName;
-  if (!fs.existsSync(absolute(systemRoot))) {
-    throw new Error('CURRENT_XIZONG_FORECAST_SYSTEM_DIR_MISSING:' + record.identity.systemId);
+  const stableIds = Array.isArray(record.system?.identity?.stable_block_ids)
+    ? record.system.identity.stable_block_ids.map((value) => String(value || '')).filter(Boolean)
+    : [];
+  if (!stableIds.length) {
+    throw new Error('CURRENT_XIZONG_FORECAST_STABLE_BLOCK_IDS_MISSING:' + record.identity.systemId);
+  }
+  if (expectedBlocks && stableIds.length !== expectedBlocks) {
+    throw new Error('CURRENT_XIZONG_FORECAST_STABLE_BLOCK_COUNT_MISMATCH:' + record.identity.systemId + ':' + stableIds.length + '/' + expectedBlocks);
   }
 
+  const systemRoot = SYSTEMS_ROOT + '/' + record.dirName;
   const markdownFiles = [];
   const walk = (relativeDir) => {
     const entries = fs.readdirSync(absolute(relativeDir), { withFileTypes: true });
     for (const entry of entries) {
       const relativePath = relativeDir + '/' + entry.name;
-      if (entry.isDirectory()) {
-        walk(relativePath);
-        continue;
-      }
+      if (entry.isDirectory()) { walk(relativePath); continue; }
       if (entry.isFile() && /\.md$/i.test(entry.name)) markdownFiles.push(relativePath);
     }
   };
   walk(systemRoot);
 
-  const rows = markdownFiles
-    .map((relativePath) => {
-      const source = readText(relativePath);
-      const frontmatter = source.match(/^---\s*\n([\s\S]*?)\n---/m)?.[1] || '';
-      const field = (key) => {
-        const prefix = key + ':';
-        const line = frontmatter.split('\n').find((row) => row.trimStart().startsWith(prefix));
-        if (!line) return '';
-        return line.slice(line.indexOf(':') + 1).trim();
-      };
-      const blockId = field('block_id').replace(/^['\"]|['\"]$/g, '');
-      const order = Number(field('order'));
-      const kpCount = Number(field('kp_count'));
-      if (!blockId || !Number.isInteger(order) || order < 1 || !Number.isInteger(kpCount) || kpCount < 1) {
-        return null;
-      }
-      return { blockId, order, kpCount };
-    })
-    .filter(Boolean)
-    .sort((a, b) => a.order - b.order);
+  const stableSet = new Set(stableIds);
+  const found = new Map();
+  for (const relativePath of markdownFiles) {
+    const source = readText(relativePath);
+    const frontmatter = source.match(/^---\s*\n([\s\S]*?)\n---/m)?.[1] || '';
+    const blockMatch = frontmatter.match(/^block_id:\s*['\"]?([^'\"\n]+)['\"]?\s*$/m);
+    const blockId = String(blockMatch?.[1] || '').trim();
+    if (!stableSet.has(blockId)) continue;
+    if (found.has(blockId)) {
+      throw new Error('CURRENT_XIZONG_FORECAST_BLOCK_ID_DUPLICATE:' + record.identity.systemId + ':' + blockId);
+    }
 
-  if (expectedBlocks && rows.length !== expectedBlocks) {
-    throw new Error('CURRENT_XIZONG_FORECAST_BLOCK_COUNT_MISMATCH:' + record.identity.systemId + ':' + rows.length + '/' + expectedBlocks);
+    const kpFrontmatter = Number((frontmatter.match(/^kp_count:\s*(\d+)\s*$/m) || [])[1] || 0);
+    const markerCount = (source.match(/kianos:kp/gi) || []).length;
+    const headingCount = (source.match(/^#{1,4}\s+KP\d+\b/gm) || []).length;
+    const kpCount = Number.isInteger(kpFrontmatter) && kpFrontmatter > 0
+      ? kpFrontmatter
+      : markerCount > 0 ? markerCount : headingCount;
+    if (!Number.isInteger(kpCount) || kpCount < 1) {
+      throw new Error('CURRENT_XIZONG_FORECAST_BLOCK_KP_MISSING:' + record.identity.systemId + ':' + blockId);
+    }
+    found.set(blockId, { blockId, kpCount });
   }
+
+  const missing = stableIds.filter((blockId) => !found.has(blockId));
+  if (missing.length) {
+    throw new Error('CURRENT_XIZONG_FORECAST_BLOCK_FILES_MISSING:' + record.identity.systemId + ':' + missing.join(','));
+  }
+
+  const rows = stableIds.map((blockId, index) => ({
+    blockId,
+    order: index + 1,
+    kpCount: found.get(blockId).kpCount
+  }));
   const kpSum = rows.reduce((sum, row) => sum + row.kpCount, 0);
   if (expectedKp && kpSum !== expectedKp) {
     throw new Error('CURRENT_XIZONG_FORECAST_KP_COUNT_MISMATCH:' + record.identity.systemId + ':' + kpSum + '/' + expectedKp);
-  }
-  if (new Set(rows.map((row) => row.blockId)).size !== rows.length) {
-    throw new Error('CURRENT_XIZONG_FORECAST_BLOCK_ID_DUPLICATE:' + record.identity.systemId);
   }
   return rows;
 }
