@@ -18,6 +18,14 @@ function fail(code, detail = '') {
   throw new Error('XIZONG_CHAT_RETURN_' + code + (detail ? ':' + detail : ''));
 }
 
+function receiptKeyFor(handoffId) {
+  return XIZONG_CHAT_RETURN_PREFIX + clean(handoffId, 160);
+}
+
+function repairInboxKeyFor(objectId) {
+  return 'kianos-xizong-repair-inbox-v1:' + clean(objectId, 240);
+}
+
 function readMemoryForMutation(raw) {
   if (raw == null) return normalizeXizongMemoryState(null);
   let value;
@@ -335,10 +343,10 @@ export function applyXizongChatReturn(storage, input, {
 } = {}) {
   if (!storage?.getItem || !storage?.setItem) fail('STORAGE_UNAVAILABLE');
   const raw = parseXizongChatReturn(input);
-  const handoffId = text(raw.handoff_id, 160);
+  const handoffId = clean(raw.handoff_id, 160);
   if (!handoffId) fail('RETURN_HANDOFF_REQUIRED');
   const handoff = readXizongChatHandoff(storage, handoffId);
-  const valid = validateXizongChatReturn(raw, { handoff, currentPacket });
+  const valid = validateXizongChatReturn(raw, handoff, currentPacket);
   const receiptKey = receiptKeyFor(handoff.handoff_id);
   const existing = storage.getItem(receiptKey);
   if (existing != null) {
@@ -348,9 +356,7 @@ export function applyXizongChatReturn(storage, input, {
     if (receipt.return_id !== valid.return_id) fail('RETURN_CONFLICT', handoff.handoff_id);
     if (JSON.stringify(receipt.return_packet) !== JSON.stringify(valid)) fail('RETURN_CONFLICT', handoff.handoff_id);
 
-    const memory = normalizeXizongMemoryState(
-      JSON.parse(storage.getItem(XIZONG_MEMORY_STORAGE_KEY) || 'null')
-    );
+    const memory = readMemoryForMutation(storage.getItem(XIZONG_MEMORY_STORAGE_KEY));
     const taskIds = (valid.repairs || []).map((repair) =>
       'repair:block-chat:' + handoff.origin.block_id + ':' + repair.kp_id
     );
@@ -384,9 +390,7 @@ export function applyXizongChatReturn(storage, input, {
   let repairTasks = [];
   let nextMemory = null;
   if (plans.length) {
-    const memory = normalizeXizongMemoryState(
-      memoryBefore == null ? null : JSON.parse(memoryBefore)
-    );
+    const memory = readMemoryForMutation(memoryBefore);
     const cards = Object.values(memory.cards || {});
     repairTasks = plans.map((plan) => {
       const coreCard = cards.find((card) =>
