@@ -315,15 +315,17 @@ try {
   check(stalePersonal?.lectureRead === false && stalePersonal?.kp?.[noteKp]?.comment === 'keep this note', 'stale_block_reset_preserves_note_but_not_lecture_completion');
   check(staleArchiveKeys.length > 0, 'stale_block_evidence_archived');
 
-  // Malformed legacy evidence bridge data recovers without manufacturing mastery.
+  // Malformed legacy evidence bridge data must be preserved and fail closed.
   const malformedMeta = system.blocks.find((row) => row.blockId === 'circulation-b05');
   const malformedKey = 'kianos-xizong-memory-review-v2:xizong:circulation-b05';
   await cdp.navigate(`${BASE}/xizong/circulation/${malformedMeta.slug}/`);
   await cdp.evaluate(`localStorage.setItem(${js(malformedKey)},'{malformed')`);
   await cdp.reload(); await sleep(150);
-  const repairedMalformed = await cdp.evaluate(`(()=>{try{return JSON.parse(localStorage.getItem(${js(malformedKey)})||'null')}catch{return null}})()`);
-  check(repairedMalformed !== null, 'malformed_evidence_store_recovers_to_valid_json');
-  check(!(repairedMalformed?.evidenceHistory || []).some((row) => row?.rating === 'mastered' || row?.state === 'STABLE'), 'malformed_evidence_store_manufactures_no_mastery');
+  const malformedRaw = await cdp.evaluate(`localStorage.getItem(${js(malformedKey)})`);
+  const malformedBlocked = await cdp.evaluate(`(()=>{const root=document.querySelector('[data-xizong-v6-block]');return Boolean(root?.inert || root?.dataset?.xizongStateBlocked === 'true');})()`);
+  check(malformedRaw === '{malformed', 'malformed_evidence_store_preserves_original_bytes');
+  check(malformedBlocked, 'malformed_evidence_store_fails_closed');
+  check(!(malformedRaw || '').includes('mastered') && !(malformedRaw || '').includes('STABLE'), 'malformed_evidence_store_manufactures_no_mastery');
 
   // Whole-paper holdout protects every question in the held year at Evidence selection level.
   const heldYear = Number(sweep.years[0]);
