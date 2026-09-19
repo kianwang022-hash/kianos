@@ -6,7 +6,15 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:clap:baseline-v2-on-into",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "迅速或用力地把某物放上、套上或塞入某处",
+        "pattern": "clap sth on/into sth"
+      }
+    ],
     "content_hash": "330827ef2df582cbcd9f51748874acc0e74502d21be43f0a4d0d97204785aa7b",
     "core_concept": {
       "core_clusters": [
@@ -35,9 +43,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "拍手/鼓掌；突然的拍击声",
+      "core_meaning_cn": "快速拍击并发出短促声音：最常见是鼓掌，也可指翅膀拍打；clap sth on/into 则是迅速、用力地放上/塞入",
       "core_meaning_en": "to clap/applaud; a sharp clapping sound",
-      "mental_model_cn": "拍手/鼓掌；突然的拍击声",
+      "mental_model_cn": "hands → 鼓掌；thunder → 一声霹雳；wings → 拍打；clap sth on/into → 快速用力放置。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -69,15 +77,6 @@
             ],
             "meaning_cn": "为……鼓掌",
             "phrase": "clap for + sb/sth"
-          },
-          {
-            "collocation_id": "collocation:7bff59ba320ca09b0816",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:clap:354cbc8983ac5791:collocation:handoff-o0675-o0874"
-            ],
-            "meaning_cn": "迅速或用力地放上/塞入某物",
-            "phrase": "clap sth on/into"
           }
         ],
         "confidence": "medium",
@@ -301,7 +300,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0817-0824.json",
     "source_content_hash": "0126efc5cc91f21b82ce4940ae7dcaf8635824fb30cb9c9a5cd5b1e52c3973ec",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

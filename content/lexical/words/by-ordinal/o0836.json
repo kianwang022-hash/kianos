@@ -6,7 +6,15 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:claw:baseline-v2-way",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "艰难地抓挠、挣扎或努力前进/取得位置",
+        "pattern": "claw one's way + adv/prep"
+      }
+    ],
     "content_hash": "949f381e1cef0df2b5d119b90921e2ca2938a16c6eca57f0889505fef539b0c2",
     "core_concept": {
       "core_clusters": [
@@ -30,7 +38,7 @@
       ],
       "core_meaning_cn": "爪；用爪抓",
       "core_meaning_en": "a sharp curved nail or to scratch with such",
-      "mental_model_cn": "爪；用爪抓",
+      "mental_model_cn": "literal claw → 爪/螯与抓挠；claw one's way → 像用爪一点点扒过去，引申为艰难争取或挤出一条路。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -99,15 +107,6 @@
             ],
             "meaning_cn": "抓某物",
             "phrase": "claw at + sth"
-          },
-          {
-            "collocation_id": "collocation:d5c7889fd2c81d3e1b0c",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:claw:657fda37f23f5be7:collocation:1"
-            ],
-            "meaning_cn": "艰难地前进",
-            "phrase": "claw one's way"
           }
         ],
         "confidence": "medium",
@@ -229,7 +228,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0833-0840.json",
     "source_content_hash": "949f381e1cef0df2b5d119b90921e2ca2938a16c6eca57f0889505fef539b0c2",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }
