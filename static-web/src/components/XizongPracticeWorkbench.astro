@@ -306,7 +306,6 @@ const payload = JSON.stringify({
     const showRetainedError = (title, body) => showScopeError('回收训练', title, body);
 
     if (data?.scopeKind === 'SYSTEM') {
-      const recallState = readJson(`kianos:xizong:system-recall:${initialSystemId}:v1`, null);
       if (!inspectXizongSystemCompletion(data.completionRequirements, localStorage).complete || !hasXizongSystemRecall(localStorage, initialSystemId)) {
         showScopeError(
           '系统训练',
