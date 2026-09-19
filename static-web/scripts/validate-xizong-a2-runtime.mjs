@@ -126,8 +126,11 @@ const questionLib = read('static-web/src/lib/xizongQuestions.mjs');
 const crosswalkLib = read('static-web/src/lib/xizongQuestionCrosswalk.mjs');
 
 has(blockUi, "let state = { stage: 'block_learn', groupIndex: 0, kpIndex: 0, learned: {}, ratings: {}, ttsxEvidence: {}, ttsxAnnotations: {}, pendingTtsx: null, blockRecallDone: false, completed: false }", 'block-initial-state');
-has(blockUi, "JSON.parse(localStorage.getItem(storageKey) || 'null')", 'block-state-read');
+has(blockUi, 'const raw = localStorage.getItem(storageKey);', 'block-state-raw-read');
+has(blockUi, 'const saved = JSON.parse(raw);', 'block-state-validated-json-read');
+has(blockUi, "suspend('本机学习记录无法安全读取", 'block-state-read-fail-closed');
 has(blockUi, 'localStorage.setItem(storageKey, JSON.stringify(state))', 'block-state-write');
+has(blockUi, "suspend('本次学习状态未能保存", 'block-state-write-fail-closed');
 has(blockUi, 'state.sourceContactDone = true;', 'source-contact-completion-write');
 has(blockUi, "setStage(queued ? 'ttsx_checkpoint' : 'kp_recall')", 'kp-recall-transition');
 has(blockUi, "window.setTimeout(() => setStage('block_recall'), 120)", 'block-recall-transition');
@@ -143,7 +146,9 @@ has(guardUi, "requested === 'block_recall'", 'premature-block-recall-stage-guard
 has(guardUi, "target.closest('[data-block-recall-complete]')", 'premature-block-recall-evidence-guard');
 has(guardUi, "target.closest('[data-start-recall]')", 'premature-system-recall-start-guard');
 has(guardUi, "target.closest('[data-reveal-recall]')", 'premature-system-recall-reveal-guard');
-has(guardUi, 'const ready = completed.length >= blockIds.length;', 'premature-system-recall-readiness-missing');
+has(guardUi, "import { inspectXizongSystemCompletion } from '../lib/xizongMemoryAutoRelease.mjs';", 'system-completion-owner-import-missing');
+has(guardUi, 'const completedBlocks = () => inspectXizongSystemCompletion(requirements, localStorage);', 'system-completion-owner-not-used');
+has(guardUi, 'const ready = check.complete;', 'premature-system-recall-exact-readiness-missing');
 has(guardUi, 'if (!ready)', 'premature-system-recall-guard');
 has(guardUi, 'Free navigation among orientation/current-learning surfaces is preserved.', 'free-navigation-contract');
 has(blockPage, '<XizongRuntimeStageGuard system={system} block={block} />', 'block-guard-not-mounted');
