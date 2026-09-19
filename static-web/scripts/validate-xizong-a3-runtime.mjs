@@ -117,7 +117,9 @@ has(stageGuard, "target.closest('[data-block-recall-complete]')", 'premature-blo
 has(stageGuard, "target.closest('[data-start-recall]')", 'system-recall-start-guard');
 has(stageGuard, "target.closest('[data-reveal-recall]')", 'system-recall-reveal-guard');
 has(stageGuard, "target.closest('[data-complete-recall]')", 'system-recall-completion-guard');
-has(stageGuard, 'const ready = completed.length >= blockIds.length;', 'system-recall-readiness-missing');
+has(stageGuard, "import { inspectXizongSystemCompletion } from '../lib/xizongMemoryAutoRelease.mjs';", 'system-completion-owner-import-missing');
+has(stageGuard, 'const completedBlocks = () => inspectXizongSystemCompletion(requirements, localStorage);', 'system-completion-owner-not-used');
+has(stageGuard, 'const ready = check.complete;', 'system-recall-readiness-missing');
 has(stageGuard, 'if (!ready)', 'whole-system-prerequisite-guard');
 
 has(blockEvidenceGuard, "block?.learningSupportSourceHash || ''", 'block-learning-support-not-versioned');
@@ -133,8 +135,8 @@ has(recallPage, 'data-xizong-system-recall-lock hidden', 'system-recall-lock-mis
 has(recallPage, '<XizongRuntimeStageGuard system={system} />', 'system-recall-guard-not-mounted');
 has(practicePage, '<XizongSystemEvidenceGuard system={system} sweep={sweep} />', 'practice-evidence-guard-not-mounted');
 has(practiceUi, "if (data?.scopeKind === 'SYSTEM')", 'system-practice-release-gate-missing');
-has(practiceUi, "kianos:xizong:system-recall:", 'system-practice-does-not-read-recall-evidence');
-has(practiceUi, "if (!recallState?.completedAt)", 'system-practice-does-not-fail-closed-before-recall');
+has(practiceUi, "import { inspectXizongSystemCompletion, hasXizongSystemRecall } from '../lib/xizongMemoryAutoRelease.mjs';", 'system-practice-completion-owner-import-missing');
+has(practiceUi, "!inspectXizongSystemCompletion(data.completionRequirements, localStorage).complete || !hasXizongSystemRecall(localStorage, initialSystemId)", 'system-practice-does-not-fail-closed-before-recall');
 has(practiceUi, "let holdoutYears = data.allowHoldout ? [] : readJson(holdoutKey, []);", 'holdout-not-empty-by-default');
 has(practiceUi, "if (data.holdoutRequired !== false && !holdoutYears.length) { renderGate(); return; }", 'question-sweep-prerequisite-gate');
 has(practiceUi, 'data-question-uncertain', 'uncertain-control-missing');
