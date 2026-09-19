@@ -38,8 +38,9 @@ function groupCandidate({ chapter, family, group }) {
   const items = list(group?.items).map((item) => clean(item, 2000)).filter(Boolean);
   const sourceRefs = list(group?.source_refs).map((ref) => clean(ref, 240)).filter(Boolean);
   if (!items.length || !sourceRefs.length) return null;
-  const subject = subjectId(chapter?.subject);
-  const chapterId = clean(chapter?.chapter_id || chapter?.code || chapter?.chapter, 160);
+  const raw = chapter?.raw || chapter || {};
+  const subject = subjectId(chapter?.subject || raw?.subject);
+  const chapterId = clean(raw?.chapter_id || chapter?.chapter_id || chapter?.code || chapter?.chapter, 160);
   const naturalUnitId = clean(group?.natural_unit_id, 200);
   const prompt = clean(group?.name || family, 240);
   const basis = [chapterId, family, naturalUnitId, prompt, ...sourceRefs].join('|');
@@ -47,7 +48,7 @@ function groupCandidate({ chapter, family, group }) {
     id: `polmem-${stableHash(basis)}`,
     subject,
     chapter_id: chapterId,
-    chapter_title: clean(chapter?.teaching_title || chapter?.title, 240),
+    chapter_title: clean(raw?.teaching_title || chapter?.teaching_title || chapter?.title, 240),
     natural_unit_id: naturalUnitId || null,
     family,
     prompt,
@@ -71,9 +72,9 @@ function sidecarCandidates(chapter) {
       if (!id) continue;
       out.push({
         id,
-        subject: subjectId(chapter?.subject),
-        chapter_id: clean(chapter?.chapter_id || chapter?.code || chapter?.chapter, 160),
-        chapter_title: clean(chapter?.teaching_title || chapter?.title, 240),
+        subject: subjectId(chapter?.subject || chapter?.raw?.subject),
+        chapter_id: clean(chapter?.raw?.chapter_id || chapter?.chapter_id || chapter?.code || chapter?.chapter, 160),
+        chapter_title: clean(chapter?.raw?.teaching_title || chapter?.teaching_title || chapter?.title, 240),
         natural_unit_id: clean(unitId, 200) || null,
         family: clean(candidate?.form || 'SELECTIVE_PRECISION', 80).toUpperCase(),
         prompt: clean((unit?.title || unitId) + '｜' + (candidate?.form || '精确边界'), 240),
@@ -90,7 +91,7 @@ function sidecarCandidates(chapter) {
 
 export function extractPoliticsMemoryCandidates(chapterInput) {
   const chapter = enrichPoliticsChapterCurrent(chapterInput);
-  const support = chapter?.content_support || {};
+  const support = chapter?.raw?.content_support || chapter?.content_support || {};
   const out = [];
 
   [
