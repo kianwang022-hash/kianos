@@ -10,6 +10,11 @@ import {
 import { EXAM_CHAT_PLAN_KEY } from '../src/lib/examChatPlan.mjs';
 import { XIZONG_MEMORY_STORAGE_KEY, createXizongMemoryState } from '../src/lib/xizongMemoryModel.mjs';
 import { XIZONG_SESSION_KEY, XIZONG_CHAT_SET_KEY } from '../src/lib/xizongSessionInstruction.mjs';
+import { attachXizongChatReturnContract } from '../src/lib/xizongChatReturn.mjs';
+import {
+  XIZONG_PENDING_CHAT_RETURN_KEY,
+  consumePendingXizongChatReturnForObject
+} from '../src/lib/xizongPendingChatReturn.mjs';
 
 class MemoryStorage {
   constructor(entries = {}) { this.map = new Map(Object.entries(entries)); }
@@ -157,6 +162,94 @@ const staleX = {
 const stale = applyPrivateControlCommand(storage, staleX, { expectedDay: day, now: t0 + 9000 });
 assert.equal(stale.status, 'STALE');
 assert.equal(JSON.parse(storage.getItem(XIZONG_SESSION_KEY)).session_id, 'xz-session-2');
+
+// Typed Xizong Chat Return is transport-only until the exact Block resolver validates current evidence.
+const returnPacket = {
+  schema:'kianos.xizong.study_packet.v3',
+  exported_at:new Date(t0 + 12_000).toISOString(),
+  current:{
+    object_id:'xizong:a1-b01',
+    system_id:'circulation',
+    canonical_id:'A1',
+    block_id:'a1-b01',
+    block_label:'B1',
+    block_title:'Demo',
+    source_hash:'h1'
+  },
+  learning_state:{
+    current_stage:'kp_recall',
+    source_contact:{confirmed_segments:[],mode:'NATURAL_SOURCE_UNIT',per_logic_group:false,whole_block_confirmed:true,active_group_contacted:true},
+    resume:{group_index:0,logic_group_id:'g1',logic_group_label:'G1',kp_index:0,kp_id:'a1-b01-kp01',kp_display_id:'KP01',source_locator:'P1'},
+    ttsx:{pending:null,evidence:{},annotations:{}},
+    learned_kp_ids:['a1-b01-kp01'],
+    recall_ratings:{'a1-b01-kp01':'fuzzy'},
+    block_recall_done:false,
+    block_complete:false,
+    system_recall:null
+  },
+  summary:{unresolved_wu_questions:0},
+  kp_evidence:[{kp_id:'a1-b01-kp01',recall_rating:'fuzzy'}],
+  block_evidence_history:[],
+  memory:{today:[],marked_fragments:[],active_repairs:[],evidence:[]},
+  practice:{holdout_years:[],wrong_uncertain:[],marked_question_ids:[]},
+  pending_repair_inbox:null,
+  reserve_learning:[]
+};
+const returnExport = attachXizongChatReturnContract(storage, returnPacket, {
+  returnHref:'/xizong/circulation/b01/',
+  now:t0 + 12_000
+});
+const returnPayload = {
+  schema:'kianos.xizong.chat_return.v1',
+  return_id:'return-control-1',
+  handoff_id:returnExport.chat_return_contract.handoff_id,
+  origin:returnExport.chat_return_contract.origin,
+  resume:returnExport.chat_return_contract.resume,
+  decision:'REPAIR',
+  repairs:[{
+    kp_id:'a1-b01-kp01',
+    reason:'bounded gap',
+    action:'repair only this KP',
+    priority:'high',
+    source_question_ids:[]
+  }]
+};
+const beforeReturnMemory = storage.getItem(XIZONG_MEMORY_STORAGE_KEY);
+const returnCommand = {
+  schema:PRIVATE_CONTROL_COMMAND_SCHEMA,
+  command_id:'cmd-xz-return-1',
+  issued_at:new Date(t0 + 13_000).toISOString(),
+  study_day:day,
+  target:'xizong.chat_return',
+  payload:returnPayload
+};
+const returnTransportReceipt = applyPrivateControlCommand(storage, returnCommand, {
+  expectedDay:day,
+  now:t0 + 14_000
+});
+assert.equal(returnTransportReceipt.status,'APPLIED');
+assert.equal(JSON.parse(storage.getItem(XIZONG_PENDING_CHAT_RETURN_KEY)).pending_by_object['xizong:a1-b01'].return_id,'return-control-1');
+assert.equal(storage.getItem(XIZONG_MEMORY_STORAGE_KEY),beforeReturnMemory,
+  'transport staging must not mutate learner Memory/Repair before exact Block validation');
+assert.equal(storage.getItem('kianos-xizong-repair-inbox-v1:xizong:a1-b01'),null,
+  'transport staging must not write Repair inbox');
+
+const subjectApply = consumePendingXizongChatReturnForObject(storage, {
+  objectId:'xizong:a1-b01',
+  currentPacket:returnPacket,
+  now:t0 + 15_000
+});
+assert.equal(subjectApply.status,'applied');
+const memoryAfterSubjectApply = JSON.parse(storage.getItem(XIZONG_MEMORY_STORAGE_KEY));
+assert.equal(
+  memoryAfterSubjectApply.repairTasks.some((task)=>task.id==='repair:block-chat:a1-b01:a1-b01-kp01'),
+  true,
+  'only the subject resolver may create canonical Repair'
+);
+assert.equal(
+  readPrivateControlRuntimeState(storage).active_by_target['xizong.chat_return'].command_id,
+  'cmd-xz-return-1'
+);
 
 // A rejected activation must roll back both Xizong target state and active command state.
 const holdoutStorage = new MemoryStorage();
