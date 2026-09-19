@@ -21,6 +21,8 @@ import {
 import { buildExamStudyTimeOverlay } from './examStudyTime.mjs';
 import { buildChatControlledExamReadModel } from './examPlanReadModel.mjs';
 import { readPoliticsSnapshot, resolvePoliticsContinue } from './politicsPracticeState.mjs';
+import { buildHomeDailyLearningPacket } from './dailyLearningPacketRuntime.mjs';
+import { serializeDailyLearningPacketForChat } from './dailyLearningPacket.mjs';
 
 const names = { xizong: '西综', english: '英语', politics: '政治' };
 const PRODUCT_FAMILIES = ['xizong', 'english', 'reading', 'cloze', 'reading-b', 'translation', 'writing', 'politics', 'vocabulary'];
@@ -55,7 +57,11 @@ export function initExamHome(root) {
   const $ = (selector) => root.querySelector(selector);
   const $$ = (selector) => [...root.querySelectorAll(selector)];
   const catalog = JSON.parse($('[data-exam-catalog]').textContent);
+  const politicsCatalog = JSON.parse($('[data-exam-daily-politics-catalog]')?.textContent || 'null');
+  const xizongPacketIndex = JSON.parse($('[data-exam-daily-xizong-index]')?.textContent || '[]');
   $('[data-exam-catalog]').remove();
+  $('[data-exam-daily-politics-catalog]')?.remove();
+  $('[data-exam-daily-xizong-index]')?.remove();
 
   let bytes = null;
   let profile = emptyExamProfile();
@@ -290,6 +296,42 @@ export function initExamHome(root) {
   $('[data-exam-settings]').addEventListener('click', settings);
   $('[data-exam-why]').addEventListener('click', why);
   $('[data-exam-attention-action]').addEventListener('click', why);
+
+  $('[data-exam-copy-daily]')?.addEventListener('click', async () => {
+    const status = $('[data-exam-daily-status]');
+    try {
+      const result = buildHomeDailyLearningPacket({
+        storage: localStorage,
+        day: day(),
+        now: Date.now(),
+        plan: readModel,
+        xizongPacketIndex,
+        politicsCatalog,
+        base: catalog.base || '/'
+      });
+      const text = serializeDailyLearningPacketForChat(result.packet);
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch {
+        window.prompt('复制今日学习包给 Chat', text);
+      }
+      const attached = Object.entries(result.coverage)
+        .filter(([, value]) => value === 'attached')
+        .map(([subject]) => names[subject] || subject);
+      const unknown = Object.entries(result.coverage)
+        .filter(([, value]) => value !== 'attached')
+        .map(([subject]) => names[subject] || subject);
+      if (status) {
+        status.textContent = result.warnings.length
+          ? `已复制；${unknown.join('、') || '部分科目'}证据未能安全读取，已按 unknown 留空。`
+          : unknown.length
+            ? `已复制 · 已带 ${attached.join('、') || '当前'}证据；${unknown.join('、')}暂无可验证 evidence，保持 unknown。`
+            : '已复制今日学习包 · 三科 evidence 已附带。';
+      }
+    } catch (cause) {
+      if (status) status.textContent = '今日学习包未生成：' + String(cause?.message || cause);
+    }
+  });
 
   $('[data-exam-settings-form]').addEventListener('submit', (event) => {
     event.preventDefault();
