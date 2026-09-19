@@ -25,6 +25,8 @@ on:
       - "static-web/scripts/privateControlBridge.mjs"
       - "static-web/scripts/privateControlStore.mjs"
       - "static-web/scripts/test-private-control-browser.mjs"
+      - "static-web/scripts/privateControlRelay.mjs"
+      - "static-web/scripts/test-private-control-relay.mjs"
       - ".github/workflows/chat-control-transport-prototype.yml"
 
 jobs:
@@ -42,6 +44,9 @@ jobs:
       - name: Private control checkpoint durability
         working-directory: static-web
         run: node scripts/test-private-control-checkpoint.mjs
+      - name: Private Git relay semantics
+        working-directory: static-web
+        run: node scripts/test-private-control-relay.mjs
       - name: Xizong daily evidence semantics
         working-directory: static-web
         run: node scripts/test-xizong-daily-evidence.mjs
