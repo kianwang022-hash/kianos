@@ -56,7 +56,8 @@ try{
         promptOverrides:{},marks:{},evidence:[],attention:{},repairTasks:[]
       }));
     },{cardId});
-    await page.goto(BASE+'/',{waitUntil:'networkidle'});
+    await page.goto(BASE+'/',{waitUntil:'domcontentloaded'});
+    await page.locator('[data-exam-home][data-ready="true"]').waitFor();
     check((await page.locator('[data-exam-next]').getAttribute('aria-disabled'))==='true','xizong_home_starts_without_fake_next');
 
     const generatedAt='2026-09-19T21:18:00.000Z';
@@ -95,7 +96,8 @@ try{
   {
     const ctx=await browser.newContext({viewport:{width:1512,height:982},timezoneId:'Asia/Shanghai'});
     const page=await ctx.newPage();
-    await page.goto(BASE+'/',{waitUntil:'networkidle'});
+    await page.goto(BASE+'/',{waitUntil:'domcontentloaded'});
+    await page.locator('[data-exam-home][data-ready="true"]').waitFor();
     check((await page.locator('[data-exam-next]').getAttribute('aria-disabled'))==='true','english_home_starts_without_fake_next');
     const row=await page.evaluate(()=>{
       const rows=JSON.parse(document.querySelector('[data-english-resume-catalog]')?.textContent||'[]');
@@ -154,7 +156,8 @@ try{
     check(Boolean(candidate?.id),'politics_candidate_exists');
     const ctx=await browser.newContext({viewport:{width:1512,height:982},timezoneId:'Asia/Shanghai'});
     const page=await ctx.newPage();
-    await page.goto(BASE+'/',{waitUntil:'networkidle'});
+    await page.goto(BASE+'/',{waitUntil:'domcontentloaded'});
+    await page.locator('[data-exam-home][data-ready="true"]').waitFor();
     check((await page.locator('[data-exam-next]').getAttribute('aria-disabled'))==='true','politics_home_starts_without_fake_next');
 
     const generatedAt='2026-09-19T21:19:00.000Z';
