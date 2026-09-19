@@ -111,18 +111,19 @@
     "C": {
       "role": "PRODUCTION_C_FINAL_SWEEP",
       "current_assignment": {
-        "candidate_id": "BF10",
+        "candidate_id": "BF09",
         "range": [
-          1001,
-          1100
+          901,
+          1000
         ],
-        "state": "WAITING_BOUNDED_HUMAN_DELTA_GATE",
+        "state": "REVIEW_BUNDLE_NEEDED",
         "allowed_now": [
           "freeze current main and export review bundle",
           "fresh owner/module judgment",
           "same-Chat Self-Adversarial Attack",
-          "write stabilized proposal/handoff metadata",
-          "request bounded Human delta Gate if genuinely new material scope exists"
+          "write smallest stabilized proposal",
+          "request bounded Human delta Gate only if genuinely new material scope exists",
+          "after approval or no-delta freeze immediately continue to o0801-o0900"
         ],
         "forbidden_now": [
           "canonical semantic materialization",
@@ -131,47 +132,8 @@
           "merge backfill candidate",
           "invent a newer semantic standard"
         ],
-        "semantic_dependency_policy": "Before proposal freeze, inspect shared_semantic_claims and other producer dependencies; before any later materialization, refreeze latest main and emit exact semantic_dependency_read_set.",
-        "review_head": "16deb26e4777dc200c4b4e871c521410acb6dc99",
-        "review_branch": "work/lexical-final-backfill-c-o1001-o1100",
-        "review_request_commit": "89c45dde3219ca1ed6220b24bbd31e8ea2337cb7",
-        "review_transport_head": "7fec892ae54352595a8e29be6a70f6871c3169c5",
-        "review_workflow_run": 35451271234,
-        "review_artifact_id": 10586866145,
-        "review_artifact_digest": "sha256:edad6fef007a7a489b5c7691b841eceb3aed2cf54318108659ccb38ca2037930",
-        "review_bundle_coverage": "100/100",
-        "transport_shim": {
-          "reason": "o1043 contagious Relation relation_id hashes to 1b60... while Current physical owner remains at legacy 2df3... path",
-          "branch_only_path": "content/lexical/relations/by-id/1b/1b60f70a2f8856228caa1a53a29be4f8b5c9129de5fc771814f2d4a3ab9ff6aa.json",
-          "source_path": "content/lexical/relations/by-id/2d/2df3fb0a31b5e6c5c9a4b8230d8c6d187e4e5fe0262c019d53f4bd2a8ed248e7.json",
-          "semantic_delta": false,
-          "merge_to_main": false
-        },
-        "next_action": "Kian reviews only the three genuinely new material deltas in PR #542. A new p approves exactly those three plus the already-reported bounded corrections/Test changes; then freeze BF10 and immediately continue C to o0901-o1000.",
-        "proposal_pr": 542,
-        "proposal_head": "e96f1750ddaab91bfa86277520eb295a7b6916b3",
-        "proposal_path": "content/lexical/execution/manifests/o1001-o1100.final-standard-backfill-c-proposal.md",
-        "module_matrix_path": "content/lexical/execution/manifests/o1001-o1100.final-standard-backfill-c-module-matrix.tsv",
-        "fresh_read_coverage": "100/100",
-        "self_attack": "COMPLETE",
-        "content_upgrades": 18,
-        "content_no_change": 82,
-        "blocked": 0,
-        "new_material_delta_owners": [
-          1040,
-          1060,
-          1095
-        ],
-        "old_test_blueprints": 25,
-        "stabilized_test_blueprints": 21,
-        "canonical_semantic_mutation": false,
-        "shared_write_set_if_approved": [
-          "existing contagious↔infectious Relation identity/path + reciprocal view",
-          "word:infectious@o2521",
-          "existing continual↔continuous Relation",
-          "contest same-word Form / redundant Relation cleanup"
-        ],
-        "semantic_freshness_note": "The final semantic freeze and orchestration contracts were added after the BF10 review freeze, but no o1001-o1100 Word/Relation/Form semantic owner changed. Proposal remains valid under FINAL_SEMANTIC_FREEZE v1. Refreeze dependencies again before future materialization."
+        "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
+        "next_action": "Create/consume o0901-o1000 review bundle, perform Fresh Read + Self Attack, freeze proposal, then continue to o0801-o0900."
       },
       "scheduled_ranges": [
         [
@@ -200,8 +162,8 @@
         ]
       ],
       "next_new_review_range": [
-        901,
-        1000
+        801,
+        900
       ],
       "direction_note": "Preserve completed o0201-o0300 lookahead; all new C review proceeds high→low.",
       "preserved_assignments": [
@@ -273,6 +235,77 @@
             "proposal_path": "content/lexical/execution/manifests/o1101-o1150.final-standard-backfill-c-proposal.md",
             "proposal_blob_sha": "cda15b42cc78270baac48db66464f7b98599e1e2",
             "sync_main_head": "e372c70eefedb4768247faef4198883afa698425"
+          }
+        },
+        {
+          "candidate_id": "BF10",
+          "range": [
+            1001,
+            1100
+          ],
+          "state": "DELTA_APPROVED_FROZEN_BACKLOG",
+          "allowed_now": [
+            "freeze current main and export review bundle",
+            "fresh owner/module judgment",
+            "same-Chat Self-Adversarial Attack",
+            "write stabilized proposal/handoff metadata",
+            "request bounded Human delta Gate if genuinely new material scope exists"
+          ],
+          "forbidden_now": [
+            "canonical semantic materialization",
+            "FLOB rebuild",
+            "launch B audit",
+            "merge backfill candidate",
+            "invent a newer semantic standard"
+          ],
+          "semantic_dependency_policy": "Before proposal freeze, inspect shared_semantic_claims and other producer dependencies; before any later materialization, refreeze latest main and emit exact semantic_dependency_read_set.",
+          "review_head": "16deb26e4777dc200c4b4e871c521410acb6dc99",
+          "review_branch": "work/lexical-final-backfill-c-o1001-o1100",
+          "review_request_commit": "89c45dde3219ca1ed6220b24bbd31e8ea2337cb7",
+          "review_transport_head": "7fec892ae54352595a8e29be6a70f6871c3169c5",
+          "review_workflow_run": 35451271234,
+          "review_artifact_id": 10586866145,
+          "review_artifact_digest": "sha256:edad6fef007a7a489b5c7691b841eceb3aed2cf54318108659ccb38ca2037930",
+          "review_bundle_coverage": "100/100",
+          "transport_shim": {
+            "reason": "o1043 contagious Relation relation_id hashes to 1b60... while Current physical owner remains at legacy 2df3... path",
+            "branch_only_path": "content/lexical/relations/by-id/1b/1b60f70a2f8856228caa1a53a29be4f8b5c9129de5fc771814f2d4a3ab9ff6aa.json",
+            "source_path": "content/lexical/relations/by-id/2d/2df3fb0a31b5e6c5c9a4b8230d8c6d187e4e5fe0262c019d53f4bd2a8ed248e7.json",
+            "semantic_delta": false,
+            "merge_to_main": false
+          },
+          "next_action": "Frozen backlog. Do not materialize/audit until production_sweep.status is COMPLETE; refreeze latest main/dependencies before any future materialization.",
+          "proposal_pr": 542,
+          "proposal_head": "2b9c057522350af1588563ffcfb97ab5f3d0d165",
+          "proposal_path": "content/lexical/execution/manifests/o1001-o1100.final-standard-backfill-c-proposal.md",
+          "module_matrix_path": "content/lexical/execution/manifests/o1001-o1100.final-standard-backfill-c-module-matrix.tsv",
+          "fresh_read_coverage": "100/100",
+          "self_attack": "COMPLETE",
+          "content_upgrades": 18,
+          "content_no_change": 82,
+          "blocked": 0,
+          "new_material_delta_owners": [
+            1040,
+            1060,
+            1095
+          ],
+          "old_test_blueprints": 25,
+          "stabilized_test_blueprints": 21,
+          "canonical_semantic_mutation": false,
+          "shared_write_set_if_approved": [
+            "existing contagious↔infectious Relation identity/path + reciprocal view",
+            "word:infectious@o2521",
+            "existing continual↔continuous Relation",
+            "contest same-word Form / redundant Relation cleanup"
+          ],
+          "semantic_freshness_note": "The final semantic freeze and orchestration contracts were added after the BF10 review freeze, but no o1001-o1100 Word/Relation/Form semantic owner changed. Proposal remains valid under FINAL_SEMANTIC_FREEZE v1. Refreeze dependencies again before future materialization.",
+          "human_gate": {
+            "approved": true,
+            "approved_at": "2026-09-19",
+            "approval_ref": "Kian p on o1001-o1100 Production C proposal",
+            "proposal_path": "content/lexical/execution/manifests/o1001-o1100.final-standard-backfill-c-proposal.md",
+            "proposal_blob_sha": "8ef77795ea29460d16599f2dae0c836983d18741",
+            "sync_main_head": "5c18e3a99f32ddadcd69d79400936a1a2909e254"
           }
         }
       ],
@@ -627,6 +660,13 @@
           1150
         ],
         "state": "PRODUCTION_DELTA_APPROVED_FROZEN_BACKLOG"
+      },
+      {
+        "range": [
+          1001,
+          1100
+        ],
+        "state": "PRODUCTION_DELTA_APPROVED_FROZEN_BACKLOG"
       }
     ],
     "A_remaining": [
@@ -648,10 +688,6 @@
       ]
     ],
     "C_remaining": [
-      [
-        1001,
-        1100
-      ],
       [
         901,
         1000
