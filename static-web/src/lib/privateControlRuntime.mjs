@@ -198,30 +198,22 @@ export function applyPrivateControlCommand(storage, rawCommand, {
 
   const active = state.active_by_target?.[command.target] || null;
   if (active) {
-    if (!command.supersedes) {
-      return persistNonAppliedReceipt(
-        storage, state, command, 'REJECTED',
-        'new command must explicitly supersede active command for target', now
-      );
-    }
-    if (command.supersedes !== active.command_id) {
-      return persistNonAppliedReceipt(
-        storage, state, command, 'REJECTED',
-        'supersedes does not match active command for target', now
-      );
-    }
     if (Date.parse(command.issued_at) <= Date.parse(active.issued_at)) {
       return persistNonAppliedReceipt(
         storage, state, command, 'STALE',
         'command is not newer than active command for target', now
       );
     }
-  } else if (command.supersedes) {
-    return persistNonAppliedReceipt(
-      storage, state, command, 'REJECTED',
-      'supersedes provided but no active command exists for target', now
-    );
+    if (command.supersedes && command.supersedes !== active.command_id) {
+      return persistNonAppliedReceipt(
+        storage, state, command, 'REJECTED',
+        'supersedes does not match active command for target', now
+      );
+    }
   }
+  // supersedes is an optional compare-and-swap guard, not a delivery prerequisite.
+  // A newer trusted command may replace the active target without waiting for a
+  // remote receipt; this keeps asynchronous relay updates low-friction.
 
   const before = snapshot(storage, targetKeys(command.target));
   try {
