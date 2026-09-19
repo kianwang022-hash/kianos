@@ -41,7 +41,7 @@ async function canRun(name) {
 
 async function readCurrentStatus() {
   let last = null;
-  for (let i = 0; i < 20; i += 1) {
+  for (let i = 0; i < 30; i += 1) {
     try {
       const response = await fetch(`${base}/__kianos-current.json?t=${Date.now()}`, { cache: 'no-store' });
       if (response.ok) {
@@ -53,6 +53,29 @@ async function readCurrentStatus() {
     await new Promise((resolve) => setTimeout(resolve, 350));
   }
   return last;
+}
+
+async function fetchJson(route) {
+  try {
+    const response = await fetch(`${base}${route}`, { cache: 'no-store' });
+    let value = null;
+    try { value = await response.json(); } catch {}
+    return { ok: response.ok, status: response.status, value };
+  } catch (error) {
+    return { ok: false, status: 0, value: null, error: error?.message || String(error) };
+  }
+}
+
+async function waitForMirrorSha(gitBin, targetSha) {
+  let current = '';
+  for (let i = 0; i < 20; i += 1) {
+    try {
+      current = await command(gitBin, ['rev-parse', 'HEAD'], { cwd: mirrorDir });
+      if (current === targetSha) return current;
+    } catch {}
+    await new Promise((resolve) => setTimeout(resolve, 500));
+  }
+  return current;
 }
 
 console.log('KianOS Current Doctor');
@@ -109,6 +132,9 @@ if (gitBin && fs.existsSync(marker)) {
     const raw = await command(gitBin, ['ls-remote', 'origin', 'refs/heads/main'], { cwd: mirrorDir });
     remoteSha = raw.split(/\s+/)[0] || '';
     if (!remoteSha) throw new Error('origin/main returned no SHA');
+    if (localSha !== remoteSha) {
+      localSha = await waitForMirrorSha(gitBin, remoteSha);
+    }
     if (localSha === remoteSha) record('PASS', 'GitHub main sync', remoteSha.slice(0, 12));
     else record('FAIL', 'GitHub main sync', `local ${localSha.slice(0, 12)} != main ${remoteSha.slice(0, 12)}`);
   } catch (error) {
@@ -135,6 +161,34 @@ if (!status) {
   record('FAIL', 'Current sync status', `status SHA ${String(status.sha).slice(0, 12)} != mirror ${localSha.slice(0, 12)}`);
 } else {
   record('PASS', 'Current sync status', `synced · ${String(status.sha || '').slice(0, 12)}`);
+}
+
+if (siteOk) {
+  const checkpoint = await fetchJson('/__kianos-private/checkpoint');
+  if (checkpoint.status === 200 && checkpoint.value?.status === 'ready') {
+    record('PASS', 'Private checkpoint bridge', 'checkpoint available');
+  } else if (checkpoint.status === 404 && checkpoint.value?.status === 'missing') {
+    record('PASS', 'Private checkpoint bridge', 'ready · no learner checkpoint yet');
+  } else {
+    record('FAIL', 'Private checkpoint bridge', checkpoint.error || `HTTP ${checkpoint.status} · ${checkpoint.value?.status || 'unexpected response'}`);
+  }
+
+  const external = await fetchJson('/__kianos-private/external-reading/status');
+  if (external.status === 200 && external.value?.status === 'ready') {
+    const counts = external.value?.counts || {};
+    const tpo = counts?.toefl || {};
+    const ielts = counts?.ielts || {};
+    record(
+      'PASS',
+      'External Reading private source',
+      `TPO ${tpo.collections || 0} collections / ${tpo.passages || 0} passages · IELTS ${ielts.books || 0} books / ${ielts.passages || 0} passages`
+    );
+  } else if (external.status === 404 && external.value?.status === 'missing_source') {
+    const missing = Array.isArray(external.value?.missing) ? external.value.missing.length : 0;
+    record('WARN', 'External Reading private source', `missing ${missing} source file(s) under ${external.value?.source_root || 'default private source root'}`);
+  } else {
+    record('WARN', 'External Reading private source', external.error || `HTTP ${external.status} · ${external.value?.status || external.value?.error || 'not ready'}`);
+  }
 }
 
 console.log('');
