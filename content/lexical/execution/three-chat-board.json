@@ -21,7 +21,9 @@
     "shared_semantic_dependency_control": "BOARD_CLAIM_PLUS_LATEST_MAIN_REFREEZE_PLUS_EXECUTOR_HASH_GUARD",
     "c_lookahead_mode": "CONTINUOUS_CONVEYOR",
     "c_human_gate_behavior": "P_APPROVES_CURRENT_DELTA_THEN_IMMEDIATE_NEXT_BATCH",
-    "c_no_new_delta_behavior": "AUTO_FREEZE_AND_CONTINUE"
+    "c_no_new_delta_behavior": "AUTO_FREEZE_AND_CONTINUE",
+    "b_audit_scheduler": "NEXT_READY_MATERIALIZED_CANDIDATE",
+    "b_may_audit_non_frontier_candidate": true
   },
   "frontier": {
     "accepted_main_head": "a8968c6abb5409acee1971808e6e30944f155e39",
@@ -43,16 +45,17 @@
     }
   },
   "audit_target": {
-    "candidate_id": "BF01",
+    "candidate_id": "F1151_1250",
     "range": [
-      101,
-      200
+      1151,
+      1250
     ],
-    "candidate_pr": null,
-    "candidate_branch": "work/lexical-continuous-backfill-o0101-o0200",
-    "brief": null,
-    "state": "WAITING_CANDIDATE_MATERIALIZATION",
-    "after_completion": "OPEN_FRESH_B_AFTER_CANDIDATE_AND_AUDIT_BRIEF_EXIST"
+    "candidate_pr": 520,
+    "candidate_branch": "work/lexical-continuous-o1151-o1250",
+    "brief": "content/lexical/semantic-audit/O1151_O1250_FRESH_INDEPENDENT_AUDIT_BRIEF.md",
+    "state": "READY_FOR_FRESH_B",
+    "candidate_head": "d3972636a131c3bd495c64bdcff26e3cfdef68b8",
+    "after_completion": "WRITE_AUDIT_PACK_AND_STOP; A/C later reconciles against latest main before merge"
   },
   "lanes": {
     "A": {
@@ -145,10 +148,12 @@
     },
     "B": {
       "role": "FRESH_INDEPENDENT_AUDIT",
-      "current_assignment": "audit_target",
-      "state": "OPEN_FRESH_CHAT_PER_BATCH",
+      "current_assignment": "audit_queue[0]",
+      "state": "READY_FOR_FRESH_B",
       "may_mutate_semantic_truth": false,
-      "must_stop_after_one_audit_pack": true
+      "must_stop_after_one_audit_pack": true,
+      "scheduler": "NEXT_READY_MATERIALIZED_CANDIDATE",
+      "next_action": "Audit F1151_1250 / PR #520 now in a fresh B Chat. Do not wait for BF01 materialization."
     },
     "C": {
       "role": "PRODUCTION_LOOKAHEAD",
@@ -312,7 +317,7 @@
       ],
       "pr": 520,
       "branch": "work/lexical-continuous-o1151-o1250",
-      "state": "PRESERVED_AUDIT_PENDING",
+      "state": "READY_FOR_FRESH_B",
       "rule": "must receive a fresh B audit and be reconciled/rematerialized against then-current main before merge"
     }
   ],
@@ -527,5 +532,47 @@
     "merge_commit": "a8968c6abb5409acee1971808e6e30944f155e39",
     "result": "FRESH_AUDIT_RECONCILED_AND_MERGED",
     "final_learner_objects": 7946
-  }
+  },
+  "audit_queue": [
+    {
+      "candidate_id": "F1151_1250",
+      "range": [
+        1151,
+        1250
+      ],
+      "candidate_pr": 520,
+      "candidate_branch": "work/lexical-continuous-o1151-o1250",
+      "candidate_head": "d3972636a131c3bd495c64bdcff26e3cfdef68b8",
+      "brief": "content/lexical/semantic-audit/O1151_O1250_FRESH_INDEPENDENT_AUDIT_BRIEF.md",
+      "state": "READY_FOR_FRESH_B",
+      "priority": 1,
+      "note": "Materialized candidate already exists. Audit now; latest-main reconciliation/rematerialization remains required before merge."
+    },
+    {
+      "candidate_id": "BF01",
+      "range": [
+        101,
+        200
+      ],
+      "candidate_pr": null,
+      "candidate_branch": "work/lexical-continuous-backfill-o0101-o0200",
+      "brief": null,
+      "state": "WAITING_CANDIDATE_MATERIALIZATION",
+      "priority": 2,
+      "note": "Insert/activate after A materializes BF01 and writes its fresh audit brief."
+    },
+    {
+      "candidate_id": "BF02",
+      "range": [
+        201,
+        300
+      ],
+      "candidate_pr": 528,
+      "candidate_branch": "work/lexical-final-backfill-c-o0201-o0300",
+      "brief": null,
+      "state": "WAITING_FRONTIER_MATERIALIZATION",
+      "priority": 3,
+      "note": "Production proposal exists but canonical candidate is not yet materialized."
+    }
+  ]
 }
