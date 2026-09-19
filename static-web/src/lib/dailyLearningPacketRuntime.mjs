@@ -25,6 +25,8 @@ function readJson(storage, key, fallback = null) {
 function xizongEvidencePresent(packet) {
   if (!record(packet)) return false;
   if (packet.current_block) return true;
+  if (Number(packet?.summary?.pending_chat_returns || 0) > 0) return true;
+  if (packet?.current?.chat_return_receipt) return true;
   if (Number(packet?.summary?.memory_today || 0) > 0) return true;
   if (Number(packet?.summary?.active_repairs || 0) > 0) return true;
   return Object.entries(packet.summary || {})
