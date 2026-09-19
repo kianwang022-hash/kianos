@@ -230,3 +230,125 @@ assert.throws(() => applyXizongSessionInstruction(revisionStorage, {
   }]
 }, { expectedDay: day, now }), /MEMORY_SOURCE_REVISION_MISMATCH/);
 
+
+
+// SYSTEM_RECALL step uses append-preserved native Recall history after activation.
+const systemRecallStorage = makeStorage();
+const systemRecallInstruction = {
+  schema: XIZONG_SESSION_SCHEMA,
+  session_id: 'xz-system-recall',
+  study_day: day,
+  generated_at: new Date(now + 20_000).toISOString(),
+  steps: [{
+    step_id:'sr1',
+    kind:'SYSTEM_RECALL',
+    system_id:'circulation',
+    label:'循环系统回忆'
+  }]
+};
+applyXizongSessionInstruction(systemRecallStorage, systemRecallInstruction, {
+  expectedDay:day,
+  now:now + 20_000
+});
+const systemActivated = activateXizongSessionCurrentStep(systemRecallStorage, {
+  now:now + 21_000
+});
+assert.equal(systemActivated.next.step.kind,'SYSTEM_RECALL');
+assert.match(systemActivated.next.href,/\/xizong\/circulation\/recall\//);
+systemRecallStorage.setItem('kianos:xizong:system-recall:circulation:v1', JSON.stringify({
+  completedAt:new Date(now - 1000).toISOString(),
+  history:[{
+    event_id:'old',
+    completed_at:new Date(now - 1000).toISOString(),
+    after_round_id:null
+  }]
+}));
+assert.equal(advanceXizongSessionIfComplete(systemRecallStorage).status,'pending',
+  'historical System Recall must not complete a new Chat assignment');
+systemRecallStorage.setItem('kianos:xizong:system-recall:circulation:v1', JSON.stringify({
+  completedAt:new Date(now + 22_000).toISOString(),
+  history:[
+    {event_id:'old',completed_at:new Date(now - 1000).toISOString(),after_round_id:null},
+    {event_id:'fresh',completed_at:new Date(now + 22_000).toISOString(),after_round_id:null}
+  ]
+}));
+assert.equal(advanceXizongSessionIfComplete(systemRecallStorage).status,'complete',
+  'fresh native System Recall event completes the assigned action');
+
+// REPAIR_TASK binds exact task revision and completes only from native Repair completion.
+const repairStorage = makeStorage();
+const repairMemory = JSON.parse(repairStorage.getItem(XIZONG_MEMORY_STORAGE_KEY));
+repairMemory.repairTasks = [{
+  id:'repair:demo:a1-b01:kp01',
+  kpId:'a1-b01-kp01',
+  blockId:'a1-b01',
+  systemId:'circulation',
+  title:'Demo Repair',
+  reason:'bounded issue',
+  action:'repair only this point',
+  priority:'high',
+  origin:'SYSTEM_WU_CHAT_RETURN',
+  sourceQuestionIds:['xizong-official-2024-n001'],
+  blockHref:'/xizong/circulation/b01/',
+  returnHref:'/xizong/practice/circulation/',
+  createdAt:new Date(now + 30_000).toISOString(),
+  status:'ACTIVE'
+}];
+repairStorage.setItem(XIZONG_MEMORY_STORAGE_KEY, JSON.stringify(repairMemory));
+const repairInstruction = {
+  schema:XIZONG_SESSION_SCHEMA,
+  session_id:'xz-repair-task',
+  study_day:day,
+  generated_at:new Date(now + 31_000).toISOString(),
+  steps:[{
+    step_id:'r1',
+    kind:'REPAIR_TASK',
+    task_id:'repair:demo:a1-b01:kp01',
+    created_at:new Date(now + 30_000).toISOString(),
+    block_id:'a1-b01',
+    kp_id:'a1-b01-kp01',
+    label:'修补这个断点'
+  }]
+};
+applyXizongSessionInstruction(repairStorage, repairInstruction, {
+  expectedDay:day,
+  now:now + 31_000
+});
+const repairActivated = activateXizongSessionCurrentStep(repairStorage, {
+  now:now + 32_000
+});
+assert.equal(repairActivated.next.step.kind,'REPAIR_TASK');
+assert.match(repairActivated.next.href,/\/xizong\/memory\//);
+assert.match(repairActivated.next.href,/repair=repair%3Ademo%3Aa1-b01%3Akp01/);
+assert.equal(advanceXizongSessionIfComplete(repairStorage).status,'pending');
+const repaired = JSON.parse(repairStorage.getItem(XIZONG_MEMORY_STORAGE_KEY));
+repaired.repairTasks[0] = {
+  ...repaired.repairTasks[0],
+  status:'DONE',
+  completedAt:new Date(now + 33_000).toISOString()
+};
+repairStorage.setItem(XIZONG_MEMORY_STORAGE_KEY, JSON.stringify(repaired));
+assert.equal(advanceXizongSessionIfComplete(repairStorage).status,'complete');
+
+const staleRepairStorage = makeStorage();
+const staleRepairMemory = JSON.parse(staleRepairStorage.getItem(XIZONG_MEMORY_STORAGE_KEY));
+staleRepairMemory.repairTasks = [{
+  id:'repair:same-id',
+  kpId:'a1-b01-kp01',
+  blockId:'a1-b01',
+  createdAt:new Date(now + 40_000).toISOString(),
+  status:'ACTIVE'
+}];
+staleRepairStorage.setItem(XIZONG_MEMORY_STORAGE_KEY, JSON.stringify(staleRepairMemory));
+assert.throws(() => applyXizongSessionInstruction(staleRepairStorage, {
+  ...repairInstruction,
+  session_id:'xz-repair-stale',
+  generated_at:new Date(now + 41_000).toISOString(),
+  steps:[{
+    ...repairInstruction.steps[0],
+    task_id:'repair:same-id',
+    created_at:new Date(now + 39_000).toISOString()
+  }]
+}, { expectedDay:day, now:now + 41_000 }), /REPAIR_TASK_REVISION_MISMATCH/);
+
+console.log('PASS Xizong native session extensions: System Recall + exact existing Repair');
