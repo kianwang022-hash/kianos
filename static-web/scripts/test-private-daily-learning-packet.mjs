@@ -196,6 +196,30 @@ assert.equal(packet.total_minutes,70);
 assert.equal(packet.subjects.xizong.evidence.schema,'kianos.xizong.study_packet.v3');
 assert.equal(packet.subjects.xizong.evidence.current.block_id,block.blockId);
 assert.equal(packet.subjects.xizong.evidence.learning_state.current_stage,'kp_recall');
+assert.equal(packet.subjects.xizong.forecast_progress.schema,'kianos.xizong.forecast-progress.v1');
+assert.equal(packet.subjects.xizong.forecast_progress.canonical_scope.systems,8);
+assert.equal(packet.subjects.xizong.forecast_progress.canonical_scope.blocks,159);
+assert.equal(packet.subjects.xizong.forecast_progress.canonical_scope.canonical_kp,2517);
+assert.equal(packet.subjects.xizong.forecast_progress.canonical_scope.block_weights.length,159);
+assert.equal(
+  packet.subjects.xizong.forecast_progress.canonical_scope.block_weights.reduce(
+    (sum,row)=>sum+row.kp_count,
+    0
+  ),
+  2517
+);
+assert.ok(
+  packet.subjects.xizong.forecast_progress.runtime_evidence.observed_blocks>=1,
+  'current Xizong Block must appear in forecast runtime evidence'
+);
+assert.ok(
+  packet.subjects.xizong.forecast_progress.runtime_evidence.no_runtime_evidence_blocks
+    < packet.subjects.xizong.forecast_progress.canonical_scope.blocks
+);
+assert.match(
+  packet.subjects.xizong.forecast_progress.evidence_boundary,
+  /does not prove/
+);
 
 assert.equal(packet.subjects.english.evidence.schema,'kianos.english.evidence.v1');
 assert.equal(packet.subjects.english.evidence.resume.status,'ready');
@@ -204,6 +228,10 @@ assert.equal(packet.subjects.english.evidence.resume.task,'reading_a');
 
 assert.equal(packet.subjects.politics.evidence.schema,'kianos.politics.study_packet.v1');
 assert.equal(packet.subjects.politics.evidence.resume.title,pChapter.title);
+assert.equal(packet.subjects.politics.evidence.forecast_progress.schema,'kianos.politics.forecast-progress.v1');
+assert.ok(packet.subjects.politics.evidence.forecast_progress.catalog_units>0);
+assert.equal(packet.subjects.politics.evidence.forecast_progress.units_with_complete_question_coverage,0);
+assert.match(packet.subjects.politics.evidence.forecast_progress.evidence_boundary,/does not prove/);
 
 assert.equal(packet.schedule.phase.id,'A');
 assert.equal(packet.subjects.xizong.plan.role,'主推');
