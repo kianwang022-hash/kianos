@@ -111,7 +111,8 @@ const catalogPayload=JSON.stringify(englishSessionCatalog()).replace(/</g,"\\u00
 
     root.querySelector('[data-english-copy-evidence]')?.addEventListener('click', async () => {
       try {
-        const text = buildEnglishChatHandoffText(localStorage, { day: localDay() });
+        await loadCatalog();
+        const text = buildEnglishChatHandoffText(localStorage, { day: localDay(), catalog });
         setStatus(await copyText(text)
           ? '当前英语进度已复制；把它发给 Chat 即可继续安排下一步。'
           : '复制失败，请稍后再试。', false);
