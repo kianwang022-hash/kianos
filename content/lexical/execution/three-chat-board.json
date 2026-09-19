@@ -54,14 +54,10 @@
           501,
           600
         ],
-        "state": "REVIEW_BUNDLE_NEEDED",
+        "state": "WAITING_BOUNDED_HUMAN_DELTA_GATE",
         "allowed_now": [
-          "freeze current main and export review bundle",
-          "fresh owner/module judgment",
-          "same-Chat Self-Adversarial Attack",
-          "write smallest stabilized proposal",
-          "request bounded Human delta Gate only if genuinely new material scope exists",
-          "after approval or no-delta freeze immediately continue to o0601-o0700"
+          "consume only Kian approval for the exact displayed seven new material owners plus reported bounded corrections/Test changes",
+          "on p re-sync proposal identity and shared semantic claims, freeze BF05 backlog, then immediately continue A to o0601-o0700"
         ],
         "forbidden_now": [
           "canonical semantic materialization",
@@ -71,7 +67,34 @@
           "invent a newer semantic standard"
         ],
         "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
-        "next_action": "Create/consume o0501-o0600 review bundle, perform Fresh Read + Self Attack, freeze proposal, then continue to o0601-o0700."
+        "review_head": "e18c0853b5b7d1787a23bf8eeaf4797cde93ab72",
+        "review_branch": "work/lexical-final-backfill-a-o0501-o0600",
+        "review_request_commit": "704644b1d920c9e3f6f1a7fe5b502275f91ac38b",
+        "review_workflow_run": 35465831000,
+        "review_artifact_id": 10591485964,
+        "review_artifact_digest": "sha256:f03bc10cdad5ea65a3b1b75d322cad56a3ddad7b19b947d6d6f84c17917500ed",
+        "review_bundle_coverage": "100/100",
+        "proposal_commit": "28287c8e3ef13c3891322ebf4d97af249a8cc369",
+        "proposal_path": "content/lexical/execution/manifests/o0501-o0600.final-sweep-a-proposal.md",
+        "proposal_blob_sha": "def8c8d75f0358eeec7f2c31448544ad65d8a41a",
+        "fresh_read_coverage": "100/100",
+        "self_attack": "COMPLETE",
+        "content_affected_owners": 23,
+        "content_no_change": 77,
+        "blocked": 0,
+        "new_material_delta_owners": [
+          509,
+          520,
+          573,
+          575,
+          581,
+          592,
+          595
+        ],
+        "old_test_blueprints": 45,
+        "stabilized_test_blueprints": 22,
+        "canonical_semantic_mutation": false,
+        "next_action": "Kian reviews only the seven genuinely new material owners in the frozen BF05 proposal. On p, approve exactly those seven plus the reported bounded corrections/Test changes, freeze BF05 backlog, and immediately continue A to o0601-o0700."
       },
       "bootstrap_integration": {
         "candidate_id": "BF00",
@@ -911,6 +934,80 @@
       "state": "PROPOSED_SHARED_SEMANTIC",
       "write_lease_candidate": null,
       "semantic_scope": "existing bit noun vs bite-past identity plus reciprocal bite→bit→bitten projection"
+    },
+    {
+      "claim_key": "FORM:bear|bore|born|borne:inflection_identity",
+      "kind": "FORM",
+      "participants": [
+        "word:bear",
+        "word:bore",
+        "word:born",
+        "surface:borne"
+      ],
+      "claimants": [
+        "BF04",
+        "BF05"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "shared bear irregular-form identity; BF04 owns new bear Form, BF05 repairs bore/born surface ownership"
+    },
+    {
+      "claim_key": "FORM:bind|bound:inflection_identity",
+      "kind": "FORM",
+      "participants": [
+        "word:bind",
+        "word:bound"
+      ],
+      "claimants": [
+        "BF04",
+        "BF05"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "shared bind irregular-form identity; BF04 owns new bind Form, BF05 repairs bound surface ownership"
+    },
+    {
+      "claim_key": "RELATION:borrow|lend:direction_boundary",
+      "kind": "RELATION",
+      "participants": [
+        "word:borrow",
+        "word:lend"
+      ],
+      "claimants": [
+        "BF05"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "receive temporarily vs give temporarily, including borrow from / lend to argument direction"
+    },
+    {
+      "claim_key": "RELATION:breath|breathe:confusable",
+      "kind": "RELATION",
+      "participants": [
+        "word:breath",
+        "word:breathe"
+      ],
+      "claimants": [
+        "BF05"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "noun breath vs verb breathe spelling/POS boundary; reciprocal ownership cleanup"
+    },
+    {
+      "claim_key": "RELATION:bright|smart:semantic_contrast",
+      "kind": "RELATION",
+      "participants": [
+        "word:bright",
+        "word:smart"
+      ],
+      "claimants": [
+        "BF05"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "existing quick-learning/intelligence vs broader conversational cleverness boundary; reciprocal ownership cleanup"
     }
   ],
   "last_closed": {
