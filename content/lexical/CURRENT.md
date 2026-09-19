@@ -6,6 +6,10 @@ Learner-facing Vocabulary / Lexical belongs under **English**. Lexical keeps ind
 
 This cursor owns current engineering routing only. It does not own Rule / Model, canonical Content, Visual acceptance, Acceptance Truth or learner progress.
 
+Shared-platform routing:
+- durable authority / inheritance → `AUTHORITY_INHERITANCE_CONTRACT.md`;
+- machine owner topology / exact shared writer → `AUTHORITY_OWNERSHIP.json`.
+
 ---
 
 ## Current state
