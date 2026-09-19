@@ -84,6 +84,57 @@ const xzCheckpoint=captureXizongPrivateCheckpoint(xzStorage,{now});
 assert.ok(xzCheckpoint.entries.some(row=>row.key==='kianos:xizong:session-instruction:v1'),'Xizong session must be durable');
 assert.ok(xzCheckpoint.entries.some(row=>row.key==='kianos:xizong:session-runtime:v1'),'Xizong session runtime must be durable');
 
+const xzReturnStorage=new MemoryStorage({
+  'kianos-xizong-chat-handoff-v1:xz-handoff-return':JSON.stringify({
+    schema:'kianos.xizong.chat_handoff.v1',
+    handoff_id:'xz-handoff-return',
+    created_at:generatedAt,
+    origin:{
+      object_id:'xizong:circulation-b01',
+      system_id:'circulation',
+      block_id:'circulation-b01',
+      source_hash:'direct-source-v1',
+      evidence_version:'ev-fixture'
+    },
+    resume:{
+      current_stage:'kp_recall',group_index:0,logic_group_id:'circulation-b01-lg01',
+      kp_index:0,kp_id:'circulation-b01-kp01',source_locator:'P1'
+    },
+    return_href:'/xizong/circulation/b01/',
+    allowed_kp_ids:['circulation-b01-kp01'],
+    allowed_question_ids:[]
+  })
+});
+const xzReturn={
+  schema:'kianos.xizong.chat_return.v1',
+  return_id:'xz-return-direct-001',
+  handoff_id:'xz-handoff-return',
+  decision:'NO_ACTION',
+  repairs:[]
+};
+const xzReturnPlan={
+  schema:'kianos.exam.chat-plan.v1',study_day:day,generated_at:generatedAt,
+  subjects:{
+    xizong:{target_minutes:30,role:'返回修补',note:'typed Return',session_ref:xzReturn.return_id},
+    english:null,politics:null
+  },
+  next_subject:'xizong',attention:null
+};
+const xzReturnCommand={
+  schema:CONTROL_BROWSER_SCHEMA,
+  command_id:'direct-xizong-return-001',command_hash:'test-xz-return',
+  study_day:day,generated_at:generatedAt,expires_at:null,
+  operations:[
+    {kind:'xizong.chat_return',payload:xzReturn},
+    {kind:'exam.chat_plan',payload:xzReturnPlan}
+  ]
+};
+const xzReturnResult=await applyPrivateControlCommand(xzReturnStorage,xzReturnCommand,{day,now});
+assert.equal(xzReturnResult.status,'applied');
+const pendingReturn=JSON.parse(xzReturnStorage.getItem('kianos:xizong:pending-chat-return:v1'));
+assert.equal(pendingReturn.pending_by_object['xizong:circulation-b01'].return_id,xzReturn.return_id);
+assert.equal(JSON.parse(xzReturnStorage.getItem('kianos-exam-chat-plan-v1')).subjects.xizong.session_ref,xzReturn.return_id);
+
 const polMemory={
   schema:'kianos.politics.memory-plan.v1',
   plan_id:'politics-direct-plan',
