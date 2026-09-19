@@ -1,0 +1,46 @@
+name: Current Real-use Readiness
+
+on:
+  pull_request:
+    paths:
+      - 'package.json'
+      - 'README.md'
+      - 'static-web/package.json'
+      - 'static-web/scripts/install-current-macos.sh'
+      - 'static-web/scripts/kianos-current-doctor.mjs'
+      - 'static-web/scripts/kianos-current-open.mjs'
+      - 'static-web/scripts/test-current-real-use-readiness.mjs'
+      - '.github/workflows/current-real-use-readiness.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'package.json'
+      - 'README.md'
+      - 'static-web/package.json'
+      - 'static-web/scripts/install-current-macos.sh'
+      - 'static-web/scripts/kianos-current-doctor.mjs'
+      - 'static-web/scripts/kianos-current-open.mjs'
+      - 'static-web/scripts/test-current-real-use-readiness.mjs'
+      - '.github/workflows/current-real-use-readiness.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  current-readiness:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: static-web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check scripts
+        run: |
+          node --check scripts/kianos-current-doctor.mjs
+          node --check scripts/kianos-current-open.mjs
+          bash -n scripts/install-current-macos.sh
+      - name: Verify real-use startup contract
+        run: node scripts/test-current-real-use-readiness.mjs
