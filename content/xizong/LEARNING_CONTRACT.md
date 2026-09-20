@@ -346,6 +346,25 @@ question / Recall / selected TTSX evidence
 → return to interrupted System path
 ```
 
+### Score attribution is observed evidence, not predicted point ownership
+
+Official-question evidence may be weighted by the **historical point value of that exact question** and routed through the reviewed Question→Knowledge relation.
+
+Hard rules:
+
+- only official-question attempts may contribute official score-attribution evidence;
+- AI transfer probes are `TRANSFER_ONLY` and contribute zero official score weight;
+- the attempt freezes the point value and reviewed relation snapshot that existed when the attempt was made;
+- one question's point value is counted once, against its reviewed **PRIMARY** owner only;
+- supporting KPs remain diagnostic context and never multiply the question's points;
+- a reviewed Block-only relation may attribute evidence to the Block, but Runtime must not guess a KP;
+- missing / unresolved mapping stays `UNMAPPED`;
+- repeated true-question attempts remain valuable, but first-attempt and reuse evidence stay distinguishable;
+- `Wrong` / `Uncertain` / `Stable` point weights describe observed evidence under that attempt, not guaranteed future score loss/gain;
+- formal score truth still comes from the matching whole-paper scoring owner and sealed exam evidence, not from summing Knowledge weights.
+
+This attribution exists so later scheduling can identify where **observed exam-value evidence** is concentrated without inventing a universal `KP = N points` model.
+
 ---
 
 ## 8｜Memory and attention
