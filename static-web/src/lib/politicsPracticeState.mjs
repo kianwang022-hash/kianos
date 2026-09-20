@@ -310,6 +310,7 @@ export function politicsDailyEvidencePacket(catalog, snapshot, {
   }
   if (snapshot?.errors?.length) throw new Error('POLITICS_DAILY_EVIDENCE_UNREADABLE');
 
+  const questionById = new Map((catalog?.questions || []).map((question) => [question.id, question]));
   const todayAttempts = [];
   for (const [unitKey, unit] of Object.entries(snapshot?.attempts?.units || {})) {
     for (const attempt of Object.values(unit?.attempts || {})) {
@@ -318,6 +319,7 @@ export function politicsDailyEvidencePacket(catalog, snapshot, {
       todayAttempts.push({
         question_id: attempt.question_id,
         unit_key: unitKey,
+        question_type: String(questionById.get(attempt.question_id)?.type || 'unknown'),
         outcome: currentOutcome,
         first_outcome: attempt.outcome,
         uncertain: attempt.uncertain === true,
@@ -334,12 +336,40 @@ export function politicsDailyEvidencePacket(catalog, snapshot, {
   const resume = resolvePoliticsContinue(catalog, snapshot, base);
   const count = (outcome) => todayAttempts.filter((row) => row.outcome === outcome).length;
 
+  const cumulativeFirstAttempts = [];
+  for (const question of catalog?.questions || []) {
+    const observed = findPoliticsFirstAttempt(snapshot?.attempts || { units: {} }, question.id);
+    const attempt = observed?.attempt;
+    if (!attempt?.question_id) continue;
+    cumulativeFirstAttempts.push({
+      question_id: question.id,
+      question_type: String(question.type || 'unknown'),
+      outcome: attempt.outcome,
+      study_day: attempt.study_day || null,
+      observed_at: attempt.observed_at || null
+    });
+  }
+  const firstAttemptSummary = {};
+  for (const type of ['single', 'multiple', 'unknown']) {
+    const rows = cumulativeFirstAttempts.filter((row) => row.question_type === type);
+    firstAttemptSummary[type] = {
+      attempted: rows.length,
+      stable: rows.filter((row) => row.outcome === 'STABLE').length,
+      wrong: rows.filter((row) => row.outcome === 'WRONG').length,
+      uncertain: rows.filter((row) => row.outcome === 'UNCERTAIN').length
+    };
+  }
+
   return {
     schema: 'kianos.politics.study_packet.v1',
     study_day: day,
     generated_at: new Date(now).toISOString(),
     catalog_revision: catalog?.revision || null,
     forecast_progress: politicsForecastProgress(catalog, snapshot),
+    cumulative_first_attempts: {
+      total: cumulativeFirstAttempts.length,
+      by_question_type: firstAttemptSummary
+    },
     resume: resume ? {
       href: resume.href,
       title: resume.title,
