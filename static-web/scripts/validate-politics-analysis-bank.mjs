@@ -3,6 +3,17 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const root = path.resolve('../content/politics/analysis-output');
+
+const normalizeMaterial = (value) => String(value ?? '').trim().replace(/\s+/g, ' ');
+function materialIdentity(value) {
+  let hash = 0xcbf29ce484222325n;
+  const text = normalizeMaterial(value);
+  for (let i = 0; i < text.length; i += 1) {
+    hash ^= BigInt(text.charCodeAt(i));
+    hash = BigInt.asUintN(64, hash * 0x100000001b3n);
+  }
+  return 'fnv1a64-utf16:' + hash.toString(16).padStart(16, '0');
+}
 const manifest = JSON.parse(fs.readFileSync(path.join(root, 'drill-bank.manifest.v1.json'), 'utf8'));
 const prompts = JSON.parse(fs.readFileSync(path.join(root, 'drill-bank.prompts.v1.json'), 'utf8'));
 const answers = JSON.parse(fs.readFileSync(path.join(root, 'drill-bank.answers.v1.json'), 'utf8'));
@@ -10,6 +21,7 @@ const answers = JSON.parse(fs.readFileSync(path.join(root, 'drill-bank.answers.v
 assert.equal(manifest.schema, 'kianos.politics.analysis-drill-bank.v1');
 assert.equal(manifest.status, 'READY_STABLE_BASELINE_CURRENT_YEAR_OVERLAYS_PENDING');
 assert.equal(manifest.prompt_count, 104);
+assert.equal(manifest.bank_revision, 4);
 assert.equal(prompts.length, manifest.prompt_count);
 assert.equal(answers.length, manifest.prompt_count);
 
@@ -44,6 +56,9 @@ for (const prompt of prompts) {
   assert.ok(String(prompt.material || '').trim().length >= 10, prompt.id + ': material too thin');
   assert.ok(String(prompt.question || '').trim().length >= 10, prompt.id + ': question too thin');
   assert.ok(String(prompt.source_basis || '').trim(), prompt.id + ': source_basis missing');
+  assert.equal(prompt.task_revision, 'bank-r4', prompt.id + ': task revision mismatch');
+  assert.equal(prompt.material_identity, materialIdentity(prompt.material), prompt.id + ': exact material identity mismatch');
+  assert.equal(prompt.material_family_id, 'source-family:' + prompt.source_basis, prompt.id + ': material family mismatch');
   assert.ok(String(prompt.transfer_identity || '').trim(), prompt.id + ': transfer identity missing');
   assert.equal(prompt.anti_leakage, true, prompt.id + ': anti_leakage must be true');
 
@@ -76,10 +91,21 @@ for (const prompt of prompts) {
 
 assert.deepEqual(observedRoleCounts, manifest.role_counts);
 assert.equal(promptIds.size, 104);
+
+const byExactMaterial = new Map();
+for (const prompt of prompts) {
+  const key = normalizeMaterial(prompt.material);
+  const prior = byExactMaterial.get(key);
+  if (prior) {
+    assert.equal(prompt.material_identity, prior.material_identity, prompt.id + ': same exact material must share identity');
+  } else {
+    byExactMaterial.set(key, prompt);
+  }
+}
 assert.ok(blockedExactness > 0, 'current-year exactness gate must be represented');
 assert.ok(maoCount > 0, 'Mao structural coverage must be represented');
 assert.ok(xiCount > 0, 'Xi structural coverage must be represented');
 assert.equal(manifest.coverage.current_year_high_delta_exactness, 'BLOCKED_UNTIL_2027_DESIGNATED_SOURCE');
 assert.match(manifest.builder_self_attack?.status || '', /^PASS/);
 
-console.log('PASS Politics Analysis bank: 104 tasks, seven role families, source binding, anti-leakage, stress competitors, time-boxed delivery, Mao/Xi bounded coverage, current-year exactness blocked.');
+console.log('PASS Politics Analysis bank: 104 tasks, seven role families, exact material/family identity, source binding, anti-leakage, stress competitors, time-boxed delivery, Mao/Xi bounded coverage, current-year exactness blocked.');
