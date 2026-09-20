@@ -115,14 +115,20 @@ export function buildXizongStudyPacketFromStorage({
   const blockMemoryEvidence = (memory.evidence || [])
     .filter((row) => blockCardIds.has(String(row?.cardId || '')))
     .slice(-120);
-  const blockToday = todayMemoryQueue(memory)
+  const blockToday = todayMemoryQueue(memory, { now })
     .filter((card) => String(card?.blockId || '') === String(packetMeta.blockId || ''))
     .map((card) => ({
       id: card.id,
       family: card.family,
       kp_id: card.kpId,
       weak_weight: card.weakWeight,
-      review_requested: card.reviewRequested
+      review_requested: card.reviewRequested,
+      retention_state: card.retentionState || '',
+      due_reason: card.dueReason || '',
+      due_at: card.dueAt || null,
+      overdue_days: Number(card.overdueDays || 0),
+      stability_stage: Number(card.stabilityStage || 0),
+      next_interval_days: card.nextIntervalDays == null ? null : Number(card.nextIntervalDays)
     }));
   const blockMarks = markedFragments(memory)
     .filter((mark) => blockCardIds.has(String(mark?.cardId || '')))
@@ -230,7 +236,7 @@ export function buildXizongStudyPacketFromStorage({
         .filter((row) => row.repeated_unstable_count > 1)
         .map((row) => row.kp_id),
       notes_count: kpEvidence.filter((row) => Boolean(row.note)).length,
-      xizong_memory: memorySummary(memory),
+      xizong_memory: memorySummary(memory, now),
       unresolved_wu_questions: retained.wrongUncertainIds.length,
       marked_questions: retained.markedIds.length
     },
