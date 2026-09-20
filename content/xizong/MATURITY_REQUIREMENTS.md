@@ -8,7 +8,9 @@ This file does not replace Xizong Source / Knowledge / Learning owners. It defin
 
 ## 1. Score closure
 
-Working target: **275+ / 300**.
+Candidate working target: **275+ / 300**.
+
+Current shared Exam Orchestrator still carries **270+** as the cross-subject target. Before this requirement can freeze, target authority must be reconciled explicitly as protect floor / working target / elastic upside. No fresh Chat may silently choose one number based on whichever file it happened to read.
 
 The system must maintain an explicit loss budget rather than treating “finish all content” as the objective.
 
@@ -39,6 +41,8 @@ At minimum Xizong must distinguish and train:
 10. **Delayed stability** — repaired knowledge remains usable after delay / changed context.
 
 Each ability requires valid evidence and an explicit failure mode.
+
+A broad System/Block state may not hide one open mechanism. Representative coverage must include low-frequency/high-impact decisive conditions, case integration, cross-System switching and timed whole-paper stress before No-new-information can justify broad reduction in practice.
 
 ## 3. Material closure
 
@@ -100,7 +104,9 @@ The system must keep separate:
 
 No one observation may imply mastery.
 
-A high official-question score on exposed/repeated material must not be treated as fresh score evidence.
+Absence of Wrong/Uncertain or Repair records does not prove stability when representative sampling is missing.
+
+A high official-question score on exposed/repeated material must not be treated as fresh score evidence. Material/exposure identity must follow duplicated questions/case assets across copies, teachers and mock compilations where resolvable.
 
 ## 6. Dynamic control
 
@@ -166,6 +172,8 @@ Prepared slots are required now for:
 
 Prior-year baselines may define geometry and delta rules. They may not authorize current-year medical claims where freshness matters.
 
+Each future-source slot must also define what happens if the source is partial, late, lower-value than expected, revised twice, or never arrives. Derived case/compression assets must be invalidated or superseded when their owning current-year source changes.
+
 ## 9. Execution closure
 
 Chat decides the next Xizong action.
@@ -199,7 +207,11 @@ Before mature status, Xizong must survive at least:
 - mock material contradicting forecast;
 - whole-paper fatigue despite strong local performance;
 - Chat incorrectly marking a System stable;
+- Chat remaining over-conservative after representative stable evidence and wasting high-value capacity;
+- silent evidence gaps being mistaken for stability;
+- duplicated/exposed case or mock material being misclassified as fresh;
 - bad week / 30% normal capacity;
+- partial / missing current-year source;
 - second revision of current-year material.
 
 ## 11. Final acceptance question
