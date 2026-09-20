@@ -155,6 +155,7 @@ Shared Shell/navigation/sync remain shared-platform responsibilities; Xizong con
 
 ## Stable owner map
 
+- subject maturity / 270–275 control → `MATURITY_PACKAGE.md`
 - lane Rule / Model → `LEARNING_CONTRACT.md`
 - Knowledge map → `knowledge/manifest.json`
 - medical canonical Knowledge → `knowledge/systems/**`
