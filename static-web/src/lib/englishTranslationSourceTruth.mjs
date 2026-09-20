@@ -2,12 +2,17 @@ import {
   inspectTranslationSources as baseInspectTranslationSources,
   listTranslationSets as baseListTranslationSets,
   loadTranslationById as baseLoadTranslationById,
-  loadTranslationReferencesById
+  loadTranslationReferencesById as baseLoadTranslationReferencesById
 } from './englishTranslation.mjs';
 import { inspectEnglishSourceTruth, projectTranslationSourceTruth } from './englishSourceTruth.mjs';
+import {
+  listSyntheticTranslationSets,
+  loadSyntheticTranslationById,
+  loadSyntheticTranslationReferencesById
+} from './englishSyntheticBaseline.mjs';
 
-export { loadTranslationReferencesById };
 export const listTranslationSets = baseListTranslationSets;
+export const listExecutableTranslationSets = () => [...baseListTranslationSets(), ...listSyntheticTranslationSets()];
 
 export function inspectTranslationSources() {
   const base = baseInspectTranslationSources();
@@ -23,7 +28,13 @@ export function inspectTranslationSources() {
 }
 
 export function loadTranslationById(id) {
+  if (listSyntheticTranslationSets().some((row) => row.id === id)) return loadSyntheticTranslationById(id);
   return projectTranslationSourceTruth(baseLoadTranslationById(id));
+}
+
+export function loadTranslationReferencesById(id) {
+  if (listSyntheticTranslationSets().some((row) => row.id === id)) return loadSyntheticTranslationReferencesById(id);
+  return baseLoadTranslationReferencesById(id);
 }
 
 export function loadDefaultTranslation() {
