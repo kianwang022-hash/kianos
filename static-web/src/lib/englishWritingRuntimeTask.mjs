@@ -170,7 +170,7 @@ export function inspectWritingTrueExamEntry() {
   const synthetic = listWritingSyntheticTasks();
   const exam = getFirstProtectedTrueExamTask();
   return {
-    status: synthetic.length === 2 && exam?.sourceKind === 'exam' ? 'ready' : 'invalid',
+    status: synthetic.length >= 2 && new Set(synthetic.map((task) => task.kind)).has('small') && new Set(synthetic.map((task) => task.kind)).has('big') && exam?.sourceKind === 'exam' ? 'ready' : 'invalid',
     policy: WRITING_TRUE_EXAM_ENTRY_POLICY,
     syntheticGateIds: synthetic.map((task) => task.id),
     firstExam: {
