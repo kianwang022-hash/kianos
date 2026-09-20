@@ -5,7 +5,7 @@
   "purpose": "Sealed engineering expectation key. Do not provide to a fresh grader before it scores the blind fixture bank.",
   "exact_score_gold": false,
   "expectations": {
-    "tr-cal-01-strong-a": {
+    "ps-tr-001": {
       "channel": "translation",
       "expected_relation": "HIGH",
       "expected_range_hint": [
@@ -22,7 +22,7 @@
         "wording differs from stored reference"
       ]
     },
-    "tr-cal-01-strong-b-alt": {
+    "ps-tr-002": {
       "channel": "translation",
       "expected_relation": "HIGH",
       "expected_range_hint": [
@@ -40,7 +40,7 @@
         "surface wording very different from stored reference"
       ]
     },
-    "tr-cal-01-mid": {
+    "ps-tr-003": {
       "channel": "translation",
       "expected_relation": "MID",
       "expected_range_hint": [
@@ -55,7 +55,7 @@
       "guardrail": null,
       "must_not_penalize": []
     },
-    "tr-cal-01-fluent-wrong": {
+    "ps-tr-004": {
       "channel": "translation",
       "expected_relation": "LOW",
       "expected_range_hint": [
@@ -70,7 +70,7 @@
       "guardrail": "fluency must not hide major meaning distortion",
       "must_not_penalize": []
     },
-    "tr-cal-01-fragment": {
+    "ps-tr-005": {
       "channel": "translation",
       "expected_relation": "LOW",
       "expected_range_hint": [
@@ -85,7 +85,7 @@
       "guardrail": null,
       "must_not_penalize": []
     },
-    "sw-extension-strong": {
+    "ps-sw-001": {
       "channel": "writing_small",
       "expected_relation": "HIGH",
       "expected_band": "7-10",
@@ -97,7 +97,7 @@
       ],
       "guardrail": null
     },
-    "sw-extension-polished-missing-request": {
+    "ps-sw-002": {
       "channel": "writing_small",
       "expected_relation": "MID_LOW",
       "expected_band": "3-6",
@@ -109,7 +109,7 @@
       ],
       "guardrail": "style must not hide task failure"
     },
-    "sw-extension-plain-complete": {
+    "ps-sw-003": {
       "channel": "writing_small",
       "expected_relation": "HIGH",
       "expected_band": "7-10",
@@ -121,18 +121,19 @@
       ],
       "guardrail": "plain language should not be punished merely for lacking ornate vocabulary"
     },
-    "sw-extension-low": {
+    "ps-sw-004": {
       "channel": "writing_small",
-      "expected_relation": "LOW",
-      "expected_band": "1-4",
+      "expected_relation": "MID_LOW",
+      "expected_band": "3-6",
       "controlled_features": [
-        "missing specific new deadline",
-        "weak completeness",
-        "language errors/limited control"
+        "explains the laboratory closure and Monday difficulty",
+        "does request additional time, but without the required specific Wednesday deadline",
+        "shows apology/responsibility",
+        "language control is visibly limited but meaning remains recoverable"
       ],
-      "guardrail": null
+      "guardrail": "Do not force this into 1-4 merely because language is weak; the response completes most communicative moves except the specific new deadline."
     },
-    "bw-info-strong": {
+    "ps-bw-001": {
       "channel": "writing_big",
       "expected_relation": "HIGH",
       "expected_band": "13-20",
@@ -145,7 +146,7 @@
       ],
       "guardrail": null
     },
-    "bw-info-generic-slogan": {
+    "ps-bw-002": {
       "channel": "writing_big",
       "expected_relation": "MID",
       "expected_band": "9-12",
@@ -157,7 +158,7 @@
       ],
       "guardrail": null
     },
-    "bw-info-fluent-misread": {
+    "ps-bw-003": {
       "channel": "writing_big",
       "expected_relation": "LOW_MID",
       "expected_band": "5-12",
@@ -168,7 +169,7 @@
       ],
       "guardrail": "language fluency must not hide material-grounding failure"
     },
-    "bw-info-simple-strong": {
+    "ps-bw-004": {
       "channel": "writing_big",
       "expected_relation": "HIGH",
       "expected_band": "13-20",
@@ -181,7 +182,7 @@
       ],
       "guardrail": "simple language with strong task/development should outrank ornate misread writing"
     },
-    "bw-info-low": {
+    "ps-bw-005": {
       "channel": "writing_big",
       "expected_relation": "LOW",
       "expected_band": "1-8",
@@ -192,7 +193,7 @@
       ],
       "guardrail": null
     },
-    "sw-extension-complete-underlength": {
+    "ps-sw-005": {
       "channel": "writing_small",
       "expected_relation": "MID_HIGH_WITH_LENGTH_UNCERTAINTY",
       "expected_band": "5-8",
@@ -205,7 +206,7 @@
       "expected_uncertainty": "MATERIAL",
       "requires_independent_rescore": true
     },
-    "bw-info-grounded-underlength": {
+    "ps-bw-006": {
       "channel": "writing_big",
       "expected_relation": "MID_HIGH_WITH_LENGTH_UNCERTAINTY",
       "expected_band": "9-16",
@@ -219,7 +220,7 @@
       "expected_uncertainty": "MATERIAL",
       "requires_independent_rescore": true
     },
-    "tr-sec-cal-01-strong": {
+    "ps-tr-006": {
       "channel": "translation",
       "expected_relation": "HIGH_SECTION",
       "expected_range_hint": [
@@ -236,7 +237,7 @@
         "surface wording differs from stored reference"
       ]
     },
-    "tr-sec-cal-01-mixed-major-error": {
+    "ps-tr-007": {
       "channel": "translation",
       "expected_relation": "MID_HIGH_SECTION_WITH_MATERIAL_ERROR",
       "expected_range_hint": [
@@ -256,41 +257,42 @@
     {
       "invariant_id": "translation-semantic-equivalence",
       "better_or_equal": [
-        "tr-cal-01-strong-a",
-        "tr-cal-01-strong-b-alt"
+        "ps-tr-001",
+        "ps-tr-002"
       ],
       "rule": "Both semantic-equivalent strong translations must remain in overlapping high ranges despite different surface wording."
     },
     {
       "invariant_id": "small-task-over-style",
-      "preferred": "sw-extension-plain-complete",
-      "over": "sw-extension-polished-missing-request",
+      "preferred": "ps-sw-003",
+      "over": "ps-sw-002",
       "rule": "Complete plain communication should outscore polished prose that omits the actual request/new deadline."
     },
     {
       "invariant_id": "big-grounding-over-fluency",
-      "preferred": "bw-info-simple-strong",
-      "over": "bw-info-fluent-misread",
+      "preferred": "ps-bw-004",
+      "over": "ps-bw-003",
       "rule": "Correct material grounding and development should outscore fluent but materially misread writing."
     },
     {
       "invariant_id": "translation-section-major-error-visible",
-      "preferred": "tr-sec-cal-01-strong",
-      "over": "tr-sec-cal-01-mixed-major-error",
+      "preferred": "ps-tr-006",
+      "over": "ps-tr-007",
       "rule": "A complete section with all relations preserved must outscore the same section containing one major relation distortion."
     },
     {
       "invariant_id": "small-length-deficit-matters",
-      "preferred": "sw-extension-plain-complete",
-      "over": "sw-extension-complete-underlength",
+      "preferred": "ps-sw-003",
+      "over": "ps-sw-005",
       "rule": "With task fulfillment held broadly similar, a materially under-length Small Writing response must not outrank the near-target complete response."
     },
     {
       "invariant_id": "big-length-deficit-matters",
-      "preferred": "bw-info-simple-strong",
-      "over": "bw-info-grounded-underlength",
+      "preferred": "ps-bw-004",
+      "over": "ps-bw-006",
       "rule": "With grounding/mechanism broadly preserved, a materially under-length Big Writing response must not outrank the within-range version."
     }
   ],
-  "scoring_standard_version": "english.productive-scoring.v2"
+  "scoring_standard_version": "english.productive-scoring.v2",
+  "blind_id_map_version": "opaque-v1"
 }
