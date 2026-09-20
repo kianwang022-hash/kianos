@@ -8,7 +8,13 @@ import PoliticsHomeTools from '../components/PoliticsHomeTools.astro';
 import EnglishResume from '../components/EnglishResume.astro';
 import { inspectReadingSources } from '../lib/current.mjs';
 import { inspectLexicalSources } from '../lib/lexical.mjs';
-import { listProjectableXizongSystems, loadXizongBlock } from '../lib/xizong.mjs';
+import {
+  buildXizongForecastCanonicalScope,
+  listCurrentXizongSystemIdentities,
+  listProjectableXizongSystems,
+  loadXizongBlock
+} from '../lib/xizong.mjs';
+import { buildXizongForecastQuestionScope } from '../lib/xizongQuestions.mjs';
 import { buildXizongProductionBlock } from '../lib/xizongProductionProjection.mjs';
 import { listPoliticsSubjectsCurrent, politicsCurrentHealth } from '../lib/politicsCurrent.mjs';
 import { loadWritingLearningProjection } from '../lib/englishWritingLearning.mjs';
@@ -17,6 +23,7 @@ import { inspectTranslationSources } from '../lib/englishTranslation.mjs';
 
 const base = import.meta.env.BASE_URL;
 const xizongSystems = listProjectableXizongSystems();
+const xizongForecastQuestionScope = buildXizongForecastQuestionScope(listCurrentXizongSystemIdentities());
 const lexicalState = inspectLexicalSources();
 const readingState = inspectReadingSources();
 const readingReady = readingState.status === 'ready';
@@ -51,6 +58,7 @@ const xizongPacketIndex = xizongSystems.flatMap((system) => system.blocks.map((b
   return {
     systemId: system.systemId,
     slug: blockRef.slug,
+    routeKey: `${system.systemId}/${blockRef.slug}`,
     blockId: canonical.blockId,
     blockLabel: canonical.label,
     packetMeta: {
@@ -77,6 +85,7 @@ const xizongPacketIndex = xizongSystems.flatMap((system) => system.blocks.map((b
     }))
   };
 }));
+const xizongForecastCanonicalScope = buildXizongForecastCanonicalScope(xizongPacketIndex);
 const xizongHref = firstSystem ? `${base}xizong/${firstSystem.systemId}/` : `${base}xizong/`;
 const politicsHref = firstSubject && firstChapter ? `${base}politics/${firstSubject.subject}/${firstChapter.code}/` : `${base}politics/`;
 ---
@@ -154,7 +163,7 @@ const politicsHref = firstSubject && firstChapter ? `${base}politics/${firstSubj
     </section>
 
     <aside class="homeL3Support" aria-label="今日安排与学习支持">
-      <ExamOrchestratorHome xizongPacketIndex={xizongPacketIndex} />
+      <ExamOrchestratorHome xizongPacketIndex={xizongPacketIndex} xizongForecastQuestionScope={xizongForecastQuestionScope} xizongForecastCanonicalScope={xizongForecastCanonicalScope} />
     </aside>
   </div>
 </Base>
