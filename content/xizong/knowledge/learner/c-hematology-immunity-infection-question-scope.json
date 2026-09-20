@@ -9,8 +9,8 @@
   },
   "role": "FIRST_PASS_SYSTEM_OFFICIAL_QUESTION_SCOPE_ONLY",
   "learner_use": "After real C System completion + pre-question System Reconstruction, expand this exact identifier scope and run the C official-question sweep. Correct-and-clear may fast-pass; Wrong/Uncertain remain repair evidence.",
-  "question_count": 289,
-  "question_id_inventory_sha256": "3c04968c9fb88b216c15f249a95ac8ea985ebd6f9166ae59b57a27c61ff0287b",
+  "question_count": 290,
+  "question_id_inventory_sha256": "4dc16a032d2833f7b285a68b38e7020e111fba04c67a3b873e8b3238f30db009",
   "id_expansion": {
     "id_template": "xizong-official-{year}-n{number:03d}",
     "spec_format": "comma-separated single numbers or inclusive a-b ranges",
@@ -28,7 +28,7 @@
       "2015": "4,49,53,71-72,75-76,105-107,140,152,166,173",
       "2016": "4-5,47,52,55,71-72,75-76,105-107,167,173",
       "2017": "3,38,40,54,56,70-72,85-87,91-92,152-153,158",
-      "2018": "3,38,41,56,85-87,91-92,126-127,158",
+      "2018": "3,38,41,56,58,85-87,91-92,126-127,158",
       "2019": "36,41,48,54,56,85-87,91-92,158",
       "2020": "4,33,39,41,54,56,85-87,91-92,126-127,158",
       "2021": "31,33,53,55-56,70-72,85-86,91-92,136,158,165",
@@ -53,7 +53,7 @@
     "2015": 14,
     "2016": 14,
     "2017": 16,
-    "2018": 12,
+    "2018": 13,
     "2019": 11,
     "2020": 14,
     "2021": 15,
@@ -127,7 +127,7 @@
       "H1 physiology blood-properties Primary remains in C",
       "H22/H23 selected infectious pathology Primary remains in C"
     ],
-    "decision": "ACCEPT_REPAIRED_CURRENT_C_SYSTEM_SCOPE_WITH_RA_OWNER_TRANSFER",
+    "decision": "ACCEPT_REPAIRED_CURRENT_C_SYSTEM_SCOPE_WITH_RA_AND_TRANSPLANT_OWNER_TRANSFERS",
     "cross_system_owner_repair": {
       "added_from_D_current_review": [
         {
@@ -137,14 +137,23 @@
         }
       ],
       "previous_count": 288,
-      "current_count": 289,
-      "overlap_with_D_after_transfer": 0
+      "current_count": 290,
+      "overlap_with_D_after_transfer": 0,
+      "added_from_F_current_review": [
+        {
+          "question_id": "xizong-official-2018-n058",
+          "source_route": "surgery|六、外科总论|9.其它外科总论",
+          "reason": "Current F9 explicitly routes transplant / hyperacute rejection to H14 Recall and does not re-own transplant Primary. Current C H14 is the medical Primary owner."
+        }
+      ],
+      "previous_count_before_F_repair": 289,
+      "overlap_with_F_after_transfer": 0
     }
   },
   "runtime_validation": [
     "Expand question_number_spec_by_year deterministically.",
-    "Require exactly 289 unique IDs.",
-    "Require expanded inventory SHA256 = 3c04968c9fb88b216c15f249a95ac8ea985ebd6f9166ae59b57a27c61ff0287b.",
+    "Require exactly 290 unique IDs.",
+    "Require expanded inventory SHA256 = 4dc16a032d2833f7b285a68b38e7020e111fba04c67a3b873e8b3238f30db009.",
     "Require Current Question Truth ordered-ID inventory SHA256 = 0abc1a3cadbb41b36808fe86ff58c21ede6f4297312e9fb4c2da62b865ef2c82.",
     "Fail closed if Current C/D owner boundaries, historical resolver identities, or Current Question Truth inventory changes."
   ],

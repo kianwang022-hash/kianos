@@ -250,9 +250,11 @@ Receipt:
 ```text
 historical resolver candidate = 326
 Current owner exclusions      = 38
-C exact official qids         = 289
++ D→C RA transfer             = 1
++ F→C transplant transfer     = 1
+C exact official qids         = 290
 2005–2026
-inventory SHA256 = 3c04968c9fb88b216c15f249a95ac8ea985ebd6f9166ae59b57a27c61ff0287b
+inventory SHA256 = 4dc16a032d2833f7b285a68b38e7020e111fba04c67a3b873e8b3238f30db009
 System membership only; no inferred Question→Block/LG/KP relation
 ```
 
@@ -309,7 +311,33 @@ Owner repairs:
 
 System membership only; no inferred Question→Block/LG/KP relation.
 
-Next exact-scope target: **F — Remaining Clinical**.
+### F scope closure — PASS_AFTER_EXTERNAL_OWNER_REPAIR
+
+Canonical owner:
+
+`content/xizong/knowledge/learner/f-remaining-clinical-question-scope.json`
+
+Receipt:
+
+`content/xizong/knowledge/learner/F_QUESTION_SCOPE_CURRENT_RECONSTRUCTION.md`
+
+```text
+historical frozen F pool                = 27
+reviewed Current Source candidates      = 72
+external-owner exclusions              = 2
+F exact official qids                  = 70
+2005–2026
+inventory SHA256 = f99f2ad151fbbf024ecf445447d3fda33d3de83f8ce90d791710b0259605e6b8
+cross A1–E overlap after repair         = 0
+```
+
+External-owner repairs:
+
+- `2012 N081` cancer secondary prevention → retained O9 tumor-general overlay, not F/B;
+- `2018 N058` hyperacute rejection → C/H14, so C scope becomes 290;
+- F9 remains `INTEGRATION_PRIMARY`: external Recall does not become duplicate medical Primary.
+
+F System membership is closed. No Question→Block/LG/KP mapping was inferred.
 
 ## B2｜Question → Knowledge Crosswalk
 
@@ -570,14 +598,14 @@ F 9 Blocks / 121 KP
 → F medical-content chain CLOSED
 
 QUESTIONS
-Current trusted System-question entry = A1 / A2 / A3 / B / C / D / E
+Current trusted System-question entry = A1 / A2 / A3 / B / C / D / E / F
 A3 exact official-question membership = PASS / 244 qids
 B exact official-question membership = PASS / 1071 qids
-C exact official-question membership = PASS_AFTER_BOUNDED_REPAIR / 289 qids
+C exact official-question membership = PASS_AFTER_BOUNDED_REPAIR / 290 qids
 D exact official-question membership = PASS_AFTER_BOUNDED_REPAIR / 355 qids
 E exact official-question membership = PASS_AFTER_CROSS_SYSTEM_OWNER_REPAIR / 83 qids
-F exact official-question membership = CURRENT COMPLETION LANE
-→ next target = F
+F exact official-question membership = PASS_AFTER_EXTERNAL_OWNER_REPAIR / 70 qids
+→ A1–F exact System-question membership completion lane CLOSED
 + Crosswalk C2 continuous reviewed batches
 
 LATE-STAGE MATERIAL
