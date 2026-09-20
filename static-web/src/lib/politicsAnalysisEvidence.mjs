@@ -120,11 +120,11 @@ export function validatePoliticsAnalysisEvidence(input, { now = Date.now() } = {
   if (taskMode === 'FORMULATION' && formulationRequirement === 'NONE') {
     fail('FORMULATION_MODE_TARGET_REQUIRED');
   }
-  if (formulationRequirement === 'STABLE_SOURCE' && freshnessClass !== 'STABLE_CURRENT') {
-    fail('STABLE_FORMULATION_FRESHNESS_MISMATCH');
-  }
   if (freshnessClass === 'LEGACY_GEOMETRY_ONLY' && formulationRequirement !== 'NONE') {
     fail('LEGACY_EXACT_FORMULATION_FORBIDDEN');
+  }
+  if (formulationRequirement === 'STABLE_SOURCE' && freshnessClass !== 'STABLE_CURRENT') {
+    fail('STABLE_FORMULATION_FRESHNESS_MISMATCH');
   }
   if (formulationRequirement === 'CURRENT_YEAR_EXACT' && freshnessClass !== 'CURRENT_YEAR_EXACT_REQUIRED') {
     fail('CURRENT_YEAR_FORMULATION_FRESHNESS_MISMATCH');
