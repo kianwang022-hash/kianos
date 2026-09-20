@@ -173,6 +173,49 @@ English and Politics likewise derive learner state only from actual private evid
 
 # 3｜Hard timeline and Gates
 
+### Mandatory Hard Checkpoint hierarchy
+
+The exam cycle has exactly three non-skippable strategic checkpoints:
+
+```text
+2026-10-20  HARD GATE 1
+            application / first formal score-and-risk closure
+
+2026-11-15  HARD GATE 2
+            second score-and-strategy closure
+
+2026-12-20  TERMINAL GATE
+            exam execution
+```
+
+09/27 and 12/05 remain important **internal phase stop-lines**, but they are not peers of the three mandatory Hard Gates above.
+
+Every Hard Gate has automatic shadow audits:
+
+```text
+T-7  early risk audit
+T-3  intervention audit
+T-1  final preflight
+T0   mandatory Gate audit / exam execution
+```
+
+Shadow audits are backend control events, not extra learner ceremonies. They must surface material risk early enough to act.
+
+Hard Gate audit inputs must include, when phase-appropriate:
+
+- evidence coverage / freshness;
+- learner progress and unresolved high-value scope;
+- formal score evidence and uncertainty;
+- retention / fresh-transfer stability;
+- real usable-capacity history;
+- nearest-Gate + full-campaign Forecast;
+- binding constraint and downstream reserve;
+- adversarial downside / compression result.
+
+Missing required evidence yields `UNKNOWN / NOT_READY`, never an optimistic PASS.
+
+Hard Gates constrain Chat strategy. The Website may display the facts/result but must not independently decide school choice, allocation, compression, or strategy.
+
 ## Phase A｜2026-09-16 → 2026-09-27
 ### First-Round Closure
 
@@ -238,7 +281,7 @@ BLOCKED
 ## Phase B｜2026-09-28 → 2026-10-20
 ### Score Formation I
 
-Primary purpose: turn learning into the first defensible score evidence by 10/21.
+Primary purpose: turn learning into the first defensible score evidence by the mandatory 10/20 Hard Gate.
 
 ### Xizong
 
@@ -287,9 +330,9 @@ The 85+ estimate must not be inferred from Reading performance alone.
 
 Continue first-round progression toward ~10/20 closure. Xiao1000 remains verification, not the owner of learning order. If the observed Natural Unit pace is below the required pace, increase Politics capacity before the deadline rather than discovering the problem at the end.
 
-### 10/15–10/20 calibration window
+### 10/13–10/20 Hard-Gate calibration window
 
-Prepare formal score evidence before the 10/21 closure. Do not force three full exams onto the single calendar day 10/21.
+10/13 is the T-7 shadow audit. Prepare formal score evidence before the mandatory 10/20 closure. Do not force three full exams onto the single calendar day 10/21.
 
 Prefer:
 
@@ -301,12 +344,12 @@ Prefer:
 
 ---
 
-## Gate 2｜2026-10-21
-### First Formal Score Closure
+## Hard Gate 1｜2026-10-20
+### Application / First Formal Score & Risk Closure
 
-10/21 is the first mandatory **result Gate**.
+10/20 is the first mandatory **Hard Gate** and the evidence checkpoint Kian uses for the application decision. The system supplies evidence and risk; Kian makes the school/application choice.
 
-By this point all three subjects must have phase-appropriate performance evidence sufficient to produce a defensible estimate.
+By this point all three subjects must have phase-appropriate performance evidence sufficient to produce a defensible estimate, plus a forward risk view through 11/15 and 12/20.
 
 ### Xizong
 
@@ -363,6 +406,19 @@ Frontend should surface only:
 5. allocation change for 10/21 → 11/15;
 6. material updates entering the next useful window.
 
+Backend must also produce an **Application Decision Evidence Packet** for Kian containing:
+
+- current three-subject score bands + confidence / contamination;
+- 10/20 evidence coverage and major unknowns;
+- P50 / conservative completion windows to 11/15 and 12/20 when evidence supports them;
+- binding constraint and downside scenario;
+- realistic usable-capacity history;
+- full-scope vs core/COMPRESS state;
+- largest plausible failure path if current strategy is kept;
+- what evidence would most change the judgment.
+
+This packet informs the application decision; it must not choose a school for Kian.
+
 Detailed weighting / contamination logic stays backend/debug.
 
 ---
@@ -370,7 +426,7 @@ Detailed weighting / contamination logic stays backend/debug.
 ## Phase C｜2026-10-21 → 2026-11-15
 ### Score Repair / Consolidation
 
-This phase is driven by the 10/21 score result, not by a permanent static ranking of subjects.
+This phase is driven by the 10/20 Hard Gate result, not by a permanent static ranking of subjects.
 
 ### Shared scheduling rule
 
@@ -416,17 +472,28 @@ Use **Maintenance Mode**:
 
 ### 10/27 calibration
 
-Treat the planned mock / assessment as an early calibration point. If it materially contradicts 10/21, bounded reallocation may occur before 11/15.
+Treat the planned mock / assessment as an early calibration point. If it materially contradicts 10/20, bounded reallocation may occur before 11/15.
 
-### 11/15 Gate
+### Hard Gate 2｜11/15
 
 Must output:
 
 1. score band v2 / phase-appropriate evidence for all three subjects;
-2. delta vs 10/21;
+2. delta vs 10/20;
 3. whether the prior reallocation worked;
 4. remaining dominant score gaps / bottlenecks;
 5. new allocation for 11/16 → 12/05.
+
+At 11/15, workload-completion metrics are subordinate to score conversion. The audit must additionally answer:
+
+- which subject/component is now the binding 425+ constraint;
+- whether fresh-transfer / delayed-retrieval evidence supports the apparent score;
+- whether the current plan survives a realistic bad-week scenario;
+- which remaining work is CORE vs FULL vs ELASTIC;
+- which work is explicitly stopped because its marginal score value is too low;
+- whether 11/16 → 12/20 reserve is sufficient for simulation, repair and final stabilization.
+
+A strategy that needs near-perfect days to survive is not GREEN.
 
 ---
 
@@ -521,6 +588,34 @@ Shared rules:
 - current-year material may still matter late, but must be compressed into usable output structures rather than become a new course.
 
 ---
+
+## Terminal Hard Gate｜2026-12-20
+### Exam Execution
+
+12/20 is not another learning-completion review. It is the terminal execution Gate.
+
+T-7 / T-3 / T-1 preflight must prioritize:
+
+- stable retrieval and exam execution;
+- latest defensible score/risk evidence;
+- sleep / rhythm / usable cognition protection;
+- unresolved high-value errors only;
+- timing / variance control;
+- logistics and required exam materials where known.
+
+The closer the exam gets, the higher the burden of proof for opening new learning scope.
+
+At T-1, broad new learning is rejected unless a concrete, high-value, low-risk exception is demonstrated.
+
+At T0:
+
+```text
+no architecture work
+no forecast-model tuning
+no historical-hour debt
+no broad new scope
+→ execute the exam
+```
 
 # 4｜Capacity scheduling model
 
