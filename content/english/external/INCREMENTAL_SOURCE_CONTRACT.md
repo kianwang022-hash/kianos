@@ -4,6 +4,33 @@ Status: CURRENT OPTIONAL SOURCE CONTRACT
 
 Purpose: admit new private External Reading assets without changing the fixed legacy TPO56–65 / IELTS17–19 source contract and without inventing questions.
 
+## Archival Source Package parser
+
+The strict extraction GPT output is not admitted directly to runtime.
+
+Canonical parser:
+
+`tools/english-external/parse_source_package.py`
+
+It mechanically separates:
+
+```
+archival GPT Source Package
+├─ exact raw wrapper → raw/source_package.md
+├─ metadata + extraction_check → meta.json
+└─ article body only → normalized/article.md
+```
+
+The parser:
+- preserves the raw package exactly;
+- does not summarize, translate, rewrite, or repair prose;
+- preserves learner exposure from the package;
+- marks incomplete/paywalled/uncertain extraction as HOLD;
+- rejects commentary outside the required metadata/body/extraction_check envelope;
+- returns `PARSED_NOT_ADMITTED`, never automatic admission.
+
+Only after private source-quality review may `normalized/article.md` enter the explicit incremental registry.
+
 ## Registry + builder
 
 Normal admission does not hand-write SHA-256 values.

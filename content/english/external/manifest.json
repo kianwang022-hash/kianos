@@ -1020,6 +1020,9 @@
     "no_semantic_inference": true,
     "registry_schema": "kian.external.incremental-registry.v1",
     "builder": "tools/english-external/build_incremental_manifest.py",
-    "normal_flow": "EXPLICIT_REGISTRY -> BUILDER_HASHES -> INCREMENTAL_MANIFEST -> PUBLIC_MANIFEST_SHA_ACTIVATION"
+    "normal_flow": "EXPLICIT_REGISTRY -> BUILDER_HASHES -> INCREMENTAL_MANIFEST -> PUBLIC_MANIFEST_SHA_ACTIVATION",
+    "source_package_parser": "tools/english-external/parse_source_package.py",
+    "source_package_parser_schema": "kian.external-source-package-parsed.v1",
+    "source_package_flow": "ARCHIVAL_GPT_PACKAGE -> PARSER -> PRIVATE_QUALITY_REVIEW -> EXPLICIT_REGISTRY"
   }
 }
