@@ -25,9 +25,11 @@ export function readEnglishExposure(storage){
 
 function exactSourcePreviouslyExposed(ledger,sourceHash){
  if(!sourceHash)return false;
- return Object.values(ledger?.materials||{}).some((material)=>
-  Array.isArray(material?.events)&&material.events.some((event)=>event?.source_hash===sourceHash)
- );
+ return Object.values(ledger?.materials||{}).some((material)=>{
+  const eventMatch=Array.isArray(material?.events)&&material.events.some((event)=>event?.source_hash===sourceHash);
+  const declarationMatch=material?.declaration?.state==='exposed'&&material?.declaration?.source_hash===sourceHash;
+  return eventMatch||declarationMatch;
+ });
 }
 
 function exposureUpdate(storage,binding,event,now){
