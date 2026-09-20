@@ -471,3 +471,80 @@ At T-1/T0:
 | Chat→Website | existing first-round path | existing path | reuse typed execution; Analysis may remain Chat-primary | source paper + Chat where cheaper | minimal final execution |
 | Real Learner U | starts | throughput/W-U/retention | analysis/assimilation | current-year score conversion | final reliability |
 
+
+
+---
+
+## 11. Concrete execution backlog
+
+This is the active Politics maturity work order. Finish in dependency order; do not create parallel architecture.
+
+### T1 — Score / Ability / Material / Method / Evidence matrix
+**Goal:** make Protect-70 / Push-75 operational.
+**Artifact:** `content/politics/SCORE_ABILITY_MATRIX.md`
+**Acceptance:** every score-relevant Objective/Analysis capability has material, method, evidence, missing-state and stop/reopen rule.
+**Dependency:** none.
+**Status:** ACTIVE.
+
+### T2 — Complete later-stage baseline recovery
+**Goal:** recover audited reusable later-stage candidate knowledge for all five subjects without promoting legacy wording to 2027 truth.
+**Artifacts:** five `content/politics/later-stage/<subject>.json` bundles + legacy baseline metadata.
+**Acceptance:** Marx/Mao/Xi/History/Ethics all present; each candidate retains freshness/admission gates; no learner debt created.
+**Dependency:** none.
+**Status:** PARTIAL — Marx/Mao complete; Xi/History/Ethics remaining.
+
+### T3 — Analysis drill bank
+**Goal:** ensure Analysis training never waits for ad-hoc task generation.
+**Artifacts:** source-grounded/derived bank covering Principle Retrieval, Material Binding, Skeleton, stable Formulation Retrieval, Complete Analysis, Stress variants.
+**Acceptance:** each task has capability role, source basis, answer/rubric, anti-leakage boundary, difficulty/ambiguity self-attack and transfer identity.
+**Dependency:** T1 + enough T2 hooks.
+**Status:** PENDING.
+
+### T4 — Politics Forecast
+**Goal:** estimate workload/Gate risk and Protect-70/Push-75 path without using Forecast to choose fixed daily quotas.
+**Artifacts:** forecast owner + stress harness/report.
+**Acceptance:** consumes real minutes, first attempts, single/multiple W/U, Repair compression, Memory retention, Analysis evidence, future-source assimilation; exposes uncertainty/sensitivity/flip points.
+**Dependency:** T1.
+**Status:** PENDING.
+
+### T5 — Politics Dynamic Control
+**Goal:** turn evidence into subject-native Reactivate/Build/Verify/Stabilize/Maintain/Elastic decisions.
+**Artifact:** compact Chat decision policy owned by Politics Learning semantics.
+**Acceptance:** explicit add-practice, reduce-practice, reopen, Protect-70 and Push-75 ROI rules; no fixed cadence or second scheduler.
+**Dependency:** T1 + T4.
+**Status:** PENDING.
+
+### T6 — Future Source ingestion
+**Goal:** make handbook/current-affairs/Xiao8/Xiao4 plug-in updates rather than future redesign projects.
+**Artifact:** per-family source slot with fidelity, delta, supersession, invalidation, fallback and learner-use rules.
+**Acceptance:** late/partial/low-value/v2-revision cases fail safely; downstream derived assets are transitively invalidated.
+**Dependency:** T2.
+**Status:** PARTIAL.
+
+### T7 — Day-1 / cross-day learner proof
+**Goal:** prove tomorrow's real learner loop is low-friction.
+**Proof:** Home → Next Action → Politics task → W/U/Memory/Review → handoff → next plan → next-day Resume.
+**Acceptance:** no manual ledger/forecast maintenance; stale/replay/restart cases safe.
+**Dependency:** existing first-round runtime + T5 only where strategy semantics matter.
+**Status:** PENDING.
+
+### T8 — Whole-lifecycle adversarial harness
+**Goal:** attack learning decisions, not just runtime survival.
+**Scenarios:** slow pace, high W/U, multi-select weakness, Memory explosion/relapse, root-cause compression, source conflict, late/v2 source, weak Analysis baseline, timed collapse, bad week, stale/replayed plan, timer/evidence loss, false Secure/false Unstable.
+**Acceptance:** decision flip surfaces and safe-degradation behavior documented; no material all-green learner failure remains known.
+**Dependency:** T4–T7.
+**Status:** PENDING.
+
+### T9 — Real Learner U calibration
+**Goal:** replace priors with Kian-specific throughput/error/retention/friction.
+**Artifact:** private learner evidence only; no shared learner truth.
+**Acceptance:** first forecast re-fit after enough real evidence; unknowns preserved until then.
+**Dependency:** real study.
+**Status:** BLOCKED ON REAL USE.
+
+### T10 — Current-year score conversion
+**Goal:** convert structural Protect-70 path into fresh current-year evidence and quantify Push-75 upside.
+**Inputs:** current-year handbook/current-affairs/Xiao8/Xiao4 + real learner output.
+**Acceptance:** objective + analysis + timed/whole-paper evidence sufficient for phase-appropriate score confidence.
+**Dependency:** future sources + T9.
+**Status:** BLOCKED ON FUTURE SOURCE / REAL USE.
