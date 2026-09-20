@@ -768,17 +768,23 @@ function formalCalibrationForecast(progress) {
     ? progress.formal_score_evidence.sealed_papers
     : [];
   const comparable = papers.filter((row) => Number(row?.max_score) === 300);
+  const internallyProtected = comparable.filter((row) => row?.internal_holdout_protected_before_seal === true);
   return {
     component: 'FORMAL_SCORE_CALIBRATION',
     required_for_first_round: false,
     required_for_score_formation: true,
-    status: comparable.length > 0 ? 'EVIDENCE_PRESENT' : 'UNPRICED_REQUIRED',
+    status: internallyProtected.length > 0
+      ? 'INTERNAL_HOLDOUT_CALIBRATION_PRESENT'
+      : comparable.length > 0
+        ? 'OBSERVED_SCORE_ONLY_CONTAMINATION_UNRESOLVED'
+        : 'UNPRICED_REQUIRED',
     completed_300_point_papers: comparable.length,
-    latest: comparable.at(-1) || null,
-    band_minutes: comparable.length > 0 ? { p20: 0, p50: 0, p80: 0 } : null,
-    unpriced_if_missing: comparable.length === 0,
+    internally_holdout_protected_papers: internallyProtected.length,
+    latest: internallyProtected.at(-1) || comparable.at(-1) || null,
+    band_minutes: internallyProtected.length > 0 ? { p20: 0, p50: 0, p80: 0 } : null,
+    unpriced_if_missing: internallyProtected.length === 0,
     evidence_boundary:
-      'At least one least-contaminated full-paper or equivalent large calibration slice is required for a defensible score estimate; workload time is not invented when no timed calibration evidence exists.'
+      'A sealed score is always observed evidence, but score-formation calibration requires at least an internally Holdout-protected full paper or an externally justified fresh-equivalent calibration. Internal Holdout proves only KianOS non-exposure before seal; it does not prove external non-exposure.'
   };
 }
 
@@ -877,13 +883,9 @@ export function buildXizongScoreReadiness(progress, {
   const requirement = buildXizongHighScoreRequirement({ targetScore });
   const formalPapers = (progress?.formal_score_evidence?.sealed_papers || [])
     .filter((row) => Number(row?.max_score) === 300);
-  const scores = formalPapers.map((row) => Number(row?.earned_score)).filter(Number.isFinite);
   const latest = formalPapers.at(-1) || null;
-  const empiricalBand = scores.length >= 3 ? {
-    p20: round(quantile(scores, 0.2)),
-    p50: round(quantile(scores, 0.5)),
-    p80: round(quantile(scores, 0.8))
-  } : null;
+  const internallyProtectedPapers = formalPapers
+    .filter((row) => row?.internal_holdout_protected_before_seal === true);
 
   const recall = progress?.runtime_evidence?.recall || {};
   const rated = Math.max(0, Number(recall?.rated || 0));
@@ -962,17 +964,36 @@ export function buildXizongScoreReadiness(progress, {
   };
 
   const contamination = String(contaminationStatus || 'UNKNOWN').toUpperCase();
+  const freshEquivalent = contamination === 'FRESH_EQUIVALENT';
   const lowContamination = ['LEAST_CONTAMINATED','LOW','FRESH_EQUIVALENT'].includes(contamination);
   const knownContamination = ['KNOWN_PRIOR_EXPOSURE','HIGH','CONTAMINATED'].includes(contamination);
+  const calibrationPapers = freshEquivalent
+    ? formalPapers
+    : lowContamination
+      ? internallyProtectedPapers
+      : [];
+  const calibrationScores = calibrationPapers
+    .map((row) => Number(row?.earned_score))
+    .filter(Number.isFinite);
+  const empiricalBand = calibrationScores.length >= 3 ? {
+    p20: round(quantile(calibrationScores, 0.2)),
+    p50: round(quantile(calibrationScores, 0.5)),
+    p80: round(quantile(calibrationScores, 0.8))
+  } : null;
+
   let scoreEstimateStatus = 'NOT_READY';
   if (formalPapers.length === 1) scoreEstimateStatus = 'REFERENCE_ONLY';
   else if (formalPapers.length === 2) scoreEstimateStatus = 'MULTI_REFERENCE_NO_EMPIRICAL_BAND';
   else if (formalPapers.length >= 3) scoreEstimateStatus = 'EMPIRICAL_BAND';
   if (formalPapers.length && contamination === 'UNKNOWN') scoreEstimateStatus += '_CONTAMINATION_UNKNOWN';
   else if (formalPapers.length && knownContamination) scoreEstimateStatus += '_KNOWN_CONTAMINATION';
-  else if (formalPapers.length && lowContamination) scoreEstimateStatus += '_LOW_CONTAMINATION';
+  else if (formalPapers.length && lowContamination && calibrationPapers.length === 0) {
+    scoreEstimateStatus += '_LOW_CONTAMINATION_CLAIM_WITHOUT_INTERNAL_HOLDOUT';
+  } else if (formalPapers.length && lowContamination) {
+    scoreEstimateStatus += '_LOW_CONTAMINATION';
+  }
 
-  const scoreExtrapolationReady = formalPapers.length > 0 && lowContamination;
+  const scoreExtrapolationReady = calibrationPapers.length > 0 && lowContamination;
   const evidenceResult = hardGaps.length > 0 || formalPapers.length === 0
     ? 'NOT_READY'
     : scoreExtrapolationReady
@@ -985,6 +1006,8 @@ export function buildXizongScoreReadiness(progress, {
     formal_score: {
       status: scoreEstimateStatus,
       sample_count: formalPapers.length,
+      calibration_sample_count: calibrationPapers.length,
+      internally_holdout_protected_sample_count: internallyProtectedPapers.length,
       latest_score: latest ? Number(latest.earned_score) : null,
       latest_target_gap: latest ? round(requirement.target_score - Number(latest.earned_score || 0)) : null,
       empirical_band: empiricalBand,
@@ -1004,7 +1027,7 @@ export function buildXizongScoreReadiness(progress, {
       result: evidenceResult
     },
     boundary:
-      'Work completion and capability evidence do not manufacture predicted score. Formal scores remain observed evidence even when contaminated, but only least-contaminated/fresh-equivalent calibration authorizes stronger extrapolation; no arbitrary contamination point penalty is invented.'
+      'Work completion and capability evidence do not manufacture predicted score. Formal scores remain observed evidence even when contaminated. A low-contamination claim only authorizes stronger extrapolation when the scored paper was internally Holdout-protected before seal, unless an explicit fresh-equivalent external calibration is supplied. Internal Holdout never proves external non-exposure; no arbitrary contamination point penalty is invented.'
   };
 }
 
