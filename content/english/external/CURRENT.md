@@ -13,14 +13,17 @@ External Reading is an English child Content lane for **ongoing reading growth**
 ```text
 English-I papers stop providing enough new reading stimulus
 → continue high-quality reading volume
-→ TPO 56–65 first
-→ IELTS Academic 17–19 second
-→ later add material only when it expands useful reading range
+→ current active pool: repaired TPO 56–65 + IELTS Academic 17–19
+→ next official acquisition: IELTS 21 Academic → IELTS 20 Academic
+→ current TOEFL task semantics: ETS current official sources
+→ later add high-quality long-form only when it expands useful reading range
 ```
 
 Shared gains such as proposition representation, discourse tracking, lexical access, speed and stamina may transfer naturally.
 
 Source-native TOEFL / IELTS task identity remains source-native. Do not teach those question methods as English-I Reading-A rules merely because the same reading workspace is reused.
+
+Important TOEFL time boundary: TPO56–65 remain useful historical academic Reading Growth assets, but they are not the 2026 current-format TOEFL task authority. Current TOEFL task forms and current-format practice must come from current ETS official sources.
 
 ## Current ownership
 
@@ -86,6 +89,19 @@ PROVEN_CLEAN
 ```
 
 Only exact mechanical cleanup or source/hash-bound cleanup is allowed without renewed source-page evidence. Ambiguous text remains explicit debt; do not silently “repair” it. The public manifest now carries the exact 14-file repaired-source SHA set so an old local corpus cannot be compiled accidentally.
+
+## Next official acquisition
+
+Current acquisition order is:
+
+1. Cambridge IELTS 21 Academic — source bytes pending;
+2. Cambridge IELTS 20 Academic — source bytes pending;
+3. current ETS TOEFL Reading / official full-length practice — current-format authority;
+4. other high-quality authentic long-form sources under Source Intake v1.
+
+These are future-source identities only. They do not change the current active count of 66 passages / 875 question-answer slots until private source bytes are actually admitted and compiled.
+
+Legacy TPO56–65 must not be promoted into a current TOEFL mock model merely because they retain TOEFL source identity.
 
 ## Future content update path
 
