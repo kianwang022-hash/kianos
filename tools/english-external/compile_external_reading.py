@@ -226,7 +226,6 @@ def compile_ielts(root: Path) -> list[dict]:
                         warnings
                         + normalized["warnings"]
                         + collection_warnings(collection)
-                        + (["VISUAL_LAYOUT_REVIEW_REQUIRED"] if book == 18 and test == 1 and passage_number == 1 else [])
                     )),
                 })
     return output
