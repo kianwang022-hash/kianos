@@ -126,7 +126,7 @@ memory = appendMemoryEvidence(memory, {
   rating: 'mastered',
   origin: 'AUTO_RELEASE_VALIDATION'
 }, '2026-09-18T08:00:00Z');
-assert(todayMemoryQueue(memory).length === 0, 'mastered-card-still-in-today');
+assert(todayMemoryQueue(memory, { now: Date.parse('2026-09-18T08:01:00Z') }).length === 0, 'mastered-card-still-in-immediate-today');
 const evidenceBefore = memory.evidence.length;
 const refreshedAtBefore = memory.releasedBlocks['respiratory-r01'].refreshedAt;
 result = releaseCompletedBlockToMemory(memory, learner, validStudy, {
@@ -136,7 +136,8 @@ result = releaseCompletedBlockToMemory(memory, learner, validStudy, {
 assert(!result.released && result.reason === 'ALREADY_RELEASED', 'repeat-release-not-noop');
 assert(result.state.evidence.length === evidenceBefore, 'repeat-release-added-evidence');
 assert(result.state.releasedBlocks['respiratory-r01'].refreshedAt === refreshedAtBefore, 'repeat-release-mutated-release');
-assert(todayMemoryQueue(result.state).length === 0, 'repeat-release-resurrected-stale-weak-signal');
+assert(result.state.attention['core:respiratory-r01-kp01']?.reviewRequested !== true, 'repeat-release-resurrected-stale-weak-signal');
+assert(todayMemoryQueue(result.state, { now: Date.parse('2026-09-18T08:01:00Z') }).length === 0, 'repeat-release-mutated-immediate-memory-state');
 
 let invalidFailed = false;
 try {
