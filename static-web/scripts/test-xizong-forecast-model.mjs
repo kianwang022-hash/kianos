@@ -2,9 +2,11 @@ import assert from 'node:assert/strict';
 import {
   XIZONG_FORECAST_MODEL_SCHEMA,
   applyXizongForecastScenario,
+  buildXizongForecastLoop,
   buildXizongHighScoreRequirement,
   buildXizongScoreReadiness,
   buildXizongWorkloadForecast,
+  classifyXizongMaterialGaps,
   reconcileXizongMaterialIncrement
 } from '../src/lib/xizongForecastModel.mjs';
 
@@ -337,6 +339,55 @@ function baseProgress() {
   const forecast=buildXizongWorkloadForecast(noCompression);
   assert.equal(forecast.components.repair.band_minutes,null);
   assert.ok(forecast.components.repair.risks.includes('REPAIR_COMPRESSION_UNOBSERVED'));
+}
+
+{
+  const materials=classifyXizongMaterialGaps([
+    {id:'humanism-core',type:'HARD_COVERAGE_GAP',points_at_risk:16},
+    {id:'biochem-2027-delta',type:'CURRENT_YEAR_DELTA_GAP'},
+    {id:'f-official-scope',type:'ROUTING_FORECAST_GAP'},
+    {id:'case-cram',type:'OPTIONAL_DELTA_GAP'}
+  ]);
+  assert.equal(materials.coverage_ready,false);
+  assert.equal(materials.full_forecast_material_ready,false);
+  assert.deepEqual(materials.hard_coverage_gap_ids,['humanism-core']);
+  assert.deepEqual(materials.current_year_delta_gap_ids,['biochem-2027-delta']);
+  assert.deepEqual(materials.routing_gap_ids,['f-official-scope']);
+  assert.deepEqual(materials.optional_delta_gap_ids,['case-cram']);
+  assert.ok(!materials.hard_coverage_gap_ids.includes('f-official-scope'),
+    'missing F routing must not masquerade as missing medical Core');
+}
+
+{
+  const loop=buildXizongForecastLoop(baseProgress(),{
+    targetScore:275,
+    contaminationStatus:'KNOWN_PRIOR_EXPOSURE',
+    materialGaps:[
+      {id:'humanism-core',type:'HARD_COVERAGE_GAP',points_at_risk:16},
+      {id:'biochem-2027-delta',type:'CURRENT_YEAR_DELTA_GAP'},
+      {id:'f-official-scope',type:'ROUTING_FORECAST_GAP'}
+    ],
+    dailyMinutes:300,
+    startDay:'2026-09-21'
+  });
+  assert.equal(loop.maturity,'COVERAGE_INCOMPLETE');
+  assert.ok(loop.uncertainty.includes('HARD_MATERIAL_COVERAGE_INCOMPLETE'));
+  assert.ok(loop.uncertainty.includes('MATERIAL_OR_ROUTING_SCOPE_UNPRICED'));
+  assert.equal(loop.score.gate_readiness.coverage_ready,false);
+}
+
+{
+  const routingOnly=buildXizongForecastLoop(baseProgress(),{
+    targetScore:275,
+    contaminationStatus:'LEAST_CONTAMINATED',
+    materialGaps:[{id:'f-official-scope',type:'ROUTING_FORECAST_GAP'}],
+    dailyMinutes:300,
+    startDay:'2026-09-21'
+  });
+  assert.equal(routingOnly.materials.coverage_ready,true);
+  assert.equal(routingOnly.materials.full_forecast_material_ready,false);
+  assert.ok(!routingOnly.uncertainty.includes('HARD_MATERIAL_COVERAGE_INCOMPLETE'));
+  assert.ok(routingOnly.uncertainty.includes('MATERIAL_OR_ROUTING_SCOPE_UNPRICED'));
 }
 
 {
