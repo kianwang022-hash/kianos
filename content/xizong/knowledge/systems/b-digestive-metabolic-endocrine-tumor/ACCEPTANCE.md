@@ -15,15 +15,15 @@ This file owns B's current S/K/L/P/R/E/U readiness claims. It does not own medic
 S  PASS — exact Current official-question membership accepted (1071 qids)
 K  PASS — 38 stable Blocks / 600 stable KPs + accepted System model
 L  PASS — fresh independent Learning acceptance complete
-P  UNTESTED — ACTIVE / earliest unresolved eligible learner-surface gate
-R  UNTESTED — downstream-frozen behind P
+P  PASS — fresh revalidation of the existing 1 System + 38 Block Projection assets
+R  UNTESTED — ACTIVE / earliest unresolved learner-execution gate
 E  UNTESTED — downstream-frozen behind R
 U  UNTESTED — real learner use only
 ```
 
 Current allowed conclusion:
 
-> **B Source question scope, Knowledge and Learning are accepted. Projection remains the earliest unresolved active learner-surface gate. B is still not learner-ready because P/R/E are unaccepted and U requires real use.**
+> **B Source, Knowledge, Learning and Projection are accepted. Runtime is now the earliest unresolved learner-execution gate. B is still not learner-ready because R/E are unaccepted and U requires real use.**
 
 Dependency-scoped rule:
 
@@ -222,29 +222,46 @@ L PASS proves the shared B learning design is accepted. It does **not** prove Ki
 
 ---
 
-## P — UNTESTED / ACTIVE
+## P — PASS · fresh revalidation 2026-09-21
 
-Projection is now the earliest unresolved eligible learner-surface gate.
+Fresh baseline:
 
-P must project the accepted Learning semantics without changing them. In particular it must preserve:
+`main@5c1eab2766d696aa36877baa1a4600b19a927189`
 
-- MarginNote as external-primary Lecture surface;
-- KianOS as orientation / retrieval / closure / compression surface rather than a second reader;
-- whole-LG handoff and natural return cues without forced KP-by-KP switching;
-- conditional display of Precision / Visual / Reserve / Connection context;
-- backend-only engineering metadata;
-- readiness DAG and learner-order semantics without turning backend route metadata into compulsory navigation;
-- six PSRs as optional/non-gating compression checkpoints;
-- System Recall timing based on Learner Truth rather than engineering readiness;
-- accepted exact official-question sweep without guessed qids or inferred precise relations.
+No Projection asset rebuild was required. The existing B set was re-read and revalidated against the latest accepted B Learning owner:
 
-The historical D/M/G file layout and rich medical Markdown do not own page structure.
+```text
+1 SystemProjection
+38 BlockProjection
+600 stable KP identities
+170 accepted Logic Groups
+```
+
+Fresh semantic attacks:
+
+- G5 learner order remains Learning-owned and is consumed through `learner_order`; file/stable KP order is not promoted to learner order.
+- B `BLOCK_ORIENT` does not bind or render the whole canonical Block Markdown. It exposes bounded problem/focus/stop/safe LG-map semantics, preserving MarginNote/original Lecture as continuous teaching owner.
+- `LOGIC_GROUP_SET` exposes labels/IDs only on protected Block Recall fronts; answer-bearing goal/closure payload is not smuggled into the neutral map.
+- `SYSTEM_RECALL_FRONT` contains no B answer-bearing medical object.
+- PSRs remain non-gating and absent from the default System Guide.
+- Projection does not own B official-question truth or infer Question→Block/LG/KP relations.
+
+Executed proof on PR #643 candidate `c980bf28e6ae2c8a048cf0a63f65ae68a467784a`:
+
+- Xizong Projection Validation run `35522582637` — **PASS** including exact bindings, adversarial mutations, freeze accounting and protected-source immutability.
+- Xizong Production Semantic Projection run `35522582598` — **PASS** including production semantic validation and Astro build.
+- Xizong Representation Gate run `35522582836` — **PASS**.
+- B+C compatibility's B/C semantic validation step — **PASS** at the same candidate while the broader shared workflow continues unrelated regression work.
+
+P claim boundary:
+
+> Projection semantics and production/representation compatibility are accepted. This does not claim B Runtime/Evidence or learner U.
 
 ---
 
 ## R / E
 
-`R` remains downstream-frozen behind P. `E` remains downstream-frozen behind R. Exact B question membership is now accepted, but question-derived Evidence still requires the later Runtime/Evidence gates.
+`R` is now the earliest unresolved active gate. `E` remains downstream-frozen behind R. Exact B question membership is accepted, but learner-execution and question-derived Evidence still require their own gates.
 
 Old web/runtime existence is not acceptance evidence.
 

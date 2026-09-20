@@ -1,6 +1,6 @@
 # B Projection P2 — Atomic Compilation Receipt
 
-Status: **MATERIALIZED — P3 SHARED VALIDATION / ADVERSARIAL CLOSURE PENDING**  
+Status: **MATERIALIZED · P3/P4 FRESH REVALIDATION PASS**  
 Scope: `B — Digestive / Metabolic / Endocrine / Tumor`  
 Execution: GitHub Issue `#155`
 
@@ -94,6 +94,26 @@ Required proof:
 
 No medical Core, Learning semantics, Runtime state or learner evidence may change in this revalidation.
 
-## P2 boundary
+## P2 / P3 / P4 closure
 
-P2 is complete only as materialization. P remains `UNTESTED / ACTIVE` until P3 executes the shared validator + legacy regressions + B adversarial cases and P4 performs fresh Projection acceptance.
+P2 materialization remains unchanged.
+
+Fresh P3/P4 revalidation on PR #643 candidate `c980bf28e6ae2c8a048cf0a63f65ae68a467784a`:
+
+- Xizong Projection Validation `35522582637` — PASS;
+- Xizong Production Semantic Projection `35522582598` — PASS;
+- Xizong Representation Gate `35522582836` — PASS;
+- fresh semantic attacks preserved G5 learner order, bounded B orientation, neutral Recall fronts and non-gating PSRs.
+
+No asset rebuild or medical/Learning mutation was required.
+
+Verdict:
+
+```text
+P2 materialization  PASS
+P3 validation       PASS
+P4 fresh acceptance PASS
+P                    PASS
+R                    ACTIVE NEXT
+```
+
