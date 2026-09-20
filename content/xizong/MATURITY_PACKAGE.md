@@ -198,6 +198,12 @@ Type:
 
 `CURRENT_YEAR_DELTA_GAP`
 
+Durable slot owner:
+
+`content/xizong/questions/exam-format-2027-slot.json`
+
+Current status: **BLOCKED_UNTIL_AUTHORITATIVE_2027_SOURCE**. Historical `exam-format.json` remains 2005–2026 truth only; the slot owns 2027 arrival identity, field-level geometry delta, downstream score/Forecast invalidation and fallback.
+
 Current truth:
 
 - historical owner ends at 2026;
