@@ -164,6 +164,8 @@ for(const [task] of TASKS){
   assert.equal(Object.prototype.hasOwnProperty.call(row.history,'complete_attempts'),false,`ambiguous completion field leaked:${task}`);
   assert.equal(row.recent.attempts,8,`recent profile count:${task}`);
   assert.ok(row.history.timing.first_evidence_samples>0,`timing evidence absent:${task}`);
+  assert.ok(row.history.timing.p20_elapsed_seconds<=row.history.timing.p50_elapsed_seconds,`timing p20/p50 invalid:${task}`);
+  assert.ok(row.history.timing.p50_elapsed_seconds<=row.history.timing.p80_elapsed_seconds,`timing p50/p80 invalid:${task}`);
   assert.ok(row.history.exposure.exposed>0,`exposure split absent:${task}`);
   assert.ok(row.history.exposure.unknown>0,`unknown exposure erased:${task}`);
   assert.ok(row.history.assistance.assisted>0,`assisted split absent:${task}`);
@@ -326,6 +328,9 @@ const speed = speedContamination.tasks.reading_a.history;
 assert.equal(speed.timing_basis,'UNSEEN_UNASSISTED_ONLY');
 assert.equal(speed.timing.first_evidence_samples,3,'clean timing sample contamination');
 assert.equal(speed.timing.median_elapsed_seconds,960,'clean timing median was pulled by exposed/assisted work');
+assert.equal(speed.timing.p50_elapsed_seconds,960,'clean timing p50 mismatch');
+assert.ok(speed.timing.p20_elapsed_seconds<=speed.timing.p50_elapsed_seconds);
+assert.ok(speed.timing.p50_elapsed_seconds<=speed.timing.p80_elapsed_seconds);
 assert.equal(speed.timing_all.first_evidence_samples,6,'all timing history was lost');
 assert.equal(speed.timing_all.median_elapsed_seconds,630,'all timing observational median unexpected');
 assert.ok(
