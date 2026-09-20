@@ -531,7 +531,12 @@ function questionForecast(progress) {
   }
   if (speedHeterogeneityRatio !== null && speedHeterogeneityRatio >= 1.5) risks.push('QUESTION_SPEED_SYSTEM_HETEROGENEITY');
   if (progress?.question_workload?.known_remaining_is_lower_bound) risks.push('UNPRICED_SYSTEM_QUESTION_SCOPE');
-  if (Number(progress?.question_workload?.cross_owner_duplicate_memberships ?? progress?.question_workload?.cross_system_duplicate_memberships || 0) > 0) risks.push('CROSS_OWNER_DUPLICATE_MEMBERSHIP');
+  if (Number(progress?.question_workload?.cross_owner_duplicate_memberships
+    ?? progress?.question_workload?.cross_system_duplicate_memberships
+    ?? 0) > 0) {
+    risks.push('CROSS_SYSTEM_DUPLICATE_MEMBERSHIP');
+    risks.push('CROSS_OWNER_DUPLICATE_MEMBERSHIP');
+  }
   if (backtest.status === 'BACKTESTED' && Number(backtest.median_absolute_percent_error || 0) > 0.25) {
     risks.push('QUESTION_SPEED_BACKTEST_ERROR_HIGH');
   }
