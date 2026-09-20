@@ -228,6 +228,111 @@ assert.equal(
   'uncalibrated timing should remain eligible evidence, not be silently treated as too slow'
 );
 
+// Familiar / assisted work remains observable history, but must not make the
+// default task-local speed estimate look faster than clean unseen work.
+const speedContamination = buildEnglishPerformanceProfile([
+  {
+    task:'reading_a',
+    object_id:'seen-fast-1',
+    prior_exposure:'exposed',
+    assistance:'unassisted',
+    complete:true,
+    problem_count:0,
+    submitted_at:'2026-09-20T01:00:00.000Z',
+    first_evidence:{
+      timing_status:'within_explicit_budget',
+      elapsed_seconds:240,
+      time_budget_seconds:1200,
+      independent_transfer_candidate:false
+    }
+  },
+  {
+    task:'reading_a',
+    object_id:'seen-fast-2',
+    prior_exposure:'exposed',
+    assistance:'unassisted',
+    complete:true,
+    problem_count:0,
+    submitted_at:'2026-09-20T01:10:00.000Z',
+    first_evidence:{
+      timing_status:'within_explicit_budget',
+      elapsed_seconds:300,
+      time_budget_seconds:1200,
+      independent_transfer_candidate:false
+    }
+  },
+  {
+    task:'reading_a',
+    object_id:'assisted-fast',
+    prior_exposure:'unseen',
+    assistance:'assisted',
+    complete:true,
+    problem_count:0,
+    submitted_at:'2026-09-20T01:20:00.000Z',
+    first_evidence:{
+      timing_status:'within_explicit_budget',
+      elapsed_seconds:360,
+      time_budget_seconds:1200,
+      independent_transfer_candidate:false
+    }
+  },
+  {
+    task:'reading_a',
+    object_id:'clean-1',
+    prior_exposure:'unseen',
+    assistance:'unassisted',
+    complete:true,
+    problem_count:0,
+    submitted_at:'2026-09-20T02:00:00.000Z',
+    first_evidence:{
+      timing_status:'within_explicit_budget',
+      elapsed_seconds:900,
+      time_budget_seconds:1200,
+      independent_transfer_candidate:true
+    }
+  },
+  {
+    task:'reading_a',
+    object_id:'clean-2',
+    prior_exposure:'unseen',
+    assistance:'unassisted',
+    complete:true,
+    problem_count:0,
+    submitted_at:'2026-09-20T02:20:00.000Z',
+    first_evidence:{
+      timing_status:'within_explicit_budget',
+      elapsed_seconds:960,
+      time_budget_seconds:1200,
+      independent_transfer_candidate:true
+    }
+  },
+  {
+    task:'reading_a',
+    object_id:'clean-3',
+    prior_exposure:'unseen',
+    assistance:'unassisted',
+    complete:true,
+    problem_count:0,
+    submitted_at:'2026-09-20T02:40:00.000Z',
+    first_evidence:{
+      timing_status:'within_explicit_budget',
+      elapsed_seconds:1020,
+      time_budget_seconds:1200,
+      independent_transfer_candidate:true
+    }
+  }
+]);
+const speed = speedContamination.tasks.reading_a.history;
+assert.equal(speed.timing_basis,'UNSEEN_UNASSISTED_ONLY');
+assert.equal(speed.timing.first_evidence_samples,3,'clean timing sample contamination');
+assert.equal(speed.timing.median_elapsed_seconds,960,'clean timing median was pulled by exposed/assisted work');
+assert.equal(speed.timing_all.first_evidence_samples,6,'all timing history was lost');
+assert.equal(speed.timing_all.median_elapsed_seconds,630,'all timing observational median unexpected');
+assert.ok(
+  speed.timing.median_elapsed_seconds > speed.timing_all.median_elapsed_seconds,
+  'contaminated fast history did not differ from clean speed'
+);
+
 const bounded=boundedEnglishAttemptInventory(
   Array.from({length:50},(_,i)=>({
     task:'reading_a',

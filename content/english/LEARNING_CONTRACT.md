@@ -231,6 +231,7 @@ Hard rules:
 - Reading A / Cloze / Part B / Translation / Writing / External Reading remain separate task families;
 - raw elapsed time is never compared across different task types as if seconds meant the same thing;
 - uncalibrated timing is UNKNOWN, not slow;
+- the default decision-facing timing summary uses only **unseen + unassisted** attempts; exposed / assisted work remains visible only in separate observational timing so familiarity/help cannot make clean speed look faster;
 - exposed or assisted work cannot be promoted to independent-transfer evidence merely because it was correct;
 - `independent_transfer_candidate` means evidence eligibility only, never mastery;
 - Translation / Writing do not receive fake auto-scores;
