@@ -14,8 +14,14 @@ import {
   ENGLISH_EXAM_ANSWER_SCHEMA,
   englishExamPayload,
   summarizeEnglishExamSession,
-  releaseEnglishExamObjective
+  releaseEnglishExamObjective,
+  startEnglishExamSession,
+  buildEnglishExamEvidencePacket
 } from '../src/lib/englishExamSession.mjs';
+import {
+  listEnglishExamPapers,
+  loadEnglishExamPaper
+} from '../src/lib/englishExamPaper.mjs';
 
 class MemoryStorage {
   constructor(entries={}){this.map=new Map(Object.entries(entries));}
@@ -316,6 +322,27 @@ assert.equal(released.release.objective.steps[0].evidence.prior_exposure,'expose
 assert.equal(released.release.objective.steps[0].evidence.assistance,'assisted');
 assert.equal(released.release.objective.steps[0].evidence.independent_transfer_candidate,false);
 
+// 5) Full-paper parent Chat assistance must remain visible without flattening constituent section facts.
+const paperMeta=listEnglishExamPapers()[0];
+assert.ok(paperMeta?.paperId,'current whole-paper fixture missing');
+const paper=loadEnglishExamPaper(paperMeta.paperId);
+const assistedPaper=startEnglishExamSession(paper,{
+  now:Date.parse('2026-09-21T02:00:00.000Z'),
+  assistanceContext:{
+    state:'assisted',
+    basis:'chat_context',
+    observed_at:'2026-09-21T01:59:00.000Z',
+    note:'Chat materially discussed content in this paper before formal execution.'
+  },
+  sessionId:'e4-assisted-paper'
+});
+assert.equal(assistedPaper.paper_assistance_context?.state,'assisted');
+const assistedSummary=summarizeEnglishExamSession(assistedPaper);
+assert.equal(assistedSummary.paper_assistance_context?.state,'assisted');
+const assistedPacket=buildEnglishExamEvidencePacket(assistedPaper);
+assert.equal(assistedPacket.paper_assistance_context?.state,'assisted');
+assert.ok(Array.isArray(assistedPacket.steps)&&assistedPacket.steps.length===9);
+
 console.log(JSON.stringify({
   schema:'kianos.english.evidence-fidelity-e4-validation.v1',
   status:'PASS',
@@ -330,6 +357,7 @@ console.log(JSON.stringify({
     broken_recurrence_ledger_requires_deeper_review:true,
     whole_paper_constituent_exposure_preserved:true,
     whole_paper_constituent_assistance_preserved:true,
-    whole_paper_release_keeps_contamination_context:true
+    whole_paper_release_keeps_contamination_context:true,
+    whole_paper_parent_assistance_context_preserved:true
   }
 },null,2));
