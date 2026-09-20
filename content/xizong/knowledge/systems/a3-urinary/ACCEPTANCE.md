@@ -32,7 +32,7 @@ Current allowed conclusion:
 ## Current evidence boundary
 
 - Source scope owner → `content/xizong/knowledge/learner/a3-urinary-question-scope.json`.
-- Accepted Source membership → **243 unique official-question IDs, 2005–2026**; runtime-sorted inventory SHA256 `bd8082bf9b82d00411f5d3dcaa09f56626c0c08b688e108f728f7da6e2f9b84e`.
+- Accepted Source membership → **244 unique official-question IDs, 2005–2026**; runtime-sorted inventory SHA256 `92685b073b9cbf00f67a61442872c1fea4ccf01fe50987e12e4ca646c90751c5`.
 - Current Question Truth → **3750 immutable IDs**, inventory SHA256 `0abc1a3cadbb41b36808fe86ff58c21ede6f4297312e9fb4c2da62b865ef2c82`.
 - Current System-level Knowledge owner → `content/xizong/knowledge/systems/a3-urinary/system.json`, authority `CHAT_APPROVED`.
 - Accepted stable substrate → **14 canonical Blocks / 257 stable KPs / 75 Logic Groups**, no Block/KP split, merge or renumbering.
@@ -59,11 +59,28 @@ Accepted owner:
 
 Accepted invariants:
 
-- 243 unique official questions across 2005–2026;
+- 244 unique official questions across 2005–2026;
 - every selected ID resolves from Current Question Truth;
-- zero unresolved membership ambiguities and zero delta from the recovered reviewed candidate;
+- zero unresolved membership ambiguities; the historical reviewed 243-qid candidate has one explicit Current owner addition from the E reconstruction;
 - System membership does not invent Question→Block / Logic Group / KP relations;
 - unavailable historical HLK raw bytes are not falsely claimed as freshly re-hashed.
+
+Current cross-System owner repair:
+
+- `xizong-official-2022-n032` asks the most common hematogenous metastatic site of prostate cancer;
+- its broad historical pathology route sits inside the reproductive-system chapter, but Current E explicitly excludes prostate Primary;
+- A3 Block13 explicitly owns prostate-cancer organ-specific diagnosis/task Primary.
+
+Therefore the qid is added to A3:
+
+```text
+historical reviewed A3 candidate = 243
+Current E-source → A3 transfer    =  +1
+Current exact A3 scope            = 244
+inventory SHA256                  = 92685b073b9cbf00f67a61442872c1fea4ccf01fe50987e12e4ca646c90751c5
+```
+
+This is an S-owner correction only. The accepted P/R/E mechanics remain unchanged and are content-versioned; no learner progress is inferred.
 
 Validation evidence: GitHub Actions run `34713324100` passed the Source closure suite.
 
@@ -107,7 +124,7 @@ System orientation in KianOS
 → Logic Group closure
 → Block Recall
 → after all 14 Blocks are actually learned: pre-question System Recall
-→ official A3 System question sweep from the accepted 243-question scope, preserving learner-selected whole-paper holdout
+→ official A3 System question sweep from the accepted 244-question scope, preserving learner-selected whole-paper holdout
 → Wrong / Uncertain smallest-sufficient repair through reviewed relations only
 → short post-question System reconstruction
 ```
@@ -142,7 +159,7 @@ Accepted behavior:
 - the learner dock explicitly points to `iPad / MarginNote · 原讲义定位`;
 - Lecture-attached questions stay external-primary;
 - first-pass compact System Recall stays hidden and later System Recall + official questions remain downstream/collapsed;
-- the 243-question sweep loads Current Question Truth directly and does not fabricate missing Question→Block/KP relations;
+- the 244-question sweep loads Current Question Truth directly and does not fabricate missing Question→Block/KP relations;
 - the shared loader supports canonical A3 prefixed `..._BlockN_...md` files without duplicate assets;
 - scoped `P PASS` is the projectability gate.
 
