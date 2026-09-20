@@ -175,6 +175,12 @@ Type:
 
 `CURRENT_YEAR_DELTA_GAP`
 
+Durable slot owner:
+
+`content/xizong/knowledge/learner/xizong-2027-biochemistry-delta-slot.json`
+
+Current status: **BLOCKED_UNTIL_27_SOURCE**. The slot now owns arrival identity, fidelity, delta, downstream invalidation and fallback metadata; canonical medical truth remains in B/M1–M10.
+
 Required closure:
 
     stable prior baseline
