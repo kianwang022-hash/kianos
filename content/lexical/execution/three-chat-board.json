@@ -38,17 +38,32 @@
       101,
       200
     ],
-    "state": "PRODUCTION_SWEEP_COMPLETE_AWAITING_PHASE_TRANSITION",
-    "note": "Production sweep is complete. Do not materialize until orchestration explicitly transitions to serialized materialization; refreeze latest main and semantic dependencies first."
+    "state": "MATERIALIZE_ALLOWED",
+    "note": "Production sweep is complete. BF01 is the sole serialized canonical-write frontier. Refreeze latest main and all semantic dependencies, emit Final Mutation Package, run mechanical executor, rebuild 7,946 FLOBs, then hand the materialized candidate to a fresh B audit."
   },
   "audit_target": {
-    "state": "PAUSED_PENDING_PHASE_TRANSITION",
-    "note": "Production sweep is complete, but no fresh B audit should launch until orchestration explicitly enters the materialization/audit phase."
+    "state": "WAITING_BF01_MATERIALIZATION",
+    "candidate_id": "BF01",
+    "range": [
+      101,
+      200
+    ],
+    "note": "Do not start B until BF01 executor produces a materialized candidate and fresh audit brief."
   },
   "lanes": {
     "A": {
-      "role": "PRODUCTION_A_FINAL_SWEEP",
-      "current_assignment": null,
+      "role": "FRONTIER_MATERIALIZATION_AND_RECONCILIATION",
+      "current_assignment": {
+        "candidate_id": "BF01",
+        "range": [
+          101,
+          200
+        ],
+        "state": "MATERIALIZE_ALLOWED",
+        "proposal_path": "content/lexical/execution/manifests/o0101-o0200.final-standard-backfill-proposal.md",
+        "approved": true,
+        "next_action": "Refreeze latest main/shared dependencies; generate exact Final Mutation Package for BF01; run mechanical executor; rebuild 7,946 FLOBs; create fresh B audit brief. No semantic reopening."
+      },
       "bootstrap_integration": {
         "candidate_id": "BF00",
         "pr": 525,
@@ -258,18 +273,18 @@
         }
       ],
       "next_new_review_range": null,
-      "state": "PRODUCTION_SWEEP_COMPLETE",
+      "state": "BF01_MATERIALIZATION_ACTIVE",
       "completed_through_ordinal": 700,
-      "next_action": "No further Production review. A must not enter o0701+. Wait for overall A/C Production sweep closure and subsequent serialized materialization/audit phase."
+      "next_action": "Refreeze latest main/shared dependencies; generate exact Final Mutation Package for BF01; run mechanical executor; rebuild 7,946 FLOBs; create fresh B audit brief. No semantic reopening."
     },
     "B": {
       "role": "FRESH_INDEPENDENT_AUDIT",
       "current_assignment": null,
-      "state": "PAUSED_PENDING_PHASE_TRANSITION",
+      "state": "WAITING_BF01_MATERIALIZATION",
       "may_mutate_semantic_truth": false,
       "must_stop_after_one_audit_pack": true,
       "scheduler": "NEXT_READY_MATERIALIZED_CANDIDATE",
-      "next_action": "Wait for explicit orchestration transition. Do not launch B audit from the completed Production-sweep state."
+      "next_action": "Wait until BF01 candidate is materialized and a fresh audit brief exists; then one fresh B Chat performs one blind-first audit and stops."
     },
     "C": {
       "role": "PRODUCTION_C_FINAL_SWEEP",
@@ -727,7 +742,7 @@
       },
       "state": "PRODUCTION_SWEEP_COMPLETE",
       "completed_through_ordinal": 1150,
-      "next_action": "No further Production review. Wait for an explicit orchestration phase transition before serialized materialization/audit."
+      "next_action": "No Production work. Wait for serialized frontier materialization/reconciliation assignments only if needed later."
     }
   },
   "preserved_candidates": [
@@ -1577,9 +1592,9 @@
       "candidate_branch": "work/lexical-continuous-o1151-o1250",
       "candidate_head": "d3972636a131c3bd495c64bdcff26e3cfdef68b8",
       "brief": "content/lexical/semantic-audit/O1151_O1250_FRESH_INDEPENDENT_AUDIT_BRIEF.md",
-      "state": "PAUSED_DURING_PRODUCTION_SWEEP",
-      "priority": 1,
-      "note": "Materialized candidate already exists. Audit now; latest-main reconciliation/rematerialization remains required before merge.",
+      "state": "DEFERRED_UNTIL_BF01_AUDIT_PATH_ESTABLISHED",
+      "priority": 99,
+      "note": "Intentionally deferred per current simple sequential route. Do not audit before BF01 materialization/audit starts.",
       "previous_state": "READY_FOR_FRESH_B"
     },
     {
@@ -1591,9 +1606,9 @@
       "candidate_pr": null,
       "candidate_branch": "work/lexical-continuous-backfill-o0101-o0200",
       "brief": null,
-      "state": "PAUSED_DURING_PRODUCTION_SWEEP",
-      "priority": 2,
-      "note": "Insert/activate after A materializes BF01 and writes its fresh audit brief.",
+      "state": "WAITING_CANDIDATE_MATERIALIZATION",
+      "priority": 1,
+      "note": "Live frontier. A is materializing BF01; B starts only after candidate + fresh audit brief exist.",
       "previous_state": "WAITING_CANDIDATE_MATERIALIZATION"
     },
     {
@@ -1611,7 +1626,7 @@
       "previous_state": "WAITING_FRONTIER_MATERIALIZATION"
     }
   ],
-  "campaign_phase": "PRODUCTION_SWEEP_COMPLETE__AWAITING_PHASE_TRANSITION",
+  "campaign_phase": "MATERIALIZATION_AND_AUDIT",
   "semantic_freeze": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
   "final_broad_review_scope": [
     1,
@@ -1718,5 +1733,11 @@
     "C_status": "COMPLETE",
     "completed_at": "2026-09-20",
     "completion_note": "A and C final semantic Production sweep for o0001-o1150 is complete. All remaining semantic proposals are frozen backlog under FINAL_SEMANTIC_FREEZE v1. No unresolved Human Gate or semantic/source/identity blocker remains."
+  },
+  "phase_transition": {
+    "entered_at": "2026-09-20",
+    "from": "PRODUCTION_SWEEP_COMPLETE__AWAITING_PHASE_TRANSITION",
+    "to": "MATERIALIZATION_AND_AUDIT",
+    "rule": "One serialized canonical write frontier at a time. Current frontier BF01 o0101-o0200. No broad semantic reopening under FINAL_SEMANTIC_FREEZE v1."
   }
 }
