@@ -5,6 +5,7 @@ import {
   assessXizongDeadlineFeasibility,
   auditXizongCompressionProposals,
   buildXizongForecastLoop,
+  buildXizongForecastFalsifiability,
   buildXizongCheckpointRequirement,
   buildXizongHighScoreRequirement,
   buildXizongScoreEvidence,
@@ -867,3 +868,66 @@ function baseProgress() {
 }
 
 console.log('PASS Xizong forecast adversarial suite: target→capability→workload→material delta→capacity→score evidence fail-closed');
+
+
+{
+  const surface=buildXizongForecastFalsifiability(baseProgress(),{
+    startDay:'2026-09-21',
+    deadlineDay:'2026-10-20',
+    dailyMinutes:300,
+    scope:'first_round',
+    wrongUncertainRateGrid:[0.15,0.30,0.45],
+    dailyMinutesGrid:[180,300,420]
+  });
+  assert.equal(surface.schema,'kianos.xizong.forecast-falsifiability.v1');
+  assert.equal(surface.wrong_uncertain_capacity_grid.length,9);
+  assert.equal(surface.p50_flip_surface.length,3);
+  assert.ok(surface.capacity_flip_points.p20_daily_minutes<=surface.capacity_flip_points.p50_daily_minutes);
+  assert.ok(surface.capacity_flip_points.p50_daily_minutes<=surface.capacity_flip_points.p80_daily_minutes);
+  assert.ok(surface.next_high_value_evidence);
+  assert.match(surface.boundary,/do not choose the learner action/i);
+
+  for(const capacity of [180,300,420]){
+    const rows=surface.wrong_uncertain_capacity_grid
+      .filter(row=>row.daily_minutes===capacity)
+      .sort((a,b)=>a.wrong_uncertain_rate-b.wrong_uncertain_rate);
+    const priced=rows.filter(row=>row.required_average_minutes_per_day?.p50!=null);
+    for(let i=1;i<priced.length;i+=1){
+      assert.ok(
+        priced[i].required_average_minutes_per_day.p50
+        >= priced[i-1].required_average_minutes_per_day.p50,
+        'raising W/U must not reduce required P50 daily capacity'
+      );
+    }
+  }
+
+  const rate030=surface.wrong_uncertain_capacity_grid
+    .filter(row=>row.wrong_uncertain_rate===0.3)
+    .sort((a,b)=>a.daily_minutes-b.daily_minutes);
+  const fitRank=(value)=>value===true?2:value===false?1:0;
+  for(let i=1;i<rate030.length;i+=1){
+    assert.ok(
+      fitRank(rate030[i].p50_fit)>=fitRank(rate030[i-1].p50_fit),
+      'more daily capacity must not worsen P50 feasibility'
+    );
+  }
+}
+
+{
+  const partial=baseProgress();
+  partial.question_workload={
+    ...partial.question_workload,
+    status:'EXACT_PARTIAL',
+    known_remaining_is_lower_bound:true,
+    unknown_systems:['F']
+  };
+  const surface=buildXizongForecastFalsifiability(partial,{
+    startDay:'2026-09-21',
+    deadlineDay:'2026-10-20',
+    dailyMinutes:300
+  });
+  assert.equal(surface.next_high_value_evidence.id,'FULL_PRICING_BLOCKER');
+  assert.ok(surface.evidence_candidates.some(row=>row.id==='FULL_PRICING_BLOCKER'));
+}
+
+console.log('PASS Xizong forecast falsifiability: sensitivity grid + flip surface + next information evidence');
