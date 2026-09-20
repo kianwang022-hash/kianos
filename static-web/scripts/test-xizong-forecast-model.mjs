@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import {
   XIZONG_FORECAST_MODEL_SCHEMA,
   applyXizongForecastScenario,
+  assessXizongDeadlineFeasibility,
   auditXizongCompressionProposals,
   buildXizongForecastLoop,
   buildXizongHighScoreRequirement,
@@ -340,6 +341,41 @@ function baseProgress() {
   const forecast=buildXizongWorkloadForecast(noCompression);
   assert.equal(forecast.components.repair.band_minutes,null);
   assert.ok(forecast.components.repair.risks.includes('REPAIR_COMPRESSION_UNOBSERVED'));
+}
+
+{
+  const forecast=buildXizongWorkloadForecast(baseProgress());
+  const generous=assessXizongDeadlineFeasibility(forecast,{
+    startDay:'2026-09-21',
+    deadlineDay:'2026-10-20',
+    dailyMinutes:600,
+    scope:'first_round'
+  });
+  assert.ok(['P80_FITS','P50_FITS_P80_DOES_NOT','P20_ONLY_FITS','EVEN_P20_DOES_NOT_FIT'].includes(generous.status));
+  assert.equal(generous.capacity.days,30);
+  assert.equal(generous.capacity.minutes,18000);
+  assert.ok(generous.required_average_minutes_per_day.p20<=generous.required_average_minutes_per_day.p50);
+  assert.ok(generous.required_average_minutes_per_day.p50<=generous.required_average_minutes_per_day.p80);
+
+  const impossible=assessXizongDeadlineFeasibility(forecast,{
+    startDay:'2026-09-21',
+    deadlineDay:'2026-09-21',
+    dailyMinutes:1,
+    scope:'score_formation'
+  });
+  assert.equal(impossible.status,'EVEN_P20_DOES_NOT_FIT');
+
+  const partial=baseProgress();
+  partial.question_workload={...partial.question_workload,status:'EXACT_PARTIAL',known_remaining_is_lower_bound:true,unknown_systems:['F']};
+  const partialForecast=buildXizongWorkloadForecast(partial);
+  const unknown=assessXizongDeadlineFeasibility(partialForecast,{
+    startDay:'2026-09-21',
+    deadlineDay:'2026-10-20',
+    dailyMinutes:300,
+    scope:'first_round'
+  });
+  assert.equal(unknown.status,'UNPRICED',
+    'unknown F scope must not become a fake calendar completion claim');
 }
 
 {
