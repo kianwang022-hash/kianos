@@ -175,6 +175,12 @@ assert.throws(
   () => validateEnglishExamProductiveScoreReturn(unresolvedRescore, session),
   /ENGLISH_EXAM_PRODUCTIVE_RESCORE_REQUIRED_BEFORE_IMPORT/
 );
+const missingRescoreState = structuredClone(productiveScoreReturn);
+delete missingRescoreState.channels.translation.requires_independent_rescore;
+assert.throws(
+  () => validateEnglishExamProductiveScoreReturn(missingRescoreState, session),
+  /ENGLISH_EXAM_PRODUCTIVE_RESCORE_REQUIRED_BEFORE_IMPORT/
+);
 
 session = applyEnglishExamProductiveScoreReturn(session, productiveScoreReturn, start + 122 * 60_000);
 assert.equal(session.status, 'SCORED');
