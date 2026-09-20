@@ -8,6 +8,16 @@ import {
   ENGLISH_GENERATED_DRILL_SCHEMA,
   validateEnglishGeneratedDrill
 } from './privateEnglishGeneratedDrillStore.mjs';
+import { buildExamChatPlanBasis } from '../src/lib/examChatPlan.mjs';
+
+class MemoryStorage{
+  constructor(){this.map=new Map();}
+  get length(){return this.map.size;}
+  key(i){return [...this.map.keys()][i]??null;}
+  getItem(key){return this.map.has(key)?this.map.get(key):null;}
+  setItem(key,value){this.map.set(String(key),String(value));}
+  removeItem(key){this.map.delete(String(key));}
+}
 
 const day='2026-09-20';
 const temp=fs.mkdtempSync(path.join(os.tmpdir(),'kianos-control-browser-'));
@@ -62,6 +72,7 @@ const command={
       schema:'kianos.exam.chat-plan.v1',
       study_day:day,
       generated_at:'2026-09-20T00:12:00+08:00',
+      learner_evidence_basis:buildExamChatPlanBasis(new MemoryStorage(),day),
       subjects:{
         xizong:null,
         english:{target_minutes:30,role:'稳推进',note:'自动下发。',session_ref:sessionId},
