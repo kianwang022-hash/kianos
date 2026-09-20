@@ -132,7 +132,7 @@ assert.ok(auditBrief.includes('candidate_head'));
 assert.ok(auditBrief.includes('§0–§28'));
 assert.ok(auditBrief.includes('all-green-but-real-fail'));
 assert.ok(auditBrief.includes('over-conservative-all-green'));
-assert.ok(auditBrief.includes('do **not** read'));
+assert.ok(/do \*\*not\*\* read/i.test(auditBrief));
 assert.ok(auditBrief.includes('MATURITY_PACKAGE.md'));
 
 assert.ok(
