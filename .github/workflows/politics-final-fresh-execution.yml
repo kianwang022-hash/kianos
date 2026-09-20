@@ -65,6 +65,9 @@ jobs:
       - name: Politics future-source fail-closed slots
         working-directory: static-web
         run: node scripts/validate-politics-future-source-slots.mjs > "$POLITICS_FRESH_EVIDENCE/future-source-slots.log" 2>&1
+      - name: Politics Analysis evidence transport
+        working-directory: static-web
+        run: node scripts/test-politics-analysis-evidence.mjs > "$POLITICS_FRESH_EVIDENCE/analysis-evidence.log" 2>&1
       - name: Build exact Current
         id: build
         working-directory: static-web
