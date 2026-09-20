@@ -81,6 +81,9 @@ try{
       ]
     };
     await page.evaluate(async ({command,studyDay,now})=>{
+      const planMod=await import('/src/lib/examChatPlan.mjs');
+      const planOp=command.operations.find(op=>op.kind==='exam.chat_plan')||null;
+      if(planOp)planOp.payload.learner_evidence_basis=planMod.buildExamChatPlanBasis(localStorage,studyDay);
       const mod=await import('/src/lib/privateControlRuntime.mjs');
       await mod.applyPrivateControlCommand(localStorage,command,{day:studyDay,now});
     },{command,studyDay,now});
@@ -124,6 +127,9 @@ try{
       }]
     };
     await page.evaluate(async ({command,studyDay,now})=>{
+      const planMod=await import('/src/lib/examChatPlan.mjs');
+      const planOp=command.operations.find(op=>op.kind==='exam.chat_plan')||null;
+      if(planOp)planOp.payload.learner_evidence_basis=planMod.buildExamChatPlanBasis(localStorage,studyDay);
       const mod=await import('/src/lib/privateControlRuntime.mjs');
       await mod.applyPrivateControlCommand(localStorage,command,{day:studyDay,now});
     },{command,studyDay,now});
@@ -169,6 +175,9 @@ try{
       ]
     };
     await page.evaluate(async ({command,studyDay,now})=>{
+      const planMod=await import('/src/lib/examChatPlan.mjs');
+      const planOp=command.operations.find(op=>op.kind==='exam.chat_plan')||null;
+      if(planOp)planOp.payload.learner_evidence_basis=planMod.buildExamChatPlanBasis(localStorage,studyDay);
       const mod=await import('/src/lib/privateControlRuntime.mjs');
       await mod.applyPrivateControlCommand(localStorage,command,{day:studyDay,now});
     },{command,studyDay,now});
@@ -221,6 +230,9 @@ try{
       ]
     };
     await page.evaluate(async ({command,studyDay,now})=>{
+      const planMod=await import('/src/lib/examChatPlan.mjs');
+      const planOp=command.operations.find(op=>op.kind==='exam.chat_plan')||null;
+      if(planOp)planOp.payload.learner_evidence_basis=planMod.buildExamChatPlanBasis(localStorage,studyDay);
       const mod=await import('/src/lib/privateControlRuntime.mjs');
       await mod.applyPrivateControlCommand(localStorage,command,{day:studyDay,now});
     },{command,studyDay,now});

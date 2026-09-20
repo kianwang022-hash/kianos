@@ -348,7 +348,6 @@ try {
     }
   }, {
     [EXAM_PROFILE_KEY]: profile,
-    [EXAM_CHAT_PLAN_KEY]: chatPlan,
     [STUDY_TIMER_STATE_KEY]: timerState,
     [STUDY_TIMER_LEDGER_KEY]: timerLedger,
     'kianos-xizong-last-location-v1': xizongLastLocation,
@@ -359,6 +358,12 @@ try {
     [PRACTICE_KEYS.evidence]: politicsEvidence,
     [PRACTICE_KEYS.last]: politicsLast
   });
+
+  await page.evaluate(async ({ key, plan, day }) => {
+    const mod = await import('/src/lib/examChatPlan.mjs');
+    plan.learner_evidence_basis = mod.buildExamChatPlanBasis(localStorage, day);
+    localStorage.setItem(key, JSON.stringify(plan));
+  }, { key: EXAM_CHAT_PLAN_KEY, plan: chatPlan, day: DAY });
 
   await page.reload({ waitUntil: 'domcontentloaded' });
   await page.locator('[data-exam-home][data-ready="true"]').waitFor();
