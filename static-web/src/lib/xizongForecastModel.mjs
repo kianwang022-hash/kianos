@@ -924,12 +924,28 @@ export function buildXizongForecastLoop(progress, {
   }
   if (scenario.first_round.status === 'UNPRICED') uncertainty.push('CAPACITY_OR_MATERIAL_SCENARIO_UNPRICED');
 
-  let maturity = 'DEFENSIBLE_ESTIMATE';
-  if (!materials.coverage_ready) maturity = 'COVERAGE_INCOMPLETE';
-  else if (workload.first_round.status !== 'FULLY_PRICED') maturity = 'WORKLOAD_PARTIAL';
-  else if (!score.gate_readiness.formal_score_evidence_ready) maturity = 'SCORE_EVIDENCE_MISSING';
-  else if (!score.gate_readiness.score_extrapolation_ready) maturity = 'SCORE_LOW_CONFIDENCE';
-  else if (workload.score_formation.status !== 'FULLY_PRICED') maturity = 'SCORE_FORMATION_PARTIAL';
+  const calibration = {
+    knowledge_backtest: String(workload?.components?.knowledge?.calibration?.rolling_backtest?.status || 'INSUFFICIENT_BACKTEST'),
+    question_backtest: String(workload?.components?.questions?.calibration?.rolling_backtest?.status || 'INSUFFICIENT_BACKTEST'),
+    repair_time_samples: Number(workload?.components?.repair?.calibration?.completed_repair_window_samples || 0),
+    knowledge_sample_systems: Array.isArray(workload?.components?.knowledge?.calibration?.sample_systems)
+      ? workload.components.knowledge.calibration.sample_systems.length
+      : 0
+  };
+  const empiricalCalibrationReady =
+    calibration.knowledge_backtest === 'BACKTESTED'
+    && calibration.question_backtest === 'BACKTESTED'
+    && calibration.repair_time_samples >= 3
+    && calibration.knowledge_sample_systems >= 2;
+  if (!empiricalCalibrationReady) uncertainty.push('EMPIRICAL_FORECAST_CALIBRATION_INCOMPLETE');
+
+  let estimateMaturity = 'DEFENSIBLE_ESTIMATE';
+  if (!materials.coverage_ready) estimateMaturity = 'COVERAGE_INCOMPLETE';
+  else if (workload.first_round.status !== 'FULLY_PRICED') estimateMaturity = 'WORKLOAD_PARTIAL';
+  else if (!empiricalCalibrationReady) estimateMaturity = 'CALIBRATING';
+  else if (!score.gate_readiness.formal_score_evidence_ready) estimateMaturity = 'SCORE_EVIDENCE_MISSING';
+  else if (!score.gate_readiness.score_extrapolation_ready) estimateMaturity = 'SCORE_LOW_CONFIDENCE';
+  else if (workload.score_formation.status !== 'FULLY_PRICED') estimateMaturity = 'SCORE_FORMATION_PARTIAL';
 
   return {
     schema: 'kianos.xizong.forecast-loop.v1',
@@ -938,10 +954,13 @@ export function buildXizongForecastLoop(progress, {
     workload,
     score,
     scenario,
+    calibration,
+    empirical_calibration_ready: empiricalCalibrationReady,
     uncertainty: [...new Set(uncertainty)],
-    maturity,
+    estimate_maturity: estimateMaturity,
+    model_logic_validation: 'CI_GATED_EXTERNALLY',
     loop_boundary:
-      'This loop diagnoses readiness and forecast uncertainty. It does not allocate cross-subject time, choose the next subject, or convert coverage completion into score truth.'
+      'Model logic validation and current-estimate maturity are separate. CI can validate fail-closed logic while sparse learner evidence still leaves the current estimate CALIBRATING or UNKNOWN. This loop does not allocate cross-subject time, choose the next subject, or convert coverage completion into score truth.'
   };
 }
 
