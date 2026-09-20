@@ -1,6 +1,6 @@
 # English Highest Maturity — Final Fresh Independent Audit Brief
 
-Status: **FINAL ANTI-ANCHORED AUDIT BRIEF**
+Status: **FINAL CONVERGENCE + ACCEPTANCE PROTOCOL · ANTI-ANCHORED**
 Scope: English highest-maturity SYSTEM LOGIC
 Candidate branch: `work/english-highest-maturity-adaptation-20260920`
 
@@ -34,30 +34,138 @@ Do not inherit old Chat statements about what is already mature.
 
 ## Re-audit hygiene after a prior FAIL
 
-This brief may be used after a prior final Fresh audit returned FAIL.
+This brief may be used after prior final Fresh audits returned FAIL.
 
-Current-first may legitimately reveal that a previous audit found bounded defect categories. Knowing the **category names** does not invalidate the re-audit.
+Current-first may legitimately reveal that earlier audits found bounded defect categories. Knowing the **category names** does not invalidate a later independent audit.
 
-However, the re-auditor must not treat the repaired owners as presumed PASS.
+However, the auditor must not treat repaired owners as presumed PASS, and it must not use old defect reasoning as the search strategy.
 
-Required order:
-
-1. lock current candidate HEAD;
-2. read `CURRENT.md`, `MATURITY_PACKAGE.md`, and the Highest Maturity Standard;
-3. perform a **novel all-green failure search first**, without reading the exact repaired implementation/validator details unless needed to test a package claim;
-4. only after that independent pass, explicitly re-attack the previously known defect families;
-5. then inspect the smallest exact repaired owner / validator and decide whether the repair really closes the failure;
-6. issue one overall verdict.
-
-A valid re-audit must therefore answer both:
+The previous open-ended pattern:
 
 ```text
-Did the known defects actually close?
-AND
-Did the repair introduce or leave any new material all-green failure?
+Fresh finds one defect
+→ repair
+→ new Fresh
+→ finds one defect
+→ repair
+→ new Fresh
+→ ...
 ```
 
-Do not narrow the audit to the previous defect list.
+is retired for this closure lane. It creates unnecessary serial attention cost and has no natural stopping point.
+
+---
+
+## Final convergence protocol — finite by design
+
+### Phase A — Final Convergence Sweep
+
+When `CURRENT.md` routes to `FINAL_CONVERGENCE_SWEEP`, one genuinely fresh anti-anchored auditor must:
+
+1. lock the current candidate HEAD;
+2. read `CURRENT.md`, `MATURITY_PACKAGE.md`, and the Highest Maturity Standard;
+3. perform the novel all-green search first;
+4. complete **all mandatory dimensions A–J and the required lifecycle combinations before any repair**;
+5. keep a defect register while auditing;
+6. **not stop at the first material defect**;
+7. after the first full pass, re-attack known defect families only as ordinary dimensions;
+8. run one final cross-dimension pass for new material failure classes;
+9. only then issue the sweep verdict.
+
+No implementation change is allowed during the harvesting portion of the sweep. The candidate being audited must stay semantically fixed until the defect register is closed.
+
+A defect is material only when the auditor can show a reachable current-system chain where the defect can materially change at least one of:
+
+- next English learning/control decision;
+- evidence validity or identity;
+- formal / integrated score interpretation;
+- workload / deadline interpretation;
+- learner attention cost;
+- recovery / continuity of learner truth.
+
+A merely imaginable edge case, missing Real Learner U parameter, aesthetic incompleteness, or an unpriced hypothetical that correctly remains UNKNOWN is not a material defect.
+
+### Convergence-sweep saturation condition
+
+Novel search is complete when all of the following are true:
+
+- every dimension A–J has at least one explicit attack result;
+- the required combined lifecycle states in H have been exercised or reasoned through against exact owners;
+- all previously known defect families have been re-attacked after the novel pass;
+- the final cross-dimension pass finds no new **material requirement class**;
+- any remaining uncertainty is Kian-specific, genuinely unavailable, or unable to change the next defensible action before Real Learner U.
+
+The auditor is **not** required to invent indefinitely more hypothetical worlds after this defined surface is saturated.
+
+If the convergence sweep finds **zero** material defects, it may directly return:
+
+```text
+PASS — SYSTEM_LOGIC_ACCEPTED
+```
+
+and follow the PASS procedure below.
+
+If the convergence sweep finds one or more material defects:
+
+- return **one consolidated FAIL report containing all material defects found in the completed sweep**;
+- group defects by smallest responsible existing owner;
+- only after the search phase is complete, repair the whole bounded defect set;
+- run targeted proof for the repaired impact cones;
+- mark the candidate `FINAL_ACCEPTANCE_REQUIRED`;
+- the same auditor must not issue the later PASS.
+
+Do not create a new numbered Fresh chain merely because multiple defects existed in the sweep.
+
+### Phase B — Final Acceptance
+
+This phase exists only when the convergence sweep found defects and they were repaired.
+
+A new fresh anti-anchored auditor must:
+
+1. lock the repaired candidate HEAD;
+2. verify every convergence-sweep defect is actually closed;
+3. attack repair-induced and cross-owner failure paths;
+4. perform one bounded novel regression pass across A–J;
+5. apply the Stop Rule explicitly.
+
+The Final Acceptance auditor also **continues its bounded pass after discovering a defect**, so one acceptance run returns the complete material blocker set it can establish rather than failing on the first example.
+
+If no material blocker remains:
+
+```text
+PASS — SYSTEM_LOGIC_ACCEPTED
+```
+
+If material blockers remain, repair the complete bounded blocker set together. A later acceptance retry is limited to:
+
+- those repaired impact cones;
+- repair-induced cross-owner effects;
+- the mandatory Stop Rule.
+
+It does **not** reopen another unlimited whole-system Fresh-hunting sequence.
+
+After the convergence protocol is satisfied, broad maturity engineering freezes. Later reopening requires concrete Real Learner U, a Forecast miss, invalid evidence, source change, or learner-visible execution friction.
+
+### Low-friction fresh-chat entry
+
+Kian does not need to paste a bespoke audit prompt again.
+
+A fresh Chat may receive only:
+
+```text
+ki，继续英语最高成熟度收口
+```
+
+The worker must read `content/english/CURRENT.md` and this brief, then route automatically to the currently required phase:
+
+```text
+FINAL_CONVERGENCE_SWEEP
+or
+FINAL_ACCEPTANCE
+or
+SYSTEM_LOGIC_ACCEPTED → Real Learner U
+```
+
 
 ---
 
@@ -384,9 +492,16 @@ FAIL — material system-logic blind spots remain
 
 ## 6｜If FAIL
 
-Identify the smallest responsible owner.
+Do not stop the audit at the first defect.
 
-Repair only that owner.
+First finish the currently required convergence / acceptance search surface and return one consolidated material-defect register.
+
+Then:
+
+- identify the smallest responsible existing owner for each defect;
+- repair the complete bounded defect set together where write sets do not conflict;
+- run impact-cone targeted proof;
+- preserve all UNKNOWNs that actually require Real Learner U.
 
 Do not create:
 
@@ -398,7 +513,9 @@ Do not create:
 - broad Guide rewrite;
 - generic memory engine.
 
-After bounded repair, rerun Fresh audit.
+After a failed **Convergence Sweep**, route to one fresh `FINAL_ACCEPTANCE`.
+
+After a failed **Final Acceptance**, do not restart an unlimited whole-system Fresh chain. Repair the complete blocker set found in that bounded acceptance pass; any retry is limited to repaired impact cones, repair-induced effects and the Stop Rule.
 
 ---
 
