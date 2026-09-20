@@ -6,6 +6,23 @@ Current semantic owner: `LEARNING_CONTRACT.md`
 
 This file turns the Politics highest-bar maturity requirements into an ability-gated execution sequence.
 
+## Current execution cursor — 2026-09-21
+
+```text
+P0 Politics-specific maturity adaptation        DONE
+T1 Objective structural/evidence reconciliation CLOSED
+T2 Early Objective Forecast                     CURRENT-SOURCE BUILD CLOSED
+                                                calibration waits for accepted evidence
+T3 Analysis foundation / Chat-primary evidence  NEXT
+T4 Future-source delta ingestion                after T3 interface
+T5+ current-year Mock / final compression       waits for real Source
+```
+
+Current T1 result: `MATURITY_T1_OBJECTIVE_RECONCILIATION.md`  
+Current T2 model: `MATURITY_T2_FORECAST_MODEL.md`
+
+T2 current-source implementation already extends the existing `kianos.politics.forecast-progress.v1` with factual single/multiple evidence. It does not grant score authority. The remaining T2 score-calibration part is source/evidence-gated and must stay pending rather than blocking T3.
+
 It is not a second Learning Contract, scheduler, learner-state model, or product roadmap. It exists only to answer:
 
 > What must be true next, what can be built now, what must wait for real current-year Source, and what evidence permits the Politics system to advance toward Protect 70 / Push 75?
