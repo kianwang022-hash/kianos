@@ -13,6 +13,19 @@ Authority:
 
 This file is the execution plan only. It does not create a second learning model.
 
+## Active mainline
+
+- Candidate branch: `work/politics-later-readiness-20260920`
+- Draft PR: **#638**
+- Current stage: **Stage 0 — Day-1 Closure**
+- S0-T1 Score/Ability closure: **DONE**
+- S0-T2 Full Material Inventory: **DONE**
+- S0-T3 Forecast factual sensors: **TARGETED PROOF ACTIVE**
+- S0-T4 Day-1 learner simulation: **TARGETED BROWSER PROOF ACTIVE**
+- Current proof blocker: **Politics Ethics audit reads an obsolete root-manifest path; bounded audit-owner repair required before the Forecast step can execute**
+- Next after Stage 0 proof: **Analysis bank revalidation → Analysis scoring owner → Analysis evidence ladder**
+
+
 ---
 
 # Stage 0 — Reconcile and become Day-1 safe
