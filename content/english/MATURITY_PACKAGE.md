@@ -1,6 +1,6 @@
 # English Maturity Package
 
-Status: **SYSTEM_LOGIC_CANDIDATE · FRESH #1 FAIL REPAIRED · FINAL FRESH RE-AUDIT REQUIRED · KIAN_SPECIFIC_CALIBRATED = NO**  
+Status: **SYSTEM_LOGIC_CANDIDATE · FRESH #3 FAIL REPAIRED · FINAL FRESH RE-AUDIT #4 REQUIRED · KIAN_SPECIFIC_CALIBRATED = NO**  
 Parent router: `content/english/CURRENT.md`  
 Target: **English I 85+**
 
@@ -745,6 +745,62 @@ Next mandatory gate:
 
 ---
 
+# 14B｜Final Fresh re-audit #3 — FAIL + bounded repair
+
+Final Fresh re-audit #3 locked candidate head:
+
+`8c1813837e8908f308e73564c5abaaa5471173d8`
+
+Verdict:
+
+```text
+FAIL — material system-logic blind spots remain
+```
+
+Novel all-green failure:
+
+> Forecast formal score eligibility did not bind Translation / Writing / Whole Paper productive score evidence to the productive-scoring standard revision that produced the score.
+
+Before repair, a materially stale productive score could still satisfy all existing Forecast gates when it was declared score-eligible, clean/independent and PAPER/MIXED. A Whole Paper range above 85 could therefore remain `INTEGRATED_HIGH` even after the productive rubric changed materially. That violated the Productive Scoring rule that a material rubric revision must make old score evidence PRESERVE / MIGRATE / STALE rather than silently reinterpret it under new semantics.
+
+This is a SYSTEM LOGIC defect, not missing Kian-specific calibration: future Real Learner U could be interpreted incorrectly.
+
+Smallest responsible owner:
+
+- `static-web/src/lib/englishForecastModel.mjs`;
+- its exact validator `static-web/scripts/validate-english-forecast-model.mjs`.
+
+Bounded repair:
+
+- current productive scoring identity is explicitly `english.productive-scoring.v2`;
+- Translation / Small Writing / Big Writing current-score interpretation and formal eligibility require matching `scoring_standard_version`;
+- integrated Whole Paper formal eligibility requires matching `productive_scoring_standard_version` because its total includes productive points;
+- stale or unbound productive-scoring revision cannot create a current diagnostic total, formal local path or `INTEGRATED_HIGH`;
+- stale/unbound revision is surfaced as explicit Forecast uncertainty;
+- no learner ledger, scheduler, mastery score, Home, memory engine or Website strategy state was added.
+
+Repair proof code head:
+
+`00b238e23c407c48749ad046b7f4ca6a1ddc7798`
+
+Targeted proof on the repaired exact code:
+
+- current-v2 clean PAPER local evidence can still form the expected formal local band;
+- current-v2 clean PAPER Whole Paper evidence can still form protected integrated status;
+- changing Translation scoring identity to stale `english.productive-scoring.v1` makes the formal local band unavailable;
+- changing Whole Paper productive scoring identity to stale `english.productive-scoring.v1` makes the integrated score formally ineligible and removes `INTEGRATED_HIGH`;
+- the complete Forecast system-logic validator passes with explicit stale-revision local + integrated attacks added.
+
+This Chat has now seen the defect and repair and is not eligible to issue a Fresh PASS.
+
+Next mandatory gate:
+
+> **Final Fresh anti-anchored re-audit #4 in a new Chat.**
+
+`SYSTEM_LOGIC_ACCEPTED` remains unset.
+
+---
+
 # 15｜Remaining Unknowns
 
 Legitimate remaining unknowns:
@@ -804,17 +860,20 @@ Reopen only for:
 
 # 17｜Current closure verdict
 
-Current candidate verdict before final Fresh audit:
+Current candidate state after Fresh re-audit #3 bounded repair:
 
 ```text
 SYSTEM_LOGIC_CANDIDATE = YES
+FINAL_FRESH_REAUDIT #3 = FAIL
+BOUNDED_REPAIR_PROOF #3 = PASS @ 00b238e23c407c48749ad046b7f4ca6a1ddc7798
+FINAL_FRESH_REAUDIT #4 = REQUIRED
+SYSTEM_LOGIC_ACCEPTED = NOT YET
 KIAN_SPECIFIC_CALIBRATED = NO
-FINAL_FRESH_REAUDIT = REQUIRED
 ```
 
-The current binding uncertainty is now primarily **Real Learner U**, not repository completeness.
+This Chat is repair-contaminated and cannot convert the candidate to accepted.
 
-If final Fresh Independent audit finds no material all-green failure:
+If a new anti-anchored Fresh re-audit finds no material all-green failure:
 
 ```text
 SYSTEM_LOGIC_ACCEPTED = YES
