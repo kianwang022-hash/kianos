@@ -236,3 +236,56 @@ No evidence currently supports:
 - immediate large synthetic generation.
 
 The correct next action is **R5 — targeted CI + browser learner journey on representative synthetic Objective / Translation / expanded Writing objects**.
+
+
+---
+
+# 7. E2 targeted proof — CLOSED CANDIDATE
+
+Candidate head proof sequence completed on PR #640.
+
+Relevant results:
+
+- English synthetic baseline structural readiness: **PASS**.
+- Astro build with synthetic static routes/endpoints: **PASS**.
+- English synthetic five-task browser journey: **PASS**.
+  - typed English Session Instruction imported;
+  - Synthetic Reading A executed and evidence bound;
+  - Synthetic Cloze executed and evidence bound;
+  - Synthetic Part B ordering executed and evidence bound;
+  - Synthetic Translation preserved first output and revealed reference only post-attempt;
+  - expanded Writing synthetic prompt executed through existing Writing runtime;
+  - Home Resume advanced through exact Chat-owned sequence and disappeared after completion;
+  - synthetic source/evidence role remained bound to first evidence.
+- Static Web Writing QA: **PASS** after removing the stale exact-two-task assumption.
+- Static Web Translation QA: **PASS**.
+- Objective Learner Journey: **PASS**, including all real Reading B forms and existing runtime/evidence closure.
+- English Exam Session: **PASS**.
+- Final Cross-subject Regression: **PASS**.
+- Authority Consistency / Semantic Base Validity: **PASS**.
+
+Governance Anti-Entropy remains red because Current-length limits are already violated on main (English Current already exceeded the 180-line gate before this candidate; Xizong/Lexical also report existing length debt). The maturity cursor was compressed rather than expanding this unrelated governance cleanup.
+
+## E2 final readiness
+
+| Material family | E2 result |
+| --- | --- |
+| Official Reading A / Cloze / Part B | READY_EXECUTABLE |
+| Official Translation | READY_EXECUTABLE |
+| Official Writing | READY_EXECUTABLE |
+| Whole Paper | READY_EXECUTABLE for execution; formal score validity continues into E3/E4/E8 |
+| Lexical | READY_EXECUTABLE |
+| Objective synthetic baseline | **READY_EXECUTABLE · NON_SCORE_EQUIVALENT** |
+| Translation synthetic baseline | **READY_EXECUTABLE · NON_OFFICIAL_REFERENCE** |
+| Writing 4 Small + 6 Big synthetic bank | **READY_EXECUTABLE · ROLE_LABELED** |
+| External Reading | READY_EXECUTABLE for growth; **NOT English-I score evidence** |
+
+Fresh Cloze expansion remains **DEFER**. Two synthetic sets are enough to start learner calibration; generate more only if Real Learner U / representative coverage proves the existing verification capital insufficient.
+
+## E2 verdict
+
+**CLOSED CANDIDATE.**
+
+No remaining E2 material/executability defect blocks the next maturity stage.
+
+Next stage: **E3 Productive Scoring Validity**.
