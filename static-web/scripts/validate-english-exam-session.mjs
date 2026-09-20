@@ -10,12 +10,21 @@ import {
 import {
   ENGLISH_EXAM_ANSWER_SCHEMA,
   ENGLISH_EXAM_EVIDENCE_SCHEMA,
+  ENGLISH_EXAM_PRODUCTIVE_SCORE_RETURN_SCHEMA,
+  ENGLISH_EXAM_PRODUCTIVE_SCORING_STANDARD_VERSION,
+  ENGLISH_EXAM_SESSION_KEY,
+  applyEnglishExamProductiveScoreReturn,
+  buildEnglishExamEvidencePacket,
   captureEnglishExamStep,
+  englishExamProductiveScoreReturnContract,
   englishExamTaskHref,
   releaseEnglishExamObjective,
   sealEnglishExamSession,
-  startEnglishExamSession
+  startEnglishExamSession,
+  validateEnglishExamProductiveScoreReturn
 } from '../src/lib/englishExamSession.mjs';
+import { englishStepIsComplete } from '../src/lib/englishSessionControl.mjs';
+import { ENGLISH_PRODUCTIVE_SCORING_STANDARD_VERSION } from '../src/lib/englishForecastModel.mjs';
 import { loadReadingAnswersById } from '../src/lib/englishReadingSourceTruth.mjs';
 import {
   loadClozeAnswersById,
@@ -108,6 +117,76 @@ assert.equal(session.release.objective.points, 60);
 assert.equal(session.release.objective.max_points, 60);
 assert.equal(session.release.productive.status, 'CHAT_REVIEW_REQUIRED');
 assert.equal(session.release.productive.max_points, 40);
+assert.equal(ENGLISH_EXAM_PRODUCTIVE_SCORING_STANDARD_VERSION, ENGLISH_PRODUCTIVE_SCORING_STANDARD_VERSION);
+
+const fullPaperStep = {
+  task: 'full_paper',
+  object_id: paper.paper_id,
+  source_hash: paper.source_hash
+};
+const storageFor = (state) => ({
+  getItem(key) {
+    return key === ENGLISH_EXAM_SESSION_KEY ? JSON.stringify(state) : null;
+  }
+});
+assert.equal(englishStepIsComplete(storageFor(session), fullPaperStep), false, 'objective release must not close full-paper evidence');
+
+const scoreContract = englishExamProductiveScoreReturnContract(session);
+assert.equal(scoreContract.schema, ENGLISH_EXAM_PRODUCTIVE_SCORE_RETURN_SCHEMA);
+assert.equal(scoreContract.scoring_standard_version, ENGLISH_EXAM_PRODUCTIVE_SCORING_STANDARD_VERSION);
+assert.equal(scoreContract.paper_source_hash, paper.source_hash);
+const productiveScoreReturn = structuredClone(scoreContract);
+delete productiveScoreReturn.boundary;
+Object.assign(productiveScoreReturn.channels.translation, {
+  score_range: { low: 8, high: 9 },
+  confidence: 'MEDIUM',
+  review_mode: 'INDEPENDENT_RESCORE_RECONCILED',
+  requires_independent_rescore: false
+});
+Object.assign(productiveScoreReturn.channels.writing_small, {
+  score_range: { low: 8, high: 9 },
+  confidence: 'MEDIUM',
+  review_mode: 'INDEPENDENT_RESCORE_RECONCILED',
+  requires_independent_rescore: false
+});
+Object.assign(productiveScoreReturn.channels.writing_big, {
+  score_range: { low: 15, high: 17 },
+  confidence: 'MEDIUM',
+  review_mode: 'INDEPENDENT_RESCORE_RECONCILED',
+  requires_independent_rescore: false
+});
+
+const staleProductiveScoreReturn = structuredClone(productiveScoreReturn);
+staleProductiveScoreReturn.scoring_standard_version = 'english.productive-scoring.v1';
+assert.throws(
+  () => validateEnglishExamProductiveScoreReturn(staleProductiveScoreReturn, session),
+  /ENGLISH_EXAM_PRODUCTIVE_SCORING_STANDARD_STALE_OR_UNBOUND/
+);
+const wrongSourceReturn = structuredClone(productiveScoreReturn);
+wrongSourceReturn.channels.translation.source_hash = 'stale-source';
+assert.throws(
+  () => validateEnglishExamProductiveScoreReturn(wrongSourceReturn, session),
+  /ENGLISH_EXAM_PRODUCTIVE_SCORE_CHANNEL_IDENTITY_MISMATCH/
+);
+const unresolvedRescore = structuredClone(productiveScoreReturn);
+unresolvedRescore.channels.writing_big.requires_independent_rescore = true;
+assert.throws(
+  () => validateEnglishExamProductiveScoreReturn(unresolvedRescore, session),
+  /ENGLISH_EXAM_PRODUCTIVE_RESCORE_REQUIRED_BEFORE_IMPORT/
+);
+
+session = applyEnglishExamProductiveScoreReturn(session, productiveScoreReturn, start + 122 * 60_000);
+assert.equal(session.status, 'SCORED');
+assert.deepEqual(session.release.productive.score_range, { low: 31, high: 35 });
+assert.deepEqual(session.release.integrated.score_range, { low: 91, high: 95 });
+assert.equal(session.release.integrated.modality, 'TYPED');
+assert.equal(session.release.integrated.score_eligible, false);
+assert.equal(session.release.integrated.productive_scoring_standard_version, ENGLISH_PRODUCTIVE_SCORING_STANDARD_VERSION);
+assert.equal(englishStepIsComplete(storageFor(session), fullPaperStep), true, 'full paper closes only after productive score is bound');
+
+const scoredPacket = buildEnglishExamEvidencePacket(session);
+assert.equal(scoredPacket.productive_score_return_contract, null);
+assert.deepEqual(scoredPacket.release.integrated.score_range, { low: 91, high: 95 });
 
 const evidence = {
   schema: ENGLISH_EXAM_EVIDENCE_SCHEMA,
@@ -196,8 +275,14 @@ console.log(JSON.stringify({
   objective_release: session.release.objective.points,
   objective_max: session.release.objective.max_points,
   productive_review: session.release.productive.status,
+  integrated_score_range: session.release.integrated.score_range,
+  stale_productive_scoring_revision_rejected: true,
+  productive_source_identity_bound: true,
+  unresolved_independent_rescore_rejected: true,
+  full_paper_completion_waits_for_productive_score: true,
   isolated_mock_storage: true,
   answers_sealed_until_release: true,
   website_scores_productive: false,
+  website_persists_bounded_chat_productive_score: true,
   website_strategy_owner: false
 }, null, 2));
