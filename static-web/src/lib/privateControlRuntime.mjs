@@ -15,6 +15,7 @@ import { installAndActivateXizongSessionInstruction } from './xizongSessionInstr
 import { stageXizongChatReturn } from './xizongPendingChatReturn.mjs';
 import { stageXizongSystemWuReturn } from './xizongSystemWuReturn.mjs';
 import { stagePoliticsMemoryPlan } from './politicsMemoryRuntime.mjs';
+import { applyPoliticsAnalysisEvidence } from './politicsAnalysisEvidence.mjs';
 
 const ENDPOINT='/__kianos-private/control';
 
@@ -72,6 +73,21 @@ async function loadEnglishCatalog(){
   return rows;
 }
 
+async function loadPoliticsAnalysisContext(){
+  const response=await fetch(ENDPOINT+'/politics-analysis-context',{cache:'no-store'});
+  if(!response.ok)throw new Error('KIANOS_CONTROL_POLITICS_ANALYSIS_CONTEXT_'+response.status);
+  const data=await response.json();
+  if(data?.status!=='ready'
+    ||!Array.isArray(data.acceptedLegacyTasks)
+    ||!Array.isArray(data.boundCurrentYearSources)){
+    throw new Error('KIANOS_CONTROL_POLITICS_ANALYSIS_CONTEXT_INVALID');
+  }
+  return{
+    acceptedLegacyTasks:data.acceptedLegacyTasks,
+    boundCurrentYearSources:data.boundCurrentYearSources
+  };
+}
+
 function changesBetween(real,shadow){
   const keys=new Set();
   for(let i=0;i<Number(real.length||0);i+=1){const k=real.key(i);if(k!=null)keys.add(k);}
@@ -123,6 +139,7 @@ export async function applyPrivateControlCommand(storage,input,{day=localDay(),n
   const xizongReturnOp=command.operations.find(op=>op.kind==='xizong.chat_return')||null;
   const xizongSystemReturnOp=command.operations.find(op=>op.kind==='xizong.system_wu_return')||null;
   const politicsMemoryOp=command.operations.find(op=>op.kind==='politics.memory_plan')||null;
+  const politicsAnalysisOps=command.operations.filter(op=>op.kind==='politics.analysis_evidence');
   const planOp=command.operations.find(op=>op.kind==='exam.chat_plan')||null;
 
   if(englishOp){
@@ -143,6 +160,16 @@ export async function applyPrivateControlCommand(storage,input,{day=localDay(),n
   }
   if(politicsMemoryOp){
     stagePoliticsMemoryPlan(shadow,politicsMemoryOp.payload,{expectedDay:day,now});
+  }
+  if(politicsAnalysisOps.length){
+    const analysisContext=await loadPoliticsAnalysisContext();
+    for(const op of politicsAnalysisOps){
+      applyPoliticsAnalysisEvidence(shadow,op.payload,{
+        now,
+        acceptedLegacyTasks:analysisContext.acceptedLegacyTasks,
+        boundCurrentYearSources:analysisContext.boundCurrentYearSources
+      });
+    }
   }
   if(planOp){
     const prior=readJson(shadow,EXAM_CHAT_PLAN_KEY);
@@ -177,6 +204,12 @@ export async function applyPrivateControlCommand(storage,input,{day=localDay(),n
   }
   if(politicsMemoryOp)window.dispatchEvent(new CustomEvent('kianos:politics-memory-plan-updated',{
     detail:{plan_id:politicsMemoryOp.payload?.plan_id||null}
+  }));
+  if(politicsAnalysisOps.length)window.dispatchEvent(new CustomEvent('kianos:politics-analysis-evidence-updated',{
+    detail:{
+      evidence_ids:politicsAnalysisOps.map(op=>op.payload?.evidence_id).filter(Boolean),
+      command_id:command.command_id
+    }
   }));
   if(planOp)window.dispatchEvent(new CustomEvent('kianos:control-command-applied',{
     detail:{command_id:command.command_id,kind:'exam.chat_plan',operations:command.operations.map(op=>op.kind)}
