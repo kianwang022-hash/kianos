@@ -331,6 +331,13 @@ try{
   assert.equal(incrementalReading.answer_key_status,'NO_QUESTIONS');
   assert.equal(incrementalReading.completion_requirement,'READ_ONLY_OK');
   assert.equal(incrementalReading.source_family,'FUTURE_INCREMENTAL');
+  assert.equal(incrementalReading.source_figures.length,1);
+  assert.equal(incrementalReading.source_figures[0].figure_id,'future-synthetic-longform-fig1');
+  assert.equal(incrementalReading.source_figures[0].caption,'Synthetic source-native chart');
+  assert.equal(incrementalReading.source_figures[0].origin,'SOURCE_NATIVE');
+  assert.equal(incrementalReading.passage_blocks.filter(row=>row.type==='figure').length,1);
+  assert.equal(incrementalReading.passage_blocks.findIndex(row=>row.type==='figure'),1);
+  assert.doesNotMatch(incrementalReading.passage_text,/\[FIGURE\]|source_position:|source_url:/);
 
   const noKey=externalReadingPassage('toefl-current-synthetic-no-key',state);
   assert.equal(noKey.questions.length,1);
@@ -393,6 +400,7 @@ try{
     ielts_questions:state.bundle.counts.ielts.questions,
     incremental_objects:state.bundle.counts.incremental.objects,
     incremental_questionless:'PASS',
+    source_native_figure_compile:'PASS',
     incremental_no_key:'PASS',
     incremental_source_backed:'PASS',
     unregistered_incremental_ignored:'PASS',
