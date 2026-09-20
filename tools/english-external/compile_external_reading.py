@@ -287,8 +287,13 @@ def _compile_incremental_body(raw_text: str, *, title: str, source_family: str, 
             paragraphs.append(paragraph)
             blocks.append({"type": "paragraph", "text": paragraph})
 
+    figure_matches = list(FIGURE_BLOCK_RE.finditer(raw_text))
+    unmatched_probe = FIGURE_BLOCK_RE.sub("", raw_text)
+    if "[FIGURE]" in unmatched_probe:
+        raise SystemExit(f"{object_id}: malformed [FIGURE] block")
+
     cursor = 0
-    for ordinal, match in enumerate(FIGURE_BLOCK_RE.finditer(raw_text), 1):
+    for ordinal, match in enumerate(figure_matches, 1):
         add_text_chunk(raw_text[cursor:match.start()])
         fields: dict[str, str] = {}
         for line in match.group("body").splitlines():
