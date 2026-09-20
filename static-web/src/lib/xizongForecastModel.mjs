@@ -45,12 +45,15 @@ export function buildXizongHighScoreRequirement({
       neutral_point_retention: round(retention, 4)
     };
   });
+  const roundedTargetTotal = disciplines.reduce((sum,row)=>sum+Number(row.neutral_proportional_target_points||0),0);
   return {
     schema: 'kianos.xizong.high-score-requirement.v1',
     target_score: target,
     max_score: maxScore,
     total_loss_budget: round(lossBudget, 2),
     point_retention_required: round(retention, 4),
+    neutral_proportional_target_total: target,
+    display_rounding_residual: round(roundedTargetTotal - target, 2),
     historical_structure_authority: String(profile?.authority || ''),
     disciplines,
     capability_requirements: [
@@ -63,7 +66,7 @@ export function buildXizongHighScoreRequirement({
       { id: 'WHOLE_PAPER_EXECUTION', target: 'TIME_PRESSURE_STABLE', evidence: 'sealed whole-paper or execution-faithful large calibration' }
     ],
     boundary:
-      'The proportional discipline loss budgets are neutral diagnostic baselines, not fixed quotas. The 275+ requirement is total point retention; evidence may justify asymmetric loss allocation later.'
+      'The proportional discipline loss budgets are neutral diagnostic baselines, not fixed quotas. Per-discipline display rounding may not sum exactly to target_score; display_rounding_residual records that harmless presentation delta. The 275+ requirement is total point retention; evidence may justify asymmetric loss allocation later.'
   };
 }
 
