@@ -133,6 +133,9 @@ const generated=evidence.performance_profile.tasks.external_reading.history.gene
 assert.equal(generated.attempts,1);
 assert.equal(generated.synthetic_attempts,1);
 assert.equal(generated.generated_on_external_source_attempts,0);
+assert.equal(generated.by_training_target['reading_scope_transfer'].attempts,1);
+assert.equal(generated.by_training_target['reading_scope_transfer'].problem_bearing_attempts,0);
+assert.equal(generated.by_training_target['reading_scope_transfer'].independent_transfer_candidates,1);
 
 console.log(JSON.stringify({
   status:'PASS',
