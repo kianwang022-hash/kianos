@@ -195,7 +195,10 @@ export function validatePoliticsAnalysisStore(value) {
   const seen = new Set();
   const firstByTaskRevision = new Set();
   const records = value.records.map((raw, index) => {
-    const normalized = validatePoliticsAnalysisEvidence(raw, { now: Date.now() + 300_000 });
+    // Stored evidence has already passed import-time clock validation. Readback
+    // revalidates shape/signature only; device timezone/runner clock must not
+    // invalidate durable historical evidence.
+    const normalized = validatePoliticsAnalysisEvidence(raw, { now: Number.POSITIVE_INFINITY });
     const storedSignature = clean(raw.evidence_signature, 20000);
     if (!storedSignature || storedSignature !== normalized.evidence_signature) fail('STORE_SIGNATURE_INVALID', String(index));
     if (seen.has(normalized.evidence_id)) fail('STORE_DUPLICATE_ID', normalized.evidence_id);
