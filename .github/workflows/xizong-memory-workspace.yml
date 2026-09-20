@@ -13,6 +13,7 @@ on:
       - 'static-web/src/styles/xizong-memory-workspace.css'
       - 'static-web/scripts/validate-xizong-memory-style-ownership.mjs'
       - 'static-web/scripts/validate-xizong-memory-workspace.mjs'
+      - 'static-web/scripts/validate-xizong-memory-retention.mjs'
       - 'static-web/scripts/validate-xizong-memory-auto-release.mjs'
       - 'static-web/scripts/test-xizong-memory-workspace-browser.mjs'
       - 'static-web/scripts/test-xizong-memory-auto-release-browser.mjs'
@@ -42,6 +43,8 @@ jobs:
         run: node scripts/validate-xizong-memory-workspace.mjs
       - name: Validate Block Complete Memory release contract
         run: node scripts/validate-xizong-memory-auto-release.mjs
+      - name: Validate selective delayed retention clock
+        run: node scripts/validate-xizong-memory-retention.mjs
       - name: Build Astro
         run: npm run build
       - name: Install isolated browser acceptance tool
