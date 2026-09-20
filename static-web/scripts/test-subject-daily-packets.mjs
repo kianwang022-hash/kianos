@@ -137,6 +137,14 @@ const politics = politicsDailyEvidencePacket(politicsCatalog, politicsSnapshot, 
 assert.equal(politics.schema, 'kianos.politics.study_packet.v1');
 assert.equal(politics.today.attempted_count, 1);
 assert.equal(politics.today.uncertain_count, 1);
+assert.equal(politics.today.attempts[0].question_type, 'single');
+assert.equal(politics.cumulative_first_attempts.total, 1);
+assert.deepEqual(politics.cumulative_first_attempts.by_question_type.single, {
+  attempted: 1, stable: 0, wrong: 0, uncertain: 1
+});
+assert.deepEqual(politics.cumulative_first_attempts.by_question_type.multiple, {
+  attempted: 0, stable: 0, wrong: 0, uncertain: 0
+});
 assert.equal(politics.review.open_problem_count, 1);
 assert.equal(politics.resume.title, '自然单元 1');
 
