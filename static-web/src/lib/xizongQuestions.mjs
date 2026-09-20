@@ -118,6 +118,16 @@ function loadCachedShard(root, shard, cache, fallback) {
   return value;
 }
 
+function questionPointsForYearNumber(year, number) {
+  const format = loadXizongExamFormatForYear(year);
+  const n = Number(number);
+  const segment = (format.scoringSegments || []).find((row) =>
+    n >= Number(row?.start) && n <= Number(row?.end)
+  );
+  const points = Number(segment?.points || 0);
+  return Number.isFinite(points) && points > 0 ? points : 0;
+}
+
 function loadQuestionProjection(questionId, questionCache = new Map(), explanationCache = new Map()) {
   const route = routeForQuestionId(questionId);
   const truthShard = loadCachedShard(QUESTION_ROOT, route.shard, questionCache, {});
@@ -138,10 +148,13 @@ function loadQuestionProjection(questionId, questionCache = new Map(), explanati
   }));
   if (!options.length) throw new Error(`CURRENT_XIZONG_QUESTION_OPTIONS_MISSING:${questionId}`);
 
+  const year = Number(truth?.source_identity?.official_exam_year || route.year);
+  const number = Number(truth?.source_identity?.official_exam_number || route.number);
   return {
     questionId,
-    year: Number(truth?.source_identity?.official_exam_year || route.year),
-    number: Number(truth?.source_identity?.official_exam_number || route.number),
+    year,
+    number,
+    points: questionPointsForYearNumber(year, number),
     questionType: String(truth?.question_type || ''),
     stem: String(truth?.content?.stem || ''),
     options,
