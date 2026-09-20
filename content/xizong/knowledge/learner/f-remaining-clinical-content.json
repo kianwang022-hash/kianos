@@ -1,7 +1,7 @@
 {
   "schema": "kianos.xizong.system_content_realization.v1",
   "status": "CANDIDATE",
-  "construction_status": "PHASE5B_WRAPPER_AUTHORITY_CLEANUP_CLOSED",
+  "construction_status": "PHASE5C_CONTENT_SUFFICIENCY_CLOSED_AFTER_TARGETED_RECALL_FRONT_REPAIR",
   "authority": "BUILDER_CANDIDATE_NOT_ACCEPTED",
   "system_id": "remaining-clinical",
   "canonical_id": "F",
@@ -328,7 +328,7 @@
   },
   "content_close_requirements": [
     "PHASE5B_CLOSED: all 9 stale route frontmatters removed; F1/F2/F4/F6/F8 natural-unit wrappers aligned; F3/F5/F7 whole-source behavior and F9 ownership-first integration preserved; bounded false learner-state assumptions repaired without medical-Core rewrite.",
-    "PHASE5C_REQUIRED: 40/40 LG Content sufficiency + density + Recall-front audit with targeted medical-Core repair only if a concrete accepted-K meaning is unavailable to retrieval/closure.",
+    "PHASE5C_CLOSED: all 40 accepted LGs passed Content sufficiency/density after 31 LG / 72 KP Recall-front repairs; Reveal-side medical Core drift = 0; no new/deleted KP, LG change, Source redesign or K/L semantic change.",
     "PHASE5D_REQUIRED: fresh independent whole-F Content closure covering identity/partition, Source-release, wrapper authority, Recall-front, visual/exact-Source truth, page-disappearance, no-duplicate-truth and boundary/version/owner attacks.",
     "F1/F2/F3/F4/F9 exact Source gaps, F5 Source conflict, visual debt, external-owner boundaries and S2 UNTESTED must remain explicit."
   ],
@@ -339,5 +339,19 @@
     "learner_use": "NO_REPOSITORY_CLAIM"
   },
   "phase5a_role_receipt": "content/xizong/knowledge/learner/F_PHASE5A_CONTENT_ROLE_REALIZATION.md",
-  "phase5b_wrapper_receipt": "content/xizong/knowledge/learner/F_PHASE5B_WRAPPER_AUTHORITY_CLEANUP.md"
+  "phase5b_wrapper_receipt": "content/xizong/knowledge/learner/F_PHASE5B_WRAPPER_AUTHORITY_CLEANUP.md",
+  "phase5c_sufficiency_receipt": "content/xizong/knowledge/learner/F_PHASE5C_CONTENT_SUFFICIENCY_AUDIT.md",
+  "phase5c_audit": {
+    "verdict": "PASS_CLOSED_AFTER_TARGETED_RECALL_FRONT_REPAIR",
+    "accepted_lg_reviewed": 40,
+    "accepted_lg_pass": 40,
+    "lg_with_front_repairs": 31,
+    "recall_front_kp_surfaces_changed": 72,
+    "reveal_side_medical_core_drift": 0,
+    "medical_core_rewrite": 0,
+    "new_deleted_kp": 0,
+    "lg_split_merge": 0,
+    "source_contact_redesign": 0,
+    "accepted_k_l_semantic_change": 0
+  }
 }
