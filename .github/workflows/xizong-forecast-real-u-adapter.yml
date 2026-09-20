@@ -8,11 +8,14 @@ on:
       - 'static-web/src/lib/xizongQuestions.mjs'
       - 'static-web/src/lib/xizong.mjs'
       - 'static-web/src/lib/xizongForecastModel.mjs'
+      - 'static-web/src/lib/xizongPaperScoring.mjs'
+      - 'static-web/src/components/XizongPracticeWorkbench.astro'
       - 'static-web/src/lib/dailyLearningPacketRuntime.mjs'
       - 'static-web/src/lib/examOrchestratorClient.mjs'
       - 'static-web/src/components/ExamOrchestratorHome.astro'
       - 'static-web/src/pages/index.astro'
       - 'static-web/scripts/test-xizong-forecast-real-u-adapter.mjs'
+      - 'static-web/scripts/validate-xizong-paper-practice.mjs'
       - '.github/workflows/xizong-forecast-real-u-adapter.yml'
 
 concurrency:
