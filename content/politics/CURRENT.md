@@ -34,6 +34,48 @@ Proof: `static-web/scripts/test-politics-sequence-readability.mjs`; macOS artifa
 
 **Kian accepted this changed long-sequence geometry on 2026-09-19 after direct before/after Mac review.** The acceptance covers the visible layout change only; it does not manufacture learner U or close shared Return/durability limits.
 
+### Architecture+ subject-native closure — 2026-09-20
+
+A bounded Architecture+ pass was run **after** the pre-build self-attack correction. The result is intentionally small:
+
+- **Cross-day Memory continuity: LANDED** via PR #595 / `b2d5ebe`.
+  - raw Recall history remains private learner truth;
+  - Daily Packet now carries a bounded Current-bound Memory history profile;
+  - yesterday's `FORGOT / FUZZY / STABLE` can inform a fresh Chat;
+  - deleted / changed Memory candidates fail closed as stale history;
+  - Chat still chooses today's Memory plan.
+- **Xiao1000 Wrong / Uncertain cross-day Review: already sufficient.**
+  - Current Review reconstructs outstanding problems from durable attempt/latest-outcome evidence;
+  - no second review ledger or due scheduler is justified.
+- **Fixed Politics spaced-repetition cadence: REJECTED.**
+  - no learner-facing D1/D3/D7 contract;
+  - elapsed time is evidence only; Chat owns today's selection.
+- **Politics mastery / priority score: REJECTED.**
+  - Recall labels are evidence, not mastery;
+  - first-round question counts / frequency / backend pending state do not own attention.
+- **Politics-only Recovery / second scheduler: REJECTED.**
+  - cross-day capacity / COMPRESS / subject allocation belongs to the upstream Exam Control / Steward;
+  - Politics owns only its subject-native learning and evidence semantics.
+- **Later analysis-output / current-affairs / recitation automation: NOT IMPLEMENTABLE YET.**
+  - current approved Later Source is incomplete;
+  - no model may fabricate that missing source chain.
+
+A storage-scale self-attack also measured the Current 115-candidate Memory catalog and 91-day append-only Recall growth. The normal selective 10–20 recalls/day envelope projects to roughly 0.7–1.4 MiB of raw Recall evidence; profile build cost remains small. The diagnostic probe therefore concluded **DO NOT REDESIGN storage**. Reopen only if real telemetry shows materially larger event volume / storage pressure.
+
+Net result:
+
+```text
+first-round mainline + Xiao1000 Review
++ source-grounded Chat-planned Memory
++ cross-day Memory evidence
+→ sufficient for normal use
+
+Later Source arrives
+→ reopen only the exact analysis-output / current-affairs / Mock owner
+```
+
+Do not recreate a generic Politics Remember engine, frequency ranker, mastery score, fixed cadence, or second scheduler.
+
 ### Normal next state after final acceptance
 
 Politics first-round engineering and the shared platform dependencies it needed are landed. Typed Politics diagnosis Return/import and shared private checkpoint recovery were subsequently closed through the shared platform lane and final cross-subject regression.
