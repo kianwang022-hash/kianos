@@ -59,6 +59,32 @@ function exposureKnowsSource(exposure, semanticSourceHash, exactSourceHash) {
   });
 }
 
+const ENGLISH_ATTEMPT_PREFIXES=[
+  'kianos-reading-attempt-v1:',
+  'kianos-cloze-attempt-v1:',
+  'kianos-reading-b-attempt-v1:',
+  'kianos-english-external-reading-attempt-v1:',
+  'kianos-translation-attempt-v2:',
+  'kianos-writing-runtime-v1:'
+];
+
+function localAttemptKnowsSource(storage,objectId,semanticSourceHash,exactSourceHash){
+  for(const prefix of ENGLISH_ATTEMPT_PREFIXES){
+    const raw=storage.getItem(prefix+objectId);
+    if(raw==null)continue;
+    try{
+      const value=JSON.parse(raw);
+      const binding=value?.binding||{};
+      if(semanticSourceHash&&binding.semantic_source_hash===semanticSourceHash)return true;
+      if(exactSourceHash&&binding.source_hash===exactSourceHash)return true;
+      if(!binding.source_hash&&!binding.semantic_source_hash)return true; // legacy unreadable identity: fail closed.
+    }catch{
+      return true; // unreadable local history cannot authorize "unseen".
+    }
+  }
+  return false;
+}
+
 function normalizeStep(step, index) {
   if (!step || typeof step !== 'object' || Array.isArray(step)) {
     throw new Error('ENGLISH_SESSION_STEP_INVALID:' + index);
@@ -252,11 +278,9 @@ export function writeEnglishSessionInstruction(storage, input, expectedDay = nul
       if(!ids?.length)throw new Error('ENGLISH_MATERIAL_DECLARATION_IDENTITIES_REQUIRED');
       for(const id of ids){
         const m=exposure.materials[id]||{object_id:id,events:[]};
-        if(d.state==='unseen'&&(
-          m.events.length
-          || m.declaration?.state==='exposed'
-          || (step.task!=='full_paper'&&exposureKnowsSource(exposure,owner.semantic_source_hash||owner.source_hash,step.source_hash))
-          || ['kianos-reading-attempt-v1:','kianos-cloze-attempt-v1:','kianos-reading-b-attempt-v1:','kianos-english-external-reading-attempt-v1:','kianos-translation-attempt-v2:','kianos-writing-runtime-v1:'].some(prefix=>storage.getItem(prefix+id)!=null)
+        if(d.state==='unseen'&&step.task!=='full_paper'&&(
+          exposureKnowsSource(exposure,owner.semantic_source_hash||owner.source_hash,step.source_hash)
+          || localAttemptKnowsSource(storage,id,owner.semantic_source_hash||owner.source_hash,step.source_hash)
         ))throw new Error('ENGLISH_MATERIAL_ALREADY_EXPOSED:'+id);
         if(m.declaration&&Date.parse(d.observed_at)<Date.parse(m.declaration.observed_at))throw new Error('ENGLISH_MATERIAL_DECLARATION_STALE');
         m.declaration={...d,session_instruction_id:instruction.session_id,source_hash:step.task==='full_paper'?null:(step.source_hash||null),semantic_source_hash:step.task==='full_paper'?null:(owner.semantic_source_hash||owner.source_hash||null)};exposure.materials[id]=m;
