@@ -36,7 +36,14 @@ assert.equal(questionScope.schema,'kianos.xizong.forecast-question-scope.v1');
 assert.equal(questionScope.systems.length,8);
 assert.equal(questionScope.scope_complete,true);
 assert.equal(questionScope.unknown_systems.length,0);
+assert.equal(questionScope.unknown_domains.length,0);
 assert.equal(questionScope.systems.find(row=>row.canonical_id==='F')?.question_count,70);
+const humanitiesScope=questionScope.non_system_domains.find(row=>row.canonical_id==='HUMANITIES');
+assert.equal(humanitiesScope?.status,'EXACT');
+assert.equal(humanitiesScope?.question_count,80);
+assert.equal(humanitiesScope?.domain_id,'clinical-humanities');
+assert.equal(questionScope.cross_system_duplicate_memberships,0,
+  'independent humanities qids must not overlap A1-F exact System membership');
 
 const projectable=listProjectableXizongSystems();
 assert.ok(projectable.length>=1);
@@ -235,6 +242,12 @@ assert.equal(progress.runtime_evidence.completed_blocks_detail[0].block_id,curre
 assert.equal(progress.runtime_evidence.recall.rated,currentBlock.kpRows.length);
 assert.equal(progress.question_workload.status,'EXACT_COMPLETE');
 assert.equal(progress.question_workload.unknown_systems.length,0);
+assert.equal(progress.question_workload.unknown_domains.length,0);
+const humanitiesWorkload=progress.question_workload.non_system_domains.find(row=>row.canonical_id==='HUMANITIES');
+assert.equal(humanitiesWorkload?.owner_kind,'NON_SYSTEM_EXAM_DOMAIN');
+assert.equal(humanitiesWorkload?.exact_questions,80);
+assert.equal(humanitiesWorkload?.attempted_questions,0);
+assert.equal(humanitiesWorkload?.remaining_questions,80);
 assert.equal(progress.practice_evidence.first_pass.current_scope_unique_attempted_questions,1);
 assert.equal(progress.practice_evidence.first_pass.current_scope_wrong,1);
 assert.equal(progress.practice_evidence.fresh_transfer.observed_probes,1);
@@ -248,6 +261,12 @@ assert.equal(progress.system_recall_evidence.find(row=>row.system_id===system.sy
 assert.equal(progress.formal_score_evidence.latest.year,2026);
 assert.equal(progress.formal_score_evidence.latest.earned_score,275);
 assert.equal(progress.workload_forecast.schema,'kianos.xizong.workload-forecast.v1');
+assert.equal(
+  progress.workload_forecast.components.questions.known_remaining_questions,
+  progress.question_workload.known_remaining_questions
+);
+assert.equal(progress.workload_forecast.components.questions.band_minutes,null,
+  'without real question timing, humanities + A1-F question workload must remain unpriced rather than guessed');
 assert.ok(progress.workload_forecast.components.knowledge.remaining.blocks>=158);
 assert.ok(progress.workload_forecast.components.knowledge.risks.includes('UNPROJECTED_CANONICAL_SCOPE_RETAINED'));
 assert.match(progress.evidence_boundary,/stale\/unbound Source identity cannot reduce remaining workload/i);
