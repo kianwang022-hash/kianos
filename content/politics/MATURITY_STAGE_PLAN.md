@@ -13,8 +13,8 @@ P0 Politics-specific maturity adaptation        DONE
 T1 Objective structural/evidence reconciliation CLOSED
 T2 Early Objective Forecast                     CURRENT-SOURCE BUILD CLOSED
                                                 calibration waits for accepted evidence
-T3 Analysis foundation / Chat-primary evidence  ENGINEERING PATH RESOLVED
-                                                storage waits for task/rubric semantics
+T3 Analysis foundation / Chat-primary evidence  TASK/RUBRIC RESOLVED
+                                                durable evidence transport NEXT
 T4 Future-source delta ingestion                ENGINEERING PREP CLOSED
                                                 real content waits for bound 2027 Source
 T5+ current-year Mock / final compression       waits for real Source
@@ -22,6 +22,7 @@ T5+ current-year Mock / final compression       waits for real Source
 
 Current T1 result: `MATURITY_T1_OBJECTIVE_RECONCILIATION.md`  
 Current T2 model: `MATURITY_T2_FORECAST_MODEL.md`  
+Current T3 task/rubric: `MATURITY_T3_ANALYSIS_TASK_RUBRIC.md`  
 Current T3 interface: `MATURITY_T3_ANALYSIS_ENGINEERING_INTERFACE.md`  
 Current T4 ingress: `MATURITY_T4_FUTURE_SOURCE_INGESTION.md`
 
