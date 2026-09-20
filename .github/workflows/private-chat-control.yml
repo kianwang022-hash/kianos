@@ -24,6 +24,8 @@ on:
       - "static-web/src/lib/xizongStudyPacket.mjs"
       - "static-web/src/lib/xizongForecastModel.mjs"
       - "static-web/scripts/test-xizong-forecast-model.mjs"
+      - "static-web/src/lib/xizongForecastModel.mjs"
+      - "static-web/scripts/test-xizong-forecast-model.mjs"
       - "static-web/src/layouts/BaseFrame.astro"
       - "static-web/astro.config.mjs"
       - "static-web/scripts/test-private-control-*.mjs"
@@ -59,6 +61,8 @@ on:
       - "static-web/src/lib/politicsMemoryRuntime.mjs"
       - "static-web/src/lib/xizong.mjs"
       - "static-web/src/lib/xizongStudyPacket.mjs"
+      - "static-web/src/lib/xizongForecastModel.mjs"
+      - "static-web/scripts/test-xizong-forecast-model.mjs"
       - "static-web/src/lib/xizongForecastModel.mjs"
       - "static-web/scripts/test-xizong-forecast-model.mjs"
       - "static-web/src/layouts/BaseFrame.astro"
@@ -103,6 +107,7 @@ jobs:
           node scripts/test-english-generated-drill-store.mjs
           node scripts/test-english-external-combined-store.mjs
           node scripts/test-exam-plan-read-model.mjs
+          node scripts/test-xizong-forecast-model.mjs
           node scripts/test-english-home-no-cross-subject-autoswitch.mjs
 
       - name: Install runtime
