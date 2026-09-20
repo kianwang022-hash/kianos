@@ -12,7 +12,15 @@
     "semantic_review": "Chat-mediated",
     "true_exam_consumption": false,
     "same_prompt_repair_is_not_transfer_closure": true,
-    "memory_admission": "Only reusable, high-value generation problems may become TRANSFER_PENDING. A completed repair can end as REPAIR_COMPLETE with no durable review debt."
+    "memory_admission": "Only reusable, high-value generation problems may become TRANSFER_PENDING. A completed repair can end as REPAIR_COMPLETE with no durable review debt.",
+    "score_equivalent": false,
+    "role_downgrade": "Once a prompt is exposed through model comparison, detailed teaching or repair, it cannot later serve as independent transfer evidence for the same mechanism.",
+    "evidence_roles": [
+      "CALIBRATION",
+      "TRANSFER",
+      "MAINTENANCE",
+      "STRESS_EDGE"
+    ]
   },
   "tasks": [
     {
@@ -35,7 +43,8 @@
         "register_hint": "clear, helpful, appropriately polite"
       },
       "planning_prompt": "Before drafting, make a compact plan in your own words: required moves, useful content atoms, and a simple information order. If you can already generate directly, explicitly choose direct mode instead of inventing a fake plan.",
-      "draft_prompt": "Write one complete email. Complete the required moves with stable English; do not add filler merely to sound advanced."
+      "draft_prompt": "Write one complete email. Complete the required moves with stable English; do not add filler merely to sound advanced.",
+      "evidence_role": "CALIBRATION"
     },
     {
       "id": "writing-synthetic-big-v1",
@@ -49,7 +58,156 @@
         "observation_boundary": "Keep what the scenario shows separate from what you infer from it."
       },
       "planning_prompt": "Before drafting, form your own Observation, Interpretation/Core Message, 2–4 content atoms, and paragraph roles. If you can already generate directly, explicitly choose direct mode instead of inventing a fake plan.",
-      "draft_prompt": "Write one complete essay. Let the material support a developable relation or judgment rather than jumping to a slogan."
+      "draft_prompt": "Write one complete essay. Let the material support a developable relation or judgment rather than jumping to a slogan.",
+      "evidence_role": "CALIBRATION"
+    },
+    {
+      "id": "writing-synthetic-small-v2",
+      "kind": "small",
+      "source_kind": "synthetic",
+      "evidence_role": "TRANSFER",
+      "title": "Small Writing · Extension Request",
+      "target_words": 100,
+      "task": {
+        "role": "student participant",
+        "audience": "course coordinator",
+        "background": "You are expected to submit a short project report on Monday, but a university laboratory you need to use has been unexpectedly closed for two days.",
+        "directions": "Write an email to the course coordinator. Explain the situation briefly, request a short extension, propose a specific new deadline, and show that you understand any inconvenience caused.",
+        "facts": [
+          "Original deadline: Monday",
+          "Laboratory closed unexpectedly for two days",
+          "Requested new deadline: Wednesday evening"
+        ],
+        "register_hint": "polite, concise, responsible"
+      },
+      "planning_prompt": "Identify audience, purpose, required moves, useful facts and a simple information order. Direct mode is allowed if you can already generate cleanly.",
+      "draft_prompt": "Write one complete email of about 100 words. Complete the communicative job rather than filling space with formal phrases."
+    },
+    {
+      "id": "writing-synthetic-small-v3",
+      "kind": "small",
+      "source_kind": "synthetic",
+      "evidence_role": "MAINTENANCE",
+      "title": "Small Writing · Recommend a Campus Resource",
+      "target_words": 100,
+      "task": {
+        "role": "student mentor",
+        "audience": "a first-year international student",
+        "background": "The student says they struggle to organize reading notes and prepare for seminars.",
+        "directions": "Write an email recommending one campus resource or study service. Explain why it fits the student's problem, give one practical detail about how to use it, and invite the student to ask if they need more help.",
+        "facts": [
+          "Resource: Academic Skills Center",
+          "Weekly note-taking workshop: Wednesday 4 p.m.",
+          "Booking is available through the student portal"
+        ],
+        "register_hint": "friendly, helpful, appropriately polite"
+      },
+      "planning_prompt": "Compress the task into purpose + fit reason + useful detail + close. Avoid generic claims such as 'it is very helpful' without explaining why.",
+      "draft_prompt": "Write one complete email of about 100 words."
+    },
+    {
+      "id": "writing-synthetic-small-v4",
+      "kind": "small",
+      "source_kind": "synthetic",
+      "evidence_role": "STRESS_EDGE",
+      "title": "Small Writing · Report a Problem and Request Remedy",
+      "target_words": 100,
+      "task": {
+        "role": "resident student",
+        "audience": "residence office",
+        "background": "A shared study room has repeatedly been reserved by one group but left empty, making it unavailable to others.",
+        "directions": "Write an email reporting the problem. Describe the pattern without exaggeration, explain its effect, and request a reasonable remedy.",
+        "facts": [
+          "Observed on three evenings this week",
+          "Room showed as reserved for two hours",
+          "It was empty for most of that period"
+        ],
+        "register_hint": "firm, factual, non-accusatory"
+      },
+      "planning_prompt": "Separate facts, impact and requested remedy. Do not turn the message into an emotional complaint.",
+      "draft_prompt": "Write one complete email of about 100 words."
+    },
+    {
+      "id": "writing-synthetic-big-v2",
+      "kind": "big",
+      "source_kind": "synthetic",
+      "evidence_role": "TRANSFER",
+      "title": "Big Writing · Information and Judgment",
+      "target_words": "160–200",
+      "task": {
+        "visual_scenario": "Two students face the same large collection of online information. Student A keeps opening more sources and saves dozens of links without deciding what to trust. Student B defines the question first, compares a few sources by evidence and relevance, and then makes a decision.",
+        "directions": "Write an essay based on the contrast. Describe the meaningful difference, interpret what it suggests, and develop your own view with a mechanism, consequence, example, contrast or practical implication.",
+        "observation_boundary": "Do not reduce the contrast to 'working hard' versus 'being lazy'; preserve the relation between information quantity and judgment."
+      },
+      "planning_prompt": "Form Observation → Core Message → 2–4 content atoms → paragraph roles. Keep the interpretation grounded in the scenario.",
+      "draft_prompt": "Write one complete essay of 160–200 words."
+    },
+    {
+      "id": "writing-synthetic-big-v3",
+      "kind": "big",
+      "source_kind": "synthetic",
+      "evidence_role": "TRANSFER",
+      "title": "Big Writing · Preparation and Adaptation",
+      "target_words": "160–200",
+      "task": {
+        "visual_scenario": "Two hikers prepare for changing weather. One packs according to a single forecast and refuses to adjust the route when clouds gather. The other checks the forecast too, but also carries basic rain gear and changes the plan when conditions shift.",
+        "directions": "Write an essay based on the contrast. Describe what the scenario shows, interpret the relation between planning and adaptation, and develop your own view.",
+        "observation_boundary": "Do not turn the essay into a generic slogan about persistence; the material contrasts rigid planning with adaptive planning."
+      },
+      "planning_prompt": "Build a specific Core Message that keeps both preparation and adaptation in view.",
+      "draft_prompt": "Write one complete essay of 160–200 words."
+    },
+    {
+      "id": "writing-synthetic-big-v4",
+      "kind": "big",
+      "source_kind": "synthetic",
+      "evidence_role": "MAINTENANCE",
+      "title": "Big Writing · Skill and Repetition",
+      "target_words": "160–200",
+      "task": {
+        "visual_scenario": "Two learners practice the same skill. One repeats the same easy exercise and records many completed attempts. The other alternates practice with feedback, identifies recurring mistakes, and changes the next exercise accordingly.",
+        "directions": "Write an essay interpreting the contrast and developing a view about what makes practice effective.",
+        "observation_boundary": "Do not equate more repetitions with more learning; preserve the role of feedback and adaptation."
+      },
+      "planning_prompt": "Make the Core Message more specific than 'practice makes perfect'.",
+      "draft_prompt": "Write one complete essay of 160–200 words."
+    },
+    {
+      "id": "writing-synthetic-big-v5",
+      "kind": "big",
+      "source_kind": "synthetic",
+      "evidence_role": "MAINTENANCE",
+      "title": "Big Writing · Shared Resources and Coordination",
+      "target_words": "160–200",
+      "task": {
+        "visual_scenario": "In one office, each person keeps useful files in private folders and several employees repeatedly recreate the same material. In another, the team uses a shared index, assigns ownership, and updates common resources when information changes.",
+        "directions": "Write an essay based on the contrast. Explain the relationship between shared resources, coordination and efficiency, then develop your own view.",
+        "observation_boundary": "The key relation is not simply 'sharing is good'; it is how coordination determines whether resources create or waste value."
+      },
+      "planning_prompt": "Preserve the mechanism: access/ownership → coordination → duplication or reuse.",
+      "draft_prompt": "Write one complete essay of 160–200 words."
+    },
+    {
+      "id": "writing-synthetic-big-v6",
+      "kind": "big",
+      "source_kind": "synthetic",
+      "evidence_role": "STRESS_EDGE",
+      "title": "Big Writing · Rules and Purpose",
+      "target_words": "160–200",
+      "task": {
+        "visual_scenario": "A school has a rule requiring students to reserve laboratory equipment in advance. One student argues the rule is unnecessary because many reservation slots are often unused. Another points out that without reservations, several classes may arrive at the same time and no one knows who has priority.",
+        "directions": "Write an essay interpreting the contrast. Discuss how rules should be judged in relation to the problems they are meant to prevent, and develop your own view.",
+        "observation_boundary": "Do not assume every old rule is valuable. The material asks whether visible inconvenience should be weighed against a less visible coordinating function."
+      },
+      "planning_prompt": "Keep the argument conditional and balanced enough to distinguish useless friction from protective constraints.",
+      "draft_prompt": "Write one complete essay of 160–200 words."
     }
-  ]
+  ],
+  "quality_checks": {
+    "complete_essay_unit": true,
+    "model_answer_absent": true,
+    "prompt_role_separation": true,
+    "intended_inventory": "4 Small + 6 Big complete prompts spanning calibration, transfer, maintenance and stress/edge",
+    "authoring_status": "self-reviewed for task completeness, grounded interpretive boundaries, role diversity and non-template generation; empirical score calibration remains learner-evidence dependent"
+  }
 }

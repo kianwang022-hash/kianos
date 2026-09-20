@@ -11,7 +11,7 @@ LexicalOS may still keep independent backend canonical ownership and engineering
 
 ## 0｜Purpose
 
-English I target: **80–85+**.
+English I hard target: **85+**. Secure planning protects that floor; English may continue above it when marginal return remains attractive relative to Xizong / Politics.
 
 Score channels:
 
@@ -142,6 +142,206 @@ Spend extra learner time only where evidence supports a reusable, recurring, exp
 Later preparation must train the full 180-minute paper: task order, pacing, switching, fatigue, completion, answer-sheet/delivery risk, and time-allocation tradeoffs.
 
 This is a later phase, not a second permanent course.
+
+---
+
+## 4A｜Dynamic practice control: secure floor, maintenance and elastic upside
+
+English is not a finite course. Chat should treat practice as a continuously updated allocation problem over separate task families, while the website/runtime remains an executor of explicit instructions rather than a hidden scheduler.
+
+### Decision modes are Chat interpretations, not persisted learner states
+
+Chat may describe a task family as one of the following decision modes:
+
+```text
+UNCALIBRATED
+→ current ability is unknown; obtain the cheapest valid baseline evidence
+
+BUILD
+→ a meaningful gap is established; train the smallest responsible capability
+
+VERIFY
+→ repair looks successful but independent evidence is still too weak
+
+MAINTAIN
+→ secure evidence exists; keep only the minimum dose needed to detect drift
+
+ELASTIC
+→ secure floor is already protected, but another hour still has attractive marginal return
+```
+
+These labels must not become a second learner ledger, a new Runtime state machine, automatic Review debt, or a cross-task mastery score. Raw attempt history remains learner truth; Chat interprets it task-locally.
+
+### Secure requires a dynamic dual gate
+
+A task family is not treated as secure merely because one attempt was good, and it is not treated as secure merely because a quota was completed.
+
+Secure judgment requires both:
+
+1. **dynamic evidence floor** — enough independent work, given the learner's prior and current variance, to make a small-sample fluke unlikely;
+2. **performance evidence** — unseen/unassisted/timed evidence strong enough for the real task demand.
+
+The evidence floor is a prior, not a graduation quota. Strong prior evidence may lower the amount of new sampling needed; weak/unknown or contradictory evidence may raise it. Once the floor has been exceeded, additional ordinary practice is justified only by new evidence value, maintenance hazard, or attractive elastic ROI.
+
+Provisional planning priors for Chat are:
+
+| Task family | Minimum evidence dose before a secure claim is normally reasonable |
+| --- | --- |
+| Reading A | about 8–12 complete passages across at least 3 sessions, with low-contamination/fresh evidence represented |
+| Cloze | at least 4 complete sets across multiple sessions, including post-repair transfer when repair occurred |
+| Part B | about 6–8 complete sets covering all four forms; common forms should be demonstrated more than once |
+| Translation | about 5 complete sections; repeated independent output after any meaningful repair |
+| Small Writing | about 4 complete first-draft outputs |
+| Big Writing | about 5–6 complete first-draft outputs |
+| Whole paper | about 3 genuine 180-minute executions before treating full-paper delivery as stable |
+| Lexical | no fixed word-count quota; require delayed retention evidence plus reduced lexical failure/latency inside English tasks |
+
+These are **planning priors, not machine gates**. They are allowed to move with evidence and never authorize the Runtime to manufacture tasks by itself.
+
+### Module mode and mechanism risk are separate
+
+A task family may be broadly stable while one mechanism remains open. Chat should therefore reason with:
+
+```text
+task-family operating mode
++
+open mechanism risks / confidence
+```
+
+Example: Reading A may be in MAINTAIN overall while difficult inference / two-strong-option adjudication remains in VERIFY. A module-level label must never hide a recurring mechanism defect.
+
+Do not persist a universal mechanism score. Mechanism risk is an interpretation of concrete attempt evidence, not a new learner-state ontology.
+
+### Repair, Verify and Maintain are not interchangeable
+
+```text
+REPAIR SUCCESS
+= the identified defect can be corrected on the repaired item/scope
+
+VERIFY SUCCESS
+= the repaired behavior survives a different independent object/prompt
+
+MAINTAIN
+= independent evidence has remained stable with sufficient delay, low contamination and normal time pressure
+```
+
+Same-item regeneration can prove repair. It cannot by itself prove verification or maintenance.
+
+### Adaptive dose: add practice only for a reason
+
+Increase dose when one or more of the following is true:
+
+- the same reusable mechanism failure recurs;
+- fresh/unseen work is materially worse than exposed work;
+- correct answers remain repeatedly uncertain or slow under an agreed task budget;
+- a repaired behavior fails on a different prompt/object;
+- whole-paper execution degrades an otherwise stable single-task capability;
+- lexical study does not reduce lexical failure or access latency in downstream English work.
+
+Decrease dose when:
+
+- the dynamic evidence floor has been met;
+- independent timed performance is repeatedly stable;
+- new attempts stop yielding actionable information;
+- whole-paper work naturally rechecks the capability well enough that separate drills add little value.
+
+**No-new-information stop rule:** once the evidence floor is satisfied, if repeated independent tasks add no actionable defect, no timing concern and no meaningful uncertainty, ordinary same-level practice should contract. "English can still improve" is not a reason to keep consuming time.
+
+Maintenance frequency is controlled by **failure hazard**, not a fixed calendar ritual:
+
+```text
+newly secure
+→ relatively near re-check
+
+continued stability
+→ widen interval
+
+whole-paper naturally supplies sufficient evidence
+→ reduce separate probes further
+
+relapse / contradictory evidence
+→ shorten interval and return to VERIFY or BUILD as needed
+```
+
+### Elastic upside is governed by marginal return, not a terminal score line
+
+The secure floor protects the exam target; it does not forbid further English investment.
+
+After secure evidence exists, Chat compares the next hour of English work against other available study actions using the same underlying optimization already defined in this Contract. The comparison should be evidence-based but **not falsely precise**: use qualitative bands such as HIGH / MEDIUM / LOW / UNCERTAIN with reasons and plausible ranges rather than invented decimal point-gain estimates.
+
+```text
+expected points gained/protected
++ variance reduction
++ speed / time released elsewhere in the paper
++ reusable transfer value
+-----------------------------------------------
+learner time
++ fresh-material opportunity cost
++ repetition / diminishing-return cost
++ opportunity cost versus Xizong / Politics
+```
+
+Examples of legitimate elastic work include:
+
+- turning Objective from usually-correct into near-zero predictable error under time pressure;
+- raising Translation fidelity/naturalness after the secure band is already reached;
+- raising Writing development and language control after basic score security exists;
+- reducing whole-paper fatigue and time-allocation variance;
+- using External Reading when ordinary English-I material no longer supplies enough reading-growth stimulus.
+
+There is no permanent English stop point. The operational stop rule is: **do not spend the next hour on English when another available action has clearly higher expected marginal value.**
+
+### Whole paper is the integration validator
+
+Whole-paper work is not merely a seventh peer module. It validates whether task-local capability survives shared exam constraints:
+
+- fatigue and front/back-half degradation;
+- task switching;
+- time competition between Objective, Translation and Writing;
+- lexical access under continuous load;
+- completion and delivery risk;
+- whether stable single-task performance collapses in the 180-minute system.
+
+As preparation matures, whole-paper evidence should absorb part of maintenance that would otherwise require separate task probes. A task that is stable both locally and repeatedly inside whole papers should normally receive less isolated maintenance, not duplicate practice.
+
+### Material readiness: baseline first, targeted generation second
+
+Do not wait for a learner failure before preparing every usable task. English should keep a bounded baseline inventory ready for:
+
+- cold-start calibration;
+- one ordinary build/repair loop;
+- at least one independent transfer check after repair.
+
+Baseline synthetic assets are learning capital, not fake exam score evidence. They must be labeled by intended use and kept separate from protected true-exam material.
+
+Material evidence roles are non-interchangeable:
+
+```text
+CALIBRATION
+TEACHING / REPAIR
+TRANSFER
+STRESS / EDGE
+```
+
+Once an object has been exposed through teaching, explanation or repair, it cannot later serve as independent transfer evidence for that same mechanism. Once a calibration object has been deeply reviewed, it may still be reused for learning, but its future evidence role is downgraded. Material identity does not reset because the learner sees it in another page/session.
+
+When real practice exposes a specific failure, generate **targeted** material for that mechanism rather than expanding generic volume. A targeted generated task should identify the demand it attacks and the evidence that would count as transfer.
+
+Generated material must pass, at minimum:
+
+- task-native geometry rather than a generic multiple-choice disguise;
+- one defensible answer / completion target where the task has an objective key;
+- explicit distractor or failure mechanism;
+- natural source language and realistic information structure;
+- bounded, purposeful difficulty rather than arbitrary trickiness;
+- answer/review separation so first attempt is not leaked;
+- adversarial self-check for ambiguity, accidental cues and construct drift.
+
+Fresh synthetic success may support mechanism transfer. It does **not** become score-equivalent English-I calibration until its difficulty/behavior has been empirically calibrated against appropriate real task evidence.
+
+Synthetic difficulty itself is evidence-dependent. If a bank produces materially different error rates, timing or failure patterns from comparable low-contamination English-I work, preserve it under the role it actually serves (for example STRESS) rather than forcing score equivalence.
+
+Current baseline practice assets are registered in `content/english/manifest.json`. Additional targeted assets should stay with the exact task owner rather than creating a new global practice system.
 
 ---
 
