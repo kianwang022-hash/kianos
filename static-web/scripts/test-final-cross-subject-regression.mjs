@@ -12,8 +12,7 @@ import {
 } from '../src/lib/examOrchestrator.mjs';
 import {
   EXAM_CHAT_PLAN_KEY,
-  EXAM_CHAT_PLAN_SCHEMA,
-  buildExamChatPlanBasis
+  EXAM_CHAT_PLAN_SCHEMA
 } from '../src/lib/examChatPlan.mjs';
 import {
   STUDY_TIMER_LEDGER_KEY,
@@ -201,7 +200,6 @@ const chatPlan = {
   attention: null
 };
 
-const chatPlanFile = path.join(privateDir, 'kianos-chat-plan-day1.json');
 const staleChatPlanFile = path.join(privateDir, 'kianos-chat-plan-stale.json');
 
 const profile = {
@@ -318,34 +316,10 @@ const politicsLast = {
   title: politicsQuestion.unitTitle
 };
 
-class BasisStorage {
-  constructor(entries = {}) { this.map = new Map(Object.entries(entries)); }
-  get length() { return this.map.size; }
-  key(index) { return [...this.map.keys()][index] ?? null; }
-  getItem(key) { return this.map.has(key) ? this.map.get(key) : null; }
-  setItem(key, value) { this.map.set(String(key), String(value)); }
-  removeItem(key) { this.map.delete(String(key)); }
-}
-
-const chatPlanBasisStorage = new BasisStorage({
-  [EXAM_PROFILE_KEY]: JSON.stringify(profile),
-  [STUDY_TIMER_LEDGER_KEY]: JSON.stringify(timerLedger),
-  [xizongStateKey]: JSON.stringify(xizongState),
-  [englishAttemptKey]: JSON.stringify(englishAttempt),
-  [PRACTICE_KEYS.attempts]: JSON.stringify(politicsAttempts),
-  [PRACTICE_KEYS.meta]: JSON.stringify(politicsMeta),
-  [PRACTICE_KEYS.evidence]: JSON.stringify(politicsEvidence)
-});
-const chatPlanWithBasis = {
-  ...chatPlan,
-  learner_evidence_basis: buildExamChatPlanBasis(chatPlanBasisStorage, DAY)
-};
-fs.writeFileSync(chatPlanFile, JSON.stringify(chatPlanWithBasis, null, 2));
 fs.writeFileSync(staleChatPlanFile, JSON.stringify({
   ...chatPlan,
   study_day: '2026-09-18',
-  generated_at: '2026-09-18T01:00:00.000Z',
-  learner_evidence_basis: buildExamChatPlanBasis(chatPlanBasisStorage, '2026-09-18')
+  generated_at: '2026-09-18T01:00:00.000Z'
 }, null, 2));
 
 const parseDailyCopy = (text) => {
@@ -395,15 +369,33 @@ try {
 
   await page.reload({ waitUntil: 'domcontentloaded' });
   await page.locator('[data-exam-home][data-ready="true"]').waitFor();
-  check(await page.locator('[data-exam-home]').getAttribute('data-chat-plan-status') === 'missing',
-    'Seeded learner evidence does not manufacture a Chat Plan');
+  const seededPlanStatus = await page.locator('[data-exam-home]').getAttribute('data-chat-plan-status');
+  check(seededPlanStatus !== 'ready'
+      && (await page.locator('[data-exam-next]').getAttribute('href')) === null,
+    'Seeded learner evidence does not manufacture an executable Chat Plan',
+    seededPlanStatus || 'missing');
+
+  // Build the plan from the exact learner-evidence snapshot a real Chat would receive.
+  await page.locator('[data-exam-copy-daily]').click();
+  await page.waitForTimeout(80);
+  const planningCopy = await page.evaluate(() => window.__kianosCopies.at(-1));
+  const planningPacket = parseDailyCopy(planningCopy);
+  const chatPlanWithBasis = {
+    ...chatPlan,
+    learner_evidence_basis: planningPacket.learner_evidence_basis
+  };
+  await page.evaluate(() => { window.__kianosCopies = []; });
 
   // 3. Import the exact Chat Plan through the real learner-facing Home control.
   // The import control lives inside the learner-facing “安排说明” dialog.
   await page.locator('[data-exam-why]').click();
   await page.locator('[data-exam-why-dialog][open]').waitFor();
   await page.locator('details.examAdvanced > summary').click();
-  await page.locator('[data-exam-import]').setInputFiles(chatPlanFile);
+  await page.locator('[data-exam-import]').setInputFiles({
+    name: 'kianos-chat-plan-day1.json',
+    mimeType: 'application/json',
+    buffer: Buffer.from(JSON.stringify(chatPlanWithBasis))
+  });
   await page.locator('[data-exam-import-confirm]:visible').waitFor();
   check((await page.locator('[data-exam-import-preview]').innerText()).includes(DAY),
     'Home previews the exact Chat Plan day before import');
