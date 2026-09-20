@@ -130,7 +130,18 @@
       "低价值补充",
       "已自然稳定且没有继续复习收益的事实",
       "仅因为做过 TTSX 而产生的机械复习债"
-    ]
+    ],
+    "retention_clock": {
+      "role": "SELECTIVE_DELAYED_STABILITY_PROOF_WITHOUT_REVIEW_INFLATION",
+      "untouched_library_rule": "Released Memory is library availability only; time passage alone never creates review debt for cards with no admitted evidence/attention.",
+      "ratings": {
+        "unknown": "Immediate weak evidence; keep due now.",
+        "fuzzy": "Immediate weak evidence; keep due now.",
+        "known": "Successful retrieval in the current attempt, but not durable stability. Clear immediate Today pressure, schedule one delayed D1 recheck, and do not advance the long stability interval.",
+        "mastered": "Durable stability evidence. Consecutive mastered retrievals may advance the bounded D1→D3→D7→D14→D30 delayed-stability window."
+      },
+      "no_inflation_rule": "Repeated known ratings alone must never expand to D3/D7/D14/D30; overdue review remains one due item, not historical day debt."
+    }
   },
   "evidence_interpretation": {
     "separation": "Observed performance / self-rating / learner-selected TTSX note is evidence or attention signal, not root-cause diagnosis, learner-state certainty or an automatic next action.",
@@ -215,7 +226,8 @@
       "truth_boundary": "AI probe is not official Question Truth, not medical Core, and not formal score evidence.",
       "evidence_role": "TRANSFER_ONLY",
       "generation_basis": "Current canonical medical owner + exact target KP(s) + current source revision; no unsupported medical invention.",
-      "no_debt_rule": "Do not create AI practice merely because a weak item exists or because generation is cheap."
+      "no_debt_rule": "Do not create AI practice merely because a weak item exists or because generation is cheap.",
+      "runtime_binding_rule": "Before install and again before consumption, every target KP must resolve to the current released Memory owner and its current sourceHash must equal canonical_source_hash. A probe spanning different source owners fails closed; split it into bounded separate probes or use official true questions."
     }
   },
   "compression_ladder": {
