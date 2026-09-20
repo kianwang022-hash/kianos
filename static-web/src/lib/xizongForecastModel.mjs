@@ -1419,6 +1419,71 @@ export function assessXizongDeadlineFeasibility(forecast, {
   };
 }
 
+
+export function buildXizongCheckpointRequirement(forecast, {
+  startDay,
+  deadlineDay,
+  dailyMinutes = null,
+  capacityMinutesByDay = null,
+  netIncrementMinutes = 0,
+  materialItems = null,
+  scope = 'first_round'
+} = {}) {
+  if (!forecast || forecast.schema !== XIZONG_FORECAST_MODEL_SCHEMA) {
+    throw new Error('XIZONG_FORECAST_MODEL_REQUIRED');
+  }
+  const supportedScope = scope === 'score_formation' ? 'score_formation' : 'first_round';
+  const ids = supportedScope === 'score_formation'
+    ? ['knowledge','questions','system_recall','repair','verification','formal_calibration']
+    : ['knowledge','questions','system_recall','repair'];
+  const actionById = {
+    knowledge: 'LEARN',
+    questions: 'ATTEMPT',
+    system_recall: 'RECONSTRUCT',
+    repair: 'REPAIR',
+    verification: 'VERIFY',
+    formal_calibration: 'FORMAL_SCORE_CALIBRATE'
+  };
+  const workBuckets = ids.map((id) => {
+    const row = forecast?.components?.[id] || {};
+    return {
+      id,
+      learner_role: actionById[id],
+      status: String(row?.status || 'UNKNOWN'),
+      band_minutes: row?.band_minutes || null,
+      priced: Boolean(row?.band_minutes),
+      risks: Array.isArray(row?.risks) ? row.risks : []
+    };
+  });
+  const feasibility = assessXizongDeadlineFeasibility(forecast, {
+    startDay,
+    deadlineDay,
+    dailyMinutes,
+    capacityMinutesByDay,
+    netIncrementMinutes,
+    materialItems,
+    scope: supportedScope
+  });
+  const aggregate = supportedScope === 'score_formation'
+    ? forecast.score_formation
+    : forecast.first_round;
+  return {
+    schema: 'kianos.xizong.checkpoint-requirement.v1',
+    scope: supportedScope,
+    start_day: startDay || null,
+    deadline_day: deadlineDay || null,
+    capacity: feasibility?.capacity || null,
+    feasibility,
+    work_buckets: workBuckets,
+    unpriced_bucket_ids: workBuckets.filter((row) => !row.priced).map((row) => row.id),
+    aggregate_status: String(aggregate?.status || 'UNKNOWN'),
+    full_scope_priced: Boolean(aggregate?.full_band_minutes),
+    subject_stage_decision: 'OUT_OF_SCOPE',
+    boundary:
+      'This checkpoint decomposes remaining evidence-priced work into learner-role buckets and capacity. It is not a daily schedule, does not choose subject/System order, and cannot claim full completion when the aggregate or a required material scope is only partially priced.'
+  };
+}
+
 export function applyXizongForecastScenario(forecast, {
   dailyMinutes = null,
   netIncrementMinutes = 0,
