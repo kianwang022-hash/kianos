@@ -14,10 +14,10 @@ This file owns work cursor only. It does not own medical Core, Learning semantic
 **Scope:** F — Remaining Clinical  
 **Lane-A role:** **NEXT MEDICAL CONTENT PRIORITY**  
 **Stable Current identity:** **9 Blocks / 121 canonical KP**  
-**Active gate:** **Content Realization / Optimization — ACTIVE · Phase 5A complete**  
+**Active gate:** **Content Realization / Optimization — ACTIVE · Phase 5B complete**  
 **Source state:** **S1 PASS after approved Source rebind; bounded unresolved exact fields remain explicit / fail-closed**  
 **Learning state:** **L PASS_AFTER_BOUNDED_REPAIR**  
-**Earliest eligible next action:** **Phase 5B wrapper / authority cleanup across 9 canonical F Blocks**  
+**Earliest eligible next action:** **Phase 5C — 40-LG Content sufficiency / density + Recall-front audit**  
 **Downstream:** P / R / E remain frozen behind Content; no learner-use claim
 
 ```text
@@ -25,12 +25,12 @@ S1 medical / first-learning Source boundary = PASS
 S2 exact official-question membership        = UNTESTED / separate later boundary
 K Knowledge                                  = PASS_AFTER_BOUNDED_REPAIR
 L Learning Logic                             = PASS_AFTER_BOUNDED_REPAIR
-Content                                      = ACTIVE / PHASE5A_ROLE_CANDIDATE_BUILT
+Content                                      = ACTIVE / PHASE5B_WRAPPER_CLEANUP_CLOSED
 P / R / E                                    = downstream-frozen
 U Learner Use                                = no claim
 ```
 
-Active builder branch: **work/f-content-phase5a-20260920b**
+Active builder branch: **work/f-content-phase5b-20260920**
 
 Fresh K acceptance:
 
@@ -55,6 +55,10 @@ Content candidate:
 Phase 5A Content role receipt:
 
 `content/xizong/knowledge/learner/F_PHASE5A_CONTENT_ROLE_REALIZATION.md`
+
+Phase 5B wrapper cleanup receipt:
+
+`content/xizong/knowledge/learner/F_PHASE5B_WRAPPER_AUTHORITY_CLEANUP.md`
 
 ---
 
@@ -253,39 +257,49 @@ Preserved:
 
 ---
 
-## Content Phase 5A — ACTIVE / ROLE CANDIDATE BUILT
+## Content Phase 5A–5B — ACTIVE / WRAPPERS ALIGNED
 
 Canonical Content candidate:
 
 `content/xizong/knowledge/learner/f-remaining-clinical-content.json`
 
-Phase 5A receipt:
+Receipts:
 
-`content/xizong/knowledge/learner/F_PHASE5A_CONTENT_ROLE_REALIZATION.md`
+- `content/xizong/knowledge/learner/F_PHASE5A_CONTENT_ROLE_REALIZATION.md`
+- `content/xizong/knowledge/learner/F_PHASE5B_WRAPPER_AUTHORITY_CLEANUP.md`
 
-Phase 5A result:
+Current Content accounting:
 
 ```text
-accepted LG release coverage = 40 / 40
-WHOLE_BLOCK_SOURCE           = 3
-NATURAL_SOURCE_UNITS         = 5
-INTEGRATION_PRIMARY          = 1
-medical Core rewrite         = 0
-Content PASS                 = not claimed
+accepted LG release coverage            = 40 / 40
+WHOLE_BLOCK_SOURCE                      = 3
+NATURAL_SOURCE_UNITS                    = 5
+INTEGRATION_PRIMARY                     = 1
+
+Phase 5B:
+frontmatter prerequisites               = 0 / 9
+frontmatter next_blocks/next_system     = 0 / 9
+natural-unit wrapper alignment          = 5 / 5
+whole-block wrapper preservation        = 3 / 3
+F9 integration-primary preservation     = 1 / 1
+canonical KP count                      = 121
+medical Core rewrite                    = 0
+Content PASS                            = not claimed
 ```
 
-Concrete open Content debt:
+Phase 5B removed the competing pre-L route graph and aligned F1/F2/F4/F6/F8 first-pass wrappers to real Source-unit stop-lines. F3/F5/F7 remain whole-source. F9 remains ownership-first. Concrete false learner-state assumptions were rewritten as reusable / locally reactivatable interfaces.
 
-- all 9 Block Markdown owners still expose legacy `prerequisites` plus `next_blocks/next_system`, despite accepted L having 0 inside-F hard edges;
-- F1/F2/F4/F6/F8 still use generic whole-Block first-pass wrappers despite accepted natural Source units;
-- F6/F7/F8 contain bounded wording that can read as prior learner completion/readiness rather than benefits-from guidance;
-- F9 body ownership-split model is already compatible with integration-primary, but its stale route frontmatter remains open debt.
+Open Content work is now narrower:
+
+- audit all 40 LGs for retrieval sufficiency and density;
+- verify Recall fronts do not leak the canonical answer before active retrieval;
+- repair only concrete LG/KP Content defects if found;
+- then run fresh independent whole-F Content closure.
 
 Next:
 
 ```text
-Phase 5B wrapper / authority cleanup
-→ Phase 5C 40-LG Content sufficiency / density audit
+Phase 5C 40-LG Content sufficiency / density + Recall-front audit
 → Phase 5D fresh independent Content closure
 ```
 
@@ -296,7 +310,8 @@ Projection / Runtime / Evidence remain frozen.
 ```text
 L accepted after bounded repair
 → Phase 5A Content role candidate built
-→ Phase 5B wrapper / authority cleanup next
+→ Phase 5B wrapper / authority cleanup CLOSED
+→ Phase 5C 40-LG Content sufficiency / Recall-front audit NEXT
 → do not start P / R / E before fresh Content closure
 ```
 
