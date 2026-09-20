@@ -224,6 +224,19 @@ Allowed remaining unknowns are limited to:
 
 Any other unknown that can change current learning action is a reopen condition.
 
+## 9.1 Politics-specific requirements 30–39 boundary
+
+`MATURITY_REQUIREMENTS.md` extends the shared mother standard with Politics-specific phase gates 30–39.
+
+They are **not** silently collapsed into the mother-standard 1–29 validator:
+
+- Requirement 30 independent falsification is required before a future **whole-subject maturity** claim; the current claim is only `SYSTEM_LOGIC_ACCEPTED`.
+- authentic-modality / whole-paper requirements remain REAL-U and current-year Mock gated;
+- Day-1, lifecycle, stale-state, source-invalidation, anti-homogenization and causal-Repair semantics have current system-level owners and targeted proof;
+- none of these gates authorizes synthetic learner capability or invented 2027 Source.
+
+This distinction prevents `SYSTEM_LOGIC_ACCEPTED` from being misread as `WHOLE_SUBJECT_MATURE`.
+
 ## 10. Mother-standard crosswalk
 
 | # | Requirement | Current status | Owner / next proof |
