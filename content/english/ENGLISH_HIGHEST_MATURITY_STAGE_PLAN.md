@@ -298,17 +298,20 @@ contaminated/unknown evidence
 
 E4 closes when those evidence distinctions survive targeted proof and no decision-relevant contamination path remains. E4 does **not** need to prove Forecast, Dynamic Control, handwriting calibration or full lifecycle maturity.
 
-### Mandatory post-E4 stop check
+### Mandatory post-E4 maturity check
 
-After E4 closes, do **not** automatically open E5.
+After E4 closes, do **not** automatically build a full E5 implementation.
 
-Ask:
+First ask two separate questions:
 
-> If Forecast is not built now, is there a real near-term English or cross-subject decision that cannot be made safely from current evidence, or would likely be materially wrong?
+1. **Forecast system logic:** can English already represent remaining workload, uncertainty, sensitivity, decision-flip surfaces, highest-value next evidence and score-path confidence without fake precision?
+2. **Kian-specific calibration:** do we have enough Real Learner U to assign useful personal parameters/ranges?
 
-If **NO** — because the important unknowns are still learner parameters — stop maturity engineering and collect Real Learner U.
+If system logic is already sufficient, do not rebuild it. Record it as satisfied and return to study.
 
-If **YES**, identify the exact decision and only then open the smallest Forecast scope needed for that decision.
+If system logic has a concrete maturity gap, repair only that gap even when Kian-specific parameters remain UNKNOWN.
+
+If only personal parameters are missing, stop maturity engineering and collect Real Learner U.
 
 ---
 
@@ -316,25 +319,34 @@ If **YES**, identify the exact decision and only then open the smallest Forecast
 
 ### Opening gate — hard requirement
 
-E5 is conditional, not sequential.
+E5 is conditional, not sequential, and has two acceptance layers.
 
-Open E5 only when both are true:
+#### Layer A — Forecast SYSTEM_LOGIC_ACCEPTED
 
-1. a real decision needs workload / uncertainty / sensitivity information now; and
-2. enough learner evidence exists that Forecast can materially reduce uncertainty rather than restating priors.
+May open before Real Learner U if a real gap exists in the ability to represent:
 
-Typical minimum evidence before serious E5 work:
+- remaining workload;
+- uncertainty;
+- sensitivity;
+- decision-flip surfaces;
+- highest-value next evidence;
+- score-path confidence;
+- workload confidence.
+
+UNKNOWN learner parameters are allowed. Fake precision is not.
+
+#### Layer B — KIAN_SPECIFIC Forecast calibration
+
+Requires real learner evidence such as:
 
 - current Objective residual performance after/alongside Lexical reactivation;
-- at least one cold complete Translation;
-- at least one cold Small Writing;
-- at least one cold Big Writing;
+- cold complete Translation;
+- cold Small Writing;
+- cold Big Writing;
 - observed task durations;
-- an initial delayed Lexical retention trajectory.
+- delayed Lexical retention.
 
-If these are missing, E5 remains **DEFERRED TO REAL LEARNER U**.
-
-Forecast may still use lightweight qualitative priors in Chat; that does not authorize building a mature Forecast system.
+Do not block Layer-A system validation merely because Layer-B data does not exist. Do not pretend Layer-B is calibrated from priors.
 
 ### Goal
 
