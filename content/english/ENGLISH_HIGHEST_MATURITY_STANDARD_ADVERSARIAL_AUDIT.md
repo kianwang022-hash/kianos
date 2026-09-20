@@ -328,3 +328,76 @@ Next:
 3. run one more English-specific self-attack;
 4. only then derive stage tasks / Gap Matrix;
 5. implementation starts after the English standard is stable enough to judge work.
+
+
+---
+
+# Round 2 — Current-product cross-boundary attack
+
+## E16｜Whole-paper formal evidence can lose contamination/assistance context — MATERIAL
+
+Current whole-paper runtime correctly seals exact section work and releases exact Objective scoring. But formal whole-paper evidence must also preserve or reconcile the **constituent material exposure and assistance status**.
+
+All-green failure:
+
+- paper score = 92;
+- runtime identity / Seal / objective key are all correct;
+- several constituent Reading/Cloze items were previously exposed or Chat-assisted;
+- final score packet is interpreted as clean formal calibration.
+
+Requirement:
+
+A whole-paper score claim must state, per paper or constituent task as needed:
+
+- prior exposure / unknown exposure;
+- assistance;
+- source revision;
+- which parts are eligible for clean calibration;
+- whether contamination widens the total score band.
+
+Exact scoring correctness does not equal fresh-score validity.
+
+---
+
+## E17｜Bounded Daily Packet can hide long-horizon mechanism recurrence — MATERIAL
+
+Current English packet design intentionally carries only bounded recent exact attempts plus fixed-size all-history task summaries. This is good for attention/performance, but it creates a compression risk.
+
+All-green failure:
+
+- a Reading inference defect recurred several times three weeks ago;
+- recent 8 Reading attempts do not show it;
+- history summary still reports only task-level problem counts;
+- Fresh Chat concludes the mechanism is absent.
+
+Requirement:
+
+- bounded packets remain the default;
+- they must preserve enough long-horizon signal to detect decision-relevant recurrence, or expose a trigger for a deeper targeted review/export;
+- truncation must be visible;
+- Chat must not infer “mechanism absent” from “not present in recent exact window”.
+
+The solution must remain bounded; sending full raw history every day is not maturity.
+
+---
+
+## E18｜Whole-paper integrated score may be impossible to calibrate with one clean paper — MATERIAL
+
+Because official material exposure is substantial, the maturity standard must allow a valid wider-confidence **composite calibration** when no sufficiently clean complete paper remains.
+
+Possible evidence:
+
+- clean/low-contamination Objective slices;
+- independently scored Translation/Writing;
+- separate whole-paper timing/fatigue execution;
+- explicit contamination uncertainty.
+
+This is weaker than one clean fully integrated paper and must be labeled accordingly, but the system must not burn scarce material or fabricate cleanliness merely to satisfy a “one formal full paper” ritual.
+
+---
+
+## Round 2 verdict
+
+The adapted standard remains **CANDIDATE**.
+
+E16–E18 must be added before deriving the final stage Gap Matrix.
