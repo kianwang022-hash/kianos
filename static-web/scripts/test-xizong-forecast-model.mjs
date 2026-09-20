@@ -243,6 +243,7 @@ function baseProgress() {
   assert.equal(readiness.formal_score.status,'EMPIRICAL_BAND_CONTAMINATION_UNKNOWN');
   assert.equal(readiness.formal_score.score_extrapolation_ready,false);
   assert.equal(readiness.evidence_readiness.result,'SCORE_EVIDENCE_PRESENT_LOW_CONFIDENCE');
+  assert.equal(readiness.formal_score.calibration_band,null);
   assert.ok(readiness.formal_score.empirical_band.p20<=readiness.formal_score.empirical_band.p50);
   assert.ok(readiness.formal_score.empirical_band.p50<=readiness.formal_score.empirical_band.p80);
   assert.equal(readiness.capabilities.precision.evidence_status,'SELECTIVE_EVIDENCE_PRESENT');
@@ -274,7 +275,21 @@ function baseProgress() {
   });
   assert.equal(leastContaminated.formal_score.status,'EMPIRICAL_BAND_LOW_CONTAMINATION');
   assert.equal(leastContaminated.formal_score.score_extrapolation_ready,true);
+  assert.ok(leastContaminated.formal_score.calibration_band);
   assert.equal(leastContaminated.evidence_readiness.result,'SCORE_ESTIMATE_EVIDENCE_USABLE');
+}
+
+{
+  const twoProtected=baseProgress();
+  twoProtected.formal_score_evidence.sealed_papers=twoProtected.formal_score_evidence.sealed_papers.slice(0,2);
+  const readiness=buildXizongScoreEvidence(twoProtected,{
+    targetScore:275,
+    contaminationStatus:'LEAST_CONTAMINATED'
+  });
+  assert.equal(readiness.formal_score.calibration_sample_count,2);
+  assert.equal(readiness.formal_score.calibration_band,null);
+  assert.equal(readiness.formal_score.score_extrapolation_ready,false);
+  assert.equal(readiness.evidence_readiness.result,'SCORE_EVIDENCE_PRESENT_LOW_CONFIDENCE');
 }
 
 {
