@@ -60,12 +60,44 @@ export function scoreXizongPaperResults(format, questions, results = {}) {
   };
 }
 
-export function sealXizongPaperState(state, summary, now = new Date().toISOString()) {
+export function sealXizongPaperState(
+  state,
+  summary,
+  now = new Date().toISOString(),
+  evidenceContext = null
+) {
+  const rawContext = evidenceContext && typeof evidenceContext === 'object' && !Array.isArray(evidenceContext)
+    ? evidenceContext
+    : {};
+  const format = rawContext.examFormat && typeof rawContext.examFormat === 'object' && !Array.isArray(rawContext.examFormat)
+    ? rawContext.examFormat
+    : null;
   return {
     ...(state && typeof state === 'object' ? state : {}),
     paperSeal: {
       sealedAt: String(now),
       reviewUnlockedAt: '',
+      evidenceContext: {
+        paperYear: Number.isInteger(Number(rawContext.paperYear)) ? Number(rawContext.paperYear) : null,
+        internalHoldoutProtectedBeforeSeal: rawContext.internalHoldoutProtectedBeforeSeal === true,
+        externalExposureStatus: String(rawContext.externalExposureStatus || 'UNKNOWN'),
+        scopeHash: String(rawContext.scopeHash || ''),
+        questionInventoryHash: String(rawContext.questionInventoryHash || ''),
+        examFormatSourceHash: String(rawContext.examFormatSourceHash || ''),
+        examFormat: format ? {
+          year: Number(format.year || 0),
+          era_id: String(format.era_id || ''),
+          question_count: Number(format.question_count || 0),
+          max_score: Number(format.max_score || 0),
+          scoring_segments: Array.isArray(format.scoring_segments)
+            ? format.scoring_segments.map((row) => ({
+                start: Number(row?.start || 0),
+                end: Number(row?.end || 0),
+                points: Number(row?.points || 0)
+              }))
+            : []
+        } : null
+      },
       summary: {
         answeredCount: Number(summary?.answeredCount || 0),
         correctCount: Number(summary?.correctCount || 0),
