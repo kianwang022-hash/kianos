@@ -27,7 +27,7 @@ const nextHref = translation.navigation?.nextId
   data-total={translation.navigation?.total || 1}
   data-base={base}
 >
-  <script type="application/json" data-english-task-snapshot set:html={JSON.stringify({evidence:{source_kind:translation.sourceKind||'official',evidence_role:translation.context?.evidence_role||null},material:translation.material,context:translation.context,prompts:translation.prompts.map(({id,ordinal,sourceText,instruction})=>({id,ordinal,sourceText,instruction}))}).replace(/</g, "\\u003c")}></script>
+  <script type="application/json" data-english-task-snapshot set:html={JSON.stringify({evidence:{source_kind:translation.sourceKind||'official',evidence_role:translation.context?.evidence_role||null,semantic_source_hash:translation.sourceHashes?.semanticSource||translation.sourceHashes?.renderedObject||null},material:translation.material,context:translation.context,prompts:translation.prompts.map(({id,ordinal,sourceText,instruction})=>({id,ordinal,sourceText,instruction}))}).replace(/</g, "\\u003c")}></script>
   <header class="translationHeader">
     <a class="translationBack" href={`${base}translation/`}>‹ Translation</a>
     <div>
