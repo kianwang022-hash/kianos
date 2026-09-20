@@ -1,0 +1,134 @@
+{
+  "schema": "kianos.xizong.exam_format_future_slot.v1",
+  "status": "BLOCKED_UNTIL_AUTHORITATIVE_2027_SOURCE",
+  "slot_id": "xizong-exam-format-2027",
+  "exam_year": 2027,
+  "purpose": "Bind authoritative 2027 clinical-medicine comprehensive exam geometry without inheriting 2017-2026 scoring rules as Current truth.",
+  "owner_boundary": {
+    "slot_owner": "content/xizong/questions/exam-format-2027-slot.json",
+    "historical_owner": "content/xizong/questions/exam-format.json",
+    "question_truth_owner": "content/xizong/questions/shards/**",
+    "rule": "This slot owns only the unreleased/unrecovered 2027 format identity and delta. Historical scoring remains in exam-format.json; question/answer truth remains in canonical question shards."
+  },
+  "historical_baseline": {
+    "era_id": "CLINICAL_MEDICINE_COMPREHENSIVE_165",
+    "years": [
+      2017,
+      2026
+    ],
+    "question_count": 165,
+    "max_score": 300,
+    "scoring_segments": [
+      {
+        "start": 1,
+        "end": 40,
+        "points": 1.5
+      },
+      {
+        "start": 41,
+        "end": 115,
+        "points": 2
+      },
+      {
+        "start": 116,
+        "end": 135,
+        "points": 1.5
+      },
+      {
+        "start": 136,
+        "end": 165,
+        "points": 2
+      }
+    ],
+    "role": "PLANNING_PRIOR_ONLY_NOT_2027_CURRENT_TRUTH"
+  },
+  "authoritative_source_contract": {
+    "accepted_authority": [
+      "Ministry of Education / official national graduate-admissions authority",
+      "China Graduate Admissions Information Network (CHSI) official notice/outline",
+      "official 2027 examination outline or equivalent primary rule publication"
+    ],
+    "rejected_as_final_authority": [
+      "teacher summary without primary citation",
+      "training-provider repost alone",
+      "historical 2026 paper shape",
+      "model inference"
+    ],
+    "required_identity": [
+      "publisher/authority",
+      "publication title",
+      "publication date",
+      "source URL or stable document identity",
+      "revision/version if present",
+      "content hash or equivalent stable revision identity"
+    ]
+  },
+  "fidelity_validation": [
+    "question_count",
+    "max_score",
+    "question numbering/ranges",
+    "points per scoring segment",
+    "question-type/segment boundaries when published",
+    "track identity (clinical medicine comprehensive)",
+    "year/version identity",
+    "any explicit duration/modality rule that changes execution evidence"
+  ],
+  "delta_contract": {
+    "classes": [
+      "PRESERVE",
+      "UPDATE",
+      "NEW",
+      "RETIRE",
+      "CONFLICT"
+    ],
+    "comparison_order": [
+      "bind authoritative 2027 source identity",
+      "compare field-by-field with 2017-2026 historical baseline",
+      "classify geometry delta before changing Runtime or Forecast",
+      "update the responsible historical/current exam-format owner only after validation",
+      "reprice score/loss/workload consequences after the geometry delta is known"
+    ],
+    "no_silent_inheritance": true
+  },
+  "downstream_invalidation": {
+    "review_when_geometry_changes": [
+      "whole-paper scoring runtime",
+      "whole-paper paper/format identity",
+      "historical score-to-current calibration band",
+      "275/270 loss-envelope geometry",
+      "discipline point priors",
+      "humanities exact-number boundary if numbering changes",
+      "official question-scope workload assumptions",
+      "whole-paper timing/execution evidence",
+      "Forecast capacity and score interpretation",
+      "Chat plan or Resume that encodes stale whole-paper geometry",
+      "Stage-D / X9 readiness claim"
+    ],
+    "evidence_policy": [
+      "PRESERVE",
+      "MIGRATE",
+      "STALE",
+      "INVALID"
+    ],
+    "rule": "Historical score observations remain historical facts but cannot authorize Current-format score extrapolation after a geometry revision unless explicitly reclassified."
+  },
+  "fallback": {
+    "late": "Continue using the 2017-2026 165/300 structure only as an explicit historical planning prior; keep Current 2027 geometry UNKNOWN.",
+    "partial": "Bind only verified fields. Any missing question-count/segment/points/modality field remains UNKNOWN and cannot be inferred from 2026.",
+    "second_version": "Treat the newer official version as a semantic revision; rerun field delta and downstream invalidation before Current authorization.",
+    "never_arrives": "Use the best accepted historical prior for planning, preserve Current-format uncertainty, and do not create a precise Current calibration band.",
+    "low_confidence_conflict": "Prefer primary authority; keep conflicting field BLOCKED until resolved rather than averaging sources."
+  },
+  "forecast_contract": {
+    "before_arrival": "Historical 165/300 may support broad planning/stress tests only. Current-format score calibration remains unavailable.",
+    "after_arrival": "Forecast may consume verified geometry and matching-format score evidence; it still cannot choose learner actions or cross-subject allocation."
+  },
+  "current_state": {
+    "authoritative_2027_source_present": false,
+    "current_format_source_hash": null,
+    "exact_question_count": null,
+    "exact_max_score": null,
+    "exact_scoring_segments": null,
+    "action_now": "WAIT_FOR_AUTHORITATIVE_2027_FORMAT_SOURCE"
+  }
+}
