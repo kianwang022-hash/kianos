@@ -43,6 +43,16 @@ M10 current-year annual sources                 SOURCE GATED
 
 Earlier T1–T4 artifacts remain useful exact owners, but they no longer justify a broad STOP by themselves.
 
+Fresh audit candidate is sealed and immutable for M7:
+
+```text
+audit/politics-maturity-freeze-20260921
+@ 9da838f38dd025283407c9bf248e9fbf731adcaa
+```
+
+A PASS/FAIL may certify only that exact SHA. Any material semantic repair requires a new sealed candidate and a new fresh audit.
+
+
 ### T1 — Objective reconciliation
 
 Closed without rebuilding first-round Politics.
