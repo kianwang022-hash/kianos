@@ -394,16 +394,16 @@ This package coordinates; exact owners still own truth.
 
 # 10｜Current Stage-A exit checklist
 
-- [ ] 2027 exam scope/geometry Current or explicitly BLOCKED with robust fallback
-- [ ] humanistic/non-System domain has exact owner or explicit BLOCKED risk
+- [x] 2027 exam scope/geometry is explicitly authority-BLOCKED with historical 165/300 fallback kept prior-only
+- [ ] humanistic/non-System domain has exact owner or bounded BLOCKED closure path
 - [ ] F exact System question scope closed
 - [ ] 2027 Biochemistry delta reconciled
-- [ ] case/狂背 net-new workload priced or explicitly future-UNKNOWN
-- [ ] current-year mocks/four-set slot and role defined
-- [ ] final-five-hour replacement/compression role defined
-- [ ] X1–X9 formation/evidence path complete
-- [ ] 25-point loss envelope reconciled
-- [ ] remaining UNKNOWNs are future Source or Real Learner U
+- [ ] case/狂背 net-new workload priced or explicitly reconciled as future-UNKNOWN
+- [x] current-year mocks/four-set slot and X9 role defined
+- [x] final-five-hour replacement/compression role defined
+- [x] X1–X9 formation/evidence paths defined at SYSTEM_LOGIC level
+- [ ] 25-point loss envelope reconciled beyond the neutral historical baseline
+- [ ] remaining UNKNOWNs are only future Source or Real Learner U
 
 When these hold:
 
