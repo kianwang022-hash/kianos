@@ -176,6 +176,22 @@ assert.equal(batchReport.items.filter(row=>row.status==='REJECT_FORMAT').length,
 const batchHold=batchReport.items.find(row=>row.status==='HOLD_INCOMPLETE_OR_UNCERTAIN_SOURCE');
 assert(batchHold?.source_id);
 
+const backendOnlyId='synthetic-backend-reference';
+const backendOnlyDir=path.join(batchOutput,backendOnlyId);
+const backendPackage=completePackage
+  .replace('title: Synthetic Source Article','title: Synthetic Backend Reference')
+  .replace('# Synthetic Source Article','# Synthetic Backend Reference')
+  .replace('https://example.invalid/source-article','https://example.invalid/backend-reference');
+const backendPackagePath=path.join(temp,'backend-reference-source-package.md');
+fs.writeFileSync(backendPackagePath,backendPackage,'utf8');
+const parseBackend=spawnSync('python3',[
+  path.join(repoRoot,'tools','english-external','parse_source_package.py'),
+  '--package',backendPackagePath,
+  '--source-id',backendOnlyId,
+  '--output-dir',backendOnlyDir
+],{encoding:'utf8'});
+assert.equal(parseBackend.status,0,parseBackend.stderr||parseBackend.stdout||'backend reference parser failed');
+
 const reviewPath=path.join(temp,'source-quality-review.json');
 fs.writeFileSync(reviewPath,JSON.stringify({
   schema:'kian.external-source-quality-review-batch.v1',
@@ -193,11 +209,33 @@ fs.writeFileSync(reviewPath,JSON.stringify({
       },
       reason_codes:['ORIGINAL_PUBLISHER','BODY_COMPLETE','TEXT_INTEGRITY_GOOD','PROVENANCE_BOUND'],
       evidence_notes:['Synthetic acceptance fixture for engineering proof.'],
+      learner_value:{
+        classification:'DEEP_READING_CANDIDATE',
+        runtime_admission:'ADMIT_TO_READING'
+      },
       runtime:{
         source_family:'FUTURE_INCREMENTAL',
         source_format:'SOURCE_PACKAGE_MARKDOWN',
         collection:'Synthetic Journal',
         completion_requirement:'READ_ONLY_OK'
+      }
+    },
+    {
+      source_id:backendOnlyId,
+      decision:'ACCEPT',
+      quality:{
+        authenticity:'A_AUTHORITY_OR_ORIGINAL',
+        completeness:'COMPLETE',
+        text_integrity:'CLEAN',
+        provenance:'BOUND',
+        visual_dependency:'NONE',
+        duplicate_relation:'UNIQUE'
+      },
+      reason_codes:['ORIGINAL_PUBLISHER','BODY_COMPLETE','TEXT_INTEGRITY_GOOD','PROVENANCE_BOUND'],
+      evidence_notes:['High-quality source that should remain backend-only.'],
+      learner_value:{
+        classification:'BACKEND_REFERENCE_ONLY',
+        runtime_admission:'BACKEND_REFERENCE_ONLY'
       }
     },
     {
@@ -221,7 +259,8 @@ assert.equal(promoteRun.status,0,promoteRun.stderr||promoteRun.stdout||'reviewed
 const promotionReport=JSON.parse(fs.readFileSync(promotionReportPath,'utf8'));
 assert.equal(promotionReport.schema,'kian.external-reviewed-source-promotion-report.v1');
 assert.equal(promotionReport.promoted,1);
-assert.equal(promotionReport.not_promoted,1);
+assert.equal(promotionReport.not_promoted,2);
+assert.equal(promotionReport.accepted_not_routed,1);
 const promotedRegistryPath=path.join(promotionSourceRoot,'INCREMENTAL','registry.json');
 const promotedRegistry=JSON.parse(fs.readFileSync(promotedRegistryPath,'utf8'));
 assert.equal(promotedRegistry.schema,'kian.external.incremental-registry.v1');
@@ -229,6 +268,10 @@ assert.equal(promotedRegistry.objects.length,1);
 assert.equal(promotedRegistry.objects[0].object_id,batchReady.source_id);
 assert.equal(fs.existsSync(path.join(promotionSourceRoot,'INCREMENTAL','packages',batchReady.source_id,'normalized','article.md')),true);
 assert.equal(fs.existsSync(path.join(promotionSourceRoot,'INCREMENTAL','packages',batchHold.source_id)),false);
+assert.equal(fs.existsSync(path.join(promotionSourceRoot,'INCREMENTAL','packages',backendOnlyId)),false);
+const backendReportRow=promotionReport.items.find(row=>row.source_id===backendOnlyId);
+assert.equal(backendReportRow?.status,'ACCEPTED_SOURCE_NOT_PROMOTED');
+assert.equal(backendReportRow?.learner_route,'BACKEND_REFERENCE_ONLY');
 
 const promotedManifestPath=path.join(promotionSourceRoot,'INCREMENTAL','manifest.json');
 const promotedBuild=spawnSync('python3',[
@@ -362,6 +405,7 @@ try{
     batch_duplicate_detection:'PASS',
     batch_no_auto_admission:'PASS',
     reviewed_accept_promotion:'PASS',
+    accepted_backend_reference_not_promoted:'PASS',
     hold_not_promoted:'PASS',
     promoted_manifest_builder:'PASS',
     incremental_object_hash_fail_closed:'PASS',
