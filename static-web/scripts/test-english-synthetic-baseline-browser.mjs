@@ -116,6 +116,7 @@ async function answerReading(page,row){
   check((await page.locator('[data-reading-score]').textContent())?.trim()==='5 / 5','reading_clean_pass');
   const state=await page.evaluate(id=>JSON.parse(localStorage.getItem('kianos-reading-attempt-v1:'+id)||'null'),row.id);
   check(state?.submitted===true&&state?.binding?.source_hash===task.sourceHashes.renderedObject,'reading_evidence_bound');
+  check(state?.binding?.source_kind==='synthetic'&&state?.binding?.evidence_role==='CALIBRATION','reading_synthetic_role_bound');
 }
 
 async function answerCloze(page,row){
@@ -133,6 +134,7 @@ async function answerCloze(page,row){
   check((await page.locator('[data-objective-score]').textContent())?.trim()==='20 / 20','cloze_clean_pass');
   const state=await page.evaluate(id=>JSON.parse(localStorage.getItem('kianos-cloze-attempt-v1:'+id)||'null'),row.id);
   check(state?.submitted===true&&state?.binding?.source_hash===task.sourceHashes.renderedObject,'cloze_evidence_bound');
+  check(state?.binding?.source_kind==='synthetic'&&state?.binding?.evidence_role==='CALIBRATION','cloze_synthetic_role_bound');
 }
 
 async function answerPartB(page,row){
@@ -150,6 +152,7 @@ async function answerPartB(page,row){
   check((await page.locator('[data-objective-score]').textContent())?.trim()==='5 / 5','part_b_clean_pass');
   const state=await page.evaluate(id=>JSON.parse(localStorage.getItem('kianos-reading-b-attempt-v1:'+id)||'null'),row.id);
   check(state?.submitted===true&&state?.binding?.source_hash===task.sourceHashes.renderedObject,'part_b_evidence_bound');
+  check(state?.binding?.source_kind==='synthetic'&&Boolean(state?.binding?.evidence_role),'part_b_synthetic_role_bound');
 }
 
 async function completeTranslation(page,row){
@@ -171,6 +174,7 @@ async function completeTranslation(page,row){
   check(await panel.locator('section').count()===5,'translation_reference_reveals_post_attempt');
   const state=await page.evaluate(id=>JSON.parse(localStorage.getItem('kianos-translation-attempt-v2:'+id)||'null'),row.id);
   check(state?.stage==='passed'&&state?.binding?.source_hash===task.sourceHashes.renderedObject,'translation_evidence_bound');
+  check(state?.binding?.source_kind==='synthetic'&&state?.binding?.evidence_role==='CALIBRATION','translation_synthetic_role_bound');
 }
 
 async function completeWriting(page,row){
@@ -184,6 +188,7 @@ async function completeWriting(page,row){
   await page.locator('[data-runtime-stage="passed"]').waitFor({state:'visible'});
   const state=await page.evaluate(id=>JSON.parse(localStorage.getItem('kianos-writing-runtime-v1:'+id)||'null'),row.id);
   check(state?.state==='PASS_ACCEPTABLE'&&Boolean(state?.firstDraft),'writing_expanded_prompt_executable');
+  check(state?.binding?.source_kind==='synthetic'&&state?.binding?.evidence_role==='TRANSFER','writing_synthetic_role_bound');
 }
 
 const reading=listSyntheticReadingSets()[0];
