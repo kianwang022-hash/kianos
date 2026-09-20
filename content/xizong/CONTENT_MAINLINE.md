@@ -75,7 +75,7 @@ Current durable restart:
 main@HEAD
 → content/xizong/CURRENT.md
 → content/xizong/CONTENT_MAINLINE.md
-→ Stage A maturity package / exact gap owner
+→ Stage B learner-capability evidence / exact owner
 → work
 ```
 
@@ -91,7 +91,7 @@ Current Stage-A result:
 
 - practical owner: `content/xizong/MATURITY_PACKAGE.md`;
 - 8 System / 159 Block / 2517 KP medical identity reconciled into the package;
-- A1–E exact official System-question scopes are represented; F remains unresolved;
+- A1–F exact official System-question scopes are CLOSED; F = 70 qids with zero A1–E overlap;
 - clinical humanities baseline is closed on main via `content/xizong/humanities/current.json` with H1–H4 compression, recall support, legal/source guardrails and exact 2017–2026 N108–N115 membership (80 qids total);
 - historical modern-paper humanities geometry remains 8 questions / 16 points per year; exact 2027 humanities scope remains upstream-BLOCKED;
 - 2027 exact question-count/scoring geometry remains authority-BLOCKED; historical 165/300 stays prior-only;
@@ -102,7 +102,7 @@ Current task state:
 1. **A1–F exact System-question membership = CLOSED**; F closed on main via PR #642 at 70 qids, with C repaired to 290 qids and zero F overlap with A1–E.
 2. **2027 Biochemistry delta = BLOCKED_UNTIL_27_SOURCE**; preserve the prior baseline and do not manufacture a current-year delta before the source exists.
 3. **2027 exam-format + humanities deltas = upstream-source BLOCKED** for the same reason.
-4. No executable Stage-A material/scope construction gap remains. The only remaining Stage-A work is structural loss-envelope closure and confirming that residual UNKNOWNs are Future Source or Real Learner U.
+4. No executable Stage-A material/scope construction gap remains. Structural loss-envelope closure is complete at system-logic level; residual UNKNOWNs are Future Source or Real Learner U.
 
 Late-stage material baseline is no longer an open construction task:
 - `xizong-26-late-stage-material-baseline.json` closes 26-cycle family identity/role/overlap baseline;
@@ -113,6 +113,30 @@ Late-stage material baseline is no longer an open construction task:
 Current-year exam geometry and humanities-scope deltas remain explicit upstream-BLOCKED inputs and do not justify new architecture work.
 
 Stage A is closed because current executable scope/material gaps are closed or explicitly Future-Source blocked. Do not reopen it merely because learner evidence is still UNKNOWN; that belongs to Stage B/Stage E.
+
+## Stage B operating rule — Real-U led
+
+Stage B is not another repository-completion program.
+
+Primary loop:
+
+```text
+real first-pass study
+→ X1–X4 formation evidence + X6 official-question evidence
+→ identify the smallest binding capability / defect
+→ smallest justified Repair
+→ changed-context / delayed evidence when decision-relevant
+→ recalibrate
+```
+
+Rules:
+
+- missing Real Learner U remains `UNKNOWN`; it is not permission to create more synthetic maturity machinery;
+- a System/Block becomes heavier again only when newer learner evidence exposes a real capability failure;
+- accepted Website / Home / learner-state architecture stays frozen under Gate 5;
+- shared Runtime may reopen only for a concrete learner-visible defect or a genuinely missing factual sensor that changes a learning decision;
+- Xizong may expose workload, binding capability and risk, but cross-subject capacity allocation remains upstream Chat-owned;
+- when the next meaningful uncertainty depends on real study or future Source rather than missing system logic, **stop building and use the system**.
 
 ---
 
