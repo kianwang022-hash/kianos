@@ -55,6 +55,47 @@ Score
 → smallest responsible owner
 ```
 
+### Subject-adaptation authority
+
+The shared Exam Subject Maturity Standard defines the **questions Xizong must answer**. It does not prescribe Xizong's implementation topology or force another subject's stage sequence.
+
+Xizong owns its own adaptation:
+
+```text
+shared highest-bar questions
+→ Xizong-specific 270/275 loss model
+→ Xizong X1–X9 capability model
+→ Xizong Stage A/B/C/D + continuous Stage E
+→ bounded supporting lanes
+→ one integrated maturity judgment
+```
+
+Do not substitute the legacy S/K/L/P/R/E engineering gate chain for this subject-native maturity model.
+
+### Maturity program lanes
+
+The Xizong maturity program coordinates four distinct lanes that must not take over one another:
+
+1. **Subject maturity / capability control — THIS MAINLINE**
+   - owns 270/275 score logic, X1–X9, stage transitions, gap prioritization and integrated stop/reopen judgment;
+   - consumes results from the other lanes.
+
+2. **Content / Material Closure — bounded supporting lane**
+   - owns Source / Knowledge / material / official-question coverage / current-year delta / case-transfer / precision-visual gaps;
+   - returns a Material Gap Matrix and bounded closure results;
+   - does **not** own Forecast, daily strategy or the overall maturity stage.
+
+3. **Forecast / Capacity — PR #631 supporting lane**
+   - prices accepted workload/evidence inputs and exposes uncertainty / sensitivity / flip surfaces;
+   - does **not** choose the next learning action or declare subject maturity by itself.
+
+4. **Execution readiness + Real U**
+   - existing S/K/L/P/R/E owners are invoked only when a maturity-selected learner action cannot execute safely;
+   - Real Learner U continuously recalibrates the subject model;
+   - neither engineering completeness nor missing engineering symmetry defines the maturity order.
+
+The top-level maturity Chat therefore waits for bounded lane outputs; it does not follow each lane's internal construction sequence.
+
 Current known Stage-A facts to preserve:
 
 - D / E / F medical Content is closed; do not reopen it merely because a downstream gap exists;
