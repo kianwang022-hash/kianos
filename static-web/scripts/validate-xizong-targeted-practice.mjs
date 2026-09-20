@@ -68,6 +68,16 @@ try {
 } catch { rejected = true; }
 assert(rejected, 'probe-requires-canonical-target');
 
+rejected = false;
+try {
+  normalizeXizongInlinePracticeQuestions([
+    probeRaw,
+    { ...probeRaw, question_id: 'xizong-ai-probe:circulation-b01-kp01-002' },
+    { ...probeRaw, question_id: 'xizong-ai-probe:circulation-b01-kp01-003' }
+  ], 'TEST_BURDEN_CAP');
+} catch { rejected = true; }
+assert(rejected, 'probe-burden-cap-must-reject-third-inline-question');
+
 const storage = new Storage();
 const day = '2026-09-20';
 const generatedAt = '2026-09-20T01:00:00.000Z';
