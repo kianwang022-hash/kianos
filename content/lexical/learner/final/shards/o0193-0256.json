@@ -1321,7 +1321,7 @@
     "ordinal": 206,
     "word": "annual",
     "source_owner_path": "content/lexical/words/by-ordinal/o0206.json",
-    "source_fingerprint": "ace57626b7b667e984ff6a48a2631687a4bf893ec565df867d669b5c0f069359",
+    "source_fingerprint": "3d54a60974c0e8e76f33cf542932c13cafdbfdd43943357d7e8344fbfb4c0a6e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1672,7 +1672,7 @@
     "ordinal": 209,
     "word": "answer",
     "source_owner_path": "content/lexical/words/by-ordinal/o0209.json",
-    "source_fingerprint": "6b8b37073ae488ae7a1ea3c660c85bf9aea491e64b512b1006e466973a637b53",
+    "source_fingerprint": "587b8770cec4df470fc9a184171759a5c29704e7db41ade87ccbfc45e34c8ea0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1821,23 +1821,6 @@
       "confusables": [],
       "relations": [
         {
-          "title": "answer ↔ respond",
-          "target_word": "respond",
-          "lines": [
-            {
-              "text": "give a verbal or behavioral response",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:a7e173e36c65e09ea997",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "answer ↔ respond"
-          }
-        },
-        {
           "title": "answer ↔ answer ↔ reply/respond",
           "target_word": "answer ↔ reply/respond",
           "lines": [
@@ -1850,7 +1833,7 @@
           "repair": {
             "target_kind": "relation",
             "target_id": "relation:horizontal:643d786d27f9bc58c610",
-            "target_locator": "record.semantic_neighbors[1]",
+            "target_locator": "record.semantic_neighbors[0]",
             "target_label": "answer ↔ answer ↔ reply/respond"
           }
         }
@@ -2221,7 +2204,7 @@
     "ordinal": 213,
     "word": "antique",
     "source_owner_path": "content/lexical/words/by-ordinal/o0213.json",
-    "source_fingerprint": "f37955cccf151d58a80a99c630b6dbb5ed575f5bae47c2723305098977068a97",
+    "source_fingerprint": "cc784909927eef9cf69ee6147cc1d0ba92f72f98c96fd6c70994a5303aae95e0",
     "sense_lineage": [
       {
         "word_id": "word:antique",
@@ -2306,29 +2289,7 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:antique:handoff-2f96350c02b3ca42",
-        "source_locator": "record.constructions[0]",
-        "pattern": "an antique; antique furniture",
-        "lines": [
-          {
-            "text": "古董；古老且有收藏价值的",
-            "lang": "cn"
-          },
-          {
-            "text": "an old collectible object or something old and valued",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:antique:handoff-2f96350c02b3ca42",
-          "target_locator": "record.constructions[0]",
-          "target_label": "an antique; antique furniture"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -2603,7 +2564,7 @@
     "ordinal": 216,
     "word": "any",
     "source_owner_path": "content/lexical/words/by-ordinal/o0216.json",
-    "source_fingerprint": "30c4657d25cf1683ec4babb08890a121a36434bcbd1e1cac88ec944f79051e29",
+    "source_fingerprint": "16652aa8f24c491b8f682a85d2d2c770d417773fb862eb9dd9913b998809e3af",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2614,13 +2575,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "任何",
-      "decision_cn": "",
+      "summary_cn": "非特指或自由选择的“任何/一些”；副词 any 表程度",
+      "decision_cn": "疑问、否定和条件语境中 any 通常表示非特指；肯定句中可表示“任意一个/无论哪个”；副词 any 表“在任何程度/稍微”。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "任何"
+        "target_label": "非特指或自由选择的“任何/一些”；副词 any 表程度"
       }
     },
     "senses": [
@@ -2779,7 +2740,7 @@
     "ordinal": 217,
     "word": "anybody",
     "source_owner_path": "content/lexical/words/by-ordinal/o0217.json",
-    "source_fingerprint": "e9ad1955084f8c2849acfa059180ae032c9c54cd068670ead9af8a6f08747152",
+    "source_fingerprint": "54d8f06b37d8486dd35830eb3af19fc6d2148775a07ad75c9eefb1fab343f5bd",
     "sense_lineage": [
       {
         "word_id": "word:anybody",
@@ -2796,13 +2757,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "任何人；重要人物",
-      "decision_cn": "",
+      "summary_cn": "任何人",
+      "decision_cn": "非特指的任何人；“重要人物”旧义仅保留在 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "任何人；重要人物"
+        "target_label": "任何人"
       }
     },
     "senses": [
@@ -2842,29 +2803,7 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:anybody:handoff-76f7148ddf2710b5",
-        "source_locator": "record.constructions[0]",
-        "pattern": "be anybody",
-        "lines": [
-          {
-            "text": "成为重要人物（参考层）",
-            "lang": "cn"
-          },
-          {
-            "text": "rare noun use meaning a person of importance; reference-level",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:anybody:handoff-76f7148ddf2710b5",
-          "target_locator": "record.constructions[0]",
-          "target_label": "be anybody"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -3484,7 +3423,7 @@
     "ordinal": 223,
     "word": "apartment",
     "source_owner_path": "content/lexical/words/by-ordinal/o0223.json",
-    "source_fingerprint": "36091714b06869bc93b4febab29cdb66f3e8ee20036ee11862d08830b3672ef0",
+    "source_fingerprint": "33ac5627c798e637a70bba21294a4d6af73ffc19bf72a6ed1f46e6cb417a46a4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3539,32 +3478,36 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:apartment:handoff-9420ad66fc9686a8",
-        "source_locator": "record.constructions[0]",
-        "pattern": "apartment / flat",
-        "lines": [
-          {
-            "text": "美式 apartment；英式 flat",
-            "lang": "cn"
-          },
-          {
-            "text": "regional lexical equivalents for a self-contained dwelling",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:apartment:handoff-9420ad66fc9686a8",
-          "target_locator": "record.constructions[0]",
-          "target_label": "apartment / flat"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [],
+      "relations": [
+        {
+          "title": "apartment ↔ flat",
+          "target_word": "flat",
+          "lines": [
+            {
+              "text": "apartment is the standard everyday term in American English; flat is the standard everyday term in British English for the same kind of self-contained dwelling.",
+              "lang": "en"
+            },
+            {
+              "text": "AmE apartment ↔ BrE flat：同类自成一体的住宅单位，主要差别是地区用词。",
+              "lang": "cn"
+            },
+            {
+              "text": "美式英语通常用 apartment；英式英语通常用 flat。",
+              "lang": "cn"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:final-standard:apartment-flat:regional_choice",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "apartment ↔ flat"
+          }
+        }
+      ],
       "form": null,
       "family": []
     }
@@ -4079,7 +4022,7 @@
     "ordinal": 229,
     "word": "apparent",
     "source_owner_path": "content/lexical/words/by-ordinal/o0229.json",
-    "source_fingerprint": "bef2fe3afc1adde7668d6e48a41e62d32c606c73a2da2e428ac30ad3fdf6cd07",
+    "source_fingerprint": "6bb20eee2a4699fc5634db6a4dc2e55bdcbdf903df2908bea0eea0890133d0e2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4167,29 +4110,8 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "construction:apparent:handoff-ccce9ce748100dc1",
-        "source_locator": "record.constructions[0]",
-        "pattern": "apparent = clear vs seeming",
-        "lines": [
-          {
-            "text": "明显的；表面上如此但未必真实的",
-            "lang": "cn"
-          },
-          {
-            "text": "clear or seeming but not necessarily real",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:apparent:handoff-ccce9ce748100dc1",
-          "target_locator": "record.constructions[0]",
-          "target_label": "apparent = clear vs seeming"
-        }
-      },
-      {
         "id": "construction:apparent:handoff-7098c2e1850d07d4",
-        "source_locator": "record.constructions[1]",
+        "source_locator": "record.constructions[0]",
         "pattern": "it is apparent that ...",
         "lines": [
           {
@@ -4204,7 +4126,7 @@
         "repair": {
           "target_kind": "construction",
           "target_id": "construction:apparent:handoff-7098c2e1850d07d4",
-          "target_locator": "record.constructions[1]",
+          "target_locator": "record.constructions[0]",
           "target_label": "it is apparent that ..."
         }
       }
@@ -4222,7 +4144,7 @@
     "ordinal": 230,
     "word": "appeal",
     "source_owner_path": "content/lexical/words/by-ordinal/o0230.json",
-    "source_fingerprint": "bafd4e7a9f3b087e8cb9b43aa5da244133e218bb4f708ed3d55efbb455da6f62",
+    "source_fingerprint": "4106c9ea2ee0e28c326626a782d9cdff8c1284ab5d1e57b4cae94f13dfdad8e7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4233,7 +4155,7 @@
     },
     "word_feel": {
       "summary_cn": "吸引；请求；诉诸依据；法律上诉",
-      "decision_cn": "",
+      "decision_cn": "appeal to sb for sth → 请求；appeal to sb → 吸引；appeal to reason/evidence → 诉诸；appeal against a decision / to a higher court → 上诉。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -4441,28 +4363,24 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "deep:constructions:appeal:a483213d6acb6a4b",
+        "id": "construction:appeal:request",
         "source_locator": "record.constructions[0]",
-        "pattern": "vi. + to",
+        "pattern": "appeal to sb for sth",
         "lines": [
           {
-            "text": "呼吁；恳求",
+            "text": "向某人呼吁/请求某事",
             "lang": "cn"
           },
           {
-            "text": "appeal to sb 向某人呼吁",
-            "lang": "cn"
-          },
-          {
-            "text": "to make a serious or urgent request for help or support",
+            "text": "make a serious or urgent request to someone for something",
             "lang": "en"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "deep:constructions:appeal:a483213d6acb6a4b",
+          "target_id": "construction:appeal:request",
           "target_locator": "record.constructions[0]",
-          "target_label": "vi. + to"
+          "target_label": "appeal to sb for sth"
         }
       },
       {
@@ -4910,7 +4828,7 @@
     "ordinal": 233,
     "word": "appendix",
     "source_owner_path": "content/lexical/words/by-ordinal/o0233.json",
-    "source_fingerprint": "d9e81d86fe298017f1c9734fe630d5b3f73b030b6506355057b6330d2304ec42",
+    "source_fingerprint": "13d377f6097f470c5d08be57cbf5322edf506a58ddee1f75180aecadb09678f1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4977,16 +4895,7 @@
         "definition_en": "a small tube-shaped organ attached to the large intestine",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:376b098b15afcc69a95c",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "appendicitis",
-            "meaning_cn": "阑尾炎",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:appendix:1e905f01387d53a0",
@@ -5563,7 +5472,7 @@
     "ordinal": 240,
     "word": "application",
     "source_owner_path": "content/lexical/words/by-ordinal/o0240.json",
-    "source_fingerprint": "9e6bfb6abc9413aa002d637d353457afba1cc7251f5cbe995d7cd4ca8a72f5df",
+    "source_fingerprint": "8ef35be3fa2eb65676da5c78c0ef6399274e05425d078da368fc4fe144477a17",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5716,8 +5625,16 @@
           "target_word": "applicable",
           "lines": [
             {
-              "text": "applicable 可应用的",
+              "text": "可适用的；相关的",
               "lang": "cn"
+            },
+            {
+              "text": "application（应用/适用）→ applicable（可适用的；相关的）：前者是应用/申请行为或结果，后者描述某规则、方法或信息能否适用于当前对象。",
+              "lang": "cn"
+            },
+            {
+              "text": "able to be applied or relevant to a particular case or situation",
+              "lang": "en"
             }
           ],
           "source_locator": "record.word_family[1]"
@@ -6472,7 +6389,7 @@
     "ordinal": 245,
     "word": "appreciate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0245.json",
-    "source_fingerprint": "f8ecfdc2da57497105153a0ff2a4830549f27126ba20e6d8edfa5c0ab154ace5",
+    "source_fingerprint": "673227565f5b1cc7ddd432344b3bbf3141ecbffd380e313ef8831204037e6e4d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6647,8 +6564,16 @@
           "target_word": "appreciative",
           "lines": [
             {
-              "text": "appreciate 动词，appreciative 形容词",
+              "text": "感激的；欣赏的；表示认可的",
               "lang": "cn"
+            },
+            {
+              "text": "appreciate（欣赏/感激）→ appreciative（表示感激、欣赏或认可的）",
+              "lang": "cn"
+            },
+            {
+              "text": "feeling or showing gratitude, appreciation, or recognition of value",
+              "lang": "en"
             }
           ],
           "source_locator": "record.word_family[0]"
@@ -6662,7 +6587,7 @@
     "ordinal": 246,
     "word": "approach",
     "source_owner_path": "content/lexical/words/by-ordinal/o0246.json",
-    "source_fingerprint": "39869a5d09e2eff50760c3954ce83f843a1a515ef58b0cd30bb3f4c42561dc00",
+    "source_fingerprint": "e8e908a8b7374a7feb1ad93b66e69ae3cfcae14a725cdf3cb6b227197e6a1397",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6854,7 +6779,7 @@
               "lang": "cn"
             },
             {
-              "text": "approach → approachable：表示人容易接近/交流，或对象容易接近、处理。",
+              "text": "approach（接近/接洽）→ approachable：表示人容易接近或交流，或对象容易接近、处理。",
               "lang": "cn"
             },
             {
@@ -7217,7 +7142,7 @@
     "ordinal": 249,
     "word": "approve",
     "source_owner_path": "content/lexical/words/by-ordinal/o0249.json",
-    "source_fingerprint": "7b88724b73fd74de24aae677c23232b25baed921c853c2ade9df5260a0974c96",
+    "source_fingerprint": "bd1999cc79b9b486c022a2752038c9bd9cf4ed2d8f484a714f1f0ecc4fcbacc1",
     "sense_lineage": [
       {
         "word_id": "word:approve",
@@ -7333,8 +7258,16 @@
           "target_word": "approval",
           "lines": [
             {
-              "text": "approve动词，approval名词",
+              "text": "批准；认可",
               "lang": "cn"
+            },
+            {
+              "text": "approve（正式批准/核准）→ approval（正式批准；认可）",
+              "lang": "cn"
+            },
+            {
+              "text": "official permission or acceptance",
+              "lang": "en"
             }
           ],
           "source_locator": "record.word_family[0]"
@@ -7820,7 +7753,7 @@
     "ordinal": 254,
     "word": "arch",
     "source_owner_path": "content/lexical/words/by-ordinal/o0254.json",
-    "source_fingerprint": "5466fb742fa00f69b20c1e1e2c048e79fa26ea3aa1781d0fcd37f6a3718b828e",
+    "source_fingerprint": "4b08eff49702236dc8c370810d1515326c7d634bad2d1416d916c98d8105464f",
     "sense_lineage": [
       {
         "word_id": "word:arch",
@@ -7986,29 +7919,7 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:arch:handoff-3223d91bacff9bc2",
-        "source_locator": "record.constructions[0]",
-        "pattern": "arch = curve; arch foot; arch as verb",
-        "lines": [
-          {
-            "text": "拱形；足弓；弯成拱形",
-            "lang": "cn"
-          },
-          {
-            "text": "a curved structure or form a curve into an arch",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:arch:handoff-3223d91bacff9bc2",
-          "target_locator": "record.constructions[0]",
-          "target_label": "arch = curve; arch foot; arch as verb"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -8022,7 +7933,7 @@
     "ordinal": 255,
     "word": "archeology",
     "source_owner_path": "content/lexical/words/by-ordinal/o0255.json",
-    "source_fingerprint": "ac701c2144452f8746947ea7cd549e6b7309c8f108198af2729450b3386ed580",
+    "source_fingerprint": "33def888c714fd46e45176dc9229c75edfba30bc0d6143732be4ede4ef49130e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8085,26 +7996,40 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "archeology ↔ archaeology ↔ archeology",
-          "target_word": "archaeology ↔ archeology",
-          "lines": [
-            {
-              "text": "archaeology is the common/preferred modern spelling; archeology is accepted but uncommon.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:410e0b7e24331eccd78b",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "archeology ↔ archaeology ↔ archeology"
+      "relations": [],
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "archaeology",
+            "condition": "preferred modern spelling",
+            "note": "common/preferred spelling"
+          },
+          {
+            "surface": "archeology",
+            "condition": "accepted variant",
+            "note": "accepted but uncommon spelling"
           }
+        ],
+        "variants": [
+          {
+            "pos": [],
+            "reading": "",
+            "ipa": ""
+          },
+          {
+            "pos": [],
+            "reading": "",
+            "ipa": ""
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
         }
-      ],
-      "form": null,
+      },
       "family": []
     }
   },
