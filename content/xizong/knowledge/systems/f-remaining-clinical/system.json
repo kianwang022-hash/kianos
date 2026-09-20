@@ -97,14 +97,16 @@
     "visual_rule": "When a current exam fact is genuinely spatial/table-dependent, original Source remains the visual truth. System Knowledge may encode the reasoning role but may not fabricate a complete visual table from model prior.",
     "exact_gap_rule": "Bounded unresolved exact facts stay explicit and fail-closed. Their absence does not authorize deletion from scope or model backfill."
   },
-  "mission": "Handle non-organ-specific acute disturbance and medical intervention by identifying the ongoing harmful input and immediate physiologic threat, stabilizing vital function, terminating or containing the disturbance, applying bounded specific control, then monitoring intervention risk and recovery deviation—while delegating organ-specific physiology/pathology to their real owners.",
+  "mission": "Handle two related but non-identical F contexts: (1) non-organ-specific acute disturbances with a harmful input/tissue injury that may need containment or removal, and (2) planned/ongoing medical interventions whose safety depends on urgency, physiologic reserve, intended function/space and support. Across both, identify immediate threat, preserve vital function, apply only context-appropriate causal/specific control, anticipate iatrogenic risk, and distinguish expected recovery from deviation—while delegating organ-specific physiology/pathology to their real owners.",
   "mental_model": {
-    "shape": "DISTURBANCE_CONTROL_RECOVERY_NETWORK_WITH_LOW_CONNECTIVITY_TAIL",
-    "disturbance_layer": "toxic exposure / contamination / open injury / thermal injury / surgery / anesthesia / procedure",
+    "shape": "DUAL_CONTEXT_DISTURBANCE_AND_INTERVENTION_SAFETY_NETWORK_WITH_LOW_CONNECTIVITY_TAIL",
+    "context_split": "F1–F4 are primarily acute-disturbance control; F5–F8 are primarily planned/ongoing intervention safety and recovery. They share coordinates, not one mandatory serial workflow.",
+    "acute_disturbance_branch": "toxic exposure / contamination / open injury / thermal injury → immediate threat → vital support + source/removal control when applicable → bounded specific control → treatment-created risk → recovery/deviation",
+    "planned_intervention_branch": "urgency + physiologic reserve → intended surgery/anesthetic function and action space → vital support/monitoring during intervention → iatrogenic risk → recovery/deviation",
     "threat_layer": "airway, ventilation/oxygenation, circulation/perfusion, consciousness/neuromuscular function, barrier/tissue integrity and organ reserve",
-    "control_layer": "stop exposure or contamination → stabilize life-threatening function → causal/specific control or safe procedure → organ support",
+    "control_layer": "support and causal/specific control are distinct, context-dependent responsibilities. Active harmful sources are terminated/contained when present; planned surgery/anesthesia is optimized and safely executed rather than treated as a source to stop.",
     "intervention_risk_layer": "treatment itself can create new hazards: anesthesia depth/airway, blockade level, fluid strategy, wound closure, medication or procedural complications",
-    "recovery_layer": "expected time-course vs deviation → detect complication/source failure → escalate",
+    "recovery_layer": "expected time-course vs deviation → detect complication or control failure → escalate",
     "tail_rule": "F9 is deliberately low-connectivity. Ownership splitting precedes any Micro Primary; its residual topics must not be forced into a fake unified mechanism."
   },
   "core_variables": [
@@ -114,11 +116,15 @@
     },
     {
       "id": "DISTURBANCE_SOURCE",
-      "meaning": "ongoing toxic exposure, contamination, thermal injury, procedural/surgical intervention or other active perturbation"
+      "meaning": "actual harmful input/injury when present: toxic exposure, contamination, devitalized tissue or thermal injury; this is not a synonym for planned surgery/anesthesia."
+    },
+    {
+      "id": "INTERVENTION_CONTEXT",
+      "meaning": "planned or ongoing surgery, anesthesia or procedure with an intended objective, urgency and expected physiologic effects; it can create risk but is not classified as a harmful source that must be terminated."
     },
     {
       "id": "EXPOSURE_OR_SOURCE_CONTROL",
-      "meaning": "whether the harmful input is still entering/remaining and what action terminates or contains it"
+      "meaning": "for branches with an active harmful input/source, whether it is still entering/remaining and what action terminates or contains it; this variable is conditional, not universal across F5–F8."
     },
     {
       "id": "VITAL_THREAT_LAYER",
@@ -134,7 +140,7 @@
     },
     {
       "id": "CONTROL_MODE",
-      "meaning": "decontamination, elimination, antidote, source control, supportive care, surgery/procedure or anesthetic technique"
+      "meaning": "supportive care; decontamination/elimination/antidote or source control when a pathologic source exists; or intended surgery/procedure/anesthetic technique when the intervention itself is therapeutic/diagnostic. These modes are not interchangeable."
     },
     {
       "id": "INTERVENTION_SPACE_DEPTH",
@@ -159,7 +165,8 @@
   ],
   "core_relations": [
     "Immediate physiologic danger outranks etiologic certainty: stabilize airway/breathing/circulation/neurologic failure before perfect naming of the poison or complication.",
-    "Stopping ongoing exposure/contamination/source and supporting failed organs are different control layers; neither replaces the other.",
+    "The shared F compression is a coordinate network, not a mandatory serial workflow: F5–F8 may enter through urgency/reserve/intervention planning without any removable harmful source.",
+    "When an active harmful exposure/contamination/source exists, stopping it and supporting failed organs are distinct responsibilities; planned surgery/anesthesia is an intervention context, not a source to terminate.",
     "Decontamination, elimination, antidote and support solve different parts of toxicologic failure and must not be collapsed.",
     "Barrier/tissue injury severity requires separate axes such as extent, depth, contamination/devitalization and systemic effect; one number cannot replace the model.",
     "Preoperative optimization is constrained by urgency: correct reversible risk without delaying a necessary time-sensitive operation indefinitely.",
@@ -188,7 +195,7 @@
     },
     {
       "id": "FM3",
-      "label": "ongoing-source neglect",
+      "label": "conditional ongoing-source neglect",
       "examples": [
         "leave exposure/contamination/devitalized source active while treating downstream effects"
       ]
@@ -259,10 +266,10 @@
     }
   ],
   "judgment_axes": [
-    "What harmful input or intervention is active now?",
+    "Is this an acute disturbance with an active harmful source, or a planned/ongoing intervention context?",
     "What can kill or irreversibly harm the patient first?",
-    "Which action stops/contains the source, and which action merely supports consequences?",
-    "What causal/specific control is justified by Current Source?",
+    "If a harmful source exists, what stops/contains it; separately, what support preserves failed physiology?",
+    "What causal/specific control or intended intervention is justified by Current Source?",
     "How urgent is the intervention, and what reversible reserve deficits can be corrected without harmful delay?",
     "Where does the intervention act anatomically/physiologically, and what complication follows from that space/depth?",
     "What new risk is introduced by treatment itself?",
@@ -338,7 +345,7 @@
     "candidate_contains": [
       "9-Block / 121-KP stable identity",
       "Source families, rebind closures, bounded exact gaps and specialty negative space",
-      "fresh disturbance-control-recovery mother model",
+      "fresh dual-context disturbance-control + intervention-safety network with low-connectivity F9 tail",
       "core variables/relations/failure modes/judgment axes",
       "five descriptive Block families",
       "coarse external-owner interfaces"
