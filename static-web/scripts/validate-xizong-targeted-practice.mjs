@@ -43,6 +43,10 @@ const probeRaw = {
   correct_answer: 'C',
   target_kp_ids: ['circulation-b01-kp01'],
   canonical_source_hash: 'fixture-current-owner-hash',
+  evidence_intent: 'FRESH_TRANSFER_CHECK',
+  semantic_family_id: 'sf:circulation-b01-kp01:condition-change',
+  derived_from_ids: [officialId],
+  changed_dimensions: ['决定性条件'],
   explanation: {
     exam_target: '验证同一机制在条件变化后的调用',
     decision_axis: '先找决定性变量',
@@ -60,7 +64,9 @@ assert(normalized[0].sourceKind === 'AI_TRANSFER_PROBE', 'probe-source');
 assert(normalized[0].scoringRole === 'TRANSFER_ONLY', 'probe-scoring-role');
 assert(normalized[0].targetKpIds[0] === 'circulation-b01-kp01', 'probe-target');
 assert(normalized[0].correctAnswer === 'C', 'probe-answer');
-assert(normalized[0].qualityGate === 'TARGET+DECISION_AXIS+FAILURE+TRANSFER+DISTRACTOR', 'probe-quality-gate');
+assert(normalized[0].qualityGate === 'TARGET+DECISION_AXIS+FAILURE+TRANSFER+DISTRACTOR+SEMANTIC_IDENTITY', 'probe-quality-gate');
+assert(normalized[0].freshTransferEligible === true, 'probe-fresh-transfer-eligibility');
+assert(normalized[0].semanticFamilyId === 'sf:circulation-b01-kp01:condition-change', 'probe-semantic-family');
 
 let rejected = false;
 try {
@@ -112,6 +118,27 @@ try {
   }], 'TEST_NO_DISTRACTOR_MECHANISM');
 } catch { rejected = true; }
 assert(rejected, 'probe-requires-distractor-mechanism');
+
+rejected = false;
+try {
+  normalizeXizongInlinePracticeQuestions([{
+    ...probeRaw,
+    semantic_family_id: ''
+  }], 'TEST_FRESH_WITHOUT_SEMANTIC_FAMILY');
+} catch { rejected = true; }
+assert(rejected, 'fresh-intent-requires-semantic-family');
+
+const trainingOnly = normalizeXizongInlinePracticeQuestions([{
+  ...probeRaw,
+  question_id: 'xizong-ai-probe:circulation-b01-kp01-training',
+  evidence_intent: 'TRANSFER_TRAINING',
+  semantic_family_id: '',
+  derived_from_ids: [],
+  changed_dimensions: []
+}], 'TEST_TRAINING_ONLY')[0];
+assert.equal(trainingOnly.freshTransferEligible,false,
+  'unverified synthetic training must not become fresh transfer evidence');
+
 
 
 rejected = false;
@@ -266,13 +293,18 @@ const officialQuestion = {
   scoringRole: 'OFFICIAL_EVIDENCE'
 };
 const probeQuestion = set.inline_questions[0];
+const nearDerivativeQuestion = normalizeXizongInlinePracticeQuestions([{
+  ...probeRaw,
+  question_id: 'xizong-ai-probe:circulation-b01-kp01-near-derivative',
+  stem: '同一语义族的第二个表面变式，改变同一个决定性条件后哪项成立？'
+}], 'TEST_NEAR_DERIVATIVE')[0];
 
 const context = {
   systemId: 'chat-set:xz-targeted-practice-fixture:weakness-upgrade',
   canonicalId: 'TARGETED',
   scopeHash: 'targeted-practice:fixture',
   questionInventoryHash: 'targeted-practice:fixture',
-  questions: [officialQuestion, probeQuestion],
+  questions: [officialQuestion, probeQuestion, nearDerivativeQuestion],
   attemptContext: 'TARGETED_PRACTICE',
   resultVisibility: 'immediate',
   studyPhase: 'SECOND_PASS',
@@ -303,6 +335,17 @@ sweep = recordXizongQuestionAttempt(sweep, {
   makeId: (prefix) => `${prefix}-fixture-${++serial}`
 });
 
+sweep = recordXizongQuestionAttempt(sweep, {
+  question: nearDerivativeQuestion,
+  status: 'stable',
+  selected: ['C'],
+  context,
+  holdoutYears: []
+}, {
+  now: '2026-09-20T01:04:00.000Z',
+  makeId: (prefix) => `${prefix}-fixture-${++serial}`
+});
+
 const officialEvent = sweep.attemptHistory.find((row) => row.question_id === officialId);
 const probeEvent = sweep.attemptHistory.find((row) => row.question_id === probeQuestion.questionId);
 assert(officialEvent.question_source === 'OFFICIAL_EXAM', 'official-source-provenance');
@@ -315,9 +358,14 @@ const sweepKey = xizongChatSetSweepKey('xz-targeted-practice-fixture', 'weakness
 const retained = collectXizongRetainedEvidence([[sweepKey, JSON.stringify(sweep)]], { holdoutYears: [] });
 assert(retained.wrongUncertainIds.length === 1 && retained.wrongUncertainIds[0] === officialId,
   'ai-probe-polluted-official-wu');
-assert(retained.transferProbeEvents.length === 1, 'probe-evidence-missing');
-assert(retained.transferProbeEvents[0].question_id === probeQuestion.questionId, 'probe-evidence-identity');
-assert(retained.transferProbeEvents[0].scoring_role === 'TRANSFER_ONLY', 'probe-evidence-score-boundary');
+assert(retained.transferProbeEvents.length === 2, 'probe-evidence-missing');
+assert(retained.transferProbeEvents.every((row) => row.scoring_role === 'TRANSFER_ONLY'), 'probe-evidence-score-boundary');
+assert.equal(retained.freshTransferEvents.length,1,
+  'same semantic family must contribute only one fresh transfer observation');
+assert.equal(retained.freshTransferEvents[0].question_id,nearDerivativeQuestion.questionId,
+  'fresh transfer family should retain only the latest observation');
+assert.equal(retained.freshTransferEvents[0].semantic_family_id,'sf:circulation-b01-kp01:condition-change');
+assert.equal(retained.freshTransferEvents[0].fresh_transfer_eligible,true);
 
 const component = fs.readFileSync(path.resolve(process.cwd(), 'src/components/XizongPracticeWorkbench.astro'), 'utf8');
 const landing = fs.readFileSync(path.resolve(process.cwd(), 'src/pages/xizong/practice/index.astro'), 'utf8');
