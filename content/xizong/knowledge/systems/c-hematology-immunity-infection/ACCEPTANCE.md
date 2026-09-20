@@ -12,7 +12,7 @@ This file owns C-scoped gate truth only. It does not own medical Core, lane lear
 
 | Gate | Status | Evidence / note |
 | --- | --- | --- |
-| S — exact official System-question membership | **PASS_AFTER_BOUNDED_REPAIR** | Current owner = 288 exact qids; historical executable-resolver 326 repaired by excluding 38 non-C owner questions |
+| S — exact official System-question membership | **PASS_AFTER_BOUNDED_REPAIR** | Current owner = 289 exact qids; historical executable-resolver 326 repaired by excluding 38 non-C owner questions |
 | K — Knowledge | **PASS** | C Knowledge accepted in merged PR #250 (`386fda93b2dd4fb75ab30eda3c7da8790cb6cf10`); current owner is `system.json` + 27 Block Cores |
 | L — Learning Logic | **PASS_AFTER_REPAIR** | Independent fresh audit: `C_PHASE6_FRESH_L_INDEPENDENT_ACCEPTANCE.md`; canonical owner `c-hematology-immunity-infection-learning.json` |
 | P — Projection | **NOT_STARTED / ELIGIBLE** | L is accepted; no C Projection work or acceptance is claimed by this task |
@@ -41,9 +41,9 @@ Reconstruction receipt:
 Accepted identity:
 
 ```text
-Current exact official C qids = 288
+Current exact official C qids = 289
 year range                    = 2005–2026
-inventory SHA256              = 2ef4aea5c284fb9ced4b418bcde4df202f403b2f68651c6fad23b4d0fa77ea1f
+inventory SHA256              = 3c04968c9fb88b216c15f249a95ac8ea985ebd6f9166ae59b57a27c61ff0287b
 unresolved ambiguity          = 0
 ```
 
@@ -53,6 +53,8 @@ The pinned historical executable resolver produced 326 C candidates. Fresh Curre
 - 19 reproductive-organ pathology questions; cervical/uterine/gestational-trophoblastic/ovarian/prostate Primary remains outside C.
 
 No historical count was targeted. Current C owner truth overrides the old frozen count.
+
+Fresh cross-System owner repair during D audit transferred `xizong-official-2007-n150` into C because it tests general RA medical Primary owned by H17. Current C scope is therefore 289 qids with zero C/D overlap after transfer.
 
 S membership remains System-level only and creates no inferred Question→Block/LG/KP relation.
 
