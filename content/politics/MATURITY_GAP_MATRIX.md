@@ -88,7 +88,7 @@ Must attack:
 - interrupted NU.
 
 Status:
-- **PENDING**
+- **TARGETED BROWSER PROOF ACTIVE — real Chat Plan import + stale rejection added to existing final cross-subject regression**
 
 ### Stage-0 Gate
 Day-1 safe when:
