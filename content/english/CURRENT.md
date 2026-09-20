@@ -123,6 +123,13 @@ Final independent audit entry:
 
 `content/english/ENGLISH_HIGHEST_MATURITY_FRESH_AUDIT_BRIEF.md`
 
+Audit hygiene / freeze:
+
+- the final verdict must come from a genuinely fresh, anti-anchored auditor that has not been exposed to prior final-verdict reasoning;
+- a contaminated continuation Chat may inspect status but must not issue the Fresh verdict;
+- until that verdict, broad English maturity construction is frozen; only a material defect found by the Fresh audit may reopen the smallest exact owner;
+- after a PASS, promotion must reconcile against latest `main` and carry only the necessary accepted write-set; do not treat this long-diverged branch as a wholesale merge payload.
+
 Do not reopen E0→E11 as a construction sequence. Do not rebuild already-satisfied domains for symmetry.
 
 If final Fresh audit PASS:
