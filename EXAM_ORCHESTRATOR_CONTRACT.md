@@ -137,6 +137,18 @@ The component targets sum to 425, so the Orchestrator must not treat them as com
 
 For cross-subject allocation, the target numbers in this contract control. A lane-local higher stretch target may remain a local design signal but must not silently override cross-subject capacity allocation.
 
+### Xizong single-subject Forecast target authority
+
+The Xizong **capability Forecast** must read the Current Xizong subject target from
+'content/xizong/knowledge/learner/study-policy.json' (currently **275+**).
+
+The cross-subject table above remains a cross-subject allocation seed until the final
+three-subject forecast reconciliation is completed. It must **not** silently downgrade
+the Xizong single-subject capability model from 275+ to 270+. Conversely, the
+single-subject 275+ target does not by itself rewrite English / Politics allocation or
+the total target before that reconciliation.
+
+
 The Orchestrator optimizes:
 
 1. probability of reaching the total target;
@@ -235,7 +247,7 @@ KianOS orientation / cue
 ```
 
 - Second-attempt familiarity may make the path much faster, but the learner must still generate evidence rather than skip by impression.
-- 09/27 is a **stop line**. Small remaining tails may roll into the next phase as bounded closure backlog; the whole phase must not remain indefinitely “first round”.
+- 09/27 is a **stop line, not a manufactured completion deadline**. Forecast may truthfully place first-round closure after 09/27. Remaining tails may roll into the next phase only when their scope and P20/P50/P80 workload are explicitly bounded; do not compress, omit or relabel real work merely to make the calendar date PASS.
 
 ### English
 
@@ -363,7 +375,7 @@ Do not burn all later full-paper holdout.
 
 Output:
 
-- current score band toward 270+;
+- current score band toward the Current Xizong subject target (currently 275+);
 - confidence / contamination note;
 - major loss clusters;
 - recoverable score gap.
@@ -786,6 +798,169 @@ Conceptually it should answer:
 - current best next action / Continue target.
 
 The exact machine schema is implementation-owned and should remain minimal. Do not duplicate subject Truth into this layer merely to fill fields.
+
+## 7.1｜Xizong workload Forecast contract
+
+The Xizong Forecast exists to answer:
+
+> Given Current learner evidence, how much **effective Xizong work** remains, how uncertain is that estimate, and what evidence would most change it?
+
+It is an estimator, not a strategy engine.
+
+~~~text
+Current subject Truth + private learner evidence + real timer evidence
+→ component workload estimates
+→ planning P20 / P50 / P80
+→ adversarial stress
+→ Chat uses the result for scheduling
+~~~
+
+The Website / Runtime may calculate and transport factual workload estimates, but it
+must not convert them into cross-subject allocation, next-subject choice, compression
+policy or a learner strategy.
+
+### Required workload components
+
+First-round closure must keep these components separate:
+
+1. **Knowledge closure** — Block / KP / LG Source-contact + active Recall + Block closure;
+2. **System Recall** — pre-question System reconstruction and post-FIRST_PASS reconstruction;
+3. **Official sweep** — Current exact System official-question scope after Holdout removal;
+4. **Wrong / Uncertain Repair** — root-cause Repair clusters, not one debt item per wrong question.
+
+Score-formation workload additionally includes:
+
+5. **Fresh verification** — repaired / prior W-U questions that still require an independent later attempt;
+6. **Formal score calibration** — least-contaminated sealed whole paper or equivalent large calibration evidence.
+
+Completion of components 1–4 is **not** proof of 275+ capability. Components 5–6 and
+actual performance evidence are required for score-formation confidence.
+
+### Exact inventory rules
+
+- Current canonical Block/KP/LG scope comes from Xizong Current owners.
+- Official question workload may decrease only from a
+  **FIRST_PASS + SYSTEM_SWEEP + Current scope hash + Current inventory hash** attempt.
+- Whole-paper, Chat-set, retained, stale or unbound attempts remain performance evidence
+  but do not silently reduce the first-pass System-sweep workload.
+- Holdout years are subtracted from the exact current union.
+- Cross-System duplicate memberships must be union-deduplicated.
+- A System whose exact question scope is not accepted remains **UNKNOWN**, never zero.
+- Therefore a Forecast with an unresolved System scope is a known lower bound, not a
+  complete workload estimate.
+
+### Throughput calibration
+
+Do not assign a universal “minutes per Block / KP / question / Repair” constant.
+
+Knowledge throughput must independently estimate at least:
+
+~~~text
+minutes / completed Block
+minutes / canonical KP
+minutes / Logic Group
+~~~
+
+using real route-timer evidence to completed Blocks.
+
+The three structural estimators are intentionally redundant. Their divergence is model
+uncertainty, not something to average away invisibly.
+
+Question throughput uses real first-pass practice-route minutes per attempt.
+
+Repair compression uses observed:
+
+~~~text
+Wrong/Uncertain source questions
+→ root-cause Repair clusters
+~~~
+
+and Repair-time evidence remains provisional when timer windows are contaminated by
+other Block work.
+
+System Recall uses its own observed Recall-route timing.
+
+### Evidence sufficiency / no fake precision
+
+For any empirical rate family:
+
+~~~text
+0 samples    → NO_SAMPLES
+1–2 samples  → REFERENCE_ONLY
+3–4 samples  → PROVISIONAL P20/P50/P80
+5+ samples   → empirical band may be used
+~~~
+
+Five samples alone do not make the whole model mature. Confidence must still be reduced
+when, for example:
+
+- all completed Block samples come from one System;
+- Block/KP/LG estimators materially diverge;
+- timer evidence is missing or suspicious;
+- exact question scope is incomplete;
+- W/U compression has not been observed;
+- Repair duration has not been observed;
+- formal score evidence is missing.
+
+Started-but-incomplete Blocks are not given optimistic fractional credit merely from a
+KP cursor. Until a stronger time-calibrated fractional signal exists, they remain fully
+priced in the remaining Knowledge workload.
+
+### P20 / P50 / P80 semantics
+
+These are **planning workload percentiles under the Current empirical-rate model**:
+
+- P20 = optimistic workload band;
+- P50 = central workload band;
+- P80 = conservative workload band.
+
+They are not guarantees. If a required component cannot be priced, the full band is
+withheld and only the known-priced lower bound may be shown.
+
+### Future material / scenario injection
+
+Current-year case-analysis / 狂背, four-set papers, and final five-hour material enter
+the Forecast only after delta reconciliation.
+
+Use:
+
+~~~text
+raw new material
+→ deduplicate against Current owners / existing practice
+→ identify replacement work
+→ net new effective minutes
+→ scenario injection
+~~~
+
+Do **not** add raw source duration on top of the plan when the material replaces work
+already budgeted.
+
+A scenario such as “+5h net new Xizong work” means exactly +300 effective minutes.
+At a hypothetical 300 Xizong minutes/day it shifts the workload by about one Xizong
+day; this arithmetic does not decide whether that material should be admitted.
+
+### Mandatory adversarial attacks
+
+Before calling a Xizong Forecast mature, the estimator must fail safely under at least:
+
+- no timer evidence;
+- only 1–2 completed Block samples;
+- all calibration coming from one familiar System;
+- highly heterogeneous Block sizes;
+- stale / wrong-scope question attempts;
+- cross-System duplicate question membership;
+- Holdout subtraction;
+- incomplete F (or any System) exact question scope;
+- 30% W/U stress;
+- missing Repair compression;
+- missing Repair timing;
+- case / 狂背 full-admission net-increment stress;
+- final five-hour net-increment stress;
+- missing formal whole-paper evidence.
+
+A failed attack must either repair the estimator or lower confidence / withhold the
+affected number. It must never be “explained away” while the same false precision
+remains visible.
 
 ---
 
