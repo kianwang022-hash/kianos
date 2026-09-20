@@ -1066,12 +1066,31 @@ export function assessXizongDeadlineFeasibility(forecast, {
       capacity,
       band_minutes: target?.band_minutes || null,
       fit: null,
-      required_average_minutes_per_day: null
+      known_lower_bound_fit: null,
+      required_average_minutes_per_day: null,
+      full_scope: Boolean(target?.full_scope)
     };
   }
   const fit = Object.fromEntries(
     ['p20','p50','p80'].map((key) => [key, Number(target.band_minutes[key] || 0) <= capacity.minutes])
   );
+  if (!target.full_scope) {
+    return {
+      schema: 'kianos.xizong.deadline-feasibility.v1',
+      scope,
+      start_day: startDay,
+      deadline_day: deadlineDay,
+      status: 'UNPRICED',
+      capacity,
+      band_minutes: target.band_minutes,
+      fit: null,
+      known_lower_bound_fit: fit,
+      required_average_minutes_per_day: null,
+      full_scope: false,
+      boundary:
+        'Known-priced lower-bound work may fit, but unresolved scope forbids a whole-scope completion claim. Deadline feasibility stays UNPRICED until all required workload is priced.'
+    };
+  }
   const requiredAverage = Object.fromEntries(
     ['p20','p50','p80'].map((key) => [
       key,
@@ -1091,8 +1110,9 @@ export function assessXizongDeadlineFeasibility(forecast, {
     capacity,
     band_minutes: target.band_minutes,
     fit,
+    known_lower_bound_fit: null,
     required_average_minutes_per_day: requiredAverage,
-    full_scope: Boolean(target.full_scope),
+    full_scope: true,
     boundary:
       'The deadline is a capacity constraint, not a completion target invented by calendar. UNPRICED scope remains unknown; fit classification never deletes protected work to make a date look feasible.'
   };
