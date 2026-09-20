@@ -3,13 +3,28 @@ import Base from '../../layouts/PoliticsBase.astro';
 import { politicsProductCatalog } from '../../lib/productCatalog.mjs';
 import '../../styles/product-closure.css';
 import '../../styles/politics-review-workspace.css';
+import fs from 'node:fs';
+import path from 'node:path';
 
 const base = import.meta.env.BASE_URL;
 const catalog = politicsProductCatalog(base);
+const repoRoot = process.env.KIANOS_REPO_ROOT
+  ? path.resolve(process.env.KIANOS_REPO_ROOT)
+  : path.resolve(process.cwd(), '..');
+const politicsManifest = JSON.parse(fs.readFileSync(path.join(repoRoot, 'content/politics/manifest.json'), 'utf8'));
+const analysisSourceBindings = Object.entries(politicsManifest?.future_source_families?.families || {})
+  .filter(([, row]) => row?.status === 'BOUND' && row?.current_year_authority === true)
+  .map(([family, row]) => ({
+    family,
+    revision: String(row.revision_id || ''),
+    current_year_authority: true
+  }))
+  .filter(row => row.revision);
 ---
 <Base title="政治 · 复习" active="politics" showLead={false}>
   <section class="politicsReviewPage politicsReviewV2" data-politics-review data-base={base}>
     <script type="application/json" data-review-catalog set:html={JSON.stringify(catalog).replace(/</g, '\\u003c')} />
+    <script type="application/json" data-analysis-source-bindings set:html={JSON.stringify(analysisSourceBindings).replace(/</g, '\\u003c')} />
 
     <header class="reviewPageHeader">
       <div>
