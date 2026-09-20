@@ -279,7 +279,7 @@
           701,
           800
         ],
-        "state": "REVIEW_BUNDLE_NEEDED",
+        "state": "REVIEW_BUNDLE_EXPORTING",
         "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
         "allowed_now": [
           "freeze current main and export review bundle",
@@ -295,7 +295,10 @@
           "merge backfill candidate",
           "invent a newer semantic standard"
         ],
-        "next_action": "Create/consume o0701-o0800 review bundle, perform Fresh Read + Self Attack, freeze proposal; this is C's final Production batch."
+        "next_action": "Wait for o0701-o0800 review bundle export, then perform final C Fresh Read + Self Attack.",
+        "review_head": "250bced07889a53a09ccf6ada403cb622b026a62",
+        "review_branch": "work/lexical-final-backfill-c-o0701-o0800",
+        "review_request_commit": "5b49be5d57cf579cac9256bcfb46b4ce8a1bb519"
       },
       "scheduled_ranges": [
         [
