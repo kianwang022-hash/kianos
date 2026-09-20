@@ -1,9 +1,9 @@
-import { listReadingSets, loadReadingReviewById } from '../../lib/englishReading.mjs';
+import { listExecutableReadingSets, loadReadingReviewById } from '../../lib/englishReadingSourceTruth.mjs';
 
 export const prerender = true;
 
 export function getStaticPaths() {
-  return listReadingSets().map((item) => ({
+  return listExecutableReadingSets().map((item) => ({
     params: { id: item.id },
     props: { readingId: item.id }
   }));
