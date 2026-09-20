@@ -16,7 +16,7 @@ This file owns E-scoped readiness truth only. It does not own medical Core, lear
 | S2 — exact official E System question membership | **UNTESTED** | separate later Source sub-boundary; no membership inferred from Block/Outline placement |
 | K — Knowledge | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent K audit; one bounded System repair separated local invasion from metastatic competence / spread |
 | L — Learning Logic | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent anti-anchored audit; E10 visual closure repaired at the smallest L owner, then re-audited |
-| Content Realization / Optimization | **NOT_STARTED / NEXT ELIGIBLE** | accepted K + L now permit Content work; no Content work was started by the L audit |
+| Content Realization / Optimization | **CANDIDATE READY FOR FRESH CLOSURE** | role realization + 7 wrapper repairs + 67/67 LG sufficiency audit complete; fresh independent whole-E Content closure required |
 | P — Projection | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
 | R — Runtime | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
 | E — Evidence | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
@@ -147,14 +147,45 @@ After re-audit:
 - E6 still separates local invasion from metastatic competence / spread;
 - S2 exact official-question membership remains UNTESTED, so Learning does not authorize a trusted E official-question sweep.
 
+## Content candidate — BUILT / NOT YET ACCEPTED
+
+Content owner:
+
+`content/xizong/knowledge/learner/e-reproductive-breast-content.json`
+
+Evidence:
+
+- `content/xizong/knowledge/learner/E_PHASE4A_CONTENT_ROLE_REALIZATION.md`
+- `content/xizong/knowledge/learner/E_PHASE4B_NATURAL_SOURCE_WRAPPER_ALIGNMENT.md`
+- `content/xizong/knowledge/learner/E_PHASE4C_CONTENT_SUFFICIENCY_AUDIT.md`
+
+Builder-candidate accounting:
+
+```text
+canonical Blocks              = 20
+canonical KP                  = 212
+accepted LG                   = 67
+Content Source-release        = 67 / 67
+natural-unit wrapper repairs  = 7 / 7
+LG sufficiency                = 67 / 67 PASS
+Recall-front repairs          = 18 LG / 37 KP surfaces
+medical Core rewrite          = 0
+KP/LG identity change         = 0
+```
+
+The repair class was retrieval leakage, not missing medical truth.
+
 ## Downstream state
 
-K and L are accepted for E.
+K and L are accepted; Content is **candidate only** until fresh whole-E closure.
 
-Next eligible stage: **Content Realization / Optimization**.
+Next required gate:
 
-- Content remains **NOT_STARTED** at this acceptance point;
-- Projection / Runtime / Evidence remain downstream-frozen behind Content acceptance;
+`content/xizong/knowledge/learner/E_PHASE4D_FRESH_INDEPENDENT_CONTENT_CLOSURE_BRIEF.md`
+
+Until Content closes:
+
+- Projection / Runtime / Evidence remain frozen;
 - S2 official-question membership remains UNTESTED and must not be inferred;
-- the existing 20 Block Markdown files remain canonical medical Core substrate;
-- accepted Learning does not prove E Content closure or Kian learner progress.
+- F remains paused per current one-System-at-a-time sequencing;
+- no learner progress is manufactured from repository acceptance.
