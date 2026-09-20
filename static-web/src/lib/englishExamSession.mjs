@@ -335,6 +335,7 @@ export function releaseEnglishExamObjective(state, answerPacket, now = Date.now(
   updated.updated_at = iso(now);
   updated.revision = Number(current.revision||0)+1;
   updated.release = {
+    paper_assistance_context: clone(current.paper_assistance_context || null),
     objective: {
       points: Number(objectivePoints.toFixed(2)),
       max_points: Number(current.objective_max_points || 60),
