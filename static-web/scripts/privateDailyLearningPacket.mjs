@@ -132,7 +132,10 @@ export function buildDailyLearningPacketFromPrivateCheckpoint(input, {
     expectedDay: checkpoint.study_day
   });
   const restoreWarnings = [];
-  for (const subject of ['xizong', 'english', 'politics']) {
+  // Lexical remains an English evidence dependency, not a fourth exam subject.
+  // Restore its private ledger into the temporary projection storage so the
+  // English packet can preserve delayed-retention / real-context evidence.
+  for (const subject of ['xizong', 'english', 'politics', 'lexical']) {
     const payload = checkpoint.payload.subjects?.[subject];
     if (payload == null) continue;
     try {
