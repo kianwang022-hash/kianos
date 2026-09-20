@@ -7,15 +7,17 @@ on:
       - 'static-web/src/lib/xizongMemoryModel.mjs'
       - 'static-web/src/lib/xizongQuestions.mjs'
       - 'static-web/src/lib/xizong.mjs'
+      - 'static-web/src/lib/xizongForecastModel.mjs'
       - 'static-web/src/lib/dailyLearningPacketRuntime.mjs'
       - 'static-web/src/lib/examOrchestratorClient.mjs'
       - 'static-web/src/components/ExamOrchestratorHome.astro'
       - 'static-web/src/pages/index.astro'
       - 'static-web/scripts/test-xizong-forecast-real-u-adapter.mjs'
       - '.github/workflows/xizong-forecast-real-u-adapter.yml'
-  push:
-    branches:
-      - work/xizong-forecast-real-u-adapter-20260921
+
+concurrency:
+  group: xizong-forecast-real-u-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   factual-adapter:
