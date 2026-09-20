@@ -1,6 +1,6 @@
 # Politics Highest-Maturity Stage Plan
 
-Status: **POLITICS MATURITY SYSTEM LOGIC ACCEPTED · REAL-U / SOURCE GATED**
+Status: **POLITICS FREEZE CANDIDATE · FRESH INDEPENDENT AUDIT REQUIRED · REAL-U / SOURCE GATED**
 Parent acceptance bar: `EXAM_SUBJECT_MATURITY_STANDARD.md`
 Politics acceptance bar: `MATURITY_REQUIREMENTS.md`
 Active owner: PR #638 · `work/politics-later-readiness-20260920`
@@ -34,9 +34,11 @@ M2 stale-state reconciliation                   DONE
 M3 Analysis-bank + evidence identity proof       DONE
 M4 Forecast adversarial / decision-flip proof   DONE
 M5 lifecycle + Fresh Chat / No-Website proof    DONE
-M6 SYSTEM_LOGIC_ACCEPTED                        YES
-M7 KIAN_SPECIFIC_CALIBRATED                     REAL-U GATED
-M8 current-year annual sources                  SOURCE GATED
+M6 Builder closure reconciliation               DONE
+M7 Fresh Independent / Anti-Anchored Audit       OPEN — HARD FREEZE BLOCKER
+M8 SYSTEM_LOGIC_ACCEPTED                        BLOCKED ON M7
+M9 KIAN_SPECIFIC_CALIBRATED                     REAL-U GATED
+M10 current-year annual sources                 SOURCE GATED
 ```
 
 Earlier T1–T4 artifacts remain useful exact owners, but they no longer justify a broad STOP by themselves.
@@ -116,8 +118,9 @@ Two lanes run in parallel without creating a second system:
 
 ```text
 engineering
-→ STOP broad maturity construction
-→ reopen only on concrete defect / Real-U gap / real Source
+→ STOP broad feature construction
+→ run Fresh Independent / Anti-Anchored freeze audit
+→ reopen only the smallest owner for a material audit finding
 
 real study
 → NU / Xiao1000 / Review / Memory / Analysis evidence
@@ -126,7 +129,7 @@ real study
 → smallest responsible repair only
 ```
 
-The engineering lane stops once only Source/Real-U/authentic-modality unknowns remain.
+The Builder engineering lane stops once only the independent freeze gate plus Source/Real-U/authentic-modality unknowns remain.
 
 ## Reopen engineering only when
 
