@@ -8,6 +8,12 @@ export const ENGLISH_GENERATED_ORIGINS=Object.freeze([
   'CHAT_GENERATED_SYNTHETIC',
   'CHAT_GENERATED_ON_EXTERNAL_SOURCE'
 ]);
+export const ENGLISH_GENERATED_EVIDENCE_ROLES=Object.freeze([
+  'CALIBRATION',
+  'TEACHING_REPAIR',
+  'TRANSFER',
+  'STRESS_EDGE'
+]);
 
 const clean=(value,max=2000)=>String(value??'').trim().slice(0,max);
 const validDay=day=>typeof day==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(day)&&!Number.isNaN(Date.parse(day+'T00:00:00Z'));
@@ -29,6 +35,10 @@ function canonicalPayload(value){
     origin:value.origin,
     completion_requirement:value.completion_requirement,
     training_target:value.training_target,
+    evidence_role:value.evidence_role,
+    transfer_independence:value.transfer_independence||null,
+    calibration_status:value.calibration_status,
+    retire_dedupe_rule:value.retire_dedupe_rule,
     source_ref:value.source_ref||null,
     passage:value.passage||null,
     questions:value.questions
@@ -84,6 +94,37 @@ export function validateEnglishGeneratedDrill(value){
   };
   if(!trainingTarget.kind||!trainingTarget.note)throw new Error('ENGLISH_GENERATED_DRILL_TARGET_INVALID');
 
+  const evidenceRole=clean(value.evidence_role||value.evidenceRole,40)||'TEACHING_REPAIR';
+  if(!ENGLISH_GENERATED_EVIDENCE_ROLES.includes(evidenceRole))throw new Error('ENGLISH_GENERATED_DRILL_EVIDENCE_ROLE_INVALID');
+  let transferIndependence=null;
+  if(evidenceRole==='TRANSFER'){
+    const raw=value.transfer_independence||value.transferIndependence;
+    if(!raw||typeof raw!=='object'||Array.isArray(raw))throw new Error('ENGLISH_GENERATED_DRILL_TRANSFER_INDEPENDENCE_REQUIRED');
+    const status=clean(raw.status,20).toUpperCase();
+    const basis=clean(raw.basis,80).toUpperCase();
+    const note=clean(raw.note,1200);
+    const parents=(Array.isArray(raw.parent_semantic_source_hashes)?raw.parent_semantic_source_hashes:[])
+      .map(v=>clean(v,128)).filter(Boolean);
+    const changed=(Array.isArray(raw.changed_context_dimensions)?raw.changed_context_dimensions:[])
+      .map(v=>clean(v,120)).filter(Boolean);
+    if(status!=='PASS'||basis!=='CHAT_SELF_ATTACK'||!note||!parents.length||!changed.length){
+      throw new Error('ENGLISH_GENERATED_DRILL_TRANSFER_INDEPENDENCE_INVALID');
+    }
+    transferIndependence={
+      status:'PASS',
+      basis:'CHAT_SELF_ATTACK',
+      note,
+      parent_semantic_source_hashes:[...new Set(parents)],
+      changed_context_dimensions:[...new Set(changed)]
+    };
+  }else if(value.transfer_independence!=null||value.transferIndependence!=null){
+    throw new Error('ENGLISH_GENERATED_DRILL_TRANSFER_INDEPENDENCE_ROLE_MISMATCH');
+  }
+  const calibrationStatus=clean(value.calibration_status||value.calibrationStatus,80)||'NOT_SCORE_EQUIVALENT';
+  if(calibrationStatus!=='NOT_SCORE_EQUIVALENT')throw new Error('ENGLISH_GENERATED_DRILL_CALIBRATION_STATUS_INVALID');
+  const retireDedupeRule=clean(value.retire_dedupe_rule||value.retireDedupeRule,160)
+    ||'EPHEMERAL_UNLESS_REUSE_PROVEN; SEMANTIC_IDENTITY_DOES_NOT_RESET';
+
   let sourceRef=null;
   let passage=null;
   if(origin==='CHAT_GENERATED_SYNTHETIC'){
@@ -119,6 +160,10 @@ export function validateEnglishGeneratedDrill(value){
     origin,
     completion_requirement:completionRequirement,
     training_target:trainingTarget,
+    evidence_role:evidenceRole,
+    transfer_independence:transferIndependence,
+    calibration_status:calibrationStatus,
+    retire_dedupe_rule:retireDedupeRule,
     source_ref:sourceRef,
     passage,
     questions
@@ -177,6 +222,9 @@ export function generatedDrillCatalogRows(options={}){
     content_hash:drill.content_hash,
     label:'Chat Drill · '+drill.training_target.kind,
     origin:drill.origin,
+    evidence_role:drill.evidence_role,
+    transfer_independence:drill.transfer_independence,
+    calibration_status:drill.calibration_status,
     study_day:drill.study_day
   }));
 }
@@ -227,6 +275,10 @@ export function materializeEnglishGeneratedDrill(drill,{loadExternalSource}={}){
     completion_requirement:value.completion_requirement,
     source_object_id:sourceObjectId,
     training_target:value.training_target,
+    evidence_role:value.evidence_role,
+    transfer_independence:value.transfer_independence,
+    calibration_status:value.calibration_status,
+    retire_dedupe_rule:value.retire_dedupe_rule,
     warnings:[],
     source_hash:value.source_ref?.content_hash||null,
     content_hash:value.content_hash
