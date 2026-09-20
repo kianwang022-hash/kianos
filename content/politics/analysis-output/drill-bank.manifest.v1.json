@@ -28,5 +28,19 @@
     "synthetic_score_role": "MECHANISM_EVIDENCE_ONLY_UNLESS_EXTERNALLY_CALIBRATED",
     "source_fidelity": "all stable topic answers derive from audited Current/later-stage hooks; current-year exact wording is excluded"
   },
-  "official_corroboration_note": "Broad stable Marxism/history/ethics constructs were spot-checked against authoritative public sources before this bank was materialized; current-year exact exam wording remains source-gated."
+  "official_corroboration_note": "Broad stable Marxism/history/ethics constructs were spot-checked against authoritative public sources before this bank was materialized; current-year exact exam wording remains source-gated.",
+  "builder_self_attack": {
+    "status": "PASS_AFTER_BOUNDED_REPAIR",
+    "defects_found": [
+      "8 stress variants lacked an explicit competing principle and therefore did not truly test discrimination",
+      "formulation retrieval prompts used an underspecified generic topic cue; repaired to reveal the intended topic by design"
+    ],
+    "invariants": [
+      "Prompt IDs are unique and have exactly one answer-key row",
+      "PRINCIPLE_RETRIEVAL does not reveal the exact expected topic string",
+      "STRESS_VARIANT carries an explicit competing principle",
+      "FORMULATION_RETRIEVAL reveals the topic intentionally because formulation, not identification, is the tested construct",
+      "same task after answer reveal is never fresh transfer"
+    ]
+  }
 }
