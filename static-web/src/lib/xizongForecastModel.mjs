@@ -414,6 +414,19 @@ function questionForecast(progress) {
       : [])
       .map((row) => [String(row?.canonical_id || ''), row])
   );
+  const workloadDomains = (Array.isArray(progress?.question_workload?.non_system_domains)
+    ? progress.question_workload.non_system_domains
+    : [])
+    .filter((row) => row?.status === 'EXACT' && Number(row?.remaining_questions || 0) > 0);
+  const practiceByDomain = new Map(
+    (Array.isArray(progress?.practice_evidence?.first_pass?.by_domain)
+      ? progress.practice_evidence.first_pass.by_domain
+      : [])
+      .map((row) => [String(row?.canonical_id || row?.domain_id || ''), row])
+  );
+  const broaderRates = broaderSamples
+    .map((row) => positive(row?.forecast_minutes_per_attempt))
+    .filter((value) => value !== null);
   const systemRows = workloadSystems.map((workload) => {
     const canonicalId = String(workload?.canonical_id || '');
     const practice = practiceBySystem.get(canonicalId) || {};
@@ -439,22 +452,69 @@ function questionForecast(progress) {
       band_minutes: systemBand
     };
   });
+  const domainRows = workloadDomains.map((workload) => {
+    const canonicalId = String(workload?.canonical_id || workload?.domain_id || '');
+    const practice = practiceByDomain.get(canonicalId) || {};
+    const domainSpecificRates = (Array.isArray(practice?.current_scope_speed_by_day)
+      ? practice.current_scope_speed_by_day
+      : [])
+      .map((row) => positive(row?.observed_minutes_per_attempt))
+      .filter((value) => value !== null);
+    const speedRates = domainSpecificRates.length >= 3
+      ? domainSpecificRates
+      : broaderRates.length >= 3
+        ? broaderRates
+        : [];
+    const speedSource = domainSpecificRates.length >= 3
+      ? 'NON_SYSTEM_DOMAIN_CURRENT_EXACT_SCOPE'
+      : broaderRates.length >= 3
+        ? 'BROADER_OFFICIAL_PRACTICE_FALLBACK'
+        : 'UNPRICED';
+    const remainingQuestions = Math.max(0, Number(workload?.remaining_questions || 0));
+    const domainBand = speedRates.length >= 3
+      ? {
+          p20: round(quantile(speedRates, 0.2) * remainingQuestions),
+          p50: round(quantile(speedRates, 0.5) * remainingQuestions),
+          p80: round(quantile(speedRates, 0.8) * remainingQuestions)
+        }
+      : null;
+    return {
+      domain_id: String(workload?.domain_id || ''),
+      canonical_id: canonicalId,
+      owner_kind: 'NON_SYSTEM_EXAM_DOMAIN',
+      remaining_questions: remainingQuestions,
+      speed_source: speedSource,
+      speed_samples: speedRates.length,
+      domain_specific_speed_samples: domainSpecificRates.length,
+      reference_minutes_per_question: speedRates.length ? round(median(speedRates), 3) : null,
+      speed_rates: speedRates.map((value) => round(value, 3)),
+      band_minutes: domainBand
+    };
+  });
+
   const stratifiedObserved = systemRows.some((row) => row.speed_samples > 0);
   const unpricedSystemIds = stratifiedObserved
     ? systemRows.filter((row) => !row.band_minutes).map((row) => row.canonical_id)
     : [];
-  const stratifiedBand = stratifiedObserved && systemRows.length > 0 && unpricedSystemIds.length === 0
+  const unpricedDomainIds = stratifiedObserved
+    ? domainRows.filter((row) => !row.band_minutes).map((row) => row.canonical_id)
+    : [];
+  const ownerRows = [...systemRows, ...domainRows];
+  const stratifiedBand = stratifiedObserved
+    && systemRows.length > 0
+    && unpricedSystemIds.length === 0
+    && unpricedDomainIds.length === 0
     ? {
-        p20: round(systemRows.reduce((sum, row) => sum + Number(row.band_minutes?.p20 || 0), 0)),
-        p50: round(systemRows.reduce((sum, row) => sum + Number(row.band_minutes?.p50 || 0), 0)),
-        p80: round(systemRows.reduce((sum, row) => sum + Number(row.band_minutes?.p80 || 0), 0))
+        p20: round(ownerRows.reduce((sum, row) => sum + Number(row.band_minutes?.p20 || 0), 0)),
+        p50: round(ownerRows.reduce((sum, row) => sum + Number(row.band_minutes?.p50 || 0), 0)),
+        p80: round(ownerRows.reduce((sum, row) => sum + Number(row.band_minutes?.p80 || 0), 0))
       }
     : null;
-  const systemReferenceRates = systemRows
+  const ownerReferenceRates = ownerRows
     .map((row) => positive(row.reference_minutes_per_question))
     .filter((value) => value !== null);
-  const speedHeterogeneityRatio = systemReferenceRates.length >= 2
-    ? round(Math.max(...systemReferenceRates) / Math.min(...systemReferenceRates), 3)
+  const speedHeterogeneityRatio = ownerReferenceRates.length >= 2
+    ? round(Math.max(...ownerReferenceRates) / Math.min(...ownerReferenceRates), 3)
     : null;
   const band = stratifiedObserved ? stratifiedBand : fallbackBand;
   const calibrationSource = stratifiedObserved
@@ -465,9 +525,13 @@ function questionForecast(progress) {
   if (remaining === null) risks.push('KNOWN_REMAINING_QUESTION_COUNT_AMBIGUOUS');
   if (!stratifiedObserved && rates.length < 3) risks.push('INSUFFICIENT_PRACTICE_TIMER_SAMPLES');
   if (stratifiedObserved && unpricedSystemIds.length) risks.push('SYSTEM_QUESTION_SPEED_UNCALIBRATED');
+  if (stratifiedObserved && unpricedDomainIds.length) risks.push('NON_SYSTEM_DOMAIN_SPEED_UNCALIBRATED');
+  if (stratifiedObserved && domainRows.some((row) => row.speed_source === 'BROADER_OFFICIAL_PRACTICE_FALLBACK')) {
+    risks.push('NON_SYSTEM_DOMAIN_SPEED_FALLBACK');
+  }
   if (speedHeterogeneityRatio !== null && speedHeterogeneityRatio >= 1.5) risks.push('QUESTION_SPEED_SYSTEM_HETEROGENEITY');
   if (progress?.question_workload?.known_remaining_is_lower_bound) risks.push('UNPRICED_SYSTEM_QUESTION_SCOPE');
-  if (Number(progress?.question_workload?.cross_system_duplicate_memberships || 0) > 0) risks.push('CROSS_SYSTEM_DUPLICATE_MEMBERSHIP');
+  if (Number(progress?.question_workload?.cross_owner_duplicate_memberships ?? progress?.question_workload?.cross_system_duplicate_memberships || 0) > 0) risks.push('CROSS_OWNER_DUPLICATE_MEMBERSHIP');
   if (backtest.status === 'BACKTESTED' && Number(backtest.median_absolute_percent_error || 0) > 0.25) {
     risks.push('QUESTION_SPEED_BACKTEST_ERROR_HIGH');
   }
@@ -479,12 +543,18 @@ function questionForecast(progress) {
     required: true,
     status: band
       ? (stratifiedObserved
-          ? (systemRows.every((row) => row.speed_samples >= 5) ? 'CALIBRATED' : 'PROVISIONAL')
+          ? (
+              systemRows.every((row) => row.speed_samples >= 5)
+              && domainRows.every((row) => row.speed_source === 'NON_SYSTEM_DOMAIN_CURRENT_EXACT_SCOPE' && row.speed_samples >= 5)
+                ? 'CALIBRATED'
+                : 'PROVISIONAL'
+            )
           : (rates.length >= 5 ? 'CALIBRATED' : 'PROVISIONAL'))
       : state,
     known_remaining_questions: remaining,
     known_remaining_is_lower_bound: Boolean(progress?.question_workload?.known_remaining_is_lower_bound),
     unknown_systems: [...(progress?.question_workload?.unknown_systems || [])],
+    unknown_domains: [...(progress?.question_workload?.unknown_domains || [])],
     calibration: {
       source: calibrationSource,
       day_samples: rates.length,
@@ -492,7 +562,9 @@ function questionForecast(progress) {
       broader_day_samples: broaderSamples.length,
       reference_minutes_per_question: rates.length ? round(median(rates), 3) : null,
       system_rows: systemRows,
+      non_system_domain_rows: domainRows,
       unpriced_system_ids: unpricedSystemIds,
+      unpriced_domain_ids: unpricedDomainIds,
       system_speed_heterogeneity_ratio: speedHeterogeneityRatio,
       sample_rows: daySamples.map((row) => ({
         day: row.day,
@@ -505,7 +577,7 @@ function questionForecast(progress) {
     band_minutes: band,
     risks,
     evidence_boundary:
-      'Question throughput uses System-stratified Current exact-sweep timing when that evidence exists, weighting each System by its own remaining question load. A fast familiar System may not price an unobserved slower System. If any remaining System lacks enough System-specific timing samples, the full question band is withheld rather than filled with a pooled average. Broader official-practice speed is fallback only when no System-stratified timing exists.'
+      'Question throughput uses System-stratified Current exact-sweep timing when that evidence exists, weighting each System by its own remaining question load. Independent non-System domains remain separate owners. When a non-System domain lacks domain-specific timing, actual broader official-practice speed may be used only as an explicit provisional fallback and is surfaced as risk; if even that real learner evidence is absent, the full band is withheld. Website routing never turns humanities into a medical System.'
   };
 }
 
