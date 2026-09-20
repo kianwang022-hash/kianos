@@ -4,6 +4,7 @@ import {
   xizongQuestionMarkOverrides
 } from './xizongRetainedPractice.mjs';
 import { summarizeXizongScoreAttribution } from './xizongScoreAttribution.mjs';
+import { buildXizongWorkloadForecast } from './xizongForecastModel.mjs';
 import {
   aggregateStudyTime,
   readStudyTimerLedger,
@@ -577,7 +578,7 @@ export function buildXizongForecastProgress(storage, packetIndex = [], {
   const systemRecallEvidence = summarizeXizongSystemRecallForecast(storage, systemRows);
   const formalScoreEvidence = summarizeXizongFormalScoreEvidence(storage);
 
-  return {
+  const progress = {
     schema: 'kianos.xizong.forecast-progress.v1',
     forecast_role: 'FACTUAL_SUBJECT_PROGRESS_SIGNAL_ONLY',
     gate_workload_authority: false,
@@ -618,6 +619,8 @@ export function buildXizongForecastProgress(storage, packetIndex = [], {
     evidence_boundary:
       'Factual KianOS runtime progress only. NO_RUNTIME_EVIDENCE does not prove unstudied; learned_kp is not mastery; Gate workload still requires subject-owned reconciliation into exam.subject-demand.v1.'
   };
+  progress.workload_forecast = buildXizongWorkloadForecast(progress);
+  return progress;
 }
 
 export function buildXizongStudyPacketFromStorage({
