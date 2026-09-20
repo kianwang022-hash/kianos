@@ -66,7 +66,7 @@ task-first performance
 → bounded repair only when evidence earns it
 → fresh / generated transfer only when it can change a real decision
 → exact Lexical handoff when lexical
-→ whole-paper 180-minute execution for formal score evidence
+→ whole-paper 180-minute execution for integrated evidence, with formal paper-score eligibility remaining modality-gated
 → Chat owns cross-task strategy
 ```
 
@@ -209,9 +209,9 @@ Targeted repaired-code proof PASS on `00b238e23c407c48749ad046b7f4ca6a1ddc7798`:
 
 The long-diverged candidate still triggers unrelated repo-wide / other-subject CI debt. Those reds are not promoted into English defects when they fail outside the affected owner / impact cone. This remains another reason not to merge PR #640 wholesale.
 
-**Current head is a repaired candidate, not a Fresh PASS.** This audit context has now seen the Fresh #3 defect and repair implementation, so it is not eligible to issue Fresh #4.
+**Current head is a repaired candidate, not a Fresh PASS.** This audit context has now seen the Fresh #4 defect and repair implementation, so it is not eligible to issue Fresh #5.
 
-Next = run one genuinely new anti-anchored Fresh re-audit against the then-current candidate HEAD. Do not mark `SYSTEM_LOGIC_ACCEPTED` before that independent verdict.
+Next = run one genuinely new anti-anchored Fresh re-audit #5 against the then-current candidate HEAD. Do not mark `SYSTEM_LOGIC_ACCEPTED` before that independent verdict.
 
 Accepted candidate closures already integrated into the package:
 
