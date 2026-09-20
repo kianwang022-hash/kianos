@@ -105,8 +105,10 @@ Current status:
 ```text
 SYSTEM_LOGIC_CANDIDATE = YES
 FINAL_FRESH_AUDIT #1 = FAIL
-BOUNDED_REPAIR_PROOF = PASS @ 9e2302c93034ec0411cc885a08a4b1726e5b9d3f
-FINAL_FRESH_REAUDIT = REQUIRED
+BOUNDED_REPAIR_PROOF #1 = PASS @ 9e2302c93034ec0411cc885a08a4b1726e5b9d3f
+FINAL_FRESH_REAUDIT #2 = FAIL @ 924281d5d0c98921e54d048088b9bb798c68eafd
+BOUNDED_REPAIR_PROOF #2 = PASS @ 09ce24954e3bac689043520ab53c9a45742eef1b
+FINAL_FRESH_REAUDIT #3 = REQUIRED
 KIAN_SPECIFIC_CALIBRATED = NO
 ```
 
@@ -115,7 +117,7 @@ Final Fresh #1 found exactly two material system-logic defect families:
 1. learner-semantic source identity was conflated with object/revision/provenance identity;
 2. Forecast did not fully fail closed on open-demand-with-zero-work and contradictory formal-score eligibility.
 
-Current repair was bounded to those exact owners only and is now proven on exact head `9e2302c93034ec0411cc885a08a4b1726e5b9d3f`.
+Fresh #1 repair was bounded to those exact owners and remains closed.
 
 Fresh #1 defect A — semantic source identity:
 - exact object/revision binding remains `source_hash`;
@@ -130,19 +132,55 @@ Fresh #1 defects B/C — Forecast fail-closed:
 - typed productive evidence may remain diagnostic, but cannot produce protected formal exam-total status;
 - exposed Whole Paper scores cannot close integrated target status.
 
-Exact-head proof PASS:
-- English Family Coherence;
-- Objective Learner Journey;
-- Private Chat Control;
-- Static Web Writing QA;
-- Static Web Translation QA;
-- English Exam Session;
-- Final Cross-subject Regression;
-- Semantic Base Validity / Authority Consistency.
+Final Fresh re-audit #2 locked candidate head `924281d5d0c98921e54d048088b9bb798c68eafd` and performed the required novel all-green failure search before inspecting exact repair implementation. It returned:
 
-Governance Anti-Entropy remains the known repo-wide Current-length red and is not an English repair regression.
+```text
+FAIL — material system-logic blind spots remain
+```
 
-Next = rerun the final anti-anchored audit. Do not mark SYSTEM_LOGIC_ACCEPTED before that fresh verdict.
+Fresh #2 found two new material projection/transport blind spots:
+
+1. **Part B form evidence was lost in the Fresh-Chat projection.**
+   - Runtime attempts retained `taskForm` inside the bound source snapshot, but the exported attempt inventory / performance profile collapsed all Part B evidence to aggregate `reading_b`.
+   - A learner with repeated evidence from only one Part B form could therefore look identical to a learner with representative four-form coverage.
+   - This could manufacture false stability and violated the Highest Maturity requirement that aggregate Part B performance must not hide a weak form.
+
+2. **Lexical delayed-retention / real-English-context evidence did not survive into ordinary Fresh English control.**
+   - The canonical Lexical ledger could preserve qualified delayed evidence and downstream English-context evidence, but the normal English evidence packet did not project that history.
+   - Direct Home control and the private checkpoint → Daily Packet transport could therefore fail to distinguish “no retention evidence” from “clean retention/transfer evidence already exists”.
+   - That could create unnecessary Verify work and violate the Stop Rule / attention-cost boundary.
+
+During the bounded repair/proof window, a concurrent Current-first audit also exposed one additional Evidence-Fidelity edge on the same candidate line:
+
+3. **Explicit `unseen` learner declarations were not revision-bound.**
+   - An `unseen` declaration for an older semantic revision could leak into a materially new revision of the same object and manufacture clean independent-transfer eligibility.
+   - The current repair binds declarations to current semantic/exact source identity; a mismatched revision falls back to UNKNOWN.
+
+Fresh #2 bounded repair remained inside the smallest existing owners:
+
+- Part B now preserves factual `task_form` identity and four-form coverage in the existing English performance projection;
+- the existing Lexical ledger now exports a bounded retention/real-context evidence summary — evidence only, not mastery, priority, or a calendar;
+- English Fresh-Chat evidence consumes that bounded Lexical summary;
+- private checkpoint reconstruction temporarily restores Lexical state only as an English evidence dependency; Lexical does **not** become a fourth exam subject;
+- source-exposure declarations are matched to current source identity before they can authorize `unseen`.
+
+Affected exact-head proof PASS on `09ce24954e3bac689043520ab53c9a45742eef1b`:
+
+- English Family Coherence → bounded English performance profile PASS;
+- English Family Coherence → Evidence Fidelity E4 PASS, including revision-bound stale-`unseen` attack;
+- English Family Coherence → Forecast / Chat control / productive-scoring validators PASS;
+- English Family Coherence → English ↔ Lexical handoff PASS, including delayed-retention / real-context projection;
+- Private Chat Control → unit / transport proof PASS;
+- Private Chat Control → private checkpoint → Daily Packet projection PASS, including Lexical-as-English-evidence transport;
+- Private Chat Control → candidate build PASS;
+- Final Cross-subject Regression → exact candidate build PASS;
+- Semantic Base Validity / Authority Consistency PASS.
+
+The long-diverged candidate still triggers unrelated repo-wide / other-subject CI debt. Those reds are not promoted into English defects when they fail before the affected owner and are already explained by candidate-vs-latest-main drift. This remains another reason not to merge PR #640 wholesale.
+
+**Current head is a repaired candidate, not a Fresh PASS.** This audit context has now seen the Fresh #2 failures and repair implementation, so it is not eligible to issue Fresh #3.
+
+Next = run one genuinely new anti-anchored Fresh re-audit against the then-current candidate HEAD. Do not mark `SYSTEM_LOGIC_ACCEPTED` before that independent verdict.
 
 Accepted candidate closures already integrated into the package:
 
