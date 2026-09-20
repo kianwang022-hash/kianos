@@ -1435,3 +1435,254 @@ Politics does **not** own:
 
 It exposes enough bounded evidence for the shared Orchestrator/Chat to make that decision.
 
+
+
+---
+
+# 32. Politics Source fidelity
+
+Politics source validity requires semantic fidelity, not only correct file identity.
+
+High-risk transformations include:
+- OCR of stems/options/answers;
+- answer-key alignment;
+- negation;
+- actor/subject identity;
+- dates/numbers;
+- option order;
+- table/list structure;
+- legal/policy wording;
+- current-affairs extraction;
+- Markdown conversion.
+
+For a field that can change learner behavior or scoring:
+
+```text
+provenance correct
+!=
+semantic fidelity proven
+```
+
+Risk-appropriate validation against the primary source or strongest available authoritative corroboration is required.
+
+Unresolved high-impact corruption remains:
+- UNKNOWN,
+- BLOCKED,
+- or REFERENCE_ONLY,
+
+depending on role.
+
+It may not become Current learner truth merely because the transformed artifact is canonical.
+
+---
+
+# 33. Politics causal Repair
+
+Wrong / Uncertain is an observation, not the diagnosis.
+
+Plausible causes include:
+- relation/model missing;
+- exact retrieval failure;
+- hat/actor/scope boundary confusion;
+- multiple-choice proposition-control failure;
+- reading/task-form failure;
+- timing/fatigue;
+- source ambiguity;
+- contaminated familiarity;
+- execution/transport artifact.
+
+If two plausible causes imply materially different Repairs:
+
+> perform the smallest discriminating check first.
+
+If the same cheap reversible action fits all plausible causes, explicit diagnosis may be skipped.
+
+Rules:
+- repeated symptoms compress only when shared cause is supported;
+- one Wrong does not automatically reopen the Natural Unit;
+- same-item correction proves repair understanding at most;
+- important repair claims require changed-context/delayed/fresh verification.
+
+---
+
+# 34. Politics Minimum-Dose rule
+
+Politics does **not** inherit an English-style fixed passage/set Minimum Dose by default.
+
+Use a minimum evidence floor only when needed to prevent small-sample false Secure.
+
+The floor must be:
+- capability-specific;
+- representative;
+- revisable after real learner evidence.
+
+It must never become:
+- “finish N questions because the plan says N”;
+- “recall every Memory candidate”;
+- “write N full analysis answers even after the capability is stable”.
+
+Representative coverage + performance evidence outrank quantity.
+
+---
+
+# 35. Real Learner U states
+
+Politics must distinguish:
+
+## SYSTEM_LOGIC_ACCEPTED
+
+Means:
+- learning semantics;
+- material roles;
+- evidence meaning;
+- Forecast logic;
+- transport;
+- future-source lifecycle;
+- failure handling
+
+have survived system-level proof.
+
+It does **not** mean Kian's personal Politics parameters are known.
+
+## KIAN_SPECIFIC_CALIBRATED
+
+Requires enough real use to estimate:
+- reactivation throughput;
+- single/multiple W/U;
+- Repair compression;
+- Memory admission/relapse;
+- Analysis baseline;
+- timed-output degradation;
+- friction;
+- current-year source assimilation cost.
+
+Until then:
+- personal intervals remain wide/UNKNOWN;
+- structural stress ranges are allowed;
+- no synthetic/browser test may manufacture learner capability.
+
+---
+
+# 36. Day-1 acceptance simulation
+
+Before calling the operational Politics path ready for daily use, simulate:
+
+```text
+Home
+→ one Next Action
+→ Politics task
+→ normal completion / Wrong / Uncertain / Memory event / interruption
+→ evidence
+→ Daily/Review handoff
+→ Chat decision
+→ plan import
+→ next task
+→ day end
+→ next-day Resume
+```
+
+Pass only if:
+- Kian does not maintain a parallel ledger;
+- no hidden scheduler debt is created;
+- interruption does not create false completion;
+- stale/replayed plan is safe;
+- Resume points to meaningful current work;
+- missing evidence stays UNKNOWN.
+
+---
+
+# 37. Whole-lifecycle simulation
+
+Before whole-subject maturity, simulate at least:
+
+- fast first round;
+- slow first round;
+- high W/U;
+- multiple-choice-specific weakness;
+- low Memory burden;
+- Memory explosion;
+- relapse after apparent stability;
+- weak Analysis baseline;
+- strong skeleton but weak binding;
+- slow full-answer delivery;
+- current-year source on time;
+- source 7–10 days late;
+- partial source;
+- source v2 correction;
+- Xiao8/Xiao4 late or low-value;
+- one bad day;
+- multi-day bad week;
+- current-year fresh evidence contradicting training optimism;
+- whole-paper timing failure despite strong local evidence.
+
+The simulation must trace:
+- learner action;
+- evidence generated;
+- Chat decision;
+- Forecast update;
+- whether Protect 70 changes;
+- whether Push 75 work remains justified;
+- whether manual learner repair becomes necessary.
+
+---
+
+# 38. Future-source transitive invalidation
+
+When a future Politics source changes, invalidate downstream meaning, not only the first derived file.
+
+Potentially affected:
+- derived explanation;
+- exact Memory;
+- Precision;
+- Analysis prompt/answer key;
+- Material Binding drill;
+- Review/Repair interpretation;
+- learner evidence eligibility;
+- active plan;
+- Resume target;
+- Forecast assumption;
+- Protect-70/Push-75 status;
+- final queue.
+
+Raw historical learner observations remain preserved.
+
+Their Current eligibility becomes:
+- PRESERVE,
+- MIGRATE,
+- STALE,
+- INVALID.
+
+A downstream object does not remain Current merely because its own file text did not change.
+
+---
+
+# 39. Politics anti-homogenization
+
+Politics must not inherit another subject's cognition merely for cross-subject symmetry.
+
+Forbidden without Politics-specific evidence:
+- English fixed Minimum Dose;
+- English module Secure thresholds;
+- Xizong Block/LG Repair topology;
+- Xizong delayed-verification cadence;
+- a universal mastery score;
+- a universal Review scheduler;
+- a universal Memory algorithm.
+
+Shared infrastructure may own:
+- Home;
+- Chat Plan;
+- Daily Packet;
+- Timer;
+- checkpoint;
+- stale/replay safety.
+
+Politics continues to own:
+- NU/Xiao1000 roles;
+- Objective evidence;
+- Memory admission;
+- Analysis capability chain;
+- Repair semantics;
+- Forecast parameters;
+- Protect-70/Push-75 Gates.
+
