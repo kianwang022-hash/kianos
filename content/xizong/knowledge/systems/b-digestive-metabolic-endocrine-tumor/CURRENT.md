@@ -145,16 +145,13 @@ Accepted scope:
 ```text
 1072 exact official qids
 2005–2026
-inventory SHA256 = 2fb2cbb8287a4f5da73bc20afc344823c9022cba708fb99d5d04569a391c8ab8
+inventory SHA256 = d7817ecc0c57346bb04ea3a6a5417d0c11f2daba0ca8178b3424fb82d256510f
 unresolved ambiguity = 0
 ```
 
 The scope was reconstructed from reviewed question→Lecture position routing plus B Source coverage and Current owner boundaries. It is not keyword-derived or count-fitted.
 
-Two stale D23 historical-position candidates were excluded because Current D23 no longer owns general neural synapse physiology:
-
-- 2006 N020 — reflex time / central synapse count;
-- 2006 N021 — IPSP physiology.
+The first Current reconstruction reached 1072 with an approximate join, but exact-resolver readback found a 13-out / 13-in inventory error at constant count. The canonical owner is now aligned to the original executable resolver and frozen 8-System count gate.
 
 System membership does not create precise Question→Block/LG/KP mapping.
 
