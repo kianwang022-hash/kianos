@@ -192,6 +192,7 @@ function summarizeXizongForecastPractice(storage, {
     const currentScope = currentScopeBySystem.get(eventSystemId);
     const currentScopeMatch = Boolean(
       currentScope
+      && String(event?.context || '') === 'SYSTEM_SWEEP'
       && String(event?.scope_hash || '') === String(currentScope?.scope_hash || '')
       && String(event?.question_inventory_hash || '') === String(currentScope?.question_inventory_hash || '')
     );
@@ -270,7 +271,7 @@ function summarizeXizongForecastPractice(storage, {
       last_submitted_at: latestSubmittedAt
     },
     evidence_boundary:
-      'Official question attempts are deduplicated by question id. Only attempts bound to the Current exact scope hash + inventory hash reduce remaining workload; stale/unbound attempts remain performance evidence only. First-pass Wrong/Uncertain is raw repair pressure, not one-repair-per-question debt.'
+      'Official question attempts are deduplicated by question id. Only FIRST_PASS SYSTEM_SWEEP attempts bound to the Current exact scope hash + inventory hash reduce remaining workload; whole-paper/chat-set/retained/stale attempts remain performance evidence only. First-pass Wrong/Uncertain is raw repair pressure, not one-repair-per-question debt.'
   };
 }
 
