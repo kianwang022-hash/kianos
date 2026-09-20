@@ -31,7 +31,7 @@ jobs:
       - name: Assemble and verify package
         run: |
           python - <<'PY'
-          import base64, hashlib, json, subprocess
+          import base64, gzip, hashlib, json, subprocess
           from pathlib import Path
           root = Path('content/lexical/execution/package-chunks')
           meta = json.loads((root / 'meta.json').read_text(encoding='utf-8'))
@@ -39,7 +39,9 @@ jobs:
           chunks = [root / f'chunk-{i:02d}.b64' for i in range(count)]
           assert all(p.is_file() for p in chunks), 'MISSING_PACKAGE_CHUNK'
           b64 = ''.join(p.read_text(encoding='ascii').strip() for p in chunks)
-          raw = base64.b64decode(b64, validate=True)
+          payload = base64.b64decode(b64, validate=True)
+          encoding = meta.get('encoding', 'base64')
+          raw = gzip.decompress(payload) if encoding == 'gzip+base64' else payload
           actual = hashlib.sha256(raw).hexdigest()
           assert actual == meta['template_sha256'], (actual, meta['template_sha256'])
           pkg = json.loads(raw.decode('utf-8'))
