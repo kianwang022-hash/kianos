@@ -254,6 +254,17 @@ function normalizeAnswers(value) {
   );
 }
 
+function examEvidenceContext(payload = {}) {
+  return {
+    prior_exposure: String(payload?.prior_exposure || 'unknown'),
+    assistance: String(payload?.assistance || 'unknown'),
+    source_kind: String(payload?.source_kind || 'unknown'),
+    evidence_role: payload?.evidence_role == null ? null : String(payload.evidence_role),
+    timing_status: String(payload?.timing_status || 'uncalibrated'),
+    independent_transfer_candidate: payload?.independent_transfer_candidate === true
+  };
+}
+
 export function releaseEnglishExamObjective(state, answerPacket, now = Date.now()) {
   const current = validateEnglishExamSession(state);
   if (current.status === 'ACTIVE') throw new Error('ENGLISH_EXAM_MUST_BE_SEALED');
@@ -287,7 +298,8 @@ export function releaseEnglishExamObjective(state, answerPacket, now = Date.now(
       correct,
       total: ids.length,
       points,
-      max_points: Number(step.max_points || 0)
+      max_points: Number(step.max_points || 0),
+      evidence: examEvidenceContext(current.captures?.[step.step_id]?.payload || {})
     });
   }
 
@@ -346,7 +358,14 @@ export function summarizeEnglishExamSession(state) {
     total_steps: current.steps.length,
     current_step: current.current_step,
     objective_result: current.release?.objective || null,
-    productive_status: current.release?.productive?.status || null
+    productive_status: current.release?.productive?.status || null,
+    step_evidence: current.steps.map((step) => ({
+      step_id: step.step_id,
+      task: step.task,
+      object_id: step.object_id,
+      source_hash: step.source_hash || null,
+      evidence: examEvidenceContext(current.captures?.[step.step_id]?.payload || {})
+    }))
   };
 }
 
@@ -377,7 +396,20 @@ export function englishExamTaskStorageKey(sessionId, task, objectId) {
 }
 
 export function englishExamPayload(task, local) {
-  const common={started_at:local.startedAt||local.createdAt||null,source_hash:local.binding?.source_hash||local.sourceHash||null,attempt_id:local.binding?.attempt_id||null};
+  const first=local?.firstEvidenceMeta&&typeof local.firstEvidenceMeta==='object'?local.firstEvidenceMeta:{};
+  const binding=local?.binding&&typeof local.binding==='object'?local.binding:{};
+  const evidence={...binding,...first};
+  const common={
+    started_at:local.startedAt||local.createdAt||null,
+    source_hash:binding.source_hash||local.sourceHash||null,
+    attempt_id:binding.attempt_id||null,
+    prior_exposure:String(evidence.prior_exposure||'unknown'),
+    assistance:String(evidence.assistance||'unknown'),
+    source_kind:String(evidence.source_kind||'unknown'),
+    evidence_role:evidence.evidence_role==null?null:String(evidence.evidence_role),
+    timing_status:String(evidence.timing_status||'uncalibrated'),
+    independent_transfer_candidate:evidence.independent_transfer_candidate===true
+  };
   if(['reading_a','cloze','reading_b'].includes(task))return {...common,answers:clone(local.answers||{}),uncertain:clone(local.uncertain||[]),trajectory:clone(local.trajectory||{})};
   if(task==='translation')return {...common,answers:clone(local.drafts||{}),first_attempts:clone(local.firstAttempts||{})};
   if(task==='writing')return {...common,plan_mode:local.planMode||'direct',plan:local.planMode==='planned'?local.draftPlan||'':'',essay:local.draftEssay||'',first_draft:local.firstDraft||''};
