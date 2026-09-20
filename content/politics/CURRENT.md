@@ -29,14 +29,16 @@ M2 Reconcile stale Analysis/material status     DONE
 M3 Analysis-bank + evidence identity proof       DONE
 M4 Forecast decision-flip/adversarial closure   DONE
 M5 Full lifecycle + Fresh Chat/No-Website       DONE
-M6 SYSTEM_LOGIC_ACCEPTED verdict                YES
-M7 KIAN_SPECIFIC_CALIBRATED                     REAL-U GATED
-M8 current-year annual sources                  SOURCE GATED
+M6 Builder closure reconciliation               DONE
+M7 Fresh Independent / Anti-Anchored Audit       OPEN — HARD FREEZE BLOCKER
+M8 SYSTEM_LOGIC_ACCEPTED verdict                 BLOCKED ON M7
+M9 KIAN_SPECIFIC_CALIBRATED                     REAL-U GATED
+M10 current-year annual sources                  SOURCE GATED
 ```
 
 Canonical maturity package: `MATURITY_PACKAGE.md`.
 
-Mother-standard system logic is now accepted. Broad engineering stops here; real study supplies Kian-specific calibration, and real annual Source reopens only the affected owner.
+Builder-owned maturity construction is closed, but shared mother-standard §23 still requires a Fresh Independent / Anti-Anchored Audit before SYSTEM_LOGIC_ACCEPTED may freeze. Do not broaden engineering while that audit is pending; repair only material findings from the fresh audit.
 
 **Politics Final Learner Acceptance — CLOSED for audited first-round paths**
 
@@ -177,4 +179,4 @@ Runtime work: `SYSTEM_CONTRACT.md` -> exact runtime/evidence owner -> targeted p
 
 Fresh Chats should read this cursor and the narrow result/owner required to continue, not old Chat summaries or broad CI history. For this active branch, read the branch result rather than silently substituting main.
 
-After the defined promotion boundaries close, return to real study and concrete-defect maintenance. More possible architecture or richer source detail is not by itself a reason to expand engineering.
+After the Fresh Independent freeze gate closes, return to real study and concrete-defect maintenance. More possible architecture or richer source detail is not by itself a reason to expand engineering.
