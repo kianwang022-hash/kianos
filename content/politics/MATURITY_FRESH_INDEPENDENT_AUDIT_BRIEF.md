@@ -16,14 +16,22 @@ This audit does **not** decide whether Kian is personally calibrated or whether 
 
 The evaluator must begin in a genuinely fresh conversation/context.
 
-Before locking the independent verdict, do **not** read:
+Before locking the independent verdict, use a **strict allowlist**, not a best-effort denylist.
 
+Explicitly forbidden pre-lock includes:
+
+- `content/politics/CURRENT.md`;
+- `content/politics/ACCEPTANCE.md`;
+- every `content/politics/**/ACCEPTANCE.md`;
+- every file whose path/name contains `AUDIT`, except this exact audit brief;
 - `content/politics/MATURITY_PACKAGE.md`;
 - `content/politics/MATURITY_ADVERSARIAL_REPORT.md`;
 - `content/politics/MATURITY_GAP_MATRIX.md`;
 - PR #638 body/comments/reconciliation notes;
 - any prior Fresh Independent audit result;
 - any chat summary that states the expected Politics maturity verdict or named defects.
+
+If a needed fact appears only inside a forbidden conclusion-bearing artifact, do not read that artifact pre-lock. Retrieve the underlying raw/source/runtime/test evidence instead.
 
 If the evaluator has already seen those conclusions before deriving its own verdict:
 
@@ -75,9 +83,9 @@ Read first:
 
 Derive the audit questions yourself.
 
-### Phase B — raw/current owners
+### Phase B — pre-lock read allowlist
 
-Inspect the narrowest evidence needed for each claim, including as relevant:
+Before verdict lock, read only the acceptance bar plus the following candidate artifacts/raw evidence, as needed:
 
 - `content/politics/SCORE_ABILITY_MATRIX.md`;
 - `content/politics/MATERIAL_INVENTORY.md`;
@@ -87,16 +95,21 @@ Inspect the narrowest evidence needed for each claim, including as relevant:
 - `content/politics/FORECAST_MODEL.md`;
 - `content/politics/FORECAST_STRESS_REPORT.md`;
 - `static-web/src/lib/politicsForecast.mjs`;
-- Forecast/adversarial tests;
-- Analysis bank manifest/prompts/answers and its validator;
+- `static-web/scripts/test-politics-forecast.mjs`;
+- `static-web/scripts/test-politics-maturity-adversarial.mjs`;
+- Analysis bank manifest/prompts/answers and `validate-politics-analysis-bank.mjs`;
+- `content/politics/analysis-output/README.md`;
 - `content/politics/analysis-output/SCORING_RUBRIC.md`;
 - Analysis evidence implementation/tests;
 - `content/politics/later-stage/INGESTION_RULES.md`;
+- `content/politics/later-stage/manifest.json`;
 - `content/politics/mock-final/README.md`;
-- current first-round Acceptance/Source-fidelity owners where a claim depends on them;
-- current transport/browser tests where a claim depends on execution/restart/stale-state behavior.
+- source/question registries and raw content owners that do **not** embed prior acceptance/audit verdicts;
+- runtime/evidence/transport implementations and tests that do **not** embed prior acceptance/audit verdicts.
 
-Do not substitute the Builder summary for raw evidence.
+Do **not** read any `CURRENT.md`, `ACCEPTANCE.md`, audit report, Builder reconciliation, PR discussion, or prior verdict pre-lock.
+
+Do not substitute Builder status labels for raw evidence.
 
 ### Phase C — independent verdict lock
 
@@ -206,7 +219,11 @@ Those gates are allowed to remain open when the system handles them correctly.
 
 ## 8. Output contract
 
-Write:
+The sealed `candidate_ref` is **read-only**. Never commit the audit result onto it and never move it.
+
+The launcher must provide a separate `audit_result_ref`. It must start from `candidate_head`, and the only permitted pre-reconciliation write on that ref is the audit-result artifact itself.
+
+Write on `audit_result_ref`:
 
 `content/politics/MATURITY_FRESH_INDEPENDENT_AUDIT.md`
 
@@ -215,6 +232,7 @@ with at least:
 ~~~text
 candidate_ref
 candidate_head
+audit_result_ref
 shared_standard_ref
 shared_standard_head
 audit_started_at
@@ -249,3 +267,16 @@ If FAIL:
 If PASS:
 - `SYSTEM_LOGIC_ACCEPTED` may be promoted only for the audited candidate revision;
 - `KIAN_SPECIFIC_CALIBRATED` remains separate and cannot be promoted without real learner evidence.
+
+
+## 9. Candidate-ref immutability check
+
+Immediately before finalizing the result, re-fetch `candidate_ref`.
+
+It must still resolve exactly to `candidate_head`.
+
+If it moved for any reason, including because the auditor wrote its own result onto the candidate branch:
+
+> **INVALID — sealed candidate ref moved**
+
+The audit-result commit belongs only on `audit_result_ref`.
