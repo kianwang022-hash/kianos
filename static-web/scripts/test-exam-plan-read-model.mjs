@@ -70,3 +70,68 @@ assert.equal(chatModel.subjects.xizong.continue.subject, 'xizong',
   'subject Continue projection must preserve its owner identity');
 
 console.log('PASS exam plan read model');
+
+
+const overCapacity = buildChatControlledExamReadModel({
+  day: '2026-09-17',
+  dayCapacity: 300,
+  chatPlanState: {
+    status: 'ready',
+    plan: {
+      schema: 'kianos.exam.chat-plan.v1',
+      study_day: '2026-09-17',
+      generated_at: '2026-09-17T01:00:00.000Z',
+      subjects: {
+        xizong: { target_minutes: 240, role: '主推进', note: '', session_ref: 'xz-session' },
+        english: { target_minutes: 90, role: '保连续', note: '', session_ref: null },
+        politics: { target_minutes: 30, role: '稳推进', note: '', session_ref: null }
+      },
+      next_subject: 'xizong',
+      attention: null
+    }
+  },
+  nativeContinue: {
+    xizong: { href: '/kianos/xizong/a1/', title: 'A1', sessionRef: 'xz-session' },
+    english: { href: '/kianos/english/', title: 'English' },
+    politics: { href: '/kianos/politics/', title: '政治' }
+  }
+});
+assert.equal(overCapacity.control.planStatus,'capacity_conflict');
+assert.equal(overCapacity.control.capacityConflict,true);
+assert.equal(overCapacity.capacity.plannedTargetMinutes,360);
+assert.equal(overCapacity.capacity.overplannedMinutes,60);
+assert.equal(overCapacity.next,null,
+  'Home must not auto-execute a Chat Plan whose known target minutes exceed usable day capacity');
+assert.equal(overCapacity.attention.type,'chat_plan_capacity');
+assert.match(overCapacity.attention.text,/超过今日可用/);
+assert.equal(overCapacity.subjects.xizong.continue.href,'/kianos/xizong/a1/',
+  'manual subject entry remains available; Website refuses only the unsafe automatic plan');
+assert.equal(overCapacity.subjects.xizong.confidence,'capacity-conflict');
+
+const exactCapacity = buildChatControlledExamReadModel({
+  day: '2026-09-17',
+  dayCapacity: 360,
+  chatPlanState: {
+    status: 'ready',
+    plan: {
+      schema: 'kianos.exam.chat-plan.v1',
+      study_day: '2026-09-17',
+      generated_at: '2026-09-17T01:00:00.000Z',
+      subjects: {
+        xizong: { target_minutes: 240, role: '主推进', note: '', session_ref: 'xz-session' },
+        english: { target_minutes: 90, role: '保连续', note: '', session_ref: null },
+        politics: { target_minutes: 30, role: '稳推进', note: '', session_ref: null }
+      },
+      next_subject: 'xizong',
+      attention: null
+    }
+  },
+  nativeContinue: {
+    xizong: { href: '/kianos/xizong/a1/', title: 'A1', sessionRef: 'xz-session' },
+    english: { href: '/kianos/english/', title: 'English' },
+    politics: { href: '/kianos/politics/', title: '政治' }
+  }
+});
+assert.equal(exactCapacity.control.planStatus,'ready');
+assert.equal(exactCapacity.control.capacityConflict,false);
+assert.equal(exactCapacity.next.subject,'xizong');
