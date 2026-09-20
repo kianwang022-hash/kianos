@@ -97,9 +97,10 @@ Structural/self-attack review is complete on this ref (19/19 targeted checks). T
 Active ref: `work/english-highest-maturity-adaptation-20260920`
 Owner package: `ENGLISH_HIGHEST_MATURITY_STANDARD.md` + `ENGLISH_HIGHEST_MATURITY_STAGE_PLAN.md` + `ENGLISH_MATURITY_GAP_MATRIX.md`.
 
-Current: **E3 Productive Scoring Validity**.
+Current: **E3 Productive Scoring Validity — BUILDER CANDIDATE COMPLETE · FRESH AUDIT REQUIRED**.
 E2 Material / Source Fidelity / Ready Inventory is **CLOSED CANDIDATE** after structural/build/browser proof on PR #640.
-Next: establish accepted Translation + Small/Big Writing scoring anchors, uncertainty and bias attacks; no fake auto-score and no learner UI scorer by default.
+E3 now has conservative Translation + Small/Big Writing scoring standards, provenance/confidence boundaries, blind fixtures, sealed expectations, bias attacks and passing structural/regression proof.
+Next: run `PRODUCTIVE_SCORING_FRESH_AUDIT_BRIEF.md` in a fresh anti-anchored Chat. Do not advance to E4 until that blind grading either passes or produces a bounded scoring repair.
 
 Boundaries: reuse existing task workspaces/transport; no second scheduler/ledger/mastery; no broad Guide rewrite; no protected true-exam consumption for engineering proof.
 
