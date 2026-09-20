@@ -77,10 +77,10 @@ Current canonical medical identity:
 | A2 Respiratory | present · 12 Blocks / 236 KP | existing Current owner | **CURRENT · 359 qids** | no known hard medical-content gap from Stage-A evidence |
 | A3 Urinary | present · 14 Blocks / 257 KP | existing Current owner | **CURRENT · 244 qids** | no known hard medical-content gap from Stage-A evidence |
 | B Digestive/Metabolic/Endocrine/Tumor | present · 38 Blocks / 600 KP | existing Current owner | **CURRENT · 1071 qids** | no known hard medical-content gap from Stage-A evidence |
-| C Hematology/Immunity/Infection | present · 27 Blocks / 423 KP | existing Current owner | **CURRENT · 289 qids** | no known hard medical-content gap from Stage-A evidence |
+| C Hematology/Immunity/Infection | present · 27 Blocks / 423 KP | existing Current owner | **CURRENT · 290 qids** | PR #642 external-owner repair moved 2018 N058 hyperacute rejection into C |
 | D Neuro/Sensory/Motor/Orthopedics | present · 27 Blocks / 356 KP | **Content CLOSED** | **CURRENT · 355 qids** | do not reopen Content absent concrete defect |
 | E Reproductive/Breast | present · 20 Blocks / 212 KP | **Content CLOSED** | **CURRENT · 83 qids** | do not reopen Content absent concrete defect |
-| F Remaining Clinical | present · 9 Blocks / 121 KP | **Content CLOSED** | **UNRESOLVED** | `ROUTING_FORECAST_GAP`, not medical Knowledge gap |
+| F Remaining Clinical | present · 9 Blocks / 121 KP | **Content CLOSED** | **CURRENT · 70 qids** | exact System membership CLOSED via PR #642; zero overlap with A1–E |
 | Clinical-medical humanistic / other non-System official scope | **`content/xizong/humanities/current.json`** | **CLOSED_BASELINE · 2027 delta blocked** | **2017–2026 exact N108–N115 · 80 qids** | baseline owner/training/evidence path closed; only 2027 scope delta remains BLOCKED upstream |
 
 Question-scope counts above are per-System memberships and must not be blindly summed into a unique all-question total.
@@ -122,19 +122,26 @@ Stage-A consequence:
 
 Type:
 
-`ROUTING_FORECAST_GAP`
+`CLOSED_ROUTING_SCOPE`
 
-Current truth:
+Current truth on main:
 
-- F medical Content = closed;
-- F System/Block/KP identity = present;
-- exact official-question membership = unresolved.
+- PR #642 merged at `5c1eab2766d696aa36877baa1a4600b19a927189`;
+- reviewed Current Source candidates = 72;
+- external-owner exclusions = 2;
+- exact F membership = **70 qids**;
+- F inventory SHA256 = `f99f2ad151fbbf024ecf445447d3fda33d3de83f8ce90d791710b0259605e6b8`;
+- overlap with accepted A1–E scopes = **0**;
+- C external-owner repair moves `2018 N058` hyperacute rejection into C, so C exact scope is now **290 qids**;
+- `2012 N081` cancer secondary prevention is owned by O9 tumor-general overlay rather than F/B.
 
-Required closure:
+Boundary:
 
-- reconstruct exact Question→System membership using the existing accepted B/C/D/E method;
-- do not infer membership from Block/LG/Outline placement;
-- do not require full Question→KP mapping to close System membership.
+> This closes Question→System membership only. It does not manufacture Question→Block/LG/KP mapping, learner mastery, Forecast truth or scheduling.
+
+Stage-A consequence:
+
+> F is no longer an open routing gap. A1–F exact System-question membership completion lane is closed.
 
 ## G3 — 2027 Biochemistry delta
 
@@ -311,16 +318,21 @@ Current interpretation:
 
 Current verdict:
 
-> **NOT YET CLOSED**
+> **STRUCTURALLY CLOSED FOR STAGE A**
 
-Why:
+Loss-envelope interpretation:
 
-1. F exact official scope is still being closed in the active parallel F lane;
-2. 2027 exam geometry / humanities / Biochemistry deltas are upstream-source blocked, not active build defects;
-3. 27-cycle late-stage material has not arrived, but its 26 baseline/delta/replacement slots are closed;
-4. X8/X9 Kian-specific evidence does not yet exist.
+- Working target remains 275/300, so historical planning prior = maximum 25-point total loss.
+- The neutral proportional table is a diagnostic baseline only; it is not a fixed subject quota.
+- No currently known exam domain is unowned: A1–F exact System membership is closed and clinical humanities has its own Current baseline owner.
+- Current-year unknowns (2027 exam geometry, humanities delta, Biochemistry delta, 27 late-stage materials) are explicit Future Source deltas and cannot be priced exactly before arrival.
+- X8/X9 learner performance, System-specific W/U, retention, Repair compression and whole-paper variance are Real Learner U, not Stage-A material defects.
+- Cross-cutting case/whole-paper failures may cause correlated losses across disciplines; do not add those losses again on top of discipline buckets.
+- Therefore Stage A does not invent an asymmetric 25-point allocation before real learner evidence. It closes the **structure of the envelope** and hands actual loss allocation to Stage E as Real U arrives.
 
-Therefore Stage A may continue structural/loss-envelope work without pretending the blocked 2027 deltas can be solved now.
+Stage-A conclusion:
+
+> There is no remaining executable scope/material architecture gap that justifies keeping Stage A open. Residual uncertainty is Future Source or Real Learner U.
 
 Humanistic/non-System baseline coverage is now closed on main; only its 2027 delta remains upstream-BLOCKED.
 
@@ -343,11 +355,11 @@ Priority is learner/score impact, not repository neatness.
 
 These are explicit uncertainties, not active architecture work.
 
-## P1 — current active Stage-A work
+## P1 — current executable Stage-A work
 
-1. **F exact official-question membership — ACTIVE IN PARALLEL CONTENT LANE**
-   - do not duplicate or steal this work in the maturity-control lane;
-   - consume its accepted result when it lands.
+**None.**
+
+A1–F exact System-question membership is closed; humanities baseline is closed; 26 late-stage baseline is closed.
 
 ## P1-BLOCKED — future-source deltas
 
@@ -406,15 +418,17 @@ This package coordinates; exact owners still own truth.
 
 - [x] 2027 exam scope/geometry is explicitly authority-BLOCKED with historical 165/300 fallback kept prior-only
 - [x] humanistic/non-System baseline has exact Current owner, H1–H4 training/evidence path, 80 exact historical qids, and bounded 2027 BLOCKED delta
-- [ ] F exact System question scope closed — **ACTIVE in parallel F lane**
+- [x] F exact System question scope closed — **70 qids / zero A1–E overlap / PR #642**
 - [x] 2027 Biochemistry delta is correctly represented as **BLOCKED_UNTIL_27_SOURCE** with prior baseline preserved; no current build task exists
 - [x] 26 Case/Cram baseline, X8 role, overlap and 27 delta slot are closed; 27 net-new remains legitimate future-UNKNOWN
 - [x] four-mock baseline, leakage boundary and future X9/current-year delta slot are defined
 - [x] final-five-hour baseline and direct Case/Cram overlap/replacement rule are closed
 - [x] X1–X9 formation/evidence paths defined at SYSTEM_LOGIC level
-- [ ] 25-point loss envelope reconciled beyond the neutral historical baseline
-- [ ] remaining UNKNOWNs are only future Source or Real Learner U
+- [x] 25-point loss-envelope structure reconciled: 25 total loss cap, no fake fixed discipline quotas, no double-counting of cross-cutting failures, asymmetric allocation deferred to Real Learner U
+- [x] remaining UNKNOWNs are Future Source or Real Learner U
 
-When these hold:
+Stage A verdict:
 
-> Stage A closes and the maturity mainline may move to Stage B without reopening already-closed medical Content.
+> **CLOSED — move the maturity mainline to Stage B learner-capability use, with Stage E calibration beginning as soon as Real Learner U exists.**
+
+Do not reopen Stage A for unavailable 2027 Sources. Reopen only when a new authoritative Source arrives or a concrete Current scope/material defect is discovered.
