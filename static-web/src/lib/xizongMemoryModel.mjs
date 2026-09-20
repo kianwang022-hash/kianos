@@ -609,6 +609,27 @@ export function memorySummary(stateInput, now = Date.now()) {
   };
 }
 
+export function memoryFamilySummary(stateInput, familyInput, now = Date.now()) {
+  const state = normalizeXizongMemoryState(stateInput);
+  const family = text(familyInput).toUpperCase();
+  if (!MEMORY_FAMILIES.includes(family)) fail('FAMILY_UNKNOWN', family);
+  const cards = releasedMemoryCardsFromState(state, family);
+  const context = retentionContext(state, now);
+  const retention = cards.map((card) => retentionStateFromContext(state, card.id, context));
+  return {
+    family,
+    cards: cards.length,
+    admitted: retention.filter((row) => row.admitted).length,
+    weak: cards.filter((card) => weakWeightForCardFromState(state, card.id, context.eventsByCard) >= 1).length,
+    due_weak: retention.filter((row) => row.state === 'DUE_WEAK').length,
+    due_delayed: retention.filter((row) => row.state === 'DUE_DELAYED_STABILITY').length,
+    due_changed: retention.filter((row) => row.state === 'DUE_CONTENT_CHANGED').length,
+    due_requested: retention.filter((row) => row.state === 'DUE_REQUESTED').length,
+    stable_waiting: retention.filter((row) => row.state === 'STABLE_WAIT').length,
+    library_only: retention.filter((row) => row.state === 'LIBRARY_ONLY').length
+  };
+}
+
 export function cloneMemoryState(stateInput) {
   return clone(normalizeXizongMemoryState(stateInput));
 }
