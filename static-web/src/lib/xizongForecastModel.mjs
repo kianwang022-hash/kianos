@@ -959,7 +959,8 @@ export function buildXizongWorkloadForecast(progress, {
 export function buildXizongScoreEvidence(progress, {
   targetScore = 275,
   contaminationStatus = 'UNKNOWN',
-  materialGaps = []
+  materialGaps = [],
+  currentExamFormatSourceHash = null
 } = {}) {
   if (!progress || progress.schema !== 'kianos.xizong.forecast-progress.v1') {
     throw new Error('XIZONG_FORECAST_PROGRESS_REQUIRED');
@@ -968,7 +969,15 @@ export function buildXizongScoreEvidence(progress, {
   const formalPapers = (progress?.formal_score_evidence?.sealed_papers || [])
     .filter((row) => Number(row?.max_score) === 300);
   const latest = formalPapers.at(-1) || null;
+  const formatIdentifiedPapers = formalPapers.filter((row) =>
+    String(row?.exam_format_source_hash || '').trim()
+    && String(row?.question_inventory_hash || '').trim()
+    && Number(row?.exam_format?.max_score || row?.max_score || 0) === 300
+    && Number(row?.exam_format?.question_count || 0) > 0
+  );
   const internallyProtectedPapers = formalPapers
+    .filter((row) => row?.internal_holdout_protected_before_seal === true);
+  const internallyProtectedFormatIdentifiedPapers = formatIdentifiedPapers
     .filter((row) => row?.internal_holdout_protected_before_seal === true);
 
   const recall = progress?.runtime_evidence?.recall || {};
@@ -1077,12 +1086,25 @@ export function buildXizongScoreEvidence(progress, {
   const freshEquivalent = contamination === 'FRESH_EQUIVALENT';
   const lowContamination = ['LEAST_CONTAMINATED','LOW','FRESH_EQUIVALENT'].includes(contamination);
   const knownContamination = ['KNOWN_PRIOR_EXPOSURE','HIGH','CONTAMINATED'].includes(contamination);
-  const calibrationPapers = freshEquivalent
-    ? formalPapers
+  const historicalCalibrationPapers = freshEquivalent
+    ? formatIdentifiedPapers
     : lowContamination
-      ? internallyProtectedPapers
+      ? internallyProtectedFormatIdentifiedPapers
       : [];
+  const currentFormatHash = String(
+    currentExamFormatSourceHash
+    || progress?.current_exam_format?.source_hash
+    || ''
+  ).trim();
+  const calibrationPapers = currentFormatHash
+    ? historicalCalibrationPapers.filter((row) =>
+        String(row?.exam_format_source_hash || '') === currentFormatHash
+      )
+    : [];
   const observedScores = formalPapers
+    .map((row) => Number(row?.earned_score))
+    .filter(Number.isFinite);
+  const historicalCalibrationScores = historicalCalibrationPapers
     .map((row) => Number(row?.earned_score))
     .filter(Number.isFinite);
   const calibrationScores = calibrationPapers
@@ -1092,6 +1114,11 @@ export function buildXizongScoreEvidence(progress, {
     p20: round(quantile(observedScores, 0.2)),
     p50: round(quantile(observedScores, 0.5)),
     p80: round(quantile(observedScores, 0.8))
+  } : null;
+  const historicalCalibrationBand = historicalCalibrationScores.length >= 3 ? {
+    p20: round(quantile(historicalCalibrationScores, 0.2)),
+    p50: round(quantile(historicalCalibrationScores, 0.5)),
+    p80: round(quantile(historicalCalibrationScores, 0.8))
   } : null;
   const calibrationBand = calibrationScores.length >= 3 ? {
     p20: round(quantile(calibrationScores, 0.2)),
@@ -1105,13 +1132,17 @@ export function buildXizongScoreEvidence(progress, {
   else if (formalPapers.length >= 3) scoreEstimateStatus = 'EMPIRICAL_BAND';
   if (formalPapers.length && contamination === 'UNKNOWN') scoreEstimateStatus += '_CONTAMINATION_UNKNOWN';
   else if (formalPapers.length && knownContamination) scoreEstimateStatus += '_KNOWN_CONTAMINATION';
-  else if (formalPapers.length && lowContamination && calibrationPapers.length === 0) {
-    scoreEstimateStatus += '_LOW_CONTAMINATION_CLAIM_WITHOUT_INTERNAL_HOLDOUT';
+  else if (formalPapers.length && lowContamination && historicalCalibrationPapers.length === 0) {
+    scoreEstimateStatus += '_LOW_CONTAMINATION_WITHOUT_IDENTIFIED_PROTECTED_CALIBRATION';
+  } else if (formalPapers.length && lowContamination && !currentFormatHash) {
+    scoreEstimateStatus += '_CURRENT_FORMAT_UNKNOWN';
+  } else if (formalPapers.length && lowContamination && calibrationPapers.length === 0) {
+    scoreEstimateStatus += '_CURRENT_FORMAT_MISMATCH';
   } else if (formalPapers.length && lowContamination) {
-    scoreEstimateStatus += '_LOW_CONTAMINATION';
+    scoreEstimateStatus += '_LOW_CONTAMINATION_CURRENT_FORMAT';
   }
 
-  const scoreExtrapolationReady = Boolean(calibrationBand) && lowContamination;
+  const scoreExtrapolationReady = Boolean(calibrationBand) && lowContamination && Boolean(currentFormatHash);
   const evidenceResult = hardGaps.length > 0 || formalPapers.length === 0
     ? 'INSUFFICIENT_SCORE_EVIDENCE'
     : scoreExtrapolationReady
@@ -1125,12 +1156,21 @@ export function buildXizongScoreEvidence(progress, {
       status: scoreEstimateStatus,
       sample_count: formalPapers.length,
       calibration_sample_count: calibrationPapers.length,
+      historical_calibration_sample_count: historicalCalibrationPapers.length,
+      format_identified_sample_count: formatIdentifiedPapers.length,
       internally_holdout_protected_sample_count: internallyProtectedPapers.length,
       latest_score: latest ? Number(latest.earned_score) : null,
       latest_target_gap: latest ? round(requirement.target_score - Number(latest.earned_score || 0)) : null,
       empirical_band: observedBand,
+      historical_calibration_band: historicalCalibrationBand,
       calibration_band: calibrationBand,
       contamination_status: contamination,
+      current_exam_format_source_hash: currentFormatHash || null,
+      current_format_compatibility: !currentFormatHash
+        ? 'UNKNOWN_CURRENT_YEAR_FORMAT'
+        : calibrationPapers.length
+          ? 'MATCHED'
+          : 'NO_MATCHING_CALIBRATION',
       score_extrapolation_ready: scoreExtrapolationReady,
       observed_score_is_not_fresh_prediction: formalPapers.length > 0 && !scoreExtrapolationReady,
       discipline_breakdown: latest?.discipline_breakdown || null
@@ -1142,13 +1182,15 @@ export function buildXizongScoreEvidence(progress, {
       coverage_ready: hardGaps.length === 0,
       formal_score_evidence_ready: formalPapers.length > 0,
       observed_empirical_band_ready: Boolean(observedBand),
+      historical_calibration_band_ready: Boolean(historicalCalibrationBand),
       calibration_band_ready: Boolean(calibrationBand),
+      current_format_identity_ready: Boolean(currentFormatHash),
       score_extrapolation_ready: scoreExtrapolationReady,
       result: evidenceResult
     },
     subject_maturity_claim: 'OUT_OF_SCOPE',
     boundary:
-      'Work completion and capability evidence do not manufacture predicted score. Formal scores remain observed evidence even when contaminated, so empirical_band is descriptive only. calibration_band requires at least three low-contamination internally protected or explicit fresh-equivalent papers before stronger extrapolation is allowed. Internal Holdout never proves external non-exposure; no arbitrary contamination point penalty is invented. This object reports score-evidence usability only and never declares Xizong subject maturity or Stage closure.'
+      'Work completion and capability evidence do not manufacture predicted score. Formal scores remain observed evidence even when contaminated, so empirical_band is descriptive only. Historical low-contamination papers may form historical_calibration_band, but current calibration_band additionally requires format identity matching the Current exam-format Source hash. If the Current-year geometry/format Source is unavailable, score extrapolation remains low-confidence instead of treating historical geometry as Current truth. Internal Holdout never proves external non-exposure; no arbitrary contamination point penalty is invented. This object reports score-evidence usability only and never declares Xizong subject maturity or Stage closure.'
   };
 }
 
