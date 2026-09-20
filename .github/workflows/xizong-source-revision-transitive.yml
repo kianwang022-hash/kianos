@@ -1,0 +1,23 @@
+name: Xizong Source Revision Transitive
+
+on:
+  pull_request:
+    paths:
+      - 'static-web/src/components/XizongBlockV6.astro'
+      - 'static-web/src/lib/xizongStudyPacket.mjs'
+      - 'static-web/scripts/test-xizong-source-revision-transitive.mjs'
+      - '.github/workflows/xizong-source-revision-transitive.yml'
+  push:
+    branches:
+      - work/xizong-source-revision-transitive-fix-20260921
+
+jobs:
+  source-revision:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run Source revision transitive invalidation proof
+        run: node static-web/scripts/test-xizong-source-revision-transitive.mjs
