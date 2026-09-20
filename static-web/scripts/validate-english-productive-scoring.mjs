@@ -35,7 +35,9 @@ for (const marker of [
   'First output is the score anchor',
   'Score uncertainty is mandatory',
   'Independent re-score trigger',
+  'Independent re-score trigger — all productive channels',
   'Topic-package guard',
+  'Writing length / delivery handling',
   'Typed-output score vs exam-mode score',
   'Fresh scoring audit must',
   'E3 closure criteria'
@@ -57,6 +59,7 @@ const translationIds = new Set((translation.tasks || []).map((row) => row.id));
 const fixtureIds = new Set();
 const allFixtures = [
   ...(fixtures.translation || []),
+  ...(fixtures.translation_section || []),
   ...(fixtures.writing_small || []),
   ...(fixtures.writing_big || [])
 ];
@@ -64,7 +67,9 @@ const allFixtures = [
 for (const row of allFixtures) {
   assert.ok(row.fixture_id && !fixtureIds.has(row.fixture_id), 'DUPLICATE_FIXTURE:' + row.fixture_id);
   fixtureIds.add(row.fixture_id);
-  assert.ok(row.response && String(row.response).trim(), 'EMPTY_FIXTURE_RESPONSE:' + row.fixture_id);
+  const hasSingleResponse = row.response && String(row.response).trim();
+  const hasSectionResponses = Array.isArray(row.responses) && row.responses.length > 0;
+  assert.ok(hasSingleResponse || hasSectionResponses, 'EMPTY_FIXTURE_RESPONSE:' + row.fixture_id);
   assert.ok(!Object.prototype.hasOwnProperty.call(row, 'expected_relation'), 'BLIND_FIXTURE_LEAK_EXPECTED_RELATION:' + row.fixture_id);
   assert.ok(!Object.prototype.hasOwnProperty.call(row, 'expected_band'), 'BLIND_FIXTURE_LEAK_EXPECTED_BAND:' + row.fixture_id);
   assert.ok(!Object.prototype.hasOwnProperty.call(row, 'expected_range_hint'), 'BLIND_FIXTURE_LEAK_EXPECTED_RANGE:' + row.fixture_id);
@@ -86,11 +91,38 @@ for (const row of fixtures.translation || []) {
     'TRANSLATION_RANGE_FAKE_PRECISION:' + row.fixture_id);
 }
 
+for (const row of fixtures.translation_section || []) {
+  assert.ok(translationIds.has(row.task_id), 'TRANSLATION_SECTION_TASK_NOT_CURRENT:' + row.fixture_id);
+  assert.equal(row.unit, 'complete_section', 'TRANSLATION_SECTION_UNIT_INVALID:' + row.fixture_id);
+  assert.equal(row.responses?.length, 5, 'TRANSLATION_SECTION_MUST_HAVE_FIVE_SEGMENTS:' + row.fixture_id);
+  assert.deepEqual(row.responses.map((x) => x.source_segment), [1,2,3,4,5],
+    'TRANSLATION_SECTION_SEGMENT_ORDER_INVALID:' + row.fixture_id);
+  for (const item of row.responses) assert.ok(String(item.response || '').trim(), 'TRANSLATION_SECTION_EMPTY_SEGMENT:' + row.fixture_id);
+  const expected = key.expectations[row.fixture_id];
+  assert.equal(expected.channel, 'translation');
+  assert.ok(Array.isArray(expected.expected_range_hint) && expected.expected_range_hint.length === 2,
+    'TRANSLATION_SECTION_RANGE_MISSING:' + row.fixture_id);
+  const [low, high] = expected.expected_range_hint.map(Number);
+  assert.ok(Number.isFinite(low) && Number.isFinite(high) && low >= 0 && high <= 10 && low <= high,
+    'TRANSLATION_SECTION_RANGE_INVALID:' + row.fixture_id);
+  const isHalfPoint = (n) => Number.isInteger(n * 2);
+  assert.ok(isHalfPoint(low) && isHalfPoint(high), 'TRANSLATION_SECTION_RANGE_FAKE_PRECISION:' + row.fixture_id);
+}
+
+const wordCount = (value) => String(value || '').trim().split(/\s+/).filter(Boolean).length;
+
 for (const row of fixtures.writing_small || []) {
   assert.ok(writingIds.has(row.task_id), 'WRITING_FIXTURE_TASK_NOT_CURRENT:' + row.fixture_id);
   const expected = key.expectations[row.fixture_id];
   assert.equal(expected.channel, 'writing_small');
   assert.ok(expected.expected_band, 'WRITING_BAND_MISSING:' + row.fixture_id);
+  const wc = wordCount(row.response);
+  if (row.controlled_axis === 'length_deficit') {
+    assert.ok(wc < 80, 'SMALL_LENGTH_STRESS_NOT_SHORT:' + row.fixture_id);
+    assert.equal(expected.requires_independent_rescore, true, 'SMALL_LENGTH_STRESS_MUST_RESCORE:' + row.fixture_id);
+  } else {
+    assert.ok(wc >= 80 && wc <= 120, 'SMALL_NON_LENGTH_FIXTURE_CONFOUNDED_BY_LENGTH:' + row.fixture_id + ':' + wc);
+  }
 }
 
 for (const row of fixtures.writing_big || []) {
@@ -98,10 +130,17 @@ for (const row of fixtures.writing_big || []) {
   const expected = key.expectations[row.fixture_id];
   assert.equal(expected.channel, 'writing_big');
   assert.ok(expected.expected_band, 'WRITING_BAND_MISSING:' + row.fixture_id);
+  const wc = wordCount(row.response);
+  if (row.controlled_axis === 'length_deficit') {
+    assert.ok(wc < 160, 'BIG_LENGTH_STRESS_NOT_SHORT:' + row.fixture_id);
+    assert.equal(expected.requires_independent_rescore, true, 'BIG_LENGTH_STRESS_MUST_RESCORE:' + row.fixture_id);
+  } else {
+    assert.ok(wc >= 160 && wc <= 200, 'BIG_NON_LENGTH_FIXTURE_CONFOUNDED_BY_LENGTH:' + row.fixture_id + ':' + wc);
+  }
 }
 
 const invariants = key.pairwise_invariants || [];
-assert.ok(invariants.length >= 3, 'PAIRWISE_INVARIANTS_TOO_THIN');
+assert.ok(invariants.length >= 6, 'PAIRWISE_INVARIANTS_TOO_THIN');
 for (const invariant of invariants) {
   assert.ok(invariant.invariant_id && invariant.rule, 'PAIRWISE_INVARIANT_INVALID');
   for (const keyName of ['preferred','over']) {
@@ -119,11 +158,21 @@ const equivalenceInvariant = invariants.find((row) => row.invariant_id === 'tran
 assert.ok(equivalenceInvariant, 'TRANSLATION_EQUIVALENCE_INVARIANT_MISSING');
 assert.deepEqual(new Set(equivalenceInvariant.better_or_equal || []), new Set(['tr-cal-01-strong-a','tr-cal-01-strong-b-alt']));
 
+for (const requiredInvariant of [
+  'translation-section-major-error-visible',
+  'small-length-deficit-matters',
+  'big-length-deficit-matters'
+]) {
+  assert.ok(invariants.some((row) => row.invariant_id === requiredInvariant),
+    'REQUIRED_SCORING_INVARIANT_MISSING:' + requiredInvariant);
+}
+
 console.log(JSON.stringify({
   schema: 'kianos.english.productive-scoring-structure-validation.v2',
   status: 'PASS',
   counts: {
-    translation: fixtures.translation.length,
+    translation_segment: fixtures.translation.length,
+    translation_section: (fixtures.translation_section || []).length,
     writing_small: fixtures.writing_small.length,
     writing_big: fixtures.writing_big.length,
     pairwise_invariants: invariants.length
@@ -136,8 +185,11 @@ console.log(JSON.stringify({
     task_ids_bind_to_current_synthetic_assets: true,
     translation_ranges_are_bounded_without_quarter_point_pseudoprecision: true,
     semantic_equivalence_guard_present: true,
+    complete_translation_section_fixture_present: true,
     task_over_style_guard_present: true,
     grounding_over_fluency_guard_present: true,
+    writing_length_deconfounding_present: true,
+    writing_length_stress_present: true,
     provenance_confidence_classes_present: true,
     typed_vs_exam_mode_boundary_present: true
   }
