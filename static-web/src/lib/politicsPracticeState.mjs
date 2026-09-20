@@ -268,19 +268,33 @@ function politicsForecastProgress(catalog, snapshot) {
   });
 
   const validOutcomes = new Set(['WRONG', 'UNCERTAIN', 'STABLE']);
+  const currentlyAdmitted = (question) =>
+    Boolean(question?.unitKey) && question?.scopeStatus !== 'QUESTION_SCOPE_UNRESOLVED';
   const objectiveByType = Object.fromEntries(['single', 'multiple'].map((type) => {
     const typedQuestions = questions.filter((question) => question?.type === type);
     const summary = {
-      current_catalog_questions: typedQuestions.length,
+      source_questions: typedQuestions.length,
+      currently_admitted_questions: 0,
+      withheld_questions: 0,
       first_attempt_questions: 0,
+      historical_first_attempt_on_withheld_questions: 0,
       stable_count: 0,
       wrong_count: 0,
       uncertain_count: 0,
       cause_counts: { memory: 0, understanding: 0, options: 0, careless: 0 }
     };
     for (const question of typedQuestions) {
+      const admitted = currentlyAdmitted(question);
+      if (admitted) summary.currently_admitted_questions += 1;
+      else summary.withheld_questions += 1;
+
       const first = findPoliticsFirstAttempt(snapshot?.attempts || { units: {} }, question.id)?.attempt;
       if (!first) continue;
+      if (!admitted) {
+        summary.historical_first_attempt_on_withheld_questions += 1;
+        continue;
+      }
+
       summary.first_attempt_questions += 1;
       const latest = validOutcomes.has(snapshot?.meta?.latestOutcome?.[question.id])
         ? snapshot.meta.latestOutcome[question.id]
