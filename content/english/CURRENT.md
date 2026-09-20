@@ -92,6 +92,71 @@ Structural/self-attack review is complete on this ref (19/19 targeted checks). T
 
 ---
 
+## Highest Maturity Closure — ACTIVE CANDIDATE 2026-09-20
+
+Active ref: `work/english-highest-maturity-adaptation-20260920`
+
+English is temporarily reopened from normal-use mode for one bounded **highest-maturity closure** program. This does not reopen accepted Architecture+ or learner UI by default.
+
+Authoritative candidate artifacts on this ref:
+
+- `content/english/ENGLISH_HIGHEST_MATURITY_STANDARD.md`
+- `content/english/ENGLISH_HIGHEST_MATURITY_STANDARD_ADVERSARIAL_AUDIT.md`
+- `content/english/ENGLISH_HIGHEST_MATURITY_STAGE_PLAN.md`
+- `content/english/ENGLISH_MATURITY_GAP_MATRIX.md`
+
+Current stage:
+
+```text
+E0 English-specific standard adaptation / falsification ✅ candidate
+E1 Score→Ability→Material→Method→Evidence Gap Matrix ✅ candidate
+E2 Material / Source Fidelity / Ready Inventory ← ACTIVE
+E3 Productive scoring validity
+E4 Evidence / Exposure / long-horizon fidelity
+E5 Forecast v1
+E6 Dynamic control proof
+E7 Chat↔Website / Day-1 closure
+E8 Whole-paper / authentic modality closure
+E9 lifecycle / adversarial stress
+E10 fresh independent audit / SYSTEM_LOGIC_ACCEPTED
+E11 Real Learner U / KIAN_SPECIFIC_CALIBRATED
+```
+
+### E2 objective
+
+For every score-relevant capability, prove that required material is not merely present but correctly identified, fidelity-safe, answer/reference-gated, evidence-role-labeled, and executable through an accepted learner path.
+
+First E2 checks:
+
+1. reproduce whether the expanded Writing synthetic bank is executable by the current Writing runtime;
+2. verify whether Objective synthetic baseline objects can be addressed by existing Reading/Cloze/Part B workspaces and English Session Instruction;
+3. verify whether Translation synthetic baseline objects can be addressed by the existing Translation workspace and Session Instruction;
+4. inspect official/derived source-fidelity risks that can invalidate formal evidence;
+5. determine whether additional fresh Cloze / Stress material is actually required by representative evidence needs rather than by a quota.
+
+### Boundaries
+
+- no second English scheduler / learner ledger / mastery score;
+- no broad Guide rewrite unless E2 finds a material semantic defect;
+- do not consume protected true-exam learner material for engineering proof;
+- synthetic material stays non-score-equivalent until calibrated;
+- Website/runtime changes are allowed only for a reproduced concrete executability/fidelity defect and must reuse existing task-native workspaces.
+
+### E2 exit
+
+Produce a bounded material-readiness result:
+
+```text
+READY_EXECUTABLE
+PREPARED_NOT_EXECUTABLE
+BLOCKED_FIDELITY
+REFERENCE_ONLY / DEFER
+```
+
+for every material family that matters to the 85+ path, with the exact learner-impact gap and next responsible owner.
+
+---
+
 ## External Reading — Current truth
 
 External Reading is a **continuous English Content lane**, not a one-off importer and not a replacement for 考研 Reading A strategy.
