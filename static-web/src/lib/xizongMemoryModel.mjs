@@ -273,10 +273,11 @@ export function appendMemoryEvidence(stateInput, event, at = null) {
 
 const EVIDENCE_SCORE = Object.freeze({ unknown: 4, fuzzy: 2.2, known: -1.1, mastered: -3 });
 
-export function weakWeightForCard(stateInput, cardId) {
-  const state = normalizeXizongMemoryState(stateInput);
+function weakWeightForCardFromState(state, cardId, eventsByCard = null) {
   const id = text(cardId);
-  const events = state.evidence.filter((row) => row?.cardId === id).slice(-8);
+  const events = eventsByCard
+    ? (eventsByCard.get(id) || []).slice(-8)
+    : state.evidence.filter((row) => row?.cardId === id).slice(-8);
   let score = 0;
   events.forEach((row, index) => {
     const distance = events.length - 1 - index;
@@ -287,6 +288,11 @@ export function weakWeightForCard(stateInput, cardId) {
   const card = state.cards[id];
   if (card?.contentChangedAt) score += 0.75;
   return Math.round(score * 100) / 100;
+}
+
+export function weakWeightForCard(stateInput, cardId) {
+  const state = normalizeXizongMemoryState(stateInput);
+  return weakWeightForCardFromState(state, cardId);
 }
 
 function retentionContext(state, now = Date.now()) {
@@ -412,8 +418,7 @@ export function isWeakMemoryCard(stateInput, cardId) {
   return weakWeightForCard(stateInput, cardId) >= 1;
 }
 
-export function releasedMemoryCards(stateInput, family = null) {
-  const state = normalizeXizongMemoryState(stateInput);
+function releasedMemoryCardsFromState(state, family = null) {
   return Object.values(state.cards)
     .filter((card) => !family || card.family === family)
     .sort((a, b) => {
@@ -425,15 +430,19 @@ export function releasedMemoryCards(stateInput, family = null) {
     });
 }
 
-export function todayMemoryQueue(stateInput, { now = Date.now(), maxItems = null } = {}) {
+export function releasedMemoryCards(stateInput, family = null) {
   const state = normalizeXizongMemoryState(stateInput);
-  const context = retentionContext(state, now);
-  let rows = releasedMemoryCards(state)
+  return releasedMemoryCardsFromState(state, family);
+}
+
+function todayMemoryQueueFromState(state, { now = Date.now(), maxItems = null } = {}, context = null) {
+  const retentionCtx = context || retentionContext(state, now);
+  let rows = releasedMemoryCardsFromState(state)
     .map((card) => {
-      const retention = retentionStateFromContext(state, card.id, context);
+      const retention = retentionStateFromContext(state, card.id, retentionCtx);
       return {
         ...card,
-        weakWeight: weakWeightForCard(state, card.id),
+        weakWeight: weakWeightForCardFromState(state, card.id, retentionCtx.eventsByCard),
         reviewRequested: state.attention?.[card.id]?.reviewRequested === true,
         retentionState: retention.state,
         dueReason: retention.dueReason,
@@ -454,6 +463,11 @@ export function todayMemoryQueue(stateInput, { now = Date.now(), maxItems = null
     });
   if (Number.isFinite(maxItems) && maxItems >= 0) rows = rows.slice(0, Math.floor(maxItems));
   return rows;
+}
+
+export function todayMemoryQueue(stateInput, options = {}) {
+  const state = normalizeXizongMemoryState(stateInput);
+  return todayMemoryQueueFromState(state, options);
 }
 
 export function markedFragments(stateInput, { reviewRequestedOnly = false } = {}) {
@@ -515,9 +529,18 @@ export function completeRepairTask(stateInput, taskId, completedAt = null) {
 export function selectMemoryView(stateInput, view, options = {}) {
   const state = normalizeXizongMemoryState(stateInput);
   const name = text(view).toUpperCase();
-  if (name === 'TODAY') return { kind: 'CARDS', items: todayMemoryQueue(state, options) };
-  if (name === 'CORE') return { kind: 'CARDS', items: releasedMemoryCards(state, 'CORE').map((card) => ({ ...card, weakWeight: weakWeightForCard(state, card.id) })) };
-  if (name === 'PRECISION') return { kind: 'CARDS', items: releasedMemoryCards(state, 'PRECISION').map((card) => ({ ...card, weakWeight: weakWeightForCard(state, card.id) })) };
+  if (name === 'TODAY') return { kind: 'CARDS', items: todayMemoryQueueFromState(state, options) };
+  if (name === 'CORE' || name === 'PRECISION') {
+    const context = retentionContext(state, options?.now);
+    const family = name === 'CORE' ? 'CORE' : 'PRECISION';
+    return {
+      kind: 'CARDS',
+      items: releasedMemoryCardsFromState(state, family).map((card) => ({
+        ...card,
+        weakWeight: weakWeightForCardFromState(state, card.id, context.eventsByCard)
+      }))
+    };
+  }
   if (name === 'MARKED') return { kind: 'MARKS', items: markedFragments(state) };
   if (name === 'REPAIR') return { kind: 'REPAIR', items: activeRepairTasks(state) };
   fail('VIEW_UNKNOWN', name);
@@ -525,10 +548,10 @@ export function selectMemoryView(stateInput, view, options = {}) {
 
 export function memorySummary(stateInput, now = Date.now()) {
   const state = normalizeXizongMemoryState(stateInput);
-  const cards = releasedMemoryCards(state);
+  const cards = releasedMemoryCardsFromState(state);
   const context = retentionContext(state, now);
   const retention = cards.map((card) => retentionStateFromContext(state, card.id, context));
-  const today = todayMemoryQueue(state, { now });
+  const today = todayMemoryQueueFromState(state, { now }, context);
   const core = cards.filter((card) => card.family === 'CORE').length;
   const precision = cards.filter((card) => card.family === 'PRECISION').length;
   return {
@@ -536,9 +559,9 @@ export function memorySummary(stateInput, now = Date.now()) {
     core,
     precision,
     marked: Object.keys(state.marks).length,
-    weak: cards.filter((card) => isWeakMemoryCard(state, card.id)).length,
+    weak: cards.filter((card) => weakWeightForCardFromState(state, card.id, context.eventsByCard) >= 1).length,
     today: today.length,
-    repair: activeRepairTasks(state).length,
+    repair: state.repairTasks.filter((task) => task?.status !== 'DONE').length,
     admitted: retention.filter((row) => row.admitted).length,
     dueWeak: retention.filter((row) => row.state === 'DUE_WEAK').length,
     dueDelayed: retention.filter((row) => row.state === 'DUE_DELAYED_STABILITY').length,
