@@ -105,7 +105,8 @@ Current status:
 ```text
 SYSTEM_LOGIC_CANDIDATE = YES
 FINAL_FRESH_AUDIT #1 = FAIL
-BOUNDED_REPAIR_PROOF = ACTIVE
+BOUNDED_REPAIR_PROOF = PASS @ 9e2302c93034ec0411cc885a08a4b1726e5b9d3f
+FINAL_FRESH_REAUDIT = REQUIRED
 KIAN_SPECIFIC_CALIBRATED = NO
 ```
 
@@ -114,7 +115,34 @@ Final Fresh #1 found exactly two material system-logic defect families:
 1. learner-semantic source identity was conflated with object/revision/provenance identity;
 2. Forecast did not fully fail closed on open-demand-with-zero-work and contradictory formal-score eligibility.
 
-Current repair is bounded to those exact owners only.
+Current repair was bounded to those exact owners only and is now proven on exact head `9e2302c93034ec0411cc885a08a4b1726e5b9d3f`.
+
+Fresh #1 defect A — semantic source identity:
+- exact object/revision binding remains `source_hash`;
+- learner exposure identity now uses separate `semantic_source_hash`;
+- object id / evidence-role metadata cannot manufacture freshness;
+- distinct Writing prompts no longer share one semantic/exact task identity;
+- External Reading and Whole Paper constituent exposure preserve the same semantic boundary.
+
+Fresh #1 defects B/C — Forecast fail-closed:
+- BUILD / VERIFY / UNCALIBRATED or open mechanisms with no required workload are UNPRICED, not zero;
+- ASSISTED / EXPOSED / CONTAMINATED / UNKNOWN evidence cannot close a formal score path merely because upstream says `score_eligible=true`;
+- typed productive evidence may remain diagnostic, but cannot produce protected formal exam-total status;
+- exposed Whole Paper scores cannot close integrated target status.
+
+Exact-head proof PASS:
+- English Family Coherence;
+- Objective Learner Journey;
+- Private Chat Control;
+- Static Web Writing QA;
+- Static Web Translation QA;
+- English Exam Session;
+- Final Cross-subject Regression;
+- Semantic Base Validity / Authority Consistency.
+
+Governance Anti-Entropy remains the known repo-wide Current-length red and is not an English repair regression.
+
+Next = rerun the final anti-anchored audit. Do not mark SYSTEM_LOGIC_ACCEPTED before that fresh verdict.
 
 Accepted candidate closures already integrated into the package:
 
