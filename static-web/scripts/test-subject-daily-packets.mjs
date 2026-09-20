@@ -146,7 +146,24 @@ const politicsSnapshot = {
     unit_id: 'u01',
     title: '自然单元 1'
   },
-  events: [{ question_id: 'PQ1', outcome: 'UNCERTAIN', study_day: day, observed_at: '2026-09-19T01:20:00.000Z' }],
+  events: [
+    { question_id: 'PQ1', outcome: 'UNCERTAIN', study_day: day, observed_at: '2026-09-19T01:20:00.000Z' },
+    {
+      schema: 'kianos.politics.analysis-evidence.v1',
+      event_id: 'analysis-e1',
+      task_id: 'POL-AO-043',
+      task_revision: 'bank-r3',
+      attempt_id: 'analysis-attempt-1',
+      source_basis: 'MARX-C02-OUT-CONTRADICTION',
+      current_year_status: 'STABLE_STRUCTURE',
+      study_day: day,
+      observed_at: '2026-09-19T01:25:00.000Z',
+      requested_depth: 'MATERIAL_BINDING',
+      exposure_state: 'FRESH',
+      ratings: { D1: 2, D2: 2, D3: 2, D4: 0 },
+      rater: 'CHAT'
+    }
+  ],
   errors: []
 };
 const politics = politicsDailyEvidencePacket(politicsCatalog, politicsSnapshot, { day, now, base: '/' });
@@ -163,6 +180,11 @@ assert.deepEqual(politics.cumulative_first_attempts.by_question_type.multiple, {
 });
 assert.equal(politics.review.open_problem_count, 1);
 assert.equal(politics.resume.title, '自然单元 1');
+assert.equal(politics.analysis.schema, 'kianos.politics.analysis-history-profile.v1');
+assert.equal(politics.analysis.summary.total_events, 1);
+assert.equal(politics.analysis.summary.dimensions.D4.broken, 1);
+assert.equal('score' in politics.analysis, false);
+assert.equal('next_action' in politics.analysis, false);
 assert.deepEqual(
   politics.forecast_progress.units_with_first_attempt_evidence_by_subject,
   { MARX: 1 }
