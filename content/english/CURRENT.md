@@ -95,66 +95,14 @@ Structural/self-attack review is complete on this ref (19/19 targeted checks). T
 ## Highest Maturity Closure — ACTIVE CANDIDATE 2026-09-20
 
 Active ref: `work/english-highest-maturity-adaptation-20260920`
+Owner package: `ENGLISH_HIGHEST_MATURITY_STANDARD.md` + `ENGLISH_HIGHEST_MATURITY_STAGE_PLAN.md` + `ENGLISH_MATURITY_GAP_MATRIX.md`.
 
-English is temporarily reopened from normal-use mode for one bounded **highest-maturity closure** program. This does not reopen accepted Architecture+ or learner UI by default.
+Current: **E2 Material / Source Fidelity / Ready Inventory**.
+R1–R4 candidate implementation exists: expanded Writing synthetic bank + Objective/Translation synthetic adapters + Session Catalog + validator.
+Next: CI/build/browser learner proof → E2 self-attack → close or repair smallest red.
 
-Authoritative candidate artifacts on this ref:
+Boundaries: reuse existing task workspaces/transport; no second scheduler/ledger/mastery; no broad Guide rewrite; no protected true-exam consumption for engineering proof.
 
-- `content/english/ENGLISH_HIGHEST_MATURITY_STANDARD.md`
-- `content/english/ENGLISH_HIGHEST_MATURITY_STANDARD_ADVERSARIAL_AUDIT.md`
-- `content/english/ENGLISH_HIGHEST_MATURITY_STAGE_PLAN.md`
-- `content/english/ENGLISH_MATURITY_GAP_MATRIX.md`
-
-Current stage:
-
-```text
-E0 English-specific standard adaptation / falsification ✅ candidate
-E1 Score→Ability→Material→Method→Evidence Gap Matrix ✅ candidate
-E2 Material / Source Fidelity / Ready Inventory ← ACTIVE · R1–R4 IMPLEMENTED_CANDIDATE
-E3 Productive scoring validity
-E4 Evidence / Exposure / long-horizon fidelity
-E5 Forecast v1
-E6 Dynamic control proof
-E7 Chat↔Website / Day-1 closure
-E8 Whole-paper / authentic modality closure
-E9 lifecycle / adversarial stress
-E10 fresh independent audit / SYSTEM_LOGIC_ACCEPTED
-E11 Real Learner U / KIAN_SPECIFIC_CALIBRATED
-```
-
-### E2 objective
-
-For every score-relevant capability, prove that required material is not merely present but correctly identified, fidelity-safe, answer/reference-gated, evidence-role-labeled, and executable through an accepted learner path.
-
-E2 progress:
-
-1. expanded Writing synthetic exact-count drift reproduced and minimally repaired on candidate;
-2. Objective synthetic baseline adapted into existing Reading/Cloze/Part B execution paths on candidate;
-3. Translation synthetic baseline adapted into existing Translation execution path on candidate;
-4. dedicated synthetic-readiness validator added to existing English Family CI;
-5. next: targeted CI/build/browser proof, then source-fidelity/fresh-capital self-attack;
-6. additional Cloze/Stress generation remains deferred until representative learner evidence justifies it.
-
-### Boundaries
-
-- no second English scheduler / learner ledger / mastery score;
-- no broad Guide rewrite unless E2 finds a material semantic defect;
-- do not consume protected true-exam learner material for engineering proof;
-- synthetic material stays non-score-equivalent until calibrated;
-- Website/runtime changes are allowed only for a reproduced concrete executability/fidelity defect and must reuse existing task-native workspaces.
-
-### E2 exit
-
-Produce a bounded material-readiness result:
-
-```text
-READY_EXECUTABLE
-PREPARED_NOT_EXECUTABLE
-BLOCKED_FIDELITY
-REFERENCE_ONLY / DEFER
-```
-
-for every material family that matters to the 85+ path, with the exact learner-impact gap and next responsible owner.
 
 ---
 
