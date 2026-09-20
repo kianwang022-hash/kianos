@@ -4,7 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 import {spawn} from 'node:child_process';
 import {chromium} from 'playwright';
-import {ENGLISH_GENERATED_DRILL_SCHEMA,writeEnglishGeneratedDrill} from './privateEnglishGeneratedDrillStore.mjs';
+import {ENGLISH_GENERATED_DRILL_SCHEMA,validateEnglishGeneratedDrill,writeEnglishGeneratedDrill} from './privateEnglishGeneratedDrillStore.mjs';
 
 const shanghaiDay=()=>{
   const parts=new Intl.DateTimeFormat('en-US',{
@@ -37,6 +37,27 @@ const stale={
     prompt:'Pick B.',options:{A:'A',B:'B'},answer:'B'
   }]
 };
+const normalizedLegacy=validateEnglishGeneratedDrill(stale);
+assert.equal(normalizedLegacy.evidence_role,'TEACHING_REPAIR');
+assert.equal(normalizedLegacy.calibration_status,'NOT_SCORE_EQUIVALENT');
+assert.throws(
+  ()=>validateEnglishGeneratedDrill({...stale,evidence_role:'TRANSFER'}),
+  /ENGLISH_GENERATED_DRILL_TRANSFER_INDEPENDENCE_REQUIRED/
+);
+const transferReady=validateEnglishGeneratedDrill({
+  ...stale,
+  evidence_role:'TRANSFER',
+  transfer_independence:{
+    status:'PASS',
+    basis:'CHAT_SELF_ATTACK',
+    note:'Different context and distractor mechanism from the parent repair.',
+    parent_semantic_source_hashes:['parent-semantic-hash'],
+    changed_context_dimensions:['context','distractor']
+  }
+});
+assert.equal(transferReady.transfer_independence.status,'PASS');
+assert.equal(transferReady.calibration_status,'NOT_SCORE_EQUIVALENT');
+
 const written=writeEnglishGeneratedDrill(stale,{privateDir:generatedDir});
 
 const PORT=4474;
@@ -105,7 +126,7 @@ try{
   const stored=await page.evaluate(()=>localStorage.getItem('kianos-english-session-instruction-v1'));
   assert.equal(stored,null,'stale generated drill must not install a Session');
 
-  console.log('PASS generated External study_day survives real catalog mapping and stale import fails closed');
+  console.log('PASS generated External: stale import fails closed + TRANSFER requires explicit independence proof');
   await context.close();
 }finally{
   try{await browser?.close();}catch{}
