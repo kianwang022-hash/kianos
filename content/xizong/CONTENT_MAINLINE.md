@@ -58,7 +58,7 @@ Current known Stage-A facts to preserve:
 - F exact official-question membership remains a routing/scope gap;
 - clinical-medical humanistic baseline is now closed on main via PR #637; only the exact 2027 humanities scope delta remains upstream-BLOCKED;
 - current-year Biochemistry work is a delta problem, not a full-course rebuild;
-- case / 狂背 / four-set / final-five-hour assets require replacement/overlap/net-new reconciliation before workload admission;
+- the 26-cycle late-stage baseline is now absorbed on main via PR #641; Case/Cram, four mocks and final-5h have year identity, capability roles and overlap/replacement rules, while 27-cycle assets remain delta-only;
 - Question→Knowledge Crosswalk remains progressive and must not be guessed to manufacture closure.
 
 Parallel work:
@@ -98,12 +98,19 @@ Next unblocked maturity inputs:
 
 1. F exact official-question membership;
 2. 2027 Biochemistry delta reconciliation;
-3. case/狂背/four-set/final-five-hour net-new pricing;
-4. final 25-point loss-envelope reconciliation after those inputs.
+3. final 25-point loss-envelope reconciliation after those inputs.
+
+Late-stage material baseline is no longer an open construction task:
+- `xizong-26-late-stage-material-baseline.json` closes 26-cycle family identity/role/overlap baseline;
+- final 5h directly reuses Case/Cram and may not be raw-stacked;
+- four mocks are annotated teacher transfer/stress material, not official or clean unseen score evidence;
+- 27-cycle Case/Cram / mocks / 5h enter only through bounded delta/replacement when they arrive.
 
 Current-year exam geometry and humanities-scope deltas remain explicit upstream-BLOCKED inputs and do not justify new architecture work.
 
 Do not move the maturity mainline to Stage B merely because current learner surfaces or Forecast CI are green.
+
+---
 
 ---
 
@@ -418,6 +425,50 @@ Rules remain: REVIEWED rows only are positive mapping truth; no linear frontier;
 
 ---
 
+## B3｜Late-stage material readiness — 26 cycle baseline absorbed
+
+Canonical baseline owner:
+
+`content/xizong/knowledge/learner/xizong-26-late-stage-material-baseline.json`
+
+Current boundary:
+
+```text
+26考研 late-stage assets = LAST-YEAR BASELINE
+→ absorb now as historical Source / compression / transfer substrate
+→ preserve cycle identity
+→ never infer 27 truth from upload date
+→ when 27 Source appears, run PRESERVE / UPDATE / NEW / RETIRE / CONFLICT
+```
+
+Recovered/verified baseline families include:
+
+- **病例分析&狂背** — 16-session historical transcript inventory; directly readable 80-page Internal/Diagnosis + 50-page Surgery handouts;
+- **天天师兄四套卷** — four complete 165-question teacher mocks in one 252-page source; annotated/answer-visible, therefore transfer/stress material rather than clean official score evidence;
+- **最终5小时** — four directly readable 26-cycle SRT sessions plus compact Physiology/Biochemistry/Pathology PDFs;
+- **十年真题讲解 / 执医阶段考 / 难点精筛 / 测试总结** — historical supporting families with narrower roles.
+
+Important overlap closure:
+
+```text
+病例分析&狂背 = clinical case + compression baseline
+5h             = final compression / retrieval layer
+5h explicitly reuses Case/Cram handouts
+→ DO NOT raw-stack them as independent full workloads
+
+four mocks = separate transfer / stress role
+→ knowledge overlap is allowed
+→ not official Question Truth / not clean unseen score evidence
+```
+
+The visible files named `最后5h 内科.pdf` / `最后5h 外科.pdf` are body-verified **病例分析&狂背** handouts, not separate 5h PDFs. Do not double-count them.
+
+This lane does not create another Knowledge, Question, Explanation, Review, Forecast or scheduler owner. Current canonical medical truth remains under the accepted medical owners. Historical teacher material may contribute only source-compatible compression, case pivots, transfer variants and confusable-boundary probes.
+
+Remaining bounded source limitation: some historical raw SRT/PDF bytes are known from provenance but are not directly mounted now, so sentence-level Source fidelity for those exact files remains fail-closed. This does not erase the verified 26-cycle family/topic baseline.
+
+---
+
 # 4｜Lane C — Visual / Extension
 
 Authority: `content/xizong/EXTENSION_ASSET_CONTRACT.md`  
@@ -621,6 +672,12 @@ E exact official-question membership = PASS_AFTER_CROSS_SYSTEM_OWNER_REPAIR / 83
 F exact official-question membership = CURRENT COMPLETION LANE
 → next target = F
 + Crosswalk C2 continuous reviewed batches
+
+LATE-STAGE MATERIAL
+26 cycle baseline = absorbed / year-pinned / topic-role indexed
+→ Case/Cram ↔ 5h high-overlap direct reuse closed
+→ four mocks = 4 × 165 teacher transfer/stress sets, not official score evidence
+→ 27 materials enter by delta/replacement only
 
 VISUAL
 continuous sparse high-value Extension batches
