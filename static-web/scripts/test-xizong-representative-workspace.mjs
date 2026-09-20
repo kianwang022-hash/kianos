@@ -26,9 +26,8 @@ const representatives = [
   { lane: 'A2', route: '/xizong/respiratory/r08/', evidenceRole: 'CURRENT_PROJECTED_ROUTE' },
   { lane: 'A3', route: '/xizong/urinary/b01/', evidenceRole: 'CURRENT_PROJECTED_ROUTE' },
   {
-    lane: 'B', route: '/qa/xizong-workspace/b/', evidenceRole: 'QA_TOPOLOGY_COMPATIBILITY_ONLY',
-    expectedEntryStage: 'kp_learn',
-    authorityRef: 'b-digestive-metabolic-endocrine-tumor-learning.json#surface_handoff_contract'
+    lane: 'B', route: '/xizong/digestive-metabolic-endocrine-tumor/d01/', evidenceRole: 'CURRENT_PROJECTED_ROUTE',
+    expectedEntryStage: 'kp_learn'
   },
   {
     lane: 'C', route: '/qa/xizong-workspace/c/', evidenceRole: 'QA_TOPOLOGY_COMPATIBILITY_ONLY',
@@ -208,7 +207,7 @@ try {
 
   report.finished_at = new Date().toISOString();
   report.status = 'PASS';
-  report.acceptance_note = 'B/C rows are QA topology compatibility evidence only; they do not claim Projection acceptance or learner readiness.';
+  report.acceptance_note = 'B is now exercised through the real P-accepted product route through first Recall; C remains QA topology compatibility only. This is engineering evidence, not learner U or full B R/E acceptance.';
   fs.writeFileSync(reportPath, JSON.stringify(report, null, 2));
   console.log('XIZONG_REPRESENTATIVE_WORKSPACE_PASS');
   await context.close();
