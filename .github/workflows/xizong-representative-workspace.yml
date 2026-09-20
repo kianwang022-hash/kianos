@@ -47,6 +47,9 @@ jobs:
       - name: Execute A1 A2 A3 B C representative Block Workspace acceptance
         working-directory: static-web
         run: node scripts/test-xizong-representative-workspace.mjs
+      - name: Execute B shared Runtime journey
+        working-directory: static-web
+        run: node scripts/test-xizong-b-runtime-journey.mjs
       - name: Execute A1 A2 A3 purpose-first System Workspace acceptance
         working-directory: static-web
         run: node scripts/test-xizong-system-workspace.mjs
@@ -60,6 +63,7 @@ jobs:
           name: xizong-representative-workspace-${{ github.sha }}
           path: |
             static-web/.qa/xizong-representative-workspace.json
+            static-web/.qa/xizong-b-runtime-journey.json
             static-web/.qa/xizong-system-workspace.json
             static-web/.qa/xizong-system-a1.png
             static-web/.qa/xizong-system-a2.png
