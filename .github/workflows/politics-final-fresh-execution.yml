@@ -62,6 +62,9 @@ jobs:
       - name: Politics maturity Objective evidence split
         working-directory: static-web
         run: node scripts/test-politics-maturity-objective-evidence.mjs > "$POLITICS_FRESH_EVIDENCE/maturity-objective-evidence.log" 2>&1
+      - name: Politics future-source fail-closed slots
+        working-directory: static-web
+        run: node scripts/validate-politics-future-source-slots.mjs > "$POLITICS_FRESH_EVIDENCE/future-source-slots.log" 2>&1
       - name: Build exact Current
         id: build
         working-directory: static-web
