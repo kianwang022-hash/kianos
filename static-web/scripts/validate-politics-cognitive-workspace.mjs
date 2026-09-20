@@ -128,7 +128,7 @@ for (const rule of [
   'One focal cognitive task',
   'Safe representation vocabulary',
   'Dense Calm visual standard',
-  'Content structure is not page structure.',
+  'Content structure is not page structure',
   'Visual may choose hierarchy, grouping, layout, disclosure and emphasis.'
 ]) requireText(presentation, rule, 'presentation contract');
 
