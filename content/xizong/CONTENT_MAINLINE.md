@@ -134,7 +134,7 @@ E medical-content chain CLOSED
 
 Do not copy D topology for symmetry. Do not infer official-question membership from accepted K.
 
-## F｜Remaining Clinical — K CANDIDATE / NEXT MEDICAL CONTENT PRIORITY
+## F｜Remaining Clinical — K ACCEPTED / LEARNING NEXT
 
 F Current identity has now been reconciled to **9 Blocks / 121 KP**.
 
@@ -147,15 +147,30 @@ Current state:
 
 ```text
 S1 Source boundary  PASS_AFTER_SOURCE_REBIND
-K Knowledge         CANDIDATE / independent acceptance next
-L / Content         downstream-frozen
+K Knowledge         PASS_AFTER_BOUNDED_REPAIR
+L Learning Logic    UNTESTED / next eligible
+Content             downstream-frozen
 ```
 
 The old 12-Block transition Guide is not Current F identity; its first three physiology-foundation Blocks are historical substrate, while Current canonical F is F1–F9.
 
 Approved original/current Lecture sources were re-bound from the user's File Library by title/page locator. F6 postoperative timing and the F8 P270 matrix are now Source-verified. Narrow exact gaps remain in F1/F2/F3/F4/F9 and must stay fail-closed.
 
-F Knowledge reconstruction is complete at candidate level. The candidate uses a disturbance-control-recovery network plus a deliberately low-connectivity F9 tail. With E medical Content now closed, **fresh independent F K acceptance is the next medical-content task**. This Phase 4D closure does not start F work. Do not begin F Learning before F K PASS.
+Fresh independent K acceptance is now complete with verdict **FRESH_K_PASS_AFTER_BOUNDED_REPAIR**.
+
+The audit found one bounded System-level defect: the original mother model over-unified acute harmful disturbance and planned surgery/anesthesia into one source-control chain. The accepted K owner now uses a dual-context network:
+
+- F1–F4: acute disturbance-control;
+- F5–F8: planned/ongoing intervention-safety;
+- F9: deliberately low-connectivity residual tail.
+
+Source control is conditional rather than universal; planned surgery/anesthesia is an intervention context, not a harmful source to terminate. Block/KP identity, exact Source gaps and external-owner boundaries were unchanged.
+
+Fresh acceptance evidence:
+
+`content/xizong/knowledge/learner/F_PHASE2_FRESH_INDEPENDENT_K_ACCEPTANCE.md`
+
+**Learning Logic construction is the next F medical-content task.** This K audit did not start Learning.
 
 ---
 
@@ -314,7 +329,7 @@ Do not reopen the generation standard unless fresh evidence shows the shared met
 
 ```text
 Medical:
-F fresh independent K acceptance = next medical-content priority
+F Learning Logic construction = next medical-content priority
 E scoped Projection may proceed independently downstream only when it does not consume F semantic attention
 D scoped Projection may proceed independently downstream only when it does not consume F semantic attention
 
@@ -382,9 +397,9 @@ E S1 PASS
 NEXT MEDICAL CONTENT PRIORITY
 F 9 Blocks / 121 KP
 → S1 PASS after Source rebind
-→ K candidate built
-→ fresh independent K acceptance NEXT
-→ Learning after K PASS
+→ K PASS_AFTER_BOUNDED_REPAIR
+→ Learning Logic construction NEXT
+→ fresh independent L acceptance
 → Content
 
 QUESTIONS
