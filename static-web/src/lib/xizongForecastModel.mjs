@@ -170,6 +170,103 @@ function combineModelFormBands(estimators = []) {
   };
 }
 
+function relativeError(predicted, actual) {
+  const p = positive(predicted);
+  const a = positive(actual);
+  return p === null || a === null ? null : Math.abs(p - a) / a;
+}
+
+function signedRatio(predicted, actual) {
+  const p = positive(predicted);
+  const a = positive(actual);
+  return p === null || a === null ? null : p / a;
+}
+
+function rollingKnowledgeBacktest(samples = []) {
+  const ordered = (Array.isArray(samples) ? samples : [])
+    .filter((row) => positive(row?.timer_minutes_to_completion) !== null)
+    .slice()
+    .sort((a,b) => String(a?.completed_at || '').localeCompare(String(b?.completed_at || '')));
+  const trials = [];
+  for (let index = 3; index < ordered.length; index += 1) {
+    const train = ordered.slice(0,index);
+    const test = ordered[index];
+    const actual = positive(test?.timer_minutes_to_completion);
+    const candidates = [];
+    const kpRate = median(train.map((row) => {
+      const m=positive(row?.timer_minutes_to_completion), u=positive(row?.kp_count);
+      return m!==null&&u!==null ? m/u : null;
+    }).filter((x)=>x!==null));
+    const lgRate = median(train.map((row) => {
+      const m=positive(row?.timer_minutes_to_completion), u=positive(row?.logic_group_count);
+      return m!==null&&u!==null ? m/u : null;
+    }).filter((x)=>x!==null));
+    if (kpRate !== null && positive(test?.kp_count)!==null) candidates.push(kpRate*Number(test.kp_count));
+    if (lgRate !== null && positive(test?.logic_group_count)!==null) candidates.push(lgRate*Number(test.logic_group_count));
+    const predicted = candidates.length ? median(candidates) : null;
+    const error = relativeError(predicted,actual);
+    const ratio = signedRatio(predicted,actual);
+    if (error === null || ratio === null) continue;
+    trials.push({
+      block_id:String(test?.block_id||''),
+      canonical_id:String(test?.canonical_id||''),
+      actual_minutes:round(actual),
+      predicted_minutes:round(predicted),
+      absolute_percent_error:round(error,4),
+      predicted_actual_ratio:round(ratio,4)
+    });
+  }
+  const errors=trials.map((row)=>row.absolute_percent_error);
+  const ratios=trials.map((row)=>row.predicted_actual_ratio);
+  const recent=ordered.slice(-3).map((row)=>positive(row?.timer_minutes_to_completion)).filter((x)=>x!==null);
+  const earlier=ordered.slice(0,Math.max(0,ordered.length-3)).map((row)=>positive(row?.timer_minutes_to_completion)).filter((x)=>x!==null);
+  const recentMedian=median(recent);
+  const earlierMedian=median(earlier);
+  const driftRatio=recentMedian!==null&&earlierMedian!==null&&earlierMedian>0 ? recentMedian/earlierMedian : null;
+  return {
+    status: trials.length >= 3 ? 'BACKTESTED' : 'INSUFFICIENT_BACKTEST',
+    completed_samples: ordered.length,
+    trial_count: trials.length,
+    median_absolute_percent_error: errors.length ? round(median(errors),4) : null,
+    median_predicted_actual_ratio: ratios.length ? round(median(ratios),4) : null,
+    recent_vs_earlier_median_minutes_ratio: driftRatio===null ? null : round(driftRatio,4),
+    trials: trials.slice(-12),
+    boundary:
+      'Rolling backtest predicts each later completed Block from earlier completed Blocks only. It is a calibration diagnostic, not an independent learner truth.'
+  };
+}
+
+function rollingRateBacktest(rows = [], valueKey = 'observed_minutes_per_attempt') {
+  const ordered=(Array.isArray(rows)?rows:[])
+    .filter((row)=>positive(row?.[valueKey])!==null)
+    .slice()
+    .sort((a,b)=>String(a?.day||a?.completed_at||'').localeCompare(String(b?.day||b?.completed_at||'')));
+  const trials=[];
+  for(let index=3;index<ordered.length;index+=1){
+    const train=ordered.slice(0,index).map((row)=>positive(row?.[valueKey])).filter((x)=>x!==null);
+    const actual=positive(ordered[index]?.[valueKey]);
+    const predicted=median(train);
+    const error=relativeError(predicted,actual);
+    const ratio=signedRatio(predicted,actual);
+    if(error===null||ratio===null) continue;
+    trials.push({
+      id:String(ordered[index]?.day||ordered[index]?.repair_id||index),
+      actual:round(actual,3),
+      predicted:round(predicted,3),
+      absolute_percent_error:round(error,4),
+      predicted_actual_ratio:round(ratio,4)
+    });
+  }
+  return {
+    status:trials.length>=3?'BACKTESTED':'INSUFFICIENT_BACKTEST',
+    sample_count:ordered.length,
+    trial_count:trials.length,
+    median_absolute_percent_error:trials.length?round(median(trials.map((row)=>row.absolute_percent_error)),4):null,
+    median_predicted_actual_ratio:trials.length?round(median(trials.map((row)=>row.predicted_actual_ratio)),4):null,
+    trials:trials.slice(-12)
+  };
+}
+
 function knowledgeForecast(progress) {
   const weights = Array.isArray(progress?.canonical_scope?.block_weights)
     ? progress.canonical_scope.block_weights
@@ -207,6 +304,7 @@ function knowledgeForecast(progress) {
     })
   ];
   const band = combineModelFormBands(estimators);
+  const backtest = rollingKnowledgeBacktest(samples);
   const risks = [];
   if (samples.length < 3) risks.push('INSUFFICIENT_COMPLETED_BLOCK_TIMER_SAMPLES');
   if (sampleSystems.size < 2 && samples.length > 0) risks.push('SINGLE_SYSTEM_CALIBRATION');
@@ -214,6 +312,15 @@ function knowledgeForecast(progress) {
     risks.push('STARTED_INCOMPLETE_BLOCKS_PRICED_AS_FULL_REMAINING');
   }
   if (band && band.estimator_bands_overlap === false) risks.push('STRUCTURAL_ESTIMATORS_DIVERGE');
+  if (backtest.status === 'BACKTESTED' && Number(backtest.median_absolute_percent_error || 0) > 0.25) {
+    risks.push('KNOWLEDGE_FORECAST_BACKTEST_ERROR_HIGH');
+  }
+  if (backtest.status === 'BACKTESTED' && Number(backtest.median_predicted_actual_ratio || 1) < 0.85) {
+    risks.push('KNOWLEDGE_FORECAST_SYSTEMATIC_OPTIMISM');
+  }
+  if (Number(backtest.recent_vs_earlier_median_minutes_ratio || 1) > 1.35) {
+    risks.push('RECENT_KNOWLEDGE_PACE_SLOWDOWN');
+  }
   return {
     component: 'FIRST_PASS_KNOWLEDGE_CLOSURE',
     required: true,
@@ -226,7 +333,8 @@ function knowledgeForecast(progress) {
     calibration: {
       completed_block_timer_samples: samples.length,
       sample_systems: [...sampleSystems].sort(),
-      estimators
+      estimators,
+      rolling_backtest: backtest
     },
     band_minutes: band,
     risks,
@@ -243,6 +351,7 @@ function questionForecast(progress) {
     .map((row) => positive(row?.observed_minutes_per_attempt))
     .filter((value) => value !== null);
   const state = sampleState(rates.length);
+  const backtest = rollingRateBacktest(daySamples);
   const band = remaining !== null && rates.length >= 3
     ? {
         p20: round(quantile(rates, 0.2) * remaining),
@@ -255,6 +364,12 @@ function questionForecast(progress) {
   if (rates.length < 3) risks.push('INSUFFICIENT_PRACTICE_TIMER_SAMPLES');
   if (progress?.question_workload?.known_remaining_is_lower_bound) risks.push('UNPRICED_SYSTEM_QUESTION_SCOPE');
   if (Number(progress?.question_workload?.cross_system_duplicate_memberships || 0) > 0) risks.push('CROSS_SYSTEM_DUPLICATE_MEMBERSHIP');
+  if (backtest.status === 'BACKTESTED' && Number(backtest.median_absolute_percent_error || 0) > 0.25) {
+    risks.push('QUESTION_SPEED_BACKTEST_ERROR_HIGH');
+  }
+  if (backtest.status === 'BACKTESTED' && Number(backtest.median_predicted_actual_ratio || 1) < 0.85) {
+    risks.push('QUESTION_SPEED_SYSTEMATIC_OPTIMISM');
+  }
   return {
     component: 'FIRST_PASS_OFFICIAL_SWEEP',
     required: true,
@@ -270,7 +385,8 @@ function questionForecast(progress) {
         attempts: Number(row.attempted || 0),
         practice_timer_minutes: Number(row.practice_timer_minutes || 0),
         minutes_per_attempt: positive(row.observed_minutes_per_attempt)
-      }))
+      })),
+      rolling_backtest: backtest
     },
     band_minutes: band,
     risks,
