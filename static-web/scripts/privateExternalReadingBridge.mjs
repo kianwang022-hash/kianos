@@ -35,7 +35,7 @@ export function privateExternalReadingBridge(options = {}){
           const state=ensureExternalReadingPrivateBundle(options);
           if(url.pathname===ROOT+'/status'||url.pathname===ROOT+'/catalog'){
             const catalog=englishExternalCombinedCatalog({sourceState:state});
-            return json(res,catalog.status==='ready'?200:catalog.status==='missing_source'?404:503,catalog);
+            return json(res,catalog.status==='ready'?200:catalog.status==='missing_source'?404:catalog.status==='stale_source'?409:503,catalog);
           }
           if(url.pathname===ROOT+'/passage'){
             const id=String(url.searchParams.get('id')||'').trim();
