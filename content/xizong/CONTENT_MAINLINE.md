@@ -85,7 +85,7 @@ S1 Source boundary                     PASS
 S2 exact official-question membership  UNTESTED / separate later boundary
 K  Knowledge                           PASS_AFTER_BOUNDED_REPAIR
 L  Learning Logic                      PASS_AFTER_BOUNDED_REPAIR
-Content                                NOT_STARTED / NEXT ELIGIBLE
+Content                                CANDIDATE / fresh independent closure active
 ```
 
 Fresh identity remains **20 Blocks / 212 KP**.
@@ -104,12 +104,22 @@ The historical E System Guide remains reference-only; its old DAG is not accepte
 
 Learning is accepted at **20 Blocks / 212 KP → 67 LG** with 11 whole-Block and 9 natural-Source-unit contacts, 0 inside-E hard prerequisite edges and 3 non-gating PSRs. Fresh independent L audit found one bounded defect: E10 had a real visual Source gap but no LG-level visual closure requirement. E10-LG03 now preserves that gap fail-closed; no Block/KP/LG identity or Source-contact count changed.
 
+Content Realization is now built and internally audited:
+
+```text
+20 Blocks / 212 KP / 67 LG
+67 / 67 Content Source-release coverage
+7 natural-unit wrapper repairs
+67 / 67 LG sufficiency PASS
+18 LG / 37 KP Recall-front repairs
+medical Core rewrite = 0
+```
+
 Required sequence now:
 
 ```text
-Content Realization / Optimization
-→ LG-by-LG Content sufficiency / density audit
-→ fresh independent Content closure
+fresh independent whole-E Content closure
+→ on PASS: E medical-content chain CLOSED
 ```
 
 Do not copy D topology for symmetry. Do not infer official-question membership from accepted K.
@@ -294,8 +304,8 @@ Do not reopen the generation standard unless fresh evidence shows the shared met
 
 ```text
 Medical:
-E Content Realization / Optimization = sole active medical-content priority
-→ finish E Content + LG sufficiency / density audit + fresh Content closure
+E fresh independent Content closure = sole active medical-content priority
+→ on PASS: E medical-content chain closes
 → then resume F at fresh independent K acceptance
 D scoped Projection may proceed independently downstream only when it does not consume E/F semantic attention
 
@@ -356,7 +366,8 @@ ACTIVE CONTENT PRIORITY
 E S1 PASS
 → K PASS_AFTER_BOUNDED_REPAIR
 → L PASS_AFTER_BOUNDED_REPAIR: 67 LG / 11 whole + 9 natural Source contacts / 0 hard edges
-→ Content Realization / Optimization NEXT
+→ Content candidate built + 67/67 LG sufficiency PASS
+→ fresh independent Content closure ACTIVE
 
 NEXT MEDICAL AFTER E CLOSURE
 F 9 Blocks / 121 KP
