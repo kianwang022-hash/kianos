@@ -34,6 +34,13 @@ const forecast = buildPoliticsForecast({
   }
 });
 
+assert.ok(forecast.first_round_stress.unit_cases.length >= 2, 'null explicit remaining units must preserve structural uncertainty cases');
+assert.equal(
+  forecast.first_round_stress.unit_cases.some((row) => row.label === 'EXPLICIT_REMAINING_UNITS'),
+  false,
+  'default null must not become explicit zero remaining units'
+);
+
 assert.equal(forecast.schema, 'kianos.politics.forecast.v1');
 assert.equal(forecast.role, 'SUBJECT_WORKLOAD_AND_RISK_EVIDENCE_NOT_STRATEGY');
 assert.equal(forecast.facts.remaining_questions.single, politicsForecastConstants.TOTALS.single - 120);
