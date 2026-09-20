@@ -73,6 +73,7 @@ function loadOwner() {
       id: task.id,
       kind: task.kind,
       sourceKind: task.source_kind,
+      evidenceRole: task.evidence_role || null,
       title: task.title,
       targetWords: task.target_words,
       learnerTask: task.task,
