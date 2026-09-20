@@ -287,7 +287,7 @@ export function initPoliticsPractice(root) {
     busy = true; freezeInputs(true); clearError();
     try {
       saveDraft(); const q = question();
-      const response = await fetch(`${catalog.reviewBase}${encodeURIComponent(q.id)}.json${import.meta.env?.DEV ? "/" : ""}`);
+      const response = await fetch(`${catalog.reviewBase}${encodeURIComponent(q.id)}.json/`);
       if (!response.ok) throw new Error('本题解析暂不可用；当前题未提交，请稍后重试。');
       const review = await response.json(); validateReview(review, q);
       const answer = sorted(selected), correct = answer === sorted(review.answer);
