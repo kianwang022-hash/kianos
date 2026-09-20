@@ -32,7 +32,8 @@
       "controlled_features": [
         "semantic-equivalent alternative restructuring",
         "contrast preserved",
-        "natural Chinese"
+        "natural Chinese",
+        "no exclusivity/only-claim added"
       ],
       "guardrail": null,
       "must_not_penalize": [
@@ -111,11 +112,12 @@
     "sw-extension-plain-complete": {
       "channel": "writing_small",
       "expected_relation": "HIGH",
-      "expected_band": "7-8",
+      "expected_band": "7-10",
       "controlled_features": [
         "simple language",
         "all essential moves",
-        "clear reader utility"
+        "clear reader utility",
+        "near-target length"
       ],
       "guardrail": "plain language should not be punished merely for lacking ornate vocabulary"
     },
@@ -169,12 +171,13 @@
     "bw-info-simple-strong": {
       "channel": "writing_big",
       "expected_relation": "HIGH",
-      "expected_band": "13-16",
+      "expected_band": "13-20",
       "controlled_features": [
         "simple vocabulary",
         "correct grounding",
         "real mechanism",
-        "balanced boundary"
+        "balanced boundary",
+        "within target length"
       ],
       "guardrail": "simple language with strong task/development should outrank ornate misread writing"
     },
@@ -188,6 +191,65 @@
         "generic unrelated development"
       ],
       "guardrail": null
+    },
+    "sw-extension-complete-underlength": {
+      "channel": "writing_small",
+      "expected_relation": "MID_HIGH_WITH_LENGTH_UNCERTAINTY",
+      "expected_band": "5-8",
+      "controlled_features": [
+        "all essential communicative moves present",
+        "plain stable language",
+        "materially under about-100-word target"
+      ],
+      "guardrail": "length deficit should matter without erasing otherwise successful task fulfillment",
+      "expected_uncertainty": "MATERIAL",
+      "requires_independent_rescore": true
+    },
+    "bw-info-grounded-underlength": {
+      "channel": "writing_big",
+      "expected_relation": "MID_HIGH_WITH_LENGTH_UNCERTAINTY",
+      "expected_band": "9-16",
+      "controlled_features": [
+        "correct material grounding",
+        "real mechanism",
+        "clear organization",
+        "materially under 160-word lower bound"
+      ],
+      "guardrail": "under-length delivery should reduce/widen the range without being double-counted as a second content failure",
+      "expected_uncertainty": "MATERIAL",
+      "requires_independent_rescore": true
+    },
+    "tr-sec-cal-01-strong": {
+      "channel": "translation",
+      "expected_relation": "HIGH_SECTION",
+      "expected_range_hint": [
+        8,
+        10
+      ],
+      "controlled_features": [
+        "five complete segments",
+        "major propositions and relations preserved across section",
+        "natural readable Chinese"
+      ],
+      "guardrail": "whole-section aggregation must remain conservative and must not invent exact micro-points",
+      "must_not_penalize": [
+        "surface wording differs from stored reference"
+      ]
+    },
+    "tr-sec-cal-01-mixed-major-error": {
+      "channel": "translation",
+      "expected_relation": "MID_HIGH_SECTION_WITH_MATERIAL_ERROR",
+      "expected_range_hint": [
+        6,
+        8.5
+      ],
+      "controlled_features": [
+        "four strong segments",
+        "one major condition/relation distortion in segment 4",
+        "otherwise readable Chinese"
+      ],
+      "guardrail": "one fluent but materially wrong segment must remain visible in the 10-point section range and should trigger independent re-score when the range is wide",
+      "requires_independent_rescore": true
     }
   },
   "pairwise_invariants": [
@@ -210,6 +272,24 @@
       "preferred": "bw-info-simple-strong",
       "over": "bw-info-fluent-misread",
       "rule": "Correct material grounding and development should outscore fluent but materially misread writing."
+    },
+    {
+      "invariant_id": "translation-section-major-error-visible",
+      "preferred": "tr-sec-cal-01-strong",
+      "over": "tr-sec-cal-01-mixed-major-error",
+      "rule": "A complete section with all relations preserved must outscore the same section containing one major relation distortion."
+    },
+    {
+      "invariant_id": "small-length-deficit-matters",
+      "preferred": "sw-extension-plain-complete",
+      "over": "sw-extension-complete-underlength",
+      "rule": "With task fulfillment held broadly similar, a materially under-length Small Writing response must not outrank the near-target complete response."
+    },
+    {
+      "invariant_id": "big-length-deficit-matters",
+      "preferred": "bw-info-simple-strong",
+      "over": "bw-info-grounded-underlength",
+      "rule": "With grounding/mechanism broadly preserved, a materially under-length Big Writing response must not outrank the within-range version."
     }
   ]
 }
