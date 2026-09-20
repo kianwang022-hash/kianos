@@ -64,7 +64,7 @@ export function writeExternalReadingSyntheticSource(sourceRoot){
 
   const longform=writeText(
     'INCREMENTAL/longform/article.md',
-    '# Synthetic Open Long-form\n\nThis is a questionless authentic-style reading-growth fixture. It proves that External Reading can preserve pure reading without manufacturing questions.\n\nA second paragraph verifies stable paragraph handling.'
+    '# Synthetic Open Long-form\n\nThis is a questionless authentic-style reading-growth fixture. It proves that External Reading can preserve pure reading without manufacturing questions.\n\n[FIGURE]\ncaption: Synthetic source-native chart\nsource_position: after the first paragraph\nsource_url: https://example.invalid/synthetic-source-figure.png\nfigure_note: The figure is explicit source structure; the test does not depend on external image availability.\n\nA second paragraph verifies stable paragraph handling.'
   );
 
   const noKeyArticle=writeText(
