@@ -211,20 +211,25 @@ export function loadXizongQuestionsByIds(questionIds) {
 }
 
 function loadXizongExamFormatOwner() {
-  const owner = readJson(EXAM_FORMAT_PATH);
+  if (examFormatOwnerCache) return examFormatOwnerCache;
+  const raw = readText(EXAM_FORMAT_PATH);
+  const owner = JSON.parse(raw);
   if (owner?.schema !== 'kianos.xizong.exam_format.v1' || owner?.status !== 'CURRENT') {
     throw new Error('CURRENT_XIZONG_EXAM_FORMAT_INVALID');
   }
-  return owner;
+  examFormatOwnerCache = owner;
+  examFormatSourceHashCache = sha256(raw);
+  return examFormatOwnerCache;
 }
 
 export function loadXizongExamFormatForYear(year) {
   const normalizedYear = Number(year);
   if (!Number.isInteger(normalizedYear)) throw new Error(`CURRENT_XIZONG_EXAM_FORMAT_YEAR_INVALID:${year}`);
+  if (examFormatYearCache.has(normalizedYear)) return examFormatYearCache.get(normalizedYear);
   const owner = loadXizongExamFormatOwner();
   const row = (owner.eras || []).find((item) => normalizedYear >= Number(item?.start_year) && normalizedYear <= Number(item?.end_year));
   if (!row) throw new Error(`CURRENT_XIZONG_EXAM_FORMAT_YEAR_MISSING:${normalizedYear}`);
-  return {
+  const value = {
     schema: owner.schema,
     authority: owner.authority,
     year: normalizedYear,
@@ -237,8 +242,10 @@ export function loadXizongExamFormatForYear(year) {
       points: Number(segment.points)
     })),
     sourcePath: EXAM_FORMAT_PATH,
-    sourceHash: sha256(readText(EXAM_FORMAT_PATH))
+    sourceHash: examFormatSourceHashCache
   };
+  examFormatYearCache.set(normalizedYear, value);
+  return value;
 }
 
 export function listXizongPaperSummaries() {
