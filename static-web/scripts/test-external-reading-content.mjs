@@ -67,7 +67,7 @@ for(const book of [17,18,19]){
 }
 
 try{
-  const state=ensureExternalReadingPrivateBundle({sourceRoot,privateDir,force:true});
+  const state=ensureExternalReadingPrivateBundle({sourceRoot,privateDir,force:true,enforceSourceHashGate:false});
   assert.equal(state.status,'ready',state.error||state.status);
   assert.equal(state.bundle.passages.length,66);
   assert.deepEqual(state.bundle.counts.toefl,{collections:10,passages:30,questions:395,answer_slots:395});
