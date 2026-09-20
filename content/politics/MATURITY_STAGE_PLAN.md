@@ -149,13 +149,22 @@ The Builder engineering lane stops once only the independent freeze gate plus So
 
 ## Fresh-Chat restart
 
+Normal engineering continuation:
+
 ```text
 main@HEAD
 → AGENTS.md
 → content/politics/CURRENT.md
 → active Politics maturity owner #638
 → content/politics/MATURITY_STAGE_PLAN.md
-→ exact owner only if a reopen condition is present
 ```
 
-Read the shared maturity standard only when checking whether Politics still satisfies the upstream acceptance bar.
+While M7 is open, the exact next owner is:
+
+```text
+content/politics/MATURITY_FRESH_INDEPENDENT_AUDIT_BRIEF.md
+→ fresh uncontaminated evaluator
+→ exact candidate-head verdict
+```
+
+The freeze auditor follows the brief's blind read order and must not read Builder verdict/reconciliation artifacts before locking its independent verdict.
