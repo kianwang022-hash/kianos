@@ -147,7 +147,11 @@ function laterAttempt(candidate, current) {
   return false;
 }
 
-function summarizeXizongForecastPractice(storage, { holdoutYears = [], now = Date.now() } = {}) {
+function summarizeXizongForecastPractice(storage, {
+  holdoutYears = [],
+  now = Date.now(),
+  questionScope = null
+} = {}) {
   const storageEntries = listStorageKeys(storage)
     .filter((key) => /^kianos:xizong:(?:system|chat-set|retained|paper)-question-sweep:.*:v1$/.test(key))
     .map((key) => [key, storage.getItem(key)]);
@@ -169,7 +173,13 @@ function summarizeXizongForecastPractice(storage, { holdoutYears = [], now = Dat
   const holdout = new Set((Array.isArray(holdoutYears) ? holdoutYears : []).map(Number).filter(Number.isInteger));
   const byDay = new Map();
   const bySystem = new Map();
+  const currentScopeBySystem = new Map(
+    (Array.isArray(questionScope?.systems) ? questionScope.systems : [])
+      .filter((row) => row?.status === 'EXACT')
+      .map((row) => [String(row?.system_id || ''), row])
+  );
   let eligibleAttempted = 0;
+  let currentScopeEligibleAttempted = 0;
   let heldoutObserved = 0;
   for (const event of firstPass.values()) {
     const status = String(event?.status || '');
@@ -178,13 +188,33 @@ function summarizeXizongForecastPractice(storage, { holdoutYears = [], now = Dat
     const eligible = !holdout.has(year);
     if (eligible) eligibleAttempted += 1;
     else heldoutObserved += 1;
-    const systemKey = String(event?.canonical_id || event?.system_id || 'UNKNOWN');
+    const eventSystemId = String(event?.system_id || '');
+    const currentScope = currentScopeBySystem.get(eventSystemId);
+    const currentScopeMatch = Boolean(
+      currentScope
+      && String(event?.scope_hash || '') === String(currentScope?.scope_hash || '')
+      && String(event?.question_inventory_hash || '') === String(currentScope?.question_inventory_hash || '')
+    );
+    const systemKey = String(currentScope?.canonical_id || event?.canonical_id || eventSystemId || 'UNKNOWN');
     if (!bySystem.has(systemKey)) {
-      bySystem.set(systemKey, { canonical_id: systemKey, attempted: 0, eligible_attempted: 0, stable: 0, uncertain: 0, wrong: 0 });
+      bySystem.set(systemKey, {
+        canonical_id: systemKey,
+        system_id: eventSystemId || String(currentScope?.system_id || ''),
+        attempted: 0,
+        eligible_attempted: 0,
+        current_scope_eligible_attempted: 0,
+        stable: 0,
+        uncertain: 0,
+        wrong: 0
+      });
     }
     const systemRow = bySystem.get(systemKey);
     systemRow.attempted += 1;
     if (eligible) systemRow.eligible_attempted += 1;
+    if (eligible && currentScopeMatch) {
+      systemRow.current_scope_eligible_attempted += 1;
+      currentScopeEligibleAttempted += 1;
+    }
     if (Object.hasOwn(firstPassCounts, status)) systemRow[status] += 1;
     const day = studyDayFromIso(event?.submitted_at);
     if (!day) continue;
@@ -229,6 +259,7 @@ function summarizeXizongForecastPractice(storage, { holdoutYears = [], now = Dat
       wrong_or_uncertain: wrongUncertain,
       wrong_or_uncertain_rate: firstPass.size ? Number((wrongUncertain / firstPass.size).toFixed(4)) : null,
       eligible_attempted_questions: eligibleAttempted,
+      current_scope_eligible_attempted_questions: currentScopeEligibleAttempted,
       heldout_observed_questions: heldoutObserved,
       by_system: [...bySystem.values()].sort((a, b) => String(a.canonical_id).localeCompare(String(b.canonical_id), undefined, { numeric: true })),
       by_day: dayRows
@@ -239,7 +270,7 @@ function summarizeXizongForecastPractice(storage, { holdoutYears = [], now = Dat
       last_submitted_at: latestSubmittedAt
     },
     evidence_boundary:
-      'Official question attempts are deduplicated by question id. First-pass Wrong/Uncertain is raw repair pressure, not one-repair-per-question debt.'
+      'Official question attempts are deduplicated by question id. Only attempts bound to the Current exact scope hash + inventory hash reduce remaining workload; stale/unbound attempts remain performance evidence only. First-pass Wrong/Uncertain is raw repair pressure, not one-repair-per-question debt.'
   };
 }
 
@@ -420,7 +451,7 @@ function reconcileForecastQuestionScope(questionScope, practiceEvidence, holdout
       .reduce((sum, [, count]) => sum + Number(count || 0), 0);
     const eligible = Math.max(0, Number(row?.question_count || 0) - heldout);
     const practice = practiceBySystem.get(String(row?.canonical_id || ''));
-    const attempted = Math.min(eligible, Math.max(0, Number(practice?.eligible_attempted || 0)));
+    const attempted = Math.min(eligible, Math.max(0, Number(practice?.current_scope_eligible_attempted || 0)));
     return {
       canonical_id: String(row?.canonical_id || ''),
       system_id: String(row?.system_id || ''),
@@ -572,7 +603,7 @@ export function buildXizongForecastProgress(storage, packetIndex = [], {
     return sum + groups.size;
   }, 0);
   const holdoutYears = readJson(storage, 'kianos:xizong:full-paper-holdout-years:v1', []) || [];
-  const practiceEvidence = summarizeXizongForecastPractice(storage, { holdoutYears, now });
+  const practiceEvidence = summarizeXizongForecastPractice(storage, { holdoutYears, now, questionScope });
   const repairEvidence = summarizeXizongForecastRepairs(storage);
   const questionWorkload = reconcileForecastQuestionScope(questionScope, practiceEvidence, holdoutYears);
   const systemRecallEvidence = summarizeXizongSystemRecallForecast(storage, systemRows);
