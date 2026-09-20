@@ -19,9 +19,9 @@ const privateDir=path.join(temp,'private');
 const port=4457;
 const base=`http://127.0.0.1:${port}`;
 const log=fs.openSync(path.join(out,'external-reading-browser.log'),'w');
-const server=spawn(process.execPath,['node_modules/astro/astro.js','dev','--host','127.0.0.1','--port',String(port)],{
+const server=spawn(process.execPath,['node_modules/astro/astro.js','dev','--config','scripts/astro.external-reading-synthetic.config.mjs','--host','127.0.0.1','--port',String(port)],{
   cwd:staticRoot,
-  env:{...process.env,KIANOS_EXTERNAL_READING_SOURCE_ROOT:sourceRoot,KIANOS_EXTERNAL_READING_DIR:privateDir,KIANOS_EXTERNAL_READING_SYNTHETIC_TEST_SOURCE:'1'},
+  env:{...process.env,KIANOS_EXTERNAL_READING_SOURCE_ROOT:sourceRoot,KIANOS_EXTERNAL_READING_DIR:privateDir},
   stdio:['ignore',log,log]
 });
 
