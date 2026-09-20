@@ -279,7 +279,7 @@
           701,
           800
         ],
-        "state": "REVIEW_BUNDLE_EXPORTING",
+        "state": "WAITING_BOUNDED_HUMAN_DELTA_GATE",
         "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
         "allowed_now": [
           "freeze current main and export review bundle",
@@ -295,10 +295,48 @@
           "merge backfill candidate",
           "invent a newer semantic standard"
         ],
-        "next_action": "Wait for o0701-o0800 review bundle export, then perform final C Fresh Read + Self Attack.",
+        "next_action": "Kian reviews only the 11-owner / 12-asset genuinely new BF07 delta in PR #589. On p, approve exactly that delta plus the reported bounded corrections/Test changes, freeze BF07, mark C and overall o0001-o1150 Production sweep COMPLETE. Do not materialize until orchestration explicitly transitions phases.",
         "review_head": "250bced07889a53a09ccf6ada403cb622b026a62",
         "review_branch": "work/lexical-final-backfill-c-o0701-o0800",
-        "review_request_commit": "5b49be5d57cf579cac9256bcfb46b4ce8a1bb519"
+        "review_request_commit": "5b49be5d57cf579cac9256bcfb46b4ce8a1bb519",
+        "review_workflow_run": 35482053423,
+        "review_artifact_id": 10596206305,
+        "review_artifact_digest": "sha256:729654c597ca5320c41f722d320f2157691b0417958d4d7daef6c86e002fc6ac",
+        "review_bundle_coverage": "100/100",
+        "proposal_pr": 589,
+        "proposal_head": "1b432f2d75ee79f223546a6a67581257579253d8",
+        "proposal_path": "content/lexical/execution/manifests/o0701-o0800.final-semantic-sweep-c-proposal.md",
+        "module_matrix_path": "content/lexical/execution/manifests/o0701-o0800.final-semantic-sweep-c-module-matrix.tsv",
+        "fresh_read_coverage": "100/100",
+        "self_attack": "COMPLETE",
+        "content_affected_owners": 34,
+        "content_no_change": 66,
+        "blocked": 0,
+        "new_material_delta_owners": [
+          706,
+          709,
+          713,
+          727,
+          761,
+          772,
+          774,
+          786,
+          792,
+          795,
+          797
+        ],
+        "new_material_asset_count": 12,
+        "old_test_blueprints": 37,
+        "stabilized_test_blueprints": 22,
+        "canonical_semantic_mutation": false,
+        "shared_write_set_if_approved": [
+          "catalog↔catalogue spelling identity migration to Form",
+          "cause↔get semantic contrast; shared word:get@o2130",
+          "cause↔reason semantic contrast; shared word:reason@o3969",
+          "cent↔scent confusable; shared word:scent@o4280",
+          "certain↔sure semantic contrast; shared word:sure@o4828"
+        ],
+        "semantic_freshness_note": "Review froze from main 250bced0. Pre-proposal drift check to fcecd3b7 showed only the live Lexical board plus Xizong files; no o0701-o0800 Word/Relation/Form semantic owner or Lexical semantic contract changed. FINAL_SEMANTIC_FREEZE v1 remains current."
       },
       "scheduled_ranges": [
         [
@@ -1418,6 +1456,76 @@
       "state": "PROPOSED_SHARED_SEMANTIC",
       "write_lease_candidate": null,
       "semantic_scope": "migrate existing AmE/BrE spelling truth from Relation to Form/Identity"
+    },
+    {
+      "claim_key": "FORM:catalog|catalogue:regional_spelling_identity",
+      "kind": "FORM",
+      "participants": [
+        "word:catalog",
+        "surface:catalogue"
+      ],
+      "claimants": [
+        "BF07"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "migrate already-accepted catalog/catalogue spelling truth from Relation to Form/Identity"
+    },
+    {
+      "claim_key": "RELATION:cause|get:causative_boundary",
+      "kind": "RELATION",
+      "participants": [
+        "word:cause",
+        "word:get"
+      ],
+      "claimants": [
+        "BF07"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "existing formal direct-causation vs促成/说服 causative boundary; reciprocal ownership cleanup"
+    },
+    {
+      "claim_key": "RELATION:cause|reason:semantic_contrast",
+      "kind": "RELATION",
+      "participants": [
+        "word:cause",
+        "word:reason"
+      ],
+      "claimants": [
+        "BF07"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "existing objective cause vs explanatory reason boundary; reciprocal ownership cleanup"
+    },
+    {
+      "claim_key": "RELATION:cent|scent:confusable",
+      "kind": "RELATION",
+      "participants": [
+        "word:cent",
+        "word:scent"
+      ],
+      "claimants": [
+        "BF07"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "existing homophone money-vs-smell boundary; reciprocal ownership cleanup"
+    },
+    {
+      "claim_key": "RELATION:certain|sure:usage_boundary",
+      "kind": "RELATION",
+      "participants": [
+        "word:certain",
+        "word:sure"
+      ],
+      "claimants": [
+        "BF07"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "existing overlap/selection boundary; reciprocal ownership cleanup without rigid formal-informal rule"
     }
   ],
   "last_closed": {
