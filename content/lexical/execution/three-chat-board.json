@@ -38,12 +38,12 @@
       101,
       200
     ],
-    "state": "PARKED_DURING_PRODUCTION_SWEEP",
-    "note": "Semantic materialization is intentionally paused until A/C finish the o0001-o1150 Production sweep."
+    "state": "PRODUCTION_SWEEP_COMPLETE_AWAITING_PHASE_TRANSITION",
+    "note": "Production sweep is complete. Do not materialize until orchestration explicitly transitions to serialized materialization; refreeze latest main and semantic dependencies first."
   },
   "audit_target": {
-    "state": "PAUSED_DURING_PRODUCTION_SWEEP",
-    "note": "No B audit launches until Production sweep completion."
+    "state": "PAUSED_PENDING_PHASE_TRANSITION",
+    "note": "Production sweep is complete, but no fresh B audit should launch until orchestration explicitly enters the materialization/audit phase."
   },
   "lanes": {
     "A": {
@@ -265,79 +265,15 @@
     "B": {
       "role": "FRESH_INDEPENDENT_AUDIT",
       "current_assignment": null,
-      "state": "PAUSED_DURING_PRODUCTION_SWEEP",
+      "state": "PAUSED_PENDING_PHASE_TRANSITION",
       "may_mutate_semantic_truth": false,
       "must_stop_after_one_audit_pack": true,
       "scheduler": "NEXT_READY_MATERIALIZED_CANDIDATE",
-      "next_action": "Do nothing until production_sweep.status becomes COMPLETE."
+      "next_action": "Wait for explicit orchestration transition. Do not launch B audit from the completed Production-sweep state."
     },
     "C": {
       "role": "PRODUCTION_C_FINAL_SWEEP",
-      "current_assignment": {
-        "candidate_id": "BF07",
-        "range": [
-          701,
-          800
-        ],
-        "state": "WAITING_BOUNDED_HUMAN_DELTA_GATE",
-        "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
-        "allowed_now": [
-          "freeze current main and export review bundle",
-          "fresh owner/module judgment",
-          "same-Chat Self-Adversarial Attack",
-          "write smallest stabilized proposal",
-          "gate only genuinely new material delta"
-        ],
-        "forbidden_now": [
-          "canonical semantic materialization",
-          "FLOB rebuild",
-          "launch B audit",
-          "merge backfill candidate",
-          "invent a newer semantic standard"
-        ],
-        "next_action": "Kian reviews only the 11-owner / 12-asset genuinely new BF07 delta in PR #589. On p, approve exactly that delta plus the reported bounded corrections/Test changes, freeze BF07, mark C and overall o0001-o1150 Production sweep COMPLETE. Do not materialize until orchestration explicitly transitions phases.",
-        "review_head": "250bced07889a53a09ccf6ada403cb622b026a62",
-        "review_branch": "work/lexical-final-backfill-c-o0701-o0800",
-        "review_request_commit": "5b49be5d57cf579cac9256bcfb46b4ce8a1bb519",
-        "review_workflow_run": 35482053423,
-        "review_artifact_id": 10596206305,
-        "review_artifact_digest": "sha256:729654c597ca5320c41f722d320f2157691b0417958d4d7daef6c86e002fc6ac",
-        "review_bundle_coverage": "100/100",
-        "proposal_pr": 589,
-        "proposal_head": "1b432f2d75ee79f223546a6a67581257579253d8",
-        "proposal_path": "content/lexical/execution/manifests/o0701-o0800.final-semantic-sweep-c-proposal.md",
-        "module_matrix_path": "content/lexical/execution/manifests/o0701-o0800.final-semantic-sweep-c-module-matrix.tsv",
-        "fresh_read_coverage": "100/100",
-        "self_attack": "COMPLETE",
-        "content_affected_owners": 34,
-        "content_no_change": 66,
-        "blocked": 0,
-        "new_material_delta_owners": [
-          706,
-          709,
-          713,
-          727,
-          761,
-          772,
-          774,
-          786,
-          792,
-          795,
-          797
-        ],
-        "new_material_asset_count": 12,
-        "old_test_blueprints": 37,
-        "stabilized_test_blueprints": 22,
-        "canonical_semantic_mutation": false,
-        "shared_write_set_if_approved": [
-          "catalog↔catalogue spelling identity migration to Form",
-          "cause↔get semantic contrast; shared word:get@o2130",
-          "cause↔reason semantic contrast; shared word:reason@o3969",
-          "cent↔scent confusable; shared word:scent@o4280",
-          "certain↔sure semantic contrast; shared word:sure@o4828"
-        ],
-        "semantic_freshness_note": "Review froze from main 250bced0. Pre-proposal drift check to fcecd3b7 showed only the live Lexical board plus Xizong files; no o0701-o0800 Word/Relation/Form semantic owner or Lexical semantic contract changed. FINAL_SEMANTIC_FREEZE v1 remains current."
-      },
+      "current_assignment": null,
       "scheduled_ranges": [
         [
           201,
@@ -690,6 +626,94 @@
             "proposal_blob_sha": "c1a1f3f678879eedc42e2bdb3d72f4a8e55c6c0a",
             "sync_main_head": "2ba45be3ee4cde26be79298d83b8868427505eea"
           }
+        },
+        {
+          "candidate_id": "BF07",
+          "range": [
+            701,
+            800
+          ],
+          "state": "DELTA_APPROVED_FROZEN_BACKLOG",
+          "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
+          "allowed_now": [
+            "freeze current main and export review bundle",
+            "fresh owner/module judgment",
+            "same-Chat Self-Adversarial Attack",
+            "write smallest stabilized proposal",
+            "gate only genuinely new material delta"
+          ],
+          "forbidden_now": [
+            "canonical semantic materialization",
+            "FLOB rebuild",
+            "launch B audit",
+            "merge backfill candidate",
+            "invent a newer semantic standard"
+          ],
+          "next_action": "Frozen backlog. Production C is complete. Do not materialize/audit until orchestration explicitly transitions out of the completed Production sweep and refreezes latest main/dependencies.",
+          "review_head": "250bced07889a53a09ccf6ada403cb622b026a62",
+          "review_branch": "work/lexical-final-backfill-c-o0701-o0800",
+          "review_request_commit": "5b49be5d57cf579cac9256bcfb46b4ce8a1bb519",
+          "review_workflow_run": 35482053423,
+          "review_artifact_id": 10596206305,
+          "review_artifact_digest": "sha256:729654c597ca5320c41f722d320f2157691b0417958d4d7daef6c86e002fc6ac",
+          "review_bundle_coverage": "100/100",
+          "proposal_pr": 589,
+          "proposal_head": "7d72ba0207698e4823171f1c0e8bdc20e9f19d08",
+          "proposal_path": "content/lexical/execution/manifests/o0701-o0800.final-semantic-sweep-c-proposal.md",
+          "module_matrix_path": "content/lexical/execution/manifests/o0701-o0800.final-semantic-sweep-c-module-matrix.tsv",
+          "fresh_read_coverage": "100/100",
+          "self_attack": "COMPLETE",
+          "content_affected_owners": 34,
+          "content_no_change": 66,
+          "blocked": 0,
+          "new_material_delta_owners": [
+            706,
+            709,
+            713,
+            727,
+            761,
+            772,
+            774,
+            786,
+            792,
+            795,
+            797
+          ],
+          "new_material_asset_count": 12,
+          "old_test_blueprints": 37,
+          "stabilized_test_blueprints": 22,
+          "canonical_semantic_mutation": false,
+          "shared_write_set_if_approved": [
+            "catalog↔catalogue spelling identity migration to Form",
+            "cause↔get semantic contrast; shared word:get@o2130",
+            "cause↔reason semantic contrast; shared word:reason@o3969",
+            "cent↔scent confusable; shared word:scent@o4280",
+            "certain↔sure semantic contrast; shared word:sure@o4828"
+          ],
+          "semantic_freshness_note": "Review froze from main 250bced0. Pre-proposal drift check to fcecd3b7 showed only the live Lexical board plus Xizong files; no o0701-o0800 Word/Relation/Form semantic owner or Lexical semantic contract changed. FINAL_SEMANTIC_FREEZE v1 remains current.",
+          "proposal_blob_sha": "aba3893ef97a18d6ce3385fad1d94796f6e3406d",
+          "human_gate": {
+            "approved": true,
+            "approved_at": "2026-09-20",
+            "approval_ref": "Kian p on o0701-o0800 Production C proposal",
+            "approved_owners": [
+              706,
+              709,
+              713,
+              727,
+              761,
+              772,
+              774,
+              786,
+              792,
+              795,
+              797
+            ],
+            "approved_asset_count": 12,
+            "proposal_path": "content/lexical/execution/manifests/o0701-o0800.final-semantic-sweep-c-proposal.md",
+            "proposal_blob_sha": "aba3893ef97a18d6ce3385fad1d94796f6e3406d",
+            "sync_main_head": "859a82ee7a624658ed81917f008d1e2f2d73412e"
+          }
         }
       ],
       "operating_mode": {
@@ -700,7 +724,10 @@
           "real semantic/source/identity blocker",
           "no remaining C batch"
         ]
-      }
+      },
+      "state": "PRODUCTION_SWEEP_COMPLETE",
+      "completed_through_ordinal": 1150,
+      "next_action": "No further Production review. Wait for an explicit orchestration phase transition before serialized materialization/audit."
     }
   },
   "preserved_candidates": [
@@ -1584,7 +1611,7 @@
       "previous_state": "WAITING_FRONTIER_MATERIALIZATION"
     }
   ],
-  "campaign_phase": "PRODUCTION_SWEEP_ONLY",
+  "campaign_phase": "PRODUCTION_SWEEP_COMPLETE__AWAITING_PHASE_TRANSITION",
   "semantic_freeze": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
   "final_broad_review_scope": [
     1,
@@ -1596,7 +1623,7 @@
       1150
     ],
     "mode": "A_LOW_TO_HIGH__C_HIGH_TO_LOW",
-    "status": "ACTIVE",
+    "status": "COMPLETE",
     "broad_semantic_reopen_after_closure": "FORBIDDEN_WITHOUT_EXPLICIT_KIAN_REVOCATION",
     "completed_or_frozen": [
       {
@@ -1675,16 +1702,21 @@
           900
         ],
         "state": "PRODUCTION_DELTA_APPROVED_FROZEN_BACKLOG"
+      },
+      {
+        "range": [
+          701,
+          800
+        ],
+        "state": "PRODUCTION_DELTA_APPROVED_FROZEN_BACKLOG"
       }
     ],
     "A_remaining": [],
-    "C_remaining": [
-      [
-        701,
-        800
-      ]
-    ],
+    "C_remaining": [],
     "completion_condition": "All A_remaining and C_remaining batches have stabilized frozen proposals; no unresolved Human Gate or semantic/source/identity blocker.",
-    "A_status": "COMPLETE"
+    "A_status": "COMPLETE",
+    "C_status": "COMPLETE",
+    "completed_at": "2026-09-20",
+    "completion_note": "A and C final semantic Production sweep for o0001-o1150 is complete. All remaining semantic proposals are frozen backlog under FINAL_SEMANTIC_FREEZE v1. No unresolved Human Gate or semantic/source/identity blocker remains."
   }
 }
