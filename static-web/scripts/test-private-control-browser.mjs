@@ -58,6 +58,36 @@ const command={
       }],
       return_policy:{on_finish:'english_home'}
     }},
+    {kind:'politics.analysis_evidence',payload:{
+      schema:'kianos.politics.analysis-evidence.v1',
+      direction:'CHAT_TO_LEARNER',
+      evidence_id:'control-analysis-legacy-001',
+      task_id:'LEG26-X8-S01-Q34-2-B',
+      task_revision:'legacy26-x8-s01-q34-2-bind-v1',
+      rubric_version:'politics-analysis-rubric-v1',
+      subject:'marxism',
+      subquestion_id:'34-2',
+      task_mode:'BIND',
+      attempt_role:'FIRST',
+      fresh_material:false,
+      freshness_class:'LEGACY_GEOMETRY_ONLY',
+      formulation_requirement:'NONE',
+      source_basis:{
+        family:'LEG26_XIAO8',
+        identity:'2026 Xiao8 set1 Q34(2)',
+        revision:null,
+        authority_status:'LEGACY_GEOMETRY'
+      },
+      study_day:day,
+      observed_at:'2026-09-20T00:08:00+08:00',
+      rubric:{I:2,S:1,B:1,F:'NA',D:'NA'},
+      critical_flags:['MATERIAL_UNBOUND'],
+      assessment_confidence:'MEDIUM',
+      delivery_timing:'NA',
+      elapsed_seconds:null,
+      diagnosis_summary:'Private control Analysis proof.',
+      repair_instruction:'只修材料绑定。'
+    }},
     {kind:'exam.chat_plan',payload:{
       schema:'kianos.exam.chat-plan.v1',
       study_day:day,
@@ -145,7 +175,8 @@ try{
   const appliedState=await page.evaluate(()=>({
     receipt:JSON.parse(localStorage.getItem('kianos-control-receipt-v1')||'null'),
     session:JSON.parse(localStorage.getItem('kianos-english-session-instruction-v1')||'null'),
-    plan:JSON.parse(localStorage.getItem('kianos-exam-chat-plan-v1')||'null')
+    plan:JSON.parse(localStorage.getItem('kianos-exam-chat-plan-v1')||'null'),
+    politicsAnalysis:JSON.parse(localStorage.getItem('kianos-politics-analysis-evidence-v1')||'null')
   }));
   if(appliedState.receipt?.status!=='APPLIED'){
     const serverNow=await (await fetch(base+'/__kianos-private/control/current?t='+Date.now(),{cache:'no-store'})).json();
@@ -205,6 +236,10 @@ try{
   assert.equal(state.plan?.subjects?.english?.session_ref,sessionId);
   assert.equal(state.session?.session_id,sessionId);
   assert.equal(state.receipt?.status,'APPLIED');
+  assert.equal(appliedState.politicsAnalysis?.schema,'kianos.politics.analysis-evidence-store.v1');
+  assert.equal(appliedState.politicsAnalysis?.records?.length,1);
+  assert.equal(appliedState.politicsAnalysis?.records?.[0]?.task_id,'LEG26-X8-S01-Q34-2-B');
+  assert.equal(appliedState.politicsAnalysis?.records?.[0]?.rubric?.B,1);
   assert.equal(state.receipt?.command_id,command.command_id);
 
   const receiptResponse=await fetch(base+'/__kianos-private/control/current',{cache:'no-store'});
@@ -216,7 +251,7 @@ try{
   await page.waitForURL(url=>url.pathname==='/external-reading/'&&url.searchParams.get('id')===drill.object_id);
   assert.equal((await page.locator('[data-external-kind]').textContent())?.trim(),'CHAT · SYNTHETIC');
 
-  console.log('PASS private Chat command -> local relay -> browser control -> Total Home -> exact English Workspace');
+  console.log('PASS private Chat command -> local relay -> Politics Analysis evidence + Total Home -> exact English Workspace');
   await context.close();
 }finally{
   try{await browser?.close();}catch{}
