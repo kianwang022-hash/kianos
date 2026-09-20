@@ -21,6 +21,72 @@ Old Chats, prompts, Issue titles and branch names are provenance, not Current tr
 
 ---
 
+# 0｜Active maturity mainline
+
+Current highest-priority Xizong control task:
+
+> **Stage A — SCORE / SCOPE / MATERIAL TRUTH**
+
+This is the subject-level maturity mainline derived from the shared Exam Subject Maturity Standard and the Xizong-specific Candidate requirements.
+
+Current working model:
+
+- Protect floor: **270+**
+- Working target: **275+**
+- Elastic upside: **>275**
+- capability tree: **X1–X9**
+- current execution order: **Stage A → B → C → D → E**
+- Stage A must close before Forecast may claim a complete Kian-specific 275 path.
+
+Stage A owns the practical subject package:
+
+```text
+Score
+→ Ability
+→ Material
+→ Method
+→ Evidence
+→ Gap
+→ learner impact
+→ smallest responsible owner
+```
+
+Current known Stage-A facts to preserve:
+
+- D / E / F medical Content is closed; do not reopen it merely because a downstream gap exists;
+- F exact official-question membership remains a routing/scope gap;
+- clinical-medical humanistic coverage remains an exam-scope hard gap while unowned;
+- current-year Biochemistry work is a delta problem, not a full-course rebuild;
+- case / 狂背 / four-set / final-five-hour assets require replacement/overlap/net-new reconciliation before workload admission;
+- Question→Knowledge Crosswalk remains progressive and must not be guessed to manufacture closure.
+
+Parallel work:
+
+- **Content / Material Closure lane** may fill the Material Gap Matrix and close exact content/source/routing gaps at their current owners.
+- **PR #631** remains the Forecast/capacity sublane only. It consumes Stage A–D evidence and may not declare those stages mature because its model logic is green.
+
+Current durable restart:
+
+```text
+main@HEAD
+→ content/xizong/CURRENT.md
+→ content/xizong/CONTENT_MAINLINE.md
+→ Stage A maturity package / exact gap owner
+→ work
+```
+
+Stage A exit gate:
+
+1. every exam-scope domain is owned, bounded or explicitly BLOCKED;
+2. every material gap is classified by real type;
+3. the 275 / 25-point loss path is reconciled against those gaps;
+4. X1–X9 each have an identified formation/evidence path;
+5. remaining UNKNOWNs are future-source or Real Learner U, not hidden architecture/content debt.
+
+Do not move the maturity mainline to Stage B merely because current learner surfaces or Forecast CI are green.
+
+---
+
 # 1｜Durable content lanes
 
 Xizong content production has three long-running lanes:
