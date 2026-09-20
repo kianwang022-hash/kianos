@@ -67,7 +67,7 @@ jobs:
           node scripts/test-xizong-forecast-model.mjs
           node scripts/test-xizong-forecast-real-u-adapter.mjs
           node scripts/validate-xizong-paper-practice.mjs
-          node scripts/test-xizong-source-revision-transitive.mjs
+          (cd .. && node static-web/scripts/test-xizong-source-revision-transitive.mjs)
           node scripts/validate-xizong-targeted-practice.mjs
           node scripts/test-exam-plan-read-model.mjs
           node scripts/test-xizong-chat-return.mjs
