@@ -111,6 +111,17 @@ exact System / Block scope
 
 Use `CONTENT_MAINLINE.md` only when cross-System content priority/dependency is actually needed.
 
+### Clinical humanities material
+
+```text
+humanities/current.json
+→ H1–H4 Source-grounded compression / recall support
+→ exact 2017–2026 N108–N115 official-question membership
+→ current-law Source contact when version-sensitive
+```
+
+This is an independent exam-domain material owner, not a ninth medical System. The exact 2027 humanities outline delta remains fail-closed until a trustworthy current-year Source appears.
+
 ### Learning / cognition
 
 ```text
@@ -147,6 +158,7 @@ Shared Shell/navigation/sync remain shared-platform responsibilities; Xizong con
 - lane Rule / Model → `LEARNING_CONTRACT.md`
 - Knowledge map → `knowledge/manifest.json`
 - medical canonical Knowledge → `knowledge/systems/**`
+- clinical humanities material baseline → `humanities/current.json`
 - learner-object aggregation / consumption → `LEARNER_OBJECT_CONTRACT.md` when needed
 - shared Xizong study policy → `knowledge/learner/study-policy.json`
 - questions / explanations / reviewed relations → dedicated Xizong roots
