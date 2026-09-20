@@ -127,6 +127,9 @@ jobs:
       - name: Validate English evidence fidelity E4
         working-directory: static-web
         run: node scripts/validate-english-evidence-fidelity-e4.mjs
+      - name: Validate English Forecast system logic
+        working-directory: static-web
+        run: node scripts/validate-english-forecast-model.mjs
       - name: Validate Chat-owned English control
         working-directory: static-web
         run: node scripts/validate-english-chat-control.mjs
