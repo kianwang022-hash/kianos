@@ -1,8 +1,8 @@
 {
   "schema": "kianos.xizong.system_content_realization.v1",
-  "status": "CANDIDATE",
-  "construction_status": "PHASE5C_CONTENT_SUFFICIENCY_CLOSED_AFTER_TARGETED_RECALL_FRONT_REPAIR",
-  "authority": "BUILDER_CANDIDATE_NOT_ACCEPTED",
+  "status": "ACCEPTED",
+  "construction_status": "PHASE5D_FRESH_INDEPENDENT_CONTENT_CLOSED_AFTER_BOUNDED_REPAIR",
+  "authority": "FRESH_INDEPENDENT_CONTENT_ACCEPTANCE",
   "system_id": "remaining-clinical",
   "canonical_id": "F",
   "scope": "F learner-content organization over accepted canonical Block/KP Core; no medical-Core duplication, no Projection/UI decisions",
@@ -329,14 +329,15 @@
   "content_close_requirements": [
     "PHASE5B_CLOSED: all 9 stale route frontmatters removed; F1/F2/F4/F6/F8 natural-unit wrappers aligned; F3/F5/F7 whole-source behavior and F9 ownership-first integration preserved; bounded false learner-state assumptions repaired without medical-Core rewrite.",
     "PHASE5C_CLOSED: all 40 accepted LGs passed Content sufficiency/density after 31 LG / 72 KP Recall-front repairs; Reveal-side medical Core drift = 0; no new/deleted KP, LG change, Source redesign or K/L semantic change.",
-    "PHASE5D_REQUIRED: fresh independent whole-F Content closure covering identity/partition, Source-release, wrapper authority, Recall-front, visual/exact-Source truth, page-disappearance, no-duplicate-truth and boundary/version/owner attacks.",
+    "PHASE5D_CLOSED_AFTER_BOUNDED_REPAIR: fresh independent whole-F closure passed after 10 residual Recall-front repairs across 8 LGs; identity/partition, 40/40 release, wrapper authority, visual/exact-Source truth, Page-disappearance, no-duplicate-truth, owner/version boundaries and Projection/Runtime separation all passed.",
     "F1/F2/F3/F4/F9 exact Source gaps, F5 Source conflict, visual debt, external-owner boundaries and S2 UNTESTED must remain explicit."
   ],
   "downstream_boundary": {
-    "projection": "FROZEN_UNTIL_FRESH_CONTENT_ACCEPTANCE",
-    "runtime": "FROZEN",
-    "evidence": "FROZEN",
-    "learner_use": "NO_REPOSITORY_CLAIM"
+    "projection": "ELIGIBLE_AFTER_PHASE5D_CONTENT_ACCEPTANCE",
+    "runtime": "FROZEN_UNTIL_PROJECTION_ACCEPTANCE",
+    "evidence": "FROZEN_UNTIL_RUNTIME_ACCEPTANCE",
+    "learner_use": "NO_REPOSITORY_CLAIM",
+    "rule": "Content acceptance makes scoped Projection eligible. Content still does not choose UI geometry, runtime state, Evidence semantics or learner mastery."
   },
   "phase5a_role_receipt": "content/xizong/knowledge/learner/F_PHASE5A_CONTENT_ROLE_REALIZATION.md",
   "phase5b_wrapper_receipt": "content/xizong/knowledge/learner/F_PHASE5B_WRAPPER_AUTHORITY_CLEANUP.md",
@@ -348,6 +349,25 @@
     "lg_with_front_repairs": 31,
     "recall_front_kp_surfaces_changed": 72,
     "reveal_side_medical_core_drift": 0,
+    "medical_core_rewrite": 0,
+    "new_deleted_kp": 0,
+    "lg_split_merge": 0,
+    "source_contact_redesign": 0,
+    "accepted_k_l_semantic_change": 0
+  },
+  "phase5d_fresh_independent_closure_receipt": "content/xizong/knowledge/learner/F_PHASE5D_FRESH_INDEPENDENT_CONTENT_CLOSURE.md",
+  "phase5d_audit": {
+    "verdict": "FRESH_CONTENT_PASS_AFTER_BOUNDED_REPAIR",
+    "independent_identity_partition": "PASS",
+    "source_release": "PASS_40_OF_40",
+    "wrapper_authority": "PASS",
+    "recall_front": "PASS_AFTER_10_SURFACE_REPAIRS_ACROSS_8_LG",
+    "reveal_side_medical_core_drift": 0,
+    "visual_exact_source_truth": "PASS_FAIL_CLOSED",
+    "page_disappearance": "PASS",
+    "duplicate_truth": "PASS",
+    "external_owner_version_boundary": "PASS",
+    "projection_runtime_evidence_leakage": "PASS",
     "medical_core_rewrite": 0,
     "new_deleted_kp": 0,
     "lg_split_merge": 0,
