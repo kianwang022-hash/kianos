@@ -28,6 +28,44 @@ Current top-level truth:
 
 Do not collapse these into one “Politics mature” badge.
 
+## 0.1 Fresh audit v4 finding and bounded repair
+
+Fresh Independent v4 returned **FAIL**, not INVALID.
+
+Material blocker:
+
+~~~text
+raw Chengfeng node has text
++ verification_status is needs-review OR a known misclassification
+→ old Runtime treated Boolean(text) as resolved
+→ learner-facing Runtime / Practice / Review could admit unsafe OCR
+~~~
+
+Concrete audit example:
+
+`POL27-CF-MARX-C00-K04-N02-I01`
+
+contained the actor-level OCR corruption “我们觉坚定信仰信念…” while raw status still said `source_bound_cross_engine_ocr`.
+
+Smallest repair:
+
+- Source-owned classification override: `source/nodes/fidelity-overrides.v1.json`;
+- common admission policy: `static-web/src/lib/politicsSourceFidelity.mjs`;
+- production scoped Runtime + legacy Runtime filter unsafe descendants before source-text merge;
+- Practice exact Chengfeng locator uses the same fidelity gate;
+- blocked source text cannot enter Practice/Review source context;
+- raw monolith↔shard parity is preserved;
+- dedicated regression: `test-politics-source-fidelity.mjs`.
+
+Builder proof after repair:
+
+- Static Web Politics QA run `35542360736`: **PASS**;
+- source-fidelity fail-closed regression: **PASS**;
+- scoped-source loading/parity: **PASS**;
+- Marxism Runtime/Evidence, Current bindings and Astro build: **PASS**.
+
+This repair does **not** promote `SYSTEM_LOGIC_ACCEPTED`. The material change invalidates v4 for freeze purposes and requires a new Fresh Independent audit.
+
 ## 1. Score → Ability → Material → Method → Evidence
 
 Canonical owner: SCORE_ABILITY_MATRIX.md.
@@ -259,7 +297,7 @@ This crosswalk follows the shared standard's **actual section numbers 0–28**, 
 | ---: | --- | --- | --- |
 | 0 | Score closure | BUILDER CLOSED; learner score calibration gated | SCORE_ABILITY_MATRIX |
 | 1 | Ability closure | BUILDER CLOSED | SCORE_ABILITY_MATRIX |
-| 2 | Material closure | BUILDER CLOSED for available/future-slot system; future bytes source-gated | MATERIAL_INVENTORY |
+| 2 | Material closure | BUILDER REPAIRED after v4 Source-fidelity FAIL; new Fresh audit required; future bytes source-gated | MATERIAL_INVENTORY + source fidelity gate |
 | 3 | Method closure | BUILDER CLOSED | LEARNING_CONTRACT + SCORE_ABILITY_MATRIX |
 | 4 | Evidence closure | BUILDER CLOSED semantics; Real U pending | Workbench / Memory / Analysis evidence |
 | 5 | Forecast closure | BUILDER CLOSED logic; personal calibration Real-U gated | FORECAST_MODEL / FORECAST_STRESS_REPORT |
@@ -274,8 +312,8 @@ This crosswalk follows the shared standard's **actual section numbers 0–28**, 
 | 14 | Target authority / score semantics | BUILDER CLOSED | EXAM_ORCHESTRATOR_CONTRACT + SCORE_ABILITY_MATRIX |
 | 15 | Construct coverage / negative space | BUILDER CLOSED semantics; untested learner regions stay UNKNOWN | SCORE_ABILITY_MATRIX + Analysis bank |
 | 16 | Measurement / scoring validity | DIAGNOSTIC SYSTEM READY; narrow score conversion SOURCE/REAL-U gated | analysis-output/SCORING_RUBRIC |
-| 17 | Decision quality / semantic safety | BUILDER CLOSED bounded invariants | control rules + freshness/stale guards |
-| 18 | Evidence observability / revision / material identity | BUILDER CLOSED | Analysis identity + practice evidence + ingestion |
+| 17 | Decision quality / semantic safety | BUILDER REPAIRED after v4 learner-admission finding; new Fresh audit required | source fidelity + freshness/stale guards |
+| 18 | Evidence observability / revision / material identity | BUILDER REPAIRED: unsafe OCR no longer enters source_context/Review | Analysis identity + source fidelity + practice evidence |
 | 19 | Adaptive generated-asset lifecycle | BUILDER CLOSED for current Analysis bank | analysis-output bank/manifest/validator |
 | 20 | Value of information / latency / latest useful date | BUILDER CLOSED semantics | MATURITY_REQUIREMENTS + mock/final + ingestion |
 | 21 | Future-source failure / supersession / rollback | BUILDER CLOSED preparation | later-stage/INGESTION_RULES |
@@ -313,8 +351,8 @@ M2 Reconcile stale Analysis/material status     DONE
 M3 Analysis-bank + evidence identity proof       DONE
 M4 Forecast decision-flip/adversarial closure   DONE
 M5 Lifecycle + Fresh Chat / No-Website          DONE
-M6 Builder closure reconciliation               DONE
-M7 Fresh Independent / Anti-Anchored Audit      OPEN — HARD FREEZE BLOCKER
+M6 v4 Source-fidelity finding repair             DONE · Politics QA PASS
+M7 Fresh Independent / Anti-Anchored re-audit   OPEN — HARD FREEZE BLOCKER
 M8 SYSTEM_LOGIC_ACCEPTED verdict                BLOCKED ON M7
 M9 KIAN_SPECIFIC_CALIBRATED                     REAL-U GATED
 M10 2027 handbook/current affairs/Xiao8/Xiao4   SOURCE GATED
