@@ -296,7 +296,7 @@ const scalePacket=buildEnglishEvidencePacket(scaleStorage,{
 const scaleMs=performance.now()-scaleStart;
 assert.equal(scalePacket.inventory_meta.total_attempts,scalePerTask*6,'scale-history-count');
 assert.equal(scalePacket.inventory.length,48,'scale-packet-unbounded');
-assert.ok(scaleMs<1000,`english-packet-7200-history-regressed-above-1000ms:${scaleMs.toFixed(1)}ms`);
+assert.ok(scaleMs<500,`english-packet-7200-history-regressed-above-500ms:${scaleMs.toFixed(1)}ms`);
 
 console.log(JSON.stringify({
   ok:true,
@@ -307,7 +307,7 @@ console.log(JSON.stringify({
   packet_bytes:payloadBytes,
   long_history_attempts:scalePacket.inventory_meta.total_attempts,
   long_history_packet_ms:Math.round(scaleMs*10)/10,
-  long_history_fail_line_ms:1000,
+  long_history_fail_line_ms:500,
   task_roles:Object.fromEntries(Object.entries(profile.tasks).map(([task,row])=>[task,row.role])),
   guardrails:profile.guardrails
 },null,2));
