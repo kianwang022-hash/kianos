@@ -336,6 +336,55 @@ function baseProgress() {
 }
 
 {
+  const drift=baseProgress();
+  drift.runtime_evidence.completed_blocks_detail=[
+    {canonical_id:'A1',block_id:'d1',kp_count:10,logic_group_count:5,timer_minutes_to_completion:30,completed_at:'2026-09-14T00:00:00Z'},
+    {canonical_id:'A1',block_id:'d2',kp_count:10,logic_group_count:5,timer_minutes_to_completion:30,completed_at:'2026-09-15T00:00:00Z'},
+    {canonical_id:'A1',block_id:'d3',kp_count:10,logic_group_count:5,timer_minutes_to_completion:30,completed_at:'2026-09-16T00:00:00Z'},
+    {canonical_id:'A2',block_id:'d4',kp_count:10,logic_group_count:5,timer_minutes_to_completion:120,completed_at:'2026-09-17T00:00:00Z'},
+    {canonical_id:'A2',block_id:'d5',kp_count:10,logic_group_count:5,timer_minutes_to_completion:120,completed_at:'2026-09-18T00:00:00Z'},
+    {canonical_id:'B',block_id:'d6',kp_count:10,logic_group_count:5,timer_minutes_to_completion:120,completed_at:'2026-09-19T00:00:00Z'}
+  ];
+  drift.runtime_evidence.completed_block_ids=drift.runtime_evidence.completed_blocks_detail.map(row=>row.block_id);
+  const forecast=buildXizongWorkloadForecast(drift);
+  const backtest=forecast.components.knowledge.calibration.rolling_backtest;
+  assert.equal(backtest.status,'BACKTESTED');
+  assert.ok(backtest.median_predicted_actual_ratio<0.85);
+  assert.ok(forecast.components.knowledge.risks.includes('KNOWLEDGE_FORECAST_SYSTEMATIC_OPTIMISM'));
+  assert.ok(forecast.components.knowledge.risks.includes('RECENT_KNOWLEDGE_PACE_SLOWDOWN'));
+}
+
+{
+  const speedDrift=baseProgress();
+  speedDrift.practice_evidence.first_pass.by_day=[
+    {day:'2026-09-14',attempted:20,practice_timer_minutes:20,observed_minutes_per_attempt:1},
+    {day:'2026-09-15',attempted:20,practice_timer_minutes:20,observed_minutes_per_attempt:1},
+    {day:'2026-09-16',attempted:20,practice_timer_minutes:20,observed_minutes_per_attempt:1},
+    {day:'2026-09-17',attempted:20,practice_timer_minutes:40,observed_minutes_per_attempt:2},
+    {day:'2026-09-18',attempted:20,practice_timer_minutes:40,observed_minutes_per_attempt:2},
+    {day:'2026-09-19',attempted:20,practice_timer_minutes:40,observed_minutes_per_attempt:2}
+  ];
+  const forecast=buildXizongWorkloadForecast(speedDrift);
+  assert.equal(forecast.components.questions.calibration.rolling_backtest.status,'BACKTESTED');
+  assert.ok(forecast.components.questions.risks.includes('QUESTION_SPEED_SYSTEMATIC_OPTIMISM'));
+}
+
+{
+  const scopedRate=baseProgress();
+  scopedRate.practice_evidence.first_pass={
+    ...scopedRate.practice_evidence.first_pass,
+    attempted_questions:200,
+    wrong_or_uncertain_rate:0.4,
+    current_scope_unique_attempted_questions:50,
+    current_scope_wrong_or_uncertain_rate:0.1
+  };
+  const forecast=buildXizongWorkloadForecast(scopedRate);
+  assert.equal(forecast.components.repair.error_rate.source,'CURRENT_EXACT_SCOPE_FIRST_ATTEMPT');
+  assert.equal(forecast.components.repair.error_rate.value,0.1);
+  assert.equal(forecast.components.repair.compression.predicted_future_wrong_uncertain_questions,10);
+}
+
+{
   const noCompression=baseProgress();
   noCompression.repair_evidence.observed_question_to_cluster_ratio=null;
   const forecast=buildXizongWorkloadForecast(noCompression);
