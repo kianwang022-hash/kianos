@@ -11,7 +11,7 @@ This file does not own medical Core, Xizong Learning semantics, Acceptance Truth
 
 **Scope:** B — Digestive / Metabolic / Endocrine / Tumor  
 **Active / earliest unresolved eligible gate:** `P — Projection`.  
-**S status:** PASS — exact Current B official-question membership accepted at 1072 qids.  
+**S status:** PASS — exact Current B official-question membership accepted at 1071 qids.  
 **K status:** PASS — 38 stable Blocks / 600 stable KPs + accepted System model.  
 **L status:** PASS — fresh independent Phase-6 acceptance complete.  
 **P status:** UNTESTED / ACTIVE.  
@@ -30,7 +30,7 @@ Phase 6  Fresh independent L acceptance                PASS
 
 Learning construction / acceptance task: GitHub Issue `#135` — completed.
 
-**Next action:** enter **B Projection (P) only**. Inspect Current shared Xizong Projection authority and any existing B projection assets against the accepted B Learning owner. Do not infer P PASS from old UI/pages and do not start Runtime/Evidence. The later official B System sweep must use the accepted 1072-qid scope owner exactly; it still cannot infer Question→Block/KP relations.
+**Next action:** enter **B Projection (P) only**. Inspect Current shared Xizong Projection authority and any existing B projection assets against the accepted B Learning owner. Do not infer P PASS from old UI/pages and do not start Runtime/Evidence. The later official B System sweep must use the accepted 1071-qid scope owner exactly; it still cannot infer Question→Block/KP relations.
 
 ---
 
@@ -43,7 +43,7 @@ Unless contradictory medical evidence separately reopens K:
 - 600 stable KP identities;
 - no medical Block/KP split, merge or renumbering;
 - old same-System Guide is reference/substrate only;
-- exact official-question membership is accepted in the dedicated 1072-qid scope owner; precise Question→Block/KP routing remains separate and must not be inferred.
+- exact official-question membership is accepted in the dedicated 1071-qid scope owner; precise Question→Block/KP routing remains separate and must not be inferred.
 
 ---
 
@@ -143,15 +143,17 @@ Reconstruction receipt:
 Accepted scope:
 
 ```text
-1072 exact official qids
+1071 exact official qids
 2005–2026
-inventory SHA256 = d7817ecc0c57346bb04ea3a6a5417d0c11f2daba0ca8178b3424fb82d256510f
+inventory SHA256 = a8b45ea06ec48bafc1e044235c61e5552bfbf64749fce9a21527676acd099942
 unresolved ambiguity = 0
 ```
 
 The scope was reconstructed from reviewed question→Lecture position routing plus B Source coverage and Current owner boundaries. It is not keyword-derived or count-fitted.
 
 The first Current reconstruction reached 1072 with an approximate join, but exact-resolver readback found a 13-out / 13-in inventory error at constant count. The canonical owner is now aligned to the original executable resolver and frozen 8-System count gate.
+
+Current E owner review then transferred `xizong-official-2017-n118` (oxytocin regulation) B → E because B excludes reproductive endocrine Primary while E SR1/SR6 owns that control interface. Current B therefore contains 1071 qids.
 
 System membership does not create precise Question→Block/LG/KP mapping.
 
