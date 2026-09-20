@@ -296,9 +296,47 @@ vs
 contaminated/unknown evidence
 ```
 
+E4 closes when those evidence distinctions survive targeted proof and no decision-relevant contamination path remains. E4 does **not** need to prove Forecast, Dynamic Control, handwriting calibration or full lifecycle maturity.
+
+### Mandatory post-E4 stop check
+
+After E4 closes, do **not** automatically open E5.
+
+Ask:
+
+> If Forecast is not built now, is there a real near-term English or cross-subject decision that cannot be made safely from current evidence, or would likely be materially wrong?
+
+If **NO** — because the important unknowns are still learner parameters — stop maturity engineering and collect Real Learner U.
+
+If **YES**, identify the exact decision and only then open the smallest Forecast scope needed for that decision.
+
 ---
 
 ## E5｜Forecast v1
+
+### Opening gate — hard requirement
+
+E5 is conditional, not sequential.
+
+Open E5 only when both are true:
+
+1. a real decision needs workload / uncertainty / sensitivity information now; and
+2. enough learner evidence exists that Forecast can materially reduce uncertainty rather than restating priors.
+
+Typical minimum evidence before serious E5 work:
+
+- current Objective residual performance after/alongside Lexical reactivation;
+- at least one cold complete Translation;
+- at least one cold Small Writing;
+- at least one cold Big Writing;
+- observed task durations;
+- an initial delayed Lexical retention trajectory.
+
+If these are missing, E5 remains **DEFERRED TO REAL LEARNER U**.
+
+Forecast may still use lightweight qualitative priors in Chat; that does not authorize building a mature Forecast system.
+
+### Goal
 
 ### Goal
 
@@ -706,6 +744,22 @@ Primary:
 Almost no broad new method expansion.
 
 Elastic work continues only if it still wins cross-subject ROI and can mature before the exam.
+
+---
+
+# Stage-opening gate
+
+No stage opens because the prior stage closed or because a number exists in this file.
+
+Before E5 / E6 / E7 / E8 / E9 / E10, ask:
+
+> If this stage is not opened now, will a real near-term learning decision become impossible, materially wrong, evidence-invalid, or meaningfully higher-friction?
+
+If the answer is NO, or the missing information mainly depends on Real Learner U:
+
+> **do not open the stage; return to study.**
+
+System stages may reopen later from concrete learner evidence, Forecast miss, execution friction, invalid evidence, or a real new source need.
 
 ---
 
