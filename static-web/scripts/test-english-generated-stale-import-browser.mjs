@@ -6,8 +6,18 @@ import {spawn} from 'node:child_process';
 import {chromium} from 'playwright';
 import {ENGLISH_GENERATED_DRILL_SCHEMA,writeEnglishGeneratedDrill} from './privateEnglishGeneratedDrillStore.mjs';
 
-const DAY='2026-09-20';
-const OLD='2026-09-19';
+const shanghaiDay=()=>{
+  const parts=new Intl.DateTimeFormat('en-US',{
+    timeZone:'Asia/Shanghai',
+    year:'numeric',
+    month:'2-digit',
+    day:'2-digit'
+  }).formatToParts(new Date());
+  const map=Object.fromEntries(parts.filter(part=>part.type!=='literal').map(part=>[part.type,part.value]));
+  return `${map.year}-${map.month}-${map.day}`;
+};
+const DAY=shanghaiDay();
+const OLD=new Date(Date.parse(DAY+'T00:00:00Z')-86_400_000).toISOString().slice(0,10);
 const temp=fs.mkdtempSync(path.join(os.tmpdir(),'english-stale-import-'));
 const generatedDir=path.join(temp,'generated');
 const sourceRoot=path.join(temp,'missing-source');
@@ -15,9 +25,9 @@ const externalPrivate=path.join(temp,'external-private');
 
 const stale={
   schema:ENGLISH_GENERATED_DRILL_SCHEMA,
-  object_id:'external-chat-2026-09-19-stale-001',
+  object_id:`external-chat-${OLD}-stale-001`,
   study_day:OLD,
-  generated_at:'2026-09-19T02:00:00+08:00',
+  generated_at:OLD+'T02:00:00+08:00',
   origin:'CHAT_GENERATED_SYNTHETIC',
   completion_requirement:'QUESTIONS_SUBMITTED',
   training_target:{kind:'stale_guard',note:'Must not enter next-day Session.'},
@@ -67,7 +77,7 @@ try{
     schema:'kianos.english.session-instruction.v1',
     session_id:'stale-generated-import',
     study_day:DAY,
-    generated_at:'2026-09-20T02:30:00+08:00',
+    generated_at:DAY+'T02:30:00+08:00',
     current_step:0,
     steps:[{
       step_id:'old',
