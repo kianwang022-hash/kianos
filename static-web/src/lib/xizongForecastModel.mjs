@@ -289,13 +289,17 @@ function knowledgeForecast(progress) {
     : [];
   const completedIds = new Set(progress?.runtime_evidence?.completed_block_ids || []);
   const remaining = weights.filter((row) => !completedIds.has(String(row?.block_id || '')));
+  const remainingBlocks = remaining.reduce((sum, row) => {
+    const count = Number(row?.block_count);
+    return sum + (Number.isFinite(count) && count > 0 ? count : 1);
+  }, 0);
   const samples = (progress?.runtime_evidence?.completed_blocks_detail || [])
     .filter((row) => positive(row?.timer_minutes_to_completion) !== null);
   const sampleSystems = new Set(samples.map((row) => String(row?.canonical_id || '')).filter(Boolean));
   const remainingKp = remaining.reduce((sum, row) => sum + Math.max(0, Number(row?.kp_count || 0)), 0);
   const remainingLg = remaining.reduce((sum, row) => sum + Math.max(0, Number(row?.logic_group_count || 0)), 0);
   const estimators = [
-    rateEstimate(samples, remaining.length, {
+    rateEstimate(samples, remainingBlocks, {
       id: 'BLOCK',
       unit: 'completed block',
       rateOf: (sample) => positive(sample?.timer_minutes_to_completion)
@@ -327,6 +331,9 @@ function knowledgeForecast(progress) {
   if (Number(progress?.runtime_evidence?.started_incomplete_blocks || 0) > 0) {
     risks.push('STARTED_INCOMPLETE_BLOCKS_PRICED_AS_FULL_REMAINING');
   }
+  if (remaining.some((row) => String(row?.scope_kind || '') === 'UNPROJECTED_AGGREGATE')) {
+    risks.push('UNPROJECTED_CANONICAL_SCOPE_RETAINED');
+  }
   if (band && band.estimator_bands_overlap === false) risks.push('STRUCTURAL_ESTIMATORS_DIVERGE');
   if (backtest.status === 'BACKTESTED' && Number(backtest.median_absolute_percent_error || 0) > 0.25) {
     risks.push('KNOWLEDGE_FORECAST_BACKTEST_ERROR_HIGH');
@@ -342,7 +349,7 @@ function knowledgeForecast(progress) {
     required: true,
     status: band ? (samples.length >= 5 && sampleSystems.size >= 2 ? 'CALIBRATED' : 'PROVISIONAL') : sampleState(samples.length),
     remaining: {
-      blocks: remaining.length,
+      blocks: remainingBlocks,
       kp: remainingKp,
       logic_groups: remainingLg
     },
@@ -355,7 +362,7 @@ function knowledgeForecast(progress) {
     band_minutes: band,
     risks,
     evidence_boundary:
-      'Route timer to Block completion is learner evidence, not guaranteed total study time. Started incomplete Blocks remain fully priced until a stronger fractional-completion signal is proven.'
+      'Route timer to Block completion is learner evidence, not guaranteed total study time. Started incomplete Blocks remain fully priced until a stronger fractional-completion signal is proven. Canonical unprojected Blocks remain in workload via durable owner counts; Website projectability never deletes them.'
   };
 }
 
@@ -407,6 +414,19 @@ function questionForecast(progress) {
       : [])
       .map((row) => [String(row?.canonical_id || ''), row])
   );
+  const workloadDomains = (Array.isArray(progress?.question_workload?.non_system_domains)
+    ? progress.question_workload.non_system_domains
+    : [])
+    .filter((row) => row?.status === 'EXACT' && Number(row?.remaining_questions || 0) > 0);
+  const practiceByDomain = new Map(
+    (Array.isArray(progress?.practice_evidence?.first_pass?.by_domain)
+      ? progress.practice_evidence.first_pass.by_domain
+      : [])
+      .map((row) => [String(row?.canonical_id || row?.domain_id || ''), row])
+  );
+  const broaderRates = broaderSamples
+    .map((row) => positive(row?.forecast_minutes_per_attempt))
+    .filter((value) => value !== null);
   const systemRows = workloadSystems.map((workload) => {
     const canonicalId = String(workload?.canonical_id || '');
     const practice = practiceBySystem.get(canonicalId) || {};
@@ -432,22 +452,69 @@ function questionForecast(progress) {
       band_minutes: systemBand
     };
   });
+  const domainRows = workloadDomains.map((workload) => {
+    const canonicalId = String(workload?.canonical_id || workload?.domain_id || '');
+    const practice = practiceByDomain.get(canonicalId) || {};
+    const domainSpecificRates = (Array.isArray(practice?.current_scope_speed_by_day)
+      ? practice.current_scope_speed_by_day
+      : [])
+      .map((row) => positive(row?.observed_minutes_per_attempt))
+      .filter((value) => value !== null);
+    const speedRates = domainSpecificRates.length >= 3
+      ? domainSpecificRates
+      : broaderRates.length >= 3
+        ? broaderRates
+        : [];
+    const speedSource = domainSpecificRates.length >= 3
+      ? 'NON_SYSTEM_DOMAIN_CURRENT_EXACT_SCOPE'
+      : broaderRates.length >= 3
+        ? 'BROADER_OFFICIAL_PRACTICE_FALLBACK'
+        : 'UNPRICED';
+    const remainingQuestions = Math.max(0, Number(workload?.remaining_questions || 0));
+    const domainBand = speedRates.length >= 3
+      ? {
+          p20: round(quantile(speedRates, 0.2) * remainingQuestions),
+          p50: round(quantile(speedRates, 0.5) * remainingQuestions),
+          p80: round(quantile(speedRates, 0.8) * remainingQuestions)
+        }
+      : null;
+    return {
+      domain_id: String(workload?.domain_id || ''),
+      canonical_id: canonicalId,
+      owner_kind: 'NON_SYSTEM_EXAM_DOMAIN',
+      remaining_questions: remainingQuestions,
+      speed_source: speedSource,
+      speed_samples: speedRates.length,
+      domain_specific_speed_samples: domainSpecificRates.length,
+      reference_minutes_per_question: speedRates.length ? round(median(speedRates), 3) : null,
+      speed_rates: speedRates.map((value) => round(value, 3)),
+      band_minutes: domainBand
+    };
+  });
+
   const stratifiedObserved = systemRows.some((row) => row.speed_samples > 0);
   const unpricedSystemIds = stratifiedObserved
     ? systemRows.filter((row) => !row.band_minutes).map((row) => row.canonical_id)
     : [];
-  const stratifiedBand = stratifiedObserved && systemRows.length > 0 && unpricedSystemIds.length === 0
+  const unpricedDomainIds = stratifiedObserved
+    ? domainRows.filter((row) => !row.band_minutes).map((row) => row.canonical_id)
+    : [];
+  const ownerRows = [...systemRows, ...domainRows];
+  const stratifiedBand = stratifiedObserved
+    && systemRows.length > 0
+    && unpricedSystemIds.length === 0
+    && unpricedDomainIds.length === 0
     ? {
-        p20: round(systemRows.reduce((sum, row) => sum + Number(row.band_minutes?.p20 || 0), 0)),
-        p50: round(systemRows.reduce((sum, row) => sum + Number(row.band_minutes?.p50 || 0), 0)),
-        p80: round(systemRows.reduce((sum, row) => sum + Number(row.band_minutes?.p80 || 0), 0))
+        p20: round(ownerRows.reduce((sum, row) => sum + Number(row.band_minutes?.p20 || 0), 0)),
+        p50: round(ownerRows.reduce((sum, row) => sum + Number(row.band_minutes?.p50 || 0), 0)),
+        p80: round(ownerRows.reduce((sum, row) => sum + Number(row.band_minutes?.p80 || 0), 0))
       }
     : null;
-  const systemReferenceRates = systemRows
+  const ownerReferenceRates = ownerRows
     .map((row) => positive(row.reference_minutes_per_question))
     .filter((value) => value !== null);
-  const speedHeterogeneityRatio = systemReferenceRates.length >= 2
-    ? round(Math.max(...systemReferenceRates) / Math.min(...systemReferenceRates), 3)
+  const speedHeterogeneityRatio = ownerReferenceRates.length >= 2
+    ? round(Math.max(...ownerReferenceRates) / Math.min(...ownerReferenceRates), 3)
     : null;
   const band = stratifiedObserved ? stratifiedBand : fallbackBand;
   const calibrationSource = stratifiedObserved
@@ -458,9 +525,18 @@ function questionForecast(progress) {
   if (remaining === null) risks.push('KNOWN_REMAINING_QUESTION_COUNT_AMBIGUOUS');
   if (!stratifiedObserved && rates.length < 3) risks.push('INSUFFICIENT_PRACTICE_TIMER_SAMPLES');
   if (stratifiedObserved && unpricedSystemIds.length) risks.push('SYSTEM_QUESTION_SPEED_UNCALIBRATED');
+  if (stratifiedObserved && unpricedDomainIds.length) risks.push('NON_SYSTEM_DOMAIN_SPEED_UNCALIBRATED');
+  if (stratifiedObserved && domainRows.some((row) => row.speed_source === 'BROADER_OFFICIAL_PRACTICE_FALLBACK')) {
+    risks.push('NON_SYSTEM_DOMAIN_SPEED_FALLBACK');
+  }
   if (speedHeterogeneityRatio !== null && speedHeterogeneityRatio >= 1.5) risks.push('QUESTION_SPEED_SYSTEM_HETEROGENEITY');
   if (progress?.question_workload?.known_remaining_is_lower_bound) risks.push('UNPRICED_SYSTEM_QUESTION_SCOPE');
-  if (Number(progress?.question_workload?.cross_system_duplicate_memberships || 0) > 0) risks.push('CROSS_SYSTEM_DUPLICATE_MEMBERSHIP');
+  if (Number(progress?.question_workload?.cross_owner_duplicate_memberships
+    ?? progress?.question_workload?.cross_system_duplicate_memberships
+    ?? 0) > 0) {
+    risks.push('CROSS_SYSTEM_DUPLICATE_MEMBERSHIP');
+    risks.push('CROSS_OWNER_DUPLICATE_MEMBERSHIP');
+  }
   if (backtest.status === 'BACKTESTED' && Number(backtest.median_absolute_percent_error || 0) > 0.25) {
     risks.push('QUESTION_SPEED_BACKTEST_ERROR_HIGH');
   }
@@ -472,12 +548,18 @@ function questionForecast(progress) {
     required: true,
     status: band
       ? (stratifiedObserved
-          ? (systemRows.every((row) => row.speed_samples >= 5) ? 'CALIBRATED' : 'PROVISIONAL')
+          ? (
+              systemRows.every((row) => row.speed_samples >= 5)
+              && domainRows.every((row) => row.speed_source === 'NON_SYSTEM_DOMAIN_CURRENT_EXACT_SCOPE' && row.speed_samples >= 5)
+                ? 'CALIBRATED'
+                : 'PROVISIONAL'
+            )
           : (rates.length >= 5 ? 'CALIBRATED' : 'PROVISIONAL'))
       : state,
     known_remaining_questions: remaining,
     known_remaining_is_lower_bound: Boolean(progress?.question_workload?.known_remaining_is_lower_bound),
     unknown_systems: [...(progress?.question_workload?.unknown_systems || [])],
+    unknown_domains: [...(progress?.question_workload?.unknown_domains || [])],
     calibration: {
       source: calibrationSource,
       day_samples: rates.length,
@@ -485,7 +567,9 @@ function questionForecast(progress) {
       broader_day_samples: broaderSamples.length,
       reference_minutes_per_question: rates.length ? round(median(rates), 3) : null,
       system_rows: systemRows,
+      non_system_domain_rows: domainRows,
       unpriced_system_ids: unpricedSystemIds,
+      unpriced_domain_ids: unpricedDomainIds,
       system_speed_heterogeneity_ratio: speedHeterogeneityRatio,
       sample_rows: daySamples.map((row) => ({
         day: row.day,
@@ -498,7 +582,7 @@ function questionForecast(progress) {
     band_minutes: band,
     risks,
     evidence_boundary:
-      'Question throughput uses System-stratified Current exact-sweep timing when that evidence exists, weighting each System by its own remaining question load. A fast familiar System may not price an unobserved slower System. If any remaining System lacks enough System-specific timing samples, the full question band is withheld rather than filled with a pooled average. Broader official-practice speed is fallback only when no System-stratified timing exists.'
+      'Question throughput uses System-stratified Current exact-sweep timing when that evidence exists, weighting each System by its own remaining question load. Independent non-System domains remain separate owners. When a non-System domain lacks domain-specific timing, actual broader official-practice speed may be used only as an explicit provisional fallback and is surfaced as risk; if even that real learner evidence is absent, the full band is withheld. Website routing never turns humanities into a medical System.'
   };
 }
 
@@ -875,7 +959,8 @@ export function buildXizongWorkloadForecast(progress, {
 export function buildXizongScoreEvidence(progress, {
   targetScore = 275,
   contaminationStatus = 'UNKNOWN',
-  materialGaps = []
+  materialGaps = [],
+  currentExamFormatSourceHash = null
 } = {}) {
   if (!progress || progress.schema !== 'kianos.xizong.forecast-progress.v1') {
     throw new Error('XIZONG_FORECAST_PROGRESS_REQUIRED');
@@ -884,7 +969,15 @@ export function buildXizongScoreEvidence(progress, {
   const formalPapers = (progress?.formal_score_evidence?.sealed_papers || [])
     .filter((row) => Number(row?.max_score) === 300);
   const latest = formalPapers.at(-1) || null;
+  const formatIdentifiedPapers = formalPapers.filter((row) =>
+    String(row?.exam_format_source_hash || '').trim()
+    && String(row?.question_inventory_hash || '').trim()
+    && Number(row?.exam_format?.max_score || row?.max_score || 0) === 300
+    && Number(row?.exam_format?.question_count || 0) > 0
+  );
   const internallyProtectedPapers = formalPapers
+    .filter((row) => row?.internal_holdout_protected_before_seal === true);
+  const internallyProtectedFormatIdentifiedPapers = formatIdentifiedPapers
     .filter((row) => row?.internal_holdout_protected_before_seal === true);
 
   const recall = progress?.runtime_evidence?.recall || {};
@@ -993,12 +1086,25 @@ export function buildXizongScoreEvidence(progress, {
   const freshEquivalent = contamination === 'FRESH_EQUIVALENT';
   const lowContamination = ['LEAST_CONTAMINATED','LOW','FRESH_EQUIVALENT'].includes(contamination);
   const knownContamination = ['KNOWN_PRIOR_EXPOSURE','HIGH','CONTAMINATED'].includes(contamination);
-  const calibrationPapers = freshEquivalent
-    ? formalPapers
+  const historicalCalibrationPapers = freshEquivalent
+    ? formatIdentifiedPapers
     : lowContamination
-      ? internallyProtectedPapers
+      ? internallyProtectedFormatIdentifiedPapers
       : [];
+  const currentFormatHash = String(
+    currentExamFormatSourceHash
+    || progress?.current_exam_format?.source_hash
+    || ''
+  ).trim();
+  const calibrationPapers = currentFormatHash
+    ? historicalCalibrationPapers.filter((row) =>
+        String(row?.exam_format_source_hash || '') === currentFormatHash
+      )
+    : [];
   const observedScores = formalPapers
+    .map((row) => Number(row?.earned_score))
+    .filter(Number.isFinite);
+  const historicalCalibrationScores = historicalCalibrationPapers
     .map((row) => Number(row?.earned_score))
     .filter(Number.isFinite);
   const calibrationScores = calibrationPapers
@@ -1008,6 +1114,11 @@ export function buildXizongScoreEvidence(progress, {
     p20: round(quantile(observedScores, 0.2)),
     p50: round(quantile(observedScores, 0.5)),
     p80: round(quantile(observedScores, 0.8))
+  } : null;
+  const historicalCalibrationBand = historicalCalibrationScores.length >= 3 ? {
+    p20: round(quantile(historicalCalibrationScores, 0.2)),
+    p50: round(quantile(historicalCalibrationScores, 0.5)),
+    p80: round(quantile(historicalCalibrationScores, 0.8))
   } : null;
   const calibrationBand = calibrationScores.length >= 3 ? {
     p20: round(quantile(calibrationScores, 0.2)),
@@ -1021,13 +1132,17 @@ export function buildXizongScoreEvidence(progress, {
   else if (formalPapers.length >= 3) scoreEstimateStatus = 'EMPIRICAL_BAND';
   if (formalPapers.length && contamination === 'UNKNOWN') scoreEstimateStatus += '_CONTAMINATION_UNKNOWN';
   else if (formalPapers.length && knownContamination) scoreEstimateStatus += '_KNOWN_CONTAMINATION';
-  else if (formalPapers.length && lowContamination && calibrationPapers.length === 0) {
-    scoreEstimateStatus += '_LOW_CONTAMINATION_CLAIM_WITHOUT_INTERNAL_HOLDOUT';
+  else if (formalPapers.length && lowContamination && historicalCalibrationPapers.length === 0) {
+    scoreEstimateStatus += '_LOW_CONTAMINATION_WITHOUT_IDENTIFIED_PROTECTED_CALIBRATION';
+  } else if (formalPapers.length && lowContamination && !currentFormatHash) {
+    scoreEstimateStatus += '_CURRENT_FORMAT_UNKNOWN';
+  } else if (formalPapers.length && lowContamination && calibrationPapers.length === 0) {
+    scoreEstimateStatus += '_CURRENT_FORMAT_MISMATCH';
   } else if (formalPapers.length && lowContamination) {
-    scoreEstimateStatus += '_LOW_CONTAMINATION';
+    scoreEstimateStatus += '_LOW_CONTAMINATION_CURRENT_FORMAT';
   }
 
-  const scoreExtrapolationReady = Boolean(calibrationBand) && lowContamination;
+  const scoreExtrapolationReady = Boolean(calibrationBand) && lowContamination && Boolean(currentFormatHash);
   const evidenceResult = hardGaps.length > 0 || formalPapers.length === 0
     ? 'INSUFFICIENT_SCORE_EVIDENCE'
     : scoreExtrapolationReady
@@ -1041,12 +1156,21 @@ export function buildXizongScoreEvidence(progress, {
       status: scoreEstimateStatus,
       sample_count: formalPapers.length,
       calibration_sample_count: calibrationPapers.length,
+      historical_calibration_sample_count: historicalCalibrationPapers.length,
+      format_identified_sample_count: formatIdentifiedPapers.length,
       internally_holdout_protected_sample_count: internallyProtectedPapers.length,
       latest_score: latest ? Number(latest.earned_score) : null,
       latest_target_gap: latest ? round(requirement.target_score - Number(latest.earned_score || 0)) : null,
       empirical_band: observedBand,
+      historical_calibration_band: historicalCalibrationBand,
       calibration_band: calibrationBand,
       contamination_status: contamination,
+      current_exam_format_source_hash: currentFormatHash || null,
+      current_format_compatibility: !currentFormatHash
+        ? 'UNKNOWN_CURRENT_YEAR_FORMAT'
+        : calibrationPapers.length
+          ? 'MATCHED'
+          : 'NO_MATCHING_CALIBRATION',
       score_extrapolation_ready: scoreExtrapolationReady,
       observed_score_is_not_fresh_prediction: formalPapers.length > 0 && !scoreExtrapolationReady,
       discipline_breakdown: latest?.discipline_breakdown || null
@@ -1058,13 +1182,15 @@ export function buildXizongScoreEvidence(progress, {
       coverage_ready: hardGaps.length === 0,
       formal_score_evidence_ready: formalPapers.length > 0,
       observed_empirical_band_ready: Boolean(observedBand),
+      historical_calibration_band_ready: Boolean(historicalCalibrationBand),
       calibration_band_ready: Boolean(calibrationBand),
+      current_format_identity_ready: Boolean(currentFormatHash),
       score_extrapolation_ready: scoreExtrapolationReady,
       result: evidenceResult
     },
     subject_maturity_claim: 'OUT_OF_SCOPE',
     boundary:
-      'Work completion and capability evidence do not manufacture predicted score. Formal scores remain observed evidence even when contaminated, so empirical_band is descriptive only. calibration_band requires at least three low-contamination internally protected or explicit fresh-equivalent papers before stronger extrapolation is allowed. Internal Holdout never proves external non-exposure; no arbitrary contamination point penalty is invented. This object reports score-evidence usability only and never declares Xizong subject maturity or Stage closure.'
+      'Work completion and capability evidence do not manufacture predicted score. Formal scores remain observed evidence even when contaminated, so empirical_band is descriptive only. Historical low-contamination papers may form historical_calibration_band, but current calibration_band additionally requires format identity matching the Current exam-format Source hash. If the Current-year geometry/format Source is unavailable, score extrapolation remains low-confidence instead of treating historical geometry as Current truth. Internal Holdout never proves external non-exposure; no arbitrary contamination point penalty is invented. This object reports score-evidence usability only and never declares Xizong subject maturity or Stage closure.'
   };
 }
 
