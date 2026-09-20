@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 
 import {
+  buildXizongForecastCanonicalScope,
   listCurrentXizongSystemIdentities,
   listProjectableXizongSystems,
   loadXizongBlock
@@ -74,6 +75,20 @@ const packetIndex=system.blocks.slice(0,2).map((blockRef)=>{
     }))
   };
 });
+
+const canonicalScope=buildXizongForecastCanonicalScope(packetIndex);
+assert.equal(canonicalScope.schema,'kianos.xizong.forecast-canonical-scope.v1');
+assert.equal(canonicalScope.systems.length,8);
+assert.equal(canonicalScope.blocks,159);
+assert.equal(canonicalScope.canonical_kp,2517);
+assert.equal(canonicalScope.logic_groups,762);
+assert.equal(canonicalScope.website_projection_is_scope_authority,false);
+assert.equal(
+  canonicalScope.block_weights.reduce((sum,row)=>sum+Number(row.block_count||1),0),
+  159
+);
+assert.ok(canonicalScope.block_weights.some(row=>row.scope_kind==='UNPROJECTED_AGGREGATE'),
+  'narrow runtime packet must not delete unprojected canonical workload');
 
 const currentBlock=packetIndex[0];
 const staleBlock=packetIndex[1];
@@ -201,13 +216,18 @@ entries['kianos:xizong:paper-question-sweep:paper-2026:v1']=JSON.stringify({
 const storage=new Storage(entries);
 const progress=buildXizongForecastProgress(storage,packetIndex,{
   questionScope,
+  canonicalScope,
   day:'2026-09-21',
   now:Date.parse('2026-09-21T08:00:00Z')
 });
 
 assert.equal(progress.schema,'kianos.xizong.forecast-progress.v1');
-assert.equal(progress.canonical_scope.blocks,2);
-assert.ok(progress.canonical_scope.logic_groups>0);
+assert.equal(progress.canonical_scope.systems,8);
+assert.equal(progress.canonical_scope.blocks,159);
+assert.equal(progress.canonical_scope.canonical_kp,2517);
+assert.equal(progress.canonical_scope.logic_groups,762);
+assert.equal(progress.canonical_scope.website_projection_is_scope_authority,false);
+assert.equal(progress.canonical_scope.scope_authority,'DERIVED_FROM_CURRENT_KNOWLEDGE_AND_LEARNING_OWNERS');
 assert.equal(progress.runtime_evidence.completed_blocks,1);
 assert.equal(progress.runtime_evidence.source_revision_blocked_count,1);
 assert.equal(progress.runtime_evidence.completed_blocks_detail.length,1);
@@ -228,6 +248,8 @@ assert.equal(progress.system_recall_evidence.find(row=>row.system_id===system.sy
 assert.equal(progress.formal_score_evidence.latest.year,2026);
 assert.equal(progress.formal_score_evidence.latest.earned_score,275);
 assert.equal(progress.workload_forecast.schema,'kianos.xizong.workload-forecast.v1');
+assert.ok(progress.workload_forecast.components.knowledge.remaining.blocks>=158);
+assert.ok(progress.workload_forecast.components.knowledge.risks.includes('UNPROJECTED_CANONICAL_SCOPE_RETAINED'));
 assert.match(progress.evidence_boundary,/stale\/unbound Source identity cannot reduce remaining workload/i);
 
 const index=fs.readFileSync('src/pages/index.astro','utf8');
@@ -235,10 +257,14 @@ const home=fs.readFileSync('src/components/ExamOrchestratorHome.astro','utf8');
 const client=fs.readFileSync('src/lib/examOrchestratorClient.mjs','utf8');
 const daily=fs.readFileSync('src/lib/dailyLearningPacketRuntime.mjs','utf8');
 assert.ok(index.includes('buildXizongForecastQuestionScope(listCurrentXizongSystemIdentities())'));
+assert.ok(index.includes('buildXizongForecastCanonicalScope(xizongPacketIndex)'));
 assert.ok(index.includes('routeKey:'));
 assert.ok(home.includes('data-exam-xizong-forecast-question-scope'));
+assert.ok(home.includes('data-exam-xizong-forecast-canonical-scope'));
 assert.ok(client.includes('xizongForecastQuestionScope'));
+assert.ok(client.includes('xizongForecastCanonicalScope'));
 assert.ok(daily.includes('questionScope: xizongForecastQuestionScope'));
+assert.ok(daily.includes('canonicalScope: xizongForecastCanonicalScope'));
 
 console.log(JSON.stringify({
   schema:'kianos.xizong.forecast-real-u-adapter-proof.v1',
