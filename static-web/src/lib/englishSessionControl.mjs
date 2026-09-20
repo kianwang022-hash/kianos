@@ -239,7 +239,7 @@ export function writeEnglishSessionInstruction(storage, input, expectedDay = nul
         const m=exposure.materials[id]||{object_id:id,events:[]};
         if(d.state==='unseen'&&(m.events.length||m.declaration?.state==='exposed'||['kianos-reading-attempt-v1:','kianos-cloze-attempt-v1:','kianos-reading-b-attempt-v1:','kianos-english-external-reading-attempt-v1:','kianos-translation-attempt-v2:','kianos-writing-runtime-v1:'].some(prefix=>storage.getItem(prefix+id)!=null)))throw new Error('ENGLISH_MATERIAL_ALREADY_EXPOSED:'+id);
         if(m.declaration&&Date.parse(d.observed_at)<Date.parse(m.declaration.observed_at))throw new Error('ENGLISH_MATERIAL_DECLARATION_STALE');
-        m.declaration={...d,session_instruction_id:instruction.session_id};exposure.materials[id]=m;
+        m.declaration={...d,session_instruction_id:instruction.session_id,source_hash:step.task==='full_paper'?null:(step.source_hash||null)};exposure.materials[id]=m;
       }
     }
     changes.push([ENGLISH_MATERIAL_EXPOSURE_KEY,exposure]);
