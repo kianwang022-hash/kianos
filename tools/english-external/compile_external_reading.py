@@ -32,12 +32,9 @@ EXPECTED_TOEFL = {
 }
 
 KNOWN_COLLECTION_DEBT = {
-    "TPO56": ["KNOWN_OCR_DEBT"],
-    "TPO59": ["KNOWN_OCR_DEBT"],
     "TPO62": ["SOURCE_REVIEW_MARKER"],
-    "TPO65": ["KNOWN_PRESENTATION_OCR_DEBT"],
     "Cambridge IELTS 18": ["OCR_UNCERTAIN", "VISUAL_STRUCTURE_REQUIRED"],
-    "Cambridge IELTS 19": ["OCR_UNCERTAIN", "VISUAL_STRUCTURE_REQUIRED", "HISTORICAL_ANSWER_KEY_VARIANT"],
+    "Cambridge IELTS 19": ["OCR_UNCERTAIN", "VISUAL_STRUCTURE_REQUIRED"],
 }
 
 
@@ -308,8 +305,10 @@ def main() -> int:
         },
         "source_quality": {
             "proven_clean_claim": False,
-            "known_historical_ocr_debt_retained": True,
-            "policy": "MECHANICAL_OR_HASH_BOUND_CLEANUP_ONLY",
+            "active_source_claim": "REPAIRED_CANDIDATE_2026_09_20_PASS15",
+            "known_historical_ocr_debt_retained": False,
+            "remaining_source_bound_debt_explicit": True,
+            "policy": "ACTIVE_SOURCE_HASH_MATCH_REQUIRED; MECHANICAL_OR_SOURCE_BOUND_CLEANUP_ONLY",
         },
         "counts": counts,
         "passages": passages,
