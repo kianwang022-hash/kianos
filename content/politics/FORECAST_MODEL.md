@@ -195,6 +195,7 @@ The model must identify which parameter changes total workload most.
 Expected high-sensitivity families:
 
 - NU reactivation time;
+- remaining NU subject composition / heterogeneity;
 - multiple-choice attempt time;
 - Memory daily cost;
 - Repair compression quality;
@@ -208,9 +209,9 @@ A Forecast conclusion must name its largest current sensitivity rather than repo
 
 ## 8. Personal P20/P50/P80
 
-Personal interval is **blocked** until sufficient observed learner samples exist.
+Personal interval is **blocked** until observed learner evidence is mapped to typed throughput and remaining structural load.
 
-Before enough samples:
+Before that:
 
 ```text
 CALIBRATION_PENDING
@@ -218,17 +219,26 @@ CALIBRATION_PENDING
 → use stress ranges + explicit assumptions
 ```
 
-After enough real samples:
+Raw observed minutes are not enough.
+
+Even when seven or more observations exist:
 
 ```text
-observed throughput / workload samples
-→ empirical interval
-→ P20 / P50 / P80
+raw minutes
+≠ remaining-work distribution
 ```
 
-The current implementation requires at least 7 supplied observed samples before emitting the empirical interval. This threshold controls whether an interval is displayed; it does not itself prove score capability.
+The current implementation therefore reports only:
 
-If the samples are heterogeneous or contaminated, Chat may keep the interval UNKNOWN/wide despite the count.
+```text
+SAMPLES_PRESENT_MODEL_NOT_YET_FIT
+```
+
+and keeps P20/P50/P80 null.
+
+A valid personal interval requires a later calibration step that binds real observations to their task type / throughput unit and projects them over Current remaining workload.
+
+Sample count is evidence availability, not forecast validity.
 
 ---
 
