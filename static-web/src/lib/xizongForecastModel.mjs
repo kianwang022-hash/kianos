@@ -316,8 +316,16 @@ function recallForecast(progress) {
 }
 
 function repairForecast(progress, { wrongUncertainRate = null } = {}) {
-  const attempted = Math.max(0, Number(progress?.practice_evidence?.first_pass?.attempted_questions || 0));
-  const observedRate = finite(progress?.practice_evidence?.first_pass?.wrong_or_uncertain_rate);
+  const firstPass = progress?.practice_evidence?.first_pass || {};
+  const currentScopeAttempted = Math.max(0, Number(firstPass?.current_scope_unique_attempted_questions || 0));
+  const broaderAttempted = Math.max(0, Number(firstPass?.attempted_questions || 0));
+  const currentScopeRate = finite(firstPass?.current_scope_wrong_or_uncertain_rate);
+  const broaderRate = finite(firstPass?.wrong_or_uncertain_rate);
+  const observedRate = currentScopeRate !== null ? currentScopeRate : broaderRate;
+  const attempted = currentScopeRate !== null ? currentScopeAttempted : broaderAttempted;
+  const observedRateSource = currentScopeRate !== null
+    ? 'CURRENT_EXACT_SCOPE_FIRST_ATTEMPT'
+    : 'BROADER_FIRST_PASS_FALLBACK';
   const rate = wrongUncertainRate === null ? observedRate : Math.max(0, Math.min(1, Number(wrongUncertainRate)));
   const remainingQuestions = finite(progress?.question_workload?.known_remaining_questions);
   const questionsPerCluster = positive(progress?.repair_evidence?.observed_question_to_cluster_ratio);
@@ -352,9 +360,11 @@ function repairForecast(progress, { wrongUncertainRate = null } = {}) {
     required: true,
     status: band ? (samples.length >= 5 ? 'CALIBRATED' : 'PROVISIONAL') : state,
     error_rate: {
-      source: wrongUncertainRate === null ? 'OBSERVED_FIRST_PASS' : 'SCENARIO_OVERRIDE',
+      source: wrongUncertainRate === null ? observedRateSource : 'SCENARIO_OVERRIDE',
       value: rate,
-      observed_attempts: attempted
+      observed_attempts: attempted,
+      current_scope_attempts: currentScopeAttempted,
+      broader_first_pass_attempts: broaderAttempted
     },
     compression: {
       observed_questions_per_cluster: questionsPerCluster,
@@ -371,7 +381,7 @@ function repairForecast(progress, { wrongUncertainRate = null } = {}) {
     band_minutes: band,
     risks,
     evidence_boundary:
-      'Repair timing samples are route-time inside the repair lifetime window, not pure causal repair minutes. They are intentionally conservative/provisional until repeated samples converge.'
+      'Future Repair pressure prefers the Current exact System-sweep first-attempt W/U rate; broader first-pass performance is fallback only. Repair timing samples are route-time inside the repair lifetime window, not pure causal repair minutes, and stay provisional until repeated samples converge.'
   };
 }
 
