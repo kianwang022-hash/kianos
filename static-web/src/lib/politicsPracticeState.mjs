@@ -246,6 +246,60 @@ export function politicsReviewPacket(catalog, snapshot, options = {}) {
   };
 }
 
+function politicsForecastProgress(catalog, snapshot) {
+  const units = Array.isArray(catalog?.units) ? catalog.units : [];
+  const rows = units.map((unit, index) => {
+    const questionIds = Array.isArray(unit?.questionIds) ? unit.questionIds : [];
+    const observedQuestionIds = questionIds.filter((questionId) =>
+      Boolean(findPoliticsFirstAttempt(snapshot?.attempts || { units: {} }, questionId)?.attempt)
+    );
+    return {
+      unit_key: String(unit?.key || ''),
+      unit_id: String(unit?.id || ''),
+      subject: String(unit?.subject || ''),
+      chapter: String(unit?.chapter || ''),
+      catalog_index: index,
+      expected_questions: questionIds.length,
+      first_attempt_questions: observedQuestionIds.length,
+      question_coverage_complete:
+        questionIds.length > 0 && observedQuestionIds.length === questionIds.length
+    };
+  });
+
+  const lastUnitId = String(
+    snapshot?.last?.unit_id
+    || snapshot?.last?.unitId
+    || snapshot?.last?.unit_key
+    || ''
+  );
+  const currentIndex = rows.findIndex((row) =>
+    row.unit_id === lastUnitId || row.unit_key === lastUnitId
+  );
+  const observedUnits = rows.filter((row) => row.first_attempt_questions > 0);
+  const coverageComplete = rows.filter((row) => row.question_coverage_complete);
+
+  return {
+    schema: 'kianos.politics.forecast-progress.v1',
+    forecast_role: 'FACTUAL_SUBJECT_PROGRESS_SIGNAL_ONLY',
+    gate_workload_authority: false,
+    scope: 'FIRST_ROUND_CURRENT_CATALOG_PROGRESS_ONLY',
+    catalog_units: rows.length,
+    units_with_first_attempt_evidence: observedUnits.length,
+    units_with_complete_question_coverage: coverageComplete.length,
+    complete_question_coverage_unit_keys: coverageComplete
+      .map((row) => row.unit_key)
+      .filter(Boolean),
+    current_navigation: {
+      unit_id: lastUnitId || null,
+      catalog_index: currentIndex >= 0 ? currentIndex : null,
+      structural_units_after_current:
+        currentIndex >= 0 ? Math.max(0, rows.length - currentIndex - 1) : null
+    },
+    evidence_boundary:
+      'Question coverage is first-round factual progress only. It does not prove source-learning completion, long-term memory, analysis-output readiness or Gate workload; those require Politics-owned reconciliation into exam.subject-demand.v1.'
+  };
+}
+
 export function politicsDailyEvidencePacket(catalog, snapshot, {
   day,
   now = Date.now(),
@@ -285,6 +339,7 @@ export function politicsDailyEvidencePacket(catalog, snapshot, {
     study_day: day,
     generated_at: new Date(now).toISOString(),
     catalog_revision: catalog?.revision || null,
+    forecast_progress: politicsForecastProgress(catalog, snapshot),
     resume: resume ? {
       href: resume.href,
       title: resume.title,
