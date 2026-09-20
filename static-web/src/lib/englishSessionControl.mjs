@@ -382,6 +382,7 @@ export function englishAttemptInventory(storage) {
         updated_at:value.updatedAt||value.saved_at||null,
         prior_exposure:value.binding?.prior_exposure||'unknown',
         assistance:value.binding?.assistance||'unknown',
+        context:value.binding?.context||'unknown',
         complete:englishStepIsComplete(storage,{task,object_id:key.slice(prefix.length),source_hash:value.binding?.source_hash}),
         first_evidence:value.firstEvidenceMeta||null,
         source_family:clean(snapshot.source_family,100)||null,
@@ -449,6 +450,18 @@ function medianNumber(values) {
   return rows.length % 2 ? rows[mid] : Number(((rows[mid - 1] + rows[mid]) / 2).toFixed(2));
 }
 
+function quantileNumber(values, q) {
+  const rows = values.map(Number).filter(Number.isFinite).sort((a, b) => a - b);
+  if (!rows.length) return null;
+  const quantile = Math.min(1, Math.max(0, Number(q)));
+  const position = (rows.length - 1) * quantile;
+  const lower = Math.floor(position);
+  const upper = Math.ceil(position);
+  if (lower === upper) return rows[lower];
+  const weight = position - lower;
+  return Number((rows[lower] + (rows[upper] - rows[lower]) * weight).toFixed(2));
+}
+
 function safeIndependentTransferCandidate(row) {
   const meta = row?.first_evidence;
   if (!meta || typeof meta !== 'object') return false;
@@ -482,7 +495,13 @@ function timingProfile(rows) {
     budget_exceeded: timing.budget_exceeded,
     uncalibrated: timing.uncalibrated + timing.other,
     median_elapsed_seconds: medianNumber(elapsed),
-    median_budget_ratio: medianNumber(ratios)
+    p20_elapsed_seconds: quantileNumber(elapsed, 0.2),
+    p50_elapsed_seconds: quantileNumber(elapsed, 0.5),
+    p80_elapsed_seconds: quantileNumber(elapsed, 0.8),
+    median_budget_ratio: medianNumber(ratios),
+    p20_budget_ratio: quantileNumber(ratios, 0.2),
+    p50_budget_ratio: quantileNumber(ratios, 0.5),
+    p80_budget_ratio: quantileNumber(ratios, 0.8)
   };
 }
 
@@ -504,6 +523,7 @@ function taskPerformanceProfile(allRows, recentRows, task) {
       independent_transfer_candidates: rows.filter(safeIndependentTransferCandidate).length,
       exposure: countValues(rows, (row) => row.prior_exposure || 'unknown', ['unseen', 'exposed', 'unknown']),
       assistance: countValues(rows, (row) => row.assistance || 'unknown', ['unassisted', 'assisted', 'unknown']),
+      context: countValues(rows, (row) => row.context || 'unknown', ['study', 'exam', 'unknown']),
       timing_basis: 'UNSEEN_UNASSISTED_ONLY',
       timing: timingProfile(cleanTimingRows),
       timing_all: timingProfile(rows)
@@ -523,6 +543,20 @@ function taskPerformanceProfile(allRows, recentRows, task) {
     if (task === 'external_reading') {
       const generatedRows = rows.filter((row) => row.question_origin === 'CHAT_GENERATED');
       const targetKinds = [...new Set(generatedRows.map((row) => String(row.training_target_kind || '')).filter(Boolean))].sort();
+      const sourceFamilies = [...new Set(rows.map((row) => String(row.source_family || '')).filter(Boolean))].sort();
+      summary.by_source_family = Object.fromEntries(sourceFamilies.map((family) => {
+        const familyRows = rows.filter((row) => row.source_family === family);
+        const cleanRows = familyRows.filter((row) =>
+          row?.prior_exposure === 'unseen'
+          && row?.assistance === 'unassisted'
+        );
+        return [family, {
+          attempts: familyRows.length,
+          problem_bearing_attempts: familyRows.filter((row) => Number(row.problem_count || 0) > 0).length,
+          independent_transfer_candidates: familyRows.filter(safeIndependentTransferCandidate).length,
+          timing: timingProfile(cleanRows)
+        }];
+      }));
       summary.generated_drill = {
         attempts: generatedRows.length,
         synthetic_attempts: generatedRows.filter((row) => row.drill_origin === 'CHAT_GENERATED_SYNTHETIC').length,
@@ -586,6 +620,7 @@ export function buildEnglishPerformanceProfile(rows, {
       'RAW_PRIVATE_HISTORY_REMAINS_LOCAL',
       'DO_NOT_COMPARE_RAW_ELAPSED_TIME_ACROSS_TASK_TYPES',
       'DEFAULT_TIMING_USES_UNSEEN_UNASSISTED_ATTEMPTS_ONLY',
+      'P20_P50_P80_TIMING_ARE_EMPIRICAL_TASK_LOCAL_QUANTILES_NOT_COMPLETION_FORECASTS',
       'TIMING_ALL_IS_OBSERVATIONAL_NOT_CLEAN_SPEED_CALIBRATION',
       'EXPOSED_OR_ASSISTED_WORK_IS_NOT_INDEPENDENT_TRANSFER',
       'UNCALIBRATED_TIMING_IS_UNKNOWN_NOT_SLOW',
