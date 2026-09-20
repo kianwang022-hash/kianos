@@ -204,7 +204,7 @@ Keep two truths separate.
 
 ## B1｜Exact official System question scope
 
-Current learner-facing exact System question scope is accepted for **A1 / A2 / A3 / B / C**. D / E / F must not be surfaced as trusted System-question sets until their exact official-question membership is independently established; System membership does not imply Block/KP mapping and must not be inferred from Outline or Block placement.
+Current learner-facing exact System question scope is accepted for **A1 / A2 / A3 / B / C / D**. E / F must not be surfaced as trusted System-question sets until their exact official-question membership is independently established; System membership does not imply Block/KP mapping and must not be inferred from Outline or Block placement.
 
 ### Current completion lane — E / F medical-content closure satisfied
 
@@ -218,7 +218,7 @@ finish E full medical-content chain
 → only then expose those Systems in trusted learner-facing "按 System" question entry
 ```
 
-E and F medical-content closure are complete. B exact official System-question membership is accepted at **1072 qids** using the original executable resolver. C exact membership is now accepted at **288 qids** after fresh Current-owner repair of 38 historical page-union false positives. The completion lane now continues with **D**, then E/F. Keep exact System question scope separate from accepted medical Content: no D/E/F membership may be inferred from Block, LG, Outline or Source placement.
+E and F medical-content closure are complete. B exact official System-question membership is accepted at **1072 qids** using the original executable resolver. C exact membership is now accepted at **289 qids** after fresh Current-owner repair of 38 historical page-union false positives plus one RA Primary transfer from D. D exact membership is now accepted at **355 qids** after recovering 217 reviewed orthopedic Lecture-scope locators and transferring the single general-RA Primary question to C. The completion lane now continues with **E**, then F. Keep exact System question scope separate from accepted medical Content: no D/E/F membership may be inferred from Block, LG, Outline or Source placement.
 
 ### B scope closure — PASS
 
@@ -250,28 +250,37 @@ Receipt:
 ```text
 historical resolver candidate = 326
 Current owner exclusions      = 38
-C exact official qids         = 288
+C exact official qids         = 289
 2005–2026
-inventory SHA256 = 2ef4aea5c284fb9ced4b418bcde4df202f403b2f68651c6fad23b4d0fa77ea1f
+inventory SHA256 = 3c04968c9fb88b216c15f249a95ac8ea985ebd6f9166ae59b57a27c61ff0287b
 System membership only; no inferred Question→Block/LG/KP relation
 ```
 
-### D scope status — BLOCKED_SOURCE_POSITION_COVERAGE
+### D scope closure — PASS_AFTER_BOUNDED_REPAIR
+
+Canonical owner:
+
+`content/xizong/knowledge/learner/d-neuro-sensory-motor-orthopedics-question-scope.json`
 
 Receipt:
 
 `content/xizong/knowledge/learner/D_QUESTION_SCOPE_CURRENT_RECONSTRUCTION.md`
 
 ```text
-historical resolver D pool = 142
-historical positioned orthopedics = 3
-Current REVIEWED Question→D relations = 52 / only 2005–2008
-complete Current D exact inventory = not safely derivable yet
+historical exact resolver D pool      = 142
+reviewed orthopedic Lecture-scope qids= 217
+overlap                               =   3
+union before owner repair             = 356
+RA Primary transferred D → C          =   1
+D exact official qids                 = 355
+2005–2026
+inventory SHA256 = 129657b6612e2c9b26ea98b44fabd2d864d3c273e8dd91bfa1c9020d1d97b0be
+System membership only; no inferred Question→Block/LG/KP relation
 ```
 
-D remains excluded from trusted "按 System" question entry. This blocker does not reopen D medical Content or block scoped Projection.
+The previous D blocker is closed because raw historical routing contains 217 reviewed `surgery|五、骨科|...` source locators. The old frozen resolver under-resolved them when source pages were null/legacy, but Current O1–O16 explicitly owns those exact Lecture scopes as Primary.
 
-Next unblocked exact-scope target: **E — Reproductive / Breast**.
+Next exact-scope target: **E — Reproductive / Breast**.
 
 ## B2｜Question → Knowledge Crosswalk
 
@@ -488,12 +497,12 @@ F 9 Blocks / 121 KP
 → F medical-content chain CLOSED
 
 QUESTIONS
-Current trusted System-question entry = A1 / A2 / A3 / B / C
+Current trusted System-question entry = A1 / A2 / A3 / B / C / D
 B exact official-question membership = PASS / 1072 qids
-C exact official-question membership = PASS_AFTER_BOUNDED_REPAIR / 288 qids
-D exact official-question membership = BLOCKED_SOURCE_POSITION_COVERAGE
+C exact official-question membership = PASS_AFTER_BOUNDED_REPAIR / 289 qids
+D exact official-question membership = PASS_AFTER_BOUNDED_REPAIR / 355 qids
 E / F exact official-question membership = CURRENT COMPLETION LANE
-→ next unblocked target = E
+→ next target = E
 + Crosswalk C2 continuous reviewed batches
 
 VISUAL
