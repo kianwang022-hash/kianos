@@ -130,10 +130,20 @@ function closeRunningSegment(storage, state, endedAt, source = 'timer') {
   });
 }
 
-export function resolveStudyTimerContext(pathname, base = '/') {
+export function resolveStudyTimerContext(pathname, base = '/', search = '') {
   const route = localRoute(pathname || '', base);
   const segment = topSegment(route);
   if (segment === 'xizong') {
+    const params = new URLSearchParams(String(search || '').replace(/^\?/, ''));
+    const repairId = String(params.get('repair') || '').slice(0, 160);
+    if (repairId) {
+      return {
+        subject: 'xizong',
+        route,
+        detailKey: `repair/${repairId}`,
+        detailLabel: 'Repair'
+      };
+    }
     const parts = route.split('/').filter(Boolean).slice(1);
     const detailKey = parts.length ? parts.join('/') : 'overview';
     return { subject: 'xizong', route, detailKey, detailLabel: detailKey };
