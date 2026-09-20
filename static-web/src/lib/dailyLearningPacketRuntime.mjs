@@ -73,6 +73,7 @@ export function buildHomeDailyLearningPacket({
   xizongPacketIndex = [],
   politicsCatalog = null,
   politicsMemoryCatalog = null,
+  englishCatalog = null,
   base = '/'
 } = {}) {
   if (!storage?.getItem) throw new Error('HOME_DAILY_PACKET_STORAGE_UNAVAILABLE');
@@ -114,7 +115,7 @@ export function buildHomeDailyLearningPacket({
   }
 
   try {
-    const english = buildEnglishEvidencePacket(storage, { day, now, catalog: [] });
+    const english = buildEnglishEvidencePacket(storage, { day, now, catalog: englishCatalog || [] });
     if (englishEvidencePresent(english)) {
       packet = attachDailySubjectPacket(packet, 'english', english);
       coverage.english = 'attached';
