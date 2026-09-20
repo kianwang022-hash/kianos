@@ -32,9 +32,8 @@ EXPECTED_TOEFL = {
 }
 
 KNOWN_COLLECTION_DEBT = {
-    "TPO62": ["SOURCE_REVIEW_MARKER"],
-    "Cambridge IELTS 18": ["OCR_UNCERTAIN", "VISUAL_STRUCTURE_REQUIRED"],
-    "Cambridge IELTS 19": ["OCR_UNCERTAIN", "VISUAL_STRUCTURE_REQUIRED"],
+    "Cambridge IELTS 18": ["OCR_SOURCE_MARKED"],
+    "Cambridge IELTS 19": ["OCR_SOURCE_MARKED"],
 }
 
 
@@ -160,7 +159,6 @@ def compile_toefl(root: Path) -> list[dict]:
                 },
                 "warnings": list(dict.fromkeys(
                     warnings + normalized["warnings"] + collection_warnings(collection)
-                    + (["SOURCE_REVIEW_MARKER"] if number == 62 and passage_number == 1 else [])
                 )),
             })
     return output
@@ -225,7 +223,10 @@ def compile_ielts(root: Path) -> list[dict]:
                         "spacing_repairs": normalized["spacing_repairs"],
                     },
                     "warnings": list(dict.fromkeys(
-                        warnings + normalized["warnings"] + collection_warnings(collection)
+                        warnings
+                        + normalized["warnings"]
+                        + collection_warnings(collection)
+                        + (["VISUAL_LAYOUT_REVIEW_REQUIRED"] if book == 18 and test == 1 and passage_number == 1 else [])
                     )),
                 })
     return output
