@@ -542,7 +542,7 @@ export function politicsMemoryDailyEvidence(storage, {
     .filter((row) => row?.study_day === day)
     .sort((a, b) => String(a.observed_at || '').localeCompare(String(b.observed_at || '')));
   const historyProfile = catalog
-    ? buildPoliticsMemoryHistoryProfile(allEvidence, catalog, { now })
+    ? buildPoliticsMemoryHistoryProfile(allEvidence, catalog, { now, currentDay: day })
     : null;
 
   let currentPlan = null;
