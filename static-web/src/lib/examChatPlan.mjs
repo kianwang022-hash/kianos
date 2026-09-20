@@ -1,4 +1,11 @@
+import { EXAM_PROFILE_KEY } from './examOrchestrator.mjs';
+import { readStudyTimerLedger } from './studyTimer.mjs';
+import { englishCheckpointKeyAllowed } from './englishLearnerEvidence.mjs';
+import { politicsCheckpointKeyAllowed } from './politicsChatReturn.mjs';
+import { isXizongDurableStorageKey } from './xizongPrivateCheckpoint.mjs';
+
 export const EXAM_CHAT_PLAN_SCHEMA = 'kianos.exam.chat-plan.v1';
+export const EXAM_CHAT_PLAN_BASIS_SCHEMA = 'kianos.exam.chat-plan-basis.v1';
 export const EXAM_CHAT_PLAN_KEY = 'kianos-exam-chat-plan-v1';
 export const EXAM_CHAT_PLAN_SUBJECTS = Object.freeze(['xizong', 'english', 'politics']);
 
@@ -7,6 +14,31 @@ const validDay = (day) => typeof day === 'string'
   && /^\d{4}-\d{2}-\d{2}$/.test(day)
   && !Number.isNaN(Date.parse(`${day}T00:00:00Z`))
   && new Date(`${day}T00:00:00Z`).toISOString().slice(0, 10) === day;
+const record = (value) => value !== null && typeof value === 'object' && !Array.isArray(value);
+const FINGERPRINT_PATTERN = /^fnv1a64:[0-9a-f]{16}:\d+$/;
+
+const XIZONG_CONTROL_PATTERNS = Object.freeze([
+  /^kianos-xizong-last-location-v1$/,
+  /^kianos-xizong-repair-inbox-v1:/,
+  /^kianos-xizong-chat-handoff-v1:/,
+  /^kianos-xizong-chat-return-v1:/,
+  /^kianos:xizong:pending-(?:chat-return|system-wu-return):v1$/,
+  /^kianos:xizong:system-repair-return:/,
+  /^kianos:xizong:session-(?:instruction|runtime):v1$/,
+  /^kianos:xizong:(?:chat-set|retained-set):v1$/,
+  /^kianos:xizong:question-preferences:v1$/,
+  /^kianos:xizong:full-paper-holdout-years:v1$/
+]);
+const ENGLISH_CONTROL_PATTERNS = Object.freeze([
+  /last-location/,
+  /^kianos-english-session-(?:instruction|runtime)-v1$/
+]);
+const POLITICS_EVIDENCE_KEYS = new Set([
+  'kianos-politics-attempts-v1',
+  'kianos-politics-practice-meta-v1',
+  'kianos-politics-evidence-v1',
+  'kianos-politics-memory-evidence-v1'
+]);
 
 const finiteMinutes = (value, field) => {
   if (value === null || value === undefined) return null;
@@ -16,6 +48,146 @@ const finiteMinutes = (value, field) => {
   }
   return Math.round(number);
 };
+
+const storageKeys = (storage) => {
+  if (!storage?.getItem || typeof storage.key !== 'function' || !Number.isFinite(Number(storage.length))) return [];
+  const keys = [];
+  for (let index = 0; index < Number(storage.length); index += 1) {
+    const key = storage.key(index);
+    if (typeof key === 'string') keys.push(key);
+  }
+  return [...new Set(keys)].sort();
+};
+
+const canonicalJson = (raw) => {
+  if (raw == null) return 'null';
+  let value;
+  try { value = JSON.parse(String(raw)); }
+  catch { return 'raw:' + String(raw); }
+  const normalize = (input) => {
+    if (Array.isArray(input)) return input.map(normalize);
+    if (!record(input)) return input;
+    return Object.fromEntries(Object.keys(input).sort().map((key) => [key, normalize(input[key])]));
+  };
+  return JSON.stringify(normalize(value));
+};
+
+const fingerprint = (value) => {
+  const source = String(value ?? '');
+  let hash = 0xcbf29ce484222325n;
+  for (let index = 0; index < source.length; index += 1) {
+    hash ^= BigInt(source.charCodeAt(index));
+    hash = BigInt.asUintN(64, hash * 0x100000001b3n);
+  }
+  return `fnv1a64:${hash.toString(16).padStart(16, '0')}:${source.length}`;
+};
+
+const fingerprintRows = (rows) => fingerprint(rows
+  .map(([key, raw]) => `${key}\u0000${canonicalJson(raw)}`)
+  .join('\u0001'));
+
+const subjectEvidenceKeyAllowed = (subject, key) => {
+  if (subject === 'xizong') {
+    return isXizongDurableStorageKey(key)
+      && !XIZONG_CONTROL_PATTERNS.some((pattern) => pattern.test(key));
+  }
+  if (subject === 'english') {
+    return englishCheckpointKeyAllowed(key)
+      && !ENGLISH_CONTROL_PATTERNS.some((pattern) => pattern.test(key));
+  }
+  if (subject === 'politics') {
+    return politicsCheckpointKeyAllowed(key) && POLITICS_EVIDENCE_KEYS.has(key);
+  }
+  return false;
+};
+
+const subjectEvidenceFingerprint = (storage, subject) => fingerprintRows(
+  storageKeys(storage)
+    .filter((key) => subjectEvidenceKeyAllowed(subject, key))
+    .map((key) => [key, storage.getItem(key)])
+);
+
+const planningProfileBasis = (storage) => {
+  const raw = storage?.getItem?.(EXAM_PROFILE_KEY);
+  if (raw == null) return null;
+  try {
+    const value = JSON.parse(raw);
+    if (!record(value)) return value;
+    return {
+      schema: value.schema || null,
+      defaultDailyMinutes: value.defaultDailyMinutes ?? null,
+      capacityByDay: value.capacityByDay || {},
+      maintenanceByDay: value.maintenanceByDay || {},
+      floorMinutes: value.floorMinutes ?? null,
+      observations: Array.isArray(value.observations) ? value.observations : [],
+      reports: Array.isArray(value.reports) ? value.reports : [],
+      gateReports: Array.isArray(value.gateReports) ? value.gateReports : []
+    };
+  } catch {
+    return { unreadable_raw: String(raw) };
+  }
+};
+
+const sharedContextFingerprint = (storage) => fingerprint(JSON.stringify({
+  exam_profile: planningProfileBasis(storage),
+  study_timer_ledger: readStudyTimerLedger(storage)
+}));
+
+const basisCore = (studyDay, sharedContext, subjects) => JSON.stringify({
+  study_day: studyDay,
+  shared_context_fingerprint: sharedContext,
+  subjects: Object.fromEntries(EXAM_CHAT_PLAN_SUBJECTS.map((subject) => [subject, subjects[subject]]))
+});
+
+export function buildExamChatPlanBasis(storage, studyDay) {
+  if (!storage?.getItem) throw new Error('CHAT_PLAN_EVIDENCE_STORAGE_UNAVAILABLE');
+  if (!validDay(studyDay)) throw new Error('CHAT_PLAN_EVIDENCE_BASIS_DAY_INVALID');
+  const subjects = Object.fromEntries(EXAM_CHAT_PLAN_SUBJECTS.map((subject) => [
+    subject,
+    subjectEvidenceFingerprint(storage, subject)
+  ]));
+  const sharedContext = sharedContextFingerprint(storage);
+  return {
+    schema: EXAM_CHAT_PLAN_BASIS_SCHEMA,
+    study_day: studyDay,
+    shared_context_fingerprint: sharedContext,
+    subjects,
+    evidence_fingerprint: fingerprint(basisCore(studyDay, sharedContext, subjects))
+  };
+}
+
+function normalizeExamChatPlanBasis(value, expectedDay = null) {
+  if (value == null) return null;
+  if (!record(value) || value.schema !== EXAM_CHAT_PLAN_BASIS_SCHEMA || !validDay(value.study_day)) {
+    throw new Error('Chat Plan learner_evidence_basis is invalid.');
+  }
+  if (expectedDay && value.study_day !== expectedDay) {
+    throw new Error('CHAT_PLAN_EVIDENCE_BASIS_DAY_MISMATCH');
+  }
+  if (!record(value.subjects)) throw new Error('Chat Plan learner_evidence_basis subjects are invalid.');
+  const subjects = {};
+  for (const subject of EXAM_CHAT_PLAN_SUBJECTS) {
+    const row = String(value.subjects[subject] || '');
+    if (!FINGERPRINT_PATTERN.test(row)) throw new Error(`Chat Plan learner_evidence_basis is missing ${subject} evidence identity.`);
+    subjects[subject] = row;
+  }
+  const sharedContext = String(value.shared_context_fingerprint || '');
+  const evidenceFingerprint = String(value.evidence_fingerprint || '');
+  if (!FINGERPRINT_PATTERN.test(sharedContext) || !FINGERPRINT_PATTERN.test(evidenceFingerprint)) {
+    throw new Error('Chat Plan learner_evidence_basis fingerprint is invalid.');
+  }
+  const expectedFingerprint = fingerprint(basisCore(value.study_day, sharedContext, subjects));
+  if (evidenceFingerprint !== expectedFingerprint) {
+    throw new Error('Chat Plan learner_evidence_basis is internally inconsistent.');
+  }
+  return {
+    schema: EXAM_CHAT_PLAN_BASIS_SCHEMA,
+    study_day: value.study_day,
+    shared_context_fingerprint: sharedContext,
+    subjects,
+    evidence_fingerprint: evidenceFingerprint
+  };
+}
 
 export function validateExamChatPlan(value, expectedDay = null) {
   if (!value || typeof value !== 'object' || Array.isArray(value)) {
@@ -35,6 +207,7 @@ export function validateExamChatPlan(value, expectedDay = null) {
   if (!generatedAt || Number.isNaN(Date.parse(generatedAt))) {
     throw new Error('Chat Plan generated_at is missing or invalid.');
   }
+  const learnerEvidenceBasis = normalizeExamChatPlanBasis(value.learner_evidence_basis, value.study_day);
 
   const rawSubjects = value.subjects && typeof value.subjects === 'object' && !Array.isArray(value.subjects)
     ? value.subjects
@@ -88,10 +261,21 @@ export function validateExamChatPlan(value, expectedDay = null) {
     schema: EXAM_CHAT_PLAN_SCHEMA,
     study_day: value.study_day,
     generated_at: new Date(generatedAt).toISOString(),
+    learner_evidence_basis: learnerEvidenceBasis,
     subjects,
     next_subject: nextSubject,
     attention
   };
+}
+
+export function validateExamChatPlanAgainstStorage(storage, value, expectedDay = null) {
+  const plan = validateExamChatPlan(value, expectedDay);
+  if (!plan.learner_evidence_basis) throw new Error('CHAT_PLAN_EVIDENCE_BASIS_REQUIRED');
+  const current = buildExamChatPlanBasis(storage, plan.study_day);
+  if (JSON.stringify(plan.learner_evidence_basis) !== JSON.stringify(current)) {
+    throw new Error('CHAT_PLAN_EVIDENCE_BASIS_STALE');
+  }
+  return plan;
 }
 
 export function readExamChatPlan(storage, expectedDay) {
@@ -109,7 +293,22 @@ export function readExamChatPlan(storage, expectedDay) {
         error: `Chat Plan is for ${parsed.study_day}, not ${expectedDay}.`
       };
     }
-    return { status: 'ready', plan: validateExamChatPlan(parsed, expectedDay), error: null };
+    try {
+      return {
+        status: 'ready',
+        plan: validateExamChatPlanAgainstStorage(storage, parsed, expectedDay),
+        error: null
+      };
+    } catch (error) {
+      if (/CHAT_PLAN_EVIDENCE_BASIS_(?:REQUIRED|STALE|DAY_MISMATCH)/.test(String(error?.message || ''))) {
+        return {
+          status: 'stale',
+          plan: null,
+          error: error instanceof Error ? error.message : String(error)
+        };
+      }
+      throw error;
+    }
   } catch (error) {
     return {
       status: 'invalid',
@@ -121,7 +320,7 @@ export function readExamChatPlan(storage, expectedDay) {
 
 export function writeExamChatPlan(storage, value, expectedDay) {
   if (!storage?.setItem) throw new Error('Storage is unavailable.');
-  const plan = validateExamChatPlan(value, expectedDay);
+  const plan = validateExamChatPlanAgainstStorage(storage, value, expectedDay);
   storage.setItem(EXAM_CHAT_PLAN_KEY, JSON.stringify(plan));
   return plan;
 }
