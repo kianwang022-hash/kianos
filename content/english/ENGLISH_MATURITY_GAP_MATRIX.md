@@ -493,3 +493,46 @@ material executability / fidelity
 ```
 
 This is the basis for E2. It is not permission to implement outside the ranked gaps above.
+
+
+---
+
+# 6｜Remaining maturity-domain audit
+
+This audit is against the mother-standard requirements after E2/E3/E4 closure. It does **not** open stages by number.
+
+| Domain | Current truth | Verdict | Action |
+| --- | --- | --- | --- |
+| Forecast SYSTEM LOGIC | current `englishForecastProgress()` is explicitly `CURRENT_EXPLICIT_SESSION_ONLY` and `gate_workload_authority:false`; it cannot yet express whole-English remaining workload, uncertainty, sensitivity, decision-flip surfaces or highest-value next evidence | **MATERIAL SYSTEM-LOGIC GAP** | open only a pure English Forecast kernel; no scheduler / no daily task prescription |
+| Kian-specific Forecast calibration | Objective residual, productive cold baselines, task times and delayed Lexical retention are not yet observed | **REAL-U UNKNOWN** | do not fabricate parameters |
+| Dynamic Control | `LEARNING_CONTRACT.md` already owns UNCALIBRATED / BUILD / VERIFY / MAINTAIN / ELASTIC, dual Secure gate, adaptive add/reduce dose, no-new-information stop, hazard-based maintenance and cross-subject Elastic ROI | **SYSTEM LOGIC SATISFIED** | preserve; validate through later Forecast/lifecycle attacks only |
+| Future Source readiness | English-specific Highest Maturity Standard already defines optional External Reading / authentic reading / targeted generated Repair-Transfer lifecycle, provenance, fidelity, dedupe and transitive invalidation; no fake annual source cycle | **SYSTEM LOGIC SATISFIED** | preserve; reopen only for a real new source |
+| Chat↔Website / Day-1 | typed Session Instruction, exact source hash, stale/replay guards, Resume, checkpoint, private state, task workspaces and cross-subject regression are accepted; E4 added evidence provenance | **SYSTEM LOGIC SATISFIED FOR CURRENT BOUNDARY** | no second transport |
+| Lifecycle / adversarial failure safety | restart, stale plan, source revision, contamination, evidence loss boundaries, whole-paper, generated assets and cross-subject regressions have substantial proof; workload/capacity decision-flip stress still lacks a subject-level Forecast kernel | **PARTIAL — FORECAST-DEPENDENT GAP ONLY** | complete after Forecast logic exists; do not rebuild runtime |
+| Authentic modality | browser/typed cognition is accepted, but handwriting / paper-mode productive cost is Kian-specific | **REAL-U / LATER FORMAL EVIDENCE** | no engineering blocker now |
+| SYSTEM_LOGIC_ACCEPTED vs KIAN_SPECIFIC_CALIBRATED | distinction is explicit in Highest Maturity Standard | **BOUNDARY SATISFIED** | do not merge the two states |
+
+## Current largest system-logic gap
+
+```text
+English Forecast SYSTEM LOGIC
+```
+
+Required capability:
+
+```text
+remaining workload
++ priced vs unpriced scope
++ uncertainty
++ score-path confidence
++ workload confidence
++ sensitivity
++ decision-flip surface
++ highest-value next evidence
+```
+
+Hard boundary:
+
+> Forecast estimates capacity/risk. It never chooses today's fixed task count, subject order or cross-subject allocation.
+
+Kian-specific calibration remains UNKNOWN until Real Learner U exists.
