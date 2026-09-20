@@ -25,6 +25,7 @@ import {
   listProjectableXizongSystems,
   loadXizongBlock
 } from '../src/lib/xizong.mjs';
+import { loadXizongSystemQuestionSweep } from '../src/lib/xizongQuestions.mjs';
 import {
   politicsProductCatalog
 } from '../src/lib/productCatalog.mjs';
@@ -58,6 +59,12 @@ assert.ok(systems.length>0,'Current Xizong must have a projectable system');
 const system=systems[0];
 const blockRef=system.blocks[0];
 const block=loadXizongBlock(system.systemId,blockRef.slug);
+const currentSweep=loadXizongSystemQuestionSweep(system);
+assert.ok(currentSweep?.questions?.length>0,'Current first Xizong System must expose exact official questions');
+const currentForecastQuestion=currentSweep.questions[0];
+const staleForecastQid=currentForecastQuestion.questionId==='xizong-official-2025-n001'
+  ? 'xizong-official-2025-n002'
+  : 'xizong-official-2025-n001';
 assert.ok(block.kpRecords.length>0);
 
 const politics=politicsProductCatalog('/');
@@ -180,20 +187,33 @@ const storage=new MemoryStorage({
     attemptHistory:[
       {
         type:'QUESTION_ATTEMPT',
-        question_id:'xizong-official-2025-n001',
+        question_id:currentForecastQuestion.questionId,
         question_source:'OFFICIAL_EXAM',
+        system_id:system.systemId,
+        canonical_id:system.canonicalId,
         study_phase:'FIRST_PASS',
+        context:'SYSTEM_SWEEP',
+        round_id:'forecast-current-round',
         attempt_index:1,
         status:'stable',
+        year:currentForecastQuestion.year,
+        scope_hash:currentSweep.scopeHash,
+        question_inventory_hash:currentSweep.questionInventoryHash,
         submitted_at:'2026-09-19T23:50:00+08:00'
       },
       {
         type:'QUESTION_ATTEMPT',
-        question_id:'xizong-official-2025-n002',
+        question_id:staleForecastQid,
         question_source:'OFFICIAL_EXAM',
+        system_id:system.systemId,
+        canonical_id:system.canonicalId,
         study_phase:'FIRST_PASS',
+        context:'SYSTEM_SWEEP',
+        round_id:'forecast-stale-round',
         attempt_index:1,
         status:'wrong',
+        scope_hash:'stale-scope',
+        question_inventory_hash:'stale-inventory',
         submitted_at:'2026-09-20T00:05:00+08:00'
       }
     ]
@@ -303,6 +323,19 @@ assert.equal(xzForecast.practice_evidence.first_pass.stable,1);
 assert.equal(xzForecast.practice_evidence.first_pass.wrong,1);
 assert.equal(xzForecast.practice_evidence.first_pass.wrong_or_uncertain,1);
 assert.equal(xzForecast.practice_evidence.first_pass.wrong_or_uncertain_rate,0.5);
+assert.equal(xzForecast.practice_evidence.first_pass.current_scope_eligible_attempted_questions,1);
+assert.equal(xzForecast.question_workload.status,'EXACT_PARTIAL');
+assert.equal(xzForecast.question_workload.cross_system_duplicate_memberships,0);
+assert.equal(xzForecast.question_workload.known_remaining_is_lower_bound,true);
+assert.ok(xzForecast.question_workload.unknown_systems.includes('F'));
+assert.equal(
+  xzForecast.question_workload.known_remaining_questions,
+  xzForecast.question_workload.exact_union_questions-1,
+  'only the exact Current SYSTEM_SWEEP attempt may reduce known remaining workload'
+);
+assert.equal(xzForecast.workload_forecast.schema,'kianos.xizong.workload-forecast.v1');
+assert.equal(xzForecast.workload_forecast.first_round.full_band_minutes,null,
+  'one synthetic completed Block is insufficient for a fake full P20/P50/P80 forecast');
 assert.equal(xzForecast.repair_evidence.schema,'kianos.xizong.repair-forecast-evidence.v1');
 assert.equal(xzForecast.repair_evidence.total_repair_clusters,2);
 assert.equal(xzForecast.repair_evidence.active_repair_clusters,1);
