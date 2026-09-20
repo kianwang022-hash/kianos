@@ -119,15 +119,33 @@ export function collectXizongRetainedEvidence(entries, options = {}) {
       status: String(event?.status || ''),
       submitted_at: eventTime(event),
       probe_kind: String(event?.probe_kind || ''),
+      evidence_intent: String(event?.evidence_intent || ''),
+      semantic_family_id: String(event?.semantic_family_id || ''),
+      derived_from_ids: [...new Set((Array.isArray(event?.derived_from_ids) ? event.derived_from_ids : []).map(String).filter(Boolean))],
+      changed_dimensions: [...new Set((Array.isArray(event?.changed_dimensions) ? event.changed_dimensions : []).map(String).filter(Boolean))],
+      fresh_transfer_eligible: event?.fresh_transfer_eligible === true,
+      freshness_class: String(event?.freshness_class || ''),
       target_kp_ids: [...new Set((Array.isArray(event?.target_kp_ids) ? event.target_kp_ids : []).map(String).filter(Boolean))],
       canonical_source_hash: String(event?.canonical_source_hash || ''),
       scoring_role: 'TRANSFER_ONLY'
     }));
 
+  const freshTransferByFamily = new Map();
+  for (const event of transferProbeEvents) {
+    if (event.fresh_transfer_eligible !== true || !event.semantic_family_id) continue;
+    const previous = freshTransferByFamily.get(event.semantic_family_id);
+    if (!previous || event.submitted_at >= previous.submitted_at) {
+      freshTransferByFamily.set(event.semantic_family_id, event);
+    }
+  }
+  const freshTransferEvents = [...freshTransferByFamily.values()]
+    .sort((a,b) => String(b.submitted_at).localeCompare(String(a.submitted_at)));
+
   return {
     wrongUncertainIds,
     markedIds,
     transferProbeEvents,
+    freshTransferEvents,
     latestAttemptByQuestion: Object.fromEntries([...latest.entries()].map(([questionId, event]) => [questionId, event]))
   };
 }
