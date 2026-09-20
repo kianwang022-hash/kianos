@@ -1542,3 +1542,196 @@ export function applyXizongForecastScenario(forecast, {
       'net_increment_minutes must be deduplicated net new workload. Raw case/cram/five-hour material duration must not be added before delta/replacement reconciliation.'
   };
 }
+
+
+export function buildXizongForecastFalsifiability(progress, {
+  startDay = null,
+  deadlineDay = null,
+  dailyMinutes = 300,
+  scope = 'first_round',
+  wrongUncertainRateGrid = [0.15, 0.30, 0.45],
+  dailyMinutesGrid = [180, 300, 420],
+  materialItems = null
+} = {}) {
+  if (!progress || progress.schema !== 'kianos.xizong.forecast-progress.v1') {
+    throw new Error('XIZONG_FORECAST_PROGRESS_REQUIRED');
+  }
+
+  const baseForecast = buildXizongWorkloadForecast(progress);
+  const scoreEvidence = buildXizongScoreEvidence(progress);
+  const baseFeasibility = startDay && deadlineDay
+    ? assessXizongDeadlineFeasibility(baseForecast, {
+        startDay,
+        deadlineDay,
+        dailyMinutes,
+        materialItems,
+        scope
+      })
+    : null;
+
+  const wuRates = [...new Set((Array.isArray(wrongUncertainRateGrid) ? wrongUncertainRateGrid : [])
+    .map(Number).filter((value) => Number.isFinite(value) && value >= 0 && value <= 1))]
+    .sort((a,b)=>a-b);
+  const capacities = [...new Set((Array.isArray(dailyMinutesGrid) ? dailyMinutesGrid : [])
+    .map(Number).filter((value) => Number.isFinite(value) && value > 0))]
+    .sort((a,b)=>a-b);
+
+  const grid = [];
+  if (startDay && deadlineDay) {
+    for (const wrongUncertainRate of wuRates) {
+      const stressed = buildXizongWorkloadForecast(progress, { wrongUncertainRate });
+      for (const capacity of capacities) {
+        const feasibility = assessXizongDeadlineFeasibility(stressed, {
+          startDay,
+          deadlineDay,
+          dailyMinutes: capacity,
+          materialItems,
+          scope
+        });
+        grid.push({
+          wrong_uncertain_rate: round(wrongUncertainRate, 4),
+          daily_minutes: capacity,
+          status: feasibility.status,
+          full_scope: feasibility.full_scope,
+          p20_fit: feasibility.fit?.p20 ?? null,
+          p50_fit: feasibility.fit?.p50 ?? null,
+          p80_fit: feasibility.fit?.p80 ?? null,
+          required_average_minutes_per_day: feasibility.required_average_minutes_per_day
+        });
+      }
+    }
+  }
+
+  const p50FlipByCapacity = capacities.map((capacity) => {
+    const rows = grid.filter((row) => row.daily_minutes === capacity && row.p50_fit !== null);
+    const firstFailure = rows.find((row) => row.p50_fit === false);
+    const lastSuccess = [...rows].reverse().find((row) => row.p50_fit === true);
+    return {
+      daily_minutes: capacity,
+      last_tested_wu_rate_with_p50_fit: lastSuccess?.wrong_uncertain_rate ?? null,
+      first_tested_wu_rate_without_p50_fit: firstFailure?.wrong_uncertain_rate ?? null
+    };
+  });
+
+  const candidates = [];
+  const addCandidate = (id, priority, reason, evidence, costClass = 'BOUNDED') => {
+    if (candidates.some((row) => row.id === id)) return;
+    candidates.push({
+      id,
+      information_priority: priority,
+      reason,
+      evidence_to_collect: evidence,
+      learner_cost_class: costClass
+    });
+  };
+
+  const knowledgeBacktest = String(baseForecast?.components?.knowledge?.calibration?.rolling_backtest?.status || '');
+  const questionBacktest = String(baseForecast?.components?.questions?.calibration?.rolling_backtest?.status || '');
+  const knowledgeSystems = Array.isArray(baseForecast?.components?.knowledge?.calibration?.sample_systems)
+    ? baseForecast.components.knowledge.calibration.sample_systems.length
+    : 0;
+  const repair = baseForecast?.components?.repair || {};
+
+  if (baseForecast.first_round.status !== 'FULLY_PRICED') {
+    addCandidate(
+      'FULL_PRICING_BLOCKER',
+      100,
+      'A required first-round workload component is still unpriced.',
+      'Collect only the missing factual workload evidence named by the unpriced component; do not guess a rate.'
+    );
+  }
+  if (knowledgeSystems < 2 || knowledgeBacktest !== 'BACKTESTED') {
+    addCandidate(
+      'REPRESENTATIVE_BLOCK_THROUGHPUT',
+      90,
+      'Knowledge throughput is not yet cross-System/backtest calibrated.',
+      'Time completion of a representative real Block from a not-yet-well-calibrated System, preserving KP/LG identity.'
+    );
+  }
+  if (questionBacktest !== 'BACKTESTED' || baseForecast?.components?.questions?.band_minutes == null) {
+    addCandidate(
+      'REPRESENTATIVE_OFFICIAL_SWEEP_SPEED',
+      85,
+      'Official-question speed is not yet sufficiently backtest-calibrated.',
+      'Record timed Current-scope official-question work in a representative System without changing the learning plan merely for measurement.'
+    );
+  }
+  if ((repair?.error_rate?.unpriced_system_ids || []).length) {
+    addCandidate(
+      'SYSTEM_SPECIFIC_WU_RATE',
+      84,
+      'At least one remaining System has no observed Wrong/Uncertain rate.',
+      'Observe a representative Current-scope official-question sample in the named unpriced System.'
+    );
+  }
+  if ((repair?.compression?.unpriced_system_ids || []).length) {
+    addCandidate(
+      'SYSTEM_REPAIR_COMPRESSION',
+      83,
+      'At least one System has no observed question→Repair-cluster compression.',
+      'Close real Repair clusters in that System and record how many source questions collapse into each causal cluster.'
+    );
+  }
+  if (Number(repair?.calibration?.exclusive_repair_timer_samples || 0) < 3) {
+    addCandidate(
+      'EXCLUSIVE_REPAIR_TIME',
+      82,
+      'Repair time is not yet calibrated with enough exclusive samples.',
+      'Record exclusive Repair time, not mixed Block-route lifetime time.'
+    );
+  }
+  if (scoreEvidence?.capabilities?.case_stability?.dedicated_case_evidence !== true) {
+    addCandidate(
+      'DEDICATED_CASE_TRANSFER',
+      60,
+      'Whole-paper or local official performance cannot prove X8 case/cross-System transfer.',
+      'Collect a bounded dedicated case/cross-System transfer observation when the maturity owner judges it decision-relevant.',
+      'MODERATE'
+    );
+  }
+  if (scoreEvidence?.formal_score?.calibration_band == null) {
+    addCandidate(
+      'LOW_CONTAMINATION_FORMAL_SCORE',
+      40,
+      'Observed paper scores do not yet form a strong low-contamination calibration band.',
+      'Preserve low-contamination whole-paper evidence for the appropriate later maturity stage; do not consume it merely to improve the Forecast.',
+      'SCARCE'
+    );
+  }
+
+  candidates.sort((a,b) => b.information_priority - a.information_priority || a.id.localeCompare(b.id));
+
+  const capacityFlip = baseFeasibility?.required_average_minutes_per_day
+    ? {
+        p20_daily_minutes: baseFeasibility.required_average_minutes_per_day.p20,
+        p50_daily_minutes: baseFeasibility.required_average_minutes_per_day.p50,
+        p80_daily_minutes: baseFeasibility.required_average_minutes_per_day.p80
+      }
+    : null;
+
+  return {
+    schema: 'kianos.xizong.forecast-falsifiability.v1',
+    scope: scope === 'score_formation' ? 'score_formation' : 'first_round',
+    base_forecast_state: String(buildXizongForecastLoop(progress, {
+      dailyMinutes,
+      startDay
+    }).forecast_state || 'UNKNOWN'),
+    assumptions: {
+      start_day: startDay,
+      deadline_day: deadlineDay,
+      daily_minutes: positive(dailyMinutes),
+      tested_wrong_uncertain_rates: wuRates,
+      tested_daily_minutes: capacities,
+      material_increment_status: materialItems == null
+        ? 'NONE'
+        : reconcileXizongMaterialIncrement(materialItems).status
+    },
+    capacity_flip_points: capacityFlip,
+    wrong_uncertain_capacity_grid: grid,
+    p50_flip_surface: p50FlipByCapacity,
+    next_high_value_evidence: candidates[0] || null,
+    evidence_candidates: candidates,
+    boundary:
+      'Sensitivity surfaces expose when a capacity conclusion flips. They do not choose the learner action. next_high_value_evidence is an information candidate only; the maturity owner must still decide whether collecting it is worth learner time and scarce-material cost.'
+  };
+}
