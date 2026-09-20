@@ -16,8 +16,8 @@ This file owns F-scoped readiness truth only. It does not own medical Core, lear
 | S2 — exact official F System question membership | **UNTESTED** | separate later boundary; no membership inferred from Outline placement |
 | K — Knowledge | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent K audit; bounded repair split acute disturbance-control from planned/ongoing intervention-safety while preserving identity/source/owner boundaries |
 | L — Learning Logic | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent L audit; 9 Blocks / 121 KP → 40 LG; 3 whole + 5 natural + 1 integration; 0 hard edges; 2 non-gating PSRs |
-| Content Realization / Optimization | **ACTIVE / NOT_ACCEPTED** | Phase 5A + 5B + 5C closed; 40/40 LG sufficiency PASS after 31 LG / 72 KP Recall-front repairs; fresh independent Content closure remains |
-| P — Projection | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
+| Content Realization / Optimization | **PASS_AFTER_BOUNDED_REPAIR / CLOSED** | fresh Phase 5D whole-F audit; 10 residual Recall-front surfaces repaired across 8 LGs; identity/release/wrapper/visual/Page-disappearance/no-duplicate/boundary attacks PASS |
+| P — Projection | **UNTESTED / ELIGIBLE** | Content accepted; scoped Projection may start separately |
 | R — Runtime | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
 | E — Evidence | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
 | U — Learner Use | **NO_CLAIM** | real Kian use only |
@@ -211,82 +211,91 @@ Fresh re-audit accepted:
 S2 exact official-question membership remains UNTESTED. No question membership was inferred.
 
 
-## Content Phase 5A — ACTIVE / NOT ACCEPTED
+## Content acceptance — PASS_AFTER_BOUNDED_REPAIR / CLOSED
 
-Canonical candidate:
+Canonical accepted Content owner:
 
 `content/xizong/knowledge/learner/f-remaining-clinical-content.json`
 
-Construction receipt:
+Fresh independent closure:
 
-`content/xizong/knowledge/learner/F_PHASE5A_CONTENT_ROLE_REALIZATION.md`
+`content/xizong/knowledge/learner/F_PHASE5D_FRESH_INDEPENDENT_CONTENT_CLOSURE.md`
 
-Phase 5B receipt:
-
-`content/xizong/knowledge/learner/F_PHASE5B_WRAPPER_AUTHORITY_CLEANUP.md`
-
-Phase 5C receipt:
-
-`content/xizong/knowledge/learner/F_PHASE5C_CONTENT_SUFFICIENCY_AUDIT.md`
-
-Phase 5A establishes the Content-role model only. It does not claim Content PASS.
-
-Candidate accounting:
+Verdict:
 
 ```text
-accepted LG Source-release coverage = 40 / 40
-WHOLE_BLOCK_SOURCE                 = 3
-NATURAL_SOURCE_UNITS               = 5
-INTEGRATION_PRIMARY                = 1
-medical Core rewrite               = 0
+FRESH_CONTENT_PASS_AFTER_BOUNDED_REPAIR
 ```
 
-Phase 5B closure:
+Fresh whole-F readback confirmed:
 
 ```text
-frontmatter prerequisites               = 0 / 9
-frontmatter next_blocks/next_system     = 0 / 9
-natural-unit wrapper alignment          = 5 / 5
-whole-block wrapper preservation        = 3 / 3
-F9 ownership-first integration          = 1 / 1
-canonical KP                            = 121
-medical Core rewrite                    = 0
+Blocks / KP / LG                      = 9 / 121 / 40
+LG partition missing / duplicate      = 0 / 0
+Content Source-release                = 40 / 40
+release missing / duplicate / foreign = 0 / 0 / 0
+frontmatter prerequisites             = 0 / 9
+frontmatter next_blocks/next_system   = 0 / 9
+Source modes                          = 3 whole + 5 natural + 1 integration
+visual-required LG                    = 10
+Page-disappearance                    = PASS
+duplicate medical truth               = PASS
+Projection/Runtime/Evidence leakage   = PASS
 ```
 
-The stale competing route graph is closed. Natural Source-unit stop-lines now match accepted L, while F3/F5/F7 remain whole-source and F9 remains integration-primary. Concrete false learner-state assumptions were rewritten as reusable / locally reactivatable relations.
+Fresh Phase 5D found one bounded defect class left after Phase 5C: residual Recall-front answer leakage.
 
-Phase 5C closure:
+Smallest repair:
 
 ```text
-accepted LG reviewed                  = 40 / 40
-LG PASS                              = 40 / 40
-LG with Recall-front repairs         = 31 / 40
-Recall-front KP surfaces repaired    = 72 / 121
-Reveal-side medical Core drift       = 0
-medical Core rewrite                 = 0
+fresh repaired KP surfaces = 10
+affected LG                = 8
+Reveal-side Core drift     = 0
+medical Core rewrite       = 0
+KP/LG identity change      = 0
+Source redesign            = 0
+K/L semantic change        = 0
 ```
 
-No LG was under-supplied by canonical medical Core. The demonstrated defect class was retrieval leakage from answer-bearing pre-Reveal titles/prompts. All repairs were Recall-front only.
+The repaired fronts are in F1-LG01, F2-LG01, F4-LG01, F4-LG05, F5-LG01, F6-LG02, F7-LG02 and F8-LG02.
 
-Remaining blocking Content work:
+Preserved fail-closed truth:
 
-1. fresh independent whole-F Content closure;
-2. Page-disappearance test;
-3. independent attacks on identity/partition, Source-release, wrapper authority, Recall-front leakage, visual/exact-Source truth, no-duplicate-truth, external-owner/version boundaries and Projection/Runtime leakage.
+- F1 selected poison-manifestation mappings;
+- F2 delayed-neuropathy / rebound wording;
+- F3 delayed-primary / secondary-closure taxonomy and chemical-gas wording conflict;
+- F4 complete first-day burn-fluid formula / intraday distribution;
+- F5 hypertension threshold conflict;
+- F7 no invented complete modern difficult-airway / monitoring / MAC / extubation curriculum;
+- F9 complete laparoscopy complication list;
+- 10 visual-required LGs remain Source-owned;
+- external-owner truth remains external;
+- S2 exact official F System question membership remains UNTESTED.
 
-Therefore Content remains **ACTIVE / NOT_ACCEPTED** and P/R/E remain downstream-frozen.
+Verified Source closures remain closed:
 
-Next Content stage: **Phase 5D — fresh independent whole-F Content closure**.
+- F6 postoperative 1–4 d vs 2–7 d wording;
+- F8 P270 nerve-block complication matrix.
+
+Content is now accepted. P Projection is eligible but UNTESTED; Runtime and Evidence remain downstream-frozen.
 
 ## Downstream state
 
-K and L are accepted.
+F medical-content chain is closed:
 
-Current active stage: **F Content Realization / Optimization**.
+```text
+S1 PASS
+K  PASS_AFTER_BOUNDED_REPAIR
+L  PASS_AFTER_BOUNDED_REPAIR
+Content PASS_AFTER_BOUNDED_REPAIR
+```
 
-Current downstream rule:
+Separate boundaries remain:
 
-- Phase 5A is built but Content is not accepted;
-- Projection / Runtime / Evidence remain downstream-frozen behind Content;
-- S2 exact official-question membership remains separately UNTESTED;
-- do not infer question membership or manufacture learner progress.
+- S2 exact official F System question membership = UNTESTED;
+- P Projection = eligible / UNTESTED;
+- R Runtime = frozen behind P;
+- E Evidence = frozen behind R;
+- U learner use = NO_CLAIM.
+
+Per program sequencing, closing F Content completes the D → E → F medical-content construction lane. The deferred exact official System-question membership backlog may now resume without treating accepted Content as question-scope evidence.
