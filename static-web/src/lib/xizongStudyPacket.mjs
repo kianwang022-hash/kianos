@@ -178,6 +178,7 @@ function summarizeXizongForecastPractice(storage, {
       .filter((row) => row?.status === 'EXACT')
       .map((row) => [String(row?.system_id || ''), row])
   );
+  const currentCoverageBySystem = new Map();
   let eligibleAttempted = 0;
   let currentScopeEligibleAttempted = 0;
   let heldoutObserved = 0;
@@ -190,12 +191,6 @@ function summarizeXizongForecastPractice(storage, {
     else heldoutObserved += 1;
     const eventSystemId = String(event?.system_id || '');
     const currentScope = currentScopeBySystem.get(eventSystemId);
-    const currentScopeMatch = Boolean(
-      currentScope
-      && String(event?.context || '') === 'SYSTEM_SWEEP'
-      && String(event?.scope_hash || '') === String(currentScope?.scope_hash || '')
-      && String(event?.question_inventory_hash || '') === String(currentScope?.question_inventory_hash || '')
-    );
     const systemKey = String(currentScope?.canonical_id || event?.canonical_id || eventSystemId || 'UNKNOWN');
     if (!bySystem.has(systemKey)) {
       bySystem.set(systemKey, {
@@ -212,10 +207,6 @@ function summarizeXizongForecastPractice(storage, {
     const systemRow = bySystem.get(systemKey);
     systemRow.attempted += 1;
     if (eligible) systemRow.eligible_attempted += 1;
-    if (eligible && currentScopeMatch) {
-      systemRow.current_scope_eligible_attempted += 1;
-      currentScopeEligibleAttempted += 1;
-    }
     if (Object.hasOwn(firstPassCounts, status)) systemRow[status] += 1;
     const day = studyDayFromIso(event?.submitted_at);
     if (!day) continue;
@@ -223,6 +214,42 @@ function summarizeXizongForecastPractice(storage, {
     const row = byDay.get(day);
     row.attempted += 1;
     if (Object.hasOwn(firstPassCounts, status)) row[status] += 1;
+  }
+
+  for (const event of events) {
+    if (String(event?.study_phase || '') !== 'FIRST_PASS') continue;
+    if (String(event?.context || '') !== 'SYSTEM_SWEEP') continue;
+    const eventSystemId = String(event?.system_id || '');
+    const currentScope = currentScopeBySystem.get(eventSystemId);
+    if (!currentScope) continue;
+    if (String(event?.scope_hash || '') !== String(currentScope?.scope_hash || '')) continue;
+    if (String(event?.question_inventory_hash || '') !== String(currentScope?.question_inventory_hash || '')) continue;
+    if (holdout.has(eventYear(event))) continue;
+    const questionId = String(event?.question_id || '');
+    if (!questionId) continue;
+    const canonicalId = String(currentScope?.canonical_id || event?.canonical_id || eventSystemId);
+    if (!currentCoverageBySystem.has(canonicalId)) currentCoverageBySystem.set(canonicalId, new Set());
+    currentCoverageBySystem.get(canonicalId).add(questionId);
+  }
+  for (const [canonicalId, ids] of currentCoverageBySystem.entries()) {
+    let row = bySystem.get(canonicalId);
+    if (!row) {
+      row = {
+        canonical_id: canonicalId,
+        system_id: String(
+          [...currentScopeBySystem.values()].find((scope) => String(scope?.canonical_id || '') === canonicalId)?.system_id || ''
+        ),
+        attempted: 0,
+        eligible_attempted: 0,
+        current_scope_eligible_attempted: 0,
+        stable: 0,
+        uncertain: 0,
+        wrong: 0
+      };
+      bySystem.set(canonicalId, row);
+    }
+    row.current_scope_eligible_attempted = ids.size;
+    currentScopeEligibleAttempted += ids.size;
   }
 
   const wrongUncertain = firstPassCounts.wrong + firstPassCounts.uncertain;
@@ -281,21 +308,28 @@ function summarizeXizongForecastRepairs(storage) {
   const activeRepairs = activeRepairTasks(memory);
   const sourceQuestionIds = new Set();
   let questionBackedClusters = 0;
+  let activeQuestionBackedClusters = 0;
   let completedClusters = 0;
+  let completedQuestionBackedClusters = 0;
   const calibrationSamples = [];
   for (const task of allRepairs) {
     const ids = Array.isArray(task?.sourceQuestionIds) ? task.sourceQuestionIds.map(String).filter(Boolean) : [];
-    if (ids.length) questionBackedClusters += 1;
-    ids.forEach((id) => sourceQuestionIds.add(id));
-    if (String(task?.status || '') === 'DONE') {
-      completedClusters += 1;
+    const officialIds = ids.filter((id) => /^xizong-official-\d{4}-n\d{3}$/.test(id));
+    const done = String(task?.status || '') === 'DONE';
+    if (done) completedClusters += 1;
+    if (!officialIds.length) continue;
+    questionBackedClusters += 1;
+    if (done) completedQuestionBackedClusters += 1;
+    else activeQuestionBackedClusters += 1;
+    officialIds.forEach((id) => sourceQuestionIds.add(id));
+    if (done) {
       const detailKey = repairDetailKey(task);
       const timerMinutes = detailKey && task?.createdAt && task?.completedAt
         ? timerMinutesForDetail(storage, detailKey, { startAt: task.createdAt, endAt: task.completedAt })
         : null;
       calibrationSamples.push({
         repair_id: String(task?.id || ''),
-        source_question_count: ids.length,
+        source_question_count: officialIds.length,
         detail_key: detailKey,
         created_at: String(task?.createdAt || '') || null,
         completed_at: String(task?.completedAt || '') || null,
@@ -307,14 +341,16 @@ function summarizeXizongForecastRepairs(storage) {
     schema: 'kianos.xizong.repair-forecast-evidence.v1',
     total_repair_clusters: allRepairs.length,
     active_repair_clusters: activeRepairs.length,
+    active_question_backed_clusters: activeQuestionBackedClusters,
     completed_repair_clusters: completedClusters,
+    completed_question_backed_clusters: completedQuestionBackedClusters,
     question_backed_clusters: questionBackedClusters,
     unique_source_question_ids: sourceQuestionIds.size,
     observed_question_to_cluster_ratio:
       questionBackedClusters > 0 ? Number((sourceQuestionIds.size / questionBackedClusters).toFixed(3)) : null,
     calibration_samples: calibrationSamples,
     evidence_boundary:
-      'Repair lifecycle is subject-owned. The question-to-cluster ratio describes observed compression only; several Wrong/Uncertain questions may share one root cause, and DONE still requires later fresh verification.'
+      'Repair lifecycle is subject-owned. Official-question compression ratios use official question ids only; AI probes and non-official sources cannot reduce predicted official W/U workload. Several Wrong/Uncertain questions may share one root cause, and DONE still requires later fresh verification.'
   };
 }
 
