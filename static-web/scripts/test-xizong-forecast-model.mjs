@@ -83,11 +83,11 @@ function baseProgress() {
       unique_source_question_ids:100,
       observed_question_to_cluster_ratio:2,
       calibration_samples:[
-        {timer_minutes_in_repair_window:10},
-        {timer_minutes_in_repair_window:12},
-        {timer_minutes_in_repair_window:15},
-        {timer_minutes_in_repair_window:18},
-        {timer_minutes_in_repair_window:20}
+        {timer_minutes_in_repair_window:10,exclusive_repair_timer_minutes:10},
+        {timer_minutes_in_repair_window:12,exclusive_repair_timer_minutes:12},
+        {timer_minutes_in_repair_window:15,exclusive_repair_timer_minutes:15},
+        {timer_minutes_in_repair_window:18,exclusive_repair_timer_minutes:18},
+        {timer_minutes_in_repair_window:20,exclusive_repair_timer_minutes:20}
       ]
     },
     memory_evidence:{
@@ -637,6 +637,24 @@ function baseProgress() {
   assert.equal(scenario.components.repair.error_rate.source,'SCENARIO_OVERRIDE');
   assert.equal(scenario.components.repair.compression.predicted_future_wrong_uncertain_questions,30,
     'explicit 30% stress scenario may intentionally override System-specific unknowns');
+}
+
+
+{
+  const mixedOnly=baseProgress();
+  mixedOnly.repair_evidence.calibration_samples=mixedOnly.repair_evidence.calibration_samples.map((row)=>({
+    timer_minutes_in_repair_window:row.timer_minutes_in_repair_window,
+    exclusive_repair_timer_minutes:null
+  }));
+  const forecast=buildXizongWorkloadForecast(mixedOnly);
+  assert.equal(forecast.components.repair.band_minutes,null,
+    'mixed Block-route lifetime timing must not be added as causal Repair workload');
+  assert.equal(forecast.components.repair.calibration.exclusive_repair_timer_samples,0);
+  assert.equal(forecast.components.repair.calibration.mixed_window_timer_samples,5);
+  assert.ok(forecast.components.repair.risks.includes('REPAIR_TIMER_CONTAMINATED_MIXED_WINDOW'));
+  assert.ok(forecast.components.repair.risks.includes('REPAIR_TIME_UNCALIBRATED'));
+  assert.equal(forecast.first_round.full_band_minutes,null,
+    'first-round total must withhold full pricing when Repair time is contaminated');
 }
 
 console.log('PASS Xizong forecast adversarial suite: target→capability→workload→material delta→capacity→score evidence fail-closed');
