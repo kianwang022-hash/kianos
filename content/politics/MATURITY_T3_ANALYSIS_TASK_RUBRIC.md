@@ -1,6 +1,6 @@
 # Politics Maturity T3 — Analysis Task & Rubric
 
-Status: **CANDIDATE SEMANTICS RESOLVED · 2027 EXACT CONTENT SOURCE-GATED**  
+Status: **T3 SEMANTICS CLOSED · DURABLE EVIDENCE LANDED · 2027 EXACT CONTENT SOURCE-GATED**  
 Parent: `MATURITY_STAGE_PLAN.md`  
 Engineering interface: `MATURITY_T3_ANALYSIS_ENGINEERING_INTERFACE.md`
 
@@ -557,19 +557,21 @@ UNKNOWN
 
 # 10. Engineering consequence
 
-The semantic prerequisite for durable Analysis evidence is now resolved enough to implement a bounded transport.
-
-Next engineering patch may add:
+The bounded durable transport is now implemented without creating a second Politics learning system:
 
 ```text
 validated Politics Analysis evidence
 → existing Politics private checkpoint whitelist
-→ bounded summary in existing Politics study packet
+→ bounded Analysis summary in existing Politics study packet
 → existing Daily Learning Packet
-→ Chat
+→ fresh Chat
 ```
 
-It may not create a second scheduler, packet ecosystem, learner ledger or Analysis dashboard.
+The implementation preserves exact task/revision identity, FIRST / REPAIR / TRANSFER roles, source-authority gating and the I / S / B / F / D rubric vector. Historical drill geometry remains legacy-only; current-year exact formulations fail closed until a bound 2027 Source exists.
+
+Targeted executable proof now covers the legacy drill bank and durable Analysis evidence path.
+
+No second scheduler, packet ecosystem, learner ledger, Analysis dashboard or autonomous mastery score is permitted.
 
 The only parts still source-gated are:
 
