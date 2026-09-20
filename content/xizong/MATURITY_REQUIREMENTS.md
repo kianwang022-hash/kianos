@@ -8,22 +8,27 @@ This file does not replace Xizong Source / Knowledge / Learning owners. It defin
 
 ## 1. Score closure
 
-Candidate working target: **275+ / 300**.
+Target semantics for this Candidate are:
 
-Current shared Exam Orchestrator still carries **270+** as the cross-subject target. Before this requirement can freeze, target authority must be reconciled explicitly as protect floor / working target / elastic upside. No fresh Chat may silently choose one number based on whichever file it happened to read.
+- **Protect floor: 270+ / 300** — the Current cross-subject allocation target owned by the Exam Orchestrator;
+- **Working target: 275+ / 300** — the Xizong capability-design target used to keep the 270+ path from becoming a knife-edge plan;
+- **Elastic upside: >275** — receives capacity only when its marginal value remains competitive across subjects.
 
-The system must maintain an explicit loss budget rather than treating “finish all content” as the objective.
+The 275+ working target does **not** silently replace the 270+ cross-subject allocation authority. A fresh Chat must preserve this floor/working/upside distinction, and any future target-owner change must reopen the loss budget and Forecast assumptions.
+
+The system must maintain an explicit loss budget rather than treating “finish all content” as the objective. For the 275+ working path, that means reconciling a **maximum 25-point loss envelope** against the Current official exam geometry rather than treating coverage percentage as score readiness.
 
 Required:
 
 - current exam-format truth and score-channel structure;
 - subject/system contribution map;
+- an explicit hard-gap sweep for any exam-relevant domain that does not naturally live inside the current System / Block topology;
 - high-value vs low-value loss sources;
 - first-round capability needed to protect the 275+ path;
 - later case / integration / whole-paper capability needed to convert knowledge into score;
 - explicit uncertainty where current-year late material has not arrived.
 
-The 275+ claim may not be inferred from coverage alone.
+The 275+ claim may not be inferred from coverage alone. Every Current exam-scope family must either own part of the 25-point loss envelope or be explicitly classified as a bounded, justified residual risk. An unowned exam domain is a hard gap, not “other”.
 
 ## 2. Ability closure
 
@@ -39,6 +44,7 @@ At minimum Xizong must distinguish and train:
 8. **Whole-paper execution** — timing, fatigue, uncertainty handling, physical paper/navigation and answer-sheet transfer cost where material, and completion under 165-question / 180-minute geometry.
 9. **Repair efficiency** — compress multiple errors into the smallest real causal defect.
 10. **Delayed stability** — repaired knowledge remains usable after delay / changed context.
+11. **Non-System exam-domain coverage** — any Current official exam domain that sits outside the medical System topology must have explicit ownership, training and evidence. Clinical-medical humanistic content is the canonical hard-gap example while it remains in official 306 scope; it may not disappear merely because all medical Systems are green.
 
 Each ability requires valid evidence and an explicit failure mode.
 
@@ -56,7 +62,8 @@ The subject must maintain a complete inventory for:
 - current-year case-analysis / 狂背;
 - current-year multi-set / four-set mocks;
 - final compression / five-hour material;
-- any additional approved external mock/case source.
+- any additional approved external mock/case source;
+- an exam-scope hard-gap inventory for material not represented by the System / Block / KP topology, with an explicit Current owner or an explicit BLOCKED status.
 
 Known late source families must have prepared ingestion/delta slots before arrival.
 
@@ -212,7 +219,9 @@ Before mature status, Xizong must survive at least:
 - duplicated/exposed case or mock material being misclassified as fresh;
 - bad week / 30% normal capacity;
 - partial / missing current-year source;
-- second revision of current-year material.
+- second revision of current-year material;
+- all medical Systems / official-question routes looking green while an exam-relevant non-System domain remains unowned or unevidenced;
+- a 275+ forecast whose implied losses exceed or double-count the 25-point envelope once question geometry and correlated failures are reconciled.
 
 ## 11. Final acceptance question
 
