@@ -17,8 +17,16 @@ const budgetMs = Number(process.env.KIANOS_STATIC_RUNTIME_WARM_BUDGET_MS || 250)
 const scratch = fs.mkdtempSync(path.join(os.tmpdir(), 'kianos-static-runtime-'));
 const privateDir = path.join(scratch, 'learner-state');
 const controlDir = path.join(scratch, 'control');
+const currentStatusFile = path.join(webRoot, 'public', '__kianos-current.json');
+const priorCurrentStatus = fs.existsSync(currentStatusFile) ? fs.readFileSync(currentStatusFile, 'utf8') : null;
 fs.mkdirSync(privateDir, { recursive: true, mode: 0o700 });
 fs.mkdirSync(controlDir, { recursive: true, mode: 0o700 });
+fs.mkdirSync(path.dirname(currentStatusFile), { recursive: true });
+fs.writeFileSync(currentStatusFile, JSON.stringify({
+  state: 'synced',
+  sha: 'static-runtime-proof',
+  updated_at: new Date().toISOString()
+}) + '\n', 'utf8');
 
 assert.equal(fs.existsSync(path.join(distRoot, 'index.html')), true, 'STATIC_RUNTIME_DIST_MISSING');
 assert.equal(fs.existsSync(staticServer), true, 'STATIC_RUNTIME_SERVER_MISSING');
@@ -86,6 +94,11 @@ try {
   assertWarm('HOME', home);
   assert.match(home.rows[0].text, /学习工作台/);
 
+  const currentStatus = await timed('/__kianos-current.json?t=' + Date.now());
+  assert.equal(currentStatus.status, 200, 'CURRENT_STATUS_ROUTE_MISSING');
+  const currentStatusPayload = JSON.parse(currentStatus.text);
+  assert.equal(currentStatusPayload.sha, 'static-runtime-proof');
+
   const politics = await measure('/politics/practice/');
   assertWarm('POLITICS_PRACTICE', politics);
   assert.match(politics.rows[0].text, /肖1000/);
@@ -133,4 +146,6 @@ try {
     sleep(1500)
   ]);
   fs.rmSync(scratch, { recursive: true, force: true });
+  if (priorCurrentStatus == null) fs.rmSync(currentStatusFile, { force: true });
+  else fs.writeFileSync(currentStatusFile, priorCurrentStatus, 'utf8');
 }
