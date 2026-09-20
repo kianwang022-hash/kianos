@@ -21,10 +21,11 @@ This file retains the detailed execution decomposition. It does not create a sec
 - Single result package: `MATURITY_PACKAGE.md`
 - M0 ownership correction: **DONE**
 - M1 single maturity package: **DONE**
-- M2 stale Analysis/material status reconciliation: **ACTIVE**
-- M3 Analysis-bank machine proof: **ACTIVE**
-- M4 Forecast adversarial / decision-flip closure: **ACTIVE**
-- M5 lifecycle + Fresh Chat / No-Website: **PENDING**
+- M2 stale Analysis/material status reconciliation: **DONE**
+- M3 Analysis-bank + evidence identity proof: **DONE**
+- M4 Forecast adversarial / decision-flip closure: **DONE**
+- M5 lifecycle + Fresh Chat / No-Website: **DONE**
+- M6 SYSTEM_LOGIC_ACCEPTED: **YES**
 - Real U / current-year annual content remain gated by reality, not engineering incompleteness.
 
 
@@ -500,13 +501,12 @@ Never commit private learner truth into shared Current.
 
 Do **not** continue from the old T-number order blindly.
 
-Current execution order is owned by `MATURITY_PACKAGE.md`:
+Current execution state is owned by `MATURITY_PACKAGE.md`:
 
-1. reconcile stale Analysis/material status;
-2. machine-validate the 104-task Analysis bank;
-3. finish Forecast decision-flip/metamorphic attacks;
-4. close full-lifecycle + Fresh Chat / No-Website proof;
-5. issue the SYSTEM_LOGIC_ACCEPTED verdict;
-6. then stop broad engineering unless Real U, a concrete defect, or real current-year Source reopens an exact owner.
+1. mother-standard system-logic closure: DONE;
+2. broad maturity engineering: STOP;
+3. Real Learner U: starts from actual study only;
+4. current-year handbook/current affairs/Xiao8/Xiao4: ingest when real Source arrives;
+5. any new work must be a bounded reopen caused by concrete learner evidence, Source arrival or a Protect-70 threat.
 
-Real Learner U starts from actual study and is never fabricated to make the package look complete.
+Real Learner U is never fabricated to make the package look complete.
