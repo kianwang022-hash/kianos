@@ -9,6 +9,30 @@ Shared-platform routing is inherited from `AUTHORITY_INHERITANCE_CONTRACT.md` an
 
 ## Current state / actual restart point
 
+### Whole-cycle maturity continuation — ACTIVE OWNER #638
+
+Politics whole-cycle maturity has one implementation owner:
+
+- active branch: `work/politics-later-readiness-20260920`;
+- active PR: **#638**;
+- restart cursor: `MATURITY_STAGE_PLAN.md`;
+- Politics acceptance bar: `MATURITY_REQUIREMENTS.md`.
+
+The shared Exam Subject Maturity Standard / PR #644 is an upstream acceptance bar only. It is not a Politics continuation cursor and does not own Politics Forecast, Analysis, Future Source or execution state.
+
+Current maturity state:
+
+```text
+T1 Objective reconciliation       CLOSED
+T2 Early Objective Forecast       CURRENT-SOURCE BUILD CLOSED
+T3 Analysis foundation/evidence   CLOSED
+T4 Future Source ingress prep     CLOSED
+T5+                               SOURCE / REAL-U / EVIDENCE GATED
+```
+
+Normal next input is real Politics study → Real U → Forecast recalibration → bounded repair, not another broad maturity build.
+
+
 **Politics Final Learner Acceptance — CLOSED for audited first-round paths**
 
 - Landed: PR #486 → `main` merge `d180b0b913b63085ab0bd8c30dcdeadb1c64dc9f`
@@ -56,9 +80,10 @@ A bounded Architecture+ pass was run **after** the pre-build self-attack correct
 - **Politics-only Recovery / second scheduler: REJECTED.**
   - cross-day capacity / COMPRESS / subject allocation belongs to the upstream Exam Control / Steward;
   - Politics owns only its subject-native learning and evidence semantics.
-- **Later analysis-output / current-affairs / recitation automation: NOT IMPLEMENTABLE YET.**
-  - current approved Later Source is incomplete;
-  - no model may fabricate that missing source chain.
+- **Analysis foundation + durable evidence: CLOSED in the Politics maturity owner (#638).**
+  - reusable Analysis task/rubric/evidence semantics exist;
+  - current-year exact formulations/current affairs remain Source-gated;
+  - no dedicated Analysis Website or second learner-state system is justified.
 
 A storage-scale self-attack also measured the Current 115-candidate Memory catalog and 91-day append-only Recall growth. The normal selective 10–20 recalls/day envelope projects to roughly 0.7–1.4 MiB of raw Recall evidence; profile build cost remains small. The diagnostic probe therefore concluded **DO NOT REDESIGN storage**. Reopen only if real telemetry shows materially larger event volume / storage pressure.
 
@@ -68,10 +93,14 @@ Net result:
 first-round mainline + Xiao1000 Review
 + source-grounded Chat-planned Memory
 + cross-day Memory evidence
++ Chat-primary Analysis foundation
 → sufficient for normal use
 
-Later Source arrives
-→ reopen only the exact analysis-output / current-affairs / Mock owner
+real study
+→ Real U / Forecast recalibration / bounded repair only
+
+real 2027 Source arrives
+→ reopen only the affected current-year Source / current-affairs / Mock owner
 ```
 
 Do not recreate a generic Politics Remember engine, frequency ranker, mastery score, fixed cadence, or second scheduler.
@@ -92,7 +121,7 @@ Do not reopen first-round Politics semantics, redo the initial audit model, or b
 
 ### Separate real limits — not first-round content rebuilding
 
-- **Later Source:** no complete approved current-year analysis/current-affairs/recitation/Xiao4/Mock Source chain. Affected paths remain `UPSTREAM SOURCE NOT YET AVAILABLE / NOT YET ACCEPTABLE`; draft/history remains provenance only. Do not fabricate material.
+- **Later Source:** Analysis structure/evidence is prepared, but current-year exact formulations, current affairs, Xiao8/Xiao4 and final Mock authority remain Source-gated. Historical material remains geometry/provenance only where annual truth is required.
 - **U:** all newly audited learner paths remain `UNTESTED` until Kian actually uses them. Synthetic test evidence is not private learner progress.
 
 These limits remain explicit even after visual approval. First-round readiness must not be inflated into whole-exam readiness.
