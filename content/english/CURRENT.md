@@ -92,26 +92,17 @@ Structural/self-attack review is complete on this ref (19/19 targeted checks). T
 
 ---
 
-## Highest Maturity Closure — FINAL FRESH GATE
+## Highest Maturity Closure — FINAL CONVERGENCE
 
-Active ref: `work/english-highest-maturity-adaptation-20260920`
-
-Primary subject-maturity package:
-
-`content/english/MATURITY_PACKAGE.md`
+Active ref: `work/english-highest-maturity-adaptation-20260920`  
+Primary package: `content/english/MATURITY_PACKAGE.md`  
+Audit protocol: `content/english/ENGLISH_HIGHEST_MATURITY_FRESH_AUDIT_BRIEF.md`
 
 Current status:
 
 ```text
 SYSTEM_LOGIC_CANDIDATE = YES
-FINAL_FRESH_AUDIT #1 = FAIL
-BOUNDED_REPAIR_PROOF #1 = PASS @ 9e2302c93034ec0411cc885a08a4b1726e5b9d3f
-FINAL_FRESH_REAUDIT #2 = FAIL @ 924281d5d0c98921e54d048088b9bb798c68eafd
-BOUNDED_REPAIR_PROOF #2 = PASS @ 09ce24954e3bac689043520ab53c9a45742eef1b
-FINAL_FRESH_REAUDIT #3 = FAIL @ 8c1813837e8908f308e73564c5abaaa5471173d8
-BOUNDED_REPAIR_PROOF #3 = PASS @ 00b238e23c407c48749ad046b7f4ca6a1ddc7798
-FINAL_FRESH_REAUDIT #4 = FAIL @ 7e83a256ea15e6617d44268c9958a52e3a7b25bb
-BOUNDED_REPAIR_PROOF #4 = PASS @ b6e3116e39a8cfb338debf327798dc3ccca6d914
+HISTORICAL_FRESH_1_TO_4 = FAIL_WITH_BOUNDED_REPAIRS_PROVEN
 AUDIT_PROTOCOL = FINAL_CONVERGENCE_V2
 FINAL_CONVERGENCE_SWEEP = REQUIRED
 FINAL_ACCEPTANCE = PENDING_IF_SWEEP_REPAIRS
@@ -119,172 +110,77 @@ SYSTEM_LOGIC_ACCEPTED = NOT YET
 KIAN_SPECIFIC_CALIBRATED = NO
 ```
 
-Final Fresh #1 found exactly two material system-logic defect families:
+Historical Fresh #1–#4 details are **not owned here**. They remain in:
 
-1. learner-semantic source identity was conflated with object/revision/provenance identity;
-2. Forecast did not fully fail closed on open-demand-with-zero-work and contradictory formal-score eligibility.
+- `content/english/ENGLISH_HIGHEST_MATURITY_FRESH_AUDIT.md`;
+- `content/english/MATURITY_PACKAGE.md` historical closure sections;
+- exact repaired owners / validators.
 
-Fresh #1 repair was bounded to those exact owners and remains closed.
+Current only records that those bounded repairs are proven. Do not use this cursor as a defect-history replay.
 
-Fresh #1 defect A — semantic source identity:
-- exact object/revision binding remains `source_hash`;
-- learner exposure identity now uses separate `semantic_source_hash`;
-- object id / evidence-role metadata cannot manufacture freshness;
-- distinct Writing prompts no longer share one semantic/exact task identity;
-- External Reading and Whole Paper constituent exposure preserve the same semantic boundary.
+Accepted candidate domains already represented in the package:
 
-Fresh #1 defects B/C — Forecast fail-closed:
-- BUILD / VERIFY / UNCALIBRATED or open mechanisms with no required workload are UNPRICED, not zero;
-- ASSISTED / EXPOSED / CONTAMINATED / UNKNOWN evidence cannot close a formal score path merely because upstream says `score_eligible=true`;
-- typed productive evidence may remain diagnostic, but cannot produce protected formal exam-total status;
-- exposed Whole Paper scores cannot close integrated target status.
+- Material / Source Fidelity / executable baseline;
+- Productive Scoring;
+- Evidence / Exposure / long-horizon fidelity;
+- Dynamic Control;
+- Forecast SYSTEM LOGIC;
+- Future Source lifecycle;
+- Chat↔Website / Day-1 execution;
+- Whole Paper execution + durable productive-score return;
+- lifecycle / adversarial fail-safe boundaries.
 
-Final Fresh re-audit #2 locked candidate head `924281d5d0c98921e54d048088b9bb798c68eafd` and performed the required novel all-green failure search before inspecting exact repair implementation. It returned:
+### Current closure protocol
 
-```text
-FAIL — material system-logic blind spots remain
-```
+The old one-defect-per-Fresh chain is retired.
 
-Fresh #2 found two new material projection/transport blind spots:
+Next = one genuinely fresh **Final Convergence Sweep**.
 
-1. **Part B form evidence was lost in the Fresh-Chat projection.**
-   - Runtime attempts retained `taskForm` inside the bound source snapshot, but the exported attempt inventory / performance profile collapsed all Part B evidence to aggregate `reading_b`.
-   - A learner with repeated evidence from only one Part B form could therefore look identical to a learner with representative four-form coverage.
-   - This could manufacture false stability and violated the Highest Maturity requirement that aggregate Part B performance must not hide a weak form.
+The sweep must:
 
-2. **Lexical delayed-retention / real-English-context evidence did not survive into ordinary Fresh English control.**
-   - The canonical Lexical ledger could preserve qualified delayed evidence and downstream English-context evidence, but the normal English evidence packet did not project that history.
-   - Direct Home control and the private checkpoint → Daily Packet transport could therefore fail to distinguish “no retention evidence” from “clean retention/transfer evidence already exists”.
-   - That could create unnecessary Verify work and violate the Stop Rule / attention-cost boundary.
+1. lock the then-current candidate HEAD;
+2. perform the novel all-green search first;
+3. finish the entire mandatory A–J + lifecycle surface before any repair;
+4. keep searching after the first blocker;
+5. return either zero blockers or one consolidated blocker set.
 
-During the bounded repair/proof window, a concurrent Current-first audit also exposed one additional Evidence-Fidelity edge on the same candidate line:
-
-3. **Explicit `unseen` learner declarations were not revision-bound.**
-   - An `unseen` declaration for an older semantic revision could leak into a materially new revision of the same object and manufacture clean independent-transfer eligibility.
-   - The current repair binds declarations to current semantic/exact source identity; a mismatched revision falls back to UNKNOWN.
-
-Fresh #2 bounded repair remained inside the smallest existing owners:
-
-- Part B now preserves factual `task_form` identity and four-form coverage in the existing English performance projection;
-- the existing Lexical ledger now exports a bounded retention/real-context evidence summary — evidence only, not mastery, priority, or a calendar;
-- English Fresh-Chat evidence consumes that bounded Lexical summary;
-- private checkpoint reconstruction temporarily restores Lexical state only as an English evidence dependency; Lexical does **not** become a fourth exam subject;
-- source-exposure declarations are matched to current source identity before they can authorize `unseen`.
-
-Affected exact-head proof PASS on `09ce24954e3bac689043520ab53c9a45742eef1b`:
-
-- English Family Coherence → bounded English performance profile PASS;
-- English Family Coherence → Evidence Fidelity E4 PASS, including revision-bound stale-`unseen` attack;
-- English Family Coherence → Forecast / Chat control / productive-scoring validators PASS;
-- English Family Coherence → English ↔ Lexical handoff PASS, including delayed-retention / real-context projection;
-- Private Chat Control → unit / transport proof PASS;
-- Private Chat Control → private checkpoint → Daily Packet projection PASS, including Lexical-as-English-evidence transport;
-- Private Chat Control → candidate build PASS;
-- Final Cross-subject Regression → exact candidate build PASS;
-- Semantic Base Validity / Authority Consistency PASS.
-
-Final Fresh re-audit #3 independently locked candidate head `8c1813837e8908f308e73564c5abaaa5471173d8` and performed the required novel all-green failure search before repair inspection. It returned:
-
-```text
-FAIL — material system-logic blind spots remain
-```
-
-Fresh #3 found one material Forecast evidence-identity blind spot:
-
-- productive score evidence was not bound to the productive-scoring standard revision that produced it;
-- an old Translation / Writing / Whole Paper score could therefore remain formally eligible after a material rubric revision if its range, evidence quality and PAPER/MIXED modality still looked valid;
-- that could preserve a false protected 85+ path or `INTEGRATED_HIGH` confidence under incompatible scoring semantics.
-
-Bounded repair stayed inside the Forecast owner and validator:
-
-- current productive scoring identity is `english.productive-scoring.v2`;
-- Translation / Small Writing / Big Writing current-score and formal eligibility require matching `scoring_standard_version`;
-- Whole Paper formal eligibility requires matching `productive_scoring_standard_version`;
-- stale or unbound productive scoring identity fails closed and appears as explicit Forecast uncertainty.
-
-Targeted repaired-code proof PASS on `00b238e23c407c48749ad046b7f4ca6a1ddc7798`:
-
-- current-v2 clean PAPER evidence still forms the expected formal local / integrated path;
-- stale-v1 Translation evidence removes the formal local band;
-- stale-v1 Whole Paper productive scoring identity makes the integrated score formally ineligible and removes `INTEGRATED_HIGH`;
-- the full Forecast system-logic validator passes with dedicated stale-revision local + integrated attacks.
-
-Final Fresh re-audit #4 locked `7e83a256ea15e6617d44268c9958a52e3a7b25bb` and returned:
-
-```text
-FAIL — material system-logic blind spots remain
-```
-
-Fresh #4 found a novel Whole Paper cross-layer closure defect: the real session stopped at Objective `/60` + `CHAT_REVIEW_REQUIRED`, while `full_paper` was already considered complete and Forecast's integrated `whole_paper.score_range` had no actual Whole Paper evidence producer. Local Whole Paper and Forecast checks could therefore both be green while productive score state lived outside the durable session.
-
-Bounded repair on code head `b6e3116e39a8cfb338debf327798dc3ccca6d914` keeps the same Whole Paper session and adds one identity-bound Chat productive-score return. `RELEASED` no longer closes `full_paper`; valid return advances to `SCORED`, preserves Translation / Small Writing / Big Writing ranges plus the integrated `/100` range in Fresh-Chat evidence, rejects stale/wrong identity and unresolved rescore state, and keeps browser-typed integrated evidence formally score-ineligible. `English Exam Session` exact-head Actions PASS includes semantic validation, site build and the real browser return journey.
-
-Detailed report: `content/english/ENGLISH_HIGHEST_MATURITY_FRESH_AUDIT.md`.
-
-The long-diverged candidate still triggers unrelated repo-wide / other-subject CI debt. Those reds are not promoted into English defects when they fail outside the affected owner / impact cone. This remains another reason not to merge PR #640 wholesale.
-
-**Current head is a repaired candidate, not yet accepted.**
-
-The open-ended Fresh #N chain is retired here. Fresh #1–#4 remain historical provenance only.
-
-Next = one genuinely fresh **Final Convergence Sweep** under `ENGLISH_HIGHEST_MATURITY_FRESH_AUDIT_BRIEF.md`.
-
-The sweep must finish the entire A–J / lifecycle search surface **before any repair** and must keep searching after the first material defect. It returns either:
+If zero blockers:
 
 ```text
 PASS — SYSTEM_LOGIC_ACCEPTED
+KIAN_SPECIFIC_CALIBRATED = NO
+→ stop broad maturity engineering
+→ Real Learner U
 ```
 
-or one consolidated blocker set.
+If blockers exist:
 
-If the sweep finds blockers, repair that bounded set together and route once to `FINAL_ACCEPTANCE`. Final Acceptance verifies the repaired set, repair-induced cross-owner effects and one bounded novel regression pass; it does not restart another unlimited whole-system Fresh hunt.
+```text
+complete bounded blocker set
+→ one repair batch
+→ targeted proof
+→ one fresh FINAL_ACCEPTANCE
+```
 
-Low-friction fresh-chat entry:
+Final Acceptance does not restart another unlimited whole-system Fresh hunt.
+
+Fresh-Chat entry:
 
 ```text
 ki，继续英语最高成熟度收口
 ```
 
-No bespoke prompt or old defect summary should be pasted. The fresh Chat must read Current + the audit brief and route itself.
+No bespoke prompt and no copied old defect summary are required.
 
-Accepted candidate closures already integrated into the package:
+Audit hygiene:
 
-- Material / Source Fidelity / executable baseline;
-- Productive Scoring — Fresh PASS;
-- Evidence / Exposure / long-horizon fidelity;
-- Dynamic Control;
-- Forecast SYSTEM LOGIC;
-- English-specific Future Source lifecycle;
-- Chat↔Website / Day-1 execution;
-- lifecycle / adversarial fail-safe boundaries.
+- final PASS must still come from a genuinely fresh anti-anchored auditor;
+- before novel search, historical Fresh defect/repair sections are not search inputs;
+- a contaminated repair Chat may repair and prove blockers but cannot issue the later independent PASS;
+- the defined audit surface is finite; after saturation, hypothetical invention is not a reason to continue engineering;
+- after PASS, reconcile only the necessary accepted write-set against latest `main`; do not merge the long-diverged candidate wholesale.
 
-Final independent audit entry:
-
-`content/english/ENGLISH_HIGHEST_MATURITY_FRESH_AUDIT_BRIEF.md`
-
-Audit hygiene / freeze:
-
-- final acceptance still requires a genuinely fresh, anti-anchored auditor;
-- a contaminated continuation Chat may inspect status or repair a found defect, but must not issue the later independent PASS;
-- Convergence Sweep must complete the defined audit surface before repair and must not stop at the first defect;
-- the audit surface is finite: mandatory dimensions A–J + lifecycle combinations + one final cross-dimension pass; do not invent indefinitely more hypothetical worlds after saturation;
-- until acceptance, broad English maturity construction is frozen; only material blockers from the current convergence/acceptance phase may reopen the smallest exact owners;
-- after a PASS, promotion must reconcile against latest `main` and carry only the necessary accepted write-set; do not treat this long-diverged branch as a wholesale merge payload.
-
-Do not reopen E0→E11 as a construction sequence. Do not rebuild already-satisfied domains for symmetry.
-
-After impacted exact-head proof, rerun a genuinely Fresh final audit. If that audit PASS:
-
-```text
-SYSTEM_LOGIC_ACCEPTED = YES
-KIAN_SPECIFIC_CALIBRATED = NO
-→ stop broad maturity engineering
-→ real English study / Real Learner U
-```
-
-No claim is made that Kian currently scores 85+.
-
-Boundaries: no second scheduler / learner ledger / mastery score / Home / Forecast / generic memory engine; Website remains executor and Chat remains strategy owner.
+Do not reopen E0→E11 for symmetry. Learner-specific unknowns remain `KIAN_SPECIFIC_CALIBRATED = NO`, not system defects.
 
 
 ---
