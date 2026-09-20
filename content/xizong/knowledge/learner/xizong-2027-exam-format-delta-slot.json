@@ -1,0 +1,108 @@
+{
+  "schema": "kianos.xizong.future_source_slot.v1",
+  "status": "BLOCKED_UNTIL_AUTHORITATIVE_2027_FORMAT_SOURCE",
+  "slot_id": "xizong-2027-exam-format-delta",
+  "source_cycle": "2027",
+  "domain": "Exam Format / Scoring Geometry",
+  "capabilities": [
+    "X9_WHOLE_PAPER_EXECUTION",
+    "FORMAL_SCORE_CALIBRATION",
+    "LOSS_ENVELOPE"
+  ],
+  "purpose": "Bind authoritative 2027 clinical-medicine comprehensive exam geometry without inheriting 2017-2026 structure by assumption.",
+  "current_owner_boundary": {
+    "slot_owner": "content/xizong/knowledge/learner/xizong-2027-exam-format-delta-slot.json",
+    "historical_format_owner": "content/xizong/questions/exam-format.json",
+    "rule": "Historical geometry remains in exam-format.json. This slot owns only future 2027 source identity, validation, delta/invalidation and handoff until an authoritative row is admitted to the historical/current format owner."
+  },
+  "prior_baseline": {
+    "owner": "content/xizong/questions/exam-format.json",
+    "era_id": "CLINICAL_MEDICINE_COMPREHENSIVE_165",
+    "years": [
+      2017,
+      2026
+    ],
+    "question_count": 165,
+    "max_score": 300,
+    "role": "HISTORICAL_PLANNING_AND_BACKCAST_BASELINE_ONLY",
+    "boundary": "Not authoritative 2027 truth."
+  },
+  "arrival_contract": {
+    "required_identity": [
+      "authoritative_source",
+      "publication_or_revision_date",
+      "version_or_revision",
+      "stable_content_hash_or_equivalent",
+      "received_at"
+    ],
+    "fidelity_validation": [
+      "exam year / cycle identity",
+      "question count",
+      "max score",
+      "question-type / segment ranges",
+      "points per segment",
+      "answer-sheet / modality requirements when specified",
+      "published revision/version identity"
+    ],
+    "unverifiable_rule": "Decision-relevant unverifiable geometry remains UNKNOWN/BLOCKED and cannot silently inherit 2026 values."
+  },
+  "delta_contract": {
+    "classes": [
+      "PRESERVE",
+      "UPDATE",
+      "NEW",
+      "RETIRE",
+      "CONFLICT"
+    ],
+    "comparison_order": [
+      "compare authoritative 2027 source against 2017-2026 historical baseline",
+      "identify geometry / scoring / modality changes",
+      "update content/xizong/questions/exam-format.json only after fidelity validation",
+      "recompute score/loss envelope and formal-score compatibility",
+      "reprice workload only after the new geometry is accepted"
+    ],
+    "no_silent_inheritance": true
+  },
+  "downstream_invalidation": {
+    "review_when_semantics_change": [
+      "whole-paper runtime scoring",
+      "paper/question-set identity",
+      "formal score evidence compatibility",
+      "historical calibration band vs Current calibration band",
+      "275 / 270 loss-envelope interpretation",
+      "X9 authentic-modality requirement",
+      "Forecast workload / reserve",
+      "Chat plan or simulation assumptions that depended on old geometry"
+    ],
+    "evidence_policy": [
+      "PRESERVE",
+      "MIGRATE",
+      "STALE",
+      "INVALID"
+    ],
+    "historical_observation_rule": "Old paper scores remain historical observations, but they cannot become Current-format calibration unless their stored exam-format identity matches the accepted Current format identity."
+  },
+  "learner_use": {
+    "before_arrival": "Use 2017-2026 geometry only as historical planning prior. Do not claim exact 2027 whole-paper shape.",
+    "after_arrival": "Admit only verified geometry; update whole-paper practice/scoring and X9 calibration as a bounded delta.",
+    "verification": "Run at least one Current-format whole-paper / execution-faithful calibration before using the new geometry for Stage-D certainty."
+  },
+  "fallback": {
+    "late": "Continue normal learning on the historical 165/300 planning prior and preserve explicit Current-format uncertainty.",
+    "partial": "Bind only verified fields. Missing geometry/scoring/modality fields remain UNKNOWN/BLOCKED.",
+    "second_version": "Treat v2 as semantic revision; rerun downstream invalidation before Current authorization.",
+    "never_arrives": "Do not invent 2027 geometry. Preserve historical prior only; formal Current-format score extrapolation stays blocked.",
+    "conflicting_sources": "Do not choose by convenience. Keep CONFLICT until the authoritative source/version is resolved."
+  },
+  "forecast_contract": {
+    "before_arrival": "No Current-format calibration band. Historical observed/calibration evidence may be shown descriptively only.",
+    "after_arrival": "Forecast may use Current-format score calibration only when stored paper evidence identity matches the accepted Current format source hash.",
+    "authority": "Forecast does not decide format truth or rewrite exam-format.json."
+  },
+  "current_state": {
+    "source_present": false,
+    "exact_2027_geometry_known": false,
+    "current_format_source_hash": null,
+    "action_now": "WAIT_FOR_AUTHORITATIVE_2027_FORMAT_SOURCE_WHILE_USING_HISTORICAL_PRIOR"
+  }
+}
