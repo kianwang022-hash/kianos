@@ -32,7 +32,7 @@ Must prove:
 - no unsupported score inference.
 
 Status:
-- **CANDIDATE EXISTS — REVALIDATE AGAINST MATURITY_REQUIREMENTS**
+- **DONE — revalidated and repaired against Politics MATURITY_REQUIREMENTS**
 
 ## S0-T2 — Full material inventory
 Must inventory:
@@ -50,7 +50,7 @@ Required output:
 - one material inventory with role, source status, learner use, fidelity state, future-source dependency.
 
 Status:
-- **NOT YET CLOSED**
+- **DONE — `content/politics/MATERIAL_INVENTORY.md`; Day-1 material READY, whole-cycle gaps explicit**
 
 ## S0-T3 — Forecast factual sensors
 Need:
@@ -62,7 +62,7 @@ Need:
 - progress signals without fake NU completion.
 
 Status:
-- **CANDIDATE EXISTS — cumulative single/multiple sensor added; needs proof**
+- **TARGETED PROOF ACTIVE — cumulative single/multiple + unit-composition sensors added; fake personal interval removed; CI pending**
 
 ## S0-T4 — Day-1 learner simulation
 Simulate:
