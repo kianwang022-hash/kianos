@@ -140,6 +140,9 @@ def main() -> int:
     missing_meta = [key for key in REQUIRED_META if key not in metadata]
     if missing_meta:
         raise SystemExit("metadata fields missing: " + ", ".join(missing_meta))
+    empty_meta = [key for key in REQUIRED_META if not str(metadata.get(key) or "").strip()]
+    if empty_meta:
+        raise SystemExit("metadata fields must use UNKNOWN instead of blank: " + ", ".join(empty_meta))
 
     exposure = metadata["exposure"].strip().upper()
     if exposure not in {"UNSEEN", "EXPOSED"}:
@@ -161,6 +164,7 @@ def main() -> int:
     body_complete = check["body_complete"].strip().upper()
     paywall = check["paywall_truncation"].strip().upper()
     image_dependent = check["image_dependent_content"].strip().upper()
+    missing_sections_value = check["missing_sections"].strip()
     if body_complete not in {"YES", "NO", "UNCERTAIN"}:
         raise SystemExit("body_complete must be YES / NO / UNCERTAIN")
     if paywall not in {"YES", "NO", "UNCERTAIN"}:
@@ -168,7 +172,8 @@ def main() -> int:
     if image_dependent not in {"YES", "NO"}:
         raise SystemExit("image_dependent_content must be YES / NO")
 
-    if body_complete != "YES" or paywall != "NO":
+    missing_sections_present = missing_sections_value.upper() not in {"", "NONE", "NO", "N/A"}
+    if body_complete != "YES" or paywall != "NO" or missing_sections_present:
         precheck = "HOLD_INCOMPLETE_OR_UNCERTAIN_SOURCE"
     elif image_dependent == "YES":
         precheck = "READY_FOR_SOURCE_QUALITY_REVIEW_WITH_VISUAL_CHECK"
