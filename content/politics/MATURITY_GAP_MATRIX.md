@@ -25,8 +25,10 @@ This file retains the detailed execution decomposition. It does not create a sec
 - M3 Analysis-bank + evidence identity proof: **DONE**
 - M4 Forecast adversarial / decision-flip closure: **DONE**
 - M5 lifecycle + Fresh Chat / No-Website: **DONE**
-- M6 SYSTEM_LOGIC_ACCEPTED: **YES**
-- Real U / current-year annual content remain gated by reality, not engineering incompleteness.
+- M6 Builder closure reconciliation: **DONE**
+- M7 Fresh Independent / Anti-Anchored Audit: **OPEN — HARD FREEZE BLOCKER**
+- M8 SYSTEM_LOGIC_ACCEPTED: **BLOCKED ON M7**
+- Real U / current-year annual content remain gated by reality, not Builder engineering incompleteness.
 
 
 ---
@@ -503,10 +505,12 @@ Do **not** continue from the old T-number order blindly.
 
 Current execution state is owned by `MATURITY_PACKAGE.md`:
 
-1. mother-standard system-logic closure: DONE;
-2. broad maturity engineering: STOP;
-3. Real Learner U: starts from actual study only;
-4. current-year handbook/current affairs/Xiao8/Xiao4: ingest when real Source arrives;
-5. any new work must be a bounded reopen caused by concrete learner evidence, Source arrival or a Protect-70 threat.
+1. Builder-owned mother-standard implementation closure: DONE;
+2. Fresh Independent / Anti-Anchored Audit: NEXT HARD GATE;
+3. SYSTEM_LOGIC_ACCEPTED: blocked until that audit independently passes the exact candidate revision;
+4. broad feature construction: STOP unless the fresh audit finds a material defect;
+5. Real Learner U: starts from actual study only;
+6. current-year handbook/current affairs/Xiao8/Xiao4: ingest when real Source arrives;
+7. after a material repair, the independent PASS is invalidated and a new Fresh Audit is required.
 
 Real Learner U is never fabricated to make the package look complete.
