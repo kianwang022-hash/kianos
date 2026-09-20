@@ -12,6 +12,7 @@ This file owns C-scoped gate truth only. It does not own medical Core, lane lear
 
 | Gate | Status | Evidence / note |
 | --- | --- | --- |
+| S — exact official System-question membership | **PASS_AFTER_BOUNDED_REPAIR** | Current owner = 288 exact qids; historical executable-resolver 326 repaired by excluding 38 non-C owner questions |
 | K — Knowledge | **PASS** | C Knowledge accepted in merged PR #250 (`386fda93b2dd4fb75ab30eda3c7da8790cb6cf10`); current owner is `system.json` + 27 Block Cores |
 | L — Learning Logic | **PASS_AFTER_REPAIR** | Independent fresh audit: `C_PHASE6_FRESH_L_INDEPENDENT_ACCEPTANCE.md`; canonical owner `c-hematology-immunity-infection-learning.json` |
 | P — Projection | **NOT_STARTED / ELIGIBLE** | L is accepted; no C Projection work or acceptance is claimed by this task |
@@ -26,6 +27,35 @@ Counts owned by accepted K/L artifacts:
 - **133 Logic Groups**
 
 ---
+
+## S question-scope acceptance — PASS_AFTER_BOUNDED_REPAIR
+
+Canonical owner:
+
+`content/xizong/knowledge/learner/c-hematology-immunity-infection-question-scope.json`
+
+Reconstruction receipt:
+
+`content/xizong/knowledge/learner/C_QUESTION_SCOPE_CURRENT_RECONSTRUCTION.md`
+
+Accepted identity:
+
+```text
+Current exact official C qids = 288
+year range                    = 2005–2026
+inventory SHA256              = 2ef4aea5c284fb9ced4b418bcde4df202f403b2f68651c6fad23b4d0fa77ea1f
+unresolved ambiguity          = 0
+```
+
+The pinned historical executable resolver produced 326 C candidates. Fresh Current-owner review removed two stale page-union groups:
+
+- 19 generic tissue-repair questions; general repair is a Recall baseline for H20/H25, not C Primary;
+- 19 reproductive-organ pathology questions; cervical/uterine/gestational-trophoblastic/ovarian/prostate Primary remains outside C.
+
+No historical count was targeted. Current C owner truth overrides the old frozen count.
+
+S membership remains System-level only and creates no inferred Question→Block/LG/KP relation.
+
 
 ## L independent acceptance
 
@@ -144,6 +174,7 @@ The legacy generic Xizong contiguous `[start,end]` loader is downstream debt. Fu
 
 ### Artifact Truth
 
+- C exact official question scope → `content/xizong/knowledge/learner/c-hematology-immunity-infection-question-scope.json`
 - C Knowledge → `system.json` + 27 Block Cores
 - C Learning → `content/xizong/knowledge/learner/c-hematology-immunity-infection-learning.json`
 - construction receipts → historical evidence only
