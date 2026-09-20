@@ -101,12 +101,17 @@ function repairDetailKey(task) {
   return match ? `${match[1]}/${match[2]}` : null;
 }
 
-function xizongPracticeMinutesForDay(storage, day, now) {
+function xizongPracticeMinutesForDay(storage, day, now, detailKeys = null) {
   if (!day) return 0;
   const aggregate = aggregateStudyTime(storage, { day, now });
+  const allowed = detailKeys instanceof Set ? detailKeys : null;
   return Math.round(
     Object.entries(aggregate?.bySubject?.xizong?.details || {})
-      .filter(([detail]) => String(detail).startsWith('practice/'))
+      .filter(([detail]) => {
+        const key = String(detail);
+        if (allowed) return allowed.has(key);
+        return key.startsWith('practice/');
+      })
       .reduce((sum, [, value]) => sum + Number(value || 0), 0) / 60000
   );
 }
@@ -285,15 +290,40 @@ function summarizeXizongForecastPractice(storage, {
     .sort()
     .at(-1) || null;
 
+  const currentScopeDetailKeys = new Set(
+    [...currentScopeBySystem.keys()].filter(Boolean).map((systemId) => `practice/${systemId}`)
+  );
+  const currentByDay = new Map();
+  for (const event of currentScopeFirstAttempt.values()) {
+    const day = studyDayFromIso(event?.submitted_at);
+    if (!day) continue;
+    if (!currentByDay.has(day)) currentByDay.set(day, { attempted: 0, stable: 0, uncertain: 0, wrong: 0 });
+    const row = currentByDay.get(day);
+    row.attempted += 1;
+    const status = String(event?.status || '');
+    if (Object.hasOwn(row, status)) row[status] += 1;
+  }
+
   const dayRows = [...byDay.values()].sort((a, b) => a.day.localeCompare(b.day)).slice(-30)
     .map((row) => {
       const practiceTimerMinutes = xizongPracticeMinutesForDay(storage, row.day, now);
+      const current = currentByDay.get(row.day) || { attempted: 0, stable: 0, uncertain: 0, wrong: 0 };
+      const currentTimerMinutes = xizongPracticeMinutesForDay(storage, row.day, now, currentScopeDetailKeys);
       return {
         ...row,
         practice_timer_minutes: practiceTimerMinutes,
         observed_minutes_per_attempt:
           row.attempted > 0 && practiceTimerMinutes > 0
             ? Number((practiceTimerMinutes / row.attempted).toFixed(3))
+            : null,
+        current_scope_attempted: current.attempted,
+        current_scope_stable: current.stable,
+        current_scope_uncertain: current.uncertain,
+        current_scope_wrong: current.wrong,
+        current_scope_practice_timer_minutes: currentTimerMinutes,
+        current_scope_observed_minutes_per_attempt:
+          current.attempted > 0 && currentTimerMinutes > 0
+            ? Number((currentTimerMinutes / current.attempted).toFixed(3))
             : null
       };
     });
@@ -345,7 +375,7 @@ function summarizeXizongForecastPractice(storage, {
       by_probe_kind: transferKinds
     },
     evidence_boundary:
-      'Official question attempts are deduplicated by question id. Only FIRST_PASS SYSTEM_SWEEP attempts bound to the Current exact scope hash + inventory hash reduce remaining workload; whole-paper/chat-set/retained/stale attempts remain performance evidence only. First-pass Wrong/Uncertain is raw repair pressure, not one-repair-per-question debt.'
+      'Official question attempts are deduplicated by question id. Only FIRST_PASS SYSTEM_SWEEP attempts bound to the Current exact scope hash + inventory hash reduce remaining workload and calibrate preferred System-sweep error/speed rates; whole-paper/chat-set/retained/stale attempts remain broader performance evidence only.'
   };
 }
 
