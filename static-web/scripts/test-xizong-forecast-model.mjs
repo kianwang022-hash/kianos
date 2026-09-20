@@ -71,7 +71,14 @@ function baseProgress() {
         ]
       },
       latest:{unresolved_wrong_uncertain_questions:20},
-      fresh_transfer:{observed_probes:12,stable:8,uncertain:3,wrong:1,by_probe_kind:{FRESH_VARIANT:12}}
+      fresh_transfer:{
+        observed_probes:12,
+        stable:8,
+        uncertain:3,
+        wrong:1,
+        by_probe_kind:{FRESH_VARIANT:12},
+        by_probe_kind_status:{FRESH_VARIANT:{observed:12,stable:8,uncertain:3,wrong:1}}
+      }
     },
     repair_evidence:{
       total_repair_clusters:50,
@@ -292,6 +299,47 @@ function baseProgress() {
     'observed old-paper scores alone must not close formal calibration workload');
   assert.equal(workload.components.formal_calibration.status,'OBSERVED_SCORE_ONLY_CONTAMINATION_UNRESOLVED');
   assert.equal(workload.score_formation.status,'PARTIAL');
+}
+
+{
+  const highPaperNoCase=baseProgress();
+  highPaperNoCase.formal_score_evidence.sealed_papers=highPaperNoCase.formal_score_evidence.sealed_papers.map((row)=>({
+    ...row,
+    earned_score:290
+  }));
+  const readiness=buildXizongScoreReadiness(highPaperNoCase,{
+    targetScore:275,
+    contaminationStatus:'LEAST_CONTAMINATED'
+  });
+  assert.equal(readiness.capabilities.case_stability.evidence_status,'WHOLE_PAPER_PROXY_PRESENT');
+  assert.equal(readiness.capabilities.case_stability.dedicated_case_evidence,false,
+    'even a high low-contamination whole paper must not manufacture dedicated case-transfer evidence');
+
+  highPaperNoCase.practice_evidence.fresh_transfer={
+    ...highPaperNoCase.practice_evidence.fresh_transfer,
+    observed_probes:16,
+    stable:11,
+    uncertain:4,
+    wrong:1,
+    by_probe_kind:{
+      FRESH_VARIANT:12,
+      CASE_VARIANT:2,
+      CROSS_SYSTEM_CASE:2
+    },
+    by_probe_kind_status:{
+      FRESH_VARIANT:{observed:12,stable:8,uncertain:3,wrong:1},
+      CASE_VARIANT:{observed:2,stable:1,uncertain:1,wrong:0},
+      CROSS_SYSTEM_CASE:{observed:2,stable:2,uncertain:0,wrong:0}
+    }
+  };
+  const withCase=buildXizongScoreReadiness(highPaperNoCase,{
+    targetScore:275,
+    contaminationStatus:'LEAST_CONTAMINATED'
+  });
+  assert.equal(withCase.capabilities.case_stability.evidence_status,'DEDICATED_CASE_TRANSFER_OBSERVED');
+  assert.equal(withCase.capabilities.case_stability.dedicated_case_evidence,true);
+  assert.equal(withCase.capabilities.case_stability.observed_probes,4);
+  assert.equal(withCase.capabilities.case_stability.stable,3);
 }
 
 {
