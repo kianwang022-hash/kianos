@@ -4,7 +4,11 @@ import {
   xizongQuestionMarkOverrides
 } from './xizongRetainedPractice.mjs';
 import { summarizeXizongScoreAttribution } from './xizongScoreAttribution.mjs';
-import { buildXizongWorkloadForecast } from './xizongForecastModel.mjs';
+import {
+  buildXizongWorkloadForecast,
+  XIZONG_HISTORICAL_MODERN_165_SCORE_PROFILE,
+  xizongHistoricalDisciplineForQuestion
+} from './xizongForecastModel.mjs';
 import {
   aggregateStudyTime,
   readStudyTimerLedger,
@@ -431,8 +435,61 @@ function summarizeXizongFormalScoreEvidence(storage) {
     const seal = state?.paperSeal;
     if (!record(seal) || !seal.sealedAt || !record(seal.summary)) continue;
     const match = key.match(/paper-(\d{4})/);
+    const year = match ? Number(match[1]) : null;
+    let disciplineBreakdown = null;
+    if (Number.isInteger(year) && year >= 2017 && year <= 2026) {
+      const byQuestion = new Map();
+      for (const event of Array.isArray(state?.attemptHistory) ? state.attemptHistory : []) {
+        if (event?.type && event.type !== 'QUESTION_ATTEMPT') continue;
+        const questionId = String(event?.question_id || '');
+        if (!questionId || Number(event?.year) !== year) continue;
+        if (!byQuestion.has(questionId) || laterAttempt(event, byQuestion.get(questionId))) {
+          byQuestion.set(questionId, event);
+        }
+      }
+      const disciplineRows = Object.fromEntries(
+        Object.entries(XIZONG_HISTORICAL_MODERN_165_SCORE_PROFILE.disciplines).map(([id, profile]) => [
+          id,
+          {
+            id,
+            label: profile.label,
+            max_points: Number(profile.points || 0),
+            answered_points: 0,
+            earned_points: 0,
+            wrong_points: 0,
+            uncertain_correct_points: 0,
+            unanswered_points: Number(profile.points || 0),
+            answered_questions: 0
+          }
+        ])
+      );
+      for (const event of byQuestion.values()) {
+        const discipline = xizongHistoricalDisciplineForQuestion(year, event?.number);
+        const row = disciplineRows[discipline];
+        if (!row) continue;
+        const points = Number(event?.points_possible || 0);
+        if (!Number.isFinite(points) || points <= 0) continue;
+        row.answered_points += points;
+        row.answered_questions += 1;
+        const status = String(event?.status || '');
+        if (status === 'stable' || status === 'uncertain') row.earned_points += points;
+        if (status === 'wrong') row.wrong_points += points;
+        if (status === 'uncertain') row.uncertain_correct_points += points;
+      }
+      for (const row of Object.values(disciplineRows)) {
+        row.answered_points = Number(row.answered_points.toFixed(1));
+        row.earned_points = Number(row.earned_points.toFixed(1));
+        row.wrong_points = Number(row.wrong_points.toFixed(1));
+        row.uncertain_correct_points = Number(row.uncertain_correct_points.toFixed(1));
+        row.unanswered_points = Number(Math.max(0, row.max_points - row.answered_points).toFixed(1));
+      }
+      disciplineBreakdown = {
+        authority: XIZONG_HISTORICAL_MODERN_165_SCORE_PROFILE.authority,
+        disciplines: disciplineRows
+      };
+    }
     rows.push({
-      year: match ? Number(match[1]) : null,
+      year,
       sealed_at: String(seal.sealedAt || ''),
       review_unlocked_at: String(seal.reviewUnlockedAt || '') || null,
       answered_count: Number(seal.summary.answeredCount || 0),
@@ -441,7 +498,8 @@ function summarizeXizongFormalScoreEvidence(storage) {
       unanswered_count: Number(seal.summary.unansweredCount || 0),
       question_count: Number(seal.summary.questionCount || 0),
       earned_score: Number(seal.summary.earnedScore || 0),
-      max_score: Number(seal.summary.maxScore || 0)
+      max_score: Number(seal.summary.maxScore || 0),
+      discipline_breakdown: disciplineBreakdown
     });
   }
   rows.sort((a, b) => String(a.sealed_at).localeCompare(String(b.sealed_at)));
