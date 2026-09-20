@@ -12,7 +12,8 @@ import {
 } from '../src/lib/examOrchestrator.mjs';
 import {
   EXAM_CHAT_PLAN_KEY,
-  EXAM_CHAT_PLAN_SCHEMA
+  EXAM_CHAT_PLAN_SCHEMA,
+  buildExamChatPlanBasis
 } from '../src/lib/examChatPlan.mjs';
 import {
   STUDY_TIMER_LEDGER_KEY,
@@ -203,13 +204,6 @@ const chatPlan = {
 const chatPlanFile = path.join(privateDir, 'kianos-chat-plan-day1.json');
 const staleChatPlanFile = path.join(privateDir, 'kianos-chat-plan-stale.json');
 
-fs.writeFileSync(chatPlanFile, JSON.stringify(chatPlan, null, 2));
-fs.writeFileSync(staleChatPlanFile, JSON.stringify({
-  ...chatPlan,
-  study_day: '2026-09-18',
-  generated_at: '2026-09-18T01:00:00.000Z'
-}, null, 2));
-
 const profile = {
   ...emptyExamProfile(),
   capacityByDay: { [DAY]: 570 },
@@ -324,6 +318,36 @@ const politicsLast = {
   title: politicsQuestion.unitTitle
 };
 
+class BasisStorage {
+  constructor(entries = {}) { this.map = new Map(Object.entries(entries)); }
+  get length() { return this.map.size; }
+  key(index) { return [...this.map.keys()][index] ?? null; }
+  getItem(key) { return this.map.has(key) ? this.map.get(key) : null; }
+  setItem(key, value) { this.map.set(String(key), String(value)); }
+  removeItem(key) { this.map.delete(String(key)); }
+}
+
+const chatPlanBasisStorage = new BasisStorage({
+  [EXAM_PROFILE_KEY]: JSON.stringify(profile),
+  [STUDY_TIMER_LEDGER_KEY]: JSON.stringify(timerLedger),
+  [xizongStateKey]: JSON.stringify(xizongState),
+  [englishAttemptKey]: JSON.stringify(englishAttempt),
+  [PRACTICE_KEYS.attempts]: JSON.stringify(politicsAttempts),
+  [PRACTICE_KEYS.meta]: JSON.stringify(politicsMeta),
+  [PRACTICE_KEYS.evidence]: JSON.stringify(politicsEvidence)
+});
+const chatPlanWithBasis = {
+  ...chatPlan,
+  learner_evidence_basis: buildExamChatPlanBasis(chatPlanBasisStorage, DAY)
+};
+fs.writeFileSync(chatPlanFile, JSON.stringify(chatPlanWithBasis, null, 2));
+fs.writeFileSync(staleChatPlanFile, JSON.stringify({
+  ...chatPlan,
+  study_day: '2026-09-18',
+  generated_at: '2026-09-18T01:00:00.000Z',
+  learner_evidence_basis: buildExamChatPlanBasis(chatPlanBasisStorage, '2026-09-18')
+}, null, 2));
+
 const parseDailyCopy = (text) => {
   const marker = 'DAILY_PACKET_JSON\n';
   const index = text.indexOf(marker);
@@ -394,8 +418,11 @@ try {
     (key) => JSON.parse(localStorage.getItem(key) || 'null'),
     EXAM_CHAT_PLAN_KEY
   );
-  check(storedPlanAfterImport?.study_day === DAY && storedPlanAfterImport?.next_subject === 'xizong',
-    'Imported Chat Plan persists exact study day and next-subject identity');
+  check(storedPlanAfterImport?.study_day === DAY
+      && storedPlanAfterImport?.next_subject === 'xizong'
+      && storedPlanAfterImport?.learner_evidence_basis?.evidence_fingerprint
+        === chatPlanWithBasis.learner_evidence_basis.evidence_fingerprint,
+    'Imported Chat Plan preserves exact study day, next-subject and learner-evidence basis identity');
 
   // 4. A stale-day Chat Plan must fail closed and preserve the accepted current plan.
   // Confirming the first import closes the learner-facing dialog, so reopen the
