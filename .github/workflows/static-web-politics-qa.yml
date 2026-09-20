@@ -136,5 +136,7 @@ jobs:
         run: node scripts/audit-politics-marxism-runtime-evidence.mjs
       - name: Validate Politics Current bindings
         run: npm run validate:politics
+      - name: Prove Politics forecast sensors and stress model
+        run: node scripts/test-politics-forecast.mjs
       - name: Build Astro
         run: npm run build
