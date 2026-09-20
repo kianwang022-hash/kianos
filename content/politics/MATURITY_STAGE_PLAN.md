@@ -13,8 +13,8 @@ P0 Politics-specific maturity adaptation        DONE
 T1 Objective structural/evidence reconciliation CLOSED
 T2 Early Objective Forecast                     CURRENT-SOURCE BUILD CLOSED
                                                 calibration waits for accepted evidence
-T3 Analysis foundation / Chat-primary evidence  TASK/RUBRIC RESOLVED
-                                                durable evidence transport NEXT
+T3 Analysis foundation / Chat-primary evidence  CLOSED
+                                                task/rubric + durable evidence proven
 T4 Future-source delta ingestion                ENGINEERING PREP CLOSED
                                                 real content waits for bound 2027 Source
 T5+ current-year Mock / final compression       waits for real Source
@@ -568,16 +568,15 @@ The final maturity question must be answerable:
 The highest-value current sequence is:
 
 ```text
-T1  First-round structural / evidence gap reconciliation
-→ T2  Objective workload + early Forecast model
-→ T3  Analysis foundation task/evidence specification
-→ T4  Build and self-attack first source-grounded Analysis drill bank
-→ T5  Prepare future-source delta/supersession interface
-→ T6  bind accepted Objective calibration source when available
-→ T7  ingest current-year handbook/current affairs
-→ T8  Xiao8 current-year calibration / Mock
-→ T9  Xiao4 final output/compression
-→ T10 final whole-paper Protect-70 / Push-75 closure
+T1  First-round structural / evidence gap reconciliation                    CLOSED
+→ T2  Objective workload + early Forecast current-source build               CLOSED
+→ T3  Analysis task/rubric + bounded durable evidence                        CLOSED
+→ T4  Future-source delta/supersession engineering prep                      CLOSED
+→ T5  bind accepted Objective calibration evidence when available            SOURCE-GATED
+→ T6  ingest current-year handbook/current affairs when accepted Source lands SOURCE-GATED
+→ T7  Xiao8 current-year calibration / Analysis transfer / Mock              SOURCE-GATED
+→ T8  Xiao4 final exact-output compression                                   SOURCE-GATED
+→ T9  final whole-paper Protect-70 / Push-75 closure                         EVIDENCE-GATED
 ```
 
 Parallelism is allowed only when owners/write sets are genuinely independent.
