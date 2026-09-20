@@ -510,3 +510,64 @@ new fresh Chat
 → reveal v2 sealed key only after all scores fixed
 → PASS or bounded repair
 ```
+
+
+---
+
+## 12. Fresh v2 re-audit attempt — calibration proof still failed
+
+A second independent attempt blind-scored the repaired v2 bank before reading the sealed key.
+
+Observed scorer behavior was broadly healthy:
+
+- semantic-equivalent Translation stayed in the same high range;
+- fluent meaning-reversed Translation stayed low;
+- plain complete Small Writing outranked polished prose that omitted the actual request;
+- grounded simple Big Writing outranked fluent material misread;
+- generic slogan development stayed below grounded mechanism;
+- complete-section Translation kept one major segment error visible;
+- materially short Writing widened/lowered the range instead of receiving an invented fixed deduction;
+- score uncertainty and independent re-score triggers were used.
+
+However, the run could not serve as final Fresh acceptance proof.
+
+### Material calibration-proof defects
+
+1. **Blind fixture IDs leaked expected quality / defect type.**
+   Examples included semantic labels such as `strong`, `low`, `fluent-wrong`, `missing-request`, `underlength`, and `mixed-major-error`.
+
+2. **Blind row metadata leaked calibration intent.**
+   `controlled_axis: "length_deficit"` explicitly identified the intended stress dimension.
+
+3. **One sealed Small Writing expectation was inconsistent with the v2 rubric.**
+   The response formerly identified as `sw-extension-low` explained the problem, requested additional time, apologized, and remained understandable; only the required specific Wednesday deadline was missing and language control was weak. A broad `3–6` expectation is more faithful to the v2 holistic rubric than the previous `1–4` cap.
+
+4. **The re-audit itself read `content/english/CURRENT.md` before blind grading.**
+   That file contained prior E3 defect summaries. The sealed key was not read early, but the run was still not clean enough to be the final anti-anchored acceptance proof.
+
+### Bounded calibration-layer repair
+
+The scorer standard itself was **not** rewritten.
+
+The calibration package was repaired by:
+
+- replacing all 18 semantic fixture IDs with opaque IDs:
+  - `ps-tr-001…007`
+  - `ps-sw-001…005`
+  - `ps-bw-001…006`;
+- removing `controlled_axis` and other calibration-intent metadata from blind rows;
+- keeping calibration axes only in the sealed key;
+- reordering blind arrays so presentation order is intentionally non-ordinal;
+- recalibrating the disputed Small Writing expectation to `MID_LOW / 3–6`;
+- strengthening the validator so semantic IDs or calibration metadata in the blind bank fail CI;
+- strengthening the Fresh Audit Brief so pre-blind entry uses branch/ref metadata only and forbids `CURRENT.md`, prior audit reports, Builder judgments and history until blind results are locked.
+
+### Current acceptance state
+
+```text
+E3 scoring logic: materially healthy under two independent scoring passes
+E3 final fresh acceptance proof: NOT YET VALID
+Calibration package: repaired for a third clean blind audit
+```
+
+The next auditor must start from `PRODUCTIVE_SCORING_FRESH_AUDIT_BRIEF.md`, obey the pre-blind read boundary, freeze all blind scores, and only then reveal the sealed key.
