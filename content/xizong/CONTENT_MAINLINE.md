@@ -204,7 +204,7 @@ Keep two truths separate.
 
 ## B1｜Exact official System question scope
 
-Current learner-facing exact System question scope is only accepted for **A1 / A2 / A3**. B / C / D / E / F must not be surfaced as trusted System-question sets until their exact official-question membership is independently established; System membership does not imply Block/KP mapping and must not be inferred from Outline or Block placement.
+Current learner-facing exact System question scope is accepted for **A1 / A2 / A3 / B**. C / D / E / F must not be surfaced as trusted System-question sets until their exact official-question membership is independently established; System membership does not imply Block/KP mapping and must not be inferred from Outline or Block placement.
 
 ### Current completion lane — E / F medical-content closure satisfied
 
@@ -218,7 +218,26 @@ finish E full medical-content chain
 → only then expose those Systems in trusted learner-facing "按 System" question entry
 ```
 
-E and F medical-content closure are now complete, so this deferred backlog is now eligible to resume as the next program-level content task. Keep exact System question scope separate from accepted medical Content: no B/C/D/E/F membership may be inferred from Block, LG, Outline or Source placement.
+E and F medical-content closure are complete and B exact official System-question membership is now accepted at **1072 qids** from reviewed question→Lecture position routing plus Current B owner boundaries. The completion lane now continues with **C**, then D/E/F. Keep exact System question scope separate from accepted medical Content: no C/D/E/F membership may be inferred from Block, LG, Outline or Source placement.
+
+### B scope closure — PASS
+
+Canonical owner:
+
+`content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-question-scope.json`
+
+Receipt:
+
+`content/xizong/knowledge/learner/B_QUESTION_SCOPE_CURRENT_RECONSTRUCTION.md`
+
+```text
+B exact official qids = 1072
+2005–2026
+inventory SHA256 = 2fb2cbb8287a4f5da73bc20afc344823c9022cba708fb99d5d04569a391c8ab8
+System membership only; no inferred Question→Block/KP relation
+```
+
+Next exact-scope target: **C — Hematology / Immunity / Infection**.
 
 ## B2｜Question → Knowledge Crosswalk
 
@@ -435,9 +454,10 @@ F 9 Blocks / 121 KP
 → F medical-content chain CLOSED
 
 QUESTIONS
-Current trusted System-question entry = A1 / A2 / A3 only
-B / C / D / E / F exact official-question membership = CURRENT COMPLETION LANE
-→ E + F medical-content closure prerequisite satisfied
+Current trusted System-question entry = A1 / A2 / A3 / B
+B exact official-question membership = PASS / 1072 qids
+C / D / E / F exact official-question membership = CURRENT COMPLETION LANE
+→ next target = C
 + Crosswalk C2 continuous reviewed batches
 
 VISUAL
