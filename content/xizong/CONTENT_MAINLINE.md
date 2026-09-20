@@ -23,9 +23,11 @@ Old Chats, prompts, Issue titles and branch names are provenance, not Current tr
 
 # 0｜Active maturity mainline
 
-Current highest-priority Xizong control task:
+Current highest-priority Xizong maturity task:
 
-> **Stage A — SCORE / SCOPE / MATERIAL TRUTH**
+> **Stage B — FIRST-PASS CAPABILITY CLOSURE**
+
+Stage A is CLOSED. Stage E activates continuously as soon as trustworthy Real Learner U exists.
 
 This is the subject-level maturity mainline derived from the shared Exam Subject Maturity Standard and the Xizong-specific Candidate requirements.
 
@@ -36,10 +38,11 @@ Current working model:
 - Elastic upside: **>275**
 - capability tree: **X1–X9**
 - maturity relation: **Stage A foundation; B → C → D capability progression; Stage E continuous Real-U control overlay**
-- Stage A must close before Forecast may claim a complete Kian-specific 275 path;
+- Stage A is CLOSED at the current Source/material baseline;
+- Stage B now owns real first-pass capability evidence for X1–X4 + X6 weakness exposure;
 - Stage E begins with real learner evidence and continuously recalibrates B–D rather than waiting for a final phase.
 
-Stage A owns the practical subject package:
+The practical maturity package remains:
 
 ```text
 Score
@@ -76,7 +79,7 @@ main@HEAD
 → work
 ```
 
-Stage A exit gate:
+Stage A closure record:
 
 1. every exam-scope domain is owned, bounded or explicitly BLOCKED;
 2. every material gap is classified by real type;
@@ -109,7 +112,7 @@ Late-stage material baseline is no longer an open construction task:
 
 Current-year exam geometry and humanities-scope deltas remain explicit upstream-BLOCKED inputs and do not justify new architecture work.
 
-Do not move the maturity mainline to Stage B merely because current learner surfaces or Forecast CI are green.
+Stage A is closed because current executable scope/material gaps are closed or explicitly Future-Source blocked. Do not reopen it merely because learner evidence is still UNKNOWN; that belongs to Stage B/Stage E.
 
 ---
 
