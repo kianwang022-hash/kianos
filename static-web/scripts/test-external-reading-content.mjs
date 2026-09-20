@@ -111,6 +111,12 @@ try{
   assert.equal(missing.status,'missing_source');
   assert(missing.missing.length>0);
 
+  const stale=ensureExternalReadingPrivateBundle({sourceRoot,privateDir:path.join(temp,'stale-gate')});
+  assert.equal(stale.status,'stale_source');
+  assert.equal(stale.bundle,null);
+  assert.equal(stale.mismatches.length,14);
+  assert(stale.mismatches.every(row=>row.relative&&row.expected_sha256&&row.actual_sha256));
+
   console.log(JSON.stringify({
     status:'PASS',
     passages:rows.length,
@@ -119,7 +125,8 @@ try{
     public_source_bytes:0,
     answer_gate:'PASS',
     cognition_boundary:'PASS',
-    missing_source_fail_closed:'PASS'
+    missing_source_fail_closed:'PASS',
+    stale_source_hash_gate:'PASS'
   },null,2));
 }finally{
   fs.rmSync(temp,{recursive:true,force:true});
