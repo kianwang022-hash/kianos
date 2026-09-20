@@ -34,7 +34,10 @@ async function readBody(req){
 }
 
 export function privateControlBridge({privateDir=resolvePrivateControlDir()}={}){
-  const configure=(server)=>{
+  return{
+    name:'kianos-private-control-bridge',
+    apply:'serve',
+    configureServer(server){
       const pollMs=Math.max(3000,Number(process.env.KIANOS_CONTROL_POLL_MS||8000));
       let busy=false;
       let stopped=false;
@@ -81,12 +84,6 @@ export function privateControlBridge({privateDir=resolvePrivateControlDir()}={})
           return json(res,status,{status:'error',error:message});
         }
       });
-  };
-
-  return{
-    name:'kianos-private-control-bridge',
-    apply:'serve',
-    configureServer:configure,
-    configurePreviewServer:configure
+    }
   };
 }
