@@ -1,25 +1,39 @@
 import {
   listReadingSets as baseListReadingSets,
   loadReadingById as baseLoadReadingById,
-  loadReadingAnswersById,
-  loadReadingReviewById
+  loadReadingAnswersById as baseLoadReadingAnswersById,
+  loadReadingReviewById as baseLoadReadingReviewById
 } from './englishReading.mjs';
 import { projectReadingSourceTruth } from './englishSourceTruth.mjs';
+import {
+  listSyntheticReadingSets,
+  loadSyntheticReadingById,
+  loadSyntheticReadingAnswersById,
+  loadSyntheticReadingReviewById
+} from './englishSyntheticBaseline.mjs';
 
 export const listReadingSets = baseListReadingSets;
-export { loadReadingAnswersById, loadReadingReviewById };
+export const listExecutableReadingSets = () => [...baseListReadingSets(), ...listSyntheticReadingSets()];
 export { inspectReadingSources } from './current.mjs';
 
 export function loadReadingById(id) {
+  if (listSyntheticReadingSets().some((row) => row.id === id)) return loadSyntheticReadingById(id);
   const base = baseLoadReadingById(id);
   const projected = projectReadingSourceTruth(base);
-  // Reading A already has paragraph-level structure in reading_corpus.v1.json.
-  // Source Truth corrects learner-facing prompt/options, but must not flatten the
-  // verified paragraph geometry back into one source_text block.
   return {
     ...projected,
     paragraphs: base.paragraphs
   };
+}
+
+export function loadReadingAnswersById(id) {
+  if (listSyntheticReadingSets().some((row) => row.id === id)) return loadSyntheticReadingAnswersById(id);
+  return baseLoadReadingAnswersById(id);
+}
+
+export function loadReadingReviewById(id) {
+  if (listSyntheticReadingSets().some((row) => row.id === id)) return loadSyntheticReadingReviewById(id);
+  return baseLoadReadingReviewById(id);
 }
 
 export function loadDefaultReading() {
