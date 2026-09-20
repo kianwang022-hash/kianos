@@ -93,7 +93,7 @@ try {
   const catalog = buildPoliticsPracticeCatalogCurrent('/');
   const question = catalog.questions.find(practiceReady);
   assert.ok(question?.id, 'POLITICS_REVIEW_QUESTION_MISSING');
-  const reviewRoute = `/politics/practice-review/${encodeURIComponent(question.id)}.json`;
+  const reviewRoute = `/politics/practice-review/${encodeURIComponent(question.id)}.json/`;
   const review = await measure(reviewRoute);
   assertWarm('POLITICS_REVIEW_JSON', review);
   const reviewPayload = JSON.parse(review.rows[0].text);
