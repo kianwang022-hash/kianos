@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { lexicalEventFromObjectiveThread, objectiveTaskToLexicalSource } from '../src/lib/lexicalEnglishEvidence.mjs';
-import { appendEvidenceEvent, compileRepairTargets, emptyLexicalLedger, repairStateForEvent, serializeLexicalReturnPacketForChat } from '../src/lib/lexicalEvidence.mjs';
+import { appendEvidenceEvent, buildLexicalRetentionTransferSummary, compileRepairTargets, emptyLexicalLedger, repairStateForEvent, serializeLexicalReturnPacketForChat } from '../src/lib/lexicalEvidence.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const read = (relative) => fs.readFileSync(path.resolve(here, '..', relative), 'utf8');
@@ -135,6 +135,30 @@ test('reading recognition success cannot retire production demand', () => {
   }).event;
   ledger = appendEvidenceEvent(ledger, success).ledger;
   assert.equal(repairStateForEvent(ledger, success).state, 'ACTIVE');
+});
+
+test('fresh Chat retention projection preserves delayed and real-context lexical evidence', () => {
+  const failure = prepare().event;
+  let ledger = appendEvidenceEvent(emptyLexicalLedger(), failure).ledger;
+  const success = lexicalEventFromObjectiveThread({
+    task: 'reading_a',
+    objectId: 'reading:fresh-retention',
+    attemptSubmittedAt: '2026-09-20T08:00:00Z',
+    thread: baseThread({
+      outcome: 'CORRECT',
+      demand: 'recognition',
+      assistance: 'unassisted',
+      context_novelty: 'unseen',
+      delayed: true
+    })
+  }).event;
+  ledger = appendEvidenceEvent(ledger, success).ledger;
+  const summary = buildLexicalRetentionTransferSummary(ledger);
+  assert.equal(summary.qualified_delayed_success_count, 1);
+  assert.equal(summary.clean_english_transfer_success_count, 1);
+  assert.equal(summary.recent_clean_english_transfer_successes[0].source, 'reading');
+  assert.match(summary.semantics, /NOT_MASTERY/);
+  assert.ok(summary.guardrails.includes('NO_CALENDAR_DUE_LIST_IS_CREATED'));
 });
 
 test('browser compatibility bridge delegates mutation to the atomic English return owner', () => {
