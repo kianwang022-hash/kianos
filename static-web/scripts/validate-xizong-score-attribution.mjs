@@ -4,6 +4,7 @@ import {
   normalizeXizongOfficialScoreEvidence,
   summarizeXizongScoreAttribution
 } from '../src/lib/xizongScoreAttribution.mjs';
+import { recordXizongQuestionAttempt } from '../src/lib/xizongQuestionAttempts.mjs';
 
 const [q005, q041] = loadXizongQuestionsByIds([
   'xizong-official-2025-n005',
@@ -24,6 +25,53 @@ const reviewedKp = {
   supporting_canonical_kp_ids: ['A1-B01-KP02','A1-B01-KP03'],
   supporting_runtime_kp_ids: ['circulation-b01-kp02','circulation-b01-kp03']
 };
+
+const recorded = recordXizongQuestionAttempt({}, {
+  question: {
+    questionId: 'xizong-official-2025-n050',
+    year: 2025,
+    number: 50,
+    questionType: 'A',
+    correctAnswer: 'B',
+    points: 2,
+    sourceKind: 'OFFICIAL_EXAM',
+    scoringRole: 'OFFICIAL_EVIDENCE',
+    relation: {
+      reviewStatus: 'REVIEWED',
+      sourceSystemId: 'circulation',
+      systemId: 'circulation',
+      blockId: 'circulation-b01',
+      targetStatus: 'RESOLVED_KP',
+      resolvedLogicGroupId: 'circulation-b01-lg01',
+      primaryKpId: 'A1-B01-KP01',
+      primaryRuntimeKpId: 'circulation-b01-kp01',
+      supportingKpIds: ['A1-B01-KP02'],
+      supportingRuntimeKpIds: ['circulation-b01-kp02']
+    }
+  },
+  status: 'wrong',
+  selected: ['A'],
+  context: {
+    systemId: 'circulation',
+    canonicalId: 'A1',
+    scopeHash: 'scope-fixture',
+    questionInventoryHash: 'inventory-fixture',
+    questions: [],
+    attemptContext: 'TARGETED_PRACTICE',
+    resultVisibility: 'immediate',
+    studyPhase: 'SECOND_PASS',
+    queueMode: 'EXPLICIT_SET'
+  },
+  holdoutYears: []
+}, {
+  now: '2026-09-20T00:50:00.000Z',
+  makeId: () => 'attempt-record-fixture'
+});
+const recordedEvent = recorded.attemptHistory.at(-1);
+assert.equal(recordedEvent.points_possible, 2, 'attempt did not freeze point value');
+assert.equal(recordedEvent.reviewed_relation.review_status, 'REVIEWED', 'attempt did not freeze reviewed relation');
+assert.equal(recordedEvent.reviewed_relation.primary_runtime_kp_id, 'circulation-b01-kp01', 'attempt relation owner drift');
+assert.deepEqual(recordedEvent.reviewed_relation.supporting_runtime_kp_ids, ['circulation-b01-kp02'], 'attempt support snapshot');
 
 const reviewedBlock = {
   review_status: 'REVIEWED',
