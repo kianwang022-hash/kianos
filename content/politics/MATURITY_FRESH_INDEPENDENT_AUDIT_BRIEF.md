@@ -33,12 +33,25 @@ and the evaluator must stop rather than pretend to be independent.
 
 ## 2. Revision binding
 
+The audit launcher must supply an **immutable sealed candidate ref and exact SHA**:
+
+~~~text
+candidate_ref
+candidate_head
+shared_standard_ref
+shared_standard_head
+~~~
+
 At audit start:
 
-1. fetch PR #638;
-2. record its exact `head_sha` as `candidate_head`;
-3. fetch PR #644 and record the exact shared-standard revision used;
-4. audit that exact candidate revision.
+1. fetch `candidate_ref` and verify it resolves exactly to `candidate_head`;
+2. **do not derive the audited candidate from the moving PR #638 head**;
+3. fetch `shared_standard_ref` and verify it resolves exactly to `shared_standard_head`;
+4. audit only those exact revisions.
+
+If the supplied sealed ref/SHA pair does not match, or only a moving PR head is supplied:
+
+> **INVALID — candidate revision not immutably bound**
 
 A PASS certifies only `candidate_head`.
 
@@ -200,7 +213,9 @@ Write:
 with at least:
 
 ~~~text
+candidate_ref
 candidate_head
+shared_standard_ref
 shared_standard_head
 audit_started_at
 contamination_status
