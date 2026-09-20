@@ -103,9 +103,30 @@ Current evidence:
 - active Forecast work identifies this as a real 306-scope risk and uses a historical ~16-point working prior;
 - that historical point estimate is **not** a 2027 official exact truth.
 
+Current Question Truth adds a stronger historical shape:
+
+- 2024: N108–N115 = 8 consecutive humanistic questions;
+- 2025: N108–N115 = 8 consecutive humanistic questions;
+- 2026: N108–N115 = 8 consecutive humanistic questions;
+- under the current historical modern scoring geometry, each is 2 points → **16 points total**.
+
+Recent historical themes are stable enough to define a minimal reconstruction target without inventing a giant curriculum:
+
+1. professional spirit / professional responsibility / conflicts of interest;
+2. doctor-patient communication;
+3. patient rights, privacy, informed consent and confidentiality;
+4. research / clinical-trial / specimen / translational ethics;
+5. physician-law / public-health / regulatory obligations.
+
+This does **not** prove that 2027 will keep N108–N115 or exactly 16 points. It proves that the recent historical exam has repeatedly treated this as a material score domain.
+
 Therefore the current hard gap is not “does humanism belong to the construct?”; it is:
 
 > exact Current-year scope + canonical owner + training/evidence closure.
+
+Loss-envelope implication:
+
+> Historical 16-point humanism exposure consumes 64% of the entire 25-point working loss envelope if left uncontrolled. Treat 16 as points-at-risk prior, not predicted loss.
 
 Required closure:
 
@@ -294,9 +315,12 @@ Priority is learner/score impact, not repository neatness.
 ## P0 — close exam-scope truth
 
 1. **Humanistic/non-System hard coverage**
+   - recent Current Question Truth confirms a repeated 8-question / 16-point historical modern-paper domain;
+   - highest immediate Stage-A learner-impact gap.
 2. **2027 exam-format/current-year scope delta**
+   - currently authority-BLOCKED; keep 165-question geometry historical-only until Current official source appears.
 
-Reason: an unowned scoring domain invalidates the loss-envelope model.
+Reason: an unowned scoring domain invalidates the loss-envelope model; an unpublished/unknown current-year geometry must stay explicit rather than delay all work.
 
 ## P1 — close known workload/routing truth
 
