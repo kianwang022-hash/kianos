@@ -203,3 +203,271 @@ Proceed:
 9. start Real Learner U calibration.
 
 Stop when remaining uncertainty requires unpublished current-year source or real Kian learning.
+
+
+---
+
+## 9. Politics lifecycle stage plan
+
+This plan uses dates as capacity windows, not as automatic learning-state truth. A stage may carry a bounded tail forward when evidence shows that doing so is safer than forcing calendar completion.
+
+### S0 — Day-1 Ready / system readiness
+
+**Purpose**
+
+Tomorrow's learner path must work before whole-lifecycle maturity work is finished.
+
+**Learner-visible requirement**
+
+```text
+Home / Chat Plan
+→ one Politics Next Action
+→ Chengfeng / Xiao1000 / Memory / Review as selected
+→ evidence
+→ Resume / next-day continuation
+```
+
+**Backend tasks before/while real use begins**
+
+- first-round runtime remains frozen unless real learner friction appears;
+- Politics forecast reads real minutes and first-attempt evidence instead of inventing completion;
+- later-stage assets are prepared in the background without creating learner debt;
+- day-1 learner evidence begins calibrating throughput/W-U/retention.
+
+**S0 exit**
+
+Real study can start with no known blocker. Whole-lifecycle maturity may still remain PARTIAL.
+
+---
+
+### S1 — Objective Engine / First-round Closure
+
+Reference window: now → around 10/20.
+
+**Score purpose**
+
+Build the Objective path required for Protect 70 and create the evidence base for later Push 75.
+
+**Learner work**
+
+```text
+reactivate Chengfeng NU
+→ compress only what reduces future work
+→ consume all newly-ready Xiao1000
+→ record W/U without immediate ritual
+→ batch causal Review
+→ admit only justified Memory
+→ continue
+```
+
+**Primary capabilities**
+
+- relation/model recovery;
+- option proposition judgment;
+- single-choice discrimination;
+- multiple-choice boundary control;
+- selective exact retrieval;
+- fast causal repair.
+
+**Main material**
+
+- 160 Chengfeng Natural Units;
+- 1148 Xiao1000 learning questions;
+- refined backside explanations;
+- Current compression/bridges;
+- selective Memory.
+
+**Low-cost Analysis preparation**
+
+Do not wait until November to discover that material→principle reasoning is weak.
+
+Use only a bounded low-cost probe when useful:
+
+```text
+stable-source material cue
+→ IDENTIFY
+→ 3–5 move SKELETON
+```
+
+No current-year exact wording is invented.
+
+**S1 evidence**
+
+- Politics actual minutes;
+- first-attempt single/multiple counts and W/U separately;
+- W/U root-cause compression;
+- selective Memory FORGOT/FUZZY/STABLE;
+- structural progress / remaining tail;
+- a small analysis identification/skeleton baseline when collected.
+
+**S1 exit gate**
+
+Not “the calendar reached 10/20”.
+
+Exit when:
+
+- first-round scope is complete or remaining tail is bounded and forecast-safe;
+- Xiao1000 learning consumption is sufficiently advanced to expose major objective failure modes;
+- repeated W/U causes are not expanding uncontrollably;
+- Memory is selective rather than exploding;
+- current evidence supports a viable Objective 40+ path or clearly names the remaining blocker;
+- later Analysis work can begin without the unfinished first round consuming the whole next phase.
+
+---
+
+### S2 — Consolidation + Analysis Build
+
+Reference window: around 10/21 → 11/15.
+
+**Score purpose**
+
+Protect Objective 40+ while building a real Analysis 30+ path.
+
+**Objective work**
+
+- second-pass compression driven by actual W/U;
+- multiple-choice boundary repair;
+- exact Memory only where source/learner evidence justifies it;
+- no full Xiao1000 replay by default.
+
+**Analysis work**
+
+```text
+IDENTIFY
+→ SKELETON
+→ MATERIAL BINDING
+→ EXACT where current-year source authorizes it
+→ selective DELIVER
+```
+
+**Current-year source integration**
+
+As handbook/current-affairs material arrives:
+
+```text
+real source
+→ provenance/fidelity bind
+→ compare with stable Current + legacy baseline
+→ stable / updated / new / retired / current-year-only
+→ update exact Memory / output overlays only where justified
+```
+
+**S2 evidence**
+
+- delayed Objective stability;
+- Memory retention/relapse;
+- new-material analysis identification;
+- skeleton completeness;
+- explicit material binding quality;
+- first complete analysis outputs;
+- repair→independent-output evidence;
+- actual assimilation cost of current-year material.
+
+**S2 exit gate**
+
+- Objective floor remains viable without broad relearning;
+- Analysis can identify and structure unseen material reliably enough that exact/current wording, not basic reasoning, is the main remaining gap;
+- at least one complete-output cycle exists for important analysis families;
+- no large hidden Memory/current-affairs ingestion debt is silently accumulating;
+- Forecast can state what still threatens Protect 70.
+
+---
+
+### S3 — Current-year Conversion / Xiao8 / Mock
+
+Reference window: 11/16 → 12/05.
+
+**Score purpose**
+
+Turn Protect 70 from a structural path into current-year performance evidence; measure Push-75 upside.
+
+**Learner work**
+
+- Xiao8 / current-year fresh objective evidence when available;
+- current-year analysis material;
+- timed complete analysis answers;
+- mixed objective + analysis switching;
+- full Mock only when whole-paper evidence can change a decision;
+- smallest repair after fresh failures.
+
+**Evidence priority**
+
+```text
+fresh current-year task
+> exposed/repeated training item
+```
+
+**S3 exit gate**
+
+Protect 70 is not called secure merely because training assets look strong.
+
+Require phase-appropriate evidence that:
+
+- objective performance is current-year/fresh enough to support the floor;
+- analysis answers can bind material and complete under realistic time;
+- whole-paper switching/completion does not reveal a major hidden failure;
+- remaining gaps are finite and compressible before the exam.
+
+Only then may most additional Politics capacity become Push-75 Elastic.
+
+---
+
+### S4 — Xiao4 / Final Compression
+
+Reference window: 12/05 → exam.
+
+**Score purpose**
+
+Protect exam-day 70 reliability, then spend remaining high-value capacity on 75 upside.
+
+**Eligible final queue**
+
+- admitted high-value exact Memory;
+- current-year exact overlays;
+- high-frequency Analysis skeletons;
+- still-relevant repeated W/U;
+- Mock-exposed real weaknesses;
+- Xiao4/final current-year deltas.
+
+**Default exclusions**
+
+- stable whole-course replay;
+- full Xiao1000 replay;
+- candidate-only Memory never admitted;
+- legacy wording without current-year support;
+- rich explanations reconstructable under exam conditions.
+
+**S4 control**
+
+```text
+Protect-70 risk first
+→ finite final queue
+→ Push-75 Elastic only where marginal value remains high
+→ reject broad new scope
+```
+
+**Terminal gate**
+
+At T-1/T0:
+
+- no architecture work;
+- no forecast tuning for its own sake;
+- no historical hour debt;
+- no broad new learning scope;
+- execute the exam.
+
+---
+
+## 10. Stage implementation map
+
+| System capability | S0 | S1 | S2 | S3 | S4 |
+| --- | --- | --- | --- | --- | --- |
+| First-round Chengfeng/Xiao1000 runtime | READY | primary | maintenance/repair | low-frequency | final weak points only |
+| Politics Forecast | seed + calibrate | workload/objective | add Analysis/current-year assimilation | score-path/current-year | final risk only |
+| Memory | selective | selective | current-year admission expands only when justified | stabilize | finite final queue |
+| Analysis asset bank | prepare | bounded baseline | primary Build/Verify | timed/current-year transfer | final skeleton/exact recall |
+| Future Source ingestion | slots ready | wait safely | handbook/current-affairs active | Xiao8 active | Xiao4/final active |
+| Mock/whole-paper | no forced use | optional tiny probe only | local timed tasks | primary execution evidence | only if decision value remains |
+| Chat→Website | existing first-round path | existing path | reuse typed execution; Analysis may remain Chat-primary | source paper + Chat where cheaper | minimal final execution |
+| Real Learner U | starts | throughput/W-U/retention | analysis/assimilation | current-year score conversion | final reliability |
+
