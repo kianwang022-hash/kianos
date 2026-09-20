@@ -245,7 +245,8 @@ export function buildXizongStudyPacketFromStorage({
     practice: {
       holdout_years: clone(holdoutYears),
       wrong_uncertain: retained.wrongUncertainIds.map(attemptSummary),
-      marked_question_ids: clone(retained.markedIds)
+      marked_question_ids: clone(retained.markedIds),
+      ai_transfer_probes: clone((retained.transferProbeEvents || []).slice(0, 50))
     },
     pending_repair_inbox: clone(readJson(storage, repairInboxKey, null)),
     reserve_learning: clone(packetMeta.reserveItems || []),
@@ -255,7 +256,8 @@ export function buildXizongStudyPacketFromStorage({
       kp_recall: 'primary active-recall evidence; repeated real attempts remain append-preserved',
       memory: 'later recovery evidence; repair may clear a local weak queue but does not rewrite original Recall',
       repair: 'bounded repair task; completion does not automatically mean mastery',
-      question_attempt: 'formal question evidence; latest unresolved Wrong/Uncertain drives the default retained queue'
+      question_attempt: 'formal official-question evidence; latest unresolved Wrong/Uncertain drives the default retained queue',
+      ai_transfer_probe: 'generated transfer-only probe evidence; useful for targeted application/repair judgment but never formal score truth or official-question truth'
     },
     request_to_chat: [
       '请先按 current + learning_state.resume 说明我现在学到哪里，再看 evidence；不要把仓库完成度当成我的学习进度。',

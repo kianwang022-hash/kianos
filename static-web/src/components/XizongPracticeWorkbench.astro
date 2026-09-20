@@ -257,6 +257,7 @@ const payload = JSON.stringify({
     setXizongQuestionMarked,
     isXizongQuestionMarked
   } from '../lib/xizongQuestionAttempts.mjs';
+  import { normalizeXizongInlinePracticeQuestions } from '../lib/xizongSessionInstruction.mjs';
   import {
     XIZONG_RETAINED_SET_SCHEMA,
     XIZONG_RETAINED_SET_KEY,
@@ -338,32 +339,46 @@ const payload = JSON.stringify({
     if (data?.scopeKind === 'CHAT_SET') {
       const set = readJson(chatSetKey, null);
       const ids = Array.isArray(set?.question_ids) ? set.question_ids.map(String) : [];
+      let inlineQuestions = [];
+      try {
+        inlineQuestions = normalizeXizongInlinePracticeQuestions(set?.inline_questions || [], 'CHAT_SET');
+      } catch (error) {
+        console.error(error);
+        showChatSetError('专项训练里的 AI 变式题无法安全读取', '请让 Chat 重新生成这一组专项训练；网页不会自行修补题干、答案或知识绑定。');
+        return;
+      }
       const setId = String(set?.set_id || '');
       const phase = String(set?.study_phase || 'SECOND_PASS');
       const visibility = String(set?.result_visibility || 'immediate');
       const speed = String(set?.speed || 'normal');
-      const label = String(set?.label || 'Chat 自选题');
+      const label = String(set?.label || '专项训练');
       const allowHoldout = set?.allow_holdout === true;
+      const totalQuestions = ids.length + inlineQuestions.length;
 
-      if (!set || set?.schema !== 'kianos.xizong.chat_set.v1' || !setId || !ids.length) {
-        showChatSetError('还没有可执行的 Chat 题单', '请先从训练入口导入 Chat 为你生成的题单。');
+      if (!set || set?.schema !== 'kianos.xizong.chat_set.v1' || !setId || !totalQuestions) {
+        showChatSetError('还没有可执行的专项训练', '请先让 Chat 根据当前薄弱点生成一组专项训练。');
         return;
       }
       if (!['FIRST_PASS','SECOND_PASS','LATE_REVIEW'].includes(phase)) {
-        showChatSetError('这份 Chat 题单暂时无法执行', '题单的学习阶段设置不完整，请让 Chat 重新生成。');
+        showChatSetError('这份专项训练暂时无法执行', '训练组的学习阶段设置不完整，请让 Chat 重新生成。');
         return;
       }
       if (visibility !== 'immediate') {
-        showChatSetError('这份 Chat 题单只支持即时反馈', '如果想整段作答后再统一看结果，请使用整卷模式。');
+        showChatSetError('专项训练只支持即时反馈', '如果想整段作答后再统一看结果，请使用整卷模式。');
         return;
       }
       if (ids.some((id) => !/^xizong-official-\d{4}-n\d{3}$/.test(id))) {
-        showChatSetError('Chat 题单里有无法识别的题号', '请让 Chat 重新生成这份题单，网页不会自行猜测或替换题目。');
+        showChatSetError('专项训练里有无法识别的真题题号', '网页不会自行猜测或替换官方题目，请让 Chat 重新生成。');
         return;
       }
       const uniqueIds = [...new Set(ids)];
       if (uniqueIds.length !== ids.length) {
-        showChatSetError('Chat 题单里有重复题目', '网页不会自行删改题单，请让 Chat 重新生成一次。');
+        showChatSetError('专项训练里有重复真题', '网页不会自行删改训练组，请让 Chat 重新生成一次。');
+        return;
+      }
+      const inlineIds = new Set(inlineQuestions.map((row) => row.questionId));
+      if (ids.some((id) => inlineIds.has(id))) {
+        showChatSetError('专项训练题目身份冲突', 'AI 变式题不能伪装或覆盖官方真题身份。');
         return;
       }
 
@@ -371,46 +386,47 @@ const payload = JSON.stringify({
       const holdoutSet = new Set((Array.isArray(savedHoldout) ? savedHoldout : []).map(Number));
       const selectedHoldoutYears = [...new Set(ids.map((id) => Number(id.match(/official-(\d{4})-/)?.[1])).filter((year) => holdoutSet.has(year)))];
       if (selectedHoldoutYears.length && !allowHoldout) {
-        showChatSetError('Chat 题单命中整卷保留年份', `${selectedHoldoutYears.join('、')} 仍处于整卷保留状态；确认要使用后，请让 Chat 重新生成允许消耗保留年份的题单。`);
+        showChatSetError('专项训练命中整卷保留年份', `${selectedHoldoutYears.join('、')} 仍处于整卷保留状态；确认要使用后，请让 Chat 重新生成允许消耗保留年份的训练组。`);
         return;
       }
 
       try {
         const { years, byId, missing } = await hydrateQuestionIds(ids);
         if (missing.length) {
-          showChatSetError('Chat Set 含当前题库不存在的题号', `未找到：${missing.slice(0, 6).join('、')}${missing.length > 6 ? '…' : ''}`);
+          showChatSetError('专项训练含当前题库不存在的真题', `未找到：${missing.slice(0, 6).join('、')}${missing.length > 6 ? '…' : ''}`);
           return;
         }
-
+        const officialQuestions = ids.map((id) => byId.get(id));
         data = {
           ...data,
           systemId: `chat-set:${setId}`,
-          canonicalId: 'CHAT',
+          canonicalId: 'TARGETED',
           title: label,
-          questionCount: ids.length,
-          scopePath: 'private://chat-set',
-          scopeHash: `chat-set:${setId}`,
-          questionInventoryHash: `chat-set:${setId}`,
+          questionCount: totalQuestions,
+          scopePath: 'private://targeted-practice',
+          scopeHash: `targeted-practice:${setId}`,
+          questionInventoryHash: `targeted-practice:${setId}`,
           years: years.map(Number),
-          questions: ids.map((id) => byId.get(id)),
+          // Official questions stay first: they are the highest-value reusable exam asset.
+          // Inline AI probes only supplement a precise transfer question that true-question reuse does not answer cheaply enough.
+          questions: [...officialQuestions, ...inlineQuestions],
           studyPhase: phase,
           queueMode: 'EXPLICIT_SET',
-          attemptContext: 'CHAT_SET',
+          attemptContext: 'TARGETED_PRACTICE',
           resultVisibility: visibility,
           fastSweep: speed === 'fast',
           allowHoldout,
           holdoutRequired: false
         };
         const titleNode = root.querySelector('[data-practice-scope-title]');
-        if (titleNode) titleNode.textContent = `Chat · ${label}`;
+        if (titleNode) titleNode.textContent = `专项训练 · ${label}`;
         root.querySelector('[data-holdout-control]')?.setAttribute('hidden', '');
       } catch (error) {
         console.error(error);
-        showChatSetError('Chat Set 题目载入失败', '当前题目数据没有完整载入；网页没有替换、补猜或跳过任何题。');
+        showChatSetError('专项训练题目载入失败', '当前题目数据没有完整载入；网页没有替换、补猜或跳过任何题。');
         return;
       }
     }
-
 
     if (data?.scopeKind === 'RETAINED') {
       const set = readJson(retainedSetKey, null);
@@ -611,7 +627,12 @@ const payload = JSON.stringify({
     const resultFor = (id) => sweepState.results?.[id] || null;
     const paperDraftFor = (id) => sweepState.paperDraftAnswers?.[id] || null;
     const responseFor = (id) => paperMode && !paperSealed() ? paperDraftFor(id) : resultFor(id);
-    const markedFor = (id) => resolveXizongQuestionMarked(preferences, sweepState, id);
+    const probeQuestionIds = new Set((data.questions || [])
+      .filter((question) => question?.sourceKind === 'AI_TRANSFER_PROBE')
+      .map((question) => String(question.questionId || '')));
+    const markedFor = (id) => probeQuestionIds.has(String(id || ''))
+      ? Boolean(sweepState?.marks?.[String(id || '')])
+      : resolveXizongQuestionMarked(preferences, sweepState, id);
 
     const reviewMetaFor = (id) => sweepState.reviewMeta?.[id] || {};
     const persistReviewMeta = (patch = {}) => {
@@ -964,7 +985,9 @@ const payload = JSON.stringify({
       if (paperReady) paperReady.hidden = true;
       if (paperResult) paperResult.hidden = true;
       questionCard.hidden = false;
-      questionMeta.textContent = `${currentQuestion.year} · 第 ${currentQuestion.number} 题 · ${currentQuestion.questionType || '题'}`;
+      questionMeta.textContent = currentQuestion.sourceKind === 'AI_TRANSFER_PROBE'
+        ? `AI 变式 · 第 ${currentQuestion.number || currentIndex + 1} 题 · ${currentQuestion.questionType || '题'}`
+        : `${currentQuestion.year} · 第 ${currentQuestion.number} 题 · ${currentQuestion.questionType || '题'}`;
       questionProgress.textContent = `${currentIndex + 1} / ${activeQuestions.length}`;
       if (questionProgressSide) questionProgressSide.textContent = `${currentIndex + 1} / ${activeQuestions.length}`;
       stem.textContent = currentQuestion.stem;
@@ -1115,11 +1138,13 @@ const payload = JSON.stringify({
       if (!currentQuestion) return;
       const nextMarked = !markedFor(currentQuestion.questionId);
       const nextState = setXizongQuestionMarked(sweepState, currentQuestion.questionId, nextMarked);
-      const nextPreferences = setXizongGlobalQuestionMark(preferences, currentQuestion.questionId, nextMarked);
       if (!writeJson(sweepKey, nextState)) return;
-      if (!writeJson(preferenceKey, nextPreferences)) return;
       sweepState = nextState;
-      preferences = nextPreferences;
+      if (currentQuestion.sourceKind !== 'AI_TRANSFER_PROBE') {
+        const nextPreferences = setXizongGlobalQuestionMark(preferences, currentQuestion.questionId, nextMarked);
+        if (!writeJson(preferenceKey, nextPreferences)) return;
+        preferences = nextPreferences;
+      }
       renderTop();
       renderMap();
     };

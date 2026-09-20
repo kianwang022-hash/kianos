@@ -89,14 +89,14 @@ const papers = listXizongPaperSummaries();
       <details data-chat-set-import data-chat-set-import-base={base}>
         <summary>
           <div>
-            <span>Chat 自选题</span>
-            <strong>让 Chat 直接挑题，网页按给定顺序执行</strong>
+            <span>专项训练</span>
+            <strong>让 Chat 根据薄弱点组合真题复刷与精准变式</strong>
           </div>
           <em>导入 →</em>
         </summary>
         <div class="xzpChatSetImportBody">
-          <p>粘贴 Chat 生成的西综题单。题目顺序按 Chat 原样执行；网页不会补题、猜题或扩大范围。</p>
-          <textarea rows="9" data-chat-set-text placeholder="粘贴 Chat 生成的西综题单 JSON"></textarea>
+          <p>同一组可包含官方真题复刷和 AI 精准变式；真题优先，AI 只补充具体迁移验证。网页不会补题、猜题或扩大范围。</p>
+          <textarea rows="9" data-chat-set-text placeholder="粘贴 Chat 生成的专项训练 JSON"></textarea>
           <div>
             <button type="button" data-chat-set-start>导入并开始</button>
             <small data-chat-set-status>题单只保存在本机，不上传。</small>
@@ -108,13 +108,14 @@ const papers = listXizongPaperSummaries();
     <section class="xzpLandingFuture">
       <div>
         <span>统一训练</span>
-        <p>System、回收、整卷和 Chat 自选题都使用同一套作答、标记与复盘操作。</p>
+        <p>System、回收、整卷和专项训练都使用同一套作答、标记与复盘操作。</p>
       </div>
     </section>
   </section>
 </Base>
 
 <script>
+  import { normalizeXizongInlinePracticeQuestions } from '../../../lib/xizongSessionInstruction.mjs';
   import {
     XIZONG_RETAINED_SET_KEY,
     XIZONG_QUESTION_PREFERENCES_KEY,
@@ -181,11 +182,13 @@ const papers = listXizongPaperSummaries();
       try {
         const parsed = JSON.parse(input?.value || '');
         const ids = Array.isArray(parsed?.question_ids) ? parsed.question_ids.map(String) : [];
+        const inlineQuestions = normalizeXizongInlinePracticeQuestions(parsed?.inline_questions || [], 'MANUAL_TARGETED_PRACTICE');
         const validPhase = ['FIRST_PASS','SECOND_PASS','LATE_REVIEW'].includes(String(parsed?.study_phase || ''));
         const validSpeed = ['normal','fast'].includes(String(parsed?.speed || 'normal'));
         if (parsed?.schema !== 'kianos.xizong.chat_set.v1') throw new Error('schema');
         if (!String(parsed?.set_id || '').trim()) throw new Error('set_id');
-        if (!ids.length || ids.some((id) => !/^xizong-official-\d{4}-n\d{3}$/.test(id))) throw new Error('question_ids');
+        if (ids.some((id) => !/^xizong-official-\d{4}-n\d{3}$/.test(id))) throw new Error('question_ids');
+        if (!ids.length && !inlineQuestions.length) throw new Error('questions');
         if (new Set(ids).size !== ids.length) throw new Error('duplicate');
         if (!validPhase) throw new Error('study_phase');
         if (String(parsed?.result_visibility || 'immediate') !== 'immediate') throw new Error('result_visibility');
@@ -194,17 +197,19 @@ const papers = listXizongPaperSummaries();
         localStorage.setItem('kianos:xizong:chat-set:v1', JSON.stringify({
           schema: 'kianos.xizong.chat_set.v1',
           set_id: String(parsed.set_id),
-          label: String(parsed.label || 'Chat 自选题'),
+          label: String(parsed.label || '专项训练'),
           study_phase: String(parsed.study_phase),
           result_visibility: 'immediate',
           speed: String(parsed.speed || 'normal'),
           allow_holdout: parsed.allow_holdout === true,
-          question_ids: ids
+          question_ids: ids,
+          inline_questions: inlineQuestions
         }));
-        if (status) status.textContent = `已接收 ${ids.length} 题，正在开始…`;
+        const total = ids.length + inlineQuestions.length;
+        if (status) status.textContent = `已接收 ${total} 题（真题 ${ids.length} · AI变式 ${inlineQuestions.length}），正在开始…`;
         window.location.href = `${base}xizong/practice/chat-set/`;
       } catch (error) {
-        if (status) status.textContent = '无法导入：请让 Chat 重新生成标准西综题单；当前自选题只支持即时反馈。';
+        if (status) status.textContent = '无法导入：请让 Chat 重新生成标准专项训练；真题与 AI 变式都只支持即时反馈。';
       }
     });
   });

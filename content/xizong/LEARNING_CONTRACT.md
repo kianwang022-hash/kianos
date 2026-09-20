@@ -296,15 +296,29 @@ TTSX is not a second Question Runtime.
 
 ### Official System questions
 
-Official questions are reusable learning evidence after the System model exists.
+Official questions are a **highest-value reusable learning / verification asset** after the System model exists.
 
-They do not own first-learning order.
+They do not own first-learning order, but “already attempted” does **not** make a true question low value. The same official question may be deliberately reused across passes because each pass can test a different capability:
 
-Stable correct work should pass quickly.
+```text
+first pass   → coverage / obvious knowledge gaps
+second pass  → decisive condition / distractor discrimination / condition change
+late pass    → speed / switching / compressed retrieval / exam execution
+```
 
-Later passes may reuse the same official questions for discrimination, condition changes, cases, speed and transfer.
+Evidence meaning must still stay honest: a repeated correct answer is not fully fresh evidence merely because the item is valuable.
 
-Protected unseen material remains diagnostic capital and must not be consumed merely because Runtime can display it.
+Default priority for targeted weakness work is:
+
+```text
+high-value official-question reuse when it answers the current learning question
+→ otherwise a bounded AI fresh-transfer probe when a precise unseen variant would add real information
+→ never generate extra practice merely because the runtime can
+```
+
+AI probes are **supplementary transfer diagnostics**, not official Question Truth and not formal score evidence. They must be bound to Current canonical medical owners, use the existing Practice Workbench, and remain small: normally one probe for one unresolved learning question, with a second only when the first genuinely fails to discriminate the cause.
+
+Protected unseen official material remains diagnostic capital and must not be consumed merely because Runtime can display it.
 
 ---
 
