@@ -9,6 +9,7 @@ import {
 } from './englishSessionControl.mjs';
 import {
   EXAM_CHAT_PLAN_KEY,
+  validateExamChatPlanAgainstStorage,
   writeExamChatPlan
 } from './examChatPlan.mjs';
 import { installAndActivateXizongSessionInstruction } from './xizongSessionInstruction.mjs';
@@ -124,6 +125,10 @@ export async function applyPrivateControlCommand(storage,input,{day=localDay(),n
   const xizongSystemReturnOp=command.operations.find(op=>op.kind==='xizong.system_wu_return')||null;
   const politicsMemoryOp=command.operations.find(op=>op.kind==='politics.memory_plan')||null;
   const planOp=command.operations.find(op=>op.kind==='exam.chat_plan')||null;
+
+  // Bind the plan to the real learner evidence that existed before any other
+  // operations in the same command can stage control-only state in shadow storage.
+  if(planOp)validateExamChatPlanAgainstStorage(storage,planOp.payload,day);
 
   if(englishOp){
     const catalog=await loadEnglishCatalog();
