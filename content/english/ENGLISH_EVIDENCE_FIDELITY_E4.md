@@ -1,6 +1,6 @@
 # English E4 — Evidence / Exposure / Long-horizon Fidelity
 
-Status: **ACTIVE CANDIDATE**
+Status: **CLOSED CANDIDATE · TARGETED PROOF + SELF-ATTACK PASS**
 Date: 2026-09-21
 Parent: `ENGLISH_HIGHEST_MATURITY_STAGE_PLAN.md#E4`
 
@@ -245,3 +245,92 @@ R1–R6 IMPLEMENTED_CANDIDATE
 ```
 
 No new learner UI, scheduler, mastery state or review calendar was added.
+
+
+---
+
+## 7｜Bounded self-attack
+
+Attacked all-green failure cases:
+
+1. same exact rendered source exposed under object A, then presented as object B;
+2. learner explicitly declares an exact source exposed before opening it, then the same source appears under another object id;
+3. later Chat attempts to overwrite known exposure with an `unseen` declaration;
+4. prior Chat discussion materially cues the task but no on-page help button was used;
+5. recent exact attempts omit an older recurring Repair / Transfer target;
+6. long-horizon recurrence ledger is unreadable/corrupt;
+7. Whole Paper objective score is exact but one or more constituent tasks are exposed / assisted;
+8. content-specific Chat help occurs before a Whole Paper without identifying a specific section;
+9. source revision differs from the attempt's bound source hash;
+10. first evidence is revisited after later Repair.
+
+Result:
+
+- exact-source aliases cannot regain clean/unseen status;
+- Chat may downgrade evidence to assisted/unknown but cannot manufacture unassisted;
+- unreadable recurrence remains UNKNOWN and can require deeper review;
+- recent-window absence is not treated as long-horizon absence;
+- Whole Paper keeps section-level contamination plus paper-level assistance context;
+- source revision remains fail-closed under existing attempt/session invariants;
+- first evidence remains immutable.
+
+No new material all-green evidence-fidelity failure was found.
+
+---
+
+## 8｜Targeted proof
+
+Latest tested candidate:
+
+`b164fc8f45b8218cec37fd9014a18ca900515509`
+
+Relevant PASS:
+
+- English Family Coherence — PASS
+- Private Chat Control — PASS
+- Objective Learner Journey — PASS
+- Static Web Writing QA — PASS
+- Static Web Translation QA — PASS
+- English Exam Session — PASS
+- Final Cross-subject Regression — PASS
+- Semantic Base Validity — PASS
+
+The Private Chat Control red seen on earlier heads was traced to three browser fixtures with hard-coded `2026-09-20` study dates after the Shanghai study day had advanced to 2026-09-21. Product/runtime behavior was not changed; the fixtures were made study-day-relative. The same latest head then passed Private Chat Control.
+
+Governance Anti-Entropy remains red on the existing repository-wide Current-length rule and is not an E4 evidence-fidelity regression.
+
+---
+
+## 9｜E4 final verdict
+
+**CLOSED CANDIDATE.**
+
+The evidence reaching Chat / later Forecast can now preserve:
+
+```text
+exact source identity
++ exposure
++ assistance
++ first-evidence identity
++ source revision
++ long-horizon Repair / Transfer recurrence
++ Whole Paper constituent contamination
++ paper-level prior assistance
+```
+
+without creating a second learner ledger, mastery score, scheduler or Website strategy engine.
+
+Remaining unknowns after E4 are not evidence-fidelity blockers. They primarily concern:
+
+- Kian's current Objective residual performance;
+- productive first-output level;
+- task durations;
+- delayed Lexical retention;
+- paper/handwriting modality;
+- real learner friction.
+
+Next action is **not automatic E5 implementation**.
+
+Next:
+
+> audit remaining maturity domains against existing English owners; mark satisfied domains as satisfied and repair only concrete SYSTEM_LOGIC gaps.
