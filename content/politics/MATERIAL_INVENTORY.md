@@ -46,7 +46,7 @@ Generate/add objective material only for a named need such as:
 
 ## 2. Analysis structural baseline
 
-Recovered audited later-stage candidate hooks:
+Recovered audited later-stage structural hooks:
 
 | Subject | Analysis hooks | Role | Current-year risk |
 | --- | ---: | --- | --- |
@@ -55,27 +55,27 @@ Recovered audited later-stage candidate hooks:
 | Xi | 15 | structural topic/skeleton baseline | high / very-high current-year delta |
 | History | 8 | stable historical causal/output baseline | mostly stable; recent-history section higher delta |
 | Ethics/Law | 7 | conceptual/output baseline | conceptual portions stable; legal exactness high freshness |
-| **Total** | **38** | candidate topic/skeleton baseline | exact use depends on domain |
+| **Total** | **38** | historical topic/skeleton baseline | exact use depends on domain |
 
-These hooks are readiness/candidate assets, not automatic learner tasks and not 2027 exact-answer authority.
+These hooks are structural baseline assets, not automatic learner tasks and not 2027 exact-answer authority.
 
 ---
 
 ## 3. Generated Analysis drill bank
 
-Current candidate: content/politics/analysis-output/drill-bank.*.v1.json
+Current validated structural bank: `content/politics/analysis-output/drill-bank.*.v1.json`
 
 Current inventory:
 
 | Role | Count | Current status | Can use now? |
 | --- | ---: | --- | --- |
-| Principle Retrieval | 30 | candidate; source-grounded stable structural topics | yes after revalidation |
-| Skeleton | 30 | candidate | yes after revalidation |
-| Material Binding | 8 | candidate | yes after revalidation |
-| Complete Analysis | 8 | candidate | yes selectively after revalidation |
-| Stress / competing-principle | 8 | candidate repaired after builder self-attack | yes after revalidation |
-| Stable Formulation Retrieval | 8 | candidate | yes after revalidation |
-| Material Segmentation | 12 | candidate / multi-subject | yes after revalidation |
+| Principle Retrieval | 30 | READY bounded structural bank | yes for structural training |
+| Skeleton | 30 | READY bounded structural bank | yes for structural training |
+| Material Binding | 8 | READY bounded structural bank | yes for structural training |
+| Complete Analysis | 8 | READY bounded structural bank | yes selectively; not numeric score calibration |
+| Stress / competing-principle | 8 | READY after bounded builder repair | yes for discrimination stress |
+| Stable Formulation Retrieval | 8 | READY only for stable/low-delta formulation | yes within freshness gate |
+| Material Segmentation | 12 | READY bounded multi-subject structural bank | yes for structural training |
 
 Hard boundary:
 
@@ -83,31 +83,15 @@ Hard boundary:
 - generated success != precise real-exam score evidence;
 - same prompt after reveal = Repair only, never fresh Transfer.
 
-### Analysis material gap A — Material Segmentation — CLOSED IN CANDIDATE
+### Analysis material gap A — Material Segmentation — CLOSED FOR SYSTEM CANDIDATE
 
 The Politics-specific maturity standard requires material segmentation as a distinct capability.
 
-Dedicated segmentation coverage has now been added and revalidated at builder level.
+Dedicated segmentation coverage has been added across multiple Politics domains and is machine-validated at the system-candidate level. The bank keeps decisive material cues separate from full theory answers and preserves anti-leakage. Learner stability remains Real-U evidence, not a material-system claim.
 
-Required closure:
+### Analysis material gap B — Mao-specific output coverage — CLOSED AT PRE-CURRENT-YEAR STRUCTURAL BOUNDARY
 
-- prepare a bounded segmentation set across multiple Politics domains;
-- learner identifies event/claim/conflict/cause/effect/evaluation/action cues before principle retrieval;
-- prompt must not leak the intended principle;
-- answer key should specify decisive material cues, not a full theory answer.
-
-### Analysis material gap B — Mao-specific output coverage — BOUNDED STRUCTURAL COVERAGE ADDED
-
-Historical later-stage audit deliberately created **no Mao dedicated output bank** because the source did not justify inventing one.
-
-This is safer than false completeness, but for whole-subject Analysis readiness it remains a coverage question.
-
-Required closure:
-
-- inspect Current Mao stable knowledge + strongest legitimate output baseline;
-- if stable task families can be source-grounded, build a bounded Mao structural bank;
-- otherwise preserve UNKNOWN / SOURCE_GAP until a designated later source justifies it;
-- do not generate Mao answer templates for symmetry.
+Historical later-stage material had no dedicated Mao output hooks, so the current bank added only a bounded structural layer grounded in stable Current Mao knowledge. It deliberately does not invent annual exact-answer templates. This closes the pre-current-year structural material gap while keeping current-year exactness SOURCE GATED.
 
 ---
 
@@ -268,29 +252,32 @@ Do not consume old/exposed training assets as if they were fresh current-year sc
 | Capability | Material coverage |
 | --- | --- |
 | prompt interpretation | READY bounded baseline — retrieval/skeleton/stress tasks + diagnostic rubric |
-| material segmentation | CANDIDATE READY — 12 tasks |
-| principle retrieval | CANDIDATE READY |
-| skeleton | CANDIDATE READY |
+| material segmentation | READY BOUNDED — 12 tasks |
+| principle retrieval | READY BOUNDED |
+| skeleton | READY BOUNDED |
 | material binding | READY bounded baseline — 8 dedicated tasks |
-| stable formulation retrieval | CANDIDATE READY |
+| stable formulation retrieval | READY BOUNDED for low-delta source-supported wording |
 | current-year exact formulation | FUTURE |
 | complete output | READY bounded baseline — 8 time-boxed tasks; authentic modality later |
-| stress/competing principle | CANDIDATE READY |
+| stress/competing principle | READY BOUNDED |
 | timed output | FUTURE/REAL-U |
 | whole-paper output | FUTURE/REAL-U |
 | scoring calibration | DIAGNOSTIC READY; precise exam-score conversion SOURCE/REAL-U GATED |
-| Mao-specific structural coverage | CANDIDATE READY — bounded Current-knowledge structure only |
+| Mao-specific structural coverage | READY BOUNDED — Current-knowledge structure only; annual exactness not claimed |
 
 ---
 
 ## 10. Material priority
 
-### Must close before SYSTEM_LOGIC_ACCEPTED
-1. machine-validate current 104-task bank against the Politics maturity invariants;
-2. finish Forecast decision-flip/metamorphic attacks;
-3. close full-lifecycle + Fresh Chat / No-Website proof.
+### Builder material/system gates
+The following are complete on the current freeze candidate:
+1. machine validation of the 104-task structural bank;
+2. Forecast decision-flip/metamorphic attacks;
+3. full-lifecycle + Fresh Chat / No-Website builder proof.
 
-Legitimate later gates:
+The remaining **freeze** gate is not a material gap: shared mother-standard §23 requires a Fresh Independent / Anti-Anchored Audit of the exact candidate revision.
+
+Legitimate later evidence/source gates:
 - current-year source content as it actually arrives;
 - real timed/whole-paper learner evidence;
 - precise scoring calibration strong enough to narrow Analysis /50.
@@ -313,21 +300,26 @@ Tomorrow's Objective learning path already has sufficient Current material.
 No current material gap justifies delaying real first-round Politics study.
 
 ### Whole-cycle Protect 70
-**PARTIAL**
+**SYSTEM MATERIAL READY / FINAL PERFORMANCE EVIDENCE GATED**
 
-Main material blockers:
-- Analysis segmentation;
-- Analysis scoring validity;
-- Mao output coverage;
-- unpublished current-year later sources;
-- current-year fresh timed/whole-paper evidence.
+No known currently-buildable material-system gap remains:
+- segmentation is present in the bounded structural bank;
+- Mao has bounded stable-knowledge structural coverage without invented annual exactness;
+- the diagnostic scoring rubric is usable without pretending to be a narrow /50 converter;
+- future source families already have ingestion/fallback/supersession slots.
+
+Final Protect-70 confidence still legitimately requires:
+- unpublished current-year source bytes when those domains matter;
+- Kian-specific transfer/timing/handwriting evidence;
+- authentic timed/whole-paper evidence;
+- stronger external scoring calibration before a narrow Analysis score claim.
 
 ### Push 75
-**PARTIAL / FUTURE-EVIDENCE DEPENDENT**
+**SYSTEM MATERIAL READY / FUTURE-EVIDENCE DEPENDENT**
 
-Requires:
+Upside still requires:
 - residual multiple-choice/fresh transfer evidence;
-- stronger Analysis output;
+- stronger real Analysis output;
 - current-year exactness;
 - timed/whole-paper evidence;
 - Real Learner U.
