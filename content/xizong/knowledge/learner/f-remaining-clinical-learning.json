@@ -81,13 +81,23 @@
         "mode": "WHOLE_BLOCK_SOURCE"
       },
       "F4": {
-        "mode": "WHOLE_BLOCK_SOURCE"
+        "mode": "NATURAL_SOURCE_UNITS",
+        "units": [
+          "systemic burn mechanism + area/depth/severity visual formation",
+          "time-phase + fluid-resuscitation logic; exact first-day formula remains original-Source visual / fail-closed",
+          "infection/wound handling + inhalation-airway/final case routing"
+        ]
       },
       "F5": {
         "mode": "WHOLE_BLOCK_SOURCE"
       },
       "F6": {
-        "mode": "WHOLE_BLOCK_SOURCE"
+        "mode": "NATURAL_SOURCE_UNITS",
+        "units": [
+          "post-anesthesia positioning + routine recovery / suture-drain timing",
+          "postoperative time/system/evidence deviations: fever, pulmonary, urinary, bleeding and GI recovery",
+          "incision class/healing grade + hematoma/seroma/infection/dehiscence"
+        ]
       },
       "F7": {
         "mode": "WHOLE_BLOCK_SOURCE"
@@ -372,7 +382,9 @@
         ],
         "job": "STERILE_FIELD_CONTROL",
         "goal": "maintain operative-field direction/boundaries and respond correctly to contamination or special pathogens",
-        "closure": "identify when the sterile field is broken and choose the smallest corrective action without inventing extra protocol"
+        "closure": "identify when the sterile field is broken and choose the smallest corrective action without inventing extra protocol",
+        "visual_required": true,
+        "visual_source_state": "VISUAL_SOURCE_GAP_ORIGINAL_PAGE_NOT_MOUNTED"
       },
       {
         "id": "F3-LG03",
@@ -567,7 +579,9 @@
         ],
         "job": "ANESTHESIA_FUNCTION_AND_AIRWAY",
         "goal": "separate anesthesia functions from preop metabolic/premedication context and airway protection",
-        "closure": "state which function is missing—hypnosis, analgesia, reflex suppression, relaxation, airway/ventilation or hemodynamic support—before choosing a drug"
+        "closure": "state which function is missing—hypnosis, analgesia, reflex suppression, relaxation, airway/ventilation or hemodynamic support—before choosing a drug",
+        "visual_required": true,
+        "visual_source_state": "VISUAL_SOURCE_GAP_ORIGINAL_SURGERY_IMAGES_NOT_MOUNTED"
       },
       {
         "id": "F7-LG02",
