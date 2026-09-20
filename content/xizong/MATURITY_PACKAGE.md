@@ -1,12 +1,12 @@
 # Xizong Maturity Package
 
-Status: **STAGE A ACTIVE · SCORE / SCOPE / MATERIAL TRUTH**  
+Status: **STAGE A CLOSED · STAGE B LEARNER-CAPABILITY MAINLINE · STAGE E REAL-U OVERLAY WHEN AVAILABLE**  
 Parent cursor: `content/xizong/CONTENT_MAINLINE.md`  
 Subject requirement source: `work/exam-subject-maturity-standard-20260920@7d3e2b6a62fc8303bb1574bd36d9f5b249058d37` → `content/xizong/MATURITY_REQUIREMENTS.md`
 
 Purpose:
 
-> Keep one practical Xizong maturity package that turns the 275 working target into capability, material, method, evidence, gap and next-owner truth.
+> Keep one practical Xizong maturity package that turns the 275 working target into capability, material, method, evidence, gap and next-owner truth. Stage A is closed; normal continuation now moves through real learner-capability evidence.
 
 This is not a second Knowledge, learner-state, Forecast or scheduler owner.
 
