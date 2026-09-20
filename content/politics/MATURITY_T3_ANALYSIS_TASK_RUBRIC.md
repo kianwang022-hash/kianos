@@ -417,13 +417,24 @@ Do not overwrite it.
 
 ## REPAIR
 
-The learner has seen diagnosis/reference and attempts the task again.
+The learner has seen diagnosis/reference and attempts the **same task revision** again.
+
+A durable REPAIR is valid only when the store already contains the immutable FIRST for that exact task/revision.
 
 Useful for learning evidence, not clean transfer.
 
 ## TRANSFER
 
 Fresh material / different question context designed to test whether the capability generalizes.
+
+Because the material identity changes, a TRANSFER has its own task identity/revision and must explicitly reference the earlier observed task through:
+
+```text
+transfer_of.task_id
+transfer_of.task_revision
+```
+
+The referenced task must already have FIRST or REPAIR evidence. A “transfer” on the same exact task is invalid.
 
 TRANSFER evidence is required before calling a repaired pattern robust.
 
