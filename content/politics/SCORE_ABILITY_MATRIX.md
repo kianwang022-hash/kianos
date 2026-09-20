@@ -558,17 +558,17 @@ P20/P50/P80 estimate capacity only; they do not specify today's task count.
 Objective first-round material/method      STRONG
 Objective learner calibration              UNKNOWN / REAL U NEEDED
 Objective current-year transfer            FUTURE
-Analysis structural semantics              PARTIAL-STRONG
-Analysis ready training inventory          INCOMPLETE
-Analysis evidence ladder                    INCOMPLETE
-Current-year exact analysis source          FUTURE
-Politics Forecast                           CANDIDATE / SENSOR+STRESS PROOF PENDING
+Analysis structural semantics              STRONG BOUNDED BASELINE
+Analysis ready training inventory          READY — 104 TASKS / 7 FAMILIES
+Analysis evidence ladder                    READY SYSTEM PATH / REAL U EMPTY
+Current-year exact analysis source          FUTURE / SOURCE GATED
+Politics Forecast                           CURRENT-SOURCE MODEL READY / ADVERSARIAL CLOSURE ACTIVE
 Dynamic control semantics                   ACTIVE POLITICS-NATIVE POLICY
 First-round Chat↔Website execution          STRONG
-Whole-lifecycle adversarial proof           INCOMPLETE
+Whole-lifecycle adversarial proof           ACTIVE
 ```
 
-The next build priority is therefore **Analysis ready inventory + Forecast**, not first-round UI expansion.
+The next engineering priority is **proof closure, not more learning architecture**: Analysis-bank machine validation → Forecast decision-flip/adversarial proof → lifecycle/Fresh-Chat/No-Website closure.
 
 
 ---
