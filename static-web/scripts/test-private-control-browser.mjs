@@ -9,7 +9,18 @@ import {
   validateEnglishGeneratedDrill
 } from './privateEnglishGeneratedDrillStore.mjs';
 
-const day='2026-09-20';
+const shanghaiDay=()=>{
+  const parts=new Intl.DateTimeFormat('en-US',{
+    timeZone:'Asia/Shanghai',
+    year:'numeric',
+    month:'2-digit',
+    day:'2-digit'
+  }).formatToParts(new Date());
+  const map=Object.fromEntries(parts.filter(part=>part.type!=='literal').map(part=>[part.type,part.value]));
+  return `${map.year}-${map.month}-${map.day}`;
+};
+const day=shanghaiDay();
+const nextDay=new Date(Date.parse(day+'T00:00:00Z')+86_400_000).toISOString().slice(0,10);
 const temp=fs.mkdtempSync(path.join(os.tmpdir(),'kianos-control-browser-'));
 const controlDir=path.join(temp,'control');
 const generatedDir=path.join(temp,'generated');
@@ -19,9 +30,9 @@ const externalPrivate=path.join(temp,'external-private');
 
 const drill=validateEnglishGeneratedDrill({
   schema:ENGLISH_GENERATED_DRILL_SCHEMA,
-  object_id:'external-chat-2026-09-20-relay-browser-001',
+  object_id:`external-chat-${day}-relay-browser-001`,
   study_day:day,
-  generated_at:'2026-09-20T00:10:00+08:00',
+  generated_at:day+'T00:10:00+08:00',
   origin:'CHAT_GENERATED_SYNTHETIC',
   completion_requirement:'QUESTIONS_SUBMITTED',
   training_target:{kind:'reading_transfer',note:'Private relay browser proof.'},
@@ -36,17 +47,17 @@ const drill=validateEnglishGeneratedDrill({
 const sessionId='english-relay-browser-session-1';
 const command={
   schema:'kianos.control-command.v1',
-  command_id:'control-20260920-browser-001',
+  command_id:`control-${day.replaceAll('-','')}-browser-001`,
   study_day:day,
-  generated_at:'2026-09-20T00:12:00+08:00',
-  expires_at:'2026-09-21T00:00:00+08:00',
+  generated_at:day+'T00:12:00+08:00',
+  expires_at:nextDay+'T00:00:00+08:00',
   operations:[
     {kind:'english.generated_drill',payload:drill},
     {kind:'english.session',payload:{
       schema:'kianos.english.session-instruction.v1',
       session_id:sessionId,
       study_day:day,
-      generated_at:'2026-09-20T00:11:00+08:00',
+      generated_at:day+'T00:11:00+08:00',
       current_step:0,
       steps:[{
         step_id:'reading',
@@ -61,7 +72,7 @@ const command={
     {kind:'exam.chat_plan',payload:{
       schema:'kianos.exam.chat-plan.v1',
       study_day:day,
-      generated_at:'2026-09-20T00:12:00+08:00',
+      generated_at:day+'T00:12:00+08:00',
       subjects:{
         xizong:null,
         english:{target_minutes:30,role:'稳推进',note:'自动下发。',session_ref:sessionId},
