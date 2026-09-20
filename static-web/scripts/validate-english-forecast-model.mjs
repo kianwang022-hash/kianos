@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import {
   ENGLISH_FORECAST_INPUT_SCHEMA,
   ENGLISH_FORECAST_MODEL_SCHEMA,
+  ENGLISH_PRODUCTIVE_SCORING_STANDARD_VERSION,
   ENGLISH_FORECAST_FAMILIES,
   buildEnglishWorkloadForecast,
   assessEnglishDeadlineFeasibility,
@@ -136,15 +137,16 @@ function baseInput(){
     task_families,
     score_channels:{
       objective:{range:{low:56,high:60},score_eligible:true,evidence_quality:'LOW_CONTAMINATION',modality:'PAPER'},
-      translation:{range:{low:7,high:8},score_eligible:true,evidence_quality:'INDEPENDENT',modality:'TYPED'},
-      writing_small:{range:{low:7,high:8},score_eligible:true,evidence_quality:'INDEPENDENT',modality:'TYPED'},
-      writing_big:{range:{low:14,high:16},score_eligible:true,evidence_quality:'INDEPENDENT',modality:'TYPED'}
+      translation:{range:{low:7,high:8},score_eligible:true,evidence_quality:'INDEPENDENT',modality:'TYPED',scoring_standard_version:ENGLISH_PRODUCTIVE_SCORING_STANDARD_VERSION},
+      writing_small:{range:{low:7,high:8},score_eligible:true,evidence_quality:'INDEPENDENT',modality:'TYPED',scoring_standard_version:ENGLISH_PRODUCTIVE_SCORING_STANDARD_VERSION},
+      writing_big:{range:{low:14,high:16},score_eligible:true,evidence_quality:'INDEPENDENT',modality:'TYPED',scoring_standard_version:ENGLISH_PRODUCTIVE_SCORING_STANDARD_VERSION}
     },
     whole_paper:{
       score_range:{low:84,high:90},
       score_eligible:true,
       evidence_quality:'LOW_CONTAMINATION',
-      modality:'PAPER'
+      modality:'PAPER',
+      productive_scoring_standard_version:ENGLISH_PRODUCTIVE_SCORING_STANDARD_VERSION
     },
     learner_parameters:{
       lexical_delayed_retention:null
@@ -382,7 +384,8 @@ function fitRank(status){
     score_range:{low:92,high:92},
     score_eligible:true,
     evidence_quality:'EXPOSED',
-    modality:'PAPER'
+    modality:'PAPER',
+    productive_scoring_standard_version:ENGLISH_PRODUCTIVE_SCORING_STANDARD_VERSION
   };
   const f=buildEnglishWorkloadForecast(input);
   assert.equal(f.score.integrated_whole_paper.declared_score_eligible,true);
@@ -400,6 +403,45 @@ function fitRank(status){
   assert.equal(f.score.formal_local_channel_band,null);
   assert.equal(f.score.local_status,'FORMAL_LOCAL_PATH_INCOMPLETE');
   assert.equal(f.score.score_path_confidence,'LOCAL_EVIDENCE_ONLY');
+}
+
+// 13e) A stale productive-scoring revision cannot preserve a formal local score path.
+{
+  const current=baseInput();
+  current.whole_paper={score_range:null,score_eligible:false,evidence_quality:'UNKNOWN',modality:'UNKNOWN',productive_scoring_standard_version:ENGLISH_PRODUCTIVE_SCORING_STANDARD_VERSION};
+  for(const id of ['translation','writing_small','writing_big']) current.score_channels[id].modality='PAPER';
+  const before=buildEnglishWorkloadForecast(current);
+  assert.deepEqual(before.score.formal_local_channel_band,{low:84,high:92});
+
+  const stale=clone(current);
+  stale.score_channels.translation.scoring_standard_version='english.productive-scoring.v1';
+  const after=buildEnglishWorkloadForecast(stale);
+  const row=after.score.channels.find((item)=>item.id==='translation');
+  assert.equal(row.scoring_standard_current,false);
+  assert.equal(row.formal_score_eligible,false);
+  assert.equal(after.score.formal_local_channel_band,null);
+  assert.equal(after.score.local_channel_band,null);
+  assert.ok(row.risks.includes('PRODUCTIVE_SCORING_STANDARD_STALE_OR_UNBOUND'));
+  assert.ok(after.uncertainty.includes('PRODUCTIVE_SCORING_STANDARD_UNBOUND_OR_STALE'));
+}
+
+// 13f) A stale productive-scoring revision cannot preserve INTEGRATED_HIGH Whole Paper confidence.
+{
+  const input=baseInput();
+  input.whole_paper={
+    score_range:{low:86,high:90},
+    score_eligible:true,
+    evidence_quality:'LOW_CONTAMINATION',
+    modality:'PAPER',
+    productive_scoring_standard_version:'english.productive-scoring.v1'
+  };
+  const f=buildEnglishWorkloadForecast(input);
+  assert.equal(f.score.integrated_whole_paper.productive_scoring_standard_current,false);
+  assert.equal(f.score.integrated_whole_paper.score_eligible,false);
+  assert.equal(f.score.integrated_whole_paper.status,'FORMAL_INELIGIBLE');
+  assert.notEqual(f.score.score_path_confidence,'INTEGRATED_HIGH');
+  assert.ok(f.score.integrated_whole_paper.risks.includes('WHOLE_PAPER_PRODUCTIVE_SCORING_STANDARD_STALE_OR_UNBOUND'));
+  assert.ok(f.uncertainty.includes('WHOLE_PAPER_PRODUCTIVE_SCORING_STANDARD_UNBOUND_OR_STALE'));
 }
 
 // 14) Backtest logic must expose calibration error without auto-replanning.
@@ -526,6 +568,8 @@ console.log(JSON.stringify({
     contradictory_assisted_score_eligibility_fails_closed:true,
     exposed_whole_paper_cannot_protect_integrated_target:true,
     typed_productive_cannot_protect_formal_local_target:true,
+    stale_productive_scoring_revision_cannot_protect_local_target:true,
+    stale_productive_scoring_revision_cannot_protect_integrated_target:true,
     local_score_does_not_impersonate_whole_paper:true,
     workload_monotonicity:true,
     capacity_monotonicity:true,
