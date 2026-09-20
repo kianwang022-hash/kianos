@@ -1,0 +1,198 @@
+{
+  "schema": "kianos.xizong.system_question_scope.v2",
+  "status": "CURRENT",
+  "authority": "CHAT_APPROVED_CURRENT_RECONSTRUCTION_FROM_REVIEWED_LECTURE_SCOPE_WITH_OWNER_REPAIR",
+  "system": {
+    "canonical_id": "E",
+    "system_id": "reproductive-breast",
+    "title": "Reproductive / Breast"
+  },
+  "role": "FIRST_PASS_SYSTEM_OFFICIAL_QUESTION_SCOPE_ONLY",
+  "learner_use": "After real E System completion + pre-question System Reconstruction, expand this exact identifier scope and run the E official-question sweep. Correct-and-clear may fast-pass; Wrong/Uncertain remain repair evidence.",
+  "question_count": 83,
+  "question_id_inventory_sha256": "7bca256102b4a8066672945c53861b72caf4184e61245c432d3abe689786e6da",
+  "id_expansion": {
+    "id_template": "xizong-official-{year}-n{number:03d}",
+    "spec_format": "comma-separated single numbers or inclusive a-b ranges",
+    "question_number_spec_by_year": {
+      "2005": "22,97",
+      "2006": "13,93",
+      "2007": "22,42,160,179-180",
+      "2008": "24,51,55,166,176",
+      "2009": "22,52,82",
+      "2010": "24,54,135-136,145-146,166",
+      "2011": "22,56",
+      "2012": "23,49,54,77,145-146,176",
+      "2013": "23-24,168,175",
+      "2014": "24,47,56,78,83,164",
+      "2015": "24,46,54,56,83,177",
+      "2016": "24,54,86",
+      "2017": "16,39,60,118,151",
+      "2018": "16,39",
+      "2019": "39,134-135,149",
+      "2020": "16,38,58",
+      "2021": "16,39,61",
+      "2022": "16,61",
+      "2023": "16,39",
+      "2024": "16,61,151",
+      "2025": "40,62,141",
+      "2026": "16,98-99,153"
+    }
+  },
+  "year_counts": {
+    "2005": 2,
+    "2006": 2,
+    "2007": 5,
+    "2008": 5,
+    "2009": 3,
+    "2010": 7,
+    "2011": 2,
+    "2012": 7,
+    "2013": 4,
+    "2014": 6,
+    "2015": 6,
+    "2016": 3,
+    "2017": 5,
+    "2018": 2,
+    "2019": 4,
+    "2020": 3,
+    "2021": 3,
+    "2022": 2,
+    "2023": 2,
+    "2024": 3,
+    "2025": 3,
+    "2026": 4
+  },
+  "reconstruction": {
+    "mode": "CURRENT_RECONSTRUCTION_FROM_REVIEWED_LECTURE_SCOPE_WITH_CROSS_SYSTEM_OWNER_REPAIR",
+    "current_question_truth_identity_check": {
+      "owner_path": "content/xizong/questions/",
+      "question_count": 3750,
+      "current_question_id_inventory_sha256": "0abc1a3cadbb41b36808fe86ff58c21ede6f4297312e9fb4c2da62b865ef2c82",
+      "historical_and_current_question_id_inventory": "EXACT_MATCH_3750_OF_3750"
+    },
+    "historical_evidence": {
+      "source_repository": "kianwang022-hash/kianos-site-v238-recovery",
+      "source_ref": "a38444057dd46fbf1765052d17c5f6b6a018d2f7",
+      "exact_resolver": {
+        "path": "app/learning/xizong-question-pool.js",
+        "blob_sha1": "8b73c9e0a49e02ad3cf296832f90dd19fe4da161",
+        "function": "resolveSystemClosureFromSourceUnion"
+      },
+      "question_to_lecture_routing": {
+        "path": "public/xizong-system-source-routing.v1.local.json",
+        "blob_sha1": "e184f0fc899de0a6bf47c5b194fe328d2f1977de",
+        "row_count": 3750
+      },
+      "source_scope_contract": {
+        "path": "public/xizong-system-official-scope.v2.local.json",
+        "blob_sha1": "b239dba8e3e2969b47a534be9d5daa3e001ab5d3"
+      },
+      "historical_frozen_e_count": 35,
+      "limitation": "The frozen resolver captured only a subset of Current E because many reviewed reproductive/breast questions were located at exact Lecture-scope granularity that the old page-union resolver did not promote into E membership."
+    },
+    "current_e_owner": {
+      "system_owner": "content/xizong/knowledge/systems/e-reproductive-breast/system.json",
+      "block_count": 20,
+      "kp_count": 212,
+      "primary_source_families": [
+        "SR1–SR6 physiology reproductive control / gonadal / cycle / pregnancy / lactation",
+        "E1–E8 reproductive pathology",
+        "E12 breast pathology",
+        "E9/E10/E11/E13/E14 surgery male-development / benign breast / lactational infection / breast-cancer clinical-treatment"
+      ],
+      "explicit_negative_space": [
+        "prostate Primary remains outside E",
+        "generic HPV/STI/infection remains with infection owner except organ-specific cervical chain",
+        "tumor-general Primary remains external",
+        "complete obstetrics/gynecology management remains outside Current Source",
+        "complete male reproductive clinic remains outside Current Source"
+      ]
+    },
+    "accepted_membership_components": [
+      {
+        "component": "reproductive physiology",
+        "rule": "All reviewed qids whose Lecture scope starts with physiology|第十二章 生殖 are E Primary.",
+        "qid_count": 22
+      },
+      {
+        "component": "oxytocin control interface",
+        "qids": [
+          "xizong-official-2017-n118"
+        ],
+        "rule": "Current E SR1/SR6 owns reproductive control and oxytocin/lactation interface; Current B explicitly excludes reproductive endocrine/pregnancy management."
+      },
+      {
+        "component": "reproductive pathology",
+        "historical_scope": "pathology|第六章 生殖系统疾病|",
+        "routed_qid_count": 22,
+        "excluded_to_A3": [
+          "xizong-official-2007-n049",
+          "xizong-official-2022-n032"
+        ],
+        "accepted_e_qid_count": 20,
+        "rule": "Cervix/uterus/trophoblastic/ovarian pathology is E Primary; prostate Primary belongs A3."
+      },
+      {
+        "component": "breast pathology",
+        "historical_scope": "pathology|第七章 乳腺疾病|",
+        "accepted_e_qid_count": 11
+      },
+      {
+        "component": "surgery breast differential",
+        "historical_scope": "surgery|一、颈部和胸部疾病|串·乳房疾病鉴别",
+        "accepted_e_qid_count": 15
+      },
+      {
+        "component": "surgery breast cancer",
+        "historical_scope": "surgery|一、颈部和胸部疾病|3.乳腺癌",
+        "accepted_e_qid_count": 13
+      },
+      {
+        "component": "male-development surgical interface",
+        "accepted_qids": [
+          "xizong-official-2007-n160"
+        ],
+        "rule": "E9 owns the cryptorchid/processus-vaginalis interface. Other abdominal-hernia questions remain with their true owner. No second hydrocele qid is manufactured to match Outline item count."
+      }
+    ],
+    "cross_system_owner_repairs": [
+      {
+        "question_id": "xizong-official-2017-n118",
+        "transfer": "B → E",
+        "reason": "Oxytocin secretion regulation belongs Current E reproductive-control Primary; B marks reproductive endocrine/pregnancy management not_owned_here."
+      },
+      {
+        "question_id": "xizong-official-2022-n032",
+        "transfer": "E-source chapter → A3",
+        "reason": "Prostate-cancer hematogenous metastasis belongs Current A3 urinary-b13-lg05; E explicitly excludes prostate Primary."
+      },
+      {
+        "question_id": "xizong-official-2007-n049",
+        "status": "ALREADY_A3",
+        "reason": "Prostate-cancer pathology already belongs accepted A3 scope and stays excluded from E."
+      }
+    ],
+    "final_reconciliation": {
+      "final_count": 83,
+      "cross_system_overlap_with_A1_to_D": 0,
+      "unresolved_membership_ambiguities": []
+    },
+    "decision": "ACCEPT_CURRENT_E_SYSTEM_SCOPE_AFTER_REVIEWED_LECTURE_SCOPE_AND_OWNER_RECONCILIATION"
+  },
+  "runtime_validation": [
+    "Expand question_number_spec_by_year deterministically.",
+    "Require exactly 83 unique IDs.",
+    "Require expanded inventory SHA256 = 7bca256102b4a8066672945c53861b72caf4184e61245c432d3abe689786e6da.",
+    "Require Current Question Truth ordered-ID inventory SHA256 = 0abc1a3cadbb41b36808fe86ff58c21ede6f4297312e9fb4c2da62b865ef2c82.",
+    "Require zero overlap with accepted A1/A2/A3/B/C/D System-scope owners after the recorded cross-System repairs.",
+    "Fail closed if Current E/A3/B owner boundaries or Current Question Truth inventory changes."
+  ],
+  "boundaries": [
+    "System-level official-question membership only; not Question Truth.",
+    "Does not assert Question-to-Block, Question-to-Logic-Group, or Question-to-KP mapping.",
+    "Do not infer membership from nullable Current classification fields, keywords, Outline count, Block placement, or historical count fitting.",
+    "Reviewed Question→Knowledge relations remain a separate owner and may be sparse.",
+    "No learner attempt, mastery, Wrong/Uncertain, notes, Memory, holdout, or review state belongs in this shared Current scope owner."
+  ]
+}

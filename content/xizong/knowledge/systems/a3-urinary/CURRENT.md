@@ -11,11 +11,11 @@ This file does not own medical Core, Xizong learning semantics, Acceptance Truth
 
 **Scope:** A3 Urinary  
 **Active / earliest unresolved stage:** `U — real learner validation only`  
-**S status:** PASS — bounded Current reconstruction; 243 official questions, inventory SHA256 `bd8082bf9b82d00411f5d3dcaa09f56626c0c08b688e108f728f7da6e2f9b84e`.  
+**S status:** PASS — bounded Current reconstruction + cross-System owner repair; 244 official questions, inventory SHA256 `92685b073b9cbf00f67a61442872c1fea4ccf01fe50987e12e4ca646c90751c5`.  
 **K status:** PASS — Current System owner preserves 14 Blocks / 257 stable KPs / 75 Logic Groups.  
 **L status:** PASS — original Lecture is external-primary on iPad / MarginNote; KianOS owns orientation / Recall / closure / compression / repair; Chat is adaptive companion.  
 **P status:** PASS — A3 projects honestly through shared System/Block surfaces without duplicating the original Lecture or fabricating Question→KP mappings.  
-**R status:** PASS — executable Block/System Runtime, source-contact gates, Recall/completion guards, 243-question sweep, reviewed-only repair, resume and content-version invalidation are accepted.  
+**R status:** PASS — executable Block/System Runtime, source-contact gates, Recall/completion guards, 244-question sweep, reviewed-only repair, resume and content-version invalidation are accepted.  
 **E status:** PASS — Block evidence is single-writer; repeated real Recall attempts are preserved; Memory/repair do not rewrite original Recall; System→Block W/U repair uses a fail-closed cross-tab-safe inbox/bridge; stale Block/System evidence is archived/invalidated; A1/A2 regressions + shared inbox contract + A3 Runtime/Evidence + Astro build passed run `34720315859` (#194).  
 **Engineering blocker:** none.  
 **Current allowed conclusion:** **A3 is module-ready for learner test.**  
@@ -28,7 +28,7 @@ This file does not own medical Core, Xizong learning semantics, Acceptance Truth
 Frozen unless contradictory evidence appears:
 
 - `S / K / L / P / R / E = PASS`;
-- Source scope = 243 official questions across 2005–2026;
+- Source scope = 244 official questions across 2005–2026;
 - 14 canonical Blocks / 257 stable KPs / 75 Logic Groups;
 - original Lecture/MarginNote remains the primary continuous source surface;
 - KianOS remains orientation / retrieval / closure / compression / repair, not a second Lecture reader;
@@ -116,7 +116,7 @@ When Kian actually starts A3, collect path-scoped real-use evidence naturally ra
 - whether the Block / Logic Group cues help attention without becoming a second Lecture;
 - whether KP Recall timing feels cognitively right in real learning;
 - whether Block completion/resume matches actual study behavior;
-- later, whether System Recall → 243-question sweep is natural;
+- later, whether System Recall → 244-question sweep is natural;
 - whether W/U → Chat → repair inbox → owning Block → return to questions preserves the interrupted mainline;
 - whether any surface is too dense, too early, redundant or unclear during sustained use.
 
@@ -142,6 +142,7 @@ Real learner friction may reopen the earliest responsible L/P/R/E decision. Do n
 ### Artifact Truth
 
 - Source scope → `content/xizong/knowledge/learner/a3-urinary-question-scope.json`
+- Current S owner repair → `xizong-official-2022-n032` added from the broad reproductive-pathology route because prostate-cancer Primary belongs A3 Block13, not E.
 - System Knowledge → `content/xizong/knowledge/systems/a3-urinary/system.json`
 - medical Core → `content/xizong/knowledge/systems/a3-urinary/blocks/`
 - lane Learning constitution → `content/xizong/LEARNING_CONTRACT.md`

@@ -22,7 +22,7 @@ This file owns work cursor only. It does not own medical Core, accepted Learning
 
 ```text
 S1 Source boundary                     = PASS
-S2 exact official-question membership  = UNTESTED / separate later boundary
+S2 exact official-question membership  = PASS_AFTER_CROSS_SYSTEM_OWNER_REPAIR / 83 exact qids
 K  Knowledge                           = PASS_AFTER_BOUNDED_REPAIR
 L  Learning Logic                      = PASS_AFTER_BOUNDED_REPAIR
 Content                                = PASS_AFTER_BOUNDED_REPAIR
@@ -105,7 +105,7 @@ Live Source limits include:
 - no silent modernization of Current Study staging/treatment wording;
 - prostate, generic HPV/infection and tumor-general truth remain with their real external owners.
 
-Exact official E System question membership remains separately UNTESTED.
+Exact official E System question membership is accepted at 83 qids in the dedicated scope owner.
 
 ---
 
@@ -200,7 +200,7 @@ verdict                          = FRESH_CONTENT_PASS_AFTER_BOUNDED_REPAIR
 
 Fresh audit found two real missed generic fixed-flow wrappers in E8/E10. Only those wrapper lines were repaired to expose the accepted two-unit Source stop-lines and intermediate retrieval. No K/L or medical Core reopening was required.
 
-Visual gaps, E7 Source Gap, Current-Study version boundaries, external-owner boundaries and S2 UNTESTED remain explicit.
+Visual gaps, E7 Source Gap, Current-Study version boundaries and external-owner boundaries remain explicit. S2 is accepted separately and does not alter medical Content.
 
 ## E medical-content chain — CLOSED
 
