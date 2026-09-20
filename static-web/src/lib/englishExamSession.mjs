@@ -286,6 +286,7 @@ function examEvidenceContext(payload = {}) {
     assistance: String(payload?.assistance || 'unknown'),
     source_kind: String(payload?.source_kind || 'unknown'),
     evidence_role: payload?.evidence_role == null ? null : String(payload.evidence_role),
+    semantic_source_hash: payload?.semantic_source_hash == null ? null : String(payload.semantic_source_hash),
     timing_status: String(payload?.timing_status || 'uncalibrated'),
     independent_transfer_candidate: payload?.independent_transfer_candidate === true
   };
@@ -431,6 +432,7 @@ export function englishExamPayload(task, local) {
   const common={
     started_at:local.startedAt||local.createdAt||null,
     source_hash:binding.source_hash||local.sourceHash||null,
+    semantic_source_hash:evidence.semantic_source_hash||binding.source_hash||local.sourceHash||null,
     attempt_id:binding.attempt_id||null,
     prior_exposure:String(evidence.prior_exposure||'unknown'),
     assistance:String(evidence.assistance||'unknown'),
