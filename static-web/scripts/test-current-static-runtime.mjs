@@ -11,7 +11,7 @@ import { practiceReady } from '../src/lib/politicsPracticeView.mjs';
 const PORT = Number(process.env.KIANOS_STATIC_RUNTIME_TEST_PORT || 4491);
 const BASE = `http://127.0.0.1:${PORT}`;
 const webRoot = process.cwd();
-const astroBin = path.join(webRoot, 'node_modules', '.bin', 'astro');
+const staticServer = path.join(webRoot, 'scripts', 'kianos-static-server.mjs');
 const distRoot = path.join(webRoot, 'dist');
 const budgetMs = Number(process.env.KIANOS_STATIC_RUNTIME_WARM_BUDGET_MS || 250);
 const scratch = fs.mkdtempSync(path.join(os.tmpdir(), 'kianos-static-runtime-'));
@@ -21,11 +21,11 @@ fs.mkdirSync(privateDir, { recursive: true, mode: 0o700 });
 fs.mkdirSync(controlDir, { recursive: true, mode: 0o700 });
 
 assert.equal(fs.existsSync(path.join(distRoot, 'index.html')), true, 'STATIC_RUNTIME_DIST_MISSING');
-assert.equal(fs.existsSync(astroBin), true, 'STATIC_RUNTIME_ASTRO_MISSING');
+assert.equal(fs.existsSync(staticServer), true, 'STATIC_RUNTIME_SERVER_MISSING');
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 let output = '';
-const server = spawn(astroBin, ['preview', '--host', '127.0.0.1', '--port', String(PORT)], {
+const server = spawn(process.execPath, [staticServer, '--host', '127.0.0.1', '--port', String(PORT), '--root', distRoot], {
   cwd: webRoot,
   env: {
     ...process.env,
