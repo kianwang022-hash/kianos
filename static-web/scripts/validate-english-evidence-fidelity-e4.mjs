@@ -248,6 +248,7 @@ assert.equal(packet.long_horizon_recurrence.writing.pending,1);
 const local={
   binding:{
     source_hash:'paper-step-hash',
+    semantic_source_hash:'paper-semantic-hash',
     attempt_id:'paper-attempt-1',
     prior_exposure:'exposed',
     assistance:'assisted',
@@ -256,6 +257,7 @@ const local={
   },
   firstEvidenceMeta:{
     source_hash:'paper-step-hash',
+    semantic_source_hash:'paper-semantic-hash',
     attempt_id:'paper-attempt-1',
     prior_exposure:'exposed',
     assistance:'assisted',
@@ -272,6 +274,7 @@ const payload=englishExamPayload('reading_a',local);
 assert.equal(payload.prior_exposure,'exposed');
 assert.equal(payload.assistance,'assisted');
 assert.equal(payload.source_kind,'official');
+assert.equal(payload.semantic_source_hash,'paper-semantic-hash');
 assert.equal(payload.independent_transfer_candidate,false);
 
 const started=Date.parse('2026-09-21T01:00:00.000Z');
@@ -313,6 +316,7 @@ const summary=summarizeEnglishExamSession(session);
 assert.equal(summary.step_evidence.length,1);
 assert.equal(summary.step_evidence[0].evidence.prior_exposure,'exposed');
 assert.equal(summary.step_evidence[0].evidence.assistance,'assisted');
+assert.equal(summary.step_evidence[0].evidence.semantic_source_hash,'paper-semantic-hash');
 
 const released=releaseEnglishExamObjective({
   ...session,
@@ -333,6 +337,7 @@ assert.equal(released.release.objective.points,10);
 assert.equal(released.release.paper_assistance_context?.state,'assisted');
 assert.equal(released.release.objective.steps[0].evidence.prior_exposure,'exposed');
 assert.equal(released.release.objective.steps[0].evidence.assistance,'assisted');
+assert.equal(released.release.objective.steps[0].evidence.semantic_source_hash,'paper-semantic-hash');
 assert.equal(released.release.objective.steps[0].evidence.independent_transfer_candidate,false);
 
 // 5) Full-paper parent Chat assistance must remain visible without flattening constituent section facts.
@@ -372,6 +377,7 @@ console.log(JSON.stringify({
     whole_paper_constituent_assistance_preserved:true,
     whole_paper_release_keeps_contamination_context:true,
     whole_paper_parent_assistance_context_preserved:true,
-    whole_paper_release_root_assistance_context_preserved:true
+    whole_paper_release_root_assistance_context_preserved:true,
+    whole_paper_semantic_source_identity_preserved:true
   }
 },null,2));
