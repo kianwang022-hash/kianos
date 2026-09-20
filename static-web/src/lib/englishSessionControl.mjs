@@ -3,6 +3,18 @@ import {
   readEnglishExamSession,
   summarizeEnglishExamSession
 } from './englishExamSession.mjs';
+import {
+  compileRepairTargets,
+  normalizeLexicalLedger,
+  LEXICAL_LEDGER_STORAGE_KEY
+} from './lexicalEvidence.mjs';
+import {
+  introducedTotal,
+  normalizeLexicalIntake,
+  normalizeLexicalRouting,
+  LEXICAL_INTAKE_STORAGE_KEY,
+  LEXICAL_ROUTING_STORAGE_KEY
+} from './lexicalSettings.mjs';
 
 export const ENGLISH_SESSION_SCHEMA = 'kianos.english.session-instruction.v1';
 export const ENGLISH_SESSION_KEY = 'kianos-english-session-instruction-v1';
@@ -864,6 +876,56 @@ function englishForecastMaterialEvidence(storage, catalog) {
   };
 }
 
+function englishLexicalSupportEvidence(storage, now = Date.now()) {
+  const ledger = normalizeLexicalLedger(readJson(storage, LEXICAL_LEDGER_STORAGE_KEY) || null);
+  const intake = normalizeLexicalIntake(readJson(storage, LEXICAL_INTAKE_STORAGE_KEY) || null);
+  const routing = normalizeLexicalRouting(readJson(storage, LEXICAL_ROUTING_STORAGE_KEY) || null);
+  const repairs = compileRepairTargets(ledger);
+  const latest = Object.values(routing.latest_by_word || {});
+  const latestCounts = { unknown: 0, fuzzy: 0, known: 0, mastered: 0 };
+  for (const event of latest) {
+    const route = String(event?.route || '').toLowerCase();
+    if (Object.hasOwn(latestCounts, route)) latestCounts[route] += 1;
+  }
+
+  const cutoff = Number(now) - 30 * 24 * 60 * 60 * 1000;
+  const englishSources = new Set(['reading', 'cloze', 'translation', 'writing']);
+  const recentEnglishEvents = (Array.isArray(ledger.events) ? ledger.events : []).filter((event) => {
+    const at = Date.parse(String(event?.observed_at || ''));
+    return englishSources.has(String(event?.source || ''))
+      && Number.isFinite(at)
+      && at >= cutoff;
+  });
+  const failures = recentEnglishEvents.filter((event) => ['WRONG','AGAIN','SLOW'].includes(String(event?.outcome || '')));
+
+  return {
+    schema: 'kianos.english.lexical-support-evidence.v1',
+    introduced_total: introducedTotal(intake),
+    routing: {
+      latest_total: latest.length,
+      latest_counts: latestCounts,
+      evidence_boundary: 'Whole-card routing is a learner judgment / traversal signal, not mastery.'
+    },
+    repair: {
+      active_target_count: repairs.length,
+      active_word_count: new Set(repairs.map((target) => String(target?.word_id || '')).filter(Boolean)).size
+    },
+    english_task_events_30d: {
+      total: recentEnglishEvents.length,
+      failure_signals: failures.length,
+      by_source: Object.fromEntries([...englishSources].sort().map((source) => [
+        source,
+        {
+          total: recentEnglishEvents.filter((event) => event.source === source).length,
+          failure_signals: failures.filter((event) => event.source === source).length
+        }
+      ]))
+    },
+    evidence_boundary:
+      'Lexical support is causal evidence only. Coverage/routing does not prove mastery, and a lexical failure signal must not be counted twice as an English task failure and as extra score debt.'
+  };
+}
+
 function englishForecastProgress(storage, day) {
   const state = readEnglishSessionInstruction(storage, day);
   if (state.status !== 'ready' || !state.instruction) {
@@ -937,6 +999,7 @@ export function buildEnglishEvidencePacket(storage, { day, now = Date.now(), cat
     performance_profile: buildEnglishPerformanceProfile(rawInventory),
     forecast_progress: englishForecastProgress(storage, day),
     forecast_materials: englishForecastMaterialEvidence(storage, catalog),
+    lexical_support: englishLexicalSupportEvidence(storage, now),
     resume: englishResumeEvidence(storage, day),
     tasks: clone({
       reading_a: objectiveEvidence(storage, LAST_LOCATION_KEYS.reading_a, 'kianos-reading-attempt-v1:'),
