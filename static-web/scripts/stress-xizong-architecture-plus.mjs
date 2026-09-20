@@ -10,6 +10,8 @@ import {
   releaseBlockMemory,
   setRepairTasks,
   activeRepairTasks,
+  memorySummary,
+  selectMemoryView,
   todayMemoryQueue,
   xizongRetentionState
 } from '../src/lib/xizongMemoryModel.mjs';
@@ -120,8 +122,20 @@ assert.equal(scaleQueue.length, 90, 'scale-immediate-due-count');
 assertUniqueQueue(scaleQueue, 'scale');
 const admittedScale = new Set(scaleIds.slice(0, 250));
 assert.equal(scaleQueue.every((row) => admittedScale.has(row.id)), true, 'scale-library-leak');
-// Generous fail line: this is an interactive learner queue, not an offline batch.
-assert.ok(scaleMs < 8000, `scale-queue-pathological-runtime:${scaleMs.toFixed(1)}ms`);
+// Interactive Memory paths must stay comfortably sub-second at full KP order of magnitude.
+assert.ok(scaleMs < 500, `scale-queue-regressed-above-500ms:${scaleMs.toFixed(1)}ms`);
+
+const summaryStart = performance.now();
+const scaleSummary = memorySummary(scaleState, T0 + 30 * 60 * 1000);
+const summaryMs = performance.now() - summaryStart;
+assert.equal(scaleSummary.today, 90, 'scale-summary-today-mismatch');
+assert.ok(summaryMs < 500, `scale-summary-regressed-above-500ms:${summaryMs.toFixed(1)}ms`);
+
+const coreStart = performance.now();
+const scaleCoreView = selectMemoryView(scaleState, 'CORE', { now: T0 + 30 * 60 * 1000 });
+const coreViewMs = performance.now() - coreStart;
+assert.equal(scaleCoreView.items.length, 2517, 'scale-core-view-count');
+assert.ok(coreViewMs < 500, `scale-core-view-regressed-above-500ms:${coreViewMs.toFixed(1)}ms`);
 
 const untouchedProbe = xizongRetentionState(scaleState, scaleIds.at(-1), T0 + 90 * DAY);
 assert.equal(untouchedProbe.state, 'LIBRARY_ONLY', 'scale-untouched-became-time-debt');
@@ -428,7 +442,10 @@ console.log(JSON.stringify({
     released_cards: scaleIds.length,
     admitted_cards: admittedScale.size,
     immediate_due: scaleQueue.length,
-    queue_ms: Math.round(scaleMs * 10) / 10
+    queue_ms: Math.round(scaleMs * 10) / 10,
+    summary_ms: Math.round(summaryMs * 10) / 10,
+    core_view_ms: Math.round(coreViewMs * 10) / 10,
+    interactive_fail_line_ms: 500
   },
   ninety_day_memory: {
     released_cards: longIds.length,
