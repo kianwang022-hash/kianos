@@ -315,7 +315,9 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
     const contextLabel = root.querySelector('[data-study-context-label]');
     const statusLabel = root.querySelector('[data-study-local-status]');
     const totalKp = kpData.length;
-    let state = { stage: 'block_learn', groupIndex: 0, kpIndex: 0, learned: {}, ratings: {}, ttsxEvidence: {}, ttsxAnnotations: {}, pendingTtsx: null, blockRecallDone: false, blockRecallCompletedAt: null, completed: false, completedAt: null };
+    const currentSourceHash = root.getAttribute('data-study-source-hash') || '';
+    let sourceRevisionMigrated = false;
+    let state = { stage: 'block_learn', groupIndex: 0, kpIndex: 0, learned: {}, ratings: {}, ttsxEvidence: {}, ttsxAnnotations: {}, pendingTtsx: null, blockRecallDone: false, blockRecallCompletedAt: null, completed: false, completedAt: null, sourceHash: currentSourceHash, sourceRevisionPending: false, sourceRevisionFromHash: null };
     const suspend = (message) => {
       root.dataset.xizongStateBlocked = 'true';
       root.inert = true;
@@ -337,6 +339,39 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
         if (saved.ratings != null && (!object(saved.ratings) || Object.values(saved.ratings).some((v) => !['unknown','fuzzy','known','mastered'].includes(v)))) throw new Error('Invalid Recall evidence');
         if (['completed', 'blockRecallDone', 'sourceContactDone'].some((key) => saved[key] != null && typeof saved[key] !== 'boolean')) throw new Error('Invalid completion evidence');
         state = { ...state, ...saved };
+        const hasProgress = state.completed === true
+          || state.blockRecallDone === true
+          || state.sourceContactDone === true
+          || Object.values(state.learned || {}).some(Boolean)
+          || Object.keys(state.ratings || {}).length > 0
+          || (Array.isArray(state.sourceContactEvidence) && state.sourceContactEvidence.length > 0)
+          || Object.keys(state.ttsxEvidence || {}).length > 0;
+        const sourceContacts = Array.isArray(state.sourceContactEvidence) ? state.sourceContactEvidence : [];
+        const latestBoundContact = [...sourceContacts].reverse().find((entry) => String(entry?.source_hash || '').trim());
+        const evidenceSourceHash = String(state.sourceHash || latestBoundContact?.source_hash || '').trim();
+        if (hasProgress && currentSourceHash && state.sourceRevisionPending !== true && evidenceSourceHash !== currentSourceHash) {
+          state = {
+            ...state,
+            sourceHash: currentSourceHash,
+            sourceRevisionPending: true,
+            sourceRevisionReason: evidenceSourceHash ? 'SOURCE_REVISION_CHANGED' : 'SOURCE_IDENTITY_UNBOUND',
+            sourceRevisionFromHash: evidenceSourceHash || null,
+            sourceRevisionDetectedAt: new Date().toISOString(),
+            sourceContactDone: false,
+            sourceContactEvidence: [],
+            ttsxEvidence: {},
+            ttsxAnnotations: {},
+            pendingTtsx: null,
+            blockRecallDone: false,
+            blockRecallCompletedAt: null,
+            completed: false,
+            completedAt: null
+          };
+          sourceRevisionMigrated = true;
+          root.dataset.xizongSourceRevision = 'SOURCE_REVISION_REVALIDATION';
+        } else if (!hasProgress && currentSourceHash) {
+          state.sourceHash = currentSourceHash;
+        }
       }
     } catch {
       suspend('本机学习记录无法安全读取，原数据已保留，本页暂停写入。请先备份记录再恢复；不要直接清除浏览器数据。');
@@ -352,6 +387,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
       try { localStorage.setItem(storageKey, JSON.stringify(state)); return true; }
       catch { suspend('本次学习状态未能保存，本页已暂停。之前记录仍保留，请先备份或释放本机空间后重新打开。'); return false; }
     };
+    if (sourceRevisionMigrated && !save()) return;
     const recordSourceContact = (segmentId, ids, cumulative = false) => {
       const history = Array.isArray(state.sourceContactEvidence) ? state.sourceContactEvidence : [];
       if (history.some((entry) => entry.segment_id === segmentId)) return;
@@ -361,12 +397,28 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
         coverage_kind: cumulative ? 'EXPLICIT_BLOCK_CUMULATIVE_CONFIRMATION' : 'ACCEPTED_SOURCE_SEGMENT',
         kp_ids: [...ids],
         completed_at: new Date().toISOString(),
-        source_hash: root.getAttribute('data-study-source-hash') || ''
+        source_hash: currentSourceHash
       }];
+      state.sourceHash = currentSourceHash;
     };
     const learnedCount = () => kpData.filter((kp) => state.learned?.[kp.kpId] === true).length;
     const recallCount = () => kpData.filter((kp) => ['unknown', 'fuzzy', 'known', 'mastered'].includes(state.ratings?.[kp.kpId])).length;
-    const canComplete = () => totalKp > 0 && learnedCount() >= totalKp && recallCount() >= totalKp && Boolean(state.blockRecallDone);
+    const currentSourceContactCovered = () => {
+      if (!currentSourceHash) return false;
+      const evidence = Array.isArray(state.sourceContactEvidence) ? state.sourceContactEvidence : [];
+      const currentEvidence = evidence.filter((entry) => String(entry?.source_hash || '') === currentSourceHash);
+      if (!sourcePerGroup) {
+        return state.sourceContactDone === true && currentEvidence.some((entry) => entry.coverage_kind === 'EXPLICIT_BLOCK_CUMULATIVE_CONFIRMATION');
+      }
+      const covered = new Set(currentEvidence.flatMap((entry) => Array.isArray(entry?.kp_ids) ? entry.kp_ids.map(String) : []));
+      return totalKp > 0 && kpData.every((kp) => covered.has(String(kp.kpId)));
+    };
+    const canComplete = () => totalKp > 0
+      && state.sourceRevisionPending !== true
+      && currentSourceContactCovered()
+      && learnedCount() >= totalKp
+      && recallCount() >= totalKp
+      && Boolean(state.blockRecallDone);
     const currentGroup = () => groups[Math.max(0, Math.min(groups.length - 1, Number(state.groupIndex || 0)))] || groups[0];
     const ttsxRowsForGroup = (group = currentGroup()) => {
       if (!group) return [];
@@ -568,7 +620,11 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
         button.classList.toggle('done', learned && Boolean(rating));
       });
       const completedGroups = groups.filter((group) => (group.kpIds || []).length > 0 && (group.kpIds || []).every((id) => Boolean(state.learned?.[id]) && Boolean(state.ratings?.[id]))).length;
-      root.querySelector('[data-chain-source]')?.replaceChildren(document.createTextNode(state.sourceContactDone ? '已确认' : '未确认'));
+      root.querySelector('[data-chain-source]')?.replaceChildren(document.createTextNode(
+        state.sourceRevisionPending
+          ? 'Source 已更新 · 需重新确认'
+          : (currentSourceContactCovered() ? '已确认' : '未确认')
+      ));
       root.querySelector('[data-chain-kp-learn]')?.replaceChildren(document.createTextNode(learnedCount() >= totalKp ? '全部已接触' : `${completedGroups}/${groups.length} 节闭合`));
       root.querySelector('[data-chain-kp-recall]')?.replaceChildren(document.createTextNode(`${recallCount()}/${totalKp}`));
       root.querySelector('[data-chain-block-recall]')?.replaceChildren(document.createTextNode(state.blockRecallDone ? '已完成' : '未完成'));
@@ -689,6 +745,8 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
     root.querySelector('[data-source-contact-done]')?.addEventListener('click', () => {
       recordSourceContact(`block-cumulative:${objectId}`, kpData.map((kp) => kp.kpId), true);
       state.sourceContactDone = true;
+      state.sourceRevisionPending = false;
+      state.sourceRevisionReason = '';
       state.learned = Object.fromEntries(kpData.map((kp) => [kp.kpId, true]));
       state.groupIndex = 0;
       state.kpIndex = firstIndexForGroup(groups[0]);
@@ -712,6 +770,10 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
       recordSourceContact(`source:${group.groupId}`, ids);
       ids.forEach((id) => { learned[id] = true; });
       state.learned = learned;
+      if (currentSourceContactCovered()) {
+        state.sourceRevisionPending = false;
+        state.sourceRevisionReason = '';
+      }
       state.kpIndex = firstUnrecalledIndexForGroup(group);
       const rows = ttsxRowsForGroup(group);
       const queued = queueTtsx(rows, `logic-group:${group?.groupId || state.groupIndex}`, `${group?.label || '当前学习节'} · 配套题`);
