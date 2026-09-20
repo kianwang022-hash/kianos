@@ -555,6 +555,20 @@ function baseProgress() {
       ]
     }
   ];
+  hetero.repair_evidence.by_system=[
+    {
+      canonical_id:'A1',
+      question_backed_clusters:5,
+      unique_source_question_ids:10,
+      observed_question_to_cluster_ratio:2
+    },
+    {
+      canonical_id:'A2',
+      question_backed_clusters:12,
+      unique_source_question_ids:12,
+      observed_question_to_cluster_ratio:1
+    }
+  ];
   const forecast=buildXizongWorkloadForecast(hetero);
   assert.equal(forecast.components.questions.calibration.source,'SYSTEM_STRATIFIED_CURRENT_EXACT_SCOPE');
   assert.equal(forecast.components.questions.band_minutes.p50,260,
@@ -565,6 +579,8 @@ function baseProgress() {
   assert.equal(forecast.components.repair.error_rate.forecast_weighted_value,0.33);
   assert.equal(forecast.components.repair.compression.predicted_future_wrong_uncertain_questions,33,
     'future W/U must weight each System rate by its own remaining question load');
+  assert.equal(forecast.components.repair.compression.predicted_future_clusters,32.5,
+    'Repair compression must use each System own observed questions-per-cluster ratio');
   assert.ok(forecast.components.repair.risks.includes('WRONG_UNCERTAIN_SYSTEM_HETEROGENEITY'));
 }
 
@@ -639,6 +655,49 @@ function baseProgress() {
     'explicit 30% stress scenario may intentionally override System-specific unknowns');
 }
 
+
+{
+  const missingCompression=baseProgress();
+  missingCompression.question_workload.systems=[
+    {canonical_id:'A1',system_id:'a1',status:'EXACT',remaining_questions:20},
+    {canonical_id:'A2',system_id:'a2',status:'EXACT',remaining_questions:80}
+  ];
+  missingCompression.practice_evidence.first_pass.by_system=[
+    {
+      canonical_id:'A1',
+      current_scope_unique_attempted:40,
+      current_scope_wrong_or_uncertain_rate:0.10,
+      current_scope_speed_by_day:[
+        {day:'2026-09-16',observed_minutes_per_attempt:1},
+        {day:'2026-09-17',observed_minutes_per_attempt:1},
+        {day:'2026-09-18',observed_minutes_per_attempt:1}
+      ]
+    },
+    {
+      canonical_id:'A2',
+      current_scope_unique_attempted:40,
+      current_scope_wrong_or_uncertain_rate:0.30,
+      current_scope_speed_by_day:[
+        {day:'2026-09-16',observed_minutes_per_attempt:2},
+        {day:'2026-09-17',observed_minutes_per_attempt:2},
+        {day:'2026-09-18',observed_minutes_per_attempt:2}
+      ]
+    }
+  ];
+  missingCompression.repair_evidence.by_system=[
+    {
+      canonical_id:'A1',
+      question_backed_clusters:5,
+      unique_source_question_ids:10,
+      observed_question_to_cluster_ratio:2
+    }
+  ];
+  const forecast=buildXizongWorkloadForecast(missingCompression);
+  assert.equal(forecast.components.repair.band_minutes,null,
+    'A1 Repair compression must not price an unobserved A2 compression ratio');
+  assert.deepEqual(forecast.components.repair.compression.unpriced_system_ids,['A2']);
+  assert.ok(forecast.components.repair.risks.includes('SYSTEM_REPAIR_COMPRESSION_UNCALIBRATED'));
+}
 
 {
   const mixedOnly=baseProgress();
