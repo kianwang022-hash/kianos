@@ -1,0 +1,309 @@
+{
+  "schema": "kianos.politics.analysis-legacy-drill-index.v1",
+  "status": "CANDIDATE_LEGACY_GEOMETRY_ONLY",
+  "purpose": "Use historical Xiao8 material to train reusable Analysis task geometry before 2027 annual source arrives.",
+  "authority": {
+    "source_family": "LEG26_XIAO8",
+    "freshness_class": "LEGACY_GEOMETRY_ONLY",
+    "current_year_authority": false,
+    "formulation_requirement": "NONE",
+    "exact_2027_recall_allowed": false,
+    "material_access": "PRIVATE_SOURCE_REQUIRED",
+    "rule": "Do not copy historical prompt/answer text into Current. Open the exact private source locator for the drill; reveal the historical answer only after the learner attempt."
+  },
+  "rubric_owner": "content/politics/MATURITY_T3_ANALYSIS_TASK_RUBRIC.md",
+  "source_reference": {
+    "title": "26肖秀荣《8套卷》答案解析.pdf",
+    "scope": "2026 Xiao8 historical analysis questions",
+    "role": "TASK_GEOMETRY_AND_POST_ATTEMPT_ANCHOR_ONLY"
+  },
+  "drills": [
+    {
+      "id": "LEG26-X8-S01-Q34-1-I",
+      "set": 1,
+      "question": 34,
+      "subquestion": 1,
+      "subject": "marxism",
+      "mode": "IDENTIFY",
+      "target": "Identify the owning philosophical principle instead of paraphrasing the AI/technology material.",
+      "required_dimensions": [
+        "I"
+      ]
+    },
+    {
+      "id": "LEG26-X8-S01-Q34-2-B",
+      "set": 1,
+      "question": 34,
+      "subquestion": 2,
+      "subject": "marxism",
+      "mode": "BIND",
+      "target": "Bind truth/value-scale principles to the concrete human use and governance cues in the material.",
+      "required_dimensions": [
+        "I",
+        "S",
+        "B"
+      ]
+    },
+    {
+      "id": "LEG26-X8-S01-Q35-1-S",
+      "set": 1,
+      "question": 35,
+      "subquestion": 1,
+      "subject": "xi",
+      "mode": "SKELETON",
+      "target": "Build distinct significance/reason moves for a major economic-system policy question without dumping a generic modernization template.",
+      "required_dimensions": [
+        "I",
+        "S"
+      ]
+    },
+    {
+      "id": "LEG26-X8-S01-Q35-2-B",
+      "set": 1,
+      "question": 35,
+      "subquestion": 2,
+      "subject": "xi",
+      "mode": "BIND",
+      "target": "Explain a two-sided relationship and bind each side to the material rather than listing opening-up slogans.",
+      "required_dimensions": [
+        "I",
+        "S",
+        "B"
+      ]
+    },
+    {
+      "id": "LEG26-X8-S01-Q36-1-S",
+      "set": 1,
+      "question": 36,
+      "subquestion": 1,
+      "subject": "history",
+      "mode": "SKELETON",
+      "target": "Reconstruct a historical-role answer as several non-duplicative contribution moves in chronological/causal logic.",
+      "required_dimensions": [
+        "I",
+        "S"
+      ]
+    },
+    {
+      "id": "LEG26-X8-S01-Q36-2-B",
+      "set": 1,
+      "question": 36,
+      "subquestion": 2,
+      "subject": "history",
+      "mode": "BIND",
+      "target": "Bind historical facts to the asked international contribution/significance relation.",
+      "required_dimensions": [
+        "I",
+        "S",
+        "B"
+      ]
+    },
+    {
+      "id": "LEG26-X8-S01-Q37-1-S",
+      "set": 1,
+      "question": 37,
+      "subquestion": 1,
+      "subject": "ethics_law",
+      "mode": "SKELETON",
+      "target": "Separate definition/status, historical value, and present significance instead of repeating one spirit-value sentence.",
+      "required_dimensions": [
+        "I",
+        "S"
+      ]
+    },
+    {
+      "id": "LEG26-X8-S01-Q37-2-D",
+      "set": 1,
+      "question": 37,
+      "subquestion": 2,
+      "subject": "ethics_law",
+      "mode": "DELIVER",
+      "target": "Produce a concise action-oriented full answer from a correct skeleton; test paper-feasible prose, not historical exact wording.",
+      "required_dimensions": [
+        "I",
+        "S",
+        "B",
+        "D"
+      ]
+    },
+    {
+      "id": "LEG26-X8-S01-Q38-1-I",
+      "set": 1,
+      "question": 38,
+      "subquestion": 1,
+      "subject": "current_affairs",
+      "mode": "IDENTIFY",
+      "target": "Identify the institution/order role actually asked by the material before selecting any international-relations template.",
+      "required_dimensions": [
+        "I"
+      ]
+    },
+    {
+      "id": "LEG26-X8-S01-Q38-2-B",
+      "set": 1,
+      "question": 38,
+      "subquestion": 2,
+      "subject": "current_affairs",
+      "mode": "BIND",
+      "target": "Bind institutional principles to the problem diagnosis in the historical material; no 2027 current-affairs recall.",
+      "required_dimensions": [
+        "I",
+        "S",
+        "B"
+      ]
+    },
+    {
+      "id": "LEG26-X8-S02-Q34-1-I",
+      "set": 2,
+      "question": 34,
+      "subquestion": 1,
+      "subject": "marxism",
+      "mode": "IDENTIFY",
+      "target": "Distinguish value evaluation from adjacent cognition concepts using the material's contrasting attitudes.",
+      "required_dimensions": [
+        "I"
+      ]
+    },
+    {
+      "id": "LEG26-X8-S02-Q34-2-B",
+      "set": 2,
+      "question": 34,
+      "subquestion": 2,
+      "subject": "marxism",
+      "mode": "BIND",
+      "target": "Bind truth/error transformation to the concrete failure-and-correction process rather than reciting the principle alone.",
+      "required_dimensions": [
+        "I",
+        "S",
+        "B"
+      ]
+    },
+    {
+      "id": "LEG26-X8-S02-Q35-1-S",
+      "set": 2,
+      "question": 35,
+      "subquestion": 1,
+      "subject": "xi",
+      "mode": "SKELETON",
+      "target": "Build a why/significance skeleton with distinct theory, practice and development moves.",
+      "required_dimensions": [
+        "I",
+        "S"
+      ]
+    },
+    {
+      "id": "LEG26-X8-S02-Q35-2-B",
+      "set": 2,
+      "question": 35,
+      "subquestion": 2,
+      "subject": "xi",
+      "mode": "BIND",
+      "target": "Bind a Chinese development concept to global/environmental material cues without importing historical annual wording as Current.",
+      "required_dimensions": [
+        "I",
+        "S",
+        "B"
+      ]
+    },
+    {
+      "id": "LEG26-X8-S02-Q36-1-S",
+      "set": 2,
+      "question": 36,
+      "subquestion": 1,
+      "subject": "history",
+      "mode": "SKELETON",
+      "target": "Identify the historical turning mechanism and build causal moves rather than narrating events indiscriminately.",
+      "required_dimensions": [
+        "I",
+        "S"
+      ]
+    },
+    {
+      "id": "LEG26-X8-S02-Q36-2-D",
+      "set": 2,
+      "question": 36,
+      "subquestion": 2,
+      "subject": "mixed",
+      "mode": "DELIVER",
+      "target": "Write a compact multi-factor full answer combining historical logic and stable theory; test delivery, not 2026 exact phrases.",
+      "required_dimensions": [
+        "I",
+        "S",
+        "B",
+        "D"
+      ]
+    },
+    {
+      "id": "LEG26-X8-S02-Q37-1-S",
+      "set": 2,
+      "question": 37,
+      "subquestion": 1,
+      "subject": "ethics_law",
+      "mode": "SKELETON",
+      "target": "Separate concept/position/significance layers for a values question before writing prose.",
+      "required_dimensions": [
+        "I",
+        "S"
+      ]
+    },
+    {
+      "id": "LEG26-X8-S02-Q37-2-B",
+      "set": 2,
+      "question": 37,
+      "subquestion": 2,
+      "subject": "ethics_law",
+      "mode": "BIND",
+      "target": "Bind normative requirements to concrete action/material cues, avoiding slogan-only output.",
+      "required_dimensions": [
+        "I",
+        "S",
+        "B"
+      ]
+    },
+    {
+      "id": "LEG26-X8-S02-Q38-1-S",
+      "set": 2,
+      "question": 38,
+      "subquestion": 1,
+      "subject": "current_affairs",
+      "mode": "SKELETON",
+      "target": "Decompose a global-governance problem into distinct diagnosis dimensions without treating 2026 facts as 2027 facts.",
+      "required_dimensions": [
+        "I",
+        "S"
+      ]
+    },
+    {
+      "id": "LEG26-X8-S02-Q38-2-B",
+      "set": 2,
+      "question": 38,
+      "subquestion": 2,
+      "subject": "current_affairs",
+      "mode": "BIND",
+      "target": "Bind proposed governance principles to diagnosed deficits while keeping annual/current-year formulations source-gated.",
+      "required_dimensions": [
+        "I",
+        "S",
+        "B"
+      ]
+    }
+  ],
+  "learner_protocol": {
+    "before_answer": [
+      "Open only the historical material/prompt for the exact locator; keep the reference answer hidden.",
+      "Do the requested mode only. Do not write a full answer for IDENTIFY/SKELETON/BIND unless Chat escalates it."
+    ],
+    "attempt_windows": {
+      "IDENTIFY": "30-60s",
+      "SKELETON": "60-120s",
+      "BIND": "1-3m after skeleton",
+      "DELIVER": "timed only when delivery itself is the target"
+    },
+    "after_attempt": [
+      "Reveal the historical answer/legacy breaking logic only after the attempt.",
+      "Chat judges only the dimensions required by the mode.",
+      "Repair the smallest failed dimension; do not copy the whole answer as a ritual.",
+      "Historical exact wording is not admitted to 2027 Memory unless independently supported by Current/2027 Source."
+    ]
+  }
+}
