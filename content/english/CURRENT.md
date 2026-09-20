@@ -92,32 +92,51 @@ Structural/self-attack review is complete on this ref (19/19 targeted checks). T
 
 ---
 
-## Highest Maturity Closure — ACTIVE CANDIDATE 2026-09-20
+## Highest Maturity Closure — FINAL FRESH GATE
 
 Active ref: `work/english-highest-maturity-adaptation-20260920`
-Owner package: `ENGLISH_HIGHEST_MATURITY_STANDARD.md` + `ENGLISH_HIGHEST_MATURITY_STAGE_PLAN.md` + `ENGLISH_MATURITY_GAP_MATRIX.md`.
 
-Current: **Final integrated maturity audit / package assembly — ACTIVE**.
-E2 Material / Source Fidelity / Ready Inventory is **CLOSED CANDIDATE**.
-E3 Productive Scoring Validity is **CLOSED CANDIDATE · FRESH PASS**.
-E4 Evidence / Exposure / long-horizon fidelity is **CLOSED CANDIDATE**.
-Forecast SYSTEM LOGIC is **CLOSED CANDIDATE** on latest tested head `e9aff77ddf88378879a751f77156d80ce25376f2`.
+Primary subject-maturity package:
 
-Forecast proof on that head:
-- English Forecast system-logic gate — PASS;
-- English Family Coherence — PASS;
-- Private Chat Control — PASS;
-- Objective Learner Journey — PASS;
-- Static Web Writing QA — PASS;
-- Static Web Translation QA — PASS;
-- English Exam Session — PASS;
-- Final Cross-subject Regression — PASS.
+`content/english/MATURITY_PACKAGE.md`
 
-Dynamic Control, English-specific Future Source readiness and current Chat↔Website / Day-1 transport are already system-logic satisfied for the current boundary and must not be rebuilt.
+Current status:
 
-Current task: assemble one compact English Maturity Package and run a final integrated adversarial/fresh audit against the mother standard. If no material system-logic gap remains, mark `SYSTEM_LOGIC_ACCEPTED` while keeping `KIAN_SPECIFIC_CALIBRATED = NO` until Real Learner U exists.
+```text
+SYSTEM_LOGIC_CANDIDATE = YES
+FINAL_FRESH_AUDIT = REQUIRED
+KIAN_SPECIFIC_CALIBRATED = NO
+```
 
-Boundaries: reuse existing task workspaces/transport; no second scheduler/ledger/mastery; no broad Guide rewrite; no protected true-exam consumption for engineering proof; no automatic E4→E5 transition.
+Accepted candidate closures already integrated into the package:
+
+- Material / Source Fidelity / executable baseline;
+- Productive Scoring — Fresh PASS;
+- Evidence / Exposure / long-horizon fidelity;
+- Dynamic Control;
+- Forecast SYSTEM LOGIC;
+- English-specific Future Source lifecycle;
+- Chat↔Website / Day-1 execution;
+- lifecycle / adversarial fail-safe boundaries.
+
+Final independent audit entry:
+
+`content/english/ENGLISH_HIGHEST_MATURITY_FRESH_AUDIT_BRIEF.md`
+
+Do not reopen E0→E11 as a construction sequence. Do not rebuild already-satisfied domains for symmetry.
+
+If final Fresh audit PASS:
+
+```text
+SYSTEM_LOGIC_ACCEPTED = YES
+KIAN_SPECIFIC_CALIBRATED = NO
+→ stop broad maturity engineering
+→ real English study / Real Learner U
+```
+
+No claim is made that Kian currently scores 85+.
+
+Boundaries: no second scheduler / learner ledger / mastery score / Home / Forecast / generic memory engine; Website remains executor and Chat remains strategy owner.
 
 
 ---
