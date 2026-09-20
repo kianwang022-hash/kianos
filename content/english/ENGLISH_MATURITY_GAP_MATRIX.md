@@ -249,9 +249,9 @@ Current runtime already supports:
 
 | Priority | Gap | Why it matters | Current truth | Responsible next stage |
 | --- | --- | --- | --- | --- |
-| **BLOCKER** | Translation / Writing scoring validity | without anchored scoring, 85+ total band can be falsely narrow | Runtime correctly refuses fake auto-score; no accepted score-calibration owner yet | E3 |
-| **BLOCKER** | English Forecast v1 | current system has evidence/profile but no accepted subject-level capacity + Gate model | current forecast progress only describes explicit session, not whole English remaining work | E5 |
-| **HIGH** | Synthetic baseline executability | prepared material that Chat cannot launch is not ready inventory | Objective/Translation banks are Content assets; Writing expanded bank conflicts with legacy loader assumptions on main | E2 |
+| **CLOSED CANDIDATE** | Translation / Writing scoring validity | anchored scoring is required before productive evidence can inform 85+ | E3 scoring logic passed Fresh Independent audit; Kian's actual productive level remains unknown | Real U supplies learner score evidence |
+| **CONDITIONAL / DEFER** | English Forecast v1 | Forecast is useful only when a real decision needs workload/uncertainty reduction | core missing inputs are currently learner parameters: Objective residual, productive cold baselines, task time, Lexical retention | open E5 only after stage-opening gate says YES |
+| **CLOSED CANDIDATE** | Synthetic baseline executability | prepared material must be launchable through normal learner paths | E2 closed candidate with Objective/Translation/Writing synthetic execution proof | reopen only on concrete learner defect |
 | **HIGH** | Formal score contamination handling | old true questions can inflate score; Whole Paper exact score is not automatically clean score evidence | exposure/assistance exists task-locally; whole-paper calibration reconciliation still needs proof | E4 / E8 |
 | **HIGH** | Fresh-material capital allocation | scarce low-contamination official material can be burned too early | exposure boundary exists; Gate-level material budget not yet accepted | E2 / E5 |
 | **HIGH** | Current Objective residual mechanism profile | Objective 60 target cannot be managed from last-year ~55 alone | learner U not yet current | E11 Real U |
@@ -359,7 +359,7 @@ Evidence
 → anchored score range + independent timed section + paper calibration
 ```
 
-Status: **MODEL READY / SCORING BLOCKED / KIAN BASELINE UNKNOWN**
+Status: **MODEL READY / SCORING LOGIC CLOSED CANDIDATE / KIAN BASELINE UNKNOWN**
 
 ---
 
@@ -382,7 +382,7 @@ Evidence
 → anchored score + independent first draft + timing/paper
 ```
 
-Status: **MODEL READY / SCORING BLOCKED / EXECUTABILITY GAP / KIAN UNKNOWN**
+Status: **MODEL READY / SCORING LOGIC + EXECUTABILITY CLOSED CANDIDATE / KIAN BASELINE UNKNOWN**
 
 ---
 
@@ -405,7 +405,7 @@ Evidence
 → anchored score + prompt/theme transfer + timed/paper + Whole Paper
 ```
 
-Status: **MODEL READY / SCORING BLOCKED / EXECUTABILITY GAP / KIAN UNKNOWN**
+Status: **MODEL READY / SCORING LOGIC + EXECUTABILITY CLOSED CANDIDATE / KIAN BASELINE UNKNOWN**
 
 ---
 
