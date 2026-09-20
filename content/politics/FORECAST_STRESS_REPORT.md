@@ -20,6 +20,8 @@ The current forecast implementation is required to preserve:
 10. Forecast cannot output next-action/priority/target-minutes strategy fields.
 11. Missing later Analysis/current-year source keeps total-score confidence wide/unknown.
 12. Explicit learner evidence may narrow a structural Unit case without rewriting historical evidence.
+13. Missing later-stage cost components keep whole-cycle workload UNKNOWN.
+14. Explicit Analysis/source/Mock ranges add monotonically to whole-cycle workload rather than becoming hidden constants.
 
 ## Current automated test owner
 
@@ -50,7 +52,7 @@ Still required:
 - multiple-choice W/U materially worse than single;
 - Memory relapse after stable period;
 - Repair-cluster compression worse than seed range;
-- future-source assimilation unexpectedly expensive;
+- future-source assimilation unexpectedly expensive — now representable as an explicit later-stage workload range; Real U/real Source still supplies the value;
 - Analysis first-output cost much larger than planned;
 - current-year fresh evidence contradicting Xiao1000-derived optimism;
 - same workload under reordered irrelevant metadata gives same conclusion;
