@@ -130,6 +130,9 @@ jobs:
       - name: Validate English synthetic baseline readiness
         working-directory: static-web
         run: node scripts/validate-english-synthetic-baseline.mjs
+      - name: Validate English productive scoring structure
+        working-directory: static-web
+        run: node scripts/validate-english-productive-scoring.mjs
       - name: Validate English ↔ Lexical Chat handoff
         working-directory: static-web
         run: node scripts/validate-lexical-english-handoff.mjs
