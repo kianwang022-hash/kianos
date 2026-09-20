@@ -69,6 +69,7 @@ export function buildHomeDailyLearningPacket({
   plan = null,
   xizongPacketIndex = [],
   politicsCatalog = null,
+  politicsMemoryCatalog = null,
   base = '/'
 } = {}) {
   if (!storage?.getItem) throw new Error('HOME_DAILY_PACKET_STORAGE_UNAVAILABLE');
@@ -122,14 +123,19 @@ export function buildHomeDailyLearningPacket({
     const snapshot = readPoliticsSnapshot(storage);
     let memory = null;
     try {
-      memory = politicsMemoryDailyEvidence(storage, { day, now });
+      memory = politicsMemoryDailyEvidence(storage, { day, now, catalog: politicsMemoryCatalog });
     } catch (error) {
       warnings.push('politics-memory:' + String(error?.message || error));
     }
 
     if (snapshot.errors.length) {
       warnings.push('politics:POLITICS_EVIDENCE_UNREADABLE');
-    } else if (politicsEvidencePresent(snapshot) || memory?.summary?.recall_count > 0 || memory?.current_plan) {
+    } else if (
+      politicsEvidencePresent(snapshot)
+      || memory?.summary?.recall_count > 0
+      || memory?.current_plan
+      || Number(memory?.history_profile?.summary?.current_candidates_with_evidence || 0) > 0
+    ) {
       try {
         const politics = politicsDailyEvidencePacket(politicsCatalog, snapshot, { day, now, base });
         politics.memory = memory;
