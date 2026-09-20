@@ -108,6 +108,20 @@ const incompleteMeta=JSON.parse(fs.readFileSync(path.join(incompleteOut,'meta.js
 assert.equal(incompleteMeta.intake.status,'PARSED_NOT_ADMITTED');
 assert.equal(incompleteMeta.intake.precheck,'HOLD_INCOMPLETE_OR_UNCERTAIN_SOURCE');
 
+const missingSectionPackage=completePackage.replace('  missing_sections:','  missing_sections: appendix table');
+const missingSectionPackagePath=path.join(temp,'missing-section-source-package.md');
+fs.writeFileSync(missingSectionPackagePath,missingSectionPackage,'utf8');
+const missingSectionOut=path.join(temp,'parsed-missing-section');
+const parseMissingSection=spawnSync('python3',[
+  path.join(repoRoot,'tools','english-external','parse_source_package.py'),
+  '--package',missingSectionPackagePath,
+  '--source-id','synthetic-source-missing-section',
+  '--output-dir',missingSectionOut
+],{encoding:'utf8'});
+assert.equal(parseMissingSection.status,0,parseMissingSection.stderr||parseMissingSection.stdout||'missing-section package parser failed');
+const missingSectionMeta=JSON.parse(fs.readFileSync(path.join(missingSectionOut,'meta.json'),'utf8'));
+assert.equal(missingSectionMeta.intake.precheck,'HOLD_INCOMPLETE_OR_UNCERTAIN_SOURCE');
+
 const commentaryPackagePath=path.join(temp,'commentary-source-package.md');
 fs.writeFileSync(commentaryPackagePath,'Here is the archived article:\n'+completePackage,'utf8');
 const commentaryOut=path.join(temp,'parsed-commentary');
@@ -233,6 +247,7 @@ try{
     incremental_manifest_builder:'PASS',
     source_package_parser:'PASS',
     incomplete_source_hold:'PASS',
+    declared_missing_section_hold:'PASS',
     source_package_extra_commentary_rejected:'PASS',
     incremental_object_hash_fail_closed:'PASS',
     public_source_bytes:0,
