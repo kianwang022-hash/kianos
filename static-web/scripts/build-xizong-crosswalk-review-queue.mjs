@@ -98,17 +98,20 @@ function compactRelation(relation) {
   };
 }
 
-function buildCandidate(questionId, explanation, relation, explicit) {
+function buildCandidate(questionId, relation, explicit) {
   const truth = loadQuestionTruth(questionId);
   const content = truth.row?.content || {};
   const sourceStatus = truth.row?.provenance?.annual_source?.source_refs?.source_status || null;
   const alreadyReviewed = Boolean(relation);
   return {
     question_id: questionId,
-    review_mode: alreadyReviewed ? 'ALREADY_REVIEWED' : explicit ? 'EXPLICIT_REREVIEW' : 'DEFAULT_NEEDS_CHAT_REVIEW',
-    mapping_decision: explanation?.mapping_decision || null,
+    review_mode: alreadyReviewed
+      ? 'ALREADY_REVIEWED'
+      : explicit
+        ? 'EXPLICIT_ANTI_ANCHORED_REVIEW'
+        : 'DEFAULT_ANTI_ANCHORED_REVIEW',
     relation_exists: alreadyReviewed,
-    current_relation: compactRelation(relation),
+    prior_relation_withheld: alreadyReviewed,
     question_truth: {
       path: truth.path,
       question_type: truth.row?.question_type || null,
@@ -118,19 +121,9 @@ function buildCandidate(questionId, explanation, relation, explicit) {
       correct_answer: content.correct_answer ?? null,
       source_status: sourceStatus
     },
-    explanation: explanation ? {
-      path: explanation._path,
-      truth_gate: explanation.truth_gate || null,
-      explanation_status: explanation.explanation_status || null,
-      exam_target: explanation.exam_target || null,
-      decision_axis: explanation.decision_axis || null,
-      transfer_rule: explanation.transfer_rule || null,
-      valuable_distractors: Array.isArray(explanation.valuable_distractors) ? explanation.valuable_distractors : [],
-      source_conflict_note: explanation.source_conflict_note || null
-    } : null,
     reviewer_instruction: alreadyReviewed
-      ? 'This qid already has canonical REVIEWED mapping truth. Do not create a second row.'
-      : 'Review Question Truth + Explanation + Current Knowledge manually. This packet intentionally contains no suggested System/Block/KP target.'
+      ? 'Independently solve the Question Truth first. A canonical REVIEWED relation exists, but its target is intentionally withheld from this packet to avoid anchoring. Do not create a second row unless this is an explicit re-audit with a bounded replacement basis.'
+      : 'Independently solve the Question Truth before consulting any old Explanation or mapping hint. Form a provisional exam target and decision axis, inspect the exact Current Knowledge owner, choose the smallest sufficient System/Block/LG/KP target, self-attack that target, and only then author a REVIEWED relation. Old Explanation may be checked only after the provisional mapping as conflict evidence, never as mapping authority.'
   };
 }
 
@@ -151,17 +144,43 @@ export function buildXizongCrosswalkReviewQueue({ questionIds = [], limit = 50 }
   const ids = sourceIds.sort().slice(0, Math.max(1, Number(limit) || 50));
   const candidates = ids.map((questionId) => buildCandidate(
     questionId,
-    explanationIndex.get(questionId) || null,
     relationIndex.get(questionId) || null,
     explicit
   ));
 
   return {
-    schema: 'kianos.xizong.crosswalk_review_queue.v1',
+    schema: 'kianos.xizong.crosswalk_review_queue.v2',
     generated_at: new Date().toISOString(),
-    mode: explicit ? 'EXPLICIT_QUESTION_IDS' : 'DEFAULT_NEEDS_CHAT_MAPPING_REVIEW',
+    mode: explicit ? 'EXPLICIT_ANTI_ANCHORED_QUESTION_IDS' : 'DEFAULT_ANTI_ANCHORED_REVIEW',
     semantic_authority: 'NONE_PACKET_ONLY',
     no_inference: true,
+    anti_anchored: true,
+    backlog_selection: explicit
+      ? 'EXPLICIT_QUESTION_IDS'
+      : 'APPROVED_EXPLANATION_ROUTING_HINT_ONLY_NOT_REVIEW_INPUT',
+    withheld_before_provisional_judgment: [
+      'old Explanation semantics',
+      'old mapping_decision',
+      'prior System/Block/LG/KP targets'
+    ],
+    independent_analysis_contract: {
+      exam_target: 'what exact knowledge or decision the question tests',
+      decision_axis: 'the smallest decisive variable, distinction, or boundary',
+      answer_logic: 'minimal reasoning from Question Truth to the official answer',
+      distractor_boundary: 'only the distractor distinction that changes mapping or exposes an adjacent concept',
+      mapping_fit: 'why the chosen Current KP is the smallest sufficient owner of the tested knowledge',
+      uncertainty: 'fail closed when Current Knowledge does not safely own the tested detail'
+    },
+    review_protocol: [
+      'solve Question Truth independently',
+      'state provisional exam target, decision axis, and minimal answer logic',
+      'inspect exact Current Knowledge owner',
+      'choose the smallest sufficient mapping target',
+      'self-attack whether the chosen owner fully explains the question',
+      'record a concise independent mapping basis in review evidence',
+      'optionally conflict-check old Explanation only after provisional mapping',
+      'author REVIEWED relation only when exact-owner evidence is sufficient'
+    ],
     canonical_relation_owner: RELATION_ROOT,
     reviewed_relation_count: relationIndex.size,
     candidate_count: candidates.length,

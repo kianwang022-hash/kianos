@@ -19,6 +19,20 @@ Reduce mechanical review/CI overhead without relaxing the exact-owner gate.
 
 ## Review acceleration
 
+The review packet is anti-anchored by default:
+
+```text
+Question Truth
+→ independent solve
+→ provisional target / decision axis
+→ exact Current Knowledge owner
+→ smallest sufficient mapping
+→ self-attack
+→ optional post-decision legacy conflict check
+```
+
+Old Explanation semantics and prior relation targets are withheld from the reviewer before the provisional judgment. Default backlog selection may still use the old Explanation `mapping_decision` only as a hidden mechanical eligibility hint; that hint is not review evidence and never enters canonical relation truth.
+
 `build-xizong-kp-lookup-index.mjs` generates a non-authoritative index containing exact KP identifiers, titles/snippets, canonical paths and current Git blob SHA. It is only a locator. Chat must still inspect the exact Current owner before authoring a REVIEWED relation.
 
 ## Invariants
