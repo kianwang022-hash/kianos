@@ -953,3 +953,306 @@ real Politics study
 > more Politics architecture
 ```
 
+
+
+---
+
+# 19. Politics scoring-validity requirements
+
+Analysis-output scoring is a high-risk measurement surface.
+
+The system must not treat:
+- Chat confidence;
+- answer length;
+- template resemblance;
+- inter-model agreement;
+- one rubric pass
+
+as proof of real exam score validity.
+
+Required:
+
+- one explicit Politics Analysis rubric owner;
+- score descriptors tied to real exam task dimensions;
+- source-grounded distinction between:
+  - principle identification,
+  - answer structure,
+  - material binding,
+  - formulation quality,
+  - completion/time;
+- anchored examples where legitimate;
+- systematic-bias attack;
+- independent second review when a subjective score would materially change strategy;
+- uncertainty preserved when external calibration is weak.
+
+A model-rated answer may be useful for diagnosis even when it is not precise enough for a narrow score forecast.
+
+---
+
+# 20. Representative coverage / negative-space requirements
+
+Politics may not call a capability stable merely because repeated work produces no new error.
+
+Before broad Secure/Maintain claims, evidence must cover the capability's relevant variation.
+
+Objective examples:
+- single and multiple separately;
+- hats / actors / chronology / scope / list boundaries;
+- stable vs high-delta domains;
+- familiar vs changed wording;
+- mixed/timed execution when relevant.
+
+Analysis examples:
+- more than one subject/domain;
+- more than one prompt relation;
+- principle retrieval;
+- skeleton;
+- material binding;
+- complete delivery;
+- at least some competing-principle / ambiguous-looking materials;
+- timed/integrated conditions before final closure.
+
+Untested regions remain UNKNOWN.
+
+A small bank of homogeneous/easy synthetic prompts cannot justify broad Analysis Secure.
+
+---
+
+# 21. Generated-asset lifecycle
+
+Generated Politics assets must not become an uncontrolled parallel question bank.
+
+Every reusable generated task should carry:
+- target capability;
+- source/knowledge basis;
+- evidence role:
+  - Teaching/Repair,
+  - Calibration,
+  - Transfer,
+  - Maintenance,
+  - Stress;
+- version/identity;
+- answer key separated from first attempt;
+- independence from the Repair example when used for Transfer;
+- dedupe/retirement rule;
+- calibration status.
+
+Rules:
+- one-off Repair material may remain ephemeral;
+- reusable validated tasks may be promoted;
+- Repair material may not later masquerade as independent Transfer;
+- generated-bank size is not a maturity metric;
+- synthetic success must eventually be challenged by appropriate current-year/authentic evidence.
+
+---
+
+# 22. Evidence identity / revision / contamination
+
+Politics evidence must bind to:
+- question/task identity;
+- relevant content/source revision;
+- exposure state.
+
+Freshness is semantic/material identity, not:
+- filename;
+- PDF copy;
+- tab;
+- device;
+- session.
+
+When a semantic/source revision changes a task or answer basis, prior evidence must be explicitly reclassified:
+
+```text
+PRESERVE
+MIGRATE
+STALE
+INVALID
+```
+
+Examples:
+- Xiao8 answer-key correction;
+- handbook v2 wording correction;
+- changed Analysis answer key;
+- current-affairs update;
+- generated Transfer prompt revised after ambiguity was found.
+
+Unknown prior exposure remains UNKNOWN rather than being treated as clean fresh evidence.
+
+---
+
+# 23. Value-of-Information rule
+
+Politics must not consume learner time merely to make the model feel more certain.
+
+Before collecting evidence mainly for uncertainty reduction, Chat should ask:
+
+- what decision could this evidence change?
+- how many learner minutes does it cost?
+- does it consume valuable fresh material?
+- does the task also have direct learning value?
+- would a robust action be possible without resolving the uncertainty?
+
+If no plausible decision changes enough to justify the cost:
+
+> keep the uncertainty and continue with a robust learning action.
+
+This is especially important for:
+- unnecessary full mocks;
+- repeated calibration sets;
+- extra analysis full answers when IDENTIFY/SKELETON already answers the decision question;
+- burning Xiao8/Xiao4 merely to tighten a forecast.
+
+---
+
+# 24. Latest-useful-date / learning-latency rule
+
+Politics ROI must include whether a gain can mature before the exam.
+
+Examples:
+- broad conceptual rebuilding has low late-stage value if the underlying model is already usable;
+- exact final current-year Memory may have very high value late;
+- full Analysis delivery needs enough lead time to repair and re-verify;
+- a new large course opened near the exam is presumptively rejected.
+
+A task with high theoretical point value but insufficient maturation time is not automatically high ROI.
+
+---
+
+# 25. Authentic-modality requirement
+
+Before final Protect-70 closure, some evidence must reflect score-relevant exam modality.
+
+Where handwriting/paper switching/time pressure matters, formal evidence must calibrate:
+- handwriting speed;
+- complete written answer density;
+- paper-page switching;
+- objective-to-analysis transition;
+- whole-paper fatigue.
+
+Browser/keyboard output alone cannot silently stand in for exam delivery.
+
+---
+
+# 26. Second-line semantic safety invariants
+
+Chat remains Politics strategy owner.
+
+However, a plan/status claim is invalid if it contradicts a small subject-native safety set.
+
+Reject/reopen when a plan would:
+- call Objective Secure from repeated Xiao1000 familiarity alone;
+- call Analysis Secure without independent material-binding evidence;
+- call final Analysis secure without phase-appropriate timed/complete evidence;
+- admit unsupported legacy wording into current Memory/EXACT;
+- spend Push-75 Elastic capacity while a material Protect-70 blocker remains;
+- treat absent W/U/Recall records as proof of stability;
+- overwrite newer learner evidence with an older plan/restore;
+- treat a stale source revision as current;
+- exceed the real usable-capacity budget once learning + Review + Repair + evidence cost are counted.
+
+The guard returns the contradiction to Chat. It does not choose the replacement task.
+
+---
+
+# 27. Fresh-Chat attack
+
+A completely fresh Chat receives only:
+- Current Politics durable owners;
+- current Daily/Resume/Politics evidence packet;
+- current exam facts.
+
+It must be able to determine:
+- the current Politics phase;
+- what Protect-70 risk is known;
+- what remains UNKNOWN;
+- what evidence is fresh/contaminated;
+- the defensible next Politics action;
+- whether a current-year Source is usable;
+- what should not be repeated.
+
+If undocumented prior conversation memory is required, Politics is not mature.
+
+---
+
+# 28. No-Website semantic attack
+
+If the Website is removed, the following must remain semantically correct:
+
+- Chengfeng / Suyi / Xiao1000 roles;
+- Memory admission;
+- W/U meaning;
+- Repair ownership;
+- Analysis capability chain;
+- Future Source lifecycle;
+- Forecast meaning;
+- Protect-70 / Push-75 control.
+
+Website loss may remove execution convenience. It may not destroy learning truth.
+
+---
+
+# 29. Concurrent / stale-state requirements
+
+Attack:
+
+- Daily Packet copied, then more Politics work occurs before plan import;
+- two tabs/devices update learner state;
+- checkpoint restore conflicts with newer attempts/Recall;
+- an older Chat Plan arrives after a newer one;
+- current Source revision changes while an old task is active.
+
+Required behavior:
+- stale plan/restore fails closed;
+- newer learner evidence is not erased;
+- replay remains idempotent;
+- task/evidence identity remains explicit;
+- affected downstream interpretation becomes UNKNOWN/STALE rather than silently guessed.
+
+Kian should not manually reconcile state races.
+
+---
+
+# 30. Politics independent falsification requirement
+
+Before claiming whole-subject maturity, a fresh evaluator must attempt to produce:
+
+1. **all-green-but-real-fail**
+   - every visible status looks good while Protect 70 is actually endangered;
+2. **over-conservative-all-green**
+   - the system obeys all rules but wastes material learner time.
+
+The evaluator should attack at least:
+- source fidelity;
+- subjective scoring bias;
+- contaminated transfer;
+- false Secure;
+- false Unstable;
+- Future Source supersession;
+- bad-week capacity;
+- single/multiple asymmetry;
+- Analysis material-binding;
+- whole-paper timing;
+- stale state;
+- generated-task ambiguity;
+- learner-maintenance burden.
+
+Material findings invalidate the affected maturity claim until repaired and re-tested.
+
+---
+
+# 31. Cross-subject boundary
+
+Politics owns:
+- Politics cognition;
+- Politics evidence meaning;
+- Politics workload/risk forecast;
+- Protect-70/Push-75 subject status;
+- Politics material lifecycle.
+
+Politics does **not** own:
+- final three-subject allocation;
+- whether the next global hour goes to Politics vs Xizong vs English;
+- 425+ whole-exam composition proof.
+
+It exposes enough bounded evidence for the shared Orchestrator/Chat to make that decision.
+
