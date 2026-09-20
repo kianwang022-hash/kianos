@@ -47,15 +47,16 @@ The public `kianos` repository must not become a redistribution store for copyri
 - legacy TOEFL / TPO 56–65: **10 collections / 30 passages / 395 questions**
 - Cambridge IELTS Academic 17–19: **3 books / 12 tests / 36 passages / 480 questions**
 - stable identities: `tpo56-p1`, `tpo56-p1-q1`, `ielts17-t1-p1`, etc.
-- current source-quality claim: **candidate source bytes historically present; not corpus-wide PROVEN_CLEAN**
-- known OCR / visual source debt remains explicit in the manifest and private compiled bundle.
+- active private source: **repaired candidate 2026-09-20 pass 15**
+- current source-quality claim: **REPAIRED_CANDIDATE; not corpus-wide PROVEN_CLEAN**
+- historical known OCR pollution has been repaired under bounded/source-corroborated rules; remaining TPO62 and IELTS18/19 source-bound/visual debt stays explicit.
 
 ## Current runtime
 
 Current candidate restores the old proven architecture with stricter boundaries:
 
 ```text
-private Source newer than bundle
+private Source exists **and hash-matches the active repaired candidate**
 → bounded mechanical compiler
 → private bundle
 → loopback read-only bridge
@@ -64,6 +65,7 @@ private Source newer than bundle
 
 Rules:
 
+- active source hash mismatch fails closed as `stale_source` before compilation;
 - no semantic guessing;
 - no public copyrighted bytes;
 - unsupported source-native question structures stay source-bound/free-text or reading-only;
@@ -75,7 +77,7 @@ Rules:
 
 ## Source-quality boundary
 
-Historical External source review found real OCR debt. Therefore:
+Historical External source review found real OCR debt. The 2026-09-20 repaired candidate removed the known pollution set and passed the current structural/boundary gates. Therefore:
 
 ```text
 SOURCE_READY / structurally compilable
@@ -83,7 +85,7 @@ SOURCE_READY / structurally compilable
 PROVEN_CLEAN
 ```
 
-Only exact mechanical cleanup or source/hash-bound cleanup is allowed without renewed source-page evidence. Ambiguous text remains explicit debt; do not silently “repair” it.
+Only exact mechanical cleanup or source/hash-bound cleanup is allowed without renewed source-page evidence. Ambiguous text remains explicit debt; do not silently “repair” it. The public manifest now carries the exact 14-file repaired-source SHA set so an old local corpus cannot be compiled accidentally.
 
 ## Future content update path
 
@@ -105,10 +107,12 @@ English-wide integration is landed through PR #498. The public compiler/bridge/r
 
 The remaining local operational boundary is intentionally machine-specific:
 
-1. the Mac private source root defaults to `~/Documents/Study/英语资料库/EnglishOS/External_Reading_Corpus`;
-2. the private runtime bundle is compiled under `~/Library/Application Support/KianOS/external-reading/`;
-3. `npm run current:doctor` reports whether the private TPO/IELTS source is ready without turning missing optional External Reading source into a whole-site failure;
-4. source-quality warnings/OCR debt remain explicit and are not silently cleaned;
-5. real study `U` remains real-use-only.
+1. durable private-byte owner is the expanded Library Active Source tree registered by `private-source-bundle`;
+2. the Mac runtime source root still defaults to `~/Documents/Study/英语资料库/EnglishOS/External_Reading_Corpus` and must be materialized/synced from that Active Source tree;
+3. before compilation, all 14 required source files must hash-match the repaired candidate recorded in the public manifest; an old same-filename corpus returns `stale_source`;
+4. the private runtime bundle is compiled under `~/Library/Application Support/KianOS/external-reading/`;
+5. `npm run current:doctor` reports missing or stale External Reading source without turning an absent optional lane into a whole-site failure;
+6. remaining source-quality warnings stay explicit;
+7. real study `U` remains real-use-only.
 
 Do not reopen English-wide integration merely because the private corpus is absent on one machine; repair the private source path/bundle only.
