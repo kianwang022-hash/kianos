@@ -113,6 +113,8 @@ Active work is therefore only a **pure Forecast kernel** that:
 - exposes sensitivity / decision flips / next high-value evidence;
 - never selects daily tasks or cross-subject allocation.
 
+Candidate kernel + adversarial validator are now implemented. Next = latest-head CI proof. If green, audit Forecast self-attack + remaining lifecycle/adversarial gap only; do not connect Forecast to Website scheduling.
+
 Kian-specific numerical Forecast calibration remains **UNTESTED / Real Learner U-dependent**.
 
 Boundaries: reuse existing task workspaces/transport; no second scheduler/ledger/mastery; no broad Guide rewrite; no protected true-exam consumption for engineering proof; no automatic E4→E5 transition.
