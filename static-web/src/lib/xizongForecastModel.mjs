@@ -998,10 +998,18 @@ export function buildXizongScoreEvidence(progress, {
     : lowContamination
       ? internallyProtectedPapers
       : [];
+  const observedScores = formalPapers
+    .map((row) => Number(row?.earned_score))
+    .filter(Number.isFinite);
   const calibrationScores = calibrationPapers
     .map((row) => Number(row?.earned_score))
     .filter(Number.isFinite);
-  const empiricalBand = calibrationScores.length >= 3 ? {
+  const observedBand = observedScores.length >= 3 ? {
+    p20: round(quantile(observedScores, 0.2)),
+    p50: round(quantile(observedScores, 0.5)),
+    p80: round(quantile(observedScores, 0.8))
+  } : null;
+  const calibrationBand = calibrationScores.length >= 3 ? {
     p20: round(quantile(calibrationScores, 0.2)),
     p50: round(quantile(calibrationScores, 0.5)),
     p80: round(quantile(calibrationScores, 0.8))
@@ -1019,7 +1027,7 @@ export function buildXizongScoreEvidence(progress, {
     scoreEstimateStatus += '_LOW_CONTAMINATION';
   }
 
-  const scoreExtrapolationReady = calibrationPapers.length > 0 && lowContamination;
+  const scoreExtrapolationReady = Boolean(calibrationBand) && lowContamination;
   const evidenceResult = hardGaps.length > 0 || formalPapers.length === 0
     ? 'INSUFFICIENT_SCORE_EVIDENCE'
     : scoreExtrapolationReady
@@ -1036,7 +1044,8 @@ export function buildXizongScoreEvidence(progress, {
       internally_holdout_protected_sample_count: internallyProtectedPapers.length,
       latest_score: latest ? Number(latest.earned_score) : null,
       latest_target_gap: latest ? round(requirement.target_score - Number(latest.earned_score || 0)) : null,
-      empirical_band: empiricalBand,
+      empirical_band: observedBand,
+      calibration_band: calibrationBand,
       contamination_status: contamination,
       score_extrapolation_ready: scoreExtrapolationReady,
       observed_score_is_not_fresh_prediction: formalPapers.length > 0 && !scoreExtrapolationReady,
@@ -1048,13 +1057,14 @@ export function buildXizongScoreEvidence(progress, {
     evidence_readiness: {
       coverage_ready: hardGaps.length === 0,
       formal_score_evidence_ready: formalPapers.length > 0,
-      full_empirical_score_band_ready: Boolean(empiricalBand),
+      observed_empirical_band_ready: Boolean(observedBand),
+      calibration_band_ready: Boolean(calibrationBand),
       score_extrapolation_ready: scoreExtrapolationReady,
       result: evidenceResult
     },
     subject_maturity_claim: 'OUT_OF_SCOPE',
     boundary:
-      'Work completion and capability evidence do not manufacture predicted score. Formal scores remain observed evidence even when contaminated. A low-contamination claim only authorizes stronger extrapolation when the scored paper was internally Holdout-protected before seal, unless an explicit fresh-equivalent external calibration is supplied. Internal Holdout never proves external non-exposure; no arbitrary contamination point penalty is invented. This object reports score-evidence usability only and never declares Xizong subject maturity or Stage closure.'
+      'Work completion and capability evidence do not manufacture predicted score. Formal scores remain observed evidence even when contaminated, so empirical_band is descriptive only. calibration_band requires at least three low-contamination internally protected or explicit fresh-equivalent papers before stronger extrapolation is allowed. Internal Holdout never proves external non-exposure; no arbitrary contamination point penalty is invented. This object reports score-evidence usability only and never declares Xizong subject maturity or Stage closure.'
   };
 }
 
