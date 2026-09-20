@@ -12,7 +12,7 @@ const questionId = (question, index) => String(question.id || question.question_
   data-reading-base={base}
   data-reading-next-id={navigation.nextId || ''}
 >
-  <script type="application/json" data-english-task-snapshot set:html={JSON.stringify({paragraphs:reading.paragraphs,questions:reading.questions.map(({id,ordinal,prompt,options})=>({id,ordinal,prompt,options}))}).replace(/</g, "\\u003c")}></script>
+  <script type="application/json" data-english-task-snapshot set:html={JSON.stringify({evidence:{source_kind:reading.sourceKind||'official',evidence_role:reading.context?.evidence_role||null},paragraphs:reading.paragraphs,questions:reading.questions.map(({id,ordinal,prompt,options})=>({id,ordinal,prompt,options}))}).replace(/</g, "\\u003c")}></script>
   <header class="portedReadingSessionHeader">
     <a href={base}>‹ Practice</a>
     <div class="portedReadingHeaderCenter">
