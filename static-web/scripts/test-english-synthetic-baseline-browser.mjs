@@ -82,7 +82,8 @@ async function importPlan(page,steps){
       object_id:step.object_id,
       source_hash:step.source_hash,
       label:step.label,
-      note:'Synthetic baseline browser acceptance'
+      note:'Synthetic baseline browser acceptance',
+      ...(step.params ? { params: step.params } : {})
     })),
     return_policy:{on_finish:'english_home'}
   };
@@ -118,6 +119,7 @@ async function answerReading(page,row){
   const state=await page.evaluate(id=>JSON.parse(localStorage.getItem('kianos-reading-attempt-v1:'+id)||'null'),row.id);
   check(state?.submitted===true&&state?.binding?.source_hash===task.sourceHashes.renderedObject,'reading_evidence_bound');
   check(state?.binding?.source_kind==='synthetic'&&state?.binding?.evidence_role==='CALIBRATION','reading_synthetic_role_bound');
+  check(state?.binding?.assistance==='assisted'&&state?.firstEvidenceMeta?.independent_transfer_candidate===false,'reading_chat_assistance_provenance_bound');
 }
 
 async function answerCloze(page,row){
@@ -200,7 +202,7 @@ const writing=listWritingSyntheticTasks().find(row=>row.id==='writing-synthetic-
 check(Boolean(reading&&cloze&&partB&&translation&&writing),'representative_assets_present');
 
 const sequence=[
-  {task:'reading_a',object_id:reading.id,source_hash:catalogRow('reading_a',reading.id).source_hash,label:'Synthetic Reading A'},
+  {task:'reading_a',object_id:reading.id,source_hash:catalogRow('reading_a',reading.id).source_hash,label:'Synthetic Reading A',params:{assistance_context:{state:'assisted',basis:'chat_context',observed_at:new Date().toISOString(),note:'Synthetic browser proof: prior Chat context materially cued the task.'}}},
   {task:'cloze',object_id:cloze.id,source_hash:catalogRow('cloze',cloze.id).source_hash,label:'Synthetic Cloze'},
   {task:'reading_b',object_id:partB.id,source_hash:catalogRow('reading_b',partB.id).source_hash,label:'Synthetic Part B'},
   {task:'translation',object_id:translation.id,source_hash:catalogRow('translation',translation.id).source_hash,label:'Synthetic Translation'},
