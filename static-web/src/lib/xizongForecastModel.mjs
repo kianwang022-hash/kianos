@@ -218,18 +218,34 @@ function rollingKnowledgeBacktest(samples = []) {
   }
   const errors=trials.map((row)=>row.absolute_percent_error);
   const ratios=trials.map((row)=>row.predicted_actual_ratio);
-  const recent=ordered.slice(-3).map((row)=>positive(row?.timer_minutes_to_completion)).filter((x)=>x!==null);
-  const earlier=ordered.slice(0,Math.max(0,ordered.length-3)).map((row)=>positive(row?.timer_minutes_to_completion)).filter((x)=>x!==null);
-  const recentMedian=median(recent);
-  const earlierMedian=median(earlier);
-  const driftRatio=recentMedian!==null&&earlierMedian!==null&&earlierMedian>0 ? recentMedian/earlierMedian : null;
+  const rateRows=ordered.map((row)=>{
+    const minutes=positive(row?.timer_minutes_to_completion);
+    const kp=positive(row?.kp_count);
+    const lg=positive(row?.logic_group_count);
+    return {
+      kp_rate:minutes!==null&&kp!==null ? minutes/kp : null,
+      lg_rate:minutes!==null&&lg!==null ? minutes/lg : null
+    };
+  });
+  const recentRates=rateRows.slice(-3);
+  const earlierRates=rateRows.slice(0,Math.max(0,rateRows.length-3));
+  const driftFor=(key)=>{
+    const recent=median(recentRates.map((row)=>positive(row?.[key])).filter((x)=>x!==null));
+    const earlier=median(earlierRates.map((row)=>positive(row?.[key])).filter((x)=>x!==null));
+    return recent!==null&&earlier!==null&&earlier>0 ? recent/earlier : null;
+  };
+  const kpDrift=driftFor('kp_rate');
+  const lgDrift=driftFor('lg_rate');
+  const structuralSlowdown=kpDrift!==null&&lgDrift!==null&&kpDrift>1.35&&lgDrift>1.35;
   return {
     status: trials.length >= 3 ? 'BACKTESTED' : 'INSUFFICIENT_BACKTEST',
     completed_samples: ordered.length,
     trial_count: trials.length,
     median_absolute_percent_error: errors.length ? round(median(errors),4) : null,
     median_predicted_actual_ratio: ratios.length ? round(median(ratios),4) : null,
-    recent_vs_earlier_median_minutes_ratio: driftRatio===null ? null : round(driftRatio,4),
+    recent_vs_earlier_kp_rate_ratio: kpDrift===null ? null : round(kpDrift,4),
+    recent_vs_earlier_lg_rate_ratio: lgDrift===null ? null : round(lgDrift,4),
+    structural_pace_slowdown: structuralSlowdown,
     trials: trials.slice(-12),
     boundary:
       'Rolling backtest predicts each later completed Block from earlier completed Blocks only. It is a calibration diagnostic, not an independent learner truth.'
@@ -318,7 +334,7 @@ function knowledgeForecast(progress) {
   if (backtest.status === 'BACKTESTED' && Number(backtest.median_predicted_actual_ratio || 1) < 0.85) {
     risks.push('KNOWLEDGE_FORECAST_SYSTEMATIC_OPTIMISM');
   }
-  if (Number(backtest.recent_vs_earlier_median_minutes_ratio || 1) > 1.35) {
+  if (backtest.structural_pace_slowdown === true) {
     risks.push('RECENT_KNOWLEDGE_PACE_SLOWDOWN');
   }
   return {
