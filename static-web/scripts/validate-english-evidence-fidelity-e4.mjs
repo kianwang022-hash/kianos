@@ -47,7 +47,7 @@ const instruction=validateEnglishSessionInstruction({
     step_id:'s1',
     task:'reading_a',
     object_id:'same-source-a',
-    source_hash:'shared-rendered-hash',
+    source_hash:'exact-revision-a',
     label:'E4 assisted fixture',
     params:{
       time_budget_seconds:1200,
@@ -66,8 +66,9 @@ storage.setItem(ENGLISH_SESSION_KEY,JSON.stringify(instruction));
 const metaA={
   task:'reading_a',
   object_id:'same-source-a',
-  source_hash:'shared-rendered-hash',
-  snapshot:{evidence:{source_kind:'synthetic',evidence_role:'TRANSFER'}}
+  source_hash:'exact-revision-a',
+  semantic_source_hash:'shared-semantic-source',
+  snapshot:{evidence:{source_kind:'synthetic',evidence_role:'TRANSFER',semantic_source_hash:'shared-semantic-source'}}
 };
 const valueA={submitted:true,answers:{q1:'A'},results:{q1:'correct'},uncertain:[]};
 saveEnglishAttempt(storage,'kianos-reading-attempt-v1:same-source-a',valueA,metaA,{now});
@@ -99,12 +100,13 @@ storage.removeItem(ENGLISH_SESSION_KEY);
 const metaB={
   task:'reading_a',
   object_id:'same-source-b',
-  source_hash:'shared-rendered-hash',
-  snapshot:{evidence:{source_kind:'synthetic',evidence_role:'CALIBRATION'}}
+  source_hash:'exact-revision-b',
+  semantic_source_hash:'shared-semantic-source',
+  snapshot:{evidence:{source_kind:'synthetic',evidence_role:'CALIBRATION',semantic_source_hash:'shared-semantic-source'}}
 };
 const valueB={submitted:true,answers:{q1:'A'},results:{q1:'correct'},uncertain:[]};
 saveEnglishAttempt(storage,'kianos-reading-attempt-v1:same-source-b',valueB,metaB,{now:now+60000});
-assert.equal(valueB.binding.prior_exposure,'exposed','same exact source hash was washed back to unseen/unknown');
+assert.equal(valueB.binding.prior_exposure,'exposed','same learner-semantic source with a new exact revision/id was washed back to unseen/unknown');
 assert.equal(valueB.firstEvidenceMeta?.independent_transfer_candidate,false);
 
 // 2b) An explicit exposed learner declaration must keep exact-source identity even before opening.
@@ -112,7 +114,8 @@ const declaredStorage=new MemoryStorage();
 const declaredCatalog=[{
   task:'reading_a',
   object_id:'declared-alias-a',
-  source_hash:'declared-shared-hash',
+  source_hash:'declared-exact-a',
+  semantic_source_hash:'declared-semantic',
   label:'Declared alias A'
 }];
 writeEnglishSessionInstruction(declaredStorage,{
@@ -125,7 +128,7 @@ writeEnglishSessionInstruction(declaredStorage,{
     step_id:'s1',
     task:'reading_a',
     object_id:'declared-alias-a',
-    source_hash:'declared-shared-hash',
+    source_hash:'declared-exact-a',
     params:{
       material_exposure:{
         state:'exposed',
@@ -141,8 +144,9 @@ const declaredAliasValue={submitted:true,answers:{q1:'A'},results:{q1:'correct'}
 saveEnglishAttempt(declaredStorage,'kianos-reading-attempt-v1:declared-alias-b',declaredAliasValue,{
   task:'reading_a',
   object_id:'declared-alias-b',
-  source_hash:'declared-shared-hash',
-  snapshot:{evidence:{source_kind:'official',evidence_role:null}}
+  source_hash:'declared-exact-b',
+  semantic_source_hash:'declared-semantic',
+  snapshot:{evidence:{source_kind:'official',evidence_role:null,semantic_source_hash:'declared-semantic'}}
 },{now:now+90000});
 assert.equal(declaredAliasValue.binding.prior_exposure,'exposed','exposed declaration lost exact-source identity before open');
 assert.equal(declaredAliasValue.firstEvidenceMeta?.independent_transfer_candidate,false);
@@ -159,7 +163,7 @@ writeEnglishSessionInstruction(declarationOnlyStorage,{
     step_id:'s1',
     task:'reading_a',
     object_id:'declared-source-a',
-    source_hash:'declared-source-hash',
+    source_hash:'declared-source-exact-a',
     params:{material_exposure:{
       state:'exposed',
       basis:'learner_statement',
@@ -167,7 +171,7 @@ writeEnglishSessionInstruction(declarationOnlyStorage,{
       note:'Already seen.'
     }}
   }]
-},day,{catalog:[{task:'reading_a',object_id:'declared-source-a',source_hash:'declared-source-hash'}],now:Date.parse('2026-09-21T11:41:00.000Z')});
+},day,{catalog:[{task:'reading_a',object_id:'declared-source-a',source_hash:'declared-source-exact-a',semantic_source_hash:'declared-source-semantic'}],now:Date.parse('2026-09-21T11:41:00.000Z')});
 declarationOnlyStorage.removeItem(ENGLISH_SESSION_KEY);
 assert.throws(()=>writeEnglishSessionInstruction(declarationOnlyStorage,{
   schema:'kianos.english.session-instruction.v1',
@@ -179,7 +183,7 @@ assert.throws(()=>writeEnglishSessionInstruction(declarationOnlyStorage,{
     step_id:'s1',
     task:'reading_a',
     object_id:'declared-source-b',
-    source_hash:'declared-source-hash',
+    source_hash:'declared-source-exact-b',
     params:{material_exposure:{
       state:'unseen',
       basis:'learner_statement',
@@ -187,7 +191,7 @@ assert.throws(()=>writeEnglishSessionInstruction(declarationOnlyStorage,{
       note:'Conflicting later declaration.'
     }}
   }]
-},day,{catalog:[{task:'reading_a',object_id:'declared-source-b',source_hash:'declared-source-hash'}],now:Date.parse('2026-09-21T11:46:00.000Z')}),/ENGLISH_MATERIAL_ALREADY_EXPOSED/);
+},day,{catalog:[{task:'reading_a',object_id:'declared-source-b',source_hash:'declared-source-exact-b',semantic_source_hash:'declared-source-semantic'}],now:Date.parse('2026-09-21T11:46:00.000Z')}),/ENGLISH_MATERIAL_ALREADY_EXPOSED/);
 
 // 3) Reuse existing durable ledgers for bounded long-horizon recurrence.
 storage.setItem('kianos-english-objective-transfer-claims-v1',JSON.stringify({
@@ -358,7 +362,7 @@ console.log(JSON.stringify({
   checks:{
     chat_context_assistance_downgrades_first_evidence:true,
     chat_cannot_declare_unassisted:true,
-    exact_source_hash_cross_object_exposure:true,
+    semantic_source_cross_object_exposure:true,
     exposed_declaration_cross_object_exposure:true,
     known_exposure_rejects_later_unseen_alias:true,
     bounded_long_horizon_recurrence_digest:true,
