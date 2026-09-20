@@ -1,0 +1,35 @@
+name: Xizong Forecast Real-U Adapter
+
+on:
+  pull_request:
+    paths:
+      - 'static-web/src/lib/xizongStudyPacket.mjs'
+      - 'static-web/src/lib/xizongMemoryModel.mjs'
+      - 'static-web/src/lib/xizongQuestions.mjs'
+      - 'static-web/src/lib/xizong.mjs'
+      - 'static-web/src/lib/dailyLearningPacketRuntime.mjs'
+      - 'static-web/src/lib/examOrchestratorClient.mjs'
+      - 'static-web/src/components/ExamOrchestratorHome.astro'
+      - 'static-web/src/pages/index.astro'
+      - 'static-web/scripts/test-xizong-forecast-real-u-adapter.mjs'
+      - '.github/workflows/xizong-forecast-real-u-adapter.yml'
+  push:
+    branches:
+      - work/xizong-forecast-real-u-adapter-20260921
+
+jobs:
+  factual-adapter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Prove Current learner facts feed Forecast
+        working-directory: static-web
+        run: node scripts/test-xizong-forecast-real-u-adapter.mjs
+      - name: Build Current site
+        working-directory: static-web
+        run: |
+          npm install --no-audit --no-fund
+          npm run build
