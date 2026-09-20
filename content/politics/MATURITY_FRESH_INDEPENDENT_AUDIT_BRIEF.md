@@ -1,6 +1,6 @@
 # Politics Fresh Independent / Anti-Anchored Freeze Audit Brief
 
-Status: **ACTIVE HARD FREEZE GATE**
+Status: **FINAL AUTOMATIC HARD FREEZE GATE**
 
 Owner: PR #638 / `work/politics-later-readiness-20260920`
 
@@ -11,6 +11,21 @@ Purpose:
 > Decide independently whether the exact Politics freeze candidate satisfies the shared mother standard at the `SYSTEM_LOGIC_ACCEPTED` boundary.
 
 This audit does **not** decide whether Kian is personally calibrated or whether unpublished/current-year sources already exist.
+
+## 0. Audit-loop stop rule
+
+This launch is the **last automatically initiated Fresh Independent audit** in the current Politics maturity-closure cycle.
+
+This changes **no acceptance criterion** and must not bias the evaluator toward PASS. The evaluator must still independently return PASS / FAIL / INVALID from the sealed evidence.
+
+After the verdict:
+
+- **PASS** → freeze broad Politics maturity engineering; remaining work is Real-U / Source / authentic-modality gated or concrete-defect maintenance.
+- **FAIL because the repaired F-01 stale Chat Plan basis is still materially incomplete** → return only to that exact shared owner. Do not broaden Politics architecture.
+- **FAIL on a new unrelated material blocker** → stop the automatic repair → reseal → Fresh-audit loop. Report the new blocker to Kian; another repair/audit cycle requires an explicit decision.
+- **INVALID** → fix only the audit protocol/contamination problem. INVALID does not authorize a system redesign.
+
+The purpose is to prevent Fresh Audit from becoming an unbounded meta-engineering loop while preserving genuine independent falsification.
 
 ## 1. Freshness rule
 
