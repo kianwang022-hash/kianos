@@ -245,8 +245,12 @@ Requirements:
 - retirement/version rule.
 
 Current candidate:
-- 72-task bank exists;
-- **must be revalidated against Politics maturity requirements before acceptance**.
+- 104-task bank across all five subject families;
+- dedicated Segmentation added;
+- bounded Mao structural coverage added from Current chapter compression;
+- Xi structure-only tasks added with current-year exactness blocked;
+- builder revalidation: PASS_AFTER_BOUNDED_REPAIR;
+- fresh independent audit still pending before final acceptance.
 
 ## S2-T3 — Analysis scoring owner
 Create/validate:
@@ -259,7 +263,7 @@ Create/validate:
 - second-review rule when strategy would change.
 
 Status:
-- **MISSING / HIGH PRIORITY**
+- **CANDIDATE CREATED — `content/politics/analysis-output/SCORING_RUBRIC.md`; external/current-year score calibration still pending**
 
 ## S2-T4 — Analysis evidence ladder
 Implement evidence states for:
