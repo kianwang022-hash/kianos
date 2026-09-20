@@ -80,6 +80,22 @@ A mature English score model must output:
 
 Unknown stays UNKNOWN.
 
+### Objective 60 proof boundary
+
+Objective 60 / 60 does **not** require infinite proof or endless consumption of scarce fresh official material. Operationally, the target means:
+
+> no known recurring predictable Objective loss mechanism remains unaddressed, and representative low-contamination / integrated evidence supports near-zero predictable loss under normal time pressure.
+
+Residual exam randomness may remain explicit.
+
+### Fresh-material capital
+
+Low-contamination official material is scarce calibration capital. Its use must be budgeted by value of information and future Gate need.
+
+- engineering tests do not consume protected learner material;
+- do not spend the cleanest remaining material merely to satisfy a bookkeeping milestone;
+- preserve enough integrated evidence for later formal Gates where feasible.
+
 ---
 
 # 2｜Kian-specific prior must inform calibration, not manufacture mastery
@@ -375,6 +391,8 @@ same-section correction
 
 Reference translation is a comparison tool, not automatically a unique gold answer.
 
+Translation scoring must explicitly tolerate multiple valid Chinese renderings when proposition/relation fidelity is preserved. Convergence toward one reference style is not itself evidence of higher score.
+
 ---
 
 # 7｜Ability closure — Small Writing
@@ -400,6 +418,8 @@ Failure examples:
 - memorized template that does not complete the communicative job.
 
 A good rewrite of the same prompt is repair evidence, not transfer.
+
+Writing transfer must also resist **topic-package overfit**. Different prompt IDs are not enough if they recycle the same semantic theme, visual relation and argument demand. Reusable language is allowed; memorized whole-content packages must not be mistaken for generative ability.
 
 ---
 
@@ -481,6 +501,8 @@ Fast card throughput alone is not sufficient.
 
 Recognition success cannot close a Production claim.
 
+The 7,946-word Current lexical scope is a content universe, **not** an exam-cycle completion quota. After core reactivation, extra lexical time must earn its place through downstream transfer, long-term compounding, or a concrete recognition/production need.
+
 ---
 
 # 10｜Whole Paper integration closure
@@ -503,6 +525,10 @@ It must test whether task-local capability survives:
 Whole Paper may reopen a locally stable module.
 
 But one noisy Whole Paper does not automatically justify heavy rebuild. Reopen intensity must match the strength and recurrence of counterevidence.
+
+The number of whole-paper runs is an evidence prior, not a sacred quota. Two strong representative runs may sometimes be more informative than three contaminated runs; five unstable runs still do not prove Secure.
+
+Printed section order is Source truth. Execution order may remain a learner strategy variable when exam rules permit. Alternative order is adopted only after real execution evidence shows a benefit.
 
 As Whole Paper becomes representative and stable, it should absorb part of single-module Maintenance.
 
@@ -599,6 +625,8 @@ Synthetic may **not** automatically prove:
 - English-I score equivalence;
 - authentic difficulty equivalence;
 - whole-paper performance.
+
+Any asset counted as **ready inventory** must also be executable through an accepted learner path with valid identity, answer/reference gating, evidence capture and exposure semantics. Otherwise classify it as `PREPARED_NOT_EXECUTABLE`, not READY.
 
 Difficulty must be empirically calibrated against appropriate low-contamination authentic evidence.
 
@@ -732,6 +760,8 @@ No timing budget means timing is uncalibrated, not fast.
 
 Unknown exposure is not unseen.
 
+Runtime assistance flags are necessary but not always sufficient. If prior Chat discussion materially cued the target prompt/mechanism before an attempt, Chat/learner may downgrade independence even when no on-page assistance event exists. Uncertain cognitive independence remains UNKNOWN rather than clean.
+
 ---
 
 # 16｜Subjective scoring validity
@@ -759,7 +789,8 @@ Hard rules:
 - one Chat score cannot create a narrow total-score Forecast;
 - reference Translation is not a unique gold string;
 - elegant Writing style cannot compensate for task/content failure in scoring logic;
-- scoring uncertainty must propagate to the English total band.
+- scoring uncertainty must propagate to the English total band;
+- provisional productive planning bands must not become magic Secure cutoffs before rubric calibration.
 
 ---
 
@@ -823,6 +854,8 @@ Required backtest questions:
 Repeated miss must reduce confidence and update parameters.
 
 The system must not preserve a forecast merely because its architecture is elegant.
+
+Total-score synthesis must also account for shared execution risk. Do not mechanically add Objective / Translation / Writing midpoint estimates as if section errors, fatigue and time competition were independent. Whole Paper is the main reality check on those independence assumptions.
 
 ---
 
@@ -939,6 +972,8 @@ The next English hour must be compared with Xizong / Politics using:
 
 Use HIGH / MEDIUM / LOW / UNCERTAIN rather than fake decimal point-gain scores.
 
+English floor / target / practical ceiling are phase- and evidence-dependent. No historical “2h/day English” seed becomes a permanent debt rule after English is stable or another subject becomes binding.
+
 ---
 
 # 23｜Repair causal closure
@@ -999,6 +1034,8 @@ Rules:
 - TOEFL/IELTS question performance is not automatically English-I Reading A evidence;
 - OCR/source-quality flags limit formal claims;
 - External Reading becomes Elastic only when ordinary English-I work no longer supplies sufficient growth stimulus.
+
+High intrinsic English value is not enough to justify exam capacity. External Reading receives protected time only when it repairs a current reading/lexical/stamina need, or when the core 85+ path is secure and External Reading wins Elastic ROI against other English work and other subjects.
 
 ---
 
@@ -1287,6 +1324,8 @@ INVALID
 ```
 
 No old attempt is silently reinterpreted under a new prompt/rubric/material revision.
+
+Representative coverage must be checked across obvious dimensions that matter to English: mechanism, task/form, difficulty/stress, source/evidence class, and timed/integrated context where relevant. A synthetic-only coverage claim cannot silently stand in for authentic difficulty calibration.
 
 ---
 
