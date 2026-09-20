@@ -415,7 +415,25 @@ If the rubric changes materially, old score evidence must be reinterpreted as PR
 
 ---
 
-# 7｜Calibration / bias attacks
+# 7｜Typed-output score vs exam-mode score
+
+Typed productive output can establish cognition and language-quality evidence.
+
+It does **not** automatically establish the same exam-mode score because handwriting, page switching and end-of-paper fatigue may reduce delivery.
+
+Until E8 paper calibration exists, productive score evidence must distinguish:
+
+```text
+TYPED_OUTPUT_RANGE
+vs
+EXAM_MODE_RANGE = still uncertain / adjusted only when modality evidence exists
+```
+
+Do not hide the modality gap inside a falsely precise total score.
+
+---
+
+# 8｜Calibration / bias attacks
 
 The scoring system must survive at least these counterexamples.
 
