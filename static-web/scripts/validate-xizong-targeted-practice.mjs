@@ -136,7 +136,7 @@ const trainingOnly = normalizeXizongInlinePracticeQuestions([{
   derived_from_ids: [],
   changed_dimensions: []
 }], 'TEST_TRAINING_ONLY')[0];
-assert.equal(trainingOnly.freshTransferEligible,false,
+assert(trainingOnly.freshTransferEligible === false,
   'unverified synthetic training must not become fresh transfer evidence');
 
 
@@ -360,12 +360,12 @@ assert(retained.wrongUncertainIds.length === 1 && retained.wrongUncertainIds[0] 
   'ai-probe-polluted-official-wu');
 assert(retained.transferProbeEvents.length === 2, 'probe-evidence-missing');
 assert(retained.transferProbeEvents.every((row) => row.scoring_role === 'TRANSFER_ONLY'), 'probe-evidence-score-boundary');
-assert.equal(retained.freshTransferEvents.length,1,
+assert(retained.freshTransferEvents.length === 1,
   'same semantic family must contribute only one fresh transfer observation');
-assert.equal(retained.freshTransferEvents[0].question_id,nearDerivativeQuestion.questionId,
+assert(retained.freshTransferEvents[0].question_id === nearDerivativeQuestion.questionId,
   'fresh transfer family should retain only the latest observation');
-assert.equal(retained.freshTransferEvents[0].semantic_family_id,'sf:circulation-b01-kp01:condition-change');
-assert.equal(retained.freshTransferEvents[0].fresh_transfer_eligible,true);
+assert(retained.freshTransferEvents[0].semantic_family_id === 'sf:circulation-b01-kp01:condition-change', 'fresh-transfer-semantic-family');
+assert(retained.freshTransferEvents[0].fresh_transfer_eligible === true, 'fresh-transfer-eligible');
 
 const component = fs.readFileSync(path.resolve(process.cwd(), 'src/components/XizongPracticeWorkbench.astro'), 'utf8');
 const landing = fs.readFileSync(path.resolve(process.cwd(), 'src/pages/xizong/practice/index.astro'), 'utf8');
