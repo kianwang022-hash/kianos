@@ -25,6 +25,7 @@ const TASKS=[
   ['translation','kianos-translation-attempt-v2:','translation'],
   ['writing','kianos-writing-runtime-v1:','writing']
 ];
+const PART_B_FORMS=['gap_match','ordering','heading_match','comment_match'];
 
 const entries={};
 let serial=0;
@@ -48,7 +49,8 @@ for(const [task,prefix,kind] of TASKS){
       attempt_id:`attempt-${task}-${i}`,
       prior_exposure:exposed?'exposed':(i%13===0?'unknown':'unseen'),
       assistance:assisted?'assisted':'unassisted',
-      revision:1
+      revision:1,
+      source_snapshot:task==='reading_b'?{context:{taskForm:PART_B_FORMS[i%PART_B_FORMS.length]}}:{}
     };
     const firstEvidenceMeta={
       attempt_id:binding.attempt_id,
@@ -146,6 +148,14 @@ assert.equal(profile.tasks.external_reading.role,'GROWTH_READING');
 assert.equal(profile.tasks.reading_a.evidence_shape,'QUESTION_OUTCOME');
 assert.equal(profile.tasks.cloze.evidence_shape,'QUESTION_OUTCOME');
 assert.equal(profile.tasks.reading_b.evidence_shape,'QUESTION_OUTCOME');
+assert.deepEqual(profile.tasks.reading_b.history.form_coverage.covered_forms,PART_B_FORMS);
+assert.equal(profile.tasks.reading_b.history.form_coverage.unknown_form_attempts,0);
+for(const form of PART_B_FORMS){
+  assert.equal(profile.tasks.reading_b.history.form_coverage.by_form[form].attempts,30,`Part B history form count:${form}`);
+  assert.equal(profile.tasks.reading_b.recent.form_coverage.by_form[form].attempts,2,`Part B recent form count:${form}`);
+}
+assert.equal(profile.guardrails.includes('READING_B_AGGREGATE_DOES_NOT_PROVE_FORM_COVERAGE'),true);
+assert.equal(packet.inventory.filter(row=>row.task==='reading_b'&&row.task_form).length,8,'Part B recent inventory lost form identity');
 assert.equal(profile.tasks.external_reading.evidence_shape,'QUESTION_OUTCOME');
 assert.equal(profile.tasks.translation.evidence_shape,'PRODUCTIVE_REPAIR_STATE');
 assert.equal(profile.tasks.writing.evidence_shape,'PRODUCTIVE_REPAIR_STATE');
@@ -368,7 +378,9 @@ for(const [task,prefix,kind] of TASKS){
       prior_exposure:'exposed',
       assistance:'unassisted',
       revision:1,
-      source_snapshot:kind==='external'?{completion_requirement:'READ_ONLY_OK'}:{}
+      source_snapshot:task==='reading_b'
+        ? {context:{taskForm:PART_B_FORMS[i%PART_B_FORMS.length]}}
+        : (kind==='external'?{completion_requirement:'READ_ONLY_OK'}:{})
     };
     const firstEvidenceMeta={
       attempt_id:attemptId,
