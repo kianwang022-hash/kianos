@@ -12,7 +12,7 @@ This file owns C-scoped gate truth only. It does not own medical Core, lane lear
 
 | Gate | Status | Evidence / note |
 | --- | --- | --- |
-| S — exact official System-question membership | **PASS_AFTER_BOUNDED_REPAIR** | Current owner = 289 exact qids; historical executable-resolver 326 repaired by excluding 38 non-C owner questions |
+| S — exact official System-question membership | **PASS_AFTER_BOUNDED_REPAIR** | Current owner = 290 exact qids; historical executable-resolver 326 repaired by excluding 38 non-C owner questions, then bounded D/F cross-System owner transfers |
 | K — Knowledge | **PASS** | C Knowledge accepted in merged PR #250 (`386fda93b2dd4fb75ab30eda3c7da8790cb6cf10`); current owner is `system.json` + 27 Block Cores |
 | L — Learning Logic | **PASS_AFTER_REPAIR** | Independent fresh audit: `C_PHASE6_FRESH_L_INDEPENDENT_ACCEPTANCE.md`; canonical owner `c-hematology-immunity-infection-learning.json` |
 | P — Projection | **NOT_STARTED / ELIGIBLE** | L is accepted; no C Projection work or acceptance is claimed by this task |
@@ -41,9 +41,9 @@ Reconstruction receipt:
 Accepted identity:
 
 ```text
-Current exact official C qids = 289
+Current exact official C qids = 290
 year range                    = 2005–2026
-inventory SHA256              = 3c04968c9fb88b216c15f249a95ac8ea985ebd6f9166ae59b57a27c61ff0287b
+inventory SHA256              = 4dc16a032d2833f7b285a68b38e7020e111fba04c67a3b873e8b3238f30db009
 unresolved ambiguity          = 0
 ```
 
@@ -54,7 +54,12 @@ The pinned historical executable resolver produced 326 C candidates. Fresh Curre
 
 No historical count was targeted. Current C owner truth overrides the old frozen count.
 
-Fresh cross-System owner repair during D audit transferred `xizong-official-2007-n150` into C because it tests general RA medical Primary owned by H17. Current C scope is therefore 289 qids with zero C/D overlap after transfer.
+Fresh cross-System owner repair is now fully reconciled:
+
+- D audit transferred `xizong-official-2007-n150` into C because it tests general RA medical Primary owned by H17;
+- F audit transferred `xizong-official-2018-n058` into C because hyperacute rejection is C/H14 medical Primary rather than F Primary.
+
+Current C scope is therefore **290 qids**, with zero overlap against the accepted D/F System scopes after those transfers.
 
 S membership remains System-level only and creates no inferred Question→Block/LG/KP relation.
 
