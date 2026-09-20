@@ -97,21 +97,23 @@ Structural/self-attack review is complete on this ref (19/19 targeted checks). T
 Active ref: `work/english-highest-maturity-adaptation-20260920`
 Owner package: `ENGLISH_HIGHEST_MATURITY_STANDARD.md` + `ENGLISH_HIGHEST_MATURITY_STAGE_PLAN.md` + `ENGLISH_MATURITY_GAP_MATRIX.md`.
 
-Current: **Highest-maturity remaining-domain audit — ACTIVE**.
+Current: **Forecast SYSTEM LOGIC closure — ACTIVE · bounded owner only**.
 E2 Material / Source Fidelity / Ready Inventory is **CLOSED CANDIDATE**.
 E3 Productive Scoring Validity is **CLOSED CANDIDATE · FRESH PASS**.
-E4 Evidence / Exposure / long-horizon fidelity is **CLOSED CANDIDATE** after latest-head structural + browser + cross-subject proof and bounded self-attack.
+E4 Evidence / Exposure / long-horizon fidelity is **CLOSED CANDIDATE**.
 
-Current task is **not E5 implementation**. Audit the remaining mother-standard domains against existing English truth:
+Remaining-domain audit found one material system-logic gap: current `englishForecastProgress()` is intentionally only explicit-Session workflow progress and cannot represent whole-English remaining workload / uncertainty / sensitivity / decision flips / highest-value next evidence.
 
-- Forecast SYSTEM LOGIC;
-- Dynamic Control;
-- Future Source readiness;
-- Chat↔Website / Day-1 execution;
-- lifecycle / adversarial / fail-safe coverage;
-- SYSTEM_LOGIC_ACCEPTED vs KIAN_SPECIFIC_CALIBRATED boundary.
+Dynamic Control, English-specific Future Source readiness and current Chat↔Website/Day-1 logic are already sufficient for their current system boundary and must not be rebuilt.
 
-Mark already-satisfied domains as satisfied without rebuilding them. Open only the smallest owner for a concrete system-logic gap. If the only remaining gaps are Kian-specific learner parameters or paper-mode evidence, stop maturity engineering and return to real English study.
+Active work is therefore only a **pure Forecast kernel** that:
+- accepts UNKNOWN learner parameters;
+- distinguishes priced work from unpriced scope;
+- keeps score-path confidence separate from workload confidence;
+- exposes sensitivity / decision flips / next high-value evidence;
+- never selects daily tasks or cross-subject allocation.
+
+Kian-specific numerical Forecast calibration remains **UNTESTED / Real Learner U-dependent**.
 
 Boundaries: reuse existing task workspaces/transport; no second scheduler/ledger/mastery; no broad Guide rewrite; no protected true-exam consumption for engineering proof; no automatic E4→E5 transition.
 
