@@ -1,6 +1,10 @@
 export const XIZONG_FORECAST_MODEL_SCHEMA = 'kianos.xizong.workload-forecast.v1';
 
-const finite = (value) => Number.isFinite(Number(value)) ? Number(value) : null;
+const finite = (value) => {
+  if (value === null || value === undefined || value === '') return null;
+  const number = Number(value);
+  return Number.isFinite(number) ? number : null;
+};
 const positive = (value) => {
   const n = finite(value);
   return n !== null && n > 0 ? n : null;
