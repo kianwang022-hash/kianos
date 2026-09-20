@@ -53,6 +53,7 @@ export function collectXizongRetainedEvidence(entries, options = {}) {
   const markOverrides = asObject(options.markOverrides);
 
   const latest = new Map();
+  const latestTransferProbe = new Map();
   const legacyMarks = new Set();
 
   for (const [key, raw] of rows) {
@@ -72,6 +73,14 @@ export function collectXizongRetainedEvidence(entries, options = {}) {
       if (event?.type && event.type !== 'QUESTION_ATTEMPT') continue;
       if (String(event?.result_visibility || '') === 'hidden' && !hiddenPaperSealed) continue;
       const questionId = eventQuestionId(event);
+      if (String(event?.question_source || '') === 'AI_TRANSFER_PROBE'
+          && /^xizong-ai-probe:/.test(questionId)) {
+        const previousProbe = latestTransferProbe.get(questionId);
+        if (!previousProbe || eventTime(event) >= eventTime(previousProbe)) {
+          latestTransferProbe.set(questionId, event);
+        }
+        continue;
+      }
       if (!QID.test(questionId)) continue;
       const previous = latest.get(questionId);
       if (!previous || eventTime(event) >= eventTime(previous)) latest.set(questionId, event);
@@ -103,9 +112,22 @@ export function collectXizongRetainedEvidence(entries, options = {}) {
     latest
   );
 
+  const transferProbeEvents = [...latestTransferProbe.values()]
+    .sort((a, b) => eventTime(b).localeCompare(eventTime(a)))
+    .map((event) => ({
+      question_id: eventQuestionId(event),
+      status: String(event?.status || ''),
+      submitted_at: eventTime(event),
+      probe_kind: String(event?.probe_kind || ''),
+      target_kp_ids: [...new Set((Array.isArray(event?.target_kp_ids) ? event.target_kp_ids : []).map(String).filter(Boolean))],
+      canonical_source_hash: String(event?.canonical_source_hash || ''),
+      scoring_role: 'TRANSFER_ONLY'
+    }));
+
   return {
     wrongUncertainIds,
     markedIds,
+    transferProbeEvents,
     latestAttemptByQuestion: Object.fromEntries([...latest.entries()].map(([questionId, event]) => [questionId, event]))
   };
 }
