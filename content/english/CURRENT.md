@@ -387,7 +387,23 @@ A blocker in one child does not freeze siblings without a real shared dependency
 
 ## Next
 
-English is in normal-use / concrete-defect mode.
+Routing depends on intent:
+
+```text
+learner request
+→ normal English use / Real Learner U
+
+highest-maturity closure request
+→ FINAL_CONVERGENCE_SWEEP
+→ if repaired blockers exist: FINAL_ACCEPTANCE
+→ then STOP broad maturity engineering
+```
+
+Fresh-Chat control entry:
+
+```text
+ki，继续英语最高成熟度收口
+```
 
 Do not restart A/B/C, the released Mac-presentation hold, legacy 4173 convergence, broad historical CI cleanup, or unrelated Lexical / Politics / Xizong debt. Learner U changes only through genuine study evidence.
 
