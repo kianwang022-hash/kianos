@@ -72,6 +72,7 @@ export function buildHomeDailyLearningPacket({
   plan = null,
   xizongPacketIndex = [],
   xizongForecastQuestionScope = null,
+  xizongForecastCanonicalScope = null,
   politicsCatalog = null,
   politicsMemoryCatalog = null,
   base = '/'
@@ -107,6 +108,7 @@ export function buildHomeDailyLearningPacket({
       if (xizong) {
         xizong.forecast_progress = buildXizongForecastProgress(storage, xizongPacketIndex, {
           questionScope: xizongForecastQuestionScope,
+          canonicalScope: xizongForecastCanonicalScope,
           day,
           now
         });
