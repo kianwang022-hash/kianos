@@ -97,9 +97,9 @@ Structural/self-attack review is complete on this ref (19/19 targeted checks). T
 Active ref: `work/english-highest-maturity-adaptation-20260920`
 Owner package: `ENGLISH_HIGHEST_MATURITY_STANDARD.md` + `ENGLISH_HIGHEST_MATURITY_STAGE_PLAN.md` + `ENGLISH_MATURITY_GAP_MATRIX.md`.
 
-Current: **E2 Material / Source Fidelity / Ready Inventory**.
-R1–R4 candidate implementation exists: expanded Writing synthetic bank + Objective/Translation synthetic adapters + Session Catalog + validator.
-Next: CI/build/browser learner proof → E2 self-attack → close or repair smallest red.
+Current: **E3 Productive Scoring Validity**.
+E2 Material / Source Fidelity / Ready Inventory is **CLOSED CANDIDATE** after structural/build/browser proof on PR #640.
+Next: establish accepted Translation + Small/Big Writing scoring anchors, uncertainty and bias attacks; no fake auto-score and no learner UI scorer by default.
 
 Boundaries: reuse existing task workspaces/transport; no second scheduler/ledger/mastery; no broad Guide rewrite; no protected true-exam consumption for engineering proof.
 
