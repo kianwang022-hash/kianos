@@ -3,8 +3,10 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
   EXAM_CHAT_PLAN_SCHEMA,
+  buildExamChatPlanBasis,
   validateExamChatPlan,
-  readExamChatPlan
+  readExamChatPlan,
+  writeExamChatPlan
 } from '../src/lib/examChatPlan.mjs';
 import { buildChatControlledExamReadModel } from '../src/lib/examPlanReadModel.mjs';
 
@@ -90,6 +92,74 @@ const storage = {
 const stale = readExamChatPlan(storage, '2026-09-18');
 if (stale.status !== 'stale' || stale.plan !== null) fail('STALE_PLAN_MUST_FAIL_CLOSED');
 
+
+class MemoryStorage {
+  constructor(entries = {}) { this.map = new Map(Object.entries(entries)); }
+  get length() { return this.map.size; }
+  key(index) { return [...this.map.keys()][index] ?? null; }
+  getItem(key) { return this.map.has(key) ? this.map.get(key) : null; }
+  setItem(key, value) { this.map.set(String(key), String(value)); }
+  removeItem(key) { this.map.delete(String(key)); }
+}
+
+const evidenceStorage = new MemoryStorage();
+const basisE0 = buildExamChatPlanBasis(evidenceStorage, '2026-09-18');
+const e0Plan = {
+  ...sample,
+  generated_at: '2026-09-18T05:00:00+08:00',
+  learner_evidence_basis: basisE0
+};
+writeExamChatPlan(evidenceStorage, e0Plan, '2026-09-18');
+if (readExamChatPlan(evidenceStorage, '2026-09-18').status !== 'ready') {
+  fail('CURRENT_BASIS_PLAN_MUST_BE_READY');
+}
+
+evidenceStorage.setItem('kianos-politics-evidence-v1', JSON.stringify([{
+  schema: 'kianos.politics.analysis-evidence.v1',
+  event_id: 'basis-e1-blocker',
+  study_day: '2026-09-18',
+  observed_at: '2026-09-18T05:10:00+08:00',
+  verdict: 'BROKEN'
+}]));
+const staleAfterPoliticsEvidence = readExamChatPlan(evidenceStorage, '2026-09-18');
+if (staleAfterPoliticsEvidence.status !== 'stale'
+    || !String(staleAfterPoliticsEvidence.error || '').includes('CHAT_PLAN_EVIDENCE_BASIS_STALE')) {
+  fail('NEW_POLITICS_EVIDENCE_MUST_STALE_OLD_PLAN', JSON.stringify(staleAfterPoliticsEvidence));
+}
+let staleWriteRejected = false;
+try {
+  writeExamChatPlan(evidenceStorage, {
+    ...e0Plan,
+    generated_at: '2026-09-18T05:11:00+08:00'
+  }, '2026-09-18');
+} catch (error) {
+  staleWriteRejected = String(error?.message || '').includes('CHAT_PLAN_EVIDENCE_BASIS_STALE');
+}
+if (!staleWriteRejected) fail('STALE_BASIS_REIMPORT_MUST_FAIL_CLOSED');
+
+const basisE1 = buildExamChatPlanBasis(evidenceStorage, '2026-09-18');
+const e1Plan = {
+  ...e0Plan,
+  generated_at: '2026-09-18T05:12:00+08:00',
+  learner_evidence_basis: basisE1
+};
+writeExamChatPlan(evidenceStorage, e1Plan, '2026-09-18');
+if (readExamChatPlan(evidenceStorage, '2026-09-18').status !== 'ready') {
+  fail('REFRESHED_BASIS_PLAN_MUST_BE_READY');
+}
+
+evidenceStorage.setItem('kianos-politics-evidence-v1', JSON.stringify([{
+  schema: 'kianos.politics.analysis-evidence.v1',
+  event_id: 'basis-e1-blocker',
+  study_day: '2026-09-18',
+  observed_at: '2026-09-18T05:15:00+08:00',
+  verdict: 'STABLE'
+}]));
+const staleAfterStability = readExamChatPlan(evidenceStorage, '2026-09-18');
+if (staleAfterStability.status !== 'stale') {
+  fail('NEW_STABILITY_EVIDENCE_MUST_STALE_OLD_BUILD_REPAIR_PLAN');
+}
+
 console.log(JSON.stringify({
   status: 'PASS',
   strategy_owner: model.control.strategyOwner,
@@ -98,5 +168,8 @@ console.log(JSON.stringify({
   production_readExamDemand_calls: 0,
   missing_plan_infers_allocation: false,
   missing_plan_infers_next: false,
-  stale_plan_fails_closed: true
+  stale_plan_fails_closed: true,
+  learner_evidence_basis_required: true,
+  politics_e1_stales_e0_plan: true,
+  later_stability_stales_old_heavy_plan: true
 }, null, 2));
