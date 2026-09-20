@@ -1,230 +1,713 @@
 # Xizong Highest-Bar Maturity Requirements
 
-Status: **CANDIDATE ACCEPTANCE REQUIREMENTS**
+Status: **CANDIDATE · SUBJECT-NATIVE MATURITY MODEL**
 
-Parent quality bar: `EXAM_SUBJECT_MATURITY_STANDARD.md`
+Parent quality bar: EXAM_SUBJECT_MATURITY_STANDARD.md
 
-This file does not replace Xizong Source / Knowledge / Learning owners. It defines what must be proven before the Xizong subject system may be called mature for the current exam cycle.
+This file is the Xizong-specific instantiation of the shared maturity bar.
 
-## 1. Score closure
+It does not replace Xizong Source / Knowledge / Learning / Question / Runtime owners, and it is not a checklist that requires one new file, module, state or test per clause.
 
-Target semantics for this Candidate are:
+Hard interpretation rule:
 
-- **Protect floor: 270+ / 300** — the Current cross-subject allocation target owned by the Exam Orchestrator;
-- **Working target: 275+ / 300** — the Xizong capability-design target used to keep the 270+ path from becoming a knife-edge plan;
-- **Elastic upside: >275** — receives capacity only when its marginal value remains competitive across subjects.
+> First ask whether the existing Xizong system can already answer the maturity question. Create or change something only when a real learner-impact gap remains, and then repair the smallest responsible owner.
 
-The 275+ working target does **not** silently replace the 270+ cross-subject allocation authority. A fresh Chat must preserve this floor/working/upside distinction, and any future target-owner change must reopen the loss budget and Forecast assumptions.
+The shared standard defines the questions. This file defines what those questions mean for Xizong.
 
-The system must maintain an explicit loss budget rather than treating “finish all content” as the objective. For the 275+ working path, that means reconciling a **maximum 25-point loss envelope** against the Current official exam geometry rather than treating coverage percentage as score readiness.
+---
 
-Required:
+# 1｜Score model: protect 270, build for 275
 
-- current exam-format truth and score-channel structure;
-- subject/system contribution map;
-- an explicit hard-gap sweep for any exam-relevant domain that does not naturally live inside the current System / Block topology;
-- high-value vs low-value loss sources;
-- first-round capability needed to protect the 275+ path;
-- later case / integration / whole-paper capability needed to convert knowledge into score;
-- explicit uncertainty where current-year late material has not arrived.
+Target semantics:
 
-The 275+ claim may not be inferred from coverage alone. Every Current exam-scope family must either own part of the 25-point loss envelope or be explicitly classified as a bounded, justified residual risk. An unowned exam domain is a hard gap, not “other”.
+- **Protect floor: 270+ / 300** — Current cross-subject allocation target owned by the Exam Orchestrator;
+- **Working target: 275+ / 300** — Xizong capability-design target, used to keep the 270 path from becoming knife-edge;
+- **Elastic upside: >275** — receives additional capacity only when its marginal value remains competitive across subjects.
 
-## 2. Ability closure
+The 275 working target must never silently replace the 270 cross-subject authority.
 
-At minimum Xizong must distinguish and train:
+For the 275 path, Xizong owns a **maximum 25-point loss envelope**.
 
-1. **System model formation** — understand the causal/diagnostic/therapeutic structure of a System.
-2. **Block / Logic Group reconstruction** — retrieve local structure without rereading everything.
-3. **Decisive-condition discrimination** — identify the clue that changes diagnosis/mechanism/treatment rather than merely recognize familiar wording.
-4. **Official-question transfer** — apply knowledge to official-question geometry without answer familiarity leakage.
-5. **Precision** — exact identities, thresholds, criteria, lists and confusable boundaries only where exactness matters.
-6. **Case integration** — combine symptoms/signs/tests/mechanisms/treatment across multiple local knowledge objects.
-7. **Cross-System switching** — preserve accuracy when the paper changes systems rapidly.
-8. **Whole-paper execution** — timing, fatigue, uncertainty handling, physical paper/navigation and answer-sheet transfer cost where material, and completion under 165-question / 180-minute geometry.
-9. **Repair efficiency** — compress multiple errors into the smallest real causal defect.
-10. **Delayed stability** — repaired knowledge remains usable after delay / changed context.
-11. **Non-System exam-domain coverage** — any Current official exam domain that sits outside the medical System topology must have explicit ownership, training and evidence. Clinical-medical humanistic content is the canonical hard-gap example while it remains in official 306 scope; it may not disappear merely because all medical Systems are green.
+The loss model must answer:
 
-Each ability requires valid evidence and an explicit failure mode.
+    300 total
+    → where can points realistically be lost?
+    → which losses are correlated?
+    → which losses are preventable by training?
+    → which capability failures could consume the 25-point envelope too quickly?
 
-A broad System/Block state may not hide one open mechanism. Representative coverage must include low-frequency/high-impact decisive conditions, case integration, cross-System switching and timed whole-paper stress before No-new-information can justify broad reduction in practice.
+Coverage percentage is not score readiness.
 
-## 3. Material closure
+Every Current exam-scope family must be one of:
 
-The subject must maintain a complete inventory for:
+- explicitly owned and trained;
+- explicitly represented as a bounded residual risk;
+- explicitly UNKNOWN / BLOCKED.
 
-- canonical System / Block / KP / LG content;
-- original Lecture / MarginNote source contact;
-- official questions and exact System membership;
-- reviewed Question→Knowledge routing;
-- sparse Visual / Precision / Extension support;
-- current-year case-analysis / 狂背;
-- current-year multi-set / four-set mocks;
-- final compression / five-hour material;
-- any additional approved external mock/case source;
-- an exam-scope hard-gap inventory for material not represented by the System / Block / KP topology, with an explicit Current owner or an explicit BLOCKED status.
+An exam-relevant domain outside the medical System / Block topology is a **scope/material gap**, not a learner ability. Clinical-medical humanistic content is the canonical example while it remains in official scope.
 
-Known late source families must have prepared ingestion/delta slots before arrival.
+Historical discipline structure may be used as a prior for diagnosis and stress tests. It may not be promoted to exact current-year truth without Current authority.
 
-If official System-question membership is unresolved for a System, it must remain explicitly unresolved rather than inferred from content position.
+---
 
-## 4. Method closure
+# 2｜Xizong native capability tree
 
-The mature first-pass loop is:
+Xizong maturity is organized around **nine capability layers**.
 
-```text
-orientation / System model
-→ original source contact when required
-→ Block / LG reconstruction
-→ official-question exposure when earned
-→ smallest repair
-→ continue
-```
+They are not a universal mastery score and they need not progress at the same speed.
 
-Second-pass / score-formation must switch toward:
+| Layer | Capability | Exam meaning | Common failure |
+| --- | --- | --- | --- |
+| X1 | **Source / Understanding / System Model** | Understand the causal, diagnostic and therapeutic model owned by the current Source/Knowledge | Recognizes facts but cannot explain the model |
+| X2 | **Active Recall** | Recover the core without rereading | Familiarity mistaken for retrieval |
+| X3 | **Block / Logic Group Reconstruction** | Rebuild local structure and boundaries | Isolated KP recall without local model |
+| X4 | **System Reconstruction** | Rebuild the System-level model before broad application | Blocks individually known but System collapses |
+| X5 | **Precision Stability** | Hold exact thresholds, drugs, criteria, classifications, timelines and confusable identities where exactness matters | Mechanism understood but exact answer missed |
+| X6 | **Official Question Application / Decisive Discrimination** | Identify decisive condition, reject distractors and apply knowledge to official-question geometry | Familiar wording recognition without transferable reasoning |
+| X7 | **Causal Repair / Fresh Verification / Delayed Stability** | Diagnose the smallest real defect, repair it, then show it survives changed context and delay | Same-item correction mistaken for repair closure |
+| X8 | **Case / Cross-System Transfer** | Integrate symptoms, signs, tests, mechanisms, treatment and switching across local owners | Local knowledge works but integrated case reasoning fails |
+| X9 | **Whole-Paper Execution** | Preserve accuracy, timing, uncertainty control and switching across the full paper under exam conditions | Local performance is strong but fatigue/time/switching breaks the score |
 
-```text
-question / case
-→ expose decisive defect
-→ smallest Recall / Repair
-→ changed-context verification
-```
+No broad System/Block state may hide a material open failure in one of these layers.
 
-Later phases must add case integration, cross-System switching and whole-paper execution without replaying the whole curriculum.
+No layer is allowed to prove another by implication:
 
-Stable material must become cheaper over time.
+    Source contact ≠ Recall
+    Recall ≠ Application
+    Application ≠ Case transfer
+    Case transfer ≠ Whole-paper execution
+    Repair done ≠ Fresh verified
+    Whole-paper high score ≠ every local capability is stable
 
-## 5. Evidence closure
+---
 
-The system must keep separate:
+# 3｜Material role map
 
-- source contacted;
-- Block/LG learned;
-- active Recall success;
-- official first attempt;
-- repaired same-item attempt;
-- changed-context verification;
-- case transfer;
-- delayed retrieval;
-- whole-paper execution.
+Materials are organized by **what capability they form**, not by brand or file type.
 
-No one observation may imply mastery.
+## 3.1 Model formation
 
-Absence of Wrong/Uncertain or Repair records does not prove stability when representative sampling is missing.
+Primary roles:
 
-A high official-question score on exposed/repeated material must not be treated as fresh score evidence. Material/exposure identity must follow duplicated questions/case assets across copies, teachers and mock compilations where resolvable.
+- original Lecture / MarginNote;
+- canonical System / Block / KP / LG Knowledge;
+- System / Block Framework;
+- necessary Source Visual;
+- selective high-value Extension.
 
-## 6. Dynamic control
+Main capability role:
 
-Xizong control may use states such as:
+    X1 Understanding
+    → X2 Recall
+    → X3 Block/LG reconstruction
+    → X4 System reconstruction
 
-```text
-UNRESOLVED / BUILD
-→ VERIFY
-→ STABILIZE
-→ MAINTAIN
-→ CASE / INTEGRATE
-→ SIMULATE
-→ ELASTIC
-```
+## 3.2 First-pass local application
 
-Exact labels are not learner-facing requirements.
+Primary roles:
 
-Rules:
+- reviewed Lecture-attached TTSX at real Source boundaries;
+- official System question sweep.
 
-- stable Blocks/LGs compress;
-- repeated same-root errors collapse into one repair cluster where justified;
-- later case value may increase capacity without creating a new parallel course;
-- whole-paper work enters when it answers a real execution question;
-- P20/P50/P80 never directly decide today’s Block count.
+Main capability role:
 
-## 7. Forecast closure
+    X6 official application
+    + expose real Wrong / Uncertain
 
-Forecast must estimate remaining load from:
+TTSX remains Lecture-local. It is not a second KianOS question curriculum.
 
-- weighted unresolved Block/LG work;
-- real Xizong minutes;
-- observed source-contact / Recall throughput;
-- official-question volume and attempt throughput;
-- Wrong/Uncertain pressure;
-- repair-cluster compression;
-- case/integration additions;
-- late-source deltas;
-- whole-paper / simulation reserve.
+## 3.3 Precision / Repair
 
-Required attacks include:
+Primary roles:
 
-- 5h/day and lower-capacity variants;
-- official-question W/U at 10/20/30%+;
-- case-analysis / 狂背 high-value full inclusion;
-- first round slipping past historical dates;
-- severe System-size heterogeneity;
-- repair explosion;
-- source gaps;
-- late current-year material.
+- canonical Knowledge return;
+- selective Precision Memory;
+- smallest discriminating probe;
+- official-question reuse where it answers the current learning question;
+- bounded fresh-transfer probe only when unseen changed-context evidence has real decision value.
 
-Forecast outputs a range and sensitivity, not a hard calendar fiction. Stress proof must include parameter grids / boundary cases / historical sanity and identify which throughput, W/U, repair or late-source assumptions would flip the Gate conclusion.
+Main capability role:
 
-## 8. Future-source closure
+    X5 Precision
+    + X7 causal repair / verification / delayed stability
 
-Prepared slots are required now for:
+## 3.4 Case / integration
 
-- current-year Biochemistry update;
-- current-year TTSX true-question/source layer;
+Primary roles:
+
+- approved case-analysis assets;
+- high-value 狂背 increments where they actually add case/boundary/precision value;
+- bounded case variants;
+- cross-System transfer probes;
+- official-question reuse for decisive-condition and condition-change work.
+
+Main capability role:
+
+    X8 Case / Cross-System transfer
+
+## 3.5 Formal score / execution
+
+Primary roles:
+
+- protected / least-contaminated whole papers;
+- current-year multi-set / four-set mocks when available;
+- later large calibration slices when legitimate.
+
+Main capability role:
+
+    X9 Whole-paper execution
+    + formal score calibration
+
+## 3.6 Final compression
+
+Primary roles:
+
+- late-review causal skeleton;
+- real residual W/U;
+- high-value Precision;
+- final five-hour material only as a compression/delta asset.
+
+Main role:
+
+    maintain stable capability cheaply
+
+Final compression is never permission to skip current-year delta reconciliation or rebuild a full curriculum.
+
+---
+
+# 4｜Current material-gap semantics
+
+Xizong must distinguish gap type before acting.
+
+At minimum:
+
+- HARD_COVERAGE_GAP
+- SOURCE_GAP
+- SOURCE_FIDELITY_GAP
+- KNOWLEDGE_GAP
+- ROUTING_FORECAST_GAP
+- QUESTION_KNOWLEDGE_MAPPING_GAP
+- CURRENT_YEAR_DELTA_GAP
+- VISUAL_GAP
+- PRECISION_GAP
+- TRANSFER_CASE_GAP
+- OPTIONAL_DELTA
+- LEARNER_EVIDENCE_GAP
+
+Important Current distinctions:
+
+- accepted D / E / F medical Content must not be reopened merely because another downstream gap exists;
+- unresolved F exact official-question membership is a **routing/scope gap**, not missing F medical Knowledge;
+- clinical-medical humanistic coverage is an **exam-scope hard gap** while unowned;
+- current-year Biochemistry change is a **delta problem**, not automatic full-course relearning;
+- case / 狂背 / four-set / final-five-hour assets are admitted by net learning value, not raw duration;
+- Question→Knowledge Crosswalk may remain progressive; missing reviewed mapping is legal and must not be guessed.
+
+---
+
+# 5｜Method closure: three learner phases
+
+## 5.1 FIRST PASS — build the model
+
+Primary objective:
+
+> Build a complete enough medical model that can be actively reconstructed and exposed to official-question coverage.
+
+Default shape:
+
+    System orientation
+    → original Source contact
+    → KP / LG formation
+    → Block/LG reconstruction
+    → Block Recall
+    → System Recall
+    → official System sweep
+    → smallest useful Repair
+    → continue
+
+Protected work that may not be deleted merely to hit a date:
+
+- required Source contact;
+- active Recall;
+- Block/System reconstruction;
+- official System sweep;
+- real W/U Repair.
+
+A first-pass tail may roll past a historical date when necessary. Calendar fit does not authorize deleting protected learning.
+
+## 5.2 SCORE FORMATION / SECOND PASS — convert knowledge into points
+
+Primary objective:
+
+> Turn the model into reliable discrimination, exactness, transfer and score.
+
+Default shape:
+
+    official question / case / weak signal
+    → identify decisive condition
+    → discriminate plausible cause
+    → smallest Recall / Precision / boundary Repair
+    → changed-context verification
+    → delayed re-use when material
+
+Main capabilities:
+
+- X5 Precision Stability;
+- X6 Official Application / Decisive Discrimination;
+- X7 Repair / Fresh Verification;
+- X8 Case / Cross-System Transfer.
+
+The second pass must become more selective than the first pass.
+
+## 5.3 LATE REVIEW / SIMULATION — make performance thin and robust
+
+Primary objective:
+
+> Preserve score under switching, fatigue and time pressure while making already-stable knowledge cheaper.
+
+Default shape:
+
+    compressed causal skeleton
+    + high-value boundaries / Precision
+    + real W/U tail
+    + case / cross-System integration
+    + whole-paper execution
+
+Do not replay the full first-pass curriculum.
+
+---
+
+# 6｜Evidence model
+
+Evidence is multidimensional, not one mastery number.
+
+| Evidence | What it supports | What it does NOT prove |
+| --- | --- | --- |
+| Source contacted | X1 exposure / model input | Recall, transfer or stability |
+| Immediate active Recall | X2 retrieval under current conditions | Delayed stability |
+| Block/LG reconstruction | X3 local model | System-level reconstruction |
+| System Recall | X4 System model | Official application |
+| Precision retrieval | X5 exactness for sampled item | Whole-domain precision |
+| Official first attempt | X6 application under that item | Fresh transfer after exposure |
+| Same-item correction | local repair interaction | X7 repair closure |
+| Changed-context / delayed verification | X7 stronger repair/stability evidence | Whole-paper score |
+| Dedicated case / cross-System transfer | X8 integration under sampled task | Formal score calibration |
+| Protected / least-contaminated whole paper | X9 execution + formal observed score | Every underlying capability is stable |
+
+Hard evidence rules:
+
+- absence of W/U does not prove stability when representative sampling is missing;
+- repeated official questions remain useful learning assets, but exposure lowers freshness;
+- semantic material identity, not filename/page/tab identity, governs freshness;
+- mixed or contaminated evidence remains useful as observation but may not masquerade as fresh calibration;
+- internal Holdout protection proves only KianOS non-exposure before seal, not external non-exposure;
+- one high whole-paper score may be a strong observation while still leaving case/cross-System capability partly unknown.
+
+---
+
+# 7｜Dynamic control
+
+Xizong control should be capability-native.
+
+A useful conceptual flow is:
+
+    BUILD
+    → VERIFY
+    → STABILIZE
+    → MAINTAIN
+    → CASE / INTEGRATE
+    → SIMULATE
+    → ELASTIC
+
+These labels are not mandatory UI states.
+
+## Reduce work when
+
+- representative evidence is stable;
+- same-root errors stop recurring;
+- delayed retrieval holds;
+- official application is stable enough for that layer;
+- additional repetitions produce little actionable information.
+
+Then:
+
+    compress / lower frequency / maintain
+
+## Increase or reopen when
+
+- mechanism error recurs;
+- fresh application fails;
+- Precision relapses;
+- delayed Recall drops;
+- case / cross-System transfer fails;
+- whole-paper execution reveals a new defect;
+- a Current Source revision changes the requirement.
+
+Stable content must become cheaper.
+
+A Stable/Maintain capability may not be pulled back into materially heavier Build/Verify without newer contradictory evidence or a subject-native explicit reopen trigger.
+
+---
+
+# 8｜Forecast model
+
+Forecast answers:
+
+> How much capacity is likely still required, where is the risk, and what evidence would change the estimate?
+
+It does **not** answer:
+
+> What exact task should Kian do today?
+
+The Xizong workload model must keep distinct pools for:
+
+- first-pass Knowledge / Block/LG closure;
+- System Recall;
+- official-question sweep;
+- W/U Repair;
+- fresh verification;
+- case / cross-System work;
+- formal whole-paper calibration;
+- future-source net delta;
+- late-review / simulation reserve.
+
+## Required subject-specific safeguards
+
+- price System heterogeneity explicitly; fast familiar A1 must not price a slower later System;
+- W/U must not be one global rate when System-specific evidence materially differs;
+- Repair compression must not inherit one System's ratio when later Systems are unobserved;
+- mixed Block-route lifetime time may not masquerade as exclusive Repair time;
+- exposed whole-paper scores remain observed evidence but do not automatically become fresh score extrapolation;
+- case/cross-System capability must not be manufactured from whole-paper score alone.
+
+## Forecast output
+
+When evidence allows:
+
+    P20 / P50 / P80 capacity band
+    + major assumptions
+    + sensitive parameters
+    + decision-flip surface
+    + next highest-value evidence
+
+P20/P50/P80 are workload/capacity bands, not direct daily-task instructions and not guaranteed probabilities.
+
+Required stress questions include:
+
+- What if usable Xizong capacity is 5h/day?
+- What if W/U is 30%?
+- What if all genuinely high-value case / 狂背 increments are admitted?
+- What if first-pass closure slips materially beyond the old stop-line?
+- What must be learned / attempted / repaired / verified by the 10/20 hard gate?
+- Which parameter combination would make the 275 path infeasible without stealing protected cross-subject capacity?
+
+---
+
+# 9｜Future-source lifecycle
+
+Prepare the slot before the source arrives.
+
+Known families include:
+
+- current-year Biochemistry delta;
+- current-year TTSX/source updates where applicable;
 - case-analysis / 狂背;
 - current-year multi-set / four-set mocks;
 - final five-hour compression;
-- approved third-party mock/case sources.
+- approved external mock/case sources.
 
-Prior-year baselines may define geometry and delta rules. They may not authorize current-year medical claims where freshness matters.
+For every future source:
 
-Each future-source slot must also define what happens if the source is partial, late, lower-value than expected, revised twice, or never arrives. Derived case/compression assets must be invalidated or superseded when their owning current-year source changes.
+    role in capability tree
+    → prior-year baseline
+    → Current owner
+    → source-fidelity validation
+    → delta extraction
+    → replacement / overlap
+    → net-new learning value
+    → derived-asset updates
+    → learner use
+    → downstream invalidation if revised
 
-## 9. Execution closure
+Workload rule:
 
-Chat decides the next Xizong action.
+    gross source time
+    - replaced work
+    - true overlap
+    = net-new effective work
 
-Website must:
+Do not stack raw hours.
 
-- execute exact Block / question / review / whole-paper instructions;
-- preserve first attempt and evidence identity;
-- resume interrupted work;
+If the source is partial, late, lower-value than expected, revised twice or never arrives, the system must already know the fallback.
+
+---
+
+# 10｜Chat ↔ Website execution
+
+Stable relationship:
+
+    Current durable Xizong owners
+    + private learner evidence
+    → Chat decides
+    → typed Xizong action
+    → Website executes
+    → evidence returns
+    → Chat decides again
+
+Website may:
+
+- execute exact Block / Recall / question / Repair / case / whole-paper instructions;
+- preserve identity, attempt order, freshness and evidence provenance;
+- resume interruption;
 - return bounded evidence;
-- fail closed on stale/invalid instructions.
+- reject stale/invalid plans.
 
-Website must not invent System priority or repair priority.
+Website may not:
 
-## 10. Adversarial acceptance
+- choose System priority;
+- choose repair priority;
+- infer medical semantics;
+- invent learner debt;
+- become a second scheduler or strategy brain.
 
-Before mature status, Xizong must survive at least:
+Normal learner-facing output should remain close to:
 
-- slow first-pass throughput;
-- unexpectedly high official-question error rate;
-- one huge System dominating averages;
-- multiple questions sharing one causal defect;
-- same question crossing owners;
-- missing visual/source bytes;
-- incomplete System question scope;
-- stale learner packet;
-- timer loss;
-- browser restart/checkpoint restore;
-- repair relapse;
-- case material arriving late;
-- mock material contradicting forecast;
-- whole-paper fatigue despite strong local performance;
-- Chat incorrectly marking a System stable;
-- Chat remaining over-conservative after representative stable evidence and wasting high-value capacity;
-- silent evidence gaps being mistaken for stability;
-- duplicated/exposed case or mock material being misclassified as fresh;
+> one clear Next Action.
+
+---
+
+# 11｜Xizong maturity stages and gates
+
+These are **maturity stages**, not a static date plan.
+
+## Stage A — SCORE / SCOPE / MATERIAL TRUTH
+
+Goal:
+
+> Know exactly what must exist for the 275 path before trying to optimize execution.
+
+Deliverables:
+
+- Score → Ability → Material → Method → Evidence Matrix;
+- full exam-scope gap sweep;
+- material inventory by role;
+- explicit hard / routing / delta / future / learner-evidence gaps;
+- 25-point loss-envelope reconciliation.
+
+Exit Gate:
+
+- no exam domain can disappear into “other”;
+- every material gap has the correct type;
+- closed medical Content is not falsely reopened;
+- unresolved future material remains explicit rather than guessed.
+
+## Stage B — FIRST-PASS CAPABILITY CLOSURE
+
+Goal:
+
+> Prove the real learner path can form X1–X4 and expose X6 weaknesses without silently creating debt.
+
+Focus:
+
+- Source/understanding;
+- active Recall;
+- Block/LG reconstruction;
+- System reconstruction;
+- official first-pass sweep;
+- smallest useful Repair.
+
+Exit Gate:
+
+- first-pass mainline is sufficiently closed to enter score formation;
+- remaining tails are bounded and named;
+- missing learner evidence stays UNKNOWN rather than becoming fake mastery.
+
+## Stage C — SCORE-FORMATION CAPABILITY
+
+Goal:
+
+> Convert the model into X5–X8 performance.
+
+Focus:
+
+- Precision stability;
+- decisive-condition discrimination;
+- causal Repair;
+- fresh verification;
+- delayed stability;
+- case / cross-System transfer.
+
+Exit Gate:
+
+- dominant score-relevant weaknesses are being resolved by targeted work rather than curriculum replay;
+- stable areas are cheaper;
+- dedicated case/cross-System evidence exists when needed.
+
+## Stage D — FORMAL SCORE / WHOLE-PAPER EXECUTION
+
+Goal:
+
+> Establish defensible score evidence and X9 execution.
+
+Focus:
+
+- low-contamination whole-paper evidence;
+- fatigue / switching / timing;
+- physical-paper / answer-sheet cost where material;
+- formal score band and loss attribution.
+
+Exit Gate:
+
+- score evidence is strong enough to support a defensible 270/275 judgment;
+- contamination status is explicit;
+- whole-paper success cannot hide an open material case/cross-System failure.
+
+## Stage E — KIAN-SPECIFIC DYNAMIC CONTROL
+
+Goal:
+
+> Let real Kian data continuously decide what gets more time, less time or no time.
+
+Inputs:
+
+- real throughput;
+- System-specific W/U;
+- Repair compression;
+- retention / relapse;
+- fresh transfer;
+- whole-paper variance;
+- current usable capacity;
+- future-source assimilation cost.
+
+Exit behavior:
+
+    binding capability
+    → smallest high-value action
+    → evidence
+    → recalibrate
+    → compress stable work
+    → reallocate only when justified
+
+Stage E does not end in a new architecture. It ends in ordinary learning.
+
+---
+
+# 12｜Required Maturity Package
+
+Xizong may be called mature only when one practical package can answer the whole subject without requiring Kian to maintain the backend.
+
+Required outputs:
+
+## A. Score → Ability → Material → Method → Evidence Matrix
+
+The main subject map.
+
+## B. Gap Matrix
+
+For every material gap:
+
+    gap
+    → type
+    → capability affected
+    → score/loss risk
+    → current owner
+    → smallest responsible action
+    → current status
+
+## C. Forecast
+
+- remaining workload bands;
+- key sensitivity;
+- decision-flip parameters;
+- next highest-value evidence.
+
+## D. Dynamic control rules
+
+- what is Build / Verify / Maintain;
+- what reopens;
+- what is deliberately stopped;
+- what is Elastic only.
+
+## E. Future-source readiness
+
+- baseline;
+- slot;
+- delta;
+- replacement / overlap;
+- validation;
+- learner-use path.
+
+## F. Execution proof
+
+- Home → exact action → evidence → Chat → next action;
+- resume / stale / replay safety;
+- no second strategy brain.
+
+## G. Real Learner U state
+
+Keep separate:
+
+    SYSTEM_LOGIC_ACCEPTED
+    KIAN_SPECIFIC_CALIBRATED
+
+The first can close before enough real U exists.
+The second cannot be invented by CI, simulation or repository completeness.
+
+---
+
+# 13｜Adversarial acceptance
+
+Before mature status, Xizong must survive realistic failures including:
+
+- fast familiar System followed by much slower later System;
+- W/U jumping to 30% or higher;
+- Repair clusters compressing differently by System;
+- mixed Repair timing inflating workload;
+- all medical Systems green while a non-System exam domain remains unowned;
+- F routing incomplete while F medical Content is actually complete;
+- current-year Biochemistry delta being mistaken for full relearning;
+- case / 狂背 / four-set / five-hour raw hours being stacked instead of reconciled;
+- familiar/repeated official questions being treated as fresh;
+- high whole-paper score without dedicated case/cross-System evidence;
+- protected whole paper having unknown external exposure;
+- severe fatigue / timing degradation despite strong local performance;
+- delayed relapse after apparently successful repair;
+- one large System dominating pooled averages;
 - bad week / 30% normal capacity;
-- partial / missing current-year source;
-- second revision of current-year material;
-- all medical Systems / official-question routes looking green while an exam-relevant non-System domain remains unowned or unevidenced;
-- a 275+ forecast whose implied losses exceed or double-count the 25-point envelope once question geometry and correlated failures are reconciled.
+- late / partial / revised future source;
+- Chat false Secure;
+- Chat false Unstable;
+- stale learner packet;
+- browser restart/checkpoint recovery;
+- Source fidelity corruption that changes medical meaning;
+- a 275 forecast whose implied losses exceed or double-count the 25-point envelope.
 
-## 11. Final acceptance question
+The purpose is to find decision-changing failure surfaces, not to maximize test count.
+
+---
+
+# 14｜Stop rule
+
+Stop building when:
+
+- the 275 path has explicit score/loss logic;
+- all exam-scope domains are owned, bounded or explicitly BLOCKED;
+- X1–X9 each have a legitimate formation/evidence path;
+- real material gaps have the correct owners;
+- future-source slots are ready;
+- Forecast exposes its main sensitivities instead of hiding them;
+- stable work becomes cheaper;
+- Chat↔Website can execute the chosen action with low learner friction;
+- remaining uncertainty depends on future Source or Real Learner U rather than missing architecture.
+
+At that point:
+
+> stop improving the Xizong system and use it to learn.
+
+---
+
+# 15｜Final acceptance question
 
 A mature Xizong system must be able to answer, from Current + private learner evidence:
 
-> What score-relevant capability is currently limiting the 275+ path, what is the smallest high-value next action, how much capacity is likely required, what evidence would change that judgment, and what work should now be stopped?
+> **For the 275 working path and 270 protected floor, which score-relevant capability is currently binding, why is it binding, what is the smallest high-value next action, what evidence will that action produce, what evidence would reverse the judgment, how much capacity is likely still required, what work should now be reduced or stopped, and how will the answer change safely if learner performance, capacity or future Source changes?**
