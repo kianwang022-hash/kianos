@@ -91,12 +91,12 @@ duplicate_primary                = 0
 
 ```text
 Framework Orientation
-→ P429 E/P靶器官比较
-→ P430–432三条时间轴与原图
-→ Framework Reconstruction：撤退—募集—优势—峰—排卵—黄体
-→ KP Active Recall
-→ Outline Quick Check（12题，可选低压力）
-→ TTSX Lecture-attached Questions（待绑定）
+→ Source Unit 1：连续学习 P429 的 E / P 靶组织作用
+→ 回到 KianOS：恢复“哪种激素 → 哪个靶组织 → 哪个方向”
+→ Source Unit 2：连续学习 P430–432 的三条时间轴、排卵与黄体转换，并接触原图
+→ 回到 KianOS：主动重建撤退—募集—优势—LH峰—排卵—黄体
+→ Block Recall：把卵巢、内膜、激素三条时间轴压回一条周期模型
+→ Outline / TTSX 只在真实边界且已有 reviewed binding 时低摩擦检查
 → Block Complete
 ```
 

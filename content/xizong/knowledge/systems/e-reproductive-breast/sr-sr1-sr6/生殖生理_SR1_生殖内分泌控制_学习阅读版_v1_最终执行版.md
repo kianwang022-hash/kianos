@@ -100,12 +100,12 @@ U035 中下列身份已由 D6 完成 Primary，本 Block 只做显式 Recall：
 
 ```text
 Framework Orientation
-→ 回看 D6 的轴—反馈共同语言
-→ 连续阅读生理 P393–396 + P427–434 中控制段
-→ Framework Reconstruction：中枢—垂体—性腺/乳腺—反馈
-→ KP Active Recall
-→ Outline Quick Check（仅显式 Recall，不重复刷 U035）
-→ TTSX Lecture-attached Questions（待 LectureQuestionBinding）
+→ Source Unit 1：回看生理 P393–396 的内分泌共同语言，并建立生殖控制轴入口
+→ 回到 KianOS：只重建控制层级 / 时间入口，不提前通读全部 KP Core
+→ Source Unit 2：连续阅读 P427–434 的 GnRH / FSH-LH / 反馈 + PRL / OT 控制接口
+→ 回到 KianOS：完成对应主动检索与局部闭合
+→ Block Recall：恢复“来源层 → 靶细胞 → 反馈/反射 → 最终生理输出”
+→ Outline / TTSX 只在真实边界且已有 reviewed binding 时作为低摩擦检查
 → Block Complete
 ```
 
