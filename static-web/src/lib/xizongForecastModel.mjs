@@ -620,7 +620,11 @@ function repairForecast(progress, { wrongUncertainRate = null } = {}) {
     ? futureWu / questionsPerCluster
     : null;
   const totalClusters = futureClusters !== null ? activeClusters + futureClusters : null;
-  const samples = (progress?.repair_evidence?.calibration_samples || [])
+  const repairCalibrationRows = progress?.repair_evidence?.calibration_samples || [];
+  const samples = repairCalibrationRows
+    .map((row) => positive(row?.exclusive_repair_timer_minutes))
+    .filter((value) => value !== null);
+  const mixedWindowSamples = repairCalibrationRows
     .map((row) => positive(row?.timer_minutes_in_repair_window))
     .filter((value) => value !== null);
   const state = sampleState(samples.length);
@@ -640,6 +644,7 @@ function repairForecast(progress, { wrongUncertainRate = null } = {}) {
   }
   if (rateSpread !== null && rateSpread >= 0.15) risks.push('WRONG_UNCERTAIN_SYSTEM_HETEROGENEITY');
   if (questionsPerCluster === null) risks.push('REPAIR_COMPRESSION_UNOBSERVED');
+  if (mixedWindowSamples.length > 0 && samples.length < 3) risks.push('REPAIR_TIMER_CONTAMINATED_MIXED_WINDOW');
   if (samples.length < 3 && totalClusters !== null && totalClusters > 0) risks.push('REPAIR_TIME_UNCALIBRATED');
   return {
     component: 'WRONG_UNCERTAIN_REPAIR',
@@ -664,14 +669,20 @@ function repairForecast(progress, { wrongUncertainRate = null } = {}) {
       total_clusters_to_price: totalClusters === null ? null : round(totalClusters, 2)
     },
     calibration: {
-      completed_repair_window_samples: samples.length,
-      reference_window_minutes_per_cluster: samples.length ? round(median(samples), 3) : null,
-      timing_semantics: 'BLOCK_ROUTE_TIMER_WITHIN_REPAIR_LIFETIME_WINDOW'
+      exclusive_repair_timer_samples: samples.length,
+      mixed_window_timer_samples: mixedWindowSamples.length,
+      reference_exclusive_minutes_per_cluster: samples.length ? round(median(samples), 3) : null,
+      mixed_window_reference_minutes_per_cluster: mixedWindowSamples.length ? round(median(mixedWindowSamples), 3) : null,
+      timing_semantics: samples.length
+        ? 'EXCLUSIVE_REPAIR_TIMER'
+        : mixedWindowSamples.length
+          ? 'MIXED_BLOCK_ROUTE_WINDOW_REFERENCE_ONLY'
+          : 'UNOBSERVED'
     },
     band_minutes: band,
     risks,
     evidence_boundary:
-      'Future Repair pressure uses System-stratified Current exact-scope first-attempt W/U when available, weighted by each System own remaining question load. A fast/easy familiar System may not price an unobserved System. Scenario overrides intentionally apply one explicit W/U rate across the remaining known scope. Repair timing samples remain route-time inside the repair lifetime window, not pure causal repair minutes.'
+      'Future Repair pressure uses System-stratified Current exact-scope first-attempt W/U when available, weighted by each System own remaining question load. A fast/easy familiar System may not price an unobserved System. Scenario overrides intentionally apply one explicit W/U rate across the remaining known scope. Repair workload minutes require exclusive Repair timing; mixed Block-route lifetime windows are reference-only and may not be added as causal Repair time.'
   };
 }
 
