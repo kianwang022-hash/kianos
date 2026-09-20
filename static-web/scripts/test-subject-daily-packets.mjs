@@ -96,7 +96,22 @@ const politicsCatalog = {
     unitHref: '/politics/marxism/c01/#u01'
   }],
   chapters: [{ subject: 'marxism', code: 'c01', title: '第一章' }],
-  units: []
+  units: [
+    {
+      key: 'marxism/c01/u01',
+      id: 'u01',
+      subject: 'MARX',
+      chapter: 'c01',
+      questionIds: ['PQ1']
+    },
+    {
+      key: 'xi/c01/u02',
+      id: 'u02',
+      subject: 'XI',
+      chapter: 'c01',
+      questionIds: []
+    }
+  ]
 };
 const politicsSnapshot = {
   attempts: {
@@ -128,6 +143,7 @@ const politicsSnapshot = {
     href: '/politics/marxism/c01/',
     subject: 'marxism',
     chapter: 'c01',
+    unit_id: 'u01',
     title: '自然单元 1'
   },
   events: [{ question_id: 'PQ1', outcome: 'UNCERTAIN', study_day: day, observed_at: '2026-09-19T01:20:00.000Z' }],
@@ -147,6 +163,18 @@ assert.deepEqual(politics.cumulative_first_attempts.by_question_type.multiple, {
 });
 assert.equal(politics.review.open_problem_count, 1);
 assert.equal(politics.resume.title, '自然单元 1');
+assert.deepEqual(
+  politics.forecast_progress.units_with_first_attempt_evidence_by_subject,
+  { MARX: 1 }
+);
+assert.deepEqual(
+  politics.forecast_progress.units_without_first_attempt_evidence_by_subject,
+  { XI: 1 }
+);
+assert.deepEqual(
+  politics.forecast_progress.current_navigation.structural_units_after_current_by_subject,
+  { XI: 1 }
+);
 
 let packet = buildDailyLearningPacket({ storage, day, now, subjectPackets: {} });
 packet = attachDailySubjectPacket(packet, 'english', english);
