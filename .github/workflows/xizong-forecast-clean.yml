@@ -19,6 +19,10 @@ on:
       - 'static-web/scripts/test-xizong-forecast-model.mjs'
       - 'static-web/scripts/test-xizong-forecast-real-u-adapter.mjs'
       - 'static-web/scripts/validate-xizong-paper-practice.mjs'
+      - 'static-web/scripts/audit-xizong-mother-standard-final-v3.mjs'
+      - 'content/xizong/MATURITY_PACKAGE.md'
+      - 'content/xizong/knowledge/learner/xizong-2027-biochemistry-delta-slot.json'
+      - 'content/xizong/questions/exam-format-2027-slot.json'
       - '.github/workflows/xizong-forecast-clean.yml'
   pull_request:
     paths:
@@ -36,6 +40,10 @@ on:
       - 'static-web/scripts/test-xizong-forecast-model.mjs'
       - 'static-web/scripts/test-xizong-forecast-real-u-adapter.mjs'
       - 'static-web/scripts/validate-xizong-paper-practice.mjs'
+      - 'static-web/scripts/audit-xizong-mother-standard-final-v3.mjs'
+      - 'content/xizong/MATURITY_PACKAGE.md'
+      - 'content/xizong/knowledge/learner/xizong-2027-biochemistry-delta-slot.json'
+      - 'content/xizong/questions/exam-format-2027-slot.json'
       - '.github/workflows/xizong-forecast-clean.yml'
 
 concurrency:
@@ -59,6 +67,14 @@ jobs:
           node scripts/test-xizong-forecast-model.mjs
           node scripts/test-xizong-forecast-real-u-adapter.mjs
           node scripts/validate-xizong-paper-practice.mjs
+          node scripts/test-xizong-source-revision-transitive.mjs
+          node scripts/validate-xizong-targeted-practice.mjs
+          node scripts/test-exam-plan-read-model.mjs
+          node scripts/test-xizong-chat-return.mjs
+          node scripts/test-private-learner-checkpoint.mjs
+          node scripts/test-private-daily-learning-packet.mjs
+          node scripts/stress-xizong-architecture-plus.mjs
+          node scripts/audit-xizong-mother-standard-final-v3.mjs
       - name: Build Current site
         working-directory: static-web
         run: npm run build
