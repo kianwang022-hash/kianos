@@ -447,7 +447,7 @@ export function validateEnglishExamProductiveScoreReturn(input, state) {
     if (!['ANCHORED_SINGLE','INDEPENDENT_RESCORE_RECONCILED'].includes(reviewMode)) {
       throw new Error('ENGLISH_EXAM_PRODUCTIVE_SCORE_REVIEW_MODE_INVALID:' + channel);
     }
-    if (row.requires_independent_rescore === true) {
+    if (row.requires_independent_rescore !== false) {
       throw new Error('ENGLISH_EXAM_PRODUCTIVE_RESCORE_REQUIRED_BEFORE_IMPORT:' + channel);
     }
     channels[channel] = {
