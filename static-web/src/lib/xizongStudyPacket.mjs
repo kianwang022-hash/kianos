@@ -458,6 +458,7 @@ export function buildXizongStudyPacketFromStorage({
       wrong_uncertain: retained.wrongUncertainIds.map(attemptSummary),
       marked_question_ids: clone(retained.markedIds),
       ai_transfer_probes: clone((retained.transferProbeEvents || []).slice(0, 50)),
+      fresh_transfer_probes: clone((retained.freshTransferEvents || []).slice(0, 50)),
       score_attribution: scoreAttribution
     },
     pending_repair_inbox: clone(readJson(storage, repairInboxKey, null)),
