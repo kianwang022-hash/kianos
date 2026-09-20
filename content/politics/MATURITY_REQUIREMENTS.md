@@ -121,7 +121,7 @@ Objective evidence distinguishes:
 - Memory FORGOT/FUZZY/STABLE;
 - current-year fresh/mock performance.
 
-Xiao1000 re-exposure may show repair but may not be converted mechanically into exam score.
+Xiao1000 re-exposure may show repair but may not be converted mechanically into exam score. Because Xiao1000 is intentionally consumed as full learning material, formal Objective score calibration must come from a separate appropriate evidence source (for example low-contamination official/current-year mock evidence when available) rather than pretending Xiao1000 is a holdout.
 
 Analysis evidence must distinguish:
 
@@ -134,6 +134,8 @@ Analysis evidence must distinguish:
 - whole-paper analysis execution.
 
 A memorized template that fails to bind material is not Secure.
+
+Analysis score evidence requires an accepted rubric / anchor set and explicit scoring uncertainty. One Chat/model score may guide repair, but it cannot by itself create high-confidence Protect-70 / Push-75 total-score evidence when strategy depends on that estimate.
 
 ## 6. Dynamic control
 
@@ -211,6 +213,8 @@ real source
 
 No learner should need to ask how a known annual source family is used.
 
+Each future-source family must also define partial/late/low-quality/missing-source fallback, second-revision supersession, and invalidation of derived Memory/Analysis/current-affairs assets. The system must know when to stop waiting for a source and continue with a safe alternative rather than freezing the learner.
+
 ## 9. Analysis synthetic asset closure
 
 Before later phase, maintain a ready bank of:
@@ -267,7 +271,12 @@ Attack at least:
 - missing timer;
 - 30% capacity day / multi-day bad week;
 - Chat false-Secure judgment;
+- Chat remaining over-conservative and repeatedly assigning already-stable Politics work;
+- lack of W/U being mistaken for objective stability despite incomplete representative sampling;
+- Xiao1000 being reused as if it were unbiased score evidence after full learning exposure;
+- one-model Analysis scoring narrowing the total-score band too aggressively;
 - Chat selecting low-ROI Politics work;
+- partial / low-quality / missing future source;
 - second revision of future source after first ingestion.
 
 Every case must judge learning-decision safety, not merely runtime survival.
