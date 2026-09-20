@@ -20,6 +20,32 @@ const base = {
 ledger = appendEvidenceEvent(ledger, { ...base, event_id: 'plus-1', source: 'depth_plus', outcome: 'ADDED' }).ledger;
 ledger = appendEvidenceEvent(ledger, {
   ...base,
+  event_id: 'retention-1',
+  challenge_id: 'retention-c1',
+  source: 'challenge',
+  outcome: 'CORRECT',
+  question_valid: true,
+  demand: 'discrimination',
+  context_novelty: 'fresh',
+  assistance: 'unassisted',
+  delayed: true,
+  observed_at: '2099-09-16T10:00:00.000Z'
+}).ledger;
+ledger = appendEvidenceEvent(ledger, {
+  ...base,
+  event_id: 'english-transfer-1',
+  source: 'reading',
+  outcome: 'CORRECT',
+  attribution: 'lexical',
+  demand: 'discrimination',
+  context_novelty: 'unseen',
+  assistance: 'unassisted',
+  delayed: true,
+  context_id: 'reading:new-context',
+  observed_at: '2099-09-17T10:00:00.000Z'
+}).ledger;
+ledger = appendEvidenceEvent(ledger, {
+  ...base,
   event_id: 'challenge-1',
   challenge_id: 'c1',
   source: 'challenge',
@@ -70,6 +96,11 @@ assert.equal(packet.routing.same_day_revisit[0].word, 'abide');
 assert.equal(packet.repair.active_target_count, 1);
 assert.equal(packet.repair.active_targets[0].target_id, 'core:abide');
 assert.equal(packet.today_evidence.length, 2);
+assert.equal(packet.retention_transfer.qualified_delayed_success_count, 2);
+assert.equal(packet.retention_transfer.qualified_delayed_distinct_days, 2);
+assert.equal(packet.retention_transfer.clean_english_transfer_success_count, 1);
+assert.equal(packet.retention_transfer.clean_english_transfer_distinct_days, 1);
+assert.equal(packet.retention_transfer.recent_clean_english_transfer_successes[0].source, 'reading');
 assert.equal(packet.challenge_session.current_challenge_id, 'c1');
 assert.match(packet.chat_instruction, /Coverage as traversal/);
 assert.match(packet.semantics.repair, /exact ACTIVE/);
@@ -112,5 +143,6 @@ console.log(JSON.stringify({
   routing:packet.routing,
   repair:packet.repair,
   challenge_session:packet.challenge_session,
-  today_evidence_count:packet.today_evidence.length
+  today_evidence_count:packet.today_evidence.length,
+  retention_transfer:packet.retention_transfer
 }, null, 2));
