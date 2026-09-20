@@ -133,6 +133,21 @@ Exact active inventory: `static-web/UI_CSS_OWNERSHIP_CLOSURE.md`. Keep it bounde
 
 ## Active platform lane
 
+### Gate 5 bounded defect — private Daily Packet relay observability — **ACTIVE · TARGETED PROOF PENDING**
+
+Concrete defect reproduced 2026-09-20:
+- private learner checkpoint save correctly survives Git relay failure;
+- however `privateLearnerBridge` discarded packet-relay sync errors with `.catch(() => null)`;
+- a stale private `runtime/kianos-learning/current.json` therefore could not distinguish stale local Current from Git fetch/auth/push/projection failure.
+
+Bounded repair on `fix/private-packet-relay-observability-20260920`:
+- keep packet sync asynchronous and non-blocking;
+- record only ephemeral last sync state (`idle/syncing/ready/error`);
+- expose it through the existing loopback-only `/__kianos-private/checkpoint` GET/PUT response;
+- do not create a second learner state owner, new page, scheduler or packet format.
+
+Stop rule: targeted bridge/relay + affected static-runtime proof passes, then close this defect and return to Gate 5 freeze.
+
 ### Chat-owned Home + Learner Data / Chat Handoff Closure — **CLOSED · GATE 4 PASS · GATE 5 ENGINEERING FREEZE**
 
 Chat-owned Home cutover: **LANDED on main via PR #483 (`d252157e`)**.
