@@ -67,14 +67,14 @@
       "id": "tpo-56-65",
       "family": "TOEFL_TPO",
       "role": "READING_GROWTH",
-      "note": "Primary academic reading-growth pool; keep legacy TOEFL/TPO identity for possible later TOEFL preparation."
+      "note": "Historical academic Reading Growth pool. Preserve TOEFL/TPO identity, but do not treat TPO56–65 as the 2026 current-format TOEFL task authority."
     },
     {
       "rank": 2,
       "id": "ielts-17-19",
       "family": "IELTS_ACADEMIC",
       "role": "READING_GROWTH",
-      "note": "Secondary authoritative reading-growth pool; preserve IELTS-native task identity."
+      "note": "Active authentic IELTS Academic Reading Growth pool. Preserve IELTS-native task identity; newer official Cambridge Academic sources are acquired incrementally without replacing these identities."
     },
     {
       "rank": 3,
@@ -95,7 +95,8 @@
     ],
     "english1_reading_a_strategy_owner": "content/english/modules/reading-a.md",
     "source_native_question_semantics": "preserve source identity; do not reinterpret TOEFL/IELTS tasks as English-I question types",
-    "future_toefl_bridge": "Future TOEFL preparation may add TOEFL-native task logic over the same TPO identities without changing English-I Reading-A logic."
+    "future_toefl_bridge": "Current ETS official sources own current TOEFL Reading task semantics. Legacy TPO56–65 may support reading growth and preserve historical TOEFL identity, but must not define 2026 current-format task forms.",
+    "legacy_tpo_current_format_boundary": "TPO56–65 are historical TOEFL reading assets, not the current-format TOEFL task authority."
   },
   "exposure_boundary": {
     "content_metadata_is_learner_testimony": false,
@@ -964,5 +965,43 @@
     "proven_clean_objects": 0,
     "policy": "Active private source must hash-match the repaired candidate before compilation; IELTS18/19 retain OCR-source provenance but no explicit visual-layout blocker.",
     "active_candidate_archive_sha256": "6eb3aedc059ae344373027165bb6696660e3876ab7edba17ae675a7759242ad8"
-  }
+  },
+  "future_acquisition_priority": [
+    {
+      "rank": 1,
+      "id": "ielts-21-academic",
+      "family": "IELTS_ACADEMIC",
+      "role": "NEXT_OFFICIAL_SOURCE",
+      "authority": "Cambridge University Press & Assessment",
+      "status": "SOURCE_BYTES_PENDING",
+      "note": "Latest registered official Academic source target; ingest only from lawful private source bytes."
+    },
+    {
+      "rank": 2,
+      "id": "ielts-20-academic",
+      "family": "IELTS_ACADEMIC",
+      "role": "NEXT_OFFICIAL_SOURCE",
+      "authority": "Cambridge University Press & Assessment",
+      "status": "SOURCE_BYTES_PENDING",
+      "note": "Official Academic source target after IELTS 21."
+    },
+    {
+      "rank": 3,
+      "id": "toefl-current-official",
+      "family": "TOEFL_CURRENT",
+      "role": "CURRENT_FORMAT_AUTHORITY",
+      "authority": "ETS",
+      "status": "REFERENCE_REGISTERED",
+      "note": "Current ETS sources own current TOEFL Reading task semantics and current-format practice."
+    },
+    {
+      "rank": 4,
+      "id": "future-longform",
+      "family": "FUTURE_INCREMENTAL",
+      "role": "READING_GROWTH",
+      "authority": "SOURCE_NATIVE",
+      "status": "INTAKE_V1",
+      "note": "Admit high-quality authentic long-form only when it expands useful topic/style range."
+    }
+  ]
 }
