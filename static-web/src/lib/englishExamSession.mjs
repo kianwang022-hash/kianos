@@ -152,15 +152,26 @@ export function validateEnglishExamSession(value) {
   return clone(value);
 }
 
-export function readEnglishExamSession(storage) {
-  if (!storage?.getItem) return null;
-  const raw = storage.getItem(ENGLISH_EXAM_SESSION_KEY);
-  if (!raw) return null;
-  try {
-    return validateEnglishExamSession(JSON.parse(raw));
-  } catch {
-    return null;
+export function inspectEnglishExamSession(storage) {
+  if (!storage?.getItem) {
+    return { status: 'unavailable', session: null, error: 'ENGLISH_EXAM_STORAGE_UNAVAILABLE' };
   }
+  const raw = storage.getItem(ENGLISH_EXAM_SESSION_KEY);
+  if (!raw) return { status: 'missing', session: null, error: null };
+  try {
+    return { status: 'ready', session: validateEnglishExamSession(JSON.parse(raw)), error: null };
+  } catch (error) {
+    return {
+      status: 'invalid',
+      session: null,
+      error: error instanceof Error ? error.message : String(error)
+    };
+  }
+}
+
+export function readEnglishExamSession(storage) {
+  const state = inspectEnglishExamSession(storage);
+  return state.status === 'ready' ? state.session : null;
 }
 
 export function writeEnglishExamSession(storage, state) {
