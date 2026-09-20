@@ -1,5 +1,6 @@
 import {atomicEnglishWrites,readEnglishExposure,ENGLISH_MATERIAL_EXPOSURE_KEY} from './englishLearnerEvidence.mjs';
 import {
+  ENGLISH_EXAM_PRODUCTIVE_SCORING_STANDARD_VERSION,
   readEnglishExamSession,
   summarizeEnglishExamSession
 } from './englishExamSession.mjs';
@@ -349,7 +350,12 @@ export function englishStepIsComplete(storage, step) {
   const prefixes = {reading_a:'kianos-reading-attempt-v1:',cloze:'kianos-cloze-attempt-v1:',reading_b:'kianos-reading-b-attempt-v1:',external_reading:'kianos-english-external-reading-attempt-v1:',translation:'kianos-translation-attempt-v2:',writing:'kianos-writing-runtime-v1:'};
   if (step?.task === 'full_paper') {
     const exam = readEnglishExamSession(storage);
-    return exam?.paper_id === step.object_id && Boolean(step.source_hash) && exam.source_hash === step.source_hash && exam.status === 'RELEASED';
+    return exam?.paper_id === step.object_id
+      && Boolean(step.source_hash)
+      && exam.source_hash === step.source_hash
+      && exam.status === 'SCORED'
+      && exam.release?.productive?.scoring_standard_version === ENGLISH_EXAM_PRODUCTIVE_SCORING_STANDARD_VERSION
+      && Boolean(exam.release?.integrated?.score_range);
   }
   const value = readJson(storage, (prefixes[step?.task] || '') + step?.object_id);
   if (!value) return false;
