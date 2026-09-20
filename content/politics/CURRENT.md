@@ -19,14 +19,14 @@ M2 Reconcile stale Analysis/material status     DONE
 M3 Analysis-bank + evidence identity proof       DONE
 M4 Forecast decision-flip/adversarial closure   DONE
 M5 Full lifecycle + Fresh Chat/No-Website       DONE
-M6 Builder closure reconciliation               DONE
-M7 Fresh Independent / Anti-Anchored Audit       OPEN — HARD FREEZE BLOCKER
+M6 v4 Source-fidelity finding repair             DONE · Politics QA PASS
+M7 Fresh Independent / Anti-Anchored re-audit    OPEN — HARD FREEZE BLOCKER
 M8 SYSTEM_LOGIC_ACCEPTED verdict                 BLOCKED ON M7
 M9 KIAN_SPECIFIC_CALIBRATED                     REAL-U GATED
 M10 current-year annual sources                  SOURCE GATED
 ```
 Canonical maturity package: `MATURITY_PACKAGE.md`.
-Builder-owned maturity construction is closed, but shared mother-standard §23 still requires a Fresh Independent / Anti-Anchored Audit before SYSTEM_LOGIC_ACCEPTED may freeze. Do not broaden engineering while that audit is pending; repair only material findings from the fresh audit.
+Fresh audit v4 produced a valid FAIL on Chengfeng Source-fidelity admission. The smallest owner was repaired: unreviewed/misclassified OCR now fails closed before Runtime/Practice/Review while raw shard parity remains intact; Static Web Politics QA run 35542360736 passed. SYSTEM_LOGIC_ACCEPTED remains blocked until a new Fresh Independent audit passes the repaired sealed candidate.
 M7 uses an immutable candidate ref/SHA supplied by the Fresh Audit launcher. Do not derive the audited revision from the moving #638 head or from this Current file. A PASS/FAIL certifies only the launcher-bound candidate SHA; any material semantic repair requires a new seal and a new Fresh Audit.
 
 
