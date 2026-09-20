@@ -30,6 +30,10 @@ function englishEvidencePresent(packet) {
   if (Array.isArray(packet.inventory) && packet.inventory.length) return true;
   if (record(packet.resume) && packet.resume.status && packet.resume.status !== 'missing') return true;
   if (packet.exam_session) return true;
+  if (record(packet.lexical)) {
+    if (['invalid', 'unreadable'].includes(packet.lexical.status)) return true;
+    if (packet.lexical.status === 'ready' && Number(packet.lexical.effective_target_event_count || 0) > 0) return true;
+  }
   return Object.values(packet.tasks || {}).some((row) => {
     if (!record(row)) return false;
     return Boolean(
