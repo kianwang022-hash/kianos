@@ -211,7 +211,17 @@ entries['kianos:xizong:paper-question-sweep:paper-2026:v1']=JSON.stringify({
   paperSeal:{
     sealedAt:'2026-09-20T02:00:00Z',
     reviewUnlockedAt:null,
-    evidenceContext:{internalHoldoutProtectedBeforeSeal:true,externalExposureStatus:'UNKNOWN'},
+    evidenceContext:{
+      internalHoldoutProtectedBeforeSeal:true,
+      externalExposureStatus:'UNKNOWN',
+      scopeHash:'fixture-format-hash',
+      questionInventoryHash:'fixture-paper-inventory-hash',
+      examFormatSourceHash:'fixture-format-hash',
+      examFormat:{
+        year:2026,era_id:'2017-2026',question_count:165,max_score:300,
+        scoring_segments:[{start:1,end:40,points:1.5},{start:41,end:165,points:2}]
+      }
+    },
     summary:{
       answeredCount:165,correctCount:150,wrongCount:15,unansweredCount:0,
       questionCount:165,earnedScore:275,maxScore:300
@@ -260,6 +270,11 @@ assert.equal(progress.memory_evidence.precision.cards,0);
 assert.equal(progress.system_recall_evidence.find(row=>row.system_id===system.systemId)?.source_revision_blocked,true);
 assert.equal(progress.formal_score_evidence.latest.year,2026);
 assert.equal(progress.formal_score_evidence.latest.earned_score,275);
+assert.equal(progress.formal_score_evidence.latest.internal_holdout_protected_before_seal,true);
+assert.equal(progress.formal_score_evidence.latest.external_exposure_status,'UNKNOWN');
+assert.equal(progress.formal_score_evidence.latest.exam_format_source_hash,'fixture-format-hash');
+assert.equal(progress.formal_score_evidence.latest.question_inventory_hash,'fixture-paper-inventory-hash');
+assert.equal(progress.formal_score_evidence.latest.exam_format.question_count,165);
 assert.equal(progress.workload_forecast.schema,'kianos.xizong.workload-forecast.v1');
 assert.equal(
   progress.workload_forecast.components.questions.known_remaining_questions,
