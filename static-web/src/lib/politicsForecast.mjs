@@ -61,7 +61,12 @@ function unitRemainderSignals(evidence = {}) {
 }
 
 function unitCandidates(signals, explicitRemainingUnits) {
-  if (Number.isFinite(Number(explicitRemainingUnits))) {
+  const hasExplicitRemainingUnits =
+    explicitRemainingUnits !== null
+    && explicitRemainingUnits !== undefined
+    && String(explicitRemainingUnits).trim() !== ''
+    && Number.isFinite(Number(explicitRemainingUnits));
+  if (hasExplicitRemainingUnits) {
     return [{
       label: 'EXPLICIT_REMAINING_UNITS',
       remaining_units: bounded(explicitRemainingUnits, 0, signals.catalog_units),
