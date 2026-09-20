@@ -69,10 +69,19 @@ const serverTaskLabel = (step) => ({
     </section>
 
     <section class="englishExamResult" data-exam-result hidden>
-      <span>客观题结果</span>
+      <span>整卷结果</span>
       <strong data-exam-objective-score>— / 60</strong>
-      <p>翻译和写作保留你的原始作答，交给 Chat 结合原题继续复盘。</p>
+      <strong data-exam-integrated-score hidden>— / 100</strong>
+      <p data-exam-result-note>翻译和写作保留你的原始作答，交给 Chat 按当前评分标准复盘后，把评分结果回写到这次整卷。</p>
       <div data-exam-objective-breakdown></div>
+      <section class="englishExamScoreReturn" data-exam-score-return>
+        <label>
+          <span>Chat 评分回写</span>
+          <textarea rows="9" data-exam-score-return-input placeholder="把 Chat 返回的整卷评分结果粘贴到这里…"></textarea>
+        </label>
+        <button type="button" class="primary" data-exam-score-return-apply>应用评分结果</button>
+        <small data-exam-score-return-status>只回写这次已封存整卷的翻译 / 小作文 / 大作文评分，不会改动作答。</small>
+      </section>
     </section>
 
     <script type="application/json" data-exam-paper set:html={payload}></script>
@@ -82,6 +91,7 @@ const serverTaskLabel = (step) => ({
 <script>
   import {
     ENGLISH_EXAM_SESSION_KEY,
+    applyEnglishExamProductiveScoreReturn,
     buildEnglishExamEvidencePacket,
     englishExamRemainingMs,
     englishExamTaskHref,
@@ -113,6 +123,12 @@ const serverTaskLabel = (step) => ({
     const stepList = root.querySelector('[data-exam-step-list]');
     const result = root.querySelector('[data-exam-result]');
     const score = root.querySelector('[data-exam-objective-score]');
+    const integratedScore = root.querySelector('[data-exam-integrated-score]');
+    const resultNote = root.querySelector('[data-exam-result-note]');
+    const scoreReturnPanel = root.querySelector('[data-exam-score-return]');
+    const scoreReturnInput = root.querySelector('[data-exam-score-return-input]');
+    const scoreReturnButton = root.querySelector('[data-exam-score-return-apply]');
+    const scoreReturnStatus = root.querySelector('[data-exam-score-return-status]');
     const breakdown = root.querySelector('[data-exam-objective-breakdown]');
 
     const localDay = () => new Date().toLocaleDateString('en-CA');
@@ -192,10 +208,24 @@ const serverTaskLabel = (step) => ({
     };
 
     const renderResult = (state) => {
-      const released = state?.status === 'RELEASED' && state.release?.objective;
+      const released = ['RELEASED','SCORED'].includes(state?.status) && state.release?.objective;
+      const scored = state?.status === 'SCORED' && state.release?.integrated?.score_range;
       if (result instanceof HTMLElement) result.hidden = !released;
       if (!released) return;
       if (score) score.textContent = state.release.objective.points + ' / ' + state.release.objective.max_points;
+      if (integratedScore instanceof HTMLElement) {
+        integratedScore.hidden = !scored;
+        if (scored) {
+          const range = state.release.integrated.score_range;
+          integratedScore.textContent = (range.low === range.high ? range.low : range.low + '–' + range.high) + ' / 100';
+        }
+      }
+      if (resultNote) {
+        resultNote.textContent = scored
+          ? '整卷评分已绑定到这次封存作答。当前网站整卷为键盘作答，因此该总分是诊断证据，不冒充纸笔正式校准。'
+          : '翻译和写作保留你的原始作答，交给 Chat 按当前评分标准复盘后，把评分结果回写到这次整卷。';
+      }
+      if (scoreReturnPanel instanceof HTMLElement) scoreReturnPanel.hidden = Boolean(scored);
       if (breakdown instanceof HTMLElement) {
         breakdown.replaceChildren();
         for (const row of state.release.objective.steps || []) {
@@ -211,18 +241,20 @@ const serverTaskLabel = (step) => ({
       const active = state?.status === 'ACTIVE';
       const sealed = state?.status === 'SEALED';
       const released = state?.status === 'RELEASED';
+      const scored = state?.status === 'SCORED';
 
       if (startButton instanceof HTMLButtonElement) startButton.hidden = Boolean(state);
       if (continueButton instanceof HTMLButtonElement) continueButton.hidden = !active;
       if (sealButton instanceof HTMLButtonElement) sealButton.hidden = !active;
       if (releaseButton instanceof HTMLButtonElement) releaseButton.hidden = !sealed;
-      if (copyButton instanceof HTMLButtonElement) copyButton.hidden = !sealed && !released;
+      if (copyButton instanceof HTMLButtonElement) copyButton.hidden = !sealed && !released && !scored;
 
       if (stateLabel) {
         stateLabel.textContent = !state ? '尚未开始'
           : active ? '进行中 · ' + Object.keys(state.captures || {}).length + '/' + state.steps.length
           : sealed ? '已交卷 · 可查看客观题结果'
-          : '已出分 · 翻译和写作待复盘';
+          : released ? '客观题已出分 · 翻译和写作待评分'
+          : '整卷评分已闭合';
       }
 
       renderSteps(state);
@@ -282,7 +314,7 @@ const serverTaskLabel = (step) => ({
     });
     copyButton?.addEventListener('click', async () => {
       const state = currentSession();
-      if (!state || !['SEALED', 'RELEASED'].includes(state.status)) return;
+      if (!state || !['SEALED', 'RELEASED', 'SCORED'].includes(state.status)) return;
       const value = 'KIANOS_ENGLISH_EXAM_EVIDENCE_V1\n' + JSON.stringify(buildEnglishExamEvidencePacket(state), null, 2);
       try {
         await navigator.clipboard.writeText(value);
@@ -292,10 +324,28 @@ const serverTaskLabel = (step) => ({
       }
     });
 
+    scoreReturnButton?.addEventListener('click', () => {
+      const state = currentSession();
+      if (!state || state.status !== 'RELEASED') return;
+      if (!(scoreReturnInput instanceof HTMLTextAreaElement) || !scoreReturnInput.value.trim()) {
+        if (scoreReturnStatus) scoreReturnStatus.textContent = '先粘贴 Chat 返回的整卷评分结果。';
+        return;
+      }
+      try {
+        writeSession(applyEnglishExamProductiveScoreReturn(state, scoreReturnInput.value));
+        scoreReturnInput.value = '';
+        if (scoreReturnStatus) scoreReturnStatus.textContent = '评分已绑定到这次整卷。';
+        setStatus('整卷评分已闭合；后续 Daily Packet / Fresh Chat 会带着这份证据。');
+        render();
+      } catch (error) {
+        if (scoreReturnStatus) scoreReturnStatus.textContent = error instanceof Error ? error.message : String(error);
+      }
+    });
+
     const tick = () => {
       const state = currentSession();
       if (!state || state.status !== 'ACTIVE') {
-        if (clock) clock.textContent = state?.status === 'SEALED' || state?.status === 'RELEASED' ? '00:00' : '180:00';
+        if (clock) clock.textContent = ['SEALED','RELEASED','SCORED'].includes(state?.status) ? '00:00' : '180:00';
         return;
       }
       const ms = englishExamRemainingMs(state);
@@ -400,6 +450,11 @@ const serverTaskLabel = (step) => ({
   }
   .englishExamResult [data-exam-objective-breakdown]{display:grid;gap:5px;margin-top:12px}
   .englishExamResult [data-exam-objective-breakdown] p{margin:0;font-size:var(--study-type-meta)}
+  .englishExamScoreReturn{display:grid;gap:8px;margin-top:16px;padding-top:14px;border-top:1px solid var(--study-line)}
+  .englishExamScoreReturn label{display:grid;gap:6px;font-size:var(--study-type-meta);font-weight:700}
+  .englishExamScoreReturn textarea{width:100%;box-sizing:border-box;padding:10px;border:1px solid var(--study-line);border-radius:8px;font:inherit;font-size:13px;line-height:1.5;resize:vertical}
+  .englishExamScoreReturn button{justify-self:start;min-height:38px;padding:7px 12px;border:1px solid var(--study-green);border-radius:8px;background:var(--study-green);color:#fff;font:inherit;font-weight:700;cursor:pointer}
+  .englishExamScoreReturn small{color:var(--study-muted);font-size:var(--study-type-meta);line-height:1.45}
   .englishExamRule{padding:14px 2px 0;border-top:1px solid var(--study-line)}
   .englishExamRule strong{font-size:16px}
   @media(max-width:760px){
