@@ -59,3 +59,13 @@ Still required:
 - stale/partial Daily Packet preserves UNKNOWN instead of fake stability.
 
 No current report claims Kian-specific calibration.
+
+
+## Closure defects found
+
+The mother-standard attack found two Forecast-specific defects worth preserving in the record:
+
+1. default null `explicit_remaining_units` was previously coerced to numeric zero; repaired so missing input preserves structural uncertainty;
+2. first-round-only capacity could not price later Analysis / Future Source / Mock-final work; repaired with explicit later-stage ranges that remain UNKNOWN when inputs are absent.
+
+Decision-flip proof now demonstrates that a plausible multiple-choice W/U deterioration can flip a 75-minute/day fit surface, and losing one week can flip a 90-minute/day fit surface. These are decision surfaces, not personal probabilities.
