@@ -501,6 +501,20 @@ High-impact strategy decisions must be reproducible/challengeable by a fresh aud
 
 The Website validates identity, freshness and typed instructions; it does not become the second strategy judge.
 
+### Second-line semantic safety invariants
+
+Chat remains the strategy owner, but a mature subject must publish a **small subject-native set of fail-closed invariants** that a plan or status claim is not allowed to contradict. These invariants are not a scheduler, ranking model or second strategy brain.
+
+At minimum, the guardrail layer must reject or reopen a decision when it would:
+
+- call a capability Secure / Stable while a required evidence gate is missing or materially UNKNOWN;
+- use contaminated, exposed, stale or semantically unbound material as fresh formal score / transfer evidence;
+- let superseded Source truth authorize Current Memory, Repair, exact-formulation or score claims;
+- silently ignore a known high-impact UNKNOWN that can plausibly flip the current action or target-path judgment;
+- erase newer learner evidence through an older plan / restore / packet.
+
+A rejected plan returns a bounded contradiction to Chat for re-decision. This is the second line of defense against Chat error while preserving the rule that Website/runtime does not choose strategy.
+
 ---
 
 ## 18. Evidence observability, revision and material-identity closure
@@ -556,6 +570,16 @@ For material uncertainty, Chat should prefer evidence with high **decision value
 
 Evidence collection itself consumes learner time and fresh-material capital.
 
+Before requesting evidence whose main purpose is uncertainty reduction, the control loop must pass a **Value-of-Information gate**:
+
+- name the material decision(s) the evidence could plausibly change;
+- estimate its learner-minute cost, fresh-material consumption, contamination risk and cross-subject opportunity cost;
+- count direct learning value separately from information value;
+- prefer an evidence action that also teaches when two actions have similar decision value;
+- if no plausible decision change justifies the cost, **do not collect the evidence**: preserve the uncertainty and choose a robust action under that uncertainty.
+
+Forecast confidence is not itself a learner outcome. Lower uncertainty is valuable only when it can improve a real decision enough to justify its cost.
+
 Marginal-value reasoning should also include:
 
 - time-to-convert learning into reliable performance;
@@ -589,6 +613,16 @@ Every future-source family needs:
 - rule for when to stop waiting and use alternative training/evidence.
 
 A later revision must not leave superseded derived content silently active.
+
+Revision handling must be **transitive**, not limited to the first derived file. When Source v2 supersedes v1, every dependent object that can change learner behavior must be reclassified as appropriate:
+
+- derived teaching / drill / explanation assets;
+- Memory / Precision / Repair candidates;
+- learner evidence eligibility and interpretation;
+- active plan / checkpoint / resume references;
+- Forecast assumptions, score bands and readiness claims.
+
+Raw historical learner observations are preserved as history; their eligibility for Current decisions may become PRESERVE / MIGRATE / STALE / INVALID according to the owning semantic revision. A stale downstream assumption may not remain active merely because its own file did not change.
 
 ---
 
@@ -747,6 +781,25 @@ real study
 
 ---
 
+## 28. Cross-subject composition and joint-feasibility closure
+
+Three individually mature subjects can still form an impossible exam plan. Shared maturity therefore requires one composition proof at the orchestration boundary without turning the subject standard into a second scheduler.
+
+The proof must use one finite learner-capacity budget and the subject-native outputs already required by this standard: protected floor / working demand, maintenance load, latest-useful dates, material/evidence costs and uncertainty.
+
+It must prove that:
+
+- planned learning, Review, Repair, evidence collection and maintenance all consume the **same** usable-capacity budget; no subject may hide extra minutes outside it;
+- simultaneous subject demands are jointly feasible, or the system explicitly reports the conflict / infeasible target path instead of presenting three independent green statuses;
+- subject-local working/upside targets do not silently force capacity away from the shared target authority;
+- total-score confidence is not created by adding subject point estimates, P50s/P80s, or assuming independent downside without justification;
+- correlated bad-day, late-source, fatigue and score-variance scenarios are tested when they can change the 425+ path;
+- the joint binding constraint and the smallest parameter/evidence change that would flip the cross-subject allocation conclusion are identifiable.
+
+This closure owns **composition safety only**. It does not standardize subject cognition, Repair, retention or Forecast models.
+
+---
+
 # Required subject-level acceptance package
 
 Each subject must eventually provide a compact acceptance package containing:
@@ -758,6 +811,7 @@ Each subject must eventually provide a compact acceptance package containing:
 5. Adversarial stress report.
 6. Chat↔Website execution proof.
 7. Real learner U status and known unknowns.
+8. Cross-subject composition proof showing finite-capacity feasibility and joint target-risk handling.
 8. Explicit remaining blockers / future-source dependencies.
 9. Fresh Independent Audit result with anti-anchored verdict and reconciliation.
 10. Adversarial methodology report including parameter interactions / decision flip points where material.
