@@ -2,7 +2,7 @@
 
 Status: **STAGE A ACTIVE · SCORE / SCOPE / MATERIAL TRUTH**  
 Parent cursor: `content/xizong/CONTENT_MAINLINE.md`  
-Subject requirement source: `work/exam-subject-maturity-standard-20260920@02d50a13fd2926ee631d7fd6f824fb927d8e96e0` → `content/xizong/MATURITY_REQUIREMENTS.md`
+Subject requirement source: `work/exam-subject-maturity-standard-20260920@7d3e2b6a62fc8303bb1574bd36d9f5b249058d37` → `content/xizong/MATURITY_REQUIREMENTS.md`
 
 Purpose:
 
@@ -81,7 +81,7 @@ Current canonical medical identity:
 | D Neuro/Sensory/Motor/Orthopedics | present · 27 Blocks / 356 KP | **Content CLOSED** | **CURRENT · 355 qids** | do not reopen Content absent concrete defect |
 | E Reproductive/Breast | present · 20 Blocks / 212 KP | **Content CLOSED** | **CURRENT · 83 qids** | do not reopen Content absent concrete defect |
 | F Remaining Clinical | present · 9 Blocks / 121 KP | **Content CLOSED** | **UNRESOLVED** | `ROUTING_FORECAST_GAP`, not medical Knowledge gap |
-| Clinical-medical humanistic / other non-System official scope | **no canonical owner found in Current repo search** | unowned | not represented as trusted System scope | `HARD_COVERAGE_GAP` until exact scope/owner is established |
+| Clinical-medical humanistic / other non-System official scope | **`content/xizong/humanities/current.json`** | **CLOSED_BASELINE · 2027 delta blocked** | **2017–2026 exact N108–N115 · 80 qids** | baseline owner/training/evidence path closed; only 2027 scope delta remains BLOCKED upstream |
 
 Question-scope counts above are per-System memberships and must not be blindly summed into a unique all-question total.
 
@@ -93,50 +93,30 @@ Question-scope counts above are per-System memberships and must not be blindly s
 
 Type:
 
-`HARD_COVERAGE_GAP`
+`BASELINE_CLOSED + CURRENT_YEAR_DELTA_GAP`
 
-Current evidence:
+Current truth on main:
 
-- no explicit Current canonical humanism / ethics / doctor-patient / health-law owner was found in repository search;
-- Ministry of Education's official clinical-medicine admissions reform Q&A states that the unified clinical-medicine comprehensive exam explicitly strengthens professional-quality testing, including humanitarian spirit, professional responsibility, doctor-patient communication, medical ethics, and laws/regulations;
-- official reform basis: https://www.moe.gov.cn/jyb_xwfb/s271/201509/t20150911_207410.html
-- active Forecast work identifies this as a real 306-scope risk and uses a historical ~16-point working prior;
-- that historical point estimate is **not** a 2027 official exact truth.
+- PR #637 is merged at `38b957fcfb8fff97aaaa3c85bdd74aea431fbd83`;
+- Current owner: `content/xizong/humanities/current.json`;
+- minimal H1–H4 domain owner exists;
+- source-grounded knowledge compression exists;
+- derived recall support exists;
+- exact 2017–2026 humanities membership is verified as N108–N115 each year = 80 qids total;
+- historical modern-paper score geometry remains 8 questions × 2 points = 16 points per year;
+- current-law/source-fidelity guardrails are explicit;
+- hard coverage readiness = `CLOSED_BASELINE`;
+- learner evidence = not asserted.
 
-Current Question Truth adds a stronger historical shape:
+Remaining unknown:
 
-- 2024: N108–N115 = 8 consecutive humanistic questions;
-- 2025: N108–N115 = 8 consecutive humanistic questions;
-- 2026: N108–N115 = 8 consecutive humanistic questions;
-- under the current historical modern scoring geometry, each is 2 points → **16 points total**.
+- exact 2027 humanities outline/source remains `BLOCKED_UPSTREAM_SOURCE`;
+- when recovered, run a bounded `PRESERVE / UPDATE / NEW / RETIRE` delta;
+- do not rebuild a second humanities curriculum.
 
-Recent historical themes are stable enough to define a minimal reconstruction target without inventing a giant curriculum:
+Stage-A consequence:
 
-1. professional spirit / professional responsibility / conflicts of interest;
-2. doctor-patient communication;
-3. patient rights, privacy, informed consent and confidentiality;
-4. research / clinical-trial / specimen / translational ethics;
-5. physician-law / public-health / regulatory obligations.
-
-This does **not** prove that 2027 will keep N108–N115 or exactly 16 points. It proves that the recent historical exam has repeatedly treated this as a material score domain.
-
-Therefore the current hard gap is not “does humanism belong to the construct?”; it is:
-
-> exact Current-year scope + canonical owner + training/evidence closure.
-
-Loss-envelope implication:
-
-> Historical 16-point humanism exposure consumes 64% of the entire 25-point working loss envelope if left uncontrolled. Treat 16 as points-at-risk prior, not predicted loss.
-
-Required closure:
-
-1. establish exact exam-scope definition;
-2. inventory usable source/question/explanation assets;
-3. create or bind the smallest legitimate Current owner;
-4. define Recall / official-question / Repair evidence path;
-5. price remaining workload/loss risk.
-
-Do not build a giant parallel course if existing high-quality assets are sufficient.
+> Humanism is no longer the largest open hard-coverage gap. It is a closed baseline with one current-year delta dependency.
 
 ## G2 — F exact official-question membership
 
@@ -321,10 +301,12 @@ Current verdict:
 Why:
 
 1. 2027 exact exam geometry is not yet Current;
-2. humanistic/non-System scope is unowned;
-3. F exact official scope remains unpriced;
-4. current-year Biochemistry delta remains unresolved;
+2. F exact official scope remains unpriced;
+3. current-year Biochemistry delta remains unresolved;
+4. case/狂背/four-set/final-five-hour net-new load is not fully reconciled;
 5. X8/X9 Kian-specific evidence does not yet exist.
+
+Humanistic/non-System baseline coverage is now closed on main; only its 2027 delta remains upstream-BLOCKED.
 
 Therefore no current repository-completeness claim may be translated into “275 is secured”.
 
@@ -336,20 +318,19 @@ The historical discipline profile and prior whole-paper data may inform stress t
 
 Priority is learner/score impact, not repository neatness.
 
-## P0 — close exam-scope truth
+## P0 — upstream-blocked Current-year scope truth
 
-1. **Humanistic/non-System hard coverage**
-   - recent Current Question Truth confirms a repeated 8-question / 16-point historical modern-paper domain;
-   - highest immediate Stage-A learner-impact gap.
-2. **2027 exam-format/current-year scope delta**
-   - currently authority-BLOCKED; keep 165-question geometry historical-only until Current official source appears.
+1. **2027 exam-format/current-year scope delta**
+   - authority-BLOCKED; keep 165-question geometry historical-only until Current official source appears.
+2. **2027 humanities scope delta**
+   - baseline owner is closed; exact 2027 outline delta is BLOCKED on upstream primary Source.
 
-Reason: an unowned scoring domain invalidates the loss-envelope model; an unpublished/unknown current-year geometry must stay explicit rather than delay all work.
+These are explicit uncertainties, not active architecture work.
 
-## P1 — close known workload/routing truth
+## P1 — current highest unblocked Stage-A work
 
-3. **F exact official-question membership**
-4. **2027 Biochemistry delta**
+1. **F exact official-question membership**
+2. **2027 Biochemistry delta**
 
 Reason: these change real remaining workload without implying missing medical Core.
 
@@ -395,7 +376,7 @@ This package coordinates; exact owners still own truth.
 # 10｜Current Stage-A exit checklist
 
 - [x] 2027 exam scope/geometry is explicitly authority-BLOCKED with historical 165/300 fallback kept prior-only
-- [ ] humanistic/non-System domain has exact owner or bounded BLOCKED closure path
+- [x] humanistic/non-System baseline has exact Current owner, H1–H4 training/evidence path, 80 exact historical qids, and bounded 2027 BLOCKED delta
 - [ ] F exact System question scope closed
 - [ ] 2027 Biochemistry delta reconciled
 - [ ] case/狂背 net-new workload priced or explicitly reconciled as future-UNKNOWN
