@@ -227,8 +227,9 @@ Every Analysis task has one primary mode.
 | `SKELETON` | owner + distinct answer moves | I, S |
 | `BIND` | skeleton + material cue per major move | I, S, B |
 | `FORMULATION` | bound skeleton + source-grounded formulation | I, S, B, F |
-| `DELIVER` | complete timed prose | I, S, B, F when applicable, D |
-| `TRANSFER` | one of the above on fresh material | same dimensions + transfer flag |
+| `DELIVER` | complete timed prose | I, S, B, F when the task requires formulation, D |
+
+`TRANSFER` is **not** a sixth task mode. It is an attempt role applied to any mode when the material is genuinely fresh.
 
 Do not require DELIVER when the training purpose is only IDENTIFY or SKELETON.
 
@@ -396,7 +397,7 @@ source identity
 
 Changing answer wording alone does not necessarily change the task.
 
-Changing the prompt, source material, intended owner, freshness class or assessment target does.
+Changing the prompt, source material, intended owner, freshness class, formulation requirement or assessment target does.
 
 ---
 
