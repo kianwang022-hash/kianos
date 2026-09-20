@@ -176,6 +176,89 @@ function personalCalibration(values = [], { minSamples = 7 } = {}) {
   };
 }
 
+function minuteRange(value) {
+  if (Number.isFinite(Number(value))) {
+    const v = Math.max(0, Number(value));
+    return { min: v, max: v };
+  }
+  const values = Array.isArray(value)
+    ? value.map(Number).filter(Number.isFinite).map((v) => Math.max(0, v))
+    : [];
+  if (values.length) return { min: Math.min(...values), max: Math.max(...values) };
+  if (value && typeof value === 'object') {
+    const min = Number(value.min), max = Number(value.max);
+    if (Number.isFinite(min) && Number.isFinite(max)) {
+      return { min: Math.max(0, Math.min(min, max)), max: Math.max(0, Math.max(min, max)) };
+    }
+  }
+  return null;
+}
+
+function laterStageWorkload(input = {}) {
+  const fields = ['analysis_build', 'future_source_assimilation', 'mock_final_reserve'];
+  const components = {};
+  const missing = [];
+  for (const field of fields) {
+    const range = minuteRange(input?.[field]);
+    components[field] = range;
+    if (!range) missing.push(field);
+  }
+  const total = missing.length
+    ? null
+    : {
+        min: round(fields.reduce((sum, field) => sum + components[field].min, 0)),
+        max: round(fields.reduce((sum, field) => sum + components[field].max, 0))
+      };
+  return {
+    status: missing.length === fields.length
+      ? 'UNKNOWN'
+      : (missing.length ? 'PARTIAL_SCENARIO' : 'EXPLICIT_SCENARIO'),
+    components,
+    missing_components: missing,
+    total_minutes_range: total,
+    boundary:
+      'Later-stage workload is an explicit scenario range only. Missing components stay UNKNOWN; these ranges are not probabilities or Kian-specific P20/P50/P80.'
+  };
+}
+
+function wholeCycleWorkload(cases, later, days, capacityMinutesPerDay) {
+  if (!later.total_minutes_range) {
+    return {
+      status: 'UNKNOWN',
+      unit_cases: [],
+      boundary:
+        'Whole-cycle workload stays UNKNOWN until Analysis build, future-source assimilation and Mock/final reserve all have explicit scenario ranges.'
+    };
+  }
+  return {
+    status: 'EXPLICIT_SCENARIO',
+    unit_cases: cases.map((unitCase) => {
+      const low = round(unitCase.first_round_minutes_range.min + later.total_minutes_range.min);
+      const high = round(unitCase.first_round_minutes_range.max + later.total_minutes_range.max);
+      return {
+        label: unitCase.label,
+        remaining_units: unitCase.remaining_units,
+        confidence: unitCase.confidence,
+        first_round_minutes_range: unitCase.first_round_minutes_range,
+        later_stage_minutes_range: later.total_minutes_range,
+        whole_cycle_minutes_range: { min: low, max: high },
+        capacity: capacityMinutesPerDay.map((perDay) => {
+          const available = Math.max(0, finite(perDay)) * days;
+          return {
+            minutes_per_day: perDay,
+            available_minutes: round(available),
+            range_fit: available < low
+              ? 'DOES_NOT_FIT_EXPLICIT_RANGE'
+              : (available >= high ? 'FITS_FULL_EXPLICIT_RANGE' : 'RANGE_DEPENDENT')
+          };
+        })
+      };
+    }),
+    boundary:
+      'Whole-cycle range combines first-round stress with explicit later-stage ranges. It is a scenario envelope, not a completion probability.'
+  };
+}
+
 export function buildPoliticsForecast({
   evidence = {},
   days_remaining,
@@ -184,7 +267,8 @@ export function buildPoliticsForecast({
   stress_axes = DEFAULT_STRESS_AXES,
   observed_capacity_or_workload_samples = [],
   analysis = {},
-  future_sources = {}
+  future_sources = {},
+  later_workload_assumptions = {}
 } = {}) {
   const days = Math.max(0, Math.trunc(finite(days_remaining)));
   const questions = observedQuestionFacts(evidence);
@@ -235,6 +319,8 @@ export function buildPoliticsForecast({
   );
   const laterIncomplete = analysisStatus === 'UNKNOWN'
     || Object.values(sourceStatuses).some((status) => !['READY','AVAILABLE','NOT_YET_NEEDED'].includes(status));
+  const laterWorkload = laterStageWorkload(later_workload_assumptions);
+  const wholeCycle = wholeCycleWorkload(cases, laterWorkload, days, capacity_minutes_per_day);
 
   return {
     schema: 'kianos.politics.forecast.v1',
@@ -254,6 +340,8 @@ export function buildPoliticsForecast({
       note: 'Stress-grid fit fractions are robustness checks, not probabilities and not personal P20/P50/P80. Unit composition is exposed separately because equal unit counts can have different subject burden.'
     },
     personal_calibration: personalCalibration(observed_capacity_or_workload_samples),
+    later_stage_workload: laterWorkload,
+    whole_cycle_workload: wholeCycle,
     score_path: {
       objective_confidence: questions.single.attempted + questions.multiple.attempted
         ? 'EVIDENCE_ACCUMULATING'
