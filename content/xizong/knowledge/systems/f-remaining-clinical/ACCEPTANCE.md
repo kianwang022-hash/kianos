@@ -14,8 +14,8 @@ This file owns F-scoped readiness truth only. It does not own medical Core, lear
 | --- | --- | --- |
 | S1 — medical / first-learning Source boundary | **PASS** | approved original/current Lecture sources were re-bound from File Library by title/page locator; F6/F8 stale reading gaps closed; remaining exact gaps explicit and fail-closed |
 | S2 — exact official F System question membership | **UNTESTED** | separate later boundary; no membership inferred from Outline placement |
-| K — Knowledge | **UNTESTED / CANDIDATE READY** | fresh F System Knowledge candidate built from F1–F9 / 121 KP; independent K acceptance required |
-| L — Learning Logic | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
+| K — Knowledge | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent K audit; bounded repair split acute disturbance-control from planned/ongoing intervention-safety while preserving identity/source/owner boundaries |
+| L — Learning Logic | **UNTESTED / NEXT ELIGIBLE** | K accepted; Learning construction is the next F stage |
 | Content Realization / Optimization | **NOT_STARTED / DOWNSTREAM-FROZEN** | downstream |
 | P — Projection | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
 | R — Runtime | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
@@ -82,9 +82,9 @@ F5 Study wording conflicts and other live conflicts remain explicit rather than 
 
 ---
 
-## K candidate — BUILT / NOT ACCEPTED
+## K acceptance — PASS_AFTER_BOUNDED_REPAIR
 
-Candidate owner:
+Canonical Knowledge owner:
 
 `content/xizong/knowledge/systems/f-remaining-clinical/system.json`
 
@@ -92,7 +92,17 @@ Construction evidence:
 
 `content/xizong/knowledge/learner/F_PHASE1_KNOWLEDGE_RECONSTRUCTION.md`
 
-Candidate identity:
+Fresh independent acceptance evidence:
+
+`content/xizong/knowledge/learner/F_PHASE2_FRESH_INDEPENDENT_K_ACCEPTANCE.md`
+
+Verdict:
+
+```text
+FRESH_K_PASS_AFTER_BOUNDED_REPAIR
+```
+
+Accepted identity:
 
 ```text
 9 stable Blocks
@@ -103,32 +113,54 @@ Candidate identity:
 0 accepted Source-contact choreography
 ```
 
-The candidate uses a disturbance-control-recovery network rather than an organ-style causal chain:
+Fresh anti-anchored readback of F1–F9 found one bounded K defect in the original System compression. The candidate treated harmful acute disturbances and planned surgery/anesthesia as if both belonged to one universal `disturbance → source control → support` chain.
+
+That is false for F5–F8. Planned surgery/anesthesia can create iatrogenic risk, but they are not harmful sources whose correct response is termination.
+
+The smallest responsible K owner, `system.json`, was repaired to use a dual-context network:
+
+1. **F1–F4 acute disturbance-control** — harmful input/injury → immediate threat → vital support + source control when applicable → specific control → recovery/deviation.
+2. **F5–F8 intervention-safety** — urgency/reserve → intended intervention and action space → vital support/monitoring → iatrogenic risk → recovery/deviation.
+3. **F9 low-connectivity tail** — ownership split first; no forced common mechanism.
+
+The repair also makes source control explicitly conditional and separates `INTERVENTION_CONTEXT` from actual harmful `DISTURBANCE_SOURCE`.
+
+### Preserved K truth
+
+- decontamination / elimination / antidote / source control / physiologic support remain distinct;
+- F3 wound variables and F4 area/depth/severity/time remain local rather than flattened;
+- F5 urgency/reversibility/reserve and F6 time/location/evidence remain intact;
+- F7 keeps hypnosis/amnesia, analgesia, reflex suppression, muscle relaxation and airway/hemodynamic support distinct;
+- F8 keeps intervention space/depth as a real predictor of block extent and complication;
+- F9 remains deliberately low-connectivity;
+- external shock/perfusion, airway/respiratory failure, renal/fluid, liver/nutrition, infection/sepsis/transfusion/transplant, NMJ/neural-conduction and tumor-general truth remain with their real owners.
+
+### Preserved Source boundary
+
+Remaining exact gaps stay explicit and fail-closed:
+
+- F1 selected poison-manifestation mappings;
+- F2 delayed-neuropathy / rebound wording;
+- F3 delayed-primary / secondary-closure taxonomy detail;
+- F4 complete first-day burn-fluid formula / intraday distribution;
+- F9 complete laparoscopy complication list.
+
+F6 postoperative timing and F8 P270 matrix remain verified closures.
+
+No model-prior completion or silent modern-guideline substitution was introduced.
+
+## Downstream state
+
+K is now accepted.
 
 ```text
-harmful input / intervention
-→ immediate threat
-→ support + source control
-→ specific bounded control
-→ iatrogenic risk
-→ recovery / deviation
+S1 PASS
+→ K PASS_AFTER_BOUNDED_REPAIR
+→ L UNTESTED / next eligible
+→ Content / P / R / E downstream-frozen
+→ U NO_CLAIM
 ```
 
-F9 remains low-connectivity by design.
+The next eligible F stage is **Learning Logic construction**.
 
-### Independence requirement
-
-K must receive a fresh independent semantic audit before PASS. Construction receipts, the historical Guide and the current five candidate families are not evidence that the model is correct merely because they exist.
-
-### Downstream freeze
-
-Until K passes:
-
-- do not construct hard readiness/default route;
-- do not construct Logic Groups;
-- do not decide Source-contact units;
-- do not redesign F Block Content;
-- do not start Projection/Runtime/Evidence;
-- do not infer official question membership.
-
-A later Source repair should reopen only the named missing field, not the whole System.
+This K audit does not start Learning, does not infer official F question membership, and does not manufacture learner progress.
