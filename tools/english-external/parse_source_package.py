@@ -131,6 +131,10 @@ def main() -> int:
         raise SystemExit("extraction_check YAML block not found")
     if metadata_block.start() >= extraction_block.start():
         raise SystemExit("metadata block must appear before extraction_check")
+    if text[:metadata_block.start()].strip():
+        raise SystemExit("unexpected content before metadata block")
+    if text[extraction_block.end():].strip():
+        raise SystemExit("unexpected content after extraction_check block")
 
     metadata = parse_flat_mapping(metadata_block.group(1))
     missing_meta = [key for key in REQUIRED_META if key not in metadata]
