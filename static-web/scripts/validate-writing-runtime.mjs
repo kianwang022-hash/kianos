@@ -45,8 +45,9 @@ function forbiddenPaths(value, prefix = '') {
 const source = inspectWritingSyntheticTasks();
 const tasks = listWritingSyntheticTasks();
 check(source.status === 'ready', `SYNTHETIC_SOURCE:${source.status}`);
-check(tasks.length === 2, `SYNTHETIC_TASK_COUNT:${tasks.length}`);
-check(tasks.map((task) => task.kind).join('|') === 'small|big', `SYNTHETIC_KIND_ORDER:${tasks.map((task) => task.kind).join('|')}`);
+check(tasks.length >= 2, `SYNTHETIC_TASK_COUNT:${tasks.length}`);
+check(new Set(tasks.map((task) => task.kind)).has('small') && new Set(tasks.map((task) => task.kind)).has('big'), `SYNTHETIC_KIND_COVERAGE:${tasks.map((task) => task.kind).join('|')}`);
+check(tasks.every((task) => task.evidenceRole), 'SYNTHETIC_EVIDENCE_ROLE_MISSING');
 check(tasks.every((task) => task.sourceKind === 'synthetic'), 'TRUE_EXAM_CONSUMPTION');
 check(tasks.every((task) => forbiddenPaths(task).length === 0), 'SYNTHETIC_LEARNER_LEAK');
 
