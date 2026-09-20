@@ -474,6 +474,9 @@ Requirements:
 
 - one explicit scoring/rubric owner;
 - anchored examples / score descriptors appropriate to the real exam task;
+- the rubric / anchor set itself must have validity evidence against the real exam scoring construct, using official scoring rules/exemplars where available and otherwise the strongest available externally grounded calibration evidence;
+- inter-rater/model agreement is not by itself rubric validity: the system must attack systematic shared bias, not only disagreement variance;
+- when no adequate external calibration anchor exists, preserve that uncertainty explicitly and do not let internally consistent model scores alone close a subjective score channel or materially narrow the total-score Forecast;
 - known uncertainty / rater sensitivity reflected in Forecast;
 - one Chat/model score cannot alone produce high-confidence score evidence;
 - when a score materially changes strategy, use anchored re-score, independent second review, or another accepted calibration method where feasible.
@@ -508,11 +511,14 @@ Chat remains the strategy owner, but a mature subject must publish a **small sub
 At minimum, the guardrail layer must reject or reopen a decision when it would:
 
 - call a capability Secure / Stable while a required evidence gate is missing or materially UNKNOWN;
+- move a capability already justified as Secure / Stable / Maintain back into materially heavier Build / Verify work without newer contradictory evidence or an explicit subject-native reopen trigger;
 - use contaminated, exposed, stale or semantically unbound material as fresh formal score / transfer evidence;
 - let superseded Source truth authorize Current Memory, Repair, exact-formulation or score claims;
 - silently ignore a known high-impact UNKNOWN that can plausibly flip the current action or target-path judgment;
 - erase newer learner evidence through an older plan / restore / packet;
 - declare learner minutes that exceed the Current usable-capacity budget after learning, Review, Repair and evidence work are counted together.
+
+The guardrail may validate the existence / freshness / provenance of a reopen trigger; it must not rank competing tasks or become a second ROI/scheduling engine.
 
 A rejected plan returns a bounded contradiction to Chat for re-decision. This is the second line of defense against Chat error while preserving the rule that Website/runtime does not choose strategy.
 
