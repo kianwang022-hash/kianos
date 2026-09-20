@@ -7,17 +7,14 @@ const base=import.meta.env.BASE_URL;
       <a href={`${base}english/`}>‹ English</a>
       <span>EXTERNAL READING · GROWTH</span>
       <h1>额外阅读</h1>
-      <p>TPO 56–65 为主，IELTS Academic 17–19 为辅。增加阅读量，但不把 TOEFL / IELTS 的题型方法改写成考研 Reading A。</p>
+      <p>历史 TPO / IELTS、新增官方来源与高质量长文共用同一 Reading Growth 工作区；保留各自 Source 身份，不把任何题型方法改写成考研 Reading A。</p>
     </div>
     <small data-external-status>读取私有 External Content…</small>
   </header>
 
   <section class="externalReadingLibrary" data-external-library>
     <div class="externalReadingCounts" data-external-counts></div>
-    <div class="externalReadingSourceTabs" role="tablist">
-      <button type="button" class="active" data-external-family="TOEFL_TPO">TPO 56–65</button>
-      <button type="button" data-external-family="IELTS_ACADEMIC">IELTS 17–19</button>
-    </div>
+    <div class="externalReadingSourceTabs" role="tablist" data-external-tabs></div>
     <div class="externalReadingCollections" data-external-collections></div>
   </section>
 
@@ -95,6 +92,7 @@ const base=import.meta.env.BASE_URL;
     const library=root.querySelector('[data-external-library]');
     const counts=root.querySelector('[data-external-counts]');
     const collections=root.querySelector('[data-external-collections]');
+    const sourceTabs=root.querySelector('[data-external-tabs]');
     const workspace=root.querySelector('[data-external-workspace]');
     const paragraphs=root.querySelector('[data-external-paragraphs]');
     const title=root.querySelector('[data-external-title]');
@@ -167,13 +165,39 @@ const base=import.meta.env.BASE_URL;
       }catch(error){preserveEnglishFailure(root,error);}
     };
 
+    const familyLabel=value=>({
+      TOEFL_TPO:'TPO 56–65',
+      IELTS_ACADEMIC:'IELTS Academic',
+      TOEFL_CURRENT:'TOEFL Current',
+      FUTURE_INCREMENTAL:'Long-form'
+    }[String(value||'')]||String(value||'External').replaceAll('_',' '));
+
+    const renderFamilyTabs=()=>{
+      if(!(sourceTabs instanceof HTMLElement)||!catalog)return;
+      const families=[...new Set((catalog.collections||[]).map(group=>group.source_family).filter(Boolean))];
+      if(!families.includes(family))family=families[0]||'TOEFL_TPO';
+      sourceTabs.innerHTML='';
+      for(const value of families){
+        const button=document.createElement('button');
+        button.type='button';
+        button.dataset.externalFamily=value;
+        button.textContent=familyLabel(value);
+        button.classList.toggle('active',value===family);
+        button.addEventListener('click',()=>{
+          family=value;
+          sourceTabs.querySelectorAll('[data-external-family]').forEach(row=>row.classList.toggle('active',row===button));
+          renderCatalog();
+        });
+        sourceTabs.appendChild(button);
+      }
+    };
     const renderCatalog=()=>{
       if(!(collections instanceof HTMLElement)||!catalog)return;
       collections.innerHTML='';
       const groups=(catalog.collections||[]).filter(group=>group.source_family===family);
       for(const group of groups){
         const details=document.createElement('details');
-        details.open=family==='TOEFL_TPO';
+        details.open=collections.children.length===0;
         const summary=document.createElement('summary');
         summary.innerHTML='<div><strong></strong><small></small></div><span></span>';
         summary.querySelector('strong').textContent=group.collection;
@@ -186,9 +210,10 @@ const base=import.meta.env.BASE_URL;
           const a=document.createElement('a');
           a.href=`${base}external-reading/?id=${encodeURIComponent(item.object_id)}`;
           a.innerHTML='<span></span><div><strong></strong><small></small></div><b>→</b>';
-          a.querySelector('span').textContent=item.test?(`T${item.test} · P${item.passage_number}`):(`P${item.passage_number}`);
+          a.querySelector('span').textContent=item.test?('T'+item.test+(item.passage_number?' · P'+item.passage_number:'')):(item.passage_number?'P'+item.passage_number:'READ');
           a.querySelector('strong').textContent=item.title||item.object_id;
-          a.querySelector('small').textContent=`${item.question_count} source questions${(item.warnings||[]).length?' · source note':''}`;
+          const questionLabel=item.question_count>0?(item.question_count+' source questions'):'Reading only';
+          a.querySelector('small').textContent=questionLabel+((item.warnings||[]).length?' · source note':'');
           rows.appendChild(a);
         }
         details.appendChild(rows);collections.appendChild(details);
@@ -255,10 +280,12 @@ const base=import.meta.env.BASE_URL;
     const renderState=()=>{
       if(!active||!state)return;
       const requiresQuestions=active.completion_requirement==='QUESTIONS_SUBMITTED';
+      const noQuestions=(active.questions||[]).length===0;
       if(requiresQuestions&&state.mode==='READ_ONLY')state.mode='QUESTIONS';
-      const readOnly=state.mode==='READ_ONLY';
+      if(noQuestions)state.mode='READ_ONLY';
+      const readOnly=noQuestions||state.mode==='READ_ONLY';
       if(modeButton instanceof HTMLButtonElement){
-        modeButton.hidden=requiresQuestions;
+        modeButton.hidden=requiresQuestions||noQuestions;
         modeButton.setAttribute('aria-pressed',String(readOnly));
         modeButton.textContent=readOnly?'带原题阅读':'只读文章';
       }
@@ -312,7 +339,7 @@ const base=import.meta.env.BASE_URL;
         submittedAt:saved.submittedAt||'',
         results:saved.results||{},
         formalAnswers:saved.formalAnswers||{},
-        mode:saved.mode||'QUESTIONS',
+        mode:(active.questions||[]).length===0?'READ_ONLY':(saved.mode||'QUESTIONS'),
         stage:saved.stage||'active'
       };
       save();
@@ -321,8 +348,14 @@ const base=import.meta.env.BASE_URL;
       setText(title,active.title||active.object_id);
       setText(passageTitle,active.title||active.object_id);
       const generated=active.question_origin==='CHAT_GENERATED';
-      setText(kind,generated?(active.drill_origin==='CHAT_GENERATED_ON_EXTERNAL_SOURCE'?'SOURCE + CHAT DRILL':'CHAT · SYNTHETIC'):(active.source_format==='TOEFL_LEGACY'?'TPO · LEGACY TOEFL':'IELTS · ACADEMIC'));
-      setText(source,generated&&active.drill_origin==='CHAT_GENERATED_SYNTHETIC'?('Chat-generated · '+(active.training_target?.kind||'English drill')):`${active.collection}${active.test?' · Test '+active.test:''} · Passage ${active.passage_number}`);
+      const nativeKind=active.source_family==='TOEFL_TPO'?'TPO · LEGACY TOEFL'
+        :active.source_family==='IELTS_ACADEMIC'?'IELTS · ACADEMIC'
+        :active.source_family==='TOEFL_CURRENT'?'TOEFL · CURRENT'
+        :active.source_family==='FUTURE_INCREMENTAL'?'EXTERNAL · LONG-FORM'
+        :familyLabel(active.source_family);
+      setText(kind,generated?(active.drill_origin==='CHAT_GENERATED_ON_EXTERNAL_SOURCE'?'SOURCE + CHAT DRILL':'CHAT · SYNTHETIC'):nativeKind);
+      const nativeLocator=String(active.collection||'External')+(active.test?' · Test '+active.test:'')+(active.passage_number?' · Passage '+active.passage_number:'');
+      setText(source,generated&&active.drill_origin==='CHAT_GENERATED_SYNTHETIC'?('Chat-generated · '+(active.training_target?.kind||'English drill')):nativeLocator);
       setText(questionOriginLabel,generated?'CHAT-GENERATED DRILL':'SOURCE-NATIVE QUESTIONS');
       setText(questionOriginNote,generated?'题目由 Chat 生成 · 只作训练证据，不冒充原题':'原题身份保留 · 不套考研题型法');
       if(paragraphs instanceof HTMLElement){
@@ -332,18 +365,12 @@ const base=import.meta.env.BASE_URL;
       const warnings=[...new Set(active.warnings||[])];
       const generatedNote=generated?`训练目标：${active.training_target?.note||active.training_target?.kind||'当前 Chat 指定训练'}。题目是 Chat-generated，不是 TOEFL / IELTS / 考研原题。`:'';
       if(sourceNote instanceof HTMLDetailsElement)sourceNote.hidden=!(warnings.length||generatedNote);
-      setText(sourceNoteText,generatedNote||(warnings.length?`这份历史 Source 仍保留已知 OCR / visual QA debt：${warnings.join(' · ')}。系统只做机械或 hash-bound 清理，不猜正文。`:''));
+      setText(sourceNoteText,generatedNote||(warnings.length?('Source note：'+warnings.join(' · ')+'。系统只做机械或 source-bound 处理，不猜正文。'):''));
       if(tick)clearInterval(tick);
       const update=()=>setText(timer,formatTime((Date.now()-Date.parse(state.startedAt))/1000));
       update();tick=setInterval(update,1000);
       renderState();
     };
-
-    root.querySelectorAll('[data-external-family]').forEach(button=>button.addEventListener('click',()=>{
-      family=button.getAttribute('data-external-family')||'TOEFL_TPO';
-      root.querySelectorAll('[data-external-family]').forEach(row=>row.classList.toggle('active',row===button));
-      renderCatalog();
-    }));
 
     modeButton?.addEventListener('click',()=>{
       if(!state||state.submitted)return;
@@ -374,9 +401,11 @@ const base=import.meta.env.BASE_URL;
 
     try{
       catalog=await fetchJson(endpoint('catalog'));
-      const t=catalog.counts?.toefl||{},i=catalog.counts?.ielts||{};
-      setText(counts,`TPO ${t.collections||0}/10 · ${t.passages||0} passages · ${t.questions||0} questions    |    IELTS ${i.books||0}/3 · ${i.passages||0} passages · ${i.questions||0} questions`);
+      const t=catalog.counts?.toefl||{},i=catalog.counts?.ielts||{},inc=catalog.counts?.incremental||{};
+      const incrementalText=(inc.objects||0)>0?('    |    NEW '+(inc.objects||0)+' source(s) · '+(inc.questions||0)+' questions'):'';
+      setText(counts,'TPO '+(t.collections||0)+'/10 · '+(t.passages||0)+' passages · '+(t.questions||0)+' questions    |    IELTS '+(i.books||0)+'/3 · '+(i.passages||0)+' passages · '+(i.questions||0)+' questions'+incrementalText);
       setText(status,'External Content ready · 私有 Source / 公共 identity');
+      renderFamilyTabs();
       renderCatalog();
       const id=new URLSearchParams(location.search).get('id');
       if(id)await openObject(id);

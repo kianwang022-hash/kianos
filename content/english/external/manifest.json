@@ -59,7 +59,14 @@
       "IELTS/Cambridge_IELTS_18_Academic_Reading.md": "6e25e20ea58e027d8992f5b3d429f663d1a092bfd462d4cdcb245d7e43611d59",
       "IELTS/Cambridge_IELTS_19_Academic_Reading.md": "7080e05e9143c173a852b944af43a530b42f626bbeeea691c6d45c2a63cd4677"
     },
-    "stale_source_policy": "FAIL_CLOSED_BEFORE_COMPILE"
+    "stale_source_policy": "FAIL_CLOSED_BEFORE_COMPILE",
+    "incremental_source": {
+      "manifest_path": "INCREMENTAL/manifest.json",
+      "expected_manifest_sha256": null,
+      "status": "NO_ACTIVE_INCREMENTAL_BYTES",
+      "activation_rule": "PUBLIC_MANIFEST_HASH_REGISTRATION_REQUIRED",
+      "object_hash_rule": "INCREMENTAL_MANIFEST_BINDS_SOURCE_QUESTIONS_ANSWERS_SHA256"
+    }
   },
   "source_priority": [
     {
@@ -1003,5 +1010,13 @@
       "status": "INTAKE_V1",
       "note": "Admit high-quality authentic long-form only when it expands useful topic/style range."
     }
-  ]
+  ],
+  "incremental_contract": {
+    "schema": "kian.external.incremental-manifest.v1",
+    "owner": "content/english/external/INCREMENTAL_SOURCE_CONTRACT.md",
+    "questionless_allowed": true,
+    "source_native_questions_without_key_allowed": true,
+    "source_backed_answers_optional": true,
+    "no_semantic_inference": true
+  }
 }

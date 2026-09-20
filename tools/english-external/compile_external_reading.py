@@ -24,6 +24,9 @@ from external_normalization import (
 
 SCHEMA = "kianos.english.external-private-bundle.v2"
 INVENTORY_SCHEMA = "kianos.english.external-inventory.v1"
+INCREMENTAL_MANIFEST_SCHEMA = "kian.external.incremental-manifest.v1"
+INCREMENTAL_QUESTIONS_SCHEMA = "kian.external.incremental-questions.v1"
+INCREMENTAL_ANSWERS_SCHEMA = "kian.external.incremental-answers.v1"
 EXPECTED_TOEFL = {
     56: [14, 13, 14], 57: [14, 14, 14], 58: [14, 14, 14],
     59: [14, 14, 14], 60: [14, 14, 14], 61: [14, 14, 14],
@@ -231,6 +234,178 @@ def compile_ielts(root: Path) -> list[dict]:
     return output
 
 
+def _safe_registered_path(root: Path, relative: str) -> Path:
+    raw = str(relative or "").strip()
+    if not raw or Path(raw).is_absolute():
+        raise SystemExit(f"incremental source path invalid: {relative!r}")
+    resolved = (root / raw).resolve()
+    if resolved != root and root not in resolved.parents:
+        raise SystemExit(f"incremental source escapes root: {relative!r}")
+    if not resolved.is_file():
+        raise SystemExit(f"incremental source missing: {raw}")
+    return resolved
+
+
+def _load_json(path: Path) -> dict:
+    try:
+        value = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as error:
+        raise SystemExit(f"invalid JSON: {path}: {error}") from error
+    if not isinstance(value, dict):
+        raise SystemExit(f"JSON object required: {path}")
+    return value
+
+
+def _assert_registered_sha(path: Path, expected: str, label: str) -> str:
+    actual = sha256(path)
+    expected_value = str(expected or "").strip().lower()
+    if not expected_value or actual != expected_value:
+        raise SystemExit(f"{label} SHA mismatch: expected {expected_value or 'missing'}, got {actual}")
+    return actual
+
+
+def _compile_incremental_questions(object_id: str, root: Path, row: dict) -> tuple[list[dict], dict[str, str], str, str, list[dict]]:
+    question_path_value = str(row.get("questions_path") or "").strip()
+    answer_path_value = str(row.get("answers_path") or "").strip()
+    refs: list[dict] = []
+
+    if not question_path_value:
+        if answer_path_value:
+            raise SystemExit(f"{object_id}: answers_path requires questions_path")
+        return [], {}, "", "NO_QUESTIONS", refs
+
+    question_path = _safe_registered_path(root, question_path_value)
+    question_sha = _assert_registered_sha(question_path, row.get("questions_sha256"), f"{object_id} questions")
+    question_payload = _load_json(question_path)
+    if question_payload.get("schema") != INCREMENTAL_QUESTIONS_SCHEMA:
+        raise SystemExit(f"{object_id}: incremental question schema invalid")
+    raw_questions = question_payload.get("questions")
+    if not isinstance(raw_questions, list) or not raw_questions:
+        raise SystemExit(f"{object_id}: incremental questions must be a non-empty list")
+
+    seen: set[int] = set()
+    questions: list[dict] = []
+    for index, raw in enumerate(raw_questions, 1):
+        if not isinstance(raw, dict):
+            raise SystemExit(f"{object_id}: question {index} must be an object")
+        ordinal = int(raw.get("ordinal") or index)
+        if ordinal < 1 or ordinal in seen:
+            raise SystemExit(f"{object_id}: duplicate/invalid question ordinal {ordinal}")
+        seen.add(ordinal)
+        options = raw.get("options") or {}
+        if not isinstance(options, dict):
+            raise SystemExit(f"{object_id}: question {ordinal} options must be an object")
+        clean_options = {str(k): str(v) for k, v in options.items() if str(k).strip()}
+        response_kind = str(raw.get("response_kind") or ("single_choice" if len(clean_options) >= 2 else "source_bound_response"))
+        questions.append({
+            "question_id": f"{object_id}-q{ordinal}",
+            "ordinal": ordinal,
+            "source_ordinal": int(raw.get("source_ordinal") or ordinal),
+            "prompt": str(raw.get("prompt") or f"Question {ordinal}"),
+            "options": clean_options,
+            "source_text": str(raw.get("source_text") or raw.get("prompt") or f"Question {ordinal}"),
+            "response_kind": response_kind,
+            "response_limit": int(raw.get("response_limit") or 6000),
+            "source_refs": [],
+            "warnings": list(dict.fromkeys(str(x) for x in (raw.get("warnings") or []) if str(x).strip())),
+        })
+    questions.sort(key=lambda item: item["ordinal"])
+    refs.append({"path": source_ref(root, question_path), "sha256": question_sha, "role": "questions"})
+
+    answers: dict[str, str] = {}
+    answer_status = "SOURCE_NATIVE_NO_KEY"
+    if answer_path_value:
+        answer_path = _safe_registered_path(root, answer_path_value)
+        answer_sha = _assert_registered_sha(answer_path, row.get("answers_sha256"), f"{object_id} answers")
+        answer_payload = _load_json(answer_path)
+        if answer_payload.get("schema") != INCREMENTAL_ANSWERS_SCHEMA:
+            raise SystemExit(f"{object_id}: incremental answer schema invalid")
+        raw_answers = answer_payload.get("answers")
+        if not isinstance(raw_answers, dict):
+            raise SystemExit(f"{object_id}: incremental answers object required")
+        valid_ordinals = {q["ordinal"] for q in questions}
+        for key, value in raw_answers.items():
+            ordinal = int(key)
+            if ordinal not in valid_ordinals:
+                raise SystemExit(f"{object_id}: answer for unknown ordinal {ordinal}")
+            answers[f"{object_id}-q{ordinal}"] = value
+        answer_status = "SOURCE_BACKED"
+        refs.append({"path": source_ref(root, answer_path), "sha256": answer_sha, "role": "answers"})
+
+    return questions, answers, str(question_payload.get("source_text") or ""), answer_status, refs
+
+
+def compile_incremental(root: Path, manifest_path: Path | None) -> list[dict]:
+    if manifest_path is None:
+        return []
+    manifest = _load_json(manifest_path)
+    if manifest.get("schema") != INCREMENTAL_MANIFEST_SCHEMA:
+        raise SystemExit("incremental manifest schema invalid")
+    raw_objects = manifest.get("objects")
+    if not isinstance(raw_objects, list):
+        raise SystemExit("incremental manifest objects list required")
+
+    output: list[dict] = []
+    seen_ids: set[str] = set()
+    for index, row in enumerate(raw_objects, 1):
+        if not isinstance(row, dict):
+            raise SystemExit(f"incremental object {index} must be an object")
+        object_id = str(row.get("object_id") or "").strip()
+        if not object_id or object_id in seen_ids:
+            raise SystemExit(f"incremental object id invalid/duplicate: {object_id!r}")
+        if not re.fullmatch(r"[a-z0-9][a-z0-9._-]{2,127}", object_id):
+            raise SystemExit(f"incremental object id unsafe: {object_id}")
+        seen_ids.add(object_id)
+
+        source_path = _safe_registered_path(root, row.get("source_path"))
+        source_sha = _assert_registered_sha(source_path, row.get("source_sha256"), f"{object_id} source")
+        source_family = str(row.get("source_family") or "FUTURE_INCREMENTAL").strip()
+        source_format = str(row.get("source_format") or "SOURCE_PACKAGE_MARKDOWN").strip()
+        collection = str(row.get("collection") or "External Reading").strip()
+        title = str(row.get("title") or object_id).strip()
+        raw_text = source_path.read_text(encoding="utf-8")
+        normalized = normalize_external_passage(raw_text, title=title, source_family=source_family)
+        questions, answers, question_source, answer_status, auxiliary_refs = _compile_incremental_questions(object_id, root, row)
+        warnings = list(dict.fromkeys(
+            list(normalized["warnings"])
+            + [str(x) for x in (row.get("warnings") or []) if str(x).strip()]
+        ))
+
+        output.append({
+            "passage_id": object_id,
+            "source_family": source_family,
+            "source_format": source_format,
+            "practice_role": str(row.get("practice_role") or "READING_GROWTH"),
+            "collection": collection,
+            "test": row.get("test"),
+            "passage_number": row.get("passage_number"),
+            "title": title,
+            "passage_text": normalized["text"],
+            "passage_paragraphs": normalized["paragraphs"],
+            "question_source_text": question_source,
+            "questions": questions,
+            "answer_key": answers,
+            "answer_key_source_text": "",
+            "answer_key_status": answer_status,
+            "source_refs": [{
+                "path": source_ref(root, source_path),
+                "sha256": source_sha,
+                "pdf_pages": source_pages(raw_text),
+                "role": "passage",
+            }, *auxiliary_refs],
+            "normalization": {
+                "mode": "MECHANICAL_ONLY",
+                "source_text_sha256": normalized["source_text_sha256"],
+                "spacing_repairs": normalized["spacing_repairs"],
+            },
+            "warnings": warnings,
+            "question_origin": "SOURCE_NATIVE" if questions else "NONE",
+            "completion_requirement": str(row.get("completion_requirement") or "READ_ONLY_OK"),
+            "source_url": row.get("source_url"),
+        })
+    return output
+
+
 def public_inventory(passages: list[dict], counts: dict, bundle_sha: str) -> dict:
     return {
         "schema": INVENTORY_SCHEMA,
@@ -258,6 +433,7 @@ def main() -> int:
     parser.add_argument("--source-root", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True, help="private runtime bundle")
     parser.add_argument("--inventory-output", type=Path, default=None, help="optional metadata-only public inventory")
+    parser.add_argument("--incremental-manifest", type=Path, default=None, help="optional registered incremental-source manifest")
     args = parser.parse_args()
 
     root = args.source_root.expanduser().resolve()
@@ -265,21 +441,32 @@ def main() -> int:
     if not manifest.is_file():
         raise SystemExit(f"source manifest missing: {manifest}")
 
-    passages = compile_toefl(root) + compile_ielts(root)
+    incremental_manifest = args.incremental_manifest.expanduser().resolve() if args.incremental_manifest else None
+    if incremental_manifest is not None and not incremental_manifest.is_file():
+        raise SystemExit(f"incremental manifest missing: {incremental_manifest}")
+    legacy_toefl = compile_toefl(root)
+    legacy_ielts = compile_ielts(root)
+    incremental = compile_incremental(root, incremental_manifest)
+    passages = legacy_toefl + legacy_ielts + incremental
     counts = {
         "toefl": {
-            "collections": len({p["collection"] for p in passages if p["source_family"] == "TOEFL_TPO"}),
-            "passages": sum(p["source_family"] == "TOEFL_TPO" for p in passages),
-            "questions": sum(len(p["questions"]) for p in passages if p["source_family"] == "TOEFL_TPO"),
-            "answer_slots": sum(len(p["answer_key"]) for p in passages if p["source_family"] == "TOEFL_TPO"),
+            "collections": len({p["collection"] for p in legacy_toefl}),
+            "passages": len(legacy_toefl),
+            "questions": sum(len(p["questions"]) for p in legacy_toefl),
+            "answer_slots": sum(len(p["answer_key"]) for p in legacy_toefl),
         },
         "ielts": {
-            "books": len({p["collection"] for p in passages if p["source_family"] == "IELTS_ACADEMIC"}),
-            "tests": len({(p["collection"], p["test"]) for p in passages if p["source_family"] == "IELTS_ACADEMIC"}),
-            "passages": sum(p["source_family"] == "IELTS_ACADEMIC" for p in passages),
-            "questions": sum(len(p["questions"]) for p in passages if p["source_family"] == "IELTS_ACADEMIC"),
-            "mechanically_parsed_answer_slots": sum(len(p["answer_key"]) for p in passages if p["source_family"] == "IELTS_ACADEMIC"),
-            "source_key_question_slots": sum(len(p["questions"]) for p in passages if p["source_family"] == "IELTS_ACADEMIC"),
+            "books": len({p["collection"] for p in legacy_ielts}),
+            "tests": len({(p["collection"], p["test"]) for p in legacy_ielts}),
+            "passages": len(legacy_ielts),
+            "questions": sum(len(p["questions"]) for p in legacy_ielts),
+            "mechanically_parsed_answer_slots": sum(len(p["answer_key"]) for p in legacy_ielts),
+            "source_key_question_slots": sum(len(p["questions"]) for p in legacy_ielts),
+        },
+        "incremental": {
+            "objects": len(incremental),
+            "questions": sum(len(p["questions"]) for p in incremental),
+            "questionless_objects": sum(not p["questions"] for p in incremental),
         },
     }
     if counts["toefl"] != {"collections": 10, "passages": 30, "questions": 395, "answer_slots": 395}:
@@ -301,6 +488,8 @@ def main() -> int:
             "root": "source://EnglishOS/External_Reading_Corpus",
             "manifest_path": "source://EnglishOS/External_Reading_Corpus/source_manifest.json",
             "manifest_sha256": sha256(manifest),
+            "incremental_manifest_path": source_ref(root, incremental_manifest) if incremental_manifest else None,
+            "incremental_manifest_sha256": sha256(incremental_manifest) if incremental_manifest else None,
             "file_count": sum(item.is_file() for item in root.rglob("*")),
         },
         "source_quality": {

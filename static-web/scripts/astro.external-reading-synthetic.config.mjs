@@ -10,7 +10,7 @@ export default defineConfig({
   vite: {
     plugins: [
       privateLearnerBridge(),
-      privateExternalReadingBridge({enforceSourceHashGate:false}),
+      privateExternalReadingBridge({enforceSourceHashGate:false,allowUnregisteredIncremental:true}),
       privateControlBridge()
     ]
   }

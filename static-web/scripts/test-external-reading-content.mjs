@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { writeExternalReadingSyntheticSource } from './externalReadingSyntheticFixture.mjs';
 import {
   ensureExternalReadingPrivateBundle,
   externalReadingAnswers,
@@ -15,75 +16,36 @@ const repoRoot=path.resolve(here,'../..');
 const temp=fs.mkdtempSync(path.join(os.tmpdir(),'kianos-external-reading-'));
 const sourceRoot=path.join(temp,'source');
 const privateDir=path.join(temp,'private');
-fs.mkdirSync(path.join(sourceRoot,'TOEFL'),{recursive:true});
-fs.mkdirSync(path.join(sourceRoot,'IELTS'),{recursive:true});
-fs.writeFileSync(path.join(sourceRoot,'source_manifest.json'),JSON.stringify({schema:'synthetic-external-source-test'}));
-
-const options=Array.from({length:4},(_,i)=>String.fromCharCode(65+i)+'. option '+(i+1)).join('\n');
-const qblock=(start,end)=>Array.from({length:end-start+1},(_,i)=>{
-  const n=start+i;
-  return `${n}. Synthetic source-native question ${n}?\n${options}`;
-}).join('\n');
-const tpoKey=count=>Array.from({length:count},(_,i)=>`| ${i+1} | A |`).join('\n');
-
-const tpoCounts={
-  56:[14,13,14],57:[14,14,14],58:[14,14,14],59:[14,14,14],60:[14,14,14],
-  61:[14,14,14],62:[14,14,14],63:[14,14,14],64:[10,10,10],65:[10,10,10]
-};
-for(const [number,counts] of Object.entries(tpoCounts)){
-  const sections=counts.map((count,index)=>[
-    `# Passage ${index+1} — Synthetic TPO ${number} P${index+1}`,
-    '## Passage and Questions',
-    `[Paragraph 1] Synthetic academic passage ${number}-${index+1}. It exists only for engineering validation.`,
-    qblock(1,count),
-    '## Answer Key',
-    '| Question | Answer |',
-    '| --- | --- |',
-    tpoKey(count)
-  ].join('\n')).join('\n\n');
-  fs.writeFileSync(path.join(sourceRoot,'TOEFL',`TPO${number}.md`),sections);
-}
-
-for(const book of [17,18,19]){
-  const tests=[];
-  for(let test=1;test<=4;test++){
-    const passages=[
-      [1,13],[14,26],[27,40]
-    ].map(([start,end],index)=>[
-      `## Reading Passage ${index+1}`,
-      `[Paragraph 1] Synthetic IELTS ${book} test ${test} passage ${index+1}. Engineering fixture only.`,
-      `Questions ${start}–${end}`,
-      qblock(start,end)
-    ].join('\n')).join('\n\n');
-    const key=Array.from({length:40},(_,i)=>`${i+1} A`).join('\n');
-    tests.push([
-      `# Test ${test}`,
-      passages,
-      `## Test ${test} — Reading Answer Key`,
-      key
-    ].join('\n\n'));
-  }
-  fs.writeFileSync(path.join(sourceRoot,'IELTS',`Cambridge_IELTS_${book}_Academic_Reading.md`),tests.join('\n\n'));
-}
+writeExternalReadingSyntheticSource(sourceRoot);
 
 try{
-  const state=ensureExternalReadingPrivateBundle({sourceRoot,privateDir,force:true,enforceSourceHashGate:false});
+  const state=ensureExternalReadingPrivateBundle({
+    sourceRoot,
+    privateDir,
+    force:true,
+    enforceSourceHashGate:false,
+    allowUnregisteredIncremental:true
+  });
   assert.equal(state.status,'ready',state.error||state.status);
-  assert.equal(state.bundle.passages.length,66);
+  assert.equal(state.bundle.passages.length,69);
   assert.deepEqual(state.bundle.counts.toefl,{collections:10,passages:30,questions:395,answer_slots:395});
   assert.equal(state.bundle.counts.ielts.books,3);
   assert.equal(state.bundle.counts.ielts.tests,12);
   assert.equal(state.bundle.counts.ielts.passages,36);
   assert.equal(state.bundle.counts.ielts.questions,480);
+  assert.deepEqual(state.bundle.counts.incremental,{objects:3,questions:2,questionless_objects:1});
   assert.equal(state.bundle.cognition_boundary.english1_reading_a_strategy,'NOT_INHERITED');
   assert.equal(state.bundle.source_quality.proven_clean_claim,false);
 
   const catalog=externalReadingCatalog(state);
   assert.equal(catalog.status,'ready');
   const rows=catalog.collections.flatMap(group=>group.passages);
-  assert.equal(rows.length,66);
+  assert.equal(rows.length,69);
   assert(rows.some(row=>row.object_id==='tpo56-p1'));
   assert(rows.some(row=>row.object_id==='ielts17-t1-p1'));
+  assert(rows.some(row=>row.object_id==='future-synthetic-longform'));
+  assert(rows.some(row=>row.object_id==='toefl-current-synthetic-no-key'));
+  assert(rows.some(row=>row.object_id==='toefl-current-synthetic-keyed'));
   assert(rows.every(row=>row.content_hash&&row.source_hash));
 
   const passage=externalReadingPassage('tpo56-p1',state);
@@ -95,6 +57,45 @@ try{
   const answers=externalReadingAnswers('tpo56-p1',state);
   assert.equal(answers.answers['tpo56-p1-q1'],'A');
   assert.equal(answers.content_hash,passage.content_hash);
+
+  const incrementalReading=externalReadingPassage('future-synthetic-longform',state);
+  assert.equal(incrementalReading.questions.length,0);
+  assert.equal(incrementalReading.answer_key_status,'NO_QUESTIONS');
+  assert.equal(incrementalReading.completion_requirement,'READ_ONLY_OK');
+  assert.equal(incrementalReading.source_family,'FUTURE_INCREMENTAL');
+
+  const noKey=externalReadingPassage('toefl-current-synthetic-no-key',state);
+  assert.equal(noKey.questions.length,1);
+  assert.equal(noKey.answer_key_status,'SOURCE_NATIVE_NO_KEY');
+  assert.deepEqual(externalReadingAnswers('toefl-current-synthetic-no-key',state).answers,{});
+
+  const keyed=externalReadingPassage('toefl-current-synthetic-keyed',state);
+  assert.equal(keyed.questions.length,1);
+  assert.equal(keyed.answer_key_status,'SOURCE_BACKED');
+  assert.equal(externalReadingAnswers('toefl-current-synthetic-keyed',state).answers['toefl-current-synthetic-keyed-q1'],'A');
+
+  const legacyOnly=ensureExternalReadingPrivateBundle({
+    sourceRoot,
+    privateDir:path.join(temp,'legacy-only'),
+    force:true,
+    enforceSourceHashGate:false,
+    allowUnregisteredIncremental:false
+  });
+  assert.equal(legacyOnly.status,'ready',legacyOnly.error||legacyOnly.status);
+  assert.equal(legacyOnly.bundle.passages.length,66);
+  assert.deepEqual(legacyOnly.bundle.counts.incremental,{objects:0,questions:0,questionless_objects:0});
+
+  const tamperedArticle=path.join(sourceRoot,'INCREMENTAL','longform','article.md');
+  fs.appendFileSync(tamperedArticle,'\n\nTampered after manifest registration.\n','utf8');
+  const tampered=ensureExternalReadingPrivateBundle({
+    sourceRoot,
+    privateDir:path.join(temp,'tampered-incremental'),
+    force:true,
+    enforceSourceHashGate:false,
+    allowUnregisteredIncremental:true
+  });
+  assert.equal(tampered.status,'compile_error');
+  assert.match(String(tampered.error||''),/SHA mismatch/);
 
   const publicManifest=JSON.parse(fs.readFileSync(path.join(repoRoot,'content','english','external','manifest.json'),'utf8'));
   assert.equal(publicManifest.status,'CURRENT_PRIVATE_SOURCE_LANE');
@@ -122,6 +123,12 @@ try{
     passages:rows.length,
     tpo_questions:state.bundle.counts.toefl.questions,
     ielts_questions:state.bundle.counts.ielts.questions,
+    incremental_objects:state.bundle.counts.incremental.objects,
+    incremental_questionless:'PASS',
+    incremental_no_key:'PASS',
+    incremental_source_backed:'PASS',
+    unregistered_incremental_ignored:'PASS',
+    incremental_object_hash_fail_closed:'PASS',
     public_source_bytes:0,
     answer_gate:'PASS',
     cognition_boundary:'PASS',
