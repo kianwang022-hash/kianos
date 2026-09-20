@@ -67,10 +67,14 @@ export function initExamHome(root) {
   const politicsCatalog = JSON.parse($('[data-exam-daily-politics-catalog]')?.textContent || 'null');
   const politicsMemoryCatalog = JSON.parse($('[data-exam-politics-memory-catalog]')?.textContent || 'null');
   const xizongPacketIndex = JSON.parse($('[data-exam-daily-xizong-index]')?.textContent || '[]');
+  const xizongForecastQuestionScope = JSON.parse($('[data-exam-xizong-forecast-question-scope]')?.textContent || 'null');
+  const xizongForecastCanonicalScope = JSON.parse($('[data-exam-xizong-forecast-canonical-scope]')?.textContent || 'null');
   $('[data-exam-catalog]').remove();
   $('[data-exam-daily-politics-catalog]')?.remove();
   $('[data-exam-politics-memory-catalog]')?.remove();
   $('[data-exam-daily-xizong-index]')?.remove();
+  $('[data-exam-xizong-forecast-question-scope]')?.remove();
+  $('[data-exam-xizong-forecast-canonical-scope]')?.remove();
 
   let bytes = null;
   let profile = emptyExamProfile();
@@ -440,6 +444,8 @@ export function initExamHome(root) {
         now: Date.now(),
         plan: readModel,
         xizongPacketIndex,
+        xizongForecastQuestionScope,
+        xizongForecastCanonicalScope,
         politicsCatalog,
         politicsMemoryCatalog,
         base: catalog.base || '/'

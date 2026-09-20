@@ -49,6 +49,24 @@ function systemIdentity(system) {
   };
 }
 
+function currentLearningIdentity(dirName) {
+  const learningPath = LEARNER_ROOT + '/' + dirName + '-learning.json';
+  if (!fs.existsSync(absolute(learningPath))) throw new Error('CURRENT_XIZONG_LEARNING_OWNER_MISSING:' + dirName);
+  const learning = readJson(learningPath);
+  if (learning?.status !== 'CURRENT' || !String(learning?.authority || '').startsWith('CHAT_APPROVED')) {
+    throw new Error('CURRENT_XIZONG_LEARNING_OWNER_INVALID:' + dirName);
+  }
+  const blocks = learning?.blocks && typeof learning.blocks === 'object' && !Array.isArray(learning.blocks) ? learning.blocks : {};
+  const blockCount = Number(learning?.identity?.stable_block_count ?? Object.keys(blocks).length);
+  const kpCount = Number(learning?.identity?.stable_kp_count);
+  const logicGroupCount = Number(learning?.identity?.logic_group_count ?? Object.values(blocks).reduce((sum, block) => sum + Object.keys(block?.logic_groups || {}).length, 0));
+  return {
+    learningPath, learning,
+    blockCount: Number.isFinite(blockCount) && blockCount > 0 ? blockCount : null,
+    kpCount: Number.isFinite(kpCount) && kpCount > 0 ? kpCount : null,
+    logicGroupCount: Number.isFinite(logicGroupCount) && logicGroupCount > 0 ? logicGroupCount : null
+  };
+}
 function isChatApproved(system) {
   return String(system?.semantic_authority || '').startsWith('CHAT_APPROVED');
 }
@@ -505,6 +523,125 @@ function normalizeSystem(record) {
   };
 }
 
+export function listCurrentXizongSystemIdentities() {
+  const manifest = assertCurrentManifest();
+  const ownerPaths = Object.values(manifest?.macro_domain_taxonomy?.domains || {})
+    .flatMap((domain) => Array.isArray(domain?.system_owners) ? domain.system_owners : [])
+    .map(String)
+    .filter(Boolean);
+  const rows = ownerPaths.map((ownerPath) => {
+    const match = ownerPath.match(/^systems\/([^/]+)\/?$/);
+    if (!match) throw new Error(`CURRENT_XIZONG_SYSTEM_OWNER_PATH_INVALID:${ownerPath}`);
+    const dirName = match[1];
+    const systemPath = `${SYSTEMS_ROOT}/${dirName}/system.json`;
+    if (!fs.existsSync(absolute(systemPath))) {
+      throw new Error(`CURRENT_XIZONG_SYSTEM_OWNER_MISSING:${dirName}`);
+    }
+    const system = readJson(systemPath);
+    const identity = systemIdentity(system);
+    const learning = currentLearningIdentity(dirName);
+    const canonicalBlockCount = Number(system?.identity?.block_count ?? learning.blockCount);
+    const canonicalKpCount = Number(system?.identity?.canonical_kp_count ?? learning.kpCount);
+    const canonicalLogicGroupCount = Number(learning.logicGroupCount);
+    if (!identity.systemId || !identity.canonicalId || !identity.title) {
+      throw new Error(`CURRENT_XIZONG_SYSTEM_IDENTITY_INVALID:${dirName}`);
+    }
+    return {
+      systemId: identity.systemId,
+      canonicalId: identity.canonicalId,
+      title: identity.title,
+      semanticAuthority: String(system?.semantic_authority || ''),
+      lifecycleStatus: String(system?.status || ''),
+      projectionAccepted: systemProjectionAccepted(dirName),
+      blockCount: Number.isFinite(canonicalBlockCount) && canonicalBlockCount > 0 ? canonicalBlockCount : null,
+      kpCount: Number.isFinite(canonicalKpCount) && canonicalKpCount > 0 ? canonicalKpCount : null,
+      logicGroupCount: Number.isFinite(canonicalLogicGroupCount) && canonicalLogicGroupCount > 0 ? canonicalLogicGroupCount : null,
+      learningPath: learning.learningPath
+    };
+  });
+  const expected = Number(manifest?.identity?.numbered_systems || 0);
+  if (!expected || rows.length !== expected) {
+    throw new Error(`CURRENT_XIZONG_SYSTEM_ROSTER_COUNT_MISMATCH:${rows.length}/${expected}`);
+  }
+  return rows.sort((a,b) =>
+    String(a.canonicalId).localeCompare(String(b.canonicalId), undefined, { numeric: true })
+  );
+}
+
+export function buildXizongForecastCanonicalScope(packetIndex = []) {
+  const roster = listCurrentXizongSystemIdentities();
+  const packets = Array.isArray(packetIndex) ? packetIndex : [];
+  const blockWeights = [];
+  const systems = [];
+
+  for (const system of roster) {
+    const canonicalId = String(system.canonicalId || '');
+    const systemId = String(system.systemId || '');
+    const expectedBlocks = Number(system.blockCount);
+    const expectedKp = Number(system.kpCount);
+    const expectedLg = Number(system.logicGroupCount);
+    if (![expectedBlocks, expectedKp, expectedLg].every((value) => Number.isFinite(value) && value > 0)) {
+      throw new Error('CURRENT_XIZONG_FORECAST_SCOPE_COUNT_MISSING:' + (canonicalId || systemId));
+    }
+
+    const rows = packets.filter((row) => String(row?.packetMeta?.canonicalId || '') === canonicalId || String(row?.systemId || '') === systemId);
+    const observedBlocks = rows.length;
+    const observedKp = rows.reduce((sum, row) => sum + (Array.isArray(row?.kpRows) ? row.kpRows.length : 0), 0);
+    const observedLg = rows.reduce((sum, row) => {
+      const ids = new Set((Array.isArray(row?.kpRows) ? row.kpRows : []).map((kp) => String(kp?.groupId || '')).filter(Boolean));
+      return sum + ids.size;
+    }, 0);
+
+    if (observedBlocks > expectedBlocks || observedKp > expectedKp || observedLg > expectedLg) {
+      throw new Error('CURRENT_XIZONG_FORECAST_SCOPE_EXCEEDS_OWNER:' + canonicalId + ':' + observedBlocks + '/' + expectedBlocks + ':' + observedKp + '/' + expectedKp + ':' + observedLg + '/' + expectedLg);
+    }
+
+    for (const row of rows) {
+      const kpRows = Array.isArray(row?.kpRows) ? row.kpRows : [];
+      const logicGroupCount = new Set(kpRows.map((kp) => String(kp?.groupId || '')).filter(Boolean)).size;
+      blockWeights.push({
+        system_id: systemId, canonical_id: canonicalId,
+        block_id: String(row?.blockId || row?.packetMeta?.blockId || ''),
+        route_key: String(row?.routeKey || (row?.slug ? systemId + '/' + row.slug : '')),
+        block_count: 1, kp_count: kpRows.length, logic_group_count: logicGroupCount,
+        scope_kind: 'PROJECTABLE_BLOCK'
+      });
+    }
+
+    const gapBlocks = expectedBlocks - observedBlocks;
+    const gapKp = expectedKp - observedKp;
+    const gapLg = expectedLg - observedLg;
+    if ((gapBlocks === 0) !== (gapKp === 0 && gapLg === 0)) {
+      throw new Error('CURRENT_XIZONG_FORECAST_SCOPE_PARTIAL_IDENTITY_MISMATCH:' + canonicalId + ':' + gapBlocks + ':' + gapKp + ':' + gapLg);
+    }
+    if (gapBlocks > 0) {
+      blockWeights.push({
+        system_id: systemId, canonical_id: canonicalId,
+        block_id: '__unprojected__:' + canonicalId, route_key: '',
+        block_count: gapBlocks, kp_count: gapKp, logic_group_count: gapLg,
+        scope_kind: 'UNPROJECTED_AGGREGATE'
+      });
+    }
+
+    systems.push({
+      system_id: systemId, canonical_id: canonicalId,
+      block_count: expectedBlocks, kp_count: expectedKp, logic_group_count: expectedLg,
+      projectable_blocks: observedBlocks, unprojected_blocks: gapBlocks
+    });
+  }
+
+  return {
+    schema: 'kianos.xizong.forecast-canonical-scope.v1',
+    authority: 'DERIVED_FROM_CURRENT_KNOWLEDGE_AND_LEARNING_OWNERS',
+    systems,
+    blocks: systems.reduce((sum, row) => sum + row.block_count, 0),
+    canonical_kp: systems.reduce((sum, row) => sum + row.kp_count, 0),
+    logic_groups: systems.reduce((sum, row) => sum + row.logic_group_count, 0),
+    block_weights: blockWeights,
+    website_projection_is_scope_authority: false,
+    boundary: 'Canonical workload scope comes from Current Knowledge/Learning owners. Website packet rows provide execution identity only; unprojected Systems remain explicit aggregate workload and never disappear from Forecast.'
+  };
+}
 export function listProjectableXizongSystems() {
   assertCurrentManifest();
   return systemDirectoryCandidates()

@@ -71,6 +71,8 @@ export function buildHomeDailyLearningPacket({
   now = Date.now(),
   plan = null,
   xizongPacketIndex = [],
+  xizongForecastQuestionScope = null,
+  xizongForecastCanonicalScope = null,
   politicsCatalog = null,
   politicsMemoryCatalog = null,
   base = '/'
@@ -104,7 +106,12 @@ export function buildHomeDailyLearningPacket({
         now
       });
       if (xizong) {
-        xizong.forecast_progress = buildXizongForecastProgress(storage, xizongPacketIndex);
+        xizong.forecast_progress = buildXizongForecastProgress(storage, xizongPacketIndex, {
+          questionScope: xizongForecastQuestionScope,
+          canonicalScope: xizongForecastCanonicalScope,
+          day,
+          now
+        });
         packet = attachDailySubjectPacket(packet, 'xizong', xizong);
         coverage.xizong = 'attached';
       }
