@@ -25,6 +25,7 @@ import {
   validateEnglishExamProductiveScoreReturn
 } from '../src/lib/englishExamSession.mjs';
 import { englishStepIsComplete } from '../src/lib/englishSessionControl.mjs';
+import { inspectEnglishAttempt } from '../src/lib/englishLearnerEvidence.mjs';
 import { ENGLISH_PRODUCTIVE_SCORING_STANDARD_VERSION } from '../src/lib/englishForecastModel.mjs';
 import { loadReadingAnswersById } from '../src/lib/englishReadingSourceTruth.mjs';
 import {
@@ -106,6 +107,7 @@ assert.throws(() => releaseEnglishExamObjective(session, {
 
 session = sealEnglishExamSession(session, start + 120 * 60_000);
 assert.equal(session.status, 'SEALED');
+const sealedSessionForNormalGuard = structuredClone(session);
 
 session = releaseEnglishExamObjective(session, {
   schema: ENGLISH_EXAM_ANSWER_SCHEMA,
@@ -190,6 +192,24 @@ assert.equal(session.release.integrated.modality, 'TYPED');
 assert.equal(session.release.integrated.score_eligible, false);
 assert.equal(session.release.integrated.productive_scoring_standard_version, ENGLISH_PRODUCTIVE_SCORING_STANDARD_VERSION);
 assert.equal(englishStepIsComplete(storageFor(session), fullPaperStep), true, 'full paper closes only after productive score is bound');
+
+const normalStep = paper.steps[0];
+const normalMeta = {
+  task: normalStep.task,
+  object_id: normalStep.object_id,
+  source_hash: normalStep.source_hash,
+  semantic_source_hash: normalStep.source_hash,
+  snapshot: {}
+};
+assert.throws(
+  () => inspectEnglishAttempt(storageFor(sealedSessionForNormalGuard), 'normal-study-probe', normalMeta),
+  /ENGLISH_ACTIVE_EXAM_USE_SESSION_WORKSPACE/,
+  'sealed whole paper must still protect its task objects'
+);
+assert.doesNotThrow(
+  () => inspectEnglishAttempt(storageFor(session), 'normal-study-probe', normalMeta),
+  'scored whole paper must not permanently block later ordinary study'
+);
 
 const scoredPacket = buildEnglishExamEvidencePacket(session);
 assert.equal(scoredPacket.productive_score_return_contract, null);
@@ -292,6 +312,8 @@ console.log(JSON.stringify({
   productive_source_identity_bound: true,
   unresolved_independent_rescore_rejected: true,
   full_paper_completion_waits_for_productive_score: true,
+  sealed_exam_blocks_normal_workspace: true,
+  scored_exam_releases_normal_workspace: true,
   isolated_mock_storage: true,
   answers_sealed_until_release: true,
   website_scores_productive: false,
