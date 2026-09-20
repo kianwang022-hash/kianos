@@ -97,25 +97,25 @@ Structural/self-attack review is complete on this ref (19/19 targeted checks). T
 Active ref: `work/english-highest-maturity-adaptation-20260920`
 Owner package: `ENGLISH_HIGHEST_MATURITY_STANDARD.md` + `ENGLISH_HIGHEST_MATURITY_STAGE_PLAN.md` + `ENGLISH_MATURITY_GAP_MATRIX.md`.
 
-Current: **Forecast SYSTEM LOGIC closure — ACTIVE · bounded owner only**.
+Current: **Final integrated maturity audit / package assembly — ACTIVE**.
 E2 Material / Source Fidelity / Ready Inventory is **CLOSED CANDIDATE**.
 E3 Productive Scoring Validity is **CLOSED CANDIDATE · FRESH PASS**.
 E4 Evidence / Exposure / long-horizon fidelity is **CLOSED CANDIDATE**.
+Forecast SYSTEM LOGIC is **CLOSED CANDIDATE** on latest tested head `e9aff77ddf88378879a751f77156d80ce25376f2`.
 
-Remaining-domain audit found one material system-logic gap: current `englishForecastProgress()` is intentionally only explicit-Session workflow progress and cannot represent whole-English remaining workload / uncertainty / sensitivity / decision flips / highest-value next evidence.
+Forecast proof on that head:
+- English Forecast system-logic gate — PASS;
+- English Family Coherence — PASS;
+- Private Chat Control — PASS;
+- Objective Learner Journey — PASS;
+- Static Web Writing QA — PASS;
+- Static Web Translation QA — PASS;
+- English Exam Session — PASS;
+- Final Cross-subject Regression — PASS.
 
-Dynamic Control, English-specific Future Source readiness and current Chat↔Website/Day-1 logic are already sufficient for their current system boundary and must not be rebuilt.
+Dynamic Control, English-specific Future Source readiness and current Chat↔Website / Day-1 transport are already system-logic satisfied for the current boundary and must not be rebuilt.
 
-Active work is therefore only a **pure Forecast kernel** that:
-- accepts UNKNOWN learner parameters;
-- distinguishes priced work from unpriced scope;
-- keeps score-path confidence separate from workload confidence;
-- exposes sensitivity / decision flips / next high-value evidence;
-- never selects daily tasks or cross-subject allocation.
-
-Candidate kernel + adversarial validator are now implemented. Next = latest-head CI proof. If green, audit Forecast self-attack + remaining lifecycle/adversarial gap only; do not connect Forecast to Website scheduling.
-
-Kian-specific numerical Forecast calibration remains **UNTESTED / Real Learner U-dependent**.
+Current task: assemble one compact English Maturity Package and run a final integrated adversarial/fresh audit against the mother standard. If no material system-logic gap remains, mark `SYSTEM_LOGIC_ACCEPTED` while keeping `KIAN_SPECIFIC_CALIBRATED = NO` until Real Learner U exists.
 
 Boundaries: reuse existing task workspaces/transport; no second scheduler/ledger/mastery; no broad Guide rewrite; no protected true-exam consumption for engineering proof; no automatic E4→E5 transition.
 
