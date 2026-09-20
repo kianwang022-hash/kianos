@@ -922,6 +922,7 @@ export function buildEnglishChatHandoffText(storage, { day, now = Date.now(), ca
     '- Optional params.material_exposure={state:unseen|exposed|unknown,basis:learner_statement,observed_at:ISO,note:actual learner statement} may be supplied ONLY from real learner testimony before an attempt. Never infer unseen from missing storage or Content defaults.',
     '- If prior Chat discussion or learner testimony materially cues the assigned task, params.assistance_context={state:assisted|unknown,basis:chat_context|learner_statement,observed_at:ISO,note:brief factual reason} may downgrade the next first-evidence claim. Do not declare unassisted; that remains the default only when no contrary evidence exists.',
     '- performance_profile is task-level bounded telemetry. long_horizon_recurrence projects durable Objective/Translation/Writing Repair/Transfer targets. If recent exact attempts are truncated, absence from the recent window is not proof that a mechanism never existed.',
+    '- If any long_horizon_recurrence family reports invalid/unreadable, treat that recurrence history as UNKNOWN and request targeted recovery/deeper review if the decision depends on it; never interpret it as zero historical problems.',
     '',
     'WHAT CHAT SHOULD DO',
     '- Explain the current English situation in normal language and choose a next action only when that is useful.',
