@@ -86,11 +86,9 @@ risk_family: identity_lifecycle
 severity: IDENTITY
 ```
 
-The earlier semantic authority for `o1375–o1624` explicitly required:
+The earlier semantic authority for `o1375–o1624` explicitly required reactivating/reusing the modern digital-technology adjective stable branch.
 
-> reactivate/reuse the modern digital-technology adjective stable branch
-
-But the historical identity readback classified `o1378` as `NEW_SEMANTIC_BRANCH` and created:
+However, the historical identity readback classified `o1378` as `NEW_SEMANTIC_BRANCH` and created:
 
 `sense:digital:e568a7d463e082ac`
 
@@ -98,68 +96,14 @@ while the prior stable digital-technology branch remains deprecated:
 
 `sense:digital:6f6682405b4b522c`.
 
-BF01 then attaches the new `analog ↔ digital` Relation to the candidate state containing the replacement ID.
-
 Desired state:
 
 - preserve the learner-visible digital-technology adjective;
-- reconcile it onto the lawful stable semantic lineage rather than silently treating a continuous modern meaning as a new branch;
-- update Core/active-sense/Relation/FLOB references consistently after identity reconciliation;
-- do not invent a third replacement sense.
+- reconcile it onto the lawful stable semantic lineage;
+- update Core/active-sense/FLOB references consistently;
+- retire the replacement branch by explicit lineage rather than inventing another sense.
 
-This is not safe for a mechanical executor to guess.
-
-### 2. o0111 again — approved phraseology missing from Final Learner Object
-
-```text
-target: o0111 again
-audit verdict: REFINE_UPGRADE
-risk_family: final_projection_closure
-severity: LOCAL
-```
-
-The candidate Word owner correctly contains the approved fixed pattern:
-
-`then again` = “话又说回来；另一方面；重新考虑刚才所说”
-
-but the same candidate owner's `identity_refs.active_collocations` does not include the newly added collocation ID:
-
-`collocation:again:final-standard-then-again`.
-
-As a result, the Final Learner Object for `again` omits `then again` entirely.
-
-Desired state:
-
-- keep the approved `then again` phraseology;
-- close its collocation identity/active reference correctly;
-- rebuild FLOB so the phrase appears in the learner projection.
-
-No new Human semantic scope is required.
-
-### 3. o0164 alternate — Form projection loses the learner-facing boundary
-
-```text
-target: o0164 alternate
-audit verdict: REFINE_UPGRADE
-risk_family: form_projection
-severity: LOCAL
-```
-
-The candidate Word owner contains the correct Form boundary:
-
-`The verb alternate ends in /-neɪt/; the adjective and noun end in /-nət/.`
-
-but the Final Learner Object materializes `reference.form.boundary` as an empty string while retaining lower-level `boundaries[]` and variants.
-
-Desired state:
-
-- preserve the same Form identity;
-- project the non-empty learner-facing boundary into FLOB;
-- keep the existing POS-conditioned pronunciation Test target.
-
-No semantic branch change is required.
-
-### 4. alter ↔ alert — false homophony metadata
+### 2. alter ↔ alert — false homophony metadata
 
 ```text
 target: deep:confusables:alter:ec2b2a5d2e1f3a7b
@@ -168,24 +112,15 @@ risk_family: relation_metadata
 severity: LOCAL
 ```
 
-The reciprocal Relation's learner boundary is correct:
-
-- alter = change/modify
-- alert = watchful / warning / make aware
-
-but its fact metadata contains:
-
-`same_normalized_pronunciation: true`
-
-while the stored source/target phonetic values are visibly different.
+The reciprocal Relation's learner boundary is correct, but its fact metadata contains `same_normalized_pronunciation: true` while the stored source/target phonetic values are visibly different.
 
 Desired state:
 
 - preserve the reciprocal confusable Relation;
-- remove or correct the false same-pronunciation metadata;
+- correct the false same-pronunciation metadata;
 - do not change the useful learner-facing semantic boundary.
 
-### 5. o0102 affiliate Repair blueprint — one test mixes two diagnostic jobs
+### 3. o0102 affiliate Repair blueprint — one test mixes two diagnostic jobs
 
 ```text
 target: repair-blueprint:o0102:affiliate:v1
@@ -194,26 +129,29 @@ risk_family: testability_targeting
 severity: LOCAL
 ```
 
-The blueprint target is the construction:
+The blueprint target is the construction `be affiliated with/to ...`, but its diagnostic intent also requires the learner to know the noun branch `affiliate = 附属机构/成员`.
 
-`be affiliated with/to ...`
-
-but its diagnostic intent also requires the learner to know the noun branch `affiliate = 附属机构/成员`.
-
-That violates the frozen rule that one blueprint answers one diagnostic question and makes a construction-targeted Repair less exact.
+That violates the frozen rule that one blueprint answers one diagnostic question.
 
 Desired state:
 
 - keep the blueprint focused on producing/discriminating `be affiliated with/to ...`;
-- leave noun `affiliate` as canonical Content, but do not bundle it into this same Repair diagnostic;
-- do not add a second standing blueprint unless independent learner evidence later justifies it.
+- leave noun `affiliate` as canonical Content without bundling it into the same Repair diagnostic;
+- do not add a second standing blueprint absent learner evidence.
+
+### False positives explicitly cleared before reconciliation
+
+Two provisional concerns were rechecked against the real builder and are **not defects**:
+
+- `o0111 again / then again`: the Final Learner Object already contains `then again` as a fixed-pattern usage with a Repair locator.
+- `o0164 alternate`: the FLOB builder intentionally emits an empty top-level form `boundary` when detailed pronunciation `variants` are present; the variants and POS-conditioned IPA are intact.
 
 ## Rates
 
 ```text
-changed/shared semantic targets PASS without correction: 34/39
-confirmed audit findings: 5
-LOCAL findings: 4
+changed/shared semantic targets PASS without correction: 36/39
+confirmed audit findings: 3
+LOCAL findings: 2
 MATERIAL findings: 0
 IDENTITY findings: 1
 BLOCKED: 0
@@ -238,7 +176,7 @@ Therefore the findings remain valid without restarting Pass A.
 - Blind-first: **ENFORCED**
 - Canonical drift in audited semantic targets: **none**
 - Repair Test shrink 48→25: **PASS WITH ONE LOCAL BLUEPRINT REFINEMENT**
-- Final Learner materialization: **PASS WITH TWO LOCAL PROJECTION CORRECTIONS**
+- Final Learner materialization: **PASS**
 - Unresolved stable identity risk: **1 — digital**
 - Broad semantic standard change: **none**
 - Final batch result: **HOLD_FOR_SOL**
