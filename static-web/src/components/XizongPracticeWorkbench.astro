@@ -257,7 +257,11 @@ const payload = JSON.stringify({
     setXizongQuestionMarked,
     isXizongQuestionMarked
   } from '../lib/xizongQuestionAttempts.mjs';
-  import { normalizeXizongInlinePracticeQuestions } from '../lib/xizongSessionInstruction.mjs';
+  import {
+    normalizeXizongInlinePracticeQuestions,
+    validateXizongInlinePracticeQuestionBindings
+  } from '../lib/xizongSessionInstruction.mjs';
+  import { XIZONG_MEMORY_STORAGE_KEY } from '../lib/xizongMemoryModel.mjs';
   import {
     XIZONG_RETAINED_SET_SCHEMA,
     XIZONG_RETAINED_SET_KEY,
@@ -342,6 +346,11 @@ const payload = JSON.stringify({
       let inlineQuestions = [];
       try {
         inlineQuestions = normalizeXizongInlinePracticeQuestions(set?.inline_questions || [], 'CHAT_SET');
+        validateXizongInlinePracticeQuestionBindings(
+          readJson(XIZONG_MEMORY_STORAGE_KEY, null),
+          inlineQuestions,
+          'CHAT_SET_WORKBENCH'
+        );
       } catch (error) {
         console.error(error);
         showChatSetError('专项训练里的 AI 变式题无法安全读取', '请让 Chat 重新生成这一组专项训练；网页不会自行修补题干、答案或知识绑定。');

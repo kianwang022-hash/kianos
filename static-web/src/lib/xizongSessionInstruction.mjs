@@ -305,6 +305,50 @@ function writeAtomically(storage, writes) {
   }
 }
 
+export function validateXizongInlinePracticeQuestionBindings(
+  memoryInput,
+  inlineQuestions,
+  context = 'PRACTICE_SET'
+) {
+  const memory = normalizeXizongMemoryState(memoryInput);
+  for (const question of Array.isArray(inlineQuestions) ? inlineQuestions : []) {
+    const expectedHash = String(question?.canonicalSourceHash || '');
+    const targetKpIds = Array.isArray(question?.targetKpIds) ? question.targetKpIds : [];
+    if (!expectedHash || !targetKpIds.length) {
+      fail('INLINE_QUESTION_TARGET_BINDING_INVALID', context);
+    }
+
+    const sourceHashes = new Set();
+    for (const kpId of targetKpIds) {
+      const cards = Object.values(memory.cards || {})
+        .filter((card) => String(card?.kpId || '') === String(kpId || ''));
+      if (!cards.length) fail('INLINE_QUESTION_TARGET_OWNER_MISSING', String(kpId || ''));
+      for (const card of cards) {
+        const sourceHash = String(card?.sourceHash || '');
+        if (!sourceHash) fail('INLINE_QUESTION_TARGET_SOURCE_MISSING', String(kpId || ''));
+        sourceHashes.add(sourceHash);
+      }
+    }
+
+    if (sourceHashes.size !== 1) {
+      fail('INLINE_QUESTION_MULTI_SOURCE_TARGET_UNSUPPORTED', question.questionId);
+    }
+    const [currentHash] = [...sourceHashes];
+    if (currentHash !== expectedHash) {
+      fail('INLINE_QUESTION_SOURCE_REVISION_MISMATCH', question.questionId);
+    }
+  }
+  return true;
+}
+
+function validateInlineQuestionTargets(memory, step) {
+  return validateXizongInlinePracticeQuestionBindings(
+    memory,
+    step.inline_questions || [],
+    step.step_id
+  );
+}
+
 function validateRepairTarget(memory, step) {
   const task = (memory.repairTasks || []).find((row) => String(row?.id || '') === step.task_id);
   if (!task) fail('REPAIR_TASK_UNKNOWN', step.task_id);
@@ -363,6 +407,7 @@ export function applyXizongSessionInstruction(storage, input, {
   const memory = normalizeXizongMemoryState(parseJson(storage, XIZONG_MEMORY_STORAGE_KEY, null));
   for (const step of instruction.steps) {
     if (step.kind === 'MEMORY_REVIEW') validateMemoryTargets(memory, step);
+    if (step.kind === 'PRACTICE_SET') validateInlineQuestionTargets(memory, step);
     if (step.kind === 'REPAIR_TASK') validateRepairTarget(memory, step);
   }
 
@@ -506,6 +551,8 @@ export function activateXizongSessionCurrentStep(storage, {
   }
 
   if (step.kind === 'PRACTICE_SET') {
+    const memory = normalizeXizongMemoryState(parseJson(storage, XIZONG_MEMORY_STORAGE_KEY, null));
+    validateInlineQuestionTargets(memory, step);
     const held = new Set((Array.isArray(holdoutYears) ? holdoutYears : []).map(Number));
     const hitHoldout = step.question_ids.some((id) =>
       held.has(Number(id.match(/official-(\d{4})-/)?.[1]))
