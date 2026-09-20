@@ -31,11 +31,11 @@ const legacyBind = {
   schema: POLITICS_ANALYSIS_EVIDENCE_SCHEMA,
   direction: 'CHAT_TO_LEARNER',
   evidence_id: 'analysis-legacy-bind-001',
-  task_id: 'LEG26-X8-1-Q34-1',
-  task_revision: 'legacy-x8-1-q34-1-bind-v1',
+  task_id: 'LEG26-X8-S01-Q34-2-B',
+  task_revision: 'legacy26-x8-s01-q34-2-bind-v1',
   rubric_version: 'politics-analysis-rubric-v1',
   subject: 'marxism',
-  subquestion_id: '34-1',
+  subquestion_id: '34-2',
   task_mode: 'BIND',
   attempt_role: 'FIRST',
   fresh_material: false,
@@ -43,7 +43,7 @@ const legacyBind = {
   formulation_requirement: 'NONE',
   source_basis: {
     family: 'LEG26_XIAO8',
-    identity: '2026 Xiao8 set1 Q34(1)',
+    identity: '2026 Xiao8 set1 Q34(2)',
     revision: null,
     authority_status: 'LEGACY_GEOMETRY'
   },
@@ -61,6 +61,18 @@ const legacyBind = {
 const normalizedLegacy = validatePoliticsAnalysisEvidence(legacyBind, { now });
 assert.equal(normalizedLegacy.task_mode, 'BIND');
 assert.equal(normalizedLegacy.rubric.F, 'NA');
+const acceptedLegacyTasks = [{
+  task_id: legacyBind.task_id,
+  task_revision: legacyBind.task_revision,
+  subject: legacyBind.subject,
+  subquestion_id: legacyBind.subquestion_id,
+  task_mode: legacyBind.task_mode,
+  rubric_version: legacyBind.rubric_version,
+  freshness_class: legacyBind.freshness_class,
+  formulation_requirement: legacyBind.formulation_requirement,
+  source_basis: legacyBind.source_basis
+}];
+
 
 assert.throws(() => validatePoliticsAnalysisEvidence({
   ...legacyBind,
@@ -69,6 +81,13 @@ assert.throws(() => validatePoliticsAnalysisEvidence({
   formulation_requirement: 'STABLE_SOURCE',
   rubric: { I: 2, S: 2, B: 2, F: 2, D: 'NA' }
 }, { now }), /POLITICS_ANALYSIS_LEGACY_EXACT_FORMULATION_FORBIDDEN/);
+
+assert.throws(() => applyPoliticsAnalysisEvidence(new MemoryStorage(), {
+  ...legacyBind,
+  evidence_id: 'analysis-unregistered-legacy',
+  task_id: 'LEG26-X8-S99-Q99-1-I',
+  task_revision: 'invented-v1'
+}, { now, acceptedLegacyTasks }), /POLITICS_ANALYSIS_LEGACY_TASK_NOT_REGISTERED/);
 
 assert.throws(() => validatePoliticsAnalysisEvidence({
   ...legacyBind,
@@ -108,23 +127,23 @@ const currentYear = {
 };
 
 const storage = new MemoryStorage();
-const first = applyPoliticsAnalysisEvidence(storage, legacyBind, { now });
+const first = applyPoliticsAnalysisEvidence(storage, legacyBind, { now, acceptedLegacyTasks });
 assert.equal(first.status, 'applied');
 assert.equal(readPoliticsAnalysisEvidenceStore(storage).records.length, 1);
 
-const replay = applyPoliticsAnalysisEvidence(storage, legacyBind, { now: now + 1000 });
+const replay = applyPoliticsAnalysisEvidence(storage, legacyBind, { now: now + 1000, acceptedLegacyTasks });
 assert.equal(replay.status, 'idempotent');
 assert.equal(readPoliticsAnalysisEvidenceStore(storage).records.length, 1);
 
 assert.throws(() => applyPoliticsAnalysisEvidence(storage, {
   ...legacyBind,
   diagnosis_summary: '冲突版本'
-}, { now: now + 2000 }), /POLITICS_ANALYSIS_EVIDENCE_ID_CONFLICT/);
+}, { now: now + 2000, acceptedLegacyTasks }), /POLITICS_ANALYSIS_EVIDENCE_ID_CONFLICT/);
 
 assert.throws(() => applyPoliticsAnalysisEvidence(storage, {
   ...legacyBind,
   evidence_id: 'analysis-legacy-bind-002'
-}, { now: now + 3000 }), /POLITICS_ANALYSIS_FIRST_ALREADY_RECORDED/);
+}, { now: now + 3000, acceptedLegacyTasks }), /POLITICS_ANALYSIS_FIRST_ALREADY_RECORDED/);
 
 assert.throws(() => applyPoliticsAnalysisEvidence(storage, currentYear, { now }), /POLITICS_ANALYSIS_CURRENT_YEAR_SOURCE_NOT_CURRENT_BOUND/);
 
@@ -133,7 +152,7 @@ assert.throws(() => applyPoliticsAnalysisEvidence(repairWithoutFirstStorage, {
   ...legacyBind,
   evidence_id: 'analysis-repair-without-first',
   attempt_role: 'REPAIR'
-}, { now }), /POLITICS_ANALYSIS_REPAIR_WITHOUT_FIRST/);
+}, { now, acceptedLegacyTasks }), /POLITICS_ANALYSIS_REPAIR_WITHOUT_FIRST/);
 
 const missingTransferBasisStorage = new MemoryStorage();
 assert.throws(() => applyPoliticsAnalysisEvidence(missingTransferBasisStorage, currentYear, {
@@ -146,7 +165,7 @@ assert.throws(() => applyPoliticsAnalysisEvidence(missingTransferBasisStorage, c
 }), /POLITICS_ANALYSIS_TRANSFER_BASIS_NOT_OBSERVED/);
 
 const currentYearStorage = new MemoryStorage();
-applyPoliticsAnalysisEvidence(currentYearStorage, legacyBind, { now });
+applyPoliticsAnalysisEvidence(currentYearStorage, legacyBind, { now, acceptedLegacyTasks });
 const admittedCurrentYear = applyPoliticsAnalysisEvidence(currentYearStorage, currentYear, {
   now,
   boundCurrentYearSources: [{
