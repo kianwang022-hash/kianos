@@ -777,6 +777,10 @@ function summarizeXizongFormalScoreEvidence(storage) {
       max_score: Number(seal.summary.maxScore || 0),
       internal_holdout_protected_before_seal: seal?.evidenceContext?.internalHoldoutProtectedBeforeSeal === true,
       external_exposure_status: String(seal?.evidenceContext?.externalExposureStatus || 'UNKNOWN'),
+      scope_hash: String(seal?.evidenceContext?.scopeHash || ''),
+      question_inventory_hash: String(seal?.evidenceContext?.questionInventoryHash || ''),
+      exam_format_source_hash: String(seal?.evidenceContext?.examFormatSourceHash || ''),
+      exam_format: clone(seal?.evidenceContext?.examFormat || null),
       discipline_breakdown: disciplineBreakdown
     });
   }
@@ -786,7 +790,7 @@ function summarizeXizongFormalScoreEvidence(storage) {
     sealed_papers: rows,
     latest: rows.at(-1) || null,
     evidence_boundary:
-      'Sealed whole-paper score is formal observed evidence. Internal Holdout protection before seal is preserved as a contamination signal, but it does not prove external non-exposure. Review unlock or prior exposure affects future freshness and score extrapolation, not the score observed at seal time.'
+      'Sealed whole-paper score is formal observed evidence bound to paper/question/format identity when available. Internal Holdout protection before seal is preserved as a contamination signal, but it does not prove external non-exposure. Review unlock or prior exposure affects future freshness and score extrapolation, not the historical score observed at seal time. A future exam-format/Source revision may preserve the observation while invalidating its use as Current calibration.'
   };
 }
 
