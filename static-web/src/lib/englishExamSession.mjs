@@ -13,6 +13,29 @@ function finiteTime(value, label) {
   return number;
 }
 
+function normalizeExamAssistanceContext(value) {
+  if (value == null) return null;
+  if (!value || typeof value !== 'object' || Array.isArray(value)) {
+    throw new Error('ENGLISH_EXAM_ASSISTANCE_CONTEXT_INVALID');
+  }
+  const state = String(value.state || '');
+  const basis = String(value.basis || '');
+  const note = String(value.note || '').trim();
+  const observedAt = String(value.observed_at || '');
+  if (!['assisted','unknown'].includes(state)
+    || !['chat_context','learner_statement'].includes(basis)
+    || !note
+    || !Number.isFinite(Date.parse(observedAt))) {
+    throw new Error('ENGLISH_EXAM_ASSISTANCE_CONTEXT_INVALID');
+  }
+  return {
+    state,
+    basis,
+    note: note.slice(0, 400),
+    observed_at: new Date(observedAt).toISOString()
+  };
+}
+
 function reorderExamSteps(paper, taskOrder = null) {
   const steps = Array.isArray(paper?.steps) ? paper.steps.map((step) => ({ ...step })) : [];
   const defaultOrder = Array.isArray(paper?.default_task_order) ? [...paper.default_task_order] : [];
@@ -52,7 +75,8 @@ function validateStep(step) {
 export function startEnglishExamSession(paper, {
   now = Date.now(),
   taskOrder = null,
-  sessionId = null
+  sessionId = null,
+  assistanceContext = null
 } = {}) {
   if (paper?.schema !== 'kianos.english.exam-paper.v1') {
     throw new Error('ENGLISH_EXAM_PAPER_INVALID');
@@ -91,6 +115,7 @@ export function startEnglishExamSession(paper, {
     objective_max_points: Number(paper.objective_max_points || 60),
     productive_max_points: Number(paper.productive_max_points || 40),
     task_order: taskOrder ? [...taskOrder] : [...paper.default_task_order],
+    paper_assistance_context: normalizeExamAssistanceContext(assistanceContext),
     current_step: 0,
     steps,
     captures: {},
@@ -113,6 +138,7 @@ export function validateEnglishExamSession(value) {
   const started = Date.parse(value.started_at), deadline = Date.parse(value.deadline_at);
   if (!Number.isFinite(started) || !Number.isFinite(deadline) || deadline-started !== 180*60_000 || Number(value.duration_minutes)!==180) throw new Error('ENGLISH_EXAM_CLOCK_INVALID');
   if (new Set(value.steps.map(s=>s.step_id)).size!==value.steps.length) throw new Error('ENGLISH_EXAM_DUPLICATE_STEP');
+  normalizeExamAssistanceContext(value.paper_assistance_context);
   if (!value.captures || typeof value.captures!=='object' || Array.isArray(value.captures)) throw new Error('ENGLISH_EXAM_CAPTURES_INVALID');
   for(const [id,capture] of Object.entries(value.captures)) {
     const step=value.steps.find(s=>s.step_id===id);
@@ -359,6 +385,7 @@ export function summarizeEnglishExamSession(state) {
     current_step: current.current_step,
     objective_result: current.release?.objective || null,
     productive_status: current.release?.productive?.status || null,
+    paper_assistance_context: clone(current.paper_assistance_context || null),
     step_evidence: current.steps.map((step) => ({
       step_id: step.step_id,
       task: step.task,
@@ -382,6 +409,7 @@ export function buildEnglishExamEvidencePacket(state) {
     released_at: current.released_at,
     duration_minutes: current.duration_minutes,
     task_order: [...current.task_order],
+    paper_assistance_context: clone(current.paper_assistance_context || null),
     steps: current.steps.map((step) => ({
       ...clone(step),
       capture: clone(current.captures?.[step.step_id] || null)
