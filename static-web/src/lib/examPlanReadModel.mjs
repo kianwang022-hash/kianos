@@ -113,6 +113,18 @@ export function buildChatControlledExamReadModel({
 } = {}) {
   const plan = chatPlanState?.status === 'ready' ? chatPlanState.plan : null;
   const subjectIds = ['xizong', 'english', 'politics'];
+  const plannedTargetMinutes = plan
+    ? subjectIds.reduce((sum, subject) => {
+        const value = plan?.subjects?.[subject]?.target_minutes;
+        return Number.isFinite(value) ? sum + Math.max(0, Math.round(value)) : sum;
+      }, 0)
+    : null;
+  const capacityConflict = Boolean(
+    plan
+    && Number.isFinite(dayCapacity)
+    && Number.isFinite(plannedTargetMinutes)
+    && plannedTargetMinutes > Math.max(0, Math.round(dayCapacity))
+  );
   const subjects = {};
   let actualTotal = 0;
 
@@ -139,8 +151,10 @@ export function buildChatControlledExamReadModel({
       reviewMinutes: 0,
       requiredMinutes: null,
       scoreGap: null,
-      confidence: plan ? 'chat-plan' : 'unknown',
-      continue: exactContinueForInstruction(nativeContinue?.[subject], instruction, subject),
+      confidence: capacityConflict ? 'capacity-conflict' : (plan ? 'chat-plan' : 'unknown'),
+      continue: capacityConflict
+        ? cloneContinue(nativeContinue?.[subject], subject)
+        : exactContinueForInstruction(nativeContinue?.[subject], instruction, subject),
       sessionRef: instruction?.session_ref || null,
       note: instruction?.note || ''
     };
@@ -150,24 +164,31 @@ export function buildChatControlledExamReadModel({
     ? Math.max(0, Math.round(dayCapacity) - actualTotal)
     : null;
   const nextInstruction = plan?.next_subject ? plan?.subjects?.[plan.next_subject] || null : null;
-  const next = plan?.next_subject
+  const next = !capacityConflict && plan?.next_subject
     ? exactContinueForInstruction(nativeContinue?.[plan.next_subject], nextInstruction, plan.next_subject)
     : null;
-  const attention = plan?.attention?.text
+  const attention = capacityConflict
     ? {
-        type: 'chat_plan',
-        text: plan.attention.text,
-        action: plan.attention.action || '查看依据'
+        type: 'chat_plan_capacity',
+        text: `Chat 安排总计 ${plannedTargetMinutes} 分钟，超过今日可用 ${Math.max(0, Math.round(dayCapacity))} 分钟；网页不会自动执行，返回 Chat 重排。`,
+        action: '返回 Chat 重排'
       }
-    : neutralAttention(chatPlanState?.status || 'missing', chatPlanState?.error || '');
+    : plan?.attention?.text
+      ? {
+          type: 'chat_plan',
+          text: plan.attention.text,
+          action: plan.attention.action || '查看依据'
+        }
+      : neutralAttention(chatPlanState?.status || 'missing', chatPlanState?.error || '');
 
   return {
     schema: 'kianos.exam-plan.read-model.v1',
     control: {
       strategyOwner: 'CHAT',
-      planStatus: chatPlanState?.status || 'missing',
+      planStatus: capacityConflict ? 'capacity_conflict' : (chatPlanState?.status || 'missing'),
       planSchema: plan?.schema || null,
-      generatedAt: plan?.generated_at || null
+      generatedAt: plan?.generated_at || null,
+      capacityConflict
     },
     day,
     readable: Boolean(readable),
@@ -177,7 +198,11 @@ export function buildChatControlledExamReadModel({
       dayMinutes: finiteOrNull(dayCapacity),
       actualMinutes: actualTotal,
       remainingMinutes: capacityRemaining,
-      unallocatedMinutes: null
+      unallocatedMinutes: null,
+      plannedTargetMinutes,
+      overplannedMinutes: capacityConflict
+        ? Math.max(0, Number(plannedTargetMinutes || 0) - Math.max(0, Math.round(dayCapacity)))
+        : 0
     },
     subjects,
     next,
