@@ -340,9 +340,9 @@ try {
   browser = await chromium.launch({ headless: true });
 
   // 1. Cold Home must not invent strategy without a Chat Plan.
-  const context = await browser.newContext({ viewport: { width: 1512, height: 982 }, timezoneId: 'Asia/Shanghai' });
+  let context = await browser.newContext({ viewport: { width: 1512, height: 982 }, timezoneId: 'Asia/Shanghai' });
   await freezeAndCaptureClipboard(context);
-  const page = await context.newPage();
+  let page = await context.newPage();
   const pageErrors = [];
   page.on('pageerror', (error) => pageErrors.push(error.message));
 
@@ -354,8 +354,12 @@ try {
       && (await page.locator('[data-exam-next]').getAttribute('href')) === null,
     'cold Home does not infer a next subject');
 
-  // 2. Seed exact, subject-owned synthetic state.
-  await page.evaluate((seed) => {
+  // 2. Start a separate synthetic learner context. Seed local learner truth
+  // before product scripts start so private restore/control cannot contaminate it.
+  await context.close();
+  context = await browser.newContext({ viewport: { width: 1512, height: 982 }, timezoneId: 'Asia/Shanghai' });
+  await freezeAndCaptureClipboard(context);
+  await context.addInitScript((seed) => {
     for (const [key, value] of Object.entries(seed)) {
       localStorage.setItem(key, JSON.stringify(value));
     }
@@ -371,8 +375,9 @@ try {
     [PRACTICE_KEYS.evidence]: politicsEvidence,
     [PRACTICE_KEYS.last]: politicsLast
   });
-
-  await page.reload({ waitUntil: 'domcontentloaded' });
+  page = await context.newPage();
+  page.on('pageerror', (error) => pageErrors.push(error.message));
+  await page.goto(BASE, { waitUntil: 'domcontentloaded' });
   await page.locator('[data-exam-home][data-ready="true"]').waitFor();
   const seededPlanStatus = await page.locator('[data-exam-home]').getAttribute('data-chat-plan-status');
   check(seededPlanStatus !== 'ready'
