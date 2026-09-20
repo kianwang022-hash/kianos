@@ -102,7 +102,7 @@ export function saveEnglishAttempt(storage,key,value,meta,{sessionId='',now=Date
    const assistanceContext=step?.params?.assistance_context&&typeof step.params.assistance_context==='object'?clone(step.params.assistance_context):null;
    const semanticSourceHash=String(meta.semantic_source_hash||evidenceMeta.semantic_source_hash||meta.source_hash||'')||null;
    const semanticSourceSeen=semanticSourcePreviouslyExposed(ledger,semanticSourceHash,meta.source_hash);
-   binding={started_at:new Date(now).toISOString(),time_budget_seconds:budget,task:meta.task,object_id:meta.object_id,source_hash:meta.source_hash,semantic_source_hash:semanticSourceHash,attempt_id:globalThis.crypto?.randomUUID?.()||`${meta.object_id}:${now}:${Math.random()}`,context:sessionId?'exam':'study',session_id:sessionId||null,revision:0,prior_exposure:semanticSourceSeen?'exposed':declarationStateForCurrentSource(ledger,meta.object_id,semanticSourceHash,meta.source_hash),assistance:assistanceContext?.state||'unassisted',assistance_context:assistanceContext,source_kind:String(evidenceMeta.source_kind||'unknown'),evidence_role:evidenceMeta.evidence_role==null?null:String(evidenceMeta.evidence_role),source_snapshot:clone(meta.snapshot),legacy_unversioned:Boolean(previous)};
+   binding={started_at:new Date(now).toISOString(),time_budget_seconds:budget,task:meta.task,object_id:meta.object_id,source_hash:meta.source_hash,semantic_source_hash:semanticSourceHash,attempt_id:globalThis.crypto?.randomUUID?.()||`${meta.object_id}:${now}:${Math.random()}`,context:sessionId?'exam':'study',session_id:sessionId||null,revision:0,prior_exposure:semanticSourceSeen?'exposed':declarationStateForCurrentSource(ledger,meta.object_id,semanticSourceHash,meta.source_hash),assistance:assistanceContext?.state||'unassisted',assistance_context:assistanceContext,source_kind:String(evidenceMeta.source_kind||'unknown'),evidence_role:evidenceMeta.evidence_role==null?null:String(evidenceMeta.evidence_role),question_origin:String(meta.snapshot?.question_origin||'SOURCE_NATIVE'),generated_transfer_independence:clone(evidenceMeta.transfer_independence||null),calibration_status:evidenceMeta.calibration_status==null?null:String(evidenceMeta.calibration_status),source_snapshot:clone(meta.snapshot),legacy_unversioned:Boolean(previous)};
   }
   if(previous?.binding&&value.binding&&Number(previous.binding.revision)!==Number(value.binding.revision))throw new Error('ENGLISH_ATTEMPT_STALE_WRITE_RELOAD_REQUIRED');
   // Same-attempt first evidence is immutable even across tab-local stale state.
@@ -120,7 +120,16 @@ export function saveEnglishAttempt(storage,key,value,meta,{sessionId='',now=Date
     const elapsed=Math.max(0,(now-Date.parse(next.binding.started_at||next.startedAt||next.createdAt||''))/1000);
     next.firstEvidenceMeta.elapsed_seconds=Number.isFinite(elapsed)?elapsed:null;
     next.firstEvidenceMeta.timing_status=next.binding.time_budget_seconds&&Number.isFinite(elapsed)?(elapsed>next.binding.time_budget_seconds?'budget_exceeded':'within_explicit_budget'):'uncalibrated';
-    next.firstEvidenceMeta.independent_transfer_candidate=next.binding.prior_exposure==='unseen'&&next.binding.assistance==='unassisted'&&next.firstEvidenceMeta.timing_status!=='budget_exceeded';
+    const generatedTransferEligible=next.binding.question_origin!=='CHAT_GENERATED'
+      || (next.binding.evidence_role==='TRANSFER'
+        && next.binding.generated_transfer_independence?.status==='PASS'
+        && next.binding.generated_transfer_independence?.basis==='CHAT_SELF_ATTACK');
+    next.firstEvidenceMeta.generated_transfer_independence=next.binding.generated_transfer_independence?clone(next.binding.generated_transfer_independence):null;
+    next.firstEvidenceMeta.calibration_status=next.binding.calibration_status||null;
+    next.firstEvidenceMeta.independent_transfer_candidate=next.binding.prior_exposure==='unseen'
+      && next.binding.assistance==='unassisted'
+      && next.firstEvidenceMeta.timing_status!=='budget_exceeded'
+      && generatedTransferEligible;
     // This is evidence eligibility, never mastery or a compulsory new task.
 
   }
