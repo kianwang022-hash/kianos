@@ -1,0 +1,722 @@
+{
+  "schema": "kianos.english.objective.synthetic_baseline.v1",
+  "status": "CURRENT_CANDIDATE",
+  "purpose": "Bounded learner-safe synthetic inventory for cold calibration, one ordinary repair loop, and independent transfer without consuming protected true-exam material.",
+  "evidence_rules": {
+    "score_equivalent": false,
+    "roles": [
+      "CALIBRATION",
+      "TRANSFER"
+    ],
+    "role_downgrade": "Any object exposed through teaching, explanation, answer review or repair is no longer eligible as independent TRANSFER evidence for the same mechanism.",
+    "answer_key_location": "content/english/modules/objective/synthetic-baseline-key.v1.json",
+    "whole_unit_attempts": true
+  },
+  "reading_a": [
+    {
+      "id": "ra-syn-cal-01",
+      "role": "CALIBRATION",
+      "target_mechanisms": [
+        "demand",
+        "evidence_boundary",
+        "inference",
+        "attribution",
+        "main_idea"
+      ],
+      "passage": "For years, organizations treated meetings as if their main cost were the time shown on the calendar. A one-hour meeting with eight people, managers reasoned, consumed eight staff-hours. That arithmetic is correct but incomplete. Meetings also break up periods of concentrated work, and the cost of interruption is not limited to the minutes spent switching tasks. After an interruption, people often need time to reconstruct what they were doing, recover relevant information, and regain the level of attention they had before.\n\nThis does not mean that meetings are inherently wasteful. Some problems genuinely benefit from real-time interaction. When a decision depends on disagreement, negotiation, or the rapid integration of information held by different people, a conversation can resolve uncertainty faster than a chain of messages. The mistake is to infer from these cases that synchronous discussion is the natural default for all coordination.\n\nA number of firms have therefore tried to distinguish between work that needs simultaneity and work that merely needs visibility. Routine updates, status reports, and background explanations can often be recorded in a shared document. Participants can read them when they reach a natural break in their own work. Meetings can then be reserved for issues where the value comes from immediate response: a contested trade-off, an ambiguous problem, or a decision that cannot progress without several people reacting to one another.\n\nThe apparent efficiency of this approach, however, can be exaggerated. Written updates are not free. Poorly organized documents may take longer to read than a concise conversation, and asynchronous systems can encourage people to produce more information than anyone can use. The point is not that written communication is always superior. It is that the form of communication should match the coordination problem.\n\nThis distinction matters because attempts to improve productivity often focus on visible quantities: fewer meetings, shorter messages, smaller teams. But reducing a visible quantity does not automatically reduce the underlying coordination cost. A company can cut meeting hours and still make work harder if important disagreements are pushed into slow, fragmented exchanges. The better question is not “How can we eliminate meetings?” but “Which interactions require people to think together at the same time?”",
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "The first paragraph mainly argues that",
+          "options": [
+            "the true cost of meetings includes recovery from interruption",
+            "employees routinely underestimate how long meetings last",
+            "managers should count preparation time as part of every meeting",
+            "concentrated work is impossible in organizations with frequent meetings"
+          ]
+        },
+        {
+          "id": "q2",
+          "stem": "According to the passage, real-time meetings are especially useful when",
+          "options": [
+            "participants need to receive routine status information",
+            "a problem requires disagreement to be resolved interactively",
+            "written documents have already become too long",
+            "managers want to reduce visible coordination costs"
+          ]
+        },
+        {
+          "id": "q3",
+          "stem": "The author mentions poorly organized documents to show that",
+          "options": [
+            "asynchronous communication can also create costs",
+            "workers generally dislike reading status updates",
+            "written updates should be limited to short messages",
+            "companies often produce information for legal reasons"
+          ]
+        },
+        {
+          "id": "q4",
+          "stem": "Which of the following best describes the author's view?",
+          "options": [
+            "Meetings should be replaced whenever a written alternative exists",
+            "Meeting reduction is useful only in small organizations",
+            "Communication methods should be chosen according to the problem they solve",
+            "Synchronous communication is usually less efficient than asynchronous work"
+          ]
+        },
+        {
+          "id": "q5",
+          "stem": "The phrase “visible quantities” in the last paragraph most nearly refers to",
+          "options": [
+            "measures that are easy to count but may not capture the real cost",
+            "performance indicators that employees can see on dashboards",
+            "public statistics firms use to compare themselves with competitors",
+            "resources whose prices are directly observable in markets"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ra-syn-cal-02",
+      "role": "CALIBRATION",
+      "target_mechanisms": [
+        "scope",
+        "causal_shift",
+        "example_to_claim",
+        "attitude",
+        "detail"
+      ],
+      "passage": "Public discussions of scientific uncertainty often assume that uncertainty is a temporary defect: once researchers collect enough data, it will disappear. In some fields that expectation is reasonable. A better measurement device can narrow the range of plausible values for a physical quantity, and a larger sample can make an estimate more precise. Yet many important scientific questions concern systems in which uncertainty cannot be reduced to zero because the future depends on interacting processes, human behavior, and events that are themselves difficult to predict.\n\nClimate projections offer a useful example. Researchers can estimate how the atmosphere responds to greenhouse gases with increasing precision, but long-term outcomes also depend on future emissions, land use, technology, and policy. A model therefore may produce several scenarios rather than a single forecast. This is not equivalent to saying that “anything could happen.” The scenarios are constrained by physical knowledge and by explicit assumptions. Their spread represents a structured range of possibilities, not ignorance without boundaries.\n\nProblems arise when this structure is lost in public communication. One common response is to suppress uncertainty for fear that audiences will interpret it as weakness. Another is to display every caveat without explaining which uncertainties matter for the decision at hand. Both approaches can mislead. False certainty hides genuine risk, while an undifferentiated list of uncertainties can make well-supported conclusions look fragile.\n\nDecision makers rarely need uncertainty to vanish. They need to know whether different plausible futures would change the action they should take. If a bridge design is safe across a wide range of rainfall estimates, engineers do not need the exact rainfall fifty years from now. Conversely, if small changes in an estimate would alter the best decision, then uncertainty deserves more attention.\n\nThe practical challenge, then, is not simply to communicate “how uncertain” science is. It is to connect uncertainty to consequences. A range matters when it changes what should be done. This shifts the conversation from a demand for impossible certainty to a more useful question: which uncertainties are decision-relevant?",
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "The passage suggests that some scientific uncertainty persists because",
+          "options": [
+            "future outcomes depend on multiple interacting and partly unpredictable factors",
+            "researchers often stop collecting data too early",
+            "measurement devices are less precise in applied fields",
+            "scientists disagree about the value of larger samples"
+          ]
+        },
+        {
+          "id": "q2",
+          "stem": "Climate scenarios are presented as an example of",
+          "options": [
+            "structured uncertainty constrained by knowledge and assumptions",
+            "a field in which models have failed to become more precise",
+            "the political misuse of scientific predictions",
+            "a case where human behavior is more important than physical processes"
+          ]
+        },
+        {
+          "id": "q3",
+          "stem": "The author criticizes both suppressing uncertainty and listing every caveat because both can",
+          "options": [
+            "distort how strong or decision-relevant the evidence is",
+            "reduce public interest in scientific research",
+            "make scientists appear less confident than policy makers",
+            "encourage audiences to focus on numerical ranges"
+          ]
+        },
+        {
+          "id": "q4",
+          "stem": "The bridge example is used to support the idea that",
+          "options": [
+            "uncertainty matters chiefly when it can change a decision",
+            "engineering decisions should rely on worst-case estimates",
+            "long-term forecasts are unnecessary for infrastructure design",
+            "scientific models are most useful when they produce one result"
+          ]
+        },
+        {
+          "id": "q5",
+          "stem": "Which title best captures the passage?",
+          "options": [
+            "From Perfect Prediction to Decision-Relevant Uncertainty",
+            "Why Scientific Models Cannot Predict Human Behavior",
+            "The Public's Growing Distrust of Scientific Forecasts",
+            "How Larger Samples Remove Uncertainty"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ra-syn-transfer-01",
+      "role": "TRANSFER",
+      "target_mechanisms": [
+        "inference",
+        "evidence_boundary",
+        "double_strong_option",
+        "relation_shift"
+      ],
+      "passage": "Museums have traditionally been judged by what they preserve and display. Increasingly, however, they are also evaluated by what visitors do with what they encounter. This has encouraged many institutions to redesign exhibitions around participation: touchable replicas, interactive screens, open storage, workshops, and spaces where visitors can leave responses.\n\nParticipation can deepen attention, but only under certain conditions. An interactive feature earns its place when it helps visitors notice a relationship that would otherwise remain obscure, test an interpretation, or compare alternatives. By contrast, activity added merely to prevent boredom may fragment attention. Pressing a button is not automatically more educational than looking carefully at an object.\n\nThis distinction has implications for how museums use digital technology. Digital layers can reveal hidden information: the reverse side of a painting, changes made during restoration, or different reconstructions of an archaeological site. But screens can also compete with the original object. If visitors spend most of their time navigating an interface, the technology may become the exhibit rather than a means of seeing the exhibit more clearly.\n\nSome museums respond by asking whether each interactive element changes the quality of observation. That question is deliberately narrower than “Is this engaging?” Engagement is valuable, but it is not a sufficient criterion. A dramatic display may attract attention without directing it toward anything worth learning; a quiet comparison may produce less excitement while supporting more careful judgment.\n\nThe broader lesson extends beyond museums. Designers often treat participation as an unquestioned good because it appears to give users agency. Yet more action does not necessarily mean more meaningful involvement. Participation is useful when the action is connected to a cognitive purpose. Otherwise, interaction can become a decorative layer that consumes attention without improving understanding.",
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "The author would most likely agree that museum interaction is valuable when it",
+          "options": [
+            "serves a specific purpose in observation or interpretation",
+            "gives visitors more choices than traditional displays",
+            "uses digital technology to create excitement",
+            "replaces passive looking with physical activity"
+          ]
+        },
+        {
+          "id": "q2",
+          "stem": "The discussion of digital screens mainly warns that",
+          "options": [
+            "a tool intended to support observation can itself become the focus",
+            "visitors prefer screens to original museum objects",
+            "digital exhibits are expensive to maintain",
+            "restoration information is difficult to present accurately"
+          ]
+        },
+        {
+          "id": "q3",
+          "stem": "Why does the author contrast “Is this engaging?” with asking whether observation improves?",
+          "options": [
+            "to distinguish attention from meaningful learning",
+            "to show that quiet exhibits are usually more effective",
+            "to argue that museums should reduce visitor enjoyment",
+            "to suggest that engagement cannot be measured"
+          ]
+        },
+        {
+          "id": "q4",
+          "stem": "The final paragraph extends the museum argument by claiming that",
+          "options": [
+            "participation should be evaluated by what the action helps users think or understand",
+            "designers have exaggerated the importance of user agency in every field",
+            "interactive design is useful only in educational institutions",
+            "decorative features are the main source of user distraction"
+          ]
+        },
+        {
+          "id": "q5",
+          "stem": "The passage is primarily concerned with",
+          "options": [
+            "the conditions under which interaction adds educational value",
+            "the replacement of traditional museum exhibitions by digital media",
+            "the psychological reasons visitors become bored in museums",
+            "the financial costs of participatory exhibition design"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ra-syn-transfer-02",
+      "role": "TRANSFER",
+      "target_mechanisms": [
+        "attribution",
+        "scope",
+        "modal_strength",
+        "main_idea",
+        "detail"
+      ],
+      "passage": "Organizations that want better decisions often invest in collecting more data. Yet the limiting factor is frequently not the amount of information available but the way evidence enters a decision process. A team may possess excellent data and still reach a poor conclusion if members search only for information that supports an early preference or if inconvenient evidence arrives too late to influence the choice.\n\nOne proposed remedy is to assign someone the formal role of critic. The critic's task is to challenge assumptions, identify missing evidence, and construct the strongest case against the favored option. Advocates argue that this can make dissent legitimate: questioning the emerging consensus becomes part of the job rather than a sign of disloyalty.\n\nThe method has limits. A designated critic may become predictable and therefore easy to ignore. Other members can treat disagreement as “the critic's responsibility” and stop testing their own assumptions. Moreover, if the same person repeatedly plays the role, the group may begin to discount that person's objections before hearing them.\n\nSome teams therefore rotate the responsibility or use a different procedure: before the final decision, every member must state what evidence would cause them to change their mind. This shifts attention from defending positions to specifying conditions for revision. It also makes hidden asymmetries visible. A person who can name no possible disconfirming evidence may be protecting an identity or commitment rather than evaluating a hypothesis.\n\nNo procedure guarantees objectivity. The value of these methods is more modest. They alter the social and cognitive conditions under which contrary evidence can be heard. Better decisions do not arise simply because more information exists; they require structures that allow relevant information to change what people believe.",
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "The first paragraph suggests that poor decisions can occur even with good data when",
+          "options": [
+            "the decision process filters or delays inconvenient evidence",
+            "teams lack enough members to interpret the evidence",
+            "early preferences are based on quantitative information",
+            "data collection continues after a decision should have been made"
+          ]
+        },
+        {
+          "id": "q2",
+          "stem": "Advocates of a designated critic claim that the role can",
+          "options": [
+            "make disagreement socially legitimate within the group",
+            "ensure that every decision receives equal opposition",
+            "identify which member is least committed to the team",
+            "replace the need for members to examine their own assumptions"
+          ]
+        },
+        {
+          "id": "q3",
+          "stem": "One risk of assigning a permanent critic is that",
+          "options": [
+            "the person's objections may be discounted in advance",
+            "the group may become unable to reach a final decision",
+            "other members may produce too much negative evidence",
+            "the critic may gain excessive authority over data collection"
+          ]
+        },
+        {
+          "id": "q4",
+          "stem": "Asking members what evidence would change their minds is intended to reveal",
+          "options": [
+            "whether their positions are genuinely revisable",
+            "which option has the largest amount of supporting data",
+            "who should act as the group's next critic",
+            "whether disagreement is caused by incomplete information"
+          ]
+        },
+        {
+          "id": "q5",
+          "stem": "The author's main point is that better decisions depend importantly on",
+          "options": [
+            "procedures that allow contrary evidence to affect beliefs",
+            "assigning formal roles to members with different opinions",
+            "collecting evidence before preferences can form",
+            "rotating leadership among members of a decision team"
+          ]
+        }
+      ]
+    }
+  ],
+  "cloze": [
+    {
+      "id": "cloze-syn-cal-01",
+      "role": "CALIBRATION",
+      "target_mechanisms": [
+        "slot_demand",
+        "construction",
+        "collocation",
+        "discourse_relation",
+        "candidate_competition"
+      ],
+      "passage_with_blanks": "People often assume that expertise makes decisions slower because experts consider more information. In many domains, the opposite is true. Experience allows a person to notice which features of a situation are [1] ___ and which can be ignored. A novice may inspect every available detail, [2] ___ an expert can quickly narrow the field.\n\nThis speed does not mean that experts simply rely on instinct. Their rapid judgments are often built on patterns learned through [3] ___ exposure and feedback. When conditions are familiar, those patterns can guide attention efficiently. Problems arise, [4] ___, when the environment changes in ways that make old patterns unreliable.\n\nFor this reason, strong experts do more than recognize familiar situations. They also notice signals that a case may fall [5] ___ their usual experience. A physician, for example, may recognize a common pattern but pause when one symptom does not [6] ___ with the rest. That mismatch can be more informative than several confirming details.\n\nExpertise therefore involves a balance between compression and correction. Compression reduces the amount of information that must be processed from scratch; correction prevents efficient routines from becoming [7] ___. The challenge is that people are usually more aware of the first benefit than of the second risk.\n\nOrganizations can support correction by making it easier to surface anomalies. Checklists, peer review, or brief “what does not fit?” pauses can [8] ___ attention toward evidence that a fast pattern match might miss. Such tools are most useful when they do not [9] ___ professional judgment but instead create a moment in which judgment can be reconsidered.\n\nThe general lesson is not that intuition should be distrusted. It is that rapid recognition works best when paired [10] ___ a mechanism for detecting when recognition may be wrong. Expertise is powerful precisely because it saves effort; it remains reliable only when some of that saved effort can be redirected to exceptions.",
+      "blanks": [
+        {
+          "n": 1,
+          "options": [
+            "relevant",
+            "available",
+            "visible",
+            "similar"
+          ]
+        },
+        {
+          "n": 2,
+          "options": [
+            "whereas",
+            "because",
+            "unless",
+            "therefore"
+          ]
+        },
+        {
+          "n": 3,
+          "options": [
+            "repeated",
+            "accidental",
+            "limited",
+            "indirect"
+          ]
+        },
+        {
+          "n": 4,
+          "options": [
+            "however",
+            "instead",
+            "likewise",
+            "otherwise"
+          ]
+        },
+        {
+          "n": 5,
+          "options": [
+            "outside",
+            "beneath",
+            "through",
+            "beside"
+          ]
+        },
+        {
+          "n": 6,
+          "options": [
+            "fit",
+            "argue",
+            "depend",
+            "arrive"
+          ]
+        },
+        {
+          "n": 7,
+          "options": [
+            "rigid",
+            "brief",
+            "costly",
+            "public"
+          ]
+        },
+        {
+          "n": 8,
+          "options": [
+            "redirect",
+            "remove",
+            "divide",
+            "translate"
+          ]
+        },
+        {
+          "n": 9,
+          "options": [
+            "replace",
+            "predict",
+            "reward",
+            "record"
+          ]
+        },
+        {
+          "n": 10,
+          "options": [
+            "with",
+            "for",
+            "by",
+            "from"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cloze-syn-transfer-01",
+      "role": "TRANSFER",
+      "target_mechanisms": [
+        "near_synonym",
+        "logical_relation",
+        "construction",
+        "context_expansion"
+      ],
+      "passage_with_blanks": "Memory is often described as a storage system, but remembering is also an act of reconstruction. When people recall an event, they do not simply [1] ___ a perfect record. They rebuild the event from traces, expectations, and later information. This makes memory flexible, [2] ___ it also makes memory vulnerable to distortion.\n\nFlexibility is useful because the same experience may need to support different future decisions. A person does not need to preserve every detail of a conversation; what matters may be the promise that was made, the reason for a disagreement, or the lesson [3] ___ from the exchange. Memory therefore tends to retain structure and meaning more reliably than exact surface form.\n\nThe difficulty is that later knowledge can quietly become [4] ___ with earlier experience. After learning how an event ended, people may remember the beginning as if the outcome had been more predictable than it really was. This hindsight effect does not usually involve deliberate dishonesty. The remembered story simply becomes more [5] ___ than the original uncertainty.\n\nOne way to protect important judgments is to record predictions or reasons before outcomes are known. A written note can preserve what a person actually believed at the time, making later reconstruction easier to [6] ___. This is especially valuable in environments where decisions are reviewed only after success or failure has become obvious.\n\nSuch records should not be treated as proof that the original judgment was good. They serve a different [7] ___: they separate the quality of the reasoning from the eventual outcome. A sensible decision can lead to a bad result, and a careless decision can occasionally succeed.\n\nGood learning therefore requires comparing process with process, not merely outcome with outcome. Without that distinction, people may [8] ___ successful luck and abandon sound methods after unlucky failures. Over time, this can make experience less educational rather than more.\n\nThe point is not to distrust memory completely. It is to recognize when reconstruction creates a risk and to build small external records where that risk is [9] ___. Used selectively, such records do not replace memory; they give memory something stable [10] ___ which to compare its later story.",
+      "blanks": [
+        {
+          "n": 1,
+          "options": [
+            "retrieve",
+            "invent",
+            "measure",
+            "exchange"
+          ]
+        },
+        {
+          "n": 2,
+          "options": [
+            "but",
+            "so",
+            "if",
+            "unless"
+          ]
+        },
+        {
+          "n": 3,
+          "options": [
+            "drawn",
+            "hidden",
+            "borrowed",
+            "removed"
+          ]
+        },
+        {
+          "n": 4,
+          "options": [
+            "blended",
+            "balanced",
+            "ranked",
+            "stored"
+          ]
+        },
+        {
+          "n": 5,
+          "options": [
+            "coherent",
+            "temporary",
+            "formal",
+            "distant"
+          ]
+        },
+        {
+          "n": 6,
+          "options": [
+            "check",
+            "repeat",
+            "forget",
+            "extend"
+          ]
+        },
+        {
+          "n": 7,
+          "options": [
+            "function",
+            "location",
+            "schedule",
+            "permission"
+          ]
+        },
+        {
+          "n": 8,
+          "options": [
+            "reward",
+            "reduce",
+            "separate",
+            "delay"
+          ]
+        },
+        {
+          "n": 9,
+          "options": [
+            "high",
+            "equal",
+            "private",
+            "recent"
+          ]
+        },
+        {
+          "n": 10,
+          "options": [
+            "against",
+            "between",
+            "within",
+            "toward"
+          ]
+        }
+      ]
+    }
+  ],
+  "part_b": [
+    {
+      "id": "pb-gap-cal-01",
+      "role": "CALIBRATION",
+      "form": "GAP_MATCHING",
+      "target_mechanisms": [
+        "target_role",
+        "backward_forward_fit",
+        "reference_chain",
+        "global_reconciliation"
+      ],
+      "directions": "Choose the five paragraphs that best fill gaps 1–5. Two candidates are extra.",
+      "body": [
+        "Cities often try to encourage walking by improving sidewalks, adding trees, or reducing traffic speed. These changes matter, but whether people actually walk also depends on what destinations exist within reach.",
+        "[1]",
+        "This helps explain why two neighborhoods with equally attractive streets can produce different walking patterns. In one, daily needs are scattered across long distances; in the other, shops, schools, and transit are close enough to combine errands on foot.",
+        "[2]",
+        "The same principle applies to public transport. A station can be clean and reliable, yet still attract few riders if reaching it requires crossing dangerous roads or walking through a disconnected street network.",
+        "[3]",
+        "This is why planners increasingly examine networks rather than isolated facilities. A sidewalk, crossing, bus stop, park, and shop can each work well individually but still fail as a system if the links among them are weak.",
+        "[4]",
+        "That perspective also changes how success is measured. Counting new sidewalks is useful, but the more important question is whether people can reach more of the places they value without a car.",
+        "[5]"
+      ],
+      "candidates": {
+        "A": "In other words, the quality of the route cannot be separated from the usefulness of where the route leads.",
+        "B": "For decades, transport policy focused mainly on the speed of private vehicles.",
+        "C": "A short missing link can therefore matter more than a long stretch of already adequate infrastructure.",
+        "D": "Walking is especially common among people who already exercise regularly.",
+        "E": "Improving accessibility means looking not only at distance but at whether the entire trip can be completed safely and conveniently.",
+        "F": "A network view does not imply that every street must serve every purpose equally.",
+        "G": "The result is a shift from asking how much infrastructure exists to asking what opportunities that infrastructure actually connects."
+      }
+    },
+    {
+      "id": "pb-gap-transfer-01",
+      "role": "TRANSFER",
+      "form": "GAP_MATCHING",
+      "target_mechanisms": [
+        "role_match",
+        "cohesion",
+        "global_fit"
+      ],
+      "directions": "Choose the five paragraphs that best fill gaps 1–5. Two candidates are extra.",
+      "body": [
+        "Feedback is often described as information about past performance. Useful feedback, however, also changes what a learner does next.",
+        "[1]",
+        "A comment such as “be clearer” identifies a problem but does not necessarily reveal what should change. By contrast, pointing to an ambiguous claim and asking what evidence would make it precise gives the learner an actionable next step.",
+        "[2]",
+        "Timing matters as well. Immediate correction is valuable when an error would otherwise be repeated several times, but constant interruption can prevent learners from completing a thought or seeing the consequences of their own choices.",
+        "[3]",
+        "This suggests that effective feedback is not simply more frequent feedback. It is information delivered at a moment and level of detail that preserves the learner's responsibility for solving the problem.",
+        "[4]",
+        "The same idea explains why model answers can help or harm. Used after a genuine attempt, they provide a comparison. Shown too early, they can replace the learner's generation process.",
+        "[5]"
+      ],
+      "candidates": {
+        "A": "The central question is therefore not whether feedback is positive or negative, but whether it changes the next decision in a useful way.",
+        "B": "Students also differ greatly in how much praise they prefer to receive.",
+        "C": "This distinction separates feedback that merely labels performance from feedback that supports revision.",
+        "D": "For that reason, a pause before feedback can sometimes be part of good teaching rather than a delay in teaching.",
+        "E": "The goal is not to remove difficulty but to place information where it improves independent control.",
+        "F": "Written comments are usually remembered longer than spoken comments.",
+        "G": "A good feedback system should therefore preserve a clear boundary between assistance and the learner's own first attempt."
+      }
+    },
+    {
+      "id": "pb-order-cal-01",
+      "role": "CALIBRATION",
+      "form": "PARAGRAPH_ORDERING",
+      "target_mechanisms": [
+        "discourse_skeleton",
+        "reference",
+        "chronology",
+        "global_reconciliation"
+      ],
+      "directions": "Arrange the movable paragraphs into the skeleton. A and E are fixed.",
+      "skeleton": [
+        "1",
+        "A",
+        "2",
+        "3",
+        "E",
+        "4",
+        "5"
+      ],
+      "fixed": [
+        "A",
+        "E"
+      ],
+      "paragraphs": {
+        "A": "The first difficulty appears when a team treats every request as equally urgent. Work is constantly interrupted, and important long-term tasks lose attention to whichever message arrived most recently.",
+        "B": "Only after the categories are visible does prioritization become easier. Some requests need an immediate response; others can wait; still others should be rejected because they do not support the team's actual goals.",
+        "C": "This is why effective workload management begins before a calendar is filled. A team first needs a way to distinguish types of demand.",
+        "D": "Once those distinctions are accepted, scheduling becomes a consequence of priorities rather than the place where priorities are secretly decided.",
+        "E": "Yet categories alone are not enough. A team must also agree on what happens when two genuinely important demands compete for the same limited time.",
+        "F": "Many teams believe they have a scheduling problem when they actually have a prioritization problem.",
+        "G": "A useful rule is to make the trade-off explicit: if the new demand enters, which existing commitment moves, shrinks, or disappears?"
+      }
+    },
+    {
+      "id": "pb-order-transfer-01",
+      "role": "TRANSFER",
+      "form": "PARAGRAPH_ORDERING",
+      "target_mechanisms": [
+        "global_fit",
+        "cause_effect",
+        "reference_chain"
+      ],
+      "directions": "Arrange the movable paragraphs into the skeleton. C and F are fixed.",
+      "skeleton": [
+        "1",
+        "2",
+        "C",
+        "3",
+        "4",
+        "F",
+        "5"
+      ],
+      "fixed": [
+        "C",
+        "F"
+      ],
+      "paragraphs": {
+        "A": "The next step is to compare that prediction with what actually happened, paying special attention to surprises rather than only to whether the project succeeded.",
+        "B": "A useful review therefore starts before the project ends, by recording what the team currently expects and why.",
+        "C": "Without that earlier record, hindsight quickly reshapes the story. Outcomes that once seemed uncertain begin to look obvious.",
+        "D": "Those surprises are valuable because they reveal which assumptions about users, costs, timing, or coordination were wrong.",
+        "E": "Project reviews are supposed to turn experience into better future decisions, but many reviews begin too late.",
+        "F": "The final task is not to assign blame for each mistaken assumption but to decide which decision rule, information source, or experiment should change next time.",
+        "G": "In that way, the review becomes a comparison between a prior model and reality rather than a polished narrative written after the fact."
+      }
+    },
+    {
+      "id": "pb-heading-cal-01",
+      "role": "CALIBRATION",
+      "form": "HEADING_MATCHING",
+      "target_mechanisms": [
+        "paragraph_role",
+        "main_idea",
+        "local_global_boundary"
+      ],
+      "directions": "Match each paragraph 1–5 with the best heading. Two headings are extra.",
+      "paragraphs": [
+        "Digital archives can make millions of documents searchable, but searchability changes how people explore a collection. Users often begin with a precise query rather than browsing neighboring materials, which can reduce accidental discovery.",
+        "Some archives respond by designing interfaces that restore a form of neighborhood. A user viewing one document may also see items created in the same place, period, or project, even when those items do not match the original search terms.",
+        "This does not mean that digital systems should imitate physical shelves. Digital collections can create relationships that shelves cannot, linking material by person, event, theme, or citation across distant locations.",
+        "The design challenge is therefore to balance directed retrieval with productive surprise. Too little structure leaves users lost; too much search precision can hide relevant material that the user did not know to request.",
+        "Evaluation should reflect this balance. Counting successful searches shows whether known targets are reachable, but archives should also ask whether users discover useful material beyond their initial query."
+      ],
+      "headings": [
+        "A. Measuring discovery as well as retrieval",
+        "B. Why physical shelves remain superior",
+        "C. Recreating useful context around a found item",
+        "D. The hidden cost of precise search",
+        "E. Replacing search with recommendation systems",
+        "F. Balancing intentional search and unexpected discovery",
+        "G. Digital links can create new forms of context"
+      ]
+    },
+    {
+      "id": "pb-heading-transfer-01",
+      "role": "TRANSFER",
+      "form": "HEADING_MATCHING",
+      "target_mechanisms": [
+        "role_abstraction",
+        "candidate_competition"
+      ],
+      "directions": "Match each paragraph 1–5 with the best heading. Two headings are extra.",
+      "paragraphs": [
+        "When institutions publish performance targets, employees naturally adapt to them. This can improve focus, but it can also narrow attention toward what is measured.",
+        "A hospital judged only by waiting time may speed the first contact with patients while shifting delays to later stages that are not counted. The metric improves, yet the patient's total experience may not.",
+        "The problem is not measurement itself. Good metrics can reveal trends that intuition misses and make persistent failures difficult to ignore.",
+        "Trouble begins when a measure designed to inform judgment becomes a substitute for judgment. At that point, people optimize the number even when the number no longer tracks the underlying goal.",
+        "One safeguard is to pair a headline measure with checks on side effects and with periodic review of whether the metric still predicts what decision makers actually care about."
+      ],
+      "headings": [
+        "A. Why employees resist numerical evaluation",
+        "B. A metric can redirect behavior",
+        "C. Measurement can reveal otherwise hidden problems",
+        "D. How a narrow target can improve one number while worsening the whole process",
+        "E. The danger of treating an indicator as the goal itself",
+        "F. Safeguards against metric distortion",
+        "G. Why hospitals should abandon waiting-time targets"
+      ]
+    },
+    {
+      "id": "pb-comment-cal-01",
+      "role": "CALIBRATION",
+      "form": "COMMENT_STATEMENT_MATCHING",
+      "target_mechanisms": [
+        "attribution",
+        "proposition_match",
+        "distractor_scope"
+      ],
+      "directions": "Match each comment 1–5 with the statement A–G that best captures its position. Two statements are extra.",
+      "comments": [
+        "Mira: Remote work is useful for tasks that need long concentration, but teams still need occasional real-time discussion when the problem itself is unclear.",
+        "Jon: The main benefit is not working from home; it is having control over when to protect uninterrupted time.",
+        "Lena: Companies focus too much on where people work and too little on whether information is documented well enough for others to use asynchronously.",
+        "Omar: I worry that fully remote systems can make junior staff less likely to overhear useful explanations or ask small questions.",
+        "Priya: Hybrid policies fail when every person chooses office days independently; coordination requires some shared rhythm."
+      ],
+      "statements": [
+        "A. Informal learning opportunities may shrink when people are rarely together.",
+        "B. Flexible work matters mainly because it can increase employee satisfaction.",
+        "C. Location matters less than control over periods of focused attention.",
+        "D. Good asynchronous documentation is a neglected condition for remote work.",
+        "E. Teams should eliminate meetings whenever written communication is possible.",
+        "F. Some synchronous interaction remains useful for ambiguous collaborative problems.",
+        "G. Hybrid systems need coordination rather than completely independent scheduling."
+      ]
+    },
+    {
+      "id": "pb-comment-transfer-01",
+      "role": "TRANSFER",
+      "form": "COMMENT_STATEMENT_MATCHING",
+      "target_mechanisms": [
+        "attribution",
+        "modal_strength",
+        "fine_grained_proposition"
+      ],
+      "directions": "Match each comment 1–5 with the statement A–G that best captures its position. Two statements are extra.",
+      "comments": [
+        "Asha: AI tools are most helpful when they remove repetitive steps but leave the user responsible for the final judgment.",
+        "Ben: I am less worried about occasional wrong answers than about users who stop checking because the system usually sounds confident.",
+        "Carlos: Training people to write better prompts helps, but organizations also need workflows that make important outputs reviewable.",
+        "Dana: In creative work, an imperfect suggestion can still be useful if it opens a direction the person would not have considered.",
+        "Eli: The biggest mistake is evaluating every use case by the same accuracy threshold; the cost of error varies dramatically by task."
+      ],
+      "statements": [
+        "A. The usefulness of an error depends partly on the purpose of the task.",
+        "B. Confidence in AI output should be treated as proof of reliability.",
+        "C. Automation is strongest when it reduces routine work without removing human responsibility.",
+        "D. Prompt skill alone is not enough; reviewable process design also matters.",
+        "E. Different tasks justify different standards because error consequences differ.",
+        "F. Creative applications should use only highly accurate models.",
+        "G. Habitual over-trust may be more dangerous than isolated mistakes."
+      ]
+    }
+  ]
+}
