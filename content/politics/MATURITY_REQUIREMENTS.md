@@ -1393,7 +1393,23 @@ Kian should not manually reconcile state races.
 
 # 30. Politics independent falsification requirement
 
-Before claiming whole-subject maturity, a fresh evaluator must attempt to produce:
+This Politics-specific rule **inherits and strengthens shared mother-standard §23**.
+
+## Freeze gate
+
+Before `SYSTEM_LOGIC_ACCEPTED` may freeze, one Fresh Independent / Anti-Anchored evaluator must:
+
+- audit the exact candidate revision;
+- derive its own observations and interpretation before reading Builder verdict/reconciliation artifacts;
+- attack the strongest plausible learner-risk failure;
+- record observation → interpretation → verdict before reconciliation;
+- invalidate its own PASS if a material repair or semantic rewrite follows.
+
+Builder self-attack, CI, targeted browser proof and a strong maturity package do **not** substitute for this freeze gate.
+
+## Whole-subject later falsification
+
+Before a later whole-subject maturity claim, a fresh evaluator must additionally attempt to produce:
 
 1. **all-green-but-real-fail**
    - every visible status looks good while Protect 70 is actually endangered;
@@ -1415,7 +1431,7 @@ The evaluator should attack at least:
 - generated-task ambiguity;
 - learner-maintenance burden.
 
-Material findings invalidate the affected maturity claim until repaired and re-tested.
+Material findings invalidate the affected maturity claim until repaired and re-tested. Real-U/current-year claims must not be manufactured merely to make the independent audit pass.
 
 ---
 
