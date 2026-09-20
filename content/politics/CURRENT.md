@@ -27,10 +27,10 @@ M10 current-year annual sources                  SOURCE GATED
 ```
 Canonical maturity package: `MATURITY_PACKAGE.md`.
 Builder-owned maturity construction is closed, but shared mother-standard §23 still requires a Fresh Independent / Anti-Anchored Audit before SYSTEM_LOGIC_ACCEPTED may freeze. Do not broaden engineering while that audit is pending; repair only material findings from the fresh audit.
-Fresh audit candidate is sealed and immutable for M7:
+Fresh audit candidate v2 supersedes the unused v1 seal and is immutable for M7:
 ```text
-audit/politics-maturity-freeze-20260921
-@ 9da838f38dd025283407c9bf248e9fbf731adcaa
+candidate audit/politics-maturity-freeze-20260921-v2 @ a8f6138962f517a5ed5211bb13afa05fbe84a18b
+standard 31ae8ee54857b896de7dab341f493d884f4b591b
 ```
 A PASS/FAIL may certify only that exact SHA. Any material semantic repair requires a new sealed candidate and a new fresh audit.
 
