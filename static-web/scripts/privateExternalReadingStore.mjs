@@ -4,6 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { englishSemanticSourceHash } from '../src/lib/englishSemanticSourceIdentity.mjs';
 
 export const EXTERNAL_PRIVATE_BUNDLE_SCHEMA='kianos.english.external-private-bundle.v2';
 
@@ -221,6 +222,19 @@ export function ensureExternalReadingPrivateBundle({
   }
 }
 
+function passageSemanticHash(passage){
+  return englishSemanticSourceHash({
+    task:'external_reading',
+    paragraphs:Array.isArray(passage.passage_paragraphs)
+      ? passage.passage_paragraphs
+      : passage.passage_blocks||passage.passage_text||null,
+    questions:(passage.questions||[]).map(({question_id,source_ordinal,warnings,...q})=>q),
+    context:{
+      source_figures:(passage.source_figures||[]).map(({figure_id,origin,source_position,...figure})=>figure)
+    }
+  });
+}
+
 function passageRevision(passage){
   return sha256(JSON.stringify({
     passage_id:passage.passage_id,
@@ -263,7 +277,8 @@ export function externalReadingCatalog(state=ensureExternalReadingPrivateBundle(
         answer_key_status:p.answer_key_status,
         warnings:p.warnings||[],
         source_hash:p.source_refs?.[0]?.sha256||null,
-        content_hash:passageRevision(p)
+        content_hash:passageRevision(p),
+        semantic_source_hash:passageSemanticHash(p)
       }));
       collections.push({source_family:family,collection:name,passages:rows});
     }
@@ -312,7 +327,8 @@ export function externalReadingPassage(objectId,state=ensureExternalReadingPriva
     answer_key_status:passage.answer_key_status,
     warnings:passage.warnings||[],
     source_hash:passage.source_refs?.[0]?.sha256||null,
-    content_hash:passageRevision(passage)
+    content_hash:passageRevision(passage),
+    semantic_source_hash:passageSemanticHash(passage)
   };
 }
 
