@@ -274,104 +274,22 @@
     "C": {
       "role": "PRODUCTION_C_FINAL_SWEEP",
       "current_assignment": {
-        "candidate_id": "BF09",
+        "candidate_id": "BF08",
         "range": [
-          901,
-          1000
+          801,
+          900
         ],
-        "state": "PARTIAL_HUMAN_APPROVAL_PENDING_3_PAUSED",
-        "allowed_now": [
-          "freeze current main and export review bundle",
-          "fresh owner/module judgment",
-          "same-Chat Self-Adversarial Attack",
-          "write smallest stabilized proposal",
-          "request bounded Human delta Gate only if genuinely new material scope exists",
-          "after approval or no-delta freeze immediately continue to o0801-o0900"
-        ],
+        "state": "PAUSED_BY_KIAN_BEFORE_START",
+        "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
+        "next_action": "Wait for explicit Kian continue before starting o0801-o0900. No review bundle should be created yet.",
+        "allowed_now": [],
         "forbidden_now": [
+          "start o0801-o0900 before explicit Kian continue",
           "canonical semantic materialization",
           "FLOB rebuild",
           "launch B audit",
-          "merge backfill candidate",
-          "invent a newer semantic standard"
-        ],
-        "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
-        "next_action": "Stay on BF09. Present only the three remaining pending deltas (comfort zone, common sense, conflict of interest). Do not advance to o0801-o0900 unless Kian explicitly approves/rejects them and then asks to continue.",
-        "review_head": "f860eff88e88e85bbc687dfbe8e7f4c5f6e55c5f",
-        "review_branch": "work/lexical-final-backfill-c-o0901-o1000",
-        "review_request_commit": "e959927b9b73d0f90dadfc6fcf8fd3d5eb7026df",
-        "review_workflow_run": 35453275449,
-        "review_artifact_id": 10586798922,
-        "review_artifact_digest": "sha256:181f65c03cf1dfcbed53ff229f89a90119ce57d20d0ce765badda18257c9b0e0",
-        "review_bundle_coverage": "100/100",
-        "proposal_pr": 546,
-        "proposal_head": "8b24b95e6ad2af4271572a0027603e5dab40e912",
-        "proposal_path": "content/lexical/execution/manifests/o0901-o1000.final-semantic-sweep-c-proposal.md",
-        "module_matrix_path": "content/lexical/execution/manifests/o0901-o1000.final-semantic-sweep-c-module-matrix.tsv",
-        "fresh_read_coverage": "100/100",
-        "self_attack": "COMPLETE",
-        "content_affected_owners": 28,
-        "content_no_change": 72,
-        "blocked": 0,
-        "new_material_delta_owners": [
-          909,
-          913,
-          922,
-          999,
-          1000
-        ],
-        "old_test_blueprints": 24,
-        "stabilized_test_blueprints": 15,
-        "canonical_semantic_mutation": false,
-        "shared_write_set_if_approved": [
-          "family commence↔commencement; target word:commencement@o7737",
-          "coalesced complement↔compliment confusable Relation",
-          "repaired compose↔comprise↔consist-of syntax Relation; shared word:consist@o1026",
-          "family confirm↔confirmation; target word:confirmation@o6554",
-          "reciprocal confirm↔conform confusable Relation; shared word:conform@o1001"
-        ],
-        "semantic_freshness_note": "Review froze from main f860eff8. Drift comparison before proposal freeze showed only three-chat-board and Xizong changes; no o0901-o1000 Word/Relation/Form owner or final semantic contract changed. FINAL_SEMANTIC_FREEZE v1 still governs.",
-        "content_upgrades": 23,
-        "user_instruction": {
-          "received_at": "2026-09-20",
-          "instruction": "Approve/write the just-shown BF09 delta, but do not advance C to the next batch.",
-          "approved_displayed_scope": [
-            "o0913 commence → commencement high-leverage family Expansion",
-            "o0999 confirm booking/reservation/order/appointment definite-arrangement branch"
-          ],
-          "advance_after_approval": false
-        },
-        "gate_reconciliation": {
-          "status": "RESOLVED",
-          "conclusion": "Both earlier partial proposals contained valid subsets. Frozen-artifact reconciliation under FINAL_SEMANTIC_FREEZE v1 yields five genuine new deltas total.",
-          "approved_owners": [
-            913,
-            999
-          ],
-          "pending_owners": [
-            909,
-            922,
-            1000
-          ],
-          "final_delta_count": 5,
-          "rule": "Do not authorize pending owners without a fresh bounded Human Gate."
-        },
-        "proposal_blob_sha": "36ae058c14377abb77af6474371a19443f7acb6d",
-        "module_matrix_blob_sha": "38b87b74e591b8b4a91a91369e1b338382badc93",
-        "human_gate": {
-          "status": "PARTIALLY_APPROVED",
-          "approved_owners": [
-            913,
-            999
-          ],
-          "pending_owners": [
-            909,
-            922,
-            1000
-          ],
-          "approval_ref": "Kian approved the displayed commence→commencement and confirm booking/arrangement deltas; asked not to advance.",
-          "advance_after_approval": false
-        }
+          "merge backfill candidate"
+        ]
       },
       "scheduled_ranges": [
         [
@@ -400,8 +318,8 @@
         ]
       ],
       "next_new_review_range": [
-        801,
-        900
+        701,
+        800
       ],
       "direction_note": "Preserve completed o0201-o0300 lookahead; all new C review proceeds high→low.",
       "preserved_assignments": [
@@ -544,6 +462,106 @@
             "proposal_path": "content/lexical/execution/manifests/o1001-o1100.final-standard-backfill-c-proposal.md",
             "proposal_blob_sha": "8ef77795ea29460d16599f2dae0c836983d18741",
             "sync_main_head": "5c18e3a99f32ddadcd69d79400936a1a2909e254"
+          }
+        },
+        {
+          "candidate_id": "BF09",
+          "range": [
+            901,
+            1000
+          ],
+          "state": "DELTA_APPROVED_FROZEN_BACKLOG",
+          "allowed_now": [
+            "freeze current main and export review bundle",
+            "fresh owner/module judgment",
+            "same-Chat Self-Adversarial Attack",
+            "write smallest stabilized proposal",
+            "request bounded Human delta Gate only if genuinely new material scope exists",
+            "after approval or no-delta freeze immediately continue to o0801-o0900"
+          ],
+          "forbidden_now": [
+            "canonical semantic materialization",
+            "FLOB rebuild",
+            "launch B audit",
+            "merge backfill candidate",
+            "invent a newer semantic standard"
+          ],
+          "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
+          "next_action": "Frozen backlog. Do not materialize/audit until production_sweep.status is COMPLETE. Per Kian instruction, do not automatically advance C to o0801-o0900; wait for an explicit continue.",
+          "review_head": "f860eff88e88e85bbc687dfbe8e7f4c5f6e55c5f",
+          "review_branch": "work/lexical-final-backfill-c-o0901-o1000",
+          "review_request_commit": "e959927b9b73d0f90dadfc6fcf8fd3d5eb7026df",
+          "review_workflow_run": 35453275449,
+          "review_artifact_id": 10586798922,
+          "review_artifact_digest": "sha256:181f65c03cf1dfcbed53ff229f89a90119ce57d20d0ce765badda18257c9b0e0",
+          "review_bundle_coverage": "100/100",
+          "proposal_pr": 546,
+          "proposal_head": "923ee737a609c289f5a87b044253da9c9ba7353a",
+          "proposal_path": "content/lexical/execution/manifests/o0901-o1000.final-semantic-sweep-c-proposal.md",
+          "module_matrix_path": "content/lexical/execution/manifests/o0901-o1000.final-semantic-sweep-c-module-matrix.tsv",
+          "fresh_read_coverage": "100/100",
+          "self_attack": "COMPLETE",
+          "content_affected_owners": 28,
+          "content_no_change": 72,
+          "blocked": 0,
+          "new_material_delta_owners": [
+            909,
+            913,
+            922,
+            999,
+            1000
+          ],
+          "old_test_blueprints": 24,
+          "stabilized_test_blueprints": 15,
+          "canonical_semantic_mutation": false,
+          "shared_write_set_if_approved": [
+            "family commence↔commencement; target word:commencement@o7737",
+            "coalesced complement↔compliment confusable Relation",
+            "repaired compose↔comprise↔consist-of syntax Relation; shared word:consist@o1026",
+            "family confirm↔confirmation; target word:confirmation@o6554",
+            "reciprocal confirm↔conform confusable Relation; shared word:conform@o1001"
+          ],
+          "semantic_freshness_note": "Review froze from main f860eff8. Drift comparison before proposal freeze showed only three-chat-board and Xizong changes; no o0901-o1000 Word/Relation/Form owner or final semantic contract changed. FINAL_SEMANTIC_FREEZE v1 still governs.",
+          "content_upgrades": 23,
+          "user_instruction": {
+            "received_at": "2026-09-20",
+            "instruction": "Approve/write the just-shown BF09 delta, but do not advance C to the next batch.",
+            "approved_displayed_scope": [
+              "o0913 commence → commencement high-leverage family Expansion",
+              "o0999 confirm booking/reservation/order/appointment definite-arrangement branch"
+            ],
+            "advance_after_approval": false
+          },
+          "gate_reconciliation": {
+            "status": "RESOLVED_AND_FULLY_APPROVED",
+            "conclusion": "Both earlier partial proposals contained valid subsets. Frozen-artifact reconciliation under FINAL_SEMANTIC_FREEZE v1 yields five genuine new deltas total.",
+            "approved_owners": [
+              909,
+              913,
+              922,
+              999,
+              1000
+            ],
+            "pending_owners": [],
+            "final_delta_count": 5,
+            "rule": "Do not authorize pending owners without a fresh bounded Human Gate."
+          },
+          "proposal_blob_sha": "e717db6e37010de28b05a7bedce2148ec8e3101e",
+          "module_matrix_blob_sha": "38b87b74e591b8b4a91a91369e1b338382badc93",
+          "human_gate": {
+            "status": "APPROVED",
+            "approved_owners": [
+              909,
+              913,
+              922,
+              999,
+              1000
+            ],
+            "pending_owners": [],
+            "approval_ref": "Kian approved the original displayed BF09 deltas (o0913,o0999) and later approved the remaining reconciled deltas (o0909,o0922,o1000).",
+            "second_approval_at": "2026-09-20",
+            "sync_main_head": "27942301f95fffd31d9fbd463280cdee14c0b519",
+            "advance_after_approval": false
           }
         }
       ],
@@ -1276,14 +1294,17 @@
           700
         ],
         "state": "PRODUCTION_DELTA_APPROVED_FROZEN_BACKLOG"
+      },
+      {
+        "range": [
+          901,
+          1000
+        ],
+        "state": "PRODUCTION_DELTA_APPROVED_FROZEN_BACKLOG"
       }
     ],
     "A_remaining": [],
     "C_remaining": [
-      [
-        901,
-        1000
-      ],
       [
         801,
         900
