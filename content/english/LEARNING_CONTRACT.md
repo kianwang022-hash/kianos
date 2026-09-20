@@ -11,7 +11,7 @@ LexicalOS may still keep independent backend canonical ownership and engineering
 
 ## 0｜Purpose
 
-English I target: **80–85+**.
+English I hard target: **85+**. Secure planning protects that floor; English may continue above it when marginal return remains attractive relative to Xizong / Politics.
 
 Score channels:
 
