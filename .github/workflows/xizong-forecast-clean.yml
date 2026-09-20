@@ -1,0 +1,26 @@
+name: Xizong Forecast Clean
+
+on:
+  pull_request:
+    paths:
+      - 'static-web/src/lib/xizongForecastModel.mjs'
+      - 'static-web/scripts/test-xizong-forecast-model.mjs'
+      - '.github/workflows/xizong-forecast-clean.yml'
+  push:
+    branches:
+      - work/xizong-forecast-clean-20260921
+    paths:
+      - 'static-web/src/lib/xizongForecastModel.mjs'
+      - 'static-web/scripts/test-xizong-forecast-model.mjs'
+      - '.github/workflows/xizong-forecast-clean.yml'
+
+jobs:
+  forecast:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run Xizong forecast adversarial suite
+        run: node static-web/scripts/test-xizong-forecast-model.mjs
