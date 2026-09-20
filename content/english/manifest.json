@@ -148,10 +148,27 @@
     }
   },
   "practice_assets": {
-    "rule": "Baseline synthetic banks support calibration, one ordinary repair loop, and independent transfer checks. They are not score-equivalent true-exam evidence by default.",
-    "objective_baseline": "content/english/modules/objective/synthetic-baseline.v1.json",
-    "translation_baseline": "content/english/modules/translation/synthetic-tasks.v1.json",
-    "writing_baseline": "content/english/modules/writing/synthetic-tasks.v1.json",
-    "generation_policy": "content/english/LEARNING_CONTRACT.md#4adynamic-practice-control-secure-floor-maintenance-and-elastic-upside"
+    "rule": "Baseline synthetic banks support calibration, one ordinary repair loop and independent transfer checks. They are not score-equivalent true-exam evidence by default.",
+    "evidence_role_policy": "CALIBRATION / TEACHING-REPAIR / TRANSFER / STRESS-EDGE are non-interchangeable. Exposure through teaching, explanation or answer review downgrades future evidence role; material identity never resets.",
+    "objective": {
+      "prompt_bank": "content/english/modules/objective/synthetic-baseline.v1.json",
+      "sealed_key": "content/english/modules/objective/synthetic-baseline-key.v1.json",
+      "inventory": {
+        "reading_a": "4 complete passages / 20 questions: 2 calibration + 2 transfer",
+        "cloze": "2 complete 20-blank sets: 1 calibration + 1 transfer",
+        "part_b": "8 complete sets: calibration + transfer for each of gap / ordering / heading / comment-statement"
+      }
+    },
+    "translation": {
+      "prompt_bank": "content/english/modules/translation/synthetic-tasks.v1.json",
+      "sealed_reference": "content/english/modules/translation/synthetic-tasks.reference.v1.json",
+      "inventory": "5 complete five-segment sections: 2 calibration + 2 transfer + 1 stress/edge"
+    },
+    "writing": {
+      "prompt_bank": "content/english/modules/writing/synthetic-tasks.v1.json",
+      "inventory": "4 complete Small + 6 complete Big prompts across calibration / transfer / maintenance / stress-edge"
+    },
+    "generation_policy": "content/english/LEARNING_CONTRACT.md#4adynamic-practice-control-secure-floor-maintenance-and-elastic-upside",
+    "targeted_generation_rule": "After real learner work exposes a concrete mechanism failure, add narrowly targeted material at the exact task owner; do not expand generic volume or create a second practice system."
   }
 }
