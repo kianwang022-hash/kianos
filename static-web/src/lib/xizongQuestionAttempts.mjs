@@ -87,6 +87,23 @@ export function deriveXizongQuestionIdsForCurrentRound(input, questions, holdout
   return allIds;
 }
 
+function reviewedRelationSnapshot(question) {
+  const relation = question?.relation;
+  if (!relation || relation.reviewStatus !== 'REVIEWED') return null;
+  return {
+    review_status: 'REVIEWED',
+    source_system_id: String(relation.sourceSystemId || ''),
+    system_id: String(relation.systemId || ''),
+    block_id: String(relation.blockId || ''),
+    target_status: String(relation.targetStatus || ''),
+    logic_group_id: String(relation.resolvedLogicGroupId || relation.logicGroupId || ''),
+    primary_canonical_kp_id: String(relation.primaryKpId || ''),
+    primary_runtime_kp_id: String(relation.primaryRuntimeKpId || ''),
+    supporting_canonical_kp_ids: [...new Set((Array.isArray(relation.supportingKpIds) ? relation.supportingKpIds : []).map(String).filter(Boolean))],
+    supporting_runtime_kp_ids: [...new Set((Array.isArray(relation.supportingRuntimeKpIds) ? relation.supportingRuntimeKpIds : []).map(String).filter(Boolean))]
+  };
+}
+
 function attemptEvent({
   question,
   result,
@@ -112,6 +129,10 @@ function attemptEvent({
     probe_kind: String(question?.probeKind || ''),
     target_kp_ids: [...new Set((Array.isArray(question?.targetKpIds) ? question.targetKpIds : []).map(String).filter(Boolean))],
     canonical_source_hash: String(question?.canonicalSourceHash || ''),
+    points_possible: Number.isFinite(Number(question?.points)) && Number(question?.points) > 0
+      ? Number(question.points)
+      : null,
+    reviewed_relation: reviewedRelationSnapshot(question),
     system_id: String(context?.systemId || ''),
     canonical_id: String(context?.canonicalId || ''),
     study_phase: round.studyPhase,
