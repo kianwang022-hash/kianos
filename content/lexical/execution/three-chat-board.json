@@ -279,17 +279,26 @@
           801,
           900
         ],
-        "state": "PAUSED_BY_KIAN_BEFORE_START",
+        "state": "REVIEW_BUNDLE_EXPORTING",
+        "review_head": "92f70d59e776db548dae118bd26fc15d8a133d12",
+        "review_branch": "work/lexical-final-backfill-c-o0801-o0900",
+        "review_request_commit": "3891762930c342adf2706739b67c74f340bb8419",
         "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
-        "next_action": "Wait for explicit Kian continue before starting o0801-o0900. No review bundle should be created yet.",
-        "allowed_now": [],
+        "allowed_now": [
+          "consume review bundle",
+          "fresh owner/module judgment",
+          "same-Chat Self-Adversarial Attack",
+          "write smallest stabilized proposal",
+          "gate only genuinely new material delta"
+        ],
         "forbidden_now": [
-          "start o0801-o0900 before explicit Kian continue",
           "canonical semantic materialization",
           "FLOB rebuild",
           "launch B audit",
-          "merge backfill candidate"
-        ]
+          "merge backfill candidate",
+          "invent a newer semantic standard"
+        ],
+        "next_action": "Wait for review bundle export, then perform o0801-o0900 Fresh Read + Self Attack."
       },
       "scheduled_ranges": [
         [
