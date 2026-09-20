@@ -10,8 +10,10 @@ export function initPoliticsReview(root) {
   const $ = s => root.querySelector(s), $$ = s => [...root.querySelectorAll(s)];
   const catalog = JSON.parse($('[data-review-catalog]').textContent), base = root.dataset.base || '/';
   const analysisSourceBindings = JSON.parse($('[data-analysis-source-bindings]')?.textContent || '[]');
+  const acceptedLegacyTasks = JSON.parse($('[data-analysis-legacy-tasks]')?.textContent || '[]');
   $('[data-review-catalog]').remove();
   $('[data-analysis-source-bindings]')?.remove();
+  $('[data-analysis-legacy-tasks]')?.remove();
   let filter = 'all';
   const today = () => new Date().toLocaleDateString('en-CA'); // Same study-day semantics as native Politics.
   const options = () => ({ day: today(), filter, subject: $('[data-review-subject]').value });
@@ -109,7 +111,10 @@ export function initPoliticsReview(root) {
     try {
       const parsed = JSON.parse(field?.value || '');
       if (parsed?.schema === POLITICS_ANALYSIS_EVIDENCE_SCHEMA) {
-        const result = applyPoliticsAnalysisEvidence(localStorage, parsed, { boundCurrentYearSources: analysisSourceBindings });
+        const result = applyPoliticsAnalysisEvidence(localStorage, parsed, {
+          boundCurrentYearSources: analysisSourceBindings,
+          acceptedLegacyTasks
+        });
         if (status) {
           const rubric = Object.entries(result.value.rubric || {})
             .filter(([, value]) => value !== 'NA')
