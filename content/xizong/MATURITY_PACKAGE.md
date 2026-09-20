@@ -2,7 +2,7 @@
 
 Status: **STAGE A ACTIVE · SCORE / SCOPE / MATERIAL TRUTH**  
 Parent cursor: `content/xizong/CONTENT_MAINLINE.md`  
-Subject requirement: Candidate `content/xizong/MATURITY_REQUIREMENTS.md`
+Subject requirement source: `work/exam-subject-maturity-standard-20260920@02d50a13fd2926ee631d7fd6f824fb927d8e96e0` → `content/xizong/MATURITY_REQUIREMENTS.md`
 
 Purpose:
 
