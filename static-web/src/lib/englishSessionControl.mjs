@@ -720,7 +720,13 @@ function readOptionalLedger(storage,key,rowsKey){
 }
 
 function recurrenceTimestamp(row){
-  for(const value of [row?.updatedAt,row?.reopenedAt,row?.closedAt,row?.createdAt,row?.admittedAt]){
+  for(const value of [
+    row?.updated_at,row?.updatedAt,
+    row?.reopened_at,row?.reopenedAt,
+    row?.closed_at,row?.closedAt,
+    row?.created_at,row?.createdAt,
+    row?.admitted_at,row?.admittedAt
+  ]){
     const ms=Date.parse(String(value||''));
     if(Number.isFinite(ms))return ms;
   }
