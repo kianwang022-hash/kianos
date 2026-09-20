@@ -163,12 +163,21 @@ export function buildXizongCrosswalkReviewQueue({ questionIds = [], limit = 50 }
       'old mapping_decision',
       'prior System/Block/LG/KP targets'
     ],
+    independent_analysis_contract: {
+      exam_target: 'what exact knowledge or decision the question tests',
+      decision_axis: 'the smallest decisive variable, distinction, or boundary',
+      answer_logic: 'minimal reasoning from Question Truth to the official answer',
+      distractor_boundary: 'only the distractor distinction that changes mapping or exposes an adjacent concept',
+      mapping_fit: 'why the chosen Current KP is the smallest sufficient owner of the tested knowledge',
+      uncertainty: 'fail closed when Current Knowledge does not safely own the tested detail'
+    },
     review_protocol: [
       'solve Question Truth independently',
-      'state provisional exam target and decision axis',
+      'state provisional exam target, decision axis, and minimal answer logic',
       'inspect exact Current Knowledge owner',
       'choose the smallest sufficient mapping target',
       'self-attack whether the chosen owner fully explains the question',
+      'record a concise independent mapping basis in review evidence',
       'optionally conflict-check old Explanation only after provisional mapping',
       'author REVIEWED relation only when exact-owner evidence is sufficient'
     ],
