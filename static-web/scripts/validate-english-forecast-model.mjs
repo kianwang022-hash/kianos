@@ -377,6 +377,92 @@ function fitRank(status){
   assert.equal(backtest.score.status,'INSUFFICIENT_BACKTEST');
 }
 
+// 16) A 30%-capacity day/week cannot look better than full capacity.
+{
+  const f=buildEnglishWorkloadForecast(baseInput());
+  const full=assessEnglishDeadlineFeasibility(f,{startDay:'2026-09-21',deadlineDay:'2026-10-05',dailyMinutes:120});
+  const thirty=assessEnglishDeadlineFeasibility(f,{startDay:'2026-09-21',deadlineDay:'2026-10-05',dailyMinutes:36});
+  assert.ok(fitRank(thirty.status)<=fitRank(full.status));
+}
+
+// 17) A bad three-day patch must reduce or preserve, never improve, capacity fit.
+{
+  const f=buildEnglishWorkloadForecast(baseInput());
+  const baseline=assessEnglishDeadlineFeasibility(f,{
+    startDay:'2026-09-21',
+    deadlineDay:'2026-10-05',
+    dailyMinutes:120
+  });
+  const badPatch=assessEnglishDeadlineFeasibility(f,{
+    startDay:'2026-09-21',
+    deadlineDay:'2026-10-05',
+    dailyMinutes:120,
+    capacityMinutesByDay:{
+      '2026-09-23':36,
+      '2026-09-24':36,
+      '2026-09-25':36
+    }
+  });
+  assert.ok(fitRank(badPatch.status)<=fitRank(baseline.status));
+  assert.ok(badPatch.capacity.minutes<baseline.capacity.minutes);
+}
+
+// 18) Repair explosion must increase workload rather than disappear into an average.
+{
+  const normal=baseInput();
+  const stressed=clone(normal);
+  stressed.task_families.translation.work_buckets.push({
+    id:'repair_cluster',
+    required:true,
+    unit_label:'repair cluster',
+    remaining_units:8,
+    minutes_per_unit_samples:[14,16,15,17,15]
+  });
+  const a=buildEnglishWorkloadForecast(normal).workload.full_band_minutes;
+  const b=buildEnglishWorkloadForecast(stressed).workload.full_band_minutes;
+  for(const key of ['p20','p50','p80'])assert.ok(b[key]>a[key],key+' did not increase under repair explosion');
+}
+
+// 19) Relapse/reopen must add work back after a previously zero-work stable family.
+{
+  const stable=baseInput();
+  stable.task_families.lexical={label:'Lexical',scope_complete:true,operating_mode:'MAINTAIN',work_buckets:[]};
+  const reopened=clone(stable);
+  reopened.task_families.lexical={
+    label:'Lexical',
+    scope_complete:true,
+    operating_mode:'VERIFY',
+    open_mechanisms:['delayed-retention-relapse'],
+    work_buckets:[{
+      id:'relapse_verify',
+      required:true,
+      unit_label:'verification block',
+      remaining_units:2,
+      minutes_per_unit_samples:[15,16,17,15,16]
+    }]
+  };
+  const a=buildEnglishWorkloadForecast(stable).workload.full_band_minutes;
+  const b=buildEnglishWorkloadForecast(reopened).workload.full_band_minutes;
+  assert.ok(b.p50>a.p50);
+}
+
+// 20) A future/new material requirement with unknown workload must make whole scope unpriced, not get stacked as zero.
+{
+  const input=baseInput();
+  input.task_families.writing_big.work_buckets.push({
+    id:'future_source_delta',
+    required:true,
+    unit_label:'future source delta',
+    remaining_units:null,
+    minutes_per_unit_samples:[]
+  });
+  const f=buildEnglishWorkloadForecast(input);
+  assert.equal(f.workload.full_scope_priced,false);
+  assert.equal(f.workload.full_band_minutes,null);
+  assert.ok(f.workload.unpriced_bucket_ids.includes('writing_big:future_source_delta'));
+  assert.ok(f.uncertainty.includes('WORKLOAD_SCOPE_PARTIALLY_UNPRICED'));
+}
+
 console.log(JSON.stringify({
   schema:'kianos.english.forecast-system-logic-validation.v1',
   status:'PASS',
@@ -397,6 +483,11 @@ console.log(JSON.stringify({
     reproducible_grid_stress:true,
     forecast_backtest_is_falsifiable:true,
     thin_backtest_does_not_claim_calibration:true,
+    thirty_percent_capacity_degrades_safely:true,
+    bad_three_day_patch_degrades_safely:true,
+    repair_explosion_is_priced:true,
+    relapse_reopens_workload:true,
+    future_source_unknown_remains_unpriced:true,
     no_daily_task_or_cross_subject_authority:true
   }
 },null,2));
