@@ -267,7 +267,7 @@ Status:
 
 ## S2-T4 — Analysis evidence ladder
 Status:
-- **ACTIVE — reuse existing Politics private evidence/checkpoint; no second learner ledger**
+- **IMPLEMENTED CANDIDATE — typed Analysis events reuse existing Politics evidence ledger; bounded profile enters Daily Packet; existing Review import accepts Analysis batches; checkpoint/restart browser proof pending**
 
 Implement evidence states for:
 - first IDENTIFY;
