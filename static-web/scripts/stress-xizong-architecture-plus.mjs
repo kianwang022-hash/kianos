@@ -259,6 +259,8 @@ const probeRaw = {
     decision_axis: 'Decisive condition',
     reasoning_chain: ['Identify condition', 'Run mechanism'],
     correct_option_reason: 'Bound to current owner',
+    valuable_distractors: [{ option: 'B', reason: 'Confuses the unchanged baseline with the changed decisive condition' }],
+    common_failure_node: 'Memorizes the original wording instead of recomputing after the condition changes',
     transfer_rule: 'Recompute, do not memorize wording'
   }
 };
