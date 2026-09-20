@@ -44,3 +44,19 @@ jobs:
       - name: Build Current site
         working-directory: static-web
         run: npm run build
+      - name: Install isolated browser acceptance tool
+        working-directory: static-web
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Execute B shared Runtime journey
+        working-directory: static-web
+        run: node scripts/test-xizong-b-runtime-journey.mjs
+      - name: Upload B Runtime evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xizong-b-runtime-${{ github.sha }}
+          path: static-web/.qa/xizong-b-runtime-journey.json
+          if-no-files-found: warn
+          retention-days: 14
