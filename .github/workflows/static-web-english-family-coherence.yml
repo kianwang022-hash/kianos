@@ -150,6 +150,9 @@ jobs:
       - name: Execute English family coherence journey
         working-directory: static-web
         run: node scripts/test-english-family-coherence.mjs
+      - name: Execute English synthetic baseline browser journey
+        working-directory: static-web
+        run: node scripts/test-english-synthetic-baseline-browser.mjs
       - name: Execute English full-paper browser journey
         working-directory: static-web
         run: node scripts/test-english-exam-session-browser.mjs
@@ -166,6 +169,7 @@ jobs:
           name: english-family-coherence-${{ github.sha }}
           path: |
             english-family-audit/
+            english-synthetic-audit/
             english-language-audit/
             english-exam-audit/
           retention-days: 14
