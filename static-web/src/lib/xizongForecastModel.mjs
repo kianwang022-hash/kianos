@@ -647,6 +647,105 @@ export function buildXizongScoreReadiness(progress, {
   };
 }
 
+export function classifyXizongMaterialGaps(gaps = []) {
+  const rows = (Array.isArray(gaps) ? gaps : []).map((row, index) => {
+    const type = String(row?.type || row?.kind || 'UNSPECIFIED').toUpperCase();
+    const severity = String(row?.severity || '').toUpperCase()
+      || (type === 'HARD_COVERAGE_GAP' ? 'HARD' : 'BOUNDED');
+    const blocksCoverage = type === 'HARD_COVERAGE_GAP';
+    const blocksForecast = ['HARD_COVERAGE_GAP','ROUTING_FORECAST_GAP','CURRENT_YEAR_DELTA_GAP'].includes(type)
+      && row?.resolved !== true;
+    return {
+      id: String(row?.id || `gap-${index + 1}`),
+      type,
+      severity,
+      resolved: row?.resolved === true,
+      points_at_risk: finite(row?.points_at_risk),
+      workload_minutes: finite(row?.workload_minutes),
+      blocks_coverage_readiness: blocksCoverage && row?.resolved !== true,
+      blocks_full_forecast: blocksForecast,
+      note: String(row?.note || '')
+    };
+  });
+  const unresolved = rows.filter((row) => !row.resolved);
+  return {
+    schema: 'kianos.xizong.material-gap-audit.v1',
+    gaps: rows,
+    unresolved_gap_ids: unresolved.map((row) => row.id),
+    hard_coverage_gap_ids: unresolved.filter((row) => row.blocks_coverage_readiness).map((row) => row.id),
+    forecast_gap_ids: unresolved.filter((row) => row.blocks_full_forecast).map((row) => row.id),
+    current_year_delta_gap_ids: unresolved.filter((row) => row.type === 'CURRENT_YEAR_DELTA_GAP').map((row) => row.id),
+    routing_gap_ids: unresolved.filter((row) => row.type === 'ROUTING_FORECAST_GAP').map((row) => row.id),
+    optional_delta_gap_ids: unresolved.filter((row) => row.type === 'OPTIONAL_DELTA_GAP').map((row) => row.id),
+    coverage_ready: unresolved.every((row) => !row.blocks_coverage_readiness),
+    full_forecast_material_ready: unresolved.every((row) => !row.blocks_full_forecast),
+    boundary:
+      'Coverage gaps, current-year deltas, routing gaps and optional deltas are distinct. Routing uncertainty never implies missing medical knowledge, and optional material is not debt until admitted.'
+  };
+}
+
+export function buildXizongForecastLoop(progress, {
+  targetScore = 275,
+  contaminationStatus = 'UNKNOWN',
+  materialGaps = [],
+  wrongUncertainRate = null,
+  dailyMinutes = null,
+  startDay = null,
+  capacityMinutesByDay = null,
+  materialItems = null
+} = {}) {
+  if (!progress || progress.schema !== 'kianos.xizong.forecast-progress.v1') {
+    throw new Error('XIZONG_FORECAST_PROGRESS_REQUIRED');
+  }
+  const materials = classifyXizongMaterialGaps(materialGaps);
+  const workload = buildXizongWorkloadForecast(progress, { wrongUncertainRate });
+  const score = buildXizongScoreReadiness(progress, {
+    targetScore,
+    contaminationStatus,
+    materialGaps: materials.gaps.map((row) => ({
+      ...row,
+      severity: row.blocks_coverage_readiness ? 'HARD' : row.severity
+    }))
+  });
+  const scenario = applyXizongForecastScenario(workload, {
+    dailyMinutes,
+    startDay,
+    capacityMinutesByDay,
+    materialItems
+  });
+
+  const uncertainty = [];
+  if (!materials.coverage_ready) uncertainty.push('HARD_MATERIAL_COVERAGE_INCOMPLETE');
+  if (!materials.full_forecast_material_ready) uncertainty.push('MATERIAL_OR_ROUTING_SCOPE_UNPRICED');
+  if (workload.first_round.status !== 'FULLY_PRICED') uncertainty.push('FIRST_ROUND_WORKLOAD_PARTIAL');
+  if (workload.score_formation.status !== 'FULLY_PRICED') uncertainty.push('SCORE_FORMATION_WORKLOAD_PARTIAL');
+  if (!score.gate_readiness.formal_score_evidence_ready) uncertainty.push('FORMAL_SCORE_EVIDENCE_MISSING');
+  if (!score.gate_readiness.score_extrapolation_ready && score.gate_readiness.formal_score_evidence_ready) {
+    uncertainty.push('SCORE_EXTRAPOLATION_LOW_CONFIDENCE');
+  }
+  if (scenario.first_round.status === 'UNPRICED') uncertainty.push('CAPACITY_OR_MATERIAL_SCENARIO_UNPRICED');
+
+  let maturity = 'DEFENSIBLE_ESTIMATE';
+  if (!materials.coverage_ready) maturity = 'COVERAGE_INCOMPLETE';
+  else if (workload.first_round.status !== 'FULLY_PRICED') maturity = 'WORKLOAD_PARTIAL';
+  else if (!score.gate_readiness.formal_score_evidence_ready) maturity = 'SCORE_EVIDENCE_MISSING';
+  else if (!score.gate_readiness.score_extrapolation_ready) maturity = 'SCORE_LOW_CONFIDENCE';
+  else if (workload.score_formation.status !== 'FULLY_PRICED') maturity = 'SCORE_FORMATION_PARTIAL';
+
+  return {
+    schema: 'kianos.xizong.forecast-loop.v1',
+    target: buildXizongHighScoreRequirement({ targetScore }),
+    materials,
+    workload,
+    score,
+    scenario,
+    uncertainty: [...new Set(uncertainty)],
+    maturity,
+    loop_boundary:
+      'This loop diagnoses readiness and forecast uncertainty. It does not allocate cross-subject time, choose the next subject, or convert coverage completion into score truth.'
+  };
+}
+
 export function reconcileXizongMaterialIncrement(items = []) {
   const rows = (Array.isArray(items) ? items : []).map((row, index) => {
     const gross = finite(row?.gross_minutes);
