@@ -1,6 +1,6 @@
 # Politics Highest-Maturity Stage Plan
 
-Status: **ACTIVE POLITICS MATURITY OWNER · BROAD ENGINEERING STOP**
+Status: **ACTIVE POLITICS MATURITY OWNER · MOTHER-STANDARD CLOSURE ACTIVE**
 Parent acceptance bar: `EXAM_SUBJECT_MATURITY_STANDARD.md`
 Politics acceptance bar: `MATURITY_REQUIREMENTS.md`
 Active owner: PR #638 · `work/politics-later-readiness-20260920`
@@ -25,14 +25,21 @@ The shared maturity candidate is not a Politics continuation branch.
 
 ## Current truth
 
+The single result package is `MATURITY_PACKAGE.md`.
+
 ```text
-T1 Objective reconciliation       CLOSED
-T2 Early Objective Forecast       CURRENT-SOURCE BUILD CLOSED
-                                  clean score calibration EVIDENCE-GATED
-T3 Analysis foundation/evidence   CLOSED at pre-current-year boundary
-T4 Future Source ingress prep     CLOSED
-T5+                               SOURCE / REAL-U / EVIDENCE GATED
+M0 ownership correction                         DONE
+M1 maturity package                             DONE
+M2 stale-state reconciliation                   ACTIVE
+M3 Analysis-bank machine proof                  ACTIVE
+M4 Forecast adversarial / decision-flip proof   ACTIVE
+M5 lifecycle + Fresh Chat / No-Website proof    PENDING
+M6 SYSTEM_LOGIC_ACCEPTED                        PENDING
+M7 KIAN_SPECIFIC_CALIBRATED                     REAL-U GATED
+M8 current-year annual sources                  SOURCE GATED
 ```
+
+Earlier T1–T4 artifacts remain useful exact owners, but they no longer justify a broad STOP by themselves.
 
 ### T1 — Objective reconciliation
 
@@ -105,15 +112,21 @@ Real current-year Source must be bound before annual exact wording or current-af
 
 ## What happens now
 
-The next broad input is learner evidence, not another maturity architecture stage:
+Two lanes run in parallel without creating a second system:
 
 ```text
-real Politics study
+engineering
+→ close M2–M5 proof gaps
+→ issue SYSTEM_LOGIC_ACCEPTED verdict
+
+real study
 → NU / Xiao1000 / Review / Memory / Analysis evidence
 → Real Learner U
 → Forecast recalibration
 → smallest responsible repair only
 ```
+
+The engineering lane stops once only Source/Real-U/authentic-modality unknowns remain.
 
 ## Reopen engineering only when
 
