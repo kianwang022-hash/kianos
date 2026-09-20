@@ -204,7 +204,8 @@
       ],
       "guardrail": "length deficit should matter without erasing otherwise successful task fulfillment",
       "expected_uncertainty": "MATERIAL",
-      "requires_independent_rescore": true
+      "requires_independent_rescore": true,
+      "calibration_axis": "length_deficit"
     },
     "ps-bw-006": {
       "channel": "writing_big",
@@ -218,7 +219,8 @@
       ],
       "guardrail": "under-length delivery should reduce/widen the range without being double-counted as a second content failure",
       "expected_uncertainty": "MATERIAL",
-      "requires_independent_rescore": true
+      "requires_independent_rescore": true,
+      "calibration_axis": "length_deficit"
     },
     "ps-tr-006": {
       "channel": "translation",
@@ -235,7 +237,8 @@
       "guardrail": "whole-section aggregation must remain conservative and must not invent exact micro-points",
       "must_not_penalize": [
         "surface wording differs from stored reference"
-      ]
+      ],
+      "calibration_axis": "complete_section_reference"
     },
     "ps-tr-007": {
       "channel": "translation",
@@ -250,7 +253,8 @@
         "otherwise readable Chinese"
       ],
       "guardrail": "one fluent but materially wrong segment must remain visible in the 10-point section range and should trigger independent re-score when the range is wide",
-      "requires_independent_rescore": true
+      "requires_independent_rescore": true,
+      "calibration_axis": "complete_section_single_material_error"
     }
   },
   "pairwise_invariants": [
