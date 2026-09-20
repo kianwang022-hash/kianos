@@ -27,9 +27,11 @@ const batch = {
       schema: POLITICS_ANALYSIS_EVIDENCE_SCHEMA,
       event_id: 'ao-e1',
       task_id: 'POL-AO-001',
-      task_revision: 'bank-r3',
+      task_revision: 'bank-r4',
       attempt_id: 'attempt-1',
       source_basis: 'MARX-C01-OUT-LAW-INITIATIVE',
+      material_identity: 'fnv1a64-utf16:mat-a',
+      material_family_id: 'source-family:MARX-C01-OUT-LAW-INITIATIVE',
       current_year_status: 'STABLE_STRUCTURE',
       study_day: day,
       observed_at: '2026-09-20T01:30:00.000Z',
@@ -42,9 +44,11 @@ const batch = {
       schema: POLITICS_ANALYSIS_EVIDENCE_SCHEMA,
       event_id: 'ao-e2',
       task_id: 'POL-AO-043',
-      task_revision: 'bank-r3',
+      task_revision: 'bank-r4',
       attempt_id: 'attempt-2',
       source_basis: 'MARX-C02-OUT-CONTRADICTION',
+      material_identity: 'fnv1a64-utf16:mat-b',
+      material_family_id: 'source-family:MARX-C02-OUT-CONTRADICTION',
       current_year_status: 'STABLE_STRUCTURE',
       study_day: day,
       observed_at: '2026-09-20T01:40:00.000Z',
@@ -96,4 +100,84 @@ const staleDay = structuredClone(batch);
 staleDay.study_day = '2026-09-19';
 assert.throws(() => validatePoliticsAnalysisEvidenceBatch(staleDay, { expectedDay: day }), /DAY_MISMATCH/);
 
-console.log('PASS Politics Analysis evidence: shared ledger, identity, replay/conflict, bounded profile, no score/scheduler');
+const legacy = structuredClone(batch);
+legacy.events = [structuredClone(batch.events[0])];
+legacy.events[0].event_id = 'legacy-e1';
+legacy.events[0].task_revision = 'bank-r3';
+delete legacy.events[0].material_identity;
+delete legacy.events[0].material_family_id;
+legacy.events[0].exposure_state = 'FRESH';
+const normalizedLegacy = validatePoliticsAnalysisEvidenceBatch(legacy);
+assert.equal(normalizedLegacy.events[0].exposure_state, 'UNKNOWN');
+assert.equal(normalizedLegacy.events[0].material_identity_status, 'LEGACY_MATERIAL_IDENTITY_UNAVAILABLE');
+
+const freshBase = {
+  schema: POLITICS_ANALYSIS_BATCH_SCHEMA,
+  study_day: day,
+  generated_at: '2026-09-20T03:00:00.000Z',
+  events: [{
+    schema: POLITICS_ANALYSIS_EVIDENCE_SCHEMA,
+    event_id: 'fresh-base',
+    task_id: 'POL-AO-X1',
+    task_revision: 'bank-r4',
+    attempt_id: 'fresh-attempt-1',
+    source_basis: 'MARX-C02-OUT-CONTRADICTION',
+    material_identity: 'fnv1a64-utf16:exact-1',
+    material_family_id: 'source-family:MARX-C02-OUT-CONTRADICTION',
+    current_year_status: 'STABLE_STRUCTURE',
+    study_day: day,
+    observed_at: '2026-09-20T02:30:00.000Z',
+    requested_depth: 'IDENTIFY',
+    exposure_state: 'FRESH',
+    ratings: { D1: 2 },
+    rater: 'CHAT'
+  }]
+};
+const freshnessStorage = new MemoryStorage();
+applyPoliticsAnalysisEvidenceBatch(freshnessStorage, freshBase, { expectedDay: day, evidenceKey });
+
+const exactReuse = structuredClone(freshBase);
+exactReuse.generated_at = '2026-09-20T03:10:00.000Z';
+exactReuse.events[0].event_id = 'fresh-exact-reuse';
+exactReuse.events[0].task_id = 'POL-AO-X2';
+exactReuse.events[0].attempt_id = 'fresh-attempt-2';
+exactReuse.events[0].observed_at = '2026-09-20T02:40:00.000Z';
+assert.throws(
+  () => applyPoliticsAnalysisEvidenceBatch(freshnessStorage, exactReuse, { expectedDay: day, evidenceKey }),
+  /FRESH_EXACT_MATERIAL_REUSED/
+);
+
+const familyReuse = structuredClone(exactReuse);
+familyReuse.events[0].event_id = 'fresh-family-reuse';
+familyReuse.events[0].task_id = 'POL-AO-X3';
+familyReuse.events[0].attempt_id = 'fresh-attempt-3';
+familyReuse.events[0].material_identity = 'fnv1a64-utf16:exact-2';
+assert.throws(
+  () => applyPoliticsAnalysisEvidenceBatch(freshnessStorage, familyReuse, { expectedDay: day, evidenceKey }),
+  /FRESH_MATERIAL_FAMILY_EXPOSED/
+);
+
+const changedContext = structuredClone(familyReuse);
+changedContext.events[0].event_id = 'changed-context-ok';
+changedContext.events[0].task_id = 'POL-AO-X4';
+changedContext.events[0].attempt_id = 'fresh-attempt-4';
+changedContext.events[0].material_identity = 'fnv1a64-utf16:exact-3';
+changedContext.events[0].exposure_state = 'CHANGED_CONTEXT';
+const changedResult = applyPoliticsAnalysisEvidenceBatch(freshnessStorage, changedContext, { expectedDay: day, evidenceKey });
+assert.equal(changedResult.appended, 1);
+
+const changedSameExact = structuredClone(changedContext);
+changedSameExact.events[0].event_id = 'changed-context-bad';
+changedSameExact.events[0].task_id = 'POL-AO-X5';
+changedSameExact.events[0].attempt_id = 'fresh-attempt-5';
+assert.throws(
+  () => applyPoliticsAnalysisEvidenceBatch(freshnessStorage, changedSameExact, { expectedDay: day, evidenceKey }),
+  /CHANGED_CONTEXT_EXACT_MATERIAL_REUSED/
+);
+
+const profileWithIdentity = buildPoliticsAnalysisEvidenceProfile(JSON.parse(freshnessStorage.getItem(evidenceKey)));
+assert.equal(profileWithIdentity.summary.current_task_revisions_with_evidence, 2);
+assert.equal(profileWithIdentity.recent_events.at(-1).material_identity, 'fnv1a64-utf16:exact-3');
+assert.match(profileWithIdentity.boundary.join(' '), /FRESH_REQUIRES_UNSEEN_EXACT_MATERIAL/);
+
+console.log('PASS Politics Analysis evidence: shared ledger, revision/material identity, exact/family freshness gates, changed-context gate, legacy downgrade, replay/conflict, bounded profile, no score/scheduler');
