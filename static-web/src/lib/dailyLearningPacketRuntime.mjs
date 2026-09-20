@@ -7,7 +7,10 @@ import {
   politicsDailyEvidencePacket,
   readPoliticsSnapshot
 } from './politicsPracticeState.mjs';
-import { buildXizongStudyPacketFromStorage } from './xizongStudyPacket.mjs';
+import {
+  buildXizongForecastProgress,
+  buildXizongStudyPacketFromStorage
+} from './xizongStudyPacket.mjs';
 import { politicsMemoryDailyEvidence } from './politicsMemoryRuntime.mjs';
 
 const record = (value) => value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -101,6 +104,7 @@ export function buildHomeDailyLearningPacket({
         now
       });
       if (xizong) {
+        xizong.forecast_progress = buildXizongForecastProgress(storage, xizongPacketIndex);
         packet = attachDailySubjectPacket(packet, 'xizong', xizong);
         coverage.xizong = 'attached';
       }
