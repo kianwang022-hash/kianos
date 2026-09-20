@@ -122,9 +122,12 @@ Verdict:
 ```text
 historical executable-resolver candidate = 326
 bounded Current owner exclusions          = 38
-Current exact C scope                     = 289
+base repaired C scope                     = 288
++ D→C RA owner transfer                   = 1
++ F→C transplant owner transfer           = 1
+Current exact C scope                     = 290
 year range                                = 2005–2026
-inventory SHA256                          = 3c04968c9fb88b216c15f249a95ac8ea985ebd6f9166ae59b57a27c61ff0287b
+inventory SHA256                          = 4dc16a032d2833f7b285a68b38e7020e111fba04c67a3b873e8b3238f30db009
 unresolved membership ambiguity           = 0
 ```
 
@@ -148,10 +151,29 @@ Current D O15 explicitly keeps RA immune/medical Primary in C/H17 and owns only 
 Therefore:
 
 ```text
-C previous Current scope = 288
+C base repaired scope = 288
 RA Primary transferred D → C = +1
-C corrected Current scope = 289
+C scope after D repair = 289
 cross-System D/C overlap after transfer = 0
+```
+
+This is an owner correction, not count fitting.
+
+## 5B｜Cross-System owner repair after F audit
+
+Fresh F exact-scope reconstruction found one historical `其它外科总论` route that Current F9 explicitly does **not** own as medical Primary:
+
+`xizong-official-2018-n058`
+
+It tests pre-existing donor-specific antibody causing hyperacute rejection. Current F9 routes transplant material to **H14 Recall** and keeps transplant Primary external. Current C H14 is the accepted immune/transplant owner.
+
+Therefore:
+
+```text
+C scope after D repair = 289
+hyperacute-rejection Primary transferred F → C = +1
+C corrected Current scope = 290
+cross-System F/C overlap after transfer = 0
 ```
 
 This is an owner correction, not count fitting.
@@ -184,7 +206,7 @@ No learner attempt, mastery, W/U, Memory, holdout or review state is stored here
 
 ```text
 C exact official System-question scope = PASS_AFTER_BOUNDED_REPAIR
-Current qids = 289
+Current qids = 290
 ```
 
 C K/L remain accepted. C Projection remains its separate eligible / not-started stage.
