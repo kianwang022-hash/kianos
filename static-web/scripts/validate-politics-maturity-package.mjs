@@ -16,76 +16,93 @@ const analysis = read('content/politics/analysis-output/README.md');
 const scoring = read('content/politics/analysis-output/SCORING_RUBRIC.md');
 const ingestion = read('content/politics/later-stage/INGESTION_RULES.md');
 const mock = read('content/politics/mock-final/README.md');
+const causal = read('content/politics/CAUSAL_REPAIR_POLICY.md');
+const auditBrief = read('content/politics/MATURITY_FRESH_INDEPENDENT_AUDIT_BRIEF.md');
+const orchestrator = read('EXAM_ORCHESTRATOR_CONTRACT.md');
 
 assert.ok(current.includes('ACTIVE OWNER #638'));
 assert.ok(current.includes('work/politics-later-readiness-20260920'));
-assert.ok(current.includes('MATURITY_STAGE_PLAN.md'));
-assert.ok(current.includes('MATURITY_PACKAGE.md'));
+assert.ok(current.includes('FRESH INDEPENDENT'));
+assert.ok(current.includes('BLOCKED ON M7'));
+assert.ok(stage.includes('FREEZE CANDIDATE'));
+assert.ok(stage.includes('Fresh Independent / Anti-Anchored'));
 assert.ok(stage.toLowerCase().includes('single result package is `maturity_package.md`'));
 
-const crosswalkRows = [...pkg.matchAll(/^\|\s*(\d+)\s*\|/gm)].map((m) => Number(m[1]));
-assert.deepEqual(crosswalkRows, Array.from({ length: 29 }, (_, i) => i + 1), 'mother-standard crosswalk must cover 1-29 exactly once');
+assert.ok(pkg.includes('FREEZE CANDIDATE'));
+assert.ok(pkg.includes('BUILDER_CLOSURE_COMPLETE'));
+assert.ok(pkg.includes('FRESH INDEPENDENT AUDIT REQUIRED'));
+assert.equal(pkg.includes('SYSTEM_LOGIC_ACCEPTED: **YES**'), false,
+  'Builder package may not self-certify SYSTEM_LOGIC_ACCEPTED before shared §23 Fresh Audit');
 
-for (const section of [
-  'Score → Ability → Material → Method → Evidence',
-  'Full Material Inventory',
-  'Dynamic Control',
-  'Forecast',
-  'Adversarial / Lifecycle',
-  'Chat ↔ Website Proof',
-  'Future Source Readiness',
-  'Real Learner U',
-  'Remaining Unknowns'
-]) {
-  assert.ok(pkg.includes(section), 'missing maturity-package section: ' + section);
-}
+const crosswalkStart = pkg.indexOf('## 10. Mother-standard crosswalk');
+const acceptanceStart = pkg.indexOf('### Required subject-level acceptance package');
+const ledgerStart = pkg.indexOf('## 11. Execution ledger');
+assert.ok(crosswalkStart >= 0 && acceptanceStart > crosswalkStart && ledgerStart > acceptanceStart);
 
-for (const token of [
-  'SYSTEM_LOGIC_ACCEPTED',
-  'KIAN_SPECIFIC_CALIBRATED',
-  'CURRENT_YEAR_SOURCE_READY'
-]) {
-  assert.ok(pkg.includes(token), 'missing truth-boundary token: ' + token);
-}
+const crosswalk = pkg.slice(crosswalkStart, acceptanceStart);
+const rows = [...crosswalk.matchAll(/^\|\s*(\d+)\s*\|\s*([^|]+?)\s*\|/gm)]
+  .map((m) => ({ n: Number(m[1]), name: m[2].trim() }));
+assert.deepEqual(rows.map((r) => r.n), Array.from({ length: 29 }, (_, i) => i),
+  'mother-standard crosswalk must cover the actual §0–§28 exactly once');
 
-for (const scenario of [
-  'first day',
-  'normal week',
-  'learner 30% slower',
-  'only 30% normal capacity',
-  'three bad days / bad week',
-  'W/U explosion',
-  'Repair compression worsens',
-  'Memory explodes / relapses',
-  'Future Source late',
-  'Future Source partial',
-  'Future Source v2 replaces v1',
-  'learner progress newer than copied plan',
-  'browser restart',
-  'checkpoint corrupt',
-  'timer missing',
-  'partial evidence',
-  'stable module still receives heavy Build',
-  'Chat falsely declares Secure',
-  'same/exposed task presented as fresh',
-  'old annual wording presented as Current',
-  'full paper / handwriting'
-]) {
-  assert.ok(report.toLowerCase().includes(scenario.toLowerCase()), 'lifecycle scenario missing: ' + scenario);
-}
+const expectedNames = [
+  'Score closure',
+  'Ability closure',
+  'Material closure',
+  'Method closure',
+  'Evidence closure',
+  'Forecast closure',
+  'Dynamic control closure',
+  'Future-source lifecycle closure',
+  'Execution / transport closure',
+  'Adversarial / failure closure',
+  'Attention-cost closure',
+  'Ownership / maintainability closure',
+  'Fresh-Chat / no-Website falsification',
+  'Real learner U closure',
+  'Target authority / score semantics',
+  'Construct coverage / negative space',
+  'Measurement / scoring validity',
+  'Decision quality / semantic safety',
+  'Evidence observability / revision / material identity',
+  'Adaptive generated-asset lifecycle',
+  'Value of information / latency / latest useful date',
+  'Future-source failure / supersession / rollback',
+  'Concurrent state / bounded context',
+  'Independent anti-anchored audit',
+  'Adversarial methodology',
+  'Causal repair / discrimination',
+  'Subject specificity / anti-homogenization',
+  'Stop rule',
+  'Cross-subject composition / joint feasibility'
+];
+assert.deepEqual(rows.map((r) => r.name), expectedNames,
+  'crosswalk labels must match the shared mother-standard sections rather than a local renumbering');
+assert.match(crosswalk, /\| 23 \| Independent anti-anchored audit \| \*\*OPEN — HARD FREEZE BLOCKER\*\*/);
+assert.match(crosswalk, /\| 28 \| Cross-subject composition \/ joint feasibility \| \*\*SHARED OWNER GATE/);
 
-for (const phrase of ['Fresh Chat attack','No-Website attack','False Secure','False Unstable','Authentic modality']) {
-  assert.ok(report.includes(phrase), 'adversarial section missing: ' + phrase);
-}
+const acceptance = pkg.slice(acceptanceStart, ledgerStart);
+const acceptanceRows = [...acceptance.matchAll(/^\|\s*(\d+)\s*\|/gm)].map((m) => Number(m[1]));
+assert.deepEqual(acceptanceRows, Array.from({ length: 12 }, (_, i) => i + 1),
+  'required subject-level acceptance package must cover items 1–12 exactly once');
+assert.match(acceptance, /\| 9 \| Fresh Independent Anti-Anchored Audit result \| \*\*MISSING — FREEZE BLOCKER\*\*/);
+
+assert.ok(orchestrator.includes('Total      425+'));
+assert.ok(orchestrator.includes('Politics    70+'));
+assert.ok(matrix.includes('Canonical target authority'));
+assert.ok(matrix.includes('EXAM_ORCHESTRATOR_CONTRACT.md'));
+assert.ok(matrix.includes('protect floor'));
+assert.ok(matrix.includes('elastic upside'));
+assert.ok(matrix.includes('Push 75'));
 
 for (const state of ['REACTIVATE','BUILD','VERIFY','STABILIZE','MAINTAIN','ELASTIC']) {
   assert.ok(matrix.includes(state), 'dynamic-control state missing: ' + state);
 }
-assert.ok(matrix.includes('Protect-70'));
-assert.ok(matrix.includes('Push-75'));
 
 assert.ok(/104[- ]task/i.test(inventory));
-assert.ok(inventory.toLowerCase().includes('current-year exact'));
+assert.ok(inventory.includes('SYSTEM MATERIAL READY / FINAL PERFORMANCE EVIDENCE GATED'));
+assert.equal(inventory.includes('yes after revalidation'), false, 'stale generated-bank revalidation wording remains');
+assert.equal(inventory.includes('Main material blockers:'), false, 'already-repaired material blockers remain stale');
 assert.ok(scoring.toLowerCase().includes('not a precise exam-score converter'));
 
 assert.ok(
@@ -94,6 +111,29 @@ assert.ok(
 );
 assert.ok(forecast.includes('Forecast may not tell the learner'));
 assert.ok(forecast.includes('P20/P50/P80'));
+
+assert.ok(report.includes('BUILDER ADVERSARIAL CLOSURE COMPLETE'));
+assert.ok(report.includes('5,832 combinations'));
+assert.ok(report.includes('decision flip'));
+assert.ok(report.toLowerCase().includes('metamorphic'));
+assert.ok(report.includes('Fresh Chat attack'));
+assert.ok(report.includes('No-Website attack'));
+assert.ok(report.includes('False Secure'));
+assert.ok(report.includes('False Unstable'));
+assert.ok(report.includes('Authentic modality'));
+
+assert.ok(causal.includes('Observation is not diagnosis'));
+assert.ok(causal.includes('Smallest discriminating check'));
+assert.ok(causal.includes('same-item improvement proves Repair understanding at most'));
+assert.ok(causal.includes('observation != cause != Repair != stable capability'));
+
+assert.ok(auditBrief.includes('INVALID — blind audit contaminated'));
+assert.ok(auditBrief.includes('candidate_head'));
+assert.ok(auditBrief.includes('§0–§28'));
+assert.ok(auditBrief.includes('all-green-but-real-fail'));
+assert.ok(auditBrief.includes('over-conservative-all-green'));
+assert.ok(auditBrief.includes('do **not** read'));
+assert.ok(auditBrief.includes('MATURITY_PACKAGE.md'));
 
 assert.ok(
   analysis.includes('No Website requirement')
@@ -110,14 +150,4 @@ assert.ok(
   || ingestion.toLowerCase().includes('v2')
 );
 
-for (const forbidden of [
-  'MATERIAL BANK INCOMPLETE',
-  'MATERIAL + EVIDENCE GAP',
-  'MATERIAL GAP',
-  'MISSING / HIGH PRIORITY',
-  'CANDIDATE / SENSOR+STRESS PROOF PENDING'
-]) {
-  assert.equal(matrix.includes(forbidden) || inventory.includes(forbidden), false, 'stale maturity status remains: ' + forbidden);
-}
-
-console.log('PASS Politics maturity package: mother-standard 1-29 coverage, single restart, lifecycle matrix, Fresh Chat, No-Website, dynamic control, Forecast boundaries, source lifecycle, stale-status cleanup.');
+console.log('PASS Politics freeze candidate package: actual mother-standard §0–§28 crosswalk, canonical target authority, repaired material truth, causal Repair owner, adversarial methodology, and hard Fresh Independent freeze gate.');
