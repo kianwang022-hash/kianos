@@ -140,7 +140,9 @@ assert.equal(generated.by_training_target['reading_scope_transfer'].independent_
 console.log(JSON.stringify({
   status:'PASS',
   official_objects:evidence.forecast_materials.official_exam.registered_objects,
+  official_by_task:Object.fromEntries(Object.entries(evidence.forecast_materials.official_exam.by_task).map(([task,row])=>[task,row.registered_objects])),
   whole_papers:evidence.forecast_materials.official_exam.whole_papers.length,
+  external_registered:evidence.forecast_materials.external_reading.registered_objects,
   official_exposure:{exposed:sum('exposed'),explicit_unseen:sum('explicit_unseen'),unknown:sum('unknown')},
   generated_drill:generated,
   boundary:'unknown-never-means-unseen; generated-drill-never-means-true-paper'
