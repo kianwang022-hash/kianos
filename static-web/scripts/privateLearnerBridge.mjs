@@ -35,7 +35,10 @@ async function readBody(req) {
 }
 
 export function privateLearnerBridge({ privateDir = resolvePrivateLearnerDir(), packetSync = syncPrivateDailyLearningPacketOnce } = {}) {
-  const configure = (server) => {
+  return {
+    name: 'kianos-private-learner-bridge',
+    apply: 'serve',
+    configureServer(server) {
       let packetSyncBusy = false;
       let packetSyncQueued = false;
       const syncPacket = () => {
@@ -94,12 +97,6 @@ export function privateLearnerBridge({ privateDir = resolvePrivateLearnerDir(), 
           return json(res, status, { status: 'error', error: message });
         }
       });
-  };
-
-  return {
-    name: 'kianos-private-learner-bridge',
-    apply: 'serve',
-    configureServer: configure,
-    configurePreviewServer: configure
+    }
   };
 }
