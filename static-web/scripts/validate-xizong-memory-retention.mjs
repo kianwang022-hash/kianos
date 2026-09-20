@@ -120,6 +120,28 @@ assert(retention.state === 'STABLE_WAIT', 'mastered-did-not-clear-immediate-debt
 assert(retention.nextIntervalDays === 2 && retention.stabilityStage === 1, 'first-stability-window');
 
 const firstDue = t0 + 10 * 60 * 1000 + 2 * DAY;
+
+// Repeated same-day "mastered" evidence is preserved but must not game the
+// delayed-retention clock or postpone the real D2 proof.
+state = appendMemoryEvidence(state, {
+  cardId: 'core:circulation-b01-kp01',
+  rating: 'mastered',
+  origin: 'RETENTION_EARLY_DUPLICATE_FIXTURE'
+}, t0 + 20 * 60 * 1000);
+state = appendMemoryEvidence(state, {
+  cardId: 'core:circulation-b01-kp01',
+  rating: 'mastered',
+  origin: 'RETENTION_EARLY_DUPLICATE_FIXTURE'
+}, t0 + 30 * 60 * 1000);
+retention = xizongRetentionState(state, 'core:circulation-b01-kp01', t0 + 31 * 60 * 1000);
+assert(retention.state === 'STABLE_WAIT', 'early-mastered-did-not-stay-waiting');
+assert(retention.stabilityStage === 1, 'same-day-mastered-inflated-stability-stage');
+assert(retention.nextIntervalDays === 2, 'same-day-mastered-expanded-window');
+assert(
+  retention.dueAt === new Date(firstDue).toISOString(),
+  'same-day-mastered-postponed-real-d2-check'
+);
+
 retention = xizongRetentionState(state, 'core:circulation-b01-kp01', firstDue);
 assert(retention.state === 'DUE_DELAYED_STABILITY', 'first-delayed-check-not-due');
 
