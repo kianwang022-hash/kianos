@@ -18,11 +18,14 @@ This file retains the detailed execution decomposition. It does not create a sec
 - Candidate branch: `work/politics-later-readiness-20260920`
 - Draft PR: **#638**
 - Active restart owner: `MATURITY_STAGE_PLAN.md`
-- T1 Objective reconciliation: **CLOSED**
-- T2 Early Objective Forecast current-source build: **CLOSED**
-- T3 Analysis task/rubric/evidence: **CLOSED**
-- T4 Future Source ingress preparation: **CLOSED**
-- Broad next step: **STOP ENGINEERING · await Real U / accepted Future Source / concrete defect**
+- Single result package: `MATURITY_PACKAGE.md`
+- M0 ownership correction: **DONE**
+- M1 single maturity package: **DONE**
+- M2 stale Analysis/material status reconciliation: **ACTIVE**
+- M3 Analysis-bank machine proof: **ACTIVE**
+- M4 Forecast adversarial / decision-flip closure: **ACTIVE**
+- M5 lifecycle + Fresh Chat / No-Website: **PENDING**
+- Real U / current-year annual content remain gated by reality, not engineering incompleteness.
 
 
 ---
@@ -497,21 +500,13 @@ Never commit private learner truth into shared Current.
 
 Do **not** continue from the old T-number order blindly.
 
-Use this revised order:
+Current execution order is owned by `MATURITY_PACKAGE.md`:
 
-1. **S0-T2 Full Material Inventory**
-2. **revalidate S0-T1 Score/Ability matrix**
-3. **S0-T3 Forecast factual sensor proof**
-4. **S0-T4 Day-1 simulation**
-5. **revalidate/repair S2-T2 Analysis bank**
-6. **build S2-T3 Analysis scoring owner**
-7. **build S2-T4 Analysis evidence ladder**
-8. **revalidate X1 Future Source lifecycle**
-9. **finish X2 Forecast tests / decision-flip report**
-10. **finish S2-T6 Dynamic Control**
-11. **run X3 full adversarial suite**
-12. **run X4 Fresh Chat / No-Website**
-13. **start X5 Real Learner U**
-14. Future current-year materials activate Stage 2/3/4 ingestion work as they arrive.
+1. reconcile stale Analysis/material status;
+2. machine-validate the 104-task Analysis bank;
+3. finish Forecast decision-flip/metamorphic attacks;
+4. close full-lifecycle + Fresh Chat / No-Website proof;
+5. issue the SYSTEM_LOGIC_ACCEPTED verdict;
+6. then stop broad engineering unless Real U, a concrete defect, or real current-year Source reopens an exact owner.
 
-The first four items are the Day-1 maturity path. Later-stage work must not block tomorrow's real study when Stage 0 is safe.
+Real Learner U starts from actual study and is never fabricated to make the package look complete.
