@@ -191,6 +191,7 @@ function summarizeXizongForecastPractice(storage, {
       .map((row) => [String(row?.system_id || ''), row])
   );
   const currentCoverageBySystem = new Map();
+  const currentScopeFirstAttempt = new Map();
   let eligibleAttempted = 0;
   let currentScopeEligibleAttempted = 0;
   let heldoutObserved = 0;
@@ -242,6 +243,9 @@ function summarizeXizongForecastPractice(storage, {
     const canonicalId = String(currentScope?.canonical_id || event?.canonical_id || eventSystemId);
     if (!currentCoverageBySystem.has(canonicalId)) currentCoverageBySystem.set(canonicalId, new Set());
     currentCoverageBySystem.get(canonicalId).add(questionId);
+    if (earlierAttempt(event, currentScopeFirstAttempt.get(questionId))) {
+      currentScopeFirstAttempt.set(questionId, event);
+    }
   }
   for (const [canonicalId, ids] of currentCoverageBySystem.entries()) {
     let row = bySystem.get(canonicalId);
@@ -265,6 +269,12 @@ function summarizeXizongForecastPractice(storage, {
   }
 
   const wrongUncertain = firstPassCounts.wrong + firstPassCounts.uncertain;
+  const currentScopeCounts = { stable: 0, uncertain: 0, wrong: 0 };
+  for (const event of currentScopeFirstAttempt.values()) {
+    const status = String(event?.status || '');
+    if (Object.hasOwn(currentScopeCounts, status)) currentScopeCounts[status] += 1;
+  }
+  const currentScopeWrongUncertain = currentScopeCounts.wrong + currentScopeCounts.uncertain;
   const unresolvedWrongUncertain = [...firstPass.entries()]
     .filter(([, event]) => ['wrong', 'uncertain'].includes(String(event?.status || '')))
     .filter(([questionId]) => ['wrong', 'uncertain'].includes(String(latest.get(questionId)?.status || '')))
@@ -309,6 +319,15 @@ function summarizeXizongForecastPractice(storage, {
       wrong_or_uncertain_rate: firstPass.size ? Number((wrongUncertain / firstPass.size).toFixed(4)) : null,
       eligible_attempted_questions: eligibleAttempted,
       current_scope_eligible_attempted_questions: currentScopeEligibleAttempted,
+      current_scope_unique_attempted_questions: currentScopeFirstAttempt.size,
+      current_scope_stable: currentScopeCounts.stable,
+      current_scope_uncertain: currentScopeCounts.uncertain,
+      current_scope_wrong: currentScopeCounts.wrong,
+      current_scope_wrong_or_uncertain: currentScopeWrongUncertain,
+      current_scope_wrong_or_uncertain_rate:
+        currentScopeFirstAttempt.size
+          ? Number((currentScopeWrongUncertain / currentScopeFirstAttempt.size).toFixed(4))
+          : null,
       heldout_observed_questions: heldoutObserved,
       by_system: [...bySystem.values()].sort((a, b) => String(a.canonical_id).localeCompare(String(b.canonical_id), undefined, { numeric: true })),
       by_day: dayRows
