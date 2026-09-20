@@ -1,0 +1,1475 @@
+{
+  "schema": "kianos.politics.later-stage-subject-bundle.v1",
+  "subject": "mao",
+  "status": "AUDITED_CANDIDATE_BASELINE_CURRENT_YEAR_ADMISSION_PENDING",
+  "historical_audit_ref": "work/politics-later-l-fastpath-20260918",
+  "canonical_promotion_rule": "ON_CURRENT_YEAR_ACCEPTANCE_PROMOTE_ONLY_VALIDATED_DELTA_TO_CURRENT_CHAPTER_OR_MEMORY_OWNER",
+  "chapters": [
+    {
+      "chapter_path": "content/politics/learning/mao/ch00.json",
+      "chapter_id": "POL27-LEARN-MAO-C00",
+      "title": "导论｜为什么马克思主义到了中国以后必须继续发展，而不能只照搬原话",
+      "later_stage_knowledge": {
+        "schema": "kianos.politics.later_stage_knowledge.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "phase_scope": [
+          "CONSOLIDATION",
+          "PRECISION"
+        ],
+        "compression_model": {
+          "cognition": "CHINESE_ADAPTATION_THEORY_SUCCESSION",
+          "purpose": "Recover why Marxism must be adapted to Chinese conditions, how the Two Integrations function, and how theory成果 remain continuous yet developing.",
+          "reconstruction_prompt": "不背理论成果名单，解释：为什么必须中国化时代化、怎样中国化时代化、两个结合处在哪、理论成果为什么既一脉相承又不断发展。",
+          "reconstruction_targets": [
+            {
+              "id": "MAO-C00-LK-C01",
+              "claim": "马克思主义一般原理必须同中国具体实际和时代问题结合，才能解决中国的现实问题。",
+              "owner_ids": [
+                "POL27-CF-MAO-C00"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MAO-C00-LK-C02",
+              "claim": "推进马克思主义中国化时代化的根本途径是把马克思主义基本原理同中国具体实际相结合、同中华优秀传统文化相结合。",
+              "owner_ids": [
+                "POL27-CF-MAO-C00"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MAO-C00-LK-C03",
+              "claim": "实践发展不断提出新问题，因此理论成果具有接续关系又会在不同历史阶段发展。",
+              "owner_ids": [
+                "POL27-CF-MAO-C00"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            }
+          ],
+          "decisive_boundaries": [
+            {
+              "id": "MAO-C00-LK-B01",
+              "boundary": "坚持马克思主义 ≠ 把经典结论脱离中国实际机械套用",
+              "owner_ids": [
+                "POL27-CF-MAO-C00"
+              ]
+            },
+            {
+              "id": "MAO-C00-LK-B02",
+              "boundary": "理论成果接续发展 ≠ 各阶段理论彼此割裂",
+              "owner_ids": [
+                "POL27-CF-MAO-C00"
+              ]
+            }
+          ],
+          "cross_unit_confusables": []
+        },
+        "precision_knowledge": {
+          "policy": "REFERENCE_MEMORY_SIDECAR",
+          "owner_path": "content/politics/learning/mao/ch00.memory.json",
+          "candidate_ids": [
+            "POL27-MEM-MAO-C00-M01",
+            "POL27-MEM-MAO-C00-M02"
+          ],
+          "admission_state": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+          "deferred_domains": [],
+          "rule": "Current Knowledge + inspected historical handbook support creates candidate-only precision; durable Memory remains admission-gated."
+        },
+        "analysis_output_hooks": [],
+        "analysis_output_status": "NO_DEDICATED_LEG26_OUTPUT_BANK_DO_NOT_INVENT",
+        "first_round_effect": "NONE"
+      },
+      "memory_candidate_sidecar": {
+        "schema": "kianos.politics.memory_projection.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "chapter_id": "POL27-LEARN-MAO-C00",
+        "policy": "SOURCE_GROUNDED_SELECTIVE",
+        "principle": "Candidate existence is Knowledge; durable review debt remains admission-gated.",
+        "preferred_memory_reference": {
+          "role": "DESIGNATED_MEMORY_HANDBOOK",
+          "label": "腿姐《冲刺背诵手册》",
+          "binding_status": "HISTORICAL_BASELINE_BOUND_CURRENT_YEAR_RECHECK_REQUIRED",
+          "historical_subject_source": "content/politics/source/historical/leg26/LEG26-MAO.md",
+          "rule": "Current Mao Knowledge must independently own the relation. LEG26 supports historical retention priority; current-year source/WU evidence controls durable admission."
+        },
+        "admission_gate": {
+          "default": "NOT_ADMITTED",
+          "requires_source_grounding": true,
+          "admit_when_any": [
+            "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_CONFIRMS",
+            "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED"
+          ],
+          "do_not_admit_for": [
+            "historical handbook presence alone",
+            "chapter importance alone",
+            "one stable correct answer"
+          ]
+        },
+        "units": {
+          "POL27-CF-MAO-C00": {
+            "title": "马克思主义中国化时代化的历史进程与理论成果",
+            "candidates": [
+              {
+                "id": "POL27-MEM-MAO-C00-M01",
+                "form": "fixed_relation",
+                "statement": "推进马克思主义中国化时代化的根本途径是‘两个结合’：把马克思主义基本原理同中国具体实际相结合、同中华优秀传统文化相结合。",
+                "source_refs": [
+                  "POL27-CF-MAO-C00"
+                ],
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MAO-P073"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              },
+              {
+                "id": "POL27-MEM-MAO-C00-M02",
+                "form": "succession_boundary",
+                "statement": "马克思主义中国化时代化理论成果具有接续发展关系：坚持基本原理与根据中国实践和时代问题继续发展并不矛盾。",
+                "source_refs": [
+                  "POL27-CF-MAO-C00"
+                ],
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MAO-P073",
+                  "LEG26-UPPER-MAO-P074"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              }
+            ]
+          }
+        },
+        "deferred_candidate_domains": []
+      }
+    },
+    {
+      "chapter_path": "content/politics/learning/mao/ch01.json",
+      "chapter_id": "POL27-LEARN-MAO-C01",
+      "title": "第一章｜毛泽东思想为什么不是一套革命口号，而是一套从中国实践中长出来的方法和理论",
+      "later_stage_knowledge": {
+        "schema": "kianos.politics.later_stage_knowledge.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "phase_scope": [
+          "CONSOLIDATION",
+          "PRECISION"
+        ],
+        "compression_model": {
+          "cognition": "FORMATION_CONTENT_SOUL_POSITION",
+          "purpose": "Separate formation/development, main content, living soul and historical position instead of mixing all Mao Thought hats.",
+          "reconstruction_prompt": "按四层恢复：怎么形成 → 回答了什么 → 用什么稳定方法贯穿 → 历史上处在什么位置。",
+          "reconstruction_targets": [
+            {
+              "id": "MAO-C01-LK-C01",
+              "claim": "毛泽东思想在中国革命和建设的长期实践中形成、成熟并继续发展。",
+              "owner_ids": [
+                "POL27-CF-MAO-C01-S01"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MAO-C01-LK-C02",
+              "claim": "主题/主要内容回答理论解决了哪些中国革命建设问题；活的灵魂回答贯穿这些回答的立场观点方法。",
+              "owner_ids": [
+                "POL27-CF-MAO-C01-S02"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MAO-C01-LK-C03",
+              "claim": "实事求是、群众路线、独立自主构成活的灵魂，三者相关但身份不能互换。",
+              "owner_ids": [
+                "POL27-CF-MAO-C01-S02"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MAO-C01-LK-C04",
+              "claim": "历史地位既包含理论成果身份，也包含中国革命建设的指导价值和长期精神财富意义。",
+              "owner_ids": [
+                "POL27-CF-MAO-C01-S03"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            }
+          ],
+          "decisive_boundaries": [
+            {
+              "id": "MAO-C01-LK-B01",
+              "boundary": "形成阶段/文献标志 ≠ 理论主要内容",
+              "owner_ids": [
+                "POL27-CF-MAO-C01-S01",
+                "POL27-CF-MAO-C01-S02"
+              ]
+            },
+            {
+              "id": "MAO-C01-LK-B02",
+              "boundary": "主题/主要内容 ≠ 活的灵魂",
+              "owner_ids": [
+                "POL27-CF-MAO-C01-S02"
+              ]
+            },
+            {
+              "id": "MAO-C01-LK-B03",
+              "boundary": "科学评价历史人物 ≠ 简单否定或全盘肯定毛泽东思想的科学价值",
+              "owner_ids": [
+                "POL27-CF-MAO-C01-S03"
+              ]
+            }
+          ],
+          "cross_unit_confusables": []
+        },
+        "precision_knowledge": {
+          "policy": "REFERENCE_MEMORY_SIDECAR",
+          "owner_path": "content/politics/learning/mao/ch01.memory.json",
+          "candidate_ids": [
+            "POL27-MEM-MAO-C01-S02-M01",
+            "POL27-MEM-MAO-C01-S02-M02",
+            "POL27-MEM-MAO-C01-S03-M01"
+          ],
+          "admission_state": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+          "deferred_domains": [
+            "形成/成熟/继续发展阶段的全部文献标志"
+          ],
+          "rule": "Current Knowledge + inspected historical handbook support creates candidate-only precision; durable Memory remains admission-gated."
+        },
+        "analysis_output_hooks": [],
+        "analysis_output_status": "NO_DEDICATED_LEG26_OUTPUT_BANK_DO_NOT_INVENT",
+        "first_round_effect": "NONE"
+      },
+      "memory_candidate_sidecar": {
+        "schema": "kianos.politics.memory_projection.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "chapter_id": "POL27-LEARN-MAO-C01",
+        "policy": "SOURCE_GROUNDED_SELECTIVE",
+        "principle": "Candidate existence is Knowledge; durable review debt remains admission-gated.",
+        "preferred_memory_reference": {
+          "role": "DESIGNATED_MEMORY_HANDBOOK",
+          "label": "腿姐《冲刺背诵手册》",
+          "binding_status": "HISTORICAL_BASELINE_BOUND_CURRENT_YEAR_RECHECK_REQUIRED",
+          "historical_subject_source": "content/politics/source/historical/leg26/LEG26-MAO.md",
+          "rule": "Current Mao Knowledge must independently own the relation. LEG26 supports historical retention priority; current-year source/WU evidence controls durable admission."
+        },
+        "admission_gate": {
+          "default": "NOT_ADMITTED",
+          "requires_source_grounding": true,
+          "admit_when_any": [
+            "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_CONFIRMS",
+            "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED"
+          ],
+          "do_not_admit_for": [
+            "historical handbook presence alone",
+            "chapter importance alone",
+            "one stable correct answer"
+          ]
+        },
+        "units": {
+          "POL27-CF-MAO-C01-S02": {
+            "title": "毛泽东思想的主要内容和活的灵魂",
+            "candidates": [
+              {
+                "id": "POL27-MEM-MAO-C01-S02-M01",
+                "form": "fixed_list",
+                "statement": "毛泽东思想活的灵魂集中体现为实事求是、群众路线、独立自主。",
+                "source_refs": [
+                  "POL27-CF-MAO-C01-S02"
+                ],
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MAO-P075",
+                  "LEG26-UPPER-MAO-P076"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              },
+              {
+                "id": "POL27-MEM-MAO-C01-S02-M02",
+                "form": "hat_boundary",
+                "statement": "实事求是、群众路线、独立自主彼此相关但各有身份，不能把三者帽子互换。",
+                "source_refs": [
+                  "POL27-CF-MAO-C01-S02"
+                ],
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MAO-P075",
+                  "LEG26-UPPER-MAO-P076"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              }
+            ]
+          },
+          "POL27-CF-MAO-C01-S03": {
+            "title": "毛泽东思想的历史地位",
+            "candidates": [
+              {
+                "id": "POL27-MEM-MAO-C01-S03-M01",
+                "form": "identity",
+                "statement": "毛泽东思想是马克思主义中国化时代化第一个重大理论成果。",
+                "source_refs": [
+                  "POL27-CF-MAO-C01-S03"
+                ],
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MAO-P076"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              }
+            ]
+          }
+        },
+        "deferred_candidate_domains": [
+          {
+            "domain": "形成/成熟/继续发展阶段的全部文献标志",
+            "reason": "Historically useful but exact milestone list should be rebound to current-year designated source before freezing."
+          }
+        ]
+      }
+    },
+    {
+      "chapter_path": "content/politics/learning/mao/ch02.json",
+      "chapter_id": "POL27-LEARN-MAO-C02",
+      "title": "第二章｜新民主主义革命理论到底在回答哪几个中国革命的根本问题",
+      "later_stage_knowledge": {
+        "schema": "kianos.politics.later_stage_knowledge.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "phase_scope": [
+          "CONSOLIDATION",
+          "PRECISION"
+        ],
+        "compression_model": {
+          "cognition": "NATIONAL_CONDITION_TO_REVOLUTION_MODEL",
+          "purpose": "Reconstruct all revolutionary hats from national conditions and keep object/dynamic/leadership/nature/prospect/road/tools at distinct levels.",
+          "reconstruction_prompt": "从半殖民地半封建国情出发，依次推出主要矛盾、革命任务、对象/动力/领导/性质/前途、纲领、道路和三大法宝。",
+          "reconstruction_targets": [
+            {
+              "id": "MAO-C02-LK-C01",
+              "claim": "社会性质和主要矛盾决定革命任务与对象，并构成革命性质判断的基础。",
+              "owner_ids": [
+                "POL27-CF-MAO-C02-S01"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MAO-C02-LK-C02",
+              "claim": "总路线中的对象、动力、领导、性质和前途是不同身份，不能用领导阶级直接替代革命性质判断。",
+              "owner_ids": [
+                "POL27-CF-MAO-C02-S02"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MAO-C02-LK-C03",
+              "claim": "政治/经济/文化纲领把总路线展开为社会建设目标。",
+              "owner_ids": [
+                "POL27-CF-MAO-C02-S02"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MAO-C02-LK-C04",
+              "claim": "农村包围城市、武装夺取政权是革命道路；统一战线、武装斗争、党的建设是推进革命的三大法宝。",
+              "owner_ids": [
+                "POL27-CF-MAO-C02-S03"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            }
+          ],
+          "decisive_boundaries": [
+            {
+              "id": "MAO-C02-LK-B01",
+              "boundary": "革命对象 ≠ 动力 ≠ 领导力量",
+              "owner_ids": [
+                "POL27-CF-MAO-C02-S02"
+              ]
+            },
+            {
+              "id": "MAO-C02-LK-B02",
+              "boundary": "革命性质 ≠ 领导阶级 ≠ 最终前途",
+              "owner_ids": [
+                "POL27-CF-MAO-C02-S01",
+                "POL27-CF-MAO-C02-S02"
+              ]
+            },
+            {
+              "id": "MAO-C02-LK-B03",
+              "boundary": "革命道路 ≠ 三大法宝",
+              "owner_ids": [
+                "POL27-CF-MAO-C02-S03"
+              ]
+            },
+            {
+              "id": "MAO-C02-LK-B04",
+              "boundary": "新民主主义共和国 ≠ 社会主义国家本身",
+              "owner_ids": [
+                "POL27-CF-MAO-C02-S02"
+              ]
+            }
+          ],
+          "cross_unit_confusables": [
+            {
+              "id": "MAO-C02-LK-X01",
+              "items": [
+                "对象",
+                "动力",
+                "领导",
+                "性质",
+                "前途"
+              ],
+              "reason": "都是总路线附近高频身份，但回答的问题完全不同。"
+            },
+            {
+              "id": "MAO-C02-LK-X02",
+              "items": [
+                "农村包围城市道路",
+                "统一战线/武装斗争/党的建设"
+              ],
+              "reason": "一个回答革命力量如何取得政权，一个回答革命如何组织并推进。"
+            }
+          ]
+        },
+        "precision_knowledge": {
+          "policy": "REFERENCE_MEMORY_SIDECAR",
+          "owner_path": "content/politics/learning/mao/ch02.memory.json",
+          "candidate_ids": [
+            "POL27-MEM-MAO-C02-S02-M01",
+            "POL27-MEM-MAO-C02-S02-M02",
+            "POL27-MEM-MAO-C02-S03-M01"
+          ],
+          "admission_state": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+          "deferred_domains": [
+            "政治/经济/文化纲领完整固定表述"
+          ],
+          "rule": "Current Knowledge + inspected historical handbook support creates candidate-only precision; durable Memory remains admission-gated."
+        },
+        "analysis_output_hooks": [],
+        "analysis_output_status": "NO_DEDICATED_LEG26_OUTPUT_BANK_DO_NOT_INVENT",
+        "first_round_effect": "NONE"
+      },
+      "memory_candidate_sidecar": {
+        "schema": "kianos.politics.memory_projection.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "chapter_id": "POL27-LEARN-MAO-C02",
+        "policy": "SOURCE_GROUNDED_SELECTIVE",
+        "principle": "Candidate existence is Knowledge; durable review debt remains admission-gated.",
+        "preferred_memory_reference": {
+          "role": "DESIGNATED_MEMORY_HANDBOOK",
+          "label": "腿姐《冲刺背诵手册》",
+          "binding_status": "HISTORICAL_BASELINE_BOUND_CURRENT_YEAR_RECHECK_REQUIRED",
+          "historical_subject_source": "content/politics/source/historical/leg26/LEG26-MAO.md",
+          "rule": "Current Mao Knowledge must independently own the relation. LEG26 supports historical retention priority; current-year source/WU evidence controls durable admission."
+        },
+        "admission_gate": {
+          "default": "NOT_ADMITTED",
+          "requires_source_grounding": true,
+          "admit_when_any": [
+            "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_CONFIRMS",
+            "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED"
+          ],
+          "do_not_admit_for": [
+            "historical handbook presence alone",
+            "chapter importance alone",
+            "one stable correct answer"
+          ]
+        },
+        "units": {
+          "POL27-CF-MAO-C02-S02": {
+            "title": "新民主主义革命的总路线和基本纲领",
+            "candidates": [
+              {
+                "id": "POL27-MEM-MAO-C02-S02-M01",
+                "form": "identity_grid",
+                "statement": "新民主主义革命的对象、动力、领导、性质和前途是不同身份：对象回答反对谁，动力回答依靠谁，领导回答谁掌握领导权，性质回答革命属于什么类型，前途回答革命向哪里发展。",
+                "source_refs": [
+                  "POL27-CF-MAO-C02-S02"
+                ],
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MAO-P077",
+                  "LEG26-UPPER-MAO-P078",
+                  "LEG26-UPPER-MAO-P079"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              },
+              {
+                "id": "POL27-MEM-MAO-C02-S02-M02",
+                "form": "nature_boundary",
+                "statement": "新民主主义革命由无产阶级领导，但革命性质仍是新式资产阶级民主革命；领导阶级不能直接替代革命性质判断。",
+                "source_refs": [
+                  "POL27-CF-MAO-C02-S01",
+                  "POL27-CF-MAO-C02-S02"
+                ],
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MAO-P077",
+                  "LEG26-UPPER-MAO-P079"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              }
+            ]
+          },
+          "POL27-CF-MAO-C02-S03": {
+            "title": "新民主主义革命的道路和基本经验",
+            "candidates": [
+              {
+                "id": "POL27-MEM-MAO-C02-S03-M01",
+                "form": "road_tool_boundary",
+                "statement": "农村包围城市、武装夺取政权是中国革命道路；统一战线、武装斗争、党的建设是推进革命的三大法宝，二者不是同一层级。",
+                "source_refs": [
+                  "POL27-CF-MAO-C02-S03"
+                ],
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MAO-P081",
+                  "LEG26-UPPER-MAO-P083"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              }
+            ]
+          }
+        },
+        "deferred_candidate_domains": [
+          {
+            "domain": "政治/经济/文化纲领完整固定表述",
+            "reason": "Current chapter owns the three-layer structure; exact detailed list remains current-year/source-exactness work."
+          }
+        ]
+      }
+    },
+    {
+      "chapter_path": "content/politics/learning/mao/ch03.json",
+      "chapter_id": "POL27-LEARN-MAO-C03",
+      "title": "第三章｜新中国成立以后，为什么还要完成从新民主主义到社会主义的制度转变",
+      "later_stage_knowledge": {
+        "schema": "kianos.politics.later_stage_knowledge.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "phase_scope": [
+          "CONSOLIDATION",
+          "PRECISION"
+        ],
+        "compression_model": {
+          "cognition": "TRANSITION_AND_DIFFERENTIATED_TRANSFORMATION",
+          "purpose": "Reconstruct why transition was needed, how One Industrialization + Three Transformations fit together, and why different targets used different paths.",
+          "reconstruction_prompt": "解释新民主主义社会为什么必须过渡；一化三改为何是一条总路线；农业手工业与资本主义工商业为何走不同改造路径；1956意味着什么。",
+          "reconstruction_targets": [
+            {
+              "id": "MAO-C03-LK-C01",
+              "claim": "新民主主义社会是向社会主义转变的过渡性社会，不是长期独立社会形态。",
+              "owner_ids": [
+                "POL27-CF-MAO-C03-S01"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MAO-C03-LK-C02",
+              "claim": "过渡时期总路线把社会主义工业化与三大社会主义改造组织为一化三改的同一历史任务。",
+              "owner_ids": [
+                "POL27-CF-MAO-C03-S01"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MAO-C03-LK-C03",
+              "claim": "农业/手工业主要走互助合作化路径；资本主义工商业通过国家资本主义、和平赎买等渐进过渡。",
+              "owner_ids": [
+                "POL27-CF-MAO-C03-S02"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MAO-C03-LK-C04",
+              "claim": "1956年社会主义改造基本完成后，社会主义基本制度初步确立，中国进入社会主义初级阶段。",
+              "owner_ids": [
+                "POL27-CF-MAO-C03-S03"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            }
+          ],
+          "decisive_boundaries": [
+            {
+              "id": "MAO-C03-LK-B01",
+              "boundary": "1949新中国成立 ≠ 社会主义基本制度已经确立",
+              "owner_ids": [
+                "POL27-CF-MAO-C03-S01",
+                "POL27-CF-MAO-C03-S03"
+              ]
+            },
+            {
+              "id": "MAO-C03-LK-B02",
+              "boundary": "新民主主义社会 ≠ 独立长期社会形态",
+              "owner_ids": [
+                "POL27-CF-MAO-C03-S01"
+              ]
+            },
+            {
+              "id": "MAO-C03-LK-B03",
+              "boundary": "农业/手工业合作化路径 ≠ 资本主义工商业国家资本主义改造路径",
+              "owner_ids": [
+                "POL27-CF-MAO-C03-S02"
+              ]
+            },
+            {
+              "id": "MAO-C03-LK-B04",
+              "boundary": "社会主义基本制度确立 ≠ 社会主义建设规律已经完全掌握",
+              "owner_ids": [
+                "POL27-CF-MAO-C03-S03"
+              ]
+            }
+          ],
+          "cross_unit_confusables": [
+            {
+              "id": "MAO-C03-LK-X01",
+              "items": [
+                "工业化",
+                "三大改造"
+              ],
+              "reason": "不是两个先后孤立任务，而是一化三改总路线中的生产力与生产关系并进。"
+            }
+          ]
+        },
+        "precision_knowledge": {
+          "policy": "REFERENCE_MEMORY_SIDECAR",
+          "owner_path": "content/politics/learning/mao/ch03.memory.json",
+          "candidate_ids": [
+            "POL27-MEM-MAO-C03-S01-M01",
+            "POL27-MEM-MAO-C03-S01-M02",
+            "POL27-MEM-MAO-C03-S02-M01",
+            "POL27-MEM-MAO-C03-S03-M01"
+          ],
+          "admission_state": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+          "deferred_domains": [],
+          "rule": "Current Knowledge + inspected historical handbook support creates candidate-only precision; durable Memory remains admission-gated."
+        },
+        "analysis_output_hooks": [],
+        "analysis_output_status": "NO_DEDICATED_LEG26_OUTPUT_BANK_DO_NOT_INVENT",
+        "first_round_effect": "NONE"
+      },
+      "memory_candidate_sidecar": {
+        "schema": "kianos.politics.memory_projection.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "chapter_id": "POL27-LEARN-MAO-C03",
+        "policy": "SOURCE_GROUNDED_SELECTIVE",
+        "principle": "Candidate existence is Knowledge; durable review debt remains admission-gated.",
+        "preferred_memory_reference": {
+          "role": "DESIGNATED_MEMORY_HANDBOOK",
+          "label": "腿姐《冲刺背诵手册》",
+          "binding_status": "HISTORICAL_BASELINE_BOUND_CURRENT_YEAR_RECHECK_REQUIRED",
+          "historical_subject_source": "content/politics/source/historical/leg26/LEG26-MAO.md",
+          "rule": "Current Mao Knowledge must independently own the relation. LEG26 supports historical retention priority; current-year source/WU evidence controls durable admission."
+        },
+        "admission_gate": {
+          "default": "NOT_ADMITTED",
+          "requires_source_grounding": true,
+          "admit_when_any": [
+            "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_CONFIRMS",
+            "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED"
+          ],
+          "do_not_admit_for": [
+            "historical handbook presence alone",
+            "chapter importance alone",
+            "one stable correct answer"
+          ]
+        },
+        "units": {
+          "POL27-CF-MAO-C03-S01": {
+            "title": "从新民主主义到社会主义的转变",
+            "candidates": [
+              {
+                "id": "POL27-MEM-MAO-C03-S01-M01",
+                "form": "stage_boundary",
+                "statement": "新民主主义社会是由新民主主义向社会主义转变的过渡性社会，不是一个独立的长期社会形态。",
+                "source_refs": [
+                  "POL27-CF-MAO-C03-S01"
+                ],
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MAO-P087",
+                  "LEG26-UPPER-MAO-P095"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              },
+              {
+                "id": "POL27-MEM-MAO-C03-S01-M02",
+                "form": "fixed_structure",
+                "statement": "过渡时期总路线以社会主义工业化为主体，并对农业、手工业和资本主义工商业进行社会主义改造，可压缩为‘一化三改’。",
+                "source_refs": [
+                  "POL27-CF-MAO-C03-S01"
+                ],
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MAO-P088",
+                  "LEG26-UPPER-MAO-P089"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              }
+            ]
+          },
+          "POL27-CF-MAO-C03-S02": {
+            "title": "社会主义改造道路和历史经验",
+            "candidates": [
+              {
+                "id": "POL27-MEM-MAO-C03-S02-M01",
+                "form": "path_compare",
+                "statement": "农业和手工业主要通过互助合作、由低到高的合作化形式逐步改造；资本主义工商业主要通过国家资本主义并结合和平赎买等形式逐步改造。",
+                "source_refs": [
+                  "POL27-CF-MAO-C03-S02"
+                ],
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MAO-P089",
+                  "LEG26-UPPER-MAO-P090",
+                  "LEG26-UPPER-MAO-P091"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              }
+            ]
+          },
+          "POL27-CF-MAO-C03-S03": {
+            "title": "社会主义制度在中国的确立",
+            "candidates": [
+              {
+                "id": "POL27-MEM-MAO-C03-S03-M01",
+                "form": "time_identity",
+                "statement": "1956年底社会主义改造基本完成，社会主义基本制度在我国初步确立，中国进入社会主义初级阶段。",
+                "source_refs": [
+                  "POL27-CF-MAO-C03-S03"
+                ],
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MAO-P092"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              }
+            ]
+          }
+        },
+        "deferred_candidate_domains": []
+      }
+    },
+    {
+      "chapter_path": "content/politics/learning/mao/ch04.json",
+      "chapter_id": "POL27-LEARN-MAO-C04",
+      "title": "第四章｜社会主义制度建立以后，最难的问题为什么反而变成‘中国自己的建设道路怎么走’",
+      "later_stage_knowledge": {
+        "schema": "kianos.politics.later_stage_knowledge.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "phase_scope": [
+          "CONSOLIDATION",
+          "PRECISION"
+        ],
+        "compression_model": {
+          "cognition": "SOCIALIST_CONSTRUCTION_EXPLORATION",
+          "purpose": "Hold three main theoretical answers—Ten Major Relationships, socialist contradictions, Chinese industrialization road—under one question: how to build socialism from Chinese conditions.",
+          "reconstruction_prompt": "制度已经建立以后，为什么还要重新探索？把《论十大关系》、社会主义社会矛盾和中国工业化道路放回同一个‘中国怎样建设社会主义’问题。",
+          "reconstruction_targets": [
+            {
+              "id": "MAO-C04-LK-C01",
+              "claim": "社会主义基本制度建立后，建设道路仍不能照搬，需要独立探索适合中国情况的社会主义建设道路。",
+              "owner_ids": [
+                "POL27-CF-MAO-C04-S01"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MAO-C04-LK-C02",
+              "claim": "《论十大关系》以统筹关系和调动一切积极因素打开独立探索的良好开端。",
+              "owner_ids": [
+                "POL27-CF-MAO-C04-S01"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MAO-C04-LK-C03",
+              "claim": "社会主义社会仍存在矛盾，必须区分不同性质矛盾并通过社会主义制度自身不断处理。",
+              "owner_ids": [
+                "POL27-CF-MAO-C04-S01"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MAO-C04-LK-C04",
+              "claim": "中国工业化道路要求从中国人口资源经济基础出发处理重工业、轻工业、农业等关系。",
+              "owner_ids": [
+                "POL27-CF-MAO-C04-S01"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MAO-C04-LK-C05",
+              "claim": "初步探索既有成果又有曲折，正反经验共同成为后续继续探索的重要历史基础。",
+              "owner_ids": [
+                "POL27-CF-MAO-C04-S02"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            }
+          ],
+          "decisive_boundaries": [
+            {
+              "id": "MAO-C04-LK-B01",
+              "boundary": "提出第二次结合/开始独立探索 ≠ 已经完整找到成熟建设道路",
+              "owner_ids": [
+                "POL27-CF-MAO-C04-S01"
+              ]
+            },
+            {
+              "id": "MAO-C04-LK-B02",
+              "boundary": "社会主义社会存在矛盾 ≠ 社会主义制度失效",
+              "owner_ids": [
+                "POL27-CF-MAO-C04-S01"
+              ]
+            },
+            {
+              "id": "MAO-C04-LK-B03",
+              "boundary": "基本矛盾 ≠ 所有具体矛盾都具有对抗性",
+              "owner_ids": [
+                "POL27-CF-MAO-C04-S01"
+              ]
+            },
+            {
+              "id": "MAO-C04-LK-B04",
+              "boundary": "总结前期探索失误 ≠ 全盘否定改革开放前社会主义实践",
+              "owner_ids": [
+                "POL27-CF-MAO-C04-S02"
+              ]
+            }
+          ],
+          "cross_unit_confusables": []
+        },
+        "precision_knowledge": {
+          "policy": "REFERENCE_MEMORY_SIDECAR",
+          "owner_path": "content/politics/learning/mao/ch04.memory.json",
+          "candidate_ids": [
+            "POL27-MEM-MAO-C04-S01-M01",
+            "POL27-MEM-MAO-C04-S01-M02",
+            "POL27-MEM-MAO-C04-S01-M03"
+          ],
+          "admission_state": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+          "deferred_domains": [
+            "中国工业化道路完整‘农轻重/两条腿走路’固定列表"
+          ],
+          "rule": "Current Knowledge + inspected historical handbook support creates candidate-only precision; durable Memory remains admission-gated."
+        },
+        "analysis_output_hooks": [],
+        "analysis_output_status": "NO_DEDICATED_LEG26_OUTPUT_BANK_DO_NOT_INVENT",
+        "first_round_effect": "NONE"
+      },
+      "memory_candidate_sidecar": {
+        "schema": "kianos.politics.memory_projection.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "chapter_id": "POL27-LEARN-MAO-C04",
+        "policy": "SOURCE_GROUNDED_SELECTIVE",
+        "principle": "Candidate existence is Knowledge; durable review debt remains admission-gated.",
+        "preferred_memory_reference": {
+          "role": "DESIGNATED_MEMORY_HANDBOOK",
+          "label": "腿姐《冲刺背诵手册》",
+          "binding_status": "HISTORICAL_BASELINE_BOUND_CURRENT_YEAR_RECHECK_REQUIRED",
+          "historical_subject_source": "content/politics/source/historical/leg26/LEG26-MAO.md",
+          "rule": "Current Mao Knowledge must independently own the relation. LEG26 supports historical retention priority; current-year source/WU evidence controls durable admission."
+        },
+        "admission_gate": {
+          "default": "NOT_ADMITTED",
+          "requires_source_grounding": true,
+          "admit_when_any": [
+            "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_CONFIRMS",
+            "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED"
+          ],
+          "do_not_admit_for": [
+            "historical handbook presence alone",
+            "chapter importance alone",
+            "one stable correct answer"
+          ]
+        },
+        "units": {
+          "POL27-CF-MAO-C04-S01": {
+            "title": "初步探索的重要理论成果",
+            "candidates": [
+              {
+                "id": "POL27-MEM-MAO-C04-S01-M01",
+                "form": "identity_boundary",
+                "statement": "‘第二次结合’提出的是把马克思列宁主义基本原理同中国革命和建设具体实际进一步结合、探索适合中国情况的社会主义建设道路；提出这一任务不等于已经完成成熟道路探索。",
+                "source_refs": [
+                  "POL27-CF-MAO-C04-S01"
+                ],
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MAO-P093",
+                  "LEG26-UPPER-MAO-P095"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              },
+              {
+                "id": "POL27-MEM-MAO-C04-S01-M02",
+                "form": "theory_triplet",
+                "statement": "社会主义建设初步探索的高价值支点可区分为《论十大关系》所代表的建设关系统筹、社会主义社会矛盾理论、以及中国工业化道路探索。",
+                "source_refs": [
+                  "POL27-CF-MAO-C04-S01"
+                ],
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MAO-P093"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              },
+              {
+                "id": "POL27-MEM-MAO-C04-S01-M03",
+                "form": "contradiction_boundary",
+                "statement": "社会主义社会仍然存在矛盾，但社会主义社会基本矛盾与敌我矛盾、人民内部矛盾不是同一层次；不能把所有社会矛盾都理解为对抗性矛盾。",
+                "source_refs": [
+                  "POL27-CF-MAO-C04-S01"
+                ],
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MAO-P093"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              }
+            ]
+          }
+        },
+        "deferred_candidate_domains": [
+          {
+            "domain": "中国工业化道路完整‘农轻重/两条腿走路’固定列表",
+            "reason": "Historical source is rich, but complete exact list should wait for current-year designated source / Current exactness binding."
+          }
+        ]
+      }
+    },
+    {
+      "chapter_path": "content/politics/learning/mao/ch05.json",
+      "chapter_id": "POL27-LEARN-MAO-C05",
+      "title": "第五章｜改革开放以后，为什么中国特色社会主义理论体系会按实践问题不断接续发展",
+      "later_stage_knowledge": {
+        "schema": "kianos.politics.later_stage_knowledge.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "phase_scope": [
+          "CONSOLIDATION",
+          "PRECISION"
+        ],
+        "compression_model": {
+          "cognition": "THEORY_SYSTEM_SUCCESSION",
+          "purpose": "Recover why several theories belong to one中国特色社会主义理论体系 and what position each occupies in its historical development.",
+          "reconstruction_prompt": "从形成条件开始，解释为什么理论体系是一条接续发展链，而不是几个互不相干的理论名字。",
+          "reconstruction_targets": [
+            {
+              "id": "MAO-C05-LK-C01",
+              "claim": "国际形势、社会主义建设正反经验和改革开放现代化实践共同构成理论体系形成发展的社会历史条件。",
+              "owner_ids": [
+                "POL27-CF-MAO-C05"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MAO-C05-LK-C02",
+              "claim": "邓小平理论形成中国特色社会主义理论体系；三个代表、科学发展观在新的历史阶段继续发展该体系。",
+              "owner_ids": [
+                "POL27-CF-MAO-C05"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MAO-C05-LK-C03",
+              "claim": "不同阶段理论成果回应不同实践问题，但共同围绕中国特色社会主义主题形成接续关系。",
+              "owner_ids": [
+                "POL27-CF-MAO-C05"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            }
+          ],
+          "decisive_boundaries": [
+            {
+              "id": "MAO-C05-LK-B01",
+              "boundary": "理论阶段不同 ≠ 理论体系彼此断裂",
+              "owner_ids": [
+                "POL27-CF-MAO-C05"
+              ]
+            },
+            {
+              "id": "MAO-C05-LK-B02",
+              "boundary": "形成发展的历史节点 identity ≠ 后续各理论完整内容",
+              "owner_ids": [
+                "POL27-CF-MAO-C05"
+              ]
+            }
+          ],
+          "cross_unit_confusables": []
+        },
+        "precision_knowledge": {
+          "policy": "REFERENCE_MEMORY_SIDECAR",
+          "owner_path": "content/politics/learning/mao/ch05.memory.json",
+          "candidate_ids": [
+            "POL27-MEM-MAO-C05-M01",
+            "POL27-MEM-MAO-C05-M02"
+          ],
+          "admission_state": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+          "deferred_domains": [
+            "改革开放各重要节点的完整会议/文献定位"
+          ],
+          "rule": "Current Knowledge + inspected historical handbook support creates candidate-only precision; durable Memory remains admission-gated."
+        },
+        "analysis_output_hooks": [],
+        "analysis_output_status": "NO_DEDICATED_LEG26_OUTPUT_BANK_DO_NOT_INVENT",
+        "first_round_effect": "NONE"
+      },
+      "memory_candidate_sidecar": {
+        "schema": "kianos.politics.memory_projection.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "chapter_id": "POL27-LEARN-MAO-C05",
+        "policy": "SOURCE_GROUNDED_SELECTIVE",
+        "principle": "Candidate existence is Knowledge; durable review debt remains admission-gated.",
+        "preferred_memory_reference": {
+          "role": "DESIGNATED_MEMORY_HANDBOOK",
+          "label": "腿姐《冲刺背诵手册》",
+          "binding_status": "HISTORICAL_BASELINE_BOUND_CURRENT_YEAR_RECHECK_REQUIRED",
+          "historical_subject_source": "content/politics/source/historical/leg26/LEG26-MAO.md",
+          "rule": "Current Mao Knowledge must independently own the relation. LEG26 supports historical retention priority; current-year source/WU evidence controls durable admission."
+        },
+        "admission_gate": {
+          "default": "NOT_ADMITTED",
+          "requires_source_grounding": true,
+          "admit_when_any": [
+            "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_CONFIRMS",
+            "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED"
+          ],
+          "do_not_admit_for": [
+            "historical handbook presence alone",
+            "chapter importance alone",
+            "one stable correct answer"
+          ]
+        },
+        "units": {
+          "POL27-CF-MAO-C05": {
+            "title": "中国特色社会主义理论体系的形成发展",
+            "candidates": [
+              {
+                "id": "POL27-MEM-MAO-C05-M01",
+                "form": "succession_identity",
+                "statement": "邓小平理论是中国特色社会主义理论体系的开篇之作；‘三个代表’重要思想是跨世纪发展；科学发展观是新世纪新阶段的新发展。",
+                "source_refs": [
+                  "POL27-CF-MAO-C05"
+                ],
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MAO-P098"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              },
+              {
+                "id": "POL27-MEM-MAO-C05-M02",
+                "form": "condition_classification",
+                "statement": "中国特色社会主义理论体系形成发展条件可分为国际背景、历史条件和改革开放社会主义现代化建设实践基础三个维度。",
+                "source_refs": [
+                  "POL27-CF-MAO-C05"
+                ],
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MAO-P097"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              }
+            ]
+          }
+        },
+        "deferred_candidate_domains": [
+          {
+            "domain": "改革开放各重要节点的完整会议/文献定位",
+            "reason": "High annual-edition sensitivity; candidate discovery is valid but exact milestone set should be updated with current-year designated source."
+          }
+        ]
+      }
+    },
+    {
+      "chapter_path": "content/politics/learning/mao/ch06.json",
+      "chapter_id": "POL27-LEARN-MAO-C06",
+      "title": "第六章｜邓小平理论怎样重新回答‘什么是社会主义、怎样建设社会主义’",
+      "later_stage_knowledge": {
+        "schema": "kianos.politics.later_stage_knowledge.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "phase_scope": [
+          "CONSOLIDATION",
+          "PRECISION"
+        ],
+        "compression_model": {
+          "cognition": "SOCIALISM_ESSENCE_TO_POLICY_SYSTEM",
+          "purpose": "Organize Deng Theory from theoretical question and essence through national condition, basic line, reform/market and wider strategy.",
+          "reconstruction_prompt": "从‘什么是社会主义、怎样建设社会主义’出发，说明本质、初级阶段、基本路线、改革开放/市场经济和其他战略怎样层层推出。",
+          "reconstruction_targets": [
+            {
+              "id": "MAO-C06-LK-C01",
+              "claim": "首要基本理论问题是认识什么是社会主义、怎样建设社会主义；解放思想、实事求是提供认识和实践方法。",
+              "owner_ids": [
+                "POL27-CF-MAO-C06-S01"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MAO-C06-LK-C02",
+              "claim": "社会主义本质把发展生产力与社会主义目的统一起来，不能把具体体制模式当成本质。",
+              "owner_ids": [
+                "POL27-CF-MAO-C06-S01"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MAO-C06-LK-C03",
+              "claim": "社会主义初级阶段国情是政策设计起点，基本路线把经济建设、四项基本原则和改革开放统一为总体方向。",
+              "owner_ids": [
+                "POL27-CF-MAO-C06-S02"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MAO-C06-LK-C04",
+              "claim": "改革开放提供发展动力，计划与市场都是经济手段，不能用是否有市场来判定社会制度性质。",
+              "owner_ids": [
+                "POL27-CF-MAO-C06-S02"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MAO-C06-LK-C05",
+              "claim": "邓小平理论通过本质、国情、路线、制度和战略形成系统回答，因此不是若干改革政策的简单集合。",
+              "owner_ids": [
+                "POL27-CF-MAO-C06-S03"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            }
+          ],
+          "decisive_boundaries": [
+            {
+              "id": "MAO-C06-LK-B01",
+              "boundary": "社会主义本质 ≠ 某一种具体管理/经济模式",
+              "owner_ids": [
+                "POL27-CF-MAO-C06-S01"
+              ]
+            },
+            {
+              "id": "MAO-C06-LK-B02",
+              "boundary": "共同富裕 ≠ 同步同等富裕",
+              "owner_ids": [
+                "POL27-CF-MAO-C06-S01"
+              ]
+            },
+            {
+              "id": "MAO-C06-LK-B03",
+              "boundary": "一个中心与两个基本点 ≠ 可互相替代的三个口号",
+              "owner_ids": [
+                "POL27-CF-MAO-C06-S02"
+              ]
+            },
+            {
+              "id": "MAO-C06-LK-B04",
+              "boundary": "改革 ≠ 改变社会主义制度性质",
+              "owner_ids": [
+                "POL27-CF-MAO-C06-S02"
+              ]
+            },
+            {
+              "id": "MAO-C06-LK-B05",
+              "boundary": "计划/市场 ≠ 社会制度属性",
+              "owner_ids": [
+                "POL27-CF-MAO-C06-S02"
+              ]
+            }
+          ],
+          "cross_unit_confusables": [
+            {
+              "id": "MAO-C06-LK-X01",
+              "items": [
+                "社会主义本质",
+                "社会主义初级阶段",
+                "党的基本路线"
+              ],
+              "reason": "分别回答本质、现实国情和总体行动方向，层级不同。"
+            }
+          ]
+        },
+        "precision_knowledge": {
+          "policy": "REFERENCE_MEMORY_SIDECAR",
+          "owner_path": "content/politics/learning/mao/ch06.memory.json",
+          "candidate_ids": [
+            "POL27-MEM-MAO-C06-S01-M01",
+            "POL27-MEM-MAO-C06-S01-M02",
+            "POL27-MEM-MAO-C06-S02-M01",
+            "POL27-MEM-MAO-C06-S02-M02",
+            "POL27-MEM-MAO-C06-S02-M03"
+          ],
+          "admission_state": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+          "deferred_domains": [
+            "初级阶段两层含义/发展战略/一国两制/外交等完整固定表述"
+          ],
+          "rule": "Current Knowledge + inspected historical handbook support creates candidate-only precision; durable Memory remains admission-gated."
+        },
+        "analysis_output_hooks": [],
+        "analysis_output_status": "NO_DEDICATED_LEG26_OUTPUT_BANK_DO_NOT_INVENT",
+        "first_round_effect": "NONE"
+      },
+      "memory_candidate_sidecar": {
+        "schema": "kianos.politics.memory_projection.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "chapter_id": "POL27-LEARN-MAO-C06",
+        "policy": "SOURCE_GROUNDED_SELECTIVE",
+        "principle": "Candidate existence is Knowledge; durable review debt remains admission-gated.",
+        "preferred_memory_reference": {
+          "role": "DESIGNATED_MEMORY_HANDBOOK",
+          "label": "腿姐《冲刺背诵手册》",
+          "binding_status": "HISTORICAL_BASELINE_BOUND_CURRENT_YEAR_RECHECK_REQUIRED",
+          "historical_subject_source": "content/politics/source/historical/leg26/LEG26-MAO.md",
+          "rule": "Current Mao Knowledge must independently own the relation. LEG26 supports historical retention priority; current-year source/WU evidence controls durable admission."
+        },
+        "admission_gate": {
+          "default": "NOT_ADMITTED",
+          "requires_source_grounding": true,
+          "admit_when_any": [
+            "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_CONFIRMS",
+            "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED"
+          ],
+          "do_not_admit_for": [
+            "historical handbook presence alone",
+            "chapter importance alone",
+            "one stable correct answer"
+          ]
+        },
+        "units": {
+          "POL27-CF-MAO-C06-S01": {
+            "title": "邓小平理论首要的基本的理论问题和精髓",
+            "candidates": [
+              {
+                "id": "POL27-MEM-MAO-C06-S01-M01",
+                "form": "identity",
+                "statement": "邓小平理论首要的基本的理论问题是‘什么是社会主义、怎样建设社会主义’；精髓是解放思想、实事求是。",
+                "source_refs": [
+                  "POL27-CF-MAO-C06-S01"
+                ],
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MAO-P098"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              },
+              {
+                "id": "POL27-MEM-MAO-C06-S01-M02",
+                "form": "fixed_formulation",
+                "statement": "社会主义本质强调解放和发展生产力，消灭剥削、消除两极分化，最终达到共同富裕。",
+                "source_refs": [
+                  "POL27-CF-MAO-C06-S01"
+                ],
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MAO-P098"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              }
+            ]
+          },
+          "POL27-CF-MAO-C06-S02": {
+            "title": "邓小平理论的主要内容",
+            "candidates": [
+              {
+                "id": "POL27-MEM-MAO-C06-S02-M01",
+                "form": "fixed_structure",
+                "statement": "党的基本路线用‘一个中心、两个基本点’把以经济建设为中心、坚持四项基本原则和坚持改革开放统一起来。",
+                "source_refs": [
+                  "POL27-CF-MAO-C06-S02"
+                ],
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MAO-P099"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              },
+              {
+                "id": "POL27-MEM-MAO-C06-S02-M02",
+                "form": "confusable_boundary",
+                "statement": "计划和市场都是经济手段，不是划分社会主义与资本主义制度属性的标志。",
+                "source_refs": [
+                  "POL27-CF-MAO-C06-S02"
+                ],
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MAO-P099",
+                  "LEG26-UPPER-MAO-P100"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              },
+              {
+                "id": "POL27-MEM-MAO-C06-S02-M03",
+                "form": "reform_boundary",
+                "statement": "改革是社会主义制度的自我完善和发展，不是改变社会主义制度性质。",
+                "source_refs": [
+                  "POL27-CF-MAO-C06-S02"
+                ],
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MAO-P099"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              }
+            ]
+          }
+        },
+        "deferred_candidate_domains": [
+          {
+            "domain": "初级阶段两层含义/发展战略/一国两制/外交等完整固定表述",
+            "reason": "Current chapter owns the structure, but LEG26 selected-topic coverage is incomplete for freezing the full exact list."
+          }
+        ]
+      }
+    },
+    {
+      "chapter_path": "content/politics/learning/mao/ch07.json",
+      "chapter_id": "POL27-LEARN-MAO-C07",
+      "title": "第七章｜‘三个代表’怎样把党的先进性、发展任务和人民立场重新组织到一起",
+      "later_stage_knowledge": {
+        "schema": "kianos.politics.later_stage_knowledge.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "phase_scope": [
+          "CONSOLIDATION",
+          "PRECISION"
+        ],
+        "compression_model": {
+          "cognition": "PARTY_ADVANCEMENT_HIERARCHY",
+          "purpose": "Separate Three Represents core viewpoints from the wider practical content and historical position.",
+          "reconstruction_prompt": "解释世纪之交什么新问题出现；三个代表分别规定党要代表什么；发展等主要内容为什么属于下一层实践展开。",
+          "reconstruction_targets": [
+            {
+              "id": "MAO-C07-LK-C01",
+              "claim": "世纪之交执政环境和社会结构变化提出保持党的先进性与继续推进中国特色社会主义的新问题。",
+              "owner_ids": [
+                "POL27-CF-MAO-C07"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MAO-C07-LK-C02",
+              "claim": "三个代表用先进生产力发展要求、先进文化前进方向和最广大人民根本利益三个维度规定党的先进性。",
+              "owner_ids": [
+                "POL27-CF-MAO-C07"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MAO-C07-LK-C03",
+              "claim": "发展、市场经济、小康社会、政治文明、开放等是把核心观点落实到治国理政的主要内容，而不是第四第五个‘代表’。",
+              "owner_ids": [
+                "POL27-CF-MAO-C07"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            }
+          ],
+          "decisive_boundaries": [
+            {
+              "id": "MAO-C07-LK-B01",
+              "boundary": "三个代表核心观点 ≠ 全部主要内容",
+              "owner_ids": [
+                "POL27-CF-MAO-C07"
+              ]
+            },
+            {
+              "id": "MAO-C07-LK-B02",
+              "boundary": "党建回答 ≠ 单纯党建口号；理论同时展开到中国特色社会主义实践",
+              "owner_ids": [
+                "POL27-CF-MAO-C07"
+              ]
+            }
+          ],
+          "cross_unit_confusables": []
+        },
+        "precision_knowledge": {
+          "policy": "CURRENT_GROUNDED_HISTORICAL_SUPPORT_THIN",
+          "candidate_domains": [
+            "三个代表三项核心观点 exact hats",
+            "发展第一要务及主要内容 identities",
+            "理论体系跨世纪发展 identity"
+          ],
+          "historical_source_refs": [
+            "LEG26-UPPER-MAO-P098"
+          ],
+          "materialization_status": "DEFER_EXACT_OBJECTS_HISTORICAL_SUPPORT_THIN"
+        },
+        "analysis_output_hooks": [],
+        "analysis_output_status": "NO_DEDICATED_LEG26_OUTPUT_BANK_DO_NOT_INVENT",
+        "first_round_effect": "NONE"
+      },
+      "memory_candidate_sidecar": null
+    },
+    {
+      "chapter_path": "content/politics/learning/mao/ch08.json",
+      "chapter_id": "POL27-LEARN-MAO-C08",
+      "title": "第八章｜科学发展观怎样把‘发展’从速度问题升级成目的、结构、质量和长期性问题",
+      "later_stage_knowledge": {
+        "schema": "kianos.politics.later_stage_knowledge.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "phase_scope": [
+          "CONSOLIDATION",
+          "PRECISION"
+        ],
+        "compression_model": {
+          "cognition": "DEVELOPMENT_CONCEPT_ROLE_HIERARCHY",
+          "purpose": "Retain the role hierarchy of Scientific Outlook on Development instead of memorizing four slogans flatly.",
+          "reconstruction_prompt": "按‘第一要义—核心立场—基本要求—根本方法’恢复四个角色，并解释为什么主要内容属于下一层实践展开。",
+          "reconstruction_targets": [
+            {
+              "id": "MAO-C08-LK-C01",
+              "claim": "科学发展观回应发展中出现的不平衡、不协调、不可持续等新问题，仍把发展作为首要任务。",
+              "owner_ids": [
+                "POL27-CF-MAO-C08"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MAO-C08-LK-C02",
+              "claim": "推动经济社会发展是第一要义，以人为本是核心立场，全面协调可持续是基本要求，统筹兼顾是根本方法。",
+              "owner_ids": [
+                "POL27-CF-MAO-C08"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MAO-C08-LK-C03",
+              "claim": "经济、政治、文化、社会、生态和党的建设等是上述原则的实践展开，不能与四项科学内涵混成同一层。",
+              "owner_ids": [
+                "POL27-CF-MAO-C08"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            }
+          ],
+          "decisive_boundaries": [
+            {
+              "id": "MAO-C08-LK-B01",
+              "boundary": "第一要义/核心立场/基本要求/根本方法四种角色不可互换",
+              "owner_ids": [
+                "POL27-CF-MAO-C08"
+              ]
+            },
+            {
+              "id": "MAO-C08-LK-B02",
+              "boundary": "四项科学内涵 ≠ 主要内容的六个实践领域",
+              "owner_ids": [
+                "POL27-CF-MAO-C08"
+              ]
+            }
+          ],
+          "cross_unit_confusables": []
+        },
+        "precision_knowledge": {
+          "policy": "CURRENT_GROUNDED_HISTORICAL_SUPPORT_THIN",
+          "candidate_domains": [
+            "四项科学内涵 exact hats",
+            "主要内容/历史地位 identities"
+          ],
+          "historical_source_refs": [
+            "LEG26-UPPER-MAO-P098"
+          ],
+          "materialization_status": "DEFER_EXACT_OBJECTS_HISTORICAL_SUPPORT_THIN"
+        },
+        "analysis_output_hooks": [],
+        "analysis_output_status": "NO_DEDICATED_LEG26_OUTPUT_BANK_DO_NOT_INVENT",
+        "first_round_effect": "NONE"
+      },
+      "memory_candidate_sidecar": null
+    }
+  ]
+}
