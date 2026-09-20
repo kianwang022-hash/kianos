@@ -1,6 +1,6 @@
 # English Maturity Package
 
-Status: **SYSTEM_LOGIC_CANDIDATE · FRESH #3 FAIL REPAIRED · FINAL FRESH RE-AUDIT #4 REQUIRED · KIAN_SPECIFIC_CALIBRATED = NO**  
+Status: **SYSTEM_LOGIC_CANDIDATE · FRESH #4 FAIL REPAIRED · FINAL FRESH RE-AUDIT #5 REQUIRED · KIAN_SPECIFIC_CALIBRATED = NO**  
 Parent router: `content/english/CURRENT.md`  
 Target: **English I 85+**
 
@@ -548,6 +548,10 @@ Current accepted paths include:
 - learner exposure declaration;
 - assistance provenance;
 - Reading A / Cloze / Part B / Translation / Writing / External Reading / Whole Paper;
+- Whole Paper Objective release is not evidence closure: `/60` may be visible while productive score evidence is still unresolved;
+- the existing Whole Paper session accepts one bounded Chat productive-score return bound to session / paper / source / scoring-standard / productive-step identity;
+- Whole Paper summary preserves Translation / Small Writing / Big Writing score ranges alongside the integrated `/100` range, so an aggregate total cannot hide the scored productive constituents;
+- browser Whole Paper remains `TYPED` and formally score-ineligible even after the integrated range exists; it cannot manufacture paper-mode 85+ confidence;
 - generated drill private relay;
 - cross-subject Total Home integration.
 
@@ -801,6 +805,76 @@ Next mandatory gate:
 
 ---
 
+# 14C｜Final Fresh re-audit #4 — FAIL + bounded repair
+
+Final Fresh re-audit #4 locked candidate head:
+
+`7e83a256ea15e6617d44268c9958a52e3a7b25bb`
+
+Verdict:
+
+```text
+FAIL — material system-logic blind spots remain
+```
+
+Novel all-green failure:
+
+> Whole Paper productive scoring was one-way: the real exam session stopped at Objective `/60` + `CHAT_REVIEW_REQUIRED`, while Forecast's integrated `whole_paper.score_range` existed only as externally supplied model input. The system had no typed Chat-score return into the sealed Whole Paper evidence object.
+
+Why prior green checks missed it:
+
+- Whole Paper runtime validation explicitly accepted `release.productive.status = CHAT_REVIEW_REQUIRED` after Objective release;
+- the browser journey passed when it showed `/60` and routed Translation / Writing to Chat;
+- `full_paper` completion considered `RELEASED` sufficient;
+- Forecast validated integrated score semantics using manually constructed input rather than an actual Whole Paper evidence producer.
+
+Material effect:
+
+- a real Whole Paper could be marked workflow-complete with 40 productive points unresolved;
+- Fresh Chat could lose the productive score state unless Kian/Chat maintained extra hidden evidence outside the existing session;
+- an externally supplied integrated total could hide constituent productive weakness or create an ungrounded integrated-score path.
+
+This is SYSTEM LOGIC, not missing Kian-specific calibration, because it determines how future Real Learner U is transported and interpreted.
+
+Smallest responsible owner remained the existing Whole Paper session boundary, with direct completion / learner-surface consumers and exact validators only.
+
+Bounded repair code proof head:
+
+`b6e3116e39a8cfb338debf327798dc3ccca6d914`
+
+Repair:
+
+- Whole Paper now distinguishes `RELEASED` from `SCORED`;
+- Objective-only `RELEASED` does not close the Chat-owned `full_paper` step;
+- one bounded productive-score return binds session, paper, paper source, current `english.productive-scoring.v2`, productive step/source identities, score ranges, confidence, review mode and explicit resolved independent-rescore state;
+- wrong/stale identity and unresolved/missing rescore state fail closed;
+- the same existing session stores productive constituent ranges and derives the integrated 100-point range;
+- exam summary / Daily evidence projection carries both constituent and integrated score evidence into Fresh Chat;
+- browser Whole Paper remains `modality = TYPED` and `score_eligible = false`, so even a high diagnostic range cannot impersonate paper-mode formal 85+ calibration;
+- no new learner ledger, scheduler, mastery score, second Forecast, Home state, memory engine or Website strategy owner was added.
+
+Targeted exact-head proof:
+
+```text
+English Exam Session = SUCCESS @ b6e3116e39a8cfb338debf327798dc3ccca6d914
+```
+
+That proof includes semantic validation, learner-site build and the real browser Whole Paper journey with productive-score return persistence and integrated `/100` display.
+
+Canonical detailed report:
+
+`content/english/ENGLISH_HIGHEST_MATURITY_FRESH_AUDIT.md`
+
+This Chat has seen the Fresh #4 defect and repair and cannot issue Fresh PASS.
+
+Next mandatory gate:
+
+> **Final Fresh anti-anchored re-audit #5 in a new Chat.**
+
+`SYSTEM_LOGIC_ACCEPTED` remains unset.
+
+---
+
 # 15｜Remaining Unknowns
 
 Legitimate remaining unknowns:
@@ -860,20 +934,20 @@ Reopen only for:
 
 # 17｜Current closure verdict
 
-Current candidate state after Fresh re-audit #3 bounded repair:
+Current candidate state after Fresh re-audit #4 bounded repair:
 
 ```text
 SYSTEM_LOGIC_CANDIDATE = YES
-FINAL_FRESH_REAUDIT #3 = FAIL
-BOUNDED_REPAIR_PROOF #3 = PASS @ 00b238e23c407c48749ad046b7f4ca6a1ddc7798
-FINAL_FRESH_REAUDIT #4 = REQUIRED
+FINAL_FRESH_REAUDIT #4 = FAIL @ 7e83a256ea15e6617d44268c9958a52e3a7b25bb
+BOUNDED_REPAIR_PROOF #4 = PASS @ b6e3116e39a8cfb338debf327798dc3ccca6d914
+FINAL_FRESH_REAUDIT #5 = REQUIRED
 SYSTEM_LOGIC_ACCEPTED = NOT YET
 KIAN_SPECIFIC_CALIBRATED = NO
 ```
 
 This Chat is repair-contaminated and cannot convert the candidate to accepted.
 
-If a new anti-anchored Fresh re-audit finds no material all-green failure:
+If a genuinely new anti-anchored Fresh #5 finds no material all-green failure:
 
 ```text
 SYSTEM_LOGIC_ACCEPTED = YES
