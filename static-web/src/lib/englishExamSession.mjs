@@ -579,6 +579,7 @@ export function summarizeEnglishExamSession(state) {
     current_step: current.current_step,
     objective_result: current.release?.objective || null,
     productive_status: current.release?.productive?.status || null,
+    productive_score_evidence: current.release?.productive?.status === 'SCORED' ? clone(current.release.productive) : null,
     integrated_score_evidence: current.release?.integrated ? clone(current.release.integrated) : null,
     paper_assistance_context: clone(current.paper_assistance_context || null),
     step_evidence: current.steps.map((step) => ({
