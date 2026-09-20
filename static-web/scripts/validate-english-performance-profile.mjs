@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { performance } from 'node:perf_hooks';
 import {
   buildEnglishEvidencePacket,
   buildEnglishPerformanceProfile,
@@ -239,6 +240,64 @@ const fullRows=720;
 const payloadBytes=Buffer.byteLength(JSON.stringify(packet),'utf8');
 assert.ok(payloadBytes<120000,`bounded packet unexpectedly large:${payloadBytes}`);
 
+// Long-history performance attack: packet bytes are bounded, but runtime must not degrade
+// into multi-second scans as private attempt history grows.
+const scaleEntries={};
+let scaleSerial=0;
+const scalePerTask=1200;
+for(const [task,prefix,kind] of TASKS){
+  for(let i=0;i<scalePerTask;i+=1){
+    scaleSerial+=1;
+    const objectId=`scale-${task}-${String(i).padStart(4,'0')}`;
+    const sourceHash=`scale-hash-${task}-${i}`;
+    const attemptId=`scale-attempt-${task}-${i}`;
+    const stamp=new Date(Date.parse('2026-08-01T00:00:00.000Z')+scaleSerial*1000).toISOString();
+    const binding={
+      task,
+      object_id:objectId,
+      source_hash:sourceHash,
+      attempt_id:attemptId,
+      prior_exposure:'exposed',
+      assistance:'unassisted',
+      revision:1,
+      source_snapshot:kind==='external'?{completion_requirement:'READ_ONLY_OK'}:{}
+    };
+    const firstEvidenceMeta={
+      attempt_id:attemptId,
+      source_hash:sourceHash,
+      prior_exposure:'exposed',
+      assistance:'unassisted',
+      legacy_unversioned:false,
+      time_budget_seconds:null,
+      elapsed_seconds:600,
+      timing_status:'uncalibrated',
+      independent_transfer_candidate:false
+    };
+    let value;
+    if(kind==='objective'){
+      value={binding,submitted:true,reviewResolved:true,results:{q1:'correct'},uncertain:[],firstEvidenceMeta,submittedAt:stamp,saved_at:stamp};
+    }else if(kind==='external'){
+      value={binding,submitted:false,stage:'completed',results:{},uncertain:[],firstEvidenceMeta,saved_at:stamp};
+    }else if(kind==='translation'){
+      value={binding,stage:'passed',firstAttempts:{s1:'fixture'},firstEvidenceMeta,firstSubmittedAt:stamp,saved_at:stamp};
+    }else{
+      value={binding,state:'PASS_ACCEPTABLE',firstDraft:'fixture',firstEvidenceMeta,firstSubmittedAt:stamp,updatedAt:stamp};
+    }
+    scaleEntries[prefix+objectId]=JSON.stringify(value);
+  }
+}
+const scaleStorage=new MemoryStorage(scaleEntries);
+const scaleStart=performance.now();
+const scalePacket=buildEnglishEvidencePacket(scaleStorage,{
+  day,
+  now:Date.parse('2026-09-20T04:30:00.000Z'),
+  catalog:[]
+});
+const scaleMs=performance.now()-scaleStart;
+assert.equal(scalePacket.inventory_meta.total_attempts,scalePerTask*6,'scale-history-count');
+assert.equal(scalePacket.inventory.length,48,'scale-packet-unbounded');
+assert.ok(scaleMs<1000,`english-packet-7200-history-regressed-above-1000ms:${scaleMs.toFixed(1)}ms`);
+
 console.log(JSON.stringify({
   ok:true,
   schema:profile.schema,
@@ -246,6 +305,9 @@ console.log(JSON.stringify({
   packet_inventory:packet.inventory.length,
   recent_per_task:ENGLISH_PACKET_RECENT_PER_TASK,
   packet_bytes:payloadBytes,
+  long_history_attempts:scalePacket.inventory_meta.total_attempts,
+  long_history_packet_ms:Math.round(scaleMs*10)/10,
+  long_history_fail_line_ms:1000,
   task_roles:Object.fromEntries(Object.entries(profile.tasks).map(([task,row])=>[task,row.role])),
   guardrails:profile.guardrails
 },null,2));
