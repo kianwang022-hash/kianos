@@ -2,6 +2,8 @@ export const ENGLISH_EXAM_SESSION_SCHEMA = 'kianos.english.exam-session.v1';
 export const ENGLISH_EXAM_SESSION_KEY = 'kianos-english-exam-session-v1';
 export const ENGLISH_EXAM_ANSWER_SCHEMA = 'kianos.english.exam-answer.v1';
 export const ENGLISH_EXAM_EVIDENCE_SCHEMA = 'kianos.english.exam-evidence.v1';
+export const ENGLISH_EXAM_PRODUCTIVE_SCORE_RETURN_SCHEMA = 'kianos.english.exam-productive-score-return.v1';
+export const ENGLISH_EXAM_PRODUCTIVE_SCORING_STANDARD_VERSION = 'english.productive-scoring.v2';
 
 const OBJECTIVE_TASKS = new Set(['cloze', 'reading_a', 'reading_b']);
 const clone = (value) => value == null ? value : JSON.parse(JSON.stringify(value));
@@ -131,7 +133,7 @@ export function validateEnglishExamSession(value) {
   if (!value.session_id || !value.paper_id || !Array.isArray(value.steps) || !value.steps.length) {
     throw new Error('ENGLISH_EXAM_SESSION_IDENTITY_INVALID');
   }
-  if (!['ACTIVE', 'SEALED', 'RELEASED'].includes(value.status)) {
+  if (!['ACTIVE', 'SEALED', 'RELEASED', 'SCORED'].includes(value.status)) {
     throw new Error(`ENGLISH_EXAM_SESSION_STATUS_INVALID:${value.status}`);
   }
   value.steps.forEach(validateStep);
@@ -170,7 +172,8 @@ export function writeEnglishExamSession(storage, state) {
   if(prior?.session_id===valid.session_id) {
     if(JSON.stringify(prior)===JSON.stringify(valid))return prior;
     if(prior.status !== 'ACTIVE' && (valid.status==='ACTIVE' || JSON.stringify(prior.captures)!==JSON.stringify(valid.captures))) throw new Error('ENGLISH_EXAM_SEALED_IMMUTABLE');
-    if(prior.status==='RELEASED')throw new Error('ENGLISH_EXAM_RELEASE_IMMUTABLE');
+    if(prior.status==='SCORED')throw new Error('ENGLISH_EXAM_SCORE_IMMUTABLE');
+    if(prior.status==='RELEASED' && valid.status!=='SCORED')throw new Error('ENGLISH_EXAM_RELEASE_IMMUTABLE');
     if(Number(valid.revision||0)!==Number(prior.revision||0)+1)throw new Error('ENGLISH_EXAM_STALE_WRITE');
   }
   const archiveKey=prior && prior.session_id!==valid.session_id ? 'kianos-english-exam-archive-v1:'+prior.session_id : null;
@@ -295,7 +298,7 @@ function examEvidenceContext(payload = {}) {
 export function releaseEnglishExamObjective(state, answerPacket, now = Date.now()) {
   const current = validateEnglishExamSession(state);
   if (current.status === 'ACTIVE') throw new Error('ENGLISH_EXAM_MUST_BE_SEALED');
-  if (current.status === 'RELEASED') return current;
+  if (['RELEASED','SCORED'].includes(current.status)) return current;
   if (answerPacket?.schema !== ENGLISH_EXAM_ANSWER_SCHEMA || answerPacket?.paper_id !== current.paper_id) {
     throw new Error('ENGLISH_EXAM_ANSWER_PACKET_INVALID');
   }
@@ -350,6 +353,195 @@ export function releaseEnglishExamObjective(state, answerPacket, now = Date.now(
   return updated;
 }
 
+
+function parseEnglishExamReturnObject(input) {
+  if (input && typeof input === 'object' && !Array.isArray(input)) return clone(input);
+  const raw = String(input || '').trim();
+  if (!raw) throw new Error('ENGLISH_EXAM_PRODUCTIVE_SCORE_RETURN_EMPTY');
+  const candidates = [raw];
+  const start = raw.indexOf('{'), end = raw.lastIndexOf('}');
+  if (start >= 0 && end > start) candidates.push(raw.slice(start, end + 1));
+  for (const candidate of candidates) {
+    try {
+      const value = JSON.parse(candidate);
+      if (value && typeof value === 'object' && !Array.isArray(value)) return value;
+    } catch {}
+  }
+  throw new Error('ENGLISH_EXAM_PRODUCTIVE_SCORE_RETURN_INVALID_JSON');
+}
+
+function normalizeEnglishExamScoreRange(value, maxPoints, label) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) {
+    throw new Error('ENGLISH_EXAM_PRODUCTIVE_SCORE_RANGE_REQUIRED:' + label);
+  }
+  const low = Number(value.low), high = Number(value.high);
+  if (!Number.isFinite(low) || !Number.isFinite(high) || low < 0 || high < low || high > maxPoints) {
+    throw new Error('ENGLISH_EXAM_PRODUCTIVE_SCORE_RANGE_INVALID:' + label);
+  }
+  return { low: Number(low.toFixed(1)), high: Number(high.toFixed(1)) };
+}
+
+function englishExamProductiveStep(current, channel) {
+  if (channel === 'translation') return current.steps.find((step) => step.task === 'translation') || null;
+  const kind = channel === 'writing_small' ? 'small' : channel === 'writing_big' ? 'big' : null;
+  if (!kind) return null;
+  return current.steps.find((step) => step.task === 'writing' && step.writing_kind === kind) || null;
+}
+
+function englishExamWholePaperEvidenceQuality(current) {
+  const contexts = current.steps.map((step) => examEvidenceContext(current.captures?.[step.step_id]?.payload || {}));
+  const parent = current.paper_assistance_context;
+  if (parent?.state === 'assisted' || contexts.some((row) => row.assistance === 'assisted')) return 'ASSISTED';
+  if (contexts.some((row) => row.prior_exposure === 'exposed')) return 'EXPOSED';
+  if (parent?.state === 'unknown'
+    || contexts.some((row) => row.assistance === 'unknown' || row.prior_exposure === 'unknown')) return 'UNKNOWN';
+  return 'LOW_CONTAMINATION';
+}
+
+export function validateEnglishExamProductiveScoreReturn(input, state) {
+  const current = validateEnglishExamSession(state);
+  if (current.status !== 'RELEASED' || !current.release?.objective) {
+    throw new Error('ENGLISH_EXAM_PRODUCTIVE_SCORE_REQUIRES_RELEASED_OBJECTIVE');
+  }
+  const value = parseEnglishExamReturnObject(input);
+  if (value.schema !== ENGLISH_EXAM_PRODUCTIVE_SCORE_RETURN_SCHEMA) {
+    throw new Error('ENGLISH_EXAM_PRODUCTIVE_SCORE_RETURN_SCHEMA_INVALID');
+  }
+  if (String(value.session_id || '') !== current.session_id
+    || String(value.paper_id || '') !== current.paper_id
+    || String(value.paper_source_hash || '') !== String(current.source_hash || '')) {
+    throw new Error('ENGLISH_EXAM_PRODUCTIVE_SCORE_SESSION_IDENTITY_MISMATCH');
+  }
+  if (String(value.scoring_standard_version || '') !== ENGLISH_EXAM_PRODUCTIVE_SCORING_STANDARD_VERSION) {
+    throw new Error('ENGLISH_EXAM_PRODUCTIVE_SCORING_STANDARD_STALE_OR_UNBOUND');
+  }
+  if (value.review_of !== 'SEALED_FIRST_OUTPUT') {
+    throw new Error('ENGLISH_EXAM_PRODUCTIVE_SCORE_REVIEW_TARGET_INVALID');
+  }
+  const sourceChannels = value.channels;
+  if (!sourceChannels || typeof sourceChannels !== 'object' || Array.isArray(sourceChannels)) {
+    throw new Error('ENGLISH_EXAM_PRODUCTIVE_SCORE_CHANNELS_REQUIRED');
+  }
+  const definitions = {
+    translation: 10,
+    writing_small: 10,
+    writing_big: 20
+  };
+  const channels = {};
+  for (const [channel, maxPoints] of Object.entries(definitions)) {
+    const row = sourceChannels[channel];
+    const step = englishExamProductiveStep(current, channel);
+    if (!step || !row || typeof row !== 'object' || Array.isArray(row)) {
+      throw new Error('ENGLISH_EXAM_PRODUCTIVE_SCORE_CHANNEL_REQUIRED:' + channel);
+    }
+    if (String(row.step_id || '') !== step.step_id
+      || String(row.object_id || '') !== step.object_id
+      || String(row.source_hash || '') !== String(step.source_hash || '')) {
+      throw new Error('ENGLISH_EXAM_PRODUCTIVE_SCORE_CHANNEL_IDENTITY_MISMATCH:' + channel);
+    }
+    const confidence = String(row.confidence || '').toUpperCase();
+    if (!['HIGH','MEDIUM','LOW'].includes(confidence)) {
+      throw new Error('ENGLISH_EXAM_PRODUCTIVE_SCORE_CONFIDENCE_INVALID:' + channel);
+    }
+    const reviewMode = String(row.review_mode || '').toUpperCase();
+    if (!['ANCHORED_SINGLE','INDEPENDENT_RESCORE_RECONCILED'].includes(reviewMode)) {
+      throw new Error('ENGLISH_EXAM_PRODUCTIVE_SCORE_REVIEW_MODE_INVALID:' + channel);
+    }
+    if (row.requires_independent_rescore === true) {
+      throw new Error('ENGLISH_EXAM_PRODUCTIVE_RESCORE_REQUIRED_BEFORE_IMPORT:' + channel);
+    }
+    channels[channel] = {
+      step_id: step.step_id,
+      object_id: step.object_id,
+      source_hash: step.source_hash || null,
+      score_range: normalizeEnglishExamScoreRange(row.score_range, maxPoints, channel),
+      confidence,
+      review_mode: reviewMode,
+      requires_independent_rescore: false
+    };
+  }
+  return {
+    schema: ENGLISH_EXAM_PRODUCTIVE_SCORE_RETURN_SCHEMA,
+    session_id: current.session_id,
+    paper_id: current.paper_id,
+    paper_source_hash: current.source_hash || null,
+    scoring_standard_version: ENGLISH_EXAM_PRODUCTIVE_SCORING_STANDARD_VERSION,
+    review_of: 'SEALED_FIRST_OUTPUT',
+    channels
+  };
+}
+
+export function applyEnglishExamProductiveScoreReturn(state, input, now = Date.now()) {
+  const current = validateEnglishExamSession(state);
+  const scored = validateEnglishExamProductiveScoreReturn(input, current);
+  const productRows = Object.values(scored.channels);
+  const productiveRange = {
+    low: Number(productRows.reduce((sum, row) => sum + row.score_range.low, 0).toFixed(1)),
+    high: Number(productRows.reduce((sum, row) => sum + row.score_range.high, 0).toFixed(1))
+  };
+  const objectivePoints = Number(current.release.objective.points);
+  if (!Number.isFinite(objectivePoints)) throw new Error('ENGLISH_EXAM_OBJECTIVE_SCORE_MISSING');
+  const integratedRange = {
+    low: Number((objectivePoints + productiveRange.low).toFixed(1)),
+    high: Number((objectivePoints + productiveRange.high).toFixed(1))
+  };
+  const updated = clone(current);
+  updated.status = 'SCORED';
+  updated.scored_at = iso(now);
+  updated.updated_at = iso(now);
+  updated.revision = Number(current.revision || 0) + 1;
+  updated.release.productive = {
+    status: 'SCORED',
+    max_points: Number(current.productive_max_points || 40),
+    scoring_standard_version: scored.scoring_standard_version,
+    review_of: scored.review_of,
+    score_range: productiveRange,
+    channels: clone(scored.channels),
+    scored_at: updated.scored_at
+  };
+  updated.release.integrated = {
+    score_range: integratedRange,
+    max_points: Number(current.total_points || 100),
+    evidence_quality: englishExamWholePaperEvidenceQuality(current),
+    modality: 'TYPED',
+    score_eligible: false,
+    productive_scoring_standard_version: scored.scoring_standard_version,
+    boundary: 'BROWSER_TYPED_WHOLE_PAPER_IS_DIAGNOSTIC_NOT_FORMAL_PAPER_CALIBRATION'
+  };
+  return updated;
+}
+
+export function englishExamProductiveScoreReturnContract(state) {
+  const current = validateEnglishExamSession(state);
+  if (current.status !== 'RELEASED') return null;
+  const channel = (name) => {
+    const step = englishExamProductiveStep(current, name);
+    return step ? {
+      step_id: step.step_id,
+      object_id: step.object_id,
+      source_hash: step.source_hash || null,
+      score_range: { low: '<number>', high: '<number>' },
+      confidence: 'HIGH | MEDIUM | LOW',
+      review_mode: 'ANCHORED_SINGLE | INDEPENDENT_RESCORE_RECONCILED',
+      requires_independent_rescore: false
+    } : null;
+  };
+  return {
+    schema: ENGLISH_EXAM_PRODUCTIVE_SCORE_RETURN_SCHEMA,
+    session_id: current.session_id,
+    paper_id: current.paper_id,
+    paper_source_hash: current.source_hash || null,
+    scoring_standard_version: ENGLISH_EXAM_PRODUCTIVE_SCORING_STANDARD_VERSION,
+    review_of: 'SEALED_FIRST_OUTPUT',
+    channels: {
+      translation: channel('translation'),
+      writing_small: channel('writing_small'),
+      writing_big: channel('writing_big')
+    },
+    boundary: 'Score only the preserved sealed first outputs. If an independent re-score is still required, do not mark it false merely to make the packet importable.'
+  };
+}
+
 export function englishExamTaskHref(step, {
   base = '/',
   sessionId = null,
@@ -387,6 +579,7 @@ export function summarizeEnglishExamSession(state) {
     current_step: current.current_step,
     objective_result: current.release?.objective || null,
     productive_status: current.release?.productive?.status || null,
+    integrated_score_evidence: current.release?.integrated ? clone(current.release.integrated) : null,
     paper_assistance_context: clone(current.paper_assistance_context || null),
     step_evidence: current.steps.map((step) => ({
       step_id: step.step_id,
@@ -416,7 +609,8 @@ export function buildEnglishExamEvidencePacket(state) {
       ...clone(step),
       capture: clone(current.captures?.[step.step_id] || null)
     })),
-    release: clone(current.release)
+    release: clone(current.release),
+    productive_score_return_contract: englishExamProductiveScoreReturnContract(current)
   };
 }
 
