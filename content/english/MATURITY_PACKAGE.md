@@ -10,6 +10,8 @@ Purpose:
 
 This package is the compact subject-control owner for the highest-maturity candidate. It integrates accepted outputs from exact owners; it does not replace them.
 
+**Fresh-auditor read boundary:** during the novel all-green pass, read current system sections #1–#14 only. Historical closure sections #14A+ are post-novel-pass provenance and must not be used to seed the search.
+
 Final closure routing is owned by `content/english/CURRENT.md` + `ENGLISH_HIGHEST_MATURITY_FRESH_AUDIT_BRIEF.md`.
 
 The old one-defect-per-Fresh sequence is retired. Current closure uses:
