@@ -25,6 +25,14 @@ Translation = 10
 Writing = 30
 ```
 
+Current capability target:
+
+> **Objective 60/60 is a hard learner target.**
+
+This is a capability target, not a claim that every observed paper must score 60. Chat must not normalize a persistent Objective loss merely because Translation / Writing could mathematically compensate and still produce an 85 total. Reading A / Cloze / Part B each remain open capability work until the observed evidence supports near-zero avoidable loss under normal exam conditions.
+
+Productive work still matters independently: Translation / Writing provide both required score conversion and downside buffer when real exam variance causes occasional Objective loss.
+
 English optimizes:
 
 ```text
@@ -142,6 +150,34 @@ Spend extra learner time only where evidence supports a reusable, recurring, exp
 Later preparation must train the full 180-minute paper: task order, pacing, switching, fatigue, completion, answer-sheet/delivery risk, and time-allocation tradeoffs.
 
 This is a later phase, not a second permanent course.
+
+
+### E. Capability formation / Guide efficacy loop
+
+A Guide / First-Learning node is an intervention, not a completion target.
+
+The normal capability loop is:
+
+```text
+score requirement
+→ exact task capability
+→ clean attempt / probe
+→ identify earliest meaningful failure
+→ smallest relevant Guide / example / Lexical repair
+→ learner re-execution
+→ fresh or changed-context transfer
+→ stable: exit
+→ still failing: reconsider diagnosis, material quality or Guide explanation
+```
+
+Hard rules:
+
+- reading a Guide is not evidence of independent performance;
+- same-item correction proves local repair only;
+- a targeted synthetic probe may test transfer, but it does not become true-paper score evidence merely because it is fresh;
+- if the same capability remains unstable after a correctly targeted intervention, Chat must consider whether the Guide / example / generated probe is insufficient rather than automatically increasing repetition;
+- stable capability should make future Guide cost approach zero;
+- Deep / reference material is pulled only by a concrete high-value failure.
 
 ---
 
@@ -334,6 +370,37 @@ Rules:
 ## 13｜Fresh material and External Reading
 
 Unseen true-exam material remains limited diagnostic capital. Use synthetic / exposed material for teaching and software validation when sufficient, and consume protected true-exam material for real performance, calibration, or high-value transfer — not to close a database state.
+
+
+Evidence roles must remain distinct:
+
+```text
+official English-I paper
+→ best task geometry / score calibration
+→ but prior repeated exposure can contaminate score and speed
+
+Chat-generated / synthetic drill
+→ cheap fresh changed-context transfer probe
+→ never automatically true-paper-equivalent
+
+TPO / IELTS / authentic External Reading
+→ unfamiliar reading / proposition / discourse / lexical / stamina growth
+→ not English-I section-score evidence by itself
+
+Guide / deep reference
+→ teaching / repair reservoir
+→ not performance evidence
+
+Lexical
+→ exact word / phrase / construction support
+→ not a substitute for task performance
+
+180-minute whole paper
+→ execution / pacing / switching / fatigue / objective score evidence
+→ productive outputs still require human/Chat review
+```
+
+If the learner reports broad prior exposure to official papers, missing private exposure records must not be upgraded to fresh. For score calibration, such material is treated as potentially contaminated until a specific cleaner source is established.
 
 **External Reading has a different primary job:** add high-quality reading volume after ordinary English-I papers stop providing enough growth stimulus.
 
