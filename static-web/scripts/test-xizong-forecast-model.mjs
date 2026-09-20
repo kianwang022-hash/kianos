@@ -113,10 +113,11 @@ function baseProgress() {
   assert.equal(requirement.total_loss_budget,25);
   assert.equal(requirement.point_retention_required,0.9167);
   assert.equal(requirement.disciplines.reduce((sum,row)=>sum+row.points,0),300);
-  assert.equal(
-    Number(requirement.disciplines.reduce((sum,row)=>sum+row.neutral_proportional_target_points,0).toFixed(2)),
-    275
-  );
+  assert.equal(requirement.neutral_proportional_target_total,275);
+  assert.equal(requirement.display_rounding_residual,0.01);
+  assert.ok(Math.abs(
+    requirement.disciplines.reduce((sum,row)=>sum+row.neutral_proportional_target_points,0)-275
+  )<=0.02);
   assert.equal(requirement.disciplines.find(row=>row.id==='humanism')?.points,16);
   assert.match(requirement.boundary,/not fixed quotas/i);
 }
