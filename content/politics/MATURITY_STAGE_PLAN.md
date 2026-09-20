@@ -1,6 +1,6 @@
 # Politics Highest-Maturity Stage Plan
 
-Status: **POLITICS FREEZE CANDIDATE · FRESH INDEPENDENT AUDIT REQUIRED · REAL-U / SOURCE GATED**
+Status: **POLITICS REPAIRED FREEZE CANDIDATE · NEW FRESH INDEPENDENT AUDIT REQUIRED · REAL-U / SOURCE GATED**
 Parent acceptance bar: `EXAM_SUBJECT_MATURITY_STANDARD.md`
 Politics acceptance bar: `MATURITY_REQUIREMENTS.md`
 Active owner: PR #638 · `work/politics-later-readiness-20260920`
@@ -34,8 +34,8 @@ M2 stale-state reconciliation                   DONE
 M3 Analysis-bank + evidence identity proof       DONE
 M4 Forecast adversarial / decision-flip proof   DONE
 M5 lifecycle + Fresh Chat / No-Website proof    DONE
-M6 Builder closure reconciliation               DONE
-M7 Fresh Independent / Anti-Anchored Audit       OPEN — HARD FREEZE BLOCKER
+M6 v4 Source-fidelity finding repair             DONE · QA PASS
+M7 Fresh Independent / Anti-Anchored re-audit    OPEN — HARD FREEZE BLOCKER
 M8 SYSTEM_LOGIC_ACCEPTED                        BLOCKED ON M7
 M9 KIAN_SPECIFIC_CALIBRATED                     REAL-U GATED
 M10 current-year annual sources                 SOURCE GATED
@@ -43,15 +43,14 @@ M10 current-year annual sources                 SOURCE GATED
 
 Earlier T1–T4 artifacts remain useful exact owners, but they no longer justify a broad STOP by themselves.
 
-Fresh audit candidate is sealed and immutable for M7:
+Fresh audit v4 is historical FAIL evidence only:
 
-```text
-audit/politics-maturity-freeze-20260921
-@ 9da838f38dd025283407c9bf248e9fbf731adcaa
-```
+- result commit: `f629b893a33507e11e21a253c6f630c62ecadd25`;
+- material finding: Chengfeng Source fidelity could admit unreviewed/misclassified OCR as learner truth;
+- repair: Source-owned fidelity classification + Runtime/Practice fail-closed admission + dedicated regression;
+- proof: Static Web Politics QA run `35542360736` PASS, including source-fidelity regression and scoped-source parity.
 
-A PASS/FAIL may certify only that exact SHA. Any material semantic repair requires a new sealed candidate and a new fresh audit.
-
+Because this was a material semantic repair, v4 cannot be promoted. The next audit launcher must bind a **new sealed candidate** and a separate audit-result ref.
 
 ### T1 — Objective reconciliation
 
