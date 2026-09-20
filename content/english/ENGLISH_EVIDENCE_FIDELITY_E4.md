@@ -174,3 +174,27 @@ recent-window absence with older recurrence still present
 and a whole-paper score must not lose constituent contamination facts.
 
 E4 remains open until these claims survive targeted proof.
+
+
+---
+
+## 6｜Candidate implementation status
+
+Implemented on this ref:
+
+- **R1 exact source-hash exposure continuity** — an exact rendered source already exposed under another object id now downgrades the new attempt to exposed;
+- **R2 Session assistance provenance** — Chat may declare only `assisted` / `unknown` evidence context with factual provenance; it may not manufacture an `unassisted` declaration;
+- **R3 whole-paper constituent evidence context** — sealed/released section evidence carries exposure, assistance, source kind, evidence role, timing status and independent-transfer eligibility;
+- **R4 bounded long-horizon recurrence digest** — Daily Evidence Packet projects existing Objective / Translation / Writing durable Repair/Transfer targets without creating a second ledger;
+- **R5 structural/runtime validator** — dedicated E4 validator attacks source-hash laundering, assistance provenance, long-horizon truncation and whole-paper contamination;
+- **R6 browser proof hook** — the existing synthetic five-task browser journey now imports a Chat-level assisted Reading step and requires the first evidence to record `assisted`.
+
+Current status:
+
+```text
+R1–R6 IMPLEMENTED_CANDIDATE
+→ latest-head CI / browser proof pending
+→ E4 NOT CLOSED
+```
+
+No new learner UI, scheduler, mastery state or review calendar was added.
