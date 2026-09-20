@@ -177,29 +177,35 @@ function workloadForecast(input){
     const empirical=requiredBuckets.filter((row)=>row.pricing_source==='EMPIRICAL');
     const provisionalEmpirical=empirical.filter((row)=>row.sample_state==='PROVISIONAL');
     const scopeComplete=family.scope_complete===true;
+    const operatingMode=String(family?.operating_mode||'UNKNOWN').toUpperCase();
+    const openMechanisms=Array.isArray(family?.open_mechanisms)?family.open_mechanisms.map(String).filter(Boolean):[];
+    const missingRequiredWork=requiredBuckets.length===0
+      && (openMechanisms.length>0 || !['MAINTAIN','ELASTIC'].includes(operatingMode));
     const knownBand=sumBands(pricedRequired);
     const scopeUnknown=!scopeComplete;
-    const fullBand=(unpricedRequired.length||scopeUnknown)?null:knownBand;
+    const fullBand=(unpricedRequired.length||scopeUnknown||missingRequiredWork)?null:knownBand;
     const unpricedIds=[
       ...unpricedRequired.map((row)=>row.id),
-      ...(scopeUnknown?['SCOPE_UNDECLARED']:[])
+      ...(scopeUnknown?['SCOPE_UNDECLARED']:[]),
+      ...(missingRequiredWork?['OPEN_DEMAND_WITHOUT_REQUIRED_WORK']:[])
     ];
     families.push({
       id:familyId,
       label:String(family?.label||familyId),
-      operating_mode:String(family?.operating_mode||'UNKNOWN'),
-      open_mechanisms:Array.isArray(family?.open_mechanisms)?family.open_mechanisms.map(String):[],
+      operating_mode:operatingMode,
+      open_mechanisms:openMechanisms,
       buckets,
       required_bucket_count:requiredBuckets.length,
       unpriced_bucket_ids:unpricedIds,
       known_priced_band_minutes:knownBand,
       full_band_minutes:fullBand,
-      confidence:(unpricedRequired.length||scopeUnknown)?'PARTIAL'
+      confidence:(unpricedRequired.length||scopeUnknown||missingRequiredWork)?'PARTIAL'
         : priorOnly.length?'PRIOR_HEAVY'
         : provisionalEmpirical.length?'PROVISIONAL'
         : empirical.length===requiredBuckets.length&&requiredBuckets.length?'EMPIRICAL'
         :'MIXED',
-      scope_complete:scopeComplete
+      scope_complete:scopeComplete,
+      demand_unpriced:missingRequiredWork
     });
   }
 
@@ -207,8 +213,9 @@ function workloadForecast(input){
   const pricedRows=requiredRows.filter((row)=>row.band_minutes);
   const unpricedRows=requiredRows.filter((row)=>!row.band_minutes);
   const incompleteFamilies=families.filter((family)=>!family.scope_complete);
+  const demandUnpricedFamilies=families.filter((family)=>family.demand_unpriced===true);
   const knownBand=sumBands(pricedRows);
-  const fullBand=(unpricedRows.length||incompleteFamilies.length)?null:knownBand;
+  const fullBand=(unpricedRows.length||incompleteFamilies.length||demandUnpricedFamilies.length)?null:knownBand;
   const priorCount=requiredRows.filter((row)=>row.pricing_source==='PRIOR_ONLY').length;
   const empiricalCount=requiredRows.filter((row)=>row.pricing_source==='EMPIRICAL').length;
   const provisionalEmpiricalCount=requiredRows.filter((row)=>row.pricing_source==='EMPIRICAL'&&row.sample_state==='PROVISIONAL').length;
@@ -217,14 +224,16 @@ function workloadForecast(input){
     families,
     known_priced_band_minutes:knownBand,
     full_band_minutes:fullBand,
-    full_scope_priced:unpricedRows.length===0&&incompleteFamilies.length===0,
+    full_scope_priced:unpricedRows.length===0&&incompleteFamilies.length===0&&demandUnpricedFamilies.length===0,
     missing_family_ids:missingFamilyIds,
     incomplete_family_ids:incompleteFamilies.map((row)=>row.id),
+    demand_unpriced_family_ids:demandUnpricedFamilies.map((row)=>row.id),
     unpriced_bucket_ids:[
       ...unpricedRows.map((row)=>familyBucketId(row)),
-      ...incompleteFamilies.map((row)=>row.id+':SCOPE_UNDECLARED')
+      ...incompleteFamilies.map((row)=>row.id+':SCOPE_UNDECLARED'),
+      ...demandUnpricedFamilies.map((row)=>row.id+':OPEN_DEMAND_WITHOUT_REQUIRED_WORK')
     ],
-    workload_confidence:(unpricedRows.length||incompleteFamilies.length)?'PARTIAL'
+    workload_confidence:(unpricedRows.length||incompleteFamilies.length||demandUnpricedFamilies.length)?'PARTIAL'
       : priorCount?'PRIOR_HEAVY'
       : provisionalEmpiricalCount?'PROVISIONAL'
       : empiricalCount===requiredRows.length&&requiredRows.length?'EMPIRICAL'
@@ -245,24 +254,40 @@ function normalizeScoreRange(value,maxPoints){
   return {low:round(low,1),high:round(high,1)};
 }
 
+function scoreEvidenceQualityEligible(value){
+  return ['CLEAN','LOW_CONTAMINATION','INDEPENDENT'].includes(String(value||'').toUpperCase());
+}
+
+function scoreModalityEligible(id,value){
+  const modality=String(value||'UNKNOWN').toUpperCase();
+  if(id==='objective')return ['PAPER','BROWSER','MIXED'].includes(modality);
+  return ['PAPER','MIXED'].includes(modality);
+}
+
 function scoreChannelRow(id,input){
   const meta=ENGLISH_SCORE_CHANNELS[id];
   const row=input?.score_channels?.[id]||{};
   const range=normalizeScoreRange(row.range,meta.max_points);
-  const scoreEligible=row.score_eligible===true;
+  const declaredScoreEligible=row.score_eligible===true;
   const evidenceQuality=String(row.evidence_quality||'UNKNOWN').toUpperCase();
   const modality=String(row.modality||'UNKNOWN').toUpperCase();
+  const qualityEligible=scoreEvidenceQualityEligible(evidenceQuality);
+  const modalityEligible=scoreModalityEligible(id,modality);
+  const formalScoreEligible=declaredScoreEligible&&range!==null&&qualityEligible&&modalityEligible;
   const risks=[];
   if(!range)risks.push('SCORE_RANGE_UNKNOWN');
-  if(!scoreEligible)risks.push('NOT_FORMAL_SCORE_ELIGIBLE');
-  if(['EXPOSED','ASSISTED','CONTAMINATED','UNKNOWN'].includes(evidenceQuality))risks.push('EVIDENCE_QUALITY_LIMITS_SCORE_CONFIDENCE');
-  if(['TYPED','UNKNOWN'].includes(modality)&&id!=='objective')risks.push('EXAM_MODE_MODALITY_UNCALIBRATED');
+  if(!declaredScoreEligible)risks.push('NOT_FORMAL_SCORE_ELIGIBLE');
+  if(!qualityEligible)risks.push('EVIDENCE_QUALITY_FORMAL_INELIGIBLE');
+  if(!modalityEligible)risks.push('EXAM_MODE_MODALITY_FORMAL_INELIGIBLE');
+  if(declaredScoreEligible&&!formalScoreEligible)risks.push('DECLARED_SCORE_ELIGIBLE_CONTRADICTS_EVIDENCE');
   return {
     id,
     label:meta.label,
     max_points:meta.max_points,
     range,
-    score_eligible:scoreEligible,
+    declared_score_eligible:declaredScoreEligible,
+    score_eligible:formalScoreEligible,
+    formal_score_eligible:formalScoreEligible,
     evidence_quality:evidenceQuality,
     modality,
     risks
@@ -271,27 +296,40 @@ function scoreChannelRow(id,input){
 
 function scoreForecast(input,targetScore){
   const channels=Object.keys(ENGLISH_SCORE_CHANNELS).map((id)=>scoreChannelRow(id,input));
-  const eligible=channels.filter((row)=>row.score_eligible&&row.range);
-  const allEligible=eligible.length===channels.length;
-  const localBand=allEligible?{
-    low:round(eligible.reduce((sum,row)=>sum+row.range.low,0),1),
-    high:round(eligible.reduce((sum,row)=>sum+row.range.high,0),1)
+  const diagnosticRows=channels.filter((row)=>row.declared_score_eligible&&row.range);
+  const diagnosticComplete=diagnosticRows.length===channels.length;
+  const diagnosticBand=diagnosticComplete?{
+    low:round(diagnosticRows.reduce((sum,row)=>sum+row.range.low,0),1),
+    high:round(diagnosticRows.reduce((sum,row)=>sum+row.range.high,0),1)
+  }:null;
+
+  const formalRows=channels.filter((row)=>row.formal_score_eligible&&row.range);
+  const formalComplete=formalRows.length===channels.length;
+  const formalBand=formalComplete?{
+    low:round(formalRows.reduce((sum,row)=>sum+row.range.low,0),1),
+    high:round(formalRows.reduce((sum,row)=>sum+row.range.high,0),1)
   }:null;
 
   const integrated=input?.whole_paper||{};
   const integratedRange=normalizeScoreRange(integrated.score_range,100);
-  const integratedEligible=integrated.score_eligible===true&&integratedRange!==null;
+  const integratedDeclaredEligible=integrated.score_eligible===true;
   const integratedEvidenceQuality=String(integrated.evidence_quality||'UNKNOWN').toUpperCase();
   const integratedModality=String(integrated.modality||'UNKNOWN').toUpperCase();
+  const integratedQualityEligible=scoreEvidenceQualityEligible(integratedEvidenceQuality);
+  const integratedModalityEligible=['PAPER','MIXED'].includes(integratedModality);
+  const integratedEligible=integratedDeclaredEligible
+    && integratedRange!==null
+    && integratedQualityEligible
+    && integratedModalityEligible;
 
-  let localStatus='UNKNOWN';
-  if(localBand){
-    if(localBand.high<targetScore)localStatus='TARGET_ABOVE_LOCAL_RANGE';
-    else if(localBand.low>=targetScore)localStatus='TARGET_WITHIN_PROTECTED_LOCAL_RANGE';
-    else localStatus='TARGET_CROSSES_LOCAL_RANGE';
+  let localStatus='FORMAL_LOCAL_PATH_INCOMPLETE';
+  if(formalBand){
+    if(formalBand.high<targetScore)localStatus='TARGET_ABOVE_FORMAL_LOCAL_RANGE';
+    else if(formalBand.low>=targetScore)localStatus='TARGET_WITHIN_PROTECTED_FORMAL_LOCAL_RANGE';
+    else localStatus='TARGET_CROSSES_FORMAL_LOCAL_RANGE';
   }
 
-  let integratedStatus='UNKNOWN';
+  let integratedStatus='FORMAL_INELIGIBLE';
   if(integratedEligible){
     if(integratedRange.high<targetScore)integratedStatus='TARGET_ABOVE_INTEGRATED_RANGE';
     else if(integratedRange.low>=targetScore)integratedStatus='TARGET_WITHIN_PROTECTED_INTEGRATED_RANGE';
@@ -299,28 +337,38 @@ function scoreForecast(input,targetScore){
   }
 
   const confidence=integratedEligible
-    ? (['CLEAN','LOW_CONTAMINATION'].includes(integratedEvidenceQuality)
-      && ['PAPER','MIXED'].includes(integratedModality)?'INTEGRATED_HIGH':'INTEGRATED_LIMITED')
-    : localBand?'LOCAL_CHANNELS_ONLY':'PARTIAL';
+    ? 'INTEGRATED_HIGH'
+    : formalBand?'FORMAL_LOCAL_ONLY'
+    : diagnosticBand?'LOCAL_EVIDENCE_ONLY':'PARTIAL';
+
+  const integratedRisks=[];
+  if(!integratedRange)integratedRisks.push('WHOLE_PAPER_SCORE_RANGE_UNKNOWN');
+  if(!integratedDeclaredEligible)integratedRisks.push('WHOLE_PAPER_NOT_DECLARED_SCORE_ELIGIBLE');
+  if(!integratedQualityEligible)integratedRisks.push('WHOLE_PAPER_EVIDENCE_QUALITY_FORMAL_INELIGIBLE');
+  if(!integratedModalityEligible)integratedRisks.push('WHOLE_PAPER_MODALITY_FORMAL_INELIGIBLE');
+  if(integratedDeclaredEligible&&!integratedEligible)integratedRisks.push('DECLARED_SCORE_ELIGIBLE_CONTRADICTS_WHOLE_PAPER_EVIDENCE');
 
   return {
     target_score:targetScore,
     channels,
-    local_channel_band:localBand,
+    local_channel_band:diagnosticBand,
+    formal_local_channel_band:formalBand,
     local_status:localStatus,
     integrated_whole_paper:{
       range:integratedRange,
+      declared_score_eligible:integratedDeclaredEligible,
       score_eligible:integratedEligible,
       evidence_quality:integratedEvidenceQuality,
       modality:integratedModality,
-      status:integratedStatus
+      status:integratedStatus,
+      risks:integratedRisks
     },
     score_path_confidence:confidence,
     dependency_warning:
-      'Local channel ranges are not assumed independent. Whole-paper timing/fatigue/modality can move the realized total; local ranges must not be mechanically narrowed into an exam-total forecast.',
-    flip_points:localBand?{
-      points_needed_above_local_low_to_target:round(Math.max(0,targetScore-localBand.low),1),
-      local_upper_slack_above_target:round(localBand.high-targetScore,1)
+      'Diagnostic local channel ranges may include typed or otherwise non-formal evidence. Protected exam-total status requires formally eligible evidence and cannot be inferred from independent local ranges alone.',
+    flip_points:formalBand?{
+      points_needed_above_formal_local_low_to_target:round(Math.max(0,targetScore-formalBand.low),1),
+      formal_local_upper_slack_above_target:round(formalBand.high-targetScore,1)
     }:null
   };
 }
@@ -350,12 +398,12 @@ export function buildEnglishWorkloadForecast(input,{targetScore=85}={}){
   const uncertainty=[];
   if(!workload.full_scope_priced)uncertainty.push('WORKLOAD_SCOPE_PARTIALLY_UNPRICED');
   if(workload.prior_only_bucket_count)uncertainty.push('WORKLOAD_HAS_PRIOR_ONLY_PRICING');
-  if(score.local_channel_band==null)uncertainty.push('FORMAL_SCORE_CHANNELS_INCOMPLETE');
+  if(score.formal_local_channel_band==null)uncertainty.push('FORMAL_SCORE_CHANNELS_INCOMPLETE');
   if(!score.integrated_whole_paper.score_eligible)uncertainty.push('WHOLE_PAPER_SCORE_CALIBRATION_MISSING');
   if(score.integrated_whole_paper.modality==='UNKNOWN'||score.integrated_whole_paper.modality==='TYPED')uncertainty.push('PAPER_MODALITY_UNCALIBRATED');
 
-  const state=!workload.full_scope_priced&&score.local_channel_band==null?'UNKNOWN'
-    : workload.full_scope_priced&&score.local_channel_band!==null?'SYSTEM_LOGIC_READY_WITH_INPUTS'
+  const state=!workload.full_scope_priced&&score.formal_local_channel_band==null&&!score.integrated_whole_paper.score_eligible?'UNKNOWN'
+    : workload.full_scope_priced&&(score.formal_local_channel_band!==null||score.integrated_whole_paper.score_eligible)?'SYSTEM_LOGIC_READY_WITH_INPUTS'
     :'PARTIAL';
 
   return {
