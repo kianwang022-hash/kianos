@@ -1,7 +1,7 @@
 ---
 import { examProductCatalog, politicsProductCatalog } from '../lib/productCatalog.mjs';
 import { buildPoliticsMemoryCandidateCatalogCurrent } from '../lib/politicsMemoryCandidates.mjs';
-const { xizongPacketIndex = [] } = Astro.props;
+const { xizongPacketIndex = [], xizongForecastQuestionScope = null, xizongForecastCanonicalScope = null } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const catalog = examProductCatalog(base);
 const politicsCatalog = politicsProductCatalog(base);
@@ -12,6 +12,8 @@ const politicsMemoryCatalog = buildPoliticsMemoryCandidateCatalogCurrent();
   <script type="application/json" data-exam-daily-politics-catalog set:html={JSON.stringify(politicsCatalog).replace(/</g, '\\u003c')} />
   <script type="application/json" data-exam-politics-memory-catalog set:html={JSON.stringify(politicsMemoryCatalog).replace(/</g, '\\u003c')} />
   <script type="application/json" data-exam-daily-xizong-index set:html={JSON.stringify(xizongPacketIndex).replace(/</g, '\\u003c')} />
+  <script type="application/json" data-exam-xizong-forecast-question-scope set:html={JSON.stringify(xizongForecastQuestionScope).replace(/</g, '\\u003c')} />
+  <script type="application/json" data-exam-xizong-forecast-canonical-scope set:html={JSON.stringify(xizongForecastCanonicalScope).replace(/</g, '\\u003c')} />
   <header class="examTodayHead"><div><h2>今天</h2></div><button class="examQuiet" data-exam-settings>调整时间</button></header>
   <p class="examCapacity" data-exam-capacity>今天的时间与学习记录会汇总在这里。</p>
   <div class="examAllocation" data-exam-allocations aria-live="polite"></div>
