@@ -149,6 +149,7 @@ assert.equal(profile.tasks.reading_b.evidence_shape,'QUESTION_OUTCOME');
 assert.equal(profile.tasks.external_reading.evidence_shape,'QUESTION_OUTCOME');
 assert.equal(profile.tasks.translation.evidence_shape,'PRODUCTIVE_REPAIR_STATE');
 assert.equal(profile.tasks.writing.evidence_shape,'PRODUCTIVE_REPAIR_STATE');
+assert.equal(profile.guardrails.includes('WORKFLOW_COMPLETE_IS_NOT_PERFORMANCE_SUCCESS'),true);
 assert.equal(Object.prototype.hasOwnProperty.call(profile.tasks.translation.history,'problem_bearing_attempts'),false,
   'Objective problem semantics leaked into Translation');
 assert.equal(Object.prototype.hasOwnProperty.call(profile.tasks.writing.history,'problem_bearing_attempts'),false,
@@ -159,6 +160,8 @@ assert.ok(profile.tasks.writing.history.repair_bearing_attempts>0,'Writing repai
 for(const [task] of TASKS){
   const row=profile.tasks[task];
   assert.equal(row.history.attempts,120,`history profile count:${task}`);
+  assert.ok(row.history.workflow_complete_attempts>=0,`workflow completion fact missing:${task}`);
+  assert.equal(Object.prototype.hasOwnProperty.call(row.history,'complete_attempts'),false,`ambiguous completion field leaked:${task}`);
   assert.equal(row.recent.attempts,8,`recent profile count:${task}`);
   assert.ok(row.history.timing.first_evidence_samples>0,`timing evidence absent:${task}`);
   assert.ok(row.history.exposure.exposed>0,`exposure split absent:${task}`);
