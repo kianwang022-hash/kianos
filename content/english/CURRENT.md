@@ -97,22 +97,13 @@ Structural/self-attack review is complete on this ref (19/19 targeted checks). T
 Active ref: `work/english-highest-maturity-adaptation-20260920`
 Owner package: `ENGLISH_HIGHEST_MATURITY_STANDARD.md` + `ENGLISH_HIGHEST_MATURITY_STAGE_PLAN.md` + `ENGLISH_MATURITY_GAP_MATRIX.md`.
 
-Current: **E3 Productive Scoring Validity — FRESH AUDIT FAIL · BOUNDED V2 REPAIR STAGED · NEW FRESH RE-AUDIT REQUIRED**.
+Current: **E3 Productive Scoring Validity — FRESH ACCEPTANCE NOT YET PROVEN · REPAIRED CALIBRATION PACKAGE READY FOR NEW BLIND AUDIT**.
 E2 Material / Source Fidelity / Ready Inventory is **CLOSED CANDIDATE** after structural/build/browser proof on PR #640.
 
-The first independent anti-anchored E3 audit is recorded in `ENGLISH_PRODUCTIVE_SCORING_E3_FRESH_AUDIT.md`.
-It found material proof/calibration blind spots despite all original pairwise directions passing:
+Fresh-audit history exists, but it is **post-blind context only**. A new E3 auditor must not read this Current, prior E3 audit reports, Builder judgments or PR/history summaries before locking all blind scores.
 
-- Translation semantic-equivalence control contained a hidden semantic overstatement;
-- Writing task/style fixtures were confounded by major word-count differences;
-- no complete five-segment Translation aggregation fixture existed;
-- forecast-sensitive Writing lacked an equally explicit all-channel independent re-score trigger;
-- scoring evidence required a version field but the scoring owner itself had no explicit version identity.
-
-Bounded repair now defines `english.productive-scoring.v2`, deconfounds non-length Writing fixtures, adds dedicated length-stress cases, adds complete-section Translation cases, strengthens independent re-score / migration rules, and expands the structural validator.
-
-Next: run the updated `PRODUCTIVE_SCORING_FRESH_AUDIT_BRIEF.md` in a **new anti-anchored Chat** against v2. The current audit Chat is ineligible because it has seen the old key and authored the repaired bank/key.
-Do not advance to E4 until that new blind audit passes.
+Next: start from `PRODUCTIVE_SCORING_FRESH_AUDIT_BRIEF.md` on the active candidate ref, obey its pre-blind read boundary, blind-score the opaque fixture bank, freeze the complete result block, and reveal the sealed key only afterward.
+Do not advance to E4 until that clean audit passes.
 
 Boundaries: reuse existing task workspaces/transport; no second scheduler/ledger/mastery; no broad Guide rewrite; no protected true-exam consumption for engineering proof.
 
