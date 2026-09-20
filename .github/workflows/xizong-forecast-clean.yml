@@ -4,15 +4,24 @@ on:
   pull_request:
     paths:
       - 'static-web/src/lib/xizongForecastModel.mjs'
+      - 'static-web/src/lib/xizongStudyPacket.mjs'
+      - 'static-web/src/lib/xizongMemoryModel.mjs'
+      - 'static-web/src/lib/xizongQuestions.mjs'
+      - 'static-web/src/lib/xizong.mjs'
+      - 'static-web/src/lib/xizongPaperScoring.mjs'
+      - 'static-web/src/lib/dailyLearningPacketRuntime.mjs'
+      - 'static-web/src/lib/examOrchestratorClient.mjs'
+      - 'static-web/src/components/ExamOrchestratorHome.astro'
+      - 'static-web/src/components/XizongPracticeWorkbench.astro'
+      - 'static-web/src/pages/index.astro'
       - 'static-web/scripts/test-xizong-forecast-model.mjs'
+      - 'static-web/scripts/test-xizong-forecast-real-u-adapter.mjs'
+      - 'static-web/scripts/validate-xizong-paper-practice.mjs'
       - '.github/workflows/xizong-forecast-clean.yml'
-  push:
-    branches:
-      - work/xizong-forecast-clean-20260921
-    paths:
-      - 'static-web/src/lib/xizongForecastModel.mjs'
-      - 'static-web/scripts/test-xizong-forecast-model.mjs'
-      - '.github/workflows/xizong-forecast-clean.yml'
+
+concurrency:
+  group: xizong-forecast-clean-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   forecast:
@@ -22,5 +31,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Run Xizong forecast adversarial suite
-        run: node static-web/scripts/test-xizong-forecast-model.mjs
+      - name: Install runtime
+        working-directory: static-web
+        run: npm install --no-audit --no-fund
+      - name: Run Xizong Forecast adversarial suite
+        working-directory: static-web
+        run: |
+          node scripts/test-xizong-forecast-model.mjs
+          node scripts/test-xizong-forecast-real-u-adapter.mjs
+          node scripts/validate-xizong-paper-practice.mjs
+      - name: Build Current site
+        working-directory: static-web
+        run: npm run build
