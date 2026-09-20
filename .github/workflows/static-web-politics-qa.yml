@@ -62,6 +62,8 @@ jobs:
         run: node scripts/validate-politics-analysis-bank.mjs
       - name: Run Politics mother-standard adversarial proof
         run: node scripts/test-politics-maturity-adversarial.mjs
+      - name: Validate Politics mother-standard maturity package
+        run: node scripts/validate-politics-maturity-package.mjs
       - name: Prove Politics Analysis evidence lifecycle
         run: node scripts/test-politics-analysis-evidence.mjs
       - name: Prove Politics evidence reaches shared Daily Packet
