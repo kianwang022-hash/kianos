@@ -5,6 +5,14 @@ import {
   ENGLISH_EXPOSURE_SCHEMA,
   ENGLISH_MATERIAL_EXPOSURE_KEY
 } from '../src/lib/englishLearnerEvidence.mjs';
+import {
+  LEXICAL_LEDGER_SCHEMA,
+  LEXICAL_LEDGER_STORAGE_KEY
+} from '../src/lib/lexicalEvidence.mjs';
+import {
+  LEXICAL_INTAKE_STORAGE_KEY,
+  LEXICAL_ROUTING_STORAGE_KEY
+} from '../src/lib/lexicalSettings.mjs';
 
 class MemoryStorage {
   constructor(entries={}){this.map=new Map(Object.entries(entries));}
@@ -50,6 +58,53 @@ assert.ok(exposed?.object_id&&explicitUnseen?.object_id&&unknown?.object_id);
 const generatedId='external-chat-2026-09-20-forecast-001';
 const generatedHash='generated-forecast-hash';
 const storage=new MemoryStorage({
+  [LEXICAL_INTAKE_STORAGE_KEY]:JSON.stringify({
+    schema:'kianos.lexical.intake.v1',
+    introduced:{'word:a':'2026-09-18','word:b':'2026-09-19','word:c':'2026-09-20'}
+  }),
+  [LEXICAL_ROUTING_STORAGE_KEY]:JSON.stringify({
+    schema:'kianos.lexical.card_routing.v1',
+    history:[],
+    latest_by_word:{
+      'word:a':{word_id:'word:a',word:'alpha',route:'KNOWN',observed_at:'2026-09-20T09:00:00+08:00'},
+      'word:b':{word_id:'word:b',word:'beta',route:'FUZZY',observed_at:'2026-09-20T09:10:00+08:00'},
+      'word:c':{word_id:'word:c',word:'gamma',route:'UNKNOWN',observed_at:'2026-09-20T09:20:00+08:00'}
+    }
+  }),
+  [LEXICAL_LEDGER_STORAGE_KEY]:JSON.stringify({
+    schema:LEXICAL_LEDGER_SCHEMA,
+    events:[
+      {
+        event_id:'lex-reading-wrong',
+        word_id:'word:b',
+        ordinal:2,
+        word:'beta',
+        target_kind:'sense',
+        target_id:'sense:b1',
+        source:'reading',
+        outcome:'WRONG',
+        observed_at:'2026-09-20T09:30:00+08:00',
+        attribution:'lexical',
+        demand:'recognition'
+      },
+      {
+        event_id:'lex-cloze-slow',
+        word_id:'word:c',
+        ordinal:3,
+        word:'gamma',
+        target_kind:'sense',
+        target_id:'sense:c1',
+        source:'cloze',
+        outcome:'SLOW',
+        context_id:'cloze-1',
+        observed_at:'2026-09-20T09:40:00+08:00',
+        attribution:'lexical',
+        demand:'recognition'
+      }
+    ],
+    conflicts:[],
+    identity_lineage:{}
+  }),
   [ENGLISH_MATERIAL_EXPOSURE_KEY]:JSON.stringify({
     schema:ENGLISH_EXPOSURE_SCHEMA,
     materials:{
@@ -111,6 +166,16 @@ const result=buildHomeDailyLearningPacket({
 
 assert.equal(result.coverage.english,'attached');
 const evidence=result.packet.subjects.english.evidence;
+assert.equal(evidence.lexical_support.schema,'kianos.english.lexical-support-evidence.v1');
+assert.equal(evidence.lexical_support.introduced_total,3);
+assert.equal(evidence.lexical_support.routing.latest_total,3);
+assert.equal(evidence.lexical_support.routing.latest_counts.known,1);
+assert.equal(evidence.lexical_support.routing.latest_counts.fuzzy,1);
+assert.equal(evidence.lexical_support.routing.latest_counts.unknown,1);
+assert.equal(evidence.lexical_support.repair.active_target_count,1,'single WRONG should activate one exact repair target; single SLOW alone should not');
+assert.equal(evidence.lexical_support.english_task_events_30d.failure_signals,2);
+assert.equal(evidence.lexical_support.english_task_events_30d.by_source.reading.failure_signals,1);
+assert.equal(evidence.lexical_support.english_task_events_30d.by_source.cloze.failure_signals,1);
 assert.equal(evidence.forecast_materials.schema,'kianos.english.forecast-material-evidence.v1');
 assert.equal(evidence.forecast_materials.status,'ready');
 assert.match(evidence.forecast_materials.evidence_boundary,/UNKNOWN is never upgraded to unseen/);
@@ -145,6 +210,7 @@ console.log(JSON.stringify({
   external_registered:evidence.forecast_materials.external_reading.registered_objects,
   official_exposure:{exposed:sum('exposed'),explicit_unseen:sum('explicit_unseen'),unknown:sum('unknown')},
   generated_drill:generated,
-  boundary:'unknown-never-means-unseen; generated-drill-never-means-true-paper'
+  lexical_support:evidence.lexical_support,
+  boundary:'unknown-never-means-unseen; generated-drill-never-means-true-paper; lexical-routing-never-means-mastery'
 },null,2));
 console.log('PASS English forecast evidence: official exposure stays conservative and generated drills stay distinct');
