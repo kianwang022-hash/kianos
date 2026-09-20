@@ -87,13 +87,14 @@ export function validateExternalReadingPrivateBundle(value){
 export function ensureExternalReadingPrivateBundle({
   sourceRoot=resolveExternalReadingSourceRoot(),
   privateDir=resolveExternalReadingPrivateDir(),
-  force=false
+  force=false,
+  enforceSourceHashGate=true
 }={}){
   const snapshot=sourceSnapshot(sourceRoot);
   if(snapshot.missing.length){
     return{status:'missing_source',source_root:sourceRoot,missing:snapshot.missing,bundle:null};
   }
-  if(snapshot.mismatches.length){
+  if(enforceSourceHashGate&&snapshot.mismatches.length){
     return{status:'stale_source',source_root:sourceRoot,mismatches:snapshot.mismatches,bundle:null};
   }
   const bundleFile=externalReadingBundlePath(privateDir);
