@@ -290,16 +290,17 @@ function summarizeXizongForecastPractice(storage, {
     .sort()
     .at(-1) || null;
 
-  const currentScopeDetailKeys = new Set(
-    [...currentScopeBySystem.keys()].filter(Boolean).map((systemId) => `practice/${systemId}`)
-  );
   const currentByDay = new Map();
   for (const event of currentScopeFirstAttempt.values()) {
     const day = studyDayFromIso(event?.submitted_at);
     if (!day) continue;
-    if (!currentByDay.has(day)) currentByDay.set(day, { attempted: 0, stable: 0, uncertain: 0, wrong: 0 });
+    if (!currentByDay.has(day)) {
+      currentByDay.set(day, { attempted: 0, stable: 0, uncertain: 0, wrong: 0, system_ids: new Set() });
+    }
     const row = currentByDay.get(day);
     row.attempted += 1;
+    const systemId = String(event?.system_id || '');
+    if (systemId) row.system_ids.add(systemId);
     const status = String(event?.status || '');
     if (Object.hasOwn(row, status)) row[status] += 1;
   }
@@ -307,8 +308,14 @@ function summarizeXizongForecastPractice(storage, {
   const dayRows = [...byDay.values()].sort((a, b) => a.day.localeCompare(b.day)).slice(-30)
     .map((row) => {
       const practiceTimerMinutes = xizongPracticeMinutesForDay(storage, row.day, now);
-      const current = currentByDay.get(row.day) || { attempted: 0, stable: 0, uncertain: 0, wrong: 0 };
-      const currentTimerMinutes = xizongPracticeMinutesForDay(storage, row.day, now, currentScopeDetailKeys);
+      const current = currentByDay.get(row.day)
+        || { attempted: 0, stable: 0, uncertain: 0, wrong: 0, system_ids: new Set() };
+      const currentDetailKeys = new Set(
+        [...current.system_ids].map((systemId) => `practice/${systemId}`)
+      );
+      const currentTimerMinutes = currentDetailKeys.size
+        ? xizongPracticeMinutesForDay(storage, row.day, now, currentDetailKeys)
+        : 0;
       return {
         ...row,
         practice_timer_minutes: practiceTimerMinutes,
