@@ -10,6 +10,7 @@ export const CONTROL_OPERATION_KINDS=Object.freeze([
   'xizong.chat_return',
   'xizong.system_wu_return',
   'politics.memory_plan',
+  'politics.analysis_evidence',
   'exam.chat_plan'
 ]);
 
@@ -60,6 +61,7 @@ export function validateControlCommand(value){
   const xizongChatReturn=operations.find(op=>op.kind==='xizong.chat_return')?.payload||null;
   const xizongSystemWuReturn=operations.find(op=>op.kind==='xizong.system_wu_return')?.payload||null;
   const politicsMemoryPlan=operations.find(op=>op.kind==='politics.memory_plan')?.payload||null;
+  const politicsAnalysisEvidence=operations.filter(op=>op.kind==='politics.analysis_evidence').map(op=>op.payload);
   const examPlan=operations.find(op=>op.kind==='exam.chat_plan')?.payload||null;
   const generatedDrills=operations.filter(op=>op.kind==='english.generated_drill').map(op=>op.payload);
   if(englishSession?.study_day&&englishSession.study_day!==studyDay)fail('SESSION_DAY_MISMATCH');
@@ -67,6 +69,7 @@ export function validateControlCommand(value){
   if(xizongChatReturn?.study_day&&xizongChatReturn.study_day!==studyDay)fail('XIZONG_RETURN_DAY_MISMATCH');
   if(xizongSystemWuReturn?.study_day&&xizongSystemWuReturn.study_day!==studyDay)fail('XIZONG_SYSTEM_RETURN_DAY_MISMATCH');
   if(politicsMemoryPlan?.study_day&&politicsMemoryPlan.study_day!==studyDay)fail('POLITICS_MEMORY_DAY_MISMATCH');
+  if(politicsAnalysisEvidence.some(evidence=>evidence?.study_day!==studyDay))fail('POLITICS_ANALYSIS_DAY_MISMATCH');
   if(examPlan?.study_day&&examPlan.study_day!==studyDay)fail('PLAN_DAY_MISMATCH');
   if(generatedDrills.some(drill=>drill?.study_day!==studyDay))fail('GENERATED_DRILL_DAY_MISMATCH');
   if(!operations.some(op=>op.kind!=='english.generated_drill'))fail('NO_BROWSER_OPERATION');
@@ -147,12 +150,14 @@ export function validateBrowserControlCommand(value,expectedDay=null){
   const xizongChatReturn=operations.find(op=>op.kind==='xizong.chat_return')?.payload||null;
   const xizongSystemWuReturn=operations.find(op=>op.kind==='xizong.system_wu_return')?.payload||null;
   const politicsMemoryPlan=operations.find(op=>op.kind==='politics.memory_plan')?.payload||null;
+  const politicsAnalysisEvidence=operations.filter(op=>op.kind==='politics.analysis_evidence').map(op=>op.payload);
   const examPlan=operations.find(op=>op.kind==='exam.chat_plan')?.payload||null;
   if(englishSession?.study_day&&englishSession.study_day!==studyDay)fail('SESSION_DAY_MISMATCH');
   if(xizongSession?.study_day&&xizongSession.study_day!==studyDay)fail('XIZONG_SESSION_DAY_MISMATCH');
   if(xizongChatReturn?.study_day&&xizongChatReturn.study_day!==studyDay)fail('XIZONG_RETURN_DAY_MISMATCH');
   if(xizongSystemWuReturn?.study_day&&xizongSystemWuReturn.study_day!==studyDay)fail('XIZONG_SYSTEM_RETURN_DAY_MISMATCH');
   if(politicsMemoryPlan?.study_day&&politicsMemoryPlan.study_day!==studyDay)fail('POLITICS_MEMORY_DAY_MISMATCH');
+  if(politicsAnalysisEvidence.some(evidence=>evidence?.study_day!==studyDay))fail('POLITICS_ANALYSIS_DAY_MISMATCH');
   if(examPlan?.study_day&&examPlan.study_day!==studyDay)fail('PLAN_DAY_MISMATCH');
   if(englishSession&&examPlan?.subjects?.english?.session_ref
     && String(examPlan.subjects.english.session_ref)!==String(englishSession.session_id||'')){
