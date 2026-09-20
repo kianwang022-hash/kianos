@@ -129,12 +129,13 @@ Required sequence now:
 
 ```text
 E medical-content chain CLOSED
-→ F may resume at fresh independent K acceptance
+→ F medical-content chain CLOSED
+→ D / E / F scoped downstream work is separately eligible
 ```
 
-Do not copy D topology for symmetry. Do not infer official-question membership from accepted K.
+Do not copy D topology for symmetry. Do not infer official-question membership from accepted K or Content.
 
-## F｜Remaining Clinical — CONTENT ACTIVE / PHASE 5D NEXT
+## F｜Remaining Clinical — CONTENT CLOSED / DOWNSTREAM HANDOFF
 
 F Current identity has now been reconciled to **9 Blocks / 121 KP**.
 
@@ -149,7 +150,7 @@ Current state:
 S1 Source boundary  PASS_AFTER_SOURCE_REBIND
 K Knowledge         PASS_AFTER_BOUNDED_REPAIR
 L Learning Logic    PASS_AFTER_BOUNDED_REPAIR
-Content             ACTIVE / PHASE5C_SUFFICIENCY_CLOSED
+Content             PASS_AFTER_BOUNDED_REPAIR / CLOSED
 ```
 
 The old 12-Block transition Guide is not Current F identity; its first three physiology-foundation Blocks are historical substrate, while Current canonical F is F1–F9.
@@ -176,6 +177,10 @@ Fresh acceptance evidence:
 
 `content/xizong/knowledge/learner/F_PHASE4_FRESH_INDEPENDENT_L_ACCEPTANCE.md`
 
+Fresh Content closure evidence:
+
+`content/xizong/knowledge/learner/F_PHASE5D_FRESH_INDEPENDENT_CONTENT_CLOSURE.md`
+
 Accepted Learning shape:
 
 ```text
@@ -189,7 +194,7 @@ Accepted Learning shape:
 
 Fresh L audit preserved all 40 LG identities and the zero-hard-edge / F9 ownership-first model, while making four bounded Learning repairs: F4/F6 now use genuine natural Source units, and F3-LG02/F7-LG01 now explicitly require real original-Source visual formation.
 
-Content Realization / Optimization is active. Phase 5A built the canonical Content-role candidate with 40/40 accepted LG Source-release coverage and no medical-Core rewrite. Phase 5B removed the stale 9/9 route frontmatters, aligned all five natural-unit wrappers, preserved the three whole-source Blocks and F9 ownership-first integration. Phase 5C has now reviewed all 40 accepted LGs: 40/40 pass Content sufficiency; 31 LG / 72 KP Recall fronts were repaired for answer leakage; Reveal-side medical Core drift = 0. Phase 5D fresh independent whole-F Content closure is next.
+Content Realization / Optimization is now independently accepted with verdict **FRESH_CONTENT_PASS_AFTER_BOUNDED_REPAIR**. Phase 5D revalidated 9 Blocks / 121 KP / 40 LG, exact 40/40 Source-release coverage, 0 stale route fields, the 3 whole + 5 natural + 1 integration Source pattern, visual/exact-Source fail-closed truth, Page-disappearance and no-duplicate-truth. Fresh closure found 10 residual Recall-front leaks across 8 LGs; only those pre-Reveal surfaces were repaired, with Reveal-side medical Core drift = 0. F Content is closed.
 
 ---
 
@@ -201,7 +206,7 @@ Keep two truths separate.
 
 Current learner-facing exact System question scope is only accepted for **A1 / A2 / A3**. B / C / D / E / F must not be surfaced as trusted System-question sets until their exact official-question membership is independently established; System membership does not imply Block/KP mapping and must not be inferred from Outline or Block placement.
 
-### Deferred completion backlog — after E / F medical-content closure
+### Current completion lane — E / F medical-content closure satisfied
 
 Decision 2026-09-20:
 
@@ -213,7 +218,7 @@ finish E full medical-content chain
 → only then expose those Systems in trusted learner-facing "按 System" question entry
 ```
 
-This is a durable **content-completion backlog item**, not the current active lane. Do not interrupt E/F construction to broaden question scope unless a concrete E/F Source or Learning decision requires official-question evidence.
+E and F medical-content closure are now complete, so this deferred backlog is now eligible to resume as the next program-level content task. Keep exact System question scope separate from accepted medical Content: no B/C/D/E/F membership may be inferred from Block, LG, Outline or Source placement.
 
 ## B2｜Question → Knowledge Crosswalk
 
@@ -348,7 +353,11 @@ Do not reopen the generation standard unless fresh evidence shows the shared met
 
 ```text
 Medical:
-F Content Phase 5D fresh independent whole-F Content closure = next medical-content priority
+D / E / F medical-content construction = CLOSED
+Scoped D / E / F Projection may proceed independently when prioritized
+
+Questions:
+deferred exact official System-question membership completion = next program priority
 E scoped Projection may proceed independently downstream only when it does not consume F semantic attention
 D scoped Projection may proceed independently downstream only when it does not consume F semantic attention
 
@@ -413,7 +422,7 @@ E S1 PASS
 → Phase4D fresh closure PASS after E8/E10 bounded wrapper repair
 → E P UNTESTED / downstream eligible
 
-NEXT MEDICAL CONTENT PRIORITY
+F MEDICAL CONTENT CLOSED
 F 9 Blocks / 121 KP
 → S1 PASS after Source rebind
 → K PASS_AFTER_BOUNDED_REPAIR
@@ -422,12 +431,13 @@ F 9 Blocks / 121 KP
 → Content Phase 5A BUILT: 40/40 LG Source-release coverage; medical Core rewrite 0
 → Content Phase 5B CLOSED: stale route fields 0/9; natural wrappers 5/5; whole 3/3 preserved; F9 integration preserved
 → Content Phase 5C CLOSED: 40/40 LG PASS; 31 LG / 72 KP Recall-front repairs; Reveal Core drift 0
-→ Phase 5D fresh independent Content closure NEXT
+→ Content Phase 5D PASS_AFTER_BOUNDED_REPAIR: +10 residual Recall-front repairs / 8 LG; Page-disappearance + owner/boundary attacks PASS
+→ F medical-content chain CLOSED
 
 QUESTIONS
 Current trusted System-question entry = A1 / A2 / A3 only
-B / C / D / E / F exact official-question membership = DEFERRED COMPLETION BACKLOG
-→ resume after E + F medical-content closure
+B / C / D / E / F exact official-question membership = CURRENT COMPLETION LANE
+→ E + F medical-content closure prerequisite satisfied
 + Crosswalk C2 continuous reviewed batches
 
 VISUAL
