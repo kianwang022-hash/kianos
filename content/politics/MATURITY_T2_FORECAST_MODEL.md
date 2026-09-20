@@ -115,12 +115,15 @@ Before accepted calibration evidence exists, the Objective Forecast may answer o
 
 Per type:
 
-- Current-catalog questions;
-- first-attempted questions;
+- full Source questions;
+- currently admitted questions;
+- currently withheld questions;
+- first-attempted questions among currently admitted scope;
+- historical first attempts that now belong to withheld scope, kept as history-only;
 - remaining currently admitted questions;
-- W/U counts;
-- stable current outcome count;
-- learner-cause counts.
+- W/U counts for currently admitted scope;
+- stable current outcome count for currently admitted scope;
+- learner-cause counts for currently admitted scope.
 
 Required split:
 
@@ -415,9 +418,13 @@ for:
 
 - single;
 - multiple;
-- first-attempt count;
-- current STABLE / WRONG / UNCERTAIN;
-- four existing learner-cause buckets.
+- full Source count;
+- currently admitted vs withheld count;
+- first-attempt count inside currently admitted scope;
+- history-only first attempts on now-withheld questions;
+- current STABLE / WRONG / UNCERTAIN for admitted scope;
+- four existing learner-cause buckets;
+- per-attempt current admission status in the Daily evidence packet.
 
 This field remains:
 
