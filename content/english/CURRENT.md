@@ -97,13 +97,13 @@ Structural/self-attack review is complete on this ref (19/19 targeted checks). T
 Active ref: `work/english-highest-maturity-adaptation-20260920`
 Owner package: `ENGLISH_HIGHEST_MATURITY_STANDARD.md` + `ENGLISH_HIGHEST_MATURITY_STAGE_PLAN.md` + `ENGLISH_MATURITY_GAP_MATRIX.md`.
 
-Current: **E4 Evidence / Exposure / long-horizon fidelity — ACTIVE**.
+Current: **E4 Evidence / Exposure / long-horizon fidelity — ACTIVE · R1–R6 IMPLEMENTED_CANDIDATE**.
 E2 Material / Source Fidelity / Ready Inventory is **CLOSED CANDIDATE** after structural/build/browser proof on PR #640.
 E3 Productive Scoring Validity is **CLOSED CANDIDATE · FRESH PASS** on exact audited head `2066019e657ea6d479c924c26ea5cbe418c89fe7`.
 
 E3 blind acceptance locked all 18 current fixtures before sealed-key reveal and passed semantic-equivalence, Task>Style, Grounding>Fluency, length-stress, complete-section Translation aggregation, uncertainty and re-score invariants. Acceptance: `ENGLISH_PRODUCTIVE_SCORING_E3_FRESH_AUDIT.md`.
 
-Next: E4 must prove that the evidence Chat/Forecast receives preserves exposure, assistance, source revision, long-horizon recurrence, bounded-packet truncation semantics and whole-paper constituent contamination without requiring Kian to maintain history manually.
+Next: latest-head CI/browser proof must validate exact-source exposure continuity, Chat assistance provenance, bounded long-horizon recurrence and whole-paper constituent contamination. If green, run E4 self-attack and close only if no material evidence-fidelity defect remains.
 
 Boundaries: reuse existing task workspaces/transport; no second scheduler/ledger/mastery; no broad Guide rewrite; no protected true-exam consumption for engineering proof.
 
