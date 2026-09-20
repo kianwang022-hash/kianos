@@ -15,16 +15,16 @@ This file owns work cursor only. It does not own medical Core, accepted Learning
 **Lane-A role:** **ACTIVE CONTENT PRIORITY**  
 **Source boundary:** **S1 PASS**  
 **Knowledge state:** **K PASS_AFTER_BOUNDED_REPAIR · accepted Knowledge frozen**  
-**Learning state:** **fresh E Learning candidate built · L NOT YET ACCEPTED**  
-**Earliest eligible next action:** **fresh independent L audit**  
-**Downstream:** Content / Projection / Runtime / Evidence remain frozen behind accepted Learning
+**Learning state:** **PASS_AFTER_BOUNDED_REPAIR · accepted Learning current**  
+**Earliest eligible next action:** **E Content Realization / Optimization**  
+**Downstream:** Content is now eligible; Projection / Runtime / Evidence remain frozen behind Content acceptance
 
 ```text
 S1 Source boundary                     = PASS
 S2 exact official-question membership  = UNTESTED / separate later boundary
 K  Knowledge                           = PASS_AFTER_BOUNDED_REPAIR
-L  Learning Logic                      = UNTESTED / CANDIDATE_READY_FOR_INDEPENDENT_AUDIT
-Content                                = NOT_STARTED / downstream-frozen
+L  Learning Logic                      = PASS_AFTER_BOUNDED_REPAIR
+Content                                = NOT_STARTED / NEXT ELIGIBLE
 P / R / E                              = downstream-frozen
 U                                      = no claim
 ```
@@ -138,9 +138,9 @@ E9 remains an independent male-development surgical interface. It is not forced 
 
 ---
 
-## Learning candidate — BUILT / NOT ACCEPTED
+## Accepted Learning — PASS_AFTER_BOUNDED_REPAIR
 
-Candidate owner:
+Accepted Learning owner:
 
 `content/xizong/knowledge/learner/e-reproductive-breast-learning.json`
 
@@ -148,11 +148,11 @@ Construction receipt:
 
 `content/xizong/knowledge/learner/E_PHASE2_LEARNING_LOGIC_CONSTRUCTION.md`
 
-Fresh audit entry:
+Fresh acceptance evidence:
 
-`content/xizong/knowledge/learner/E_PHASE3_FRESH_INDEPENDENT_L_AUDIT_BRIEF.md`
+`content/xizong/knowledge/learner/E_PHASE3_FRESH_INDEPENDENT_L_ACCEPTANCE.md`
 
-Current candidate shape:
+Accepted Learning shape:
 
 ```text
 20 Blocks / 212 canonical KP
@@ -163,16 +163,18 @@ Current candidate shape:
 3 non-gating Partial-System Reconstructions
 ```
 
-The candidate preserves the accepted K repair that keeps **local invasion** separate from **metastatic competence / spread extent**. It also keeps E9/E10/E11 visual gaps, E13/E14 partial visual support and Current-Study staging/treatment version boundaries live.
+Fresh independent L audit accepted the zero-hard-edge result after add/delete attack: useful order remains guidance, not hard legality. It also found one bounded L defect: E10 carried a real visual Source gap but no LG-level visual closure requirement. Only E10-LG03 was repaired to require real visual Source contact while remaining `VISUAL_SOURCE_GAP`.
 
-The zero-hard-edge route is a candidate claim, not accepted truth. A fresh auditor must attack it for both false-gating and under-gating.
+The accepted Learning owner preserves the K repair separating **local invasion** from **metastatic competence / spread extent**, keeps E9/E10/E11 visual gaps and E13/E14 partial visual support fail-closed, and preserves Current-Study staging/treatment version boundaries.
 
-## Next gate — fresh independent L acceptance
+## Next gate — E Content Realization / Optimization
 
 ```text
-fresh independent L audit
-→ PASS / bounded repair / BLOCKED
-→ only on L PASS: Content Realization becomes eligible
+accepted K
+→ accepted L
+→ E Content Realization / Optimization
+→ LG-by-LG Content sufficiency / density audit
+→ fresh independent Content closure
 ```
 
-Do not start E Content, Projection, Runtime or Evidence before L acceptance. S2 exact official-question membership remains separately UNTESTED.
+L acceptance does not itself start or complete Content. Projection / Runtime / Evidence remain downstream-frozen. S2 exact official-question membership remains separately UNTESTED.
