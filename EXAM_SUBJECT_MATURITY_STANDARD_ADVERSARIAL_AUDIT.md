@@ -389,3 +389,68 @@ Next step:
 2. repair only subject requirements materially affected by those findings;
 3. rerun this adversarial audit using counterexamples against the revised text;
 4. freeze only when remaining uncertainty depends on real Learner U or genuinely unavailable future Source.
+
+
+---
+
+# Round 2 readback — 2026-09-20
+
+After repairing A1–A16, a second self-attack added three further requirements:
+
+1. **Adversarial-method quality** — named scenarios are insufficient; the mature suite now explicitly requires parameter grids, boundary values, randomized valid-state combinations, counterfactual policy comparisons, historical sanity checks, transport variants, conclusion-flip sensitivity and metamorphic invariants.
+2. **Exam-modality fidelity** — browser/keyboard execution cannot silently stand in for paper, handwriting, page switching or answer-sheet transfer when those costs affect the real exam.
+3. **Low-friction learner override** — a learner must be able to report that reality/task/exposure is wrong without manually maintaining the model; Chat reconciles the signal rather than forcing the learner to adapt to the plan.
+
+Targeted textual regression after Round 2: **22 / 22 PASS** for the attacked requirement classes:
+
+- target authority;
+- representative negative-space coverage;
+- subjective scoring uncertainty;
+- false-Unstable protection;
+- decision falsifiers;
+- observability;
+- revision binding;
+- material identity;
+- generated-asset lifecycle;
+- value of information / learning latency;
+- future-source fallback;
+- concurrent-state safety;
+- Fresh-Chat context budget;
+- parameter grids / counterfactual / history sanity;
+- conclusion flip points;
+- exam modality;
+- learner override;
+- Xizong target-drift detection;
+- English hard-85 alignment;
+- English subjective scoring;
+- Politics non-Xiao1000 formal calibration;
+- Politics Analysis scoring anchors.
+
+## Remaining blocker before freeze
+
+**TARGET_AUTHORITY_UNRESOLVED**
+
+Current shared Exam Orchestrator still uses Xizong **270+** while the Xizong highest-bar candidate uses **275+** as its working target.
+
+The revised standard correctly treats this as a freeze blocker rather than guessing. Before v1 freeze, resolve whether the durable semantics are:
+
+```text
+protect floor = 270+
+working target = 275+
+elastic upside = above 275
+```
+
+or another explicitly chosen relation.
+
+No further requirement-layer repair should silently choose this value.
+
+## Round 2 verdict
+
+**CANDIDATE REMAINS OPEN.**
+
+The standard is materially stronger and the known self-attack classes are now represented, but it is not frozen while target authority remains unresolved and before at least one fresh independent audit attempts to falsify the revised standard without anchoring on this report.
+
+After target reconciliation + fresh independent audit:
+
+- if a new material blind spot is found → repair and rerun;
+- if only future Source / real Learner U uncertainty remains → freeze v1 and begin subject gap-matrix execution.
