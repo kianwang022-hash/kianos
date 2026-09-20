@@ -1096,7 +1096,7 @@ export function buildXizongForecastLoop(progress, {
   const calibration = {
     knowledge_backtest: String(workload?.components?.knowledge?.calibration?.rolling_backtest?.status || 'INSUFFICIENT_BACKTEST'),
     question_backtest: String(workload?.components?.questions?.calibration?.rolling_backtest?.status || 'INSUFFICIENT_BACKTEST'),
-    repair_time_samples: Number(workload?.components?.repair?.calibration?.completed_repair_window_samples || 0),
+    repair_time_samples: Number(workload?.components?.repair?.calibration?.exclusive_repair_timer_samples || 0),
     knowledge_sample_systems: Array.isArray(workload?.components?.knowledge?.calibration?.sample_systems)
       ? workload.components.knowledge.calibration.sample_systems.length
       : 0
