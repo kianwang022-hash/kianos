@@ -233,7 +233,7 @@ function fitRank(status){
   assert.equal(f.score.local_status,'FORMAL_LOCAL_PATH_INCOMPLETE');
   assert.equal(f.score.integrated_whole_paper.status,'TARGET_CROSSES_INTEGRATED_RANGE');
   assert.equal(f.score.score_path_confidence,'INTEGRATED_HIGH');
-  assert.match(f.score.dependency_warning,/not assumed independent/);
+  assert.match(f.score.dependency_warning,/Protected exam-total status requires formally eligible evidence/);
 }
 
 // 5) Assisted/contaminated evidence cannot complete formal score path even if upstream declares score_eligible=true.
