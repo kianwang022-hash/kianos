@@ -20,11 +20,27 @@ const analysisSourceBindings = Object.entries(politicsManifest?.future_source_fa
     current_year_authority: true
   }))
   .filter(row => row.revision);
+const legacyAnalysisIndex = JSON.parse(fs.readFileSync(
+  path.join(repoRoot, 'content/politics/derived/analysis/legacy26-drill-index.v1.json'),
+  'utf8'
+));
+const acceptedLegacyAnalysisTasks = (legacyAnalysisIndex?.drills || []).map(row => ({
+  task_id: String(row.task_id || ''),
+  task_revision: String(row.task_revision || ''),
+  subject: String(row.subject || ''),
+  subquestion_id: String(row.question || '') + '-' + String(row.subquestion || ''),
+  task_mode: String(row.mode || ''),
+  rubric_version: String(row.rubric_version || ''),
+  freshness_class: String(row.freshness_class || ''),
+  formulation_requirement: String(row.formulation_requirement || ''),
+  source_basis: row.source_basis || null
+}));
 ---
 <Base title="政治 · 复习" active="politics" showLead={false}>
   <section class="politicsReviewPage politicsReviewV2" data-politics-review data-base={base}>
     <script type="application/json" data-review-catalog set:html={JSON.stringify(catalog).replace(/</g, '\\u003c')} />
     <script type="application/json" data-analysis-source-bindings set:html={JSON.stringify(analysisSourceBindings).replace(/</g, '\\u003c')} />
+    <script type="application/json" data-analysis-legacy-tasks set:html={JSON.stringify(acceptedLegacyAnalysisTasks).replace(/</g, '\\u003c')} />
 
     <header class="reviewPageHeader">
       <div>
