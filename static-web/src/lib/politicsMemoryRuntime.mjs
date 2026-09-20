@@ -2,6 +2,10 @@ export const POLITICS_MEMORY_PLAN_SCHEMA = 'kianos.politics.memory-plan.v1';
 export const POLITICS_MEMORY_PLAN_KEY = 'kianos-politics-memory-plan-v1';
 export const POLITICS_MEMORY_PLAN_PREFIX = 'kianos-politics-memory-plan-v1:';
 export const POLITICS_MEMORY_EVIDENCE_KEY = 'kianos-politics-memory-evidence-v1';
+export const POLITICS_MEMORY_PROFILE_SCHEMA = 'kianos.politics.memory-history-profile.v1';
+export const POLITICS_MEMORY_PROFILE_UNSTABLE_LIMIT = 100;
+export const POLITICS_MEMORY_PROFILE_STABLE_LIMIT = 30;
+export const POLITICS_MEMORY_PROFILE_RECENT_EVENT_LIMIT = 50;
 
 const RESPONSES = new Set(['FORGOT', 'FUZZY', 'STABLE']);
 const clean = (value, max = 1000) => String(value ?? '').trim().slice(0, max);
@@ -353,14 +357,179 @@ export function validatePoliticsMemoryCheckpointValue(key, value) {
 }
 
 
+function normalizeCandidateSnapshot(candidate) {
+  return {
+    id: clean(candidate?.id, 220),
+    subject: clean(candidate?.subject, 80),
+    chapter_id: clean(candidate?.chapter_id, 180),
+    natural_unit_id: clean(candidate?.natural_unit_id, 220) || null,
+    family: clean(candidate?.family, 100),
+    prompt: clean(candidate?.prompt, 500),
+    answer_items: (Array.isArray(candidate?.answer_items) ? candidate.answer_items : [])
+      .map((item) => clean(item, 2400)).filter(Boolean),
+    source_refs: [...new Set((Array.isArray(candidate?.source_refs) ? candidate.source_refs : [])
+      .map((item) => clean(item, 240)).filter(Boolean))].sort(),
+    source_role: clean(candidate?.source_role, 120)
+  };
+}
+
+function candidateSnapshotMatchesCurrent(snapshot, candidate) {
+  if (!record(snapshot) || !record(candidate)) return false;
+  return JSON.stringify(normalizeCandidateSnapshot(snapshot))
+    === JSON.stringify(normalizeCandidateSnapshot(candidate));
+}
+
+function ageDays(now, observedAt) {
+  const latest = Date.parse(clean(observedAt, 80));
+  const current = Number(now);
+  if (!Number.isFinite(latest) || !Number.isFinite(current)) return null;
+  return Math.max(0, Math.floor((current - latest) / 86400000));
+}
+
+function responseCount(events, response) {
+  return events.filter((row) => row.response === response).length;
+}
+
+function boundedHistoryState(candidate, events, now) {
+  const sorted = [...events].sort((a, b) => String(a.observed_at || '').localeCompare(String(b.observed_at || '')));
+  const latest = sorted.at(-1);
+  return {
+    candidate_id: candidate.id,
+    subject: clean(candidate.subject, 80),
+    chapter_id: clean(candidate.chapter_id, 180),
+    natural_unit_id: clean(candidate.natural_unit_id, 220) || null,
+    family: clean(candidate.family, 100),
+    prompt: clean(candidate.prompt, 500),
+    source_refs: [...new Set((candidate.source_refs || []).map((ref) => clean(ref, 240)).filter(Boolean))].sort(),
+    latest_response: latest?.response || null,
+    latest_observed_at: latest?.observed_at || null,
+    days_since_latest: ageDays(now, latest?.observed_at),
+    event_count: sorted.length,
+    forgot_count: responseCount(sorted, 'FORGOT'),
+    fuzzy_count: responseCount(sorted, 'FUZZY'),
+    stable_count: responseCount(sorted, 'STABLE'),
+    recent_responses: sorted.slice(-5).map((row) => ({
+      response: row.response,
+      observed_at: row.observed_at,
+      study_day: row.study_day
+    }))
+  };
+}
+
+export function buildPoliticsMemoryHistoryProfile(evidenceInput, catalog, {
+  now = Date.now(),
+  unstableLimit = POLITICS_MEMORY_PROFILE_UNSTABLE_LIMIT,
+  stableLimit = POLITICS_MEMORY_PROFILE_STABLE_LIMIT,
+  recentEventLimit = POLITICS_MEMORY_PROFILE_RECENT_EVENT_LIMIT
+} = {}) {
+  const byId = catalogMap(catalog);
+  const currentRevision = clean(catalog?.revision, 200);
+  if (!currentRevision) fail('CATALOG_REVISION_REQUIRED');
+
+  const evidence = validateStoredEvidenceShape(Array.isArray(evidenceInput) ? evidenceInput : []);
+  const compatible = [];
+  const stale = [];
+
+  for (const row of evidence) {
+    const candidate = byId.get(clean(row?.candidate_id, 220));
+    if (!candidate) {
+      stale.push({ event: row, reason: 'CURRENT_CANDIDATE_MISSING' });
+      continue;
+    }
+    if (!candidateSnapshotMatchesCurrent(row.candidate_snapshot, candidate)) {
+      stale.push({ event: row, reason: 'CURRENT_CANDIDATE_CHANGED' });
+      continue;
+    }
+    compatible.push(row);
+  }
+
+  const grouped = new Map();
+  for (const row of compatible) {
+    const id = clean(row.candidate_id, 220);
+    if (!grouped.has(id)) grouped.set(id, []);
+    grouped.get(id).push(row);
+  }
+
+  const states = [...grouped.entries()].map(([id, rows]) =>
+    boundedHistoryState(byId.get(id), rows, now)
+  );
+
+  const unstable = states
+    .filter((row) => row.latest_response === 'FORGOT' || row.latest_response === 'FUZZY')
+    .sort((a, b) =>
+      String(b.latest_observed_at || '').localeCompare(String(a.latest_observed_at || ''))
+      || a.candidate_id.localeCompare(b.candidate_id)
+    );
+
+  const stable = states
+    .filter((row) => row.latest_response === 'STABLE')
+    .sort((a, b) =>
+      String(a.latest_observed_at || '').localeCompare(String(b.latest_observed_at || ''))
+      || a.candidate_id.localeCompare(b.candidate_id)
+    );
+
+  const recentEvents = [...compatible]
+    .sort((a, b) => String(b.observed_at || '').localeCompare(String(a.observed_at || '')))
+    .slice(0, Math.max(1, Math.min(200, Math.floor(Number(recentEventLimit) || POLITICS_MEMORY_PROFILE_RECENT_EVENT_LIMIT))))
+    .map((row) => ({
+      candidate_id: row.candidate_id,
+      response: row.response,
+      observed_at: row.observed_at,
+      study_day: row.study_day,
+      plan_id: row.plan_id
+    }));
+
+  const unstableCap = Math.max(1, Math.min(200, Math.floor(Number(unstableLimit) || POLITICS_MEMORY_PROFILE_UNSTABLE_LIMIT)));
+  const stableCap = Math.max(1, Math.min(100, Math.floor(Number(stableLimit) || POLITICS_MEMORY_PROFILE_STABLE_LIMIT)));
+
+  return {
+    schema: POLITICS_MEMORY_PROFILE_SCHEMA,
+    semantics: 'CURRENT_BOUND_HISTORY_SUMMARY; CHAT_OWNS_SCHEDULING; NO_FIXED_CADENCE; NOT_MASTERY',
+    current_catalog_revision: currentRevision,
+    summary: {
+      catalog_candidate_count: byId.size,
+      total_events: evidence.length,
+      current_compatible_events: compatible.length,
+      stale_or_changed_events: stale.length,
+      current_candidates_with_evidence: states.length,
+      latest_forgot_candidates: states.filter((row) => row.latest_response === 'FORGOT').length,
+      latest_fuzzy_candidates: states.filter((row) => row.latest_response === 'FUZZY').length,
+      latest_stable_candidates: states.filter((row) => row.latest_response === 'STABLE').length
+    },
+    latest_unstable: unstable.slice(0, unstableCap),
+    latest_unstable_overflow: Math.max(0, unstable.length - unstableCap),
+    oldest_stable_sample: stable.slice(0, stableCap),
+    oldest_stable_overflow: Math.max(0, stable.length - stableCap),
+    recent_events: recentEvents,
+    stale_or_changed: {
+      event_count: stale.length,
+      candidate_missing_count: stale.filter((row) => row.reason === 'CURRENT_CANDIDATE_MISSING').length,
+      candidate_changed_count: stale.filter((row) => row.reason === 'CURRENT_CANDIDATE_CHANGED').length
+    },
+    guardrails: [
+      'RAW_MEMORY_HISTORY_REMAINS_LOCAL',
+      'PROFILE_DOES_NOT_CREATE_A_REVIEW_SCHEDULE',
+      'OLD_CATALOG_EVIDENCE_IS_REUSED_ONLY_WHEN_THE_CANDIDATE_SNAPSHOT_STILL_MATCHES_CURRENT',
+      'STALE_OR_CHANGED_EVIDENCE_NEVER_AUTO_SELECTS_A_CURRENT_MEMORY_TASK',
+      'STABLE_IS_EVIDENCE_NOT_MASTERY',
+      'CHAT_SELECTS_TODAY_MEMORY_ITEMS'
+    ]
+  };
+}
+
 export function politicsMemoryDailyEvidence(storage, {
   day,
-  now = Date.now()
+  now = Date.now(),
+  catalog = null
 } = {}) {
   if (!validDay(day)) fail('DAILY_EVIDENCE_DAY_INVALID');
-  const events = readEvidence(storage)
+  const allEvidence = readEvidence(storage);
+  const events = allEvidence
     .filter((row) => row?.study_day === day)
     .sort((a, b) => String(a.observed_at || '').localeCompare(String(b.observed_at || '')));
+  const historyProfile = catalog
+    ? buildPoliticsMemoryHistoryProfile(allEvidence, catalog, { now })
+    : null;
 
   let currentPlan = null;
   try {
@@ -393,6 +562,7 @@ export function politicsMemoryDailyEvidence(storage, {
       planned_count: currentDayPlan.items.length,
       completed_count: currentDayPlan.items.filter((item) => completedIds.has(item.candidate_id)).length
     } : null,
+    history_profile: historyProfile,
     events: events.map((row) => JSON.parse(JSON.stringify(row)))
   };
 }
