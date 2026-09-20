@@ -201,6 +201,26 @@ function fitRank(status){
   assert.equal(f.workload.workload_confidence,'PRIOR_HEAVY');
 }
 
+// 3b) Three/four timing samples may produce a band but remain PROVISIONAL; 5+ may become EMPIRICAL.
+{
+  const input=baseInput();
+  for(const id of ENGLISH_FORECAST_FAMILIES){
+    const family=input.task_families[id];
+    for(const bucket of family.work_buckets||[]){
+      delete bucket.minutes_per_unit_prior;
+      bucket.minutes_per_unit_samples=[10,11,12,13,14];
+    }
+  }
+  input.task_families.cloze.work_buckets[0].minutes_per_unit_samples=[14,15,16];
+  let f=buildEnglishWorkloadForecast(input);
+  assert.equal(f.workload.workload_confidence,'PROVISIONAL');
+  assert.equal(f.workload.families.find(row=>row.id==='cloze').confidence,'PROVISIONAL');
+
+  input.task_families.cloze.work_buckets[0].minutes_per_unit_samples=[14,15,16,15,14];
+  f=buildEnglishWorkloadForecast(input);
+  assert.equal(f.workload.workload_confidence,'EMPIRICAL');
+}
+
 // 4) Empirical workload bands and local/integrated score paths stay distinct.
 {
   const input=baseInput();
@@ -284,6 +304,9 @@ function fitRank(status){
   assert.equal(result.p50_flip_surface.length,3);
   assert.ok(result.next_high_value_evidence);
   assert.match(result.next_high_value_evidence.id,/^PRICE:/);
+  assert.equal(result.next_high_value_evidence.information_priority,'HIGHEST');
+  assert.ok(result.evidence_candidates.every(row=>['HIGHEST','HIGH','MEDIUM','LOW'].includes(row.information_priority)));
+  assert.ok(result.evidence_candidates.every(row=>!Object.prototype.hasOwnProperty.call(row,'_sort_rank')));
   assert.ok(result.evidence_candidates.some(row=>row.id==='LEXICAL_DELAYED_RETENTION'));
   assert.ok(result.evidence_candidates.some(row=>row.id==='WHOLE_PAPER_CALIBRATION')===false,'whole-paper candidate should not appear when clean integrated score exists');
 }
@@ -361,6 +384,7 @@ console.log(JSON.stringify({
     unknown_scope_fails_closed:true,
     thin_samples_do_not_create_empirical_bands:true,
     prior_only_pricing_is_labeled:true,
+    thin_empirical_bands_remain_provisional:true,
     workload_and_score_confidence_are_separate:true,
     non_score_eligible_evidence_cannot_close_score_path:true,
     local_score_does_not_impersonate_whole_paper:true,
@@ -369,6 +393,7 @@ console.log(JSON.stringify({
     partial_scope_stays_unpriced:true,
     sensitivity_flip_surface:true,
     highest_value_evidence_is_information_only:true,
+    voi_priority_is_qualitative_not_fake_numeric_precision:true,
     reproducible_grid_stress:true,
     forecast_backtest_is_falsifiable:true,
     thin_backtest_does_not_claim_calibration:true,
