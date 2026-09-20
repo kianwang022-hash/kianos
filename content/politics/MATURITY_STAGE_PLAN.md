@@ -15,14 +15,15 @@ T2 Early Objective Forecast                     CURRENT-SOURCE BUILD CLOSED
                                                 calibration waits for accepted evidence
 T3 Analysis foundation / Chat-primary evidence  ENGINEERING PATH RESOLVED
                                                 storage waits for task/rubric semantics
-T4 Future-source delta ingestion                MACHINE INGRESS PREPARED
+T4 Future-source delta ingestion                ENGINEERING PREP CLOSED
                                                 real content waits for bound 2027 Source
 T5+ current-year Mock / final compression       waits for real Source
 ```
 
 Current T1 result: `MATURITY_T1_OBJECTIVE_RECONCILIATION.md`  
 Current T2 model: `MATURITY_T2_FORECAST_MODEL.md`  
-Current T3 interface: `MATURITY_T3_ANALYSIS_ENGINEERING_INTERFACE.md`
+Current T3 interface: `MATURITY_T3_ANALYSIS_ENGINEERING_INTERFACE.md`  
+Current T4 ingress: `MATURITY_T4_FUTURE_SOURCE_INGESTION.md`
 
 T2 current-source implementation already extends the existing `kianos.politics.forecast-progress.v1` with factual single/multiple evidence. It does not grant score authority. The remaining T2 score-calibration part is source/evidence-gated and must stay pending rather than blocking T3.
 
