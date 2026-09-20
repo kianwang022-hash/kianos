@@ -69,6 +69,7 @@ Required ability families include:
 - switching;
 - fatigue resistance;
 - end-of-paper writing quality;
+- handwriting / paper-delivery cost and answer-transfer behavior where it differs from browser typing;
 - stable completion.
 
 ### Lexical
@@ -198,6 +199,8 @@ Forecast must expose separate uncertainty for:
 - Translation;
 - Writing;
 - Whole-paper execution.
+
+Forecast/adversarial proof must sweep the learner parameters that can reverse the conclusion: lexical retention, Objective residual error, Translation/Writing output level, task duration, handwriting/paper delivery cost, whole-paper degradation and daily capacity.
 
 ## 8. Ready-inventory closure
 
