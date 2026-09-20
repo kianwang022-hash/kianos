@@ -1417,5 +1417,547 @@
       ]
     },
     "contamination_rule": "same task after answer exposure is repair evidence only, not fresh transfer"
+  },
+  {
+    "id": "POL-AO-073",
+    "contamination_rule": "same task after answer exposure is repair evidence only, not fresh transfer",
+    "source_hook": "MARX-C01-OUT-LAW-INITIATIVE",
+    "expected_cues": [
+      "照搬后失败",
+      "调查客观条件",
+      "调整方案",
+      "技术/组织创新"
+    ],
+    "expected_categories": [
+      "条件/约束",
+      "行动/实践"
+    ],
+    "scoring": {
+      "segmentation": "must capture decisive cues without copying the whole material",
+      "anti_shortcut": "principle/topic naming does not substitute for segmentation"
+    }
+  },
+  {
+    "id": "POL-AO-074",
+    "contamination_rule": "same task after answer exposure is repair evidence only, not fresh transfer",
+    "source_hook": "MARX-C02-OUT-CONTRADICTION",
+    "expected_cues": [
+      "效率与协调成本并存",
+      "地区条件差异",
+      "关键环节优先"
+    ],
+    "expected_categories": [
+      "对立关系",
+      "差异条件",
+      "主次/重点"
+    ],
+    "scoring": {
+      "segmentation": "must capture decisive cues without copying the whole material",
+      "anti_shortcut": "principle/topic naming does not substitute for segmentation"
+    }
+  },
+  {
+    "id": "POL-AO-075",
+    "contamination_rule": "same task after answer exposure is repair evidence only, not fresh transfer",
+    "source_hook": "MARX-C03-OUT-PRACTICE-RECOGNITION",
+    "expected_cues": [
+      "理论提出方案",
+      "实践暴露不足",
+      "修改认识",
+      "再次实践检验",
+      "反复深化"
+    ],
+    "expected_categories": [
+      "实践",
+      "认识",
+      "再实践"
+    ],
+    "scoring": {
+      "segmentation": "must capture decisive cues without copying the whole material",
+      "anti_shortcut": "principle/topic naming does not substitute for segmentation"
+    }
+  },
+  {
+    "id": "POL-AO-076",
+    "contamination_rule": "same task after answer exposure is repair evidence only, not fresh transfer",
+    "source_hook": "HISTORY-C03-OUT-XINHAI",
+    "expected_cues": [
+      "结束君主专制",
+      "传播共和观念",
+      "社会性质未根本改变",
+      "根本任务未完成"
+    ],
+    "expected_categories": [
+      "历史功绩",
+      "历史局限"
+    ],
+    "scoring": {
+      "segmentation": "must capture decisive cues without copying the whole material",
+      "anti_shortcut": "principle/topic naming does not substitute for segmentation"
+    }
+  },
+  {
+    "id": "POL-AO-077",
+    "contamination_rule": "same task after answer exposure is repair evidence only, not fresh transfer",
+    "source_hook": "HISTORY-C04-OUT-NEW-LEADERSHIP",
+    "expected_cues": [
+      "旧道路受挫",
+      "新思想传播",
+      "新阶级力量",
+      "理论与工运结合",
+      "新领导力量形成"
+    ],
+    "expected_categories": [
+      "思想条件",
+      "阶级力量",
+      "领导力量"
+    ],
+    "scoring": {
+      "segmentation": "must capture decisive cues without copying the whole material",
+      "anti_shortcut": "principle/topic naming does not substitute for segmentation"
+    }
+  },
+  {
+    "id": "POL-AO-078",
+    "contamination_rule": "same task after answer exposure is repair evidence only, not fresh transfer",
+    "source_hook": "HISTORY-C09-OUT-REFORM-OPENING",
+    "expected_cues": [
+      "思想解放",
+      "历史转折",
+      "改革推进",
+      "新的突破"
+    ],
+    "expected_categories": [
+      "思想先导",
+      "制度/实践推进",
+      "阶段转换"
+    ],
+    "scoring": {
+      "segmentation": "must capture decisive cues without copying the whole material",
+      "anti_shortcut": "principle/topic naming does not substitute for segmentation"
+    }
+  },
+  {
+    "id": "POL-AO-079",
+    "contamination_rule": "same task after answer exposure is repair evidence only, not fresh transfer",
+    "source_hook": "ETHICS-C01-OUT-LIFE-VALUE",
+    "expected_cues": [
+      "个人收入/名望",
+      "社会服务实践",
+      "个人成长",
+      "社会需要",
+      "实际贡献"
+    ],
+    "expected_categories": [
+      "个人",
+      "社会",
+      "实践评价"
+    ],
+    "scoring": {
+      "segmentation": "must capture decisive cues without copying the whole material",
+      "anti_shortcut": "principle/topic naming does not substitute for segmentation"
+    }
+  },
+  {
+    "id": "POL-AO-080",
+    "contamination_rule": "same task after answer exposure is repair evidence only, not fresh transfer",
+    "source_hook": "ETHICS-C00-OUT-MORALITY-LAW",
+    "expected_cues": [
+      "价值认同",
+      "内在自觉",
+      "正式规则",
+      "制度保障",
+      "单边不足"
+    ],
+    "expected_categories": [
+      "价值规范",
+      "制度规范",
+      "互补关系"
+    ],
+    "scoring": {
+      "segmentation": "must capture decisive cues without copying the whole material",
+      "anti_shortcut": "principle/topic naming does not substitute for segmentation"
+    }
+  },
+  {
+    "id": "POL-AO-081",
+    "contamination_rule": "same task after answer exposure is repair evidence only, not fresh transfer",
+    "source_hook": "CURRENT:content/politics/learning/mao/ch02.json",
+    "expected_cues": [
+      "特殊社会条件",
+      "革命对象",
+      "参与力量",
+      "本国条件",
+      "道路/斗争方式"
+    ],
+    "expected_categories": [
+      "国情",
+      "任务/对象",
+      "力量",
+      "道路"
+    ],
+    "scoring": {
+      "segmentation": "must capture decisive cues without copying the whole material",
+      "anti_shortcut": "principle/topic naming does not substitute for segmentation"
+    }
+  },
+  {
+    "id": "POL-AO-082",
+    "contamination_rule": "same task after answer exposure is repair evidence only, not fresh transfer",
+    "source_hook": "CURRENT:content/politics/learning/mao/ch03.json",
+    "expected_cues": [
+      "多种经济成分",
+      "推进工业化",
+      "不同所有制改造",
+      "制度转变"
+    ],
+    "expected_categories": [
+      "过渡性质",
+      "工业化",
+      "所有制改造"
+    ],
+    "scoring": {
+      "segmentation": "must capture decisive cues without copying the whole material",
+      "anti_shortcut": "principle/topic naming does not substitute for segmentation"
+    }
+  },
+  {
+    "id": "POL-AO-083",
+    "contamination_rule": "same task after answer exposure is repair evidence only, not fresh transfer",
+    "source_hook": "XI-C02-OUT-MODERNIZATION",
+    "expected_cues": [
+      "现代化道路",
+      "民族复兴目标",
+      "推进关系"
+    ],
+    "expected_categories": [
+      "目标层",
+      "道路层",
+      "关系层"
+    ],
+    "scoring": {
+      "segmentation": "must capture decisive cues without copying the whole material",
+      "anti_shortcut": "principle/topic naming does not substitute for segmentation"
+    }
+  },
+  {
+    "id": "POL-AO-084",
+    "contamination_rule": "same task after answer exposure is repair evidence only, not fresh transfer",
+    "source_hook": "XI-C05-OUT-REFORM",
+    "expected_cues": [
+      "现实问题",
+      "制度机制",
+      "改革",
+      "现代化建设"
+    ],
+    "expected_categories": [
+      "为什么改",
+      "改什么/怎么改",
+      "服务什么目标"
+    ],
+    "scoring": {
+      "segmentation": "must capture decisive cues without copying the whole material",
+      "anti_shortcut": "principle/topic naming does not substitute for segmentation"
+    }
+  },
+  {
+    "id": "POL-AO-085",
+    "contamination_rule": "same task after answer exposure is repair evidence only, not fresh transfer",
+    "source_hook": "CURRENT:content/politics/learning/mao/ch02.json",
+    "expected_topic": "新民主主义革命理论的结构",
+    "expected_moves": [
+      "国情/主要矛盾决定任务",
+      "总路线区分对象、动力、领导、性质、前途",
+      "纲领展开目标",
+      "道路与三大法宝回答怎样实现"
+    ],
+    "scoring": {
+      "identify": "must select the owning stable structure rather than a broad course label"
+    }
+  },
+  {
+    "id": "POL-AO-086",
+    "contamination_rule": "same task after answer exposure is repair evidence only, not fresh transfer",
+    "source_hook": "CURRENT:content/politics/learning/mao/ch02.json",
+    "expected_topic": "新民主主义革命理论的结构",
+    "expected_moves": [
+      "国情/主要矛盾决定任务",
+      "总路线区分对象、动力、领导、性质、前途",
+      "纲领展开目标",
+      "道路与三大法宝回答怎样实现"
+    ],
+    "scoring": {
+      "skeleton": "must preserve the hierarchy/causal order from Current chapter compression"
+    }
+  },
+  {
+    "id": "POL-AO-087",
+    "contamination_rule": "same task after answer exposure is repair evidence only, not fresh transfer",
+    "source_hook": "CURRENT:content/politics/learning/mao/ch03.json",
+    "expected_topic": "从新民主主义向社会主义过渡",
+    "expected_moves": [
+      "新民主主义社会具有过渡性",
+      "工业化与改造并举",
+      "不同对象采用不同改造路径",
+      "改造完成后基本制度发生阶段性变化"
+    ],
+    "scoring": {
+      "identify": "must select the owning stable structure rather than a broad course label"
+    }
+  },
+  {
+    "id": "POL-AO-088",
+    "contamination_rule": "same task after answer exposure is repair evidence only, not fresh transfer",
+    "source_hook": "CURRENT:content/politics/learning/mao/ch03.json",
+    "expected_topic": "从新民主主义向社会主义过渡",
+    "expected_moves": [
+      "新民主主义社会具有过渡性",
+      "工业化与改造并举",
+      "不同对象采用不同改造路径",
+      "改造完成后基本制度发生阶段性变化"
+    ],
+    "scoring": {
+      "skeleton": "must preserve the hierarchy/causal order from Current chapter compression"
+    }
+  },
+  {
+    "id": "POL-AO-089",
+    "contamination_rule": "same task after answer exposure is repair evidence only, not fresh transfer",
+    "source_hook": "CURRENT:content/politics/learning/mao/ch04.json",
+    "expected_topic": "社会主义建设道路探索",
+    "expected_moves": [
+      "从照搬经验转向独立探索",
+      "处理建设关系",
+      "区分和处理不同性质矛盾",
+      "工业化道路按本国条件组织"
+    ],
+    "scoring": {
+      "identify": "must select the owning stable structure rather than a broad course label"
+    }
+  },
+  {
+    "id": "POL-AO-090",
+    "contamination_rule": "same task after answer exposure is repair evidence only, not fresh transfer",
+    "source_hook": "CURRENT:content/politics/learning/mao/ch04.json",
+    "expected_topic": "社会主义建设道路探索",
+    "expected_moves": [
+      "从照搬经验转向独立探索",
+      "处理建设关系",
+      "区分和处理不同性质矛盾",
+      "工业化道路按本国条件组织"
+    ],
+    "scoring": {
+      "skeleton": "must preserve the hierarchy/causal order from Current chapter compression"
+    }
+  },
+  {
+    "id": "POL-AO-091",
+    "contamination_rule": "same task after answer exposure is repair evidence only, not fresh transfer",
+    "source_hook": "CURRENT:content/politics/learning/mao/ch06.json",
+    "expected_topic": "邓小平理论的核心问题结构",
+    "expected_moves": [
+      "重新认识社会主义本质",
+      "从初级阶段国情出发",
+      "基本路线组织发展方向",
+      "改革开放和市场机制解决动力与资源配置问题"
+    ],
+    "scoring": {
+      "identify": "must select the owning stable structure rather than a broad course label"
+    }
+  },
+  {
+    "id": "POL-AO-092",
+    "contamination_rule": "same task after answer exposure is repair evidence only, not fresh transfer",
+    "source_hook": "CURRENT:content/politics/learning/mao/ch06.json",
+    "expected_topic": "邓小平理论的核心问题结构",
+    "expected_moves": [
+      "重新认识社会主义本质",
+      "从初级阶段国情出发",
+      "基本路线组织发展方向",
+      "改革开放和市场机制解决动力与资源配置问题"
+    ],
+    "scoring": {
+      "skeleton": "must preserve the hierarchy/causal order from Current chapter compression"
+    }
+  },
+  {
+    "id": "POL-AO-093",
+    "contamination_rule": "same task after answer exposure is repair evidence only, not fresh transfer",
+    "source_hook": "CURRENT:content/politics/learning/mao/ch08.json",
+    "expected_topic": "科学发展观的发展问题结构",
+    "expected_moves": [
+      "发展仍是第一要义",
+      "以人为本回答价值立场",
+      "全面协调可持续回答质量结构",
+      "统筹兼顾回答复杂关系处理方法"
+    ],
+    "scoring": {
+      "identify": "must select the owning stable structure rather than a broad course label"
+    }
+  },
+  {
+    "id": "POL-AO-094",
+    "contamination_rule": "same task after answer exposure is repair evidence only, not fresh transfer",
+    "source_hook": "CURRENT:content/politics/learning/mao/ch08.json",
+    "expected_topic": "科学发展观的发展问题结构",
+    "expected_moves": [
+      "发展仍是第一要义",
+      "以人为本回答价值立场",
+      "全面协调可持续回答质量结构",
+      "统筹兼顾回答复杂关系处理方法"
+    ],
+    "scoring": {
+      "skeleton": "must preserve the hierarchy/causal order from Current chapter compression"
+    }
+  },
+  {
+    "id": "POL-AO-095",
+    "contamination_rule": "same task after answer exposure is repair evidence only, not fresh transfer",
+    "source_hook": "XI-C00-OUT-THEORY-INNOVATION",
+    "expected_topic": "理论创新与实践问题",
+    "expected_moves": [
+      "现实问题提出理论需求",
+      "基本原理保持",
+      "同具体实际/文化条件结合",
+      "形成新的理论成果"
+    ],
+    "scoring": {
+      "identify": "structural identification only; exact current-year wording is outside this task"
+    }
+  },
+  {
+    "id": "POL-AO-096",
+    "contamination_rule": "same task after answer exposure is repair evidence only, not fresh transfer",
+    "source_hook": "XI-C00-OUT-THEORY-INNOVATION",
+    "expected_topic": "理论创新与实践问题",
+    "expected_moves": [
+      "现实问题提出理论需求",
+      "基本原理保持",
+      "同具体实际/文化条件结合",
+      "形成新的理论成果"
+    ],
+    "scoring": {
+      "skeleton": "structure may be judged; current-year exact wording may not be fabricated"
+    }
+  },
+  {
+    "id": "POL-AO-097",
+    "contamination_rule": "same task after answer exposure is repair evidence only, not fresh transfer",
+    "source_hook": "XI-C02-OUT-MODERNIZATION",
+    "expected_topic": "中国式现代化的结构层级",
+    "expected_moves": [
+      "目标层",
+      "道路层",
+      "材料命中的关系/要求层",
+      "回扣推进实践"
+    ],
+    "scoring": {
+      "identify": "structural identification only; exact current-year wording is outside this task"
+    }
+  },
+  {
+    "id": "POL-AO-098",
+    "contamination_rule": "same task after answer exposure is repair evidence only, not fresh transfer",
+    "source_hook": "XI-C02-OUT-MODERNIZATION",
+    "expected_topic": "中国式现代化的结构层级",
+    "expected_moves": [
+      "目标层",
+      "道路层",
+      "材料命中的关系/要求层",
+      "回扣推进实践"
+    ],
+    "scoring": {
+      "skeleton": "structure may be judged; current-year exact wording may not be fabricated"
+    }
+  },
+  {
+    "id": "POL-AO-099",
+    "contamination_rule": "same task after answer exposure is repair evidence only, not fresh transfer",
+    "source_hook": "XI-C05-OUT-REFORM",
+    "expected_topic": "改革服务现代化的结构",
+    "expected_moves": [
+      "为什么需要继续改革",
+      "改革的制度/机制对象",
+      "系统推进",
+      "服务现代化目标"
+    ],
+    "scoring": {
+      "identify": "structural identification only; exact current-year wording is outside this task"
+    }
+  },
+  {
+    "id": "POL-AO-100",
+    "contamination_rule": "same task after answer exposure is repair evidence only, not fresh transfer",
+    "source_hook": "XI-C05-OUT-REFORM",
+    "expected_topic": "改革服务现代化的结构",
+    "expected_moves": [
+      "为什么需要继续改革",
+      "改革的制度/机制对象",
+      "系统推进",
+      "服务现代化目标"
+    ],
+    "scoring": {
+      "skeleton": "structure may be judged; current-year exact wording may not be fabricated"
+    }
+  },
+  {
+    "id": "POL-AO-101",
+    "contamination_rule": "same task after answer exposure is repair evidence only, not fresh transfer",
+    "source_hook": "XI-C06-OUT-HIGH-QUALITY",
+    "expected_topic": "高质量发展的结构",
+    "expected_moves": [
+      "发展阶段/总体要求",
+      "制度或发展基础",
+      "材料命中的创新/产业机制",
+      "年度精确增量等待 Current source"
+    ],
+    "scoring": {
+      "identify": "structural identification only; exact current-year wording is outside this task"
+    }
+  },
+  {
+    "id": "POL-AO-102",
+    "contamination_rule": "same task after answer exposure is repair evidence only, not fresh transfer",
+    "source_hook": "XI-C06-OUT-HIGH-QUALITY",
+    "expected_topic": "高质量发展的结构",
+    "expected_moves": [
+      "发展阶段/总体要求",
+      "制度或发展基础",
+      "材料命中的创新/产业机制",
+      "年度精确增量等待 Current source"
+    ],
+    "scoring": {
+      "skeleton": "structure may be judged; current-year exact wording may not be fabricated"
+    }
+  },
+  {
+    "id": "POL-AO-103",
+    "contamination_rule": "same task after answer exposure is repair evidence only, not fresh transfer",
+    "source_hook": "XI-C17-OUT-SELF-REVOLUTION",
+    "expected_topic": "党的建设与自我更新结构",
+    "expected_moves": [
+      "长期执政产生自身建设风险",
+      "全面建设/治理覆盖全过程",
+      "突出风险治理",
+      "形成长期自我更新能力"
+    ],
+    "scoring": {
+      "identify": "structural identification only; exact current-year wording is outside this task"
+    }
+  },
+  {
+    "id": "POL-AO-104",
+    "contamination_rule": "same task after answer exposure is repair evidence only, not fresh transfer",
+    "source_hook": "XI-C17-OUT-SELF-REVOLUTION",
+    "expected_topic": "党的建设与自我更新结构",
+    "expected_moves": [
+      "长期执政产生自身建设风险",
+      "全面建设/治理覆盖全过程",
+      "突出风险治理",
+      "形成长期自我更新能力"
+    ],
+    "scoring": {
+      "skeleton": "structure may be judged; current-year exact wording may not be fabricated"
+    }
   }
 ]
