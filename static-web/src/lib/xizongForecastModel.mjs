@@ -328,7 +328,7 @@ function formalCalibrationForecast(progress) {
     status: comparable.length > 0 ? 'EVIDENCE_PRESENT' : 'UNPRICED_REQUIRED',
     completed_300_point_papers: comparable.length,
     latest: comparable.at(-1) || null,
-    band_minutes: { p20: 0, p50: 0, p80: 0 },
+    band_minutes: comparable.length > 0 ? { p20: 0, p50: 0, p80: 0 } : null,
     unpriced_if_missing: comparable.length === 0,
     evidence_boundary:
       'At least one least-contaminated full-paper or equivalent large calibration slice is required for a defensible score estimate; workload time is not invented when no timed calibration evidence exists.'
@@ -381,7 +381,7 @@ export function buildXizongWorkloadForecast(progress, {
   );
   const scoreFormation = aggregateComponents(
     [knowledge, questions, recall, repair, verification, formalCalibration],
-    { scopeComplete: questionScopeComplete && !formalCalibration.unpriced_if_missing }
+    { scopeComplete: questionScopeComplete }
   );
 
   const risks = [...new Set([
