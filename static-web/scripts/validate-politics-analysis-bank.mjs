@@ -50,8 +50,14 @@ for (const prompt of prompts) {
   const answer = answerById.get(prompt.id);
   assert.ok(answer, prompt.id + ': answer row missing');
   assert.equal(answer.source_hook, prompt.source_basis, prompt.id + ': prompt/answer source mismatch');
-  assert.ok(String(answer.expected_topic || '').trim(), prompt.id + ': expected topic missing');
-  assert.ok(Array.isArray(answer.expected_moves) && answer.expected_moves.length >= 2, prompt.id + ': expected moves too thin');
+  if (prompt.role === 'MATERIAL_SEGMENTATION') {
+    assert.ok(Array.isArray(answer.expected_cues) && answer.expected_cues.length >= 2, prompt.id + ': segmentation cues too thin');
+    assert.ok(Array.isArray(answer.expected_categories) && answer.expected_categories.length >= 1, prompt.id + ': segmentation categories missing');
+    assert.ok(String(answer.scoring?.segmentation || '').trim(), prompt.id + ': segmentation scoring missing');
+  } else {
+    assert.ok(String(answer.expected_topic || '').trim(), prompt.id + ': expected topic missing');
+    assert.ok(Array.isArray(answer.expected_moves) && answer.expected_moves.length >= 2, prompt.id + ': expected moves too thin');
+  }
   assert.match(String(answer.contamination_rule || ''), /repair evidence only, not fresh transfer/i);
 
   if (prompt.role === 'STRESS_VARIANT') {
