@@ -12,7 +12,7 @@ This file owns B's current S/K/L/P/R/E/U readiness claims. It does not own medic
 ## Gate status
 
 ```text
-S  PASS — exact Current official-question membership accepted (1072 qids)
+S  PASS — exact Current official-question membership accepted (1071 qids)
 K  PASS — 38 stable Blocks / 600 stable KPs + accepted System model
 L  PASS — fresh independent Learning acceptance complete
 P  UNTESTED — ACTIVE / earliest unresolved eligible learner-surface gate
@@ -45,9 +45,9 @@ Current reconstruction receipt:
 Accepted identity:
 
 ```text
-official B System question scope = 1072 exact qids
+official B System question scope = 1071 exact qids
 year range                       = 2005–2026
-inventory SHA256                 = d7817ecc0c57346bb04ea3a6a5417d0c11f2daba0ca8178b3424fb82d256510f
+inventory SHA256                 = a8b45ea06ec48bafc1e044235c61e5552bfbf64749fce9a21527676acd099942
 unresolved membership ambiguity  = 0
 ```
 
@@ -76,6 +76,23 @@ unresolved ambiguity= 0
 ```
 
 The repair removes C-owned lymphoma questions that the approximate join had wrongly admitted. No K/L/P semantic state changed.
+
+Current cross-System owner repair:
+
+- `xizong-official-2017-n118` asks the regulation form of oxytocin secretion;
+- B Knowledge explicitly keeps reproductive endocrine / pregnancy management outside B;
+- E SR1/SR6 owns reproductive-control and oxytocin/lactation Primary.
+
+Therefore this qid transfers **B → E**.
+
+```text
+exact historical-resolver B baseline = 1072
+Current owner transfer B → E         =   -1
+Current exact B scope                = 1071
+inventory SHA256                     = a8b45ea06ec48bafc1e044235c61e5552bfbf64749fce9a21527676acd099942
+```
+
+This changes only S membership. K/L/P semantics remain unchanged.
 
 S PASS remains System-level membership only:
 
