@@ -647,6 +647,63 @@ export function buildXizongScoreReadiness(progress, {
   };
 }
 
+const XIZONG_COMPRESSION_PROTECTED = new Set([
+  'FIRST_PASS_SOURCE_CONTACT',
+  'FIRST_PASS_ACTIVE_RECALL',
+  'BLOCK_RECALL',
+  'SYSTEM_RECALL',
+  'CURRENT_SCOPE_OFFICIAL_SWEEP',
+  'WRONG_UNCERTAIN_REPAIR',
+  'FRESH_VERIFICATION',
+  'HARD_COVERAGE',
+  'FORMAL_SCORE_CALIBRATION'
+]);
+
+const XIZONG_COMPRESSION_ADMISSIBLE = new Set([
+  'DUPLICATE_SOURCE',
+  'CURRENT_YEAR_REPLACEMENT',
+  'STABLE_SECOND_PASS_REPETITION',
+  'REPAIR_CLUSTER_DEDUP',
+  'OPTIONAL_LOW_VALUE',
+  'MATERIAL_OVERLAP'
+]);
+
+export function auditXizongCompressionProposals(proposals = []) {
+  const rows = (Array.isArray(proposals) ? proposals : []).map((row, index) => {
+    const kind = String(row?.kind || '').toUpperCase();
+    const target = String(row?.target || '').toUpperCase();
+    const minutes = Math.max(0, Number(row?.minutes || 0));
+    let decision = 'REVIEW_REQUIRED';
+    let reason = 'UNCLASSIFIED_COMPRESSION';
+    if (XIZONG_COMPRESSION_PROTECTED.has(target)) {
+      decision = 'REJECT';
+      reason = 'PROTECTED_CAPABILITY_OR_EVIDENCE';
+    } else if (XIZONG_COMPRESSION_ADMISSIBLE.has(kind)) {
+      decision = 'ALLOW';
+      reason = 'DEDUP_OR_LOW_VALUE_COMPRESSION';
+    }
+    return {
+      id: String(row?.id || `compression-${index + 1}`),
+      kind,
+      target,
+      minutes,
+      decision,
+      reason,
+      replacement_evidence: String(row?.replacement_evidence || '')
+    };
+  });
+  return {
+    schema: 'kianos.xizong.compression-audit.v1',
+    proposals: rows,
+    allowed_minutes: rows.filter((row) => row.decision === 'ALLOW').reduce((sum,row)=>sum+row.minutes,0),
+    rejected_minutes: rows.filter((row) => row.decision === 'REJECT').reduce((sum,row)=>sum+row.minutes,0),
+    review_required_minutes: rows.filter((row) => row.decision === 'REVIEW_REQUIRED').reduce((sum,row)=>sum+row.minutes,0),
+    safe: rows.every((row) => row.decision !== 'REJECT'),
+    boundary:
+      'Compression may remove duplication/replaced/low-value work; it may not manufacture feasibility by deleting required first-pass learning, official coverage, Repair verification, hard coverage or formal score calibration.'
+  };
+}
+
 export function classifyXizongMaterialGaps(gaps = []) {
   const rows = (Array.isArray(gaps) ? gaps : []).map((row, index) => {
     const type = String(row?.type || row?.kind || 'UNSPECIFIED').toUpperCase();
