@@ -276,7 +276,7 @@ Until that real loop passes, engineering is landed but learner acceptance remain
 
 ## Concrete performance defect — prebuilt local learner runtime
 
-State: **CI PROVEN · PR #571 · REAL MAC ACCEPTANCE PENDING**
+State: **LANDED ON MAIN · PR #571 / `548fcf0` · REAL MAC ACCEPTANCE PENDING**
 
 Concrete learner friction:
 
@@ -317,9 +317,9 @@ Exact candidate proof on PR #571:
 - private checkpoint / Chat control / External Reading endpoints PASS on the prebuilt runtime;
 - prerendered Politics review JSON and Xizong JSON endpoints PASS;
 - CI loopback warm HTTP:
-  - Home max **21.1ms**, mean **16.2ms**;
-  - Politics Practice max **10.3ms**, mean **6.7ms**;
-  - Politics review JSON max **2.1ms**, mean **1.5ms**.
+  - Home max **22.2ms**, mean **17.8ms**;
+  - Politics Practice max **10.9ms**, mean **6.3ms**;
+  - Politics review JSON max **2.1ms**, mean **2.0ms**.
 
 These CI loopback numbers prove request-time compilation has left the learner hot path; they are not a substitute for Kian's real Mac/browser acceptance.
 
@@ -328,8 +328,7 @@ Known unrelated repository-global reds remain outside this repair: Politics Ethi
 Next acceptance:
 
 ```text
-main landing
-→ restart/reinstall the installed Current LaunchAgent once
+restart/reinstall the installed Current LaunchAgent once
 → real Mac: Politics answer submit + Workspace → Home + reload
 → confirm learner-visible wait is gone
 → close this defect
