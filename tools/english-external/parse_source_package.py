@@ -68,6 +68,18 @@ def parse_flat_mapping(raw: str) -> dict[str, str]:
     return result
 
 
+def derive_source_id(metadata: dict[str, str]) -> str:
+    original_url = str(metadata.get("original_url") or "").strip()
+    title = str(metadata.get("title") or "").strip()
+    publication = str(metadata.get("publication") or "").strip()
+    publication_date = str(metadata.get("publication_date") or "").strip()
+    identity = original_url if original_url.upper() != "UNKNOWN" else f"{publication}|{publication_date}|{title}"
+    slug_base = f"{publication}-{title}".lower()
+    slug = re.sub(r"[^a-z0-9]+", "-", slug_base).strip("-")[:72] or "source"
+    suffix = hashlib.sha256(identity.encode("utf-8")).hexdigest()[:10]
+    return f"src-{slug}-{suffix}"
+
+
 def parse_extraction_check(raw: str) -> dict[str, str]:
     lines = raw.splitlines()
     start = None
@@ -96,18 +108,18 @@ def parse_extraction_check(raw: str) -> dict[str, str]:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--package", type=Path, required=True)
-    parser.add_argument("--source-id", required=True)
+    parser.add_argument("--source-id", default="auto", help="stable source id or 'auto'")
     parser.add_argument("--output-dir", type=Path, required=True)
     args = parser.parse_args()
 
     package_path = args.package.expanduser().resolve()
     output_dir = args.output_dir.expanduser().resolve()
-    source_id = str(args.source_id or "").strip()
+    requested_source_id = str(args.source_id or "auto").strip()
 
     if not package_path.is_file():
         raise SystemExit(f"source package missing: {package_path}")
-    if not SOURCE_ID_RE.fullmatch(source_id):
-        raise SystemExit(f"source_id invalid: {source_id!r}")
+    if requested_source_id != "auto" and not SOURCE_ID_RE.fullmatch(requested_source_id):
+        raise SystemExit(f"source_id invalid: {requested_source_id!r}")
 
     raw_bytes = package_path.read_bytes()
     try:
@@ -143,6 +155,10 @@ def main() -> int:
     empty_meta = [key for key in REQUIRED_META if not str(metadata.get(key) or "").strip()]
     if empty_meta:
         raise SystemExit("metadata fields must use UNKNOWN instead of blank: " + ", ".join(empty_meta))
+
+    source_id = derive_source_id(metadata) if requested_source_id == "auto" else requested_source_id
+    if not SOURCE_ID_RE.fullmatch(source_id):
+        raise SystemExit(f"derived source_id invalid: {source_id!r}")
 
     exposure = metadata["exposure"].strip().upper()
     if exposure not in {"UNSEEN", "EXPOSED"}:
