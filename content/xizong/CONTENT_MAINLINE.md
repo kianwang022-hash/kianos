@@ -134,7 +134,7 @@ E medical-content chain CLOSED
 
 Do not copy D topology for symmetry. Do not infer official-question membership from accepted K.
 
-## F｜Remaining Clinical — LEARNING CANDIDATE / INDEPENDENT ACCEPTANCE NEXT
+## F｜Remaining Clinical — LEARNING ACCEPTED / CONTENT NEXT
 
 F Current identity has now been reconciled to **9 Blocks / 121 KP**.
 
@@ -148,8 +148,8 @@ Current state:
 ```text
 S1 Source boundary  PASS_AFTER_SOURCE_REBIND
 K Knowledge         PASS_AFTER_BOUNDED_REPAIR
-L Learning Logic    CANDIDATE / independent acceptance next
-Content             downstream-frozen
+L Learning Logic    PASS_AFTER_BOUNDED_REPAIR
+Content             NOT_STARTED / NEXT_ELIGIBLE
 ```
 
 The old 12-Block transition Guide is not Current F identity; its first three physiology-foundation Blocks are historical substrate, while Current canonical F is F1–F9.
@@ -170,18 +170,26 @@ Fresh acceptance evidence:
 
 `content/xizong/knowledge/learner/F_PHASE2_FRESH_INDEPENDENT_K_ACCEPTANCE.md`
 
-Learning Logic is now built as a candidate:
+Learning Logic is now independently accepted with verdict **FRESH_L_PASS_AFTER_BOUNDED_REPAIR**.
+
+Fresh acceptance evidence:
+
+`content/xizong/knowledge/learner/F_PHASE4_FRESH_INDEPENDENT_L_ACCEPTANCE.md`
+
+Accepted Learning shape:
 
 ```text
 9 Blocks / 121 KP → 40 LG
-5 WHOLE_BLOCK_SOURCE
-3 NATURAL_SOURCE_UNITS
+3 WHOLE_BLOCK_SOURCE
+5 NATURAL_SOURCE_UNITS
 1 INTEGRATION_PRIMARY (F9)
 0 inside-F hard prerequisite edges
 2 non-gating PSRs
 ```
 
-Fresh independent L acceptance is the next F medical-content gate. Content remains frozen.
+Fresh L audit preserved all 40 LG identities and the zero-hard-edge / F9 ownership-first model, while making four bounded Learning repairs: F4/F6 now use genuine natural Source units, and F3-LG02/F7-LG01 now explicitly require real original-Source visual formation.
+
+Content Realization / Optimization is now the next eligible F medical-content gate. This L audit did not start Content.
 
 ---
 
@@ -340,7 +348,7 @@ Do not reopen the generation standard unless fresh evidence shows the shared met
 
 ```text
 Medical:
-F fresh independent L acceptance = next medical-content priority
+F Content Realization / Optimization = next medical-content priority
 E scoped Projection may proceed independently downstream only when it does not consume F semantic attention
 D scoped Projection may proceed independently downstream only when it does not consume F semantic attention
 
@@ -409,9 +417,9 @@ NEXT MEDICAL CONTENT PRIORITY
 F 9 Blocks / 121 KP
 → S1 PASS after Source rebind
 → K PASS_AFTER_BOUNDED_REPAIR
-→ Learning candidate built: 40 LG / 5 whole + 3 natural + 1 integration / 0 hard edges
-→ fresh independent L acceptance NEXT
-→ Content
+→ L PASS_AFTER_BOUNDED_REPAIR: 40 LG / 3 whole + 5 natural + 1 integration / 0 hard edges / 2 non-gating PSRs
+→ bounded L repairs: F4/F6 Source units + F3/F7 visual fail-closed
+→ Content Realization / Optimization NEXT
 
 QUESTIONS
 Current trusted System-question entry = A1 / A2 / A3 only
