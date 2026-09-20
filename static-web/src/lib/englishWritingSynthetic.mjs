@@ -51,7 +51,7 @@ function loadOwner() {
     if (owner?.rules?.learner_unit !== 'one complete essay') issues.push('LEARNER_UNIT');
     if (owner?.rules?.model_answer_present !== false) issues.push('MODEL_ANSWER_POLICY');
     if (owner?.rules?.true_exam_consumption !== false) issues.push('TRUE_EXAM_POLICY');
-    if (!Array.isArray(owner?.tasks) || owner.tasks.length !== 2) issues.push(`TASK_COUNT:${owner?.tasks?.length || 0}`);
+    if (!Array.isArray(owner?.tasks) || owner.tasks.length < 2) issues.push(`TASK_COUNT:${owner?.tasks?.length || 0}`);
 
     const ids = new Set();
     const kinds = new Set();
