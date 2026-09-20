@@ -398,8 +398,14 @@ try {
     'Imported Chat Plan persists exact study day and next-subject identity');
 
   // 4. A stale-day Chat Plan must fail closed and preserve the accepted current plan.
-  if (!(await page.locator('details.examAdvanced').getAttribute('open'))) {
-    await page.locator('details.examAdvanced > summary').click();
+  // Confirming the first import closes the learner-facing dialog, so reopen the
+  // same real Home path before exercising stale-plan rejection.
+  if (!(await page.locator('[data-exam-why-dialog]').getAttribute('open'))) {
+    await page.locator('[data-exam-why]').click();
+    await page.locator('[data-exam-why-dialog][open]').waitFor();
+  }
+  if (!(await page.locator('[data-exam-why-dialog] details.examAdvanced').getAttribute('open'))) {
+    await page.locator('[data-exam-why-dialog] details.examAdvanced > summary').click();
   }
   await page.locator('[data-exam-import]').setInputFiles(staleChatPlanFile);
   await page.locator('[data-import-error]:visible').waitFor();
