@@ -95,6 +95,12 @@ export function xizongStudyPacketEvidenceVersion(packet) {
         status: clean(row?.status, 40),
         submitted_at: clean(row?.submitted_at, 80),
         probe_kind: clean(row?.probe_kind, 40),
+        evidence_intent: clean(row?.evidence_intent, 40),
+        semantic_family_id: clean(row?.semantic_family_id, 180),
+        derived_from_ids: [...new Set((Array.isArray(row?.derived_from_ids) ? row.derived_from_ids : []).map(String).filter(Boolean))].sort(),
+        changed_dimensions: [...new Set((Array.isArray(row?.changed_dimensions) ? row.changed_dimensions : []).map(String).filter(Boolean))].sort(),
+        fresh_transfer_eligible: row?.fresh_transfer_eligible === true,
+        freshness_class: clean(row?.freshness_class, 80),
         target_kp_ids: [...new Set((Array.isArray(row?.target_kp_ids) ? row.target_kp_ids : []).map(String).filter(Boolean))].sort(),
         canonical_source_hash: clean(row?.canonical_source_hash, 180)
       }))
