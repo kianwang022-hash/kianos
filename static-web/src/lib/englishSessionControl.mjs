@@ -1,7 +1,7 @@
 import {atomicEnglishWrites,readEnglishExposure,ENGLISH_MATERIAL_EXPOSURE_KEY} from './englishLearnerEvidence.mjs';
 import {
   ENGLISH_EXAM_PRODUCTIVE_SCORING_STANDARD_VERSION,
-  readEnglishExamSession,
+  inspectEnglishExamSession,
   summarizeEnglishExamSession
 } from './englishExamSession.mjs';
 import {
@@ -966,6 +966,18 @@ export function buildEnglishLongHorizonRecurrenceDigest(storage,{recentExactTrun
   return digest;
 }
 
+function englishExamEvidenceProjection(storage) {
+  const state=inspectEnglishExamSession(storage);
+  if(state.status==='ready')return summarizeEnglishExamSession(state.session);
+  if(state.status==='missing')return null;
+  return {
+    schema:'kianos.english.exam-state.v1',
+    status:state.status,
+    error:state.error||null,
+    evidence_boundary:'INVALID_OR_UNAVAILABLE_WHOLE_PAPER_STATE_IS_UNKNOWN_NOT_ZERO; RECOVER_OR_EXPORT_BEFORE_REPLACING'
+  };
+}
+
 export function buildEnglishEvidencePacket(storage, { day, now = Date.now(), catalog = [] } = {}) {
   if (!storage?.getItem) throw new Error('ENGLISH_EVIDENCE_STORAGE_UNAVAILABLE');
   if (!validDay(day)) throw new Error('ENGLISH_EVIDENCE_DAY_INVALID');
@@ -992,7 +1004,7 @@ export function buildEnglishEvidencePacket(storage, { day, now = Date.now(), cat
       translation: productiveEvidence(storage, 'translation'),
       writing: productiveEvidence(storage, 'writing')
     }),
-    exam_session: summarizeEnglishExamSession(readEnglishExamSession(storage)),
+    exam_session: englishExamEvidenceProjection(storage),
     available_external_reading: (Array.isArray(catalog) ? catalog : [])
       .filter(row => row?.task === 'external_reading')
       .map(row => ({
