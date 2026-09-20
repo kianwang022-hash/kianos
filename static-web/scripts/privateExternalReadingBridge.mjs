@@ -19,10 +19,7 @@ const json=(res,status,value)=>{
 };
 
 export function privateExternalReadingBridge(options = {}){
-  return{
-    name:'kianos-private-external-reading-bridge',
-    apply:'serve',
-    configureServer(server){
+  const configure=(server)=>{
       server.middlewares.use((req,res,next)=>{
         const url=new URL(req.url||'/','http://127.0.0.1');
         if(!url.pathname.startsWith(ROOT))return next();
@@ -54,6 +51,12 @@ export function privateExternalReadingBridge(options = {}){
           return json(res,status,{status:'error',error:message});
         }
       });
-    }
+  };
+
+  return{
+    name:'kianos-private-external-reading-bridge',
+    apply:'serve',
+    configureServer:configure,
+    configurePreviewServer:configure
   };
 }
