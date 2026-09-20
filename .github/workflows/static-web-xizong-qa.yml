@@ -105,6 +105,8 @@ jobs:
         run: node scripts/validate-xizong-question-attempts.mjs
       - name: Validate targeted practice mixed official + AI probe contract
         run: node scripts/validate-xizong-targeted-practice.mjs
+      - name: Validate official score-attribution evidence
+        run: node scripts/validate-xizong-score-attribution.mjs
       - name: Validate reviewed Question Crosswalk
         run: node scripts/validate-xizong-question-crosswalk.mjs
       - name: Validate Crosswalk review queue pipeline
