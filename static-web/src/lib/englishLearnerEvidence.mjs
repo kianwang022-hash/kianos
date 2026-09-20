@@ -23,6 +23,13 @@ export function readEnglishExposure(storage){
  if(data.schema!==ENGLISH_EXPOSURE_SCHEMA||!data.materials||Array.isArray(data.materials))throw new Error('ENGLISH_EXPOSURE_SCHEMA_MISMATCH');return data;
 }
 
+function exactSourcePreviouslyExposed(ledger,sourceHash){
+ if(!sourceHash)return false;
+ return Object.values(ledger?.materials||{}).some((material)=>
+  Array.isArray(material?.events)&&material.events.some((event)=>event?.source_hash===sourceHash)
+ );
+}
+
 function exposureUpdate(storage,binding,event,now){
  const ledger=readEnglishExposure(storage);
  const material=ledger.materials[binding.object_id]||{object_id:binding.object_id,events:[]};
@@ -70,7 +77,9 @@ export function saveEnglishAttempt(storage,key,value,meta,{sessionId='',now=Date
    const step=instruction?.study_day===new Date(now).toLocaleDateString('en-CA')?instruction.steps?.find(s=>s.task===meta.task&&s.object_id===meta.object_id&&s.source_hash===meta.source_hash):null;
    const budget=Number(step?.params?.time_budget_seconds)||null;
    const evidenceMeta=meta.snapshot?.evidence&&typeof meta.snapshot.evidence==='object'?meta.snapshot.evidence:{};
-   binding={started_at:new Date(now).toISOString(),time_budget_seconds:budget,task:meta.task,object_id:meta.object_id,source_hash:meta.source_hash,attempt_id:globalThis.crypto?.randomUUID?.()||`${meta.object_id}:${now}:${Math.random()}`,context:sessionId?'exam':'study',session_id:sessionId||null,revision:0,prior_exposure:past.length?'exposed':(ledger.materials[meta.object_id]?.declaration?.state||'unknown'),assistance:'unassisted',source_kind:String(evidenceMeta.source_kind||'unknown'),evidence_role:evidenceMeta.evidence_role==null?null:String(evidenceMeta.evidence_role),source_snapshot:clone(meta.snapshot),legacy_unversioned:Boolean(previous)};
+   const assistanceContext=step?.params?.assistance_context&&typeof step.params.assistance_context==='object'?clone(step.params.assistance_context):null;
+   const exactSourceSeen=exactSourcePreviouslyExposed(ledger,meta.source_hash);
+   binding={started_at:new Date(now).toISOString(),time_budget_seconds:budget,task:meta.task,object_id:meta.object_id,source_hash:meta.source_hash,attempt_id:globalThis.crypto?.randomUUID?.()||`${meta.object_id}:${now}:${Math.random()}`,context:sessionId?'exam':'study',session_id:sessionId||null,revision:0,prior_exposure:(past.length||exactSourceSeen)?'exposed':(ledger.materials[meta.object_id]?.declaration?.state||'unknown'),assistance:assistanceContext?.state||'unassisted',assistance_context:assistanceContext,source_kind:String(evidenceMeta.source_kind||'unknown'),evidence_role:evidenceMeta.evidence_role==null?null:String(evidenceMeta.evidence_role),source_snapshot:clone(meta.snapshot),legacy_unversioned:Boolean(previous)};
   }
   if(previous?.binding&&value.binding&&Number(previous.binding.revision)!==Number(value.binding.revision))throw new Error('ENGLISH_ATTEMPT_STALE_WRITE_RELOAD_REQUIRED');
   // Same-attempt first evidence is immutable even across tab-local stale state.
@@ -84,6 +93,7 @@ export function saveEnglishAttempt(storage,key,value,meta,{sessionId='',now=Date
   const next=clone(value);next.binding={...binding,revision:Number(binding.revision||0)+1};next.saved_at=new Date(now).toISOString();
   if(!previous?.firstEvidenceMeta && ((!previous?.submitted&&next.submitted)||(!previous?.firstSubmittedAt&&next.firstSubmittedAt))){
     next.firstEvidenceMeta=Object.fromEntries(['attempt_id','source_hash','prior_exposure','assistance','source_kind','evidence_role','legacy_unversioned','time_budget_seconds'].map(k=>[k,next.binding[k]]));
+    next.firstEvidenceMeta.assistance_context=next.binding.assistance_context?clone(next.binding.assistance_context):null;
     const elapsed=Math.max(0,(now-Date.parse(next.binding.started_at||next.startedAt||next.createdAt||''))/1000);
     next.firstEvidenceMeta.elapsed_seconds=Number.isFinite(elapsed)?elapsed:null;
     next.firstEvidenceMeta.timing_status=next.binding.time_budget_seconds&&Number.isFinite(elapsed)?(elapsed>next.binding.time_budget_seconds?'budget_exceeded':'within_explicit_budget'):'uncalibrated';
