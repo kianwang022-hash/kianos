@@ -20,7 +20,7 @@ FAIL — material system-logic blind spots remain
 ```
 
 ```text
-SYSTEM_LOGIC_ACCEPTED = NO
+SYSTEM_LOGIC_ACCEPTED = NOT YET
 KIAN_SPECIFIC_CALIBRATED = NO
 ```
 
