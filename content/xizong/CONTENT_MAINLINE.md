@@ -56,7 +56,7 @@ Current known Stage-A facts to preserve:
 
 - D / E / F medical Content is closed; do not reopen it merely because a downstream gap exists;
 - F exact official-question membership remains a routing/scope gap;
-- clinical-medical humanistic coverage remains an exam-scope hard gap while unowned;
+- clinical-medical humanistic baseline is now closed on main via PR #637; only the exact 2027 humanities scope delta remains upstream-BLOCKED;
 - current-year Biochemistry work is a delta problem, not a full-course rebuild;
 - case / 狂背 / four-set / final-five-hour assets require replacement/overlap/net-new reconciliation before workload admission;
 - Question→Knowledge Crosswalk remains progressive and must not be guessed to manufacture closure.
@@ -89,17 +89,19 @@ Current Stage-A result:
 - practical owner: `content/xizong/MATURITY_PACKAGE.md`;
 - 8 System / 159 Block / 2517 KP medical identity reconciled into the package;
 - A1–E exact official System-question scopes are represented; F remains unresolved;
-- 2024–2026 Current Question Truth confirms a repeated humanism block at N108–N115, 8 questions / historical 16 points;
-- recent humanism themes have been reconstructed into professional spirit, communication, patient rights/consent/privacy, research ethics and legal/regulatory obligations;
+- clinical humanities baseline is closed on main via `content/xizong/humanities/current.json` with H1–H4 compression, recall support, legal/source guardrails and exact 2017–2026 N108–N115 membership (80 qids total);
+- historical modern-paper humanities geometry remains 8 questions / 16 points per year; exact 2027 humanities scope remains upstream-BLOCKED;
 - 2027 exact question-count/scoring geometry remains authority-BLOCKED; historical 165/300 stays prior-only;
 - neutral historical 275 loss baseline is recorded, without turning it into fixed discipline quotas.
 
 Next unblocked maturity inputs:
 
-1. smallest Current humanism owner + training/evidence path;
-2. F exact official-question membership;
-3. 2027 Biochemistry delta reconciliation;
-4. case/狂背/four-set/final-five-hour net-new pricing.
+1. F exact official-question membership;
+2. 2027 Biochemistry delta reconciliation;
+3. case/狂背/four-set/final-five-hour net-new pricing;
+4. final 25-point loss-envelope reconciliation after those inputs.
+
+Current-year exam geometry and humanities-scope deltas remain explicit upstream-BLOCKED inputs and do not justify new architecture work.
 
 Do not move the maturity mainline to Stage B merely because current learner surfaces or Forecast CI are green.
 
