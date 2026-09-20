@@ -33,16 +33,27 @@ const work = (forecast) => forecast.first_round_stress.unit_cases[0].first_round
 const baseline = buildPoliticsForecast({
   evidence,
   days_remaining: 30,
-  capacity_minutes_per_day: [36, 90, 120],
+  capacity_minutes_per_day: [60, 75, 90, 105, 120],
   stress_axes: oneScenario()
 });
 
 const multipleWorse = buildPoliticsForecast({
   evidence,
   days_remaining: 30,
+  capacity_minutes_per_day: [75],
   stress_axes: oneScenario({ multiple_wu_rate: [0.45] })
 });
 assert.ok(work(multipleWorse) > work(baseline), 'worse multiple-choice W/U must increase workload');
+assert.equal(
+  baseline.first_round_stress.unit_cases[0].capacity.find((row) => row.minutes_per_day === 75).stress_grid_fit_fraction,
+  1,
+  'baseline should fit the explicit 75-minute decision surface'
+);
+assert.equal(
+  multipleWorse.first_round_stress.unit_cases[0].capacity[0].stress_grid_fit_fraction,
+  0,
+  'worse multiple-choice W/U should flip the 75-minute decision surface'
+);
 
 const compressionWorse = buildPoliticsForecast({
   evidence,
@@ -68,10 +79,15 @@ const badWeek = buildPoliticsForecast({
   capacity_minutes_per_day: [90],
   stress_axes: oneScenario()
 });
-assert.ok(
-  badWeek.first_round_stress.unit_cases[0].capacity[0].stress_grid_fit_fraction
-    <= baseline.first_round_stress.unit_cases[0].capacity[1].stress_grid_fit_fraction,
-  'losing a week must not improve capacity fit'
+assert.equal(
+  baseline.first_round_stress.unit_cases[0].capacity.find((row) => row.minutes_per_day === 90).stress_grid_fit_fraction,
+  1,
+  'baseline should fit the explicit 90-minute decision surface'
+);
+assert.equal(
+  badWeek.first_round_stress.unit_cases[0].capacity[0].stress_grid_fit_fraction,
+  0,
+  'losing a week should flip the explicit 90-minute decision surface'
 );
 
 const reorderedEvidence = {
@@ -82,7 +98,7 @@ const reorderedEvidence = {
 const reordered = buildPoliticsForecast({
   evidence: reorderedEvidence,
   days_remaining: 30,
-  capacity_minutes_per_day: [36, 90, 120],
+  capacity_minutes_per_day: [60, 75, 90, 105, 120],
   stress_axes: oneScenario()
 });
 assert.deepEqual(reordered.facts.observed_questions, baseline.facts.observed_questions);
@@ -113,4 +129,4 @@ assert.equal('next_action' in baseline, false);
 assert.equal('priority' in baseline, false);
 assert.equal('target_minutes' in baseline, false);
 
-console.log('PASS Politics maturity adversarial: multiple-choice weakness, repair compression, memory relapse, bad week/capacity collapse, metamorphic ordering, partial evidence fail-closed, no-strategy invariant.');
+console.log('PASS Politics maturity adversarial: explicit decision flips for multiple-choice weakness and lost week, repair compression, memory relapse, capacity collapse, metamorphic ordering, partial evidence fail-closed, no-strategy invariant.');
