@@ -10,6 +10,7 @@ export const EXTERNAL_PRIVATE_BUNDLE_SCHEMA='kianos.english.external-private-bun
 const here=path.dirname(fileURLToPath(import.meta.url));
 const repoRoot=path.resolve(here,'../..');
 const compilerPath=path.join(repoRoot,'tools','english-external','compile_external_reading.py');
+const publicManifestPath=path.join(repoRoot,'content','english','external','manifest.json');
 
 const EXPECTED_FILES=Object.freeze([
   'source_manifest.json',
@@ -36,8 +37,18 @@ export function externalReadingBundlePath(privateDir=resolveExternalReadingPriva
   return path.join(privateDir,'bundle.v2.json');
 }
 
+function expectedSourceHashes(){
+  try{
+    const value=JSON.parse(fs.readFileSync(publicManifestPath,'utf8'));
+    const hashes=value?.source_runtime?.expected_active_source_sha256;
+    return hashes&&typeof hashes==='object'&&!Array.isArray(hashes)?hashes:{};
+  }catch{return{};}
+}
+
 function sourceSnapshot(sourceRoot){
   const missing=[];
+  const mismatches=[];
+  const expected=expectedSourceHashes();
   let latest=0;
   const files=[];
   for(const relative of EXPECTED_FILES){
@@ -46,10 +57,15 @@ function sourceSnapshot(sourceRoot){
       const stat=fs.statSync(file);
       if(!stat.isFile())throw new Error('not-file');
       latest=Math.max(latest,stat.mtimeMs);
-      files.push({relative,mtime_ms:stat.mtimeMs,size:stat.size});
+      const actualSha=sha256(fs.readFileSync(file));
+      files.push({relative,mtime_ms:stat.mtimeMs,size:stat.size,sha256:actualSha});
+      const expectedSha=String(expected[relative]||'').trim();
+      if(expectedSha&&expectedSha!==actualSha){
+        mismatches.push({relative,expected_sha256:expectedSha,actual_sha256:actualSha});
+      }
     }catch{missing.push(relative);}
   }
-  return{missing,latest,files};
+  return{missing,mismatches,latest,files};
 }
 
 export function validateExternalReadingPrivateBundle(value){
@@ -76,6 +92,9 @@ export function ensureExternalReadingPrivateBundle({
   const snapshot=sourceSnapshot(sourceRoot);
   if(snapshot.missing.length){
     return{status:'missing_source',source_root:sourceRoot,missing:snapshot.missing,bundle:null};
+  }
+  if(snapshot.mismatches.length){
+    return{status:'stale_source',source_root:sourceRoot,mismatches:snapshot.mismatches,bundle:null};
   }
   const bundleFile=externalReadingBundlePath(privateDir);
   let mustCompile=Boolean(force);
@@ -106,7 +125,7 @@ export function ensureExternalReadingPrivateBundle({
       const parsed=validateExternalReadingPrivateBundle(JSON.parse(fs.readFileSync(temp,'utf8')));
       fs.renameSync(temp,bundleFile);
       try{fs.chmodSync(bundleFile,0o600);}catch{}
-      return{status:'ready',source_root:sourceRoot,bundle:parsed,bundle_path:bundleFile,compiled:true};
+      return{status:'ready',source_root:sourceRoot,bundle:parsed,bundle_path:bundleFile,compiled:true,source_hash_gate:'matched'};
     }catch(error){
       try{fs.unlinkSync(temp);}catch{}
       return{status:'invalid',source_root:sourceRoot,error:error instanceof Error?error.message:String(error),bundle:null};
@@ -115,7 +134,7 @@ export function ensureExternalReadingPrivateBundle({
 
   try{
     const parsed=validateExternalReadingPrivateBundle(JSON.parse(fs.readFileSync(bundleFile,'utf8')));
-    return{status:'ready',source_root:sourceRoot,bundle:parsed,bundle_path:bundleFile,compiled:false};
+    return{status:'ready',source_root:sourceRoot,bundle:parsed,bundle_path:bundleFile,compiled:false,source_hash_gate:'matched'};
   }catch(error){
     return{status:'invalid',source_root:sourceRoot,error:error instanceof Error?error.message:String(error),bundle:null};
   }
@@ -135,7 +154,7 @@ function passageRevision(passage){
 }
 
 export function externalReadingCatalog(state=ensureExternalReadingPrivateBundle()){
-  if(state.status!=='ready')return{status:state.status,error:state.error||null,missing:state.missing||[],source_root:state.source_root,collections:[],counts:null};
+  if(state.status!=='ready')return{status:state.status,error:state.error||null,missing:state.missing||[],mismatches:state.mismatches||[],source_root:state.source_root,collections:[],counts:null};
   const passages=state.bundle.passages;
   const collections=[];
   for(const family of ['TOEFL_TPO','IELTS_ACADEMIC']){
@@ -165,6 +184,7 @@ export function externalReadingCatalog(state=ensureExternalReadingPrivateBundle(
     counts:state.bundle.counts,
     source_quality:state.bundle.source_quality,
     cognition_boundary:state.bundle.cognition_boundary,
+    source_hash_gate:state.source_hash_gate||'matched',
     collections
   };
 }
