@@ -1062,7 +1062,69 @@ For each admitted future source:
 - invalidate dependent derived assets when revised;
 - do not promote to score evidence without calibration.
 
+Revision invalidation is transitive where the change matters. Re-check affected:
+
+- Teaching / Repair derivatives;
+- synthetic tasks built from the source;
+- references / answer explanations;
+- learner evidence interpretation;
+- Resume / active instruction when bound to the old revision;
+- Forecast assumptions / score bands.
+
+Historical observations may remain history, but they cannot authorize a Current decision under incompatible source semantics.
+
 If no high-value new source arrives, English must continue normally with the current corpus.
+
+---
+
+# 25A｜Prior-year material — English-specific use
+
+English does not have a mandatory late annual content cycle like Politics/Xizong, but prior-year material still has distinct roles.
+
+## English-I historical papers
+
+Use for:
+
+- exam geometry;
+- task-specific learning;
+- exposed repair;
+- timing practice;
+- whole-paper execution;
+- mechanism examples;
+- score calibration only to the extent exposure permits.
+
+Prior exposure is decisive. A historically official paper does not become fresh merely because it is old.
+
+## TPO / IELTS historical pools
+
+Use primarily for:
+
+- reading growth;
+- stamina;
+- proposition/discourse tracking;
+- lexical transfer;
+- source-native task practice when appropriate.
+
+Do not reinterpret them as English-I score evidence.
+
+## Guides / teacher material
+
+Use as:
+
+- learning/repair reservoir;
+- reusable capability extraction;
+- explanation source.
+
+Do not preserve teacher sequence as mandatory learner sequence.
+
+## Rule
+
+```text
+historical authority / quality
+≠ fresh learner evidence
+```
+
+Prior-year material should already be organized and ready before learner demand, but its evidence role is determined by source identity, exposure and task match.
 
 ---
 
@@ -1383,6 +1445,51 @@ Requires actual Kian learner evidence for:
 - handoff friction.
 
 Engineering/browser/synthetic tests can never manufacture this state.
+
+---
+
+# 36A｜English subject-native boundary
+
+This maturity standard asks common control questions but English keeps its real cognition.
+
+Do not create:
+
+- one English mastery score;
+- one Secure threshold shared across all tasks;
+- one fixed Minimum Dose for all modules;
+- one review cadence for Reading / Writing / Lexical;
+- a generic error taxonomy that erases task-specific failure;
+- a second English scheduler;
+- a duplicate lexical system inside Reading/Cloze/Writing.
+
+Preserve:
+
+```text
+Reading A cognition
+≠ Cloze cognition
+≠ Part B cognition
+≠ Translation cognition
+≠ Writing cognition
+
+Lexical semantics
+≠ English task performance
+
+Whole Paper
+= integrated execution validator
+not a content module
+```
+
+Shared infrastructure may unify:
+
+- Home;
+- Daily Packet;
+- Chat Plan / English Session Instruction;
+- Timer;
+- checkpoint;
+- exposure/source identity;
+- transport safety.
+
+It must not flatten subject/task cognition for architectural symmetry.
 
 ---
 
