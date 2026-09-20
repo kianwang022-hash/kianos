@@ -1,0 +1,62 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "relation:final-standard:amount-number:countability_boundary",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:amount",
+      "source_ordinal": 182,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "relation_id": "relation:final-standard:amount-number:countability_boundary",
+        "relation_scope": "lexeme",
+        "relation_type": "countability_boundary",
+        "target_word": "number",
+        "boundary": "默认写作选择：amount of + 不可数名词；number of + 可数复数名词。",
+        "boundaries": [
+          "默认写作选择：amount of + 不可数名词；number of + 可数复数名词。"
+        ],
+        "learning_note": "默认写作选择：amount of + 不可数名词；number of + 可数复数名词。",
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "verification_status": "verified",
+        "writing_safe": true,
+        "task_tags": [
+          "reading",
+          "writing"
+        ]
+      }
+    },
+    {
+      "source_word_id": "word:number",
+      "source_ordinal": 3277,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "relation_id": "relation:final-standard:amount-number:countability_boundary",
+        "relation_scope": "lexeme",
+        "relation_type": "countability_boundary",
+        "target_word": "amount",
+        "boundary": "默认写作选择：number of + 可数复数名词；amount of + 不可数名词。",
+        "boundaries": [
+          "默认写作选择：number of + 可数复数名词；amount of + 不可数名词。"
+        ],
+        "learning_note": "默认写作选择：number of + 可数复数名词；amount of + 不可数名词。",
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "verification_status": "verified",
+        "writing_safe": true,
+        "task_tags": [
+          "reading",
+          "writing"
+        ]
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "BF01_final_standard_2026-09-20",
+    "semantic_delta": 1
+  }
+}
