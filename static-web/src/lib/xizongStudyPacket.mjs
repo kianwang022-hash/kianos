@@ -197,6 +197,7 @@ function summarizeXizongForecastPractice(storage, {
   );
   const currentCoverageBySystem = new Map();
   const currentScopeFirstAttempt = new Map();
+  const currentScopeTimingBySystemDay = new Map();
   let eligibleAttempted = 0;
   let currentScopeEligibleAttempted = 0;
   let heldoutObserved = 0;
@@ -295,8 +296,54 @@ function summarizeXizongForecastPractice(storage, {
     if (status === 'stable') row.current_scope_stable += 1;
     else if (status === 'uncertain') row.current_scope_uncertain += 1;
     else if (status === 'wrong') row.current_scope_wrong += 1;
+
+    const day = studyDayFromIso(event?.submitted_at);
+    if (day) {
+      const timingKey = `${canonicalId}\u0000${day}`;
+      if (!currentScopeTimingBySystemDay.has(timingKey)) {
+        currentScopeTimingBySystemDay.set(timingKey, {
+          canonical_id: canonicalId,
+          system_id: String(currentScope?.system_id || eventSystemId || ''),
+          day,
+          attempted: 0,
+          stable: 0,
+          uncertain: 0,
+          wrong: 0
+        });
+      }
+      const timingRow = currentScopeTimingBySystemDay.get(timingKey);
+      timingRow.attempted += 1;
+      if (status === 'stable') timingRow.stable += 1;
+      else if (status === 'uncertain') timingRow.uncertain += 1;
+      else if (status === 'wrong') timingRow.wrong += 1;
+    }
   }
   const currentScopeWrongUncertain = currentScopeCounts.wrong + currentScopeCounts.uncertain;
+  for (const row of bySystem.values()) {
+    const wu = Number(row.current_scope_wrong || 0) + Number(row.current_scope_uncertain || 0);
+    row.current_scope_wrong_or_uncertain = wu;
+    row.current_scope_wrong_or_uncertain_rate = Number(row.current_scope_unique_attempted || 0) > 0
+      ? Number((wu / Number(row.current_scope_unique_attempted)).toFixed(4))
+      : null;
+    row.current_scope_speed_by_day = [...currentScopeTimingBySystemDay.values()]
+      .filter((sample) => sample.canonical_id === row.canonical_id)
+      .sort((a, b) => a.day.localeCompare(b.day))
+      .map((sample) => {
+        const detailKey = sample.system_id ? `practice/${sample.system_id}` : '';
+        const timerMinutes = detailKey
+          ? xizongPracticeMinutesForDay(storage, sample.day, now, new Set([detailKey]))
+          : 0;
+        return {
+          ...sample,
+          practice_timer_minutes: timerMinutes,
+          observed_minutes_per_attempt:
+            sample.attempted > 0 && timerMinutes > 0
+              ? Number((timerMinutes / sample.attempted).toFixed(3))
+              : null,
+          timing_semantics: 'SYSTEM_ROUTE_DAY_UPPER_BOUND'
+        };
+      });
+  }
   const unresolvedWrongUncertain = [...firstPass.entries()]
     .filter(([, event]) => ['wrong', 'uncertain'].includes(String(event?.status || '')))
     .filter(([questionId]) => ['wrong', 'uncertain'].includes(String(latest.get(questionId)?.status || '')))
@@ -434,7 +481,9 @@ function summarizeXizongForecastRepairs(storage) {
         detail_key: detailKey,
         created_at: String(task?.createdAt || '') || null,
         completed_at: String(task?.completedAt || '') || null,
-        timer_minutes_in_repair_window: Number.isFinite(timerMinutes) ? timerMinutes : null
+        timer_minutes_in_repair_window: Number.isFinite(timerMinutes) ? timerMinutes : null,
+        timing_semantics: 'BLOCK_ROUTE_LIFETIME_WINDOW_MIXED',
+        exclusive_repair_timer_minutes: null
       });
     }
   }
@@ -451,7 +500,7 @@ function summarizeXizongForecastRepairs(storage) {
       questionBackedClusters > 0 ? Number((sourceQuestionIds.size / questionBackedClusters).toFixed(3)) : null,
     calibration_samples: calibrationSamples,
     evidence_boundary:
-      'Repair lifecycle is subject-owned. Official-question compression ratios use official question ids only; AI probes and non-official sources cannot reduce predicted official W/U workload. Several Wrong/Uncertain questions may share one root cause, and DONE still requires later fresh verification.'
+      'Repair lifecycle is subject-owned. Official-question compression ratios use official question ids only; AI probes and non-official sources cannot reduce predicted official W/U workload. Several Wrong/Uncertain questions may share one root cause, and DONE still requires later fresh verification. Block-route timer observed across a Repair lifetime window is explicitly mixed timing and must not be treated as exclusive Repair duration.'
   };
 }
 
