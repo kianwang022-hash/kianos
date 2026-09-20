@@ -104,9 +104,17 @@ Current status:
 
 ```text
 SYSTEM_LOGIC_CANDIDATE = YES
-FINAL_FRESH_AUDIT = REQUIRED
+FINAL_FRESH_AUDIT #1 = FAIL
+BOUNDED_REPAIR_PROOF = ACTIVE
 KIAN_SPECIFIC_CALIBRATED = NO
 ```
+
+Final Fresh #1 found exactly two material system-logic defect families:
+
+1. learner-semantic source identity was conflated with object/revision/provenance identity;
+2. Forecast did not fully fail closed on open-demand-with-zero-work and contradictory formal-score eligibility.
+
+Current repair is bounded to those exact owners only.
 
 Accepted candidate closures already integrated into the package:
 
@@ -132,7 +140,7 @@ Audit hygiene / freeze:
 
 Do not reopen E0→E11 as a construction sequence. Do not rebuild already-satisfied domains for symmetry.
 
-If final Fresh audit PASS:
+After impacted exact-head proof, rerun a genuinely Fresh final audit. If that audit PASS:
 
 ```text
 SYSTEM_LOGIC_ACCEPTED = YES
