@@ -16,7 +16,7 @@ This file owns F-scoped readiness truth only. It does not own medical Core, lear
 | S2 — exact official F System question membership | **UNTESTED** | separate later boundary; no membership inferred from Outline placement |
 | K — Knowledge | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent K audit; bounded repair split acute disturbance-control from planned/ongoing intervention-safety while preserving identity/source/owner boundaries |
 | L — Learning Logic | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent L audit; 9 Blocks / 121 KP → 40 LG; 3 whole + 5 natural + 1 integration; 0 hard edges; 2 non-gating PSRs |
-| Content Realization / Optimization | **ACTIVE / NOT_ACCEPTED** | Phase 5A role candidate built with 40/40 LG Source-release coverage; wrapper/authority debt remains open |
+| Content Realization / Optimization | **ACTIVE / NOT_ACCEPTED** | Phase 5A role candidate + Phase 5B wrapper cleanup closed; 40-LG sufficiency/Recall-front audit remains before fresh Content closure |
 | P — Projection | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
 | R — Runtime | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
 | E — Evidence | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
@@ -221,6 +221,10 @@ Construction receipt:
 
 `content/xizong/knowledge/learner/F_PHASE5A_CONTENT_ROLE_REALIZATION.md`
 
+Phase 5B receipt:
+
+`content/xizong/knowledge/learner/F_PHASE5B_WRAPPER_AUTHORITY_CLEANUP.md`
+
 Phase 5A establishes the Content-role model only. It does not claim Content PASS.
 
 Candidate accounting:
@@ -233,17 +237,30 @@ INTEGRATION_PRIMARY                = 1
 medical Core rewrite               = 0
 ```
 
-Open blocking Content debt:
+Phase 5B closure:
 
-1. all 9 canonical Block owners still advertise legacy `prerequisites` and `next_blocks/next_system` route fields, conflicting with accepted L's 0 inside-F hard edges;
-2. F1/F2/F4/F6/F8 still advertise generic whole-Block first-pass wrappers instead of accepted natural Source-unit stop-lines;
-3. bounded F6/F7/F8 wording still risks presenting benefits-from/default sequence as already-completed learner state;
-4. 40/40 LG Content sufficiency/density + Recall-front has not yet been audited;
-5. fresh independent Content closure has not yet run.
+```text
+frontmatter prerequisites               = 0 / 9
+frontmatter next_blocks/next_system     = 0 / 9
+natural-unit wrapper alignment          = 5 / 5
+whole-block wrapper preservation        = 3 / 3
+F9 ownership-first integration          = 1 / 1
+canonical KP                            = 121
+medical Core rewrite                    = 0
+```
+
+The stale competing route graph is closed. Natural Source-unit stop-lines now match accepted L, while F3/F5/F7 remain whole-source and F9 remains integration-primary. Concrete false learner-state assumptions were rewritten as reusable / locally reactivatable relations.
+
+Remaining blocking Content work:
+
+1. 40/40 LG Content sufficiency / density audit;
+2. Recall-front answer-protection audit;
+3. targeted repairs only where a concrete LG/KP defect is demonstrated;
+4. fresh independent whole-F Content closure.
 
 Therefore Content remains **ACTIVE / NOT_ACCEPTED** and P/R/E remain downstream-frozen.
 
-Next Content stage: **Phase 5B wrapper / authority cleanup**.
+Next Content stage: **Phase 5C — 40-LG Content sufficiency / density + Recall-front audit**.
 
 ## Downstream state
 
