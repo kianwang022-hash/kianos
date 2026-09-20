@@ -1,0 +1,42 @@
+name: Current Static Runtime
+
+on:
+  pull_request:
+    paths:
+      - "static-web/scripts/kianos-current-sync.mjs"
+      - "static-web/scripts/install-current-macos.sh"
+      - "static-web/scripts/privateLearnerBridge.mjs"
+      - "static-web/scripts/privateExternalReadingBridge.mjs"
+      - "static-web/scripts/privateControlBridge.mjs"
+      - "static-web/scripts/kianos-static-server.mjs"
+      - "static-web/scripts/test-current-static-runtime.mjs"
+      - "static-web/package.json"
+      - "static-web/CURRENT.md"
+      - ".github/workflows/current-static-runtime.yml"
+
+jobs:
+  proof:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: static-web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm install --no-audit --no-fund
+      - name: Syntax check runtime owners
+        run: |
+          node --check scripts/kianos-current-sync.mjs
+          node --check scripts/kianos-static-server.mjs
+          node --check scripts/privateLearnerBridge.mjs
+          node --check scripts/privateExternalReadingBridge.mjs
+          node --check scripts/privateControlBridge.mjs
+          node --check scripts/test-current-static-runtime.mjs
+      - name: Build staging Current and promote
+        run: |
+          rm -rf .current-build-next dist
+          npm run build -- --outDir "$PWD/.current-build-next"
+          mv .current-build-next dist
+      - run: npm run test:current-static-runtime

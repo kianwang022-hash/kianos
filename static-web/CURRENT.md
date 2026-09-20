@@ -274,6 +274,67 @@ Until that real loop passes, engineering is landed but learner acceptance remain
 
 ---
 
+## Concrete performance defect — prebuilt local learner runtime
+
+State: **CI PROVEN · PR #571 · REAL MAC ACCEPTANCE PENDING**
+
+Concrete learner friction:
+
+```text
+Current local learner site used astro dev
+→ Home and selected subject/runtime endpoints repeated deterministic build-time work on learner requests
+→ returning Home and Politics answer submission had visible wait
+```
+
+Measured pre-repair evidence from the existing Astro build path:
+
+- total Home generation: **2.07s**;
+- Xizong Home: **5ms**;
+- Politics Home: **5ms**;
+- English Home: **195ms**;
+- Politics Practice generation: about **391ms**;
+- Xizong respiratory Block generation remains a separate bounded hotspot and is not repaired by this lane.
+
+Bounded repair:
+
+```text
+GitHub main advances
+→ Current mirror syncs
+→ Astro builds a staging static site once
+→ completed staging build is promoted to dist
+→ thin loopback Node server serves prebuilt files
+→ existing private checkpoint / Chat control / External Reading bridges stay on the same localhost origin
+```
+
+Astro remains the site/build framework. This lane does not create a second Home, learner-state model, packet system, or subject runtime. Subject learning semantics and the Daily Learning Packet remain unchanged.
+
+Exact candidate proof on PR #571:
+
+- full **8406-page** staging build + promotion PASS;
+- Final Cross-subject Regression PASS;
+- Current Real-use Readiness PASS;
+- Current Delivery PASS;
+- private checkpoint / Chat control / External Reading endpoints PASS on the prebuilt runtime;
+- prerendered Politics review JSON and Xizong JSON endpoints PASS;
+- CI loopback warm HTTP:
+  - Home max **21.1ms**, mean **16.2ms**;
+  - Politics Practice max **10.3ms**, mean **6.7ms**;
+  - Politics review JSON max **2.1ms**, mean **1.5ms**.
+
+These CI loopback numbers prove request-time compilation has left the learner hot path; they are not a substitute for Kian's real Mac/browser acceptance.
+
+Known unrelated repository-global reds remain outside this repair: Politics Ethics content closure, Lexical projection drift, date-sensitive Politics Return test rollover, and existing Xizong A1/A2 acceptance reds.
+
+Next acceptance:
+
+```text
+main landing
+→ restart/reinstall the installed Current LaunchAgent once
+→ real Mac: Politics answer submit + Workspace → Home + reload
+→ confirm learner-visible wait is gone
+→ close this defect
+```
+
 ## Website boundary
 
 ```text

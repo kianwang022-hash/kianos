@@ -44,8 +44,8 @@ if [[ -n "$LSOF_BIN" ]]; then
     for pid in $EXISTING_PIDS; do
       command_line="$(ps -p "$pid" -o command= 2>/dev/null || true)"
       lower_command="$(printf '%s' "$command_line" | tr '[:upper:]' '[:lower:]')"
-      if [[ "$lower_command" == *astro* && "$lower_command" == *kianos* ]]; then
-        echo "Stopping old KianOS Astro listener on :$PORT (pid $pid)"
+      if [[ ( "$lower_command" == *astro* && "$lower_command" == *kianos* ) || "$lower_command" == *kianos-static-server.mjs* ]]; then
+        echo "Stopping old KianOS listener on :$PORT (pid $pid)"
         kill "$pid" >/dev/null 2>&1 || true
       else
         echo "Port $PORT is already used by another process:" >&2
@@ -128,7 +128,20 @@ EOF
 launchctl bootstrap "$DOMAIN" "$PLIST"
 launchctl kickstart -k "$DOMAIN/$LABEL"
 
-sleep 2
+echo "Waiting for the prebuilt learner site to become ready..."
+READY=0
+for _ in $(seq 1 120); do
+  if "$NODE_BIN" -e "fetch('http://127.0.0.1:$PORT/').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))" >/dev/null 2>&1; then
+    READY=1
+    break
+  fi
+  sleep 1
+done
+if [[ "$READY" != "1" ]]; then
+  echo "KianOS static Current did not become reachable within 120s." >&2
+  exit 1
+fi
+
 DOCTOR="$MIRROR_DIR/static-web/scripts/kianos-current-doctor.mjs"
 if [[ -f "$DOCTOR" ]]; then
   "$NODE_BIN" "$DOCTOR"
@@ -139,7 +152,7 @@ cat <<EOF
 
 KianOS Current mirror installed.
 
-GitHub main → $MIRROR_DIR → Astro localhost:$PORT
+GitHub main → $MIRROR_DIR → prebuilt KianOS static runtime localhost:$PORT
 Sync interval: $((INTERVAL_MS / 1000))s
 LaunchAgent: $PLIST
 Logs: $LOG_DIR/current.out.log
