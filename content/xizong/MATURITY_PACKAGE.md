@@ -290,6 +290,30 @@ Stable areas become cheaper; targeted work replaces curriculum replay.
 
 # 7｜25-point loss-envelope status
 
+Historical modern-paper diagnostic prior only:
+
+| Historical discipline | Historical points | Neutral proportional loss baseline for 275 | Neutral proportional target |
+| --- | ---: | ---: | ---: |
+| Physiology | 42 | 3.50 | 38.50 |
+| Biochemistry | 36 | 3.00 | 33.00 |
+| Pathology | 36 | 3.00 | 33.00 |
+| Internal medicine | 100 | 8.33 | 91.67 |
+| Surgery | 70 | 5.83 | 64.17 |
+| Humanism | 16 | 1.33 | 14.67 |
+| **Total** | **300** | **25.00** | **275.00** |
+
+This table is a **neutral diagnostic baseline, not a quota**.
+
+Real optimal loss allocation may be asymmetric once Kian-specific error structure, current-year geometry and marginal repair cost are observed.
+
+Current interpretation:
+
+- humanism historical exposure = 16 points, far larger than its 1.33-point neutral-loss baseline;
+- therefore leaving humanism entirely unowned cannot support a defensible 275 working claim even if other medical Systems are green;
+- Biochemistry has a 36-point historical domain, but only the current-year **delta** is presently unpriced — do not convert 36 points into “36 points at risk”;
+- F routing gap cannot be translated into missing points until exact membership is reconstructed;
+- X8 case/cross-System and X9 execution losses are cross-cutting and may correlate across disciplines, so they must not be double-counted into discipline buckets.
+
 Current verdict:
 
 > **NOT YET CLOSED**
