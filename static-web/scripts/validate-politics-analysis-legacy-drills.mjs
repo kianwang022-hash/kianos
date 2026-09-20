@@ -24,7 +24,7 @@ const allowedSubjects = new Set(['marxism','history','mao','xi','ethics_law','cu
 const ids = new Set();
 const revisions = new Set();
 
-assert.equal(bank.drills.length, 20, 'seed bank must contain the deliberately reviewed first 20 subquestion drills');
+assert.equal(bank.drills.length, 20, 'representative seed bank must contain the deliberately reviewed first 20 subquestion drills');
 
 for (const drill of bank.drills) {
   assert.ok(drill && typeof drill === 'object' && !Array.isArray(drill));
@@ -62,7 +62,17 @@ assert.deepEqual(
   [...new Set(bank.drills.map(d => d.question))].sort((a,b)=>a-b),
   [34,35,36,37,38]
 );
+const representedModes = new Set(bank.drills.map(d => d.mode));
+for (const mode of ['IDENTIFY','SKELETON','BIND','DELIVER']) {
+  assert.ok(representedModes.has(mode), 'representative seed missing task mode: ' + mode);
+}
+
+const representedSubjects = new Set(bank.drills.map(d => d.subject));
+for (const subject of ['marxism','history','xi','ethics_law','current_affairs']) {
+  assert.ok(representedSubjects.has(subject), 'representative seed missing Analysis lane: ' + subject);
+}
+
 assert.ok(bank.drills.some(d => d.mode === 'DELIVER'), 'delivery must be sampled, not deferred entirely');
 assert.ok(bank.drills.some(d => d.subject === 'current_affairs'), 'legacy current-affairs geometry must be represented but non-authoritative');
 
-console.log('PASS Politics legacy Analysis seed bank: 20 executable geometry drills, no prompt/answer copy, no current-year authority, no formulation leakage.');
+console.log('PASS Politics legacy Analysis seed bank: representative mode/lane coverage across 20 executable geometry drills, no prompt/answer copy, no current-year authority, no formulation leakage.');
