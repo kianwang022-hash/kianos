@@ -1,0 +1,246 @@
+{
+  "schema": "kianos.english.productive_scoring_fixtures.v1",
+  "status": "CANDIDATE",
+  "purpose": "Engineering-only blind calibration fixtures for Translation / Small Writing / Big Writing scoring validity. Not learner training material and not exam-score calibration.",
+  "scoring_standard": "content/english/PRODUCTIVE_SCORING_STANDARD.md",
+  "rules": {
+    "protected_true_exam_consumption": false,
+    "learner_visible": false,
+    "exact_score_gold": false,
+    "use_expected_relation_not_exact_point": true,
+    "same_prompt_variants_allowed_for_rater_bias_testing": true
+  },
+  "translation": [
+    {
+      "fixture_id": "tr-cal-01-strong-a",
+      "task_id": "translation-syn-cal-01",
+      "source_segment": 1,
+      "response": "人们常常根据预测最终是否成真来评价一个计划，但即使未来与预期不同，一个有用的计划仍可能保持价值。",
+      "expected_relation": "HIGH",
+      "expected_range_hint": [
+        1.75,
+        2
+      ],
+      "controlled_features": [
+        "core proposition preserved",
+        "contrast preserved",
+        "natural Chinese"
+      ],
+      "must_not_penalize": [
+        "wording differs from stored reference"
+      ]
+    },
+    {
+      "fixture_id": "tr-cal-01-strong-b-alt",
+      "task_id": "translation-syn-cal-01",
+      "source_segment": 1,
+      "response": "判断一个计划好不好，人们往往只看它的预测准不准；然而，即便实际未来没有按预期发展，好的计划依然可能有用。",
+      "expected_relation": "HIGH",
+      "expected_range_hint": [
+        1.75,
+        2
+      ],
+      "controlled_features": [
+        "semantic-equivalent alternative restructuring",
+        "contrast preserved",
+        "natural Chinese"
+      ],
+      "must_not_penalize": [
+        "surface wording very different from stored reference"
+      ]
+    },
+    {
+      "fixture_id": "tr-cal-01-mid",
+      "task_id": "translation-syn-cal-01",
+      "source_segment": 1,
+      "response": "人们常常用预测是否正确来判断计划，但未来不同的时候计划也可能有一些价值。",
+      "expected_relation": "MID",
+      "expected_range_hint": [
+        1,
+        1.5
+      ],
+      "controlled_features": [
+        "main contrast mostly recovered",
+        "precision reduced",
+        "expected/turned-out distinction weakened"
+      ]
+    },
+    {
+      "fixture_id": "tr-cal-01-fluent-wrong",
+      "task_id": "translation-syn-cal-01",
+      "source_segment": 1,
+      "response": "计划只有在预测完全正确时才真正有价值，因此只要未来偏离预期，原来的计划就失去了意义。",
+      "expected_relation": "LOW",
+      "expected_range_hint": [
+        0,
+        0.75
+      ],
+      "controlled_features": [
+        "very fluent Chinese",
+        "core proposition reversed",
+        "contrast destroyed"
+      ],
+      "guardrail": "fluency must not hide major meaning distortion"
+    },
+    {
+      "fixture_id": "tr-cal-01-fragment",
+      "task_id": "translation-syn-cal-01",
+      "source_segment": 1,
+      "response": "预测正确，计划有价值，未来不同。",
+      "expected_relation": "LOW",
+      "expected_range_hint": [
+        0.25,
+        0.75
+      ],
+      "controlled_features": [
+        "isolated meaning fragments",
+        "relation incomplete",
+        "poor completeness"
+      ]
+    }
+  ],
+  "writing_small": [
+    {
+      "fixture_id": "sw-extension-strong",
+      "task_id": "writing-synthetic-small-v2",
+      "response": "Dear Coordinator,\nI am writing to request a short extension for the project report due on Monday. The university laboratory I need has unexpectedly been closed for two days, so I cannot complete the final part of the report on time. Would it be possible for me to submit it by Wednesday evening instead? I understand that changing the deadline may cause inconvenience, and I will finish the report as soon as the laboratory reopens.\nThank you for your consideration.\nYours sincerely,\nLi Ming",
+      "expected_band": "7-10",
+      "expected_relation": "HIGH",
+      "controlled_features": [
+        "all required moves present",
+        "specific new deadline",
+        "responsible tone",
+        "plain but stable language"
+      ]
+    },
+    {
+      "fixture_id": "sw-extension-polished-missing-request",
+      "task_id": "writing-synthetic-small-v2",
+      "response": "Dear Coordinator,\nI hope this message finds you well. Unfortunately, the university laboratory has been closed unexpectedly for two days. This situation has caused considerable difficulty for the completion of my report, and I sincerely apologize for any inconvenience that may result. I greatly appreciate your patience and understanding and will continue to work diligently on the project.\nYours sincerely,\nLi Ming",
+      "expected_band": "3-6",
+      "expected_relation": "MID_LOW",
+      "controlled_features": [
+        "polished language",
+        "explains situation",
+        "never actually requests extension",
+        "no specific Wednesday deadline"
+      ],
+      "guardrail": "style must not hide task failure"
+    },
+    {
+      "fixture_id": "sw-extension-plain-complete",
+      "task_id": "writing-synthetic-small-v2",
+      "response": "Dear Coordinator,\nThe laboratory I need for my report has been closed for two days, so I cannot finish the report by Monday. Could I hand it in on Wednesday evening instead? I am sorry for the inconvenience and will complete the remaining work as soon as the lab opens again.\nThank you for considering my request.\nYours sincerely,\nLi Ming",
+      "expected_band": "7-8",
+      "expected_relation": "HIGH",
+      "controlled_features": [
+        "simple language",
+        "all essential moves",
+        "clear reader utility"
+      ],
+      "guardrail": "plain language should not be punished merely for lacking ornate vocabulary"
+    },
+    {
+      "fixture_id": "sw-extension-low",
+      "task_id": "writing-synthetic-small-v2",
+      "response": "Dear teacher,\nLab close. My report Monday is difficult. I want more time because many things happen. Please understand me. I will try hard and thank you very much.\nLi Ming",
+      "expected_band": "1-4",
+      "expected_relation": "LOW",
+      "controlled_features": [
+        "missing specific new deadline",
+        "weak completeness",
+        "language errors/limited control"
+      ]
+    }
+  ],
+  "writing_big": [
+    {
+      "fixture_id": "bw-info-strong",
+      "task_id": "writing-synthetic-big-v2",
+      "response": "The picture contrasts two ways of dealing with abundant online information. One student keeps collecting links without deciding which sources deserve trust, while the other begins with a clear question, compares evidence and relevance, and then makes a decision. The contrast suggests that access to more information is useful only when it is guided by judgment.\n\nInformation itself does not remove uncertainty. In fact, collecting material without a decision rule can make a person slower because every new source creates another option to examine. A clear question, however, narrows the search and gives the reader a basis for comparing evidence. This is why effective research depends not only on finding information but also on deciding what information is relevant and credible.\n\nIn study and work, therefore, people should treat search as part of a decision process rather than as an end in itself. Better judgment, not a larger pile of links, turns information into useful knowledge.",
+      "expected_band": "13-20",
+      "expected_relation": "HIGH",
+      "controlled_features": [
+        "material relation correctly grounded",
+        "specific core message",
+        "mechanism developed",
+        "coherent progression",
+        "stable English"
+      ]
+    },
+    {
+      "fixture_id": "bw-info-generic-slogan",
+      "task_id": "writing-synthetic-big-v2",
+      "response": "The picture shows two students using the Internet in different ways. This tells us that judgment is very important in our life. As we all know, judgment is the key to success. Without good judgment, people cannot make progress. With good judgment, people can solve many problems and achieve their dreams. Many successful people in history had good judgment, so they became successful. Therefore, every young person should improve judgment and work hard. Only in this way can we create a better future and become useful people for society.",
+      "expected_band": "9-12",
+      "expected_relation": "MID",
+      "controlled_features": [
+        "task broadly on theme",
+        "generic slogan development",
+        "little mechanism",
+        "weak grounding after first sentence"
+      ]
+    },
+    {
+      "fixture_id": "bw-info-fluent-misread",
+      "task_id": "writing-synthetic-big-v2",
+      "response": "The illustration demonstrates that students should collect as much information as possible before making any decision. The first student opens many sources and therefore has a broader vision, whereas the second student limits the search too early and risks missing valuable evidence. In modern society, success belongs to those who gather the greatest amount of knowledge. The more information one owns, the more objective one's judgment becomes. For this reason, universities should encourage students to read widely and postpone decisions until they have explored every possible source.",
+      "expected_band": "5-12",
+      "expected_relation": "LOW_MID",
+      "controlled_features": [
+        "fluent English",
+        "central material relation reversed/misread",
+        "coherent but wrong task interpretation"
+      ],
+      "guardrail": "language fluency must not hide material-grounding failure"
+    },
+    {
+      "fixture_id": "bw-info-simple-strong",
+      "task_id": "writing-synthetic-big-v2",
+      "response": "The two students have the same information, but they use it differently. One keeps saving links and does not decide what is useful. The other first asks a clear question and then compares a few sources before making a decision. The picture shows that more information is not always better if we do not know how to judge it.\n\nA clear purpose helps us choose useful evidence. For example, when students prepare a paper, they may waste hours reading unrelated material. If they know the exact question, they can compare sources and spend more time thinking about the answer. Good judgment therefore saves time and improves the quality of a decision.\n\nWe should not stop searching too early, but we should also know why we are searching. Information becomes useful only when it supports a clear decision.",
+      "expected_band": "13-16",
+      "expected_relation": "HIGH",
+      "controlled_features": [
+        "simple vocabulary",
+        "correct grounding",
+        "real mechanism",
+        "balanced boundary"
+      ],
+      "guardrail": "simple language with strong task/development should outrank ornate misread writing"
+    },
+    {
+      "fixture_id": "bw-info-low",
+      "task_id": "writing-synthetic-big-v2",
+      "response": "There are two students in the picture. Internet is very important today. We can learn many things from Internet. Students should use Internet every day. It makes life convenient and gives us knowledge. We should study hard and use technology correctly. Technology can help our country develop. In conclusion, Internet is good and we should use it well.",
+      "expected_band": "1-8",
+      "expected_relation": "LOW",
+      "controlled_features": [
+        "mostly ignores contrast",
+        "weak task fulfillment",
+        "generic unrelated development"
+      ]
+    }
+  ],
+  "pairwise_invariants": [
+    {
+      "invariant_id": "translation-semantic-equivalence",
+      "better_or_equal": [
+        "tr-cal-01-strong-a",
+        "tr-cal-01-strong-b-alt"
+      ],
+      "rule": "Both semantic-equivalent strong translations must remain in overlapping high ranges despite different surface wording."
+    },
+    {
+      "invariant_id": "small-task-over-style",
+      "preferred": "sw-extension-plain-complete",
+      "over": "sw-extension-polished-missing-request",
+      "rule": "Complete plain communication should outscore polished prose that omits the actual request/new deadline."
+    },
+    {
+      "invariant_id": "big-grounding-over-fluency",
+      "preferred": "bw-info-simple-strong",
+      "over": "bw-info-fluent-misread",
+      "rule": "Correct material grounding and development should outscore fluent but materially misread writing."
+    }
+  ]
+}
