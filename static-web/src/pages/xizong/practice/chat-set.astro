@@ -5,22 +5,22 @@ import '../../../styles/xizong-practice-workspace.css';
 
 const system = {
   systemId: 'chat-set',
-  canonicalId: 'CHAT',
-  title: 'Chat 自选题'
+  canonicalId: 'TARGETED',
+  title: '专项训练'
 };
 
 const sweep = {
   systemId: 'chat-set',
   canonicalId: 'CHAT',
-  title: 'Chat 自选题',
+  title: '专项训练',
   questionCount: 0,
-  scopePath: 'private://chat-set',
-  scopeHash: 'chat-set:pending',
-  questionInventoryHash: 'chat-set:pending',
+  scopePath: 'private://targeted-practice',
+  scopeHash: 'targeted-practice:pending',
+  questionInventoryHash: 'targeted-practice:pending',
   years: [],
   questions: []
 };
 ---
-<Base title="Chat 自选题 · 西综训练" active="xizong" showLead={false} objectId="xizong:practice:chat-set">
+<Base title="专项训练 · 西综训练" active="xizong" showLead={false} objectId="xizong:practice:chat-set">
   <XizongPracticeWorkbench system={system} sweep={sweep} scopeKind="CHAT_SET" />
 </Base>
