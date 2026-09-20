@@ -73,7 +73,31 @@ check(!beforeSeal.wrongUncertainIds.includes(hiddenQid), 'unsealed_hidden_attemp
 
 const sealedState = sealXizongPaperState(hiddenState, {
   answeredCount:1, correctCount:0, wrongCount:1, unansweredCount:164, questionCount:165, earnedScore:0, maxScore:300
-}, '2026-09-18T02:00:00.000Z');
+}, '2026-09-18T02:00:00.000Z', {
+  paperYear:2026,
+  internalHoldoutProtectedBeforeSeal:true,
+  externalExposureStatus:'UNKNOWN',
+  scopeHash:'fixture-exam-format-hash',
+  questionInventoryHash:'fixture-question-inventory-hash',
+  examFormatSourceHash:'fixture-exam-format-hash',
+  examFormat:{
+    year:2026,
+    era_id:'2017-2026',
+    question_count:165,
+    max_score:300,
+    scoring_segments:[
+      {start:1,end:40,points:1.5},
+      {start:41,end:165,points:2}
+    ]
+  }
+});
+check(sealedState.paperSeal.evidenceContext.internalHoldoutProtectedBeforeSeal === true, 'seal_preserves_internal_holdout_identity');
+check(sealedState.paperSeal.evidenceContext.externalExposureStatus === 'UNKNOWN', 'internal_holdout_does_not_claim_external_freshness');
+check(sealedState.paperSeal.evidenceContext.scopeHash === 'fixture-exam-format-hash', 'seal_preserves_scope_hash');
+check(sealedState.paperSeal.evidenceContext.questionInventoryHash === 'fixture-question-inventory-hash', 'seal_preserves_question_inventory_hash');
+check(sealedState.paperSeal.evidenceContext.examFormatSourceHash === 'fixture-exam-format-hash', 'seal_preserves_exam_format_hash');
+check(sealedState.paperSeal.evidenceContext.examFormat.question_count === 165, 'seal_preserves_exam_geometry');
+
 const afterSeal = collectXizongRetainedEvidence([
   ['kianos:xizong:paper-question-sweep:paper-2026:v1', JSON.stringify(sealedState)]
 ]);
