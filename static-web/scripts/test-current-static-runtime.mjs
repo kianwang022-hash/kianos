@@ -93,12 +93,16 @@ try {
   const catalog = buildPoliticsPracticeCatalogCurrent('/');
   const question = catalog.questions.find(practiceReady);
   assert.ok(question?.id, 'POLITICS_REVIEW_QUESTION_MISSING');
-  const reviewRoute = `/politics/practice-review/${encodeURIComponent(question.id)}.json/`;
+  const reviewRoute = `/politics/practice-review/${encodeURIComponent(question.id)}.json`;
   const review = await measure(reviewRoute);
   assertWarm('POLITICS_REVIEW_JSON', review);
   const reviewPayload = JSON.parse(review.rows[0].text);
   assert.equal(reviewPayload.schema, 'kianos.politics.practice_review.v1');
   assert.equal(reviewPayload.id, question.id);
+
+  const xizongJson = await measure('/xizong/practice/data/2026.json', 4);
+  assertWarm('XIZONG_STATIC_JSON', xizongJson);
+  assert.doesNotThrow(() => JSON.parse(xizongJson.rows[0].text), 'XIZONG_STATIC_JSON_INVALID');
 
   const checkpoint = await timed('/__kianos-private/checkpoint');
   assert.equal(checkpoint.status, 404, 'PRIVATE_CHECKPOINT_PREVIEW_ROUTE_MISSING');
