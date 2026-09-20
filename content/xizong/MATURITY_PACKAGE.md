@@ -551,3 +551,368 @@ model
 → larger audit
 ```
 
+
+
+---
+
+# 12｜Stage C — score-formation capability
+
+Stage C is the subject-level transition from **having a usable model** to **converting that model into reliable points**.
+
+It is not entered because an engineering gate is available, and it is not blocked merely because one downstream System projection is unbuilt.
+
+## Activation
+
+Stage C becomes the primary maturity stage only when Stage B evidence is sufficient to show that:
+
+- first-pass model formation is broadly usable rather than mostly unknown;
+- active Recall / Block-LG / System reconstruction are no longer the dominant subject-wide bottleneck;
+- official first-pass application has exposed enough real weakness to make targeted score work higher-value than broad curriculum continuation;
+- remaining first-pass tails are named and bounded rather than silently ignored.
+
+Local X5–X8 work may occur earlier when real study exposes it. That does not by itself promote the whole subject to Stage C.
+
+## Primary control loop
+
+    official question / case / weak signal
+    → identify the decisive condition
+    → classify the failure cause
+    → choose the smallest responsible repair
+    → changed-context verification
+    → delayed verification when material
+    → MAINTAIN if stable
+    → reopen only on newer contradictory evidence
+
+Failure cause must distinguish at least:
+
+- missing or wrong medical model;
+- retrieval failure;
+- Precision / threshold / exception failure;
+- decisive-condition discrimination failure;
+- confusable-boundary failure;
+- cross-System / case transfer failure;
+- execution-only error.
+
+Do not treat every wrong answer as a Knowledge defect.
+
+## X5–X8 closure questions
+
+| Capability | Stage-C question | Stronger evidence |
+| --- | --- | --- |
+| X5 Precision | Are exact facts, thresholds and exceptions stable enough where they actually cost points? | selective delayed retrieval, not bulk memorization completion |
+| X6 Decisive Discrimination | Can Kian identify the condition that separates plausible options under representative official application? | exposure-aware official attempts + changed-condition probes |
+| X7 Repair / Verification | Does the smallest repair survive a different context and later reuse? | changed-context and delayed success, not same-item correction |
+| X8 Case / Cross-System Transfer | Can the model survive integration, case variation and System switching? | dedicated case / cross-System evidence rather than inferred mastery |
+
+## Stage-C exit
+
+Stage C is sufficiently closed only when:
+
+- dominant score-relevant weaknesses are being reduced by targeted work rather than curriculum replay;
+- stable capabilities are materially cheaper to maintain;
+- representative Precision and decisive-discrimination evidence exists where these are score-relevant;
+- Repair closure uses changed-context / delayed evidence where needed;
+- case / cross-System capability has dedicated evidence when it can change the 270/275 judgment;
+- no large unknown capability is being hidden by strong performance in easier or familiar Systems.
+
+Missing current-year late-stage Source remains a bounded Future-Source delta, not a reason to keep replaying old material.
+
+---
+
+# 13｜Stage D — formal score / whole-paper execution
+
+Stage D exists to answer a different question from local mastery:
+
+> **Can the assembled Xizong system produce a defensible 270-protect / 275-working score under realistic whole-paper conditions?**
+
+## Activation
+
+Stage D becomes primary only after enough Stage-C evidence exists that whole-paper failure can be meaningfully diagnosed instead of merely revealing that broad capability formation is unfinished.
+
+Whole-paper attempts may be used earlier as diagnostic evidence, but an early paper does not close Stage D.
+
+## X9 execution model
+
+Whole-paper evidence must preserve, where available:
+
+- paper identity;
+- attempt order;
+- prior exposure / contamination status;
+- elapsed time;
+- section / switching cost;
+- unanswered / uncertain items;
+- answer-sheet or physical-paper cost when material;
+- post-paper error attribution.
+
+Whole-paper score is an observation, not a magic aggregate mastery label.
+
+## Formal score evidence classes
+
+    LOW_CONTAMINATION / PROTECTED
+    → strongest formal score evidence
+
+    KNOWN_EXPOSED
+    → valid learning / execution evidence
+    → weaker score calibration
+
+    EXTERNAL_EXPOSURE_UNKNOWN
+    → observed result with explicit uncertainty
+    → never silently promoted to fresh
+
+No filename, tab, or local holdout rule may manufacture external freshness.
+
+## Loss attribution
+
+For every meaningful whole-paper loss, separate where possible:
+
+    knowledge/model
+    recall
+    precision
+    discrimination
+    case/transfer
+    execution/timing
+    uncertainty/guess
+    current-year source delta
+
+A single failure may have one primary cause plus supporting causes, but the 25-point envelope must not double-count the same lost points across multiple capability buckets.
+
+## Stage-D exit
+
+A defensible Stage-D closure requires:
+
+- enough whole-paper evidence to estimate a score band without pretending certainty;
+- explicit contamination / exposure status;
+- timing, switching and fatigue risk observed rather than assumed away;
+- loss attribution reconciled with the 25-point working envelope;
+- no unresolved material X8 failure hidden behind a high aggregate paper score;
+- Forecast and Real-U evidence agreeing enough that the remaining risk is bounded and named.
+
+A single 275+ result does not by itself prove 275 maturity.
+
+---
+
+# 14｜Stage E — Kian-specific dynamic control overlay
+
+Stage E starts whenever trustworthy Real Learner U exists. It runs across Stages B–D and never becomes a separate curriculum.
+
+Its job is to make the system **adaptive without becoming another scheduler**.
+
+## Real-U inputs
+
+Use only evidence that can change a real decision, especially:
+
+- usable study throughput by relevant task type;
+- System-specific W/U rather than one pooled error rate;
+- Repair compression and repair time;
+- delayed retention / relapse;
+- fresh or changed-context transfer;
+- case / cross-System performance;
+- whole-paper score and execution variance;
+- current usable capacity;
+- future-source net-new assimilation cost.
+
+Unknown remains UNKNOWN.
+
+## Dynamic-control policy
+
+The maturity owner may classify a capability for reasoning purposes as:
+
+    BUILD
+    VERIFY
+    MAINTAIN
+    REOPEN
+    ELASTIC
+    UNKNOWN
+
+These are decision labels, not mandatory persisted learner-state fields.
+
+### BUILD
+
+Use when capability formation is genuinely missing or materially unstable.
+
+### VERIFY
+
+Use when the model exists but stronger evidence could change the decision.
+
+### MAINTAIN
+
+Use when representative evidence is stable enough that more broad work has low marginal value.
+
+MAINTAIN must be cheaper than BUILD.
+
+### REOPEN
+
+Allowed only when newer evidence contradicts the prior stable judgment, for example:
+
+- mechanism error recurs;
+- delayed Recall drops materially;
+- fresh application fails;
+- Precision relapses;
+- case / transfer fails;
+- whole-paper execution reveals a new causal defect;
+- authoritative Current Source changes the requirement.
+
+### ELASTIC
+
+Useful upside work that is not required for the protected 270 path or current 275 working path.
+
+Elastic work loses priority first when capacity tightens.
+
+### UNKNOWN
+
+Use when evidence is missing, stale, contaminated or non-representative.
+
+UNKNOWN is not Unstable and not Secure.
+
+## Anti-oscillation rule
+
+One bad item may trigger diagnosis; it does not automatically reopen a whole System.
+
+One good item may support a repair; it does not automatically close a capability.
+
+Reopen / downgrade should be proportional to the scope of contradictory evidence.
+
+---
+
+# 15｜Forecast integration — decision support only
+
+Forecast PR #631 is a supporting evidence lane.
+
+It may return:
+
+- remaining workload range;
+- capacity range;
+- major uncertainty;
+- sensitive parameters;
+- decision-flip surfaces;
+- next evidence with highest information value;
+- workload confidence separately from score-path confidence.
+
+It may not:
+
+- choose the next System by itself;
+- schedule the day;
+- promote Stage B → C → D;
+- infer mastery from repository readiness;
+- replace Real Learner U with synthetic priors;
+- convert raw future-material duration into learner workload.
+
+## Forecast ↔ maturity handshake
+
+    maturity owner
+    → asks a bounded capacity / uncertainty question
+
+    Forecast
+    → returns range + assumptions + sensitivity + next valuable evidence
+
+    Real U / Source delta arrives
+    → Forecast recalibrates
+
+    maturity owner
+    → decides whether the binding capability or stage judgment changes
+
+Current required stress surfaces remain:
+
+- usable Xizong capacity = 5h/day;
+- System-specific W/U up to or above 30%;
+- high-value Case/Cram increments admitted;
+- first-pass closure later than historical stop-lines;
+- work required by 10/20 without deleting protected learning;
+- parameter combinations that threaten the 275 path or the protected 270 floor.
+
+Until enough Real U exists, Kian-specific P20/P50/P80 must stay broad or withheld rather than becoming fake precision.
+
+---
+
+# 16｜Execution proof boundary
+
+The mature subject model must eventually prove the learner-facing loop:
+
+    Chat selects one evidence-justified action
+    → Website executes the exact action
+    → identity / attempt / freshness / timing are preserved where relevant
+    → evidence returns
+    → Chat updates the capability judgment
+    → next action changes only when evidence justifies it
+
+Current rule:
+
+> Existing accepted Website / Home / learner-state architecture is presumed sufficient until a **concrete selected learner action** cannot execute or return the evidence required for a real decision.
+
+Therefore execution proof is **demand-driven**.
+
+Do not open a broad Website project merely to make the maturity package look complete.
+
+When an execution blocker appears:
+
+1. name the exact learner action that failed;
+2. name the factual signal or transport capability missing;
+3. repair the smallest existing owner;
+4. prove that action;
+5. return immediately to the maturity loop.
+
+Engineering readiness never becomes the subject maturity cursor.
+
+---
+
+# 17｜Integrated stage / evidence status
+
+Current subject-level truth:
+
+| Layer | Current status | What can advance it |
+| --- | --- | --- |
+| Stage A — Score / Scope / Material Truth | **CLOSED** | reopen only on authoritative new Source or concrete material/scope defect |
+| Stage B — First-pass Capability | **CURRENT / REAL-U REQUIRED** | real X1–X4/X6 learning evidence |
+| Stage C — Score Formation | **DEFINED / NOT CURRENT** | Stage-B closure plus real X5–X8 evidence |
+| Stage D — Formal Score / X9 | **DEFINED / NOT CURRENT** | sufficient score-formation maturity + whole-paper evidence |
+| Stage E — Dynamic Control | **ACTIVE WHEN REAL U EXISTS** | every trustworthy learner observation that changes a decision |
+| Content / Material Closure | **SUPPORTING LANE** | bounded gap closure / Future Source delta |
+| Forecast / Capacity | **SUPPORTING LANE** | current inputs + Real U recalibration |
+| S/K/L/P/R/E readiness | **SUPPORTING LOOKUP ONLY** | only a concrete learner-action blocker |
+
+This table is the anti-drift anchor.
+
+No worker may replace the Stage-B cursor with “earliest missing P/R/E gate”.
+
+---
+
+# 18｜Subject stop / reopen rule
+
+Stop maturity construction when all of the following are true at system-logic level:
+
+- 270 protect / 275 working score logic is explicit;
+- all exam-scope domains are owned, bounded or Source-blocked;
+- X1–X9 each have a legitimate formation and evidence path;
+- material gaps have the correct owners;
+- Future Source has baseline / delta / replacement handling;
+- Forecast exposes uncertainty and sensitivity rather than fake precision;
+- dynamic control makes stable work cheaper and has explicit reopen triggers;
+- chosen learner actions can execute through Chat ↔ Website when needed;
+- remaining uncertainty is Future Source or Real Learner U.
+
+At that point:
+
+> **stop improving the architecture and use the system to learn.**
+
+Reopen architecture only for:
+
+- a concrete missing execution capability;
+- a concrete Source / Knowledge / routing defect;
+- a current-year Source change;
+- repeated Real-U evidence showing the decision model itself is wrong.
+
+Do not reopen because a later engineering gate is merely UNTESTED.
+
+---
+
+# 19｜Final acceptance question
+
+The whole Xizong maturity model is accepted only when Current + private learner evidence can answer:
+
+> **For the 275 working path and 270 protected floor, which score-relevant capability is currently binding, why is it binding, what is the smallest high-value next action, what evidence will that action produce, what evidence would reverse the judgment, how much capacity is likely still required, what work should now be reduced or stopped, and how will the answer change safely if learner performance, capacity or future Source changes?**
+
+If the answer depends on missing Real U, the correct output is the **smallest learning action that produces that evidence**.
+
+If the answer depends on unreleased Source, the correct output is **wait for Source while preserving the prior baseline**.
+
+If neither is true and the system still cannot answer, the maturity model remains incomplete.
