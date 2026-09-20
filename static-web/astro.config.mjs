@@ -4,11 +4,31 @@ import { privateExternalReadingBridge } from './scripts/privateExternalReadingBr
 import { privateControlBridge } from './scripts/privateControlBridge.mjs';
 import { staticJsonPreviewBridge } from './scripts/staticJsonPreviewBridge.mjs';
 
+const learnerBridge = privateLearnerBridge();
+const externalReadingBridge = privateExternalReadingBridge();
+const controlBridge = privateControlBridge();
+
+const privateRuntimePreviewBridge = {
+  name: 'kianos-private-runtime-preview-bridge',
+  apply: 'serve',
+  configurePreviewServer(server) {
+    learnerBridge.configureServer?.(server);
+    externalReadingBridge.configureServer?.(server);
+    controlBridge.configureServer?.(server);
+  }
+};
+
 export default defineConfig({
   base: '/',
   output: 'static',
   trailingSlash: 'always',
   vite: {
-    plugins: [staticJsonPreviewBridge(), privateLearnerBridge(), privateExternalReadingBridge(), privateControlBridge()]
+    plugins: [
+      staticJsonPreviewBridge(),
+      privateRuntimePreviewBridge,
+      learnerBridge,
+      externalReadingBridge,
+      controlBridge
+    ]
   }
 });
