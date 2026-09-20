@@ -1,6 +1,6 @@
 # Politics Maturity T3 — Analysis Engineering Interface
 
-Status: **BLOCKED ON EXACT TASK/RUBRIC SEMANTICS; ENGINEERING PATH RESOLVED**  
+Status: **TASK/RUBRIC SEMANTICS RESOLVED · DURABLE EVIDENCE IMPLEMENTATION NEXT**  
 Parent: `MATURITY_STAGE_PLAN.md`
 
 ## Finding
@@ -38,22 +38,22 @@ Therefore a real later engineering gap exists:
 
 This does **not** justify building it before the evidence semantics are exact.
 
-## Required semantic prerequisites
+## Semantic prerequisites — RESOLVED
 
-Before storage code is allowed, the Politics Analysis owner must define:
+`MATURITY_T3_ANALYSIS_TASK_RUBRIC.md` now owns the reusable task/rubric semantics.
 
-1. stable task identity / task revision;
-2. source-basis identity and freshness rules;
-3. attempt role:
-   - first;
-   - repair;
-   - transfer;
-4. rubric / assessment dimensions that are legitimate to persist;
-5. uncertainty representation;
-6. what bounded summary a fresh Chat needs;
-7. which evidence becomes stale when source/task revision changes.
+It defines:
 
-Without these, a storage schema would manufacture semantics.
+1. stable task identity / revision basis;
+2. source-basis and freshness classes;
+3. attempt roles `FIRST / REPAIR / TRANSFER`;
+4. task modes `IDENTIFY / SKELETON / BIND / FORMULATION / DELIVER / TRANSFER`;
+5. persisted rubric vector `I / S / B / F / D` with `0 / 1 / 2 / NA`;
+6. critical failure flags;
+7. bounded fresh-Chat summary needs;
+8. stale/current-year authority boundaries.
+
+Historical 2026 materials authorize task geometry and rubric structure only. They do not authorize 2027 exact annual wording.
 
 ## Smallest future engineering patch
 
@@ -87,8 +87,8 @@ A learner-facing surface may be opened only after real friction proves a structu
 ```text
 private durability extension path   RESOLVED
 new Analysis website                REJECTED BY DEFAULT
-storage schema implementation       BLOCKED ON TASK/RUBRIC SEMANTICS
+storage schema implementation       READY · NEXT
 current learner blocker             NO
 ```
 
-T3 therefore does not block T4 future-source ingestion preparation.
+T3 no longer has a semantic blocker. The next bounded engineering action is to add validated Analysis evidence to the existing Politics private checkpoint and existing Daily Packet without creating a second transport.
