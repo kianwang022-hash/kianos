@@ -1,4 +1,5 @@
 import { findPoliticsFirstAttempt } from './politicsUnitReturn.mjs';
+import { buildPoliticsAnalysisEvidenceProfile } from './politicsAnalysisEvidence.mjs';
 // Existing Politics storage identities. Shared by the native Workbench and its
 // read-only Home/Review consumers; this module never writes learner state.
 export const PRACTICE_KEYS = Object.freeze({
@@ -349,6 +350,7 @@ export function politicsDailyEvidencePacket(catalog, snapshot, {
 
   const review = selectPoliticsReview(catalog, snapshot, { filter: 'all', subject: 'all' });
   const resume = resolvePoliticsContinue(catalog, snapshot, base);
+  const analysis = buildPoliticsAnalysisEvidenceProfile(snapshot?.events || []);
   const count = (outcome) => todayAttempts.filter((row) => row.outcome === outcome).length;
 
   const cumulativeFirstAttempts = [];
@@ -398,6 +400,7 @@ export function politicsDailyEvidencePacket(catalog, snapshot, {
       uncertain_count: count('UNCERTAIN'),
       attempts: todayAttempts
     },
+    analysis,
     review: {
       open_problem_count: review.problemIds.length,
       discussion_count: review.discussionIds.length,
