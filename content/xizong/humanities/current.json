@@ -1,0 +1,480 @@
+{
+  "schema": "kianos.xizong.humanities.current.v1",
+  "status": "CURRENT_BASELINE_WITH_2027_SCOPE_DELTA_BLOCKED",
+  "domain_id": "clinical-humanities",
+  "title": "临床人文",
+  "artifact_role": "MINIMAL_EXAM_DOMAIN_MATERIAL_OWNER",
+  "authority_boundary": {
+    "owns": [
+      "clinical-humanities exam-domain scope baseline",
+      "source-grounded humanities knowledge compression",
+      "derived recall support",
+      "exact current-era official-question domain membership",
+      "law/version source-fidelity guardrails"
+    ],
+    "does_not_own": [
+      "A1-F medical System/KP content",
+      "Question Truth",
+      "Explanation Truth",
+      "Question→KP relations",
+      "learner state",
+      "Review runtime",
+      "Forecast or scheduling"
+    ]
+  },
+  "score_relevance": {
+    "syllabus_share_2026": "approximately_6_percent",
+    "approximate_points_at_300": 18,
+    "observed_current_era_official_geometry": {
+      "years": [
+        2017,
+        2026
+      ],
+      "question_numbers": [
+        108,
+        115
+      ],
+      "questions_per_paper": 8,
+      "points_per_question": 2,
+      "observed_points_per_paper": 16
+    },
+    "interpretation": "The syllabus percentage is approximate. For 2017-2026 canonical papers, exact observed humanities membership is eight 2-point questions per paper; do not force a fixed 18-point routing rule."
+  },
+  "scope_baseline": {
+    "baseline_exam_year": 2026,
+    "baseline_source_status": "SECONDARY_TRANSCRIPTION_OF_2026_306_OUTLINE_PENDING_PRIMARY_COPY",
+    "current_2027_scope_status": "UNKNOWN_PENDING_EXACT_2027_306_OUTLINE_SOURCE",
+    "domains": [
+      {
+        "id": "H1",
+        "label": "医学职业素养",
+        "required_capabilities": [
+          "recognize medical professionalism / professional responsibility",
+          "distinguish patient-welfare/evidence duties from self-interest or novelty",
+          "retrieve core medical-ethics principles and conduct norms"
+        ]
+      },
+      {
+        "id": "H2",
+        "label": "医患关系与沟通",
+        "required_capabilities": [
+          "recognize trust/fiduciary structure under knowledge asymmetry",
+          "distinguish patient and physician rights/duties",
+          "choose respectful, concrete and understandable communication",
+          "distinguish verbal/non-verbal communication and feedback from new history-taking"
+        ]
+      },
+      {
+        "id": "H3",
+        "label": "临床伦理与研究伦理",
+        "required_capabilities": [
+          "apply informed-consent elements and scope boundaries",
+          "apply privacy/confidentiality with explicit exceptions",
+          "handle emergency-benefit/autonomy conflicts without overgeneralizing",
+          "judge clinical-research voluntariness, risk minimization, risk-benefit and conflict of interest"
+        ]
+      },
+      {
+        "id": "H4",
+        "label": "卫生法律法规",
+        "required_capabilities": [
+          "answer only against the correct law/version",
+          "distinguish historical question truth from current-law learning truth",
+          "retrieve examined duties, registration, liability, medical-dispute and medical-accident rules",
+          "fail closed on numeric thresholds, penalties, reporting deadlines or classifications without current source verification"
+        ]
+      }
+    ],
+    "delta_rule": "When an exact 2027 306 outline source becomes available, compare only this domain and classify each scope item as PRESERVE / UPDATE / NEW / RETIRE. Do not rebuild a full humanities course unless a concrete scope defect is demonstrated."
+  },
+  "source_set": [
+    {
+      "id": "H-SRC-QT",
+      "role": "OFFICIAL_QUESTION_TRUTH",
+      "authority": "CANONICAL",
+      "locator": "content/xizong/questions/shards/**"
+    },
+    {
+      "id": "H-SRC-EXPLANATIONS",
+      "role": "APPROVED_EXPLANATION_SUBSTRATE",
+      "authority": "CANONICAL",
+      "locator": "content/xizong/explanations/shards/**",
+      "rule": "Use exam_target / decision_axis / transfer_rule as compression substrate; do not make this owner a second explanation layer."
+    },
+    {
+      "id": "H-SRC-SYLLABUS-2026",
+      "role": "EXAM_SCOPE_BASELINE",
+      "authority": "SECONDARY_TRANSCRIPTION_PENDING_PRIMARY",
+      "locator": "https://kaoyan.koolearn.com/20250917/1881279.html",
+      "note": "Used only to establish the 2026 four-part clinical-humanities scope and approximate 6% share. Exact 2027 scope remains UNKNOWN until a current primary outline is recovered."
+    },
+    {
+      "id": "H-SRC-PHYSICIANS-LAW",
+      "role": "CURRENT_LAW_PRIMARY",
+      "authority": "PRIMARY",
+      "locator": "https://wb.flk.npc.gov.cn/flfg/PDF/69d193074a7c4be197eadb40dc485c9e.pdf",
+      "identity": "中华人民共和国医师法（2021-08-20通过，2022-03-01施行）"
+    },
+    {
+      "id": "H-SRC-DRUG-LAW",
+      "role": "CURRENT_LAW_PRIMARY",
+      "authority": "PRIMARY",
+      "locator": "https://wb.flk.npc.gov.cn/flfg/PDF/fbb725e9ab904c55b3d46cb9085bf8ed.pdf",
+      "identity": "中华人民共和国药品管理法（2019修订，2019-12-01施行）"
+    },
+    {
+      "id": "H-SRC-CIVIL-CODE",
+      "role": "CURRENT_LAW_PRIMARY",
+      "authority": "PRIMARY_OFFICIAL_MIRROR",
+      "locator": "https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2023/art_60fb3863b7364b759123a42d1df568ca.html",
+      "identity": "中华人民共和国民法典",
+      "relevant_scope": [
+        "privacy/personal information",
+        "medical damage liability"
+      ]
+    },
+    {
+      "id": "H-SRC-MEDICAL-DISPUTE",
+      "role": "CURRENT_REGULATION_PRIMARY",
+      "authority": "PRIMARY_GOVERNMENT",
+      "locator": "https://app.www.gov.cn/govdata/gov/201808/31/428596/article.html",
+      "identity": "医疗纠纷预防和处理条例（2018-10-01施行）"
+    },
+    {
+      "id": "H-SRC-MEDICAL-ACCIDENT",
+      "role": "CURRENT_REGULATION_PRIMARY",
+      "authority": "PRIMARY_CURRENT_REGULATION_DATABASE",
+      "locator": "https://xzfg.moj.gov.cn/front/law/detail?LawID=591&Query=%E5%8C%BB%E7%96%97%E4%BA%8B%E6%95%85",
+      "identity": "医疗事故处理条例（国家行政法规库显示现行有效）"
+    },
+    {
+      "id": "H-SRC-CRIMINAL-LAW",
+      "role": "CURRENT_LAW_VERSIONED_LOOKUP",
+      "authority": "PRIMARY_LOOKUP_REQUIRED",
+      "locator": "https://flk.npc.gov.cn/",
+      "identity": "中华人民共和国刑法",
+      "rule": "For public-health crimes or penalty details, use the current consolidated legal database at the time of study; do not freeze a historical article text into this owner."
+    }
+  ],
+  "supplemental_material": [
+    {
+      "title": "26天天师兄测试总结.pdf",
+      "availability": "LIBRARY_PRESENT",
+      "role": "SUPPLEMENTAL_PRACTICE_NOT_TRUTH",
+      "observed_use": "Contains dedicated humanities practice blocks with answers, including doctor-patient relationship, confidentiality, assisted reproduction, clinical-trial ethics and physician/medical-accident law items.",
+      "rule": "May be used for practice/recall only after Source fidelity review of any law-sensitive or numeric item. It does not replace current legal primary sources or official Question Truth."
+    }
+  ],
+  "knowledge_compression": [
+    {
+      "id": "H1-K1",
+      "domain": "H1",
+      "rule": "医学专业性不是单纯技术身份：系统训练、持续胜任、公共责任、患者利益和专业规范共同构成专业责任。",
+      "evidence_qids": [
+        "xizong-official-2017-n108",
+        "xizong-official-2023-n108",
+        "xizong-official-2026-n108"
+      ]
+    },
+    {
+      "id": "H1-K2",
+      "domain": "H1",
+      "rule": "创新或新技术本身不是专业精神的充分理由；证据、患者利益、科学与社会价值优先于追新和自身利益。",
+      "evidence_qids": [
+        "xizong-official-2024-n108",
+        "xizong-official-2026-n108",
+        "xizong-official-2026-n114"
+      ]
+    },
+    {
+      "id": "H2-K1",
+      "domain": "H2",
+      "rule": "医学知识不对称使患者把健康利益托付给医务人员，因此医患关系的核心是专业受托与信任，不应简化为普通消费关系。",
+      "evidence_qids": [
+        "xizong-official-2017-n109",
+        "xizong-official-2018-n109",
+        "xizong-official-2023-n110"
+      ]
+    },
+    {
+      "id": "H2-K2",
+      "domain": "H2",
+      "rule": "有效沟通要尊重、具体、可理解，并与患者能力和情境匹配；避免羞辱、威胁、敷衍或虚假保证。",
+      "evidence_qids": [
+        "xizong-official-2020-n109",
+        "xizong-official-2025-n110",
+        "xizong-official-2026-n109"
+      ]
+    },
+    {
+      "id": "H2-K3",
+      "domain": "H2",
+      "rule": "非语言沟通包括姿态、表情、目光、图形和情境合适的触碰；“要点反馈”是复述/确认患者已表达的关键信息，不等同于另开一个新病史问题。",
+      "evidence_qids": [
+        "xizong-official-2017-n110",
+        "xizong-official-2026-n110",
+        "xizong-official-2026-n111"
+      ]
+    },
+    {
+      "id": "H3-K1",
+      "domain": "H3",
+      "rule": "知情同意的实质是充分信息、理解、自愿和授权；签字只是可能的形式。原同意存在范围边界，非紧急新增操作不能无限外推原授权。",
+      "evidence_qids": [
+        "xizong-official-2020-n110",
+        "xizong-official-2020-n113",
+        "xizong-official-2023-n113",
+        "xizong-official-2026-n112"
+      ]
+    },
+    {
+      "id": "H3-K2",
+      "domain": "H3",
+      "rule": "患者隐私与保密是基本义务，但并非绝对；只有明确的法定/伦理例外才允许突破，且具体报告对象、程序和条件必须按当前规范核对。",
+      "evidence_qids": [
+        "xizong-official-2017-n115",
+        "xizong-official-2020-n112",
+        "xizong-official-2023-n112",
+        "xizong-official-2025-n113"
+      ]
+    },
+    {
+      "id": "H3-K3",
+      "domain": "H3",
+      "rule": "临床研究先检查自愿同意、科学有效性、风险最小化与合理风险-获益比，再检查招募/支付等利益冲突；不能用“科研进步”自动为可避免伤害辩护。",
+      "evidence_qids": [
+        "xizong-official-2017-n114",
+        "xizong-official-2020-n114",
+        "xizong-official-2023-n114",
+        "xizong-official-2024-n114"
+      ]
+    },
+    {
+      "id": "H3-K4",
+      "domain": "H3",
+      "rule": "紧急救治、自主拒绝、代理决定等题必须先判断患者决策能力、紧急程度、可替代方案和授权边界；不要把“救命优先”或“自主优先”写成无条件口号。",
+      "evidence_qids": [
+        "xizong-official-2017-n111",
+        "xizong-official-2017-n113",
+        "xizong-official-2021-n115"
+      ]
+    },
+    {
+      "id": "H4-K1",
+      "domain": "H4",
+      "rule": "法律题实行版本优先：历史真题保留历史法名、答案和题源；Current学习使用当前有效法源。旧《执业医师法》题不得直接改写，但当前规则以《医师法》为准。",
+      "evidence_qids": [
+        "xizong-official-2018-n115",
+        "xizong-official-2022-n115",
+        "xizong-official-2023-n115",
+        "xizong-official-2026-n115"
+      ]
+    },
+    {
+      "id": "H4-K2",
+      "domain": "H4",
+      "rule": "凡处罚、期限、报告时限、事故等级、注册条件或责任类型等精确字段，必须从正确年份/当前法源读取；无法核对时标记 UNKNOWN/BLOCKED，不用旧题或模型记忆补齐。",
+      "evidence_qids": [
+        "xizong-official-2019-n115",
+        "xizong-official-2020-n115",
+        "xizong-official-2024-n115",
+        "xizong-official-2026-n115"
+      ]
+    }
+  ],
+  "recall_support": [
+    {
+      "id": "H-R1",
+      "role": "DERIVED_RECALL_NOT_OFFICIAL_SCORE_EVIDENCE",
+      "prompt": "为什么医患关系不能简单理解成普通消费关系？",
+      "answer_cue": "专业信息不对称 → 患者脆弱/依赖 → 健康利益托付 → 医务人员承担受托责任与患者利益优先。"
+    },
+    {
+      "id": "H-R2",
+      "role": "DERIVED_RECALL_NOT_OFFICIAL_SCORE_EVIDENCE",
+      "prompt": "知情同意的四个核心成分是什么？",
+      "answer_cue": "充分信息、理解、自愿、授权/决定；签字不是全部。"
+    },
+    {
+      "id": "H-R3",
+      "role": "DERIVED_RECALL_NOT_OFFICIAL_SCORE_EVIDENCE",
+      "prompt": "原手术已经签字，术中发现额外非紧急病变，为什么不能默认一起处理？",
+      "answer_cue": "同意有范围边界；非紧急新增操作需适当重新授权。"
+    },
+    {
+      "id": "H-R4",
+      "role": "DERIVED_RECALL_NOT_OFFICIAL_SCORE_EVIDENCE",
+      "prompt": "保密义务什么时候可能被突破？",
+      "answer_cue": "只有明确法定/伦理例外；具体条件、对象和程序按当前规范核对。"
+    },
+    {
+      "id": "H-R5",
+      "role": "DERIVED_RECALL_NOT_OFFICIAL_SCORE_EVIDENCE",
+      "prompt": "临床研究伦理最先检查哪四件事？",
+      "answer_cue": "自愿知情同意、科学有效性、风险最小化、合理风险-获益；再看利益冲突等。"
+    },
+    {
+      "id": "H-R6",
+      "role": "DERIVED_RECALL_NOT_OFFICIAL_SCORE_EVIDENCE",
+      "prompt": "要点反馈和继续追问病史有什么区别？",
+      "answer_cue": "反馈是复述/确认患者已说的关键信息；追问是在获取新的信息。"
+    },
+    {
+      "id": "H-R7",
+      "role": "DERIVED_RECALL_NOT_OFFICIAL_SCORE_EVIDENCE",
+      "prompt": "看到旧真题写《执业医师法》时，Current复习怎么处理？",
+      "answer_cue": "保留历史题原貌和历史答案；Current法律规则切到现行《医师法》，不反向篡改旧题。"
+    },
+    {
+      "id": "H-R8",
+      "role": "DERIVED_RECALL_NOT_OFFICIAL_SCORE_EVIDENCE",
+      "prompt": "法律题里哪些内容默认禁止凭记忆补？",
+      "answer_cue": "数字/期限、罚则、报告时限、事故等级、注册条件、责任类型等精确字段。"
+    }
+  ],
+  "official_question_scope": {
+    "status": "VERIFIED_CURRENT_ERA_EXACT_MEMBERSHIP",
+    "era": {
+      "from": 2017,
+      "to": 2026
+    },
+    "membership_rule": "For each canonical official paper from 2017 through 2026, clinical humanities is exactly N108-N115 inclusive.",
+    "question_count": 80,
+    "score_geometry_per_year": {
+      "question_count": 8,
+      "points_each": 2,
+      "points_total": 16,
+      "source": "content/xizong/questions/exam-format.json"
+    },
+    "qids": [
+      "xizong-official-2017-n108",
+      "xizong-official-2017-n109",
+      "xizong-official-2017-n110",
+      "xizong-official-2017-n111",
+      "xizong-official-2017-n112",
+      "xizong-official-2017-n113",
+      "xizong-official-2017-n114",
+      "xizong-official-2017-n115",
+      "xizong-official-2018-n108",
+      "xizong-official-2018-n109",
+      "xizong-official-2018-n110",
+      "xizong-official-2018-n111",
+      "xizong-official-2018-n112",
+      "xizong-official-2018-n113",
+      "xizong-official-2018-n114",
+      "xizong-official-2018-n115",
+      "xizong-official-2019-n108",
+      "xizong-official-2019-n109",
+      "xizong-official-2019-n110",
+      "xizong-official-2019-n111",
+      "xizong-official-2019-n112",
+      "xizong-official-2019-n113",
+      "xizong-official-2019-n114",
+      "xizong-official-2019-n115",
+      "xizong-official-2020-n108",
+      "xizong-official-2020-n109",
+      "xizong-official-2020-n110",
+      "xizong-official-2020-n111",
+      "xizong-official-2020-n112",
+      "xizong-official-2020-n113",
+      "xizong-official-2020-n114",
+      "xizong-official-2020-n115",
+      "xizong-official-2021-n108",
+      "xizong-official-2021-n109",
+      "xizong-official-2021-n110",
+      "xizong-official-2021-n111",
+      "xizong-official-2021-n112",
+      "xizong-official-2021-n113",
+      "xizong-official-2021-n114",
+      "xizong-official-2021-n115",
+      "xizong-official-2022-n108",
+      "xizong-official-2022-n109",
+      "xizong-official-2022-n110",
+      "xizong-official-2022-n111",
+      "xizong-official-2022-n112",
+      "xizong-official-2022-n113",
+      "xizong-official-2022-n114",
+      "xizong-official-2022-n115",
+      "xizong-official-2023-n108",
+      "xizong-official-2023-n109",
+      "xizong-official-2023-n110",
+      "xizong-official-2023-n111",
+      "xizong-official-2023-n112",
+      "xizong-official-2023-n113",
+      "xizong-official-2023-n114",
+      "xizong-official-2023-n115",
+      "xizong-official-2024-n108",
+      "xizong-official-2024-n109",
+      "xizong-official-2024-n110",
+      "xizong-official-2024-n111",
+      "xizong-official-2024-n112",
+      "xizong-official-2024-n113",
+      "xizong-official-2024-n114",
+      "xizong-official-2024-n115",
+      "xizong-official-2025-n108",
+      "xizong-official-2025-n109",
+      "xizong-official-2025-n110",
+      "xizong-official-2025-n111",
+      "xizong-official-2025-n112",
+      "xizong-official-2025-n113",
+      "xizong-official-2025-n114",
+      "xizong-official-2025-n115",
+      "xizong-official-2026-n108",
+      "xizong-official-2026-n109",
+      "xizong-official-2026-n110",
+      "xizong-official-2026-n111",
+      "xizong-official-2026-n112",
+      "xizong-official-2026-n113",
+      "xizong-official-2026-n114",
+      "xizong-official-2026-n115"
+    ],
+    "boundary_proof": {
+      "n107": "Inspected in every 2017-2026 canonical shard; remains medical/orthopedic content.",
+      "n108": "Inspected in every 2017-2026 canonical shard; begins clinical humanities.",
+      "n115": "Inspected in every 2017-2026 canonical shard; remains clinical humanities/law.",
+      "n116": "Current-era exam format begins the B-type segment at N116."
+    },
+    "mapping_boundary": "This closes Question→humanities-domain membership only. It does not create or imply Question→KP relations."
+  },
+  "method_and_evidence_path": {
+    "normal_path": [
+      "Source-grounded H1-H4 compression",
+      "short derived recall where needed",
+      "official humanities question N108-N115",
+      "approved explanation after submit",
+      "local repair against H1-H4 and exact current Source when law/version-sensitive",
+      "later different official or fresh derived transfer item"
+    ],
+    "evidence_rules": [
+      "Official question performance may support score-relevant evidence.",
+      "Derived recall/transfer items are Teaching/Repair/Transfer evidence only and never impersonate official score evidence.",
+      "A historical law question proves historical question handling, not current legal accuracy.",
+      "Law/version-sensitive wrong or ambiguous items require current Source contact before promotion to stable Current knowledge."
+    ]
+  },
+  "source_fidelity_rules": [
+    "Question Truth preserves exact stem/options/answer/order and historical source identity.",
+    "Any transformed Source must preserve negation, numbers/thresholds, answer, option order, tables/images/captions, medical/legal relations and year/version identity.",
+    "A current legal claim may not be generalized from an old official question when the governing law/version changed.",
+    "If transcription or law-version fidelity is uncertain, mark UNKNOWN/BLOCKED rather than guessing."
+  ],
+  "remaining_unknowns": [
+    {
+      "id": "H-U1",
+      "type": "CURRENT_YEAR_DELTA_GAP",
+      "status": "BLOCKED_UPSTREAM_SOURCE",
+      "claim": "Exact 2027 306 clinical-humanities outline/source has not been recovered as a trustworthy current primary artifact.",
+      "learner_impact": "Does not block baseline learning from the stable four-part scope and 2017-2026 official questions; blocks only final current-year scope/delta closure.",
+      "resolution": "When a trustworthy 2027 outline appears, run the bounded PRESERVE / UPDATE / NEW / RETIRE delta."
+    }
+  ],
+  "readiness": {
+    "hard_coverage": "CLOSED_BASELINE",
+    "source_owner": "READY_WITH_2027_SCOPE_DELTA_BLOCKED",
+    "knowledge_compression": "READY",
+    "recall_support": "READY_DERIVED",
+    "official_question_validation": "READY_80_EXACT_QIDS",
+    "current_year_delta": "BLOCKED_UPSTREAM_2027_OUTLINE",
+    "learner_evidence": "NOT_ASSERTED"
+  }
+}
