@@ -1017,6 +1017,9 @@
     "questionless_allowed": true,
     "source_native_questions_without_key_allowed": true,
     "source_backed_answers_optional": true,
-    "no_semantic_inference": true
+    "no_semantic_inference": true,
+    "registry_schema": "kian.external.incremental-registry.v1",
+    "builder": "tools/english-external/build_incremental_manifest.py",
+    "normal_flow": "EXPLICIT_REGISTRY -> BUILDER_HASHES -> INCREMENTAL_MANIFEST -> PUBLIC_MANIFEST_SHA_ACTIVATION"
   }
 }
