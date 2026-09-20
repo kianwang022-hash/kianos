@@ -305,6 +305,73 @@ export function loadXizongWholePaper(year) {
   };
 }
 
+export function buildXizongForecastQuestionScope(systems = []) {
+  const rows = [];
+  const union = new Set();
+  const unionYearCounts = {};
+  let summedExactQuestions = 0;
+
+  for (const system of Array.isArray(systems) ? systems : []) {
+    const systemId = String(system?.systemId || '');
+    const canonicalId = String(system?.canonicalId || '');
+    if (!systemId || !canonicalId) continue;
+
+    const sweep = loadXizongSystemQuestionSweep(system);
+    if (!sweep) {
+      rows.push({
+        system_id: systemId,
+        canonical_id: canonicalId,
+        status: 'UNKNOWN',
+        question_count: null,
+        year_counts: {},
+        reason: 'EXACT_OFFICIAL_QUESTION_SCOPE_UNAVAILABLE'
+      });
+      continue;
+    }
+
+    const yearCounts = {};
+    for (const question of sweep.questions || []) {
+      const questionId = String(question?.questionId || '');
+      const year = Number(question?.year);
+      if (!questionId) continue;
+      summedExactQuestions += 1;
+      if (Number.isInteger(year)) yearCounts[year] = (yearCounts[year] || 0) + 1;
+      if (!union.has(questionId)) {
+        union.add(questionId);
+        if (Number.isInteger(year)) unionYearCounts[year] = (unionYearCounts[year] || 0) + 1;
+      }
+    }
+
+    rows.push({
+      system_id: systemId,
+      canonical_id: canonicalId,
+      status: 'EXACT',
+      question_count: sweep.questionCount,
+      year_counts: yearCounts,
+      scope_hash: sweep.scopeHash,
+      question_inventory_hash: sweep.questionInventoryHash
+    });
+  }
+
+  const unknownSystems = rows
+    .filter((row) => row.status !== 'EXACT')
+    .map((row) => row.canonical_id || row.system_id);
+
+  return {
+    schema: 'kianos.xizong.forecast-question-scope.v1',
+    authority: 'DERIVED_FROM_CURRENT_EXACT_SYSTEM_QUESTION_SCOPES',
+    systems: rows,
+    exact_union_questions: union.size,
+    summed_exact_system_questions: summedExactQuestions,
+    cross_system_duplicate_memberships: Math.max(0, summedExactQuestions - union.size),
+    union_year_counts: unionYearCounts,
+    unknown_systems: unknownSystems,
+    scope_complete: unknownSystems.length === 0,
+    evidence_boundary:
+      'Exact System question scopes are factual workload inventory only. UNKNOWN systems remain unknown rather than zero; Holdout subtraction happens against the union at learner-runtime time.'
+  };
+}
+
 export function loadXizongSystemQuestionSweep(system) {
   const relativeScopePath = scopePath(system);
   if (!fs.existsSync(absolute(relativeScopePath))) return null;
