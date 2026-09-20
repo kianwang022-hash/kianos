@@ -31,6 +31,42 @@ The parser:
 
 Only after private source-quality review may `normalized/article.md` enter the explicit incremental registry.
 
+## Batch Source Package intake
+
+For 10–20 article pilot batches, do not run the single-package parser manually one file at a time.
+
+Canonical batch tool:
+
+`tools/english-external/batch_parse_source_packages.py`
+
+It:
+- scans an explicit Inbox for Markdown Source Packages;
+- calls the canonical single-package parser;
+- derives stable source IDs automatically;
+- separates READY / READY_WITH_VISUAL_CHECK / HOLD / REJECT_FORMAT;
+- detects exact raw-package duplicates;
+- flags same-URL byte variants for review;
+- can compare against an existing parsed-meta tree;
+- emits `kian.external-source-batch-intake-report.v1`.
+
+It does **not**:
+- decide reading value;
+- perform semantic source correction;
+- convert HOLD to ACCEPT;
+- edit the incremental registry;
+- activate runtime content.
+
+Batch flow:
+
+```
+Inbox (10–20 Source Packages)
+→ batch parser
+→ Parsed Intake packages + batch report
+→ Chat source-quality review
+→ explicit ACCEPT / HOLD / REJECT
+→ ACCEPT only → incremental registry
+```
+
 ## Registry + builder
 
 Normal admission does not hand-write SHA-256 values.

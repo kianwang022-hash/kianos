@@ -134,6 +134,45 @@ const parseCommentary=spawnSync('python3',[
 assert.notEqual(parseCommentary.status,0);
 assert.match(String(parseCommentary.stderr||parseCommentary.stdout||''),/unexpected content before metadata block/);
 
+
+const batchInbox=path.join(temp,'source-package-inbox');
+const batchOutput=path.join(temp,'source-package-parsed');
+const batchReportPath=path.join(temp,'source-package-batch-report.json');
+fs.mkdirSync(batchInbox,{recursive:true});
+fs.writeFileSync(path.join(batchInbox,'01-complete.md'),completePackage,'utf8');
+fs.writeFileSync(path.join(batchInbox,'02-duplicate.md'),completePackage,'utf8');
+fs.writeFileSync(
+  path.join(batchInbox,'03-incomplete.md'),
+  incompletePackage.replace('https://example.invalid/source-article','https://example.invalid/source-incomplete'),
+  'utf8'
+);
+fs.writeFileSync(path.join(batchInbox,'04-commentary.md'),'Here is the archived article:\n'+completePackage,'utf8');
+const batchRun=spawnSync('python3',[
+  path.join(repoRoot,'tools','english-external','batch_parse_source_packages.py'),
+  '--inbox',batchInbox,
+  '--output-root',batchOutput,
+  '--report',batchReportPath
+],{encoding:'utf8'});
+assert.equal(batchRun.status,0,batchRun.stderr||batchRun.stdout||'batch source package parser failed');
+const batchReport=JSON.parse(fs.readFileSync(batchReportPath,'utf8'));
+assert.equal(batchReport.schema,'kian.external-source-batch-intake-report.v1');
+assert.deepEqual(batchReport.counts,{
+  total:4,
+  ready_for_quality_review:1,
+  ready_with_visual_check:0,
+  hold:1,
+  duplicate_exact:1,
+  duplicate_url_variant:0,
+  rejected_format:1,
+  source_id_collision:0
+});
+assert.equal(batchReport.admission_boundary,'NO_ITEM_IS_AUTO_ADMITTED_TO_INCREMENTAL_REGISTRY');
+const batchReady=batchReport.items.find(row=>row.status==='READY_FOR_SOURCE_QUALITY_REVIEW');
+assert(batchReady?.source_id?.startsWith('src-synthetic-journal-synthetic-source-article-'));
+assert.equal(batchReport.items.filter(row=>row.status==='DUPLICATE_EXACT_PACKAGE').length,1);
+assert.equal(batchReport.items.filter(row=>row.status==='HOLD_INCOMPLETE_OR_UNCERTAIN_SOURCE').length,1);
+assert.equal(batchReport.items.filter(row=>row.status==='REJECT_FORMAT').length,1);
+
 try{
   const state=ensureExternalReadingPrivateBundle({
     sourceRoot,
@@ -249,6 +288,9 @@ try{
     incomplete_source_hold:'PASS',
     declared_missing_section_hold:'PASS',
     source_package_extra_commentary_rejected:'PASS',
+    batch_source_package_intake:'PASS',
+    batch_duplicate_detection:'PASS',
+    batch_no_auto_admission:'PASS',
     incremental_object_hash_fail_closed:'PASS',
     public_source_bytes:0,
     answer_gate:'PASS',
