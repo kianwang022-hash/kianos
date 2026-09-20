@@ -1,6 +1,6 @@
 # English E3 Productive Scoring — Fresh Independent / Anti-Anchored Audit
 
-Status: **FAIL — MATERIAL SCORING BLIND SPOTS FOUND · BOUNDED REPAIR STAGED · NEW FRESH RE-AUDIT REQUIRED**  
+Status: **PASS — FINAL FRESH INDEPENDENT / ANTI-ANCHORED ACCEPTANCE**  
 Audit date: 2026-09-21  
 Scope: Translation / Small Writing / Big Writing productive scoring validity  
 Pre-audit main: `5c1eab2766d696aa36877baa1a4600b19a927189`  
@@ -600,3 +600,127 @@ Generic knowledge that E3 had prior FAIL / INVALID results, or that historical d
 The current opaque fixture identities were rotated after this correction. Stale IDs / mappings from prior chats therefore do not identify the current fixtures.
 
 This correction changes only the proof protocol / blind identity layer. It does not relax the scoring standard or sealed expectations.
+
+
+---
+
+## 14. Final Fresh Independent PASS — 2026-09-21
+
+Final audited candidate:
+
+`work/english-highest-maturity-adaptation-20260920 @ 2066019e657ea6d479c924c26ea5cbe418c89fe7`
+
+Pre-close HEAD recheck:
+
+```text
+candidate == 2066019e657ea6d479c924c26ea5cbe418c89fe7
+drift = 0 commits
+```
+
+### Blind validity
+
+```text
+VALID — no current-fixture-specific contamination
+```
+
+Generic knowledge of prior E3 FAIL / repair history was present but did not reveal any current opaque-fixture expected treatment. Under the corrected anti-anchoring contract, this does not contaminate the audit.
+
+All 18 current fixtures were blind-graded and locked before sealed-key reveal.
+
+Blind lock SHA256:
+
+`a0c34170255f5f461405080183964a837cc4ebe2774db7a93531ce637fb18270`
+
+### Core blind results
+
+Translation:
+
+- two semantically equivalent valid Chinese renderings: both `1.5–2`;
+- fluent but source-meaning-reversed rendering: `0–0.5`;
+- five-segment section with one major relation reversal: `6–8.5`;
+- five-segment section with all five substantially correct: `7.5–10`.
+
+Small Writing:
+
+- polished but missing the actual extension request / new deadline: `3–4`;
+- plain but complete: `9–10`;
+- 46-word stress case: `6–8`, with independent re-score required.
+
+Big Writing:
+
+- fluent but materially misread: `6–8`;
+- simpler but grounded/developed: `17–19`;
+- 87-word stress case: `10–13`, with independent re-score required.
+
+### Mandatory attack result
+
+All 12 mandatory attacks passed:
+
+- semantic-equivalent Translation preserved;
+- fluent semantic error not hidden by Chinese quality;
+- Small `Task > Style`;
+- Big `Grounding > Fluency`;
+- order-change instability not material;
+- uncertainty preserved;
+- vocabulary/style bias not material;
+- duplicate penalty/reward not material;
+- complete-section Translation aggregation conservative;
+- under-length Writing handled without fixed folklore deduction or duplicate content penalty;
+- Forecast-sensitive Writing retains independent re-score path;
+- scoring-standard identity explicit.
+
+Scoring-standard identity:
+
+`english.productive-scoring.v2`
+
+### Key reconciliation
+
+One non-material drift:
+
+`fx-04cd95`
+
+Blind range:
+
+`7.5–10`
+
+Sealed broad hint:
+
+`8–10`
+
+Assessment:
+
+- 0.5-point conservative lower-bound difference;
+- key explicitly declares `exact_score_gold: false`;
+- HIGH_SECTION classification unchanged;
+- pairwise ordering unchanged;
+- no guardrail or strategy-relevant decision changed.
+
+Verdict impact:
+
+`NON-MATERIAL`
+
+### Final verdict
+
+```text
+PASS — E3 Fresh Independent / Anti-Anchored Audit
+```
+
+Meaning:
+
+> E3 productive-scoring logic is accepted for the tested system boundary and may now supply bounded productive score evidence + uncertainty to the later English Forecast.
+
+This PASS does **not** calibrate Kian's actual productive score and does not collapse:
+
+- handwriting / paper-mode uncertainty;
+- real marker variance;
+- whole-paper fatigue interaction;
+- Learner-U-dependent productive level.
+
+Those remain later-stage inputs.
+
+Next:
+
+```text
+E3 CLOSED CANDIDATE
+→ E4 Evidence / Exposure / long-horizon fidelity
+```
