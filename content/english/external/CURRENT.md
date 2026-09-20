@@ -109,13 +109,33 @@ A normal new External content update should be:
 
 ```text
 new private source material
-→ assign stable public identity / metadata in manifest
+→ Source Intake v1 admission
+→ stable identity + exact source SHA
+→ optional INCREMENTAL/manifest.json registration
 → compile private bundle
 → source/structure QA
 → existing External workspace consumes it
 ```
 
 Do not create a new UI/runtime family for every source collection. Do not add material merely to grow a quota.
+
+## Incremental source lane
+
+New assets do not require editing the fixed legacy compiler topology.
+
+Optional private owner:
+`INCREMENTAL/manifest.json`
+
+Public contract:
+`content/english/external/INCREMENTAL_SOURCE_CONTRACT.md`
+
+Rules:
+- production activation requires the exact incremental-manifest SHA in the public manifest;
+- the incremental manifest binds every article/questions/answers file by SHA;
+- questionless material opens directly as Reading Only;
+- source-native questions may exist with or without a formal answer key;
+- answer keys are never inferred;
+- legacy 66-passage gates remain exact and incremental counts are additive.
 
 ## Current final-acceptance relationship
 
