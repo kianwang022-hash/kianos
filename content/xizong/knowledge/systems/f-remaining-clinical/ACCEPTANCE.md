@@ -16,7 +16,7 @@ This file owns F-scoped readiness truth only. It does not own medical Core, lear
 | S2 — exact official F System question membership | **UNTESTED** | separate later boundary; no membership inferred from Outline placement |
 | K — Knowledge | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent K audit; bounded repair split acute disturbance-control from planned/ongoing intervention-safety while preserving identity/source/owner boundaries |
 | L — Learning Logic | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent L audit; 9 Blocks / 121 KP → 40 LG; 3 whole + 5 natural + 1 integration; 0 hard edges; 2 non-gating PSRs |
-| Content Realization / Optimization | **NOT_STARTED / NEXT_ELIGIBLE** | accepted Learning now permits Content; not started by this audit |
+| Content Realization / Optimization | **ACTIVE / NOT_ACCEPTED** | Phase 5A role candidate built with 40/40 LG Source-release coverage; wrapper/authority debt remains open |
 | P — Projection | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
 | R — Runtime | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
 | E — Evidence | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
@@ -210,15 +210,50 @@ Fresh re-audit accepted:
 
 S2 exact official-question membership remains UNTESTED. No question membership was inferred.
 
+
+## Content Phase 5A — ACTIVE / NOT ACCEPTED
+
+Canonical candidate:
+
+`content/xizong/knowledge/learner/f-remaining-clinical-content.json`
+
+Construction receipt:
+
+`content/xizong/knowledge/learner/F_PHASE5A_CONTENT_ROLE_REALIZATION.md`
+
+Phase 5A establishes the Content-role model only. It does not claim Content PASS.
+
+Candidate accounting:
+
+```text
+accepted LG Source-release coverage = 40 / 40
+WHOLE_BLOCK_SOURCE                 = 3
+NATURAL_SOURCE_UNITS               = 5
+INTEGRATION_PRIMARY                = 1
+medical Core rewrite               = 0
+```
+
+Open blocking Content debt:
+
+1. all 9 canonical Block owners still advertise legacy `prerequisites` and `next_blocks/next_system` route fields, conflicting with accepted L's 0 inside-F hard edges;
+2. F1/F2/F4/F6/F8 still advertise generic whole-Block first-pass wrappers instead of accepted natural Source-unit stop-lines;
+3. bounded F6/F7/F8 wording still risks presenting benefits-from/default sequence as already-completed learner state;
+4. 40/40 LG Content sufficiency/density + Recall-front has not yet been audited;
+5. fresh independent Content closure has not yet run.
+
+Therefore Content remains **ACTIVE / NOT_ACCEPTED** and P/R/E remain downstream-frozen.
+
+Next Content stage: **Phase 5B wrapper / authority cleanup**.
+
 ## Downstream state
 
 K and L are accepted.
 
-Next eligible stage: **F Content Realization / Optimization**.
+Current active stage: **F Content Realization / Optimization**.
 
 Current downstream rule:
 
-- Content is eligible but has not been started by this audit;
+- Phase 5A is built but Content is not accepted;
 - Projection / Runtime / Evidence remain downstream-frozen behind Content;
 - S2 exact official-question membership remains separately UNTESTED;
 - do not infer question membership or manufacture learner progress.
