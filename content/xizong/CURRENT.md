@@ -99,10 +99,6 @@ Key boundaries:
 
 ## Normal routing
 
-### Subject maturity / 270–275 control
-
-Whole-subject 270/275 maturity → `MATURITY_PACKAGE.md`. Current learner cursor: **Stage B / Real Learner U**; supporting Content / Forecast / S-K-L-P-R-E lanes do not choose maturity priority.
-
 ### Content / medical Knowledge
 
 ```text
