@@ -597,3 +597,84 @@ export function buildEnglishForecastFalsifiability(input,{
       'Sensitivity surfaces expose when a capacity conclusion flips. They do not choose the learner action, daily task count, or cross-subject allocation. Evidence candidates are information candidates only.'
   };
 }
+
+
+function ratioOrNull(numerator,denominator){
+  const a=finite(numerator),b=positive(denominator);
+  return a===null||b===null?null:a/b;
+}
+
+export function backtestEnglishForecastHistory(rows=[]){
+  const source=Array.isArray(rows)?rows:[];
+  const workloadRows=[];
+  const scoreRows=[];
+
+  for(const row of source){
+    const id=String(row?.id||row?.day||row?.observed_at||'').trim()||null;
+    const actualMinutes=nonNegative(row?.actual_workload_minutes);
+    const band=row?.predicted_workload_band;
+    const p20=nonNegative(band?.p20),p50=nonNegative(band?.p50),p80=nonNegative(band?.p80);
+    if(actualMinutes!==null&&p20!==null&&p50!==null&&p80!==null&&p20<=p50&&p50<=p80){
+      const ratio=ratioOrNull(p50,actualMinutes);
+      const absError=actualMinutes>0?Math.abs(p50-actualMinutes)/actualMinutes:null;
+      workloadRows.push({
+        id,
+        actual_minutes:round(actualMinutes,1),
+        predicted:{p20:round(p20,1),p50:round(p50,1),p80:round(p80,1)},
+        p20_covers:actualMinutes<=p20,
+        p50_covers:actualMinutes<=p50,
+        p80_covers:actualMinutes<=p80,
+        p50_actual_ratio:ratio===null?null:round(ratio,4),
+        p50_absolute_percent_error:absError===null?null:round(absError,4)
+      });
+    }
+
+    const actualScore=nonNegative(row?.actual_score);
+    const scoreRange=row?.predicted_score_range;
+    const low=nonNegative(scoreRange?.low),high=nonNegative(scoreRange?.high);
+    if(actualScore!==null&&low!==null&&high!==null&&low<=high&&high<=100){
+      scoreRows.push({
+        id,
+        actual_score:round(actualScore,1),
+        predicted:{low:round(low,1),high:round(high,1)},
+        covered:actualScore>=low&&actualScore<=high,
+        miss_direction:actualScore<low?'OVER_OPTIMISTIC_LOW_BOUND':actualScore>high?'UNDER_PREDICTED_UPSIDE':null,
+        band_width:round(high-low,1)
+      });
+    }
+  }
+
+  const coverage=(items,key)=>items.length
+    ? round(items.filter((row)=>row[key]===true).length/items.length,4)
+    : null;
+  const ratios=workloadRows.map((row)=>row.p50_actual_ratio).filter((v)=>v!==null);
+  const errors=workloadRows.map((row)=>row.p50_absolute_percent_error).filter((v)=>v!==null);
+  const widths=scoreRows.map((row)=>row.band_width).filter((v)=>v!==null);
+
+  return {
+    schema:'kianos.english.forecast-backtest.v1',
+    workload:{
+      status:workloadRows.length>=3?'BACKTESTED':'INSUFFICIENT_BACKTEST',
+      sample_count:workloadRows.length,
+      p20_coverage:coverage(workloadRows,'p20_covers'),
+      p50_coverage:coverage(workloadRows,'p50_covers'),
+      p80_coverage:coverage(workloadRows,'p80_covers'),
+      median_p50_actual_ratio:ratios.length?round(median(ratios),4):null,
+      median_p50_absolute_percent_error:errors.length?round(median(errors),4):null,
+      rows:workloadRows.slice(-20)
+    },
+    score:{
+      status:scoreRows.length>=3?'BACKTESTED':'INSUFFICIENT_BACKTEST',
+      sample_count:scoreRows.length,
+      band_coverage:coverage(scoreRows,'covered'),
+      median_band_width:widths.length?round(median(widths),1):null,
+      misses:scoreRows.filter((row)=>!row.covered).slice(-20),
+      rows:scoreRows.slice(-20)
+    },
+    recalibration_required:
+      'CHAT_INTERPRETATION_REQUIRED',
+    subject_stage_decision:'OUT_OF_SCOPE',
+    boundary:
+      'Backtest diagnostics expose calibration error after real outcomes exist. They do not auto-change workload, widen/narrow score bands, assign daily tasks, or claim Kian-specific calibration without sufficient real samples.'
+  };
+}
