@@ -11,6 +11,9 @@ const LEARNER_ROOT = 'content/xizong/knowledge/learner';
 const QUESTION_ROOT = 'content/xizong/questions';
 const EXPLANATION_ROOT = 'content/xizong/explanations';
 const EXAM_FORMAT_PATH = 'content/xizong/questions/exam-format.json';
+let examFormatOwnerCache = null;
+let examFormatSourceHashCache = null;
+const examFormatYearCache = new Map();
 
 function absolute(relativePath) {
   return path.join(repoRoot, relativePath);
@@ -118,6 +121,16 @@ function loadCachedShard(root, shard, cache, fallback) {
   return value;
 }
 
+function questionPointsForYearNumber(year, number) {
+  const format = loadXizongExamFormatForYear(year);
+  const n = Number(number);
+  const segment = (format.scoringSegments || []).find((row) =>
+    n >= Number(row?.start) && n <= Number(row?.end)
+  );
+  const points = Number(segment?.points || 0);
+  return Number.isFinite(points) && points > 0 ? points : 0;
+}
+
 function loadQuestionProjection(questionId, questionCache = new Map(), explanationCache = new Map()) {
   const route = routeForQuestionId(questionId);
   const truthShard = loadCachedShard(QUESTION_ROOT, route.shard, questionCache, {});
@@ -138,10 +151,13 @@ function loadQuestionProjection(questionId, questionCache = new Map(), explanati
   }));
   if (!options.length) throw new Error(`CURRENT_XIZONG_QUESTION_OPTIONS_MISSING:${questionId}`);
 
+  const year = Number(truth?.source_identity?.official_exam_year || route.year);
+  const number = Number(truth?.source_identity?.official_exam_number || route.number);
   return {
     questionId,
-    year: Number(truth?.source_identity?.official_exam_year || route.year),
-    number: Number(truth?.source_identity?.official_exam_number || route.number),
+    year,
+    number,
+    points: questionPointsForYearNumber(year, number),
     questionType: String(truth?.question_type || ''),
     stem: String(truth?.content?.stem || ''),
     options,
@@ -198,20 +214,25 @@ export function loadXizongQuestionsByIds(questionIds) {
 }
 
 function loadXizongExamFormatOwner() {
-  const owner = readJson(EXAM_FORMAT_PATH);
+  if (examFormatOwnerCache) return examFormatOwnerCache;
+  const raw = readText(EXAM_FORMAT_PATH);
+  const owner = JSON.parse(raw);
   if (owner?.schema !== 'kianos.xizong.exam_format.v1' || owner?.status !== 'CURRENT') {
     throw new Error('CURRENT_XIZONG_EXAM_FORMAT_INVALID');
   }
-  return owner;
+  examFormatOwnerCache = owner;
+  examFormatSourceHashCache = sha256(raw);
+  return examFormatOwnerCache;
 }
 
 export function loadXizongExamFormatForYear(year) {
   const normalizedYear = Number(year);
   if (!Number.isInteger(normalizedYear)) throw new Error(`CURRENT_XIZONG_EXAM_FORMAT_YEAR_INVALID:${year}`);
+  if (examFormatYearCache.has(normalizedYear)) return examFormatYearCache.get(normalizedYear);
   const owner = loadXizongExamFormatOwner();
   const row = (owner.eras || []).find((item) => normalizedYear >= Number(item?.start_year) && normalizedYear <= Number(item?.end_year));
   if (!row) throw new Error(`CURRENT_XIZONG_EXAM_FORMAT_YEAR_MISSING:${normalizedYear}`);
-  return {
+  const value = {
     schema: owner.schema,
     authority: owner.authority,
     year: normalizedYear,
@@ -224,8 +245,10 @@ export function loadXizongExamFormatForYear(year) {
       points: Number(segment.points)
     })),
     sourcePath: EXAM_FORMAT_PATH,
-    sourceHash: sha256(readText(EXAM_FORMAT_PATH))
+    sourceHash: examFormatSourceHashCache
   };
+  examFormatYearCache.set(normalizedYear, value);
+  return value;
 }
 
 export function listXizongPaperSummaries() {
