@@ -276,7 +276,7 @@ Until that real loop passes, engineering is landed but learner acceptance remain
 
 ## Concrete performance defect — prebuilt local learner runtime
 
-State: **CANDIDATE · PR #571 · CI PROVEN · REAL MAC ACCEPTANCE PENDING**
+State: **CI PROVEN · PR #571 · REAL MAC ACCEPTANCE PENDING**
 
 Concrete learner friction:
 
@@ -328,7 +328,7 @@ Known unrelated repository-global reds remain outside this repair: Politics Ethi
 Next acceptance:
 
 ```text
-merge candidate
+main landing
 → restart/reinstall the installed Current LaunchAgent once
 → real Mac: Politics answer submit + Workspace → Home + reload
 → confirm learner-visible wait is gone
