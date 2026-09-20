@@ -1,4 +1,72 @@
 export const XIZONG_FORECAST_MODEL_SCHEMA = 'kianos.xizong.workload-forecast.v1';
+export const XIZONG_HISTORICAL_MODERN_165_SCORE_PROFILE = Object.freeze({
+  schema: 'kianos.xizong.historical-score-profile.v1',
+  authority: 'HISTORICAL_2017_2026_WORKING_PRIOR_NOT_2027_CURRENT_TRUTH',
+  max_score: 300,
+  question_count: 165,
+  disciplines: Object.freeze({
+    physiology: Object.freeze({ label: '生理', points: 42, ranges: [[1,16],[116,119],[136,141]] }),
+    biochemistry: Object.freeze({ label: '生化', points: 36, ranges: [[17,28],[120,123],[142,147]] }),
+    pathology: Object.freeze({ label: '病理', points: 36, ranges: [[29,40],[124,127],[148,153]] }),
+    internal: Object.freeze({ label: '内科', points: 100, ranges: [[41,56],[68,92],[128,131],[154,159]] }),
+    surgery: Object.freeze({ label: '外科', points: 70, ranges: [[57,67],[93,107],[132,135],[160,165]] }),
+    humanism: Object.freeze({ label: '人文', points: 16, ranges: [[108,115]] })
+  })
+});
+
+export function xizongHistoricalDisciplineForQuestion(yearInput, numberInput, profile = XIZONG_HISTORICAL_MODERN_165_SCORE_PROFILE) {
+  const year = Number(yearInput);
+  const number = Number(numberInput);
+  if (!Number.isInteger(year) || year < 2017 || year > 2026 || !Number.isInteger(number)) return null;
+  for (const [id, row] of Object.entries(profile?.disciplines || {})) {
+    if ((row?.ranges || []).some(([start,end]) => number >= Number(start) && number <= Number(end))) return id;
+  }
+  return null;
+}
+
+export function buildXizongHighScoreRequirement({
+  targetScore = 275,
+  profile = XIZONG_HISTORICAL_MODERN_165_SCORE_PROFILE
+} = {}) {
+  const maxScore = Number(profile?.max_score || 300);
+  const target = Number(targetScore);
+  if (!Number.isFinite(target) || target <= 0 || target > maxScore) throw new Error('XIZONG_TARGET_SCORE_INVALID');
+  const lossBudget = maxScore - target;
+  const retention = target / maxScore;
+  const disciplines = Object.entries(profile?.disciplines || {}).map(([id,row]) => {
+    const points = Number(row?.points || 0);
+    const neutralLoss = points * (lossBudget / maxScore);
+    return {
+      id,
+      label: String(row?.label || id),
+      points,
+      neutral_proportional_loss_budget: round(neutralLoss, 2),
+      neutral_proportional_target_points: round(points - neutralLoss, 2),
+      neutral_point_retention: round(retention, 4)
+    };
+  });
+  return {
+    schema: 'kianos.xizong.high-score-requirement.v1',
+    target_score: target,
+    max_score: maxScore,
+    total_loss_budget: round(lossBudget, 2),
+    point_retention_required: round(retention, 4),
+    historical_structure_authority: String(profile?.authority || ''),
+    disciplines,
+    capability_requirements: [
+      { id: 'SOURCE_MODEL', target: 'UNDERSTOOD', evidence: 'Source contact + canonical learning closure' },
+      { id: 'ACTIVE_RECALL', target: 'RECALLABLE', evidence: 'KP/LG/Block/System retrieval evidence' },
+      { id: 'PRECISION', target: 'REQUIRED_STABLE_WHERE_HIGH_VALUE', evidence: 'selective Precision Memory delayed stability' },
+      { id: 'OFFICIAL_APPLICATION', target: 'APPLICABLE', evidence: 'official question performance + decisive-condition reasoning' },
+      { id: 'REPAIR_FRESH_VERIFICATION', target: 'REPAIRED_AND_RETESTED', evidence: 'W/U cluster repair followed by fresh application' },
+      { id: 'CASE_TRANSFER', target: 'CASE_STABLE', evidence: 'fresh transfer/case/cross-system evidence' },
+      { id: 'WHOLE_PAPER_EXECUTION', target: 'TIME_PRESSURE_STABLE', evidence: 'sealed whole-paper or execution-faithful large calibration' }
+    ],
+    boundary:
+      'The proportional discipline loss budgets are neutral diagnostic baselines, not fixed quotas. The 275+ requirement is total point retention; evidence may justify asymmetric loss allocation later.'
+  };
+}
+
 
 const finite = (value) => {
   if (value === null || value === undefined || value === '') return null;
@@ -434,22 +502,222 @@ export function buildXizongWorkloadForecast(progress, {
   };
 }
 
+export function buildXizongScoreReadiness(progress, {
+  targetScore = 275,
+  contaminationStatus = 'UNKNOWN',
+  materialGaps = []
+} = {}) {
+  if (!progress || progress.schema !== 'kianos.xizong.forecast-progress.v1') {
+    throw new Error('XIZONG_FORECAST_PROGRESS_REQUIRED');
+  }
+  const requirement = buildXizongHighScoreRequirement({ targetScore });
+  const formalPapers = (progress?.formal_score_evidence?.sealed_papers || [])
+    .filter((row) => Number(row?.max_score) === 300);
+  const scores = formalPapers.map((row) => Number(row?.earned_score)).filter(Number.isFinite);
+  const latest = formalPapers.at(-1) || null;
+  const empiricalBand = scores.length >= 3 ? {
+    p20: round(quantile(scores, 0.2)),
+    p50: round(quantile(scores, 0.5)),
+    p80: round(quantile(scores, 0.8))
+  } : null;
+
+  const recall = progress?.runtime_evidence?.recall || {};
+  const rated = Math.max(0, Number(recall?.rated || 0));
+  const weakRecall = Math.max(0, Number(recall?.unknown || 0) + Number(recall?.fuzzy || 0));
+  const systemRecallRows = progress?.system_recall_evidence || [];
+  const precision = progress?.memory_evidence?.precision || {};
+  const transfer = progress?.practice_evidence?.fresh_transfer || {};
+  const qWork = progress?.question_workload || {};
+  const firstPass = progress?.practice_evidence?.first_pass || {};
+  const hardGaps = (Array.isArray(materialGaps) ? materialGaps : [])
+    .filter((row) => String(row?.severity || '').toUpperCase() === 'HARD');
+
+  const capabilities = {
+    source_model: {
+      evidence_status: Number(progress?.runtime_evidence?.completed_blocks || 0) === Number(progress?.canonical_scope?.blocks || 0)
+        ? 'FULL_RUNTIME_CLOSURE_OBSERVED'
+        : 'PARTIAL_OR_UNKNOWN',
+      completed_blocks: Number(progress?.runtime_evidence?.completed_blocks || 0),
+      canonical_blocks: Number(progress?.canonical_scope?.blocks || 0),
+      boundary: 'No runtime evidence does not prove unstudied.'
+    },
+    active_recall: {
+      evidence_status: rated > 0 ? 'OBSERVED' : 'UNKNOWN',
+      rated_kp: rated,
+      weak_rated_kp: weakRecall,
+      weak_rate_among_rated: rated > 0 ? round(weakRecall / rated, 4) : null
+    },
+    structural_reconstruction: {
+      evidence_status: systemRecallRows.length ? 'OBSERVED' : 'UNKNOWN',
+      systems: systemRecallRows.length,
+      pre_question_observed: systemRecallRows.filter((row) => row?.pre_question_recall_observed).length,
+      post_first_pass_observed: systemRecallRows.filter((row) => row?.post_first_pass_recall_observed).length
+    },
+    precision: {
+      evidence_status: Number(precision?.cards || 0) > 0 ? 'SELECTIVE_EVIDENCE_PRESENT' : 'UNKNOWN_OR_NOT_ADMITTED',
+      cards: Number(precision?.cards || 0),
+      weak: Number(precision?.weak || 0),
+      due_weak: Number(precision?.due_weak || 0),
+      due_delayed: Number(precision?.due_delayed || 0),
+      stable_waiting: Number(precision?.stable_waiting || 0),
+      boundary: 'Only selectively admitted Precision is measured; zero cards never proves precision mastery.'
+    },
+    official_application: {
+      evidence_status: Number(firstPass?.attempted_questions || 0) > 0 ? 'OBSERVED' : 'UNKNOWN',
+      first_pass_attempted: Number(firstPass?.attempted_questions || 0),
+      current_scope_attempted: Number(firstPass?.current_scope_eligible_attempted_questions || 0),
+      known_eligible_questions: finite(qWork?.exact_union_eligible_questions),
+      wrong_uncertain_rate: finite(firstPass?.wrong_or_uncertain_rate),
+      boundary: qWork?.known_remaining_is_lower_bound ? 'KNOWN_SCOPE_LOWER_BOUND' : 'CURRENT_EXACT_SCOPE'
+    },
+    repair_fresh_verification: {
+      evidence_status: Number(progress?.repair_evidence?.total_repair_clusters || 0) > 0 ? 'REPAIR_EVIDENCE_PRESENT' : 'UNKNOWN_OR_NONE_OBSERVED',
+      active_clusters: Number(progress?.repair_evidence?.active_repair_clusters || 0),
+      completed_clusters: Number(progress?.repair_evidence?.completed_repair_clusters || 0),
+      unresolved_wrong_uncertain_questions: Number(progress?.practice_evidence?.latest?.unresolved_wrong_uncertain_questions || 0),
+      boundary: 'DONE repair is not mastery; later fresh application remains the stronger evidence.'
+    },
+    fresh_transfer: {
+      evidence_status: Number(transfer?.observed_probes || 0) > 0 ? 'OBSERVED_SUPPLEMENTARY' : 'UNKNOWN',
+      observed_probes: Number(transfer?.observed_probes || 0),
+      stable: Number(transfer?.stable || 0),
+      uncertain: Number(transfer?.uncertain || 0),
+      wrong: Number(transfer?.wrong || 0),
+      boundary: 'AI transfer probes are supplementary and never formal score truth.'
+    },
+    case_stability: {
+      evidence_status: formalPapers.length > 0 ? 'WHOLE_PAPER_PROXY_PRESENT' : 'UNKNOWN',
+      dedicated_case_evidence: false,
+      boundary: 'Whole-paper performance is only a proxy for case/cross-system stability until dedicated case evidence is exposed.'
+    },
+    whole_paper_execution: {
+      evidence_status: formalPapers.length > 0 ? 'FORMAL_EVIDENCE_PRESENT' : 'MISSING',
+      sealed_300_point_papers: formalPapers.length,
+      latest
+    }
+  };
+
+  let scoreEstimateStatus = 'NOT_READY';
+  if (formalPapers.length === 1) scoreEstimateStatus = 'REFERENCE_ONLY';
+  else if (formalPapers.length === 2) scoreEstimateStatus = 'MULTI_REFERENCE_NO_EMPIRICAL_BAND';
+  else if (formalPapers.length >= 3) scoreEstimateStatus = 'EMPIRICAL_BAND';
+  if (formalPapers.length && String(contaminationStatus).toUpperCase() === 'UNKNOWN') {
+    scoreEstimateStatus += '_CONTAMINATION_UNKNOWN';
+  }
+
+  return {
+    schema: 'kianos.xizong.score-readiness.v1',
+    requirement,
+    formal_score: {
+      status: scoreEstimateStatus,
+      sample_count: formalPapers.length,
+      latest_score: latest ? Number(latest.earned_score) : null,
+      latest_target_gap: latest ? round(requirement.target_score - Number(latest.earned_score || 0)) : null,
+      empirical_band: empiricalBand,
+      contamination_status: String(contaminationStatus || 'UNKNOWN'),
+      discipline_breakdown: latest?.discipline_breakdown || null
+    },
+    capabilities,
+    material_gaps: Array.isArray(materialGaps) ? materialGaps : [],
+    hard_material_gaps: hardGaps,
+    gate_readiness: {
+      coverage_ready: hardGaps.length === 0,
+      formal_score_evidence_ready: formalPapers.length > 0,
+      full_empirical_score_band_ready: Boolean(empiricalBand),
+      result: hardGaps.length === 0 && formalPapers.length > 0 ? 'EVIDENCE_PRESENT' : 'NOT_READY'
+    },
+    boundary:
+      'Work completion and capability evidence do not manufacture predicted score. Score bands come only from formal performance evidence; material/capability layers explain confidence, risk and recoverable gaps.'
+  };
+}
+
+export function reconcileXizongMaterialIncrement(items = []) {
+  const rows = (Array.isArray(items) ? items : []).map((row, index) => {
+    const gross = finite(row?.gross_minutes);
+    const replacement = Math.max(0, Number(row?.replaces_minutes || 0));
+    const overlap = Math.max(0, Number(row?.overlap_minutes || 0));
+    const admitted = row?.admitted !== false;
+    const net = gross === null || !admitted ? null : Math.max(0, gross - replacement - overlap);
+    return {
+      id: String(row?.id || `material-${index + 1}`),
+      admitted,
+      gross_minutes: gross,
+      replaces_minutes: replacement,
+      overlap_minutes: overlap,
+      net_minutes: net,
+      status: !admitted ? 'REJECTED' : gross === null ? 'UNPRICED' : 'PRICED'
+    };
+  });
+  const admitted = rows.filter((row) => row.admitted);
+  const unpriced = admitted.filter((row) => row.net_minutes === null);
+  return {
+    schema: 'kianos.xizong.material-increment.v1',
+    items: rows,
+    status: unpriced.length ? 'PARTIAL' : 'PRICED',
+    net_minutes: unpriced.length ? null : round(admitted.reduce((sum,row)=>sum+Number(row.net_minutes||0),0)),
+    unpriced_item_ids: unpriced.map((row) => row.id),
+    boundary:
+      'Current-year case/cram/biochemistry/five-hour assets enter as deduplicated net workload. Replacement and overlap are subtracted before forecast; raw duration is never blindly stacked.'
+  };
+}
+
+function addDays(day, offset) {
+  const match = String(day || '').match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!match) return null;
+  const date = new Date(Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3])));
+  date.setUTCDate(date.getUTCDate() + Number(offset || 0));
+  return date.toISOString().slice(0, 10);
+}
+
+function projectMinutesAcrossCapacity(minutes, {
+  startDay = null,
+  dailyMinutes = null,
+  capacityMinutesByDay = null,
+  maxDays = 180
+} = {}) {
+  const need = Math.max(0, Number(minutes || 0));
+  const fallback = positive(dailyMinutes);
+  if (!startDay) return { days: fallback ? Math.ceil(need / fallback) : null, date: null, remaining_minutes: null };
+  let remaining = need;
+  for (let index = 0; index < maxDays; index += 1) {
+    const day = addDays(startDay, index);
+    const specific = recordLike(capacityMinutesByDay) ? finite(capacityMinutesByDay[day]) : null;
+    const capacity = specific === null ? fallback : Math.max(0, specific);
+    if (capacity === null) return { days: null, date: null, remaining_minutes: remaining };
+    remaining -= capacity;
+    if (remaining <= 0) return { days: index + 1, date: day, remaining_minutes: 0 };
+  }
+  return { days: null, date: null, remaining_minutes: round(Math.max(0, remaining)) };
+}
+
+function recordLike(value) {
+  return value !== null && typeof value === 'object' && !Array.isArray(value);
+}
+
 export function applyXizongForecastScenario(forecast, {
   dailyMinutes = null,
-  netIncrementMinutes = 0
+  netIncrementMinutes = 0,
+  materialItems = null,
+  startDay = null,
+  capacityMinutesByDay = null
 } = {}) {
   if (!forecast || forecast.schema !== XIZONG_FORECAST_MODEL_SCHEMA) {
     throw new Error('XIZONG_FORECAST_MODEL_REQUIRED');
   }
   const perDay = positive(dailyMinutes);
-  const increment = Math.max(0, Number(netIncrementMinutes || 0));
+  const material = materialItems == null ? null : reconcileXizongMaterialIncrement(materialItems);
+  const directIncrement = Math.max(0, Number(netIncrementMinutes || 0));
+  const increment = material
+    ? (material.net_minutes === null ? null : Number(material.net_minutes))
+    : directIncrement;
   const project = (aggregate) => {
     const band = aggregate?.full_band_minutes || aggregate?.known_priced_band_minutes;
-    if (!band) return {
+    if (!band || increment === null) return {
       status: 'UNPRICED',
       full_scope: false,
       band_minutes: null,
-      band_days: null
+      band_days: null,
+      band_dates: null
     };
     const withIncrement = {
       p20: round(Number(band.p20 || 0) + increment),
@@ -464,13 +732,20 @@ export function applyXizongForecastScenario(forecast, {
         p20: Math.ceil(withIncrement.p20 / perDay),
         p50: Math.ceil(withIncrement.p50 / perDay),
         p80: Math.ceil(withIncrement.p80 / perDay)
-      }
+      },
+      band_dates: startDay ? {
+        p20: projectMinutesAcrossCapacity(withIncrement.p20, { startDay, dailyMinutes: perDay, capacityMinutesByDay }),
+        p50: projectMinutesAcrossCapacity(withIncrement.p50, { startDay, dailyMinutes: perDay, capacityMinutesByDay }),
+        p80: projectMinutesAcrossCapacity(withIncrement.p80, { startDay, dailyMinutes: perDay, capacityMinutesByDay })
+      } : null
     };
   };
   return {
     schema: 'kianos.xizong.forecast-scenario.v1',
     daily_minutes: perDay,
     net_increment_minutes: increment,
+    material_increment: material,
+    start_day: startDay,
     first_round: project(forecast.first_round),
     score_formation: project(forecast.score_formation),
     boundary:
