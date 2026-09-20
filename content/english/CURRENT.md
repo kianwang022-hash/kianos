@@ -105,9 +105,19 @@ E3 blind acceptance locked all 18 current fixtures before sealed-key reveal and 
 
 Next: latest-head CI/browser proof must validate exact-source exposure continuity, Chat assistance provenance, bounded long-horizon recurrence and whole-paper constituent contamination. If green, run one bounded E4 self-attack and close only if no material evidence-fidelity defect remains.
 
-**Stage-opening gate after E4:** E5 Forecast is currently **NOT AUTHORIZED** merely because it is next in the Stage Plan. After E4 closes, default action is **return to real English study / Real Learner U**. Open E5 only when a real near-term planning decision would otherwise be materially wrong or impossible and the needed learner parameters are available enough to make Forecast decision-relevant.
+**Post-E4 maturity gate:** do not open E5 merely because it is next in the Stage Plan. First separate:
 
-Minimum evidence expected before a serious E5 open decision normally includes current learner evidence for Objective residual performance, Translation/Small/Big first-output level, task duration, and at least an initial Lexical retention trajectory. Missing these keeps E5 prior-heavy and therefore deferred.
+```text
+Forecast SYSTEM LOGIC
+vs
+KIAN-SPECIFIC Forecast CALIBRATION
+```
+
+The mother standard still requires Forecast logic in the final Maturity Package: remaining workload, uncertainty, sensitivity, decision-flip surface, highest-value next evidence and score-path confidence. That logic may be accepted before Kian-specific parameters exist, provided UNKNOWN stays explicit and no fake precision is introduced.
+
+Kian-specific numerical calibration remains Real Learner U-dependent. Current missing learner parameters include Objective residual performance, Translation/Small/Big first-output level, task duration and delayed Lexical retention.
+
+After E4, first audit whether the existing English Forecast / Dynamic Control / Future Source / Chat↔Website / lifecycle logic already satisfies the maturity standard. Only build the smallest missing system-logic owner. Do not automatically construct E5→E10 as a pipeline.
 
 Boundaries: reuse existing task workspaces/transport; no second scheduler/ledger/mastery; no broad Guide rewrite; no protected true-exam consumption for engineering proof; no automatic E4→E5 transition.
 
