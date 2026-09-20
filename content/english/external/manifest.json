@@ -1029,7 +1029,13 @@
     "batch_policy": "PARSE_PRECHECK_DEDUPE_ONLY; NO_AUTO_ADMISSION",
     "review_schema": "kian.external-source-quality-review-batch.v1",
     "promotion_tool": "tools/english-external/promote_reviewed_sources.py",
-    "promotion_policy": "ACCEPT_ONLY; HOLD_REJECT_NOT_PROMOTED; PARSER_HOLD_CANNOT_BE_OVERRIDDEN_BY_PROMOTION",
-    "full_flow": "SOURCE_PACKAGE -> BATCH_PARSE -> CHAT_QUALITY_REVIEW -> ACCEPT_PROMOTION -> REGISTRY -> MANIFEST_BUILDER -> PUBLIC_SHA_ACTIVATION"
+    "promotion_policy": "SOURCE_QUALITY_ACCEPT_REQUIRED_AND_LEARNER_ROUTE_ADMIT_TO_READING_REQUIRED",
+    "full_flow": "SOURCE_PACKAGE -> BATCH_PARSE -> CHAT_QUALITY_REVIEW -> ACCEPT_PROMOTION -> REGISTRY -> MANIFEST_BUILDER -> PUBLIC_SHA_ACTIVATION",
+    "learner_route_values": [
+      "ADMIT_TO_READING",
+      "BACKEND_REFERENCE_ONLY",
+      "DO_NOT_SURFACE"
+    ],
+    "attention_gate": "ACCEPTED_SOURCE_MAY_REMAIN_BACKEND_ONLY"
   }
 }

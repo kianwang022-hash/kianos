@@ -79,15 +79,29 @@ Canonical mechanical promotion tool:
 
 `tools/english-external/promote_reviewed_sources.py`
 
-It may only promote entries whose decision is `ACCEPT` and whose quality fields are compatible with safe admission.
+Source-quality `ACCEPT` is necessary but **not sufficient** for learner/runtime promotion.
+
+Every ACCEPT review must also declare:
+
+```
+learner_value.runtime_admission:
+  ADMIT_TO_READING | BACKEND_REFERENCE_ONLY | DO_NOT_SURFACE
+```
+
+Only `ACCEPT + ADMIT_TO_READING` may enter Active Source.
+
+A trustworthy source classified `BACKEND_REFERENCE_ONLY` or `DO_NOT_SURFACE` stays outside the learner runtime. This preserves the product goal that source archival value must not become learner attention cost.
 
 It:
+- verifies source-quality ACCEPT fields;
+- requires an explicit learner-routing decision;
 - verifies parsed-package hashes;
 - refuses parser-HOLD bytes even if a review mistakenly says ACCEPT;
-- copies accepted packages into `Active Source/INCREMENTAL/packages/<source_id>/`;
+- copies only ACCEPT + ADMIT_TO_READING packages into `Active Source/INCREMENTAL/packages/<source_id>/`;
 - preserves optional source-native questions/answers;
 - updates the explicit Incremental registry;
 - leaves HOLD/REJECT untouched;
+- leaves ACCEPT + BACKEND_REFERENCE_ONLY / DO_NOT_SURFACE outside Active Source;
 - never activates the public runtime by itself.
 
 Full handoff:
