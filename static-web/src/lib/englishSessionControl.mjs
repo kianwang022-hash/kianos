@@ -435,11 +435,15 @@ function objectiveEvidence(storage, lastKey, attemptPrefix) {
         question_origin: 'CHAT_GENERATED',
         drill_origin: clean(attempt.binding.source_snapshot.drill_origin, 100) || null,
         completion_requirement: clean(attempt.binding.source_snapshot.completion_requirement, 80) || null,
-        evidence_role: clean(attempt.binding.evidence_role, 80) || null,
-        transfer_independence: attempt.binding.generated_transfer_independence
-          ? clone(attempt.binding.generated_transfer_independence)
-          : null,
-        calibration_status: clean(attempt.binding.calibration_status, 80) || null,
+        ...(clean(attempt.binding.evidence_role, 80)
+          ? { evidence_role: clean(attempt.binding.evidence_role, 80) }
+          : {}),
+        ...(attempt.binding.generated_transfer_independence
+          ? { transfer_independence: clone(attempt.binding.generated_transfer_independence) }
+          : {}),
+        ...(clean(attempt.binding.calibration_status, 80)
+          ? { calibration_status: clean(attempt.binding.calibration_status, 80) }
+          : {}),
         training_target: attempt.binding.source_snapshot.training_target && typeof attempt.binding.source_snapshot.training_target === 'object'
           ? {
               kind: clean(attempt.binding.source_snapshot.training_target.kind, 120) || null,
