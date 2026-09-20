@@ -375,6 +375,175 @@ export function englishAttemptInventory(storage) {
 }
 
 
+export const ENGLISH_PERFORMANCE_PROFILE_SCHEMA = 'kianos.english.performance-profile.v1';
+export const ENGLISH_PACKET_RECENT_PER_TASK = 8;
+
+const ENGLISH_PROFILE_TASKS = Object.freeze([
+  'reading_a',
+  'cloze',
+  'reading_b',
+  'external_reading',
+  'translation',
+  'writing'
+]);
+
+const ENGLISH_PROFILE_TASK_ROLE = Object.freeze({
+  reading_a: 'EXAM_OBJECTIVE',
+  cloze: 'EXAM_OBJECTIVE',
+  reading_b: 'EXAM_OBJECTIVE',
+  external_reading: 'GROWTH_READING',
+  translation: 'EXAM_PRODUCTIVE',
+  writing: 'EXAM_PRODUCTIVE'
+});
+
+function englishAttemptTimestamp(row) {
+  for (const raw of [
+    row?.submitted_at,
+    row?.updated_at,
+    row?.started_at,
+    row?.first_evidence?.submitted_at,
+    row?.first_evidence?.observed_at
+  ]) {
+    const value = Date.parse(String(raw || ''));
+    if (Number.isFinite(value)) return value;
+  }
+  return Number.NEGATIVE_INFINITY;
+}
+
+function countValues(rows, getter, values) {
+  const out = Object.fromEntries(values.map((value) => [value, 0]));
+  out.other = 0;
+  for (const row of rows) {
+    const value = String(getter(row) || 'unknown');
+    if (Object.prototype.hasOwnProperty.call(out, value)) out[value] += 1;
+    else out.other += 1;
+  }
+  return out;
+}
+
+function medianNumber(values) {
+  const rows = values.map(Number).filter(Number.isFinite).sort((a, b) => a - b);
+  if (!rows.length) return null;
+  const mid = Math.floor(rows.length / 2);
+  return rows.length % 2 ? rows[mid] : Number(((rows[mid - 1] + rows[mid]) / 2).toFixed(2));
+}
+
+function safeIndependentTransferCandidate(row) {
+  const meta = row?.first_evidence;
+  if (!meta || typeof meta !== 'object') return false;
+  return meta.independent_transfer_candidate === true
+    && row?.prior_exposure === 'unseen'
+    && row?.assistance === 'unassisted'
+    && meta.timing_status !== 'budget_exceeded';
+}
+
+function timingProfile(rows) {
+  const metas = rows.map((row) => row?.first_evidence).filter((meta) => meta && typeof meta === 'object');
+  const elapsed = metas.map((meta) => Number(meta.elapsed_seconds)).filter(Number.isFinite);
+  const ratios = metas
+    .map((meta) => {
+      const elapsedSeconds = Number(meta.elapsed_seconds);
+      const budgetSeconds = Number(meta.time_budget_seconds);
+      if (!Number.isFinite(elapsedSeconds) || !Number.isFinite(budgetSeconds) || budgetSeconds <= 0) return null;
+      return Number((elapsedSeconds / budgetSeconds).toFixed(3));
+    })
+    .filter(Number.isFinite);
+  const timing = countValues(
+    metas,
+    (meta) => meta?.timing_status || 'uncalibrated',
+    ['within_explicit_budget', 'budget_exceeded', 'uncalibrated']
+  );
+  return {
+    first_evidence_samples: metas.length,
+    elapsed_samples: elapsed.length,
+    calibrated_samples: timing.within_explicit_budget + timing.budget_exceeded,
+    within_explicit_budget: timing.within_explicit_budget,
+    budget_exceeded: timing.budget_exceeded,
+    uncalibrated: timing.uncalibrated + timing.other,
+    median_elapsed_seconds: medianNumber(elapsed),
+    median_budget_ratio: medianNumber(ratios)
+  };
+}
+
+function taskPerformanceProfile(allRows, recentRows, task) {
+  const history = allRows.filter((row) => row.task === task);
+  const recent = recentRows.filter((row) => row.task === task);
+  const summarize = (rows) => ({
+    attempts: rows.length,
+    unreadable_attempts: rows.filter((row) => row.data_status === 'unreadable').length,
+    complete_attempts: rows.filter((row) => row.complete === true).length,
+    current_problem_bearing_attempts: rows.filter((row) => Number(row.problem_count || 0) > 0).length,
+    independent_transfer_candidates: rows.filter(safeIndependentTransferCandidate).length,
+    exposure: countValues(rows, (row) => row.prior_exposure || 'unknown', ['unseen', 'exposed', 'unknown']),
+    assistance: countValues(rows, (row) => row.assistance || 'unknown', ['unassisted', 'assisted', 'unknown']),
+    timing: timingProfile(rows)
+  });
+  return {
+    role: ENGLISH_PROFILE_TASK_ROLE[task],
+    history: summarize(history),
+    recent: summarize(recent)
+  };
+}
+
+export function boundedEnglishAttemptInventory(rows, perTaskLimit = ENGLISH_PACKET_RECENT_PER_TASK) {
+  const limit = Math.max(1, Math.min(20, Math.floor(Number(perTaskLimit) || ENGLISH_PACKET_RECENT_PER_TASK)));
+  const selected = [];
+  for (const task of ENGLISH_PROFILE_TASKS) {
+    selected.push(
+      ...rows
+        .filter((row) => row.task === task)
+        .sort((a, b) => englishAttemptTimestamp(b) - englishAttemptTimestamp(a))
+        .slice(0, limit)
+    );
+  }
+  return selected.sort((a, b) => englishAttemptTimestamp(b) - englishAttemptTimestamp(a));
+}
+
+export function buildEnglishPerformanceProfile(rows, {
+  recentPerTask = ENGLISH_PACKET_RECENT_PER_TASK
+} = {}) {
+  const allRows = Array.isArray(rows) ? rows : [];
+  const recentRows = boundedEnglishAttemptInventory(allRows, recentPerTask);
+  return {
+    schema: ENGLISH_PERFORMANCE_PROFILE_SCHEMA,
+    semantics: 'TASK_LOCAL_DERIVED_TELEMETRY; NOT_MASTERY; NOT_CROSS_TASK_PRIORITY; INDEPENDENT_TRANSFER_CANDIDATE_IS_ELIGIBILITY_ONLY',
+    recent_per_task_limit: Math.max(1, Math.min(20, Math.floor(Number(recentPerTask) || ENGLISH_PACKET_RECENT_PER_TASK))),
+    total_attempts: allRows.length,
+    recent_attempts_included: recentRows.length,
+    truncated: recentRows.length < allRows.length,
+    tasks: Object.fromEntries(
+      ENGLISH_PROFILE_TASKS.map((task) => [task, taskPerformanceProfile(allRows, recentRows, task)])
+    ),
+    guardrails: [
+      'RAW_PRIVATE_HISTORY_REMAINS_LOCAL',
+      'DO_NOT_COMPARE_RAW_ELAPSED_TIME_ACROSS_TASK_TYPES',
+      'EXPOSED_OR_ASSISTED_WORK_IS_NOT_INDEPENDENT_TRANSFER',
+      'UNCALIBRATED_TIMING_IS_UNKNOWN_NOT_SLOW',
+      'TRANSLATION_AND_WRITING_HAVE_NO_AUTO_SCORE',
+      'PROFILE_CREATES_NO_REVIEW_OR_TEST_DEBT'
+    ]
+  };
+}
+
+function englishInventoryPacketView(rows, perTaskLimit = ENGLISH_PACKET_RECENT_PER_TASK) {
+  const recent = boundedEnglishAttemptInventory(rows, perTaskLimit);
+  const totalsByTask = Object.fromEntries(
+    ENGLISH_PROFILE_TASKS.map((task) => [task, rows.filter((row) => row.task === task).length])
+  );
+  return {
+    inventory: recent,
+    inventory_meta: {
+      total_attempts: rows.length,
+      included_attempts: recent.length,
+      truncated: recent.length < rows.length,
+      recent_per_task_limit: Math.max(1, Math.min(20, Math.floor(Number(perTaskLimit) || ENGLISH_PACKET_RECENT_PER_TASK))),
+      total_by_task: totalsByTask,
+      semantics: 'BOUNDED_RECENT_EXACT_ATTEMPTS; FULL_RAW_HISTORY_STAYS_IN_PRIVATE_STORAGE'
+    }
+  };
+}
+
+
 function englishResumeEvidence(storage, day) {
   const sessionState = readEnglishSessionInstruction(storage, day);
   if (sessionState.status === 'ready' && sessionState.instruction) {
@@ -440,11 +609,16 @@ export function buildEnglishEvidencePacket(storage, { day, now = Date.now(), cat
   if (!storage?.getItem) throw new Error('ENGLISH_EVIDENCE_STORAGE_UNAVAILABLE');
   if (!validDay(day)) throw new Error('ENGLISH_EVIDENCE_DAY_INVALID');
 
+  const rawInventory = englishAttemptInventory(storage);
+  const packetInventory = englishInventoryPacketView(rawInventory);
+
   return {
     schema: ENGLISH_EVIDENCE_SCHEMA,
     study_day: day,
     generated_at: new Date(now).toISOString(),
-    inventory: englishAttemptInventory(storage),
+    inventory: packetInventory.inventory,
+    inventory_meta: packetInventory.inventory_meta,
+    performance_profile: buildEnglishPerformanceProfile(rawInventory),
     resume: englishResumeEvidence(storage, day),
     tasks: clone({
       reading_a: objectiveEvidence(storage, LAST_LOCATION_KEYS.reading_a, 'kianos-reading-attempt-v1:'),
