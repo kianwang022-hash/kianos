@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import {
-  saveEnglishAttempt
+  saveEnglishAttempt,
+  archiveEnglishAttempt
 } from '../src/lib/englishLearnerEvidence.mjs';
 import {
   ENGLISH_SESSION_KEY,
@@ -108,6 +109,28 @@ const valueB={submitted:true,answers:{q1:'A'},results:{q1:'correct'},uncertain:[
 saveEnglishAttempt(storage,'kianos-reading-attempt-v1:same-source-b',valueB,metaB,{now:now+60000});
 assert.equal(valueB.binding.prior_exposure,'exposed','same learner-semantic source with a new exact revision/id was washed back to unseen/unknown');
 assert.equal(valueB.firstEvidenceMeta?.independent_transfer_candidate,false);
+
+// 2a) Same object id with a materially new semantic source must not inherit exposure from the old revision.
+const revisionStorage=new MemoryStorage();
+const revisionKey='kianos-reading-attempt-v1:revision-same-object';
+const oldRevision={submitted:true,answers:{q1:'A'},results:{q1:'correct'},uncertain:[]};
+saveEnglishAttempt(revisionStorage,revisionKey,oldRevision,{
+  task:'reading_a',
+  object_id:'revision-same-object',
+  source_hash:'revision-exact-a',
+  semantic_source_hash:'revision-semantic-a',
+  snapshot:{evidence:{source_kind:'official',evidence_role:null,semantic_source_hash:'revision-semantic-a'}}
+},{now:now+70000});
+archiveEnglishAttempt(revisionStorage,revisionKey,now+80000);
+const newRevision={submitted:true,answers:{q1:'A'},results:{q1:'correct'},uncertain:[]};
+saveEnglishAttempt(revisionStorage,revisionKey,newRevision,{
+  task:'reading_a',
+  object_id:'revision-same-object',
+  source_hash:'revision-exact-b',
+  semantic_source_hash:'revision-semantic-b',
+  snapshot:{evidence:{source_kind:'official',evidence_role:null,semantic_source_hash:'revision-semantic-b'}}
+},{now:now+90000});
+assert.notEqual(newRevision.binding.prior_exposure,'exposed','old object-id history contaminated a materially new semantic revision');
 
 // 2b) An explicit exposed learner declaration must keep exact-source identity even before opening.
 const declaredStorage=new MemoryStorage();
@@ -368,6 +391,7 @@ console.log(JSON.stringify({
     chat_context_assistance_downgrades_first_evidence:true,
     chat_cannot_declare_unassisted:true,
     semantic_source_cross_object_exposure:true,
+    semantic_revision_does_not_inherit_object_id_exposure:true,
     exposed_declaration_cross_object_exposure:true,
     known_exposure_rejects_later_unseen_alias:true,
     bounded_long_horizon_recurrence_digest:true,
