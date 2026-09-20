@@ -271,7 +271,7 @@ assert.match(polForecast.evidence_boundary,/exam\.subject-demand\.v1/);
 const polMemoryProfile=packet.subjects.politics.evidence.memory?.history_profile;
 assert.equal(polMemoryProfile?.schema,'kianos.politics.memory-history-profile.v1',
   'private relay must preserve landed cross-day Politics Memory profile');
-assert.equal(polMemoryProfile.latest_unstable.some(row=>row.candidate_id===memoryCandidate.id),true,
+assert.equal(polMemoryProfile.unstable_recent.some(row=>row.candidate_id===memoryCandidate.id),true,
   'yesterday FORGOT must survive into private Daily Packet');
 
 assert.equal(packet.schedule.phase.id,'A');
