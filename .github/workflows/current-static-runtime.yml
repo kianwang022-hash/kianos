@@ -33,5 +33,9 @@ jobs:
           node --check scripts/privateExternalReadingBridge.mjs
           node --check scripts/privateControlBridge.mjs
           node --check scripts/test-current-static-runtime.mjs
-      - run: npm run build
+      - name: Build staging Current and promote
+        run: |
+          rm -rf .current-build-next dist
+          npm run build -- --outDir "$PWD/.current-build-next"
+          mv .current-build-next dist
       - run: npm run test:current-static-runtime
