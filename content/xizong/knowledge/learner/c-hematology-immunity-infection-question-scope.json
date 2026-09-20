@@ -1,7 +1,7 @@
 {
   "schema": "kianos.xizong.system_question_scope.v2",
   "status": "CURRENT",
-  "authority": "CHAT_APPROVED_CURRENT_RECONSTRUCTION_FROM_EXACT_RESOLVER_WITH_BOUNDED_OWNER_REPAIR",
+  "authority": "CHAT_APPROVED_CURRENT_RECONSTRUCTION_WITH_CROSS_SYSTEM_OWNER_REPAIR",
   "system": {
     "canonical_id": "C",
     "system_id": "hematology-immunity-infection",
@@ -9,15 +9,15 @@
   },
   "role": "FIRST_PASS_SYSTEM_OFFICIAL_QUESTION_SCOPE_ONLY",
   "learner_use": "After real C System completion + pre-question System Reconstruction, expand this exact identifier scope and run the C official-question sweep. Correct-and-clear may fast-pass; Wrong/Uncertain remain repair evidence.",
-  "question_count": 288,
-  "question_id_inventory_sha256": "2ef4aea5c284fb9ced4b418bcde4df202f403b2f68651c6fad23b4d0fa77ea1f",
+  "question_count": 289,
+  "question_id_inventory_sha256": "3c04968c9fb88b216c15f249a95ac8ea985ebd6f9166ae59b57a27c61ff0287b",
   "id_expansion": {
     "id_template": "xizong-official-{year}-n{number:03d}",
     "spec_format": "comma-separated single numbers or inclusive a-b ranges",
     "question_number_spec_by_year": {
       "2005": "4,47,50,77-78,80,83-84",
       "2006": "46,49,77-80,83-84,90,140,145",
-      "2007": "4,47-48,50,68-69,75-76,83,117-118,152,172-173",
+      "2007": "4,47-48,50,68-69,75-76,83,117-118,150,152,172-173",
       "2008": "4,46-47,52,71-72,75-76,105-107,165,167-168,173",
       "2009": "4,24,53,72-74,102-104,173",
       "2010": "4,46,51,71-72,75-76,105-107,138,152,165,167-168,173",
@@ -42,7 +42,7 @@
   "year_counts": {
     "2005": 8,
     "2006": 11,
-    "2007": 14,
+    "2007": 15,
     "2008": 15,
     "2009": 10,
     "2010": 16,
@@ -127,14 +127,26 @@
       "H1 physiology blood-properties Primary remains in C",
       "H22/H23 selected infectious pathology Primary remains in C"
     ],
-    "decision": "ACCEPT_REPAIRED_CURRENT_C_SYSTEM_SCOPE"
+    "decision": "ACCEPT_REPAIRED_CURRENT_C_SYSTEM_SCOPE_WITH_RA_OWNER_TRANSFER",
+    "cross_system_owner_repair": {
+      "added_from_D_current_review": [
+        {
+          "question_id": "xizong-official-2007-n150",
+          "source_route": "surgery|五、骨科|5.非化脓性关节炎",
+          "reason": "General RA medical Primary belongs C H17; D O15 retains only orthopedic/surgical comparison coordinates."
+        }
+      ],
+      "previous_count": 288,
+      "current_count": 289,
+      "overlap_with_D_after_transfer": 0
+    }
   },
   "runtime_validation": [
     "Expand question_number_spec_by_year deterministically.",
-    "Require exactly 288 unique IDs.",
-    "Require expanded inventory SHA256 = 2ef4aea5c284fb9ced4b418bcde4df202f403b2f68651c6fad23b4d0fa77ea1f.",
+    "Require exactly 289 unique IDs.",
+    "Require expanded inventory SHA256 = 3c04968c9fb88b216c15f249a95ac8ea985ebd6f9166ae59b57a27c61ff0287b.",
     "Require Current Question Truth ordered-ID inventory SHA256 = 0abc1a3cadbb41b36808fe86ff58c21ede6f4297312e9fb4c2da62b865ef2c82.",
-    "Fail closed if Current C owner boundary, historical resolver identities, or Current Question Truth inventory changes."
+    "Fail closed if Current C/D owner boundaries, historical resolver identities, or Current Question Truth inventory changes."
   ],
   "boundaries": [
     "System-level official-question membership only; not Question Truth.",

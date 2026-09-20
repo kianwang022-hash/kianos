@@ -122,13 +122,39 @@ Verdict:
 ```text
 historical executable-resolver candidate = 326
 bounded Current owner exclusions          = 38
-Current exact C scope                     = 288
+Current exact C scope                     = 289
 year range                                = 2005–2026
-inventory SHA256                          = 2ef4aea5c284fb9ced4b418bcde4df202f403b2f68651c6fad23b4d0fa77ea1f
+inventory SHA256                          = 3c04968c9fb88b216c15f249a95ac8ea985ebd6f9166ae59b57a27c61ff0287b
 unresolved membership ambiguity           = 0
 ```
 
 The historical count was not preserved for symmetry. Current owner truth wins.
+
+## 5A｜Cross-System owner repair after D audit
+
+Fresh D scope audit identified one question that historically sat under the surgery non-purulent-arthritis Lecture scope but belongs to C under Current ownership:
+
+`xizong-official-2007-n150`
+
+It tests general RA medical Primary:
+
+- inflammatory identity;
+- age/sex pattern;
+- bilateral symmetric-joint pattern;
+- rheumatoid-factor positivity.
+
+Current D O15 explicitly keeps RA immune/medical Primary in C/H17 and owns only orthopedic/surgical comparison coordinates.
+
+Therefore:
+
+```text
+C previous Current scope = 288
+RA Primary transferred D → C = +1
+C corrected Current scope = 289
+cross-System D/C overlap after transfer = 0
+```
+
+This is an owner correction, not count fitting.
 
 ## 6｜Preserved positive ownership
 
@@ -158,7 +184,7 @@ No learner attempt, mastery, W/U, Memory, holdout or review state is stored here
 
 ```text
 C exact official System-question scope = PASS_AFTER_BOUNDED_REPAIR
-Current qids = 288
+Current qids = 289
 ```
 
 C K/L remain accepted. C Projection remains its separate eligible / not-started stage.

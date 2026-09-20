@@ -1,0 +1,139 @@
+{
+  "schema": "kianos.xizong.system_question_scope.v2",
+  "status": "CURRENT",
+  "authority": "CHAT_APPROVED_CURRENT_RECONSTRUCTION_FROM_EXACT_RESOLVER_PLUS_CURRENT_ORTHOPEDIC_SCOPE",
+  "system": {
+    "canonical_id": "D",
+    "system_id": "neuro-sensory-motor-orthopedics",
+    "title": "神经 / 感觉 / 运动 / 骨科"
+  },
+  "role": "FIRST_PASS_SYSTEM_OFFICIAL_QUESTION_SCOPE_ONLY",
+  "learner_use": "After real D System completion + pre-question System Reconstruction, expand this exact identifier scope and run the D official-question sweep. Correct-and-clear may fast-pass; Wrong/Uncertain remain repair evidence.",
+  "question_count": 355,
+  "question_id_inventory_sha256": "129657b6612e2c9b26ea98b44fabd2d864d3c273e8dd91bfa1c9020d1d97b0be",
+  "id_expansion": {
+    "id_template": "xizong-official-{year}-n{number:03d}",
+    "spec_format": "comma-separated single numbers or inclusive a-b ranges",
+    "question_number_spec_by_year": {
+      "2005": "16-19,102-106,109-110,127-128,150",
+      "2006": "4,15,19-22,102-106,127-128,150",
+      "2007": "17,19-20,63,102-108,127-128,162-165",
+      "2008": "3,18-20,88-90,118-120,125-126,149-150,155-156,179-180",
+      "2009": "3,16-19,88-90,118-120,123,149-150,155,179-180",
+      "2010": "18-20,88-90,118-120,149-151,155-156,179-180",
+      "2011": "16-19,24,88-90,118-120,124,149-150,156,179-180",
+      "2012": "2-3,16-19,88-90,118-120,149-150,155,179-180",
+      "2013": "2,16-20,88-90,118-120,149-151,155,179-180",
+      "2014": "18-20,88-90,118-122,125-126,149-150,155-156,179-180",
+      "2015": "18-20,88-90,118-122,125-126,149-150,155-156,179-180",
+      "2016": "18-20,88-90,118-122,125-126,149-150,155-156,179-180",
+      "2017": "2,12-14,65-67,103-107,140,164-165",
+      "2018": "12-13,65-67,103-107,118-119,140-141,164-165",
+      "2019": "2,11-13,65-67,103-107,141,164-165",
+      "2020": "3,13,65-67,103-107,118-119,141,164-165",
+      "2021": "3,11-13,65-67,103-107,140-141,164",
+      "2022": "2,11-12,65-67,103-107,140-141,164-165",
+      "2023": "3,12-14,65-67,103-107,164-165",
+      "2024": "3,11-13,65-67,103-107,140,164-165",
+      "2025": "14-15,65-67,103-107,118-119,136,164-165",
+      "2026": "4,13-14,65-67,103-107,118,139,164-165"
+    }
+  },
+  "year_counts": {
+    "2005": 14,
+    "2006": 14,
+    "2007": 17,
+    "2008": 18,
+    "2009": 17,
+    "2010": 16,
+    "2011": 17,
+    "2012": 17,
+    "2013": 18,
+    "2014": 19,
+    "2015": 19,
+    "2016": 19,
+    "2017": 15,
+    "2018": 16,
+    "2019": 15,
+    "2020": 15,
+    "2021": 15,
+    "2022": 15,
+    "2023": 14,
+    "2024": 15,
+    "2025": 15,
+    "2026": 15
+  },
+  "reconstruction": {
+    "mode": "CURRENT_RECONSTRUCTION_FROM_EXACT_HISTORICAL_RESOLVER_PLUS_ORTHOPEDIC_LECTURE_SCOPE_RECOVERY",
+    "current_question_truth_identity_check": {
+      "owner_path": "content/xizong/questions/",
+      "question_count": 3750,
+      "current_question_id_inventory_sha256": "0abc1a3cadbb41b36808fe86ff58c21ede6f4297312e9fb4c2da62b865ef2c82",
+      "historical_and_current_question_id_inventory": "EXACT_MATCH_3750_OF_3750"
+    },
+    "historical_resolver": {
+      "source_repository": "kianwang022-hash/kianos-site-v238-recovery",
+      "source_ref": "a38444057dd46fbf1765052d17c5f6b6a018d2f7",
+      "resolver_path": "app/learning/xizong-question-pool.js",
+      "resolver_blob_sha1": "8b73c9e0a49e02ad3cf296832f90dd19fe4da161",
+      "routing_path": "public/xizong-system-source-routing.v1.local.json",
+      "routing_blob_sha1": "e184f0fc899de0a6bf47c5b194fe328d2f1977de",
+      "contract_path": "public/xizong-system-official-scope.v2.local.json",
+      "contract_blob_sha1": "b239dba8e3e2969b47a534be9d5daa3e001ab5d3",
+      "historical_d_candidate_count": 142,
+      "historical_limitation": "The frozen resolver accepted only 3 orthopedic questions because most surgery|五、骨科 routed rows have source_page=null or legacy non-Lecture page values. The exact lecture_scope_key remains present and reviewed."
+    },
+    "current_orthopedic_recovery": {
+      "reviewed_orthopedic_lecture_scope_prefix": "surgery|五、骨科|",
+      "routed_question_count": 217,
+      "current_owner_root": "content/xizong/knowledge/systems/d-neuro-sensory-motor-orthopedics/o-o1-o16/",
+      "current_primary_blocks": "O1–O16",
+      "current_primary_scope_summary": [
+        "movement-system deformity",
+        "chronic injury and nerve entrapment",
+        "hand injury / AVN / knee / peripheral nerve injury",
+        "pyogenic bone/joint infection and orthopedic TB",
+        "OA/AS/RA orthopedic coordinate",
+        "spine/pelvis/spinal-cord trauma and degenerative compression",
+        "upper/lower limb fractures and dislocations",
+        "fracture principles",
+        "bone tumors"
+      ],
+      "rule": "Exact reviewed surgery|五、骨科 Lecture-scope routing is admitted when the Current D orthopedic owner keeps that topic as Primary. Null/legacy page values do not erase an exact reviewed Lecture-scope identity."
+    },
+    "current_owner_adjudication": {
+      "union_historical_d_and_orthopedic_scope_count": 356,
+      "transfer_out": [
+        {
+          "question_id": "xizong-official-2007-n150",
+          "destination_system": "C",
+          "reason": "Question tests general RA medical Primary (inflammatory identity, demographic pattern, symmetry, RF), while D O15 owns only source-supported orthopedic/surgical comparison coordinates and explicitly recalls RA immune/medical Primary from C H17."
+        }
+      ],
+      "final_count": 355,
+      "unresolved_membership_ambiguities": []
+    },
+    "negative_space_checked": [
+      "C owns RA immune/medical Primary; only orthopedic structural comparison remains in D.",
+      "C owns shared infection/TB language, while D O13/O14 own bone/joint infection and orthopedic TB site-specific Primary.",
+      "tumor-general and myeloma clonal Primary remain external, while D O16 owns source-supported bone-tumor orthopedic classification, imaging and treatment questions.",
+      "unsupported full clinical neurology / ophthalmology / ENT curricula are not imported."
+    ],
+    "decision": "ACCEPT_REPAIRED_CURRENT_D_SYSTEM_SCOPE"
+  },
+  "runtime_validation": [
+    "Expand question_number_spec_by_year deterministically.",
+    "Require exactly 355 unique IDs.",
+    "Require expanded inventory SHA256 = 129657b6612e2c9b26ea98b44fabd2d864d3c273e8dd91bfa1c9020d1d97b0be.",
+    "Require Current Question Truth ordered-ID inventory SHA256 = 0abc1a3cadbb41b36808fe86ff58c21ede6f4297312e9fb4c2da62b865ef2c82.",
+    "Fail closed if Current D owner boundary, reviewed Lecture-scope routing, or Current Question Truth inventory changes."
+  ],
+  "boundaries": [
+    "System-level official-question membership only; not Question Truth.",
+    "Does not assert Question-to-Block, Question-to-Logic-Group, or Question-to-KP mapping.",
+    "Do not infer membership from nullable Current classification fields, keywords, KP count, Outline position, or historical count fitting.",
+    "The numerical equality between Current D qid count before RA transfer (356) and D canonical KP count (356) is incidental and carries zero evidentiary weight.",
+    "Reviewed Question→Knowledge relations remain a separate owner and may be sparse.",
+    "No learner attempt, mastery, Wrong/Uncertain, notes, Memory, holdout, or review state belongs in this shared Current scope owner."
+  ]
+}
