@@ -10,13 +10,13 @@ This file does not own medical Core, Xizong Learning semantics, Acceptance Truth
 ## Work Cursor
 
 **Scope:** B — Digestive / Metabolic / Endocrine / Tumor  
-**Active / earliest unresolved eligible gate:** `R — Runtime`.  
+**Active / earliest unresolved eligible gate:** `E — Evidence`.  
 **S status:** PASS — exact Current B official-question membership accepted at 1071 qids.  
 **K status:** PASS — 38 stable Blocks / 600 stable KPs + accepted System model.  
 **L status:** PASS — fresh independent Phase-6 acceptance complete.  
 **P status:** PASS — fresh revalidated on PR #643 candidate `c980bf28e6ae2c8a048cf0a63f65ae68a467784a`.  
-**R status:** UNTESTED / ACTIVE.  
-**E status:** downstream-frozen behind R.  
+**R status:** PASS — B shared Runtime browser journey passed on PR #643 run `35523372900`.  
+**E status:** UNTESTED / ACTIVE.  
 **U:** UNTESTED — real learner validation only.
 
 ```text
@@ -31,7 +31,7 @@ Phase 6  Fresh independent L acceptance                PASS
 
 Learning construction / acceptance task: GitHub Issue `#135` — completed.
 
-**Next action:** enter **B Runtime (R) only** using the existing shared Xizong runtime and accepted Projection. Prove the B first-pass learner journey without inventing B-specific learner state or a second runtime: bounded orientation → whole-LG Source handoff/return → KP Recall → LG closure → Block Recall/Complete → eligible PSR/System transition. Keep official B System sweep locked behind actual System completion + pre-question System Recall, and preserve the accepted 1071-qid scope without inferring Question→Block/KP relations.
+**Next action:** enter **B Evidence (E) only** on the already-accepted shared Runtime. Execute bounded B official-question evidence semantics: Stable fast path, Wrong/Uncertain observation, reviewed-relation-only repair routing, REPAIR_ONLY import, unchanged original attempt evidence, stale/version fail-closed behavior and natural return to the B sweep. Do not create B-specific evidence state or infer missing Question→KP relations.
 
 ---
 
@@ -125,7 +125,8 @@ Verdict:
 ```text
 L = PASS
 P = PASS
-R = ACTIVE / eligible
+R = PASS
+E = ACTIVE / eligible
 ```
 
 This is a shared Learning-design acceptance claim only. It creates **no Learner Truth** about what Kian has actually studied.

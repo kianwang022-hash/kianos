@@ -16,14 +16,14 @@ S  PASS — exact Current official-question membership accepted (1071 qids)
 K  PASS — 38 stable Blocks / 600 stable KPs + accepted System model
 L  PASS — fresh independent Learning acceptance complete
 P  PASS — fresh revalidation of the existing 1 System + 38 Block Projection assets
-R  UNTESTED — ACTIVE / earliest unresolved learner-execution gate
-E  UNTESTED — downstream-frozen behind R
+R  PASS — executed B shared Runtime browser journey
+E  UNTESTED — ACTIVE / earliest unresolved evidence gate
 U  UNTESTED — real learner use only
 ```
 
 Current allowed conclusion:
 
-> **B Source, Knowledge, Learning and Projection are accepted. Runtime is now the earliest unresolved learner-execution gate. B is still not learner-ready because R/E are unaccepted and U requires real use.**
+> **B Source, Knowledge, Learning, Projection and Runtime are accepted. Evidence is now the earliest unresolved gate. B is still not fully learner-ready because E is unaccepted and U requires real use.**
 
 Dependency-scoped rule:
 
@@ -259,11 +259,46 @@ P claim boundary:
 
 ---
 
-## R / E
+## R — PASS · executed browser evidence
 
-`R` is now the earliest unresolved active gate. `E` remains downstream-frozen behind R. Exact B question membership is accepted, but learner-execution and question-derived Evidence still require their own gates.
+Fresh Runtime proof on PR #643 candidate `fabda4b8f2df57e9859c45be8b0d554994c136fd`:
 
-Old web/runtime existence is not acceptance evidence.
+- B+C targeted projectability validation — **PASS**;
+- Astro build with all 38 B routes — **PASS**;
+- B shared Runtime browser journey in workflow run `35523372900` — **PASS**.
+
+Executed B journey proved:
+
+- real B D1 product route loads through the shared Xizong Runtime;
+- canonical KP identity comes from stable `kianos:kp` markers rather than synthetic `D1-kpXX` IDs;
+- whole-LG Source handoff marks only the accepted LG KP set as learned;
+- Source-contact evidence is bound to the accepted LG identity and `WHOLE_LOGIC_GROUP` mode;
+- refresh resumes the exact KP Recall stage without losing Source-contact identity;
+- seeded 38-Block completion is accepted only through the existing shared completion predicate;
+- completed B releases System Recall;
+- System Recall persists through the existing shared store;
+- System Recall releases the real B Practice route;
+- B Practice binds the accepted **1071-qid** System scope and existing System evidence guard.
+
+Important boundary:
+
+> Seeded completed-Block states are engineering gate/identity proof only. They do not claim Kian completed B and do not create learner U.
+
+The actual Runtime defect repaired was one shared-loader assumption: the old loader only understood A-shaped `blocks/` + `system.logic_index` ownership. B instead owns D/M/G canonical files, Learning-owned LG order and stable KP markers. The repair teaches the existing loader to consume those accepted owners; it does not create a B-specific Runtime or mutate medical/Learning truth.
+
+### E — UNTESTED / ACTIVE
+
+Evidence must now prove the same shared semantics on real B question/evidence flow:
+
+- official attempt remains keyed to real B qid;
+- Stable is not forced into Repair;
+- Wrong/Uncertain remains an observation, not diagnosis;
+- reviewed relation is the only precise Block/KP route;
+- Repair import is `REPAIR_ONLY` and does not rewrite original attempt evidence;
+- stale-version Evidence continues to fail closed;
+- return to interrupted B question mainline remains available.
+
+Old web/runtime existence is not E acceptance evidence.
 
 ---
 
