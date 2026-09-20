@@ -23,7 +23,7 @@ Xizong now operates under the five-layer architecture:
 
 There is no lane-wide requirement to continue historical UI migration merely because old migration files or PRs exist.
 
-Content construction may continue independently through exact System owners. Learner-facing website launch must not wait for unfinished future Systems/content when mature Current paths are already usable.
+Broad medical-content construction is not Current work. Any later Content change must route through `CONTENT_MAINLINE.md` and reopen only the smallest exact owner for a concrete defect, an authoritative new Source, or an explicitly active bounded program such as reviewed Crosswalk batches.
 
 ---
 
@@ -55,14 +55,12 @@ Remaining known limitation:
   guess or substitute them. If the original bytes are later recovered, reopen
   only that Source/media owner.
 
-This closure does **not** promote unfinished B/C/D/E/F content or learner
-readiness. Exact System/content construction continues through its own Current
-owners. Shared Runtime availability is not a readiness label.
+This Final Learner Acceptance did **not** itself manufacture Content closure or learner readiness. Current Content truth is owned separately by `CONTENT_MAINLINE.md`, which now records D/E/F medical-content construction and A1–F exact System-question membership as CLOSED while reviewed Question→Knowledge Crosswalk batches remain a non-blocking progressive program. Shared Runtime availability is not a readiness label.
 
 Normal next state:
 
 ```text
-real study / normal content construction
+real Stage-B study / explicitly active bounded content program
 → concrete defect or authoritative new Source appears
 → reopen the smallest responsible owner
 ```
