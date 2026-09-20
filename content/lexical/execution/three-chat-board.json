@@ -32,32 +32,31 @@
     "p_behavior": "APPROVE_EXACT_SHOWN_DELTA__FREEZE_BACKLOG__IMMEDIATE_NEXT_PRODUCTION_BATCH"
   },
   "frontier": {
-    "accepted_main_head": "a8968c6abb5409acee1971808e6e30944f155e39",
-    "current_candidate_id": "BF01",
+    "accepted_main_head": "d138873b4b38e3b70eba4d3a7c3460bc8b076fed",
+    "current_candidate_id": "BF02",
     "range": [
-      101,
-      200
+      201,
+      300
     ],
-    "state": "WAITING_FRESH_B_AUDIT",
-    "candidate_pr": 618,
-    "candidate_branch": "work/lexical-continuous-bf01-20260920",
-    "materialized_owner_read_head": "2652aa1ae8172a7904d315d45f74ce6a90e20dee",
-    "audit_brief_commit": "beb4a0719104b0eee4081fb2591556e14cd578b3",
-    "note": "BF01 is mechanically materialized and frozen for fresh independent audit. No reconciliation or merge until B writes one Audit Pack."
+    "state": "MATERIALIZE_ALLOWED",
+    "candidate_pr": null,
+    "candidate_branch": "work/lexical-continuous-bf02-20260921",
+    "materialized_owner_read_head": null,
+    "note": "BF02 Production is frozen and has no new material delta. Latest main/dependencies refrozen; materialization is authorized."
   },
   "audit_target": {
-    "state": "READY_FOR_FRESH_B",
-    "candidate_id": "BF01",
+    "state": "WAITING_CANDIDATE_MATERIALIZATION",
+    "candidate_id": "BF02",
     "range": [
-      101,
-      200
+      201,
+      300
     ],
-    "candidate_pr": 618,
-    "candidate_branch": "work/lexical-continuous-bf01-20260920",
-    "candidate_owner_read_head": "2652aa1ae8172a7904d315d45f74ce6a90e20dee",
-    "brief": "content/lexical/semantic-audit/O0101_O0200_FINAL_STANDARD_FRESH_AUDIT_BRIEF.md",
-    "output": "content/lexical/semantic-audit/O0101_O0200_FINAL_STANDARD_FRESH_AUDIT_PACK.md",
-    "note": "One fresh 词义B Chat must perform blind-first audit, commit exactly one Audit Pack, then stop."
+    "candidate_pr": null,
+    "candidate_branch": "work/lexical-continuous-bf02-20260921",
+    "candidate_owner_read_head": null,
+    "brief": null,
+    "output": "content/lexical/semantic-audit/O0201_O0300_FINAL_STANDARD_FRESH_AUDIT_PACK.md",
+    "note": "Materialize BF02 first, then create fresh blind-first audit brief."
   },
   "lanes": {
     "A": {
@@ -288,23 +287,23 @@
     "B": {
       "role": "FRESH_INDEPENDENT_AUDIT",
       "current_assignment": {
-        "candidate_id": "BF01",
+        "candidate_id": "BF02",
         "range": [
-          101,
-          200
+          201,
+          300
         ],
-        "candidate_pr": 618,
-        "candidate_branch": "work/lexical-continuous-bf01-20260920",
-        "candidate_owner_read_head": "2652aa1ae8172a7904d315d45f74ce6a90e20dee",
-        "brief": "content/lexical/semantic-audit/O0101_O0200_FINAL_STANDARD_FRESH_AUDIT_BRIEF.md",
-        "output": "content/lexical/semantic-audit/O0101_O0200_FINAL_STANDARD_FRESH_AUDIT_PACK.md",
-        "state": "READY_FOR_FRESH_B"
+        "candidate_pr": null,
+        "candidate_branch": "work/lexical-continuous-bf02-20260921",
+        "candidate_owner_read_head": null,
+        "brief": null,
+        "output": "content/lexical/semantic-audit/O0201_O0300_FINAL_STANDARD_FRESH_AUDIT_PACK.md",
+        "state": "WAITING_CANDIDATE_MATERIALIZATION"
       },
-      "state": "READY_FOR_FRESH_B",
+      "state": "WAITING_CANDIDATE_MATERIALIZATION",
       "may_mutate_semantic_truth": false,
       "must_stop_after_one_audit_pack": true,
       "scheduler": "NEXT_READY_MATERIALIZED_CANDIDATE",
-      "next_action": "A fresh 词义B Chat reads the live board, performs BF01 blind-first audit, commits one Audit Pack, and stops."
+      "next_action": "Wait for BF02 materialization; then perform one fresh blind-first Audit Pack."
     },
     "C": {
       "role": "PRODUCTION_C_FINAL_SWEEP",
@@ -344,7 +343,7 @@
             201,
             300
           ],
-          "state": "POST_SELF_ATTACK_WAIT_FOR_FRONTIER",
+          "state": "MATERIALIZE_ALLOWED",
           "review_head": "2fd29bf2e32e7e09d4300948e42a59a2821fe59e",
           "review_branch": "work/lexical-final-backfill-c-o0201-o0300",
           "proposal_pr": 528,
@@ -361,8 +360,9 @@
           "new_material_delta": false,
           "canonical_semantic_mutation": false,
           "semantic_freshness_note": "main advanced after freeze, but comparison from review_head to current main showed no Word/Relation/Form/lexical-contract changes in o0201-o0300 scope; refreeze again when BF02 reaches frontier.",
-          "next_action": "Wait for BF02 to become the serialized frontier. Then refreeze latest main, reconcile changed/shared owners only, apply the stabilized proposal, materialize Final Learner Objects, and hand to a fresh B Chat for blind-first Independent Semantic Audit.",
-          "semantic_dependency_policy": "Before frontier materialization, refreeze all related Word/Sense/Family/Form/Construction/Relation/Test dependencies and emit exact semantic_dependency_read_set in the mutation package."
+          "next_action": "Apply frozen BF02 proposal against latest main; rebuild Final Learner Objects; then hand to fresh B audit.",
+          "semantic_dependency_policy": "Before frontier materialization, refreeze all related Word/Sense/Family/Form/Construction/Relation/Test dependencies and emit exact semantic_dependency_read_set in the mutation package.",
+          "candidate_branch": "work/lexical-continuous-bf02-20260921"
         },
         {
           "candidate_id": "BF11",
@@ -1591,13 +1591,13 @@
     }
   ],
   "last_closed": {
-    "candidate_id": "BF00",
+    "candidate_id": "BF01",
     "range": [
-      1,
-      100
+      101,
+      200
     ],
-    "pr": 525,
-    "merge_commit": "a8968c6abb5409acee1971808e6e30944f155e39",
+    "pr": 618,
+    "merge_commit": "d138873b4b38e3b70eba4d3a7c3460bc8b076fed",
     "result": "FRESH_AUDIT_RECONCILED_AND_MERGED",
     "final_learner_objects": 7946
   },
