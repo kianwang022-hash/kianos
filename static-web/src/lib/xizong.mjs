@@ -336,6 +336,20 @@ function normalizeSystem(record) {
   };
 }
 
+export function listCurrentXizongSystemIdentities() {
+  assertCurrentManifest();
+  return systemDirectoryCandidates()
+    .map(systemRecordFromDir)
+    .filter(Boolean)
+    .map((record) => ({
+      systemId: record.identity.systemId,
+      canonicalId: record.identity.canonicalId,
+      title: record.identity.title,
+      projectionAccepted: record.projectionAccepted === true
+    }))
+    .sort((a,b) => String(a.canonicalId).localeCompare(String(b.canonicalId), undefined, { numeric: true }));
+}
+
 export function listProjectableXizongSystems() {
   assertCurrentManifest();
   return systemDirectoryCandidates()
