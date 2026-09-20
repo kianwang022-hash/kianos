@@ -4,6 +4,7 @@ import {
   xizongQuestionMarkOverrides
 } from './xizongRetainedPractice.mjs';
 import { summarizeXizongScoreAttribution } from './xizongScoreAttribution.mjs';
+import { studyDayAt } from './studyTimer.mjs';
 import {
   XIZONG_MEMORY_STORAGE_KEY,
   normalizeXizongMemoryState,
@@ -54,6 +55,135 @@ function scoreAttemptHistoryFromStorageEntries(entries) {
   return events;
 }
 
+function studyDayFromIso(value) {
+  const timestamp = Date.parse(String(value || ''));
+  return Number.isFinite(timestamp) ? studyDayAt(timestamp) : null;
+}
+
+function attemptIndex(event) {
+  const value = Number(event?.attempt_index);
+  return Number.isInteger(value) && value > 0 ? value : null;
+}
+
+function attemptTimestamp(event) {
+  const value = Date.parse(String(event?.submitted_at || event?.updatedAt || ''));
+  return Number.isFinite(value) ? value : null;
+}
+
+function earlierAttempt(candidate, current) {
+  if (!current) return true;
+  const candidateIndex = attemptIndex(candidate);
+  const currentIndex = attemptIndex(current);
+  if (candidateIndex !== null && currentIndex !== null && candidateIndex !== currentIndex) {
+    return candidateIndex < currentIndex;
+  }
+  const candidateAt = attemptTimestamp(candidate);
+  const currentAt = attemptTimestamp(current);
+  if (candidateAt !== null && currentAt !== null && candidateAt !== currentAt) {
+    return candidateAt < currentAt;
+  }
+  return false;
+}
+
+function laterAttempt(candidate, current) {
+  if (!current) return true;
+  const candidateIndex = attemptIndex(candidate);
+  const currentIndex = attemptIndex(current);
+  if (candidateIndex !== null && currentIndex !== null && candidateIndex !== currentIndex) {
+    return candidateIndex > currentIndex;
+  }
+  const candidateAt = attemptTimestamp(candidate);
+  const currentAt = attemptTimestamp(current);
+  if (candidateAt !== null && currentAt !== null && candidateAt !== currentAt) {
+    return candidateAt > currentAt;
+  }
+  return false;
+}
+
+function summarizeXizongForecastPractice(storage) {
+  const storageEntries = listStorageKeys(storage)
+    .filter((key) => /^kianos:xizong:(?:system|chat-set|retained|paper)-question-sweep:.*:v1$/.test(key))
+    .map((key) => [key, storage.getItem(key)]);
+  const events = scoreAttemptHistoryFromStorageEntries(storageEntries)
+    .filter((event) => /^xizong-official-\d{4}-n\d{3}$/.test(String(event?.question_id || '')));
+
+  const firstPass = new Map();
+  const latest = new Map();
+  for (const event of events) {
+    const questionId = String(event?.question_id || '');
+    if (!questionId) continue;
+    if (String(event?.study_phase || '') === 'FIRST_PASS' && earlierAttempt(event, firstPass.get(questionId))) {
+      firstPass.set(questionId, event);
+    }
+    if (laterAttempt(event, latest.get(questionId))) latest.set(questionId, event);
+  }
+
+  const firstPassCounts = { stable: 0, uncertain: 0, wrong: 0 };
+  const byDay = new Map();
+  for (const event of firstPass.values()) {
+    const status = String(event?.status || '');
+    if (Object.hasOwn(firstPassCounts, status)) firstPassCounts[status] += 1;
+    const day = studyDayFromIso(event?.submitted_at);
+    if (!day) continue;
+    if (!byDay.has(day)) byDay.set(day, { day, attempted: 0, stable: 0, uncertain: 0, wrong: 0 });
+    const row = byDay.get(day);
+    row.attempted += 1;
+    if (Object.hasOwn(firstPassCounts, status)) row[status] += 1;
+  }
+
+  const wrongUncertain = firstPassCounts.wrong + firstPassCounts.uncertain;
+  const unresolvedWrongUncertain = [...firstPass.entries()]
+    .filter(([, event]) => ['wrong', 'uncertain'].includes(String(event?.status || '')))
+    .filter(([questionId]) => ['wrong', 'uncertain'].includes(String(latest.get(questionId)?.status || '')))
+    .length;
+  const latestSubmittedAt = [...latest.values()]
+    .map((event) => String(event?.submitted_at || ''))
+    .filter(Boolean)
+    .sort()
+    .at(-1) || null;
+
+  return {
+    schema: 'kianos.xizong.practice-forecast-evidence.v1',
+    official_attempt_events: events.length,
+    first_pass: {
+      attempted_questions: firstPass.size,
+      stable: firstPassCounts.stable,
+      uncertain: firstPassCounts.uncertain,
+      wrong: firstPassCounts.wrong,
+      wrong_or_uncertain: wrongUncertain,
+      wrong_or_uncertain_rate: firstPass.size ? Number((wrongUncertain / firstPass.size).toFixed(4)) : null,
+      by_day: [...byDay.values()].sort((a, b) => a.day.localeCompare(b.day)).slice(-30)
+    },
+    latest: {
+      observed_questions: latest.size,
+      unresolved_wrong_uncertain_questions: unresolvedWrongUncertain,
+      last_submitted_at: latestSubmittedAt
+    },
+    evidence_boundary:
+      'Official question attempts are deduplicated by question id. First-pass Wrong/Uncertain is raw repair pressure, not one-repair-per-question debt.'
+  };
+}
+
+function summarizeXizongForecastRepairs(storage) {
+  const memory = normalizeXizongMemoryState(readJson(storage, XIZONG_MEMORY_STORAGE_KEY, null));
+  const repairs = activeRepairTasks(memory);
+  const sourceQuestionIds = new Set();
+  let questionBackedClusters = 0;
+  for (const task of repairs) {
+    const ids = Array.isArray(task?.sourceQuestionIds) ? task.sourceQuestionIds.map(String).filter(Boolean) : [];
+    if (ids.length) questionBackedClusters += 1;
+    ids.forEach((id) => sourceQuestionIds.add(id));
+  }
+  return {
+    schema: 'kianos.xizong.repair-forecast-evidence.v1',
+    active_repair_clusters: repairs.length,
+    question_backed_clusters: questionBackedClusters,
+    unique_source_question_ids: sourceQuestionIds.size,
+    evidence_boundary:
+      'Repair clusters are current subject-owned active repairs. Several Wrong/Uncertain questions may compress into one root-cause repair; completion still requires later fresh verification.'
+  };
+}
+
 function boundedScoreAttribution(attribution) {
   const source = record(attribution) ? attribution : {};
   const targets = Array.isArray(source.targets) ? source.targets : [];
@@ -94,6 +224,7 @@ export function buildXizongForecastProgress(storage, packetIndex = []) {
 
   const systems = new Map();
   const completedBlockIds = [];
+  const completedBlockRows = [];
   const startedIncomplete = [];
   let observedBlocks = 0;
 
@@ -102,6 +233,7 @@ export function buildXizongForecastProgress(storage, packetIndex = []) {
     const canonicalId = String(row?.packetMeta?.canonicalId || '');
     const blockId = String(row?.blockId || row?.packetMeta?.blockId || '');
     const kpRows = Array.isArray(row?.kpRows) ? row.kpRows : [];
+    const logicGroupCount = new Set(kpRows.map((kp) => String(kp?.groupId || '')).filter(Boolean)).size;
     if (!systemId || !canonicalId || !blockId || !kpRows.length) {
       throw new Error('XIZONG_FORECAST_PROGRESS_INDEX_ROW_INVALID');
     }
@@ -112,6 +244,7 @@ export function buildXizongForecastProgress(storage, packetIndex = []) {
         canonical_id: canonicalId,
         canonical_blocks: 0,
         canonical_kp: 0,
+        canonical_logic_groups: 0,
         runtime_observed_blocks: 0,
         runtime_completed_blocks: 0,
         runtime_started_incomplete_blocks: 0,
@@ -121,6 +254,7 @@ export function buildXizongForecastProgress(storage, packetIndex = []) {
     const system = systems.get(systemId);
     system.canonical_blocks += 1;
     system.canonical_kp += kpRows.length;
+    system.canonical_logic_groups += logicGroupCount;
 
     const objectId = String(row?.packetMeta?.objectId || `xizong:${blockId}`);
     const state = readJson(storage, `kianos-xizong-astro-v2:${objectId}`, null);
@@ -133,6 +267,18 @@ export function buildXizongForecastProgress(storage, packetIndex = []) {
 
     if (state.completed === true) {
       completedBlockIds.push(blockId);
+      completedBlockRows.push({
+        system_id: systemId,
+        canonical_id: canonicalId,
+        block_id: blockId,
+        kp_count: kpRows.length,
+        logic_group_count: logicGroupCount,
+        learned_kp_count: learnedKp,
+        block_recall_done: state.blockRecallDone === true,
+        block_recall_completed_at: String(state.blockRecallCompletedAt || '') || null,
+        completed_at: String(state.completedAt || '') || null,
+        study_day: studyDayFromIso(state.completedAt)
+      });
       system.runtime_completed_blocks += 1;
       continue;
     }
@@ -156,6 +302,14 @@ export function buildXizongForecastProgress(storage, packetIndex = []) {
   );
   const canonicalBlocks = packetIndex.length;
   const canonicalKp = packetIndex.reduce((sum,row)=>sum+(Array.isArray(row?.kpRows)?row.kpRows.length:0),0);
+  const canonicalLogicGroups = packetIndex.reduce((sum, row) => {
+    const groups = new Set((Array.isArray(row?.kpRows) ? row.kpRows : [])
+      .map((kp) => String(kp?.groupId || ''))
+      .filter(Boolean));
+    return sum + groups.size;
+  }, 0);
+  const practiceEvidence = summarizeXizongForecastPractice(storage);
+  const repairEvidence = summarizeXizongForecastRepairs(storage);
 
   return {
     schema: 'kianos.xizong.forecast-progress.v1',
@@ -165,11 +319,15 @@ export function buildXizongForecastProgress(storage, packetIndex = []) {
       systems: systemRows.length,
       blocks: canonicalBlocks,
       canonical_kp: canonicalKp,
+      logic_groups: canonicalLogicGroups,
       block_weights: packetIndex.map((row) => ({
         system_id: String(row.systemId || ''),
         canonical_id: String(row.packetMeta?.canonicalId || ''),
         block_id: String(row.blockId || row.packetMeta?.blockId || ''),
-        kp_count: Array.isArray(row.kpRows) ? row.kpRows.length : 0
+        kp_count: Array.isArray(row.kpRows) ? row.kpRows.length : 0,
+        logic_group_count: new Set((Array.isArray(row?.kpRows) ? row.kpRows : [])
+          .map((kp) => String(kp?.groupId || ''))
+          .filter(Boolean)).size
       }))
     },
     runtime_evidence: {
@@ -178,8 +336,13 @@ export function buildXizongForecastProgress(storage, packetIndex = []) {
       started_incomplete_blocks: startedIncomplete.length,
       no_runtime_evidence_blocks: Math.max(0, canonicalBlocks - observedBlocks),
       completed_block_ids: completedBlockIds.sort(),
+      completed_blocks_detail: completedBlockRows.sort((a, b) =>
+        String(a.completed_at || '').localeCompare(String(b.completed_at || ''))
+      ),
       started_incomplete: startedIncomplete
     },
+    practice_evidence: practiceEvidence,
+    repair_evidence: repairEvidence,
     systems: systemRows,
     evidence_boundary:
       'Factual KianOS runtime progress only. NO_RUNTIME_EVIDENCE does not prove unstudied; learned_kp is not mastery; Gate workload still requires subject-owned reconciliation into exam.subject-demand.v1.'
