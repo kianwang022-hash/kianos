@@ -21,7 +21,7 @@ Current rules:
 ## Compilation stages
 
 - `CALIBRATION.md` records C0 relation-model calibration and the boundary between relation truth, Question Truth and Explanation.
-- `static-web/scripts/build-xizong-crosswalk-review-queue.mjs` builds C1 review packets from approved Explanation routing hints or explicit qids. It intentionally emits no suggested System/Block/KP target.
+- `static-web/scripts/build-xizong-crosswalk-review-queue.mjs` builds **anti-anchored** C1 review packets. For the default backlog it may use approved Explanation routing state only as a hidden mechanical eligibility hint; the reviewer packet itself contains Question Truth and withholds old Explanation semantics, old `mapping_decision`, and prior relation targets until an independent provisional judgment exists. Explicit qids bypass backlog selection. It intentionally emits no suggested System/Block/KP target.
 - `continuation.json` is a work-cursor policy only; it does not define semantic truth or imply a linear catalog frontier.
 
 ## C2 throughput contract
