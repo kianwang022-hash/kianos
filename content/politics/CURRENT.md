@@ -40,6 +40,16 @@ Canonical maturity package: `MATURITY_PACKAGE.md`.
 
 Builder-owned maturity construction is closed, but shared mother-standard §23 still requires a Fresh Independent / Anti-Anchored Audit before SYSTEM_LOGIC_ACCEPTED may freeze. Do not broaden engineering while that audit is pending; repair only material findings from the fresh audit.
 
+Fresh audit candidate is sealed and immutable for M7:
+
+```text
+audit/politics-maturity-freeze-20260921
+@ 9da838f38dd025283407c9bf248e9fbf731adcaa
+```
+
+A PASS/FAIL may certify only that exact SHA. Any material semantic repair requires a new sealed candidate and a new fresh audit.
+
+
 **Politics Final Learner Acceptance — CLOSED for audited first-round paths**
 
 - Landed: PR #486 → `main` merge `d180b0b913b63085ab0bd8c30dcdeadb1c64dc9f`
