@@ -442,6 +442,7 @@ export function initExamHome(root) {
         xizongPacketIndex,
         politicsCatalog,
         politicsMemoryCatalog,
+        englishCatalog: catalog.english || null,
         base: catalog.base || '/'
       });
       const text = serializeDailyLearningPacketForChat(result.packet);
