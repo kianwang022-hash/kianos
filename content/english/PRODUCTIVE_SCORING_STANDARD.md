@@ -145,6 +145,43 @@ Every scoring result contains:
 
 No single Chat score may collapse uncertainty when strategy materially depends on the result.
 
+## 2.6 Guardrails are ordering constraints, not automatic score caps
+
+Rules such as `Task > Style`, `Grounding > Fluency` and `Fidelity > Surface Wording` are **ordering constraints**.
+
+They do not create a hidden mechanical rule such as:
+
+```text
+one missing move
+→ fixed low band
+```
+
+or:
+
+```text
+one material misread
+→ ignore all remaining language quality
+```
+
+A required-move failure or material misread must materially depress the plausible range, but language quality / organization still affect where the response can reasonably sit inside the lower plausible bands.
+
+If two reasonable graders could place the same response on opposite sides of a band boundary, preserve both plausible bands and require independent re-score rather than forcing one band.
+
+## 2.7 Independent re-score trigger — all productive channels
+
+Require a fresh second anchored score from the preserved first output when any is true:
+
+- a Writing range crosses a holistic band boundary;
+- length / format / readability could materially move the range;
+- prompt requirement or material interpretation is disputed;
+- confidence is LOW, or MEDIUM for a score that will affect strategy;
+- the score would change Translation/Writing `Secure` status;
+- the score would move the 85+ Forecast, Dynamic Control, or learner task allocation across a decision boundary.
+
+For this purpose, **independent** means the second rater does not see the first score, repair rewrite, or post-hoc explanation before scoring.
+
+A single-rater fixture PASS validates ordering logic only. It does not establish absolute exam-score calibration.
+
 ---
 
 # 3｜Translation scoring protocol
@@ -378,6 +415,31 @@ Scoring must reward actual grounding/development in the current material, not to
 
 ---
 
+# 5A｜Writing length / delivery handling
+
+English-I Writing length is an exam constraint:
+
+- Small Writing: about 100 words;
+- Big Writing: 160–200 words.
+
+Current source support establishes that non-compliant length may be penalized **discretionarily**. It does **not** justify inventing a universal fixed deduction table.
+
+Operational rule:
+
+1. determine the plausible holistic band from task/content/language first;
+2. measure the actual output length;
+3. when the response is materially short, record `LENGTH_DEFICIT`;
+4. widen and/or lower the plausible score range conservatively when the deficit could matter;
+5. do not invent a fixed “N words = X points” formula;
+6. do not double-penalize the same root cause when the shortness has already manifested as missing content/development;
+7. if length treatment can change a band, strategy threshold, Secure state or 85+ Forecast, require independent re-score.
+
+For Small Writing, “about 100” is not treated as a fake exact cutoff. For Big Writing, 160–200 is an explicit target range, but the amount of deduction outside it remains uncertain unless stronger current marking evidence is obtained.
+
+Handwriting/readability is a separate exam-mode delivery variable. It must not be inferred from typed output.
+
+---
+
 # 6｜Score result schema
 
 Chat scoring output should be representable as:
@@ -469,10 +531,12 @@ Do not consume protected Kian true-exam first outputs merely to test the scorer.
 Fixture set should contain:
 
 - clearly high / medium / low Translation versions of the same synthetic segment;
+- at least one complete five-segment Translation section and one mixed-error section, so section aggregation / range width / re-score behavior is actually exercised;
 - Small Writing outputs with controlled task-fulfillment defects;
 - Big Writing outputs with controlled grounding/development/language defects;
-- semantic-equivalent alternative Translation renderings;
-- adversarial style/template cases.
+- semantic-equivalent alternative Translation renderings that are themselves free of hidden semantic overstatement;
+- adversarial style/template cases;
+- dedicated under-length Writing fixtures, while non-length fixtures stay close enough to their target length that length does not silently confound another intended variable.
 
 Fixtures test evaluator consistency and bias.
 
@@ -511,6 +575,9 @@ E3 closes only when:
 5. Writing task failure cannot be hidden by style;
 6. score uncertainty is preserved;
 7. no Website fake auto-score is introduced;
-8. a cold learner productive output can be turned into an anchored **range**, not a fake exact point.
+8. a cold learner productive output can be turned into an anchored **range**, not a fake exact point;
+9. complete five-segment Translation aggregation has been exercised, not only isolated sentence scoring;
+10. Writing length handling has a dedicated stress case and does not confound Task-vs-Style / Grounding-vs-Fluency fixtures;
+11. Writing / Forecast-sensitive scores have an explicit independent re-score path.
 
 Real Kian score calibration remains Learner U-dependent.
