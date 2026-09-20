@@ -374,11 +374,13 @@ assert.equal(
   xzForecast.runtime_evidence.completed_blocks_detail.find((row)=>row.block_id===block.blockId)?.study_day,
   '2026-09-20'
 );
-assert.equal(xzForecast.practice_evidence.first_pass.attempted_questions,2);
-assert.equal(xzForecast.practice_evidence.first_pass.stable,1);
-assert.equal(xzForecast.practice_evidence.first_pass.wrong,1);
-assert.equal(xzForecast.practice_evidence.first_pass.wrong_or_uncertain,1);
-assert.equal(xzForecast.practice_evidence.first_pass.wrong_or_uncertain_rate,0.5);
+assert.equal(xzForecast.practice_evidence.first_pass.attempted_questions,5,
+  'broader performance evidence may include System + sealed whole-paper attempts');
+assert.equal(xzForecast.practice_evidence.first_pass.stable,2);
+assert.equal(xzForecast.practice_evidence.first_pass.uncertain,1);
+assert.equal(xzForecast.practice_evidence.first_pass.wrong,2);
+assert.equal(xzForecast.practice_evidence.first_pass.wrong_or_uncertain,3);
+assert.equal(xzForecast.practice_evidence.first_pass.wrong_or_uncertain_rate,0.6);
 assert.equal(xzForecast.practice_evidence.first_pass.current_scope_eligible_attempted_questions,1);
 assert.equal(xzForecast.practice_evidence.first_pass.current_scope_unique_attempted_questions,1);
 assert.equal(xzForecast.practice_evidence.first_pass.current_scope_wrong_or_uncertain,0);
