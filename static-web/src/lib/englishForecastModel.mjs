@@ -175,6 +175,7 @@ function workloadForecast(input){
     const unpricedRequired=requiredBuckets.filter((row)=>!row.band_minutes);
     const priorOnly=requiredBuckets.filter((row)=>row.pricing_source==='PRIOR_ONLY');
     const empirical=requiredBuckets.filter((row)=>row.pricing_source==='EMPIRICAL');
+    const provisionalEmpirical=empirical.filter((row)=>row.sample_state==='PROVISIONAL');
     const scopeComplete=family.scope_complete===true;
     const knownBand=sumBands(pricedRequired);
     const scopeUnknown=!scopeComplete;
@@ -195,6 +196,7 @@ function workloadForecast(input){
       full_band_minutes:fullBand,
       confidence:(unpricedRequired.length||scopeUnknown)?'PARTIAL'
         : priorOnly.length?'PRIOR_HEAVY'
+        : provisionalEmpirical.length?'PROVISIONAL'
         : empirical.length===requiredBuckets.length&&requiredBuckets.length?'EMPIRICAL'
         :'MIXED',
       scope_complete:scopeComplete
@@ -209,6 +211,7 @@ function workloadForecast(input){
   const fullBand=(unpricedRows.length||incompleteFamilies.length)?null:knownBand;
   const priorCount=requiredRows.filter((row)=>row.pricing_source==='PRIOR_ONLY').length;
   const empiricalCount=requiredRows.filter((row)=>row.pricing_source==='EMPIRICAL').length;
+  const provisionalEmpiricalCount=requiredRows.filter((row)=>row.pricing_source==='EMPIRICAL'&&row.sample_state==='PROVISIONAL').length;
 
   return {
     families,
@@ -223,10 +226,12 @@ function workloadForecast(input){
     ],
     workload_confidence:(unpricedRows.length||incompleteFamilies.length)?'PARTIAL'
       : priorCount?'PRIOR_HEAVY'
+      : provisionalEmpiricalCount?'PROVISIONAL'
       : empiricalCount===requiredRows.length&&requiredRows.length?'EMPIRICAL'
       :'MIXED',
     required_bucket_count:requiredRows.length,
     empirical_bucket_count:empiricalCount,
+    provisional_empirical_bucket_count:provisionalEmpiricalCount,
     prior_only_bucket_count:priorCount
   };
 }
@@ -469,9 +474,17 @@ function scaleBand(band,multiplier){
 
 function evidenceCandidates(input,forecast){
   const rows=[];
-  const add=(id,priority,reason,evidence,cost='BOUNDED')=>{
+  const priorityLabel=(rank)=>rank>=90?'HIGHEST':rank>=75?'HIGH':rank>=50?'MEDIUM':'LOW';
+  const add=(id,rank,reason,evidence,cost='BOUNDED')=>{
     if(rows.some((row)=>row.id===id))return;
-    rows.push({id,information_priority:priority,reason,evidence_to_collect:evidence,learner_cost_class:cost});
+    rows.push({
+      id,
+      _sort_rank:rank,
+      information_priority:priorityLabel(rank),
+      reason,
+      evidence_to_collect:evidence,
+      learner_cost_class:cost
+    });
   };
 
   for(const family of forecast.workload.families){
@@ -527,8 +540,8 @@ function evidenceCandidates(input,forecast){
     );
   }
 
-  rows.sort((a,b)=>b.information_priority-a.information_priority||a.id.localeCompare(b.id));
-  return rows;
+  rows.sort((a,b)=>b._sort_rank-a._sort_rank||a.id.localeCompare(b.id));
+  return rows.map(({_sort_rank,...row})=>row);
 }
 
 export function buildEnglishForecastFalsifiability(input,{
