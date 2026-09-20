@@ -41,8 +41,8 @@
     "runtime_route": "/external-reading/",
     "compile_policy": "ON_DEMAND_WHEN_PRIVATE_SOURCE_NEWER",
     "failure_policy": "FAIL_CLOSED_NO_LEGACY_FALLBACK",
-    "active_private_source_version": "repaired-candidate-2026-09-20-pass15",
-    "expected_active_archive_sha256": "b2fe6577690158e83b1cbff2f48a1d20ab35db9eaa1352c79c1f9135aab98c8d",
+    "active_private_source_version": "repaired-candidate-2026-09-20-pass15+tpo62+ielts18-table",
+    "expected_active_archive_sha256": "6eb3aedc059ae344373027165bb6696660e3876ab7edba17ae675a7759242ad8",
     "expected_active_source_sha256": {
       "source_manifest.json": "c69a50749f9e24ed02b41ae0f4c41928dbb6c6b4764ba80b17a1a7767bfbf292",
       "TOEFL/TPO56.md": "905e8b0bddf41f44bccbb182c403fe576da131c8b9f47e992b5358533a3dbd38",
@@ -56,7 +56,7 @@
       "TOEFL/TPO64.md": "06e7895b2ae308ec67bfd94cf42982bc1c50eb3339ed3ba0338997ea42e77518",
       "TOEFL/TPO65.md": "eac8e63cee9af621d4cdc200429e276643f65c655cbdc68ace7016ccad87856b",
       "IELTS/Cambridge_IELTS_17_Academic_Reading.md": "353fbd8b26549fe8e50a43af02411488c2272604a059221c64460cf797f0f38c",
-      "IELTS/Cambridge_IELTS_18_Academic_Reading.md": "022b7c0b2cda15adf373d1bb101d2123b6c3bcb7b29bab387e4ab14b681a4da8",
+      "IELTS/Cambridge_IELTS_18_Academic_Reading.md": "6e25e20ea58e027d8992f5b3d429f663d1a092bfd462d4cdcb245d7e43611d59",
       "IELTS/Cambridge_IELTS_19_Academic_Reading.md": "7080e05e9143c173a852b944af43a530b42f626bbeeea691c6d45c2a63cd4677"
     },
     "stale_source_policy": "FAIL_CLOSED_BEFORE_COMPILE"
@@ -632,8 +632,7 @@
         "source_owner": "IELTS/Cambridge_IELTS_18_Academic_Reading.md",
         "source_quality": "REPAIRED_CANDIDATE_OCR_SOURCE_MARKED",
         "known_source_flags": [
-          "OCR_SOURCE_MARKED",
-          "VISUAL_LAYOUT_REVIEW_REQUIRED"
+          "OCR_SOURCE_MARKED"
         ]
       },
       {
@@ -961,9 +960,9 @@
     ]
   },
   "source_quality": {
-    "corpus_claim": "REPAIRED_CANDIDATE_2026_09_20_PASS15_PLUS_TPO62_CLOSURE; NOT CORPUS_WIDE_PROVEN_CLEAN",
+    "corpus_claim": "REPAIRED_CANDIDATE_2026_09_20_PASS15_PLUS_TPO62_PLUS_IELTS18_TABLE; NOT CORPUS_WIDE_PROVEN_CLEAN",
     "proven_clean_objects": 0,
-    "policy": "Active private source must hash-match the repaired candidate before compilation; residual IELTS OCR provenance and passage-specific visual-layout review remain explicit.",
-    "active_candidate_archive_sha256": "b2fe6577690158e83b1cbff2f48a1d20ab35db9eaa1352c79c1f9135aab98c8d"
+    "policy": "Active private source must hash-match the repaired candidate before compilation; IELTS18/19 retain OCR-source provenance but no explicit visual-layout blocker.",
+    "active_candidate_archive_sha256": "6eb3aedc059ae344373027165bb6696660e3876ab7edba17ae675a7759242ad8"
   }
 }
