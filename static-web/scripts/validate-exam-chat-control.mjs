@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
+  EXAM_CHAT_PLAN_KEY,
   EXAM_CHAT_PLAN_SCHEMA,
   buildExamChatPlanBasis,
   validateExamChatPlan,
@@ -9,6 +10,7 @@ import {
   writeExamChatPlan
 } from '../src/lib/examChatPlan.mjs';
 import { buildChatControlledExamReadModel } from '../src/lib/examPlanReadModel.mjs';
+import { applyPrivateControlCommand } from '../src/lib/privateControlRuntime.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const webRoot = path.resolve(here, '..');
@@ -160,6 +162,62 @@ if (staleAfterStability.status !== 'stale') {
   fail('NEW_STABILITY_EVIDENCE_MUST_STALE_OLD_BUILD_REPAIR_PLAN');
 }
 
+
+const controlStorage = new MemoryStorage();
+const controlBasisE0 = buildExamChatPlanBasis(controlStorage, '2026-09-18');
+const controlPlanE0 = {
+  ...sample,
+  generated_at: '2026-09-18T05:20:00+08:00',
+  learner_evidence_basis: controlBasisE0
+};
+controlStorage.setItem('kianos-politics-evidence-v1', JSON.stringify([{
+  event_id: 'private-control-e1',
+  study_day: '2026-09-18',
+  observed_at: '2026-09-18T05:21:00+08:00'
+}]));
+globalThis.window = globalThis.window || { dispatchEvent() {} };
+globalThis.CustomEvent = globalThis.CustomEvent || class {
+  constructor(type, init = {}) { this.type = type; this.detail = init.detail; }
+};
+const browserCommand = (id, plan) => ({
+  schema: 'kianos.control-browser-command.v1',
+  command_id: id,
+  command_hash: id + '-hash',
+  study_day: '2026-09-18',
+  generated_at: '2026-09-18T05:22:00+08:00',
+  expires_at: null,
+  operations: [{ kind: 'exam.chat_plan', payload: plan }]
+});
+let privateControlStaleRejected = false;
+try {
+  await applyPrivateControlCommand(
+    controlStorage,
+    browserCommand('control-basis-stale-001', controlPlanE0),
+    { day: '2026-09-18', now: Date.parse('2026-09-18T05:23:00+08:00') }
+  );
+} catch (error) {
+  privateControlStaleRejected = String(error?.message || '').includes('CHAT_PLAN_EVIDENCE_BASIS_STALE');
+}
+if (!privateControlStaleRejected) fail('PRIVATE_CONTROL_STALE_BASIS_MUST_REJECT');
+if (controlStorage.getItem(EXAM_CHAT_PLAN_KEY) !== null) {
+  fail('PRIVATE_CONTROL_STALE_BASIS_MUST_NOT_WRITE_PLAN');
+}
+
+const controlBasisE1 = buildExamChatPlanBasis(controlStorage, '2026-09-18');
+const controlPlanE1 = {
+  ...controlPlanE0,
+  generated_at: '2026-09-18T05:24:00+08:00',
+  learner_evidence_basis: controlBasisE1
+};
+const privateApplied = await applyPrivateControlCommand(
+  controlStorage,
+  browserCommand('control-basis-fresh-001', controlPlanE1),
+  { day: '2026-09-18', now: Date.parse('2026-09-18T05:25:00+08:00') }
+);
+if (privateApplied.status !== 'applied' || !controlStorage.getItem(EXAM_CHAT_PLAN_KEY)) {
+  fail('PRIVATE_CONTROL_FRESH_BASIS_MUST_APPLY');
+}
+
 console.log(JSON.stringify({
   status: 'PASS',
   strategy_owner: model.control.strategyOwner,
@@ -171,5 +229,7 @@ console.log(JSON.stringify({
   stale_plan_fails_closed: true,
   learner_evidence_basis_required: true,
   politics_e1_stales_e0_plan: true,
-  later_stability_stales_old_heavy_plan: true
+  later_stability_stales_old_heavy_plan: true,
+  private_control_stale_basis_rejected: true,
+  private_control_fresh_basis_applied: true
 }, null, 2));
