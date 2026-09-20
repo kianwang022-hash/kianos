@@ -1,6 +1,6 @@
 # Politics Maturity Package
 
-Status: **SYSTEM LOGIC ACCEPTED · REAL-U / CURRENT-YEAR SOURCE GATED**
+Status: **FREEZE CANDIDATE · BUILDER CLOSURE COMPLETE · FRESH INDEPENDENT AUDIT REQUIRED**
 Owner: PR #638 / work/politics-later-readiness-20260920
 Upstream bar: EXAM_SUBJECT_MATURITY_STANDARD.md
 Subject adaptation: MATURITY_REQUIREMENTS.md
@@ -10,6 +10,8 @@ This is the single practical package for Politics whole-cycle maturity. It summa
 ## 0. Truth boundary
 
 ~~~text
+BUILDER_CLOSURE_COMPLETE
+!=
 SYSTEM_LOGIC_ACCEPTED
 !=
 KIAN_SPECIFIC_CALIBRATED
@@ -19,7 +21,8 @@ CURRENT_YEAR_SOURCE_READY
 
 Current top-level truth:
 
-- SYSTEM_LOGIC_ACCEPTED: **YES** — mother-standard 1–29 system logic, targeted adversarial proof, identity/freshness gates and whole-cycle Forecast envelope are closed.
+- BUILDER_CLOSURE_COMPLETE: **YES** — builder-owned implementation, reconciliation and targeted adversarial proof are complete enough to enter freeze audit.
+- SYSTEM_LOGIC_ACCEPTED: **NO / FRESH INDEPENDENT AUDIT REQUIRED** — shared standard §23 forbids Builder self-certification.
 - KIAN_SPECIFIC_CALIBRATED: **NO / REAL-U GATED**.
 - current-year handbook/current affairs/Xiao8/Xiao4 authority: **SOURCE GATED**.
 
@@ -29,19 +32,28 @@ Do not collapse these into one “Politics mature” badge.
 
 Canonical owner: SCORE_ABILITY_MATRIX.md.
 
-Planning target:
+Canonical target authority: root `EXAM_ORCHESTRATOR_CONTRACT.md`.
 
 ~~~text
-Protect 70
-≈ Objective 40+ / 50
-+ Analysis 30+ / 50
+Cross-subject target authority
+→ Total 425+
+→ Politics 70+
 
-Push 75
-≈ Objective 42–44 / 50
-+ Analysis 31–34 / 50
+Politics protect floor
+→ 70
+
+Politics working-target semantics
+→ keep a robust 70+ path viable
+→ Objective 40+ / 50 + Analysis 30+ / 50 is the current planning decomposition
+→ no invented numeric buffer before real variance/mock evidence exists
+
+Politics elastic upside
+→ Push 75
+→ Objective 42–44 / 50 + Analysis 31–34 / 50
+→ may consume capacity only when marginal value remains competitive cross-subject
 ~~~
 
-These are control targets, not guarantees.
+The local Push-75 signal must never silently override the canonical 425+/Politics-70 cross-subject target. These are control targets, not guarantees.
 
 | Channel | System capability state | Material state | Evidence state | Score inference |
 | --- | --- | --- | --- | --- |
@@ -120,11 +132,11 @@ Hard boundaries:
 - Xiao1000 learning accuracy never directly becomes an exam score;
 - Analysis/current-year missing evidence keeps total-score confidence wide.
 
-Current status: **SYSTEM MODEL ACCEPTED; explicit decision-flip surfaces and whole-cycle workload envelope proven; personal calibration REAL-U GATED.**
+Current status: **BUILDER-PROVEN MODEL; explicit decision-flip surfaces and whole-cycle workload envelope exist; freeze acceptance awaits Fresh Independent Audit; personal calibration is REAL-U GATED.**
 
 ## 5. Adversarial / Lifecycle
 
-Current system-logic closure is complete for the mother-standard boundary.
+Builder-owned system-logic closure is complete enough to enter the mother-standard freeze audit. It is not yet independently accepted.
 
 Closed proof includes:
 
@@ -140,8 +152,9 @@ Real learner scenarios cannot be fabricated. They remain Real-U gated and do not
 Current verdict:
 
 ~~~text
-SYSTEM_LOGIC_ACCEPTED = YES
-KIAN_SPECIFIC_CALIBRATED = NO
+BUILDER_CLOSURE_COMPLETE = YES
+SYSTEM_LOGIC_ACCEPTED = NO / FRESH_INDEPENDENT_AUDIT_REQUIRED
+KIAN_SPECIFIC_CALIBRATED = NO / REAL_U_GATED
 ~~~
 
 ## 6. Chat ↔ Website Proof
@@ -197,8 +210,9 @@ Current status: **SYSTEM READY / CONTENT SOURCE-GATED.**
 Current state:
 
 ~~~text
-SYSTEM_LOGIC_ACCEPTED        YES
-KIAN_SPECIFIC_CALIBRATED     NO
+BUILDER_CLOSURE_COMPLETE     YES
+SYSTEM_LOGIC_ACCEPTED        NO / FRESH_INDEPENDENT_AUDIT_REQUIRED
+KIAN_SPECIFIC_CALIBRATED     NO / REAL_U_GATED
 ~~~
 
 Real study must calibrate:
@@ -230,7 +244,7 @@ Any other unknown that can change current learning action is a reopen condition.
 
 They are **not** silently collapsed into the mother-standard 1–29 validator:
 
-- Requirement 30 independent falsification is required before a future **whole-subject maturity** claim; the current claim is only `SYSTEM_LOGIC_ACCEPTED`.
+- Shared mother-standard §23 requires a Fresh Independent / Anti-Anchored Audit **before SYSTEM_LOGIC_ACCEPTED can freeze**. Politics Requirement 30 adds a stronger later whole-subject falsification obligation; it does not weaken the shared freeze gate.
 - authentic-modality / whole-paper requirements remain REAL-U and current-year Mock gated;
 - Day-1, lifecycle, stale-state, source-invalidation, anti-homogenization and causal-Repair semantics have current system-level owners and targeted proof;
 - none of these gates authorizes synthetic learner capability or invented 2027 Source.
@@ -239,37 +253,56 @@ This distinction prevents `SYSTEM_LOGIC_ACCEPTED` from being misread as `WHOLE_S
 
 ## 10. Mother-standard crosswalk
 
-| # | Requirement | Current status | Owner / next proof |
+This crosswalk follows the shared standard's **actual section numbers 0–28**, not a locally renumbered checklist.
+
+| § | Shared requirement | Current Politics status | Exact owner / next proof |
 | ---: | --- | --- | --- |
-| 1 | Score closure | CLOSED planning model; score calibration gated | SCORE_ABILITY_MATRIX |
-| 2 | Ability closure | CLOSED system semantics | SCORE_ABILITY_MATRIX |
-| 3 | Material closure | CLOSED current baseline; current-year gated | MATERIAL_INVENTORY |
-| 4 | Source fidelity | CLOSED accepted first-round; future gate ready | accepted source audits + INGESTION_RULES |
-| 5 | Method closure | CLOSED system semantics | Learning Contract + matrix |
-| 6 | Evidence closure | CLOSED schema/meaning; Real U pending | Workbench/Memory/Analysis evidence |
-| 7 | Subjective scoring validity | diagnostic CLOSED; score calibration gated | analysis-output/SCORING_RUBRIC |
-| 8 | Forecast | CLOSED system logic; personal calibration gated | FORECAST_MODEL / stress |
-| 9 | Forecast falsifiability | CLOSED system logic | explicit decision-flip + metamorphic proof |
-| 10 | Dynamic Control | CLOSED semantics; Real-U thresholds pending | matrix control policy |
-| 11 | Minimum Dose | CLOSED semantics | evidence-floor rule only |
-| 12 | Elastic / ROI | CLOSED semantics | Chat + cross-subject Orchestrator |
-| 13 | Repair causality | CLOSED first-round semantics | Review/Chat diagnosis |
-| 14 | Future material lifecycle | CLOSED preparation | later-stage ingestion |
-| 15 | Prior-year absorption | CLOSED baseline role; annual truth gated | later-stage + Analysis bank |
-| 16 | Chat↔Website | CLOSED first-round system logic | typed plan/return/checkpoint |
-| 17 | Attention cost | CLOSED design | single Next Action + Chat ownership |
-| 18 | Day-1 loop | CLOSED for audited first-round path | Acceptance/browser proof |
-| 19 | Full lifecycle simulation | CLOSED system logic; Real-U scenarios remain gated | maturity adversarial report |
-| 20 | Adversarial stress | CLOSED system logic | Forecast + maturity adversarial test |
-| 21 | False Secure/Unstable | CLOSED system logic | control invariants + identity/freshness gates |
-| 22 | Second-line safety | BOUNDED CLOSED | source/evidence/plan fail-closed gates |
-| 23 | Fresh Chat attack | CLOSED | CURRENT → #638 → Stage Plan → Package |
-| 24 | No-Website attack | CLOSED semantic boundary | durable semantic owners |
-| 25 | Evidence revision/identity | CLOSED | stable task/source identity |
-| 26 | Future-source transitive invalidation | CLOSED preparation | INGESTION_RULES |
-| 27 | Authentic modality | FUTURE / REAL-U GATED | Mock/final |
-| 28 | Real Learner U | REAL-U GATED | real study only |
-| 29 | Subject-native | CLOSED | Politics-specific owners; no shared mastery/scheduler |
+| 0 | Score closure | BUILDER CLOSED; learner score calibration gated | SCORE_ABILITY_MATRIX |
+| 1 | Ability closure | BUILDER CLOSED | SCORE_ABILITY_MATRIX |
+| 2 | Material closure | BUILDER CLOSED for available/future-slot system; future bytes source-gated | MATERIAL_INVENTORY |
+| 3 | Method closure | BUILDER CLOSED | LEARNING_CONTRACT + SCORE_ABILITY_MATRIX |
+| 4 | Evidence closure | BUILDER CLOSED semantics; Real U pending | Workbench / Memory / Analysis evidence |
+| 5 | Forecast closure | BUILDER CLOSED logic; personal calibration Real-U gated | FORECAST_MODEL / FORECAST_STRESS_REPORT |
+| 6 | Dynamic control closure | BUILDER CLOSED semantics; learner thresholds Real-U calibrated | SCORE_ABILITY_MATRIX |
+| 7 | Future-source lifecycle closure | BUILDER CLOSED preparation | later-stage/INGESTION_RULES |
+| 8 | Execution / transport closure | BUILDER CLOSED for current first-round path; authentic final modality later | typed plan/return/checkpoint + final regression |
+| 9 | Adversarial / failure closure | BUILDER CLOSED; independent falsification still required | MATURITY_ADVERSARIAL_REPORT + tests |
+| 10 | Attention-cost closure | BUILDER CLOSED design | Home/Chat boundary + no learner ledger |
+| 11 | Ownership / maintainability closure | BUILDER CLOSED | CURRENT + exact owners |
+| 12 | Fresh-Chat / no-Website falsification | BUILDER CLOSED semantics | CURRENT route + durable owners |
+| 13 | Real learner U closure | REAL-U GATED | real study only |
+| 14 | Target authority / score semantics | BUILDER CLOSED | EXAM_ORCHESTRATOR_CONTRACT + SCORE_ABILITY_MATRIX |
+| 15 | Construct coverage / negative space | BUILDER CLOSED semantics; untested learner regions stay UNKNOWN | SCORE_ABILITY_MATRIX + Analysis bank |
+| 16 | Measurement / scoring validity | DIAGNOSTIC SYSTEM READY; narrow score conversion SOURCE/REAL-U gated | analysis-output/SCORING_RUBRIC |
+| 17 | Decision quality / semantic safety | BUILDER CLOSED bounded invariants | control rules + freshness/stale guards |
+| 18 | Evidence observability / revision / material identity | BUILDER CLOSED | Analysis identity + practice evidence + ingestion |
+| 19 | Adaptive generated-asset lifecycle | BUILDER CLOSED for current Analysis bank | analysis-output bank/manifest/validator |
+| 20 | Value of information / latency / latest useful date | BUILDER CLOSED semantics | MATURITY_REQUIREMENTS + mock/final + ingestion |
+| 21 | Future-source failure / supersession / rollback | BUILDER CLOSED preparation | later-stage/INGESTION_RULES |
+| 22 | Concurrent state / bounded context | BUILDER CLOSED for current transport | stale/replay/checkpoint tests + CURRENT route |
+| 23 | Independent anti-anchored audit | **OPEN — HARD FREEZE BLOCKER** | MATURITY_FRESH_INDEPENDENT_AUDIT_BRIEF.md → fresh evaluator result |
+| 24 | Adversarial methodology | BUILDER CLOSED candidate: full Cartesian stress grid + decision flips + metamorphic checks | Forecast tests + MATURITY_ADVERSARIAL_REPORT |
+| 25 | Causal repair / discrimination | BUILDER CLOSED policy | CAUSAL_REPAIR_POLICY.md |
+| 26 | Subject specificity / anti-homogenization | BUILDER CLOSED | Politics-native owners |
+| 27 | Stop rule | DEFINED; activates only after §23 passes | MATURITY_STAGE_PLAN |
+| 28 | Cross-subject composition / joint feasibility | **SHARED OWNER GATE — not duplicated in Politics** | EXAM_ORCHESTRATOR_CONTRACT / shared acceptance owner |
+
+### Required subject-level acceptance package
+
+| Item | Required deliverable | Status |
+| ---: | --- | --- |
+| 1 | Score → Ability → Material → Method → Evidence matrix | READY |
+| 2 | Full material inventory | READY |
+| 3 | Subject-native dynamic control | READY |
+| 4 | Forecast + sensitivity/calibration report | READY; personal calibration REAL-U gated |
+| 5 | Adversarial stress report | READY builder candidate |
+| 6 | Chat↔Website execution proof | READY current path |
+| 7 | Real Learner U status / known unknowns | READY |
+| 8 | Explicit blockers / future-source dependencies | READY |
+| 9 | Fresh Independent Anti-Anchored Audit result | **MISSING — FREEZE BLOCKER** |
+| 10 | Adversarial methodology / interaction & flip report | READY builder candidate |
+| 11 | Causal Repair / discrimination policy | READY |
+| 12 | SYSTEM_LOGIC_ACCEPTED vs KIAN_SPECIFIC_CALIBRATED state | READY and separated |
 
 ## 11. Execution ledger
 
@@ -279,10 +312,12 @@ M1 Single Politics Maturity Package             DONE
 M2 Reconcile stale Analysis/material status     DONE
 M3 Analysis-bank + evidence identity proof       DONE
 M4 Forecast decision-flip/adversarial closure   DONE
-M5 Full lifecycle + Fresh Chat/No-Website       DONE
-M6 SYSTEM_LOGIC_ACCEPTED verdict                YES
-M7 KIAN_SPECIFIC_CALIBRATED                     REAL-U GATED
-M8 2027 handbook/current affairs/Xiao8/Xiao4    SOURCE GATED
+M5 Lifecycle + Fresh Chat / No-Website          DONE
+M6 Builder closure reconciliation               DONE
+M7 Fresh Independent / Anti-Anchored Audit      OPEN — HARD FREEZE BLOCKER
+M8 SYSTEM_LOGIC_ACCEPTED verdict                BLOCKED ON M7
+M9 KIAN_SPECIFIC_CALIBRATED                     REAL-U GATED
+M10 2027 handbook/current affairs/Xiao8/Xiao4   SOURCE GATED
 ~~~
 
-The mother-standard engineering package is now closed at the system-logic boundary. Broad engineering STOP applies until Real U, a concrete learner defect, or real current-year Source reopens an exact owner.
+Do not resume broad feature construction. The next maturity action is the bounded Fresh Independent Audit required by shared standard §23. Only a material finding from that audit may reopen the smallest responsible owner.
