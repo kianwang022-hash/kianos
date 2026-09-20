@@ -97,6 +97,10 @@ const currentYear = {
   task_mode: 'FORMULATION',
   attempt_role: 'TRANSFER',
   fresh_material: true,
+  transfer_of: {
+    task_id: legacyBind.task_id,
+    task_revision: legacyBind.task_revision
+  },
   freshness_class: 'CURRENT_YEAR_EXACT_REQUIRED',
   formulation_requirement: 'CURRENT_YEAR_EXACT',
   rubric: { I: 2, S: 2, B: 2, F: 2, D: 'NA' },
@@ -124,7 +128,25 @@ assert.throws(() => applyPoliticsAnalysisEvidence(storage, {
 
 assert.throws(() => applyPoliticsAnalysisEvidence(storage, currentYear, { now }), /POLITICS_ANALYSIS_CURRENT_YEAR_SOURCE_NOT_CURRENT_BOUND/);
 
+const repairWithoutFirstStorage = new MemoryStorage();
+assert.throws(() => applyPoliticsAnalysisEvidence(repairWithoutFirstStorage, {
+  ...legacyBind,
+  evidence_id: 'analysis-repair-without-first',
+  attempt_role: 'REPAIR'
+}, { now }), /POLITICS_ANALYSIS_REPAIR_WITHOUT_FIRST/);
+
+const missingTransferBasisStorage = new MemoryStorage();
+assert.throws(() => applyPoliticsAnalysisEvidence(missingTransferBasisStorage, currentYear, {
+  now,
+  boundCurrentYearSources: [{
+    family: 'xiao8',
+    revision: 'xiao8-rev1',
+    current_year_authority: true
+  }]
+}), /POLITICS_ANALYSIS_TRANSFER_BASIS_NOT_OBSERVED/);
+
 const currentYearStorage = new MemoryStorage();
+applyPoliticsAnalysisEvidence(currentYearStorage, legacyBind, { now });
 const admittedCurrentYear = applyPoliticsAnalysisEvidence(currentYearStorage, currentYear, {
   now,
   boundCurrentYearSources: [{
@@ -135,6 +157,10 @@ const admittedCurrentYear = applyPoliticsAnalysisEvidence(currentYearStorage, cu
 });
 assert.equal(admittedCurrentYear.status, 'applied');
 assert.equal(admittedCurrentYear.value.freshness_class, 'CURRENT_YEAR_EXACT_REQUIRED');
+assert.deepEqual(admittedCurrentYear.value.transfer_of, {
+  task_id: legacyBind.task_id,
+  task_revision: legacyBind.task_revision
+});
 
 const checkpoint = exportPoliticsCheckpoint(storage);
 assert.equal(checkpoint.schema, 'kianos.politics.private-payload.v1');
@@ -146,6 +172,7 @@ assert.equal(summary.schema, 'kianos.politics.analysis-summary.v1');
 assert.equal(summary.total_records, 1);
 assert.equal(summary.today_by_mode.BIND, 1);
 assert.equal(summary.recent_records[0].task_id, legacyBind.task_id);
+assert.equal(summary.recent_records[0].transfer_of, null);
 assert.match(summary.evidence_boundary, /no aggregate mastery score/i);
 
 const emptySummary = politicsAnalysisEvidenceSummary(emptyPoliticsAnalysisEvidenceStore(), { day });
