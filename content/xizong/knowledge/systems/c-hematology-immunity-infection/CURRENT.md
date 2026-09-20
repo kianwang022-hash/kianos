@@ -10,10 +10,11 @@ This file does not own medical Core, Learning semantics, Acceptance Truth or Kia
 
 ## Current Work Cursor
 
-**Current accepted stage:** K + L accepted  
+**Current accepted stage:** S exact question scope + K + L accepted  
 **Next eligible stage:** P (Projection), **not started**  
 **Active work in this Chat:** none after L promotion  
-**Blocker:** none at L stage
+**Question-scope status:** PASS_AFTER_BOUNDED_REPAIR — 288 exact official qids, 2005–2026.  
+**Blocker:** none at L/question-scope stage
 
 Canonical owners:
 
@@ -21,6 +22,8 @@ Canonical owners:
 - Learning → `content/xizong/knowledge/learner/c-hematology-immunity-infection-learning.json`
 - Acceptance → `content/xizong/knowledge/systems/c-hematology-immunity-infection/ACCEPTANCE.md`
 - Fresh independent L evidence → `content/xizong/knowledge/learner/C_PHASE6_FRESH_L_INDEPENDENT_ACCEPTANCE.md`
+- Exact official question scope → `content/xizong/knowledge/learner/c-hematology-immunity-infection-question-scope.json`
+- Question-scope reconstruction receipt → `content/xizong/knowledge/learner/C_QUESTION_SCOPE_CURRENT_RECONSTRUCTION.md`
 
 The old `c-hematology-immunity-infection-learning-candidate.json` is not a live owner after promotion. Phase receipts remain historical construction evidence only.
 
@@ -29,6 +32,7 @@ The old `c-hematology-immunity-infection-learning-candidate.json` is not a live 
 ## Stage routing
 
 ```text
+S Question scope = PASS_AFTER_BOUNDED_REPAIR / 288 exact qids
 K Knowledge       = PASS
 L Learning Logic  = PASS_AFTER_REPAIR
 P Projection      = NOT_STARTED / ELIGIBLE
@@ -79,6 +83,7 @@ Do not use this System to backfill:
 - tumor-molecular foundation Primary;
 - organ-specific infection diagnosis/treatment Primary.
 
+Exact C System-question membership is accepted at 288 qids, but System membership still does not create Question→Block/LG/KP relations.  
 Do not infer Question→Knowledge mapping from Learning grouping.  
 Do not infer learner completion/mastery from repository acceptance.  
 Do not change Crosswalk in a C L/P task unless separately authorized.
