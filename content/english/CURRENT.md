@@ -100,9 +100,9 @@ Owner package: `ENGLISH_HIGHEST_MATURITY_STANDARD.md` + `ENGLISH_HIGHEST_MATURIT
 Current: **E3 Productive Scoring Validity — FRESH ACCEPTANCE NOT YET PROVEN · REPAIRED CALIBRATION PACKAGE READY FOR NEW BLIND AUDIT**.
 E2 Material / Source Fidelity / Ready Inventory is **CLOSED CANDIDATE** after structural/build/browser proof on PR #640.
 
-Fresh-audit history exists, but it is **post-blind context only**. A new E3 auditor must not read this Current, prior E3 audit reports, Builder judgments or PR/history summaries before locking all blind scores.
+Fresh-audit history exists, but generic knowledge that E3 previously failed / was repaired is **not** a contamination condition. The audit now fails closed only on leakage that reveals the expected treatment of a **current opaque fixture**. Current fixture identities have been rotated again so stale chat/history mappings do not apply.
 
-Next: start from `PRODUCTIVE_SCORING_FRESH_AUDIT_BRIEF.md` on the active candidate ref, obey its pre-blind read boundary, blind-score the opaque fixture bank, freeze the complete result block, and reveal the sealed key only afterward.
+Next: start from `PRODUCTIVE_SCORING_FRESH_AUDIT_BRIEF.md` on the active candidate ref, blind-score the current opaque fixture bank, freeze the complete result block, and reveal the sealed key only afterward. If generic prior E3 context is present but no current-fixture-specific expectation is known, the auditor must proceed rather than self-invalidating.
 Do not advance to E4 until that clean audit passes.
 
 Boundaries: reuse existing task workspaces/transport; no second scheduler/ledger/mastery; no broad Guide rewrite; no protected true-exam consumption for engineering proof.
