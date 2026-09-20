@@ -4,7 +4,11 @@ import {
   xizongQuestionMarkOverrides
 } from './xizongRetainedPractice.mjs';
 import { summarizeXizongScoreAttribution } from './xizongScoreAttribution.mjs';
-import { studyDayAt } from './studyTimer.mjs';
+import {
+  aggregateStudyTime,
+  readStudyTimerLedger,
+  studyDayAt
+} from './studyTimer.mjs';
 import {
   XIZONG_MEMORY_STORAGE_KEY,
   normalizeXizongMemoryState,
@@ -60,6 +64,48 @@ function studyDayFromIso(value) {
   return Number.isFinite(timestamp) ? studyDayAt(timestamp) : null;
 }
 
+function eventYear(event) {
+  const direct = Number(event?.year);
+  if (Number.isInteger(direct)) return direct;
+  const match = String(event?.question_id || '').match(/^xizong-official-(\d{4})-n\d{3}$/);
+  return match ? Number(match[1]) : null;
+}
+
+function timerMinutesForDetail(storage, detailKey, { startAt = null, endAt = null } = {}) {
+  const key = String(detailKey || '');
+  if (!key) return 0;
+  const start = startAt == null ? Number.NEGATIVE_INFINITY : Date.parse(String(startAt));
+  const end = endAt == null ? Number.POSITIVE_INFINITY : Date.parse(String(endAt));
+  if (startAt != null && !Number.isFinite(start)) return 0;
+  if (endAt != null && !Number.isFinite(end)) return 0;
+  let ms = 0;
+  for (const session of readStudyTimerLedger(storage).sessions || []) {
+    if (session?.excluded || session?.subject !== 'xizong') continue;
+    if (String(session?.context?.detailKey || '') !== key) continue;
+    const from = Math.max(Number(session.startedAt || 0), start);
+    const to = Math.min(Number(session.endedAt || 0), end);
+    if (Number.isFinite(from) && Number.isFinite(to) && to > from) ms += to - from;
+  }
+  return Math.round(ms / 60000);
+}
+
+function repairDetailKey(task) {
+  const href = String(task?.blockHref || task?.returnHref || '');
+  const match = href.match(/(?:^|\/)xizong\/([^/]+)\/([^/]+)(?:\/|$)/);
+  return match ? `${match[1]}/${match[2]}` : null;
+}
+
+function xizongPracticeMinutesForDay(storage, day, now) {
+  if (!day) return 0;
+  const aggregate = aggregateStudyTime(storage, { day, now });
+  return Math.round(
+    Object.entries(aggregate?.bySubject?.xizong?.details || {})
+      .filter(([detail]) => String(detail).startsWith('practice/'))
+      .reduce((sum, [, value]) => sum + Number(value || 0), 0) / 60000
+  );
+}
+
+
 function attemptIndex(event) {
   const value = Number(event?.attempt_index);
   return Number.isInteger(value) && value > 0 ? value : null;
@@ -100,7 +146,7 @@ function laterAttempt(candidate, current) {
   return false;
 }
 
-function summarizeXizongForecastPractice(storage) {
+function summarizeXizongForecastPractice(storage, { holdoutYears = [], now = Date.now() } = {}) {
   const storageEntries = listStorageKeys(storage)
     .filter((key) => /^kianos:xizong:(?:system|chat-set|retained|paper)-question-sweep:.*:v1$/.test(key))
     .map((key) => [key, storage.getItem(key)]);
@@ -119,10 +165,26 @@ function summarizeXizongForecastPractice(storage) {
   }
 
   const firstPassCounts = { stable: 0, uncertain: 0, wrong: 0 };
+  const holdout = new Set((Array.isArray(holdoutYears) ? holdoutYears : []).map(Number).filter(Number.isInteger));
   const byDay = new Map();
+  const bySystem = new Map();
+  let eligibleAttempted = 0;
+  let heldoutObserved = 0;
   for (const event of firstPass.values()) {
     const status = String(event?.status || '');
     if (Object.hasOwn(firstPassCounts, status)) firstPassCounts[status] += 1;
+    const year = eventYear(event);
+    const eligible = !holdout.has(year);
+    if (eligible) eligibleAttempted += 1;
+    else heldoutObserved += 1;
+    const systemKey = String(event?.canonical_id || event?.system_id || 'UNKNOWN');
+    if (!bySystem.has(systemKey)) {
+      bySystem.set(systemKey, { canonical_id: systemKey, attempted: 0, eligible_attempted: 0, stable: 0, uncertain: 0, wrong: 0 });
+    }
+    const systemRow = bySystem.get(systemKey);
+    systemRow.attempted += 1;
+    if (eligible) systemRow.eligible_attempted += 1;
+    if (Object.hasOwn(firstPassCounts, status)) systemRow[status] += 1;
     const day = studyDayFromIso(event?.submitted_at);
     if (!day) continue;
     if (!byDay.has(day)) byDay.set(day, { day, attempted: 0, stable: 0, uncertain: 0, wrong: 0 });
@@ -142,6 +204,19 @@ function summarizeXizongForecastPractice(storage) {
     .sort()
     .at(-1) || null;
 
+  const dayRows = [...byDay.values()].sort((a, b) => a.day.localeCompare(b.day)).slice(-30)
+    .map((row) => {
+      const practiceTimerMinutes = xizongPracticeMinutesForDay(storage, row.day, now);
+      return {
+        ...row,
+        practice_timer_minutes: practiceTimerMinutes,
+        observed_minutes_per_attempt:
+          row.attempted > 0 && practiceTimerMinutes > 0
+            ? Number((practiceTimerMinutes / row.attempted).toFixed(3))
+            : null
+      };
+    });
+
   return {
     schema: 'kianos.xizong.practice-forecast-evidence.v1',
     official_attempt_events: events.length,
@@ -152,7 +227,10 @@ function summarizeXizongForecastPractice(storage) {
       wrong: firstPassCounts.wrong,
       wrong_or_uncertain: wrongUncertain,
       wrong_or_uncertain_rate: firstPass.size ? Number((wrongUncertain / firstPass.size).toFixed(4)) : null,
-      by_day: [...byDay.values()].sort((a, b) => a.day.localeCompare(b.day)).slice(-30)
+      eligible_attempted_questions: eligibleAttempted,
+      heldout_observed_questions: heldoutObserved,
+      by_system: [...bySystem.values()].sort((a, b) => String(a.canonical_id).localeCompare(String(b.canonical_id), undefined, { numeric: true })),
+      by_day: dayRows
     },
     latest: {
       observed_questions: latest.size,
@@ -171,11 +249,26 @@ function summarizeXizongForecastRepairs(storage) {
   const sourceQuestionIds = new Set();
   let questionBackedClusters = 0;
   let completedClusters = 0;
+  const calibrationSamples = [];
   for (const task of allRepairs) {
     const ids = Array.isArray(task?.sourceQuestionIds) ? task.sourceQuestionIds.map(String).filter(Boolean) : [];
     if (ids.length) questionBackedClusters += 1;
     ids.forEach((id) => sourceQuestionIds.add(id));
-    if (String(task?.status || '') === 'DONE') completedClusters += 1;
+    if (String(task?.status || '') === 'DONE') {
+      completedClusters += 1;
+      const detailKey = repairDetailKey(task);
+      const timerMinutes = detailKey && task?.createdAt && task?.completedAt
+        ? timerMinutesForDetail(storage, detailKey, { startAt: task.createdAt, endAt: task.completedAt })
+        : null;
+      calibrationSamples.push({
+        repair_id: String(task?.id || ''),
+        source_question_count: ids.length,
+        detail_key: detailKey,
+        created_at: String(task?.createdAt || '') || null,
+        completed_at: String(task?.completedAt || '') || null,
+        timer_minutes_in_repair_window: Number.isFinite(timerMinutes) ? timerMinutes : null
+      });
+    }
   }
   return {
     schema: 'kianos.xizong.repair-forecast-evidence.v1',
@@ -186,6 +279,7 @@ function summarizeXizongForecastRepairs(storage) {
     unique_source_question_ids: sourceQuestionIds.size,
     observed_question_to_cluster_ratio:
       questionBackedClusters > 0 ? Number((sourceQuestionIds.size / questionBackedClusters).toFixed(3)) : null,
+    calibration_samples: calibrationSamples,
     evidence_boundary:
       'Repair lifecycle is subject-owned. The question-to-cluster ratio describes observed compression only; several Wrong/Uncertain questions may share one root cause, and DONE still requires later fresh verification.'
   };
@@ -216,6 +310,80 @@ function boundedScoreAttribution(attribution) {
   };
 }
 
+function reconcileForecastQuestionScope(questionScope, practiceEvidence, holdoutYears = []) {
+  if (!record(questionScope) || questionScope.schema !== 'kianos.xizong.forecast-question-scope.v1') {
+    return {
+      schema: 'kianos.xizong.forecast-question-workload.v1',
+      status: 'UNKNOWN',
+      reason: 'CURRENT_QUESTION_SCOPE_NOT_ATTACHED',
+      unknown_systems: [],
+      known_eligible_questions: null,
+      known_remaining_questions: null
+    };
+  }
+
+  const holdout = new Set((Array.isArray(holdoutYears) ? holdoutYears : []).map(Number).filter(Number.isInteger));
+  const practiceBySystem = new Map(
+    (practiceEvidence?.first_pass?.by_system || []).map((row) => [String(row?.canonical_id || ''), row])
+  );
+  const systems = (questionScope.systems || []).map((row) => {
+    if (row?.status !== 'EXACT') {
+      return {
+        canonical_id: String(row?.canonical_id || ''),
+        system_id: String(row?.system_id || ''),
+        status: 'UNKNOWN',
+        eligible_questions: null,
+        attempted_questions: null,
+        remaining_questions: null,
+        reason: String(row?.reason || 'EXACT_SCOPE_UNAVAILABLE')
+      };
+    }
+    const heldout = Object.entries(row?.year_counts || {})
+      .filter(([year]) => holdout.has(Number(year)))
+      .reduce((sum, [, count]) => sum + Number(count || 0), 0);
+    const eligible = Math.max(0, Number(row?.question_count || 0) - heldout);
+    const practice = practiceBySystem.get(String(row?.canonical_id || ''));
+    const attempted = Math.min(eligible, Math.max(0, Number(practice?.eligible_attempted || 0)));
+    return {
+      canonical_id: String(row?.canonical_id || ''),
+      system_id: String(row?.system_id || ''),
+      status: 'EXACT',
+      exact_questions: Number(row?.question_count || 0),
+      heldout_questions: heldout,
+      eligible_questions: eligible,
+      attempted_questions: attempted,
+      remaining_questions: Math.max(0, eligible - attempted)
+    };
+  });
+  const knownEligible = systems
+    .filter((row) => row.status === 'EXACT')
+    .reduce((sum, row) => sum + Number(row.eligible_questions || 0), 0);
+  const knownRemainingBySystem = systems
+    .filter((row) => row.status === 'EXACT')
+    .reduce((sum, row) => sum + Number(row.remaining_questions || 0), 0);
+  const duplicateMemberships = Number(questionScope.cross_system_duplicate_memberships || 0);
+  const unionHeldout = Object.entries(questionScope.union_year_counts || {})
+    .filter(([year]) => holdout.has(Number(year)))
+    .reduce((sum, [, count]) => sum + Number(count || 0), 0);
+  const unionEligible = Math.max(0, Number(questionScope.exact_union_questions || 0) - unionHeldout);
+
+  return {
+    schema: 'kianos.xizong.forecast-question-workload.v1',
+    status: questionScope.scope_complete ? 'EXACT_COMPLETE' : 'EXACT_PARTIAL',
+    holdout_years: [...holdout].sort((a, b) => a - b),
+    exact_union_questions: Number(questionScope.exact_union_questions || 0),
+    exact_union_eligible_questions: unionEligible,
+    summed_system_eligible_questions: knownEligible,
+    cross_system_duplicate_memberships: duplicateMemberships,
+    known_remaining_questions: duplicateMemberships === 0 ? knownRemainingBySystem : null,
+    known_remaining_is_lower_bound: !questionScope.scope_complete,
+    unknown_systems: [...(questionScope.unknown_systems || [])],
+    systems,
+    evidence_boundary:
+      'Known remaining questions are exact only when System scopes are exact and duplicate membership is zero. UNKNOWN systems remain unpriced and make the known total a lower bound.'
+  };
+}
+
 function clampIndex(value, length) {
   if (!length) return 0;
   const n = Number(value || 0);
@@ -223,7 +391,11 @@ function clampIndex(value, length) {
   return Math.max(0, Math.min(length - 1, Math.floor(n)));
 }
 
-export function buildXizongForecastProgress(storage, packetIndex = []) {
+export function buildXizongForecastProgress(storage, packetIndex = [], {
+  questionScope = null,
+  day = studyDayAt(Date.now()),
+  now = Date.now()
+} = {}) {
   if (!storage?.getItem) throw new Error('XIZONG_FORECAST_PROGRESS_STORAGE_UNAVAILABLE');
   if (!Array.isArray(packetIndex) || !packetIndex.length) {
     throw new Error('XIZONG_FORECAST_PROGRESS_PACKET_INDEX_REQUIRED');
@@ -241,6 +413,7 @@ export function buildXizongForecastProgress(storage, packetIndex = []) {
     const blockId = String(row?.blockId || row?.packetMeta?.blockId || '');
     const kpRows = Array.isArray(row?.kpRows) ? row.kpRows : [];
     const logicGroupCount = new Set(kpRows.map((kp) => String(kp?.groupId || '')).filter(Boolean)).size;
+    const routeKey = String(row?.routeKey || (row?.slug ? `${systemId}/${row.slug}` : ''));
     if (!systemId || !canonicalId || !blockId || !kpRows.length) {
       throw new Error('XIZONG_FORECAST_PROGRESS_INDEX_ROW_INVALID');
     }
@@ -278,13 +451,17 @@ export function buildXizongForecastProgress(storage, packetIndex = []) {
         system_id: systemId,
         canonical_id: canonicalId,
         block_id: blockId,
+        route_key: routeKey || null,
         kp_count: kpRows.length,
         logic_group_count: logicGroupCount,
         learned_kp_count: learnedKp,
         block_recall_done: state.blockRecallDone === true,
         block_recall_completed_at: String(state.blockRecallCompletedAt || '') || null,
         completed_at: String(state.completedAt || '') || null,
-        study_day: studyDayFromIso(state.completedAt)
+        study_day: studyDayFromIso(state.completedAt),
+        timer_minutes_to_completion: routeKey && state.completedAt
+          ? timerMinutesForDetail(storage, routeKey, { endAt: state.completedAt })
+          : null
       });
       system.runtime_completed_blocks += 1;
       continue;
@@ -295,12 +472,14 @@ export function buildXizongForecastProgress(storage, packetIndex = []) {
       system_id: systemId,
       canonical_id: canonicalId,
       block_id: blockId,
+      route_key: routeKey || null,
       kp_count: kpRows.length,
       learned_kp_count: learnedKp,
       current_stage: String(state.stage || ''),
       group_index: Number.isInteger(Number(state.groupIndex)) ? Number(state.groupIndex) : null,
       kp_index: Number.isInteger(Number(state.kpIndex)) ? Number(state.kpIndex) : null,
-      block_recall_done: state.blockRecallDone === true
+      block_recall_done: state.blockRecallDone === true,
+      timer_minutes_recorded: routeKey ? timerMinutesForDetail(storage, routeKey) : null
     });
   }
 
@@ -315,8 +494,10 @@ export function buildXizongForecastProgress(storage, packetIndex = []) {
       .filter(Boolean));
     return sum + groups.size;
   }, 0);
-  const practiceEvidence = summarizeXizongForecastPractice(storage);
+  const holdoutYears = readJson(storage, 'kianos:xizong:full-paper-holdout-years:v1', []) || [];
+  const practiceEvidence = summarizeXizongForecastPractice(storage, { holdoutYears, now });
   const repairEvidence = summarizeXizongForecastRepairs(storage);
+  const questionWorkload = reconcileForecastQuestionScope(questionScope, practiceEvidence, holdoutYears);
 
   return {
     schema: 'kianos.xizong.forecast-progress.v1',
@@ -331,6 +512,7 @@ export function buildXizongForecastProgress(storage, packetIndex = []) {
         system_id: String(row.systemId || ''),
         canonical_id: String(row.packetMeta?.canonicalId || ''),
         block_id: String(row.blockId || row.packetMeta?.blockId || ''),
+        route_key: String(row.routeKey || (row?.slug ? `${row.systemId}/${row.slug}` : '')),
         kp_count: Array.isArray(row.kpRows) ? row.kpRows.length : 0,
         logic_group_count: new Set((Array.isArray(row?.kpRows) ? row.kpRows : [])
           .map((kp) => String(kp?.groupId || ''))
@@ -350,6 +532,8 @@ export function buildXizongForecastProgress(storage, packetIndex = []) {
     },
     practice_evidence: practiceEvidence,
     repair_evidence: repairEvidence,
+    question_workload: questionWorkload,
+    observation_day: day,
     systems: systemRows,
     evidence_boundary:
       'Factual KianOS runtime progress only. NO_RUNTIME_EVIDENCE does not prove unstudied; learned_kp is not mastery; Gate workload still requires subject-owned reconciliation into exam.subject-demand.v1.'
