@@ -1,5 +1,6 @@
 export const ENGLISH_FORECAST_INPUT_SCHEMA='kianos.english.forecast-input.v1';
 export const ENGLISH_FORECAST_MODEL_SCHEMA='kianos.english.workload-forecast.v1';
+export const ENGLISH_PRODUCTIVE_SCORING_STANDARD_VERSION='english.productive-scoring.v2';
 
 export const ENGLISH_SCORE_CHANNELS=Object.freeze({
   objective:Object.freeze({label:'Objective',max_points:60}),
@@ -273,10 +274,17 @@ function scoreChannelRow(id,input){
   const modality=String(row.modality||'UNKNOWN').toUpperCase();
   const qualityEligible=scoreEvidenceQualityEligible(evidenceQuality);
   const modalityEligible=scoreModalityEligible(id,modality);
-  const formalScoreEligible=declaredScoreEligible&&range!==null&&qualityEligible&&modalityEligible;
+  const scoringStandardVersion=id==='objective'
+    ? null
+    : String(row.scoring_standard_version||'UNKNOWN');
+  const scoringStandardCurrent=id==='objective'
+    || scoringStandardVersion===ENGLISH_PRODUCTIVE_SCORING_STANDARD_VERSION;
+  const scoreInterpretationEligible=declaredScoreEligible&&range!==null&&scoringStandardCurrent;
+  const formalScoreEligible=scoreInterpretationEligible&&qualityEligible&&modalityEligible;
   const risks=[];
   if(!range)risks.push('SCORE_RANGE_UNKNOWN');
   if(!declaredScoreEligible)risks.push('NOT_FORMAL_SCORE_ELIGIBLE');
+  if(!scoringStandardCurrent)risks.push('PRODUCTIVE_SCORING_STANDARD_STALE_OR_UNBOUND');
   if(!qualityEligible)risks.push('EVIDENCE_QUALITY_FORMAL_INELIGIBLE');
   if(!modalityEligible)risks.push('EXAM_MODE_MODALITY_FORMAL_INELIGIBLE');
   if(declaredScoreEligible&&!formalScoreEligible)risks.push('DECLARED_SCORE_ELIGIBLE_CONTRADICTS_EVIDENCE');
@@ -286,8 +294,11 @@ function scoreChannelRow(id,input){
     max_points:meta.max_points,
     range,
     declared_score_eligible:declaredScoreEligible,
+    score_interpretation_eligible:scoreInterpretationEligible,
     score_eligible:formalScoreEligible,
     formal_score_eligible:formalScoreEligible,
+    scoring_standard_version:scoringStandardVersion,
+    scoring_standard_current:scoringStandardCurrent,
     evidence_quality:evidenceQuality,
     modality,
     risks
@@ -296,7 +307,7 @@ function scoreChannelRow(id,input){
 
 function scoreForecast(input,targetScore){
   const channels=Object.keys(ENGLISH_SCORE_CHANNELS).map((id)=>scoreChannelRow(id,input));
-  const diagnosticRows=channels.filter((row)=>row.declared_score_eligible&&row.range);
+  const diagnosticRows=channels.filter((row)=>row.score_interpretation_eligible&&row.range);
   const diagnosticComplete=diagnosticRows.length===channels.length;
   const diagnosticBand=diagnosticComplete?{
     low:round(diagnosticRows.reduce((sum,row)=>sum+row.range.low,0),1),
@@ -315,10 +326,14 @@ function scoreForecast(input,targetScore){
   const integratedDeclaredEligible=integrated.score_eligible===true;
   const integratedEvidenceQuality=String(integrated.evidence_quality||'UNKNOWN').toUpperCase();
   const integratedModality=String(integrated.modality||'UNKNOWN').toUpperCase();
+  const integratedScoringStandardVersion=String(integrated.productive_scoring_standard_version||'UNKNOWN');
+  const integratedScoringStandardCurrent=
+    integratedScoringStandardVersion===ENGLISH_PRODUCTIVE_SCORING_STANDARD_VERSION;
   const integratedQualityEligible=scoreEvidenceQualityEligible(integratedEvidenceQuality);
   const integratedModalityEligible=['PAPER','MIXED'].includes(integratedModality);
   const integratedEligible=integratedDeclaredEligible
     && integratedRange!==null
+    && integratedScoringStandardCurrent
     && integratedQualityEligible
     && integratedModalityEligible;
 
@@ -344,6 +359,7 @@ function scoreForecast(input,targetScore){
   const integratedRisks=[];
   if(!integratedRange)integratedRisks.push('WHOLE_PAPER_SCORE_RANGE_UNKNOWN');
   if(!integratedDeclaredEligible)integratedRisks.push('WHOLE_PAPER_NOT_DECLARED_SCORE_ELIGIBLE');
+  if(!integratedScoringStandardCurrent)integratedRisks.push('WHOLE_PAPER_PRODUCTIVE_SCORING_STANDARD_STALE_OR_UNBOUND');
   if(!integratedQualityEligible)integratedRisks.push('WHOLE_PAPER_EVIDENCE_QUALITY_FORMAL_INELIGIBLE');
   if(!integratedModalityEligible)integratedRisks.push('WHOLE_PAPER_MODALITY_FORMAL_INELIGIBLE');
   if(integratedDeclaredEligible&&!integratedEligible)integratedRisks.push('DECLARED_SCORE_ELIGIBLE_CONTRADICTS_WHOLE_PAPER_EVIDENCE');
@@ -358,6 +374,8 @@ function scoreForecast(input,targetScore){
       range:integratedRange,
       declared_score_eligible:integratedDeclaredEligible,
       score_eligible:integratedEligible,
+      productive_scoring_standard_version:integratedScoringStandardVersion,
+      productive_scoring_standard_current:integratedScoringStandardCurrent,
       evidence_quality:integratedEvidenceQuality,
       modality:integratedModality,
       status:integratedStatus,
@@ -399,6 +417,8 @@ export function buildEnglishWorkloadForecast(input,{targetScore=85}={}){
   if(!workload.full_scope_priced)uncertainty.push('WORKLOAD_SCOPE_PARTIALLY_UNPRICED');
   if(workload.prior_only_bucket_count)uncertainty.push('WORKLOAD_HAS_PRIOR_ONLY_PRICING');
   if(score.formal_local_channel_band==null)uncertainty.push('FORMAL_SCORE_CHANNELS_INCOMPLETE');
+  if(score.channels.some((row)=>row.id!=='objective'&&!row.scoring_standard_current))uncertainty.push('PRODUCTIVE_SCORING_STANDARD_UNBOUND_OR_STALE');
+  if(!score.integrated_whole_paper.productive_scoring_standard_current)uncertainty.push('WHOLE_PAPER_PRODUCTIVE_SCORING_STANDARD_UNBOUND_OR_STALE');
   if(!score.integrated_whole_paper.score_eligible)uncertainty.push('WHOLE_PAPER_SCORE_CALIBRATION_MISSING');
   if(score.integrated_whole_paper.modality==='UNKNOWN'||score.integrated_whole_paper.modality==='TYPED')uncertainty.push('PAPER_MODALITY_UNCALIBRATED');
 
