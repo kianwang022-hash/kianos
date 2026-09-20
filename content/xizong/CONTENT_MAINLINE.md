@@ -35,8 +35,9 @@ Current working model:
 - Working target: **275+**
 - Elastic upside: **>275**
 - capability tree: **X1–X9**
-- current execution order: **Stage A → B → C → D → E**
-- Stage A must close before Forecast may claim a complete Kian-specific 275 path.
+- maturity relation: **Stage A foundation; B → C → D capability progression; Stage E continuous Real-U control overlay**
+- Stage A must close before Forecast may claim a complete Kian-specific 275 path;
+- Stage E begins with real learner evidence and continuously recalibrates B–D rather than waiting for a final phase.
 
 Stage A owns the practical subject package:
 
