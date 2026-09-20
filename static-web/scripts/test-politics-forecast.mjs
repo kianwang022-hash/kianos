@@ -54,7 +54,17 @@ for (const unitCase of forecast.first_round_stress.unit_cases) {
     assert.ok(caps[i].stress_grid_fit_fraction >= caps[i - 1].stress_grid_fit_fraction);
   }
   for (const row of unitCase.sensitivity) {
-    assert.ok(row.mean_minutes_delta >= 0, `${row.parameter} should not get cheaper when moved from low to high stress`);
+    if (row.parameter === 'signals_per_repair_cluster') {
+      assert.ok(
+        row.mean_minutes_delta <= 0,
+        'signals_per_repair_cluster should not get more expensive when more signals compress into one repair cluster'
+      );
+    } else {
+      assert.ok(
+        row.mean_minutes_delta >= 0,
+        `${row.parameter} should not get cheaper when moved from low to high stress`
+      );
+    }
   }
 }
 
