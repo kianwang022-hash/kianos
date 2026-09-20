@@ -81,103 +81,6 @@ function politicsMemoryCatalog() {
   return cachedPoliticsMemoryCatalog;
 }
 
-function readJson(storage, key, fallback = null) {
-  try {
-    const raw = storage.getItem(key);
-    return raw == null ? fallback : (JSON.parse(raw) ?? fallback);
-  } catch {
-    return fallback;
-  }
-}
-
-function buildXizongForecastProgress(storage) {
-  const rows = xizongPacketIndex();
-  const systems = new Map();
-  const completedBlockIds = [];
-  const startedIncomplete = [];
-  let observedBlocks = 0;
-
-  for (const row of rows) {
-    const systemId = String(row.systemId || '');
-    if (!systems.has(systemId)) {
-      systems.set(systemId, {
-        system_id: systemId,
-        canonical_id: String(row.packetMeta?.canonicalId || ''),
-        canonical_blocks: 0,
-        canonical_kp: 0,
-        runtime_observed_blocks: 0,
-        runtime_completed_blocks: 0,
-        runtime_started_incomplete_blocks: 0,
-        runtime_observed_learned_kp: 0
-      });
-    }
-    const system = systems.get(systemId);
-    system.canonical_blocks += 1;
-    system.canonical_kp += row.kpRows.length;
-
-    const objectId = String(row.packetMeta?.objectId || `xizong:${row.blockId}`);
-    const state = readJson(storage, `kianos-xizong-astro-v2:${objectId}`, null);
-    if (!state || typeof state !== 'object' || Array.isArray(state)) continue;
-
-    observedBlocks += 1;
-    system.runtime_observed_blocks += 1;
-    const learnedKp = Object.values(state.learned || {}).filter(Boolean).length;
-    system.runtime_observed_learned_kp += learnedKp;
-
-    if (state.completed === true) {
-      completedBlockIds.push(row.blockId);
-      system.runtime_completed_blocks += 1;
-      continue;
-    }
-    system.runtime_started_incomplete_blocks += 1;
-    startedIncomplete.push({
-      system_id: systemId,
-      canonical_id: String(row.packetMeta?.canonicalId || ''),
-      block_id: row.blockId,
-      kp_count: row.kpRows.length,
-      learned_kp_count: learnedKp,
-      current_stage: String(state.stage || ''),
-      group_index: Number.isInteger(Number(state.groupIndex)) ? Number(state.groupIndex) : null,
-      kp_index: Number.isInteger(Number(state.kpIndex)) ? Number(state.kpIndex) : null,
-      block_recall_done: state.blockRecallDone === true
-    });
-  }
-
-  const systemRows = [...systems.values()].sort((a,b) =>
-    String(a.canonical_id).localeCompare(String(b.canonical_id), undefined, { numeric: true })
-  );
-  const canonicalBlocks = rows.length;
-  const canonicalKp = rows.reduce((sum,row)=>sum+row.kpRows.length,0);
-
-  return {
-    schema: 'kianos.xizong.forecast-progress.v1',
-    forecast_role: 'FACTUAL_SUBJECT_PROGRESS_SIGNAL_ONLY',
-    gate_workload_authority: false,
-    canonical_scope: {
-      systems: systemRows.length,
-      blocks: canonicalBlocks,
-      canonical_kp: canonicalKp,
-      block_weights: rows.map((row) => ({
-        system_id: String(row.systemId || ''),
-        canonical_id: String(row.packetMeta?.canonicalId || ''),
-        block_id: row.blockId,
-        kp_count: row.kpRows.length
-      }))
-    },
-    runtime_evidence: {
-      observed_blocks: observedBlocks,
-      completed_blocks: completedBlockIds.length,
-      started_incomplete_blocks: startedIncomplete.length,
-      no_runtime_evidence_blocks: Math.max(0, canonicalBlocks - observedBlocks),
-      completed_block_ids: completedBlockIds.sort(),
-      started_incomplete: startedIncomplete
-    },
-    systems: systemRows,
-    evidence_boundary:
-      'Factual KianOS runtime progress only. NO_RUNTIME_EVIDENCE does not prove unstudied; learned_kp is not mastery; Gate workload still requires subject-owned reconciliation into exam.subject-demand.v1.'
-  };
-}
-
 function readProfile(storage, day) {
   try {
     const raw = storage.getItem(EXAM_PROFILE_KEY);
@@ -254,11 +157,6 @@ export function buildDailyLearningPacketFromPrivateCheckpoint(input, {
     politicsMemoryCatalog: politicsMemoryCatalog(),
     base
   });
-
-  if (result.packet?.subjects?.xizong?.evidence) {
-    result.packet.subjects.xizong.evidence.forecast_progress =
-      buildXizongForecastProgress(storage);
-  }
 
   if (result.packet?.schema !== 'kianos.daily-learning-packet.v1') {
     throw new Error('DAILY_PACKET_PRIVATE_PROJECTION_INVALID');
