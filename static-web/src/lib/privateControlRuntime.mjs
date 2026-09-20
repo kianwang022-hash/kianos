@@ -249,7 +249,7 @@ export function initPrivateControlRuntime(storage=window.localStorage,{
           schema:CONTROL_RECEIPT_SCHEMA,
           command_id:commandId,
           command_hash:data.command?.command_hash||null,
-          status:/INVALID|STALE|EXPIRED|MISMATCH|NOT_CURRENT|OLDER/.test(String(error?.message||''))
+          status:/INVALID|STALE|EXPIRED|MISMATCH|NOT_CURRENT|OLDER|POLITICS_ANALYSIS_/.test(String(error?.message||''))
             ?'REJECTED':'ERROR',
           observed_at:new Date().toISOString(),
           error:error instanceof Error?error.message:String(error)
