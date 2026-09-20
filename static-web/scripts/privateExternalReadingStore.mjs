@@ -231,6 +231,8 @@ function passageRevision(passage){
     question_origin:passage.question_origin||null,
     completion_requirement:passage.completion_requirement||'READ_ONLY_OK',
     passage_text:passage.passage_text,
+    passage_blocks:passage.passage_blocks||null,
+    source_figures:passage.source_figures||[],
     questions:passage.questions,
     answer_key:passage.answer_key,
     warnings:passage.warnings
@@ -294,6 +296,8 @@ export function externalReadingPassage(objectId,state=ensureExternalReadingPriva
     completion_requirement:passage.completion_requirement||'READ_ONLY_OK',
     passage_text:passage.passage_text,
     passage_paragraphs:passage.passage_paragraphs,
+    passage_blocks:Array.isArray(passage.passage_blocks)?passage.passage_blocks:null,
+    source_figures:Array.isArray(passage.source_figures)?passage.source_figures:[],
     questions:(passage.questions||[]).map(q=>({
       question_id:q.question_id,
       ordinal:q.ordinal,
