@@ -1,5 +1,5 @@
 import { EXAM_PROFILE_KEY } from './examOrchestrator.mjs';
-import { STUDY_TIMER_LEDGER_KEY } from './studyTimer.mjs';
+import { readStudyTimerLedger } from './studyTimer.mjs';
 import { englishCheckpointKeyAllowed } from './englishLearnerEvidence.mjs';
 import { politicsCheckpointKeyAllowed } from './politicsChatReturn.mjs';
 import { isXizongDurableStorageKey } from './xizongPrivateCheckpoint.mjs';
@@ -130,7 +130,7 @@ const planningProfileBasis = (storage) => {
 
 const sharedContextFingerprint = (storage) => fingerprint(JSON.stringify({
   exam_profile: planningProfileBasis(storage),
-  study_timer_ledger: canonicalJson(storage?.getItem?.(STUDY_TIMER_LEDGER_KEY))
+  study_timer_ledger: readStudyTimerLedger(storage)
 }));
 
 const basisCore = (studyDay, sharedContext, subjects) => JSON.stringify({
