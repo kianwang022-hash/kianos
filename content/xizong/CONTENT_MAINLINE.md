@@ -83,6 +83,23 @@ Stage A exit gate:
 4. X1–X9 each have an identified formation/evidence path;
 5. remaining UNKNOWNs are future-source or Real Learner U, not hidden architecture/content debt.
 
+Current Stage-A result:
+
+- practical owner: `content/xizong/MATURITY_PACKAGE.md`;
+- 8 System / 159 Block / 2517 KP medical identity reconciled into the package;
+- A1–E exact official System-question scopes are represented; F remains unresolved;
+- 2024–2026 Current Question Truth confirms a repeated humanism block at N108–N115, 8 questions / historical 16 points;
+- recent humanism themes have been reconstructed into professional spirit, communication, patient rights/consent/privacy, research ethics and legal/regulatory obligations;
+- 2027 exact question-count/scoring geometry remains authority-BLOCKED; historical 165/300 stays prior-only;
+- neutral historical 275 loss baseline is recorded, without turning it into fixed discipline quotas.
+
+Next unblocked maturity inputs:
+
+1. smallest Current humanism owner + training/evidence path;
+2. F exact official-question membership;
+3. 2027 Biochemistry delta reconciliation;
+4. case/狂背/four-set/final-five-hour net-new pricing.
+
 Do not move the maturity mainline to Stage B merely because current learner surfaces or Forecast CI are green.
 
 ---
