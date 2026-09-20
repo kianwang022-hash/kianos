@@ -23,11 +23,17 @@ export function readEnglishExposure(storage){
  if(data.schema!==ENGLISH_EXPOSURE_SCHEMA||!data.materials||Array.isArray(data.materials))throw new Error('ENGLISH_EXPOSURE_SCHEMA_MISMATCH');return data;
 }
 
-function exactSourcePreviouslyExposed(ledger,sourceHash){
- if(!sourceHash)return false;
+function semanticSourcePreviouslyExposed(ledger,semanticSourceHash,exactSourceHash){
+ if(!semanticSourceHash&&!exactSourceHash)return false;
  return Object.values(ledger?.materials||{}).some((material)=>{
-  const eventMatch=Array.isArray(material?.events)&&material.events.some((event)=>event?.source_hash===sourceHash);
-  const declarationMatch=material?.declaration?.state==='exposed'&&material?.declaration?.source_hash===sourceHash;
+  const eventMatch=Array.isArray(material?.events)&&material.events.some((event)=>
+    (semanticSourceHash&&event?.semantic_source_hash===semanticSourceHash)
+    || (exactSourceHash&&event?.source_hash===exactSourceHash)
+  );
+  const declarationMatch=material?.declaration?.state==='exposed'&&(
+    (semanticSourceHash&&material?.declaration?.semantic_source_hash===semanticSourceHash)
+    || (exactSourceHash&&material?.declaration?.source_hash===exactSourceHash)
+  );
   return eventMatch||declarationMatch;
  });
 }
@@ -36,13 +42,13 @@ function exposureUpdate(storage,binding,event,now){
  const ledger=readEnglishExposure(storage);
  const material=ledger.materials[binding.object_id]||{object_id:binding.object_id,events:[]};
  const id=`${binding.attempt_id}:${event}`;
- if(!material.events.some(e=>e.event_id===id))material.events.push({event_id:id,attempt_id:binding.attempt_id,source_hash:binding.source_hash,context:binding.context,event,at:new Date(now).toISOString()});
+ if(!material.events.some(e=>e.event_id===id))material.events.push({event_id:id,attempt_id:binding.attempt_id,source_hash:binding.source_hash,semantic_source_hash:binding.semantic_source_hash||binding.source_hash,context:binding.context,event,at:new Date(now).toISOString()});
  ledger.materials[binding.object_id]=material;return ledger;
 }
 
 export function taskMetadata(root,task,objectId){
  let data={};try{data=JSON.parse(root.querySelector('[data-english-task-snapshot]')?.textContent||'{}');}catch{throw new Error('ENGLISH_TASK_SNAPSHOT_INVALID');}
- return {task,object_id:objectId,source_hash:root.getAttribute('data-english-source-hash')||null,snapshot:data};
+ return {task,object_id:objectId,source_hash:root.getAttribute('data-english-source-hash')||null,semantic_source_hash:data?.evidence?.semantic_source_hash||root.getAttribute('data-english-source-hash')||null,snapshot:data};
 }
 
 export function preserveEnglishFailure(root,error){
@@ -80,8 +86,9 @@ export function saveEnglishAttempt(storage,key,value,meta,{sessionId='',now=Date
    const budget=Number(step?.params?.time_budget_seconds)||null;
    const evidenceMeta=meta.snapshot?.evidence&&typeof meta.snapshot.evidence==='object'?meta.snapshot.evidence:{};
    const assistanceContext=step?.params?.assistance_context&&typeof step.params.assistance_context==='object'?clone(step.params.assistance_context):null;
-   const exactSourceSeen=exactSourcePreviouslyExposed(ledger,meta.source_hash);
-   binding={started_at:new Date(now).toISOString(),time_budget_seconds:budget,task:meta.task,object_id:meta.object_id,source_hash:meta.source_hash,attempt_id:globalThis.crypto?.randomUUID?.()||`${meta.object_id}:${now}:${Math.random()}`,context:sessionId?'exam':'study',session_id:sessionId||null,revision:0,prior_exposure:(past.length||exactSourceSeen)?'exposed':(ledger.materials[meta.object_id]?.declaration?.state||'unknown'),assistance:assistanceContext?.state||'unassisted',assistance_context:assistanceContext,source_kind:String(evidenceMeta.source_kind||'unknown'),evidence_role:evidenceMeta.evidence_role==null?null:String(evidenceMeta.evidence_role),source_snapshot:clone(meta.snapshot),legacy_unversioned:Boolean(previous)};
+   const semanticSourceHash=String(meta.semantic_source_hash||evidenceMeta.semantic_source_hash||meta.source_hash||'')||null;
+   const semanticSourceSeen=semanticSourcePreviouslyExposed(ledger,semanticSourceHash,meta.source_hash);
+   binding={started_at:new Date(now).toISOString(),time_budget_seconds:budget,task:meta.task,object_id:meta.object_id,source_hash:meta.source_hash,semantic_source_hash:semanticSourceHash,attempt_id:globalThis.crypto?.randomUUID?.()||`${meta.object_id}:${now}:${Math.random()}`,context:sessionId?'exam':'study',session_id:sessionId||null,revision:0,prior_exposure:(past.length||semanticSourceSeen)?'exposed':(ledger.materials[meta.object_id]?.declaration?.state||'unknown'),assistance:assistanceContext?.state||'unassisted',assistance_context:assistanceContext,source_kind:String(evidenceMeta.source_kind||'unknown'),evidence_role:evidenceMeta.evidence_role==null?null:String(evidenceMeta.evidence_role),source_snapshot:clone(meta.snapshot),legacy_unversioned:Boolean(previous)};
   }
   if(previous?.binding&&value.binding&&Number(previous.binding.revision)!==Number(value.binding.revision))throw new Error('ENGLISH_ATTEMPT_STALE_WRITE_RELOAD_REQUIRED');
   // Same-attempt first evidence is immutable even across tab-local stale state.
@@ -94,7 +101,7 @@ export function saveEnglishAttempt(storage,key,value,meta,{sessionId='',now=Date
   if(previous?.binding?.assistance==='assisted')binding={...binding,assistance:'assisted'};
   const next=clone(value);next.binding={...binding,revision:Number(binding.revision||0)+1};next.saved_at=new Date(now).toISOString();
   if(!previous?.firstEvidenceMeta && ((!previous?.submitted&&next.submitted)||(!previous?.firstSubmittedAt&&next.firstSubmittedAt))){
-    next.firstEvidenceMeta=Object.fromEntries(['attempt_id','source_hash','prior_exposure','assistance','source_kind','evidence_role','legacy_unversioned','time_budget_seconds'].map(k=>[k,next.binding[k]]));
+    next.firstEvidenceMeta=Object.fromEntries(['attempt_id','source_hash','semantic_source_hash','prior_exposure','assistance','source_kind','evidence_role','legacy_unversioned','time_budget_seconds'].map(k=>[k,next.binding[k]]));
     next.firstEvidenceMeta.assistance_context=next.binding.assistance_context?clone(next.binding.assistance_context):null;
     const elapsed=Math.max(0,(now-Date.parse(next.binding.started_at||next.startedAt||next.createdAt||''))/1000);
     next.firstEvidenceMeta.elapsed_seconds=Number.isFinite(elapsed)?elapsed:null;
