@@ -103,12 +103,12 @@ assert.deepEqual(byType.multiple, {
 });
 
 assert.deepEqual(
-  packet.today.attempts.map((row) => [row.question_id, row.question_type, row.outcome]),
+  packet.today.attempts.map((row) => [row.question_id, row.question_type, row.current_admission_status, row.outcome]),
   [
-    ['S1', 'single', 'STABLE'],
-    ['M1', 'multiple', 'WRONG'],
-    ['M2', 'multiple', 'UNCERTAIN'],
-    ['M3', 'multiple', 'WRONG']
+    ['S1', 'single', 'ADMITTED', 'STABLE'],
+    ['M1', 'multiple', 'ADMITTED', 'WRONG'],
+    ['M2', 'multiple', 'ADMITTED', 'UNCERTAIN'],
+    ['M3', 'multiple', 'WITHHELD_CURRENT', 'WRONG']
   ]
 );
 
