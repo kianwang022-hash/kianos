@@ -2,6 +2,7 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { englishSemanticSourceHash } from '../src/lib/englishSemanticSourceIdentity.mjs';
 
 export const ENGLISH_GENERATED_DRILL_SCHEMA='kianos.english.generated-drill.v1';
 export const ENGLISH_GENERATED_ORIGINS=Object.freeze([
@@ -257,6 +258,13 @@ export function materializeEnglishGeneratedDrill(drill,{loadExternalSource}={}){
     sourceObjectId=source.object_id;
   }
 
+  const semanticSourceHash=englishSemanticSourceHash({
+    task:'external_reading',
+    paragraphs,
+    questions:value.questions.map(({answer,rationale,...q})=>q),
+    context:{question_origin:'CHAT_GENERATED'}
+  });
+
   return{
     schema:'kianos.english.external-passage-view.v1',
     object_id:value.object_id,
@@ -281,7 +289,8 @@ export function materializeEnglishGeneratedDrill(drill,{loadExternalSource}={}){
     retire_dedupe_rule:value.retire_dedupe_rule,
     warnings:[],
     source_hash:value.source_ref?.content_hash||null,
-    content_hash:value.content_hash
+    content_hash:value.content_hash,
+    semantic_source_hash:semanticSourceHash
   };
 }
 
