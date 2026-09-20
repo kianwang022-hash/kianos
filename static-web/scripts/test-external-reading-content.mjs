@@ -66,7 +66,7 @@ const completePackage=[
   '  extraction_notes:',
   '~~~',
   ''
-].join('\\n').replaceAll('~~~','\`\`\`');
+].join('\n').replaceAll('~~~','\`\`\`');
 const completePackagePath=path.join(temp,'complete-source-package.md');
 fs.writeFileSync(completePackagePath,completePackage,'utf8');
 const completeOut=path.join(temp,'parsed-complete');
