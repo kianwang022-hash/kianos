@@ -31,7 +31,7 @@ const externalPrivate=path.join(temp,'external-private');
 
 const drill=validateEnglishGeneratedDrill({
   schema:ENGLISH_GENERATED_DRILL_SCHEMA,
-  object_id:'external-chat-2026-09-20-relay-browser-001',
+  object_id:'external-chat-'+day+'-relay-browser-001',
   study_day:day,
   generated_at:sessionGeneratedAt,
   origin:'CHAT_GENERATED_SYNTHETIC',
