@@ -6,7 +6,7 @@ import {
   auditXizongCompressionProposals,
   buildXizongForecastLoop,
   buildXizongHighScoreRequirement,
-  buildXizongScoreReadiness,
+  buildXizongScoreEvidence,
   buildXizongWorkloadForecast,
   classifyXizongMaterialGaps,
   reconcileXizongMaterialIncrement
@@ -222,27 +222,27 @@ function baseProgress() {
   assert.equal(forecast.score_formation.status,'PARTIAL');
   assert.ok(forecast.score_formation.unpriced_components.includes('FORMAL_SCORE_CALIBRATION'));
   assert.ok(forecast.risks.includes('FORMAL_SCORE_CALIBRATION_MISSING'));
-  const readiness=buildXizongScoreReadiness(noPaper,{targetScore:275});
-  assert.equal(readiness.formal_score.status,'NOT_READY');
-  assert.equal(readiness.gate_readiness.result,'NOT_READY');
+  const readiness=buildXizongScoreEvidence(noPaper,{targetScore:275});
+  assert.equal(readiness.formal_score.status,'INSUFFICIENT_SCORE_EVIDENCE');
+  assert.equal(readiness.evidence_readiness.result,'INSUFFICIENT_SCORE_EVIDENCE');
 }
 
 {
   const onePaper=baseProgress();
   onePaper.formal_score_evidence={sealed_papers:[{year:2026,earned_score:279,max_score:300}]};
-  const readiness=buildXizongScoreReadiness(onePaper,{targetScore:275});
+  const readiness=buildXizongScoreEvidence(onePaper,{targetScore:275});
   assert.equal(readiness.formal_score.status,'REFERENCE_ONLY_CONTAMINATION_UNKNOWN');
   assert.equal(readiness.formal_score.empirical_band,null);
   assert.equal(readiness.formal_score.latest_target_gap,-4);
   assert.equal(readiness.formal_score.score_extrapolation_ready,false);
-  assert.equal(readiness.gate_readiness.result,'EVIDENCE_PRESENT_LOW_CONFIDENCE');
+  assert.equal(readiness.evidence_readiness.result,'SCORE_EVIDENCE_PRESENT_LOW_CONFIDENCE');
 }
 
 {
-  const readiness=buildXizongScoreReadiness(baseProgress(),{targetScore:275});
+  const readiness=buildXizongScoreEvidence(baseProgress(),{targetScore:275});
   assert.equal(readiness.formal_score.status,'EMPIRICAL_BAND_CONTAMINATION_UNKNOWN');
   assert.equal(readiness.formal_score.score_extrapolation_ready,false);
-  assert.equal(readiness.gate_readiness.result,'EVIDENCE_PRESENT_LOW_CONFIDENCE');
+  assert.equal(readiness.evidence_readiness.result,'SCORE_EVIDENCE_PRESENT_LOW_CONFIDENCE');
   assert.ok(readiness.formal_score.empirical_band.p20<=readiness.formal_score.empirical_band.p50);
   assert.ok(readiness.formal_score.empirical_band.p50<=readiness.formal_score.empirical_band.p80);
   assert.equal(readiness.capabilities.precision.evidence_status,'SELECTIVE_EVIDENCE_PRESENT');
@@ -250,31 +250,31 @@ function baseProgress() {
 }
 
 {
-  const readiness=buildXizongScoreReadiness(baseProgress(),{
+  const readiness=buildXizongScoreEvidence(baseProgress(),{
     targetScore:275,
     materialGaps:[{id:'humanism-core',severity:'HARD',points_at_risk:16}]
   });
-  assert.equal(readiness.gate_readiness.coverage_ready,false);
-  assert.equal(readiness.gate_readiness.result,'NOT_READY');
+  assert.equal(readiness.evidence_readiness.coverage_ready,false);
+  assert.equal(readiness.evidence_readiness.result,'INSUFFICIENT_SCORE_EVIDENCE');
 }
 
 {
-  const contaminated=buildXizongScoreReadiness(baseProgress(),{
+  const contaminated=buildXizongScoreEvidence(baseProgress(),{
     targetScore:275,
     contaminationStatus:'KNOWN_PRIOR_EXPOSURE'
   });
   assert.equal(contaminated.formal_score.status,'EMPIRICAL_BAND_KNOWN_CONTAMINATION');
   assert.equal(contaminated.formal_score.score_extrapolation_ready,false);
   assert.equal(contaminated.formal_score.observed_score_is_not_fresh_prediction,true);
-  assert.equal(contaminated.gate_readiness.result,'EVIDENCE_PRESENT_LOW_CONFIDENCE');
+  assert.equal(contaminated.evidence_readiness.result,'SCORE_EVIDENCE_PRESENT_LOW_CONFIDENCE');
 
-  const leastContaminated=buildXizongScoreReadiness(baseProgress(),{
+  const leastContaminated=buildXizongScoreEvidence(baseProgress(),{
     targetScore:275,
     contaminationStatus:'LEAST_CONTAMINATED'
   });
   assert.equal(leastContaminated.formal_score.status,'EMPIRICAL_BAND_LOW_CONTAMINATION');
   assert.equal(leastContaminated.formal_score.score_extrapolation_ready,true);
-  assert.equal(leastContaminated.gate_readiness.result,'READY_FOR_DEFENSIBLE_ESTIMATE');
+  assert.equal(leastContaminated.evidence_readiness.result,'SCORE_ESTIMATE_EVIDENCE_USABLE');
 }
 
 {
@@ -284,14 +284,14 @@ function baseProgress() {
     internal_holdout_protected_before_seal:false,
     external_exposure_status:'UNKNOWN'
   }));
-  const readiness=buildXizongScoreReadiness(unprotected,{
+  const readiness=buildXizongScoreEvidence(unprotected,{
     targetScore:275,
     contaminationStatus:'LEAST_CONTAMINATED'
   });
   assert.equal(readiness.formal_score.score_extrapolation_ready,false,
     'a Chat low-contamination claim must not upgrade an internally unprotected old paper');
   assert.equal(readiness.formal_score.calibration_sample_count,0);
-  assert.equal(readiness.gate_readiness.result,'EVIDENCE_PRESENT_LOW_CONFIDENCE');
+  assert.equal(readiness.evidence_readiness.result,'SCORE_EVIDENCE_PRESENT_LOW_CONFIDENCE');
   assert.match(readiness.formal_score.status,/WITHOUT_INTERNAL_HOLDOUT/);
 
   const workload=buildXizongWorkloadForecast(unprotected);
@@ -307,13 +307,15 @@ function baseProgress() {
     ...row,
     earned_score:290
   }));
-  const readiness=buildXizongScoreReadiness(highPaperNoCase,{
+  const readiness=buildXizongScoreEvidence(highPaperNoCase,{
     targetScore:275,
     contaminationStatus:'LEAST_CONTAMINATED'
   });
   assert.equal(readiness.capabilities.case_stability.evidence_status,'WHOLE_PAPER_PROXY_PRESENT');
   assert.equal(readiness.capabilities.case_stability.dedicated_case_evidence,false,
     'even a high low-contamination whole paper must not manufacture dedicated case-transfer evidence');
+  assert.equal(readiness.subject_maturity_claim,'OUT_OF_SCOPE',
+    'Forecast score evidence must never become a subject maturity verdict');
 
   highPaperNoCase.practice_evidence.fresh_transfer={
     ...highPaperNoCase.practice_evidence.fresh_transfer,
@@ -332,7 +334,7 @@ function baseProgress() {
       CROSS_SYSTEM_CASE:{observed:2,stable:2,uncertain:0,wrong:0}
     }
   };
-  const withCase=buildXizongScoreReadiness(highPaperNoCase,{
+  const withCase=buildXizongScoreEvidence(highPaperNoCase,{
     targetScore:275,
     contaminationStatus:'LEAST_CONTAMINATED'
   });
@@ -345,7 +347,7 @@ function baseProgress() {
 {
   const noPrecision=baseProgress();
   noPrecision.memory_evidence.precision={cards:0,weak:0,due_weak:0,due_delayed:0,stable_waiting:0};
-  const readiness=buildXizongScoreReadiness(noPrecision);
+  const readiness=buildXizongScoreEvidence(noPrecision);
   assert.equal(readiness.capabilities.precision.evidence_status,'UNKNOWN_OR_NOT_ADMITTED');
 }
 
@@ -564,11 +566,12 @@ function baseProgress() {
     dailyMinutes:300,
     startDay:'2026-09-21'
   });
-  assert.equal(loop.estimate_maturity,'COVERAGE_INCOMPLETE');
+  assert.equal(loop.forecast_state,'COVERAGE_INCOMPLETE');
   assert.ok(loop.uncertainty.includes('HARD_MATERIAL_COVERAGE_INCOMPLETE'));
   assert.ok(loop.uncertainty.includes('MATERIAL_OR_ROUTING_SCOPE_UNPRICED'));
-  assert.equal(loop.score.gate_readiness.coverage_ready,false);
+  assert.equal(loop.score.evidence_readiness.coverage_ready,false);
   assert.equal(loop.model_logic_validation,'CI_GATED_EXTERNALLY');
+  assert.equal(loop.subject_stage_decision,'OUT_OF_SCOPE');
 }
 
 {
@@ -585,6 +588,7 @@ function baseProgress() {
   assert.ok(routingOnly.uncertainty.includes('MATERIAL_OR_ROUTING_SCOPE_UNPRICED'));
   assert.equal(routingOnly.empirical_calibration_ready,false);
   assert.ok(routingOnly.uncertainty.includes('EMPIRICAL_FORECAST_CALIBRATION_INCOMPLETE'));
+  assert.ok(routingOnly.uncertainty.includes('DEDICATED_CASE_TRANSFER_UNKNOWN'));
 }
 
 {
@@ -592,10 +596,10 @@ function baseProgress() {
   allBlocksNoPaper.formal_score_evidence={sealed_papers:[]};
   allBlocksNoPaper.runtime_evidence.completed_blocks=allBlocksNoPaper.canonical_scope.blocks;
   allBlocksNoPaper.runtime_evidence.completed_block_ids=allBlocksNoPaper.canonical_scope.block_weights.map(row=>row.block_id);
-  const readiness=buildXizongScoreReadiness(allBlocksNoPaper);
+  const readiness=buildXizongScoreEvidence(allBlocksNoPaper);
   assert.equal(readiness.capabilities.source_model.evidence_status,'FULL_RUNTIME_CLOSURE_OBSERVED');
-  assert.equal(readiness.formal_score.status,'NOT_READY');
-  assert.equal(readiness.gate_readiness.result,'NOT_READY');
+  assert.equal(readiness.formal_score.status,'INSUFFICIENT_SCORE_EVIDENCE');
+  assert.equal(readiness.evidence_readiness.result,'INSUFFICIENT_SCORE_EVIDENCE');
 }
 
 
