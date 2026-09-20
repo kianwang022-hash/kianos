@@ -3,6 +3,7 @@ import {
   collectXizongRetainedEvidence,
   xizongQuestionMarkOverrides
 } from './xizongRetainedPractice.mjs';
+import { summarizeXizongScoreAttribution } from './xizongScoreAttribution.mjs';
 import {
   XIZONG_MEMORY_STORAGE_KEY,
   normalizeXizongMemoryState,
@@ -34,6 +35,48 @@ function listStorageKeys(storage) {
     if (typeof key === 'string') keys.push(key);
   }
   return [...new Set(keys)];
+}
+
+function scoreAttemptHistoryFromStorageEntries(entries) {
+  const events = [];
+  for (const [, raw] of Array.isArray(entries) ? entries : []) {
+    let state = null;
+    try { state = JSON.parse(String(raw || 'null')); } catch {}
+    if (!record(state)) continue;
+    const history = Array.isArray(state.attemptHistory) ? state.attemptHistory : [];
+    const hiddenSealed = Boolean(state?.paperSeal?.sealedAt);
+    for (const event of history) {
+      if (event?.type && event.type !== 'QUESTION_ATTEMPT') continue;
+      if (String(event?.result_visibility || '') === 'hidden' && !hiddenSealed) continue;
+      events.push(event);
+    }
+  }
+  return events;
+}
+
+function boundedScoreAttribution(attribution) {
+  const source = record(attribution) ? attribution : {};
+  const targets = Array.isArray(source.targets) ? source.targets : [];
+  return {
+    schema: String(source.schema || 'kianos.xizong.score-attribution.v1'),
+    semantics: String(source.semantics || ''),
+    totals: clone(source.totals || {}),
+    top_targets: targets
+      .filter((row) => String(row?.owner_kind || '') !== 'UNKNOWN')
+      .slice(0, 12)
+      .map((row) => ({
+        owner_kind: String(row?.owner_kind || ''),
+        owner_id: String(row?.owner_id || ''),
+        block_id: String(row?.block_id || ''),
+        primary_kp_id: String(row?.primary_kp_id || ''),
+        stable_points: Number(row?.stable_points || 0),
+        uncertain_points: Number(row?.uncertain_points || 0),
+        wrong_points: Number(row?.wrong_points || 0),
+        first_attempt_wrong_points: Number(row?.first_attempt_wrong_points || 0),
+        reuse_wrong_points: Number(row?.reuse_wrong_points || 0),
+        question_ids: [...new Set((Array.isArray(row?.question_ids) ? row.question_ids : []).map(String).filter(Boolean))].slice(0, 5)
+      }))
+  };
 }
 
 function clampIndex(value, length) {
@@ -163,6 +206,9 @@ export function buildXizongStudyPacketFromStorage({
     holdoutYears,
     markOverrides: xizongQuestionMarkOverrides(preferences)
   });
+  const scoreAttribution = boundedScoreAttribution(
+    summarizeXizongScoreAttribution(scoreAttemptHistoryFromStorageEntries(storageEntries))
+  );
   const latestAttempt = retained.latestAttemptByQuestion || {};
   const attemptSummary = (questionId) => {
     const row = latestAttempt[questionId] || {};
@@ -252,7 +298,8 @@ export function buildXizongStudyPacketFromStorage({
       holdout_years: clone(holdoutYears),
       wrong_uncertain: retained.wrongUncertainIds.map(attemptSummary),
       marked_question_ids: clone(retained.markedIds),
-      ai_transfer_probes: clone((retained.transferProbeEvents || []).slice(0, 50))
+      ai_transfer_probes: clone((retained.transferProbeEvents || []).slice(0, 50)),
+      score_attribution: scoreAttribution
     },
     pending_repair_inbox: clone(readJson(storage, repairInboxKey, null)),
     reserve_learning: clone(packetMeta.reserveItems || []),
@@ -263,12 +310,14 @@ export function buildXizongStudyPacketFromStorage({
       memory: 'later recovery evidence; repair may clear a local weak queue but does not rewrite original Recall',
       repair: 'bounded repair task; completion does not automatically mean mastery',
       question_attempt: 'formal official-question evidence; latest unresolved Wrong/Uncertain drives the default retained queue',
-      ai_transfer_probe: 'generated transfer-only probe evidence; useful for targeted application/repair judgment but never formal score truth or official-question truth'
+      ai_transfer_probe: 'generated transfer-only probe evidence; useful for targeted application/repair judgment but never formal score truth or official-question truth',
+      score_attribution: 'bounded latest-official-attempt point-weight summary routed only through reviewed primary Knowledge owners; observed evidence, never guaranteed future score gain/loss'
     },
     request_to_chat: [
       '请先按 current + learning_state.resume 说明我现在学到哪里，再看 evidence；不要把仓库完成度当成我的学习进度。',
       '区分原讲义接触、KP Recall、TTSX、Memory、Repair、Question Attempt，它们不是同一种掌握证据。',
       '只指出最有价值的少数断点；稳定内容不要制造额外复习债务。',
+      'practice.score_attribution 只表示已经观察到的官方题分值权重；必须结合 Recall / Remember / Transfer / 复刷新鲜度判断，不得把它解释成某个 KP 固定值多少分。',
       '如果问题属于 canonical Content / Prompt / 页面时机，请明确指出这是产品或内容问题，不要伪装成 learner weakness。',
       '需要看具体题或 KP 时，用 packet 中的稳定 ID 回 main@HEAD 读取当前 owner；不要凭 packet 文本补猜。'
     ]
