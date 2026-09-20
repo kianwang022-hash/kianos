@@ -38,7 +38,6 @@ Canonical maturity package: `MATURITY_PACKAGE.md`.
 
 Mother-standard system logic is now accepted. Broad engineering stops here; real study supplies Kian-specific calibration, and real annual Source reopens only the affected owner.
 
-
 **Politics Final Learner Acceptance — CLOSED for audited first-round paths**
 
 - Landed: PR #486 → `main` merge `d180b0b913b63085ab0bd8c30dcdeadb1c64dc9f`
