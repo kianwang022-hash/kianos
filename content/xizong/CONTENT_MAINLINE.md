@@ -256,7 +256,22 @@ inventory SHA256 = 2ef4aea5c284fb9ced4b418bcde4df202f403b2f68651c6fad23b4d0fa77e
 System membership only; no inferred Question→Block/LG/KP relation
 ```
 
-Next exact-scope target: **D — Neuro / Sensory / Motor / Orthopedics**.
+### D scope status — BLOCKED_SOURCE_POSITION_COVERAGE
+
+Receipt:
+
+`content/xizong/knowledge/learner/D_QUESTION_SCOPE_CURRENT_RECONSTRUCTION.md`
+
+```text
+historical resolver D pool = 142
+historical positioned orthopedics = 3
+Current REVIEWED Question→D relations = 52 / only 2005–2008
+complete Current D exact inventory = not safely derivable yet
+```
+
+D remains excluded from trusted "按 System" question entry. This blocker does not reopen D medical Content or block scoped Projection.
+
+Next unblocked exact-scope target: **E — Reproductive / Breast**.
 
 ## B2｜Question → Knowledge Crosswalk
 
@@ -476,8 +491,9 @@ QUESTIONS
 Current trusted System-question entry = A1 / A2 / A3 / B / C
 B exact official-question membership = PASS / 1072 qids
 C exact official-question membership = PASS_AFTER_BOUNDED_REPAIR / 288 qids
-D / E / F exact official-question membership = CURRENT COMPLETION LANE
-→ next target = D
+D exact official-question membership = BLOCKED_SOURCE_POSITION_COVERAGE
+E / F exact official-question membership = CURRENT COMPLETION LANE
+→ next unblocked target = E
 + Crosswalk C2 continuous reviewed batches
 
 VISUAL
