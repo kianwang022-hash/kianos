@@ -1,0 +1,36 @@
+name: Politics Memory Storage Scale Probe
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'static-web/scripts/audit-politics-memory-storage-scale.mjs'
+      - '.github/workflows/politics-memory-storage-scale.yml'
+      - 'static-web/src/lib/politicsMemoryCandidates.mjs'
+      - 'static-web/src/lib/politicsMemoryRuntime.mjs'
+      - 'content/politics/**'
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install runtime
+        working-directory: static-web
+        run: npm install --no-audit --no-fund
+      - name: Measure Politics Memory storage scale
+        working-directory: static-web
+        run: node scripts/audit-politics-memory-storage-scale.mjs
+      - name: Upload scale report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: politics-memory-storage-scale-${{ github.sha }}
+          path: politics-memory-scale-audit/
+          retention-days: 7
