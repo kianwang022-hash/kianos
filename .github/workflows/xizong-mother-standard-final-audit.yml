@@ -1,0 +1,23 @@
+name: Xizong Mother Standard Final Audit
+
+on:
+  pull_request:
+    paths:
+      - 'content/xizong/MATURITY_PACKAGE.md'
+      - 'content/xizong/MOTHER_STANDARD_FINAL_ACCEPTANCE.md'
+      - 'static-web/scripts/audit-xizong-mother-standard-final.mjs'
+      - '.github/workflows/xizong-mother-standard-final-audit.yml'
+  push:
+    branches:
+      - work/xizong-mother-standard-final-audit-20260921
+
+jobs:
+  final-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run Xizong mother-standard final audit
+        run: node static-web/scripts/audit-xizong-mother-standard-final.mjs
