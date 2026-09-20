@@ -1,14 +1,14 @@
 // Server-only mechanical identity projection. No questions/answers or learner strategy.
-import {listReadingSets,loadReadingById} from './englishReadingSourceTruth.mjs';
-import {listClozeSets,loadClozeById,listReadingBSets,loadReadingBById} from './englishObjectiveSourceTruth.mjs';
-import {listTranslationSets,loadTranslationById} from './englishTranslationSourceTruth.mjs';
+import {listExecutableReadingSets,loadReadingById} from './englishReadingSourceTruth.mjs';
+import {listExecutableClozeSets,loadClozeById,listExecutableReadingBSets,loadReadingBById} from './englishObjectiveSourceTruth.mjs';
+import {listExecutableTranslationSets,loadTranslationById} from './englishTranslationSourceTruth.mjs';
 import {listWritingRuntimeTasks} from './englishWritingRuntimeSourceTruth.mjs';
 import {listEnglishExamPapers,loadEnglishExamPaper} from './englishExamPaper.mjs';
 let cached;
 export function englishSessionCatalog(){
  if(cached)return cached;
  const rows=[];
- for(const [task,list,load] of [['reading_a',listReadingSets,loadReadingById],['cloze',listClozeSets,loadClozeById],['reading_b',listReadingBSets,loadReadingBById],['translation',listTranslationSets,loadTranslationById]]){
+ for(const [task,list,load] of [['reading_a',listExecutableReadingSets,loadReadingById],['cloze',listExecutableClozeSets,loadClozeById],['reading_b',listExecutableReadingBSets,loadReadingBById],['translation',listExecutableTranslationSets,loadTranslationById]]){
   for(const row of list())rows.push({task,object_id:row.id,source_hash:load(row.id).sourceHashes.renderedObject});
  }
  for(const row of listWritingRuntimeTasks())rows.push({task:'writing',object_id:row.id,source_hash:row.sourceHash});
