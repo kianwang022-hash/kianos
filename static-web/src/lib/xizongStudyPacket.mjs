@@ -86,6 +86,43 @@ function clampIndex(value, length) {
   return Math.max(0, Math.min(length - 1, Math.floor(n)));
 }
 
+
+function xizongStudyHasProgress(state) {
+  if (!record(state)) return false;
+  return state.completed === true
+    || state.blockRecallDone === true
+    || state.sourceContactDone === true
+    || Object.values(state.learned || {}).some(Boolean)
+    || Object.keys(state.ratings || {}).length > 0
+    || (Array.isArray(state.sourceContactEvidence) && state.sourceContactEvidence.length > 0)
+    || Object.keys(state.ttsxEvidence || {}).length > 0;
+}
+
+export function xizongStudySourceRevisionStatus(state, currentSourceHash) {
+  const current = String(currentSourceHash || '').trim();
+  if (!record(state) || !xizongStudyHasProgress(state)) {
+    return { status:'NO_PROGRESS', current_source_hash:current, evidence_source_hash:null, blocked:false };
+  }
+  if (state.sourceRevisionPending === true) {
+    return {
+      status:'REVISION_PENDING',
+      current_source_hash:current,
+      evidence_source_hash:String(state.sourceRevisionFromHash || state.sourceHash || '') || null,
+      blocked:true
+    };
+  }
+  const contact = Array.isArray(state.sourceContactEvidence) ? state.sourceContactEvidence : [];
+  const latestBound = [...contact].reverse().find((row) => String(row?.source_hash || '').trim());
+  const bound = String(state.sourceHash || latestBound?.source_hash || '').trim();
+  if (!bound) {
+    return { status:'SOURCE_IDENTITY_UNBOUND', current_source_hash:current, evidence_source_hash:null, blocked:true };
+  }
+  if (current && bound !== current) {
+    return { status:'STALE_SOURCE_REVISION', current_source_hash:current, evidence_source_hash:bound, blocked:true };
+  }
+  return { status:'CURRENT', current_source_hash:current, evidence_source_hash:bound, blocked:false };
+}
+
 export function buildXizongForecastProgress(storage, packetIndex = []) {
   if (!storage?.getItem) throw new Error('XIZONG_FORECAST_PROGRESS_STORAGE_UNAVAILABLE');
   if (!Array.isArray(packetIndex) || !packetIndex.length) {
@@ -95,6 +132,7 @@ export function buildXizongForecastProgress(storage, packetIndex = []) {
   const systems = new Map();
   const completedBlockIds = [];
   const startedIncomplete = [];
+  const sourceRevisionBlocked = [];
   let observedBlocks = 0;
 
   for (const row of packetIndex) {
@@ -128,6 +166,20 @@ export function buildXizongForecastProgress(storage, packetIndex = []) {
 
     observedBlocks += 1;
     system.runtime_observed_blocks += 1;
+    const revision = xizongStudySourceRevisionStatus(state, row?.packetMeta?.sourceHash);
+    if (revision.blocked) {
+      sourceRevisionBlocked.push({
+        system_id: systemId,
+        canonical_id: canonicalId,
+        block_id: blockId,
+        status: revision.status,
+        current_source_hash: revision.current_source_hash,
+        evidence_source_hash: revision.evidence_source_hash
+      });
+      system.runtime_source_revision_blocked_blocks = Number(system.runtime_source_revision_blocked_blocks || 0) + 1;
+      continue;
+    }
+
     const learnedKp = Object.values(state.learned || {}).filter(Boolean).length;
     system.runtime_observed_learned_kp += learnedKp;
 
@@ -178,11 +230,13 @@ export function buildXizongForecastProgress(storage, packetIndex = []) {
       started_incomplete_blocks: startedIncomplete.length,
       no_runtime_evidence_blocks: Math.max(0, canonicalBlocks - observedBlocks),
       completed_block_ids: completedBlockIds.sort(),
-      started_incomplete: startedIncomplete
+      started_incomplete: startedIncomplete,
+      source_revision_blocked_blocks: sourceRevisionBlocked,
+      source_revision_blocked_count: sourceRevisionBlocked.length
     },
     systems: systemRows,
     evidence_boundary:
-      'Factual KianOS runtime progress only. NO_RUNTIME_EVIDENCE does not prove unstudied; learned_kp is not mastery; Gate workload still requires subject-owned reconciliation into exam.subject-demand.v1.'
+      'Factual KianOS runtime progress only. NO_RUNTIME_EVIDENCE does not prove unstudied; learned_kp is not mastery; stale/unbound Source identity cannot reduce remaining workload or authorize completion; Gate workload still requires subject-owned reconciliation into exam.subject-demand.v1.'
   };
 }
 
@@ -213,6 +267,8 @@ export function buildXizongStudyPacketFromStorage({
   const storedStudy = readJson(storage, studyKey, null);
   const study = record(studyState) ? studyState : storedStudy;
   if (!record(study)) return null;
+
+  const sourceRevision = xizongStudySourceRevisionStatus(study, packetMeta.sourceHash);
 
   const currentPersonal = readJson(storage, personalKey, {}) || {};
   const memory = normalizeXizongMemoryState(readJson(storage, XIZONG_MEMORY_STORAGE_KEY, null));
@@ -330,6 +386,9 @@ export function buildXizongStudyPacketFromStorage({
     exported_at: new Date(now).toISOString(),
     current: {
       object_id: objectId,
+      source_revision_status: sourceRevision.status,
+      source_revision_blocked: sourceRevision.blocked,
+      evidence_source_hash: sourceRevision.evidence_source_hash,
       system_id: packetMeta.systemId || '',
       canonical_id: packetMeta.canonicalId || '',
       block_id: packetMeta.blockId || '',
@@ -399,6 +458,7 @@ export function buildXizongStudyPacketFromStorage({
       wrong_uncertain: retained.wrongUncertainIds.map(attemptSummary),
       marked_question_ids: clone(retained.markedIds),
       ai_transfer_probes: clone((retained.transferProbeEvents || []).slice(0, 50)),
+      fresh_transfer_probes: clone((retained.freshTransferEvents || []).slice(0, 50)),
       score_attribution: scoreAttribution
     },
     pending_repair_inbox: clone(readJson(storage, repairInboxKey, null)),

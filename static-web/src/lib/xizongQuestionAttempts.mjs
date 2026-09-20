@@ -127,6 +127,12 @@ function attemptEvent({
     question_source: String(question?.sourceKind || (/^xizong-official-\d{4}-n\d{3}$/.test(questionId) ? 'OFFICIAL_EXAM' : 'UNKNOWN')),
     scoring_role: String(question?.scoringRole || (/^xizong-official-\d{4}-n\d{3}$/.test(questionId) ? 'OFFICIAL_EVIDENCE' : 'NON_SCORE')),
     probe_kind: String(question?.probeKind || ''),
+    evidence_intent: String(question?.evidenceIntent || ''),
+    semantic_family_id: String(question?.semanticFamilyId || ''),
+    derived_from_ids: [...new Set((Array.isArray(question?.derivedFromIds) ? question.derivedFromIds : []).map(String).filter(Boolean))],
+    changed_dimensions: [...new Set((Array.isArray(question?.changedDimensions) ? question.changedDimensions : []).map(String).filter(Boolean))],
+    fresh_transfer_eligible: question?.freshTransferEligible === true,
+    freshness_class: String(question?.freshnessClass || ''),
     target_kp_ids: [...new Set((Array.isArray(question?.targetKpIds) ? question.targetKpIds : []).map(String).filter(Boolean))],
     canonical_source_hash: String(question?.canonicalSourceHash || ''),
     points_possible: Number.isFinite(Number(question?.points)) && Number(question?.points) > 0
