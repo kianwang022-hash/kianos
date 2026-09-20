@@ -13,7 +13,7 @@ This file owns E-scoped readiness truth only. It does not own medical Core, lear
 | Gate / stage | Status | Evidence / note |
 | --- | --- | --- |
 | S1 — medical / first-learning Source boundary | **PASS** | 20/20 canonical Block Source readback; locator policy, visual gaps, Source gaps and clinical/version boundaries explicit |
-| S2 — exact official E System question membership | **UNTESTED** | separate later Source sub-boundary; no membership inferred from Block/Outline placement |
+| S2 — exact official E System question membership | **PASS_AFTER_CROSS_SYSTEM_OWNER_REPAIR** | 83 exact qids; B→E oxytocin owner repair + prostate exclusions to A3; no Block/LG/KP inference |
 | K — Knowledge | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent K audit; one bounded System repair separated local invasion from metastatic competence / spread |
 | L — Learning Logic | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent anti-anchored audit; E10 visual closure repaired at the smallest L owner, then re-audited |
 | Content Realization / Optimization | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent Phase 4D closure; E8/E10 missed generic fixed-flow wrappers repaired at the smallest Content/wrapper owner; 67/67 release and Content closure re-audited |
@@ -64,6 +64,38 @@ Historical System Guide locators may aid re-binding, but historical coordinates 
 - duplicate prostate, generic HPV/infection or tumor-general Primary.
 
 ---
+
+## S2 acceptance — PASS_AFTER_CROSS_SYSTEM_OWNER_REPAIR
+
+Canonical owner:
+
+`content/xizong/knowledge/learner/e-reproductive-breast-question-scope.json`
+
+Reconstruction receipt:
+
+`content/xizong/knowledge/learner/E_QUESTION_SCOPE_CURRENT_RECONSTRUCTION.md`
+
+Accepted identity:
+
+```text
+Current exact E official qids = 83
+year range                    = 2005–2026
+inventory SHA256              = 7bca256102b4a8066672945c53861b72caf4184e61245c432d3abe689786e6da
+cross A1–D overlap            = 0
+unresolved ambiguity          = 0
+```
+
+Current owner reconciliation adds one reproductive-control question that the old broad endocrine resolver left in B:
+
+- `xizong-official-2017-n118` — oxytocin secretion regulation → E SR1/SR6 Primary.
+
+The broad reproductive-pathology chapter also contains prostate questions. Current owner truth keeps prostate Primary in A3:
+
+- `xizong-official-2007-n049` — already A3;
+- `xizong-official-2022-n032` — transferred to A3 Block13.
+
+No hydrocele question is invented to satisfy Outline counts. S2 remains System membership only and creates no inferred Question→Block/LG/KP relation.
+
 
 ## K acceptance — PASS_AFTER_BOUNDED_REPAIR
 
@@ -145,7 +177,7 @@ After re-audit:
 - E13-LG01/LG02 and E14-LG01/LG03 retain partial visual debt;
 - prose cannot certify never-seen visual relations;
 - E6 still separates local invasion from metastatic competence / spread;
-- S2 exact official-question membership remains UNTESTED, so Learning does not authorize a trusted E official-question sweep.
+- S2 exact official-question membership is now accepted at 83 qids. This authorizes only the trusted E System-question set; it still does not create Question→Block/LG/KP mappings.
 
 ## Content acceptance — PASS_AFTER_BOUNDED_REPAIR
 
@@ -196,7 +228,7 @@ Preserved negative space:
 - E13/E14 partial visual support;
 - Current-Study staging/treatment wording;
 - prostate/urinary, generic HPV/STI/infection and tumor-general external owners;
-- S2 exact official-question membership = UNTESTED.
+- S2 exact official-question membership = PASS_AFTER_CROSS_SYSTEM_OWNER_REPAIR / 83 qids.
 
 ## Downstream state
 
