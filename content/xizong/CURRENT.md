@@ -99,6 +99,32 @@ Key boundaries:
 
 ## Normal routing
 
+### Subject maturity / 270–275 control
+
+```text
+MATURITY_PACKAGE.md
+→ 270 protect / 275 working score path
+→ X1–X9 capability question
+→ bounded Material + Forecast + Real Learner U inputs
+→ smallest evidence-justified learner action
+```
+
+Current system-logic verdict:
+
+- **SYSTEM_LOGIC_ACCEPTED = YES**
+- **KIAN_SPECIFIC_CALIBRATED = NO**
+- current learner-control cursor = **Stage B / Real Learner U acquisition**
+
+Boundaries:
+
+- `CONTENT_MAINLINE.md` remains a supporting Content / Material lane only;
+- `static-web/src/lib/xizongForecastModel.mjs` remains Forecast decision support only;
+- S/K/L/P/R/E owners are opened only when a maturity-selected learner action is blocked by that exact capability;
+- cross-subject allocation remains upstream Chat-owned.
+
+Do not replace this cursor with the earliest untested Projection / Runtime / Evidence gate.
+
+
 ### Content / medical Knowledge
 
 ```text
@@ -155,6 +181,8 @@ Shared Shell/navigation/sync remain shared-platform responsibilities; Xizong con
 
 ## Stable owner map
 
+- subject maturity / 270–275 control → `MATURITY_PACKAGE.md`
+- Forecast evidence kernel → `static-web/src/lib/xizongForecastModel.mjs` (supporting evidence only)
 - lane Rule / Model → `LEARNING_CONTRACT.md`
 - Knowledge map → `knowledge/manifest.json`
 - medical canonical Knowledge → `knowledge/systems/**`
