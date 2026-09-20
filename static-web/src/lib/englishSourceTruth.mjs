@@ -1,4 +1,5 @@
 import crypto from 'node:crypto';
+import { englishSemanticSourceHash } from './englishSemanticSourceIdentity.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -203,6 +204,7 @@ function withSourceIdentity(object, unit) {
     material: projected.material || projected.paragraphs || null,
     prompts: projected.prompts || projected.questions || projected.officialEvidence?.prompt || null
   }));
+  projected.sourceHashes.semanticSource = englishSemanticSourceHash(projected);
   return projected;
 }
 
@@ -366,6 +368,7 @@ export function projectWritingRuntimeSourceTruth(task) {
   return {
     ...projected,
     sourcePath: ENGLISH_SOURCE_TRUTH.global,
-    sourceHash: projected.sourceHashes.renderedObject
+    sourceHash: projected.sourceHashes.renderedObject,
+    semanticSourceHash: projected.sourceHashes.semanticSource
   };
 }
