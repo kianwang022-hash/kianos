@@ -36,7 +36,7 @@ At minimum Xizong must distinguish and train:
 5. **Precision** — exact identities, thresholds, criteria, lists and confusable boundaries only where exactness matters.
 6. **Case integration** — combine symptoms/signs/tests/mechanisms/treatment across multiple local knowledge objects.
 7. **Cross-System switching** — preserve accuracy when the paper changes systems rapidly.
-8. **Whole-paper execution** — timing, fatigue, uncertainty handling and completion under 165-question / 180-minute geometry.
+8. **Whole-paper execution** — timing, fatigue, uncertainty handling, physical paper/navigation and answer-sheet transfer cost where material, and completion under 165-question / 180-minute geometry.
 9. **Repair efficiency** — compress multiple errors into the smallest real causal defect.
 10. **Delayed stability** — repaired knowledge remains usable after delay / changed context.
 
@@ -157,7 +157,7 @@ Required attacks include:
 - source gaps;
 - late current-year material.
 
-Forecast outputs a range and sensitivity, not a hard calendar fiction.
+Forecast outputs a range and sensitivity, not a hard calendar fiction. Stress proof must include parameter grids / boundary cases / historical sanity and identify which throughput, W/U, repair or late-source assumptions would flip the Gate conclusion.
 
 ## 8. Future-source closure
 
