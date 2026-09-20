@@ -69,7 +69,8 @@ export function saveEnglishAttempt(storage,key,value,meta,{sessionId='',now=Date
    const instruction=readEnglishJson(storage,'kianos-english-session-instruction-v1');
    const step=instruction?.study_day===new Date(now).toLocaleDateString('en-CA')?instruction.steps?.find(s=>s.task===meta.task&&s.object_id===meta.object_id&&s.source_hash===meta.source_hash):null;
    const budget=Number(step?.params?.time_budget_seconds)||null;
-   binding={started_at:new Date(now).toISOString(),time_budget_seconds:budget,task:meta.task,object_id:meta.object_id,source_hash:meta.source_hash,attempt_id:globalThis.crypto?.randomUUID?.()||`${meta.object_id}:${now}:${Math.random()}`,context:sessionId?'exam':'study',session_id:sessionId||null,revision:0,prior_exposure:past.length?'exposed':(ledger.materials[meta.object_id]?.declaration?.state||'unknown'),assistance:'unassisted',source_snapshot:clone(meta.snapshot),legacy_unversioned:Boolean(previous)};
+   const evidenceMeta=meta.snapshot?.evidence&&typeof meta.snapshot.evidence==='object'?meta.snapshot.evidence:{};
+   binding={started_at:new Date(now).toISOString(),time_budget_seconds:budget,task:meta.task,object_id:meta.object_id,source_hash:meta.source_hash,attempt_id:globalThis.crypto?.randomUUID?.()||`${meta.object_id}:${now}:${Math.random()}`,context:sessionId?'exam':'study',session_id:sessionId||null,revision:0,prior_exposure:past.length?'exposed':(ledger.materials[meta.object_id]?.declaration?.state||'unknown'),assistance:'unassisted',source_kind:String(evidenceMeta.source_kind||'unknown'),evidence_role:evidenceMeta.evidence_role==null?null:String(evidenceMeta.evidence_role),source_snapshot:clone(meta.snapshot),legacy_unversioned:Boolean(previous)};
   }
   if(previous?.binding&&value.binding&&Number(previous.binding.revision)!==Number(value.binding.revision))throw new Error('ENGLISH_ATTEMPT_STALE_WRITE_RELOAD_REQUIRED');
   // Same-attempt first evidence is immutable even across tab-local stale state.
@@ -82,7 +83,7 @@ export function saveEnglishAttempt(storage,key,value,meta,{sessionId='',now=Date
   if(previous?.binding?.assistance==='assisted')binding={...binding,assistance:'assisted'};
   const next=clone(value);next.binding={...binding,revision:Number(binding.revision||0)+1};next.saved_at=new Date(now).toISOString();
   if(!previous?.firstEvidenceMeta && ((!previous?.submitted&&next.submitted)||(!previous?.firstSubmittedAt&&next.firstSubmittedAt))){
-    next.firstEvidenceMeta=Object.fromEntries(['attempt_id','source_hash','prior_exposure','assistance','legacy_unversioned','time_budget_seconds'].map(k=>[k,next.binding[k]]));
+    next.firstEvidenceMeta=Object.fromEntries(['attempt_id','source_hash','prior_exposure','assistance','source_kind','evidence_role','legacy_unversioned','time_budget_seconds'].map(k=>[k,next.binding[k]]));
     const elapsed=Math.max(0,(now-Date.parse(next.binding.started_at||next.startedAt||next.createdAt||''))/1000);
     next.firstEvidenceMeta.elapsed_seconds=Number.isFinite(elapsed)?elapsed:null;
     next.firstEvidenceMeta.timing_status=next.binding.time_budget_seconds&&Number.isFinite(elapsed)?(elapsed>next.binding.time_budget_seconds?'budget_exceeded':'within_explicit_budget'):'uncalibrated';
