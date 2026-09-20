@@ -80,7 +80,7 @@ Need:
 - progress signals without fake NU completion.
 
 Status:
-- **DONE at SYSTEM_LOGIC_ACCEPTED boundary — cumulative single/multiple + unit-composition sensors are implemented and targeted proof exists; personal throughput remains REAL-U gated rather than fabricated. Current branch CI is a promotion gate, not an unowned maturity task.**
+- **DONE at Builder freeze-candidate boundary — cumulative single/multiple + unit-composition sensors are implemented and targeted proof exists; personal throughput remains REAL-U gated rather than fabricated. Current branch CI is a promotion gate, not an unowned maturity task.**
 
 ## S0-T4 — Day-1 learner simulation
 Simulate:
@@ -106,7 +106,7 @@ Must attack:
 - interrupted NU.
 
 Status:
-- **DONE at SYSTEM_LOGIC_ACCEPTED boundary — real learner-facing Chat Plan import + stale rejection are covered by the final cross-subject regression. The test seam opens the containing learner dialog before exercising the import control.**
+- **DONE at Builder freeze-candidate boundary — real learner-facing Chat Plan import + stale rejection are covered by the final cross-subject regression. The test seam opens the containing learner dialog before exercising the import control.**
 
 ### Stage-0 Gate
 Day-1 safe when:
