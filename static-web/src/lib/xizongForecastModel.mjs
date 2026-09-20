@@ -872,7 +872,7 @@ export function buildXizongWorkloadForecast(progress, {
   };
 }
 
-export function buildXizongScoreReadiness(progress, {
+export function buildXizongScoreEvidence(progress, {
   targetScore = 275,
   contaminationStatus = 'UNKNOWN',
   materialGaps = []
@@ -1021,13 +1021,13 @@ export function buildXizongScoreReadiness(progress, {
 
   const scoreExtrapolationReady = calibrationPapers.length > 0 && lowContamination;
   const evidenceResult = hardGaps.length > 0 || formalPapers.length === 0
-    ? 'NOT_READY'
+    ? 'INSUFFICIENT_SCORE_EVIDENCE'
     : scoreExtrapolationReady
-      ? 'READY_FOR_DEFENSIBLE_ESTIMATE'
-      : 'EVIDENCE_PRESENT_LOW_CONFIDENCE';
+      ? 'SCORE_ESTIMATE_EVIDENCE_USABLE'
+      : 'SCORE_EVIDENCE_PRESENT_LOW_CONFIDENCE';
 
   return {
-    schema: 'kianos.xizong.score-readiness.v1',
+    schema: 'kianos.xizong.score-evidence.v1',
     requirement,
     formal_score: {
       status: scoreEstimateStatus,
@@ -1045,15 +1045,16 @@ export function buildXizongScoreReadiness(progress, {
     capabilities,
     material_gaps: Array.isArray(materialGaps) ? materialGaps : [],
     hard_material_gaps: hardGaps,
-    gate_readiness: {
+    evidence_readiness: {
       coverage_ready: hardGaps.length === 0,
       formal_score_evidence_ready: formalPapers.length > 0,
       full_empirical_score_band_ready: Boolean(empiricalBand),
       score_extrapolation_ready: scoreExtrapolationReady,
       result: evidenceResult
     },
+    subject_maturity_claim: 'OUT_OF_SCOPE',
     boundary:
-      'Work completion and capability evidence do not manufacture predicted score. Formal scores remain observed evidence even when contaminated. A low-contamination claim only authorizes stronger extrapolation when the scored paper was internally Holdout-protected before seal, unless an explicit fresh-equivalent external calibration is supplied. Internal Holdout never proves external non-exposure; no arbitrary contamination point penalty is invented.'
+      'Work completion and capability evidence do not manufacture predicted score. Formal scores remain observed evidence even when contaminated. A low-contamination claim only authorizes stronger extrapolation when the scored paper was internally Holdout-protected before seal, unless an explicit fresh-equivalent external calibration is supplied. Internal Holdout never proves external non-exposure; no arbitrary contamination point penalty is invented. This object reports score-evidence usability only and never declares Xizong subject maturity or Stage closure.'
   };
 }
 
@@ -1166,7 +1167,7 @@ export function buildXizongForecastLoop(progress, {
   }
   const materials = classifyXizongMaterialGaps(materialGaps);
   const workload = buildXizongWorkloadForecast(progress, { wrongUncertainRate });
-  const score = buildXizongScoreReadiness(progress, {
+  const score = buildXizongScoreEvidence(progress, {
     targetScore,
     contaminationStatus,
     materialGaps: materials.gaps.map((row) => ({
@@ -1186,11 +1187,13 @@ export function buildXizongForecastLoop(progress, {
   if (!materials.full_forecast_material_ready) uncertainty.push('MATERIAL_OR_ROUTING_SCOPE_UNPRICED');
   if (workload.first_round.status !== 'FULLY_PRICED') uncertainty.push('FIRST_ROUND_WORKLOAD_PARTIAL');
   if (workload.score_formation.status !== 'FULLY_PRICED') uncertainty.push('SCORE_FORMATION_WORKLOAD_PARTIAL');
-  if (!score.gate_readiness.formal_score_evidence_ready) uncertainty.push('FORMAL_SCORE_EVIDENCE_MISSING');
-  if (!score.gate_readiness.score_extrapolation_ready && score.gate_readiness.formal_score_evidence_ready) {
+  if (!score.evidence_readiness.formal_score_evidence_ready) uncertainty.push('FORMAL_SCORE_EVIDENCE_MISSING');
+  if (!score.evidence_readiness.score_extrapolation_ready && score.evidence_readiness.formal_score_evidence_ready) {
     uncertainty.push('SCORE_EXTRAPOLATION_LOW_CONFIDENCE');
   }
   if (scenario.first_round.status === 'UNPRICED') uncertainty.push('CAPACITY_OR_MATERIAL_SCENARIO_UNPRICED');
+  if (score?.capabilities?.case_stability?.dedicated_case_evidence !== true) uncertainty.push('DEDICATED_CASE_TRANSFER_UNKNOWN');
+  if (score?.capabilities?.precision?.evidence_status === 'UNKNOWN_OR_NOT_ADMITTED') uncertainty.push('PRECISION_EVIDENCE_UNKNOWN_OR_NOT_ADMITTED');
 
   const calibration = {
     knowledge_backtest: String(workload?.components?.knowledge?.calibration?.rolling_backtest?.status || 'INSUFFICIENT_BACKTEST'),
@@ -1207,13 +1210,13 @@ export function buildXizongForecastLoop(progress, {
     && calibration.knowledge_sample_systems >= 2;
   if (!empiricalCalibrationReady) uncertainty.push('EMPIRICAL_FORECAST_CALIBRATION_INCOMPLETE');
 
-  let estimateMaturity = 'DEFENSIBLE_ESTIMATE';
-  if (!materials.coverage_ready) estimateMaturity = 'COVERAGE_INCOMPLETE';
-  else if (workload.first_round.status !== 'FULLY_PRICED') estimateMaturity = 'WORKLOAD_PARTIAL';
-  else if (!empiricalCalibrationReady) estimateMaturity = 'CALIBRATING';
-  else if (!score.gate_readiness.formal_score_evidence_ready) estimateMaturity = 'SCORE_EVIDENCE_MISSING';
-  else if (!score.gate_readiness.score_extrapolation_ready) estimateMaturity = 'SCORE_LOW_CONFIDENCE';
-  else if (workload.score_formation.status !== 'FULLY_PRICED') estimateMaturity = 'SCORE_FORMATION_PARTIAL';
+  let forecastState = 'DEFENSIBLE_FORECAST';
+  if (!materials.coverage_ready) forecastState = 'COVERAGE_INCOMPLETE';
+  else if (workload.first_round.status !== 'FULLY_PRICED') forecastState = 'WORKLOAD_PARTIAL';
+  else if (!empiricalCalibrationReady) forecastState = 'CALIBRATING';
+  else if (!score.evidence_readiness.formal_score_evidence_ready) forecastState = 'SCORE_EVIDENCE_MISSING';
+  else if (!score.evidence_readiness.score_extrapolation_ready) forecastState = 'SCORE_LOW_CONFIDENCE';
+  else if (workload.score_formation.status !== 'FULLY_PRICED') forecastState = 'SCORE_FORMATION_PARTIAL';
 
   return {
     schema: 'kianos.xizong.forecast-loop.v1',
@@ -1225,10 +1228,11 @@ export function buildXizongForecastLoop(progress, {
     calibration,
     empirical_calibration_ready: empiricalCalibrationReady,
     uncertainty: [...new Set(uncertainty)],
-    estimate_maturity: estimateMaturity,
+    forecast_state: forecastState,
+    subject_stage_decision: 'OUT_OF_SCOPE',
     model_logic_validation: 'CI_GATED_EXTERNALLY',
     loop_boundary:
-      'Model logic validation and current-estimate maturity are separate. CI can validate fail-closed logic while sparse learner evidence still leaves the current estimate CALIBRATING or UNKNOWN. This loop does not allocate cross-subject time, choose the next subject, or convert coverage completion into score truth.'
+      'Model logic validation and Forecast-state maturity are separate from Xizong subject maturity. CI can validate fail-closed logic while sparse learner evidence still leaves the estimate CALIBRATING or UNKNOWN. This loop does not advance Stage B/C/D, allocate cross-subject time, choose the next subject, or convert coverage completion into score truth.'
   };
 }
 
