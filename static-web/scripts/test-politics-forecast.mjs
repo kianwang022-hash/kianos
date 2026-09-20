@@ -13,7 +13,12 @@ const evidence = {
   forecast_progress: {
     catalog_units: 160,
     units_with_first_attempt_evidence: 42,
-    current_navigation: { structural_units_after_current: 110 }
+    current_navigation: {
+      structural_units_after_current: 110,
+      structural_units_after_current_by_subject: { MARX: 10, XI: 50, HISTORY: 20, MAO: 10, ETHICS: 20 }
+    },
+    units_with_first_attempt_evidence_by_subject: { MARX: 20, XI: 10, HISTORY: 7, MAO: 3, ETHICS: 2 },
+    units_without_first_attempt_evidence_by_subject: { MARX: 2, XI: 50, HISTORY: 28, MAO: 15, ETHICS: 23 }
   }
 };
 
@@ -35,8 +40,12 @@ assert.equal(forecast.facts.remaining_questions.single, politicsForecastConstant
 assert.equal(forecast.facts.remaining_questions.multiple, politicsForecastConstants.TOTALS.multiple - 160);
 assert.equal(forecast.facts.observed_questions.single.wu, 16);
 assert.equal(forecast.facts.observed_questions.multiple.wu, 42);
-assert.equal(forecast.personal_interval.status, 'CALIBRATION_PENDING');
+assert.equal(forecast.personal_calibration.status, 'CALIBRATION_PENDING');
 assert.equal(forecast.score_path.total_score_confidence, 'WIDE_OR_UNKNOWN');
+assert.deepEqual(
+  forecast.facts.unit_progress_signals.nav_tail_units_by_subject,
+  { MARX: 10, XI: 50, HISTORY: 20, MAO: 10, ETHICS: 20 }
+);
 
 for (const unitCase of forecast.first_round_stress.unit_cases) {
   assert.equal(unitCase.scenario_count, 5832);
@@ -62,11 +71,12 @@ const withObserved = buildPoliticsForecast({
   days_remaining: 30,
   observed_capacity_or_workload_samples: [35, 37, 39, 40, 42, 44, 48]
 });
-assert.equal(withObserved.personal_interval.status, 'OBSERVED_EMPIRICAL_INTERVAL');
-assert.equal(withObserved.personal_interval.sample_count, 7);
-assert.equal(withObserved.personal_interval.p20, 37);
-assert.equal(withObserved.personal_interval.p50, 40);
-assert.equal(withObserved.personal_interval.p80, 44);
+assert.equal(withObserved.personal_calibration.status, 'SAMPLES_PRESENT_MODEL_NOT_YET_FIT');
+assert.equal(withObserved.personal_calibration.sample_count, 7);
+assert.equal(withObserved.personal_calibration.p20, null);
+assert.equal(withObserved.personal_calibration.p50, null);
+assert.equal(withObserved.personal_calibration.p80, null);
+assert.match(withObserved.personal_calibration.boundary, /do not become remaining-work P20\/P50\/P80/i);
 
 const zero = buildPoliticsForecast({
   evidence: {},
