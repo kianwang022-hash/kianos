@@ -110,9 +110,33 @@ saveEnglishAttempt(storage,'kianos-reading-attempt-v1:same-source-b',valueB,meta
 assert.equal(valueB.binding.prior_exposure,'exposed','same learner-semantic source with a new exact revision/id was washed back to unseen/unknown');
 assert.equal(valueB.firstEvidenceMeta?.independent_transfer_candidate,false);
 
-// 2a) Same object id with a materially new semantic source must not inherit exposure from the old revision.
+// 2a) A stale explicit "unseen" declaration is revision-bound and must not leak into a materially new semantic revision.
 const revisionStorage=new MemoryStorage();
 const revisionKey='kianos-reading-attempt-v1:revision-same-object';
+writeEnglishSessionInstruction(revisionStorage,{
+  schema:'kianos.english.session-instruction.v1',
+  session_id:'e4-revision-a-unseen',
+  study_day:day,
+  generated_at:'2026-09-21T11:52:00.000Z',
+  current_step:0,
+  steps:[{
+    step_id:'old-revision',
+    task:'reading_a',
+    object_id:'revision-same-object',
+    source_hash:'revision-exact-a',
+    params:{material_exposure:{
+      state:'unseen',
+      basis:'learner_statement',
+      observed_at:'2026-09-21T11:51:00.000Z',
+      note:'Learner has not seen revision A.'
+    }}
+  }]
+},day,{catalog:[{
+  task:'reading_a',
+  object_id:'revision-same-object',
+  source_hash:'revision-exact-a',
+  semantic_source_hash:'revision-semantic-a'
+}],now:Date.parse('2026-09-21T11:53:00.000Z')});
 const oldRevision={submitted:true,answers:{q1:'A'},results:{q1:'correct'},uncertain:[]};
 saveEnglishAttempt(revisionStorage,revisionKey,oldRevision,{
   task:'reading_a',
@@ -121,7 +145,10 @@ saveEnglishAttempt(revisionStorage,revisionKey,oldRevision,{
   semantic_source_hash:'revision-semantic-a',
   snapshot:{evidence:{source_kind:'official',evidence_role:null,semantic_source_hash:'revision-semantic-a'}}
 },{now:now+70000});
+assert.equal(oldRevision.binding.prior_exposure,'unseen','current revision lost its explicit unseen declaration');
+assert.equal(oldRevision.firstEvidenceMeta?.independent_transfer_candidate,true,'clean current-revision declaration should remain eligible');
 archiveEnglishAttempt(revisionStorage,revisionKey,now+80000);
+revisionStorage.removeItem(ENGLISH_SESSION_KEY);
 const newRevision={submitted:true,answers:{q1:'A'},results:{q1:'correct'},uncertain:[]};
 saveEnglishAttempt(revisionStorage,revisionKey,newRevision,{
   task:'reading_a',
@@ -130,7 +157,8 @@ saveEnglishAttempt(revisionStorage,revisionKey,newRevision,{
   semantic_source_hash:'revision-semantic-b',
   snapshot:{evidence:{source_kind:'official',evidence_role:null,semantic_source_hash:'revision-semantic-b'}}
 },{now:now+90000});
-assert.notEqual(newRevision.binding.prior_exposure,'exposed','old object-id history contaminated a materially new semantic revision');
+assert.equal(newRevision.binding.prior_exposure,'unknown','stale revision-A unseen declaration leaked into materially new revision B');
+assert.equal(newRevision.firstEvidenceMeta?.independent_transfer_candidate,false,'stale unseen declaration manufactured clean independent-transfer evidence');
 
 // 2b) An explicit exposed learner declaration must keep exact-source identity even before opening.
 const declaredStorage=new MemoryStorage();
@@ -449,6 +477,7 @@ console.log(JSON.stringify({
     chat_cannot_declare_unassisted:true,
     semantic_source_cross_object_exposure:true,
     semantic_revision_does_not_inherit_object_id_exposure:true,
+    stale_unseen_declaration_is_revision_bound:true,
     exposed_declaration_cross_object_exposure:true,
     known_exposure_rejects_later_unseen_alias:true,
     whole_paper_exposure_preserves_child_semantic_identity:true,
