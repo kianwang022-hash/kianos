@@ -289,13 +289,17 @@ function knowledgeForecast(progress) {
     : [];
   const completedIds = new Set(progress?.runtime_evidence?.completed_block_ids || []);
   const remaining = weights.filter((row) => !completedIds.has(String(row?.block_id || '')));
+  const remainingBlocks = remaining.reduce((sum, row) => {
+    const count = Number(row?.block_count);
+    return sum + (Number.isFinite(count) && count > 0 ? count : 1);
+  }, 0);
   const samples = (progress?.runtime_evidence?.completed_blocks_detail || [])
     .filter((row) => positive(row?.timer_minutes_to_completion) !== null);
   const sampleSystems = new Set(samples.map((row) => String(row?.canonical_id || '')).filter(Boolean));
   const remainingKp = remaining.reduce((sum, row) => sum + Math.max(0, Number(row?.kp_count || 0)), 0);
   const remainingLg = remaining.reduce((sum, row) => sum + Math.max(0, Number(row?.logic_group_count || 0)), 0);
   const estimators = [
-    rateEstimate(samples, remaining.length, {
+    rateEstimate(samples, remainingBlocks, {
       id: 'BLOCK',
       unit: 'completed block',
       rateOf: (sample) => positive(sample?.timer_minutes_to_completion)
@@ -327,6 +331,9 @@ function knowledgeForecast(progress) {
   if (Number(progress?.runtime_evidence?.started_incomplete_blocks || 0) > 0) {
     risks.push('STARTED_INCOMPLETE_BLOCKS_PRICED_AS_FULL_REMAINING');
   }
+  if (remaining.some((row) => String(row?.scope_kind || '') === 'UNPROJECTED_AGGREGATE')) {
+    risks.push('UNPROJECTED_CANONICAL_SCOPE_RETAINED');
+  }
   if (band && band.estimator_bands_overlap === false) risks.push('STRUCTURAL_ESTIMATORS_DIVERGE');
   if (backtest.status === 'BACKTESTED' && Number(backtest.median_absolute_percent_error || 0) > 0.25) {
     risks.push('KNOWLEDGE_FORECAST_BACKTEST_ERROR_HIGH');
@@ -342,7 +349,7 @@ function knowledgeForecast(progress) {
     required: true,
     status: band ? (samples.length >= 5 && sampleSystems.size >= 2 ? 'CALIBRATED' : 'PROVISIONAL') : sampleState(samples.length),
     remaining: {
-      blocks: remaining.length,
+      blocks: remainingBlocks,
       kp: remainingKp,
       logic_groups: remainingLg
     },
@@ -355,7 +362,7 @@ function knowledgeForecast(progress) {
     band_minutes: band,
     risks,
     evidence_boundary:
-      'Route timer to Block completion is learner evidence, not guaranteed total study time. Started incomplete Blocks remain fully priced until a stronger fractional-completion signal is proven.'
+      'Route timer to Block completion is learner evidence, not guaranteed total study time. Started incomplete Blocks remain fully priced until a stronger fractional-completion signal is proven. Canonical unprojected Blocks remain in workload via durable owner counts; Website projectability never deletes them.'
   };
 }
 
