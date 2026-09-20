@@ -49,8 +49,10 @@ Recurring descriptors:
 - communicative effect.
 
 Public evidence used to build this candidate:
-- Tsinghua University Press exam-writing guidance reproducing these ranges/descriptors;
+- Tsinghua University Press, *考研英语高分写作100篇（第2版）* sample chapter: states Writing A/B score geometry, band-first grading, English-I bands, under-length deduction, and handwriting/readability downgrade;
 - multiple independent postgraduate-exam preparation sources reproducing materially the same bands.
+
+The Tsinghua University Press sample chapter specifically states that graders first determine a band from content/language, then adjust within that band; poor handwriting that affects marking may lower the response by one band. This supports the KianOS choice to keep scoring holistic/band-first and to separate typed-output quality from exam-mode handwriting calibration.
 
 Rule:
 
@@ -62,7 +64,7 @@ Use only for calibration aid / bias attack.
 
 Examples:
 
-- Translation segment “1.75–2.00-like / 1.25–1.75-like …” anchor ranges;
+- Translation broad segment ranges such as “1.5–2.0-like / 1.0–1.5-like …”;
 - commonly reported sentence-level marking-point practice;
 - any inferred mapping from one diagnosis to an exact decimal score.
 
