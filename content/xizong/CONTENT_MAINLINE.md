@@ -129,10 +129,11 @@ Required sequence now:
 
 ```text
 E medical-content chain CLOSED
-→ F may resume at fresh independent K acceptance
+→ F medical-content chain CLOSED
+→ D / E / F scoped downstream work is separately eligible
 ```
 
-Do not copy D topology for symmetry. Do not infer official-question membership from accepted K.
+Do not copy D topology for symmetry. Do not infer official-question membership from accepted K or Content.
 
 ## F｜Remaining Clinical — CONTENT CLOSED / DOWNSTREAM HANDOFF
 
@@ -421,7 +422,7 @@ E S1 PASS
 → Phase4D fresh closure PASS after E8/E10 bounded wrapper repair
 → E P UNTESTED / downstream eligible
 
-NEXT MEDICAL CONTENT PRIORITY
+F MEDICAL CONTENT CLOSED
 F 9 Blocks / 121 KP
 → S1 PASS after Source rebind
 → K PASS_AFTER_BOUNDED_REPAIR
@@ -435,8 +436,8 @@ F 9 Blocks / 121 KP
 
 QUESTIONS
 Current trusted System-question entry = A1 / A2 / A3 only
-B / C / D / E / F exact official-question membership = DEFERRED COMPLETION BACKLOG
-→ resume after E + F medical-content closure
+B / C / D / E / F exact official-question membership = CURRENT COMPLETION LANE
+→ E + F medical-content closure prerequisite satisfied
 + Crosswalk C2 continuous reviewed batches
 
 VISUAL
