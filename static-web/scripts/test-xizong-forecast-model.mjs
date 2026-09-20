@@ -526,4 +526,117 @@ function baseProgress() {
   assert.equal(readiness.gate_readiness.result,'NOT_READY');
 }
 
+
+{
+  const hetero=baseProgress();
+  hetero.question_workload.systems=[
+    {canonical_id:'A1',system_id:'a1',status:'EXACT',remaining_questions:20},
+    {canonical_id:'A2',system_id:'a2',status:'EXACT',remaining_questions:80}
+  ];
+  hetero.practice_evidence.first_pass.by_system=[
+    {
+      canonical_id:'A1',
+      current_scope_unique_attempted:40,
+      current_scope_wrong_or_uncertain_rate:0.05,
+      current_scope_speed_by_day:[
+        {day:'2026-09-16',observed_minutes_per_attempt:1.0},
+        {day:'2026-09-17',observed_minutes_per_attempt:1.1},
+        {day:'2026-09-18',observed_minutes_per_attempt:0.9}
+      ]
+    },
+    {
+      canonical_id:'A2',
+      current_scope_unique_attempted:40,
+      current_scope_wrong_or_uncertain_rate:0.40,
+      current_scope_speed_by_day:[
+        {day:'2026-09-16',observed_minutes_per_attempt:3.0},
+        {day:'2026-09-17',observed_minutes_per_attempt:3.2},
+        {day:'2026-09-18',observed_minutes_per_attempt:2.8}
+      ]
+    }
+  ];
+  const forecast=buildXizongWorkloadForecast(hetero);
+  assert.equal(forecast.components.questions.calibration.source,'SYSTEM_STRATIFIED_CURRENT_EXACT_SCOPE');
+  assert.equal(forecast.components.questions.band_minutes.p50,260,
+    'slow A2 remaining load must dominate instead of inheriting fast A1 speed');
+  assert.equal(forecast.components.questions.calibration.system_speed_heterogeneity_ratio,3);
+  assert.ok(forecast.components.questions.risks.includes('QUESTION_SPEED_SYSTEM_HETEROGENEITY'));
+  assert.equal(forecast.components.repair.error_rate.source,'SYSTEM_STRATIFIED_CURRENT_EXACT_SCOPE');
+  assert.equal(forecast.components.repair.error_rate.forecast_weighted_value,0.33);
+  assert.equal(forecast.components.repair.compression.predicted_future_wrong_uncertain_questions,33,
+    'future W/U must weight each System rate by its own remaining question load');
+  assert.ok(forecast.components.repair.risks.includes('WRONG_UNCERTAIN_SYSTEM_HETEROGENEITY'));
+}
+
+{
+  const missingSpeed=baseProgress();
+  missingSpeed.question_workload.systems=[
+    {canonical_id:'A1',system_id:'a1',status:'EXACT',remaining_questions:20},
+    {canonical_id:'A2',system_id:'a2',status:'EXACT',remaining_questions:80}
+  ];
+  missingSpeed.practice_evidence.first_pass.by_system=[
+    {
+      canonical_id:'A1',
+      current_scope_unique_attempted:40,
+      current_scope_wrong_or_uncertain_rate:0.10,
+      current_scope_speed_by_day:[
+        {day:'2026-09-16',observed_minutes_per_attempt:1},
+        {day:'2026-09-17',observed_minutes_per_attempt:1},
+        {day:'2026-09-18',observed_minutes_per_attempt:1}
+      ]
+    },
+    {
+      canonical_id:'A2',
+      current_scope_unique_attempted:40,
+      current_scope_wrong_or_uncertain_rate:0.25,
+      current_scope_speed_by_day:[]
+    }
+  ];
+  const forecast=buildXizongWorkloadForecast(missingSpeed);
+  assert.equal(forecast.components.questions.band_minutes,null,
+    'an unobserved remaining System must not inherit pooled speed from a familiar System');
+  assert.deepEqual(forecast.components.questions.calibration.unpriced_system_ids,['A2']);
+  assert.ok(forecast.components.questions.risks.includes('SYSTEM_QUESTION_SPEED_UNCALIBRATED'));
+}
+
+{
+  const missingRate=baseProgress();
+  missingRate.question_workload.systems=[
+    {canonical_id:'A1',system_id:'a1',status:'EXACT',remaining_questions:20},
+    {canonical_id:'A2',system_id:'a2',status:'EXACT',remaining_questions:80}
+  ];
+  missingRate.practice_evidence.first_pass.by_system=[
+    {
+      canonical_id:'A1',
+      current_scope_unique_attempted:40,
+      current_scope_wrong_or_uncertain_rate:0.10,
+      current_scope_speed_by_day:[
+        {day:'2026-09-16',observed_minutes_per_attempt:1},
+        {day:'2026-09-17',observed_minutes_per_attempt:1},
+        {day:'2026-09-18',observed_minutes_per_attempt:1}
+      ]
+    },
+    {
+      canonical_id:'A2',
+      current_scope_unique_attempted:0,
+      current_scope_wrong_or_uncertain_rate:null,
+      current_scope_speed_by_day:[
+        {day:'2026-09-16',observed_minutes_per_attempt:2},
+        {day:'2026-09-17',observed_minutes_per_attempt:2},
+        {day:'2026-09-18',observed_minutes_per_attempt:2}
+      ]
+    }
+  ];
+  const forecast=buildXizongWorkloadForecast(missingRate);
+  assert.equal(forecast.components.repair.band_minutes,null,
+    'an unobserved remaining System W/U rate must not inherit A1 error rate');
+  assert.deepEqual(forecast.components.repair.error_rate.unpriced_system_ids,['A2']);
+  assert.ok(forecast.components.repair.risks.includes('SYSTEM_WRONG_UNCERTAIN_RATE_UNOBSERVED'));
+
+  const scenario=buildXizongWorkloadForecast(missingRate,{wrongUncertainRate:0.30});
+  assert.equal(scenario.components.repair.error_rate.source,'SCENARIO_OVERRIDE');
+  assert.equal(scenario.components.repair.compression.predicted_future_wrong_uncertain_questions,30,
+    'explicit 30% stress scenario may intentionally override System-specific unknowns');
+}
+
 console.log('PASS Xizong forecast adversarial suite: target→capability→workload→material delta→capacity→score evidence fail-closed');
