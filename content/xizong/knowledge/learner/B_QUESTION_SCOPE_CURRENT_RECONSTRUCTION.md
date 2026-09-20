@@ -110,12 +110,24 @@ The removed set included C-owned lymphoma questions, proving that count equality
 
 No count fitting was used in the repair. The canonical owner now uses the exact executable historical resolver inventory.
 
-## 6｜Accepted scope identity
+## 6｜Current cross-System owner repair
+
+The exact historical resolver baseline remains 1072 qids.
+
+Fresh E owner review identified one qid whose historical broad endocrine ownership no longer matches Current owner truth:
+
+- `xizong-official-2017-n118` — oxytocin secretion regulation.
+
+B explicitly excludes reproductive endocrine / pregnancy Primary; E SR1/SR6 owns reproductive control and oxytocin/lactation. The qid therefore transfers **B → E**.
+
+## 7｜Accepted scope identity
 
 ```text
-question_count = 1072
-year range     = 2005–2026
-inventory SHA = d7817ecc0c57346bb04ea3a6a5417d0c11f2daba0ca8178b3424fb82d256510f
+historical exact-resolver baseline = 1072
+Current B → E transfer             =   -1
+question_count                     = 1071
+year range                         = 2005–2026
+inventory SHA                     = a8b45ea06ec48bafc1e044235c61e5552bfbf64749fce9a21527676acd099942
 ```
 
 Hash convention matches accepted A3:
@@ -129,7 +141,7 @@ sort qids by year/question number
 
 Fresh reconciliation against the Current B System owner found no additional Current boundary delta after the exact historical resolver was restored.
 
-## 7｜Boundary
+## 8｜Boundary
 
 This PASS means only:
 
@@ -145,14 +157,14 @@ It does **not** mean:
 
 Reviewed Question→Knowledge relations remain separate and may be sparse.
 
-## 8｜Verdict
+## 9｜Verdict
 
 ```text
 B S official-question membership = PASS
-exact inventory = 1072 qids
-inventory repair = CLOSED
+exact inventory = 1071 qids
+exact-resolver repair + Current owner transfer = CLOSED
 ```
 
 B K/L remain accepted. B Projection remains its separate active/eligible gate.
 
-Program-level exact-question completion lane continues to **C**.
+Program-level exact-question completion lane has continued through C/D/E; B remains closed at 1071 qids.
