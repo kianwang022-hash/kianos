@@ -94,13 +94,14 @@ duplicate_primary = 0
 
 ```text
 Framework Orientation
-→ P429回看E/P乳腺发育
-→ P394–395连续学习PRL/OT与吸吮反射
-→ 病理原图只看肌上皮结构接口
-→ Framework Reconstruction：结构—产乳—射乳—排空
-→ KP Active Recall
-→ Outline Quick Check（仅U035 Recall，可跳过）
-→ TTSX Lecture-attached Questions（待绑定）
+→ Source Unit 1：P429 乳腺发育 + 正常导管 / 小叶 / 肌上皮结构接口
+→ 回到 KianOS：恢复正常乳腺功能单元
+→ Source Unit 2：P394–395 连续学习 PRL / OT 与吸吮反射
+→ 回到 KianOS：分开“产乳”与“射乳”
+→ Source Unit 3：基于已接触 Source 完成“产乳—射乳—排空”的结构功能桥；必要时只回原图核对关键结构
+→ 回到 KianOS：定位生产 / 射乳 / 引流三个失效位置
+→ Block Recall：压回“结构—产乳—射乳—排空”
+→ Outline / TTSX 只在真实边界且已有 reviewed binding 时检查
 → Block Complete
 ```
 
