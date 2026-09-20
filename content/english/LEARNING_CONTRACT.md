@@ -218,6 +218,36 @@ A transfer target is justified only when future evidence could change a real lea
 
 Clean later work may remain silent and need not be turned into closure ceremony.
 
+### Bounded Performance Profile
+
+English may derive a **bounded task-local performance profile** from private attempt history so Chat can reason over speed / exposure / assistance / repeated task evidence without shipping the entire raw history on every Daily Packet.
+
+This profile is telemetry, not a second learner ledger.
+
+Hard rules:
+
+- raw attempt history remains the private learner truth;
+- the packet may include only a bounded recent exact-attempt window per task plus fixed-size derived counts;
+- Reading A / Cloze / Part B / Translation / Writing / External Reading remain separate task families;
+- raw elapsed time is never compared across different task types as if seconds meant the same thing;
+- uncalibrated timing is UNKNOWN, not slow;
+- exposed or assisted work cannot be promoted to independent-transfer evidence merely because it was correct;
+- `independent_transfer_candidate` means evidence eligibility only, never mastery;
+- Translation / Writing do not receive fake auto-scores;
+- External Reading remains growth evidence, not English-I score evidence;
+- the profile cannot create Review debt, choose the next task, or rank tasks by itself.
+- **Workflow completion is an execution fact, not performance success or mastery.** A reviewed Wrong, repaired Translation, or `TRANSFER_PENDING` Writing state may be workflow-complete while still carrying meaningful learner evidence.
+
+The purpose is operational compression:
+
+```text
+private raw history
+→ bounded task-local telemetry
+→ Chat interpretation under this Learning Contract
+```
+
+not a hidden scheduler or mastery engine.
+
 ---
 
 ## 9｜Reading / Cloze / Part B interaction boundary
