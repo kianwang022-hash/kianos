@@ -68,6 +68,9 @@ jobs:
       - name: Politics Analysis evidence transport
         working-directory: static-web
         run: node scripts/test-politics-analysis-evidence.mjs > "$POLITICS_FRESH_EVIDENCE/analysis-evidence.log" 2>&1
+      - name: Politics legacy Analysis drill index
+        working-directory: static-web
+        run: node scripts/validate-politics-analysis-legacy-drills.mjs > "$POLITICS_FRESH_EVIDENCE/analysis-legacy-drills.log" 2>&1
       - name: Build exact Current
         id: build
         working-directory: static-web
