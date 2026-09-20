@@ -74,6 +74,29 @@ try{
   assert.equal(keyed.answer_key_status,'SOURCE_BACKED');
   assert.equal(externalReadingAnswers('toefl-current-synthetic-keyed',state).answers['toefl-current-synthetic-keyed-q1'],'A');
 
+  const legacyOnly=ensureExternalReadingPrivateBundle({
+    sourceRoot,
+    privateDir:path.join(temp,'legacy-only'),
+    force:true,
+    enforceSourceHashGate:false,
+    allowUnregisteredIncremental:false
+  });
+  assert.equal(legacyOnly.status,'ready',legacyOnly.error||legacyOnly.status);
+  assert.equal(legacyOnly.bundle.passages.length,66);
+  assert.deepEqual(legacyOnly.bundle.counts.incremental,{objects:0,questions:0,questionless_objects:0});
+
+  const tamperedArticle=path.join(sourceRoot,'INCREMENTAL','longform','article.md');
+  fs.appendFileSync(tamperedArticle,'\n\nTampered after manifest registration.\n','utf8');
+  const tampered=ensureExternalReadingPrivateBundle({
+    sourceRoot,
+    privateDir:path.join(temp,'tampered-incremental'),
+    force:true,
+    enforceSourceHashGate:false,
+    allowUnregisteredIncremental:true
+  });
+  assert.equal(tampered.status,'compile_error');
+  assert.match(String(tampered.error||''),/SHA mismatch/);
+
   const publicManifest=JSON.parse(fs.readFileSync(path.join(repoRoot,'content','english','external','manifest.json'),'utf8'));
   assert.equal(publicManifest.status,'CURRENT_PRIVATE_SOURCE_LANE');
   assert.equal(publicManifest.inventory.object_count,66);
@@ -104,6 +127,8 @@ try{
     incremental_questionless:'PASS',
     incremental_no_key:'PASS',
     incremental_source_backed:'PASS',
+    unregistered_incremental_ignored:'PASS',
+    incremental_object_hash_fail_closed:'PASS',
     public_source_bytes:0,
     answer_gate:'PASS',
     cognition_boundary:'PASS',
