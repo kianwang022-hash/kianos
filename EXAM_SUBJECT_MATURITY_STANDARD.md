@@ -410,6 +410,13 @@ A subject remains partially unvalidated until real use supplies enough evidence 
 
 Real learner evidence may reopen any prior engineering or modeling assumption.
 
+Acceptance must distinguish two states:
+
+- **SYSTEM_LOGIC_ACCEPTED** — architecture / semantics / evidence / forecast logic survived engineering, synthetic and adversarial proof;
+- **KIAN_SPECIFIC_CALIBRATED** — enough real learner evidence exists to calibrate Kian-specific throughput, error structure, retention, transfer, friction and forecast parameters.
+
+The first may close before sufficient real learner use exists. It must never be described as the second. Lack of enough Learner U blocks Kian-specific claims, not every system-level maturity claim.
+
 ---
 
 ## 14. Target authority and score semantics
@@ -608,7 +615,118 @@ Fresh-Chat maturity also has a context budget:
 
 ---
 
-## 23. Stop rule
+## 23. Independent anti-anchored audit closure
+
+A Candidate may not freeze merely because its Builder wrote a strong self-attack and all Builder-owned checks pass.
+
+Before freeze, one Fresh Independent Audit must:
+
+- start from the acceptance requirements, Current durable owners and raw/primary evidence needed for the claim;
+- derive its own verdict before reading the Builder's expected conclusion, reconciliation notes or preferred fix whenever practical;
+- attack the strongest plausible learner-risk failure, not merely replay the Builder's happy-path checks;
+- record disagreements as evidence questions, not average them away;
+- lower confidence / keep UNKNOWN when disagreement cannot be resolved without new evidence.
+
+Builder self-attack and Fresh Independent Audit are complementary. They are not substitutes for one another.
+
+For material claims, the audit result must make clear:
+
+```text
+independent observation
+→ independent interpretation
+→ verdict
+→ only then reconciliation with Builder
+```
+
+A mature standard cannot certify itself only with tests whose expected answer was defined by the same reasoning that built the Candidate.
+
+---
+
+## 24. Adversarial methodology closure
+
+A mature adversarial suite is not a list of hand-picked scenarios.
+
+Where the model or control decision has meaningful parameters, the audit must use an appropriate mix of:
+
+- parameter grids across major uncertainty axes;
+- boundary / extreme values;
+- counterfactual substitutions;
+- historical backcast / sanity checks where comparable history exists;
+- randomized or combinatorial scenario sampling with reproducible seeds / recorded inputs where useful;
+- metamorphic invariants: changes that should preserve a conclusion, and changes that must flip it;
+- missing / stale / duplicated / corrupted evidence and transport-state failures.
+
+The purpose is to discover **decision flip surfaces**, not to manufacture a large test count.
+
+For every material conclusion, the audit should identify when evidence supports it:
+
+- which inputs it is robust to;
+- which learner-specific parameters it depends on;
+- which parameter or combination can reverse the decision;
+- the smallest new evidence likely to move the conclusion across that boundary.
+
+A suite fails this requirement if all scenarios are independently reasonable but no interaction between parameters is tested when interaction could change the learning decision.
+
+---
+
+## 25. Causal repair and discrimination closure
+
+Wrong / Uncertain / weak Recall / low score is an observation, not automatically the root cause.
+
+When two plausible causes would imply materially different repairs, the system must prefer the smallest discriminating check that can separate them before reopening larger scope.
+
+Examples of distinct causes may include:
+
+- knowledge model missing;
+- precision retrieval unstable;
+- option / distractor boundary failure;
+- task-form misunderstanding;
+- timing / fatigue;
+- wording or language failure;
+- contaminated familiarity;
+- execution / transport artifact.
+
+Rules:
+
+- if the same low-cost reversible action fits all plausible causes, explicit diagnosis may be skipped;
+- if repairs differ materially, guessing the cause is not acceptable;
+- improvement on the same repaired item is insufficient causal confirmation;
+- Repair completion must preserve the original observation and be followed by changed-context / delayed / fresh evidence appropriate to the capability;
+- repeated symptoms may compress into one Repair only when shared cause is supported, not merely convenient.
+
+A mature loop minimizes both under-repair and unnecessary reopening of large content scope.
+
+---
+
+## 26. Subject-specificity / anti-homogenization closure
+
+The shared standard defines the **questions every subject must answer**. It does not define one universal answer shape.
+
+A Fresh Audit must actively look for accidental cross-subject leakage such as:
+
+- copying one subject's review cadence into another;
+- turning English Minimum Dose into a generic fixed-quantity requirement;
+- turning Xizong delayed-stability logic into a Politics scheduler;
+- turning Politics Memory behavior into a universal learner-state model;
+- using one cross-subject mastery score, Repair policy or Secure threshold where subject-native cognition differs.
+
+Shared infrastructure may own transport primitives such as Home, Chat Plan, Daily Packet, Timer and checkpoint/replay semantics.
+
+Subject-native owners must continue to own:
+
+- capability semantics;
+- evidence meaning;
+- material use;
+- Repair logic;
+- retention / maintenance behavior;
+- score-calibration semantics;
+- Forecast parameters and readiness Gates.
+
+Cross-subject consistency is a virtue only when the underlying responsibility is genuinely shared. If a shared rule worsens a subject's learning decision, the subject-specific rule wins within the shared transport boundary.
+
+---
+
+## 27. Stop rule
 
 
 Maturity does not mean infinite optimization.
@@ -641,6 +759,10 @@ Each subject must eventually provide a compact acceptance package containing:
 6. Chat↔Website execution proof.
 7. Real learner U status and known unknowns.
 8. Explicit remaining blockers / future-source dependencies.
+9. Fresh Independent Audit result with anti-anchored verdict and reconciliation.
+10. Adversarial methodology report including parameter interactions / decision flip points where material.
+11. Causal Repair / discrimination policy for observations that admit multiple materially different causes.
+12. Real Learner U state: SYSTEM_LOGIC_ACCEPTED vs KIAN_SPECIFIC_CALIBRATED.
 
 A subject may not be declared “mature” while one of these is absent and material to the target score.
 
@@ -651,6 +773,7 @@ The acceptance package must also name:
 - subjective scoring uncertainty where applicable;
 - decision falsifiers / reopen triggers;
 - evidence revision / exposure-identity policy;
-- future-source fallback / supersession rules.
+- future-source fallback / supersession rules;
+- proof that shared requirements have not silently imposed another subject's cadence, evidence semantics or control policy.
 
 This standard itself is subject to the same economy rule as the product: a requirement should be deleted or collapsed when it adds maintenance but cannot change a learning, evidence, forecast, execution-safety or attention-cost decision.
