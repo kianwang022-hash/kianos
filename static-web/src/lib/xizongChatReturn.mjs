@@ -88,7 +88,17 @@ export function xizongStudyPacketEvidenceVersion(packet) {
         submitted_at: clean(row?.submitted_at, 80)
       }))
       .sort((a, b) => a.question_id.localeCompare(b.question_id)),
-    marked_question_ids: [...(packet.practice?.marked_question_ids || [])].map(String).sort()
+    marked_question_ids: [...(packet.practice?.marked_question_ids || [])].map(String).sort(),
+    ai_transfer_probes: (Array.isArray(packet.practice?.ai_transfer_probes) ? packet.practice.ai_transfer_probes : [])
+      .map((row) => ({
+        question_id: clean(row?.question_id, 180),
+        status: clean(row?.status, 40),
+        submitted_at: clean(row?.submitted_at, 80),
+        probe_kind: clean(row?.probe_kind, 40),
+        target_kp_ids: [...new Set((Array.isArray(row?.target_kp_ids) ? row.target_kp_ids : []).map(String).filter(Boolean))].sort(),
+        canonical_source_hash: clean(row?.canonical_source_hash, 180)
+      }))
+      .sort((a, b) => a.question_id.localeCompare(b.question_id))
   };
   return fingerprint(basis);
 }
