@@ -16,7 +16,7 @@ This file owns F-scoped readiness truth only. It does not own medical Core, lear
 | S2 — exact official F System question membership | **UNTESTED** | separate later boundary; no membership inferred from Outline placement |
 | K — Knowledge | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent K audit; bounded repair split acute disturbance-control from planned/ongoing intervention-safety while preserving identity/source/owner boundaries |
 | L — Learning Logic | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent L audit; 9 Blocks / 121 KP → 40 LG; 3 whole + 5 natural + 1 integration; 0 hard edges; 2 non-gating PSRs |
-| Content Realization / Optimization | **ACTIVE / NOT_ACCEPTED** | Phase 5A role candidate + Phase 5B wrapper cleanup closed; 40-LG sufficiency/Recall-front audit remains before fresh Content closure |
+| Content Realization / Optimization | **ACTIVE / NOT_ACCEPTED** | Phase 5A + 5B + 5C closed; 40/40 LG sufficiency PASS after 31 LG / 72 KP Recall-front repairs; fresh independent Content closure remains |
 | P — Projection | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
 | R — Runtime | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
 | E — Evidence | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
@@ -225,6 +225,10 @@ Phase 5B receipt:
 
 `content/xizong/knowledge/learner/F_PHASE5B_WRAPPER_AUTHORITY_CLEANUP.md`
 
+Phase 5C receipt:
+
+`content/xizong/knowledge/learner/F_PHASE5C_CONTENT_SUFFICIENCY_AUDIT.md`
+
 Phase 5A establishes the Content-role model only. It does not claim Content PASS.
 
 Candidate accounting:
@@ -251,16 +255,28 @@ medical Core rewrite                    = 0
 
 The stale competing route graph is closed. Natural Source-unit stop-lines now match accepted L, while F3/F5/F7 remain whole-source and F9 remains integration-primary. Concrete false learner-state assumptions were rewritten as reusable / locally reactivatable relations.
 
+Phase 5C closure:
+
+```text
+accepted LG reviewed                  = 40 / 40
+LG PASS                              = 40 / 40
+LG with Recall-front repairs         = 31 / 40
+Recall-front KP surfaces repaired    = 72 / 121
+Reveal-side medical Core drift       = 0
+medical Core rewrite                 = 0
+```
+
+No LG was under-supplied by canonical medical Core. The demonstrated defect class was retrieval leakage from answer-bearing pre-Reveal titles/prompts. All repairs were Recall-front only.
+
 Remaining blocking Content work:
 
-1. 40/40 LG Content sufficiency / density audit;
-2. Recall-front answer-protection audit;
-3. targeted repairs only where a concrete LG/KP defect is demonstrated;
-4. fresh independent whole-F Content closure.
+1. fresh independent whole-F Content closure;
+2. Page-disappearance test;
+3. independent attacks on identity/partition, Source-release, wrapper authority, Recall-front leakage, visual/exact-Source truth, no-duplicate-truth, external-owner/version boundaries and Projection/Runtime leakage.
 
 Therefore Content remains **ACTIVE / NOT_ACCEPTED** and P/R/E remain downstream-frozen.
 
-Next Content stage: **Phase 5C — 40-LG Content sufficiency / density + Recall-front audit**.
+Next Content stage: **Phase 5D — fresh independent whole-F Content closure**.
 
 ## Downstream state
 
