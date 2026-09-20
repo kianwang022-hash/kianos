@@ -676,6 +676,8 @@ function summarizeXizongFormalScoreEvidence(storage) {
       question_count: Number(seal.summary.questionCount || 0),
       earned_score: Number(seal.summary.earnedScore || 0),
       max_score: Number(seal.summary.maxScore || 0),
+      internal_holdout_protected_before_seal: seal?.evidenceContext?.internalHoldoutProtectedBeforeSeal === true,
+      external_exposure_status: String(seal?.evidenceContext?.externalExposureStatus || 'UNKNOWN'),
       discipline_breakdown: disciplineBreakdown
     });
   }
@@ -685,7 +687,7 @@ function summarizeXizongFormalScoreEvidence(storage) {
     sealed_papers: rows,
     latest: rows.at(-1) || null,
     evidence_boundary:
-      'Sealed whole-paper score is formal paper evidence. Review unlock or prior exposure affects future freshness but does not rewrite the score observed at seal time.'
+      'Sealed whole-paper score is formal observed evidence. Internal Holdout protection before seal is preserved as a contamination signal, but it does not prove external non-exposure. Review unlock or prior exposure affects future freshness and score extrapolation, not the score observed at seal time.'
   };
 }
 
