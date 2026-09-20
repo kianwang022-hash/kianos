@@ -92,10 +92,20 @@ with descriptors centered on:
 Other public postgraduate-exam preparation sources reproduce the same broad band geometry.
 
 Use:
-- band geometry and holistic dimensions = MEDIUM-confidence operational rubric.
+- band geometry and holistic dimensions = MEDIUM-confidence operational rubric;
+- English-I Small “about 100 words” / Big “160–200 words” as task constraints;
+- “length outside the requirement may be penalized discretionarily” as a reason to preserve score uncertainty.
 
 Do not use:
-- unsupported invented micro-weights such as “content exactly 3 points”.
+- unsupported invented micro-weights such as “content exactly 3 points”;
+- an invented fixed deduction table for under-length writing.
+
+Fresh independent audit corroboration (2026-09-21):
+- Tsinghua University Press, *考研英语高分写作100篇（第2版）* public sample chapter reproduces the band-first method, English-I A/B band geometry, A≈100 / B=160–200 length requirements, discretionary length deduction, and a one-band downgrade when poor handwriting materially affects marking;
+- historical CHSI exam-preparation pages reproduce materially the same writing band geometry and length principle.
+
+Boundary:
+- these are strong operational corroboration, but they are **not** relabeled as a newly fetched current official raw marking manual.
 
 ## Translation
 
@@ -107,10 +117,17 @@ Public English-I descriptions consistently state:
 
 Some secondary descriptions report point-based scoring within the 2-point sentence.
 
+Historical CHSI exam-preparation material also reproduces two useful constraints:
+- a sentence that clearly distorts the original meaning should not receive more than 0.5 points;
+- no 0.25-point granularity is used in that reproduced scheme.
+
 Use:
 - task geometry / accurate-complete-readable = HIGH;
+- major-distortion / half-point granularity as **dated secondary corroboration** for conservative operational anchors;
 - segment error severity to support a score range = operational;
 - exact hidden phrase-by-phrase live marking key = UNKNOWN.
+
+Do not upgrade the dated secondary rule to current-official status without a direct current official source.
 
 ---
 
