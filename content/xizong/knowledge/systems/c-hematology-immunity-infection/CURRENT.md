@@ -13,7 +13,7 @@ This file does not own medical Core, Learning semantics, Acceptance Truth or Kia
 **Current accepted stage:** S exact question scope + K + L accepted  
 **Next eligible stage:** P (Projection), **not started**  
 **Active work in this Chat:** none after L promotion  
-**Question-scope status:** PASS_AFTER_BOUNDED_REPAIR — 289 exact official qids, 2005–2026.  
+**Question-scope status:** PASS_AFTER_BOUNDED_REPAIR — 290 exact official qids, 2005–2026.  
 **Blocker:** none at L/question-scope stage
 
 Canonical owners:
@@ -32,7 +32,7 @@ The old `c-hematology-immunity-infection-learning-candidate.json` is not a live 
 ## Stage routing
 
 ```text
-S Question scope = PASS_AFTER_BOUNDED_REPAIR / 289 exact qids
+S Question scope = PASS_AFTER_BOUNDED_REPAIR / 290 exact qids
 K Knowledge       = PASS
 L Learning Logic  = PASS_AFTER_REPAIR
 P Projection      = NOT_STARTED / ELIGIBLE
@@ -83,7 +83,7 @@ Do not use this System to backfill:
 - tumor-molecular foundation Primary;
 - organ-specific infection diagnosis/treatment Primary.
 
-Exact C System-question membership is accepted at 289 qids, but System membership still does not create Question→Block/LG/KP relations.  
+Exact C System-question membership is accepted at 290 qids, but System membership still does not create Question→Block/LG/KP relations.  
 Do not infer Question→Knowledge mapping from Learning grouping.  
 Do not infer learner completion/mastery from repository acceptance.  
 Do not change Crosswalk in a C L/P task unless separately authorized.
