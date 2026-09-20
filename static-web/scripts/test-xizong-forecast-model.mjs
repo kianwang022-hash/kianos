@@ -385,6 +385,21 @@ function baseProgress() {
 }
 
 {
+  const scopedSpeed=baseProgress();
+  scopedSpeed.practice_evidence.first_pass.by_day=[
+    {day:'2026-09-14',attempted:20,practice_timer_minutes:40,observed_minutes_per_attempt:2,current_scope_attempted:10,current_scope_practice_timer_minutes:10,current_scope_observed_minutes_per_attempt:1},
+    {day:'2026-09-15',attempted:20,practice_timer_minutes:40,observed_minutes_per_attempt:2,current_scope_attempted:10,current_scope_practice_timer_minutes:10,current_scope_observed_minutes_per_attempt:1},
+    {day:'2026-09-16',attempted:20,practice_timer_minutes:40,observed_minutes_per_attempt:2,current_scope_attempted:10,current_scope_practice_timer_minutes:10,current_scope_observed_minutes_per_attempt:1},
+    {day:'2026-09-17',attempted:20,practice_timer_minutes:40,observed_minutes_per_attempt:2,current_scope_attempted:10,current_scope_practice_timer_minutes:10,current_scope_observed_minutes_per_attempt:1.1},
+    {day:'2026-09-18',attempted:20,practice_timer_minutes:40,observed_minutes_per_attempt:2,current_scope_attempted:10,current_scope_practice_timer_minutes:10,current_scope_observed_minutes_per_attempt:0.9}
+  ];
+  const forecast=buildXizongWorkloadForecast(scopedSpeed);
+  assert.equal(forecast.components.questions.calibration.source,'CURRENT_EXACT_SCOPE_SYSTEM_SWEEP');
+  assert.equal(forecast.components.questions.calibration.reference_minutes_per_question,1);
+  assert.equal(forecast.components.questions.calibration.current_scope_day_samples,5);
+}
+
+{
   const noCompression=baseProgress();
   noCompression.repair_evidence.observed_question_to_cluster_ratio=null;
   const forecast=buildXizongWorkloadForecast(noCompression);
