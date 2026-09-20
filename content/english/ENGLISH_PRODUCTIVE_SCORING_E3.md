@@ -1,6 +1,6 @@
 # English E3 — Productive Scoring Validity
 
-Status: **BUILDER CANDIDATE COMPLETE · FRESH AUDIT REQUIRED**
+Status: **CLOSED CANDIDATE · FRESH PASS**
 Date: 2026-09-20
 Parent: `ENGLISH_HIGHEST_MATURITY_STAGE_PLAN.md#E3`
 
@@ -208,27 +208,33 @@ Governance Anti-Entropy remains the known repository Current-length red already 
 
 ---
 
-## 8｜E3 current verdict
+## 8｜E3 final verdict
 
-**BUILDER CANDIDATE COMPLETE · NOT CLOSED.**
+**CLOSED CANDIDATE · FRESH PASS.**
 
-Only material system-logic blocker:
+Fresh Independent / Anti-Anchored Audit passed on exact candidate:
 
-```text
-Fresh independent grader
-→ read scoring standard + provenance + blind fixtures
-→ grade without sealed key
-→ then reveal sealed key
-→ compare broad ranges / pairwise invariants
-→ adversarial re-score
-```
+`2066019e657ea6d479c924c26ea5cbe418c89fe7`
 
-If Fresh Audit finds a material scoring bias:
+Acceptance report:
 
-> repair the scoring owner, not learner output.
+`content/english/ENGLISH_PRODUCTIVE_SCORING_E3_FRESH_AUDIT.md`
 
-If Fresh Audit passes:
+Accepted system-logic claims:
 
-> E3 CLOSED CANDIDATE → advance Current to E4 Evidence / Exposure / long-horizon fidelity.
+- Translation preserves fidelity over reference wording;
+- fluent semantic error cannot hide inside good Chinese;
+- Small Writing preserves Task > Style;
+- Big Writing preserves Grounding > Fluency;
+- under-length Writing widens/lowers ranges without fixed folklore deduction or duplicate penalty;
+- complete-section Translation keeps one major semantic error visible after aggregation;
+- score uncertainty and independent re-score rules survive blind grading;
+- scoring-standard identity is explicit as `english.productive-scoring.v2`.
 
-Real Kian productive score still remains Learner U-dependent.
+One 0.5-point conservative lower-bound difference remained non-material and changed no broad classification, pairwise ordering, guardrail or strategy-relevant decision.
+
+Real Kian productive score remains Learner-U-dependent.
+
+Typed output still does not equal paper/handwriting exam-mode score; E8 owns that calibration.
+
+Next: **E4 Evidence / Exposure / long-horizon fidelity.**
