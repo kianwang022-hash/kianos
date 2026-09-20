@@ -8,6 +8,10 @@ import {
   politicsMemoryCheckpointKeyAllowed,
   validatePoliticsMemoryCheckpointValue
 } from './politicsMemoryRuntime.mjs';
+import {
+  politicsAnalysisCheckpointKeyAllowed,
+  validatePoliticsAnalysisCheckpointValue
+} from './politicsAnalysisEvidence.mjs';
 
 export const POLITICS_CHAT_RETURN_SCHEMA = 'kianos.politics.chat-return.v1';
 export const POLITICS_PRIVATE_PAYLOAD_SCHEMA = 'kianos.politics.private-payload.v1';
@@ -40,7 +44,8 @@ export function politicsCheckpointKeyAllowed(key) {
   return PRACTICE_KEY_SET.has(value)
     || value === POLITICS_CHAT_RETURN_LATEST_KEY
     || value.startsWith(POLITICS_CHAT_RETURN_PREFIX)
-    || politicsMemoryCheckpointKeyAllowed(value);
+    || politicsMemoryCheckpointKeyAllowed(value)
+    || politicsAnalysisCheckpointKeyAllowed(value);
 }
 
 function validateStoredChatReturn(value) {
@@ -69,6 +74,10 @@ function validateCheckpointRaw(key, raw) {
   }
   if (politicsMemoryCheckpointKeyAllowed(key)) {
     validatePoliticsMemoryCheckpointValue(key, value);
+    return value;
+  }
+  if (politicsAnalysisCheckpointKeyAllowed(key)) {
+    validatePoliticsAnalysisCheckpointValue(key, value);
     return value;
   }
   validateStoredChatReturn(value);
