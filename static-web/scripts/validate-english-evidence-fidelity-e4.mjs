@@ -216,6 +216,63 @@ assert.throws(()=>writeEnglishSessionInstruction(declarationOnlyStorage,{
   }]
 },day,{catalog:[{task:'reading_a',object_id:'declared-source-b',source_hash:'declared-source-exact-b',semantic_source_hash:'declared-source-semantic'}],now:Date.parse('2026-09-21T11:46:00.000Z')}),/ENGLISH_MATERIAL_ALREADY_EXPOSED/);
 
+// 2d) A whole-paper exposed declaration must preserve child semantic identity across later child aliases.
+const wholePaperDeclarationStorage=new MemoryStorage();
+writeEnglishSessionInstruction(wholePaperDeclarationStorage,{
+  schema:'kianos.english.session-instruction.v1',
+  session_id:'e4-whole-paper-exposed',
+  study_day:day,
+  generated_at:'2026-09-21T11:30:00.000Z',
+  current_step:0,
+  steps:[{
+    step_id:'paper',
+    task:'full_paper',
+    object_id:'paper-a',
+    source_hash:'paper-exact-a',
+    params:{material_exposure:{
+      state:'exposed',
+      basis:'learner_statement',
+      observed_at:'2026-09-21T11:29:00.000Z',
+      note:'Learner states this whole paper was seen before.'
+    }}
+  }]
+},day,{catalog:[{
+  task:'full_paper',
+  object_id:'paper-a',
+  source_hash:'paper-exact-a',
+  materials:[{
+    object_id:'paper-child-a',
+    source_hash:'child-exact-a',
+    semantic_source_hash:'child-semantic'
+  }]
+}],now:Date.parse('2026-09-21T11:31:00.000Z')});
+wholePaperDeclarationStorage.removeItem(ENGLISH_SESSION_KEY);
+assert.throws(()=>writeEnglishSessionInstruction(wholePaperDeclarationStorage,{
+  schema:'kianos.english.session-instruction.v1',
+  session_id:'e4-whole-paper-child-alias',
+  study_day:day,
+  generated_at:'2026-09-21T11:35:00.000Z',
+  current_step:0,
+  steps:[{
+    step_id:'child',
+    task:'reading_a',
+    object_id:'paper-child-b',
+    source_hash:'child-exact-b',
+    params:{material_exposure:{
+      state:'unseen',
+      basis:'learner_statement',
+      observed_at:'2026-09-21T11:34:00.000Z',
+      note:'Conflicting alias declaration.'
+    }}
+  }]
+},day,{catalog:[{
+  task:'reading_a',
+  object_id:'paper-child-b',
+  source_hash:'child-exact-b',
+  semantic_source_hash:'child-semantic'
+}],now:Date.parse('2026-09-21T11:36:00.000Z')}),/ENGLISH_MATERIAL_ALREADY_EXPOSED/);
+
+
 // 3) Reuse existing durable ledgers for bounded long-horizon recurrence.
 storage.setItem('kianos-english-objective-transfer-claims-v1',JSON.stringify({
   version:1,
@@ -394,6 +451,7 @@ console.log(JSON.stringify({
     semantic_revision_does_not_inherit_object_id_exposure:true,
     exposed_declaration_cross_object_exposure:true,
     known_exposure_rejects_later_unseen_alias:true,
+    whole_paper_exposure_preserves_child_semantic_identity:true,
     bounded_long_horizon_recurrence_digest:true,
     recent_absence_not_long_horizon_absence:true,
     broken_recurrence_ledger_requires_deeper_review:true,
