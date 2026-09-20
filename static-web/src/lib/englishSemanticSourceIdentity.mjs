@@ -1,7 +1,7 @@
 import crypto from 'node:crypto';
 
 const OMIT_KEYS=new Set([
-  'id','objectId','object_id','paperId','paper_id','year','code','section',
+  'id','objectId','object_id','paperId','paper_id','passage_id','question_id','figure_id','year','code','section',
   'navigation','sourcePaths','sourcePath','sourceHashes','sourceHash',
   'sourceTruth','sourceTruthStatus','sourceKind','source_kind',
   'evidenceRole','evidence_role','target_mechanisms','targetMechanisms',
