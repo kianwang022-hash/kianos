@@ -130,6 +130,7 @@ assert.equal(writingInspection.taskCount, 10);
 assert.deepEqual(new Set(writingInspection.kinds), new Set(['small','big']));
 const writingSynthetic = listWritingSyntheticTasks();
 assert.equal(writingSynthetic.length, 10);
+assert.ok(writingSynthetic.every((row) => row.evidenceRole), 'Writing synthetic evidence roles must survive loader projection');
 const writingRuntimeIds = new Set(listWritingRuntimeTasks().map((row) => row.id));
 assert.ok(writingSynthetic.every((row) => writingRuntimeIds.has(row.id)));
 
