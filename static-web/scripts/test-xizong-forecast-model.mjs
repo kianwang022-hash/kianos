@@ -477,10 +477,11 @@ function baseProgress() {
     dailyMinutes:300,
     startDay:'2026-09-21'
   });
-  assert.equal(loop.maturity,'COVERAGE_INCOMPLETE');
+  assert.equal(loop.estimate_maturity,'COVERAGE_INCOMPLETE');
   assert.ok(loop.uncertainty.includes('HARD_MATERIAL_COVERAGE_INCOMPLETE'));
   assert.ok(loop.uncertainty.includes('MATERIAL_OR_ROUTING_SCOPE_UNPRICED'));
   assert.equal(loop.score.gate_readiness.coverage_ready,false);
+  assert.equal(loop.model_logic_validation,'CI_GATED_EXTERNALLY');
 }
 
 {
@@ -495,6 +496,8 @@ function baseProgress() {
   assert.equal(routingOnly.materials.full_forecast_material_ready,false);
   assert.ok(!routingOnly.uncertainty.includes('HARD_MATERIAL_COVERAGE_INCOMPLETE'));
   assert.ok(routingOnly.uncertainty.includes('MATERIAL_OR_ROUTING_SCOPE_UNPRICED'));
+  assert.equal(routingOnly.empirical_calibration_ready,false);
+  assert.ok(routingOnly.uncertainty.includes('EMPIRICAL_FORECAST_CALIBRATION_INCOMPLETE'));
 }
 
 {
