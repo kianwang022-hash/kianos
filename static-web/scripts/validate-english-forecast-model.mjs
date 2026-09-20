@@ -5,7 +5,8 @@ import {
   ENGLISH_FORECAST_FAMILIES,
   buildEnglishWorkloadForecast,
   assessEnglishDeadlineFeasibility,
-  buildEnglishForecastFalsifiability
+  buildEnglishForecastFalsifiability,
+  backtestEnglishForecastHistory
 } from '../src/lib/englishForecastModel.mjs';
 
 const clone=(value)=>JSON.parse(JSON.stringify(value));
@@ -327,6 +328,32 @@ function fitRank(status){
   assert.equal(f.workload.missing_family_ids.length,0);
 }
 
+// 14) Backtest logic must expose calibration error without auto-replanning.
+{
+  const backtest=backtestEnglishForecastHistory([
+    {id:'d1',predicted_workload_band:{p20:80,p50:100,p80:120},actual_workload_minutes:100,predicted_score_range:{low:82,high:88},actual_score:85},
+    {id:'d2',predicted_workload_band:{p20:90,p50:110,p80:130},actual_workload_minutes:110,predicted_score_range:{low:84,high:90},actual_score:91},
+    {id:'d3',predicted_workload_band:{p20:95,p50:115,p80:135},actual_workload_minutes:130,predicted_score_range:{low:80,high:87},actual_score:79},
+    {id:'d4',predicted_workload_band:{p20:85,p50:105,p80:125},actual_workload_minutes:90,predicted_score_range:{low:83,high:89},actual_score:87}
+  ]);
+  assert.equal(backtest.workload.status,'BACKTESTED');
+  assert.equal(backtest.workload.sample_count,4);
+  assert.equal(backtest.score.status,'BACKTESTED');
+  assert.equal(backtest.score.sample_count,4);
+  assert.equal(backtest.score.misses.length,2);
+  assert.equal(backtest.recalibration_required,'CHAT_INTERPRETATION_REQUIRED');
+  assert.equal(backtest.subject_stage_decision,'OUT_OF_SCOPE');
+}
+
+// 15) One observation cannot pretend Forecast calibration is established.
+{
+  const backtest=backtestEnglishForecastHistory([
+    {id:'only',predicted_workload_band:{p20:80,p50:100,p80:120},actual_workload_minutes:110,predicted_score_range:{low:82,high:88},actual_score:85}
+  ]);
+  assert.equal(backtest.workload.status,'INSUFFICIENT_BACKTEST');
+  assert.equal(backtest.score.status,'INSUFFICIENT_BACKTEST');
+}
+
 console.log(JSON.stringify({
   schema:'kianos.english.forecast-system-logic-validation.v1',
   status:'PASS',
@@ -343,6 +370,8 @@ console.log(JSON.stringify({
     sensitivity_flip_surface:true,
     highest_value_evidence_is_information_only:true,
     reproducible_grid_stress:true,
+    forecast_backtest_is_falsifiable:true,
+    thin_backtest_does_not_claim_calibration:true,
     no_daily_task_or_cross_subject_authority:true
   }
 },null,2));
