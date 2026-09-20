@@ -4,6 +4,30 @@ Status: CURRENT OPTIONAL SOURCE CONTRACT
 
 Purpose: admit new private External Reading assets without changing the fixed legacy TPO56–65 / IELTS17–19 source contract and without inventing questions.
 
+## Registry + builder
+
+Normal admission does not hand-write SHA-256 values.
+
+Private admission first creates an explicit registry:
+
+`kian.external.incremental-registry.v1`
+
+The canonical builder is:
+
+`tools/english-external/build_incremental_manifest.py`
+
+Flow:
+
+```
+explicit admitted registry
+→ builder validates registered paths / question schema / answer ordinals
+→ builder computes exact article/questions/answers hashes
+→ INCREMENTAL/manifest.json
+→ public expected manifest SHA activation
+```
+
+The builder does **not** discover directories or decide which material deserves admission. Chat/Source Intake owns admission; the builder only freezes exact bytes.
+
 ## Activation boundary
 
 The optional private manifest lives at:

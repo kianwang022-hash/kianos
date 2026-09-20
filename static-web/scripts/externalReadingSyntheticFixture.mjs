@@ -157,6 +157,17 @@ export function writeExternalReadingSyntheticSource(sourceRoot){
       }
     ]
   };
+  const incrementalRegistry={
+    schema:'kian.external.incremental-registry.v1',
+    objects:incrementalManifest.objects.map(row=>{
+      const copy={...row};
+      delete copy.source_sha256;
+      delete copy.questions_sha256;
+      delete copy.answers_sha256;
+      return copy;
+    })
+  };
+  fs.writeFileSync(path.join(incrementalDir,'registry.json'),JSON.stringify(incrementalRegistry,null,2)+'\n','utf8');
   fs.writeFileSync(path.join(incrementalDir,'manifest.json'),JSON.stringify(incrementalManifest,null,2)+'\n','utf8');
 
   return sourceRoot;

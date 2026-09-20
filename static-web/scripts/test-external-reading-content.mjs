@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { spawnSync } from 'node:child_process';
 import { writeExternalReadingSyntheticSource } from './externalReadingSyntheticFixture.mjs';
 import {
   ensureExternalReadingPrivateBundle,
@@ -17,6 +18,22 @@ const temp=fs.mkdtempSync(path.join(os.tmpdir(),'kianos-external-reading-'));
 const sourceRoot=path.join(temp,'source');
 const privateDir=path.join(temp,'private');
 writeExternalReadingSyntheticSource(sourceRoot);
+const incrementalManifestPath=path.join(sourceRoot,'INCREMENTAL','manifest.json');
+const incrementalRegistryPath=path.join(sourceRoot,'INCREMENTAL','registry.json');
+fs.rmSync(incrementalManifestPath,{force:true});
+const builder=spawnSync('python3',[
+  path.join(repoRoot,'tools','english-external','build_incremental_manifest.py'),
+  '--source-root',sourceRoot,
+  '--registry',incrementalRegistryPath,
+  '--output',incrementalManifestPath
+],{encoding:'utf8'});
+assert.equal(builder.status,0,builder.stderr||builder.stdout||'incremental manifest builder failed');
+const builtManifest=JSON.parse(fs.readFileSync(incrementalManifestPath,'utf8'));
+assert.equal(builtManifest.schema,'kian.external.incremental-manifest.v1');
+assert.equal(builtManifest.object_count,3);
+assert.equal(builtManifest.objects.length,3);
+assert(builtManifest.objects.every(row=>row.source_sha256));
+assert(builtManifest.objects.find(row=>row.object_id==='toefl-current-synthetic-keyed')?.answers_sha256);
 
 try{
   const state=ensureExternalReadingPrivateBundle({
@@ -128,6 +145,7 @@ try{
     incremental_no_key:'PASS',
     incremental_source_backed:'PASS',
     unregistered_incremental_ignored:'PASS',
+    incremental_manifest_builder:'PASS',
     incremental_object_hash_fail_closed:'PASS',
     public_source_bytes:0,
     answer_gate:'PASS',
