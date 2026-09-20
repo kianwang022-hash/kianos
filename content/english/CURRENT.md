@@ -97,13 +97,13 @@ Structural/self-attack review is complete on this ref (19/19 targeted checks). T
 Active ref: `work/english-highest-maturity-adaptation-20260920`
 Owner package: `ENGLISH_HIGHEST_MATURITY_STANDARD.md` + `ENGLISH_HIGHEST_MATURITY_STAGE_PLAN.md` + `ENGLISH_MATURITY_GAP_MATRIX.md`.
 
-Current: **E3 Productive Scoring Validity — FRESH ACCEPTANCE NOT YET PROVEN · REPAIRED CALIBRATION PACKAGE READY FOR NEW BLIND AUDIT**.
+Current: **E4 Evidence / Exposure / long-horizon fidelity — ACTIVE**.
 E2 Material / Source Fidelity / Ready Inventory is **CLOSED CANDIDATE** after structural/build/browser proof on PR #640.
+E3 Productive Scoring Validity is **CLOSED CANDIDATE · FRESH PASS** on exact audited head `2066019e657ea6d479c924c26ea5cbe418c89fe7`.
 
-Fresh-audit history exists, but generic knowledge that E3 previously failed / was repaired is **not** a contamination condition. The audit now fails closed only on leakage that reveals the expected treatment of a **current opaque fixture**. Current fixture identities have been rotated again so stale chat/history mappings do not apply.
+E3 blind acceptance locked all 18 current fixtures before sealed-key reveal and passed semantic-equivalence, Task>Style, Grounding>Fluency, length-stress, complete-section Translation aggregation, uncertainty and re-score invariants. Acceptance: `ENGLISH_PRODUCTIVE_SCORING_E3_FRESH_AUDIT.md`.
 
-Next: start from `PRODUCTIVE_SCORING_FRESH_AUDIT_BRIEF.md` on the active candidate ref, blind-score the current opaque fixture bank, freeze the complete result block, and reveal the sealed key only afterward. If generic prior E3 context is present but no current-fixture-specific expectation is known, the auditor must proceed rather than self-invalidating.
-Do not advance to E4 until that clean audit passes.
+Next: E4 must prove that the evidence Chat/Forecast receives preserves exposure, assistance, source revision, long-horizon recurrence, bounded-packet truncation semantics and whole-paper constituent contamination without requiring Kian to maintain history manually.
 
 Boundaries: reuse existing task workspaces/transport; no second scheduler/ledger/mastery; no broad Guide rewrite; no protected true-exam consumption for engineering proof.
 
