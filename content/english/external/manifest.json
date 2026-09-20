@@ -1026,6 +1026,10 @@
     "source_package_flow": "ARCHIVAL_GPT_PACKAGE -> PARSER -> PRIVATE_QUALITY_REVIEW -> EXPLICIT_REGISTRY",
     "batch_source_package_parser": "tools/english-external/batch_parse_source_packages.py",
     "batch_report_schema": "kian.external-source-batch-intake-report.v1",
-    "batch_policy": "PARSE_PRECHECK_DEDUPE_ONLY; NO_AUTO_ADMISSION"
+    "batch_policy": "PARSE_PRECHECK_DEDUPE_ONLY; NO_AUTO_ADMISSION",
+    "review_schema": "kian.external-source-quality-review-batch.v1",
+    "promotion_tool": "tools/english-external/promote_reviewed_sources.py",
+    "promotion_policy": "ACCEPT_ONLY; HOLD_REJECT_NOT_PROMOTED; PARSER_HOLD_CANNOT_BE_OVERRIDDEN_BY_PROMOTION",
+    "full_flow": "SOURCE_PACKAGE -> BATCH_PARSE -> CHAT_QUALITY_REVIEW -> ACCEPT_PROMOTION -> REGISTRY -> MANIFEST_BUILDER -> PUBLIC_SHA_ACTIVATION"
   }
 }

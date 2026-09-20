@@ -173,6 +173,76 @@ assert.equal(batchReport.items.filter(row=>row.status==='DUPLICATE_EXACT_PACKAGE
 assert.equal(batchReport.items.filter(row=>row.status==='HOLD_INCOMPLETE_OR_UNCERTAIN_SOURCE').length,1);
 assert.equal(batchReport.items.filter(row=>row.status==='REJECT_FORMAT').length,1);
 
+const batchHold=batchReport.items.find(row=>row.status==='HOLD_INCOMPLETE_OR_UNCERTAIN_SOURCE');
+assert(batchHold?.source_id);
+
+const reviewPath=path.join(temp,'source-quality-review.json');
+fs.writeFileSync(reviewPath,JSON.stringify({
+  schema:'kian.external-source-quality-review-batch.v1',
+  decisions:[
+    {
+      source_id:batchReady.source_id,
+      decision:'ACCEPT',
+      quality:{
+        authenticity:'A_AUTHORITY_OR_ORIGINAL',
+        completeness:'COMPLETE',
+        text_integrity:'CLEAN',
+        provenance:'BOUND',
+        visual_dependency:'NONE',
+        duplicate_relation:'UNIQUE'
+      },
+      reason_codes:['ORIGINAL_PUBLISHER','BODY_COMPLETE','TEXT_INTEGRITY_GOOD','PROVENANCE_BOUND'],
+      evidence_notes:['Synthetic acceptance fixture for engineering proof.'],
+      runtime:{
+        source_family:'FUTURE_INCREMENTAL',
+        source_format:'SOURCE_PACKAGE_MARKDOWN',
+        collection:'Synthetic Journal',
+        completion_requirement:'READ_ONLY_OK'
+      }
+    },
+    {
+      source_id:batchHold.source_id,
+      decision:'HOLD',
+      reason_codes:['PAYWALL_OR_TRUNCATION_UNCERTAIN']
+    }
+  ]
+},null,2)+'\n','utf8');
+
+const promotionSourceRoot=path.join(temp,'promotion-source-root');
+const promotionReportPath=path.join(temp,'promotion-report.json');
+const promoteRun=spawnSync('python3',[
+  path.join(repoRoot,'tools','english-external','promote_reviewed_sources.py'),
+  '--parsed-root',batchOutput,
+  '--review',reviewPath,
+  '--source-root',promotionSourceRoot,
+  '--report',promotionReportPath
+],{encoding:'utf8'});
+assert.equal(promoteRun.status,0,promoteRun.stderr||promoteRun.stdout||'reviewed source promotion failed');
+const promotionReport=JSON.parse(fs.readFileSync(promotionReportPath,'utf8'));
+assert.equal(promotionReport.schema,'kian.external-reviewed-source-promotion-report.v1');
+assert.equal(promotionReport.promoted,1);
+assert.equal(promotionReport.not_promoted,1);
+const promotedRegistryPath=path.join(promotionSourceRoot,'INCREMENTAL','registry.json');
+const promotedRegistry=JSON.parse(fs.readFileSync(promotedRegistryPath,'utf8'));
+assert.equal(promotedRegistry.schema,'kian.external.incremental-registry.v1');
+assert.equal(promotedRegistry.objects.length,1);
+assert.equal(promotedRegistry.objects[0].object_id,batchReady.source_id);
+assert.equal(fs.existsSync(path.join(promotionSourceRoot,'INCREMENTAL','packages',batchReady.source_id,'normalized','article.md')),true);
+assert.equal(fs.existsSync(path.join(promotionSourceRoot,'INCREMENTAL','packages',batchHold.source_id)),false);
+
+const promotedManifestPath=path.join(promotionSourceRoot,'INCREMENTAL','manifest.json');
+const promotedBuild=spawnSync('python3',[
+  path.join(repoRoot,'tools','english-external','build_incremental_manifest.py'),
+  '--source-root',promotionSourceRoot,
+  '--registry',promotedRegistryPath,
+  '--output',promotedManifestPath
+],{encoding:'utf8'});
+assert.equal(promotedBuild.status,0,promotedBuild.stderr||promotedBuild.stdout||'promoted manifest build failed');
+const promotedManifest=JSON.parse(fs.readFileSync(promotedManifestPath,'utf8'));
+assert.equal(promotedManifest.object_count,1);
+assert.equal(promotedManifest.objects[0].object_id,batchReady.source_id);
+assert(promotedManifest.objects[0].source_sha256);
+
 try{
   const state=ensureExternalReadingPrivateBundle({
     sourceRoot,
@@ -291,6 +361,9 @@ try{
     batch_source_package_intake:'PASS',
     batch_duplicate_detection:'PASS',
     batch_no_auto_admission:'PASS',
+    reviewed_accept_promotion:'PASS',
+    hold_not_promoted:'PASS',
+    promoted_manifest_builder:'PASS',
     incremental_object_hash_fail_closed:'PASS',
     public_source_bytes:0,
     answer_gate:'PASS',
