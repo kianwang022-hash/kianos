@@ -104,9 +104,9 @@ function baseProgress() {
     ],
     formal_score_evidence:{
       sealed_papers:[
-        {year:2024,earned_score:270,max_score:300,discipline_breakdown:{disciplines:{}}},
-        {year:2025,earned_score:278,max_score:300,discipline_breakdown:{disciplines:{}}},
-        {year:2026,earned_score:282,max_score:300,discipline_breakdown:{disciplines:{}}}
+        {year:2024,earned_score:270,max_score:300,internal_holdout_protected_before_seal:true,discipline_breakdown:{disciplines:{}}},
+        {year:2025,earned_score:278,max_score:300,internal_holdout_protected_before_seal:true,discipline_breakdown:{disciplines:{}}},
+        {year:2026,earned_score:282,max_score:300,internal_holdout_protected_before_seal:true,discipline_breakdown:{disciplines:{}}}
       ]
     }
   };
@@ -268,6 +268,30 @@ function baseProgress() {
   assert.equal(leastContaminated.formal_score.status,'EMPIRICAL_BAND_LOW_CONTAMINATION');
   assert.equal(leastContaminated.formal_score.score_extrapolation_ready,true);
   assert.equal(leastContaminated.gate_readiness.result,'READY_FOR_DEFENSIBLE_ESTIMATE');
+}
+
+{
+  const unprotected=baseProgress();
+  unprotected.formal_score_evidence.sealed_papers=unprotected.formal_score_evidence.sealed_papers.map((row)=>({
+    ...row,
+    internal_holdout_protected_before_seal:false,
+    external_exposure_status:'UNKNOWN'
+  }));
+  const readiness=buildXizongScoreReadiness(unprotected,{
+    targetScore:275,
+    contaminationStatus:'LEAST_CONTAMINATED'
+  });
+  assert.equal(readiness.formal_score.score_extrapolation_ready,false,
+    'a Chat low-contamination claim must not upgrade an internally unprotected old paper');
+  assert.equal(readiness.formal_score.calibration_sample_count,0);
+  assert.equal(readiness.gate_readiness.result,'EVIDENCE_PRESENT_LOW_CONFIDENCE');
+  assert.match(readiness.formal_score.status,/WITHOUT_INTERNAL_HOLDOUT/);
+
+  const workload=buildXizongWorkloadForecast(unprotected);
+  assert.equal(workload.components.formal_calibration.band_minutes,null,
+    'observed old-paper scores alone must not close formal calibration workload');
+  assert.equal(workload.components.formal_calibration.status,'OBSERVED_SCORE_ONLY_CONTAMINATION_UNRESOLVED');
+  assert.equal(workload.score_formation.status,'PARTIAL');
 }
 
 {
