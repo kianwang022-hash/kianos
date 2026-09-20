@@ -310,7 +310,15 @@ assert.equal(summary.step_evidence.length,1);
 assert.equal(summary.step_evidence[0].evidence.prior_exposure,'exposed');
 assert.equal(summary.step_evidence[0].evidence.assistance,'assisted');
 
-const released=releaseEnglishExamObjective(session,{
+const released=releaseEnglishExamObjective({
+  ...session,
+  paper_assistance_context:{
+    state:'assisted',
+    basis:'chat_context',
+    observed_at:'2026-09-21T00:59:00.000Z',
+    note:'Content-specific Chat help before this formal paper.'
+  }
+},{
   schema:ENGLISH_EXAM_ANSWER_SCHEMA,
   paper_id:'paper-e4',
   steps:{
@@ -318,6 +326,7 @@ const released=releaseEnglishExamObjective(session,{
   }
 },started+181*60_000);
 assert.equal(released.release.objective.points,10);
+assert.equal(released.release.paper_assistance_context?.state,'assisted');
 assert.equal(released.release.objective.steps[0].evidence.prior_exposure,'exposed');
 assert.equal(released.release.objective.steps[0].evidence.assistance,'assisted');
 assert.equal(released.release.objective.steps[0].evidence.independent_transfer_candidate,false);
@@ -358,6 +367,7 @@ console.log(JSON.stringify({
     whole_paper_constituent_exposure_preserved:true,
     whole_paper_constituent_assistance_preserved:true,
     whole_paper_release_keeps_contamination_context:true,
-    whole_paper_parent_assistance_context_preserved:true
+    whole_paper_parent_assistance_context_preserved:true,
+    whole_paper_release_root_assistance_context_preserved:true
   }
 },null,2));
