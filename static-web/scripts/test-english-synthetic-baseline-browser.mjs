@@ -88,8 +88,9 @@ async function importPlan(page,steps){
   };
   await page.locator('[data-english-session-input]').fill(JSON.stringify(payload));
   await page.locator('[data-english-apply-session]').click();
-  await page.waitForFunction(()=>/已载入/.test(document.querySelector('[data-english-session-status]')?.textContent||''));
-  check(true,'typed_plan_imported');
+  await page.waitForFunction(()=>/学习安排已导入/.test(document.querySelector('[data-english-session-status]')?.textContent||''));
+  const stored=await page.evaluate(()=>JSON.parse(localStorage.getItem('kianos-english-session-instruction-v1')||'null'));
+  check(stored?.session_id===payload.session_id&&stored?.steps?.length===steps.length,'typed_plan_imported');
 }
 
 async function expectResume(page,objectId){
