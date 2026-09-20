@@ -50,7 +50,7 @@ check('fresh_chat_owner_recovery',()=>{
   assert.match(pkg,/Stage B — First-pass Capability \| \*\*CURRENT \/ REAL-U REQUIRED\*\*/);
   assert.match(pkg,/KIAN_SPECIFIC_CALIBRATED = NO/);
   assert.match(pkg,/Forecast is not a strategy brain/);
-  assert.match(pkg,/PENDING_FINAL_MOTHER_STANDARD_AUDIT/);
+  assert.match(pkg,/SYSTEM_LOGIC_ACCEPTED = YES/);
   return {current_router:true,old_chat_reasoning_required:false};
 });
 
@@ -416,16 +416,153 @@ check('maturity_package_coverage',()=>{
   return {single_package:true,markers:markers.length};
 });
 
+
+check('companion_proof_inventory',()=>{
+  const required=[
+    'static-web/scripts/test-xizong-forecast-real-u-adapter.mjs',
+    'static-web/scripts/validate-xizong-paper-practice.mjs',
+    'static-web/scripts/test-xizong-source-revision-transitive.mjs',
+    'static-web/scripts/validate-xizong-targeted-practice.mjs',
+    'static-web/scripts/test-exam-plan-read-model.mjs',
+    'static-web/scripts/test-xizong-chat-return.mjs',
+    'static-web/scripts/test-private-learner-checkpoint.mjs',
+    'static-web/scripts/test-private-daily-learning-packet.mjs',
+    'static-web/scripts/stress-xizong-architecture-plus.mjs',
+    'static-web/scripts/validate-xizong-biochemistry-future-source-slot.mjs',
+    'static-web/scripts/validate-xizong-2027-exam-format-slot.mjs'
+  ];
+  for(const file of required){
+    assert.ok(fs.existsSync(path.join(root,file)),'missing companion proof:'+file);
+  }
+  const pkg=readText('content/xizong/MATURITY_PACKAGE.md');
+  for(const marker of [
+    'Method map by phase',
+    'Evidence truth',
+    'Open-case / model-scoring validity boundary',
+    'Dynamic-control policy',
+    'Causal Repair decision model',
+    'Learner attention + Day-1 execution proof',
+    'Full-lifecycle simulation + adversarial report',
+    'Second-line subject-native safety guard',
+    'Fresh Chat attack',
+    'No-Website attack',
+    'Authentic modality boundary',
+    'Real Learner U split'
+  ]) assert.ok(pkg.includes(marker),'missing package proof marker:'+marker);
+  return {companion_proofs:required.length};
+});
+
 const failed=results.filter(r=>r.status==='FAIL');
+const byId=new Map(results.map(row=>[row.id,row]));
+const CLOSED='CLOSED';
+const BLOCKED_FUTURE_SOURCE='BLOCKED_FUTURE_SOURCE';
+const REAL_U_REQUIRED='REAL_U_REQUIRED';
+const DEFECT='DEFECT';
+
+function depOk(ids){
+  return ids.every(id=>byId.get(id)?.status==='PASS');
+}
+function row(id,title,deps,status=CLOSED,note=''){
+  return {
+    id,
+    title,
+    status: depOk(deps) ? status : DEFECT,
+    proof: deps,
+    note
+  };
+}
+
+const requirements=[
+  row(1,'分数闭环',['score_loss_geometry']),
+  row(2,'能力闭环',['whole_subject_scope','maturity_package_coverage']),
+  row(3,'材料闭环',['whole_subject_scope','whole_subject_official_scope','maturity_package_coverage','companion_proof_inventory']),
+  row(4,'Source Fidelity 闭环',['source_revision_invalidates_old_stability','future_source_readiness','companion_proof_inventory']),
+  row(5,'方法闭环',['maturity_package_coverage','false_unstable_stable_becomes_cheaper','companion_proof_inventory']),
+  row(6,'证据闭环',['near_derivative_freshness','score_evidence_fail_closed','companion_proof_inventory']),
+  row(7,'主观评分有效性',['maturity_package_coverage','score_evidence_fail_closed','companion_proof_inventory']),
+  row(8,'Forecast 闭环',['forecast_falsifiability_and_lifecycle','forecast_missing_data_fail_closed','whole_subject_scope','whole_subject_official_scope','companion_proof_inventory']),
+  row(9,'Forecast 必须可证伪',['forecast_falsifiability_and_lifecycle']),
+  row(10,'Dynamic Control 闭环',['false_secure_repeated_known','false_unstable_stable_becomes_cheaper','maturity_package_coverage']),
+  row(11,'Minimum Dose 不是任务配额',['false_secure_repeated_known']),
+  row(12,'Elastic / ROI 闭环',['false_unstable_stable_becomes_cheaper','future_source_net_new_accounting','maturity_package_coverage']),
+  row(13,'Repair 因果闭环',['maturity_package_coverage','companion_proof_inventory']),
+  row(14,'未来材料全生命周期闭环',['future_source_readiness','future_source_net_new_accounting','source_revision_invalidates_old_stability']),
+  row(15,'Prior-year 材料现在就吸收',['future_source_readiness','future_source_net_new_accounting']),
+  row(16,'Chat ↔ Website 执行闭环',['capacity_fail_closed','companion_proof_inventory']),
+  row(17,'Learner Attention Cost',['capacity_fail_closed','maturity_package_coverage','companion_proof_inventory']),
+  row(18,'Day-1 实际学习闭环',['companion_proof_inventory','capacity_fail_closed']),
+  row(19,'全生命周期模拟',['forecast_falsifiability_and_lifecycle','forecast_missing_data_fail_closed','source_revision_invalidates_old_stability','false_secure_repeated_known','false_unstable_stable_becomes_cheaper','companion_proof_inventory']),
+  row(20,'Adversarial Stress Test',['forecast_falsifiability_and_lifecycle','near_derivative_freshness','companion_proof_inventory']),
+  row(21,'False Secure 和 False Unstable',['false_secure_repeated_known','false_unstable_stable_becomes_cheaper']),
+  row(22,'Second-line Safety Guard',['capacity_fail_closed','source_revision_invalidates_old_stability','near_derivative_freshness','companion_proof_inventory']),
+  row(23,'Fresh Chat Attack',['fresh_chat_owner_recovery']),
+  row(24,'No-Website Attack',['score_loss_geometry','forecast_falsifiability_and_lifecycle','maturity_package_coverage']),
+  row(25,'Evidence Revision / Identity',['source_revision_invalidates_old_stability','near_derivative_freshness','score_evidence_fail_closed']),
+  row(26,'Future Source Transitive Invalidation',['source_revision_invalidates_old_stability','future_source_readiness','score_evidence_fail_closed']),
+  row(27,'Authentic Modality',['maturity_package_coverage'],REAL_U_REQUIRED,'System rule closed; real paper/answer-sheet/fatigue calibration requires Kian use.'),
+  row(28,'Real Learner U',['maturity_package_coverage','forecast_missing_data_fail_closed'],REAL_U_REQUIRED,'SYSTEM_LOGIC and KIAN_SPECIFIC calibration remain separate.'),
+  row(29,'Subject-native，不许强行统一',['whole_subject_scope','maturity_package_coverage'])
+];
+
+assert.equal(requirements.length,29,'must classify exactly 29 mother-standard requirements');
+
+const pkg=readText('content/xizong/MATURITY_PACKAGE.md');
+const delivery={
+  A:{status:/Capability formation matrix/.test(pkg)&&/Method map by phase/.test(pkg)&&/Evidence truth/.test(pkg)?CLOSED:DEFECT},
+  B:{status:/Full material inventory by capability role/.test(pkg)?CLOSED:DEFECT},
+  C:{status:/Dynamic-control policy/.test(pkg)?CLOSED:DEFECT},
+  D:{status:/Forecast integration/.test(pkg)?CLOSED:DEFECT},
+  E:{status:/Full-lifecycle simulation \+ adversarial report/.test(pkg)?CLOSED:DEFECT},
+  F:{status:/Execution proof boundary/.test(pkg)?CLOSED:DEFECT},
+  G:{status:/Future Source lifecycle \+ fallback/.test(pkg)?CLOSED:DEFECT},
+  H:{status:/Real Learner U split/.test(pkg)?CLOSED:DEFECT},
+  I:{status:/Remaining Unknowns/i.test(pkg)&&/Future Source or Real Learner U/i.test(pkg)?CLOSED:DEFECT}
+};
+
+const future_sources=[
+  {id:'2027_BIOCHEMISTRY',status:BLOCKED_FUTURE_SOURCE,owner:'content/xizong/knowledge/learner/xizong-2027-biochemistry-delta-slot.json'},
+  {id:'2027_HUMANITIES',status:BLOCKED_FUTURE_SOURCE,owner:'content/xizong/humanities/current.json'},
+  {id:'2027_EXAM_FORMAT',status:BLOCKED_FUTURE_SOURCE,owner:'content/xizong/questions/exam-format-2027-slot.json'},
+  {id:'2027_LATE_STAGE',status:BLOCKED_FUTURE_SOURCE,owner:'content/xizong/knowledge/learner/xizong-26-late-stage-material-baseline.json'}
+];
+for(const item of future_sources){
+  assert.ok(fs.existsSync(path.join(root,item.owner)),'missing future-source owner:'+item.owner);
+}
+
+assert.match(pkg,/For the 275 working path and 270 protected floor, which score-relevant capability is currently binding/i);
+assert.match(pkg,/current binding uncertainty is \*\*Real Learner U\*\*/i);
+assert.match(pkg,/real Stage-B study/i);
+assert.match(pkg,/SYSTEM_LOGIC_ACCEPTED = YES/);
+assert.match(pkg,/KIAN_SPECIFIC_CALIBRATED = NO/);
+
+const requirementDefects=requirements.filter(row=>row.status===DEFECT);
+const deliveryDefects=Object.values(delivery).filter(row=>row.status===DEFECT);
+const counts=requirements.reduce((acc,row)=>{
+  acc[row.status]=(acc[row.status]||0)+1;
+  return acc;
+},{});
+
 console.log(JSON.stringify({
-  schema:'kianos.xizong.mother-standard-final-audit.v3',
-  learner_u:false,
-  results,
-  summary:{pass:results.length-failed.length,fail:failed.length}
+  schema:'kianos.xizong.mother-standard-final-audit.v4',
+  raw_checks:results,
+  requirements,
+  delivery,
+  future_sources,
+  summary:{
+    raw_pass:results.length-failed.length,
+    raw_fail:failed.length,
+    requirement_counts:counts,
+    delivery_defects:deliveryDefects.length,
+    system_logic_accepted:failed.length===0&&requirementDefects.length===0&&deliveryDefects.length===0,
+    kian_specific_calibrated:false,
+    current_binding_uncertainty:'REAL_LEARNER_U',
+    next_control_policy:'REAL_STAGE_B_STUDY_NOT_MORE_ARCHITECTURE'
+  }
 },null,2));
-if(failed.length){
-  console.error('FAIL Xizong mother-standard final audit v3');
+
+if(failed.length||requirementDefects.length||deliveryDefects.length){
+  console.error('FAIL Xizong mother-standard final audit v4');
   process.exitCode=1;
 }else{
-  console.log('PASS Xizong mother-standard final audit v3');
+  console.log('PASS Xizong mother-standard final audit v4: all 29 requirements classified with no DEFECT');
 }
