@@ -1,8 +1,12 @@
 # D Question Scope — Current Reconstruction
 
-Status: **BLOCKED / SOURCE-POSITION COVERAGE INCOMPLETE**  
+Status: **PASS / CLOSED AFTER BOUNDED OWNER REPAIR**  
 Date: 2026-09-20  
 Scope: D — Neuro / Sensory / Motor / Orthopedics exact official System-question membership
+
+Canonical owner:
+
+`content/xizong/knowledge/learner/d-neuro-sensory-motor-orthopedics-question-scope.json`
 
 ## 1｜Required evidence
 
@@ -16,7 +20,7 @@ official qid
 
 or an explicit Chat-reviewed Question→D relation.
 
-Forbidden substitutes:
+Forbidden substitutes remain:
 
 - practice subject/chapter taxonomy;
 - Outline placement;
@@ -24,113 +28,136 @@ Forbidden substitutes:
 - question-text keyword guessing;
 - historical-count fitting.
 
-## 2｜Historical executable resolver — insufficient for Current D
+## 2｜Previous blocker and what changed
 
-Pinned exact resolver:
-
-- `app/learning/xizong-question-pool.js`
-- function `resolveSystemClosureFromSourceUnion`
-- old recovery ref `a38444057dd46fbf1765052d17c5f6b6a018d2f7`.
-
-Historical frozen D pool:
+The previous BLOCKED receipt correctly observed that the **historical frozen D System pool** contained only:
 
 ```text
-neuro-sensory-motor-orthopedics = 142 qids
+142 qids
+= 139 neural/sensory/skeletal-muscle
++ 3 orthopedic
 ```
 
-Fresh route readback shows:
+It then treated this as evidence that the historical 3,750-row locator layer lacked orthopedic positioning.
 
-- 139 are neural / sensory / skeletal-muscle physiology;
-- only **3** are actually positioned in `surgery|五、骨科`;
-- those three all sit at one historical orthopedics position.
+Fresh raw-locator readback falsified that inference.
 
-This 142 therefore cannot represent Current D's 16 accepted orthopedic Blocks.
-
-## 3｜Lecture-exercise routing — still incomplete
-
-Historical `xizong-lecture-exercise-routing.v1.json` adds real lecture-attached official-question evidence.
-
-D readback:
+The reviewed routing actually contains:
 
 ```text
-D lecture-exercise sets        = 10
-unique official qids           = 79
-neural contributors            = N1/N2/N3/N4/N5/N6/N7/N8/N10
-orthopedic contributors        = O1 only
-O1-linked official qids        = 2
-O2–O16 exercise binding        = not established here
+217 qids
+→ source = surgery lecture
+→ lecture_scope_key starts with surgery|五、骨科|
 ```
 
-Useful positive evidence exists, but it does not close D.
+Most of these rows have `source_page = null` or a legacy non-Lecture page value, but their reviewed `source_sha256 + lecture_scope_key` locator is intact.
 
-## 4｜Current REVIEWED Question→Knowledge relations — positive but partial
+The original routing validator itself permits `source_page = null` for non-gap rows as long as the reviewed source SHA and Lecture scope key are present.
 
-Current relation owner:
+Therefore the missing evidence layer named by the previous blocker **does exist at Lecture-section granularity**.
 
-`content/xizong/question-relations/`
+## 3｜Why the old resolver only returned 3 orthopedic questions
 
-Manifest:
+The frozen `resolveSystemClosureFromSourceUnion` resolver treated:
+
+- known source-page rows by page-union ownership;
+- null-page rows by an all-pages-covered scope test.
+
+That rule was sufficient for the old frozen 8-System pool but under-resolved Current D orthopedics.
+
+It does not erase the underlying reviewed qid→Lecture-scope locator.
+
+## 4｜Current orthopedic owner reconciliation
+
+Current D O1–O16 explicitly owns Primary surgery Source across the same reviewed `surgery|五、骨科|...` scopes, including:
+
+- movement-system deformity;
+- chronic injury and nerve entrapment;
+- hand injury, knee injury, AVN and traumatic peripheral nerve injury;
+- fracture principles;
+- spine/pelvis/spinal-cord trauma;
+- cervical/lumbar degenerative compression;
+- upper/lower limb fractures and dislocations;
+- pyogenic bone/joint infection;
+- orthopedic TB;
+- OA/AS/RA orthopedic comparison coordinates;
+- bone tumors.
+
+Thus:
 
 ```text
-reviewed relations total = 727
+reviewed qid
+→ reviewed orthopedic Lecture scope
+→ Current D Primary owner
 ```
 
-Fresh complete readback of all 70 relation shards found:
+is complete for these 217 rows.
+
+## 5｜Cross-System owner attack
+
+### Bone/joint infection and TB
+
+Retained in D.
+
+C owns shared infection/TB language. D O13/O14 own organ-specific bone/joint anatomy, imaging, structural consequences and Current surgery-source treatment questions.
+
+### Bone tumors
+
+Retained in D.
+
+Tumor-general and myeloma clonal Primary remain external, but D O16 owns Current surgery-supported bone-tumor classification, imaging, representative lesions and treatment questions.
+
+### RA
+
+One qid is transferred out of D:
+
+`xizong-official-2007-n150`
+
+It tests general RA medical Primary:
+
+- inflammatory identity;
+- age/sex pattern;
+- symmetric-joint pattern;
+- RF positivity.
+
+Current O15 explicitly keeps RA immune/medical Primary in C/H17 and owns only orthopedic/surgical comparison coordinates.
+
+Therefore this qid is transferred to C.
+
+## 6｜Accepted identity
 
 ```text
-reviewed D relations = 52
-years represented    = 2005–2008
-orthopedic relations = 29
-neural relations     = 23
-2009–2026 reviewed D relation coverage = 0 in current relation owner
+historical exact D resolver qids        = 142
+reviewed orthopedic Lecture-scope qids = 217
+overlap                                 =   3
+union before owner transfer             = 356
+RA Primary transferred D → C            =   1
+Current exact D scope                    = 355
+inventory SHA256                        = 129657b6612e2c9b26ea98b44fabd2d864d3c273e8dd91bfa1c9020d1d97b0be
+unresolved membership ambiguity          =   0
 ```
 
-These REVIEWED relations are valid positive membership evidence.
+The numerical coincidence `356 candidate qids == 356 canonical D KPs` has **zero evidentiary weight** and was not used to choose membership.
 
-Missing relation coverage is explicitly non-blocking for the relation program itself, but it is blocking for an **exact complete D System question inventory** because absence of a relation cannot be interpreted as non-membership.
+## 7｜Question / Knowledge boundary
 
-## 5｜Why Current D cannot safely inherit 142
+D System membership does not create:
 
-Current D is much broader and more mature than the historical scope artifact:
+- Question→Block mapping;
+- Question→Logic Group mapping;
+- Question→KP mapping.
+
+Reviewed relation truth remains separate and may be sparse.
+
+No learner attempt, mastery, W/U, Memory, holdout or review state belongs here.
+
+## 8｜Verdict
 
 ```text
-27 canonical Blocks
-356 stable KP
-N1–N11 neural
-O1–O16 orthopedics
-Content accepted
+D S2 exact official System-question membership = PASS_AFTER_BOUNDED_REPAIR
+Current qids = 355
 ```
 
-Current Source supports full surgery-owned orthopedics across fracture principles, spine/pelvis/spinal-cord injury, degenerative compression, peripheral-nerve injury, regional fractures/dislocations, hand/knee injury, avascular necrosis, chronic injury/compression, deformity, bone/joint infection/TB, OA/AS structural coordinates and bone tumors.
+D K/L/Content remain accepted. D Projection remains the separate active/eligible downstream gate.
 
-The historical 3750-row position routing simply does not contain enough reviewed orthopedics locator rows to enumerate that Current scope.
-
-## 6｜Blocker
-
-The missing owner layer is:
-
-> **complete reviewed official-question → D Lecture/source-position or equivalent reviewed D-owner evidence across Current orthopedics, especially O2–O16 and the 2009–2026 window.**
-
-Until that layer exists, any complete D qid set would require one of the forbidden inference methods.
-
-## 7｜Current safe truth
-
-```text
-S1 medical / first-learning Source boundary = PASS
-S2 exact official D question membership     = BLOCKED_SOURCE_POSITION_COVERAGE
-K / L / Content                             = accepted
-P Projection                                = separately eligible
-```
-
-This blocker does not reopen D medical Content or block scoped Projection.
-
-## 8｜Next action
-
-Program-level exact-scope lane should continue with independent E/F scope work while D remains explicitly blocked.
-
-D may resume when either:
-
-1. missing official questions are bound to Current D Lecture positions; or
-2. enough explicit Chat-reviewed Question→D relations are completed to establish full membership and neighboring negative space.
-
-Do not expose D as a trusted complete "按 System" question pool before then.
+Program exact-scope lane continues to **E**.
