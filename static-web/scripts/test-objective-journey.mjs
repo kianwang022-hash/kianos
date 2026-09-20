@@ -15,6 +15,7 @@ import {
   loadReadingById,
   loadReadingAnswersById
 } from '../src/lib/englishReading.mjs';
+import { projectObjectiveSourceTruth } from '../src/lib/englishSourceTruth.mjs';
 
 const BASE = 'http://127.0.0.1:4321';
 const auditDir = path.resolve(process.cwd(), '../objective-audit');
@@ -68,8 +69,13 @@ async function storeClaims(page, task) {
   }, task);
 }
 
-async function declareSyntheticUnseen(page, objectId) {
-  await page.evaluate((id) => {
+async function declareSyntheticUnseen(page, item) {
+  const projected = projectObjectiveSourceTruth(item);
+  const objectId = projected?.objectId;
+  const sourceHash = projected?.sourceHashes?.renderedObject || null;
+  const semanticSourceHash = projected?.sourceHashes?.semanticSource || sourceHash;
+  if (!objectId || !sourceHash || !semanticSourceHash) throw new Error('SYNTHETIC_UNSEEN_SOURCE_IDENTITY_MISSING:' + String(objectId || 'unknown'));
+  await page.evaluate(({ id, sourceHash, semanticSourceHash }) => {
     const key = 'kianos-english-material-exposure-v1';
     const ledger = JSON.parse(localStorage.getItem(key) || '{"schema":"kianos.english.material-exposure.v1","materials":{}}');
     if (ledger?.materials?.[id]?.events?.length) throw new Error('SYNTHETIC_UNSEEN_ALREADY_EXPOSED:' + id);
@@ -82,11 +88,13 @@ async function declareSyntheticUnseen(page, objectId) {
         state: 'unseen',
         basis: 'learner_statement',
         observed_at: new Date().toISOString(),
-        note: 'SYNTHETIC TEST testimony only; not Kian learner evidence.'
+        note: 'SYNTHETIC TEST testimony only; not Kian learner evidence.',
+        source_hash: sourceHash,
+        semantic_source_hash: semanticSourceHash
       }
     };
     localStorage.setItem(key, JSON.stringify(ledger));
-  }, objectId);
+  }, { id: objectId, sourceHash, semanticSourceHash });
 }
 
 async function openImporter(page) {
@@ -286,7 +294,7 @@ async function chromiumJourney() {
   // Later normal work can update a claim opportunistically when an actual problem already justifies deep review.
   // Fresh closure is allowed only after explicit unseen testimony; missing history remains unknown.
   const closeItem = loadClozeById(closeId);
-  await declareSyntheticUnseen(page, closeId);
+  await declareSyntheticUnseen(page, closeItem);
   await page.goto(`${BASE}/cloze/${encodeURIComponent(closeId)}/`);
   await answerCloze(page, closeItem, loadClozeAnswersById(closeId), 0);
   const closeAttempt = await page.evaluate((id) =>
@@ -328,7 +336,7 @@ async function chromiumJourney() {
 
   // A later contradictory fresh problem can conservatively reopen the exact closed claim.
   const reopenItem = loadClozeById(reopenId);
-  await declareSyntheticUnseen(page, reopenId);
+  await declareSyntheticUnseen(page, reopenItem);
   await page.goto(`${BASE}/cloze/${encodeURIComponent(reopenId)}/`);
   await answerCloze(page, reopenItem, loadClozeAnswersById(reopenId), 0);
   const reopenAttempt = await page.evaluate((id) =>
