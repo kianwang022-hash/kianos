@@ -1,6 +1,6 @@
 # Politics Score / Ability / Material / Method / Evidence Matrix
 
-Status: **ACTIVE CURRENT-CYCLE MATURITY OWNER**
+Status: **PRE-ADAPTATION DRAFT — informational only until regenerated from Politics MATURITY_REQUIREMENTS**
 
 Purpose: operationalize **Protect 70 / Push 75** without creating a second Politics knowledge system.
 
