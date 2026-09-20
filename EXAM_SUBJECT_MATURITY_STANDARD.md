@@ -310,6 +310,14 @@ The learner should not maintain:
 - progress spreadsheets;
 - manual forecast parameters.
 
+Normal interaction should be bounded to the smallest necessary learner inputs, typically:
+
+- report material capacity/availability changes only when reality changes materially;
+- perform the assigned Next Action;
+- provide one bounded Daily/Review handoff when Chat judgment is actually needed.
+
+Instrumentation should be automatic where possible and must not distort study behavior merely to collect richer telemetry.
+
 If the system requires ongoing manual bookkeeping from the learner, maturity is not achieved.
 
 ---
@@ -379,7 +387,204 @@ Real learner evidence may reopen any prior engineering or modeling assumption.
 
 ---
 
-## 14. Stop rule
+## 14. Target authority and score semantics
+
+Before freeze, every subject must reconcile score targets against the canonical cross-subject target owner.
+
+A mature target model distinguishes:
+
+- **protect floor** — score path that must remain viable;
+- **working target** — the capability level the subject is actively built to support;
+- **elastic upside** — additional score/variance improvement that may receive capacity only when marginal value remains competitive.
+
+Rules:
+
+- a subject-local working/stretch target may be higher than the cross-subject protect floor;
+- it must not silently replace the shared allocation target;
+- contradictory target owners block maturity freeze;
+- target changes must trigger re-evaluation of loss budgets, Forecast and Elastic rules.
+
+---
+
+## 15. Construct coverage and negative-space closure
+
+A capability cannot be treated as stable merely because repeated work produces no new defect.
+
+Before No-new-information or reduced-practice logic is trusted, evidence must cover a representative set of the capability's:
+
+- major mechanisms;
+- task forms;
+- difficulty/risk bands;
+- contexts where failure would materially affect score;
+- timed/integrated conditions when those are part of the real construct.
+
+Rules:
+
+- untested mechanisms remain UNKNOWN, not implicitly stable;
+- a Minimum Dose / evidence floor is necessary but not sufficient;
+- homogeneous/easy/familiar sampling cannot justify broad Secure;
+- rare but high-impact failure modes may require targeted sampling even when average performance is strong.
+
+---
+
+## 16. Measurement and scoring validity closure
+
+Subjective or model-mediated scoring must carry measurement uncertainty.
+
+Applies especially to:
+
+- English Translation;
+- English Writing;
+- Politics Analysis Output;
+- any generated rubric or model-rated free response.
+
+Requirements:
+
+- one explicit scoring/rubric owner;
+- anchored examples / score descriptors appropriate to the real exam task;
+- known uncertainty / rater sensitivity reflected in Forecast;
+- one Chat/model score cannot alone produce high-confidence score evidence;
+- when a score materially changes strategy, use anchored re-score, independent second review, or another accepted calibration method where feasible.
+
+Operational metrics such as completion count, W/U rate, Recall labels, speed, synthetic accuracy or workflow completion are proxies. They may not outrank fresh/authentic whole-task performance on the score-relevant construct.
+
+---
+
+## 17. Decision-quality closure: protect against both optimism and over-conservatism
+
+A mature control loop must attack both:
+
+- **false Secure** — reducing work while capability is unstable;
+- **false Unstable** — keeping stable work in Build/Verify and wasting capacity.
+
+For material decisions Chat should be able to reconstruct:
+
+- evidence used;
+- important assumptions;
+- confidence / known unknowns;
+- what evidence would falsify the decision;
+- re-check / reopen trigger.
+
+High-impact strategy decisions must be reproducible/challengeable by a fresh audit from durable evidence.
+
+The Website validates identity, freshness and typed instructions; it does not become the second strategy judge.
+
+---
+
+## 18. Evidence observability, revision and material-identity closure
+
+Evidence is often selected rather than random. Missing evidence must not silently mean success.
+
+Requirements:
+
+- evidence coverage / observability is explicit;
+- lack of W/U, Memory or Repair records does not prove stability;
+- representative baseline/maintenance sampling exists where silent work would otherwise create blind spots;
+- important learner evidence binds to task/material identity and the relevant semantic/content revision;
+- a semantic revision defines whether prior evidence is PRESERVE / MIGRATE / STALE;
+- incompatible evidence fails closed.
+
+Freshness follows material identity where resolvable, not filename, page, device, tab or session identity.
+
+Duplicate / near-derivative materials must be classified before serving as Calibration / Transfer / formal Score evidence. Unknown exposure remains UNKNOWN.
+
+---
+
+## 19. Adaptive generated-asset lifecycle closure
+
+Generated material is allowed to grow from real learner need, but generation itself must not create a new maintenance burden or fake transfer.
+
+Every generated asset used as meaningful evidence should carry, at minimum:
+
+- intended capability / mechanism;
+- evidence role: Teaching/Repair, Calibration, Transfer, Maintenance or Stress/Edge;
+- source grounding where factual truth matters;
+- version / identity;
+- independence from the repair example when used for transfer;
+- calibration status;
+- dedupe / retirement rule.
+
+Rules:
+
+- most one-off Repair material may stay ephemeral;
+- reusable validated assets may be promoted;
+- a Teaching/Repair object may not later masquerade as independent Transfer for the same mechanism;
+- generated bank size is not a maturity metric;
+- synthetic success must be challenged periodically by appropriate authentic/fresh evidence.
+
+---
+
+## 20. Value-of-information, learning-latency and latest-useful-date closure
+
+The next evidence or learning action is not chosen only by immediate point gain.
+
+For material uncertainty, Chat should prefer evidence with high **decision value**:
+
+> evidence likely to change Secure status, score confidence, Gate risk or cross-subject allocation.
+
+Evidence collection itself consumes learner time and fresh-material capital.
+
+Marginal-value reasoning should also include:
+
+- time-to-convert learning into reliable performance;
+- prerequisite / compounding value;
+- probability the gain matures before the next Gate;
+- latest useful date;
+- downside of delaying a slow-to-build but important capability.
+
+This prevents short-term ROI from starving high-value abilities whose payoff is delayed.
+
+---
+
+## 21. Future-source failure, supersession and rollback closure
+
+Known annual sources must be robust not only to normal arrival but also to:
+
+- late arrival;
+- partial release;
+- poor/low-value release;
+- internal conflict;
+- second revision;
+- source never arriving.
+
+Every future-source family needs:
+
+- fallback behavior;
+- partial-ingestion semantics;
+- provenance / quality gate;
+- supersession rule;
+- rollback or invalidation of dependent derived assets;
+- rule for when to stop waiting and use alternative training/evidence.
+
+A later revision must not leave superseded derived content silently active.
+
+---
+
+## 22. Concurrent-state and bounded-context closure
+
+Attack state races such as:
+
+- Daily Packet copied, then more learning occurs before plan import;
+- two tabs/devices change private learner state;
+- restore checkpoint conflicts with newer local evidence.
+
+Requirements:
+
+- stale plan / restore conflicts fail closed;
+- replay remains idempotent;
+- no import silently erases newer evidence;
+- when possible, typed instructions bind to the relevant study day / evidence identity.
+
+Fresh-Chat maturity also has a context budget:
+
+- ordinary known-scope planning should resolve through a bounded owner path;
+- Current + exact subject owner + bounded learner packet should normally suffice;
+- repeated broad repository archaeology is an ownership/routing defect.
+
+---
+
+## 23. Stop rule
+
 
 Maturity does not mean infinite optimization.
 
@@ -413,3 +618,14 @@ Each subject must eventually provide a compact acceptance package containing:
 8. Explicit remaining blockers / future-source dependencies.
 
 A subject may not be declared “mature” while one of these is absent and material to the target score.
+
+The acceptance package must also name:
+
+- canonical target authority and protect/working/elastic target semantics;
+- representative coverage gaps / unobserved high-risk mechanisms;
+- subjective scoring uncertainty where applicable;
+- decision falsifiers / reopen triggers;
+- evidence revision / exposure-identity policy;
+- future-source fallback / supersession rules.
+
+This standard itself is subject to the same economy rule as the product: a requirement should be deleted or collapsed when it adds maintenance but cannot change a learning, evidence, forecast, execution-safety or attention-cost decision.
