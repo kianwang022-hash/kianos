@@ -852,6 +852,7 @@ export function xizongStudySourceRevisionStatus(state, currentSourceHash) {
 
 export function buildXizongForecastProgress(storage, packetIndex = [], {
   questionScope = null,
+  canonicalScope = null,
   day = studyDayAt(Date.now()),
   now = Date.now()
 } = {}) {
@@ -979,17 +980,57 @@ export function buildXizongForecastProgress(storage, packetIndex = [], {
     });
   }
 
-  const systemRows = [...systems.values()].sort((a,b) =>
+  const runtimeSystemRows = [...systems.values()].sort((a,b) =>
     String(a.canonical_id).localeCompare(String(b.canonical_id), undefined, { numeric: true })
   );
-  const canonicalBlocks = packetIndex.length;
-  const canonicalKp = packetIndex.reduce((sum,row)=>sum+(Array.isArray(row?.kpRows)?row.kpRows.length:0),0);
-  const canonicalLogicGroups = packetIndex.reduce((sum, row) => {
-    const groups = new Set((Array.isArray(row?.kpRows) ? row.kpRows : [])
+  const runtimeByCanonical = new Map(runtimeSystemRows.map((row) => [String(row.canonical_id || ''), row]));
+  const canonicalScopeValid = canonicalScope?.schema === 'kianos.xizong.forecast-canonical-scope.v1'
+    && Array.isArray(canonicalScope?.block_weights)
+    && Array.isArray(canonicalScope?.systems);
+  const systemRows = canonicalScopeValid
+    ? canonicalScope.systems.map((scope) => ({
+        system_id: String(scope?.system_id || ''),
+        canonical_id: String(scope?.canonical_id || ''),
+        canonical_blocks: Number(scope?.block_count || 0),
+        canonical_kp: Number(scope?.kp_count || 0),
+        canonical_logic_groups: Number(scope?.logic_group_count || 0),
+        runtime_observed_blocks: 0,
+        runtime_completed_blocks: 0,
+        runtime_started_incomplete_blocks: 0,
+        runtime_source_revision_blocked_blocks: 0,
+        runtime_observed_learned_kp: 0,
+        runtime_recall_rated_kp: 0,
+        runtime_recall_unknown: 0,
+        runtime_recall_fuzzy: 0,
+        runtime_recall_known: 0,
+        runtime_recall_mastered: 0,
+        ...(runtimeByCanonical.get(String(scope?.canonical_id || '')) || {})
+      }))
+    : runtimeSystemRows;
+  const fallbackBlockWeights = packetIndex.map((row) => ({
+    system_id: String(row.systemId || ''),
+    canonical_id: String(row.packetMeta?.canonicalId || ''),
+    block_id: String(row.blockId || row.packetMeta?.blockId || ''),
+    route_key: String(row.routeKey || (row?.slug ? `${row.systemId}/${row.slug}` : '')),
+    block_count: 1,
+    kp_count: Array.isArray(row.kpRows) ? row.kpRows.length : 0,
+    logic_group_count: new Set((Array.isArray(row?.kpRows) ? row.kpRows : [])
       .map((kp) => String(kp?.groupId || ''))
-      .filter(Boolean));
-    return sum + groups.size;
-  }, 0);
+      .filter(Boolean)).size,
+    scope_kind: 'PROJECTABLE_BLOCK'
+  }));
+  const canonicalBlocks = canonicalScopeValid
+    ? Number(canonicalScope.blocks || 0)
+    : fallbackBlockWeights.reduce((sum,row)=>sum+Number(row.block_count||1),0);
+  const canonicalKp = canonicalScopeValid
+    ? Number(canonicalScope.canonical_kp || 0)
+    : fallbackBlockWeights.reduce((sum,row)=>sum+Number(row.kp_count||0),0);
+  const canonicalLogicGroups = canonicalScopeValid
+    ? Number(canonicalScope.logic_groups || 0)
+    : fallbackBlockWeights.reduce((sum,row)=>sum+Number(row.logic_group_count||0),0);
+  const canonicalBlockWeights = canonicalScopeValid
+    ? canonicalScope.block_weights
+    : fallbackBlockWeights;
   const holdoutYears = readJson(storage, 'kianos:xizong:full-paper-holdout-years:v1', []) || [];
   const practiceEvidence = summarizeXizongForecastPractice(storage, { holdoutYears, now, questionScope });
   const repairEvidence = summarizeXizongForecastRepairs(storage, systemRows);
@@ -1015,16 +1056,13 @@ export function buildXizongForecastProgress(storage, packetIndex = [], {
       blocks: canonicalBlocks,
       canonical_kp: canonicalKp,
       logic_groups: canonicalLogicGroups,
-      block_weights: packetIndex.map((row) => ({
-        system_id: String(row.systemId || ''),
-        canonical_id: String(row.packetMeta?.canonicalId || ''),
-        block_id: String(row.blockId || row.packetMeta?.blockId || ''),
-        route_key: String(row.routeKey || (row?.slug ? `${row.systemId}/${row.slug}` : '')),
-        kp_count: Array.isArray(row.kpRows) ? row.kpRows.length : 0,
-        logic_group_count: new Set((Array.isArray(row?.kpRows) ? row.kpRows : [])
-          .map((kp) => String(kp?.groupId || ''))
-          .filter(Boolean)).size
-      }))
+      block_weights: canonicalBlockWeights,
+      scope_authority: canonicalScopeValid
+        ? String(canonicalScope.authority || 'CURRENT_CANONICAL_SCOPE')
+        : 'PACKET_INDEX_FALLBACK',
+      website_projection_is_scope_authority: canonicalScopeValid
+        ? canonicalScope.website_projection_is_scope_authority === true
+        : true
     },
     runtime_evidence: {
       observed_blocks: observedBlocks,
