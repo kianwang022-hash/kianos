@@ -39,7 +39,7 @@ const questionByOrdinal = new Map(item.questions.map((question, index) => [Strin
   data-reading-b-item-label={itemLabel}
   data-reading-b-fixed-givens={JSON.stringify(fixedGivens)}
 >
-  <script type="application/json" data-english-task-snapshot set:html={JSON.stringify({material:item.material,context:item.context,candidates:item.candidates,questions:item.questions.map(({id,ordinal,prompt,options})=>({id,ordinal,prompt,options}))}).replace(/</g, "\\u003c")}></script>
+  <script type="application/json" data-english-task-snapshot set:html={JSON.stringify({evidence:{source_kind:item.sourceKind||'official',evidence_role:item.context?.evidence_role||null},material:item.material,context:item.context,candidates:item.candidates,questions:item.questions.map(({id,ordinal,prompt,options})=>({id,ordinal,prompt,options}))}).replace(/</g, "\\u003c")}></script>
   <header class="readingBHeader">
     <div>
       <span>Reading B · {formLabel}</span>
