@@ -22,6 +22,12 @@ assert.equal(manifest.schema, 'kianos.politics.analysis-drill-bank.v1');
 assert.equal(manifest.status, 'READY_STABLE_BASELINE_CURRENT_YEAR_OVERLAYS_PENDING');
 assert.equal(manifest.prompt_count, 104);
 assert.equal(manifest.bank_revision, 4);
+assert.equal(manifest.rules?.generated_asset_lifecycle?.calibration_status,
+  'STRUCTURAL_MECHANISM_EVIDENCE_ONLY_NOT_EXAM_SCORE_CALIBRATED');
+assert.match(manifest.rules?.generated_asset_lifecycle?.dedupe_rule || '', /duplicate|near-derived/i);
+assert.match(manifest.rules?.generated_asset_lifecycle?.retirement_rule || '', /retired|STALE|INVALID/i);
+assert.match(manifest.rules?.generated_asset_lifecycle?.promotion_rule || '', /ephemeral|validated reusable/i);
+assert.match(manifest.rules?.generated_asset_lifecycle?.authentic_challenge_rule || '', /fresh|current-year|authentic/i);
 assert.equal(prompts.length, manifest.prompt_count);
 assert.equal(answers.length, manifest.prompt_count);
 
@@ -51,6 +57,7 @@ for (const prompt of prompts) {
   promptIds.add(prompt.id);
 
   assert.ok(requiredRoles.has(prompt.role), prompt.id + ': unknown role');
+  assert.ok(String(prompt.evidence_role || '').trim(), prompt.id + ': evidence_role missing');
   observedRoleCounts[prompt.role] = (observedRoleCounts[prompt.role] || 0) + 1;
 
   const materialText = String(prompt.material || '').trim();
@@ -114,4 +121,4 @@ assert.ok(xiCount > 0, 'Xi structural coverage must be represented');
 assert.equal(manifest.coverage.current_year_high_delta_exactness, 'BLOCKED_UNTIL_2027_DESIGNATED_SOURCE');
 assert.match(manifest.builder_self_attack?.status || '', /^PASS/);
 
-console.log('PASS Politics Analysis bank: 104 tasks, seven role families, exact material/family identity, source binding, anti-leakage, stress competitors, time-boxed delivery, Mao/Xi bounded coverage, current-year exactness blocked.');
+console.log('PASS Politics Analysis bank: 104 tasks, seven role families, explicit evidence role + generated-asset calibration/dedupe/retirement lifecycle, exact material/family identity, source binding, anti-leakage, stress competitors, time-boxed delivery, Mao/Xi bounded coverage, current-year exactness blocked.');
