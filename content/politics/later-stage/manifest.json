@@ -1,0 +1,64 @@
+{
+  "schema": "kianos.politics.later-stage-readiness.v1",
+  "status": "READY_STRUCTURE_CURRENT_YEAR_SOURCE_PENDING",
+  "generated_at": "2026-09-20",
+  "goal": {
+    "floor": "PROTECT_70",
+    "upside": "PUSH_75"
+  },
+  "authority_boundary": "READINESS_AND_CANDIDATE_BASELINE_ONLY_NOT_SECOND_CURRENT_KNOWLEDGE_OWNER",
+  "reused_audited_baseline": {
+    "source_ref": "work/politics-later-l-fastpath-20260918",
+    "historical_verdicts": {
+      "later_stage_knowledge": "PASS_WITH_DEBT_CURRENT_YEAR_REFRESH",
+      "consolidation_learning": "PASS_AFTER_REPAIR",
+      "analysis_output_learning": "PASS",
+      "mock_final_learning": "PASS"
+    }
+  },
+  "ready_assets": {
+    "analysis_output_rule": "content/politics/analysis-output/README.md",
+    "mock_final_rule": "content/politics/mock-final/README.md",
+    "subject_bundles": [
+      "content/politics/later-stage/marxism.json",
+      "content/politics/later-stage/mao.json",
+      "content/politics/later-stage/xi.json",
+      "content/politics/later-stage/history.json",
+      "content/politics/later-stage/ethics-law.json"
+    ],
+    "legacy_baseline": "content/politics/later-stage/legacy-baseline.json"
+  },
+  "current_year_source_slots": [
+    {
+      "id": "POL27-LATER-MEMORY-HANDBOOK",
+      "family": "MEMORY_SPRINT_HANDBOOK",
+      "status": "SOURCE_PENDING",
+      "on_arrival": "DELTA_AGAINST_STABLE_CURRENT_K_AND_LEG26_BASELINE_THEN_ADMIT_ONLY_SOURCE_GROUNDED_MEMORY"
+    },
+    {
+      "id": "POL27-LATER-CURRENT-AFFAIRS",
+      "family": "CURRENT_AFFAIRS",
+      "status": "SOURCE_PENDING",
+      "on_arrival": "BIND_CURRENT_YEAR_EVENTS_POLICY_WORDING_AND_ANALYSIS_CUES_WITH_STRICT_FRESHNESS"
+    },
+    {
+      "id": "POL27-LATER-XIAO8",
+      "family": "XIAO8",
+      "status": "SOURCE_PENDING",
+      "on_arrival": "PRESERVE_CLEAN_ATTEMPT_USE_AS_CURRENT_YEAR_CALIBRATION_AND_MOCK_EVIDENCE_NOT_NEW_COURSE"
+    },
+    {
+      "id": "POL27-LATER-XIAO4",
+      "family": "XIAO4",
+      "status": "SOURCE_PENDING",
+      "on_arrival": "PRESERVE_CLEAN_ATTEMPT_EXTRACT_HIGH_VALUE_FINAL_OUTPUT_MEMORY_DELTA_AND_FINAL_COMPRESSION"
+    }
+  ],
+  "legacy_reference_policy": {
+    "leg26": "HISTORICAL_BASELINE_ONLY_CURRENT_YEAR_CORROBORATION_REQUIRED",
+    "xiao8_2026": "LEGACY_MOCK_GEOMETRY_AND_REVIEW_BASELINE_ONLY",
+    "xiao4_2026": "LEGACY_FINAL_GEOMETRY_BASELINE_ONLY_WHEN_VERIFIED",
+    "forbid_direct_2027_recall": true
+  },
+  "no_redesign_rule": "FUTURE_SOURCE_ARRIVAL_UPDATES_CONTENT_OVERLAYS_ONLY_UNLESS_REAL_USE_PROVES_A_CONCRETE_DEFECT"
+}
