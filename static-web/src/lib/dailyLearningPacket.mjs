@@ -1,4 +1,5 @@
 import { STUDY_SUBJECTS, buildDailyStudyTimePacket } from './studyTimer.mjs';
+import { buildExamChatPlanBasis } from './examChatPlan.mjs';
 import {
   CONTROL_LOCAL_RECEIPT_KEY,
   validateControlReceipt
@@ -47,6 +48,7 @@ export function buildDailyLearningPacket({
     study_day: time.study_day,
     timezone: time.timezone,
     generated_at: new Date(now).toISOString(),
+    learner_evidence_basis: buildExamChatPlanBasis(storage, time.study_day),
     total_minutes: time.total_minutes,
     timer: cloneJson(time.timer),
     control: cloneJson(controlReceipt(storage)),
@@ -99,6 +101,8 @@ export function serializeDailyLearningPacketForChat(packet) {
     '- Summarize only what the packet actually proves; stable work should not create review debt and missing evidence means unknown.',
     '- If the learner asks to start, continue, or arrange today, return one valid kianos.exam.chat-plan.v1 for this packet\'s study_day using EXAM_ORCHESTRATOR_CONTRACT as the planning policy owner.',
     '- The Chat Plan must remain importable without rewriting: preserve the same study_day, use only xizong/english/politics, and do not invent mastery, score evidence, or hidden learner events.',
+    '- Copy learner_evidence_basis from this Daily Packet into the Chat Plan unchanged. It is the exact learner-evidence/context snapshot the plan was based on; do not recalculate, omit, or edit it.',
+    '- If KianOS says the learner_evidence_basis is stale, do not force-import the old plan. Copy a fresh Daily Learning Packet and re-plan from the newer evidence.',
     '- When file generation is available, attach the plan as kianos-chat-plan-<study_day>.json containing only the Chat Plan object. Otherwise provide that exact JSON object with the filename so it can be saved unchanged.',
     '- Tell the learner exactly where to import it: Home → 安排说明 → expand “Chat Plan / 阶段证据 / 本机备份” → “载入 Chat Plan / 本机学习上下文” → confirm.',
     '- If a subject-specific structured diagnosis/repair return is needed, use that subject\'s existing return contract separately. Do not invent a universal mutation schema.',
