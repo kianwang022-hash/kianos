@@ -11,11 +11,11 @@ This file does not own medical Core, Xizong Learning semantics, Acceptance Truth
 
 **Scope:** B — Digestive / Metabolic / Endocrine / Tumor  
 **Active / earliest unresolved eligible gate:** `P — Projection`.  
-**S status:** BLOCKED only on the separate exact official-question-membership sub-boundary required for the later official System question sweep.  
+**S status:** PASS — exact Current B official-question membership accepted at 1072 qids.  
 **K status:** PASS — 38 stable Blocks / 600 stable KPs + accepted System model.  
 **L status:** PASS — fresh independent Phase-6 acceptance complete.  
 **P status:** UNTESTED / ACTIVE.  
-**R/E:** downstream-frozen behind P; exact official-sweep evidence also remains S-gated.  
+**R/E:** downstream-frozen behind P.  
 **U:** UNTESTED — real learner validation only.
 
 ```text
@@ -30,7 +30,7 @@ Phase 6  Fresh independent L acceptance                PASS
 
 Learning construction / acceptance task: GitHub Issue `#135` — completed.
 
-**Next action:** enter **B Projection (P) only**. Inspect Current shared Xizong Projection authority and any existing B projection assets against the accepted B Learning owner. Do not infer P PASS from old UI/pages, do not start Runtime/Evidence, and do not load/guess the official B System question sweep while S exact qid membership is unresolved.
+**Next action:** enter **B Projection (P) only**. Inspect Current shared Xizong Projection authority and any existing B projection assets against the accepted B Learning owner. Do not infer P PASS from old UI/pages and do not start Runtime/Evidence. The later official B System sweep must use the accepted 1072-qid scope owner exactly; it still cannot infer Question→Block/KP relations.
 
 ---
 
@@ -43,7 +43,7 @@ Unless contradictory medical evidence separately reopens K:
 - 600 stable KP identities;
 - no medical Block/KP split, merge or renumbering;
 - old same-System Guide is reference/substrate only;
-- exact official-question membership remains a separate S boundary and must not be count-fit or guessed.
+- exact official-question membership is accepted in the dedicated 1072-qid scope owner; precise Question→Block/KP routing remains separate and must not be inferred.
 
 ---
 
@@ -130,18 +130,34 @@ This is a shared Learning-design acceptance claim only. It creates **no Learner 
 
 ---
 
-## Parallel S boundary
+## Closed S boundary
 
-No accepted exact B official-question membership owner exists yet.
+Canonical B exact System-question scope:
 
-Until S closes honestly:
+`content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-question-scope.json`
 
-- the official B System question sweep cannot load/execute as a trusted exact inventory;
-- no historical total may be reproduced by count fitting;
-- keyword/stem guessing and inferred Question→Block/KP routing remain forbidden;
-- Projection may proceed for accepted first-learning/Recall/compression semantics that do not depend on qid membership.
+Reconstruction receipt:
 
----
+`content/xizong/knowledge/learner/B_QUESTION_SCOPE_CURRENT_RECONSTRUCTION.md`
+
+Accepted scope:
+
+```text
+1072 exact official qids
+2005–2026
+inventory SHA256 = 2fb2cbb8287a4f5da73bc20afc344823c9022cba708fb99d5d04569a391c8ab8
+unresolved ambiguity = 0
+```
+
+The scope was reconstructed from reviewed question→Lecture position routing plus B Source coverage and Current owner boundaries. It is not keyword-derived or count-fitted.
+
+Two stale D23 historical-position candidates were excluded because Current D23 no longer owns general neural synapse physiology:
+
+- 2006 N020 — reflex time / central synapse count;
+- 2006 N021 — IPSP physiology.
+
+System membership does not create precise Question→Block/LG/KP mapping.
+
 
 ## Active P boundary
 
@@ -159,7 +175,7 @@ P must preserve, at minimum:
 - backend-only engineering metadata;
 - LG closure → Block Recall → non-gating PSR → final System Reconstruction compression ladder;
 - Learner-Truth gating for Recall/System actions;
-- S-gated official question sweep.
+- accepted exact official question sweep, while keeping precise relation routing fail-closed.
 
 Historical D/M/G directory structure, Markdown headings and any existing Astro component do not own page structure.
 
@@ -176,6 +192,7 @@ Historical D/M/G directory structure, Markdown headings and any existing Astro c
 - lane Learning constitution → `content/xizong/LEARNING_CONTRACT.md`
 - shared study policy → `content/xizong/knowledge/learner/study-policy.json`
 - Phase-6 evidence → `content/xizong/knowledge/learner/B_PHASE6_INDEPENDENT_L_ACCEPTANCE.md`
+- B exact question scope → `content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-question-scope.json`
 - Current Question Truth → `content/xizong/questions/`
 - reviewed Question→Knowledge relations → `content/xizong/question-relations/`
 
