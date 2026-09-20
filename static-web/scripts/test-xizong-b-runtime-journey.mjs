@@ -172,7 +172,10 @@ async function systemRecallToPracticeJourney(page) {
     'b_practice_mounts_system_evidence_guard');
 
   const reviewedTarget = payload.questions.find((q) =>
-    q?.relation?.primaryKpId && q?.relation?.blockId && q?.relation?.knowledgePath
+    q?.relation?.primaryKpId
+      && q?.relation?.blockId
+      && q?.relation?.knowledgePath
+      && ['RESOLVED_KP','RESOLVED_BLOCK','BLOCK_ONLY'].includes(String(q?.relation?.targetStatus || ''))
   );
   check(Boolean(reviewedTarget), 'b_reviewed_relation_question_exists');
 
