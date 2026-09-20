@@ -68,7 +68,27 @@ try{
   await new Promise(resolve=>setTimeout(resolve,25));
   assert.ok(syncCalls>=2,'server start + successful checkpoint PUT should each schedule packet sync');
   assert.equal(lastSyncPrivateDir,dir,'packet sync must read the exact checkpoint directory owned by the bridge');
-  console.log('PASS packet bridge: local checkpoint save survives Git relay failure');
+
+  const getReq=Readable.from([]);
+  getReq.url='/__kianos-private/checkpoint';
+  getReq.method='GET';
+  getReq.socket={remoteAddress:'127.0.0.1'};
+  let getBody='';
+  const getRes={
+    statusCode:0,
+    setHeader(){},
+    end(value=''){getBody=String(value);}
+  };
+  await middleware(getReq,getRes,()=>assert.fail('private checkpoint GET must not fall through'));
+  assert.equal(getRes.statusCode,200);
+  const diagnostic=JSON.parse(getBody);
+  assert.equal(diagnostic.status,'ready');
+  assert.equal(diagnostic.packet_sync?.state,'error','relay failure must be observable without failing learner save');
+  assert.match(diagnostic.packet_sync?.error||'',/synthetic packet relay failure/);
+  assert.equal(diagnostic.packet_sync?.busy,false);
+  assert.equal(diagnostic.packet_sync?.queued,false);
+
+  console.log('PASS packet bridge: local checkpoint save survives Git relay failure and relay error remains observable');
 }finally{
   fs.rmSync(dir,{recursive:true,force:true});
 }
