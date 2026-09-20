@@ -113,19 +113,25 @@ Required closure:
 
 ## 4. Analysis scoring / calibration material
 
-Current state: **MISSING / HIGH PRIORITY**
+Current state: **DIAGNOSTIC RUBRIC READY · PRECISE SCORE CALIBRATION GATED**
 
-Needed before Analysis score-path confidence can narrow:
+Owner: `analysis-output/SCORING_RUBRIC.md`.
 
-- explicit Politics Analysis rubric owner;
-- score dimensions: prompt interpretation, principle selection, skeleton/logic, material binding, formulation quality, completeness, time;
-- anchored examples/descriptors from strongest available exam-relevant evidence;
-- systematic shared-bias attack;
-- independent second review when a subjective score materially changes strategy.
+Already present:
 
-Until this closes:
+- explicit Politics Analysis diagnostic rubric owner;
+- dimensions for prompt interpretation, principle selection, skeleton/logic, material binding, formulation, completeness and time;
+- BROKEN / PARTIAL / USABLE / UNKNOWN descriptors;
+- contamination and second-review boundaries;
+- explicit rule that model agreement does not validate the rubric.
 
-> model-rated Analysis answers may guide diagnosis, but cannot justify narrow Analysis score forecasts.
+Still legitimately gated:
+
+- accepted current-year/exam-relevant scoring anchors strong enough to convert diagnostic ratings into a narrow Analysis /50 estimate;
+- Kian-specific timed output evidence;
+- independent second review when a subjective score would materially change strategy.
+
+Therefore model-rated Analysis may guide diagnosis now, but precise score-path narrowing remains UNKNOWN.
 
 ---
 
@@ -261,31 +267,33 @@ Do not consume old/exposed training assets as if they were fresh current-year sc
 
 | Capability | Material coverage |
 | --- | --- |
-| prompt interpretation | PARTIAL — present indirectly, needs explicit rubric/tasks |
+| prompt interpretation | READY bounded baseline — retrieval/skeleton/stress tasks + diagnostic rubric |
 | material segmentation | CANDIDATE READY — 12 tasks |
 | principle retrieval | CANDIDATE READY |
 | skeleton | CANDIDATE READY |
-| material binding | CANDIDATE READY but narrow |
+| material binding | READY bounded baseline — 8 dedicated tasks |
 | stable formulation retrieval | CANDIDATE READY |
 | current-year exact formulation | FUTURE |
-| complete output | CANDIDATE READY but limited |
+| complete output | READY bounded baseline — 8 time-boxed tasks; authentic modality later |
 | stress/competing principle | CANDIDATE READY |
 | timed output | FUTURE/REAL-U |
 | whole-paper output | FUTURE/REAL-U |
-| scoring calibration | **MISSING** |
+| scoring calibration | DIAGNOSTIC READY; precise exam-score conversion SOURCE/REAL-U GATED |
 | Mao-specific structural coverage | CANDIDATE READY — bounded Current-knowledge structure only |
 
 ---
 
 ## 10. Material priority
 
-### Must close before whole-subject maturity
-1. Politics Analysis scoring/rubric owner — candidate created;
-2. revalidate current 104-task bank against Politics-specific maturity requirements — builder revalidation passed;
-3. Analysis evidence persistence/transport across days and fresh Chat;
-4. independent/fresh audit of generated bank + scoring semantics;
-5. current-year source content as it actually arrives;
-6. real timed/whole-paper material/evidence later.
+### Must close before SYSTEM_LOGIC_ACCEPTED
+1. machine-validate current 104-task bank against the Politics maturity invariants;
+2. finish Forecast decision-flip/metamorphic attacks;
+3. close full-lifecycle + Fresh Chat / No-Website proof.
+
+Legitimate later gates:
+- current-year source content as it actually arrives;
+- real timed/whole-paper learner evidence;
+- precise scoring calibration strong enough to narrow Analysis /50.
 
 ### Does not block tomorrow's first-round study
 - segmentation bank;
