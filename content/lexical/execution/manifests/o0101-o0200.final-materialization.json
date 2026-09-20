@@ -1,0 +1,28 @@
+{
+  "schema": "kianos.lexical.final_materialization_manifest.v1",
+  "candidate_id": "BF01",
+  "range": [
+    101,
+    200
+  ],
+  "lane": "A",
+  "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
+  "production_proposal": "content/lexical/execution/manifests/o0101-o0200.final-standard-backfill-proposal.md",
+  "human_gate": {
+    "approved": true,
+    "approval_ref": "Kian p on frozen o0101-o0200 final-standard proposal"
+  },
+  "content_scope": {
+    "bounded_existing_scope_corrections": 25,
+    "genuinely_new_assets": 17,
+    "repair_tests_before": 48,
+    "repair_tests_after": 25
+  },
+  "new_relation_ids": [
+    "relation:final-standard:analog-digital:semantic_contrast",
+    "relation:final-standard:analytic-analytical:usage_boundary",
+    "relation:final-standard:among-between:selection_boundary",
+    "relation:final-standard:amount-number:countability_boundary"
+  ],
+  "note": "Mechanical landing only. Semantic decisions were frozen and human-approved before package generation."
+}
