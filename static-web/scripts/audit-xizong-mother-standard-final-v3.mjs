@@ -181,8 +181,8 @@ check('near_derivative_freshness',()=>{
       common_failure_node:'memorizes wording',transfer_rule:'recompute'
     }
   });
-  const q1=normalizeXizongInlinePracticeQuestions([raw('xizong-ai-probe:audit-1')],'AUDIT')[0];
-  const q2=normalizeXizongInlinePracticeQuestions([raw('xizong-ai-probe:audit-2')],'AUDIT')[0];
+  const q1=normalizeXizongInlinePracticeQuestions([raw('xizong-ai-probe:audit-probe-0001')],'AUDIT')[0];
+  const q2=normalizeXizongInlinePracticeQuestions([raw('xizong-ai-probe:audit-probe-0002')],'AUDIT')[0];
   assert.equal(q1.freshTransferEligible,true);
   assert.equal(q1.semanticFamilyId,q2.semanticFamilyId);
   const attempts=[q1,q2].map((q,i)=>({
@@ -391,7 +391,7 @@ check('future_source_net_new_accounting',()=>{
     {id:'future-case',gross_minutes:900,replaces_minutes:300,overlap_minutes:150,admitted:true}
   ]);
   assert.equal(r.status,'PRICED');
-  assert.equal(r.net_new_minutes,450);
+  assert.equal(r.net_minutes,450);
   return {gross:900,replacement:300,overlap:150,net_new:450};
 });
 
