@@ -98,8 +98,14 @@ Type:
 Current evidence:
 
 - no explicit Current canonical humanism / ethics / doctor-patient / health-law owner was found in repository search;
+- Ministry of Education's official clinical-medicine admissions reform Q&A states that the unified clinical-medicine comprehensive exam explicitly strengthens professional-quality testing, including humanitarian spirit, professional responsibility, doctor-patient communication, medical ethics, and laws/regulations;
+- official reform basis: https://www.moe.gov.cn/jyb_xwfb/s271/201509/t20150911_207410.html
 - active Forecast work identifies this as a real 306-scope risk and uses a historical ~16-point working prior;
 - that historical point estimate is **not** a 2027 official exact truth.
+
+Therefore the current hard gap is not “does humanism belong to the construct?”; it is:
+
+> exact Current-year scope + canonical owner + training/evidence closure.
 
 Required closure:
 
@@ -155,7 +161,10 @@ Type:
 Current truth:
 
 - historical owner ends at 2026;
-- 2017–2026 = 165 questions / 300 points.
+- 2017–2026 = 165 questions / 300 points;
+- Ministry of Education reform authority establishes clinical-medicine comprehensive as a nationally unified 300-point professional-basis exam;
+- official reform basis: https://www.moe.gov.cn/srcsite/A15/moe_778/s3113/201509/t20150911_207424.html
+- targeted official-site search on 2026-09-20 did not locate an authoritative 2027 306 outline / question-count geometry, so exact 2027 item geometry remains UNKNOWN rather than inherited silently.
 
 Required closure:
 
