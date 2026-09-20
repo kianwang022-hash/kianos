@@ -131,10 +131,13 @@ jobs:
           npm install --no-save --no-audit --no-fund playwright@1.56.1
           npx playwright install --with-deps chromium
 
-      - name: Browser acceptance
+      - name: Private control browser acceptance
+        working-directory: static-web
+        run: node scripts/test-private-control-browser.mjs
+
+      - name: English browser acceptance
         working-directory: static-web
         run: |
           node scripts/test-english-generated-drill-browser.mjs
           node scripts/test-english-generated-stale-import-browser.mjs
           node scripts/test-english-home-exact-workspace-browser.mjs
-          node scripts/test-private-control-browser.mjs
