@@ -157,6 +157,7 @@ Each subject forecast must expose:
 - major uncertainty;
 - P20 / P50 / P80 or equivalent conservative ranges when evidence supports them;
 - sensitivity to the largest unknown parameters;
+- known parameter ranges / thresholds that would flip a material conclusion when identifiable;
 - next evidence that would most reduce forecast uncertainty;
 - score-path confidence separately from workload confidence.
 
@@ -244,7 +245,10 @@ The execution loop must prove:
 - stale/invalid plan rejection;
 - replay/idempotency where relevant;
 - checkpoint/restart recovery;
-- no hidden fallback strategy when Chat plan is absent.
+- no hidden fallback strategy when Chat plan is absent;
+- exam-modality fidelity where delivery medium changes performance.
+
+When the real exam uses paper, handwriting, answer-sheet transfer or physical page switching in a score-relevant way, at least some formal execution evidence must preserve or calibrate that cost. Keyboard/browser speed may not silently stand in for handwriting/paper execution.
 
 Normal learner operation should require the fewest manual maintenance actions possible.
 
@@ -286,6 +290,24 @@ Every attack asks not only “does the program crash?” but:
 - does learner manual repair become necessary;
 - does the system fail closed or degrade safely.
 
+The adversarial suite itself must not be a small fixed set of happy/unhappy scripts. Use, where relevant:
+
+- parameter grids across throughput / error / retention / capacity;
+- boundary values and empty/full extremes;
+- randomized combinations of otherwise valid learner states;
+- counterfactual policy comparisons;
+- historical sanity checks against known prior performance/material behavior;
+- stale/replay/duplicate/partial transport variants;
+- sensitivity sweeps that identify the parameter or threshold at which a Forecast/control conclusion flips;
+- metamorphic invariants such as “renaming/reordering irrelevant metadata must not change the learning decision”.
+
+A mature report must distinguish:
+
+- high-confidence conclusions;
+- conclusions conditional on one or more learner parameters;
+- known flip points / decision boundaries;
+- the next evidence with highest value for reducing uncertainty.
+
 A happy-path test suite cannot produce a mature verdict.
 
 ---
@@ -314,7 +336,10 @@ Normal interaction should be bounded to the smallest necessary learner inputs, t
 
 - report material capacity/availability changes only when reality changes materially;
 - perform the assigned Next Action;
-- provide one bounded Daily/Review handoff when Chat judgment is actually needed.
+- provide one bounded Daily/Review handoff when Chat judgment is actually needed;
+- use a low-friction override when the learner knows a task is impossible, mis-specified, already exposed, or inconsistent with current reality.
+
+Learner override is evidence/input, not permission to silently rewrite canonical Source truth. The next Chat decision should reconcile it explicitly.
 
 Instrumentation should be automatic where possible and must not distort study behavior merely to collect richer telemetry.
 
