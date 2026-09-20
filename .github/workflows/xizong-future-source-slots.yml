@@ -1,0 +1,28 @@
+name: Xizong Future Source Slots
+
+on:
+  pull_request:
+    paths:
+      - 'content/xizong/knowledge/learner/xizong-2027-biochemistry-delta-slot.json'
+      - 'content/xizong/knowledge/learner/xizong-2027-exam-format-delta-slot.json'
+      - 'content/xizong/humanities/current.json'
+      - 'content/xizong/knowledge/learner/xizong-26-late-stage-material-baseline.json'
+      - 'static-web/src/lib/xizongForecastModel.mjs'
+      - 'static-web/scripts/validate-xizong-future-source-slots.mjs'
+      - '.github/workflows/xizong-future-source-slots.yml'
+
+concurrency:
+  group: xizong-future-source-slots-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate future Source slots and format gating
+        working-directory: static-web
+        run: node scripts/validate-xizong-future-source-slots.mjs
