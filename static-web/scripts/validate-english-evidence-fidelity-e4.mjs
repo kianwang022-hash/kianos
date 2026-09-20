@@ -5,6 +5,7 @@ import {
 import {
   ENGLISH_SESSION_KEY,
   validateEnglishSessionInstruction,
+  writeEnglishSessionInstruction,
   buildEnglishEvidencePacket,
   buildEnglishLongHorizonRecurrenceDigest
 } from '../src/lib/englishSessionControl.mjs';
@@ -99,6 +100,46 @@ const valueB={submitted:true,answers:{q1:'A'},results:{q1:'correct'},uncertain:[
 saveEnglishAttempt(storage,'kianos-reading-attempt-v1:same-source-b',valueB,metaB,{now:now+60000});
 assert.equal(valueB.binding.prior_exposure,'exposed','same exact source hash was washed back to unseen/unknown');
 assert.equal(valueB.firstEvidenceMeta?.independent_transfer_candidate,false);
+
+// 2b) An explicit exposed learner declaration must keep exact-source identity even before opening.
+const declaredStorage=new MemoryStorage();
+const declaredCatalog=[{
+  task:'reading_a',
+  object_id:'declared-alias-a',
+  source_hash:'declared-shared-hash',
+  label:'Declared alias A'
+}];
+writeEnglishSessionInstruction(declaredStorage,{
+  schema:'kianos.english.session-instruction.v1',
+  session_id:'e4-exposed-declaration',
+  study_day:day,
+  generated_at:'2026-09-21T11:50:00.000Z',
+  current_step:0,
+  steps:[{
+    step_id:'s1',
+    task:'reading_a',
+    object_id:'declared-alias-a',
+    source_hash:'declared-shared-hash',
+    params:{
+      material_exposure:{
+        state:'exposed',
+        basis:'learner_statement',
+        observed_at:'2026-09-21T11:49:00.000Z',
+        note:'Learner states this exact material was seen before.'
+      }
+    }
+  }]
+},day,{catalog:declaredCatalog,now:Date.parse('2026-09-21T11:51:00.000Z')});
+declaredStorage.removeItem(ENGLISH_SESSION_KEY);
+const declaredAliasValue={submitted:true,answers:{q1:'A'},results:{q1:'correct'},uncertain:[]};
+saveEnglishAttempt(declaredStorage,'kianos-reading-attempt-v1:declared-alias-b',declaredAliasValue,{
+  task:'reading_a',
+  object_id:'declared-alias-b',
+  source_hash:'declared-shared-hash',
+  snapshot:{evidence:{source_kind:'official',evidence_role:null}}
+},{now:now+90000});
+assert.equal(declaredAliasValue.binding.prior_exposure,'exposed','exposed declaration lost exact-source identity before open');
+assert.equal(declaredAliasValue.firstEvidenceMeta?.independent_transfer_candidate,false);
 
 // 3) Reuse existing durable ledgers for bounded long-horizon recurrence.
 storage.setItem('kianos-english-objective-transfer-claims-v1',JSON.stringify({
@@ -233,6 +274,7 @@ console.log(JSON.stringify({
     chat_context_assistance_downgrades_first_evidence:true,
     chat_cannot_declare_unassisted:true,
     exact_source_hash_cross_object_exposure:true,
+    exposed_declaration_cross_object_exposure:true,
     bounded_long_horizon_recurrence_digest:true,
     recent_absence_not_long_horizon_absence:true,
     whole_paper_constituent_exposure_preserved:true,
