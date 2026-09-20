@@ -335,13 +335,11 @@ export function buildXizongForecastQuestionScope(systems = []) {
       const year = Number(question?.year);
       if (!questionId) continue;
       summedExactQuestions += 1;
+      if (Number.isInteger(year)) yearCounts[year] = (yearCounts[year] || 0) + 1;
       if (!union.has(questionId)) {
         union.add(questionId);
-        if (Number.isInteger(year)) yearCounts[year] = (yearCounts[year] || 0) + 1;
+        if (Number.isInteger(year)) unionYearCounts[year] = (unionYearCounts[year] || 0) + 1;
       }
-    }
-    for (const [year, count] of Object.entries(yearCounts)) {
-      unionYearCounts[year] = (unionYearCounts[year] || 0) + Number(count || 0);
     }
 
     rows.push({
