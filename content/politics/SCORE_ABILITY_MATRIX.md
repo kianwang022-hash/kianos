@@ -18,6 +18,33 @@ Push 75
 
 These are planning targets, not guarantees. Current-year evidence may widen or narrow them.
 
+## 0. Canonical target authority
+
+Cross-subject target authority is the root `EXAM_ORCHESTRATOR_CONTRACT.md`:
+
+~~~text
+Total target      425+
+Politics target    70+
+~~~
+
+Politics therefore uses:
+
+~~~text
+protect floor
+→ 70
+
+working-target semantics
+→ preserve a robust 70+ path
+→ current planning decomposition: Objective 40+ / 50 + Analysis 30+ / 50
+→ do not invent a numeric buffer before real variance/mock evidence supports one
+
+elastic upside
+→ Push 75
+→ may receive extra capacity only when cross-subject marginal value remains competitive
+~~~
+
+`Push 75` is a subject-local upside signal. It must never silently replace the canonical Politics-70 / Total-425 allocation target. Any future target change must re-open loss budgets, Forecast assumptions and Elastic rules.
+
 ---
 
 ## 1. Objective channel
