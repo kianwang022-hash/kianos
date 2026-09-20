@@ -2,27 +2,45 @@
 
 Status: **CANDIDATE AUDIT BRIEF**
 Scope: E3 Productive Scoring Validity
-Rule: anti-anchored; do not read the sealed expectation key or any prior E3 judgment before grading.
+Rule: **fixture-specific anti-anchoring**. Generic knowledge that E3 has had prior audits, prior failures, or prior calibration repairs does **not** invalidate this audit.
 
-## Pre-blind entry — branch metadata only
+## What counts as contamination
 
-This audit is a bounded exception to ordinary Current-first engineering continuation.
+Before blind results are locked, the audit is INVALID only if the auditor has access to information that reveals the expected treatment of a **current opaque fixture**, including any of:
 
-Before blind scores are fixed:
+- the sealed expectation key;
+- a current fixture's expected score range / band / confidence;
+- a mapping from a current opaque fixture ID to a quality label, defect class or calibration axis;
+- current pairwise expected ordering tied to specific opaque fixture IDs;
+- prior grader scores or Builder judgments tied to the current opaque fixture IDs;
+- any equivalent fixture-specific hint that would let the auditor infer how a current fixture is supposed to score.
 
-- confirm the requested candidate ref / HEAD using branch or ref metadata only;
-- do **not** read `AGENTS.md`, `static-web/CURRENT.md`, `content/english/CURRENT.md`, PR discussion, prior E3 audit reports, Builder audit, commit messages that summarize E3 findings, or historical Chat summaries;
-- do not search repository history for Productive Scoring judgments.
-
-Reason: those control/history surfaces may legitimately contain prior defect summaries and would contaminate a scoring-blind acceptance proof.
-
-If any prior E3 scoring judgment / defect summary / sealed expectation is read before blind results are fixed, report:
+If any such current-fixture-specific information is available before blind-result lock, report:
 
 ```text
 INVALID — blind audit contaminated
 ```
 
-and stop. Do not continue as a nominal fresh audit.
+and stop.
+
+## What does **not** count as contamination
+
+The following background knowledge is allowed and is **not** by itself grounds for INVALID:
+
+- knowing that E3 has been audited before;
+- knowing that an earlier audit returned FAIL or INVALID;
+- knowing that historical calibration defects existed in categories such as semantic-equivalence, length handling, or blind-fixture labeling;
+- knowing that the current bank uses opaque IDs and sealed expectations;
+- knowing generic scoring principles such as Task > Style, Grounding > Fluency, or uncertainty preservation;
+- generic Chat / project memory that does not reveal the expected treatment of any **current** opaque fixture.
+
+Do not infer contamination merely from the existence of prior conversation context. Name the exact current-fixture-specific information that leaked. If none exists, proceed with the blind audit.
+
+## Pre-blind entry
+
+Confirm the requested candidate ref / HEAD using branch/ref metadata.
+
+To minimize avoidable anchoring, do not deliberately open `content/english/CURRENT.md`, prior E3 audit reports, Builder audit, PR discussion, or history before blind-result lock. However, accidental or inherited **generic** knowledge from those sources does not invalidate the audit unless it reveals current-fixture-specific expectations as defined above.
 
 ## Read only
 
@@ -34,15 +52,15 @@ and stop. Do not continue as a nominal fresh audit.
 Do **not** read:
 
 - `PRODUCTIVE_SCORING_FIXTURES_KEY.v1.json`
-- Builder notes;
-- prior score judgments;
-- expected PASS/FAIL.
+- Builder notes that score or label current opaque fixtures;
+- prior score judgments tied to current opaque fixture IDs;
+- current-fixture expected PASS/FAIL mappings.
 
 ## Task
 
 Blind-grade every fixture exactly as presented in the blind bank. Fixture IDs and order carry no scoring meaning. Do not infer expected quality from either.
 
-If any blind fixture ID or row metadata itself contains a quality/error hint such as `strong`, `low`, `wrong`, `misread`, `missing-request`, `underlength`, `major-error`, `controlled_axis`, `guardrail`, or expected-score fields, report the audit package as contaminated/invalid before grading.
+If any blind fixture ID or row metadata itself contains a quality/error hint such as `strong`, `low`, `wrong`, `misread`, `missing-request`, `underlength`, `major-error`, `controlled_axis`, `guardrail`, or expected-score fields, report the audit package as contaminated/invalid before grading. Opaque IDs must not encode channel, quality, defect type or calibration axis.
 
 For each fixture return:
 
@@ -128,6 +146,6 @@ If a material defect is found:
 
 > repair the scoring standard / fixture design, not the learner output.
 
-After key reconciliation and adversarial re-score, only then may the auditor read `content/english/CURRENT.md` / prior audit history for status write-back.
+After key reconciliation and adversarial re-score, the auditor may read `content/english/CURRENT.md` / prior audit history for status write-back. Generic prior history is not itself contamination; only current-fixture-specific expectation leakage is.
 
 This audit proves scoring-logic validity only. It does not calibrate Kian's actual productive score.
