@@ -1,6 +1,6 @@
 # English Maturity Package
 
-Status: **SYSTEM_LOGIC_CANDIDATE · FINAL FRESH AUDIT REQUIRED · KIAN_SPECIFIC_CALIBRATED = NO**  
+Status: **SYSTEM_LOGIC_CANDIDATE · FRESH #1 FAIL REPAIRED · FINAL FRESH RE-AUDIT REQUIRED · KIAN_SPECIFIC_CALIBRATED = NO**  
 Parent router: `content/english/CURRENT.md`  
 Target: **English I 85+**
 
@@ -263,9 +263,9 @@ E4 is **CLOSED CANDIDATE**.
 
 Accepted protections:
 
-1. same exact source cannot regain unseen status under another object id;
-2. explicit exposed learner declaration carries exact source identity;
-3. later contradictory `unseen` declaration fails closed;
+1. learner exposure identity is separated from exact revision identity: `semantic_source_hash` owns freshness/exposure while `source_hash` continues to own exact object/revision binding;
+2. same learner-semantic source cannot regain unseen status through a new object id, evidence role, route or exact revision; explicit exposed declarations carry semantic + exact identity where available;
+3. distinct Writing synthetic prompts have distinct per-task exact and semantic identities; a whole-file owner hash is provenance only, not learner exposure identity; later contradictory `unseen` declaration fails closed;
 4. prior Chat/learner assistance may downgrade evidence to assisted/unknown;
 5. Chat cannot manufacture `unassisted`;
 6. bounded Daily Packet includes long-horizon recurrence projection from existing Objective / Translation / Writing Repair/Transfer ledgers;
@@ -419,12 +419,15 @@ Forecast can expose:
 ## Fail-closed rules
 
 - undeclared task family scope → UNKNOWN/PARTIAL;
+- BUILD / VERIFY / UNCALIBRATED or explicit open mechanisms with no required workload bucket → unpriced;
 - missing required unit count → unpriced;
 - 1–2 timing samples → no empirical band;
 - 3–4 samples may produce a **PROVISIONAL** band;
 - 5+ representative samples may support EMPIRICAL classification;
 - prior-only pricing stays labeled prior-heavy;
-- non-score-eligible / assisted / contaminated evidence cannot close formal score path;
+- ASSISTED / EXPOSED / CONTAMINATED / UNKNOWN evidence cannot close formal score path even when upstream declares `score_eligible=true`;
+- typed productive score ranges may remain diagnostic but cannot create protected formal local exam-target status;
+- exposed / otherwise formally ineligible Whole Paper evidence cannot create protected integrated target status;
 - local section ranges do not impersonate integrated whole-paper certainty;
 - incomplete scope cannot become whole-scope deadline fit;
 - Future Source unknown workload cannot be silently priced as zero;
@@ -694,6 +697,54 @@ No CI/browser/synthetic test may manufacture these values.
 
 ---
 
+# 14A｜Final Fresh #1 bounded repair
+
+Final Fresh audit #1 verdict:
+
+```text
+FAIL — material system-logic blind spots remain
+```
+
+The audit identified two bounded defect families:
+
+1. source freshness depended on object/provenance identity rather than learner-semantic identity;
+2. Forecast did not fully fail closed on open demand with zero workload and contradictory formal-score eligibility.
+
+Repair boundary:
+
+```text
+NO BROAD BUILD
+→ semantic identity producer/consumer repair
+→ Forecast fail-closed repair
+→ impacted exact-head proof
+```
+
+Current repair proof head:
+
+`9e2302c93034ec0411cc885a08a4b1726e5b9d3f`
+
+PASS on that exact head:
+
+- E4 evidence-fidelity validator;
+- Forecast system-logic validator;
+- synthetic baseline identity validator;
+- English Family Coherence including browser journeys;
+- Objective Learner Journey;
+- Private Chat Control;
+- Writing QA;
+- Translation QA;
+- English Exam Session / Whole Paper;
+- Final Cross-subject Regression;
+- Semantic Base / Authority.
+
+The repair does **not** convert this package to `SYSTEM_LOGIC_ACCEPTED`.
+
+Next mandatory gate:
+
+> final Fresh Independent re-audit against the current package and exact candidate head.
+
+---
+
 # 15｜Remaining Unknowns
 
 Legitimate remaining unknowns:
@@ -758,7 +809,7 @@ Current candidate verdict before final Fresh audit:
 ```text
 SYSTEM_LOGIC_CANDIDATE = YES
 KIAN_SPECIFIC_CALIBRATED = NO
-FINAL_FRESH_AUDIT = REQUIRED
+FINAL_FRESH_REAUDIT = REQUIRED
 ```
 
 The current binding uncertainty is now primarily **Real Learner U**, not repository completeness.
