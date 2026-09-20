@@ -93,13 +93,14 @@ outline_primary_total = 11
 
 ```text
 Framework Orientation
-→ Recall E12：病理身份 / 扩散路径
-→ 连续阅读外科分期、分子、临床与检查
-→ 回原表看TNM
-→ Framework Reconstruction：警报 → 影像 → 活检 → TNM → 分子
-→ KP Active Recall
-→ Outline Quick Check（11题，低压力）
-→ TTSX Lecture-attached Questions（待 Binding）
+→ Source Unit 1：TNM / 当前 Study 分期表 + 可用原表视觉
+→ 回到 KianOS：恢复 T / N / M 与局部—区域—远处三层范围
+→ Source Unit 2：ER / PR、HER2、Ki-67 与当前 Study 分子亚型
+→ 回到 KianOS：恢复受体 / 分子信息各自解决什么问题
+→ Source Unit 3：临床警报、筛查、活检与补充诊断证据
+→ 回到 KianOS：恢复“发现 → 组织学确诊 → 定范围 → 定生物学”
+→ Block Recall：先确诊，再分范围，再定分子
+→ Outline / TTSX 只在真实边界且已有 reviewed binding 时检查
 → Block Complete
 ```
 
