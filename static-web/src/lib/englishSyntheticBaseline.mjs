@@ -1,6 +1,7 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
+import { englishSemanticSourceHash } from './englishSemanticSourceIdentity.mjs';
 
 const repoRoot = process.env.KIANOS_REPO_ROOT
   ? path.resolve(process.env.KIANOS_REPO_ROOT)
@@ -171,7 +172,12 @@ export function loadSyntheticReadingById(id) {
     },
     sourceHashes: {
       syntheticOwner: data.hashes.objective,
-      renderedObject: sha256(stableJson(row))
+      renderedObject: sha256(stableJson(row)),
+      semanticSource: englishSemanticSourceHash({
+        task: 'reading_a',
+        paragraphs: textBlocks(row.passage, 'p'),
+        questions
+      })
     },
     sourceKind: 'synthetic'
   };
@@ -245,7 +251,16 @@ export function loadSyntheticClozeById(id) {
     },
     sourceHashes: {
       syntheticOwner: data.hashes.objective,
-      renderedObject: sha256(stableJson(row))
+      renderedObject: sha256(stableJson(row)),
+      semanticSource: englishSemanticSourceHash({
+        task: 'cloze',
+        material: textBlocks(row.passage_with_blanks),
+        questions,
+        context: {
+          instruction: 'Choose the best answer for each blank from the four options.',
+          subtitle: 'Task-native synthetic baseline'
+        }
+      })
     },
     sourceKind: 'synthetic'
   };
@@ -354,7 +369,19 @@ export function loadSyntheticReadingBById(id) {
     },
     sourceHashes: {
       syntheticOwner: data.hashes.objective,
-      renderedObject: sha256(stableJson(row))
+      renderedObject: sha256(stableJson(row)),
+      semanticSource: englishSemanticSourceHash({
+        task: 'reading_b',
+        material: partBMaterial(row, form),
+        questions,
+        candidates,
+        context: {
+          directions: String(row.directions || ''),
+          taskForm: form,
+          orderingSkeleton: form === 'ordering' ? clone(row.skeleton || []) : [],
+          fixedGivens: form === 'ordering' ? clone(row.fixed || []) : []
+        }
+      })
     },
     sourceKind: 'synthetic'
   };
@@ -422,7 +449,15 @@ export function loadSyntheticTranslationById(id) {
     },
     sourceHashes: {
       syntheticOwner: data.hashes.translation,
-      renderedObject: sha256(stableJson(row))
+      renderedObject: sha256(stableJson(row)),
+      semanticSource: englishSemanticSourceHash({
+        task: 'translation',
+        prompts,
+        context: {
+          instruction: 'Translate all five segments independently before opening references.',
+          subtitle: String(row.context || '')
+        }
+      })
     },
     sourceKind: 'synthetic'
   };
