@@ -5,7 +5,8 @@ import {
 } from '../src/lib/examOrchestrator.mjs';
 import {
   EXAM_CHAT_PLAN_KEY,
-  EXAM_CHAT_PLAN_SCHEMA
+  EXAM_CHAT_PLAN_SCHEMA,
+  buildExamChatPlanBasis
 } from '../src/lib/examChatPlan.mjs';
 import {
   STUDY_TIMER_LEDGER_KEY,
@@ -172,7 +173,6 @@ lexicalLedger=appendEvidenceEvent(lexicalLedger,{
 
 const storage=new MemoryStorage({
   [EXAM_PROFILE_KEY]:JSON.stringify(profile),
-  [EXAM_CHAT_PLAN_KEY]:JSON.stringify(chatPlan),
   [STUDY_TIMER_STATE_KEY]:JSON.stringify(timerState),
   [STUDY_TIMER_LEDGER_KEY]:JSON.stringify(timerLedger),
 
@@ -225,6 +225,9 @@ const storage=new MemoryStorage({
     observed_at:'2026-09-19T12:00:00.000Z'
   }])
 });
+
+chatPlan.learner_evidence_basis=buildExamChatPlanBasis(storage,day);
+storage.setItem(EXAM_CHAT_PLAN_KEY,JSON.stringify(chatPlan));
 
 const shared=captureSharedControlCheckpoint(storage,{studyDay:day,now});
 const subjects=capturePrivateSubjectCheckpoints(storage,{}, {now});
