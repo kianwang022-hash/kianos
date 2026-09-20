@@ -439,22 +439,35 @@ Do not reopen Stage A for unavailable 2027 Sources. Reopen only when a new autho
 # 11｜Stage B handoff — learner evidence becomes the main input
 
 
-## Current Stage-B engineering availability
+## Stage-B engineering readiness — supporting signal, not the maturity cursor
 
-| System | Engineering gate state | Current action |
-| --- | --- | --- |
-| A1 | P/R/E accepted | real learner use / Real U |
-| A2 | P/R/E accepted | real learner use / Real U |
-| A3 | P/R/E accepted | real learner use / Real U |
-| B | **S/K/L/P/R/E PASS** · PR #643 merged | **stop engineering; Real U only** |
-| C | S/K/L accepted; **P eligible / not yet compiled** | **current engineering cursor: C Projection** |
-| D | Content closed; scoped downstream gate remains | re-read D Current after C |
-| E | Content closed; scoped downstream gate remains | re-read E Current after prior gate |
-| F | Content + exact System question scope closed; scoped downstream gate remains | re-read F Current after prior gate |
+The legacy System gate chain remains useful only as an **execution-readiness lookup**.
 
-This table is engineering availability, not learner mastery.
+Rules:
 
-A System that is executable may generate Stage-B evidence immediately; Stage B does not wait for every System to reach the same engineering state before Kian studies available work.
+- S/K/L/P/R/E status is not a learner-capability progression and is not the Stage-B work order;
+- no System becomes “next” merely because its Projection / Runtime / Evidence gate is the earliest untested engineering gate;
+- maturity asks the 275/X1–X9 question first;
+- only when the selected learner action cannot execute safely does Chat route to the exact System owner and repair the smallest blocking gate;
+- after that bounded repair, control returns immediately to learner capability / Real U;
+- engineering completeness never manufactures learner mastery or priority.
+
+Examples:
+
+```text
+A1 real study exposes X6 weakness
+→ diagnose / repair A1 learning defect
+→ do not divert to C Projection merely because C P is untested
+
+Chat selects C as a justified learner action
++ C cannot execute because Projection is genuinely missing
+→ open C P as the smallest supporting blocker
+→ prove C learner action
+→ return to Stage B capability loop
+```
+
+This package therefore carries no default “current engineering cursor”.
+
 
 Stage B current question is no longer “what else can the repository build?”
 
