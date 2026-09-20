@@ -25,18 +25,18 @@ Current mother-standard execution state:
 ```text
 M0 Ownership correction                         DONE
 M1 Single Politics Maturity Package             DONE
-M2 Reconcile stale Analysis/material status     ACTIVE
-M3 Analysis-bank machine quality proof          ACTIVE
-M4 Forecast decision-flip/adversarial closure   ACTIVE
-M5 Full lifecycle + Fresh Chat/No-Website       PENDING
-M6 SYSTEM_LOGIC_ACCEPTED verdict                PENDING
+M2 Reconcile stale Analysis/material status     DONE
+M3 Analysis-bank + evidence identity proof       DONE
+M4 Forecast decision-flip/adversarial closure   DONE
+M5 Full lifecycle + Fresh Chat/No-Website       DONE
+M6 SYSTEM_LOGIC_ACCEPTED verdict                YES
 M7 KIAN_SPECIFIC_CALIBRATED                     REAL-U GATED
 M8 current-year annual sources                  SOURCE GATED
 ```
 
 Canonical maturity package: `MATURITY_PACKAGE.md`.
 
-Do not jump to broad STOP until M2–M5 close. Real study may still continue in parallel because first-round learner paths are already accepted.
+Mother-standard system logic is now accepted. Broad engineering stops here; real study supplies Kian-specific calibration, and real annual Source reopens only the affected owner.
 
 
 **Politics Final Learner Acceptance — CLOSED for audited first-round paths**
