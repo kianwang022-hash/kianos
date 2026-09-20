@@ -100,7 +100,7 @@ assert(weakAfterUnknown >= 1, 'weak-weight-low');
 state = appendMemoryEvidence(state, { cardId: core.id, rating: 'mastered', origin: 'CORE_MEMORY_RECALL' }, '2026-09-17T12:00:00Z');
 assert(state.evidence.length === 2, 'evidence-overwritten');
 assert(state.evidence[0].rating === 'unknown', 'original-observation-lost');
-assert(!todayMemoryQueue(state).some((row) => row.id === core.id), 'stable-evidence-did-not-clear-today-priority');
+assert(!todayMemoryQueue(state, { now: Date.parse('2026-09-17T12:05:00Z') }).some((row) => row.id === core.id), 'stable-evidence-did-not-clear-immediate-today-priority');
 assert(state.cards[core.id], 'stable-evidence-deleted-card');
 
 const precision = state.cards['precision:a2-r01-kp01-precision'];
