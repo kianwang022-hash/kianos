@@ -1,6 +1,6 @@
 # Xizong Maturity Package
 
-Status: **STAGE A CLOSED · STAGE B LEARNER-CAPABILITY MAINLINE · STAGE E REAL-U OVERLAY WHEN AVAILABLE**  
+Status: **SYSTEM_LOGIC CLOSURE CANDIDATE · STAGE A CLOSED · STAGE B LEARNER-CAPABILITY MAINLINE · REAL-U UNCALIBRATED**  
 Parent router: `content/xizong/CURRENT.md`  
 Provenance: adapted from the shared Exam Subject Highest-Bar Maturity Standard; this file is the self-contained Current Xizong subject-maturity owner.
 
@@ -764,6 +764,7 @@ The maturity owner may classify a capability for reasoning purposes as:
 
     BUILD
     VERIFY
+    SECURE / STABILIZE
     MAINTAIN
     REOPEN
     ELASTIC
@@ -778,6 +779,12 @@ Use when capability formation is genuinely missing or materially unstable.
 ### VERIFY
 
 Use when the model exists but stronger evidence could change the decision.
+
+### SECURE / STABILIZE
+
+Use only when the minimum evidence floor for the relevant capability is met **and** the observed pattern is stable enough that heavier Build/Verify work is no longer justified.
+
+Secure is capability-local, evidence-scoped and reversible. It is never inferred from repository completeness, question count alone, one whole-paper score, or same-item correction.
 
 ### MAINTAIN
 
@@ -961,3 +968,566 @@ If the answer depends on missing Real U, the correct output is the **smallest le
 If the answer depends on unreleased Source, the correct output is **wait for Source while preserving the prior baseline**.
 
 If neither is true and the system still cannot answer, the maturity model remains incomplete.
+
+
+---
+
+# 20｜Full material inventory by capability role
+
+This is the subject-level inventory required by the highest-maturity standard. It is a role map, not a second asset registry.
+
+| Role | Current Xizong owner / material | Capability served | Current status / boundary |
+| --- | --- | --- | --- |
+| Current canonical Source / medical truth | \`knowledge/systems/**\`, canonical Block/KP owners, original Lecture/MarginNote where Source contact is required | X1–X4 | Current medical owners; exact Source gaps stay fail-closed |
+| Non-System exam-domain Source | \`humanities/current.json\` | humanities knowledge / recall / current-law discipline | historical/current baseline closed; exact 2027 delta blocked |
+| Formal official training | exact A1–F System-question scope + canonical Question Truth / explanations | X6, Repair triggers, score attribution | A1–F System membership closed; Question→KP remains progressive |
+| Teaching / Recall / local Repair substrate | canonical KP Core, LG / Block / System reconstruction, accepted Repair path | X1–X7 | use smallest responsible Repair; do not replay full curriculum by default |
+| Precision support | selective canonical exact facts / existing Memory-Precision path | X5 | selective; no “memorize everything” parallel curriculum |
+| Transfer material | official reuse under changed conditions, approved fresh probes, Case/Cram baseline | X7–X8 | derived/synthetic remains supplementary; Case/Cram prior-year only until current-year delta |
+| Stress / edge material | current/approved mocks, four-mock historical baseline, cross-System case variants | X8–X9 | teacher mocks are transfer/stress, not official score truth |
+| Whole-paper / formal execution | canonical whole-paper path, low-contamination protected paper when available | X9 | contamination identity mandatory |
+| Derived / synthetic | source-grounded decisive-condition, changed-context, boundary, case and cross-System probes | X6–X8 | generate only for a real capability gap; never count as official score evidence |
+| Prior-year historical baseline | \`xizong-26-late-stage-material-baseline.json\` | late-stage geometry / case / stress / compression scaffold | absorbed now; year-pinned; never Current-year truth by upload date |
+| Future current-year Source slots | 2027 Biochemistry, humanities outline, exact exam geometry, Case/Cram, mocks, final 5h, applicable current-year Source/TTSX updates | future delta | bind → validate → delta → replacement/overlap → learner use |
+| Reference-only / optional | retired Guides, old transitions, low-value duplicate material | context only | does not create learner debt |
+
+## Synthetic / derived quality gate
+
+A generated asset is admissible only if it passes the relevant checks:
+
+- directly targets a named Xizong capability;
+- medically / logically natural and Source-grounded;
+- one defensible answer or explicit scoring uncertainty;
+- distractors encode a real confusable boundary / failure mechanism;
+- no answer leakage;
+- not a near-copy of the Repair example that created it;
+- difficulty is appropriate for Teaching / Repair / Transfer / Stress role;
+- semantic identity / revision is recorded well enough to prevent fake freshness;
+- authentic official / current-year material is used for calibration when the claim requires it.
+
+Synthetic success never upgrades formal score evidence.
+
+---
+
+# 21｜Source fidelity + evidence identity + transitive invalidation
+
+Repository presence is not truth.
+
+For any Source conversion or revision that can change learning, Repair, scoring or Forecast, validate the fields that can change the decision:
+
+- negation / exception wording;
+- numeric threshold / dose / timing / classification;
+- answer key;
+- option order / identity;
+- table row-column relation;
+- image / figure / caption;
+- medical causal relation;
+- exam year / cycle identity;
+- law / guideline / current-year version.
+
+Unverifiable high-impact content is:
+
+    UNKNOWN / BLOCKED
+
+not “probably correct”.
+
+## Evidence identity
+
+Freshness is semantic, not filename-based.
+
+The same or near-derivative content shown in another:
+
+- file;
+- page;
+- tab;
+- device;
+- generated wrapper
+
+does not become fresh evidence.
+
+When material semantics change, prior evidence must be explicitly classified:
+
+    PRESERVE
+    MIGRATE
+    STALE
+    INVALID
+
+No silent carry-forward.
+
+## Transitive invalidation
+
+When a Future Source v2 replaces v1, review every downstream object that can still authorize a learner decision:
+
+- Teaching / Guide;
+- Drill / synthetic probe;
+- Explanation / decision axis;
+- Memory / Precision;
+- Repair;
+- evidence interpretation;
+- plan / Resume;
+- Forecast;
+- score band;
+- readiness / Secure claim.
+
+Historical observations may remain as history, but may not continue authorizing Current decisions under an invalidated semantic revision.
+
+---
+
+# 22｜Open-case / model-scoring validity boundary
+
+Historical Current 306 score evidence is objective-question based; the exact 2027 exam geometry remains a current-year Source question.
+
+Therefore open-ended case reasoning is a **training / transfer modality**, not automatic formal score evidence.
+
+If model-scored open case work is used:
+
+- the task must have a named rubric owner;
+- descriptors / exemplars must be anchored to the medical decision being tested;
+- systematic scoring bias must be attacked;
+- independent second review is used when disagreement could change a learner decision;
+- scoring uncertainty remains visible;
+- model-model agreement never proves rubric validity;
+- uncalibrated open-case scores do not narrow the formal 270/275 score Forecast.
+
+---
+
+# 23｜Minimum evidence floor is not a task quota
+
+A capability may define a minimum evidence floor before Secure/Stabilize is allowed.
+
+The floor exists only to prevent false confidence from tiny samples.
+
+Hard rules:
+
+- meeting the floor does not force Secure when the pattern is still unstable;
+- exceeding the floor does not require finishing a prewritten quota after the capability is already stable;
+- a plan saying “20 items” is not authority to keep spending time after marginal information collapses;
+- a low-volume but high-information fresh failure may reopen Verify / Build;
+- evidence floors may differ across X1–X9 and do not need one universal number.
+
+The right question is:
+
+> **Do we now have enough representative evidence to make the next decision safely?**
+
+---
+
+# 24｜Elastic / ROI control
+
+After a capability becomes Secure/Stabilize, further work is optional upside unless newer evidence reopens it.
+
+For each possible extra hour, consider:
+
+- expected score gain;
+- variance reduction;
+- speed / execution gain;
+- transfer value;
+- latency required before the benefit can mature;
+- latest useful date;
+- freshness / scarce-material consumption;
+- marginal diminishing return;
+- cross-subject opportunity cost.
+
+Xizong may expose its own marginal value and urgency.
+
+It may **not** unilaterally steal time from English / Politics; cross-subject allocation remains upstream Chat-owned.
+
+Short-term ROI must not starve a key capability whose benefit requires longer formation latency.
+
+---
+
+# 25｜Causal Repair decision model
+
+Wrong / Uncertain is an observation, not a diagnosis.
+
+Before Repair, classify or discriminate among plausible causes such as:
+
+- missing / wrong medical model;
+- retrieval failure;
+- Precision / threshold / exception instability;
+- option-boundary confusion;
+- question-form / task-form misunderstanding;
+- language / reading failure where relevant;
+- case / cross-System transfer failure;
+- fatigue / timing / switching;
+- familiar-item contamination;
+- execution / transport defect.
+
+If different causes would produce materially different Repair:
+
+> **perform the smallest discriminating check first.**
+
+Repair then targets the smallest causal cluster.
+
+Same-item correction is interaction evidence only.
+
+Closure requires stronger evidence when material:
+
+    changed-context
+    and/or delayed retrieval
+    and/or representative official re-application
+
+Multiple wrong items with one root cause should collapse into one Repair cluster rather than one-repair-per-item.
+
+---
+
+# 26｜Future Source lifecycle + fallback
+
+Every known late-arriving family has a slot before arrival.
+
+For each Future Source:
+
+    role / capability
+    → prior-year baseline
+    → exact Current owner
+    → source-fidelity validation
+    → delta extraction
+    → replacement / overlap
+    → derived-asset update
+    → learner use
+    → downstream invalidation
+    → Forecast reprice
+
+## Required fallback behavior
+
+### Source arrives late
+
+Continue on the stable baseline and preserve explicit future-delta uncertainty. Do not suspend ordinary learning unless the missing Source is truly gating.
+
+### Source arrives partially
+
+Bind only the verified part. The remainder stays UNKNOWN/BLOCKED; never infer the missing half.
+
+### Source gets a second version
+
+Treat v2 as a semantic revision. Run the transitive invalidation rules above; do not simply overwrite v1 and keep old evidence green.
+
+### Source never arrives
+
+Use the best accepted prior/current baseline for the capability, preserve the missing-current-year uncertainty, and stop waiting once the last useful assimilation window has passed.
+
+### Source is lower value than expected
+
+Do not admit it just because it exists. Compare net-new learning value against replacement / overlap and remaining capacity.
+
+Workload remains:
+
+    gross
+    - replacement
+    - true overlap
+    = net-new effective work
+
+---
+
+# 27｜Learner attention + Day-1 execution proof
+
+Backend complexity is allowed. Kian's foreground should normally expose only:
+
+- what to do now;
+- why, only when the reason matters;
+- meaningful change;
+- whether Kian must decide or override.
+
+Kian should not maintain:
+
+- mastery tables;
+- Source inventory;
+- Repair ledgers;
+- Forecast parameters;
+- manual review calendar;
+- progress spreadsheet.
+
+## Day-1 chain
+
+Current accepted integration evidence already proves the execution primitives needed for:
+
+    Home / Chat-selected action
+    → exact task
+    → normal completion / interruption / Wrong / Uncertain
+    → evidence return
+    → typed Chat Return
+    → exact Resume / bounded Repair
+    → replay-safe continuation
+    → durable private checkpoint
+
+Current acceptance also proves stale / invented identity rejection, idempotent identical replay, conflict fail-closed, browser-reset recovery and failed-read no-replacement safety.
+
+This is **SYSTEM_LOGIC evidence only**.
+
+Actual Day-1 learner friction / throughput / comprehension remains Real Learner U.
+
+The known B1 two-original-PNG upstream Source limitation remains bounded and does not justify reopening the whole execution stack.
+
+---
+
+# 28｜Full-lifecycle simulation + adversarial report
+
+The mature-control model must degrade safely under whole-cycle disturbance.
+
+| Scenario | Required safe behavior | Current proof class |
+| --- | --- | --- |
+| normal first day / week | one valid action, evidence return, Resume | existing integration acceptance; Real U pending |
+| much faster than expected | Forecast recalibrates; stable work compresses | Forecast logic + Dynamic Control |
+| 30% slower / only 30% normal capacity | reduce elastic / low-ROI work first; do not delete protected learning | Forecast capacity scenario |
+| 3 bad days / bad week | capacity map shifts dates/ranges; no fake debt explosion | Forecast bad-week scenario |
+| W/U rises to 30%+ | reprice System-specific Repair; do not inherit fast System rates | Forecast adversarial suite |
+| Repair clusters compress differently by System | leave unobserved compression unpriced | Forecast adversarial suite |
+| Repair timer is mixed/contaminated | do not price it as causal Repair time | Forecast adversarial suite |
+| Memory / Precision queue spikes | prioritize score-relevant due weakness; avoid turning all cards into debt | Dynamic-control rule; Real U calibrates |
+| relapse after stability | bounded REOPEN on contradictory evidence | Dynamic-control reopen rule |
+| current-year Source late / partial / v2 / absent | apply Future Source fallback + invalidation | lifecycle rule above |
+| old Chat plan conflicts with newer learner evidence | newer learner evidence wins; stale plan rejected | existing typed Return / stale safety |
+| browser restart | private checkpoint restores exact durable state | existing integration acceptance |
+| checkpoint unreadable | fail closed; do not overwrite unknown durable state | existing integration acceptance |
+| Timer missing | workload component becomes unpriced / broader, not guessed | Forecast fail-closed |
+| evidence partially missing | UNKNOWN / lower confidence; do not manufacture Secure | maturity + Forecast fail-closed |
+| stable module keeps getting heavy work | classify as false-unstable candidate; require new contradiction to reopen | Dynamic Control |
+| Chat announces Secure too early | subject-native invariants below veto the claim | second-line guard |
+| high whole-paper score but case evidence missing | whole-paper cannot manufacture X8 closure | Forecast adversarial suite |
+| exposed / familiar paper scores high | preserve observed score, withhold strong extrapolation | Forecast contamination split |
+| current-year geometry changes | rebind score geometry and reprice envelope | Future Source delta |
+| physical execution costs more than browser | downgrade X9 certainty until authentic-modality calibration | modality rule below |
+
+The purpose of this report is not “all tests green”. It names failure surfaces that would change a decision.
+
+---
+
+# 29｜False Secure / False Unstable control
+
+Every consequential capability-state decision must state:
+
+- supporting evidence;
+- remaining UNKNOWN;
+- what would reverse the judgment;
+- reopen trigger;
+- why more or less work is justified.
+
+## False Secure attack
+
+Reject Secure/Stabilize when:
+
+- evidence is same-item / immediate only;
+- representative scope is missing;
+- freshness is false or unknown where it matters;
+- delayed stability is required but absent;
+- case / cross-System evidence is required but inferred from whole-paper score;
+- current-year Source change could invalidate the tested semantics.
+
+## False Unstable attack
+
+Reject continued heavy Build/Verify when:
+
+- representative evidence is stable;
+- same-root errors have stopped recurring;
+- delayed retrieval holds;
+- new repetitions provide little actionable information;
+- the only reason to continue is a prewritten quota / calendar / engineering-completion symmetry.
+
+Stable capability must become cheaper.
+
+---
+
+# 30｜Second-line subject-native safety guard
+
+Chat remains strategy owner, but Xizong requires a small set of fail-closed invariants that may veto unsafe claims/actions.
+
+These invariants do **not** choose the next task.
+
+They reject or return the decision to Chat when:
+
+1. Secure/Stabilize is claimed without the required evidence class;
+2. heavy Build is reopened without newer contradictory evidence or a real Source revision;
+3. stale / exposed / near-derivative material is presented as fresh evidence;
+4. prior-year / superseded Source is being promoted into Current exact recall;
+5. a stale plan attempts to override newer learner evidence;
+6. a plan / checkpoint claims more known work than current usable capacity can support without explicitly marking spillover / uncertainty;
+7. a required UNKNOWN is silently converted into zero risk;
+8. Forecast attempts to advance subject Stage or choose System priority;
+9. incomplete current scope is converted into a whole-scope completion claim.
+
+On conflict:
+
+> **fail closed → return to Chat for re-decision.**
+
+Website / runtime may enforce the safety boundary. It may not create a replacement strategy.
+
+---
+
+# 31｜Fresh Chat attack
+
+A new Chat with no prior conversational reasoning should need only:
+
+    content/xizong/CURRENT.md
+    → MATURITY_PACKAGE.md when subject-control judgment is needed
+    → exact current learner / Daily / Resume evidence
+    → exact content owner only when the selected action requires it
+
+It must be able to recover:
+
+- 270 protect / 275 working target semantics;
+- X1–X9 capability meaning;
+- current Stage B cursor;
+- Content / Forecast / engineering-lane boundaries;
+- Future Source uncertainty;
+- current learner UNKNOWN rather than fabricated mastery;
+- the next evidence-justified action.
+
+If a future worker must know “what the old Chat was thinking”, this package has failed.
+
+---
+
+# 32｜No-Website attack
+
+With Website unavailable, the following must remain correct:
+
+- Source / medical ownership;
+- learning-method meaning;
+- evidence meaning;
+- Repair causality;
+- freshness / contamination semantics;
+- Dynamic Control rules;
+- Forecast meaning;
+- Future Source handling;
+- Stage / capability judgment.
+
+Website is an execution transport and evidence capture surface, not the hidden strategy brain.
+
+If Website failure prevents a convenient action, Chat may choose another valid execution path; it may not redefine medical or evidence truth to fit the UI.
+
+---
+
+# 33｜Authentic modality boundary
+
+Browser performance is not automatically exam performance.
+
+Where the real exam imposes meaningful:
+
+- paper reading;
+- page turning;
+- answer-sheet transfer;
+- sustained sitting;
+- whole-paper fatigue;
+- handwriting or other physical output where applicable,
+
+formal X9 evidence must include or calibrate that cost.
+
+The exact 2027 modality / geometry remains a Current-year fact to bind from authoritative Source.
+
+Until authentic-modality calibration exists:
+
+- browser whole-paper evidence remains useful;
+- browser timing must not be assumed identical to physical execution timing;
+- Stage-D certainty must retain this modality uncertainty when it could change the 270/275 judgment.
+
+---
+
+# 34｜Real Learner U split
+
+Keep two statuses permanently separate.
+
+## SYSTEM_LOGIC_ACCEPTED
+
+Means:
+
+- score/capability/material/method/evidence logic is coherent;
+- fail-closed invariants and Future Source handling exist;
+- Forecast logic has survived the named structural attacks;
+- accepted execution transport can carry selected actions and return evidence;
+- remaining system uncertainty is named.
+
+It does **not** mean Kian knows the content or will score 275.
+
+## KIAN_SPECIFIC_CALIBRATED
+
+Requires real Kian evidence for:
+
+- throughput by relevant task type;
+- System-specific W/U;
+- Repair compression / time;
+- retention / relapse;
+- transfer;
+- friction;
+- whole-paper execution / variance;
+- authentic-modality cost where material.
+
+No CI, browser journey or synthetic probe can manufacture this status.
+
+Current state:
+
+    SYSTEM_LOGIC_ACCEPTED = CANDIDATE_PENDING_MOTHER_STANDARD_RECONCILIATION
+    KIAN_SPECIFIC_CALIBRATED = NO / REAL-U REQUIRED
+
+---
+
+# 35｜Final practical Maturity Package checklist
+
+The single practical package must answer all of these without making Kian maintain the backend.
+
+## A. Score → Ability → Material → Method → Evidence Matrix
+
+**Present** in Sections 1–6 plus Stage B–D capability closure.
+
+## B. Full Material Inventory
+
+**Present** in Sections 3–4 and 20, including existing / missing / synthetic / prior-year / future / blocked / optional roles.
+
+## C. Dynamic Control Rules
+
+**Present** in Sections 14, 23–25 and 29–30.
+
+## D. Forecast
+
+**Present** through the Current Forecast kernel + Sections 15 / Forecast status:
+capacity range, sensitivity, flip surfaces, checkpoint work buckets and next high-value evidence; Kian-specific precision waits for Real U.
+
+## E. Adversarial Report
+
+**Present** in Section 28; it records all-green failure surfaces rather than equating green CI with truth.
+
+## F. Chat ↔ Website Proof
+
+**Present** through existing integration Acceptance + Sections 16 / 27 / 30.
+
+## G. Future Source Readiness
+
+**Present** in Sections 4 / 20 / 21 / 26.
+
+## H. Real Learner U State
+
+**Present** in Section 34.
+
+## I. Remaining Unknowns
+
+Only the following are legitimate at system-logic closure:
+
+- unreleased / unrecovered authoritative 2027 Sources;
+- bounded upstream Source bytes such as the two B1 PNGs;
+- Real Learner U;
+- authentic-modality calibration not yet observed;
+- low-value unknowns that do not change the next learner decision.
+
+If a different UNKNOWN would change a current learning decision, the package is not closed.
+
+---
+
+# 36｜Mother-standard stop rule
+
+Stop adding architecture when:
+
+- all score-relevant domains have owners;
+- all X1–X9 capabilities have formation / evidence paths;
+- current high-value material is ready or explicitly blocked;
+- Source fidelity / revision semantics are fail-closed;
+- Dynamic Control can reduce and reopen work safely;
+- Forecast exposes uncertainty instead of inventing precision;
+- Future Source has baseline / delta / fallback / invalidation;
+- Day-1 and lifecycle execution can degrade safely;
+- False Secure and False Unstable are both attacked;
+- Fresh Chat can recover without old reasoning;
+- Website is not the semantic brain;
+- remaining uncertainty is Future Source or Real Learner U.
+
+Then:
+
+> **stop system construction and learn.**
+
+Real learning then continuously recalibrates the model rather than reopening architecture by default.
