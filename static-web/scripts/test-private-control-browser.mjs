@@ -73,6 +73,7 @@ const command={
       schema:'kianos.exam.chat-plan.v1',
       study_day:day,
       generated_at:day+'T00:12:00+08:00',
+      learner_evidence_basis:buildExamChatPlanBasis(new MemoryStorage(),day),
       subjects:{
         xizong:null,
         english:{target_minutes:30,role:'稳推进',note:'自动下发。',session_ref:sessionId},
