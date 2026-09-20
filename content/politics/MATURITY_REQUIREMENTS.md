@@ -302,3 +302,16 @@ Removing Website must not break:
 A mature Politics system must be able to answer:
 
 > What currently threatens Protect-70, what is merely Push-75 upside, what exact capability is weak, what material/method trains it, what evidence would prove improvement, how much capacity is likely required, and can tomorrow’s learner action be executed with near-zero manual system maintenance?
+
+## 14. Execution routing
+
+This file remains the acceptance bar.
+
+The ability-gated implementation sequence lives in:
+
+- `MATURITY_STAGE_PLAN.md`;
+- `MATURITY_T1_OBJECTIVE_RECONCILIATION.md`;
+- `MATURITY_T2_FORECAST_MODEL.md`;
+- `MATURITY_T3_ANALYSIS_ENGINEERING_INTERFACE.md`.
+
+Execution artifacts may evolve as Current evidence changes. They may not weaken or silently rewrite this acceptance bar.
