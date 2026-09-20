@@ -23,12 +23,20 @@ Read:
 3. `static-web/CURRENT.md`
 4. `content/english/CURRENT.md`
 5. active English highest-maturity branch / PR
-6. `content/english/MATURITY_PACKAGE.md`
+6. `content/english/MATURITY_PACKAGE.md` — **for the novel pass, read only current system sections #1–#14 and stop before historical closure sections #14A+**
 7. `content/english/ENGLISH_HIGHEST_MATURITY_STANDARD.md`
 
 Confirm candidate head before auditing.
 
 Do not inherit old Chat statements about what is already mature.
+
+Before the novel all-green pass, do not read:
+
+- `MATURITY_PACKAGE.md` historical sections #14A+;
+- `ENGLISH_HIGHEST_MATURITY_FRESH_AUDIT.md`;
+- exact old repair diffs / validators unless needed later to test a current claim.
+
+Those become available only after the first independent pass is complete.
 
 ---
 
