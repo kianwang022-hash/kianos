@@ -106,6 +106,194 @@ The kernel is a composition aid, not a compulsory learner checklist.
 
 ---
 
+## 2.5｜Score-to-capability Forecast loop
+
+English Forecast must close the entire causal chain. It is not a material-count or calendar-count model.
+
+```text
+score target
+→ section loss budget
+→ required task capabilities
+→ current evidence
+→ smallest justified learning / lexical / repair intervention
+→ practice on appropriate material
+→ fresh / changed-context transfer
+→ timed / whole-paper calibration
+→ score band + uncertainty
+→ remaining workload P20 / P50 / P80
+→ adversarial stress test
+→ re-estimate
+```
+
+### Score requirement
+
+- total exam target: **85+**;
+- Objective capability target: **60 / 60**;
+- Productive 40 remains independently necessary both for the 85+ total and as downside buffer when real-exam Objective variance creates occasional loss.
+
+Do not force an arbitrary fixed Translation/Writing split before real first-output evidence exists. Use current Productive evidence to identify where points are cheapest to protect or gain.
+
+### Required capability groups
+
+**Reading A 40**
+- lexical access + proposition representation;
+- exact question demand;
+- decisive evidence and evidence boundary;
+- option proposition / scope / modality / relation / attribution control;
+- real-competitor adjudication;
+- timed execution / stop rule.
+
+**Cloze 10**
+- lexical / construction access;
+- slot demand;
+- constraint stack;
+- near-synonym / candidate competition;
+- local-to-global discourse fit;
+- timed passage execution.
+
+**Part B 10**
+- discourse skeleton;
+- target / position role;
+- candidate role, cohesion and reference;
+- global reconciliation;
+- form-specific execution;
+- timed completion.
+
+**Translation 10**
+- English representation;
+- fidelity / meaning preservation;
+- natural Chinese reconstruction;
+- high-risk ambiguity control;
+- timed delivery.
+
+**Writing 30**
+- task / genre fulfillment;
+- content generation;
+- organization / development;
+- English realization;
+- register + high-value error control;
+- timed delivery;
+- Small / Big specialization without template takeover.
+
+**Cross-cutting Lexical**
+- exact sense / phrase / construction / collocation / confusable access;
+- recognition and production remain distinct;
+- delayed retention and natural task transfer matter more than raw first-pass speed.
+
+**Whole paper**
+- 180-minute pacing;
+- task order / switching;
+- fatigue;
+- completion / answer-delivery risk;
+- section variance.
+
+### Material roles
+
+Material must be counted by learning role, not by file count.
+
+```text
+Guide / First Learning
+→ teaching / repair reservoir
+
+Deep / reference material
+→ pulled only by a concrete high-value failure
+
+official English-I material
+→ best task geometry and score calibration
+→ score/speed may be contaminated by prior exposure
+
+Chat-generated / synthetic
+→ cheap fresh changed-context transfer
+→ never automatically true-paper-equivalent
+
+TPO / IELTS / authentic External Reading
+→ unfamiliar text, lexical access, discourse, speed and stamina
+→ not English-I section-score evidence by itself
+
+Lexical
+→ exact causal support
+→ not a substitute for task performance
+
+180-minute whole paper
+→ execution / objective score evidence
+→ Productive output requires Chat/human review
+```
+
+### Material sufficiency test
+
+For every score channel ask separately:
+
+1. Is the capability model teachable from Current Guide / Lexical owners?
+2. Is there enough task-native practice?
+3. Is there enough low-contamination / fresh validation?
+4. Can the runtime preserve first evidence, timing, assistance and exposure?
+5. Can the result support a score or transfer judgment without pretending generated/external material is official?
+6. If a gap exists, what is the smallest material/runtime addition that closes it?
+
+A large old official bank does **not** prove fresh-calibration sufficiency when the learner has prior repeated exposure.
+
+### Forecast evidence hierarchy
+
+```text
+historical self-report / prior score
+< contaminated familiar task
+< clean task with uncertain exposure
+< explicit-unseen + unassisted task evidence
+< fresh changed-context success on the same demand
+< repeated clean task-native success under time
+< least-contaminated whole-paper / complete equivalent evidence
+```
+
+Historical evidence is a prior, not Current mastery. It may change which hypotheses are tested first, but Current learner evidence must be allowed to confirm or overturn it.
+
+### Guide efficacy loop
+
+```text
+clean failure
+→ earliest meaningful capability failure
+→ smallest Guide / Lexical / example intervention
+→ learner re-execution
+→ fresh / changed-context probe
+→ stable success: Guide cost goes back toward zero
+→ repeated failure: attack diagnosis, Guide quality, example quality and probe quality
+```
+
+Repeated post-intervention failure is not automatically evidence that the learner needs more repetition.
+
+### Forecast output
+
+Only after the layers above are grounded may Chat estimate:
+
+- current section bands;
+- Objective stability toward 60/60;
+- Productive score band / review uncertainty;
+- remaining teaching + practice + repair + fresh-validation + whole-paper workload;
+- empirical task-local time P20 / P50 / P80 where enough clean samples exist;
+- overall completion / Gate P20 / P50 / P80;
+- binding uncertainty and the next evidence that would most reduce it.
+
+### Required self-attack
+
+Before calling the English Forecast mature, attack at least:
+
+- official-paper score inflation from prior exposure / memory;
+- learner-reported high reading baseline being stale;
+- fast lexical acquisition with poor delayed retention;
+- Lexical improvement failing to reduce English task loss;
+- generated drill being fresh but unlike English-I;
+- Cloze / Part B lacking task-native fresh validation;
+- Guide comprehension without transfer;
+- Translation / Writing taking roughly twice the expected time;
+- Productive score uncertainty masking an 85+ shortfall;
+- Objective remaining near 55 despite Lexical recovery;
+- 1h / 1.5h / 2h daily English capacity;
+- whole-paper fatigue or switching causing section regression;
+- External Reading adding workload without measurable transfer.
+
+If any attack changes the recommended workload materially, widen the Forecast interval and collect the missing evidence instead of hiding the uncertainty.
+
+---
+
 ## 3｜Shared Representation primitive
 
 English has one genuine cross-task primitive:
