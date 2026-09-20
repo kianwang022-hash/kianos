@@ -114,48 +114,51 @@ Current-year exam geometry and humanities-scope deltas remain explicit upstream-
 
 Stage A is closed because current executable scope/material gaps are closed or explicitly Future-Source blocked. Do not reopen it merely because learner evidence is still UNKNOWN; that belongs to Stage B/Stage E.
 
-## Stage B operating rule — Real-U led where executable, engineering only at the earliest missing gate
+## Stage B operating rule — capability-first, Real-U-led
 
-Stage B is not another repository-completion program.
+Stage B is the **275 capability mainline**, not an S/K/L/P/R/E completion program.
 
-Current engineering availability:
-
-```text
-A1 / A2 / A3  = learner-executable through accepted P/R/E
-B              = S/K/L/P/R/E PASS on main via PR #643
-C              = S/K/L accepted; P is the earliest missing gate
-D / E / F      = do not skip their scoped downstream gates; re-read each Current before work
-```
-
-Therefore the mainline is intentionally split:
+Primary control loop:
 
 ```text
-already-executable System
-→ real first-pass study
-→ X1–X4 formation evidence + X6 official-question evidence
-→ smallest diagnosis / Repair
-→ Stage E recalibration
-
-not-yet-executable System
-→ exact earliest unresolved engineering gate only
-→ targeted proof
-→ stop once learner execution is unlocked
+275 working path / 270 protect floor
+→ identify the currently relevant X1–X9 capability question
+→ use real learner evidence when available
+→ choose the smallest valid learning action
+→ collect evidence
+→ repair only the binding defect
+→ recalibrate / make stable work cheaper
 ```
 
-Current exact engineering cursor:
+The pre-existing S/K/L/P/R/E chain remains a **supporting engineering readiness lane only**.
 
-> **C — Projection (P)**
+It may answer:
 
-B is closed on the engineering side through E. Its only remaining gate is **U — real Kian learner use**; do not reopen B for additional synthetic acceptance.
+> “Can the currently chosen learner action be executed safely with the accepted Source / Knowledge / Learning / Projection / Runtime / Evidence stack?”
 
-Rules:
+It may **not** answer:
 
-- missing Real Learner U remains `UNKNOWN`; it is not permission to create more synthetic maturity machinery;
-- a System/Block becomes heavier again only when newer learner evidence exposes a real capability failure;
+> “Which System should Kian study next?”  
+> “Which engineering gate should the maturity program build next?”  
+> “What is the current 275 bottleneck?”
+
+Therefore:
+
+- do **not** walk C → D → E → F merely because a later P/R/E gate is untested;
+- do **not** promote an “earliest missing engineering gate” into the Stage-B maturity cursor;
+- an engineering gate opens only when a **currently justified learner action** is blocked by that exact missing capability;
+- when that happens, route to the exact System owner, fix the smallest responsible gate, prove the blocked learner action, then return control to the capability/Real-U loop;
+- already executable Systems may be studied immediately; missing Real U stays `UNKNOWN`;
 - accepted Website / Home / learner-state architecture stays frozen under Gate 5;
-- shared Runtime may reopen only for a concrete learner-visible defect exposed after the System's P gate;
-- Xizong may expose workload, binding capability and risk, but cross-subject capacity allocation remains upstream Chat-owned;
-- when a System's remaining uncertainty is only Real Learner U or Future Source, **stop building and use/wait**.
+- Xizong may expose capability risk / workload / evidence gaps, but cross-subject allocation remains upstream Chat-owned;
+- when the material uncertainty is Real Learner U or Future Source, **study / wait**, do not manufacture another engineering project.
+
+Current maturity cursor:
+
+> **Stage B learner-capability closure / Real-U acquisition.**
+
+There is **no default System-level engineering cursor** inside the maturity mainline.
+
 
 ---
 
