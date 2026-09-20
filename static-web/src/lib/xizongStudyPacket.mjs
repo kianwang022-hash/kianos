@@ -217,6 +217,10 @@ function summarizeXizongForecastPractice(storage, {
         attempted: 0,
         eligible_attempted: 0,
         current_scope_eligible_attempted: 0,
+        current_scope_unique_attempted: 0,
+        current_scope_stable: 0,
+        current_scope_uncertain: 0,
+        current_scope_wrong: 0,
         stable: 0,
         uncertain: 0,
         wrong: 0
@@ -263,6 +267,10 @@ function summarizeXizongForecastPractice(storage, {
         attempted: 0,
         eligible_attempted: 0,
         current_scope_eligible_attempted: 0,
+        current_scope_unique_attempted: 0,
+        current_scope_stable: 0,
+        current_scope_uncertain: 0,
+        current_scope_wrong: 0,
         stable: 0,
         uncertain: 0,
         wrong: 0
@@ -278,6 +286,15 @@ function summarizeXizongForecastPractice(storage, {
   for (const event of currentScopeFirstAttempt.values()) {
     const status = String(event?.status || '');
     if (Object.hasOwn(currentScopeCounts, status)) currentScopeCounts[status] += 1;
+    const eventSystemId = String(event?.system_id || '');
+    const currentScope = currentScopeBySystem.get(eventSystemId);
+    const canonicalId = String(currentScope?.canonical_id || event?.canonical_id || eventSystemId || 'UNKNOWN');
+    const row = bySystem.get(canonicalId);
+    if (!row) continue;
+    row.current_scope_unique_attempted += 1;
+    if (status === 'stable') row.current_scope_stable += 1;
+    else if (status === 'uncertain') row.current_scope_uncertain += 1;
+    else if (status === 'wrong') row.current_scope_wrong += 1;
   }
   const currentScopeWrongUncertain = currentScopeCounts.wrong + currentScopeCounts.uncertain;
   const unresolvedWrongUncertain = [...firstPass.entries()]
