@@ -831,6 +831,9 @@ function reconcileForecastQuestionScope(questionScope, practiceEvidence, holdout
   const practiceBySystem = new Map(
     (practiceEvidence?.first_pass?.by_system || []).map((row) => [String(row?.canonical_id || ''), row])
   );
+  const practiceByDomain = new Map(
+    (practiceEvidence?.first_pass?.by_domain || []).map((row) => [String(row?.canonical_id || row?.domain_id || ''), row])
+  );
   const systems = (questionScope.systems || []).map((row) => {
     if (row?.status !== 'EXACT') {
       return {
@@ -860,10 +863,42 @@ function reconcileForecastQuestionScope(questionScope, practiceEvidence, holdout
       remaining_questions: Math.max(0, eligible - attempted)
     };
   });
-  const knownEligible = systems
+  const nonSystemDomains = (questionScope.non_system_domains || []).map((row) => {
+    if (row?.status !== 'EXACT') {
+      return {
+        domain_id: String(row?.domain_id || ''),
+        canonical_id: String(row?.canonical_id || row?.domain_id || ''),
+        owner_kind: 'NON_SYSTEM_EXAM_DOMAIN',
+        status: 'UNKNOWN',
+        eligible_questions: null,
+        attempted_questions: null,
+        remaining_questions: null,
+        reason: String(row?.reason || 'EXACT_SCOPE_UNAVAILABLE')
+      };
+    }
+    const heldout = Object.entries(row?.year_counts || {})
+      .filter(([year]) => holdout.has(Number(year)))
+      .reduce((sum, [, count]) => sum + Number(count || 0), 0);
+    const eligible = Math.max(0, Number(row?.question_count || 0) - heldout);
+    const canonicalId = String(row?.canonical_id || row?.domain_id || '');
+    const practice = practiceByDomain.get(canonicalId);
+    const attempted = Math.min(eligible, Math.max(0, Number(practice?.current_scope_eligible_attempted || 0)));
+    return {
+      domain_id: String(row?.domain_id || ''),
+      canonical_id: canonicalId,
+      owner_kind: 'NON_SYSTEM_EXAM_DOMAIN',
+      status: 'EXACT',
+      exact_questions: Number(row?.question_count || 0),
+      heldout_questions: heldout,
+      eligible_questions: eligible,
+      attempted_questions: attempted,
+      remaining_questions: Math.max(0, eligible - attempted)
+    };
+  });
+  const knownEligible = [...systems, ...nonSystemDomains]
     .filter((row) => row.status === 'EXACT')
     .reduce((sum, row) => sum + Number(row.eligible_questions || 0), 0);
-  const knownRemainingBySystem = systems
+  const knownRemainingByOwner = [...systems, ...nonSystemDomains]
     .filter((row) => row.status === 'EXACT')
     .reduce((sum, row) => sum + Number(row.remaining_questions || 0), 0);
   const duplicateMemberships = Number(questionScope.cross_system_duplicate_memberships || 0);
@@ -878,14 +913,17 @@ function reconcileForecastQuestionScope(questionScope, practiceEvidence, holdout
     holdout_years: [...holdout].sort((a, b) => a - b),
     exact_union_questions: Number(questionScope.exact_union_questions || 0),
     exact_union_eligible_questions: unionEligible,
-    summed_system_eligible_questions: knownEligible,
+    summed_owner_eligible_questions: knownEligible,
     cross_system_duplicate_memberships: duplicateMemberships,
-    known_remaining_questions: duplicateMemberships === 0 ? knownRemainingBySystem : null,
+    cross_owner_duplicate_memberships: duplicateMemberships,
+    known_remaining_questions: duplicateMemberships === 0 ? knownRemainingByOwner : null,
     known_remaining_is_lower_bound: !questionScope.scope_complete,
     unknown_systems: [...(questionScope.unknown_systems || [])],
+    unknown_domains: [...(questionScope.unknown_domains || [])],
     systems,
+    non_system_domains: nonSystemDomains,
     evidence_boundary:
-      'Known remaining questions are exact only when System scopes are exact and duplicate membership is zero. UNKNOWN systems remain unpriced and make the known total a lower bound.'
+      'Known remaining questions are exact only when A1-F System scopes plus independent exam-domain scopes are exact and cross-owner duplicate membership is zero. UNKNOWN owners remain unpriced and make the known total a lower bound.'
   };
 }
 
