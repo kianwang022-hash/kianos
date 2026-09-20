@@ -18,7 +18,7 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
   data-title={task.title}
   data-base={base}
 >
-  <script type="application/json" data-english-task-snapshot set:html={JSON.stringify({task:task.learnerTask,kind:task.kind,targetWords:task.targetWords}).replace(/</g, "\\u003c")}></script>
+  <script type="application/json" data-english-task-snapshot set:html={JSON.stringify({evidence:{source_kind:task.sourceKind||'official',evidence_role:task.evidenceRole||null},task:task.learnerTask,kind:task.kind,targetWords:task.targetWords}).replace(/</g, "\\u003c")}></script>
   <header class="writingRuntimeHeader">
     <a href={`${base}writing/`}>‹ Writing</a>
     <div>
