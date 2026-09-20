@@ -35,6 +35,11 @@ import {
   POLITICS_MEMORY_EVIDENCE_KEY
 } from '../src/lib/politicsMemoryRuntime.mjs';
 import {
+  appendEvidenceEvent,
+  emptyLexicalLedger,
+  LEXICAL_LEDGER_STORAGE_KEY
+} from '../src/lib/lexicalEvidence.mjs';
+import {
   buildDailyLearningPacketFromPrivateCheckpoint
 } from './privateDailyLearningPacket.mjs';
 
@@ -146,6 +151,25 @@ const englishSession={
   return_policy:{on_finish:'english_home'}
 };
 
+let lexicalLedger=emptyLexicalLedger();
+lexicalLedger=appendEvidenceEvent(lexicalLedger,{
+  event_id:'private-english-lexical-transfer-1',
+  word_id:'word:allocate',
+  ordinal:101,
+  word:'allocate',
+  target_kind:'sense',
+  target_id:'sense:allocate:1',
+  source:'reading',
+  outcome:'CORRECT',
+  attribution:'lexical',
+  demand:'recognition',
+  assistance:'unassisted',
+  context_novelty:'unseen',
+  delayed:true,
+  context_id:'reading:private-fresh-context',
+  observed_at:'2026-09-18T02:00:00.000Z'
+}).ledger;
+
 const storage=new MemoryStorage({
   [EXAM_PROFILE_KEY]:JSON.stringify(profile),
   [EXAM_CHAT_PLAN_KEY]:JSON.stringify(chatPlan),
@@ -178,6 +202,7 @@ const storage=new MemoryStorage({
     href:'/reading/reading-current-001/',
     updatedAt:'2026-09-19T17:15:00.000Z'
   }),
+  [LEXICAL_LEDGER_STORAGE_KEY]:JSON.stringify(lexicalLedger),
 
   'kianos-politics-last-location-v1':JSON.stringify({
     href:'/politics/'+pChapter.subject+'/'+pChapter.code+'/',
@@ -258,6 +283,10 @@ assert.equal(enForecast.status,'active');
 assert.equal(enForecast.remaining_steps,1);
 assert.equal(enForecast.remaining_by_task.reading_a,1);
 assert.match(enForecast.evidence_boundary,/exam\.subject-demand\.v1/);
+assert.equal(packet.subjects.english.evidence.lexical.status,'ready',
+  'private Daily Packet must restore Lexical only as an English evidence dependency');
+assert.equal(packet.subjects.english.evidence.lexical.qualified_delayed_success_count,1);
+assert.equal(packet.subjects.english.evidence.lexical.clean_english_transfer_success_count,1);
 
 assert.equal(packet.subjects.politics.evidence.schema,'kianos.politics.study_packet.v1');
 assert.equal(packet.subjects.politics.evidence.resume.title,pChapter.title);
@@ -291,7 +320,9 @@ assert.equal(isolated.packet.subjects.english.evidence.schema,'kianos.english.ev
 assert.equal(isolated.packet.subjects.politics.evidence,null,
   'bad Politics checkpoint must degrade Politics to unknown without blocking other subjects');
 assert.ok(isolated.warnings.some(row=>row.startsWith('checkpoint:politics:')));
-assert.ok(!isolated.warnings.some(row=>row.startsWith('checkpoint:lexical:')),
-  'Lexical is outside the exam packet and must not participate in reconstruction');
+assert.ok(isolated.warnings.some(row=>row.startsWith('checkpoint:lexical:')),
+  'corrupt Lexical evidence must fail closed without becoming a fourth exam subject');
+assert.equal(isolated.packet.subjects.english.evidence.lexical.status,'missing',
+  'failed Lexical restore must remain UNKNOWN to English rather than zero evidence');
 
 console.log('PASS private checkpoint -> one Daily Learning Packet: day-isolated time + subject-contained Resume/evidence');
