@@ -60,7 +60,12 @@ async function startServer(cwd = sourceWebRoot) {
   serverOutput = '';
   server = spawn('npm', ['run', 'dev', '--', '--host', '127.0.0.1', '--port', String(PORT)], {
     cwd,
-    env: { ...process.env, KIANOS_PRIVATE_DIR: privateDir },
+    env: {
+      ...process.env,
+      KIANOS_PRIVATE_DIR: privateDir,
+      KIANOS_CONTROL_ENABLED: '0',
+      KIANOS_CONTROL_DIR: path.join(privateDir, 'control')
+    },
     stdio: ['ignore', 'pipe', 'pipe'],
     detached: process.platform !== 'win32'
   });
