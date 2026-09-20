@@ -223,7 +223,7 @@ function baseProgress() {
   assert.ok(forecast.score_formation.unpriced_components.includes('FORMAL_SCORE_CALIBRATION'));
   assert.ok(forecast.risks.includes('FORMAL_SCORE_CALIBRATION_MISSING'));
   const readiness=buildXizongScoreEvidence(noPaper,{targetScore:275});
-  assert.equal(readiness.formal_score.status,'INSUFFICIENT_SCORE_EVIDENCE');
+  assert.equal(readiness.formal_score.status,'NOT_READY');
   assert.equal(readiness.evidence_readiness.result,'INSUFFICIENT_SCORE_EVIDENCE');
 }
 
@@ -598,7 +598,7 @@ function baseProgress() {
   allBlocksNoPaper.runtime_evidence.completed_block_ids=allBlocksNoPaper.canonical_scope.block_weights.map(row=>row.block_id);
   const readiness=buildXizongScoreEvidence(allBlocksNoPaper);
   assert.equal(readiness.capabilities.source_model.evidence_status,'FULL_RUNTIME_CLOSURE_OBSERVED');
-  assert.equal(readiness.formal_score.status,'INSUFFICIENT_SCORE_EVIDENCE');
+  assert.equal(readiness.formal_score.status,'NOT_READY');
   assert.equal(readiness.evidence_readiness.result,'INSUFFICIENT_SCORE_EVIDENCE');
 }
 
