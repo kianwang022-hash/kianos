@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Promote explicitly ACCEPTed parsed External Reading packages into Active Source.
 
-This tool applies an already-completed semantic source-quality review. It does not
-make the quality decision itself and never promotes HOLD/REJECT items.
+This tool applies an already-completed semantic source-quality review plus learner-routing decision.
+It does not make either decision itself. Source-quality ACCEPT is necessary but not sufficient:
+only ACCEPT + ADMIT_TO_READING may enter Active Source.
 """
 from __future__ import annotations
 
@@ -15,6 +16,8 @@ from pathlib import Path
 REVIEW_SCHEMA = "kian.external-source-quality-review-batch.v1"
 REGISTRY_SCHEMA = "kian.external.incremental-registry.v1"
 PARSED_META_SCHEMA = "kian.external-source-package-parsed.v1"
+PROMOTABLE_ROUTE = "ADMIT_TO_READING"
+NON_PROMOTABLE_ACCEPT_ROUTES = {"BACKEND_REFERENCE_ONLY", "DO_NOT_SURFACE"}
 
 ALLOWED_ACCEPT = {
     "authenticity": {"A_AUTHORITY_OR_ORIGINAL", "B_RELIABLE_SECONDARY"},
@@ -48,6 +51,19 @@ def ensure_accept_quality(source_id: str, review: dict) -> None:
         value = str(quality.get(key) or "").strip()
         if value not in allowed:
             raise SystemExit(f"{source_id}: ACCEPT quality invalid for {key}: {value!r}")
+
+
+def learner_route(source_id: str, review: dict) -> str:
+    learner_value = review.get("learner_value")
+    if not isinstance(learner_value, dict):
+        raise SystemExit(f"{source_id}: ACCEPT review learner_value object required")
+    route = str(learner_value.get("runtime_admission") or "").strip().upper()
+    allowed = {PROMOTABLE_ROUTE, *NON_PROMOTABLE_ACCEPT_ROUTES}
+    if route not in allowed:
+        raise SystemExit(
+            f"{source_id}: ACCEPT learner routing must be one of {sorted(allowed)}, got {route!r}"
+        )
+    return route
 
 
 def validate_optional_question_assets(package_dir: Path, source_id: str) -> tuple[Path | None, Path | None]:
@@ -143,6 +159,7 @@ def main() -> int:
     report_items: list[dict] = []
     promoted = 0
     skipped = 0
+    accepted_not_routed = 0
 
     for decision in decisions:
         if not isinstance(decision, dict):
@@ -158,6 +175,17 @@ def main() -> int:
             continue
 
         ensure_accept_quality(source_id, decision)
+        route = learner_route(source_id, decision)
+        if route != PROMOTABLE_ROUTE:
+            report_items.append({
+                "source_id": source_id,
+                "decision": "ACCEPT",
+                "learner_route": route,
+                "status": "ACCEPTED_SOURCE_NOT_PROMOTED",
+            })
+            skipped += 1
+            accepted_not_routed += 1
+            continue
 
         package_dir = parsed_root / source_id
         meta_path = package_dir / "meta.json"
@@ -231,6 +259,7 @@ def main() -> int:
         report_items.append({
             "source_id": source_id,
             "decision": "ACCEPT",
+            "learner_route": PROMOTABLE_ROUTE,
             "status": copy_status,
             "registry_status": "PRESENT",
             "article_sha256": expected_article_sha,
@@ -249,6 +278,7 @@ def main() -> int:
         "registry_path": str(registry_path),
         "promoted": promoted,
         "not_promoted": skipped,
+        "accepted_not_routed": accepted_not_routed,
         "items": report_items,
         "next_step": "RUN_INCREMENTAL_MANIFEST_BUILDER_THEN_REGISTER_PUBLIC_MANIFEST_SHA",
     }
