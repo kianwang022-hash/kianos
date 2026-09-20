@@ -9,7 +9,19 @@ import {
   validateEnglishGeneratedDrill
 } from './privateEnglishGeneratedDrillStore.mjs';
 
-const day='2026-09-20';
+const shanghaiDay=(date=new Date())=>{
+  const parts=new Intl.DateTimeFormat('en-CA',{
+    timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit'
+  }).formatToParts(date);
+  const value=Object.fromEntries(parts.map(part=>[part.type,part.value]));
+  return `${value.year}-${value.month}-${value.day}`;
+};
+const now=Date.now();
+const day=shanghaiDay(new Date(now));
+const generatedAt=new Date(now-60_000).toISOString();
+const sessionGeneratedAt=new Date(now-90_000).toISOString();
+const evidenceObservedAt=new Date(now-120_000).toISOString();
+const expiresAt=new Date(now+60*60*1000).toISOString();
 const temp=fs.mkdtempSync(path.join(os.tmpdir(),'kianos-control-browser-'));
 const controlDir=path.join(temp,'control');
 const generatedDir=path.join(temp,'generated');
@@ -21,7 +33,7 @@ const drill=validateEnglishGeneratedDrill({
   schema:ENGLISH_GENERATED_DRILL_SCHEMA,
   object_id:'external-chat-2026-09-20-relay-browser-001',
   study_day:day,
-  generated_at:'2026-09-20T00:10:00+08:00',
+  generated_at:sessionGeneratedAt,
   origin:'CHAT_GENERATED_SYNTHETIC',
   completion_requirement:'QUESTIONS_SUBMITTED',
   training_target:{kind:'reading_transfer',note:'Private relay browser proof.'},
@@ -38,15 +50,15 @@ const command={
   schema:'kianos.control-command.v1',
   command_id:'control-20260920-browser-001',
   study_day:day,
-  generated_at:'2026-09-20T00:12:00+08:00',
-  expires_at:'2026-09-21T00:00:00+08:00',
+  generated_at:generatedAt,
+  expires_at:expiresAt,
   operations:[
     {kind:'english.generated_drill',payload:drill},
     {kind:'english.session',payload:{
       schema:'kianos.english.session-instruction.v1',
       session_id:sessionId,
       study_day:day,
-      generated_at:'2026-09-20T00:11:00+08:00',
+      generated_at:sessionGeneratedAt,
       current_step:0,
       steps:[{
         step_id:'reading',
@@ -79,7 +91,7 @@ const command={
         authority_status:'LEGACY_GEOMETRY'
       },
       study_day:day,
-      observed_at:'2026-09-20T00:08:00+08:00',
+      observed_at:evidenceObservedAt,
       rubric:{I:2,S:1,B:1,F:'NA',D:'NA'},
       critical_flags:['MATERIAL_UNBOUND'],
       assessment_confidence:'MEDIUM',
@@ -91,7 +103,7 @@ const command={
     {kind:'exam.chat_plan',payload:{
       schema:'kianos.exam.chat-plan.v1',
       study_day:day,
-      generated_at:'2026-09-20T00:12:00+08:00',
+      generated_at:generatedAt,
       subjects:{
         xizong:null,
         english:{target_minutes:30,role:'稳推进',note:'自动下发。',session_ref:sessionId},
