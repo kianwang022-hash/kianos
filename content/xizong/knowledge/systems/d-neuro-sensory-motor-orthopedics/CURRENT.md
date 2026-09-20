@@ -15,11 +15,11 @@ This file owns Work Cursor only. It does not own medical Core, accepted Learning
 **Active construction stage:** **Content CLOSED · Projection next eligible**  
 **Content state:** **PHASE 7B WRAPPER CLEANUP CLOSED + PHASE 7C NEURAL LG SUFFICIENCY CLOSED + PHASE 7D ORTHOPEDIC LG SUFFICIENCY CLOSED + PHASE 7E FRESH INDEPENDENT CONTENT CLOSURE PASS**  
 **Earliest eligible next action:** **P — scoped Projection work over accepted D Content**  
-**Parallel Source boundary:** exact official D System question membership remains **UNTESTED** and gates the later trusted official-question sweep only
+**Parallel Source boundary:** exact official D System question membership is **BLOCKED_SOURCE_POSITION_COVERAGE**; it gates the later trusted official-question sweep only
 
 ```text
 S1 medical / first-learning Source boundary = PASS
-S2 exact official-question membership        = UNTESTED / parallel later boundary
+S2 exact official-question membership        = BLOCKED_SOURCE_POSITION_COVERAGE / parallel
 K Knowledge                                  = PASS
 L Learning Logic                             = PASS_AFTER_REPAIR
 Content Realization / Optimization           = PASS
@@ -65,6 +65,10 @@ Fresh independent L evidence:
 
 `content/xizong/knowledge/learner/D_PHASE6E_FRESH_INDEPENDENT_L_REACCEPTANCE.md`
 
+
+Question-scope blocker receipt:
+
+`content/xizong/knowledge/learner/D_QUESTION_SCOPE_CURRENT_RECONSTRUCTION.md`
 ---
 
 ## Frozen upstream truth

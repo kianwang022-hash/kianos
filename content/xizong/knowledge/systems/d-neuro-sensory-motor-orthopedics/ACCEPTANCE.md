@@ -13,7 +13,7 @@ This file owns D-scoped readiness truth only. It does not own medical Core, lear
 | Gate / stage | Status | Evidence / note |
 | --- | --- | --- |
 | S1 — medical / first-learning Source boundary | **PASS** | 27/27 canonical Block Source readback; gaps/conflicts/visual boundaries explicit |
-| S2 — exact official D System question membership | **UNTESTED** | separate later Source sub-boundary; gates trusted official-question sweep only |
+| S2 — exact official D System question membership | **BLOCKED_SOURCE_POSITION_COVERAGE** | historical exact resolver = 142 but only 3 orthopedic locator rows; current reviewed relation evidence = 52 qids / 2005–2008 only; complete D pool cannot be inferred |
 | K — Knowledge | **PASS** | `system.json` + 27 canonical Block Core; 27 Blocks / 356 stable KPs |
 | L — Learning Logic | **PASS_AFTER_REPAIR** | Phase 6C fresh defect → Phase 6D bounded repair → Phase 6E fresh independent PASS |
 | Content Realization / Optimization | **PASS** | Phase 7A role model; Phase 7B wrappers; Phase 7C neural; Phase 7D orthopedic; **Phase 7E fresh independent whole-D closure PASS** |
@@ -23,6 +23,29 @@ This file owns D-scoped readiness truth only. It does not own medical Core, lear
 | U — Learner Use | **NO_CLAIM** | real Kian use only |
 
 ---
+
+## S2 question-scope boundary — BLOCKED_SOURCE_POSITION_COVERAGE
+
+Durable blocker receipt:
+
+`content/xizong/knowledge/learner/D_QUESTION_SCOPE_CURRENT_RECONSTRUCTION.md`
+
+Fresh evidence:
+
+```text
+historical executable-resolver D pool = 142 qids
+historical surgery-orthopedics position rows = 3
+lecture-exercise D qids = 79; orthopedic binding = O1 only / 2 qids
+Current REVIEWED Question→D relations = 52
+  neural = 23
+  orthopedic = 29
+  years represented = 2005–2008
+reviewed D relation coverage 2009–2026 = 0
+```
+
+Current D owns 16 orthopedic Blocks, so the historical 142 pool is not a complete Current System scope. Missing reviewed relations cannot be treated as non-membership, and practice taxonomy / Outline / keyword inference is forbidden.
+
+S2 therefore stays blocked without reopening S1/K/L/Content or blocking scoped Projection.
 
 ## Accepted upstream substrate
 
