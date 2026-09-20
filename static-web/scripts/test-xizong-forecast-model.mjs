@@ -113,9 +113,9 @@ function baseProgress() {
     ],
     formal_score_evidence:{
       sealed_papers:[
-        {year:2024,earned_score:270,max_score:300,internal_holdout_protected_before_seal:true,discipline_breakdown:{disciplines:{}}},
-        {year:2025,earned_score:278,max_score:300,internal_holdout_protected_before_seal:true,discipline_breakdown:{disciplines:{}}},
-        {year:2026,earned_score:282,max_score:300,internal_holdout_protected_before_seal:true,discipline_breakdown:{disciplines:{}}}
+        {year:2024,earned_score:270,max_score:300,internal_holdout_protected_before_seal:true,exam_format_source_hash:'historical-format-v1',question_inventory_hash:'paper-2024',exam_format:{year:2024,question_count:165,max_score:300},discipline_breakdown:{disciplines:{}}},
+        {year:2025,earned_score:278,max_score:300,internal_holdout_protected_before_seal:true,exam_format_source_hash:'historical-format-v1',question_inventory_hash:'paper-2025',exam_format:{year:2025,question_count:165,max_score:300},discipline_breakdown:{disciplines:{}}},
+        {year:2026,earned_score:282,max_score:300,internal_holdout_protected_before_seal:true,exam_format_source_hash:'historical-format-v1',question_inventory_hash:'paper-2026',exam_format:{year:2026,question_count:165,max_score:300},discipline_breakdown:{disciplines:{}}}
       ]
     }
   };
@@ -275,10 +275,25 @@ function baseProgress() {
     targetScore:275,
     contaminationStatus:'LEAST_CONTAMINATED'
   });
-  assert.equal(leastContaminated.formal_score.status,'EMPIRICAL_BAND_LOW_CONTAMINATION');
-  assert.equal(leastContaminated.formal_score.score_extrapolation_ready,true);
-  assert.ok(leastContaminated.formal_score.calibration_band);
-  assert.equal(leastContaminated.evidence_readiness.result,'SCORE_ESTIMATE_EVIDENCE_USABLE');
+  assert.equal(leastContaminated.formal_score.status,'EMPIRICAL_BAND_CURRENT_FORMAT_UNKNOWN');
+  assert.equal(leastContaminated.formal_score.historical_calibration_sample_count,3);
+  assert.ok(leastContaminated.formal_score.historical_calibration_band);
+  assert.equal(leastContaminated.formal_score.calibration_band,null);
+  assert.equal(leastContaminated.formal_score.current_format_compatibility,'UNKNOWN_CURRENT_YEAR_FORMAT');
+  assert.equal(leastContaminated.formal_score.score_extrapolation_ready,false);
+  assert.equal(leastContaminated.evidence_readiness.result,'SCORE_EVIDENCE_PRESENT_LOW_CONFIDENCE');
+
+  const matchedCurrentFormat=buildXizongScoreEvidence(baseProgress(),{
+    targetScore:275,
+    contaminationStatus:'LEAST_CONTAMINATED',
+    currentExamFormatSourceHash:'historical-format-v1'
+  });
+  assert.equal(matchedCurrentFormat.formal_score.status,'EMPIRICAL_BAND_LOW_CONTAMINATION_CURRENT_FORMAT');
+  assert.equal(matchedCurrentFormat.formal_score.calibration_sample_count,3);
+  assert.ok(matchedCurrentFormat.formal_score.calibration_band);
+  assert.equal(matchedCurrentFormat.formal_score.current_format_compatibility,'MATCHED');
+  assert.equal(matchedCurrentFormat.formal_score.score_extrapolation_ready,true);
+  assert.equal(matchedCurrentFormat.evidence_readiness.result,'SCORE_ESTIMATE_EVIDENCE_USABLE');
 }
 
 {
@@ -288,7 +303,9 @@ function baseProgress() {
     targetScore:275,
     contaminationStatus:'LEAST_CONTAMINATED'
   });
-  assert.equal(readiness.formal_score.calibration_sample_count,2);
+  assert.equal(readiness.formal_score.historical_calibration_sample_count,2);
+  assert.equal(readiness.formal_score.calibration_sample_count,0);
+  assert.equal(readiness.formal_score.historical_calibration_band,null);
   assert.equal(readiness.formal_score.calibration_band,null);
   assert.equal(readiness.formal_score.score_extrapolation_ready,false);
   assert.equal(readiness.evidence_readiness.result,'SCORE_EVIDENCE_PRESENT_LOW_CONFIDENCE');
@@ -307,6 +324,7 @@ function baseProgress() {
   });
   assert.equal(readiness.formal_score.score_extrapolation_ready,false,
     'a Chat low-contamination claim must not upgrade an internally unprotected old paper');
+  assert.equal(readiness.formal_score.historical_calibration_sample_count,0);
   assert.equal(readiness.formal_score.calibration_sample_count,0);
   assert.equal(readiness.evidence_readiness.result,'SCORE_EVIDENCE_PRESENT_LOW_CONFIDENCE');
   assert.match(readiness.formal_score.status,/WITHOUT_INTERNAL_HOLDOUT/);
