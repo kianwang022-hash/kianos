@@ -379,7 +379,7 @@ function questionForecast(progress) {
       forecast_timer_minutes: Number(row?.practice_timer_minutes || 0)
     }));
   const daySamples = currentScopeSamples.length ? currentScopeSamples : broaderSamples;
-  const calibrationSource = currentScopeSamples.length
+  const fallbackSource = currentScopeSamples.length
     ? 'CURRENT_EXACT_SCOPE_SYSTEM_SWEEP'
     : 'BROADER_OFFICIAL_PRACTICE_FALLBACK';
   const rates = daySamples
@@ -389,16 +389,76 @@ function questionForecast(progress) {
   const backtest = rollingRateBacktest(
     daySamples.map((row) => ({ ...row, observed_minutes_per_attempt: row.forecast_minutes_per_attempt }))
   );
-  const band = remaining !== null && rates.length >= 3
+  const fallbackBand = remaining !== null && rates.length >= 3
     ? {
         p20: round(quantile(rates, 0.2) * remaining),
         p50: round(quantile(rates, 0.5) * remaining),
         p80: round(quantile(rates, 0.8) * remaining)
       }
     : null;
+
+  const workloadSystems = (Array.isArray(progress?.question_workload?.systems)
+    ? progress.question_workload.systems
+    : [])
+    .filter((row) => row?.status === 'EXACT' && Number(row?.remaining_questions || 0) > 0);
+  const practiceBySystem = new Map(
+    (Array.isArray(progress?.practice_evidence?.first_pass?.by_system)
+      ? progress.practice_evidence.first_pass.by_system
+      : [])
+      .map((row) => [String(row?.canonical_id || ''), row])
+  );
+  const systemRows = workloadSystems.map((workload) => {
+    const canonicalId = String(workload?.canonical_id || '');
+    const practice = practiceBySystem.get(canonicalId) || {};
+    const speedSamples = (Array.isArray(practice?.current_scope_speed_by_day)
+      ? practice.current_scope_speed_by_day
+      : [])
+      .map((row) => positive(row?.observed_minutes_per_attempt))
+      .filter((value) => value !== null);
+    const remainingQuestions = Math.max(0, Number(workload?.remaining_questions || 0));
+    const systemBand = speedSamples.length >= 3
+      ? {
+          p20: round(quantile(speedSamples, 0.2) * remainingQuestions),
+          p50: round(quantile(speedSamples, 0.5) * remainingQuestions),
+          p80: round(quantile(speedSamples, 0.8) * remainingQuestions)
+        }
+      : null;
+    return {
+      canonical_id: canonicalId,
+      remaining_questions: remainingQuestions,
+      speed_samples: speedSamples.length,
+      reference_minutes_per_question: speedSamples.length ? round(median(speedSamples), 3) : null,
+      speed_rates: speedSamples.map((value) => round(value, 3)),
+      band_minutes: systemBand
+    };
+  });
+  const stratifiedObserved = systemRows.some((row) => row.speed_samples > 0);
+  const unpricedSystemIds = stratifiedObserved
+    ? systemRows.filter((row) => !row.band_minutes).map((row) => row.canonical_id)
+    : [];
+  const stratifiedBand = stratifiedObserved && systemRows.length > 0 && unpricedSystemIds.length === 0
+    ? {
+        p20: round(systemRows.reduce((sum, row) => sum + Number(row.band_minutes?.p20 || 0), 0)),
+        p50: round(systemRows.reduce((sum, row) => sum + Number(row.band_minutes?.p50 || 0), 0)),
+        p80: round(systemRows.reduce((sum, row) => sum + Number(row.band_minutes?.p80 || 0), 0))
+      }
+    : null;
+  const systemReferenceRates = systemRows
+    .map((row) => positive(row.reference_minutes_per_question))
+    .filter((value) => value !== null);
+  const speedHeterogeneityRatio = systemReferenceRates.length >= 2
+    ? round(Math.max(...systemReferenceRates) / Math.min(...systemReferenceRates), 3)
+    : null;
+  const band = stratifiedObserved ? stratifiedBand : fallbackBand;
+  const calibrationSource = stratifiedObserved
+    ? 'SYSTEM_STRATIFIED_CURRENT_EXACT_SCOPE'
+    : fallbackSource;
+
   const risks = [];
   if (remaining === null) risks.push('KNOWN_REMAINING_QUESTION_COUNT_AMBIGUOUS');
-  if (rates.length < 3) risks.push('INSUFFICIENT_PRACTICE_TIMER_SAMPLES');
+  if (!stratifiedObserved && rates.length < 3) risks.push('INSUFFICIENT_PRACTICE_TIMER_SAMPLES');
+  if (stratifiedObserved && unpricedSystemIds.length) risks.push('SYSTEM_QUESTION_SPEED_UNCALIBRATED');
+  if (speedHeterogeneityRatio !== null && speedHeterogeneityRatio >= 1.5) risks.push('QUESTION_SPEED_SYSTEM_HETEROGENEITY');
   if (progress?.question_workload?.known_remaining_is_lower_bound) risks.push('UNPRICED_SYSTEM_QUESTION_SCOPE');
   if (Number(progress?.question_workload?.cross_system_duplicate_memberships || 0) > 0) risks.push('CROSS_SYSTEM_DUPLICATE_MEMBERSHIP');
   if (backtest.status === 'BACKTESTED' && Number(backtest.median_absolute_percent_error || 0) > 0.25) {
@@ -410,7 +470,11 @@ function questionForecast(progress) {
   return {
     component: 'FIRST_PASS_OFFICIAL_SWEEP',
     required: true,
-    status: band ? (rates.length >= 5 ? 'CALIBRATED' : 'PROVISIONAL') : state,
+    status: band
+      ? (stratifiedObserved
+          ? (systemRows.every((row) => row.speed_samples >= 5) ? 'CALIBRATED' : 'PROVISIONAL')
+          : (rates.length >= 5 ? 'CALIBRATED' : 'PROVISIONAL'))
+      : state,
     known_remaining_questions: remaining,
     known_remaining_is_lower_bound: Boolean(progress?.question_workload?.known_remaining_is_lower_bound),
     unknown_systems: [...(progress?.question_workload?.unknown_systems || [])],
@@ -420,6 +484,9 @@ function questionForecast(progress) {
       current_scope_day_samples: currentScopeSamples.length,
       broader_day_samples: broaderSamples.length,
       reference_minutes_per_question: rates.length ? round(median(rates), 3) : null,
+      system_rows: systemRows,
+      unpriced_system_ids: unpricedSystemIds,
+      system_speed_heterogeneity_ratio: speedHeterogeneityRatio,
       sample_rows: daySamples.map((row) => ({
         day: row.day,
         attempts: Number(row.forecast_attempts || 0),
@@ -431,7 +498,7 @@ function questionForecast(progress) {
     band_minutes: band,
     risks,
     evidence_boundary:
-      'Question throughput prefers Current exact System-sweep route time per attempt; broader official-practice speed is fallback only. Route time may include explanation/review on the same surface. Unknown exact System scope makes the known question forecast a lower bound.'
+      'Question throughput uses System-stratified Current exact-sweep timing when that evidence exists, weighting each System by its own remaining question load. A fast familiar System may not price an unobserved slower System. If any remaining System lacks enough System-specific timing samples, the full question band is withheld rather than filled with a pooled average. Broader official-practice speed is fallback only when no System-stratified timing exists.'
   };
 }
 
@@ -482,15 +549,73 @@ function repairForecast(progress, { wrongUncertainRate = null } = {}) {
   const observedRateSource = currentScopeRate !== null
     ? 'CURRENT_EXACT_SCOPE_FIRST_ATTEMPT'
     : 'BROADER_FIRST_PASS_FALLBACK';
-  const rate = wrongUncertainRate === null ? observedRate : Math.max(0, Math.min(1, Number(wrongUncertainRate)));
+  const scenarioRate = wrongUncertainRate === null
+    ? null
+    : Math.max(0, Math.min(1, Number(wrongUncertainRate)));
   const remainingQuestions = finite(progress?.question_workload?.known_remaining_questions);
+
+  const workloadSystems = (Array.isArray(progress?.question_workload?.systems)
+    ? progress.question_workload.systems
+    : [])
+    .filter((row) => row?.status === 'EXACT' && Number(row?.remaining_questions || 0) > 0);
+  const practiceBySystem = new Map(
+    (Array.isArray(firstPass?.by_system) ? firstPass.by_system : [])
+      .map((row) => [String(row?.canonical_id || ''), row])
+  );
+  const systemErrorRows = workloadSystems.map((workload) => {
+    const canonicalId = String(workload?.canonical_id || '');
+    const practice = practiceBySystem.get(canonicalId) || {};
+    const sampleCount = Math.max(0, Number(practice?.current_scope_unique_attempted || 0));
+    const rate = finite(practice?.current_scope_wrong_or_uncertain_rate);
+    const remaining = Math.max(0, Number(workload?.remaining_questions || 0));
+    return {
+      canonical_id: canonicalId,
+      remaining_questions: remaining,
+      observed_attempts: sampleCount,
+      wrong_uncertain_rate: rate,
+      predicted_future_wrong_uncertain_questions: rate === null ? null : round(remaining * rate)
+    };
+  });
+  const stratifiedObserved = scenarioRate === null
+    && systemErrorRows.some((row) => row.observed_attempts > 0 || row.wrong_uncertain_rate !== null);
+  const unpricedSystemIds = stratifiedObserved
+    ? systemErrorRows.filter((row) => row.wrong_uncertain_rate === null).map((row) => row.canonical_id)
+    : [];
+
+  let futureWu = null;
+  let forecastRate = null;
+  let forecastRateSource = observedRateSource;
+  if (scenarioRate !== null) {
+    futureWu = remainingQuestions !== null ? remainingQuestions * scenarioRate : null;
+    forecastRate = scenarioRate;
+    forecastRateSource = 'SCENARIO_OVERRIDE';
+  } else if (stratifiedObserved) {
+    if (unpricedSystemIds.length === 0 && remainingQuestions !== null) {
+      futureWu = systemErrorRows.reduce(
+        (sum, row) => sum + Number(row.remaining_questions || 0) * Number(row.wrong_uncertain_rate || 0),
+        0
+      );
+      forecastRate = remainingQuestions > 0 ? futureWu / remainingQuestions : 0;
+    }
+    forecastRateSource = 'SYSTEM_STRATIFIED_CURRENT_EXACT_SCOPE';
+  } else {
+    forecastRate = observedRate;
+    futureWu = observedRate !== null && remainingQuestions !== null ? remainingQuestions * observedRate : null;
+  }
+
+  const observedSystemRates = systemErrorRows
+    .map((row) => finite(row.wrong_uncertain_rate))
+    .filter((value) => value !== null);
+  const rateSpread = observedSystemRates.length >= 2
+    ? round(Math.max(...observedSystemRates) - Math.min(...observedSystemRates), 4)
+    : null;
+
   const questionsPerCluster = positive(progress?.repair_evidence?.observed_question_to_cluster_ratio);
   const activeClusters = Math.max(0, Number(
     progress?.repair_evidence?.active_question_backed_clusters
     ?? progress?.repair_evidence?.active_repair_clusters
     ?? 0
   ));
-  const futureWu = rate !== null && remainingQuestions !== null ? remainingQuestions * rate : null;
   const futureClusters = futureWu !== null && questionsPerCluster !== null
     ? futureWu / questionsPerCluster
     : null;
@@ -507,8 +632,13 @@ function repairForecast(progress, { wrongUncertainRate = null } = {}) {
       }
     : null;
   const risks = [];
-  if (rate === null) risks.push('WRONG_UNCERTAIN_RATE_UNOBSERVED');
-  if (attempted > 0 && attempted < 30 && wrongUncertainRate === null) risks.push('WRONG_UNCERTAIN_RATE_LOW_SAMPLE');
+  if (forecastRate === null) risks.push('WRONG_UNCERTAIN_RATE_UNOBSERVED');
+  if (!stratifiedObserved && attempted > 0 && attempted < 30 && scenarioRate === null) risks.push('WRONG_UNCERTAIN_RATE_LOW_SAMPLE');
+  if (stratifiedObserved && unpricedSystemIds.length) risks.push('SYSTEM_WRONG_UNCERTAIN_RATE_UNOBSERVED');
+  if (stratifiedObserved && systemErrorRows.some((row) => row.observed_attempts > 0 && row.observed_attempts < 30)) {
+    risks.push('SYSTEM_WRONG_UNCERTAIN_RATE_LOW_SAMPLE');
+  }
+  if (rateSpread !== null && rateSpread >= 0.15) risks.push('WRONG_UNCERTAIN_SYSTEM_HETEROGENEITY');
   if (questionsPerCluster === null) risks.push('REPAIR_COMPRESSION_UNOBSERVED');
   if (samples.length < 3 && totalClusters !== null && totalClusters > 0) risks.push('REPAIR_TIME_UNCALIBRATED');
   return {
@@ -516,11 +646,15 @@ function repairForecast(progress, { wrongUncertainRate = null } = {}) {
     required: true,
     status: band ? (samples.length >= 5 ? 'CALIBRATED' : 'PROVISIONAL') : state,
     error_rate: {
-      source: wrongUncertainRate === null ? observedRateSource : 'SCENARIO_OVERRIDE',
-      value: rate,
+      source: forecastRateSource,
+      value: scenarioRate !== null ? scenarioRate : observedRate,
+      forecast_weighted_value: forecastRate === null ? null : round(forecastRate, 4),
       observed_attempts: attempted,
       current_scope_attempts: currentScopeAttempted,
-      broader_first_pass_attempts: broaderAttempted
+      broader_first_pass_attempts: broaderAttempted,
+      system_rows: systemErrorRows,
+      unpriced_system_ids: unpricedSystemIds,
+      system_rate_spread: rateSpread
     },
     compression: {
       observed_questions_per_cluster: questionsPerCluster,
@@ -537,7 +671,7 @@ function repairForecast(progress, { wrongUncertainRate = null } = {}) {
     band_minutes: band,
     risks,
     evidence_boundary:
-      'Future Repair pressure prefers the Current exact System-sweep first-attempt W/U rate; broader first-pass performance is fallback only. Repair timing samples are route-time inside the repair lifetime window, not pure causal repair minutes, and stay provisional until repeated samples converge.'
+      'Future Repair pressure uses System-stratified Current exact-scope first-attempt W/U when available, weighted by each System own remaining question load. A fast/easy familiar System may not price an unobserved System. Scenario overrides intentionally apply one explicit W/U rate across the remaining known scope. Repair timing samples remain route-time inside the repair lifetime window, not pure causal repair minutes.'
   };
 }
 
