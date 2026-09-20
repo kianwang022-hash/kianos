@@ -53,7 +53,13 @@ for (const prompt of prompts) {
   assert.ok(requiredRoles.has(prompt.role), prompt.id + ': unknown role');
   observedRoleCounts[prompt.role] = (observedRoleCounts[prompt.role] || 0) + 1;
 
-  assert.ok(String(prompt.material || '').trim().length >= 10, prompt.id + ': material too thin');
+  const materialText = String(prompt.material || '').trim();
+  if (prompt.role === 'FORMULATION_RETRIEVAL') {
+    assert.ok(materialText.length >= 5, prompt.id + ': formulation topic cue missing');
+    assert.match(materialText, /主题提示：/, prompt.id + ': formulation task should expose a topic cue by design');
+  } else {
+    assert.ok(materialText.length >= 10, prompt.id + ': material too thin');
+  }
   assert.ok(String(prompt.question || '').trim().length >= 10, prompt.id + ': question too thin');
   assert.ok(String(prompt.source_basis || '').trim(), prompt.id + ': source_basis missing');
   assert.equal(prompt.task_revision, 'bank-r4', prompt.id + ': task revision mismatch');
