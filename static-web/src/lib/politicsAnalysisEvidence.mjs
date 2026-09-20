@@ -261,10 +261,46 @@ export function readPoliticsAnalysisEvidenceStore(storage) {
 
 export function applyPoliticsAnalysisEvidence(storage, input, {
   now = Date.now(),
-  boundCurrentYearSources = []
+  boundCurrentYearSources = [],
+  acceptedLegacyTasks = []
 } = {}) {
   if (!storage?.getItem || !storage?.setItem) fail('STORAGE_UNAVAILABLE');
   const normalized = validatePoliticsAnalysisEvidence(input, { now });
+  if (normalized.freshness_class === 'LEGACY_GEOMETRY_ONLY') {
+    const rows = Array.isArray(acceptedLegacyTasks) ? acceptedLegacyTasks : [];
+    const match = rows.find((row) =>
+      record(row)
+      && clean(row.task_id, 240) === normalized.task_id
+      && clean(row.task_revision, 240) === normalized.task_revision
+    );
+    if (!match) fail('LEGACY_TASK_NOT_REGISTERED', normalized.task_id);
+    const expected = {
+      subject: clean(match.subject, 80),
+      subquestion_id: clean(match.subquestion_id, 200),
+      task_mode: clean(match.task_mode, 40),
+      rubric_version: clean(match.rubric_version, 120),
+      freshness_class: clean(match.freshness_class, 60),
+      formulation_requirement: clean(match.formulation_requirement, 60),
+      source_basis: record(match.source_basis) ? {
+        family: clean(match.source_basis.family, 160),
+        identity: clean(match.source_basis.identity, 500),
+        revision: clean(match.source_basis.revision, 240) || null,
+        authority_status: clean(match.source_basis.authority_status, 40)
+      } : null
+    };
+    const actual = {
+      subject: normalized.subject,
+      subquestion_id: normalized.subquestion_id,
+      task_mode: normalized.task_mode,
+      rubric_version: normalized.rubric_version,
+      freshness_class: normalized.freshness_class,
+      formulation_requirement: normalized.formulation_requirement,
+      source_basis: normalized.source_basis
+    };
+    if (JSON.stringify(expected) !== JSON.stringify(actual)) {
+      fail('LEGACY_TASK_BINDING_MISMATCH', normalized.task_id);
+    }
+  }
   if (normalized.freshness_class === 'CURRENT_YEAR_EXACT_REQUIRED') {
     const bindings = Array.isArray(boundCurrentYearSources) ? boundCurrentYearSources : [];
     const matched = bindings.some((row) =>
