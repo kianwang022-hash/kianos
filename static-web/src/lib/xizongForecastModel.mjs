@@ -361,13 +361,34 @@ function knowledgeForecast(progress) {
 
 function questionForecast(progress) {
   const remaining = finite(progress?.question_workload?.known_remaining_questions);
-  const daySamples = (progress?.practice_evidence?.first_pass?.by_day || [])
-    .filter((row) => positive(row?.observed_minutes_per_attempt) !== null);
+  const allDayRows = progress?.practice_evidence?.first_pass?.by_day || [];
+  const currentScopeSamples = allDayRows
+    .filter((row) => positive(row?.current_scope_observed_minutes_per_attempt) !== null)
+    .map((row) => ({
+      ...row,
+      forecast_minutes_per_attempt: positive(row?.current_scope_observed_minutes_per_attempt),
+      forecast_attempts: Number(row?.current_scope_attempted || 0),
+      forecast_timer_minutes: Number(row?.current_scope_practice_timer_minutes || 0)
+    }));
+  const broaderSamples = allDayRows
+    .filter((row) => positive(row?.observed_minutes_per_attempt) !== null)
+    .map((row) => ({
+      ...row,
+      forecast_minutes_per_attempt: positive(row?.observed_minutes_per_attempt),
+      forecast_attempts: Number(row?.attempted || 0),
+      forecast_timer_minutes: Number(row?.practice_timer_minutes || 0)
+    }));
+  const daySamples = currentScopeSamples.length ? currentScopeSamples : broaderSamples;
+  const calibrationSource = currentScopeSamples.length
+    ? 'CURRENT_EXACT_SCOPE_SYSTEM_SWEEP'
+    : 'BROADER_OFFICIAL_PRACTICE_FALLBACK';
   const rates = daySamples
-    .map((row) => positive(row?.observed_minutes_per_attempt))
+    .map((row) => positive(row?.forecast_minutes_per_attempt))
     .filter((value) => value !== null);
   const state = sampleState(rates.length);
-  const backtest = rollingRateBacktest(daySamples);
+  const backtest = rollingRateBacktest(
+    daySamples.map((row) => ({ ...row, observed_minutes_per_attempt: row.forecast_minutes_per_attempt }))
+  );
   const band = remaining !== null && rates.length >= 3
     ? {
         p20: round(quantile(rates, 0.2) * remaining),
@@ -394,20 +415,23 @@ function questionForecast(progress) {
     known_remaining_is_lower_bound: Boolean(progress?.question_workload?.known_remaining_is_lower_bound),
     unknown_systems: [...(progress?.question_workload?.unknown_systems || [])],
     calibration: {
+      source: calibrationSource,
       day_samples: rates.length,
+      current_scope_day_samples: currentScopeSamples.length,
+      broader_day_samples: broaderSamples.length,
       reference_minutes_per_question: rates.length ? round(median(rates), 3) : null,
       sample_rows: daySamples.map((row) => ({
         day: row.day,
-        attempts: Number(row.attempted || 0),
-        practice_timer_minutes: Number(row.practice_timer_minutes || 0),
-        minutes_per_attempt: positive(row.observed_minutes_per_attempt)
+        attempts: Number(row.forecast_attempts || 0),
+        practice_timer_minutes: Number(row.forecast_timer_minutes || 0),
+        minutes_per_attempt: positive(row.forecast_minutes_per_attempt)
       })),
       rolling_backtest: backtest
     },
     band_minutes: band,
     risks,
     evidence_boundary:
-      'Practice timer minutes are route-attributed observed time and may include explanation/review on the same practice surface. Unknown exact System scope makes the known question forecast a lower bound.'
+      'Question throughput prefers Current exact System-sweep route time per attempt; broader official-practice speed is fallback only. Route time may include explanation/review on the same surface. Unknown exact System scope makes the known question forecast a lower bound.'
   };
 }
 
