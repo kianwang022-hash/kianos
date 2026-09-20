@@ -229,20 +229,25 @@ function fitRank(status){
   assert.ok(f.workload.full_band_minutes.p20<=f.workload.full_band_minutes.p50);
   assert.ok(f.workload.full_band_minutes.p50<=f.workload.full_band_minutes.p80);
   assert.deepEqual(f.score.local_channel_band,{low:84,high:92});
-  assert.equal(f.score.local_status,'TARGET_CROSSES_LOCAL_RANGE');
+  assert.equal(f.score.formal_local_channel_band,null);
+  assert.equal(f.score.local_status,'FORMAL_LOCAL_PATH_INCOMPLETE');
   assert.equal(f.score.integrated_whole_paper.status,'TARGET_CROSSES_INTEGRATED_RANGE');
   assert.equal(f.score.score_path_confidence,'INTEGRATED_HIGH');
   assert.match(f.score.dependency_warning,/not assumed independent/);
 }
 
-// 5) Synthetic/assisted/non-score-eligible evidence cannot complete formal score path.
+// 5) Assisted/contaminated evidence cannot complete formal score path even if upstream declares score_eligible=true.
 {
   const input=baseInput();
-  input.score_channels.writing_big.score_eligible=false;
+  input.score_channels.writing_big.score_eligible=true;
   input.score_channels.writing_big.evidence_quality='ASSISTED';
   const f=buildEnglishWorkloadForecast(input);
-  assert.equal(f.score.local_channel_band,null);
-  assert.equal(f.score.local_status,'UNKNOWN');
+  const row=f.score.channels.find((item)=>item.id==='writing_big');
+  assert.equal(row.declared_score_eligible,true);
+  assert.equal(row.formal_score_eligible,false);
+  assert.ok(row.risks.includes('DECLARED_SCORE_ELIGIBLE_CONTRADICTS_EVIDENCE'));
+  assert.equal(f.score.formal_local_channel_band,null);
+  assert.equal(f.score.local_status,'FORMAL_LOCAL_PATH_INCOMPLETE');
   assert.ok(f.uncertainty.includes('FORMAL_SCORE_CHANNELS_INCOMPLETE'));
 }
 
@@ -252,7 +257,9 @@ function fitRank(status){
   input.whole_paper={score_range:null,score_eligible:false,evidence_quality:'UNKNOWN',modality:'UNKNOWN'};
   const f=buildEnglishWorkloadForecast(input);
   assert.deepEqual(f.score.local_channel_band,{low:84,high:92});
-  assert.equal(f.score.score_path_confidence,'LOCAL_CHANNELS_ONLY');
+  assert.equal(f.score.formal_local_channel_band,null);
+  assert.equal(f.score.score_path_confidence,'LOCAL_EVIDENCE_ONLY');
+  assert.equal(f.score.local_status,'FORMAL_LOCAL_PATH_INCOMPLETE');
   assert.ok(f.uncertainty.includes('WHOLE_PAPER_SCORE_CALIBRATION_MISSING'));
 }
 
@@ -349,6 +356,50 @@ function fitRank(status){
   assert.equal(f.workload.full_scope_priced,true);
   assert.deepEqual(f.workload.full_band_minutes,{p20:0,p50:0,p80:0});
   assert.equal(f.workload.missing_family_ids.length,0);
+}
+
+// 13b) BUILD / VERIFY / UNCALIBRATED or explicit open mechanisms cannot silently mean zero workload.
+{
+  const modes=['BUILD','VERIFY','UNCALIBRATED'];
+  for(const mode of modes){
+    const input=baseInput();
+    input.task_families.reading_a={label:'Reading A',scope_complete:true,operating_mode:mode,open_mechanisms:[],work_buckets:[]};
+    const f=buildEnglishWorkloadForecast(input);
+    assert.equal(f.workload.full_scope_priced,false,mode+' incorrectly priced as zero');
+    assert.ok(f.workload.unpriced_bucket_ids.includes('reading_a:OPEN_DEMAND_WITHOUT_REQUIRED_WORK'));
+  }
+  const input=baseInput();
+  input.task_families.reading_a={label:'Reading A',scope_complete:true,operating_mode:'MAINTAIN',open_mechanisms:['difficult-inference'],work_buckets:[]};
+  const f=buildEnglishWorkloadForecast(input);
+  assert.equal(f.workload.full_scope_priced,false);
+  assert.ok(f.workload.demand_unpriced_family_ids.includes('reading_a'));
+}
+
+// 13c) Exposed Whole Paper cannot produce protected integrated target status even when declared score_eligible.
+{
+  const input=baseInput();
+  input.whole_paper={
+    score_range:{low:92,high:92},
+    score_eligible:true,
+    evidence_quality:'EXPOSED',
+    modality:'PAPER'
+  };
+  const f=buildEnglishWorkloadForecast(input);
+  assert.equal(f.score.integrated_whole_paper.declared_score_eligible,true);
+  assert.equal(f.score.integrated_whole_paper.score_eligible,false);
+  assert.equal(f.score.integrated_whole_paper.status,'FORMAL_INELIGIBLE');
+  assert.notEqual(f.score.score_path_confidence,'INTEGRATED_HIGH');
+}
+
+// 13d) Typed productive channels may inform diagnostic ranges but cannot create protected formal local status.
+{
+  const input=baseInput();
+  input.whole_paper={score_range:null,score_eligible:false,evidence_quality:'UNKNOWN',modality:'UNKNOWN'};
+  const f=buildEnglishWorkloadForecast(input);
+  assert.deepEqual(f.score.local_channel_band,{low:84,high:92});
+  assert.equal(f.score.formal_local_channel_band,null);
+  assert.equal(f.score.local_status,'FORMAL_LOCAL_PATH_INCOMPLETE');
+  assert.equal(f.score.score_path_confidence,'LOCAL_EVIDENCE_ONLY');
 }
 
 // 14) Backtest logic must expose calibration error without auto-replanning.
@@ -472,11 +523,14 @@ console.log(JSON.stringify({
     prior_only_pricing_is_labeled:true,
     thin_empirical_bands_remain_provisional:true,
     workload_and_score_confidence_are_separate:true,
-    non_score_eligible_evidence_cannot_close_score_path:true,
+    contradictory_assisted_score_eligibility_fails_closed:true,
+    exposed_whole_paper_cannot_protect_integrated_target:true,
+    typed_productive_cannot_protect_formal_local_target:true,
     local_score_does_not_impersonate_whole_paper:true,
     workload_monotonicity:true,
     capacity_monotonicity:true,
     partial_scope_stays_unpriced:true,
+    open_demand_without_required_work_stays_unpriced:true,
     sensitivity_flip_surface:true,
     highest_value_evidence_is_information_only:true,
     voi_priority_is_qualitative_not_fake_numeric_precision:true,
