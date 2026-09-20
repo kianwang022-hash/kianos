@@ -13,7 +13,11 @@ import {
   validateExamProfile
 } from '../src/lib/examOrchestrator.mjs';
 import { buildChatControlledExamReadModel } from '../src/lib/examPlanReadModel.mjs';
-import { listProjectableXizongSystems, loadXizongBlock } from '../src/lib/xizong.mjs';
+import {
+  listCurrentXizongSystemIdentities,
+  listProjectableXizongSystems,
+  loadXizongBlock
+} from '../src/lib/xizong.mjs';
 import { buildXizongForecastQuestionScope } from '../src/lib/xizongQuestions.mjs';
 import { buildXizongProductionBlock } from '../src/lib/xizongProductionProjection.mjs';
 import { politicsProductCatalog } from '../src/lib/productCatalog.mjs';
@@ -74,7 +78,7 @@ function xizongPacketIndex() {
 
 function xizongForecastQuestionScope() {
   if (!cachedXizongForecastQuestionScope) {
-    cachedXizongForecastQuestionScope = buildXizongForecastQuestionScope(listProjectableXizongSystems());
+    cachedXizongForecastQuestionScope = buildXizongForecastQuestionScope(listCurrentXizongSystemIdentities());
   }
   return cachedXizongForecastQuestionScope;
 }
