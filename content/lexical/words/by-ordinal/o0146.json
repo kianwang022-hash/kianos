@@ -8,44 +8,6 @@
     "confusables": [],
     "constructions": [
       {
-        "boundary": "vt. + that-clause / vt. + object",
-        "codex_reviewed": false,
-        "definition_cn": "宣称，断言",
-        "definition_en": "report or maintain (as a fact) without proof",
-        "dimensions": {},
-        "direction": "R+P",
-        "evidence": [
-          {
-            "evidence_id": "evidence:core-card:allege:6e536ed774ec",
-            "evidence_status": "source_checked",
-            "source_labels": [],
-            "source_locator": "allege:l1:1",
-            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/kianos-english-vocabulary-5500.generated.json",
-            "source_type": "learner_dictionary"
-          }
-        ],
-        "fact_id": "deep:constructions:allege:676ec344dd90514c",
-        "family_sources": [],
-        "label_en": null,
-        "level": null,
-        "meaning_cn": "",
-        "module": "constructions",
-        "pattern": "vt. + that-clause / vt. + object",
-        "pos": "verb",
-        "priority": "A",
-        "publication_status": "publishable",
-        "shared_definition": null,
-        "source_sense_id": "sense:allege:3e3f40d4fe4a5943",
-        "target_sense_id": null,
-        "target_word": null,
-        "task_tags": [
-          "cloze",
-          "writing"
-        ],
-        "verification_status": "verified",
-        "writing_safe": true
-      },
-      {
         "construction_id": "construction:allege:baseline-v2-be-alleged-to",
         "pattern": "be alleged to do / have done sth",
         "meaning_cn": "据称做……；据称曾做过……",
@@ -134,7 +96,31 @@
       "runtime_model_calls": false
     },
     "word": "allege",
-    "word_family": [],
+    "word_family": [
+      {
+        "fact_id": "deep:word_family:allege:final-standard-allegation",
+        "module": "word_family",
+        "target_word": "allegation",
+        "meaning_cn": "指控；未经证实的说法",
+        "definition_en": "a claim or accusation that has not yet been proved",
+        "boundary": "allege（动词）→ allegation（名词）：法律、新闻和学术中常见。",
+        "dimensions": {
+          "morphology": "verb → noun"
+        },
+        "direction": "R+P",
+        "priority": "A",
+        "publication_status": "publishable",
+        "verification_status": "verified",
+        "writing_safe": true,
+        "source_sense_id": "sense:allege:3e3f40d4fe4a5943",
+        "target_sense_id": null,
+        "task_tags": [
+          "reading",
+          "writing"
+        ],
+        "source": "FINAL_SEMANTIC_FREEZE_v1_BF01_2026-09-20"
+      }
+    ],
     "word_id": "word:allege"
   },
   "relation_refs": [],

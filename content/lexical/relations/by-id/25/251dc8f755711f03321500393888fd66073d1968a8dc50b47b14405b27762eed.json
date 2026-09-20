@@ -13,7 +13,7 @@
     ],
     "content": {
       "edit_distance": 2,
-      "same_normalized_pronunciation": true,
+      "same_normalized_pronunciation": false,
       "source_phonetic": "'ɒ:ltә",
       "target_phonetic": "ә'lә:t",
       "target_word": "alert"
@@ -60,7 +60,7 @@
     ],
     "tier": "A",
     "validator_version": "deep_vocabulary_target_gate_2026-08-13_v1",
-    "verification_confidence": 1.0,
+    "verification_confidence": 1,
     "verification_decision": "codex_promote",
     "verification_status": "verified",
     "why": "",
@@ -109,6 +109,54 @@
         ],
         "verification_status": "verified",
         "writing_safe": false
+      }
+    },
+    {
+      "source_word_id": "word:alert",
+      "source_ordinal": 138,
+      "field": "confusables",
+      "index": 0,
+      "payload": {
+        "boundary": "alert 表警觉、警报或提醒；alter 表改变、修改。",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {},
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:ecdict-spelling:alter:alert",
+            "evidence_status": "source_checked",
+            "source_locator": "alter|alert",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/source_manifest.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:confusables:alter:ec2b2a5d2e1f3a7b",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "confusables",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": null,
+        "source_sense_id": "sense:alter:ef5ea5d2408352df",
+        "target_sense_id": "sense:alert:a9e980a7bc89591a",
+        "target_word": "alter",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false,
+        "source_expression": "alert",
+        "target_expression": "alter",
+        "boundaries": [
+          "alert 表警觉、警报或提醒；alter 表改变、修改。"
+        ],
+        "learning_note": "alert 表警觉、警报或提醒；alter 表改变、修改。"
       }
     }
   ],
