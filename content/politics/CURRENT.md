@@ -1,27 +1,17 @@
 # Politics Current
-
 Role: **Politics engineering Work Cursor + subject router**
 Parent: root `CURRENT.md`
-
 This file does not own Source, Knowledge, Learning semantics, Acceptance Truth, learner progress or shared platform policy. A bare learner continuation remains LEARN unless the conversation explicitly establishes engineering work.
-
 Shared-platform routing is inherited from `AUTHORITY_INHERITANCE_CONTRACT.md` and machine-registered in `AUTHORITY_OWNERSHIP.json`. This lane consumes shared Shell / navigation / Current Delivery from the registered upstream owner; it does not become their durable owner.
-
 ## Current state / actual restart point
-
 ### Whole-cycle maturity continuation — ACTIVE OWNER #638
-
 Politics whole-cycle maturity has one implementation owner:
-
 - active branch: `work/politics-later-readiness-20260920`;
 - active PR: **#638**;
 - restart cursor: `MATURITY_STAGE_PLAN.md`;
 - Politics acceptance bar: `MATURITY_REQUIREMENTS.md`.
-
 The shared Exam Subject Maturity Standard / PR #644 is an upstream acceptance bar only. It is not a Politics continuation cursor and does not own Politics Forecast, Analysis, Future Source or execution state.
-
 Current mother-standard execution state:
-
 ```text
 M0 Ownership correction                         DONE
 M1 Single Politics Maturity Package             DONE
@@ -35,18 +25,13 @@ M8 SYSTEM_LOGIC_ACCEPTED verdict                 BLOCKED ON M7
 M9 KIAN_SPECIFIC_CALIBRATED                     REAL-U GATED
 M10 current-year annual sources                  SOURCE GATED
 ```
-
 Canonical maturity package: `MATURITY_PACKAGE.md`.
-
 Builder-owned maturity construction is closed, but shared mother-standard §23 still requires a Fresh Independent / Anti-Anchored Audit before SYSTEM_LOGIC_ACCEPTED may freeze. Do not broaden engineering while that audit is pending; repair only material findings from the fresh audit.
-
 Fresh audit candidate is sealed and immutable for M7:
-
 ```text
 audit/politics-maturity-freeze-20260921
 @ 9da838f38dd025283407c9bf248e9fbf731adcaa
 ```
-
 A PASS/FAIL may certify only that exact SHA. Any material semantic repair requires a new sealed candidate and a new fresh audit.
 
 
