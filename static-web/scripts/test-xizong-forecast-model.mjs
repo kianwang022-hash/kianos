@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import {
   XIZONG_FORECAST_MODEL_SCHEMA,
   applyXizongForecastScenario,
+  auditXizongCompressionProposals,
   buildXizongForecastLoop,
   buildXizongHighScoreRequirement,
   buildXizongScoreReadiness,
@@ -339,6 +340,24 @@ function baseProgress() {
   const forecast=buildXizongWorkloadForecast(noCompression);
   assert.equal(forecast.components.repair.band_minutes,null);
   assert.ok(forecast.components.repair.risks.includes('REPAIR_COMPRESSION_UNOBSERVED'));
+}
+
+{
+  const compression=auditXizongCompressionProposals([
+    {id:'case-overlap',kind:'MATERIAL_OVERLAP',target:'CASE_CRAM_REPEAT',minutes:300},
+    {id:'stable-q',kind:'STABLE_SECOND_PASS_REPETITION',target:'SECOND_PASS_REPETITION',minutes:180},
+    {id:'repair-dedup',kind:'REPAIR_CLUSTER_DEDUP',target:'DUPLICATE_REPAIR',minutes:120},
+    {id:'bad-source-cut',kind:'OPTIONAL_LOW_VALUE',target:'FIRST_PASS_SOURCE_CONTACT',minutes:600},
+    {id:'bad-score-cut',kind:'OPTIONAL_LOW_VALUE',target:'FORMAL_SCORE_CALIBRATION',minutes:180}
+  ]);
+  assert.equal(compression.proposals.find(row=>row.id==='case-overlap')?.decision,'ALLOW');
+  assert.equal(compression.proposals.find(row=>row.id==='stable-q')?.decision,'ALLOW');
+  assert.equal(compression.proposals.find(row=>row.id==='repair-dedup')?.decision,'ALLOW');
+  assert.equal(compression.proposals.find(row=>row.id==='bad-source-cut')?.decision,'REJECT');
+  assert.equal(compression.proposals.find(row=>row.id==='bad-score-cut')?.decision,'REJECT');
+  assert.equal(compression.safe,false);
+  assert.equal(compression.allowed_minutes,600);
+  assert.equal(compression.rejected_minutes,780);
 }
 
 {
