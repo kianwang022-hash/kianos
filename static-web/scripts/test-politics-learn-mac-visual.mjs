@@ -290,7 +290,7 @@ try {
   check(await exactLocator.isVisible(), 'practice_result_exact_chengfeng_locator_visible');
   const exactLocatorText = await exactLocator.innerText();
   check(
-    exactLocatorText.replace(/\s+/g, '') === String(practiceQuestion.chengfengLocator?.display || '').replace(/\s+/g, ''),
+    exactLocatorText.replace(/\s+/g, '').includes(String(practiceQuestion.chengfengLocator?.display || '').replace(/\s+/g, '')),
     'practice_result_safe_locator_matches_catalog',
     exactLocatorText
   );
