@@ -94,11 +94,12 @@ Current Stage-A result:
 - 2027 exact question-count/scoring geometry remains authority-BLOCKED; historical 165/300 stays prior-only;
 - neutral historical 275 loss baseline is recorded, without turning it into fixed discipline quotas.
 
-Next unblocked maturity inputs:
+Current task state:
 
-1. F exact official-question membership;
-2. 2027 Biochemistry delta reconciliation;
-3. final 25-point loss-envelope reconciliation after those inputs.
+1. **F exact official-question membership = ACTIVE in the parallel F content lane**; this maturity-control lane waits for and consumes that result rather than duplicating it.
+2. **2027 Biochemistry delta = BLOCKED_UNTIL_27_SOURCE**; preserve the prior baseline and do not manufacture a current-year delta before the source exists.
+3. **2027 exam-format + humanities deltas = upstream-source BLOCKED** for the same reason.
+4. The maturity-control lane may continue only work that does not require those missing sources, especially the structural 25-point loss-envelope model and integration of already-closed baselines.
 
 Late-stage material baseline is no longer an open construction task:
 - `xizong-26-late-stage-material-baseline.json` closes 26-cycle family identity/role/overlap baseline;
