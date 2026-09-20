@@ -1,0 +1,242 @@
+import assert from 'node:assert/strict';
+import {
+  saveEnglishAttempt
+} from '../src/lib/englishLearnerEvidence.mjs';
+import {
+  ENGLISH_SESSION_KEY,
+  validateEnglishSessionInstruction,
+  buildEnglishEvidencePacket,
+  buildEnglishLongHorizonRecurrenceDigest
+} from '../src/lib/englishSessionControl.mjs';
+import {
+  ENGLISH_EXAM_SESSION_SCHEMA,
+  ENGLISH_EXAM_ANSWER_SCHEMA,
+  englishExamPayload,
+  summarizeEnglishExamSession,
+  releaseEnglishExamObjective
+} from '../src/lib/englishExamSession.mjs';
+
+class MemoryStorage {
+  constructor(entries={}){this.map=new Map(Object.entries(entries));}
+  get length(){return this.map.size;}
+  key(i){return [...this.map.keys()][i]??null;}
+  getItem(k){return this.map.has(k)?this.map.get(k):null;}
+  setItem(k,v){this.map.set(String(k),String(v));}
+  removeItem(k){this.map.delete(String(k));}
+}
+
+const now=Date.parse('2026-09-21T12:00:00.000Z');
+const day='2026-09-21';
+
+// 1) Chat-context assistance must survive into immutable first evidence.
+const storage=new MemoryStorage();
+const instruction=validateEnglishSessionInstruction({
+  schema:'kianos.english.session-instruction.v1',
+  session_id:'e4-assistance',
+  study_day:day,
+  generated_at:'2026-09-21T11:59:00.000Z',
+  current_step:0,
+  steps:[{
+    step_id:'s1',
+    task:'reading_a',
+    object_id:'same-source-a',
+    source_hash:'shared-rendered-hash',
+    label:'E4 assisted fixture',
+    params:{
+      time_budget_seconds:1200,
+      assistance_context:{
+        state:'assisted',
+        basis:'chat_context',
+        observed_at:'2026-09-21T11:58:00.000Z',
+        note:'Chat already explained the exact target mechanism before assignment.'
+      }
+    }
+  }],
+  return_policy:{on_finish:'english_home'}
+},day);
+storage.setItem(ENGLISH_SESSION_KEY,JSON.stringify(instruction));
+
+const metaA={
+  task:'reading_a',
+  object_id:'same-source-a',
+  source_hash:'shared-rendered-hash',
+  snapshot:{evidence:{source_kind:'synthetic',evidence_role:'TRANSFER'}}
+};
+const valueA={submitted:true,answers:{q1:'A'},results:{q1:'correct'},uncertain:[]};
+saveEnglishAttempt(storage,'kianos-reading-attempt-v1:same-source-a',valueA,metaA,{now});
+assert.equal(valueA.binding.assistance,'assisted');
+assert.equal(valueA.binding.assistance_context?.basis,'chat_context');
+assert.equal(valueA.firstEvidenceMeta?.assistance,'assisted');
+assert.equal(valueA.firstEvidenceMeta?.independent_transfer_candidate,false);
+assert.equal(valueA.firstEvidenceMeta?.source_kind,'synthetic');
+assert.equal(valueA.firstEvidenceMeta?.evidence_role,'TRANSFER');
+
+// Invalid "unassisted declaration" must not let Chat manufacture cleanliness.
+assert.throws(()=>validateEnglishSessionInstruction({
+  schema:'kianos.english.session-instruction.v1',
+  session_id:'bad-clean',
+  study_day:day,
+  generated_at:'2026-09-21T12:00:00.000Z',
+  current_step:0,
+  steps:[{
+    step_id:'s1',
+    task:'reading_a',
+    object_id:'x',
+    source_hash:'h',
+    params:{assistance_context:{state:'unassisted',basis:'chat_context',observed_at:'2026-09-21T12:00:00.000Z',note:'force clean'}}
+  }]
+},day),/ENGLISH_ASSISTANCE_DECLARATION_INVALID/);
+
+// 2) Exact same rendered source under another object id must be exposed.
+storage.removeItem(ENGLISH_SESSION_KEY);
+const metaB={
+  task:'reading_a',
+  object_id:'same-source-b',
+  source_hash:'shared-rendered-hash',
+  snapshot:{evidence:{source_kind:'synthetic',evidence_role:'CALIBRATION'}}
+};
+const valueB={submitted:true,answers:{q1:'A'},results:{q1:'correct'},uncertain:[]};
+saveEnglishAttempt(storage,'kianos-reading-attempt-v1:same-source-b',valueB,metaB,{now:now+60000});
+assert.equal(valueB.binding.prior_exposure,'exposed','same exact source hash was washed back to unseen/unknown');
+assert.equal(valueB.firstEvidenceMeta?.independent_transfer_candidate,false);
+
+// 3) Reuse existing durable ledgers for bounded long-horizon recurrence.
+storage.setItem('kianos-english-objective-transfer-claims-v1',JSON.stringify({
+  version:1,
+  claims:[
+    {claimId:'o-pending',task:'reading_a',statement:'Difficult inference still needs later transfer',status:'TRANSFER_PENDING',sourceObjectId:'r1',createdAt:'2026-09-01T00:00:00Z',updatedAt:'2026-09-18T00:00:00Z',history:[{decision:'REOPENED'}]},
+    {claimId:'o-closed',task:'cloze',statement:'Candidate competition repaired',status:'CLOSED',sourceObjectId:'c1',createdAt:'2026-08-20T00:00:00Z',updatedAt:'2026-09-10T00:00:00Z',history:[{decision:'CLOSED'}]}
+  ]
+}));
+storage.setItem('kianos-translation-transfer-v1',JSON.stringify({
+  version:1,
+  targets:[
+    {id:'t-pending',label:'Preserve concessive relation',layer:'Relation / Information Preservation',skill:'concession',underlyingDemand:'Do not reverse concession',status:'pending',sourceTask:'tr1',lastSourceTask:'tr2',createdAt:'2026-09-05T00:00:00Z',evidence:[{relation:'contradict'}]},
+    {id:'t-closed',label:'Reference attachment',underlyingDemand:'Resolve referent',status:'closed',sourceTask:'tr0',lastSourceTask:'tr3',createdAt:'2026-08-01T00:00:00Z',closedAt:'2026-09-15T00:00:00Z',evidence:[{relation:'support'}]}
+  ]
+}));
+storage.setItem('kianos-writing-evidence-v1',JSON.stringify({
+  version:1,
+  schema:'kianos.english.writing-evidence.v1',
+  targets:[
+    {targetId:'w-pending',label:'Develop mechanism',underlyingDemand:'Add causal or operational link',status:'pending',originTaskId:'w1',admittedAt:'2026-09-02T00:00:00Z',events:[{verdict:'SUPPORT'}],updatedAt:'2026-09-19T00:00:00Z'},
+    {targetId:'w-closed',label:'Register control',underlyingDemand:'Match audience',status:'closed',originTaskId:'w0',admittedAt:'2026-08-02T00:00:00Z',events:[{verdict:'CLOSE'}],closedAt:'2026-09-14T00:00:00Z',updatedAt:'2026-09-14T00:00:00Z'}
+  ]
+}));
+
+const digest=buildEnglishLongHorizonRecurrenceDigest(storage,{recentExactTruncated:true,limitPerFamily:1});
+assert.equal(digest.schema,'kianos.english.long-horizon-recurrence.v1');
+assert.match(digest.semantics,/NOT_MASTERY/);
+assert.equal(digest.recent_exact_window_truncated,true);
+assert.equal(digest.objective.total,2);
+assert.equal(digest.objective.pending,1);
+assert.equal(digest.objective.included,1);
+assert.equal(digest.objective.truncated,true);
+assert.equal(digest.objective.targets[0].target_id,'o-pending');
+assert.equal(digest.translation.targets[0].target_id,'t-pending');
+assert.equal(digest.writing.targets[0].target_id,'w-pending');
+assert.equal(digest.requires_deeper_review_if_decision_depends_on_missing_history,true);
+assert.ok(digest.guardrails.includes('RECENT_EXACT_ABSENCE_IS_NOT_LONG_HORIZON_ABSENCE'));
+
+const packet=buildEnglishEvidencePacket(storage,{day,now:now+120000,catalog:[]});
+assert.equal(packet.long_horizon_recurrence.schema,'kianos.english.long-horizon-recurrence.v1');
+assert.equal(packet.long_horizon_recurrence.objective.pending,1);
+assert.equal(packet.long_horizon_recurrence.translation.pending,1);
+assert.equal(packet.long_horizon_recurrence.writing.pending,1);
+
+// 4) Whole-paper section evidence context must survive sealing/release summaries.
+const local={
+  binding:{
+    source_hash:'paper-step-hash',
+    attempt_id:'paper-attempt-1',
+    prior_exposure:'exposed',
+    assistance:'assisted',
+    source_kind:'official',
+    evidence_role:null
+  },
+  firstEvidenceMeta:{
+    source_hash:'paper-step-hash',
+    attempt_id:'paper-attempt-1',
+    prior_exposure:'exposed',
+    assistance:'assisted',
+    source_kind:'official',
+    evidence_role:null,
+    timing_status:'within_explicit_budget',
+    independent_transfer_candidate:false
+  },
+  answers:{q1:'A'},
+  uncertain:[],
+  trajectory:{}
+};
+const payload=englishExamPayload('reading_a',local);
+assert.equal(payload.prior_exposure,'exposed');
+assert.equal(payload.assistance,'assisted');
+assert.equal(payload.source_kind,'official');
+assert.equal(payload.independent_transfer_candidate,false);
+
+const started=Date.parse('2026-09-21T01:00:00.000Z');
+const session={
+  schema:ENGLISH_EXAM_SESSION_SCHEMA,
+  session_id:'e4-paper',
+  paper_id:'paper-e4',
+  source_hash:'paper-hash',
+  year:2026,
+  status:'SEALED',
+  revision:1,
+  started_at:new Date(started).toISOString(),
+  deadline_at:new Date(started+180*60_000).toISOString(),
+  sealed_at:new Date(started+170*60_000).toISOString(),
+  released_at:null,
+  duration_minutes:180,
+  total_points:10,
+  objective_max_points:10,
+  productive_max_points:0,
+  task_order:['reading_a'],
+  current_step:1,
+  steps:[{
+    step_id:'s1',
+    task:'reading_a',
+    object_id:'paper-reading',
+    label:'Reading A',
+    source_hash:'paper-step-hash',
+    max_points:10,
+    question_ids:['q1']
+  }],
+  captures:{
+    s1:{step_id:'s1',task:'reading_a',object_id:'paper-reading',completed_at:new Date(started+1000).toISOString(),payload}
+  },
+  release:null,
+  updated_at:new Date(started+170*60_000).toISOString()
+};
+
+const summary=summarizeEnglishExamSession(session);
+assert.equal(summary.step_evidence.length,1);
+assert.equal(summary.step_evidence[0].evidence.prior_exposure,'exposed');
+assert.equal(summary.step_evidence[0].evidence.assistance,'assisted');
+
+const released=releaseEnglishExamObjective(session,{
+  schema:ENGLISH_EXAM_ANSWER_SCHEMA,
+  paper_id:'paper-e4',
+  steps:{
+    s1:{task:'reading_a',object_id:'paper-reading',source_hash:'paper-step-hash',answers:{q1:'A'}}
+  }
+},started+181*60_000);
+assert.equal(released.release.objective.points,10);
+assert.equal(released.release.objective.steps[0].evidence.prior_exposure,'exposed');
+assert.equal(released.release.objective.steps[0].evidence.assistance,'assisted');
+assert.equal(released.release.objective.steps[0].evidence.independent_transfer_candidate,false);
+
+console.log(JSON.stringify({
+  schema:'kianos.english.evidence-fidelity-e4-validation.v1',
+  status:'PASS',
+  checks:{
+    chat_context_assistance_downgrades_first_evidence:true,
+    chat_cannot_declare_unassisted:true,
+    exact_source_hash_cross_object_exposure:true,
+    bounded_long_horizon_recurrence_digest:true,
+    recent_absence_not_long_horizon_absence:true,
+    whole_paper_constituent_exposure_preserved:true,
+    whole_paper_constituent_assistance_preserved:true,
+    whole_paper_release_keeps_contamination_context:true
+  }
+},null,2));
