@@ -39,6 +39,7 @@ import {
 import { listWritingRuntimeTasks } from '../src/lib/englishWritingRuntimeSourceTruth.mjs';
 import { englishSessionCatalog } from '../src/lib/englishSessionCatalog.mjs';
 import { validateEnglishSessionInstruction } from '../src/lib/englishSessionControl.mjs';
+import { englishSemanticSourceHash } from '../src/lib/englishSemanticSourceIdentity.mjs';
 
 const forbidden = new Set([
   'answer','answers','formal_answer','correct_answer','analysis','explanation',
@@ -73,6 +74,31 @@ const readingSynthetic = listSyntheticReadingSets();
 const clozeSynthetic = listSyntheticClozeSets();
 const partBSynthetic = listSyntheticReadingBSets();
 const translationSynthetic = listSyntheticTranslationSets();
+
+const semanticFixtureA={
+  task:'reading_a',
+  objectId:'alias-a',
+  paragraphs:[{id:'p1',text:'Same learner-visible passage.'}],
+  questions:[{id:'q1',ordinal:1,prompt:'Same question?',options:{A:'One',B:'Two'}}],
+  context:{source_kind:'synthetic',evidence_role:'REPAIR',target_mechanisms:['x']}
+};
+const semanticFixtureB={
+  task:'reading_a',
+  objectId:'alias-b',
+  paragraphs:[{id:'p9',text:'Same learner-visible passage.'}],
+  questions:[{id:'q9',ordinal:1,prompt:'Same question?',options:{A:'One',B:'Two'}}],
+  context:{source_kind:'official',evidence_role:'TRANSFER',target_mechanisms:['different-metadata']}
+};
+assert.equal(
+  englishSemanticSourceHash(semanticFixtureA),
+  englishSemanticSourceHash(semanticFixtureB),
+  'object id / source role metadata changed learner-semantic identity'
+);
+assert.notEqual(
+  englishSemanticSourceHash(semanticFixtureA),
+  englishSemanticSourceHash({...semanticFixtureB,questions:[{id:'q9',ordinal:1,prompt:'Different question?',options:{A:'One',B:'Two'}}]}),
+  'materially different learner prompt shared semantic identity'
+);
 
 assert.equal(listExecutableReadingSets().length, listReadingSets().length + readingSynthetic.length);
 assert.equal(listExecutableClozeSets().length, listClozeSets().length + clozeSynthetic.length);
@@ -130,6 +156,8 @@ assert.equal(writingInspection.taskCount, 10);
 assert.deepEqual(new Set(writingInspection.kinds), new Set(['small','big']));
 const writingSynthetic = listWritingSyntheticTasks();
 assert.equal(writingSynthetic.length, 10);
+assert.equal(new Set(writingSynthetic.map((row) => row.sourceHash)).size, writingSynthetic.length, 'Writing synthetic tasks share one exact source hash');
+assert.equal(new Set(writingSynthetic.map((row) => row.semanticSourceHash)).size, writingSynthetic.length, 'Distinct Writing prompts collapsed to one semantic source hash');
 assert.ok(writingSynthetic.every((row) => row.evidenceRole), 'Writing synthetic evidence roles must survive loader projection');
 const writingRuntimeIds = new Set(listWritingRuntimeTasks().map((row) => row.id));
 assert.ok(writingSynthetic.every((row) => writingRuntimeIds.has(row.id)));
@@ -183,6 +211,9 @@ console.log(JSON.stringify({
     writing_expanded_bank_ready: true,
     session_catalog_addresses_synthetic_objects: true,
     typed_instruction_accepts_synthetic_objects: true,
-    official_lists_remain_separate_from_synthetic_lists: true
+    official_lists_remain_separate_from_synthetic_lists: true,
+    semantic_identity_ignores_object_id_and_evidence_role: true,
+    semantic_identity_changes_with_learner_prompt: true,
+    writing_synthetic_has_per_task_exact_and_semantic_identity: true
   }
 }, null, 2));
