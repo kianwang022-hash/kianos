@@ -8,7 +8,7 @@ This file does not replace English task contracts. It defines what must be prove
 
 ## 1. Score closure
 
-Current working objective: **protect the 80-level path and push toward 85+**, with exact score bands recalibrated from real evidence.
+Current hard target: **85+**, consistent with the Current English Learning Contract. Any lower number may be used only as an explicitly named recovery / downside reference, not as a competing target owner. Above Secure 85+, English retains elastic upside when marginal value remains competitive with Xizong / Politics.
 
 The subject must treat these as distinct score channels:
 
@@ -129,7 +129,11 @@ Minimum Dose is a floor, never a completion quota.
 
 When stable evidence is strong, practice frequency must fall.
 
-When mechanism error, timed collapse, transfer failure or whole-paper regression appears, the exact module returns to Build/Verify.
+A module-level MAINTAIN state may coexist with one open mechanism in BUILD/VERIFY. Broad status must never hide a recurring inference, scope, form-specific, lexical-production or delivery defect.
+
+No-new-information may reduce practice only after representative mechanism/form/difficulty coverage. Repeating homogeneous easy tasks is not evidence that negative space is safe.
+
+When mechanism error, timed collapse, transfer failure or whole-paper regression appears, the exact module/mechanism returns to Build/Verify.
 
 ## 5. Evidence closure
 
@@ -147,6 +151,8 @@ A polished rewrite of the same Writing prompt is not proof of transfer.
 A correct answer produced by guessing or answer familiarity is weaker than a justified first attempt.
 
 Whole-paper failure may reopen a module even when isolated practice is stable.
+
+Translation and Writing score evidence require accepted scoring anchors and explicit rater/model uncertainty. One Chat score, however plausible, cannot alone create a narrow score Forecast when that judgment would materially change allocation. Use anchored re-score / independent review where feasible for high-impact calibration.
 
 ## 6. Maintenance and Elastic closure
 
@@ -208,6 +214,8 @@ Before study demand, maintain adequate ready inventory for:
 
 Do not generate the learner’s next task at the last second unless the task is intentionally adaptive and the generator itself is accepted.
 
+Generated assets must also have a lifecycle: intended mechanism, evidence role, version/identity, transfer independence, calibration status, dedupe/retire rule. One-off Repair assets should remain ephemeral unless reuse is proven valuable.
+
 ## 9. Execution closure
 
 Chat chooses:
@@ -239,6 +247,11 @@ Attack at least:
 - stale Chat plan / missing packet field / browser restart;
 - learner capacity loss / bad week;
 - Chat incorrectly keeps a low-ROI module in Build;
+- Chat falsely declares a stable module weak because evidence is sparse/selective;
+- homogeneous tasks producing a false No-new-information signal;
+- one-model Writing/Translation scoring moving Forecast too confidently;
+- same material appearing through another source/copy and being misclassified as fresh;
+- adaptive synthetic generation overfitting the repaired mechanism;
 - English Elastic work crowding out higher-ROI Xizong/Politics.
 
 ## 11. Final acceptance question
