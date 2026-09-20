@@ -13,17 +13,27 @@
   },
   "cursor_kind": "EVIDENCE_DRIVEN_REVIEW_QUEUE_NOT_LINEAR_FRONTIER",
   "next_cursor": {
-    "mode": "DEFAULT_NEEDS_CHAT_MAPPING_REVIEW",
-    "source": "content/xizong/explanations/",
+    "mode": "DEFAULT_ANTI_ANCHORED_REVIEW",
+    "source": "Question Truth reviewer packet; Explanation mapping_decision may be used only as hidden mechanical backlog eligibility",
     "exclude_existing_reviewed_relations": true,
     "default_batch_size": 50
   },
   "resume_policy": {
-    "default": "Build a review packet from APPROVED explanations whose mapping_decision is NEEDS_CHAT_MAPPING_REVIEW and which do not already have a REVIEWED relation.",
-    "explicit_rereview": "An explicit question_id may reopen a former NO_SAFE_MATCH when Current Knowledge evolution or a high-value learner need justifies re-review.",
+    "default": "Build an anti-anchored review packet for APPROVED questions selected by the hidden NEEDS_CHAT_MAPPING_REVIEW backlog hint and excluding existing REVIEWED relations. Reviewer sees Question Truth first, independently solves it, then inspects the exact Current Knowledge owner. Old Explanation semantics and prior targets stay withheld until an optional post-provisional conflict check.",
+    "explicit_rereview": "An explicit question_id may reopen a former NO_SAFE_MATCH or audit an existing relation. The reviewer must independently solve Question Truth before consulting old Explanation or prior mapping targets.",
     "no_linear_frontier": true,
     "no_inferred_targets": true,
-    "missing_mapping_is_legal": true
+    "missing_mapping_is_legal": true,
+    "anti_anchored": true,
+    "review_order": [
+      "Question Truth",
+      "independent solve / provisional exam target and decision axis",
+      "exact Current Knowledge owner",
+      "smallest sufficient System/Block/LG/KP target",
+      "self-attack",
+      "optional post-decision conflict check",
+      "REVIEWED relation"
+    ]
   },
   "last_growth": {
     "date": "2026-09-17",
