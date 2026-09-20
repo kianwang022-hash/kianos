@@ -78,7 +78,7 @@ await check('Review-imports-legacy-Analysis-evidence-and-rejects-unbound-current
   const stored=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)||'null'),POLITICS_ANALYSIS_EVIDENCE_KEY);
   assert.equal(stored.schema,'kianos.politics.analysis-evidence-store.v1');assert.equal(stored.records.length,1);assert.equal(stored.records[0].task_mode,'BIND');
   const exact={...legacy,evidence_id:'browser-analysis-current-001',task_id:'POL27-X8-001',task_revision:'pol27-x8-formulation-v1',
-   task_mode:'FORMULATION',attempt_role:'TRANSFER',fresh_material:true,freshness_class:'CURRENT_YEAR_EXACT_REQUIRED',formulation_requirement:'CURRENT_YEAR_EXACT',
+   task_mode:'FORMULATION',attempt_role:'FIRST',fresh_material:true,freshness_class:'CURRENT_YEAR_EXACT_REQUIRED',formulation_requirement:'CURRENT_YEAR_EXACT',
    source_basis:{family:'xiao8',identity:'future/xiao8/rev1/q34',revision:'xiao8-rev1',authority_status:'BOUND'},
    rubric:{I:2,S:2,B:2,F:2,D:'NA'},critical_flags:[]};
   await page.locator('[data-review-return-text]').fill(JSON.stringify(exact));
