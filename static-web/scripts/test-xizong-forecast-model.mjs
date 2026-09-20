@@ -327,7 +327,7 @@ function baseProgress() {
   assert.equal(readiness.formal_score.historical_calibration_sample_count,0);
   assert.equal(readiness.formal_score.calibration_sample_count,0);
   assert.equal(readiness.evidence_readiness.result,'SCORE_EVIDENCE_PRESENT_LOW_CONFIDENCE');
-  assert.match(readiness.formal_score.status,/WITHOUT_INTERNAL_HOLDOUT/);
+  assert.match(readiness.formal_score.status,/WITHOUT_IDENTIFIED_PROTECTED_CALIBRATION/);
 
   const workload=buildXizongWorkloadForecast(unprotected);
   assert.equal(workload.components.formal_calibration.band_minutes,null,
