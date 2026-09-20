@@ -1,0 +1,754 @@
+{
+  "schema": "kianos.lexical.final_mutation_package.v1",
+  "package_id": "BF01-MAT-WORDA-20260920",
+  "candidate_id": "BF01",
+  "range": {
+    "start_ordinal": 101,
+    "end_ordinal": 200
+  },
+  "lane": "A",
+  "source_head": "d0bb82ce5abc5bcaa34420043146e1b78fd2ae75",
+  "human_gate": {
+    "approved": true,
+    "approval_ref": "content/lexical/execution/manifests/o0101-o0200.final-standard-backfill-proposal.md@Kian-p"
+  },
+  "writes": [
+    {
+      "path": "content/lexical/words/by-ordinal/o0102.json",
+      "mode": "patch_json",
+      "expected_sha256": "fe1f86fd7b337a507e8b8e1be58d4465558e03c9c07dc2649189ebd32d2bd18e",
+      "edits": [
+        {
+          "pointer": "/record/form_identity",
+          "value": {
+            "form_type": "same_spelling_pos_conditioned_pronunciation",
+            "spelling": "affiliate",
+            "identity_rule": "part_of_speech_selects_pronunciation",
+            "boundary": "noun affiliate ends in /-ət/; verb affiliate ends in /-eɪt/.",
+            "boundaries": [
+              {
+                "surface": "affiliate",
+                "condition": "noun",
+                "note": "final syllable /-ət/"
+              },
+              {
+                "surface": "affiliate",
+                "condition": "verb",
+                "note": "final syllable /-eɪt/"
+              }
+            ],
+            "variants": [],
+            "authority": "FINAL_SEMANTIC_FREEZE v1 + Kian-approved BF01"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o0104.json",
+      "mode": "patch_json",
+      "expected_sha256": "e7998b4f1846eee2ec7d6a2c5810c5164f49abe9c46913c322d0bfceb1f5804b",
+      "edits": [
+        {
+          "pointer": "/record/constructions",
+          "value": []
+        },
+        {
+          "pointer": "/record/word_family",
+          "value": [
+            {
+              "fact_id": "deep:word_family:affluent:final-standard-affluence",
+              "module": "word_family",
+              "target_word": "affluence",
+              "meaning_cn": "富裕；富足",
+              "definition_en": "the state of having a great deal of money or wealth",
+              "boundary": "affluent（形容词）→ affluence（名词）：把富裕状态名词化。",
+              "dimensions": {
+                "morphology": "adjective → noun"
+              },
+              "direction": "R+P",
+              "priority": "A",
+              "publication_status": "publishable",
+              "verification_status": "verified",
+              "writing_safe": true,
+              "source_sense_id": "sense:affluent:2c108df63e585417",
+              "target_sense_id": null,
+              "task_tags": [
+                "reading",
+                "writing"
+              ],
+              "source": "FINAL_SEMANTIC_FREEZE_v1_BF01_2026-09-20"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o0106.json",
+      "mode": "patch_json",
+      "expected_sha256": "aef8663049d5d03e765378e654b62281f27352436c9464008e3e78d9a2e2dfb0",
+      "edits": [
+        {
+          "pointer": "/record/constructions",
+          "value": [
+            {
+              "construction_id": "construction:afraid:handoff-42f33310cd964dd2",
+              "pattern": "I’m afraid (that) ...",
+              "meaning_cn": "恐怕……；遗憾地说……",
+              "definition_en": "a pragmatic marker of regret, uncertainty, or bad news",
+              "level": "L1",
+              "pos": "phrase",
+              "source": "semantic-review-handoff-v1"
+            },
+            {
+              "construction_id": "construction:afraid:handoff-54531a774785ccd8",
+              "pattern": "afraid of doing vs afraid to do",
+              "meaning_cn": "害怕发生与不敢去做的区别",
+              "definition_en": "fear of an event versus reluctance to take an action",
+              "level": "L1",
+              "pos": "phrase",
+              "source": "semantic-review-handoff-v1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o0111.json",
+      "mode": "patch_json",
+      "expected_sha256": "d2f5b629b269c24b0adb318c7e79d684d6aa71c073f942c1af148a708231a874",
+      "edits": [
+        {
+          "pointer": "/record/senses",
+          "value": [
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:84d20caf2b91ef81efa7",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:again:9bfc1330985a5ec4:collocation:0"
+                  ],
+                  "meaning_cn": "再试一次",
+                  "phrase": "try again"
+                },
+                {
+                  "collocation_id": "collocation:147c61d2b64a7635b191",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:again:9bfc1330985a5ec4:collocation:1"
+                  ],
+                  "meaning_cn": "再三；反复",
+                  "phrase": "again and again"
+                },
+                {
+                  "collocation_id": "collocation:again:final-standard-then-again",
+                  "exam_value": "fixed_pattern",
+                  "meaning_cn": "话又说回来；另一方面；重新考虑刚才所说",
+                  "phrase": "then again"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "再一次；又",
+              "definition_en": "one more time; anew",
+              "governing_pattern": "",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "adverb",
+              "sense_id": "sense:again:9bfc1330985a5ec4",
+              "sense_label_en": "one more time; anew",
+              "sort_order": 0,
+              "transitivity": "nonverb"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:795021a077bef51310dd",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:again:34582c0a4ff751a9:collocation:0"
+                  ],
+                  "meaning_cn": "回来了",
+                  "phrase": "back again"
+                },
+                {
+                  "collocation_id": "collocation:0c5b9be61e04f4fb385e",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:again:34582c0a4ff751a9:collocation:1"
+                  ],
+                  "meaning_cn": "回到家",
+                  "phrase": "home again"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "回到原处；恢复原状",
+              "definition_en": "back to a previous place or state",
+              "governing_pattern": "",
+              "level": "L2",
+              "needs_human_review": 0,
+              "pos": "adverb",
+              "sense_id": "sense:again:34582c0a4ff751a9",
+              "sense_label_en": "back to a previous place or state",
+              "sort_order": 1,
+              "transitivity": "nonverb"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o0116.json",
+      "mode": "patch_json",
+      "expected_sha256": "fe4a4b7e5c4b584baf5d12af0c1761672ef511a5be84027346ec7b2ad726c542",
+      "edits": [
+        {
+          "pointer": "/record/constructions",
+          "value": []
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o0118.json",
+      "mode": "patch_json",
+      "expected_sha256": "619b85663fc11e93a0c6529ea5c763a4d99daf0e00118c9522777e9c9070086b",
+      "edits": [
+        {
+          "pointer": "/record/form_identity",
+          "value": {
+            "form_type": "same_spelling_pos_conditioned_pronunciation",
+            "spelling": "aggregate",
+            "identity_rule": "part_of_speech_selects_pronunciation",
+            "boundary": "noun/adjective aggregate end in /-gət/; verb aggregate ends in /-geɪt/.",
+            "boundaries": [
+              {
+                "surface": "aggregate",
+                "condition": "noun or adjective",
+                "note": "final syllable /-gət/"
+              },
+              {
+                "surface": "aggregate",
+                "condition": "verb",
+                "note": "final syllable /-geɪt/"
+              }
+            ],
+            "variants": [],
+            "authority": "FINAL_SEMANTIC_FREEZE v1 + Kian-approved BF01"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o0128.json",
+      "mode": "patch_json",
+      "expected_sha256": "9c83ec522e27735ee4fcb5f2f28edc1060f588afa4daf7f435628f6095f885bb",
+      "edits": [
+        {
+          "pointer": "/record/constructions",
+          "value": [
+            {
+              "pattern": "aim to do sth",
+              "meaning_cn": "旨在做某事",
+              "construction_id": "construction:aim:handoff-fa119829a55165fd",
+              "source_sense_id": "sense:aim:c85b71e8df5251f8"
+            },
+            {
+              "pattern": "be aimed at sth/doing sth",
+              "meaning_cn": "旨在某事或做某事",
+              "construction_id": "construction:aim:handoff-3f95f5c9d821a85f",
+              "source_sense_id": "sense:aim:c85b71e8df5251f8"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o0130.json",
+      "mode": "patch_json",
+      "expected_sha256": "a64d9958ca6b1dc30d2fbd35874b49a596e5f98cf299d302766059956490f091",
+      "edits": [
+        {
+          "pointer": "/record/form_identity",
+          "value": {
+            "form_type": "irregular_inflection",
+            "spelling": "aircraft",
+            "identity_rule": "irregular_or_invariant_inflection",
+            "boundary": "aircraft has an invariant plural: one aircraft / several aircraft.",
+            "boundaries": [
+              {
+                "surface": "aircraft",
+                "condition": "singular",
+                "note": "one aircraft"
+              },
+              {
+                "surface": "aircraft",
+                "condition": "plural",
+                "note": "several aircraft"
+              }
+            ],
+            "variants": [],
+            "authority": "FINAL_SEMANTIC_FREEZE v1 + Kian-approved BF01"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o0133.json",
+      "mode": "patch_json",
+      "expected_sha256": "7ae96b0e442e08debc093706c91181bfc679b4a3abbb3453907218511b3e2239",
+      "edits": [
+        {
+          "pointer": "/record/constructions",
+          "value": []
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o0137.json",
+      "mode": "patch_json",
+      "expected_sha256": "9f74ca175de0198b699072d19aa9d2f5d9cabc4cad34086c7ed29357653c0be4",
+      "edits": [
+        {
+          "pointer": "/record/constructions",
+          "value": []
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o0138.json",
+      "mode": "patch_json",
+      "expected_sha256": "f89c3964ff939199e9b518c5a26629d5fed1a9ce251d2641630d88d5ff436298",
+      "edits": [
+        {
+          "pointer": "/relation_refs",
+          "value": [
+            {
+              "relation_id": "deep:confusables:alter:ec2b2a5d2e1f3a7b",
+              "owner_path": "content/lexical/relations/by-id/25/251dc8f755711f03321500393888fd66073d1968a8dc50b47b14405b27762eed.json",
+              "field": "confusables",
+              "index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o0142.json",
+      "mode": "patch_json",
+      "expected_sha256": "3b827c1b6b2e04450529fc476969e06a04505b3298facdcf0b60ec4754609936",
+      "edits": [
+        {
+          "pointer": "/record/word_family",
+          "value": [
+            {
+              "fact_id": "deep:word_family:align:final-standard-alignment",
+              "module": "word_family",
+              "target_word": "alignment",
+              "meaning_cn": "对齐；一致；结盟",
+              "definition_en": "the state or process of being aligned physically or strategically",
+              "boundary": "align（动词）→ alignment（名词）：物理对齐、战略/组织/概念一致。",
+              "dimensions": {
+                "morphology": "verb → noun"
+              },
+              "direction": "R+P",
+              "priority": "A",
+              "publication_status": "publishable",
+              "verification_status": "verified",
+              "writing_safe": true,
+              "source_sense_id": "sense:align:65e906b717115df6",
+              "target_sense_id": null,
+              "task_tags": [
+                "reading",
+                "writing"
+              ],
+              "source": "FINAL_SEMANTIC_FREEZE_v1_BF01_2026-09-20"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o0146.json",
+      "mode": "patch_json",
+      "expected_sha256": "017b4eb5d968a31e0f94f2b809d647e0ef23979dfa1d569fa82b4524657bd5e2",
+      "edits": [
+        {
+          "pointer": "/record/constructions",
+          "value": [
+            {
+              "construction_id": "construction:allege:baseline-v2-be-alleged-to",
+              "pattern": "be alleged to do / have done sth",
+              "meaning_cn": "据称做……；据称曾做过……",
+              "definition_en": "be claimed, without proof, to do something or to have done something",
+              "boundary": "formal reporting pattern that keeps the claim unattributed/unproven rather than presenting it as fact.",
+              "level": "L1",
+              "pos": "phrase",
+              "source": "baseline-v2-2026-09-19"
+            }
+          ]
+        },
+        {
+          "pointer": "/record/word_family",
+          "value": [
+            {
+              "fact_id": "deep:word_family:allege:final-standard-allegation",
+              "module": "word_family",
+              "target_word": "allegation",
+              "meaning_cn": "指控；未经证实的说法",
+              "definition_en": "a claim or accusation that has not yet been proved",
+              "boundary": "allege（动词）→ allegation（名词）：法律、新闻和学术中常见。",
+              "dimensions": {
+                "morphology": "verb → noun"
+              },
+              "direction": "R+P",
+              "priority": "A",
+              "publication_status": "publishable",
+              "verification_status": "verified",
+              "writing_safe": true,
+              "source_sense_id": "sense:allege:3e3f40d4fe4a5943",
+              "target_sense_id": null,
+              "task_tags": [
+                "reading",
+                "writing"
+              ],
+              "source": "FINAL_SEMANTIC_FREEZE_v1_BF01_2026-09-20"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o0150.json",
+      "mode": "patch_json",
+      "expected_sha256": "c0580bc742873481ec056e8edd80b603dd45ff86e731c96169dc22ad8504c802",
+      "edits": [
+        {
+          "pointer": "/record/word_family",
+          "value": [
+            {
+              "fact_id": "deep:word_family:allocate:final-standard-allocation",
+              "module": "word_family",
+              "target_word": "allocation",
+              "meaning_cn": "分配；配置",
+              "definition_en": "the act or result of allocating resources, money, time, or capacity",
+              "boundary": "allocate（动词）→ allocation（名词）：资源、资金、时间等的分配。",
+              "dimensions": {
+                "morphology": "verb → noun"
+              },
+              "direction": "R+P",
+              "priority": "A",
+              "publication_status": "publishable",
+              "verification_status": "verified",
+              "writing_safe": true,
+              "source_sense_id": "sense:allocate:39b1308a96415f77",
+              "target_sense_id": null,
+              "task_tags": [
+                "reading",
+                "writing"
+              ],
+              "source": "FINAL_SEMANTIC_FREEZE_v1_BF01_2026-09-20"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o0151.json",
+      "mode": "patch_json",
+      "expected_sha256": "3183d6997fbb0f1c7538ce3d5083c6e84201981de64708abfdce87ad4b2d47e2",
+      "edits": [
+        {
+          "pointer": "/record/senses",
+          "value": [
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:c8b733244fc617d1fd82",
+                  "exam_value": "fixed_pattern",
+                  "legacy_source_object_ids": [
+                    "sense:allow:b42ebb1c0c725d7b:collocation:0"
+                  ],
+                  "meaning_cn": "允许某人做某事",
+                  "phrase": "allow sb to do sth"
+                },
+                {
+                  "collocation_id": "collocation:1b4d2fee22b44f515e03",
+                  "exam_value": "fixed_pattern",
+                  "legacy_source_object_ids": [
+                    "sense:allow:b42ebb1c0c725d7b:collocation:1"
+                  ],
+                  "meaning_cn": "允许某事",
+                  "phrase": "allow + sth"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "允许；准许",
+              "definition_en": "to give permission to someone or something to do something",
+              "governing_pattern": "vt. + object",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "verb",
+              "sense_id": "sense:allow:b42ebb1c0c725d7b",
+              "sense_label_en": "to give permission to someone or something to do something",
+              "sort_order": 0,
+              "transitivity": "vt"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:eb401f3f1682230a3610",
+                  "exam_value": "fixed_pattern",
+                  "legacy_source_object_ids": [
+                    "sense:allow:d071fd69d09c5219:collocation:0"
+                  ],
+                  "meaning_cn": "为某事留出某物",
+                  "phrase": "allow + sth + for + sth"
+                },
+                {
+                  "collocation_id": "collocation:90d6a0765d813375d9b4",
+                  "exam_value": "fixed_pattern",
+                  "legacy_source_object_ids": [
+                    "sense:allow:d071fd69d09c5219:collocation:1"
+                  ],
+                  "meaning_cn": "为某事留出时间",
+                  "phrase": "allow time for + sth"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "给予；分配（时间、金钱等）",
+              "definition_en": "to give or assign something, such as time or money, for a particular purpose",
+              "governing_pattern": "vt. + object",
+              "level": "L2",
+              "needs_human_review": 0,
+              "pos": "verb",
+              "sense_id": "sense:allow:d071fd69d09c5219",
+              "sense_label_en": "to give or assign something, such as time or money, for a particular pur",
+              "sort_order": 1,
+              "transitivity": "vt"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:ffc5a252efd357dd4884",
+                  "exam_value": "fixed_pattern",
+                  "legacy_source_object_ids": [
+                    "sense:allow:08126d3971b25e1e:collocation:0"
+                  ],
+                  "meaning_cn": "承认……",
+                  "phrase": "allow that + clause"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "承认；认可",
+              "definition_en": "to admit or concede that something is true or valid",
+              "governing_pattern": "vt. + object",
+              "level": "L2",
+              "needs_human_review": 0,
+              "pos": "verb",
+              "sense_id": "sense:allow:08126d3971b25e1e",
+              "sense_label_en": "to admit or concede that something is true or valid",
+              "sort_order": 2,
+              "transitivity": "vt"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:9b4b796bc18bf8b32675",
+                  "exam_value": "fixed_pattern",
+                  "legacy_source_object_ids": [
+                    "sense:allow:b5baf891d9305a6e:collocation:0"
+                  ],
+                  "meaning_cn": "考虑到某事",
+                  "phrase": "allow for + sth"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "考虑到；顾及",
+              "definition_en": "to make provision for or take into consideration",
+              "governing_pattern": "vi. + for",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "verb",
+              "sense_id": "sense:allow:b5baf891d9305a6e",
+              "sense_label_en": "to make provision for or take into consideration",
+              "sort_order": 3,
+              "transitivity": "vi"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o0152.json",
+      "mode": "patch_json",
+      "expected_sha256": "bc67503da6872d6487123239ea70aec993acc806fc42ead5a6e4981e47648569",
+      "edits": [
+        {
+          "pointer": "/record/senses",
+          "value": [
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:6a829d117f69b8c21a08",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:allowance:c67eb3ef02b855be:collocation:1"
+                  ],
+                  "meaning_cn": "每月津贴",
+                  "phrase": "a monthly allowance"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "定期给予的金额，尤指用于特定目的",
+              "definition_en": "an amount of money given regularly to someone, especially for a specific purpose",
+              "governing_pattern": "",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "noun",
+              "sense_id": "sense:allowance:c67eb3ef02b855be",
+              "sense_label_en": "an amount of money given regularly to someone, especially for a specific",
+              "sort_order": 0,
+              "transitivity": "nonverb"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:b9a0a5147f967c7ae624",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:allowance:556032d51b6e5484:collocation:0"
+                  ],
+                  "meaning_cn": "行李限额",
+                  "phrase": "baggage allowance"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "在限额内允许的数量",
+              "definition_en": "an amount of something that is allowed within a limit",
+              "governing_pattern": "",
+              "level": "L2",
+              "needs_human_review": 0,
+              "pos": "noun",
+              "sense_id": "sense:allowance:556032d51b6e5484",
+              "sense_label_en": "an amount of something that is allowed within a limit",
+              "sort_order": 1,
+              "transitivity": "nonverb"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:569b409f578fc3ee5e36",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:allowance:f8ddae3bd11d58fe:collocation:0"
+                  ],
+                  "meaning_cn": "免税额",
+                  "phrase": "tax allowance"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "基于情况的折扣或增减额",
+              "definition_en": "a reduction in price or an amount added or deducted based on circumstances",
+              "governing_pattern": "",
+              "level": "L3",
+              "needs_human_review": 0,
+              "pos": "noun",
+              "sense_id": "sense:allowance:f8ddae3bd11d58fe",
+              "sense_label_en": "a reduction in price or an amount added or deducted based on circumstanc",
+              "sort_order": 2,
+              "transitivity": "nonverb"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o0153.json",
+      "mode": "patch_json",
+      "expected_sha256": "a8c29bcdd28a3cf89c70e26674a84aed86c055f822bb9750ea61344acb081d4f",
+      "edits": [
+        {
+          "pointer": "/record/form_identity",
+          "value": {
+            "form_type": "same_spelling_pos_conditioned_pronunciation",
+            "spelling": "alloy",
+            "identity_rule": "part_of_speech_selects_pronunciation",
+            "boundary": "noun alloy normally has initial stress; verb alloy shifts stress to the second syllable.",
+            "boundaries": [
+              {
+                "surface": "alloy",
+                "condition": "noun",
+                "note": "initial stress"
+              },
+              {
+                "surface": "alloy",
+                "condition": "verb",
+                "note": "second-syllable stress"
+              }
+            ],
+            "variants": [],
+            "authority": "FINAL_SEMANTIC_FREEZE v1 + Kian-approved BF01"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o0154.json",
+      "mode": "patch_json",
+      "expected_sha256": "314575af18312b3b23009ef84ec21a1cdf3a2fb512987b61e9b12972d4579f98",
+      "edits": [
+        {
+          "pointer": "/record/form_identity",
+          "value": {
+            "form_type": "same_spelling_pos_conditioned_pronunciation",
+            "spelling": "ally",
+            "identity_rule": "part_of_speech_selects_pronunciation",
+            "boundary": "noun ally normally has initial stress; verb ally has final stress.",
+            "boundaries": [
+              {
+                "surface": "ally",
+                "condition": "noun",
+                "note": "initial stress"
+              },
+              {
+                "surface": "ally",
+                "condition": "verb",
+                "note": "final stress"
+              }
+            ],
+            "variants": [],
+            "authority": "FINAL_SEMANTIC_FREEZE v1 + Kian-approved BF01"
+          }
+        }
+      ]
+    }
+  ],
+  "semantic_dependency_read_set": {
+    "content/lexical/CURRENT.md": "cc7b43ce21c334216989e8a2d7eccf6aa71b25d73ba17fb24f17eff2b9f7fb55",
+    "content/lexical/LEARNING_CONTRACT.md": "b1d0b67f611fde916f9b39cd3227f44c9e9c3bc724e68f9467b33131b58c1a33",
+    "content/lexical/CONTENT_ASSET_CONTRACT.md": "026a1aaa6af7fdd0f29ae5a17d3ac3646bf1a2397ad561d23cca26ab457fce35",
+    "content/lexical/CONTENT_EXECUTION.md": "90ee050f01907cffd9598aaed048d969dd47b1edfe83ca8e93dd3a0f21725763",
+    "content/lexical/FINAL_SEMANTIC_FREEZE.md": "16bb018d994f796c5a4e8a51cc01f3b564632a1150bc03c19c9d0161add734fe",
+    "content/lexical/schema.json": "a14e8b61f1a1b67e618e4ea7a6089886354d1e5932d29c2c791fd05550d3d622",
+    "content/lexical/words/by-ordinal/o0102.json": "fe1f86fd7b337a507e8b8e1be58d4465558e03c9c07dc2649189ebd32d2bd18e",
+    "content/lexical/words/by-ordinal/o0104.json": "e7998b4f1846eee2ec7d6a2c5810c5164f49abe9c46913c322d0bfceb1f5804b",
+    "content/lexical/words/by-ordinal/o0106.json": "aef8663049d5d03e765378e654b62281f27352436c9464008e3e78d9a2e2dfb0",
+    "content/lexical/words/by-ordinal/o0111.json": "d2f5b629b269c24b0adb318c7e79d684d6aa71c073f942c1af148a708231a874",
+    "content/lexical/words/by-ordinal/o0116.json": "fe4a4b7e5c4b584baf5d12af0c1761672ef511a5be84027346ec7b2ad726c542",
+    "content/lexical/words/by-ordinal/o0118.json": "619b85663fc11e93a0c6529ea5c763a4d99daf0e00118c9522777e9c9070086b",
+    "content/lexical/words/by-ordinal/o0128.json": "9c83ec522e27735ee4fcb5f2f28edc1060f588afa4daf7f435628f6095f885bb",
+    "content/lexical/words/by-ordinal/o0130.json": "a64d9958ca6b1dc30d2fbd35874b49a596e5f98cf299d302766059956490f091",
+    "content/lexical/words/by-ordinal/o0133.json": "7ae96b0e442e08debc093706c91181bfc679b4a3abbb3453907218511b3e2239",
+    "content/lexical/words/by-ordinal/o0137.json": "9f74ca175de0198b699072d19aa9d2f5d9cabc4cad34086c7ed29357653c0be4",
+    "content/lexical/words/by-ordinal/o0138.json": "f89c3964ff939199e9b518c5a26629d5fed1a9ce251d2641630d88d5ff436298",
+    "content/lexical/words/by-ordinal/o0142.json": "3b827c1b6b2e04450529fc476969e06a04505b3298facdcf0b60ec4754609936",
+    "content/lexical/words/by-ordinal/o0146.json": "017b4eb5d968a31e0f94f2b809d647e0ef23979dfa1d569fa82b4524657bd5e2",
+    "content/lexical/words/by-ordinal/o0150.json": "c0580bc742873481ec056e8edd80b603dd45ff86e731c96169dc22ad8504c802",
+    "content/lexical/words/by-ordinal/o0151.json": "3183d6997fbb0f1c7538ce3d5083c6e84201981de64708abfdce87ad4b2d47e2",
+    "content/lexical/words/by-ordinal/o0152.json": "bc67503da6872d6487123239ea70aec993acc806fc42ead5a6e4981e47648569",
+    "content/lexical/words/by-ordinal/o0153.json": "a8c29bcdd28a3cf89c70e26674a84aed86c055f822bb9750ea61344acb081d4f",
+    "content/lexical/words/by-ordinal/o0154.json": "314575af18312b3b23009ef84ec21a1cdf3a2fb512987b61e9b12972d4579f98",
+    "content/lexical/relations/manifest.json": "77eb0d82b46e5375967d25e7c58af6855f6dab0813b712bf92a1645b75e87564",
+    "content/lexical/relations/by-id/25/251dc8f755711f03321500393888fd66073d1968a8dc50b47b14405b27762eed.json": "d198cdc0496becc8126204a6f4c19c66925f120b53b2f4d2c4ebb63233171262",
+    "content/lexical/relations/by-id/8b/8bd471b7cab9387fd9088463a63cb4b6e990cea106a912907e2ea2780402498a.json": "5c345ab368de39617567918a0ba828bdd809b5a0c6f48303d08e5596d1962194"
+  }
+}
