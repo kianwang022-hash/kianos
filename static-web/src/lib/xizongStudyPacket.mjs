@@ -609,13 +609,21 @@ function summarizeXizongSystemRecallForecast(storage, systemRows = []) {
         timer_minutes_since_previous_recall: timerMinutes
       };
     });
+    const sourceRevisionBlocked = Number(system?.runtime_source_revision_blocked_blocks || 0) > 0;
     return {
       system_id: systemId,
       canonical_id: String(system?.canonical_id || ''),
-      pre_question_recall_observed: events.some((event) => event.role === 'PRE_QUESTION_OR_MANUAL'),
-      post_first_pass_recall_observed: events.some((event) => event.role === 'POST_FIRST_PASS'),
+      source_revision_blocked: sourceRevisionBlocked,
+      source_revision_blocked_blocks: Number(system?.runtime_source_revision_blocked_blocks || 0),
+      pre_question_recall_observed: !sourceRevisionBlocked
+        && events.some((event) => event.role === 'PRE_QUESTION_OR_MANUAL'),
+      post_first_pass_recall_observed: !sourceRevisionBlocked
+        && events.some((event) => event.role === 'POST_FIRST_PASS'),
       first_pass_round_ids: [...firstPassRoundIds],
-      events
+      events,
+      evidence_boundary: sourceRevisionBlocked
+        ? 'Historical System Recall events are preserved but cannot authorize Current System reconstruction until Source-revision-blocked Blocks are revalidated.'
+        : 'Current System Recall observation.'
     };
   });
 }
