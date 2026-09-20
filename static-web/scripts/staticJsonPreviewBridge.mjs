@@ -1,13 +1,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const JSON_ROUTE = /\\.json\\/?$/i;
+const JSON_ROUTE = /\.json\/?$/i;
 
 function safeOutputPath(root, pathname) {
   let decoded;
   try { decoded = decodeURIComponent(pathname); }
   catch { return null; }
-  const relative = decoded.replace(/^\\/+/, '').replace(/\\/+$/, '');
+  const relative = decoded.replace(/^\/+/, '').replace(/\/+$/, '');
   if (!relative || !JSON_ROUTE.test('/' + relative)) return null;
   const target = path.resolve(root, relative);
   const rel = path.relative(root, target);
