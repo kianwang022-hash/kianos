@@ -15,6 +15,15 @@ export function englishSessionCatalog(){
   }
  }
  for(const row of listWritingRuntimeTasks())rows.push({task:'writing',object_id:row.id,source_hash:row.sourceHash,semantic_source_hash:row.semanticSourceHash||row.sourceHash});
- for(const row of listEnglishExamPapers())rows.push({task:'full_paper',object_id:row.paperId,material_ids:loadEnglishExamPaper(row.paperId).steps.map(s=>s.object_id),source_hash:loadEnglishExamPaper(row.paperId).source_hash});
+ for(const row of listEnglishExamPapers()){
+   const paper=loadEnglishExamPaper(row.paperId);
+   rows.push({
+    task:'full_paper',
+    object_id:row.paperId,
+    material_ids:paper.steps.map(s=>s.object_id),
+    materials:paper.steps.map(s=>({object_id:s.object_id,source_hash:s.source_hash||null,semantic_source_hash:s.semantic_source_hash||s.source_hash||null})),
+    source_hash:paper.source_hash
+   });
+ }
  cached=rows;return rows;
 }
