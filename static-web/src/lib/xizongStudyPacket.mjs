@@ -198,8 +198,42 @@ function summarizeXizongForecastPractice(storage, {
       .filter((row) => row?.status === 'EXACT')
       .map((row) => [String(row?.system_id || ''), row])
   );
+  const currentScopeDomains = (Array.isArray(questionScope?.non_system_domains)
+    ? questionScope.non_system_domains
+    : []).filter((row) => row?.status === 'EXACT');
+  const currentDomainByQid = new Map();
+  for (const domain of currentScopeDomains) {
+    for (const questionId of Array.isArray(domain?.qids) ? domain.qids : []) {
+      const id = String(questionId || '');
+      if (!id) continue;
+      if (currentDomainByQid.has(id)) {
+        throw new Error('XIZONG_FORECAST_NON_SYSTEM_DOMAIN_QID_DUPLICATE:' + id);
+      }
+      currentDomainByQid.set(id, domain);
+    }
+  }
+  const byDomain = new Map(currentScopeDomains.map((domain) => [
+    String(domain?.canonical_id || domain?.domain_id || ''),
+    {
+      domain_id: String(domain?.domain_id || ''),
+      canonical_id: String(domain?.canonical_id || domain?.domain_id || ''),
+      owner_kind: 'NON_SYSTEM_EXAM_DOMAIN',
+      attempted: 0,
+      eligible_attempted: 0,
+      current_scope_eligible_attempted: 0,
+      current_scope_unique_attempted: 0,
+      current_scope_stable: 0,
+      current_scope_uncertain: 0,
+      current_scope_wrong: 0,
+      current_scope_speed_by_day: [],
+      stable: 0,
+      uncertain: 0,
+      wrong: 0
+    }
+  ]));
   const currentCoverageBySystem = new Map();
   const currentScopeFirstAttempt = new Map();
+  const currentDomainFirstAttempt = new Map();
   const currentScopeTimingBySystemDay = new Map();
   let eligibleAttempted = 0;
   let currentScopeEligibleAttempted = 0;
@@ -260,6 +294,31 @@ function summarizeXizongForecastPractice(storage, {
       currentScopeFirstAttempt.set(questionId, event);
     }
   }
+  for (const [questionId, event] of firstPass.entries()) {
+    const domain = currentDomainByQid.get(questionId);
+    if (!domain || holdout.has(eventYear(event))) continue;
+    currentDomainFirstAttempt.set(questionId, event);
+    const canonicalId = String(domain?.canonical_id || domain?.domain_id || '');
+    const row = byDomain.get(canonicalId);
+    if (!row) continue;
+    const status = String(event?.status || '');
+    row.attempted += 1;
+    row.eligible_attempted += 1;
+    row.current_scope_eligible_attempted += 1;
+    row.current_scope_unique_attempted += 1;
+    if (status === 'stable') {
+      row.stable += 1;
+      row.current_scope_stable += 1;
+    } else if (status === 'uncertain') {
+      row.uncertain += 1;
+      row.current_scope_uncertain += 1;
+    } else if (status === 'wrong') {
+      row.wrong += 1;
+      row.current_scope_wrong += 1;
+    }
+  }
+  currentScopeEligibleAttempted += currentDomainFirstAttempt.size;
+
   for (const [canonicalId, ids] of currentCoverageBySystem.entries()) {
     let row = bySystem.get(canonicalId);
     if (!row) {
@@ -321,7 +380,22 @@ function summarizeXizongForecastPractice(storage, {
       else if (status === 'wrong') timingRow.wrong += 1;
     }
   }
-  const currentScopeWrongUncertain = currentScopeCounts.wrong + currentScopeCounts.uncertain;
+  const domainScopeCounts = [...byDomain.values()].reduce((acc, row) => ({
+    stable: acc.stable + Number(row.current_scope_stable || 0),
+    uncertain: acc.uncertain + Number(row.current_scope_uncertain || 0),
+    wrong: acc.wrong + Number(row.current_scope_wrong || 0)
+  }), { stable:0, uncertain:0, wrong:0 });
+  const combinedCurrentScopeCounts = {
+    stable: currentScopeCounts.stable + domainScopeCounts.stable,
+    uncertain: currentScopeCounts.uncertain + domainScopeCounts.uncertain,
+    wrong: currentScopeCounts.wrong + domainScopeCounts.wrong
+  };
+  const combinedCurrentScopeAttempted = new Set([
+    ...currentScopeFirstAttempt.keys(),
+    ...currentDomainFirstAttempt.keys()
+  ]).size;
+  const currentScopeWrongUncertain =
+    combinedCurrentScopeCounts.wrong + combinedCurrentScopeCounts.uncertain;
   for (const row of bySystem.values()) {
     const wu = Number(row.current_scope_wrong || 0) + Number(row.current_scope_uncertain || 0);
     row.current_scope_wrong_or_uncertain = wu;
@@ -429,17 +503,18 @@ function summarizeXizongForecastPractice(storage, {
       wrong_or_uncertain_rate: firstPass.size ? Number((wrongUncertain / firstPass.size).toFixed(4)) : null,
       eligible_attempted_questions: eligibleAttempted,
       current_scope_eligible_attempted_questions: currentScopeEligibleAttempted,
-      current_scope_unique_attempted_questions: currentScopeFirstAttempt.size,
-      current_scope_stable: currentScopeCounts.stable,
-      current_scope_uncertain: currentScopeCounts.uncertain,
-      current_scope_wrong: currentScopeCounts.wrong,
+      current_scope_unique_attempted_questions: combinedCurrentScopeAttempted,
+      current_scope_stable: combinedCurrentScopeCounts.stable,
+      current_scope_uncertain: combinedCurrentScopeCounts.uncertain,
+      current_scope_wrong: combinedCurrentScopeCounts.wrong,
       current_scope_wrong_or_uncertain: currentScopeWrongUncertain,
       current_scope_wrong_or_uncertain_rate:
-        currentScopeFirstAttempt.size
-          ? Number((currentScopeWrongUncertain / currentScopeFirstAttempt.size).toFixed(4))
+        combinedCurrentScopeAttempted
+          ? Number((currentScopeWrongUncertain / combinedCurrentScopeAttempted).toFixed(4))
           : null,
       heldout_observed_questions: heldoutObserved,
       by_system: [...bySystem.values()].sort((a, b) => String(a.canonical_id).localeCompare(String(b.canonical_id), undefined, { numeric: true })),
+      by_domain: [...byDomain.values()].sort((a, b) => String(a.canonical_id).localeCompare(String(b.canonical_id))),
       by_day: dayRows
     },
     latest: {
