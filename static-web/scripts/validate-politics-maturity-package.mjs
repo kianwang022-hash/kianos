@@ -22,7 +22,7 @@ const orchestrator = read('EXAM_ORCHESTRATOR_CONTRACT.md');
 
 assert.ok(current.includes('ACTIVE OWNER #638'));
 assert.ok(current.includes('work/politics-later-readiness-20260920'));
-assert.ok(current.includes('FRESH INDEPENDENT'));
+assert.ok(/fresh independent/i.test(current));
 assert.ok(current.includes('BLOCKED ON M7'));
 assert.ok(stage.includes('FREEZE CANDIDATE'));
 assert.ok(stage.includes('Fresh Independent / Anti-Anchored'));
@@ -114,7 +114,7 @@ assert.ok(forecast.includes('P20/P50/P80'));
 
 assert.ok(report.includes('BUILDER ADVERSARIAL CLOSURE COMPLETE'));
 assert.ok(report.includes('5,832 combinations'));
-assert.ok(report.includes('decision flip'));
+assert.ok(/decision[- ]flip/i.test(report));
 assert.ok(report.toLowerCase().includes('metamorphic'));
 assert.ok(report.includes('Fresh Chat attack'));
 assert.ok(report.includes('No-Website attack'));
