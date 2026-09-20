@@ -51,7 +51,7 @@ The following do not belong here:
 Rules:
 
 1. A Current `REVIEWED` row under `question-relations/` is the only positive mapping truth.
-2. `NEEDS_CHAT_MAPPING_REVIEW` may enter the C1 review queue but does not itself create a relation.
+2. `NEEDS_CHAT_MAPPING_REVIEW` may be used only as a mechanical backlog-selection hint. It does not enter the anti-anchored default packet, does not itself create a relation, and must not bias the reviewer toward a target.
 3. `NO_SAFE_MATCH` remains absent by default.
 4. A former `NO_SAFE_MATCH` may be explicitly re-reviewed when Current Knowledge changes or an explicit high-value need reopens it. If a safe target is then approved, the new relation row must record that re-review basis rather than pretending the old judgment never existed.
 5. Review tooling must always exclude already-reviewed qids, even if an older Explanation still contains a stale routing hint.
@@ -90,7 +90,21 @@ A missing relation is not debt by itself and never blocks practice. It only with
 
 ### D4 — candidate generation may automate discovery, never semantics
 
-C1 tooling may collect Question Truth, Explanation evidence, current relation status, and provenance into review packets. It may **not** emit suggested System/Block/KP targets.
+C1 may use old Explanation routing state only to find backlog candidates. The **anti-anchored default packet** shown to the reviewer contains Question Truth plus non-semantic workflow/provenance metadata, while withholding old Explanation semantics, old `mapping_decision`, and prior System/Block/LG/KP targets until the reviewer has formed an independent provisional judgment.
+
+The required review order is:
+
+```text
+Question Truth
+→ independent solve / provisional exam target + decision axis
+→ exact Current Knowledge owner
+→ smallest sufficient System / Block / LG / KP target
+→ self-attack
+→ optional post-decision conflict check against old Explanation
+→ REVIEWED relation
+```
+
+C1 tooling may **not** emit suggested System/Block/KP targets. Old Explanation is never mapping authority.
 
 ### D5 — content growth must be product-independent
 
