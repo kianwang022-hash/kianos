@@ -1,12 +1,12 @@
 import {
-  listTranslationSets,
+  listExecutableTranslationSets,
   loadTranslationReferencesById
-} from '../../lib/englishTranslation.mjs';
+} from '../../lib/englishTranslationSourceTruth.mjs';
 
 export const prerender = true;
 
 export function getStaticPaths() {
-  return listTranslationSets().map((item) => ({
+  return listExecutableTranslationSets().map((item) => ({
     params: { id: item.id },
     props: { translationId: item.id }
   }));
