@@ -2,6 +2,11 @@ export const XIZONG_MEMORY_SCHEMA = 'kianos.xizong.memory.v1';
 export const XIZONG_MEMORY_STORAGE_KEY = 'kianos-xizong-memory-v1';
 export const MEMORY_FAMILIES = Object.freeze(['CORE', 'PRECISION']);
 export const MEMORY_RATINGS = Object.freeze(['unknown', 'fuzzy', 'known', 'mastered']);
+export const XIZONG_RETENTION_WINDOWS_DAYS = Object.freeze([1, 3, 7, 14, 30]);
+
+const DAY_MS = 86400000;
+const WEAK_RATINGS = new Set(['unknown', 'fuzzy']);
+const POSITIVE_RATINGS = new Set(['known', 'mastered']);
 
 function text(value) {
   return String(value || '');
@@ -281,6 +286,103 @@ export function weakWeightForCard(stateInput, cardId) {
   return Math.round(score * 100) / 100;
 }
 
+function retentionContext(state, now = Date.now()) {
+  const rawNow = now instanceof Date ? now.getTime() : typeof now === 'number' ? now : Date.parse(String(now || ''));
+  const nowMs = Number.isFinite(rawNow) ? rawNow : Date.now();
+  const eventsByCard = new Map();
+  for (const row of state.evidence) {
+    const cardId = text(row?.cardId);
+    if (!cardId) continue;
+    if (!eventsByCard.has(cardId)) eventsByCard.set(cardId, []);
+    eventsByCard.get(cardId).push(row);
+  }
+  return { nowMs, eventsByCard };
+}
+
+function eventTime(row) {
+  const value = Date.parse(text(row?.at));
+  return Number.isFinite(value) ? value : null;
+}
+
+function retentionStateFromContext(state, cardId, context) {
+  const id = text(cardId);
+  const card = state.cards[id];
+  if (!card) fail('RETENTION_CARD_UNKNOWN', id);
+
+  const events = context.eventsByCard.get(id) || [];
+  const attention = state.attention?.[id] || {};
+  const reviewRequested = attention.reviewRequested === true;
+  const latest = events.at(-1) || null;
+  const latestAt = eventTime(latest);
+  const latestRating = text(latest?.rating);
+  const base = {
+    admitted: reviewRequested || events.length > 0,
+    state: 'LIBRARY_ONLY',
+    due: false,
+    dueReason: '',
+    dueAt: null,
+    overdueDays: 0,
+    stabilityStage: 0,
+    nextIntervalDays: null,
+    latestRating,
+    latestEvidenceAt: latest?.at || null
+  };
+
+  if (!events.length) {
+    if (reviewRequested) {
+      return { ...base, admitted: true, state: 'DUE_REQUESTED', due: true, dueReason: text(attention.reason || 'REVIEW_REQUESTED') };
+    }
+    return base;
+  }
+
+  if (WEAK_RATINGS.has(latestRating)) {
+    return { ...base, state: 'DUE_WEAK', due: true, dueReason: 'UNSTABLE_MEMORY_EVIDENCE' };
+  }
+
+  const contentChangedAt = Date.parse(text(card.contentChangedAt));
+  if (Number.isFinite(contentChangedAt) && latestAt !== null && contentChangedAt > latestAt) {
+    return { ...base, state: 'DUE_CONTENT_CHANGED', due: true, dueReason: 'CONTENT_CHANGED_AFTER_LAST_EVIDENCE' };
+  }
+
+  if (reviewRequested) {
+    return { ...base, state: 'DUE_REQUESTED', due: true, dueReason: text(attention.reason || 'REVIEW_REQUESTED') };
+  }
+
+  if (!POSITIVE_RATINGS.has(latestRating) || latestAt === null) {
+    return { ...base, state: 'EVIDENCE_UNRESOLVED', due: false, dueReason: 'LATEST_EVIDENCE_UNUSABLE_FOR_RETENTION_CLOCK' };
+  }
+
+  let consecutivePositive = 0;
+  for (let index = events.length - 1; index >= 0; index -= 1) {
+    if (!POSITIVE_RATINGS.has(text(events[index]?.rating))) break;
+    consecutivePositive += 1;
+  }
+  const stage = Math.max(1, consecutivePositive);
+  const intervalDays = XIZONG_RETENTION_WINDOWS_DAYS[Math.min(stage - 1, XIZONG_RETENTION_WINDOWS_DAYS.length - 1)];
+  const dueAtMs = latestAt + intervalDays * DAY_MS;
+  const due = context.nowMs >= dueAtMs;
+
+  return {
+    ...base,
+    state: due ? 'DUE_DELAYED_STABILITY' : 'STABLE_WAIT',
+    due,
+    dueReason: due ? 'DELAYED_STABILITY_CHECK' : '',
+    dueAt: new Date(dueAtMs).toISOString(),
+    overdueDays: due ? Math.floor((context.nowMs - dueAtMs) / DAY_MS) : 0,
+    stabilityStage: stage,
+    nextIntervalDays: intervalDays
+  };
+}
+
+export function xizongRetentionState(stateInput, cardId, now = Date.now()) {
+  const state = normalizeXizongMemoryState(stateInput);
+  return retentionStateFromContext(state, cardId, retentionContext(state, now));
+}
+
+function retentionPriority(retention) {
+  return ({ DUE_WEAK: 5, DUE_CONTENT_CHANGED: 4, DUE_REQUESTED: 3, DUE_DELAYED_STABILITY: 2 })[retention?.state] || 0;
+}
+
 export function isWeakMemoryCard(stateInput, cardId) {
   return weakWeightForCard(stateInput, cardId) >= 1;
 }
@@ -298,20 +400,35 @@ export function releasedMemoryCards(stateInput, family = null) {
     });
 }
 
-export function todayMemoryQueue(stateInput) {
+export function todayMemoryQueue(stateInput, { now = Date.now(), maxItems = null } = {}) {
   const state = normalizeXizongMemoryState(stateInput);
-  return releasedMemoryCards(state)
-    .map((card) => ({
-      ...card,
-      weakWeight: weakWeightForCard(state, card.id),
-      reviewRequested: state.attention?.[card.id]?.reviewRequested === true
-    }))
-    .filter((card) => card.reviewRequested || card.weakWeight >= 1)
+  const context = retentionContext(state, now);
+  let rows = releasedMemoryCards(state)
+    .map((card) => {
+      const retention = retentionStateFromContext(state, card.id, context);
+      return {
+        ...card,
+        weakWeight: weakWeightForCard(state, card.id),
+        reviewRequested: state.attention?.[card.id]?.reviewRequested === true,
+        retentionState: retention.state,
+        dueReason: retention.dueReason,
+        dueAt: retention.dueAt,
+        overdueDays: retention.overdueDays,
+        stabilityStage: retention.stabilityStage,
+        nextIntervalDays: retention.nextIntervalDays
+      };
+    })
+    .filter((card) => card.reviewRequested || card.weakWeight >= 1 || ['DUE_WEAK', 'DUE_CONTENT_CHANGED', 'DUE_REQUESTED', 'DUE_DELAYED_STABILITY'].includes(card.retentionState))
     .sort((a, b) => {
+      const retentionDelta = retentionPriority({ state: b.retentionState }) - retentionPriority({ state: a.retentionState });
+      if (retentionDelta) return retentionDelta;
+      if (b.overdueDays !== a.overdueDays) return b.overdueDays - a.overdueDays;
       if (b.weakWeight !== a.weakWeight) return b.weakWeight - a.weakWeight;
       if (a.family !== b.family) return a.family === 'PRECISION' ? -1 : 1;
       return text(a.id).localeCompare(text(b.id));
     });
+  if (Number.isFinite(maxItems) && maxItems >= 0) rows = rows.slice(0, Math.floor(maxItems));
+  return rows;
 }
 
 export function markedFragments(stateInput, { reviewRequestedOnly = false } = {}) {
@@ -370,10 +487,10 @@ export function completeRepairTask(stateInput, taskId, completedAt = null) {
   return { ...state, repairTasks };
 }
 
-export function selectMemoryView(stateInput, view) {
+export function selectMemoryView(stateInput, view, options = {}) {
   const state = normalizeXizongMemoryState(stateInput);
   const name = text(view).toUpperCase();
-  if (name === 'TODAY') return { kind: 'CARDS', items: todayMemoryQueue(state) };
+  if (name === 'TODAY') return { kind: 'CARDS', items: todayMemoryQueue(state, options) };
   if (name === 'CORE') return { kind: 'CARDS', items: releasedMemoryCards(state, 'CORE').map((card) => ({ ...card, weakWeight: weakWeightForCard(state, card.id) })) };
   if (name === 'PRECISION') return { kind: 'CARDS', items: releasedMemoryCards(state, 'PRECISION').map((card) => ({ ...card, weakWeight: weakWeightForCard(state, card.id) })) };
   if (name === 'MARKED') return { kind: 'MARKS', items: markedFragments(state) };
@@ -381,9 +498,12 @@ export function selectMemoryView(stateInput, view) {
   fail('VIEW_UNKNOWN', name);
 }
 
-export function memorySummary(stateInput) {
+export function memorySummary(stateInput, now = Date.now()) {
   const state = normalizeXizongMemoryState(stateInput);
   const cards = releasedMemoryCards(state);
+  const context = retentionContext(state, now);
+  const retention = cards.map((card) => retentionStateFromContext(state, card.id, context));
+  const today = todayMemoryQueue(state, { now });
   const core = cards.filter((card) => card.family === 'CORE').length;
   const precision = cards.filter((card) => card.family === 'PRECISION').length;
   return {
@@ -392,8 +512,15 @@ export function memorySummary(stateInput) {
     precision,
     marked: Object.keys(state.marks).length,
     weak: cards.filter((card) => isWeakMemoryCard(state, card.id)).length,
-    today: todayMemoryQueue(state).length,
-    repair: activeRepairTasks(state).length
+    today: today.length,
+    repair: activeRepairTasks(state).length,
+    admitted: retention.filter((row) => row.admitted).length,
+    dueWeak: retention.filter((row) => row.state === 'DUE_WEAK').length,
+    dueDelayed: retention.filter((row) => row.state === 'DUE_DELAYED_STABILITY').length,
+    dueChanged: retention.filter((row) => row.state === 'DUE_CONTENT_CHANGED').length,
+    dueRequested: retention.filter((row) => row.state === 'DUE_REQUESTED').length,
+    stableWaiting: retention.filter((row) => row.state === 'STABLE_WAIT').length,
+    libraryOnly: retention.filter((row) => row.state === 'LIBRARY_ONLY').length
   };
 }
 
