@@ -1,6 +1,6 @@
 # Politics Maturity Execution Plan
 
-Status: **ACTIVE — derived after Politics-specific adaptation**
+Status: **RETAINED DETAILED EXECUTION LEDGER — NOT THE CURRENT RESTART POINT**
 
 Target:
 - **Protect 70**
@@ -11,19 +11,18 @@ Authority:
 - `content/politics/MATURITY_REQUIREMENTS.md` is the Politics-specific adaptation;
 - existing Politics Source/Learning owners remain semantic authority.
 
-This file is the execution plan only. It does not create a second learning model.
+This file retains the detailed execution decomposition. It does not create a second learning model and no longer owns the active restart cursor. Current continuation is `MATURITY_STAGE_PLAN.md`.
 
-## Active mainline
+## Current ownership summary
 
 - Candidate branch: `work/politics-later-readiness-20260920`
 - Draft PR: **#638**
-- Current stage: **Stage 0 — Day-1 Closure**
-- S0-T1 Score/Ability closure: **DONE**
-- S0-T2 Full Material Inventory: **DONE**
-- S0-T3 Forecast factual sensors: **TARGETED PROOF ACTIVE**
-- S0-T4 Day-1 learner simulation: **TARGETED BROWSER PROOF ACTIVE**
-- Current proof blocker: **History evidence audit was stale against the current immutable first-attempt model; bounded audit-owner repair committed, CI re-run pending**
-- Next after Stage 0 proof: **Analysis bank revalidation → Analysis scoring owner → Analysis evidence ladder**
+- Active restart owner: `MATURITY_STAGE_PLAN.md`
+- T1 Objective reconciliation: **CLOSED**
+- T2 Early Objective Forecast current-source build: **CLOSED**
+- T3 Analysis task/rubric/evidence: **CLOSED**
+- T4 Future Source ingress preparation: **CLOSED**
+- Broad next step: **STOP ENGINEERING · await Real U / accepted Future Source / concrete defect**
 
 
 ---
