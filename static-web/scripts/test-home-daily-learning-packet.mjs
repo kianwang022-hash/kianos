@@ -8,6 +8,11 @@ import {
 } from '../src/lib/studyTimer.mjs';
 import { PRACTICE_KEYS } from '../src/lib/politicsPracticeState.mjs';
 import { POLITICS_MEMORY_EVIDENCE_KEY } from '../src/lib/politicsMemoryRuntime.mjs';
+import {
+  appendEvidenceEvent,
+  emptyLexicalLedger,
+  LEXICAL_LEDGER_STORAGE_KEY
+} from '../src/lib/lexicalEvidence.mjs';
 
 class MemoryStorage {
   constructor(entries = {}) { this.map = new Map(Object.entries(entries)); }
@@ -22,6 +27,25 @@ const day = '2026-09-19';
 const now = Date.parse('2026-09-19T03:00:00.000Z');
 const xizongObject = 'xizong:a1-r01';
 const xizongStateKey = `kianos-xizong-astro-v2:${xizongObject}`;
+
+let lexicalLedger = emptyLexicalLedger();
+lexicalLedger = appendEvidenceEvent(lexicalLedger, {
+  event_id: 'home-lexical-transfer-1',
+  word_id: 'word:allocate',
+  ordinal: 101,
+  word: 'allocate',
+  target_kind: 'sense',
+  target_id: 'sense:allocate:1',
+  source: 'reading',
+  outcome: 'CORRECT',
+  attribution: 'lexical',
+  demand: 'recognition',
+  assistance: 'unassisted',
+  context_novelty: 'unseen',
+  delayed: true,
+  context_id: 'reading:fresh-home-context',
+  observed_at: '2026-09-18T02:00:00.000Z'
+}).ledger;
 
 const xizongPacketIndex = [{
   systemId: 'a1',
@@ -244,6 +268,34 @@ assert.equal(empty.packet.subjects.xizong.evidence, null);
 assert.equal(empty.packet.subjects.english.evidence, null);
 assert.equal(empty.packet.subjects.politics.evidence, null);
 
+const lexicalOnlyStorage = new MemoryStorage({
+  [STUDY_TIMER_STATE_KEY]: JSON.stringify({
+    schema: STUDY_TIMER_SCHEMA,
+    running: false,
+    manualPaused: true,
+    subject: null,
+    context: null,
+    segmentStartedAt: null,
+    lastSeenAt: now,
+    revision: 1,
+    updatedAt: now
+  }),
+  [STUDY_TIMER_LEDGER_KEY]: JSON.stringify({ schema: STUDY_TIMER_SCHEMA, sessions: [] }),
+  [LEXICAL_LEDGER_STORAGE_KEY]: JSON.stringify(lexicalLedger)
+});
+const lexicalOnly = buildHomeDailyLearningPacket({
+  storage: lexicalOnlyStorage,
+  day,
+  now,
+  xizongPacketIndex,
+  politicsCatalog,
+  base: '/'
+});
+assert.equal(lexicalOnly.coverage.english, 'attached','Lexical-only English history disappeared from Home packet');
+assert.equal(lexicalOnly.packet.subjects.english.evidence.lexical.status, 'ready');
+assert.equal(lexicalOnly.packet.subjects.english.evidence.lexical.qualified_delayed_success_count, 1);
+assert.equal(lexicalOnly.packet.subjects.english.evidence.lexical.clean_english_transfer_success_count, 1);
+assert.equal(lexicalOnly.packet.subjects.english.evidence.inventory.length, 0);
 
 const corruptPoliticsMemory = new MemoryStorage(Object.fromEntries(storage.map.entries()));
 corruptPoliticsMemory.setItem(POLITICS_MEMORY_EVIDENCE_KEY, '{bad-json');
