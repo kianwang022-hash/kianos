@@ -38,17 +38,26 @@
       101,
       200
     ],
-    "state": "MATERIALIZE_ALLOWED",
-    "note": "Production sweep is complete. BF01 is the sole serialized canonical-write frontier. Refreeze latest main and all semantic dependencies, emit Final Mutation Package, run mechanical executor, rebuild 7,946 FLOBs, then hand the materialized candidate to a fresh B audit."
+    "state": "WAITING_FRESH_B_AUDIT",
+    "candidate_pr": 618,
+    "candidate_branch": "work/lexical-continuous-bf01-20260920",
+    "materialized_owner_read_head": "2652aa1ae8172a7904d315d45f74ce6a90e20dee",
+    "audit_brief_commit": "beb4a0719104b0eee4081fb2591556e14cd578b3",
+    "note": "BF01 is mechanically materialized and frozen for fresh independent audit. No reconciliation or merge until B writes one Audit Pack."
   },
   "audit_target": {
-    "state": "WAITING_BF01_MATERIALIZATION",
+    "state": "READY_FOR_FRESH_B",
     "candidate_id": "BF01",
     "range": [
       101,
       200
     ],
-    "note": "Do not start B until BF01 executor produces a materialized candidate and fresh audit brief."
+    "candidate_pr": 618,
+    "candidate_branch": "work/lexical-continuous-bf01-20260920",
+    "candidate_owner_read_head": "2652aa1ae8172a7904d315d45f74ce6a90e20dee",
+    "brief": "content/lexical/semantic-audit/O0101_O0200_FINAL_STANDARD_FRESH_AUDIT_BRIEF.md",
+    "output": "content/lexical/semantic-audit/O0101_O0200_FINAL_STANDARD_FRESH_AUDIT_PACK.md",
+    "note": "One fresh 词义B Chat must perform blind-first audit, commit exactly one Audit Pack, then stop."
   },
   "lanes": {
     "A": {
@@ -59,10 +68,9 @@
           101,
           200
         ],
-        "state": "MATERIALIZE_ALLOWED",
-        "proposal_path": "content/lexical/execution/manifests/o0101-o0200.final-standard-backfill-proposal.md",
-        "approved": true,
-        "next_action": "Refreeze latest main/shared dependencies; generate exact Final Mutation Package for BF01; run mechanical executor; rebuild 7,946 FLOBs; create fresh B audit brief. No semantic reopening."
+        "state": "WAITING_FRESH_B_AUDIT",
+        "candidate_pr": 618,
+        "next_action": "Do nothing until B commits the BF01 fresh Audit Pack. Then reconcile findings against latest main; do not reopen broad semantics."
       },
       "bootstrap_integration": {
         "candidate_id": "BF00",
@@ -273,18 +281,30 @@
         }
       ],
       "next_new_review_range": null,
-      "state": "BF01_MATERIALIZATION_ACTIVE",
+      "state": "WAITING_BF01_FRESH_AUDIT",
       "completed_through_ordinal": 700,
-      "next_action": "Refreeze latest main/shared dependencies; generate exact Final Mutation Package for BF01; run mechanical executor; rebuild 7,946 FLOBs; create fresh B audit brief. No semantic reopening."
+      "next_action": "Do nothing until B commits the BF01 fresh Audit Pack. Then reconcile findings against latest main; do not reopen broad semantics."
     },
     "B": {
       "role": "FRESH_INDEPENDENT_AUDIT",
-      "current_assignment": null,
-      "state": "WAITING_BF01_MATERIALIZATION",
+      "current_assignment": {
+        "candidate_id": "BF01",
+        "range": [
+          101,
+          200
+        ],
+        "candidate_pr": 618,
+        "candidate_branch": "work/lexical-continuous-bf01-20260920",
+        "candidate_owner_read_head": "2652aa1ae8172a7904d315d45f74ce6a90e20dee",
+        "brief": "content/lexical/semantic-audit/O0101_O0200_FINAL_STANDARD_FRESH_AUDIT_BRIEF.md",
+        "output": "content/lexical/semantic-audit/O0101_O0200_FINAL_STANDARD_FRESH_AUDIT_PACK.md",
+        "state": "READY_FOR_FRESH_B"
+      },
+      "state": "READY_FOR_FRESH_B",
       "may_mutate_semantic_truth": false,
       "must_stop_after_one_audit_pack": true,
       "scheduler": "NEXT_READY_MATERIALIZED_CANDIDATE",
-      "next_action": "Wait until BF01 candidate is materialized and a fresh audit brief exists; then one fresh B Chat performs one blind-first audit and stops."
+      "next_action": "A fresh 词义B Chat reads the live board, performs BF01 blind-first audit, commits one Audit Pack, and stops."
     },
     "C": {
       "role": "PRODUCTION_C_FINAL_SWEEP",
@@ -1592,7 +1612,7 @@
       "candidate_branch": "work/lexical-continuous-o1151-o1250",
       "candidate_head": "d3972636a131c3bd495c64bdcff26e3cfdef68b8",
       "brief": "content/lexical/semantic-audit/O1151_O1250_FRESH_INDEPENDENT_AUDIT_BRIEF.md",
-      "state": "DEFERRED_UNTIL_BF01_AUDIT_PATH_ESTABLISHED",
+      "state": "DEFERRED_UNTIL_BF01_AUDIT_CLOSES",
       "priority": 99,
       "note": "Intentionally deferred per current simple sequential route. Do not audit before BF01 materialization/audit starts.",
       "previous_state": "READY_FOR_FRESH_B"
@@ -1603,13 +1623,14 @@
         101,
         200
       ],
-      "candidate_pr": null,
-      "candidate_branch": "work/lexical-continuous-backfill-o0101-o0200",
-      "brief": null,
-      "state": "WAITING_CANDIDATE_MATERIALIZATION",
+      "candidate_pr": 618,
+      "candidate_branch": "work/lexical-continuous-bf01-20260920",
+      "brief": "content/lexical/semantic-audit/O0101_O0200_FINAL_STANDARD_FRESH_AUDIT_BRIEF.md",
+      "state": "READY_FOR_FRESH_B",
       "priority": 1,
-      "note": "Live frontier. A is materializing BF01; B starts only after candidate + fresh audit brief exist.",
-      "previous_state": "WAITING_CANDIDATE_MATERIALIZATION"
+      "note": "Materialized and ready. Fresh B audit is now the only active lexical semantic task.",
+      "previous_state": "WAITING_CANDIDATE_MATERIALIZATION",
+      "candidate_head": "2652aa1ae8172a7904d315d45f74ce6a90e20dee"
     },
     {
       "candidate_id": "BF02",
@@ -1739,5 +1760,23 @@
     "from": "PRODUCTION_SWEEP_COMPLETE__AWAITING_PHASE_TRANSITION",
     "to": "MATERIALIZATION_AND_AUDIT",
     "rule": "One serialized canonical write frontier at a time. Current frontier BF01 o0101-o0200. No broad semantic reopening under FINAL_SEMANTIC_FREEZE v1."
+  },
+  "materialization_progress": {
+    "candidate_id": "BF01",
+    "status": "MATERIALIZED_READY_FOR_FRESH_B",
+    "candidate_pr": 618,
+    "receipts": [
+      "BF01-MAT-REL-20260920",
+      "BF01-MAT-WORDA-20260920",
+      "BF01-MAT-WORDB-20260920",
+      "BF01-MAT-TEST-20260920"
+    ],
+    "final_learner_objects": 7946,
+    "final_shards": 125,
+    "repair_test_blueprints": {
+      "before": 48,
+      "after": 25
+    },
+    "blocked": 0
   }
 }
