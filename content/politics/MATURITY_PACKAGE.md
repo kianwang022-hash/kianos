@@ -124,16 +124,25 @@ Current status: **SYSTEM MODEL ACCEPTED; explicit decision-flip surfaces and who
 
 ## 5. Adversarial / Lifecycle
 
-Current system already has first-round learner acceptance, stale-plan/replay/checkpoint protections and bounded Forecast stress proof.
+Current system-logic closure is complete for the mother-standard boundary.
 
-Remaining system-logic closure before SYSTEM_LOGIC_ACCEPTED = YES:
+Closed proof includes:
 
-- machine-validate Analysis bank quality/coverage rather than trust manifest prose;
-- explicit Forecast decision-flip/metamorphic attacks;
-- whole-lifecycle scenario ledger covering bad week, relapse, source delay/v2, evidence loss, false Secure and false Unstable;
-- explicit Fresh-Chat / No-Website closure statement from current owners.
+- machine-validated Analysis bank quality/coverage;
+- explicit Forecast decision-flip and metamorphic attacks;
+- whole-lifecycle scenarios covering bad week, relapse, source delay/v2, evidence loss, false Secure and false Unstable;
+- explicit Fresh-Chat and No-Website closure;
+- exact Analysis material identity / freshness gates;
+- whole-cycle workload and later-source reserve stress.
 
-Real learner scenarios cannot be fabricated. They stay Real-U gated.
+Real learner scenarios cannot be fabricated. They remain Real-U gated and do not reopen broad engineering by themselves.
+
+Current verdict:
+
+~~~text
+SYSTEM_LOGIC_ACCEPTED = YES
+KIAN_SPECIFIC_CALIBRATED = NO
+~~~
 
 ## 6. Chat ↔ Website Proof
 
