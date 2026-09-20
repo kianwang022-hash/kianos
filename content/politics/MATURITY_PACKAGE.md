@@ -1,6 +1,6 @@
 # Politics Maturity Package
 
-Status: **MOTHER-STANDARD EXECUTION ACTIVE**
+Status: **SYSTEM LOGIC ACCEPTED · REAL-U / CURRENT-YEAR SOURCE GATED**
 Owner: PR #638 / work/politics-later-readiness-20260920
 Upstream bar: EXAM_SUBJECT_MATURITY_STANDARD.md
 Subject adaptation: MATURITY_REQUIREMENTS.md
@@ -120,7 +120,7 @@ Hard boundaries:
 - Xiao1000 learning accuracy never directly becomes an exam score;
 - Analysis/current-year missing evidence keeps total-score confidence wide.
 
-Current status: **CURRENT-SOURCE MODEL READY; full adversarial/decision-flip proof ACTIVE; personal calibration REAL-U GATED.**
+Current status: **SYSTEM MODEL ACCEPTED; explicit decision-flip surfaces and whole-cycle workload envelope proven; personal calibration REAL-U GATED.**
 
 ## 5. Adversarial / Lifecycle
 
@@ -188,7 +188,7 @@ Current status: **SYSTEM READY / CONTENT SOURCE-GATED.**
 Current state:
 
 ~~~text
-SYSTEM_LOGIC_ACCEPTED        IN PROGRESS
+SYSTEM_LOGIC_ACCEPTED        YES
 KIAN_SPECIFIC_CALIBRATED     NO
 ~~~
 
@@ -226,8 +226,8 @@ Any other unknown that can change current learning action is a reopen condition.
 | 5 | Method closure | CLOSED system semantics | Learning Contract + matrix |
 | 6 | Evidence closure | CLOSED schema/meaning; Real U pending | Workbench/Memory/Analysis evidence |
 | 7 | Subjective scoring validity | diagnostic CLOSED; score calibration gated | analysis-output/SCORING_RUBRIC |
-| 8 | Forecast | current-source CLOSED; final proof ACTIVE | FORECAST_MODEL / stress |
-| 9 | Forecast falsifiability | ACTIVE | adversarial/decision-flip proof |
+| 8 | Forecast | CLOSED system logic; personal calibration gated | FORECAST_MODEL / stress |
+| 9 | Forecast falsifiability | CLOSED system logic | explicit decision-flip + metamorphic proof |
 | 10 | Dynamic Control | CLOSED semantics; Real-U thresholds pending | matrix control policy |
 | 11 | Minimum Dose | CLOSED semantics | evidence-floor rule only |
 | 12 | Elastic / ROI | CLOSED semantics | Chat + cross-subject Orchestrator |
@@ -237,12 +237,12 @@ Any other unknown that can change current learning action is a reopen condition.
 | 16 | Chat↔Website | CLOSED first-round system logic | typed plan/return/checkpoint |
 | 17 | Attention cost | CLOSED design | single Next Action + Chat ownership |
 | 18 | Day-1 loop | CLOSED for audited first-round path | Acceptance/browser proof |
-| 19 | Full lifecycle simulation | ACTIVE proof gap | maturity adversarial report |
-| 20 | Adversarial stress | ACTIVE proof gap | Forecast + maturity adversarial test |
-| 21 | False Secure/Unstable | CLOSED semantics; proof ACTIVE | control invariants |
+| 19 | Full lifecycle simulation | CLOSED system logic; Real-U scenarios remain gated | maturity adversarial report |
+| 20 | Adversarial stress | CLOSED system logic | Forecast + maturity adversarial test |
+| 21 | False Secure/Unstable | CLOSED system logic | control invariants + identity/freshness gates |
 | 22 | Second-line safety | BOUNDED CLOSED | source/evidence/plan fail-closed gates |
-| 23 | Fresh Chat attack | ACTIVE explicit closure proof | CURRENT + Daily Packet |
-| 24 | No-Website attack | ACTIVE explicit closure proof | durable semantic owners |
+| 23 | Fresh Chat attack | CLOSED | CURRENT → #638 → Stage Plan → Package |
+| 24 | No-Website attack | CLOSED semantic boundary | durable semantic owners |
 | 25 | Evidence revision/identity | CLOSED | stable task/source identity |
 | 26 | Future-source transitive invalidation | CLOSED preparation | INGESTION_RULES |
 | 27 | Authentic modality | FUTURE / REAL-U GATED | Mock/final |
@@ -254,13 +254,13 @@ Any other unknown that can change current learning action is a reopen condition.
 ~~~text
 M0 Ownership correction                         DONE
 M1 Single Politics Maturity Package             DONE
-M2 Reconcile stale Analysis/material status     ACTIVE
-M3 Analysis-bank machine quality proof          ACTIVE
-M4 Forecast decision-flip/adversarial closure   ACTIVE
-M5 Full lifecycle + Fresh Chat/No-Website       PENDING
-M6 SYSTEM_LOGIC_ACCEPTED verdict                PENDING
+M2 Reconcile stale Analysis/material status     DONE
+M3 Analysis-bank + evidence identity proof       DONE
+M4 Forecast decision-flip/adversarial closure   DONE
+M5 Full lifecycle + Fresh Chat/No-Website       DONE
+M6 SYSTEM_LOGIC_ACCEPTED verdict                YES
 M7 KIAN_SPECIFIC_CALIBRATED                     REAL-U GATED
 M8 2027 handbook/current affairs/Xiao8/Xiao4    SOURCE GATED
 ~~~
 
-The active engineering cursor is M2 → M5. Do not declare broad STOP before those system-logic proof gaps are closed.
+The mother-standard engineering package is now closed at the system-logic boundary. Broad engineering STOP applies until Real U, a concrete learner defect, or real current-year Source reopens an exact owner.
