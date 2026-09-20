@@ -49,6 +49,7 @@ read prompt/material
 → choose 3–5 answer moves
 → bind each move back to material
 → complete usable timed prose
+→ preserve handwriting / paper-delivery feasibility for formal execution evidence
 ```
 
 Objective strength may not imply analysis readiness.
@@ -187,6 +188,8 @@ Required inputs include:
 - Mock execution.
 
 UNKNOWN is valid and preferred to fake precision.
+
+Forecast/adversarial proof must include parameter grids and conclusion-flip analysis for NU pace, single/multiple-choice W/U, Memory retention, Analysis-output level, handwriting/timed delivery, later-source arrival/assimilation and daily capacity.
 
 ## 8. Future-source closure
 
