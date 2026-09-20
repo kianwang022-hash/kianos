@@ -14,10 +14,10 @@ This file owns work cursor only. It does not own medical Core, Learning semantic
 **Scope:** F — Remaining Clinical  
 **Lane-A role:** **NEXT MEDICAL CONTENT PRIORITY**  
 **Stable Current identity:** **9 Blocks / 121 canonical KP**  
-**Active gate:** **Content Realization / Optimization — next eligible, not started**  
+**Active gate:** **Content Realization / Optimization — ACTIVE · Phase 5A complete**  
 **Source state:** **S1 PASS after approved Source rebind; bounded unresolved exact fields remain explicit / fail-closed**  
 **Learning state:** **L PASS_AFTER_BOUNDED_REPAIR**  
-**Earliest eligible next action:** **F Content Realization / Optimization from the accepted Learning owner**  
+**Earliest eligible next action:** **Phase 5B wrapper / authority cleanup across 9 canonical F Blocks**  
 **Downstream:** P / R / E remain frozen behind Content; no learner-use claim
 
 ```text
@@ -25,12 +25,12 @@ S1 medical / first-learning Source boundary = PASS
 S2 exact official-question membership        = UNTESTED / separate later boundary
 K Knowledge                                  = PASS_AFTER_BOUNDED_REPAIR
 L Learning Logic                             = PASS_AFTER_BOUNDED_REPAIR
-Content                                      = NOT_STARTED / NEXT_ELIGIBLE
+Content                                      = ACTIVE / PHASE5A_ROLE_CANDIDATE_BUILT
 P / R / E                                    = downstream-frozen
 U Learner Use                                = no claim
 ```
 
-Active builder branch: **none — Learning candidate merged to main**
+Active builder branch: **work/f-content-phase5a-20260920b**
 
 Fresh K acceptance:
 
@@ -47,6 +47,14 @@ Fresh L audit entry:
 Fresh L acceptance:
 
 `content/xizong/knowledge/learner/F_PHASE4_FRESH_INDEPENDENT_L_ACCEPTANCE.md`
+
+Content candidate:
+
+`content/xizong/knowledge/learner/f-remaining-clinical-content.json`
+
+Phase 5A Content role receipt:
+
+`content/xizong/knowledge/learner/F_PHASE5A_CONTENT_ROLE_REALIZATION.md`
 
 ---
 
@@ -243,12 +251,53 @@ Preserved:
 - exact F1/F2/F3/F4/F9 Source gaps and external-owner boundaries;
 - S2 official-question membership remains UNTESTED.
 
+---
+
+## Content Phase 5A — ACTIVE / ROLE CANDIDATE BUILT
+
+Canonical Content candidate:
+
+`content/xizong/knowledge/learner/f-remaining-clinical-content.json`
+
+Phase 5A receipt:
+
+`content/xizong/knowledge/learner/F_PHASE5A_CONTENT_ROLE_REALIZATION.md`
+
+Phase 5A result:
+
+```text
+accepted LG release coverage = 40 / 40
+WHOLE_BLOCK_SOURCE           = 3
+NATURAL_SOURCE_UNITS         = 5
+INTEGRATION_PRIMARY          = 1
+medical Core rewrite         = 0
+Content PASS                 = not claimed
+```
+
+Concrete open Content debt:
+
+- all 9 Block Markdown owners still expose legacy `prerequisites` plus `next_blocks/next_system`, despite accepted L having 0 inside-F hard edges;
+- F1/F2/F4/F6/F8 still use generic whole-Block first-pass wrappers despite accepted natural Source units;
+- F6/F7/F8 contain bounded wording that can read as prior learner completion/readiness rather than benefits-from guidance;
+- F9 body ownership-split model is already compatible with integration-primary, but its stale route frontmatter remains open debt.
+
+Next:
+
+```text
+Phase 5B wrapper / authority cleanup
+→ Phase 5C 40-LG Content sufficiency / density audit
+→ Phase 5D fresh independent Content closure
+```
+
+Projection / Runtime / Evidence remain frozen.
+
 ## Next action
 
 ```text
 L accepted after bounded repair
-→ Content Realization / Optimization is now eligible
-→ do not start P / R / E before Content closure
+→ Phase 5A Content role candidate built
+→ Phase 5B wrapper / authority cleanup next
+→ do not start P / R / E before fresh Content closure
 ```
 
 Do not copy D/E topology for symmetry. Content / Projection / Runtime / Evidence remain frozen until L acceptance.
