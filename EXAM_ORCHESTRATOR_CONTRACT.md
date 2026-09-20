@@ -133,6 +133,14 @@ English     85+
 Politics    70+
 ```
 
+English has an additional learner capability constraint:
+
+```text
+Objective (Cloze + Reading A + Part B) = 60 / 60 hard capability target
+```
+
+This does not mean every observed English paper must score 60/60 Objective. It means cross-subject planning must not silently accept a persistent Objective loss merely because Productive points could compensate to 85+. Objective loss remains an English capability gap until current evidence supports near-zero avoidable loss.
+
 The component targets sum to 425, so the Orchestrator must not treat them as comfortable stop-lines. Later score evidence may justify an explicit working buffer, but V1 must not invent one before real variance / mock evidence exists.
 
 For cross-subject allocation, the target numbers in this contract control. A lane-local higher stretch target may remain a local design signal but must not silently override cross-subject capacity allocation.
@@ -315,16 +323,17 @@ Stable material stays cheap; weak material expands.
 
 ### English
 
-Build the evidence required for an 85+ estimate:
+Build the evidence required for an 85+ estimate under the Objective 60/60 hard capability target:
 
 ```text
-Objective maintenance
+Reading A / Cloze / Part B near-zero-loss capability
 + Translation real tasks
 + Writing real tasks
-+ Lexical support
++ Lexical support where causal
++ least-contaminated / fresh transfer evidence
 ```
 
-The 85+ estimate must not be inferred from Reading performance alone.
+The 85+ estimate must not be inferred from Reading performance alone, and it must not treat broad prior official-paper exposure as fresh score evidence merely because the private exposure ledger is incomplete.
 
 ### Politics
 
@@ -374,14 +383,19 @@ Primary anchor:
 
 - one least-contaminated official complete paper or equivalent complete evidence;
 - Objective + Translation + Writing all represented;
-- Lexical used as supporting causal evidence where relevant.
+- Objective evidence reported separately against the 60/60 hard capability target;
+- Lexical used as supporting causal evidence where relevant;
+- explicit contamination notes for previously repeated official material;
+- fresh / changed-context transfer evidence where official score evidence is memory-contaminated.
 
 Output:
 
-- current score band toward 85+;
+- current total score band toward 85+;
+- Objective score / stability band toward 60/60;
+- Translation / Writing productive band with review uncertainty;
 - section bottlenecks;
-- confidence;
-- maintenance vs output-training decision.
+- contamination / freshness confidence;
+- maintenance vs teaching / repair / output-training decision.
 
 ### Politics
 
