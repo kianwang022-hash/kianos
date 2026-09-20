@@ -305,12 +305,17 @@ function writeAtomically(storage, writes) {
   }
 }
 
-function validateInlineQuestionTargets(memory, step) {
-  for (const question of step.inline_questions || []) {
+export function validateXizongInlinePracticeQuestionBindings(
+  memoryInput,
+  inlineQuestions,
+  context = 'PRACTICE_SET'
+) {
+  const memory = normalizeXizongMemoryState(memoryInput);
+  for (const question of Array.isArray(inlineQuestions) ? inlineQuestions : []) {
     const expectedHash = String(question?.canonicalSourceHash || '');
     const targetKpIds = Array.isArray(question?.targetKpIds) ? question.targetKpIds : [];
     if (!expectedHash || !targetKpIds.length) {
-      fail('INLINE_QUESTION_TARGET_BINDING_INVALID', step.step_id);
+      fail('INLINE_QUESTION_TARGET_BINDING_INVALID', context);
     }
 
     const sourceHashes = new Set();
@@ -333,6 +338,15 @@ function validateInlineQuestionTargets(memory, step) {
       fail('INLINE_QUESTION_SOURCE_REVISION_MISMATCH', question.questionId);
     }
   }
+  return true;
+}
+
+function validateInlineQuestionTargets(memory, step) {
+  return validateXizongInlinePracticeQuestionBindings(
+    memory,
+    step.inline_questions || [],
+    step.step_id
+  );
 }
 
 function validateRepairTarget(memory, step) {
