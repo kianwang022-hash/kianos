@@ -1,7 +1,8 @@
 import assert from 'node:assert/strict';
 import {
   saveEnglishAttempt,
-  archiveEnglishAttempt
+  archiveEnglishAttempt,
+  inspectEnglishAttempt
 } from '../src/lib/englishLearnerEvidence.mjs';
 import {
   ENGLISH_SESSION_KEY,
@@ -469,6 +470,92 @@ const assistedPacket=buildEnglishExamEvidencePacket(assistedPaper);
 assert.equal(assistedPacket.paper_assistance_context?.state,'assisted');
 assert.ok(Array.isArray(assistedPacket.steps)&&assistedPacket.steps.length===9);
 
+// 6) Corrupt whole-paper durable state is UNKNOWN/recovery-required, never silent absence.
+const invalidExamStorage=new MemoryStorage({
+  'kianos-english-exam-session-v1':JSON.stringify({
+    schema:ENGLISH_EXAM_SESSION_SCHEMA,
+    session_id:'broken-paper',
+    status:'ACTIVE'
+  })
+});
+const invalidExamPacket=buildEnglishEvidencePacket(invalidExamStorage,{day,now:now+180000,catalog:[]});
+assert.equal(invalidExamPacket.exam_session?.schema,'kianos.english.exam-state.v1');
+assert.equal(invalidExamPacket.exam_session?.status,'invalid');
+assert.match(invalidExamPacket.exam_session?.evidence_boundary||'',/UNKNOWN_NOT_ZERO/);
+assert.throws(()=>inspectEnglishAttempt(
+  invalidExamStorage,
+  'kianos-reading-attempt-v1:broken-paper-child',
+  {task:'reading_a',object_id:'broken-paper-child',source_hash:'broken-source',semantic_source_hash:'broken-semantic',snapshot:{}}
+),/ENGLISH_EXAM_STATE_INVALID_RECOVERY_REQUIRED/);
+
+// 7) Chat-generated drills do not become independent transfer merely because they are unseen/unassisted.
+function generatedAttemptFixture({objectId,sourceHash,semanticHash,evidenceRole,transferIndependence=null}){
+  const s=new MemoryStorage();
+  writeEnglishSessionInstruction(s,{
+    schema:'kianos.english.session-instruction.v1',
+    session_id:'generated-'+objectId,
+    study_day:day,
+    generated_at:'2026-09-21T11:40:00.000Z',
+    current_step:0,
+    steps:[{
+      step_id:'g1',
+      task:'external_reading',
+      object_id:objectId,
+      source_hash:sourceHash,
+      params:{material_exposure:{
+        state:'unseen',
+        basis:'learner_statement',
+        observed_at:'2026-09-21T11:39:00.000Z',
+        note:'Synthetic fixture is genuinely unseen.'
+      }}
+    }]
+  },day,{catalog:[{task:'external_reading',object_id:objectId,source_hash:sourceHash,semantic_source_hash:semanticHash}],now:Date.parse('2026-09-21T11:41:00.000Z')});
+  const value={submitted:true,answers:{q1:'B'},results:{q1:'correct'},uncertain:[]};
+  saveEnglishAttempt(s,'kianos-english-external-reading-attempt-v1:'+objectId,value,{
+    task:'external_reading',
+    object_id:objectId,
+    source_hash:sourceHash,
+    semantic_source_hash:semanticHash,
+    snapshot:{
+      question_origin:'CHAT_GENERATED',
+      evidence:{
+        source_kind:'external',
+        evidence_role:evidenceRole,
+        semantic_source_hash:semanticHash,
+        transfer_independence:transferIndependence,
+        calibration_status:'NOT_SCORE_EQUIVALENT'
+      }
+    }
+  },{now});
+  return value;
+}
+const generatedRepair=generatedAttemptFixture({
+  objectId:'external-chat-2026-09-21-repair-proof',
+  sourceHash:'generated-repair-exact',
+  semanticHash:'generated-repair-semantic',
+  evidenceRole:'TEACHING_REPAIR'
+});
+assert.equal(generatedRepair.firstEvidenceMeta.prior_exposure,'unseen');
+assert.equal(generatedRepair.firstEvidenceMeta.assistance,'unassisted');
+assert.equal(generatedRepair.firstEvidenceMeta.independent_transfer_candidate,false);
+
+const generatedTransfer=generatedAttemptFixture({
+  objectId:'external-chat-2026-09-21-transfer-proof',
+  sourceHash:'generated-transfer-exact',
+  semanticHash:'generated-transfer-semantic',
+  evidenceRole:'TRANSFER',
+  transferIndependence:{
+    status:'PASS',
+    basis:'CHAT_SELF_ATTACK',
+    note:'Changed actor, relation and distractor mechanism from the repaired example.',
+    parent_semantic_source_hashes:['parent-repair-semantic'],
+    changed_context_dimensions:['actor','relation','distractor']
+  }
+});
+assert.equal(generatedTransfer.firstEvidenceMeta.independent_transfer_candidate,true);
+assert.equal(generatedTransfer.firstEvidenceMeta.generated_transfer_independence?.status,'PASS');
+assert.equal(generatedTransfer.firstEvidenceMeta.calibration_status,'NOT_SCORE_EQUIVALENT');
+
 console.log(JSON.stringify({
   schema:'kianos.english.evidence-fidelity-e4-validation.v1',
   status:'PASS',
@@ -489,6 +576,10 @@ console.log(JSON.stringify({
     whole_paper_release_keeps_contamination_context:true,
     whole_paper_parent_assistance_context_preserved:true,
     whole_paper_release_root_assistance_context_preserved:true,
-    whole_paper_semantic_source_identity_preserved:true
+    whole_paper_semantic_source_identity_preserved:true,
+    corrupt_whole_paper_is_unknown_not_zero:true,
+    corrupt_whole_paper_blocks_overwrite:true,
+    generated_repair_not_independent_transfer:true,
+    generated_transfer_requires_explicit_independence_gate:true
   }
 },null,2));
