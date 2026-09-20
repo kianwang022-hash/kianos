@@ -21,12 +21,14 @@ const writing = readJson(writingTasksPath);
 const translation = readJson(translationTasksPath);
 
 assert.equal(fixtures.schema, 'kianos.english.productive_scoring_fixtures.v1');
+assert.equal(fixtures.scoring_standard_version, 'english.productive-scoring.v2');
 assert.equal(fixtures.rules?.protected_true_exam_consumption, false);
 assert.equal(fixtures.rules?.learner_visible, false);
 assert.equal(fixtures.rules?.expected_results_sealed_separately, keyPath);
 
 assert.equal(key.schema, 'kianos.english.productive_scoring_fixtures_key.v1');
 assert.equal(key.source_bank, fixturesPath);
+assert.equal(key.scoring_standard_version, 'english.productive-scoring.v2');
 assert.equal(key.exact_score_gold, false);
 
 for (const marker of [
@@ -180,6 +182,7 @@ console.log(JSON.stringify({
   checks: {
     blind_fixture_bank_has_no_expected_scores: true,
     sealed_expectation_key_complete: true,
+    scoring_standard_version_bound: true,
     no_exact_gold_score: true,
     no_protected_true_exam_consumption: true,
     task_ids_bind_to_current_synthetic_assets: true,
