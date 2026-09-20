@@ -93,13 +93,12 @@ duplicate_primary                   = 0
 
 ```text
 Framework Orientation
-→ P433两细胞模型原图
-→ P434黄体/胎盘来源预览
-→ P435绝经后来源与治疗接口
-→ Framework Reconstruction：细胞—酶—产物—阶段
-→ KP Active Recall
-→ Outline Quick Check（4题）
-→ TTSX Lecture-attached Questions（待绑定）
+→ Source Unit 1：P433 两细胞—两促性腺激素模型 + 原图
+→ 回到 KianOS：恢复“细胞—酶—底物—产物”
+→ Source Unit 2：P434–435 黄体 / 胎盘 / 绝经后来源变化与治疗接口
+→ 回到 KianOS：恢复“生命阶段 → 主要来源 → 下游意义”
+→ Block Recall：闭卷重建性激素来源的阶段切换
+→ Outline / TTSX 只在真实边界且已有 reviewed binding 时检查
 → Block Complete
 ```
 
