@@ -17,7 +17,10 @@ import {
   normalizeXizongInlinePracticeQuestions,
   validateXizongInlinePracticeQuestionBindings
 } from '../src/lib/xizongSessionInstruction.mjs';
-import { recordXizongQuestionAttempt } from '../src/lib/xizongQuestionAttempts.mjs';
+import {
+  recordXizongQuestionAttempt,
+  startNextXizongQuestionRound
+} from '../src/lib/xizongQuestionAttempts.mjs';
 import { collectXizongRetainedEvidence } from '../src/lib/xizongRetainedPractice.mjs';
 import { summarizeXizongScoreAttribution } from '../src/lib/xizongScoreAttribution.mjs';
 
@@ -345,6 +348,12 @@ let retained = collectXizongRetainedEvidence(
 assert.deepEqual(retained.wrongUncertainIds, [officialQuestion.questionId], 'ai-polluted-official-wu');
 assert.equal(retained.transferProbeEvents.length, 1, 'ai-transfer-evidence-missing');
 
+sweep = startNextXizongQuestionRound(
+  sweep,
+  [officialQuestion.questionId, probeQuestion.questionId],
+  makeRuntime('2026-09-21T09:55:00.000Z'),
+  { studyPhase: 'SECOND_PASS', queueMode: 'TARGETED' }
+);
 sweep = recordXizongQuestionAttempt(sweep, {
   question: officialQuestion,
   status: 'stable',
