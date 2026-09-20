@@ -96,7 +96,7 @@ for (const row of allFixtures) {
 }
 
 for (const row of fixtures.translation || []) {
-  assert.match(row.fixture_id, /^ps-tr-\d{3}$/, 'TRANSLATION_FIXTURE_ID_NOT_OPAQUE:' + row.fixture_id);
+  assert.match(row.fixture_id, /^fx-[0-9a-f]{6}$/, 'TRANSLATION_FIXTURE_ID_NOT_OPAQUE:' + row.fixture_id);
   assertExactKeys(row, ['fixture_id','task_id','source_segment','response'], 'translation');
   assert.ok(translationIds.has(row.task_id), 'TRANSLATION_FIXTURE_TASK_NOT_CURRENT:' + row.fixture_id);
   assert.ok(Number.isInteger(row.source_segment) && row.source_segment >= 1 && row.source_segment <= 5,
@@ -113,7 +113,7 @@ for (const row of fixtures.translation || []) {
 }
 
 for (const row of fixtures.translation_section || []) {
-  assert.match(row.fixture_id, /^ps-tr-\d{3}$/, 'TRANSLATION_SECTION_ID_NOT_OPAQUE:' + row.fixture_id);
+  assert.match(row.fixture_id, /^fx-[0-9a-f]{6}$/, 'TRANSLATION_SECTION_ID_NOT_OPAQUE:' + row.fixture_id);
   assertExactKeys(row, ['fixture_id','task_id','unit','responses'], 'translation_section');
   assert.ok(translationIds.has(row.task_id), 'TRANSLATION_SECTION_TASK_NOT_CURRENT:' + row.fixture_id);
   assert.equal(row.unit, 'complete_section', 'TRANSLATION_SECTION_UNIT_INVALID:' + row.fixture_id);
@@ -138,7 +138,7 @@ for (const row of fixtures.translation_section || []) {
 const wordCount = (value) => String(value || '').trim().split(/\s+/).filter(Boolean).length;
 
 for (const row of fixtures.writing_small || []) {
-  assert.match(row.fixture_id, /^ps-sw-\d{3}$/, 'SMALL_FIXTURE_ID_NOT_OPAQUE:' + row.fixture_id);
+  assert.match(row.fixture_id, /^fx-[0-9a-f]{6}$/, 'SMALL_FIXTURE_ID_NOT_OPAQUE:' + row.fixture_id);
   assertExactKeys(row, ['fixture_id','task_id','response'], 'writing_small');
   assert.ok(writingIds.has(row.task_id), 'WRITING_FIXTURE_TASK_NOT_CURRENT:' + row.fixture_id);
   const expected = key.expectations[row.fixture_id];
@@ -155,7 +155,7 @@ for (const row of fixtures.writing_small || []) {
 }
 
 for (const row of fixtures.writing_big || []) {
-  assert.match(row.fixture_id, /^ps-bw-\d{3}$/, 'BIG_FIXTURE_ID_NOT_OPAQUE:' + row.fixture_id);
+  assert.match(row.fixture_id, /^fx-[0-9a-f]{6}$/, 'BIG_FIXTURE_ID_NOT_OPAQUE:' + row.fixture_id);
   assertExactKeys(row, ['fixture_id','task_id','response'], 'writing_big');
   assert.ok(writingIds.has(row.task_id), 'WRITING_FIXTURE_TASK_NOT_CURRENT:' + row.fixture_id);
   const expected = key.expectations[row.fixture_id];
