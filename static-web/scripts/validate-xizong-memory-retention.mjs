@@ -59,6 +59,49 @@ assert(todayMemoryQueue(state, { now: t0 + 60 * DAY }).length === 0,
 assert(xizongRetentionState(state, 'core:circulation-b01-kp02', t0 + 60 * DAY).state === 'LIBRARY_ONLY',
   'untouched-library-card-not-library-only');
 
+// "known / 会了" is successful retrieval now, not durable stability.
+// It exits immediate Today pressure, gets a delayed D1 check, and cannot inflate the long interval by itself.
+let knownState = appendMemoryEvidence(state, {
+  cardId: 'core:circulation-b01-kp01',
+  rating: 'unknown',
+  origin: 'RETENTION_KNOWN_FIXTURE'
+}, t0);
+knownState = appendMemoryEvidence(knownState, {
+  cardId: 'core:circulation-b01-kp01',
+  rating: 'known',
+  origin: 'RETENTION_KNOWN_FIXTURE'
+}, t0 + 10 * 60 * 1000);
+let knownRetention = xizongRetentionState(
+  knownState,
+  'core:circulation-b01-kp01',
+  t0 + 11 * 60 * 1000
+);
+assert(knownRetention.state === 'KNOWN_WAIT', 'known-was-treated-as-stable');
+assert(knownRetention.stabilityStage === 0, 'known-inflated-stability-stage');
+assert(knownRetention.nextIntervalDays === 1, 'known-delayed-check-not-d1');
+assert(
+  !todayMemoryQueue(knownState, { now: t0 + 11 * 60 * 1000 })
+    .some((row) => row.id === 'core:circulation-b01-kp01'),
+  'known-stayed-in-immediate-today'
+);
+const knownDue = t0 + 10 * 60 * 1000 + DAY;
+knownRetention = xizongRetentionState(knownState, 'core:circulation-b01-kp01', knownDue);
+assert(knownRetention.state === 'DUE_DELAYED_STABILITY', 'known-d1-check-not-due');
+
+knownState = appendMemoryEvidence(knownState, {
+  cardId: 'core:circulation-b01-kp01',
+  rating: 'known',
+  origin: 'RETENTION_KNOWN_FIXTURE'
+}, knownDue + 5 * 60 * 1000);
+knownRetention = xizongRetentionState(
+  knownState,
+  'core:circulation-b01-kp01',
+  knownDue + 6 * 60 * 1000
+);
+assert(knownRetention.state === 'KNOWN_WAIT', 'repeated-known-became-stable');
+assert(knownRetention.stabilityStage === 0, 'repeated-known-inflated-stability-stage');
+assert(knownRetention.nextIntervalDays === 1, 'repeated-known-expanded-window');
+
 state = appendMemoryEvidence(state, {
   cardId: 'core:circulation-b01-kp01',
   rating: 'unknown',
