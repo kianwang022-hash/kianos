@@ -889,13 +889,13 @@ export function buildXizongForecastProgress(storage, packetIndex = [], {
         runtime_observed_blocks: 0,
         runtime_completed_blocks: 0,
         runtime_started_incomplete_blocks: 0,
+        runtime_source_revision_blocked_blocks: 0,
         runtime_observed_learned_kp: 0,
         runtime_recall_rated_kp: 0,
         runtime_recall_unknown: 0,
         runtime_recall_fuzzy: 0,
         runtime_recall_known: 0,
-        runtime_recall_mastered: 0,
-        runtime_source_revision_blocked_blocks: 0
+        runtime_recall_mastered: 0
       });
     }
     const system = systems.get(systemId);
@@ -1003,17 +1003,7 @@ export function buildXizongForecastProgress(storage, packetIndex = [], {
       'Memory contains selectively admitted future-review objects only. Absence from Memory does not prove stability or weakness.'
   };
   const questionWorkload = reconcileForecastQuestionScope(questionScope, practiceEvidence, holdoutYears);
-  const blockedSystemIds = new Set(sourceRevisionBlocked.map((row) => String(row.system_id || '')));
-  const systemRecallEvidence = summarizeXizongSystemRecallForecast(storage, systemRows)
-    .map((row) => blockedSystemIds.has(String(row.system_id || ''))
-      ? {
-          ...row,
-          source_revision_blocked: true,
-          pre_question_recall_observed: false,
-          post_first_pass_recall_observed: false,
-          events: []
-        }
-      : { ...row, source_revision_blocked: false });
+  const systemRecallEvidence = summarizeXizongSystemRecallForecast(storage, systemRows);
   const formalScoreEvidence = summarizeXizongFormalScoreEvidence(storage);
 
   const progress = {
@@ -1059,7 +1049,7 @@ export function buildXizongForecastProgress(storage, packetIndex = [], {
     observation_day: day,
     systems: systemRows,
     evidence_boundary:
-      'Factual KianOS runtime progress only. NO_RUNTIME_EVIDENCE does not prove unstudied; learned_kp is not mastery; stale/unbound Source identity cannot reduce remaining workload or calibrate Recall/timing; Gate workload still requires subject-owned reconciliation into exam.subject-demand.v1.'
+      'Factual KianOS runtime progress only. NO_RUNTIME_EVIDENCE does not prove unstudied; learned_kp is not mastery; stale/unbound Source identity cannot reduce remaining workload or authorize capability evidence; Gate workload still requires subject-owned reconciliation into exam.subject-demand.v1.'
   };
   progress.workload_forecast = buildXizongWorkloadForecast(progress);
   return progress;
