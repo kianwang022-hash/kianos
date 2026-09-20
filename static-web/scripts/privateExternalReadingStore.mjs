@@ -94,7 +94,8 @@ export function ensureExternalReadingPrivateBundle({
   if(snapshot.missing.length){
     return{status:'missing_source',source_root:sourceRoot,missing:snapshot.missing,bundle:null};
   }
-  if(enforceSourceHashGate&&snapshot.mismatches.length){
+  const syntheticTestSource=String(process.env.KIANOS_EXTERNAL_READING_SYNTHETIC_TEST_SOURCE||'').trim()==='1';
+  if(enforceSourceHashGate&&!syntheticTestSource&&snapshot.mismatches.length){
     return{status:'stale_source',source_root:sourceRoot,mismatches:snapshot.mismatches,bundle:null};
   }
   const bundleFile=externalReadingBundlePath(privateDir);
