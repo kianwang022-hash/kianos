@@ -50,7 +50,7 @@ Current accepted state:
 
 ```text
 S1 Source boundary                     PASS
-S2 exact official-question membership  UNTESTED / separate later boundary
+S2 exact official-question membership  PASS_AFTER_BOUNDED_REPAIR / 355 qids
 K  Knowledge                           PASS
 L  Learning Logic                      PASS_AFTER_REPAIR
 Content Realization / Optimization     PASS
@@ -83,7 +83,7 @@ Current state:
 
 ```text
 S1 Source boundary                     PASS
-S2 exact official-question membership  UNTESTED / separate later boundary
+S2 exact official-question membership  PASS_AFTER_CROSS_SYSTEM_OWNER_REPAIR / 83 qids
 K  Knowledge                           PASS_AFTER_BOUNDED_REPAIR
 L  Learning Logic                      PASS_AFTER_BOUNDED_REPAIR
 Content                                PASS_AFTER_BOUNDED_REPAIR
@@ -204,7 +204,7 @@ Keep two truths separate.
 
 ## B1｜Exact official System question scope
 
-Current learner-facing exact System question scope is accepted for **A1 / A2 / A3 / B / C / D**. E / F must not be surfaced as trusted System-question sets until their exact official-question membership is independently established; System membership does not imply Block/KP mapping and must not be inferred from Outline or Block placement.
+Current learner-facing exact System question scope is accepted for **A1 / A2 / A3 / B / C / D / E**. F must not be surfaced as a trusted System-question set until its exact official-question membership is independently established; System membership does not imply Block/KP mapping and must not be inferred from Outline or Block placement.
 
 ### Current completion lane — E / F medical-content closure satisfied
 
@@ -218,7 +218,7 @@ finish E full medical-content chain
 → only then expose those Systems in trusted learner-facing "按 System" question entry
 ```
 
-E and F medical-content closure are complete. B exact official System-question membership is accepted at **1072 qids** using the original executable resolver. C exact membership is now accepted at **289 qids** after fresh Current-owner repair of 38 historical page-union false positives plus one RA Primary transfer from D. D exact membership is now accepted at **355 qids** after recovering 217 reviewed orthopedic Lecture-scope locators and transferring the single general-RA Primary question to C. The completion lane now continues with **E**, then F. Keep exact System question scope separate from accepted medical Content: no D/E/F membership may be inferred from Block, LG, Outline or Source placement.
+E and F medical-content closure are complete. Current exact membership is now accepted through E: A3 **244**, B **1071**, C **289**, D **355**, E **83** qids. E closure required two cross-System owner repairs: oxytocin-regulation `2017 N118` moved B→E because reproductive endocrine control is E-owned, while prostate-cancer `2022 N032` moved from the broad reproductive-pathology route to A3 because prostate Primary is urinary-owned. The completion lane now continues with **F only**. Keep exact System question scope separate from accepted medical Content: F membership may not be inferred from Block, LG, Outline or Source placement.
 
 ### B scope closure — PASS
 
@@ -231,9 +231,9 @@ Receipt:
 `content/xizong/knowledge/learner/B_QUESTION_SCOPE_CURRENT_RECONSTRUCTION.md`
 
 ```text
-B exact official qids = 1072
+B exact official qids = 1071
 2005–2026
-inventory SHA256 = d7817ecc0c57346bb04ea3a6a5417d0c11f2daba0ca8178b3424fb82d256510f
+inventory SHA256 = a8b45ea06ec48bafc1e044235c61e5552bfbf64749fce9a21527676acd099942
 System membership only; no inferred Question→Block/KP relation
 ```
 
@@ -280,7 +280,36 @@ System membership only; no inferred Question→Block/LG/KP relation
 
 The previous D blocker is closed because raw historical routing contains 217 reviewed `surgery|五、骨科|...` source locators. The old frozen resolver under-resolved them when source pages were null/legacy, but Current O1–O16 explicitly owns those exact Lecture scopes as Primary.
 
-Next exact-scope target: **E — Reproductive / Breast**.
+### E scope closure — PASS_AFTER_CROSS_SYSTEM_OWNER_REPAIR
+
+Canonical owner:
+
+`content/xizong/knowledge/learner/e-reproductive-breast-question-scope.json`
+
+Receipt:
+
+`content/xizong/knowledge/learner/E_QUESTION_SCOPE_CURRENT_RECONSTRUCTION.md`
+
+```text
+historical frozen E pool         = 35
+Current E exact official qids    = 83
+A3 current scope                 = 244
+B current scope                  = 1071
+cross A1–D overlap after repair  = 0
+2005–2026
+inventory SHA256 = 7bca256102b4a8066672945c53861b72caf4184e61245c432d3abe689786e6da
+```
+
+Owner repairs:
+
+- `2017 N118` oxytocin regulation: B → E;
+- `2022 N032` prostate-cancer metastasis: broad reproductive-pathology route → A3;
+- `2007 N049` prostate pathology remains A3;
+- no hydrocele qid is manufactured from Outline count.
+
+System membership only; no inferred Question→Block/LG/KP relation.
+
+Next exact-scope target: **F — Remaining Clinical**.
 
 ## B2｜Question → Knowledge Crosswalk
 
@@ -497,12 +526,14 @@ F 9 Blocks / 121 KP
 → F medical-content chain CLOSED
 
 QUESTIONS
-Current trusted System-question entry = A1 / A2 / A3 / B / C / D
-B exact official-question membership = PASS / 1072 qids
+Current trusted System-question entry = A1 / A2 / A3 / B / C / D / E
+A3 exact official-question membership = PASS / 244 qids
+B exact official-question membership = PASS / 1071 qids
 C exact official-question membership = PASS_AFTER_BOUNDED_REPAIR / 289 qids
 D exact official-question membership = PASS_AFTER_BOUNDED_REPAIR / 355 qids
-E / F exact official-question membership = CURRENT COMPLETION LANE
-→ next target = E
+E exact official-question membership = PASS_AFTER_CROSS_SYSTEM_OWNER_REPAIR / 83 qids
+F exact official-question membership = CURRENT COMPLETION LANE
+→ next target = F
 + Crosswalk C2 continuous reviewed batches
 
 VISUAL
