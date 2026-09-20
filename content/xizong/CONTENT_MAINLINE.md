@@ -114,29 +114,50 @@ Current-year exam geometry and humanities-scope deltas remain explicit upstream-
 
 Stage A is closed because current executable scope/material gaps are closed or explicitly Future-Source blocked. Do not reopen it merely because learner evidence is still UNKNOWN; that belongs to Stage B/Stage E.
 
-## Stage B operating rule — Real-U led
+## Stage B operating rule — Real-U led where executable, engineering only at the earliest missing gate
 
 Stage B is not another repository-completion program.
 
-Primary loop:
+Current engineering availability:
 
 ```text
-real first-pass study
-→ X1–X4 formation evidence + X6 official-question evidence
-→ identify the smallest binding capability / defect
-→ smallest justified Repair
-→ changed-context / delayed evidence when decision-relevant
-→ recalibrate
+A1 / A2 / A3  = learner-executable through accepted P/R/E
+B              = S/K/L/P/R/E PASS on main via PR #643
+C              = S/K/L accepted; P is the earliest missing gate
+D / E / F      = do not skip their scoped downstream gates; re-read each Current before work
 ```
+
+Therefore the mainline is intentionally split:
+
+```text
+already-executable System
+→ real first-pass study
+→ X1–X4 formation evidence + X6 official-question evidence
+→ smallest diagnosis / Repair
+→ Stage E recalibration
+
+not-yet-executable System
+→ exact earliest unresolved engineering gate only
+→ targeted proof
+→ stop once learner execution is unlocked
+```
+
+Current exact engineering cursor:
+
+> **C — Projection (P)**
+
+B is closed on the engineering side through E. Its only remaining gate is **U — real Kian learner use**; do not reopen B for additional synthetic acceptance.
 
 Rules:
 
 - missing Real Learner U remains `UNKNOWN`; it is not permission to create more synthetic maturity machinery;
 - a System/Block becomes heavier again only when newer learner evidence exposes a real capability failure;
 - accepted Website / Home / learner-state architecture stays frozen under Gate 5;
-- shared Runtime may reopen only for a concrete learner-visible defect or a genuinely missing factual sensor that changes a learning decision;
+- shared Runtime may reopen only for a concrete learner-visible defect exposed after the System's P gate;
 - Xizong may expose workload, binding capability and risk, but cross-subject capacity allocation remains upstream Chat-owned;
-- when the next meaningful uncertainty depends on real study or future Source rather than missing system logic, **stop building and use the system**.
+- when a System's remaining uncertainty is only Real Learner U or Future Source, **stop building and use/wait**.
+
+---
 
 ---
 

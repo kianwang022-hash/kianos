@@ -14,7 +14,9 @@ on:
       - 'static-web/src/components/XizongBlockV6.astro'
       - 'static-web/src/lib/xizongSemanticAdapter.mjs'
       - 'static-web/src/lib/xizongProductionProjection.mjs'
+      - 'static-web/src/lib/xizong.mjs'
       - 'static-web/scripts/validate-xizong-bc-production-compatibility.mjs'
+      - 'static-web/scripts/test-xizong-b-runtime-journey.mjs'
       - '.github/workflows/xizong-bc-compatibility.yml'
   workflow_dispatch:
 
@@ -38,9 +40,25 @@ jobs:
       - name: Validate B+C production compatibility
         working-directory: static-web
         run: npm run validate:xizong-bc-compatibility
-      - name: Validate Current Xizong
-        working-directory: static-web
-        run: npm run validate:xizong
       - name: Build Current site
         working-directory: static-web
         run: npm run build
+      - name: Install isolated browser acceptance tool
+        working-directory: static-web
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Execute B shared Runtime journey
+        working-directory: static-web
+        run: node scripts/test-xizong-b-runtime-journey.mjs
+      - name: Upload B Runtime evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xizong-b-runtime-${{ github.sha }}
+          path: static-web/.qa/xizong-b-runtime-journey.json
+          if-no-files-found: warn
+          retention-days: 14
+      - name: Validate Current Xizong broad regression
+        working-directory: static-web
+        run: npm run validate:xizong

@@ -10,12 +10,13 @@ This file does not own medical Core, Xizong Learning semantics, Acceptance Truth
 ## Work Cursor
 
 **Scope:** B — Digestive / Metabolic / Endocrine / Tumor  
-**Active / earliest unresolved eligible gate:** `P — Projection`.  
+**Active / earliest unresolved eligible gate:** `U — Real Learner Use only`.  
 **S status:** PASS — exact Current B official-question membership accepted at 1071 qids.  
 **K status:** PASS — 38 stable Blocks / 600 stable KPs + accepted System model.  
 **L status:** PASS — fresh independent Phase-6 acceptance complete.  
-**P status:** UNTESTED / ACTIVE.  
-**R/E:** downstream-frozen behind P.  
+**P status:** PASS — fresh revalidated on PR #643 candidate `c980bf28e6ae2c8a048cf0a63f65ae68a467784a`.  
+**R status:** PASS — B shared Runtime browser journey passed on PR #643 run `35523372900`.  
+**E status:** PASS — executed B official-question / unified Repair / stale-version Evidence browser journey at candidate `fc06c948507432f47d847c03f9c291ec4e63847b`.  
 **U:** UNTESTED — real learner validation only.
 
 ```text
@@ -30,7 +31,7 @@ Phase 6  Fresh independent L acceptance                PASS
 
 Learning construction / acceptance task: GitHub Issue `#135` — completed.
 
-**Next action:** enter **B Projection (P) only**. Inspect Current shared Xizong Projection authority and any existing B projection assets against the accepted B Learning owner. Do not infer P PASS from old UI/pages and do not start Runtime/Evidence. The later official B System sweep must use the accepted 1071-qid scope owner exactly; it still cannot infer Question→Block/KP relations.
+**Next action:** no new B engineering build. Use B through the normal learner mainline when scheduled and collect **Real Learner U**: actual Source-contact friction, Recall, W/U, Repair compression, delayed stability and question throughput. Reopen P/R/E only on concrete contradictory learner/browser evidence or Current owner change.
 
 ---
 
@@ -123,7 +124,10 @@ Verdict:
 
 ```text
 L = PASS
-P = ACTIVE / eligible
+P = PASS
+R = PASS
+E = PASS
+U = REAL_LEARNER_USE_ONLY
 ```
 
 This is a shared Learning-design acceptance claim only. It creates **no Learner Truth** about what Kian has actually studied.
@@ -158,9 +162,9 @@ Current E owner review then transferred `xizong-official-2017-n118` (oxytocin re
 System membership does not create precise Question→Block/LG/KP mapping.
 
 
-## Active P boundary
+## Closed P boundary
 
-Projection must now answer only:
+Fresh P acceptance confirms:
 
 > How should the accepted B Learning semantics be represented on learner-facing KianOS surfaces without stealing actions from MarginNote or changing cognition?
 

@@ -15,15 +15,15 @@ This file owns B's current S/K/L/P/R/E/U readiness claims. It does not own medic
 S  PASS — exact Current official-question membership accepted (1071 qids)
 K  PASS — 38 stable Blocks / 600 stable KPs + accepted System model
 L  PASS — fresh independent Learning acceptance complete
-P  UNTESTED — ACTIVE / earliest unresolved eligible learner-surface gate
-R  UNTESTED — downstream-frozen behind P
-E  UNTESTED — downstream-frozen behind R
+P  PASS — fresh revalidation of the existing 1 System + 38 Block Projection assets
+R  PASS — executed B shared Runtime browser journey
+E  PASS — executed B official-question / Repair / stale-evidence browser semantics
 U  UNTESTED — real learner use only
 ```
 
 Current allowed conclusion:
 
-> **B Source question scope, Knowledge and Learning are accepted. Projection remains the earliest unresolved active learner-surface gate. B is still not learner-ready because P/R/E are unaccepted and U requires real use.**
+> **B Source, Knowledge, Learning, Projection, Runtime and Evidence are accepted. No further B engineering gate remains before real learner use. U remains UNTESTED and can only come from Kian's actual study.**
 
 Dependency-scoped rule:
 
@@ -222,33 +222,114 @@ L PASS proves the shared B learning design is accepted. It does **not** prove Ki
 
 ---
 
-## P — UNTESTED / ACTIVE
+## P — PASS · fresh revalidation 2026-09-21
 
-Projection is now the earliest unresolved eligible learner-surface gate.
+Fresh baseline:
 
-P must project the accepted Learning semantics without changing them. In particular it must preserve:
+`main@5c1eab2766d696aa36877baa1a4600b19a927189`
 
-- MarginNote as external-primary Lecture surface;
-- KianOS as orientation / retrieval / closure / compression surface rather than a second reader;
-- whole-LG handoff and natural return cues without forced KP-by-KP switching;
-- conditional display of Precision / Visual / Reserve / Connection context;
-- backend-only engineering metadata;
-- readiness DAG and learner-order semantics without turning backend route metadata into compulsory navigation;
-- six PSRs as optional/non-gating compression checkpoints;
-- System Recall timing based on Learner Truth rather than engineering readiness;
-- accepted exact official-question sweep without guessed qids or inferred precise relations.
+No Projection asset rebuild was required. The existing B set was re-read and revalidated against the latest accepted B Learning owner:
 
-The historical D/M/G file layout and rich medical Markdown do not own page structure.
+```text
+1 SystemProjection
+38 BlockProjection
+600 stable KP identities
+170 accepted Logic Groups
+```
+
+Fresh semantic attacks:
+
+- G5 learner order remains Learning-owned and is consumed through `learner_order`; file/stable KP order is not promoted to learner order.
+- B `BLOCK_ORIENT` does not bind or render the whole canonical Block Markdown. It exposes bounded problem/focus/stop/safe LG-map semantics, preserving MarginNote/original Lecture as continuous teaching owner.
+- `LOGIC_GROUP_SET` exposes labels/IDs only on protected Block Recall fronts; answer-bearing goal/closure payload is not smuggled into the neutral map.
+- `SYSTEM_RECALL_FRONT` contains no B answer-bearing medical object.
+- PSRs remain non-gating and absent from the default System Guide.
+- Projection does not own B official-question truth or infer Question→Block/LG/KP relations.
+
+Executed proof on PR #643 candidate `c980bf28e6ae2c8a048cf0a63f65ae68a467784a`:
+
+- Xizong Projection Validation run `35522582637` — **PASS** including exact bindings, adversarial mutations, freeze accounting and protected-source immutability.
+- Xizong Production Semantic Projection run `35522582598` — **PASS** including production semantic validation and Astro build.
+- Xizong Representation Gate run `35522582836` — **PASS**.
+- B+C compatibility's B/C semantic validation step — **PASS** at the same candidate while the broader shared workflow continues unrelated regression work.
+
+P claim boundary:
+
+> Projection semantics and production/representation compatibility are accepted. This does not claim B Runtime/Evidence or learner U.
 
 ---
 
-## R / E
+## R — PASS · executed browser evidence
 
-`R` remains downstream-frozen behind P. `E` remains downstream-frozen behind R. Exact B question membership is now accepted, but question-derived Evidence still requires the later Runtime/Evidence gates.
+Fresh Runtime proof on PR #643 candidate `fabda4b8f2df57e9859c45be8b0d554994c136fd`:
 
-Old web/runtime existence is not acceptance evidence.
+- B+C targeted projectability validation — **PASS**;
+- Astro build with all 38 B routes — **PASS**;
+- B shared Runtime browser journey in workflow run `35523372900` — **PASS**.
 
----
+Executed B journey proved:
+
+- real B D1 product route loads through the shared Xizong Runtime;
+- canonical KP identity comes from stable `kianos:kp` markers rather than synthetic `D1-kpXX` IDs;
+- whole-LG Source handoff marks only the accepted LG KP set as learned;
+- Source-contact evidence is bound to the accepted LG identity and `WHOLE_LOGIC_GROUP` mode;
+- refresh resumes the exact KP Recall stage without losing Source-contact identity;
+- seeded 38-Block completion is accepted only through the existing shared completion predicate;
+- completed B releases System Recall;
+- System Recall persists through the existing shared store;
+- System Recall releases the real B Practice route;
+- B Practice binds the accepted **1071-qid** System scope and existing System evidence guard.
+
+Important boundary:
+
+> Seeded completed-Block states are engineering gate/identity proof only. They do not claim Kian completed B and do not create learner U.
+
+The actual Runtime defect repaired was one shared-loader assumption: the old loader only understood A-shaped `blocks/` + `system.logic_index` ownership. B instead owns D/M/G canonical files, Learning-owned LG order and stable KP markers. The repair teaches the existing loader to consume those accepted owners; it does not create a B-specific Runtime or mutate medical/Learning truth.
+
+### E — PASS · executed browser evidence
+
+Exact code-tested candidate:
+
+`fc06c948507432f47d847c03f9c291ec4e63847b`
+
+Targeted workflow:
+
+`Xizong B+C Compatibility` run `35524678394`
+
+PASS artifact:
+
+`xizong-b-runtime-fe3ac2b8096d5f76a71a5274abfdaf822fa5be8c`
+artifact id `10608534363`
+
+Evidence class:
+
+> **EXECUTED BROWSER ENGINEERING EVIDENCE — NOT REAL LEARNER U**
+
+The B browser journey exercised Current Question Truth and the accepted 1071-qid B System scope and proved:
+
+- correct/confident official attempt remains `stable`;
+- a Stable attempt cannot be coerced by a typed Chat Return into Repair;
+- Stable work creates no Repair debt;
+- correct-but-unsure official attempt remains `uncertain` with exact append-preserved attempt identity;
+- reviewed relation is released only through the Current reviewed Question→Knowledge owner;
+- stale attempt binding fails closed and creates no Repair;
+- valid W/U creates one visible unified Memory Repair task with `origin = SYSTEM_WU_CHAT_RETURN`;
+- the Repair keeps the original question return route and exact source question id;
+- Block inbox is consumed by the unified Memory Repair owner;
+- Repair import creates **no Memory Recall/mastery evidence**;
+- completing the Repair only closes the task and still creates **no mastery evidence**;
+- original question evidence remains `uncertain` after Repair;
+- the original question tab/mainline remains available for natural return;
+- deliberate System evidence-version mismatch archives the stale state, rebinds Current version and clears stale sweep/Repair state.
+
+Current Repair semantics were also reconciled against the post-#559 architecture:
+
+> Repair is now a first-class unified Memory Repair task. It no longer writes the retired Block-local `memory-review-v2` reviewPlan/evidenceHistory implementation. “REPAIR_ONLY” is therefore a semantic boundary — Repair work never manufactures Recall/mastery evidence — not a requirement to recreate that retired storage shape.
+
+E claim boundary:
+
+> This proves the engineering Evidence contract for B. It does not prove that Kian has learned B, retained B, answered B questions in real study, or achieved any score.
+
 
 ## U — UNTESTED
 

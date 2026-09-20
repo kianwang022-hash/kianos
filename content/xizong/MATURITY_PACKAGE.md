@@ -438,6 +438,24 @@ Do not reopen Stage A for unavailable 2027 Sources. Reopen only when a new autho
 
 # 11｜Stage B handoff — learner evidence becomes the main input
 
+
+## Current Stage-B engineering availability
+
+| System | Engineering gate state | Current action |
+| --- | --- | --- |
+| A1 | P/R/E accepted | real learner use / Real U |
+| A2 | P/R/E accepted | real learner use / Real U |
+| A3 | P/R/E accepted | real learner use / Real U |
+| B | **S/K/L/P/R/E PASS** · PR #643 merged | **stop engineering; Real U only** |
+| C | S/K/L accepted; **P eligible / not yet compiled** | **current engineering cursor: C Projection** |
+| D | Content closed; scoped downstream gate remains | re-read D Current after C |
+| E | Content closed; scoped downstream gate remains | re-read E Current after prior gate |
+| F | Content + exact System question scope closed; scoped downstream gate remains | re-read F Current after prior gate |
+
+This table is engineering availability, not learner mastery.
+
+A System that is executable may generate Stage-B evidence immediately; Stage B does not wait for every System to reach the same engineering state before Kian studies available work.
+
 Stage B current question is no longer “what else can the repository build?”
 
 It is:
