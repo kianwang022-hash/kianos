@@ -1,6 +1,6 @@
 {
   "schema": "kianos.xizong.late_stage_material_baseline.v1",
-  "status": "HISTORICAL_26_BASELINE_ABSORBED_AT_ASSET_ROLE_LEVEL",
+  "status": "HISTORICAL_26_BASELINE_ABSORBED_AT_TOPIC_ROLE_LEVEL",
   "cycle_identity": {
     "source_cycle_label": "26考研",
     "relative_to_current": "LAST_YEAR_BASELINE",
@@ -354,7 +354,316 @@
     "case_cram_identity": "CLOSED_26_CASE_CRAM",
     "final_5h_identity": "CLOSED_26_FINAL_COMPRESSION",
     "overlap_case_cram_vs_5h": "CLOSED_HIGH_OVERLAP_DIRECT_REUSE",
-    "item_level_delta_to_current": "NOT_YET_COMPLETE",
-    "current_27_delta": "BLOCKED_UNTIL_27_SOURCE"
+    "item_level_delta_to_current": "NEXT_BOUNDED_ANALYSIS_NOT_REQUIRED_FOR_YEAR_IDENTITY_CLOSURE",
+    "current_27_delta": "BLOCKED_UNTIL_27_SOURCE",
+    "content_topic_index": "CLOSED_FOR_DIRECTLY_READABLE_26_CASE_CRAM_5H_AND_FOUR_MOCKS",
+    "net_new_role_baseline": "CLOSED",
+    "raw_transcript_sentence_level_absorption": "PARTIAL_BLOCKED_BY_UNMOUNTED_HISTORICAL_RAW_SRTS"
+  },
+  "content_absorption": {
+    "status": "TOPIC_ROLE_BASELINE_CLOSED",
+    "boundary": "This is a topic/capability/overlap baseline for 26-cycle late-stage materials. It does not claim that every sentence of every historical raw SRT has been re-transcribed, nor that teacher statements override Current canonical Source.",
+    "case_cram_topic_index": {
+      "internal_diagnosis_plus_partial_surgery": {
+        "source": "80-page readable 26 Case/Cram handout + 9 confirmed internal/diagnosis SRT sessions",
+        "coverage_groups": [
+          {
+            "group": "RESPIRATORY",
+            "representative_topics": [
+              "COPD",
+              "慢性肺心病",
+              "肺动脉高压",
+              "肺栓塞",
+              "支气管哮喘",
+              "支气管扩张",
+              "肺脓肿",
+              "肺炎",
+              "肺结核",
+              "间质性肺病",
+              "ARDS",
+              "肺癌",
+              "胸膜疾病",
+              "呼吸衰竭",
+              "阻塞性/限制性通气障碍",
+              "低氧血症机制",
+              "酸碱失衡",
+              "呼吸系统重要表现"
+            ]
+          },
+          {
+            "group": "CIRCULATION",
+            "representative_topics": [
+              "慢性左心衰",
+              "急性左心衰",
+              "心衰评定",
+              "心律失常",
+              "原发性/继发性高血压",
+              "冠心病",
+              "肥厚型/扩张型心肌病",
+              "病毒性心肌炎",
+              "心包积液",
+              "缩窄性心包炎",
+              "心瓣膜病",
+              "感染性心内膜炎",
+              "心脏骤停",
+              "循环系统重要表现"
+            ]
+          },
+          {
+            "group": "DIGESTIVE",
+            "representative_topics": [
+              "GERD",
+              "慢性胃炎",
+              "消化性溃疡",
+              "肠结核",
+              "结核性腹膜炎",
+              "炎症性肠病",
+              "肠易激综合征",
+              "肝硬化",
+              "肝性脑病",
+              "原发性肝癌",
+              "急/慢性胰腺炎",
+              "上消化道出血",
+              "消化系统易混点"
+            ]
+          },
+          {
+            "group": "URINARY",
+            "representative_topics": [
+              "肾炎综合征",
+              "肾病综合征",
+              "IgA肾病",
+              "隐匿性肾炎",
+              "尿路感染",
+              "急性肾损伤",
+              "慢性肾衰竭"
+            ]
+          },
+          {
+            "group": "HEMATOLOGY",
+            "representative_topics": [
+              "贫血鉴别",
+              "AML鉴别",
+              "缺铁性贫血",
+              "骨髓瘤分期",
+              "淋巴瘤分期",
+              "特征染色体/免疫表型",
+              "溶血性贫血",
+              "出血性疾病"
+            ]
+          },
+          {
+            "group": "ENDOCRINE",
+            "representative_topics": [
+              "内分泌总论",
+              "甲减",
+              "Graves病",
+              "库欣综合征",
+              "原发性醛固酮增多症",
+              "嗜铬细胞瘤",
+              "糖尿病"
+            ]
+          },
+          {
+            "group": "RHEUMATOLOGY",
+            "representative_topics": [
+              "风湿系统总论",
+              "类风湿关节炎",
+              "SLE",
+              "干燥综合征",
+              "系统性血管炎"
+            ]
+          },
+          {
+            "group": "DIAGNOSIS_AND_CROSS_SYSTEM",
+            "representative_topics": [
+              "各系统重要表现与鉴别",
+              "步态",
+              "前列腺素小结",
+              "内外科共享疾病的病例识别",
+              "中毒为高频后段能力"
+            ]
+          }
+        ],
+        "capability_contribution": [
+          "从症状/体征/化验定位系统",
+          "病例 decisive condition 识别",
+          "相似疾病鉴别",
+          "诊断→检查→治疗方向压缩",
+          "跨内外科共享疾病切换"
+        ]
+      },
+      "surgery": {
+        "source": "50-page readable 26 Case/Cram surgery handout + 7 confirmed surgery SRT sessions",
+        "coverage_groups": [
+          {
+            "group": "SURGERY_GENERAL",
+            "representative_topics": [
+              "体液失衡",
+              "输血",
+              "休克",
+              "麻醉",
+              "围术期",
+              "营养代谢",
+              "烧伤",
+              "外科感染",
+              "有芽孢厌氧菌感染",
+              "脓肿引流",
+              "常见致病菌",
+              "抗生素小结"
+            ]
+          },
+          {
+            "group": "NECK_CHEST_BREAST",
+            "representative_topics": [
+              "甲状腺相关疾病与手术",
+              "甲状腺癌",
+              "甲状旁腺",
+              "乳腺癌",
+              "其它乳房疾病",
+              "胸部损伤"
+            ]
+          },
+          {
+            "group": "ABDOMEN_INTESTINE",
+            "representative_topics": [
+              "继发性腹膜炎",
+              "胃癌",
+              "腹部损伤",
+              "腹外疝",
+              "肠梗阻",
+              "急性阑尾炎",
+              "直肠指检/肛管疾病"
+            ]
+          },
+          {
+            "group": "HEPATOBILIARY_PANCREAS_SPLEEN",
+            "representative_topics": [
+              "肝胆胰脾病例识别",
+              "门静脉高压",
+              "胆系疾病",
+              "胰腺疾病",
+              "肝脓肿/肝脏手术方向"
+            ]
+          },
+          {
+            "group": "VASCULAR_UROLOGY",
+            "representative_topics": [
+              "周围血管疾病",
+              "泌尿系感染/肿瘤/梗阻/外伤",
+              "尿道/膀胱外伤",
+              "隐睾/鞘膜积液"
+            ]
+          },
+          {
+            "group": "ORTHOPEDICS",
+            "representative_topics": [
+              "骨折/脱位",
+              "骨与关节感染",
+              "慢性损伤",
+              "脊柱/神经损伤",
+              "退行性疾病",
+              "骨肿瘤与高频鉴别"
+            ]
+          }
+        ],
+        "capability_contribution": [
+          "外科病例定位",
+          "术式/处理时机选择",
+          "创伤/围术期优先级",
+          "骨科影像与体征鉴别",
+          "跨系统治疗边界"
+        ]
+      }
+    },
+    "final_5h_coverage_graph": {
+      "sequence": [
+        "生理",
+        "生化",
+        "病理",
+        "内科",
+        "外科"
+      ],
+      "observed_transport": [
+        "第一场先做生理高频压缩",
+        "第二段进入生化；部分生化明确要求回狂背复习而非直播重讲",
+        "随后病理高频压缩",
+        "再进入内科，并明确复用病例分析&狂背讲义",
+        "第二场继续内科，最终进入外科/腹部等收尾"
+      ],
+      "role_conclusion": "5h is a final retrieval/compression pass over already learned material; it is not an independent full curriculum and is not additive to the Case/Cram handout."
+    },
+    "four_mock_content_index": {
+      "sets": 4,
+      "questions_per_set": 165,
+      "full_paper_shape": "2017-2026 current-style 306 geometry",
+      "subject_span": [
+        "生理",
+        "生化",
+        "病理",
+        "内科含诊断",
+        "外科",
+        "人文"
+      ],
+      "high_value_capabilities": [
+        "整卷切换",
+        "病例迁移",
+        "近似选项辨析",
+        "跨系统条件切换",
+        "压力下检索",
+        "混合题型执行"
+      ],
+      "fidelity_warning": "The readable PDF is annotated with answers/video timestamps/explanations. It is source-rich but not a clean unseen timed-paper surface."
+    }
+  },
+  "net_new_accounting_baseline": {
+    "rule": "gross - replacement - overlap = net new effective work",
+    "families": [
+      {
+        "family": "26-CASE-CRAM",
+        "gross_role": "large clinical case/compression layer",
+        "replacement": "replaces substantial re-reading of mature Internal/Surgery canonical material in late stage",
+        "overlap": "high overlap with Current canonical Core and later 5h",
+        "net_new_candidate": "case pivots, distinctive discriminators, useful cross-system switching and compression cues only"
+      },
+      {
+        "family": "26-FINAL-5H",
+        "gross_role": "very broad final sweep",
+        "replacement": "explicitly replaces full-course rereading in the last stage",
+        "overlap": "very high with Case/Cram and canonical content; direct reuse is proven",
+        "net_new_candidate": "only unique high-yield cues, changed-year facts, or genuinely better compression"
+      },
+      {
+        "family": "26-FOUR-MOCKS",
+        "gross_role": "four full 165-question teacher mocks",
+        "replacement": "does not replace canonical official questions as score evidence",
+        "overlap": "knowledge overlap is expected, but transfer/stress role is distinct",
+        "net_new_candidate": "novel case variants, decisive-condition probes, confusable boundaries, cross-system switching"
+      },
+      {
+        "family": "26-DIFFICULTY-FILTER",
+        "gross_role": "hard-item subsets",
+        "replacement": "likely subset/repackaging of already available late-stage items",
+        "overlap": "assume high until item-level proof shows otherwise",
+        "net_new_candidate": "none by default; admit only proven unique high-value items"
+      },
+      {
+        "family": "26-TEN-YEAR-COMMENTARY",
+        "gross_role": "teacher commentary over official questions",
+        "replacement": "canonical Question Truth and approved explanations remain primary",
+        "overlap": "near-total question identity overlap with official corpus",
+        "net_new_candidate": "teacher-specific decision language or confusable-option explanation only"
+      }
+    ]
+  },
+  "self_attack": {
+    "question": "Could this baseline look complete while the learner still lacks the ability it is meant to train?",
+    "answer": "Yes. Asset/topic coverage and overlap accounting prove material readiness only. Case discrimination, cross-system switching, timed transfer and precision still require actual learner performance. Historical materials never manufacture learner U.",
+    "fail_closed_conditions": [
+      "Raw SRT provenance without readable bytes does not count as sentence-level source-fidelity closure.",
+      "Teacher mnemonics or treatment/legal/current-year statements that conflict with Current canonical Source are not promoted.",
+      "Annotated four-mock pages cannot be used as clean unseen score evidence.",
+      "A 27-cycle material change is UNKNOWN until the 27 source itself is present and version-verified."
+    ]
   }
 }
