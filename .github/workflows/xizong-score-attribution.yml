@@ -1,0 +1,36 @@
+name: Xizong Score Attribution
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'content/xizong/LEARNING_CONTRACT.md'
+      - 'content/xizong/knowledge/learner/study-policy.json'
+      - 'content/xizong/questions/exam-format.json'
+      - 'content/xizong/question-relations/**'
+      - 'static-web/src/lib/xizongQuestions.mjs'
+      - 'static-web/src/lib/xizongQuestionAttempts.mjs'
+      - 'static-web/src/lib/xizongScoreAttribution.mjs'
+      - 'static-web/scripts/validate-xizong-score-attribution.mjs'
+      - '.github/workflows/xizong-score-attribution.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  score-attribution:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: static-web
+    steps:
+      - name: Checkout PR head
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install runtime dependencies
+        run: npm install --no-audit --no-fund
+      - name: Validate observed official score attribution
+        run: node scripts/validate-xizong-score-attribution.mjs
