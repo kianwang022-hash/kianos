@@ -62,11 +62,11 @@ await check('Review-imports-legacy-Analysis-evidence-and-rejects-unbound-current
   await page.locator('[data-review-return] summary').click();
   const legacy={
    schema:'kianos.politics.analysis-evidence.v1',direction:'CHAT_TO_LEARNER',
-   evidence_id:'browser-analysis-legacy-001',task_id:'LEG26-X8-1-Q34-1',task_revision:'legacy-bind-v1',
-   rubric_version:'politics-analysis-rubric-v1',subject:'marxism',subquestion_id:'34-1',
+   evidence_id:'browser-analysis-legacy-001',task_id:'LEG26-X8-S01-Q34-2-B',task_revision:'legacy26-x8-s01-q34-2-bind-v1',
+   rubric_version:'politics-analysis-rubric-v1',subject:'marxism',subquestion_id:'34-2',
    task_mode:'BIND',attempt_role:'FIRST',fresh_material:false,
    freshness_class:'LEGACY_GEOMETRY_ONLY',formulation_requirement:'NONE',
-   source_basis:{family:'LEG26_XIAO8',identity:'2026 Xiao8 set1 Q34(1)',revision:null,authority_status:'LEGACY_GEOMETRY'},
+   source_basis:{family:'LEG26_XIAO8',identity:'2026 Xiao8 set1 Q34(2)',revision:null,authority_status:'LEGACY_GEOMETRY'},
    study_day:new Date().toLocaleDateString('en-CA'),observed_at:new Date().toISOString(),
    rubric:{I:2,S:1,B:1,F:'NA',D:'NA'},critical_flags:['MATERIAL_UNBOUND'],
    assessment_confidence:'MEDIUM',delivery_timing:'NA',elapsed_seconds:null,
