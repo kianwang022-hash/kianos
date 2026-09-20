@@ -115,7 +115,11 @@ const papers = listXizongPaperSummaries();
 </Base>
 
 <script>
-  import { normalizeXizongInlinePracticeQuestions } from '../../../lib/xizongSessionInstruction.mjs';
+  import {
+    normalizeXizongInlinePracticeQuestions,
+    validateXizongInlinePracticeQuestionBindings
+  } from '../../../lib/xizongSessionInstruction.mjs';
+  import { XIZONG_MEMORY_STORAGE_KEY } from '../../../lib/xizongMemoryModel.mjs';
   import {
     XIZONG_RETAINED_SET_KEY,
     XIZONG_QUESTION_PREFERENCES_KEY,
@@ -183,6 +187,9 @@ const papers = listXizongPaperSummaries();
         const parsed = JSON.parse(input?.value || '');
         const ids = Array.isArray(parsed?.question_ids) ? parsed.question_ids.map(String) : [];
         const inlineQuestions = normalizeXizongInlinePracticeQuestions(parsed?.inline_questions || [], 'MANUAL_TARGETED_PRACTICE');
+        let memoryState = null;
+        try { memoryState = JSON.parse(localStorage.getItem(XIZONG_MEMORY_STORAGE_KEY) || 'null'); } catch {}
+        validateXizongInlinePracticeQuestionBindings(memoryState, inlineQuestions, 'MANUAL_TARGETED_PRACTICE');
         const validPhase = ['FIRST_PASS','SECOND_PASS','LATE_REVIEW'].includes(String(parsed?.study_phase || ''));
         const validSpeed = ['normal','fast'].includes(String(parsed?.speed || 'normal'));
         if (parsed?.schema !== 'kianos.xizong.chat_set.v1') throw new Error('schema');
