@@ -218,6 +218,62 @@ const storage=new MemoryStorage({
       }
     ]
   }),
+  'kianos:xizong:paper-question-sweep:paper-2026:v1':JSON.stringify({
+    paperSeal:{
+      sealedAt:'2026-09-20T01:30:00+08:00',
+      reviewUnlockedAt:'',
+      summary:{
+        answeredCount:3,
+        correctCount:2,
+        wrongCount:1,
+        unansweredCount:162,
+        questionCount:165,
+        earnedScore:3.5,
+        maxScore:300
+      }
+    },
+    attemptHistory:[
+      {
+        type:'QUESTION_ATTEMPT',
+        question_id:'xizong-official-2026-n001',
+        question_source:'OFFICIAL_EXAM',
+        study_phase:'FIRST_PASS',
+        attempt_index:1,
+        status:'stable',
+        year:2026,
+        number:1,
+        points_possible:1.5,
+        result_visibility:'hidden',
+        submitted_at:'2026-09-20T01:20:00+08:00'
+      },
+      {
+        type:'QUESTION_ATTEMPT',
+        question_id:'xizong-official-2026-n057',
+        question_source:'OFFICIAL_EXAM',
+        study_phase:'FIRST_PASS',
+        attempt_index:1,
+        status:'uncertain',
+        year:2026,
+        number:57,
+        points_possible:2,
+        result_visibility:'hidden',
+        submitted_at:'2026-09-20T01:21:00+08:00'
+      },
+      {
+        type:'QUESTION_ATTEMPT',
+        question_id:'xizong-official-2026-n108',
+        question_source:'OFFICIAL_EXAM',
+        study_phase:'FIRST_PASS',
+        attempt_index:1,
+        status:'wrong',
+        year:2026,
+        number:108,
+        points_possible:2,
+        result_visibility:'hidden',
+        submitted_at:'2026-09-20T01:22:00+08:00'
+      }
+    ]
+  }),
 
   [XIZONG_MEMORY_STORAGE_KEY]:JSON.stringify({
     schema:XIZONG_MEMORY_SCHEMA,
@@ -343,6 +399,19 @@ assert.equal(xzForecast.repair_evidence.completed_repair_clusters,1);
 assert.equal(xzForecast.repair_evidence.question_backed_clusters,2);
 assert.equal(xzForecast.repair_evidence.unique_source_question_ids,3);
 assert.equal(xzForecast.repair_evidence.observed_question_to_cluster_ratio,1.5);
+assert.equal(xzForecast.runtime_evidence.recall.rated,0);
+assert.equal(xzForecast.memory_evidence.schema,'kianos.xizong.memory-forecast-evidence.v1');
+assert.equal(xzForecast.memory_evidence.precision.cards,0);
+assert.equal(xzForecast.practice_evidence.fresh_transfer.observed_probes,0);
+assert.equal(xzForecast.formal_score_evidence.latest.year,2026);
+const disciplineBreakdown=xzForecast.formal_score_evidence.latest.discipline_breakdown?.disciplines;
+assert.ok(disciplineBreakdown,'sealed modern paper must expose historical discipline breakdown');
+assert.equal(disciplineBreakdown.physiology.earned_points,1.5);
+assert.equal(disciplineBreakdown.physiology.wrong_points,0);
+assert.equal(disciplineBreakdown.surgery.earned_points,2);
+assert.equal(disciplineBreakdown.surgery.uncertain_correct_points,2);
+assert.equal(disciplineBreakdown.humanism.earned_points,0);
+assert.equal(disciplineBreakdown.humanism.wrong_points,2);
 assert.match(xzForecast.evidence_boundary,/does not prove unstudied/i);
 assert.match(xzForecast.evidence_boundary,/exam\.subject-demand\.v1/);
 
