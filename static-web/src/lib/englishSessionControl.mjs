@@ -625,6 +625,63 @@ function englishResumeEvidence(storage, day) {
   };
 }
 
+function englishForecastProgress(storage, day) {
+  const state = readEnglishSessionInstruction(storage, day);
+  if (state.status !== 'ready' || !state.instruction) {
+    return {
+      schema: 'kianos.english.forecast-progress.v1',
+      forecast_role: 'FACTUAL_SUBJECT_PROGRESS_SIGNAL_ONLY',
+      gate_workload_authority: false,
+      scope: 'CURRENT_EXPLICIT_SESSION_ONLY',
+      status: state.status === 'invalid' ? 'invalid' : 'no_active_session',
+      session_id: null,
+      total_steps: 0,
+      completed_steps: 0,
+      remaining_steps: 0,
+      remaining_by_task: {},
+      remaining: [],
+      evidence_boundary:
+        'No active Chat-owned English session does not mean no English work. Session step completion is workflow progress only, not mastery or Gate workload.'
+    };
+  }
+
+  const instruction = state.instruction;
+  const remainingByTask = {};
+  const remaining = [];
+  let completedSteps = 0;
+  instruction.steps.forEach((step, index) => {
+    if (englishStepIsComplete(storage, step)) {
+      completedSteps += 1;
+      return;
+    }
+    remainingByTask[step.task] = (remainingByTask[step.task] || 0) + 1;
+    remaining.push({
+      step_index: index,
+      step_id: step.step_id,
+      task: step.task,
+      object_id: step.object_id,
+      source_hash: step.source_hash || null
+    });
+  });
+
+  return {
+    schema: 'kianos.english.forecast-progress.v1',
+    forecast_role: 'FACTUAL_SUBJECT_PROGRESS_SIGNAL_ONLY',
+    gate_workload_authority: false,
+    scope: 'CURRENT_EXPLICIT_SESSION_ONLY',
+    status: remaining.length ? 'active' : 'session_complete',
+    session_id: instruction.session_id,
+    session_generated_at: instruction.generated_at,
+    total_steps: instruction.steps.length,
+    completed_steps: completedSteps,
+    remaining_steps: remaining.length,
+    remaining_by_task: remainingByTask,
+    remaining,
+    evidence_boundary:
+      'This describes the explicit current English session only. It must be interpreted with task-local performance_profile and cannot become Gate workload without subject-owned reconciliation into exam.subject-demand.v1.'
+  };
+}
+
 export function buildEnglishEvidencePacket(storage, { day, now = Date.now(), catalog = [] } = {}) {
   if (!storage?.getItem) throw new Error('ENGLISH_EVIDENCE_STORAGE_UNAVAILABLE');
   if (!validDay(day)) throw new Error('ENGLISH_EVIDENCE_DAY_INVALID');
@@ -639,6 +696,7 @@ export function buildEnglishEvidencePacket(storage, { day, now = Date.now(), cat
     inventory: packetInventory.inventory,
     inventory_meta: packetInventory.inventory_meta,
     performance_profile: buildEnglishPerformanceProfile(rawInventory),
+    forecast_progress: englishForecastProgress(storage, day),
     resume: englishResumeEvidence(storage, day),
     tasks: clone({
       reading_a: objectiveEvidence(storage, LAST_LOCATION_KEYS.reading_a, 'kianos-reading-attempt-v1:'),
