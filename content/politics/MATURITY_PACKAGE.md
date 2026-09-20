@@ -19,7 +19,7 @@ CURRENT_YEAR_SOURCE_READY
 
 Current top-level truth:
 
-- SYSTEM_LOGIC_ACCEPTED: **IN PROGRESS** — first-round paths are accepted; whole-cycle adversarial/decision-flip proof is still being closed.
+- SYSTEM_LOGIC_ACCEPTED: **YES** — mother-standard 1–29 system logic, targeted adversarial proof, identity/freshness gates and whole-cycle Forecast envelope are closed.
 - KIAN_SPECIFIC_CALIBRATED: **NO / REAL-U GATED**.
 - current-year handbook/current affairs/Xiao8/Xiao4 authority: **SOURCE GATED**.
 
