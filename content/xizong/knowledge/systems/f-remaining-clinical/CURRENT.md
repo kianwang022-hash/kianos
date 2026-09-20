@@ -17,12 +17,12 @@ This file owns work cursor only. It does not own medical Core, Learning semantic
 **Active gate:** **Content Realization / Optimization — PASS_AFTER_BOUNDED_REPAIR / CLOSED**  
 **Source state:** **S1 PASS after approved Source rebind; bounded unresolved exact fields remain explicit / fail-closed**  
 **Learning state:** **L PASS_AFTER_BOUNDED_REPAIR**  
-**Earliest eligible next action:** **Program handoff: deferred exact official System-question membership backlog; scoped F Projection is also eligible but remains UNTESTED**  
+**Earliest eligible next action:** **Program handoff: F exact official-question membership is closed; scoped F Projection remains eligible / UNTESTED, while this Content/Material chat returns to the next material gap**  
 **Downstream:** P Projection eligible / UNTESTED; R/E remain frozen behind P/R respectively; no learner-use claim
 
 ```text
 S1 medical / first-learning Source boundary = PASS
-S2 exact official-question membership        = UNTESTED / separate later boundary
+S2 exact official-question membership        = PASS_AFTER_EXTERNAL_OWNER_REPAIR / CLOSED / 70 qids
 K Knowledge                                  = PASS_AFTER_BOUNDED_REPAIR
 L Learning Logic                             = PASS_AFTER_BOUNDED_REPAIR
 Content                                      = PASS_AFTER_BOUNDED_REPAIR / CLOSED
@@ -212,7 +212,7 @@ Preserved boundaries:
 - F1/F2/F3/F4/F9 exact Source gaps remain fail-closed;
 - F6/F8 verified Source rebind closures remain closed;
 - external shock/airway/renal/liver/infection/NMJ/tumor truth remains with its real owner;
-- S2 exact official-question membership remains UNTESTED;
+- S2 exact official-question membership is CLOSED at 70 qids; exact Question→KP remains separate;
 - no learner route, hard readiness, LG decomposition or Source-contact choreography was accepted at K.
 
 ---
@@ -263,7 +263,7 @@ Preserved:
 - F9 ownership-first `INTEGRATION_PRIMARY`;
 - two non-gating PSRs;
 - exact F1/F2/F3/F4/F9 Source gaps and external-owner boundaries;
-- S2 official-question membership remains UNTESTED.
+- S2 official-question membership is CLOSED at 70 qids; Question→Block/LG/KP is not implied.
 
 ---
 
@@ -312,7 +312,7 @@ Preserved fail-closed truth:
 - 10 visual-required LGs remain Source-owned;
 - F6 1–4 d vs 2–7 d and F8 P270 verified Source closures remain closed;
 - F9 remains ownership-first and does not re-own transplant/tumor/pharmacology;
-- S2 exact official F System question membership remains UNTESTED.
+- S2 exact official F System question membership is CLOSED at 70 qids after external-owner repair.
 
 F medical Content should not be reopened without a concrete defect in the smallest responsible owner.
 
@@ -325,15 +325,17 @@ E Evidence   = frozen behind R
 U Use        = no repository claim
 ```
 
-Per program sequencing, D → E → F medical-content construction is now closed and the deferred exact official System-question membership backlog may resume.
+Per program sequencing, D → E → F medical-content construction is closed and F exact official System-question membership is now also closed.
 
 ## Next action
 
 ```text
 F medical-content chain CLOSED
+→ F exact official-question membership CLOSED / 70 qids
 → do not reopen K/L/Content without concrete defect
-→ program-level next: resume deferred exact official System-question membership completion
-→ scoped F Projection is eligible but remains UNTESTED
+→ scoped F Projection remains eligible but is outside this Content/Material task
 ```
 
-Do not infer S2 question membership from accepted Content. Do not start Runtime/Evidence before Projection acceptance.
+Canonical S2 owner: `content/xizong/knowledge/learner/f-remaining-clinical-question-scope.json`  
+Receipt: `content/xizong/knowledge/learner/F_QUESTION_SCOPE_CURRENT_RECONSTRUCTION.md`  
+Do not infer finer Question→Block/LG/KP mapping from S2. Do not start Runtime/Evidence before Projection acceptance.
