@@ -56,6 +56,24 @@ Minimum:
 
 All registered paths must stay inside the private source root.
 
+## Source Package → runtime body boundary
+
+The archival extractor may produce a Source Package containing metadata, the article body, and an `extraction_check`.
+
+Do **not** point `source_path` at that whole archival wrapper if it would expose YAML metadata or extraction diagnostics as learner prose.
+
+Admission must split it into:
+
+```
+archival Source Package
+├─ metadata / extraction_check → private provenance / meta.json
+└─ complete cleaned article body → normalized/article.md
+                                      ↑
+                             incremental source_path
+```
+
+`normalized/article.md` preserves the complete source body and meaningful headings/quotes/figures, but excludes intake-control metadata and extraction diagnostics from the learner-facing text.
+
 ## Three valid object modes
 
 ### 1. Questionless source
