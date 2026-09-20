@@ -22,7 +22,7 @@ This file is the execution plan only. It does not create a second learning model
 - S0-T2 Full Material Inventory: **DONE**
 - S0-T3 Forecast factual sensors: **TARGETED PROOF ACTIVE**
 - S0-T4 Day-1 learner simulation: **TARGETED BROWSER PROOF ACTIVE**
-- Current proof blocker: **Politics Ethics audit reads an obsolete root-manifest path; bounded audit-owner repair required before the Forecast step can execute**
+- Current proof blocker: **History evidence audit was stale against the current immutable first-attempt model; bounded audit-owner repair committed, CI re-run pending**
 - Next after Stage 0 proof: **Analysis bank revalidation → Analysis scoring owner → Analysis evidence ladder**
 
 
@@ -263,9 +263,12 @@ Create/validate:
 - second-review rule when strategy would change.
 
 Status:
-- **CANDIDATE CREATED — `content/politics/analysis-output/SCORING_RUBRIC.md`; external/current-year score calibration still pending**
+- **CANDIDATE CREATED — `content/politics/analysis-output/SCORING_RUBRIC.md`; diagnostic rubric ready, precise exam-score conversion remains current-year/external calibration work**
 
 ## S2-T4 — Analysis evidence ladder
+Status:
+- **ACTIVE — reuse existing Politics private evidence/checkpoint; no second learner ledger**
+
 Implement evidence states for:
 - first IDENTIFY;
 - first SKELETON;
