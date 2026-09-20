@@ -142,6 +142,18 @@ assert.equal(profile.tasks.reading_a.role,'EXAM_OBJECTIVE');
 assert.equal(profile.tasks.translation.role,'EXAM_PRODUCTIVE');
 assert.equal(profile.tasks.writing.role,'EXAM_PRODUCTIVE');
 assert.equal(profile.tasks.external_reading.role,'GROWTH_READING');
+assert.equal(profile.tasks.reading_a.evidence_shape,'QUESTION_OUTCOME');
+assert.equal(profile.tasks.cloze.evidence_shape,'QUESTION_OUTCOME');
+assert.equal(profile.tasks.reading_b.evidence_shape,'QUESTION_OUTCOME');
+assert.equal(profile.tasks.external_reading.evidence_shape,'QUESTION_OUTCOME');
+assert.equal(profile.tasks.translation.evidence_shape,'PRODUCTIVE_REPAIR_STATE');
+assert.equal(profile.tasks.writing.evidence_shape,'PRODUCTIVE_REPAIR_STATE');
+assert.equal(Object.prototype.hasOwnProperty.call(profile.tasks.translation.history,'problem_bearing_attempts'),false,
+  'Objective problem semantics leaked into Translation');
+assert.equal(Object.prototype.hasOwnProperty.call(profile.tasks.writing.history,'problem_bearing_attempts'),false,
+  'Objective problem semantics leaked into Writing');
+assert.ok(profile.tasks.translation.history.repair_bearing_attempts>0,'Translation repair states missing');
+assert.ok(profile.tasks.writing.history.repair_bearing_attempts>0,'Writing repair states missing');
 
 for(const [task] of TASKS){
   const row=profile.tasks[task];
