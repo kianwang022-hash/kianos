@@ -14,17 +14,18 @@ This file owns work cursor only. It does not own medical Core, Learning semantic
 **Scope:** F — Remaining Clinical  
 **Lane-A role:** **NEXT MEDICAL CONTENT PRIORITY**  
 **Stable Current identity:** **9 Blocks / 121 canonical KP**  
-**Active gate:** **L — fresh independent Learning acceptance**  
+**Active gate:** **Content Realization / Optimization — next eligible, not started**  
 **Source state:** **S1 PASS after approved Source rebind; bounded unresolved exact fields remain explicit / fail-closed**  
-**Earliest eligible next action:** **fresh independent L audit of the built F Learning candidate**  
-**Downstream:** Content / P / R / E frozen behind accepted Learning
+**Learning state:** **L PASS_AFTER_BOUNDED_REPAIR**  
+**Earliest eligible next action:** **F Content Realization / Optimization from the accepted Learning owner**  
+**Downstream:** P / R / E remain frozen behind Content; no learner-use claim
 
 ```text
 S1 medical / first-learning Source boundary = PASS
 S2 exact official-question membership        = UNTESTED / separate later boundary
 K Knowledge                                  = PASS_AFTER_BOUNDED_REPAIR
-L Learning Logic                             = UNTESTED / CANDIDATE_READY_FOR_INDEPENDENT_AUDIT
-Content                                      = NOT_STARTED / downstream-frozen
+L Learning Logic                             = PASS_AFTER_BOUNDED_REPAIR
+Content                                      = NOT_STARTED / NEXT_ELIGIBLE
 P / R / E                                    = downstream-frozen
 U Learner Use                                = no claim
 ```
@@ -42,6 +43,10 @@ Learning candidate:
 Fresh L audit entry:
 
 `content/xizong/knowledge/learner/F_PHASE4_FRESH_INDEPENDENT_L_AUDIT_BRIEF.md`
+
+Fresh L acceptance:
+
+`content/xizong/knowledge/learner/F_PHASE4_FRESH_INDEPENDENT_L_ACCEPTANCE.md`
 
 ---
 
@@ -190,40 +195,60 @@ Preserved boundaries:
 
 ---
 
-## Learning candidate — BUILT / NOT ACCEPTED
+## Accepted Learning — PASS_AFTER_BOUNDED_REPAIR
 
-Candidate owner:
+Canonical Learning owner:
 
 `content/xizong/knowledge/learner/f-remaining-clinical-learning.json`
 
-Construction receipt:
+Construction evidence:
 
 `content/xizong/knowledge/learner/F_PHASE3_LEARNING_LOGIC_CONSTRUCTION.md`
 
-Fresh audit entry:
+Fresh independent acceptance:
 
-`content/xizong/knowledge/learner/F_PHASE4_FRESH_INDEPENDENT_L_AUDIT_BRIEF.md`
+`content/xizong/knowledge/learner/F_PHASE4_FRESH_INDEPENDENT_L_ACCEPTANCE.md`
 
-Builder-candidate shape:
+Accepted Learning shape:
 
 ```text
 9 Blocks / 121 canonical KP
 40 Logic Groups
-5 WHOLE_BLOCK_SOURCE
-3 NATURAL_SOURCE_UNITS
+3 WHOLE_BLOCK_SOURCE
+5 NATURAL_SOURCE_UNITS
 1 INTEGRATION_PRIMARY (F9)
 0 inside-F hard prerequisite edges
 2 non-gating Partial-System Reconstructions
 ```
 
-The candidate preserves the accepted dual-context K repair and keeps F9 ownership-first/low-connectivity. Zero hard edges and F9 integration-primary are candidate claims, not accepted truth.
+Fresh independent audit verdict:
+
+```text
+FRESH_L_PASS_AFTER_BOUNDED_REPAIR
+```
+
+Bounded L repairs were limited to the Learning owner:
+
+- F4 and F6 Source contact changed from one whole-Block trip to genuine natural Source units;
+- F3-LG02 now fail-closes sterile-field spatial formation on real original-Source visual contact;
+- F7-LG01 now fail-closes airway/procedural-space formation on real original-Source visual contact.
+
+Preserved:
+
+- 121 / 121 KP membership and all 40 LG identities;
+- zero inside-F hard prerequisites;
+- low-switching default route as guidance only;
+- F9 ownership-first `INTEGRATION_PRIMARY`;
+- two non-gating PSRs;
+- exact F1/F2/F3/F4/F9 Source gaps and external-owner boundaries;
+- S2 official-question membership remains UNTESTED.
 
 ## Next action
 
 ```text
-fresh independent L audit
-→ PASS / bounded repair / BLOCKED
-→ only on L PASS: Content Realization / closure
+L accepted after bounded repair
+→ Content Realization / Optimization is now eligible
+→ do not start P / R / E before Content closure
 ```
 
 Do not copy D/E topology for symmetry. Content / Projection / Runtime / Evidence remain frozen until L acceptance.
