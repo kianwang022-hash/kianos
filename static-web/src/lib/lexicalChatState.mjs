@@ -1,4 +1,5 @@
 import {
+  buildLexicalRetentionTransferSummary,
   compileRepairTargets,
   emptyLexicalLedger,
   exportReturnEvents,
@@ -77,6 +78,7 @@ export function buildLexicalChatStatePacket({
   const repairTargets = compileRepairTargets(safeLedger);
   const repairPreview = repairTargets.slice(0, 80).map(compactRepairTarget);
   const todayEvidence = exportReturnEvents(safeLedger, studyDay, eventDay);
+  const retentionTransfer = buildLexicalRetentionTransferSummary(safeLedger);
   const todayNew = introducedCountForDay(safeIntake, studyDay);
   const introduced = introducedTotal(safeIntake);
 
@@ -105,7 +107,8 @@ export function buildLexicalChatStatePacket({
       card_routing: 'latest whole-card routing judgment; not an SRS score',
       same_day_revisit: 'ephemeral today-only Unknown/Fuzzy routing support; not debt',
       repair: 'exact ACTIVE lexical targets derived from meaningful evidence',
-      reconstruction: 'same-session reconstruction does not prove delayed transfer'
+      reconstruction: 'same-session reconstruction does not prove delayed transfer',
+      retention_transfer: 'bounded delayed-retention and real-English-context evidence; not mastery or a review schedule'
     },
     coverage: {
       cursor: cursor && typeof cursor === 'object' ? {
@@ -136,6 +139,7 @@ export function buildLexicalChatStatePacket({
       truncated_target_count: Math.max(0, repairTargets.length - repairPreview.length)
     },
     today_evidence: todayEvidence,
+    retention_transfer: retentionTransfer,
     challenge_session: challengeSession
   };
 }
@@ -150,6 +154,7 @@ export function serializeLexicalChatStateForChat(packet) {
     '',
     'HOW TO READ IT',
     '- Read the embedded chat_instruction and semantics first. Coverage is traversal, not mastery; same-day revisit is not debt; Repair contains exact evidence-backed targets.',
+    '- retention_transfer preserves bounded delayed-retention and real-English-context evidence across days. Use it to avoid re-verifying evidence that already exists; it never creates mastery or calendar debt.',
     '- If GitHub access is available, read kianwang022-hash/kianos@main AGENTS.md, then content/lexical/CURRENT.md, then only the exact Current owner/contract needed for the target.',
     '- Missing evidence quality stays unknown. Do not turn whole-card Unknown/Fuzzy alone into durable Repair.',
     '',
