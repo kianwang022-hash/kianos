@@ -167,8 +167,32 @@ const storage=new MemoryStorage({
     kpIndex:0,
     learned:{[block.kpRecords[0].kpId]:true},
     ratings:{},
-    blockRecallDone:false,
-    completed:false
+    blockRecallDone:true,
+    blockRecallCompletedAt:'2026-09-20T00:15:00+08:00',
+    completed:true,
+    completedAt:'2026-09-20T00:20:00+08:00'
+  }),
+  'kianos:xizong:system-question-sweep:forecast-fixture:v1':JSON.stringify({
+    attemptHistory:[
+      {
+        type:'QUESTION_ATTEMPT',
+        question_id:'xizong-official-2025-n001',
+        question_source:'OFFICIAL_EXAM',
+        study_phase:'FIRST_PASS',
+        attempt_index:1,
+        status:'stable',
+        submitted_at:'2026-09-19T23:50:00+08:00'
+      },
+      {
+        type:'QUESTION_ATTEMPT',
+        question_id:'xizong-official-2025-n002',
+        question_source:'OFFICIAL_EXAM',
+        study_phase:'FIRST_PASS',
+        attempt_index:1,
+        status:'wrong',
+        submitted_at:'2026-09-20T00:05:00+08:00'
+      }
+    ]
   }),
 
   'kianos-english-session-instruction-v1':JSON.stringify(englishSession),
@@ -220,6 +244,11 @@ assert.equal(packet.timezone,'Asia/Shanghai');
 
 assert.equal(packet.subjects.xizong.time.minutes,30,
   'cross-midnight Xizong session must contribute only the 00:00–00:30 slice to 9/20');
+assert.equal(packet.recent_time.window_days,7);
+assert.equal(packet.recent_time.days.length,7);
+assert.equal(packet.recent_time.days.find((row)=>row.day==='2026-09-19')?.subjects?.xizong,30);
+assert.equal(packet.recent_time.days.find((row)=>row.day==='2026-09-20')?.subjects?.xizong,30);
+assert.equal(packet.recent_time.days.find((row)=>row.day==='2026-09-20')?.subjects?.english,40);
 assert.equal(packet.subjects.english.time.minutes,40);
 assert.equal(packet.subjects.politics.time.minutes,0);
 assert.equal(packet.total_minutes,70);
@@ -241,7 +270,19 @@ assert.equal(
   systems.reduce((sum,row)=>sum+row.blocks.reduce((s,b)=>s+Number(b.kpCount||0),0),0)
 );
 assert.equal(xzForecast.canonical_scope.block_weights.length,xzForecast.canonical_scope.blocks);
+assert.ok(xzForecast.canonical_scope.logic_groups>0);
 assert.ok(xzForecast.runtime_evidence.observed_blocks>=1);
+assert.ok(xzForecast.runtime_evidence.completed_blocks>=1);
+assert.equal(
+  xzForecast.runtime_evidence.completed_blocks_detail.find((row)=>row.block_id===block.blockId)?.study_day,
+  '2026-09-20'
+);
+assert.equal(xzForecast.practice_evidence.first_pass.attempted_questions,2);
+assert.equal(xzForecast.practice_evidence.first_pass.stable,1);
+assert.equal(xzForecast.practice_evidence.first_pass.wrong,1);
+assert.equal(xzForecast.practice_evidence.first_pass.wrong_or_uncertain,1);
+assert.equal(xzForecast.practice_evidence.first_pass.wrong_or_uncertain_rate,0.5);
+assert.equal(xzForecast.repair_evidence.schema,'kianos.xizong.repair-forecast-evidence.v1');
 assert.match(xzForecast.evidence_boundary,/does not prove unstudied/i);
 assert.match(xzForecast.evidence_boundary,/exam\.subject-demand\.v1/);
 
