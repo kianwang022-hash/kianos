@@ -108,6 +108,18 @@ const incompleteMeta=JSON.parse(fs.readFileSync(path.join(incompleteOut,'meta.js
 assert.equal(incompleteMeta.intake.status,'PARSED_NOT_ADMITTED');
 assert.equal(incompleteMeta.intake.precheck,'HOLD_INCOMPLETE_OR_UNCERTAIN_SOURCE');
 
+const commentaryPackagePath=path.join(temp,'commentary-source-package.md');
+fs.writeFileSync(commentaryPackagePath,'Here is the archived article:\n'+completePackage,'utf8');
+const commentaryOut=path.join(temp,'parsed-commentary');
+const parseCommentary=spawnSync('python3',[
+  path.join(repoRoot,'tools','english-external','parse_source_package.py'),
+  '--package',commentaryPackagePath,
+  '--source-id','synthetic-source-commentary',
+  '--output-dir',commentaryOut
+],{encoding:'utf8'});
+assert.notEqual(parseCommentary.status,0);
+assert.match(String(parseCommentary.stderr||parseCommentary.stdout||''),/unexpected content before metadata block/);
+
 try{
   const state=ensureExternalReadingPrivateBundle({
     sourceRoot,
@@ -221,6 +233,7 @@ try{
     incremental_manifest_builder:'PASS',
     source_package_parser:'PASS',
     incomplete_source_hold:'PASS',
+    source_package_extra_commentary_rejected:'PASS',
     incremental_object_hash_fail_closed:'PASS',
     public_source_bytes:0,
     answer_gate:'PASS',
