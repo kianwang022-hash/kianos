@@ -41,14 +41,46 @@ export function privateLearnerBridge({ privateDir = resolvePrivateLearnerDir(), 
     configureServer(server) {
       let packetSyncBusy = false;
       let packetSyncQueued = false;
+      let packetSyncState = {
+        state: 'idle',
+        status: null,
+        observed_at: null,
+        error: null
+      };
+      const packetSyncSnapshot = () => ({
+        ...packetSyncState,
+        busy: packetSyncBusy,
+        queued: packetSyncQueued
+      });
       const syncPacket = () => {
         if (packetSyncBusy) {
           packetSyncQueued = true;
           return;
         }
         packetSyncBusy = true;
+        packetSyncState = {
+          ...packetSyncState,
+          state: 'syncing',
+          error: null
+        };
         void packetSync({ privateDir })
-          .catch(() => null)
+          .then((result) => {
+            const status = String(result?.status || result?.state || 'ready').slice(0, 120);
+            packetSyncState = {
+              state: 'ready',
+              status,
+              observed_at: new Date().toISOString(),
+              error: null
+            };
+          })
+          .catch((error) => {
+            packetSyncState = {
+              state: 'error',
+              status: 'error',
+              observed_at: new Date().toISOString(),
+              error: String(error?.message || error || 'packet relay sync failed').slice(0, 2000)
+            };
+          })
           .finally(() => {
             packetSyncBusy = false;
             if (packetSyncQueued) {
@@ -71,9 +103,10 @@ export function privateLearnerBridge({ privateDir = resolvePrivateLearnerDir(), 
         try {
           if (req.method === 'GET') {
             const checkpoint = readPrivateLearnerCheckpoint(privateDir);
+            const packet_sync = packetSyncSnapshot();
             return checkpoint
-              ? json(res, 200, { status: 'ready', checkpoint })
-              : json(res, 404, { status: 'missing', checkpoint: null });
+              ? json(res, 200, { status: 'ready', checkpoint, packet_sync })
+              : json(res, 404, { status: 'missing', checkpoint: null, packet_sync });
           }
 
           if (req.method === 'PUT') {
@@ -85,7 +118,8 @@ export function privateLearnerBridge({ privateDir = resolvePrivateLearnerDir(), 
               schema: PRIVATE_CHECKPOINT_SCHEMA,
               checkpoint_id: checkpoint.checkpoint_id,
               study_day: checkpoint.study_day,
-              generated_at: checkpoint.generated_at
+              generated_at: checkpoint.generated_at,
+              packet_sync: packetSyncSnapshot()
             });
           }
 
