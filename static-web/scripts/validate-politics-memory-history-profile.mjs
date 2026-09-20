@@ -146,17 +146,20 @@ assert.ok(profile.summary.current_compatible_events>9500,'large history unexpect
 assert.equal(profile.summary.stale_or_changed_events,2,'changed/missing evidence must fail Current compatibility');
 assert.equal(profile.stale_or_changed.candidate_changed_count,1);
 assert.equal(profile.stale_or_changed.candidate_missing_count,1);
-assert.equal(profile.latest_unstable.length,10,'unstable profile cap failed');
-assert.ok(profile.latest_unstable_overflow>0,'unstable overflow not surfaced');
+assert.equal(profile.unstable_recent.length,5,'recent unstable sample cap failed');
+assert.equal(profile.unstable_oldest.length,5,'oldest unstable sample cap failed');
+assert.ok(profile.unstable_overflow>0,'unstable overflow not surfaced');
+assert.ok(profile.unstable_total>10,'unstable total missing');
 assert.equal(profile.oldest_stable_sample.length,5,'stable sample cap failed');
 assert.ok(profile.oldest_stable_overflow>0,'stable overflow not surfaced');
 assert.equal(profile.recent_events.length,12,'recent event cap failed');
 
-const zero=profile.latest_unstable.find(row=>row.candidate_id==='polmem-000');
+const zero=profile.unstable_recent.find(row=>row.candidate_id==='polmem-000');
 assert.ok(zero,'yesterday forgotten candidate disappeared across day boundary');
 assert.equal(zero.latest_response,'FORGOT');
 assert.equal(zero.latest_observed_at,'2026-09-19T10:00:00.000Z');
-assert.equal(zero.days_since_latest,0);
+assert.equal(zero.latest_study_day,'2026-09-19');
+assert.equal(zero.study_days_since_latest,1,'cross-day age must follow study-day boundary, not elapsed 24h');
 
 const serialized=JSON.stringify(profile);
 for(const forbidden of ['next_review','due_at','priority_score','mastery_score']){
@@ -173,7 +176,7 @@ assert.equal(daily.study_day,day);
 assert.equal(daily.summary.recall_count,0,'today should have no fabricated recall events');
 assert.equal(daily.history_profile.schema,POLITICS_MEMORY_PROFILE_SCHEMA);
 assert.equal(daily.history_profile.summary.current_candidates_with_evidence,160);
-assert.equal(daily.history_profile.latest_unstable.some(row=>row.candidate_id==='polmem-000'),true,
+assert.equal(daily.history_profile.unstable_recent.some(row=>row.candidate_id==='polmem-000'),true,
   'cross-day forgotten candidate missing from Daily Memory profile');
 
 const politicsCatalog={
@@ -211,8 +214,10 @@ console.log(JSON.stringify({
   current_compatible_events:profile.summary.current_compatible_events,
   stale_or_changed_events:profile.summary.stale_or_changed_events,
   current_candidates_with_evidence:profile.summary.current_candidates_with_evidence,
-  unstable_in_packet:profile.latest_unstable.length,
-  unstable_overflow:profile.latest_unstable_overflow,
+  unstable_recent_in_packet:profile.unstable_recent.length,
+  unstable_oldest_in_packet:profile.unstable_oldest.length,
+  unstable_total:profile.unstable_total,
+  unstable_overflow:profile.unstable_overflow,
   stable_sample_in_packet:profile.oldest_stable_sample.length,
   stable_overflow:profile.oldest_stable_overflow,
   recent_events:profile.recent_events.length,
