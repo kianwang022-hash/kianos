@@ -1,0 +1,49 @@
+name: Xizong Mother Standard Final V2
+
+on:
+  pull_request:
+    paths:
+      - 'content/xizong/CURRENT.md'
+      - 'content/xizong/MATURITY_PACKAGE.md'
+      - 'content/xizong/MOTHER_STANDARD_FINAL_ACCEPTANCE.md'
+      - 'content/xizong/knowledge/learner/xizong-2027-biochemistry-delta-slot.json'
+      - 'content/xizong/knowledge/learner/xizong-26-late-stage-material-baseline.json'
+      - 'content/xizong/humanities/current.json'
+      - 'content/xizong/questions/exam-format.json'
+      - 'static-web/src/lib/xizong*.mjs'
+      - 'static-web/src/lib/examPlanReadModel.mjs'
+      - 'static-web/scripts/audit-xizong-mother-standard-final-v2.mjs'
+      - '.github/workflows/xizong-mother-standard-final-v2.yml'
+
+concurrency:
+  group: xizong-mother-standard-final-v2-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  final-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install runtime
+        working-directory: static-web
+        run: npm install --no-audit --no-fund
+      - name: Run mother-standard targeted proofs
+        working-directory: static-web
+        run: |
+          node scripts/test-xizong-forecast-model.mjs
+          node scripts/test-xizong-forecast-real-u-adapter.mjs
+          node scripts/test-xizong-source-revision-transitive.mjs
+          node scripts/validate-xizong-targeted-practice.mjs
+          node scripts/validate-xizong-paper-practice.mjs
+          node scripts/test-exam-plan-read-model.mjs
+          node scripts/test-xizong-chat-return.mjs
+          node scripts/test-private-learner-checkpoint.mjs
+          node scripts/test-private-daily-learning-packet.mjs
+          node scripts/stress-xizong-architecture-plus.mjs
+          node scripts/audit-xizong-mother-standard-final-v2.mjs
+      - name: Build Current site
+        working-directory: static-web
+        run: npm run build
