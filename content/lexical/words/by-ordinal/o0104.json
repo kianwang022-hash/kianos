@@ -6,17 +6,7 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [
-      {
-        "construction_id": "construction:affluent:handoff-69c4968313497926",
-        "pattern": "affluent",
-        "meaning_cn": "富裕的；繁荣的",
-        "definition_en": "wealthy or prosperous",
-        "level": "L1",
-        "pos": "phrase",
-        "source": "semantic-review-handoff-v1"
-      }
-    ],
+    "constructions": [],
     "content_hash": "32bb7d2ea0408036339f457ec17abd29d26d8bfe2a1d4f35568e2ddfcb555f7a",
     "core_concept": {
       "core_clusters": [],
@@ -67,7 +57,31 @@
       "runtime_model_calls": false
     },
     "word": "affluent",
-    "word_family": [],
+    "word_family": [
+      {
+        "fact_id": "deep:word_family:affluent:final-standard-affluence",
+        "module": "word_family",
+        "target_word": "affluence",
+        "meaning_cn": "富裕；富足",
+        "definition_en": "the state of having a great deal of money or wealth",
+        "boundary": "affluent（形容词）→ affluence（名词）：把富裕状态名词化。",
+        "dimensions": {
+          "morphology": "adjective → noun"
+        },
+        "direction": "R+P",
+        "priority": "A",
+        "publication_status": "publishable",
+        "verification_status": "verified",
+        "writing_safe": true,
+        "source_sense_id": "sense:affluent:2c108df63e585417",
+        "target_sense_id": null,
+        "task_tags": [
+          "reading",
+          "writing"
+        ],
+        "source": "FINAL_SEMANTIC_FREEZE_v1_BF01_2026-09-20"
+      }
+    ],
     "word_id": "word:affluent"
   },
   "relation_refs": [],
