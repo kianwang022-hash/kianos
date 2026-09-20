@@ -12,7 +12,7 @@ This file owns work cursor only. It does not own medical Core, Learning semantic
 ## Current Work Cursor
 
 **Scope:** F — Remaining Clinical  
-**Lane-A role:** **parallel Knowledge candidate while E waits on independent K acceptance**  
+**Lane-A role:** **NEXT MEDICAL CONTENT PRIORITY**  
 **Stable Current identity:** **9 Blocks / 121 canonical KP**  
 **Active gate:** **K — fresh independent Knowledge acceptance**  
 **Source state:** **S1 PASS after approved Source rebind; bounded unresolved exact fields remain explicit / fail-closed**  
@@ -75,7 +75,7 @@ The Guide's old 12-Block operational route is **not Current F Block identity**.
 
 Its old Blocks 1–3 were physiology-foundation items (internal environment / membrane transport / signaling) that are not present among Current canonical F Block owners. Current F1–F9 correspond to the Guide's former remaining-clinical Blocks 4–12 by topic.
 
-Until a real F `system.json` is eligible, the Guide remains transition/reference substrate for Source clues only; its old 12-Block route must not be revived as stable identity or learner order.
+A current F `system.json` Knowledge candidate now exists. The Guide remains transition/reference substrate for Source clues only; its old 12-Block route must not be revived as stable identity or learner order.
 
 ---
 
@@ -147,10 +147,10 @@ Knowledge reconstruction may now proceed, but it must:
 ## Next action
 
 ```text
-fresh F Knowledge reconstruction
-→ independent K acceptance
-→ Learning Logic
-→ Content
+fresh independent K audit of the existing F candidate
+→ on K PASS: Learning Logic construction
+→ independent L acceptance
+→ Content Realization / closure
 ```
 
 Do not copy D/E topology for symmetry.
