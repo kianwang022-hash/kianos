@@ -47,9 +47,9 @@ The public `kianos` repository must not become a redistribution store for copyri
 - legacy TOEFL / TPO 56–65: **10 collections / 30 passages / 395 questions**
 - Cambridge IELTS Academic 17–19: **3 books / 12 tests / 36 passages / 480 questions**
 - stable identities: `tpo56-p1`, `tpo56-p1-q1`, `ielts17-t1-p1`, etc.
-- active private source: **repaired candidate 2026-09-20 pass 15**
+- active private source: **repaired candidate 2026-09-20 pass 15 + TPO62 page-3 presentation closure**
 - current source-quality claim: **REPAIRED_CANDIDATE; not corpus-wide PROVEN_CLEAN**
-- historical known OCR pollution has been repaired under bounded/source-corroborated rules; remaining TPO62 and IELTS18/19 source-bound/visual debt stays explicit.
+- historical known OCR pollution has been repaired under bounded/source-corroborated rules; TPO62's retained page-3 presentation artefact is now resolved. IELTS18/19 remain OCR-source-marked; explicit visual-layout review is narrowed to IELTS18 Test 1 Passage 1 Questions 4–7.
 
 ## Current runtime
 
@@ -112,7 +112,7 @@ The remaining local operational boundary is intentionally machine-specific:
 3. before compilation, all 14 required source files must hash-match the repaired candidate recorded in the public manifest; an old same-filename corpus returns `stale_source`;
 4. the private runtime bundle is compiled under `~/Library/Application Support/KianOS/external-reading/`;
 5. `npm run current:doctor` reports missing or stale External Reading source without turning an absent optional lane into a whole-site failure;
-6. remaining source-quality warnings stay explicit;
+6. remaining source-quality warnings stay explicit and passage-specific: IELTS18/19 keep OCR-source provenance, with visual-layout review only where the active source actually contains a layout-dependent task;
 7. real study `U` remains real-use-only.
 
 Do not reopen English-wide integration merely because the private corpus is absent on one machine; repair the private source path/bundle only.
