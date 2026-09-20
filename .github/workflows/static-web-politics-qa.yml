@@ -58,6 +58,10 @@ jobs:
         run: npm install --no-audit --no-fund
       - name: Prove Politics forecast sensors and stress model
         run: node scripts/test-politics-forecast.mjs
+      - name: Validate Politics Analysis bank maturity coverage
+        run: node scripts/validate-politics-analysis-bank.mjs
+      - name: Run Politics mother-standard adversarial proof
+        run: node scripts/test-politics-maturity-adversarial.mjs
       - name: Prove Politics Analysis evidence lifecycle
         run: node scripts/test-politics-analysis-evidence.mjs
       - name: Prove Politics evidence reaches shared Daily Packet
