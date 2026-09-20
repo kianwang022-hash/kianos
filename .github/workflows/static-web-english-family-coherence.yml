@@ -124,6 +124,9 @@ jobs:
       - name: Validate bounded English performance profile
         working-directory: static-web
         run: node scripts/validate-english-performance-profile.mjs
+      - name: Validate English evidence fidelity E4
+        working-directory: static-web
+        run: node scripts/validate-english-evidence-fidelity-e4.mjs
       - name: Validate Chat-owned English control
         working-directory: static-web
         run: node scripts/validate-english-chat-control.mjs
