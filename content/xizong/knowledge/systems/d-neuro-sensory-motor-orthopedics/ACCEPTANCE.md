@@ -13,7 +13,7 @@ This file owns D-scoped readiness truth only. It does not own medical Core, lear
 | Gate / stage | Status | Evidence / note |
 | --- | --- | --- |
 | S1 — medical / first-learning Source boundary | **PASS** | 27/27 canonical Block Source readback; gaps/conflicts/visual boundaries explicit |
-| S2 — exact official D System question membership | **BLOCKED_SOURCE_POSITION_COVERAGE** | historical exact resolver = 142 but only 3 orthopedic locator rows; current reviewed relation evidence = 52 qids / 2005–2008 only; complete D pool cannot be inferred |
+| S2 — exact official D System question membership | **PASS_AFTER_BOUNDED_REPAIR** | 355 exact qids; historical resolver 142 + 217 reviewed orthopedic Lecture-scope rows, with 1 RA Primary transferred to C |
 | K — Knowledge | **PASS** | `system.json` + 27 canonical Block Core; 27 Blocks / 356 stable KPs |
 | L — Learning Logic | **PASS_AFTER_REPAIR** | Phase 6C fresh defect → Phase 6D bounded repair → Phase 6E fresh independent PASS |
 | Content Realization / Optimization | **PASS** | Phase 7A role model; Phase 7B wrappers; Phase 7C neural; Phase 7D orthopedic; **Phase 7E fresh independent whole-D closure PASS** |
@@ -24,28 +24,37 @@ This file owns D-scoped readiness truth only. It does not own medical Core, lear
 
 ---
 
-## S2 question-scope boundary — BLOCKED_SOURCE_POSITION_COVERAGE
+## S2 question-scope boundary — PASS_AFTER_BOUNDED_REPAIR
 
-Durable blocker receipt:
+Canonical owner:
+
+`content/xizong/knowledge/learner/d-neuro-sensory-motor-orthopedics-question-scope.json`
+
+Reconstruction receipt:
 
 `content/xizong/knowledge/learner/D_QUESTION_SCOPE_CURRENT_RECONSTRUCTION.md`
 
-Fresh evidence:
+Accepted identity:
 
 ```text
-historical executable-resolver D pool = 142 qids
-historical surgery-orthopedics position rows = 3
-lecture-exercise D qids = 79; orthopedic binding = O1 only / 2 qids
-Current REVIEWED Question→D relations = 52
-  neural = 23
-  orthopedic = 29
-  years represented = 2005–2008
-reviewed D relation coverage 2009–2026 = 0
+Current exact D qids = 355
+year range           = 2005–2026
+inventory SHA256     = 129657b6612e2c9b26ea98b44fabd2d864d3c273e8dd91bfa1c9020d1d97b0be
+unresolved ambiguity = 0
 ```
 
-Current D owns 16 orthopedic Blocks, so the historical 142 pool is not a complete Current System scope. Missing reviewed relations cannot be treated as non-membership, and practice taxonomy / Outline / keyword inference is forbidden.
+The previous blocker was revalidated and closed. Fresh raw-locator readback showed **217 reviewed surgery|五、骨科|... qid rows** in the historical 3,750-row question→Lecture locator, not merely the 3 orthopedic questions that survived the old frozen System resolver.
 
-S2 therefore stays blocked without reopening S1/K/L/Content or blocking scoped Projection.
+The old resolver under-resolved D because most orthopedic rows had `source_page = null` or legacy non-Lecture page values. Their reviewed source SHA + exact Lecture-scope key remained intact, and Current O1–O16 explicitly owns those same orthopedic Source scopes as Primary.
+
+Fresh cross-System attack transferred one qid out of D:
+
+`xizong-official-2007-n150`
+
+It tests general RA medical Primary and therefore belongs C/H17. O15 keeps only orthopedic/surgical RA comparison coordinates.
+
+S2 PASS remains System-level membership only. No Question→Block/LG/KP relation is inferred.
+
 
 ## Accepted upstream substrate
 
@@ -318,7 +327,7 @@ All repairs were pre-Reveal title / 主提示 changes whose prior wording essent
 
 Reveal-side Detailed Expansion, 206 orthopedic KP identities, 72 accepted LG memberships, visual gates and Source boundaries were preserved. No new KP, LG split/merge, Source-contact redesign or broad medical-Core expansion was required.
 
-Preserved limits include O12 clubfoot Source Gap; O13/O14/O15/O16 explicit Source conflicts; modern orthopedic, antimicrobial, anti-TB and oncology boundaries; neighboring Primary owners; and untested official-question membership.
+Preserved limits include O12 clubfoot Source Gap; O13/O14/O15/O16 explicit Source conflicts; modern orthopedic, antimicrobial, anti-TB and oncology boundaries; neighboring Primary owners; and accepted exact official-question membership.
 
 ---
 
@@ -345,7 +354,7 @@ Content-owned UI / Runtime / Evidence semantics not introduced
 
 Fresh adversarial readback of the repaired Recall fronts (including N10-KP11, N11-KP12, O3, O12 and the O16 hotspot) found no remaining blocker. The only fresh defect was stale construction text inside the Content owner: `PHASE7D_ACTIVE` remained in one close-requirement string after Phase 7D had already closed. It was repaired without changing medical Core or Learning topology.
 
-Therefore D Content is accepted. P becomes the earliest eligible downstream gate; R/E remain frozen until their dependencies are accepted. S2 exact official-question membership remains separately UNTESTED and is not inferred from Content closure.
+Therefore D Content is accepted. P becomes the earliest eligible downstream gate; R/E remain frozen until their dependencies are accepted. S2 exact official-question membership is now separately accepted at 355 qids; this later closure does not alter the earlier Content acceptance evidence.
 
 ---
 ---
