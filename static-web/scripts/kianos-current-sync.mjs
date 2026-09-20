@@ -10,7 +10,7 @@ const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(scriptDir, '../..');
 const webRoot = path.join(repoRoot, 'static-web');
 const markerPath = path.join(repoRoot, '.git', 'kianos-current-mirror');
-const astroBin = path.join(webRoot, 'node_modules', '.bin', 'astro');
+const staticServerPath = path.join(webRoot, 'scripts', 'kianos-static-server.mjs');
 const statusPath = path.join(webRoot, 'public', '__kianos-current.json');
 const distPath = path.join(webRoot, 'dist');
 const stagePath = path.join(webRoot, '.current-build-next');
@@ -62,7 +62,7 @@ function writeBuiltStatus(root, sha, extra = {}) {
     state: 'synced',
     sha: String(sha || ''),
     updated_at: stamp(),
-    serving_mode: 'static-preview',
+    serving_mode: 'static-node',
     ...extra
   });
 }
@@ -126,14 +126,19 @@ function promoteStaticBuild() {
 
 function startSite() {
   if (skipAstro || stopping || site) return;
-  if (!fs.existsSync(astroBin)) {
-    throw new Error(`Astro binary missing at ${astroBin}; run npm install in static-web.`);
+  if (!fs.existsSync(staticServerPath)) {
+    throw new Error(`KianOS static server missing at ${staticServerPath}`);
   }
   if (!fs.existsSync(path.join(distPath, 'index.html'))) {
     throw new Error('STATIC_CURRENT_BUILD_MISSING');
   }
   log(`starting prebuilt Current site on http://${host}:${port}`);
-  site = spawn(astroBin, ['preview', '--host', host, '--port', port], {
+  site = spawn(process.execPath, [
+    staticServerPath,
+    '--host', host,
+    '--port', port,
+    '--root', distPath
+  ], {
     cwd: webRoot,
     stdio: 'inherit',
     env: process.env
@@ -142,7 +147,7 @@ function startSite() {
     const expected = stopping || restartingSite;
     site = null;
     if (!expected) {
-      warn(`static Current server stopped unexpectedly (${signal || code}); restarting in 1200ms`);
+      warn(`Current static server stopped unexpectedly (${signal || code}); restarting in 1200ms`);
       setTimeout(() => {
         try { startSite(); } catch (error) { warn(error.stack || error.message); }
       }, 1200);
