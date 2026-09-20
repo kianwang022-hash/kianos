@@ -511,7 +511,8 @@ At minimum, the guardrail layer must reject or reopen a decision when it would:
 - use contaminated, exposed, stale or semantically unbound material as fresh formal score / transfer evidence;
 - let superseded Source truth authorize Current Memory, Repair, exact-formulation or score claims;
 - silently ignore a known high-impact UNKNOWN that can plausibly flip the current action or target-path judgment;
-- erase newer learner evidence through an older plan / restore / packet.
+- erase newer learner evidence through an older plan / restore / packet;
+- declare learner minutes that exceed the Current usable-capacity budget after learning, Review, Repair and evidence work are counted together.
 
 A rejected plan returns a bounded contradiction to Chat for re-decision. This is the second line of defense against Chat error while preserving the rule that Website/runtime does not choose strategy.
 
@@ -811,12 +812,13 @@ Each subject must eventually provide a compact acceptance package containing:
 5. Adversarial stress report.
 6. Chat↔Website execution proof.
 7. Real learner U status and known unknowns.
-8. Cross-subject composition proof showing finite-capacity feasibility and joint target-risk handling.
 8. Explicit remaining blockers / future-source dependencies.
 9. Fresh Independent Audit result with anti-anchored verdict and reconciliation.
 10. Adversarial methodology report including parameter interactions / decision flip points where material.
 11. Causal Repair / discrimination policy for observations that admit multiple materially different causes.
 12. Real Learner U state: SYSTEM_LOGIC_ACCEPTED vs KIAN_SPECIFIC_CALIBRATED.
+
+Separately, the **single shared Orchestrator/shared-acceptance owner** must carry the cross-subject composition proof required by §28. Do not duplicate that proof inside all three subject packages.
 
 A subject may not be declared “mature” while one of these is absent and material to the target score.
 
