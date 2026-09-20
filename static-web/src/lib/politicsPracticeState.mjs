@@ -362,10 +362,16 @@ export function politicsDailyEvidencePacket(catalog, snapshot, {
       if (attempt?.study_day !== day || !attempt?.question_id) continue;
       const currentOutcome = snapshot?.meta?.latestOutcome?.[attempt.question_id] || attempt.outcome;
       const question = questionById.get(attempt.question_id);
+      const currentAdmissionStatus = !question
+        ? 'NOT_IN_CURRENT_CATALOG'
+        : (question.unitKey && question.scopeStatus !== 'QUESTION_SCOPE_UNRESOLVED'
+          ? 'ADMITTED'
+          : 'WITHHELD_CURRENT');
       todayAttempts.push({
         question_id: attempt.question_id,
         unit_key: unitKey,
         question_type: ['single', 'multiple'].includes(question?.type) ? question.type : null,
+        current_admission_status: currentAdmissionStatus,
         outcome: currentOutcome,
         first_outcome: attempt.outcome,
         uncertain: attempt.uncertain === true,
