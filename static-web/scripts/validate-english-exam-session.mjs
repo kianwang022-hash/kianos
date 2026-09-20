@@ -21,6 +21,7 @@ import {
   releaseEnglishExamObjective,
   sealEnglishExamSession,
   startEnglishExamSession,
+  summarizeEnglishExamSession,
   validateEnglishExamProductiveScoreReturn
 } from '../src/lib/englishExamSession.mjs';
 import { englishStepIsComplete } from '../src/lib/englishSessionControl.mjs';
@@ -187,6 +188,11 @@ assert.equal(englishStepIsComplete(storageFor(session), fullPaperStep), true, 'f
 const scoredPacket = buildEnglishExamEvidencePacket(session);
 assert.equal(scoredPacket.productive_score_return_contract, null);
 assert.deepEqual(scoredPacket.release.integrated.score_range, { low: 91, high: 95 });
+const scoredSummary = summarizeEnglishExamSession(session);
+assert.deepEqual(scoredSummary.integrated_score_evidence.score_range, { low: 91, high: 95 });
+assert.deepEqual(scoredSummary.productive_score_evidence.channels.translation.score_range, { low: 8, high: 9 });
+assert.deepEqual(scoredSummary.productive_score_evidence.channels.writing_small.score_range, { low: 8, high: 9 });
+assert.deepEqual(scoredSummary.productive_score_evidence.channels.writing_big.score_range, { low: 15, high: 17 });
 
 const evidence = {
   schema: ENGLISH_EXAM_EVIDENCE_SCHEMA,
