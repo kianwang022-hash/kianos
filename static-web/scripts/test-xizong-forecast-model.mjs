@@ -425,6 +425,9 @@ function baseProgress() {
   });
   assert.equal(unknown.status,'UNPRICED',
     'unknown F scope must not become a fake calendar completion claim');
+  assert.equal(unknown.fit,null);
+  assert.ok(unknown.known_lower_bound_fit,
+    'known priced work may still expose a lower-bound capacity check without claiming full completion');
 }
 
 {
