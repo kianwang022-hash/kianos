@@ -571,3 +571,32 @@ Calibration package: repaired for a third clean blind audit
 ```
 
 The next auditor must start from `PRODUCTIVE_SCORING_FRESH_AUDIT_BRIEF.md`, obey the pre-blind read boundary, freeze all blind scores, and only then reveal the sealed key.
+
+
+---
+
+## 13. Fresh protocol self-deadlock correction
+
+A later audit attempt stopped with `INVALID — blind audit contaminated` before grading because its inherited conversation context contained generic historical E3 failure / defect information.
+
+That INVALID exposed an audit-protocol defect rather than a scoring defect.
+
+The previous brief defined contamination too broadly: generic awareness that E3 had failed or that historical calibration defects existed could make a normal fresh Chat self-invalidate even when it had no knowledge of how any **current opaque fixture** should score.
+
+### Corrected anti-anchoring boundary
+
+Fresh independence now protects the information that can actually bias current fixture grading.
+
+Pre-blind INVALID is reserved for leakage of current-fixture-specific expectations, including:
+
+- sealed key content;
+- expected range / band / confidence for a current opaque fixture;
+- current opaque-ID → defect / quality / calibration-axis mapping;
+- pairwise expected ordering tied to current opaque IDs;
+- prior scores / Builder judgments tied to current opaque IDs.
+
+Generic knowledge that E3 had prior FAIL / INVALID results, or that historical defects involved categories such as length, semantic equivalence or blind labeling, is not sufficient to invalidate an audit.
+
+The current opaque fixture identities were rotated after this correction. Stale IDs / mappings from prior chats therefore do not identify the current fixtures.
+
+This correction changes only the proof protocol / blind identity layer. It does not relax the scoring standard or sealed expectations.
