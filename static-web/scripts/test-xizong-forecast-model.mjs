@@ -5,6 +5,7 @@ import {
   assessXizongDeadlineFeasibility,
   auditXizongCompressionProposals,
   buildXizongForecastLoop,
+  buildXizongCheckpointRequirement,
   buildXizongHighScoreRequirement,
   buildXizongScoreEvidence,
   buildXizongWorkloadForecast,
@@ -533,6 +534,64 @@ function baseProgress() {
   assert.ok(unknown.known_lower_bound_fit,
     'known priced work may still expose a lower-bound capacity check without claiming full completion');
 }
+
+
+{
+  const forecast=buildXizongWorkloadForecast(baseProgress());
+  const checkpoint=buildXizongCheckpointRequirement(forecast,{
+    startDay:'2026-09-21',
+    deadlineDay:'2026-10-20',
+    dailyMinutes:300,
+    scope:'first_round'
+  });
+  assert.equal(checkpoint.capacity.days,30);
+  assert.equal(checkpoint.capacity.minutes,9000);
+  assert.deepEqual(
+    checkpoint.work_buckets.map(row=>row.learner_role),
+    ['LEARN','ATTEMPT','RECONSTRUCT','REPAIR']
+  );
+  assert.equal(checkpoint.subject_stage_decision,'OUT_OF_SCOPE');
+  assert.equal(checkpoint.full_scope_priced,true);
+
+  const scoreCheckpoint=buildXizongCheckpointRequirement(forecast,{
+    startDay:'2026-09-21',
+    deadlineDay:'2026-10-20',
+    dailyMinutes:300,
+    scope:'score_formation',
+    materialItems:[
+      {id:'case-cram',gross_minutes:900,replaces_minutes:300,overlap_minutes:150,admitted:true}
+    ]
+  });
+  assert.deepEqual(
+    scoreCheckpoint.work_buckets.map(row=>row.learner_role),
+    ['LEARN','ATTEMPT','RECONSTRUCT','REPAIR','VERIFY','FORMAL_SCORE_CALIBRATE']
+  );
+  assert.equal(scoreCheckpoint.feasibility.scope,'score_formation');
+  assert.equal(scoreCheckpoint.feasibility.band_minutes.p50,
+    forecast.score_formation.full_band_minutes.p50 + 450,
+    'Case/Cram must enter checkpoint capacity as deduplicated net-new work, not gross duration');
+}
+
+{
+  const partial=baseProgress();
+  partial.question_workload={
+    ...partial.question_workload,
+    status:'EXACT_PARTIAL',
+    known_remaining_is_lower_bound:true,
+    unknown_systems:['F']
+  };
+  const forecast=buildXizongWorkloadForecast(partial);
+  const checkpoint=buildXizongCheckpointRequirement(forecast,{
+    startDay:'2026-09-21',
+    deadlineDay:'2026-10-20',
+    dailyMinutes:300,
+    scope:'first_round'
+  });
+  assert.equal(checkpoint.full_scope_priced,false);
+  assert.equal(checkpoint.feasibility.status,'UNPRICED');
+  assert.equal(checkpoint.feasibility.fit,null);
+}
+
 
 {
   const compression=auditXizongCompressionProposals([
