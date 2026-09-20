@@ -242,7 +242,43 @@ Sample count is evidence availability, not forecast validity.
 
 ---
 
-## 9. Score-path confidence
+## 9. Whole-cycle later-stage capacity
+
+The Forecast must be able to price known later work without inventing values before evidence exists.
+
+Optional explicit scenario input:
+
+~~~text
+later_workload_assumptions
+  analysis_build
+  future_source_assimilation
+  mock_final_reserve
+~~~
+
+Each component may be one number or a min/max range.
+
+If any component is missing:
+
+~~~text
+PARTIAL_SCENARIO / UNKNOWN
+→ no whole-cycle total
+~~~
+
+If all three are explicit:
+
+~~~text
+first-round stress range
++ Analysis build range
++ future-source assimilation range
++ Mock/final reserve
+→ whole-cycle scenario envelope
+~~~
+
+This envelope is not a probability and is not personal P20/P50/P80. Real U and real annual Source later replace broad assumptions.
+
+---
+
+## 10. Score-path confidence
 
 Early phase:
 
@@ -264,7 +300,7 @@ No model should output “Politics 73.4” in September merely because workload 
 
 ---
 
-## 10. Forecast decision boundary
+## 11. Forecast decision boundary
 
 Forecast may tell Chat:
 
@@ -285,7 +321,7 @@ Today's task remains an adaptive Chat decision under the Politics Learning Contr
 
 ---
 
-## 11. Recalibration
+## 12. Recalibration
 
 As Real Learner U arrives, replace broad seeds with observed evidence where legitimate:
 
