@@ -11,6 +11,7 @@ const LEARNER_ROOT = 'content/xizong/knowledge/learner';
 const QUESTION_ROOT = 'content/xizong/questions';
 const EXPLANATION_ROOT = 'content/xizong/explanations';
 const EXAM_FORMAT_PATH = 'content/xizong/questions/exam-format.json';
+const HUMANITIES_CURRENT_PATH = 'content/xizong/humanities/current.json';
 let examFormatOwnerCache = null;
 let examFormatSourceHashCache = null;
 const examFormatYearCache = new Map();
@@ -307,6 +308,7 @@ export function loadXizongWholePaper(year) {
 
 export function buildXizongForecastQuestionScope(systems = []) {
   const rows = [];
+  const nonSystemDomains = [];
   const union = new Set();
   const unionYearCounts = {};
   let summedExactQuestions = 0;
@@ -353,22 +355,73 @@ export function buildXizongForecastQuestionScope(systems = []) {
     });
   }
 
+  const humanities = readJson(HUMANITIES_CURRENT_PATH);
+  const humanitiesScope = humanities?.official_question_scope || {};
+  const humanitiesQids = Array.isArray(humanitiesScope?.qids)
+    ? humanitiesScope.qids.map(String).filter(Boolean)
+    : [];
+  const humanitiesExact = humanitiesScope?.status === 'VERIFIED_CURRENT_ERA_EXACT_MEMBERSHIP'
+    && humanitiesQids.length === Number(humanitiesScope?.question_count || 0)
+    && new Set(humanitiesQids).size === humanitiesQids.length;
+  if (!humanitiesExact) {
+    nonSystemDomains.push({
+      domain_id:'clinical-humanities',
+      canonical_id:'HUMANITIES',
+      status:'UNKNOWN',
+      question_count:null,
+      year_counts:{},
+      qids:[],
+      reason:'EXACT_HUMANITIES_QUESTION_SCOPE_UNAVAILABLE'
+    });
+  } else {
+    const yearCounts = {};
+    for (const questionId of humanitiesQids) {
+      const route = routeForQuestionId(questionId);
+      const question = loadQuestionProjection(questionId);
+      if (Number(question?.year) !== Number(route.year)) {
+        throw new Error('CURRENT_XIZONG_HUMANITIES_QID_YEAR_MISMATCH:' + questionId);
+      }
+      const year = Number(question.year);
+      yearCounts[year] = (yearCounts[year] || 0) + 1;
+      summedExactQuestions += 1;
+      if (!union.has(questionId)) {
+        union.add(questionId);
+        unionYearCounts[year] = (unionYearCounts[year] || 0) + 1;
+      }
+    }
+    nonSystemDomains.push({
+      domain_id:'clinical-humanities',
+      canonical_id:'HUMANITIES',
+      status:'EXACT',
+      question_count:humanitiesQids.length,
+      year_counts:yearCounts,
+      qids:humanitiesQids,
+      scope_hash:sha256(JSON.stringify(humanitiesScope)),
+      source_owner:HUMANITIES_CURRENT_PATH
+    });
+  }
+
   const unknownSystems = rows
     .filter((row) => row.status !== 'EXACT')
     .map((row) => row.canonical_id || row.system_id);
+  const unknownDomains = nonSystemDomains
+    .filter((row) => row.status !== 'EXACT')
+    .map((row) => row.canonical_id || row.domain_id);
 
   return {
     schema: 'kianos.xizong.forecast-question-scope.v1',
-    authority: 'DERIVED_FROM_CURRENT_EXACT_SYSTEM_QUESTION_SCOPES',
+    authority: 'DERIVED_FROM_CURRENT_EXACT_SYSTEM_AND_NON_SYSTEM_EXAM_DOMAIN_SCOPES',
     systems: rows,
+    non_system_domains: nonSystemDomains,
     exact_union_questions: union.size,
     summed_exact_system_questions: summedExactQuestions,
     cross_system_duplicate_memberships: Math.max(0, summedExactQuestions - union.size),
     union_year_counts: unionYearCounts,
     unknown_systems: unknownSystems,
-    scope_complete: unknownSystems.length === 0,
+    unknown_domains: unknownDomains,
+    scope_complete: unknownSystems.length === 0 && unknownDomains.length === 0,
     evidence_boundary:
-      'Exact System question scopes are factual workload inventory only. UNKNOWN systems remain unknown rather than zero; Holdout subtraction happens against the union at learner-runtime time.'
+      'Exact A1-F System scopes plus independent clinical-humanities membership are factual workload inventory only. Humanities remains a non-System exam domain. UNKNOWN owners remain unknown rather than zero; Holdout subtraction happens against the union at learner-runtime time.'
   };
 }
 
