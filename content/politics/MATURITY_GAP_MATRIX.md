@@ -1,6 +1,6 @@
 # Politics Maturity Gap Matrix
 
-Status: **ACTIVE GAP MATRIX — derived from current main truth + highest-bar subject standard**
+Status: **PRE-ADAPTATION DRAFT — regenerate task order from Politics MATURITY_REQUIREMENTS before further execution**
 
 Target:
 - **Protect 70**
