@@ -210,11 +210,23 @@ R6 E2 fresh self-attack
 
 ---
 
-## 6. Current E2 verdict
+## 6. Candidate repair status
 
-**NOT CLOSED.**
+Implemented on this ref:
 
-Three concrete executability defects are reproduced.
+- **R1 Writing synthetic exact-count drift** — loader/runtime validation now protects Small+Big capability coverage instead of historical exact count=2.
+- **R2 Objective synthetic adapter** — Reading A / Cloze / Part B synthetic objects are adapted into the existing task geometry, static routes, sealed-answer endpoints and English Session Catalog without entering official Source Truth.
+- **R3 Translation synthetic adapter** — complete synthetic sections use the existing Translation workspace, sealed synthetic reference endpoint and English Session Catalog.
+- **R4 structural validator** — `validate-english-synthetic-baseline.mjs` checks inventory, answer/reference separation, four-form Part B coverage, source hashes, Writing 10-task readiness and typed Session Instruction addressability.
+- Existing English Family Coherence CI now runs the new validator.
+
+Current status:
+
+```text
+R1–R4 IMPLEMENTED_CANDIDATE
+→ targeted CI / build / browser proof pending
+→ E2 NOT CLOSED
+```
 
 No evidence currently supports:
 - broad Guide rewrite;
@@ -223,4 +235,4 @@ No evidence currently supports:
 - broad official source rebuild;
 - immediate large synthetic generation.
 
-The correct next action is **R1 — repair Writing synthetic exact-count drift in the existing Writing owner**.
+The correct next action is **R5 — targeted CI + browser learner journey on representative synthetic Objective / Translation / expanded Writing objects**.
