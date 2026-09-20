@@ -1,0 +1,65 @@
+name: Lexical Assemble Final Mutation Package
+
+on:
+  push:
+    branches:
+      - 'work/lexical-continuous-*'
+    paths:
+      - 'content/lexical/execution/package-chunks/READY'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: lexical-package-assemble-${{ github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  assemble:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Assemble and verify package
+        run: |
+          python - <<'PY'
+          import base64, hashlib, json, subprocess
+          from pathlib import Path
+
+          root = Path('content/lexical/execution/package-chunks')
+          meta = json.loads((root / 'meta.json').read_text(encoding='utf-8'))
+          count = int(meta['chunk_count'])
+          chunks = [root / f'chunk-{i:02d}.b64' for i in range(count)]
+          assert all(p.is_file() for p in chunks), 'MISSING_PACKAGE_CHUNK'
+          b64 = ''.join(p.read_text(encoding='ascii').strip() for p in chunks)
+          raw = base64.b64decode(b64, validate=True)
+          actual = hashlib.sha256(raw).hexdigest()
+          assert actual == meta['template_sha256'], (actual, meta['template_sha256'])
+          pkg = json.loads(raw.decode('utf-8'))
+          assert pkg['schema'] == 'kianos.lexical.final_mutation_package.v1'
+          assert pkg['package_id'] == meta['package_id']
+          pkg['source_head'] = subprocess.check_output(['git','rev-parse','HEAD']).decode().strip()
+          target = Path(meta['target'])
+          target.write_text(json.dumps(pkg, ensure_ascii=False, indent=2, allow_nan=False) + '\n', encoding='utf-8')
+          print({'package_id': pkg['package_id'], 'source_head': pkg['source_head'], 'template_sha256': actual})
+          PY
+
+      - name: Commit one-shot request
+        run: |
+          git config user.name "KianOS Lexical Package Assembler"
+          git config user.email "actions@users.noreply.github.com"
+          TARGET="content/lexical/execution/final-mutation-package.json"
+          git add "$TARGET"
+          CHANGED="$(git diff --cached --name-only)"
+          test "$CHANGED" = "$TARGET"
+          PKG_ID="$(python -c "import json; print(json.load(open('content/lexical/execution/package-chunks/meta.json'))['package_id'])")"
+          git commit -m "content(lexical): request final mutation package $PKG_ID"
+          git push origin HEAD:"${GITHUB_REF_NAME}"
