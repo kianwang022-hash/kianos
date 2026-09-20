@@ -14,7 +14,9 @@ on:
       - 'static-web/src/components/XizongBlockV6.astro'
       - 'static-web/src/lib/xizongSemanticAdapter.mjs'
       - 'static-web/src/lib/xizongProductionProjection.mjs'
+      - 'static-web/src/lib/xizong.mjs'
       - 'static-web/scripts/validate-xizong-bc-production-compatibility.mjs'
+      - 'static-web/scripts/test-xizong-b-runtime-journey.mjs'
       - '.github/workflows/xizong-bc-compatibility.yml'
   workflow_dispatch:
 
@@ -38,9 +40,6 @@ jobs:
       - name: Validate B+C production compatibility
         working-directory: static-web
         run: npm run validate:xizong-bc-compatibility
-      - name: Validate Current Xizong
-        working-directory: static-web
-        run: npm run validate:xizong
       - name: Build Current site
         working-directory: static-web
         run: npm run build
@@ -60,3 +59,6 @@ jobs:
           path: static-web/.qa/xizong-b-runtime-journey.json
           if-no-files-found: warn
           retention-days: 14
+      - name: Validate Current Xizong broad regression
+        working-directory: static-web
+        run: npm run validate:xizong
