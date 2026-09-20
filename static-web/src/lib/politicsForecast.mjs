@@ -50,6 +50,12 @@ function unitRemainderSignals(evidence = {}) {
     units_with_question_contact: observedUnits,
     nav_tail_units: navTail,
     unobserved_unit_count: Math.max(0, catalogUnits - observedUnits),
+    units_with_question_contact_by_subject:
+      progress.units_with_first_attempt_evidence_by_subject || {},
+    units_without_question_contact_by_subject:
+      progress.units_without_first_attempt_evidence_by_subject || {},
+    nav_tail_units_by_subject:
+      progress?.current_navigation?.structural_units_after_current_by_subject || null,
     boundary: 'Navigation/question-contact are progress signals, not proof of source-learning completion.'
   };
 }
@@ -154,25 +160,19 @@ function sensitivity(rows, keys) {
   return out.sort((a,b) => Math.abs(b.mean_minutes_delta) - Math.abs(a.mean_minutes_delta));
 }
 
-function empiricalQuantiles(values = [], { minSamples = 7 } = {}) {
-  const clean = values.map(Number).filter(Number.isFinite).sort((a,b) => a-b);
-  if (clean.length < minSamples) {
-    return {
-      status: 'CALIBRATION_PENDING',
-      sample_count: clean.length,
-      min_samples: minSamples,
-      p20: null,
-      p50: null,
-      p80: null
-    };
-  }
-  const q = (p) => clean[Math.floor((clean.length - 1) * p)];
+function personalCalibration(values = [], { minSamples = 7 } = {}) {
+  const clean = values.map(Number).filter(Number.isFinite);
   return {
-    status: 'OBSERVED_EMPIRICAL_INTERVAL',
+    status: clean.length < minSamples
+      ? 'CALIBRATION_PENDING'
+      : 'SAMPLES_PRESENT_MODEL_NOT_YET_FIT',
     sample_count: clean.length,
-    p20: round(q(0.2)),
-    p50: round(q(0.5)),
-    p80: round(q(0.8))
+    min_samples: minSamples,
+    p20: null,
+    p50: null,
+    p80: null,
+    boundary:
+      'Raw observed minutes do not become remaining-work P20/P50/P80 until they are mapped to typed throughput and remaining structural load.'
   };
 }
 
@@ -251,9 +251,9 @@ export function buildPoliticsForecast({
     first_round_stress: {
       axes: stress_axes,
       unit_cases: cases,
-      note: 'Stress-grid fit fractions are robustness checks, not probabilities and not personal P20/P50/P80.'
+      note: 'Stress-grid fit fractions are robustness checks, not probabilities and not personal P20/P50/P80. Unit composition is exposed separately because equal unit counts can have different subject burden.'
     },
-    personal_interval: empiricalQuantiles(observed_capacity_or_workload_samples),
+    personal_calibration: personalCalibration(observed_capacity_or_workload_samples),
     score_path: {
       objective_confidence: questions.single.attempted + questions.multiple.attempted
         ? 'EVIDENCE_ACCUMULATING'
