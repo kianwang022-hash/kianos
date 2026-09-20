@@ -4,7 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 import {spawn} from 'node:child_process';
 import {chromium} from 'playwright';
-import {ENGLISH_GENERATED_DRILL_SCHEMA,validateEnglishGeneratedDrill,writeEnglishGeneratedDrill} from './privateEnglishGeneratedDrillStore.mjs';
+import {ENGLISH_GENERATED_DRILL_SCHEMA,materializeEnglishGeneratedDrill,validateEnglishGeneratedDrill,writeEnglishGeneratedDrill} from './privateEnglishGeneratedDrillStore.mjs';
 
 const shanghaiDay=()=>{
   const parts=new Intl.DateTimeFormat('en-US',{
@@ -57,6 +57,10 @@ const transferReady=validateEnglishGeneratedDrill({
 });
 assert.equal(transferReady.transfer_independence.status,'PASS');
 assert.equal(transferReady.calibration_status,'NOT_SCORE_EQUIVALENT');
+const teachingView=materializeEnglishGeneratedDrill(normalizedLegacy);
+const transferView=materializeEnglishGeneratedDrill(transferReady);
+assert.notEqual(normalizedLegacy.content_hash,transferReady.content_hash,'evidence-role revision should change exact generated object identity');
+assert.equal(teachingView.semantic_source_hash,transferView.semantic_source_hash,'evidence-role metadata must not launder identical learner-visible generated material into a fresh semantic source');
 
 const written=writeEnglishGeneratedDrill(stale,{privateDir:generatedDir});
 
