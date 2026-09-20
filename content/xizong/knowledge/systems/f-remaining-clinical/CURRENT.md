@@ -12,25 +12,27 @@ This file owns work cursor only. It does not own medical Core, Learning semantic
 ## Current Work Cursor
 
 **Scope:** F — Remaining Clinical  
-**Lane-A role:** **NEXT MEDICAL CONTENT PRIORITY**  
+**Lane-A role:** **MEDICAL CONTENT CLOSED / DOWNSTREAM HANDOFF**  
 **Stable Current identity:** **9 Blocks / 121 canonical KP**  
-**Active gate:** **Content Realization / Optimization — ACTIVE · Phase 5C complete**  
+**Active gate:** **Content Realization / Optimization — PASS_AFTER_BOUNDED_REPAIR / CLOSED**  
 **Source state:** **S1 PASS after approved Source rebind; bounded unresolved exact fields remain explicit / fail-closed**  
 **Learning state:** **L PASS_AFTER_BOUNDED_REPAIR**  
-**Earliest eligible next action:** **Phase 5D — fresh independent whole-F Content closure**  
-**Downstream:** P / R / E remain frozen behind Content; no learner-use claim
+**Earliest eligible next action:** **Program handoff: deferred exact official System-question membership backlog; scoped F Projection is also eligible but remains UNTESTED**  
+**Downstream:** P Projection eligible / UNTESTED; R/E remain frozen behind P/R respectively; no learner-use claim
 
 ```text
 S1 medical / first-learning Source boundary = PASS
 S2 exact official-question membership        = UNTESTED / separate later boundary
 K Knowledge                                  = PASS_AFTER_BOUNDED_REPAIR
 L Learning Logic                             = PASS_AFTER_BOUNDED_REPAIR
-Content                                      = ACTIVE / PHASE5C_SUFFICIENCY_CLOSED
-P / R / E                                    = downstream-frozen
+Content                                      = PASS_AFTER_BOUNDED_REPAIR / CLOSED
+P Projection                                  = UNTESTED / ELIGIBLE
+R Runtime                                     = downstream-frozen behind P
+E Evidence                                    = downstream-frozen behind R
 U Learner Use                                = no claim
 ```
 
-Active builder branch: **work/f-content-phase5c-20260920**
+Active builder branch: **none — Content closure merged/pending merge handoff**
 
 Fresh K acceptance:
 
@@ -63,6 +65,10 @@ Phase 5B wrapper cleanup receipt:
 Phase 5C Content sufficiency receipt:
 
 `content/xizong/knowledge/learner/F_PHASE5C_CONTENT_SUFFICIENCY_AUDIT.md`
+
+Phase 5D fresh Content closure:
+
+`content/xizong/knowledge/learner/F_PHASE5D_FRESH_INDEPENDENT_CONTENT_CLOSURE.md`
 
 ---
 
@@ -261,9 +267,9 @@ Preserved:
 
 ---
 
-## Content Phase 5A–5C — ACTIVE / SUFFICIENCY CLOSED
+## Content Phase 5A–5D — PASS_AFTER_BOUNDED_REPAIR / CLOSED
 
-Canonical Content candidate:
+Canonical accepted Content owner:
 
 `content/xizong/knowledge/learner/f-remaining-clinical-content.json`
 
@@ -272,49 +278,62 @@ Receipts:
 - `content/xizong/knowledge/learner/F_PHASE5A_CONTENT_ROLE_REALIZATION.md`
 - `content/xizong/knowledge/learner/F_PHASE5B_WRAPPER_AUTHORITY_CLEANUP.md`
 - `content/xizong/knowledge/learner/F_PHASE5C_CONTENT_SUFFICIENCY_AUDIT.md`
+- `content/xizong/knowledge/learner/F_PHASE5D_FRESH_INDEPENDENT_CONTENT_CLOSURE.md`
 
-Current Content accounting:
-
-```text
-accepted LG release coverage            = 40 / 40
-WHOLE_BLOCK_SOURCE                      = 3
-NATURAL_SOURCE_UNITS                    = 5
-INTEGRATION_PRIMARY                     = 1
-
-Phase 5B:
-frontmatter prerequisites               = 0 / 9
-frontmatter next_blocks/next_system     = 0 / 9
-natural-unit wrapper alignment          = 5 / 5
-
-Phase 5C:
-accepted LG reviewed                    = 40 / 40
-LG PASS                                 = 40 / 40
-LG with Recall-front repairs            = 31
-Recall-front KP surfaces repaired       = 72 / 121
-Reveal-side medical Core drift          = 0
-medical Core rewrite                    = 0
-Content PASS                            = not yet claimed
-```
-
-Phase 5C found no missing medical Core. The dominant defect was retrieval leakage from old answer-bearing KP titles/prompts. Only those pre-Reveal surfaces were repaired; accepted K/L, Source topology, visual/exact-Source debt and Reveal-side Core were preserved.
-
-Next:
+Fresh final verdict:
 
 ```text
-Phase 5D fresh independent whole-F Content closure
+FRESH_CONTENT_PASS_AFTER_BOUNDED_REPAIR
 ```
 
-Projection / Runtime / Evidence remain frozen.
+Final Content accounting:
+
+```text
+canonical Blocks                         = 9 / 9
+canonical KP                             = 121 / 121
+accepted LG                              = 40 / 40
+Content Source-release                   = 40 / 40
+frontmatter prerequisites                = 0 / 9
+frontmatter next_blocks/next_system      = 0 / 9
+Source modes                             = 3 whole + 5 natural + 1 integration
+Phase 5C Recall-front repairs            = 72 KP surfaces
+Phase 5D fresh residual repairs          = 10 KP surfaces / 8 LG
+Reveal-side medical Core drift           = 0
+medical Core rewrite                     = 0
+Page-disappearance                       = PASS
+duplicate medical truth                  = PASS
+Projection/Runtime/Evidence leakage      = PASS
+```
+
+Preserved fail-closed truth:
+
+- F1/F2/F3/F4/F9 exact Source gaps;
+- F5 Current-Study hypertension conflict;
+- 10 visual-required LGs remain Source-owned;
+- F6 1–4 d vs 2–7 d and F8 P270 verified Source closures remain closed;
+- F9 remains ownership-first and does not re-own transplant/tumor/pharmacology;
+- S2 exact official F System question membership remains UNTESTED.
+
+F medical Content should not be reopened without a concrete defect in the smallest responsible owner.
+
+Downstream:
+
+```text
+P Projection = eligible / UNTESTED
+R Runtime    = frozen behind P
+E Evidence   = frozen behind R
+U Use        = no repository claim
+```
+
+Per program sequencing, D → E → F medical-content construction is now closed and the deferred exact official System-question membership backlog may resume.
 
 ## Next action
 
 ```text
-L accepted after bounded repair
-→ Phase 5A Content role candidate built
-→ Phase 5B wrapper / authority cleanup CLOSED
-→ Phase 5C 40-LG Content sufficiency / Recall-front audit CLOSED
-→ Phase 5D fresh independent whole-F Content closure NEXT
-→ do not start P / R / E before fresh Content closure
+F medical-content chain CLOSED
+→ do not reopen K/L/Content without concrete defect
+→ program-level next: resume deferred exact official System-question membership completion
+→ scoped F Projection is eligible but remains UNTESTED
 ```
 
-Do not copy D/E topology for symmetry. Content / Projection / Runtime / Evidence remain frozen until L acceptance.
+Do not infer S2 question membership from accepted Content. Do not start Runtime/Evidence before Projection acceptance.
