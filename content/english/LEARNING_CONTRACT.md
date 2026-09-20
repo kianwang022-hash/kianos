@@ -145,6 +145,133 @@ This is a later phase, not a second permanent course.
 
 ---
 
+## 4A｜Dynamic practice control: secure floor, maintenance and elastic upside
+
+English is not a finite course. Chat should treat practice as a continuously updated allocation problem over separate task families, while the website/runtime remains an executor of explicit instructions rather than a hidden scheduler.
+
+### Decision modes are Chat interpretations, not persisted learner states
+
+Chat may describe a task family as one of the following decision modes:
+
+```text
+UNCALIBRATED
+→ current ability is unknown; obtain the cheapest valid baseline evidence
+
+BUILD
+→ a meaningful gap is established; train the smallest responsible capability
+
+VERIFY
+→ repair looks successful but independent evidence is still too weak
+
+MAINTAIN
+→ secure evidence exists; keep only the minimum dose needed to detect drift
+
+ELASTIC
+→ secure floor is already protected, but another hour still has attractive marginal return
+```
+
+These labels must not become a second learner ledger, a new Runtime state machine, automatic Review debt, or a cross-task mastery score. Raw attempt history remains learner truth; Chat interprets it task-locally.
+
+### Secure requires a dual gate
+
+A task family is not treated as secure merely because one attempt was good, and it is not treated as secure merely because a quota was completed.
+
+Secure judgment requires both:
+
+1. **minimum evidence dose** — enough independent work to make a small-sample fluke unlikely;
+2. **performance evidence** — unseen/unassisted/timed evidence strong enough for the real task demand.
+
+Provisional planning floors for Chat are:
+
+| Task family | Minimum evidence dose before a secure claim is normally reasonable |
+| --- | --- |
+| Reading A | about 8–12 complete passages across at least 3 sessions, with low-contamination/fresh evidence represented |
+| Cloze | at least 4 complete sets across multiple sessions, including post-repair transfer when repair occurred |
+| Part B | about 6–8 complete sets covering all four forms; common forms should be demonstrated more than once |
+| Translation | about 5 complete sections; repeated independent output after any meaningful repair |
+| Small Writing | about 4 complete first-draft outputs |
+| Big Writing | about 5–6 complete first-draft outputs |
+| Whole paper | about 3 genuine 180-minute executions before treating full-paper delivery as stable |
+| Lexical | no fixed word-count quota; require delayed retention evidence plus reduced lexical failure/latency inside English tasks |
+
+These are **planning priors, not machine gates**. Stronger/weaker real evidence may justify more practice. They never authorize the Runtime to manufacture tasks by itself.
+
+### Adaptive dose: add practice only for a reason
+
+Increase dose when one or more of the following is true:
+
+- the same reusable mechanism failure recurs;
+- fresh/unseen work is materially worse than exposed work;
+- correct answers remain repeatedly uncertain or slow under an agreed task budget;
+- a repaired behavior fails on a different prompt/object;
+- whole-paper execution degrades an otherwise stable single-task capability;
+- lexical study does not reduce lexical failure or access latency in downstream English work.
+
+Decrease dose when:
+
+- the provisional minimum evidence floor has been met;
+- independent timed performance is repeatedly stable;
+- new attempts stop yielding actionable information;
+- whole-paper work naturally rechecks the capability well enough that separate drills add little value.
+
+Maintenance frequency should therefore contract after repeated stability and expand again only when drift or new failure evidence appears.
+
+### Elastic upside is governed by marginal return, not a terminal score line
+
+The secure floor protects the exam target; it does not forbid further English investment.
+
+After secure evidence exists, Chat compares the next hour of English work against other available study actions using the same underlying optimization already defined in this Contract:
+
+```text
+expected points gained/protected
++ variance reduction
++ speed / time released elsewhere in the paper
++ reusable transfer value
+-----------------------------------------------
+learner time
++ fresh-material opportunity cost
++ repetition / diminishing-return cost
++ opportunity cost versus Xizong / Politics
+```
+
+Examples of legitimate elastic work include:
+
+- turning Objective from usually-correct into near-zero predictable error under time pressure;
+- raising Translation fidelity/naturalness after the secure band is already reached;
+- raising Writing development and language control after basic score security exists;
+- reducing whole-paper fatigue and time-allocation variance;
+- using External Reading when ordinary English-I material no longer supplies enough reading-growth stimulus.
+
+There is no permanent English stop point. The operational stop rule is: **do not spend the next hour on English when another available action has clearly higher expected marginal value.**
+
+### Material readiness: baseline first, targeted generation second
+
+Do not wait for a learner failure before preparing every usable task. English should keep a bounded baseline inventory ready for:
+
+- cold-start calibration;
+- one ordinary build/repair loop;
+- at least one independent transfer check after repair.
+
+Baseline synthetic assets are learning capital, not fake exam score evidence. They must be labeled by intended use and kept separate from protected true-exam material.
+
+When real practice exposes a specific failure, generate **targeted** material for that mechanism rather than expanding generic volume. A targeted generated task should identify the demand it attacks and the evidence that would count as transfer.
+
+Generated material must pass, at minimum:
+
+- task-native geometry rather than a generic multiple-choice disguise;
+- one defensible answer / completion target where the task has an objective key;
+- explicit distractor or failure mechanism;
+- natural source language and realistic information structure;
+- bounded, purposeful difficulty rather than arbitrary trickiness;
+- answer/review separation so first attempt is not leaked;
+- adversarial self-check for ambiguity, accidental cues and construct drift.
+
+Fresh synthetic success may support mechanism transfer. It does **not** become score-equivalent English-I calibration until its difficulty/behavior has been calibrated against appropriate real task evidence.
+
+Current baseline practice assets are registered in `content/english/manifest.json`. Additional targeted assets should stay with the exact task owner rather than creating a new global practice system.
+
+---
+
 ## 5｜Default learner loop
 
 ```text
