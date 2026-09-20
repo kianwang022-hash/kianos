@@ -69,13 +69,14 @@ D is no longer the active Lane-A **content** construction task. The next D depen
 
 ## E｜Reproductive / Breast — ACTIVE CONTENT PRIORITY
 
-E Source and Knowledge are now accepted through the K gate.
+E Source, Knowledge and Learning are now accepted through the L gate.
 
 Current exact owners:
 
 - `content/xizong/knowledge/systems/e-reproductive-breast/CURRENT.md`
 - `content/xizong/knowledge/systems/e-reproductive-breast/ACCEPTANCE.md`
 - `content/xizong/knowledge/systems/e-reproductive-breast/system.json`
+- `content/xizong/knowledge/learner/e-reproductive-breast-learning.json`
 
 Current state:
 
@@ -83,8 +84,8 @@ Current state:
 S1 Source boundary                     PASS
 S2 exact official-question membership  UNTESTED / separate later boundary
 K  Knowledge                           PASS_AFTER_BOUNDED_REPAIR
-L  Learning Logic                      CANDIDATE / independent acceptance active
-Content                                downstream-frozen
+L  Learning Logic                      PASS_AFTER_BOUNDED_REPAIR
+Content                                NOT_STARTED / NEXT ELIGIBLE
 ```
 
 Fresh identity remains **20 Blocks / 212 KP**.
@@ -96,17 +97,17 @@ Fresh independent K audit found one bounded System-level defect: local barrier/s
 
 Acceptance evidence:
 
-`content/xizong/knowledge/learner/E_PHASE1_FRESH_INDEPENDENT_K_ACCEPTANCE.md`
+- `content/xizong/knowledge/learner/E_PHASE1_FRESH_INDEPENDENT_K_ACCEPTANCE.md`
+- `content/xizong/knowledge/learner/E_PHASE3_FRESH_INDEPENDENT_L_ACCEPTANCE.md`
 
 The historical E System Guide remains reference-only; its old DAG is not accepted Learning truth.
 
-Learning candidate is now built at **20 Blocks / 212 KP → 67 LG** with 11 whole-Block and 9 natural-Source-unit contacts. It claims zero inside-E hard prerequisite edges; that claim remains intentionally unaccepted until fresh audit.
+Learning is accepted at **20 Blocks / 212 KP → 67 LG** with 11 whole-Block and 9 natural-Source-unit contacts, 0 inside-E hard prerequisite edges and 3 non-gating PSRs. Fresh independent L audit found one bounded defect: E10 had a real visual Source gap but no LG-level visual closure requirement. E10-LG03 now preserves that gap fail-closed; no Block/KP/LG identity or Source-contact count changed.
 
 Required sequence now:
 
 ```text
-fresh independent L acceptance
-→ Content Realization
+Content Realization / Optimization
 → LG-by-LG Content sufficiency / density audit
 → fresh independent Content closure
 ```
@@ -293,8 +294,8 @@ Do not reopen the generation standard unless fresh evidence shows the shared met
 
 ```text
 Medical:
-E fresh independent L acceptance = sole active medical-content priority
-→ on L PASS, finish E Content + fresh Content closure
+E Content Realization / Optimization = sole active medical-content priority
+→ finish E Content + LG sufficiency / density audit + fresh Content closure
 → then resume F at fresh independent K acceptance
 D scoped Projection may proceed independently downstream only when it does not consume E/F semantic attention
 
@@ -354,9 +355,8 @@ D Content PASS / CLOSED
 ACTIVE CONTENT PRIORITY
 E S1 PASS
 → K PASS_AFTER_BOUNDED_REPAIR
-→ Learning candidate built: 67 LG / 11 whole + 9 natural Source contacts
-→ fresh independent L acceptance ACTIVE
-→ Content
+→ L PASS_AFTER_BOUNDED_REPAIR: 67 LG / 11 whole + 9 natural Source contacts / 0 hard edges
+→ Content Realization / Optimization NEXT
 
 NEXT MEDICAL AFTER E CLOSURE
 F 9 Blocks / 121 KP
