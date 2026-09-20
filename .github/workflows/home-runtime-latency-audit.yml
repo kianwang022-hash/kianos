@@ -1,0 +1,41 @@
+name: Home Runtime Latency Audit
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'static-web/scripts/audit-home-runtime-latency.mjs'
+      - '.github/workflows/home-runtime-latency-audit.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install runtime
+        working-directory: static-web
+        run: npm install --no-audit --no-fund
+      - name: Build Current site
+        working-directory: static-web
+        run: npm run build
+      - name: Install isolated browser acceptance tool
+        working-directory: static-web
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Probe Home runtime latency
+        working-directory: static-web
+        run: node scripts/audit-home-runtime-latency.mjs
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: home-runtime-latency-audit
+          path: static-web/.qa/home-runtime-latency/
+          retention-days: 7
