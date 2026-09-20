@@ -127,6 +127,9 @@ jobs:
       - name: Validate Chat-owned English control
         working-directory: static-web
         run: node scripts/validate-english-chat-control.mjs
+      - name: Validate English synthetic baseline readiness
+        working-directory: static-web
+        run: node scripts/validate-english-synthetic-baseline.mjs
       - name: Validate English ↔ Lexical Chat handoff
         working-directory: static-web
         run: node scripts/validate-lexical-english-handoff.mjs
