@@ -1,5 +1,5 @@
 // English-owned evidence semantics over existing private storage; not a persistence service.
-import {assertEnglishExamTaskAccess,readEnglishExamSession} from './englishExamSession.mjs';
+import {assertEnglishExamTaskAccess,inspectEnglishExamSession} from './englishExamSession.mjs';
 export const ENGLISH_MATERIAL_EXPOSURE_KEY='kianos-english-material-exposure-v1';
 export const ENGLISH_EXPOSURE_SCHEMA='kianos.english.material-exposure.v1';
 const clone=value=>value==null?value:JSON.parse(JSON.stringify(value));
@@ -73,7 +73,12 @@ export function preserveEnglishFailure(root,error){
 export function inspectEnglishAttempt(storage,key,meta,{sessionId='',now=Date.now(),root=null}={}){
  try{
   if(sessionId)assertEnglishExamTaskAccess(storage,{sessionId,task:meta.task,objectId:meta.object_id,sourceHash:meta.source_hash,now});
-  else {const exam=readEnglishExamSession(storage);if(exam&&exam.status!=='RELEASED'&&exam.steps.some(s=>s.object_id===meta.object_id))throw new Error('ENGLISH_ACTIVE_EXAM_USE_SESSION_WORKSPACE');}
+  else {
+    const examState=inspectEnglishExamSession(storage);
+    if(examState.status==='invalid')throw new Error('ENGLISH_EXAM_STATE_INVALID_RECOVERY_REQUIRED');
+    const exam=examState.session;
+    if(exam&&!['RELEASED','SCORED'].includes(exam.status)&&exam.steps.some(s=>s.object_id===meta.object_id))throw new Error('ENGLISH_ACTIVE_EXAM_USE_SESSION_WORKSPACE');
+  }
   const old=readEnglishJson(storage,key);
   if(old&&!old.binding)throw new Error('ENGLISH_LEGACY_SOURCE_UNVERIFIED_PRESERVE_RAW');
   if(old?.binding && (old.binding.object_id!==meta.object_id || old.binding.task!==meta.task || old.binding.source_hash!==meta.source_hash))throw new Error('ENGLISH_CURRENT_CHANGED_PRESERVE_PREVIOUS_ATTEMPT');
