@@ -521,10 +521,24 @@ function taskPerformanceProfile(allRows, recentRows, task) {
     }
 
     if (task === 'external_reading') {
+      const generatedRows = rows.filter((row) => row.question_origin === 'CHAT_GENERATED');
+      const targetKinds = [...new Set(generatedRows.map((row) => String(row.training_target_kind || '')).filter(Boolean))].sort();
       summary.generated_drill = {
-        attempts: rows.filter((row) => row.question_origin === 'CHAT_GENERATED').length,
-        synthetic_attempts: rows.filter((row) => row.drill_origin === 'CHAT_GENERATED_SYNTHETIC').length,
-        generated_on_external_source_attempts: rows.filter((row) => row.drill_origin === 'CHAT_GENERATED_ON_EXTERNAL_SOURCE').length
+        attempts: generatedRows.length,
+        synthetic_attempts: generatedRows.filter((row) => row.drill_origin === 'CHAT_GENERATED_SYNTHETIC').length,
+        generated_on_external_source_attempts: generatedRows.filter((row) => row.drill_origin === 'CHAT_GENERATED_ON_EXTERNAL_SOURCE').length,
+        by_training_target: Object.fromEntries(targetKinds.map((kind) => {
+          const targeted = generatedRows.filter((row) => row.training_target_kind === kind);
+          return [kind, {
+            attempts: targeted.length,
+            problem_bearing_attempts: targeted.filter((row) => Number(row.problem_count || 0) > 0).length,
+            independent_transfer_candidates: targeted.filter(safeIndependentTransferCandidate).length,
+            timing: timingProfile(targeted.filter((row) =>
+              row?.prior_exposure === 'unseen'
+              && row?.assistance === 'unassisted'
+            ))
+          }];
+        }))
       };
     }
 
