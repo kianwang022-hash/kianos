@@ -11,6 +11,9 @@ const LEARNER_ROOT = 'content/xizong/knowledge/learner';
 const QUESTION_ROOT = 'content/xizong/questions';
 const EXPLANATION_ROOT = 'content/xizong/explanations';
 const EXAM_FORMAT_PATH = 'content/xizong/questions/exam-format.json';
+let examFormatOwnerCache = null;
+let examFormatSourceHashCache = null;
+const examFormatYearCache = new Map();
 
 function absolute(relativePath) {
   return path.join(repoRoot, relativePath);
