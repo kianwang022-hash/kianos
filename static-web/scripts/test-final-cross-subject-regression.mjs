@@ -509,6 +509,47 @@ try {
   await page.waitForTimeout(50);
   check((await page.locator('[data-review-return-status]').innerText()).includes('CONFLICT_KEEP_FIRST'),
     'Conflicting Politics Return fails closed');
+
+  const analysisBatch = {
+    schema: 'kianos.politics.analysis-evidence-batch.v1',
+    study_day: DAY,
+    generated_at: new Date(FIXTURE_NOW + 2000).toISOString(),
+    events: [{
+      schema: 'kianos.politics.analysis-evidence.v1',
+      event_id: 'final-regression-analysis-1',
+      task_id: 'POL-AO-043',
+      task_revision: 'bank-r3',
+      attempt_id: 'analysis-attempt-1',
+      source_basis: 'MARX-C02-OUT-CONTRADICTION',
+      current_year_status: 'STABLE_STRUCTURE',
+      study_day: DAY,
+      observed_at: new Date(FIXTURE_NOW + 1500).toISOString(),
+      requested_depth: 'MATERIAL_BINDING',
+      exposure_state: 'FRESH',
+      ratings: { D1: 2, D2: 2, D3: 2, D4: 0 },
+      rater: 'CHAT'
+    }]
+  };
+  await page.locator('[data-review-return-text]').fill(JSON.stringify(analysisBatch));
+  await page.locator('[data-review-return-apply]').click();
+  await page.waitForTimeout(60);
+  check((await page.locator('[data-review-return-status]').innerText()).includes('已导入主观题证据 1 条'),
+    'Politics Review imports one Analysis evidence batch through the existing Chat-return surface');
+
+  await page.locator('[data-review-return-apply]').click();
+  await page.waitForTimeout(40);
+  check((await page.locator('[data-review-return-status]').innerText()).includes('已经导入过'),
+    'Identical Analysis evidence batch replay is idempotent');
+
+  const politicsLedgerWithAnalysis = await page.evaluate(
+    (key) => JSON.parse(localStorage.getItem(key) || '[]'),
+    PRACTICE_KEYS.evidence
+  );
+  check(politicsLedgerWithAnalysis.some((row) =>
+      row?.schema === 'kianos.politics.analysis-evidence.v1'
+      && row?.event_id === 'final-regression-analysis-1'
+      && row?.ratings?.D4 === 0),
+    'Analysis evidence shares the existing Politics evidence ledger without overwriting question evidence');
   await page.screenshot({ path: path.join(evidenceDir, 'politics-typed-return.png'), fullPage: false });
   report.screenshots.push('politics-typed-return.png');
 
@@ -564,7 +605,8 @@ try {
     STUDY_TIMER_LEDGER_KEY,
     xizongStateKey,
     englishAttemptKey,
-    PRACTICE_KEYS.attempts
+    PRACTICE_KEYS.attempts,
+    PRACTICE_KEYS.evidence
   ]);
   check(Object.values(restored).every((value) => typeof value === 'string' && value.length > 0),
     'Current sync + Astro restart + fresh browser restore shared + three-subject durable state');
@@ -579,6 +621,13 @@ try {
     && restoredDaily.subjects.english.evidence?.schema === 'kianos.english.evidence.v1'
     && restoredDaily.subjects.politics.evidence?.schema === 'kianos.politics.study_packet.v1',
     'Restored Home reproduces one three-subject Daily Learning Packet');
+  check(restoredDaily.subjects.politics.evidence?.analysis?.schema === 'kianos.politics.analysis-history-profile.v1'
+    && restoredDaily.subjects.politics.evidence?.analysis?.summary?.total_events === 1
+    && restoredDaily.subjects.politics.evidence?.analysis?.summary?.dimensions?.D4?.broken === 1,
+    'Restored Daily Packet preserves bounded Politics Analysis evidence across checkpoint + restart');
+  check(!('score' in restoredDaily.subjects.politics.evidence.analysis)
+    && !('next_action' in restoredDaily.subjects.politics.evidence.analysis),
+    'Politics Analysis evidence remains diagnostic only after restore');
 
   check(pageErrors.length === 0 && restoredErrors.length === 0,
     'Integrated browser journey has no page exceptions',
