@@ -1,19 +1,21 @@
 # Politics Maturity T3 — Analysis Engineering Interface
 
-Status: **TASK/RUBRIC SEMANTICS RESOLVED · DURABLE EVIDENCE IMPLEMENTATION NEXT**  
+Status: **TASK/RUBRIC SEMANTICS CLOSED · DURABLE EVIDENCE LANDED · TARGETED PROOF PASSED**  
 Parent: `MATURITY_STAGE_PLAN.md`
 
 ## Finding
 
-Current Politics private durability is deliberately whitelist-based.
+Current Politics private durability remains deliberately whitelist-based.
 
-The private checkpoint currently captures only validated:
+Analysis now uses the same bounded durability path rather than a second learner-state system:
 
-- Practice state/evidence;
-- typed Politics Review Chat Return;
-- Politics Memory plan/evidence/profile.
+- `politicsAnalysisEvidence.mjs` validates exact task/revision, attempt role, source authority, rubric vector and critical flags;
+- `politicsAnalysisRegistry.mjs` binds accepted legacy drills and future current-year source authority;
+- the Politics private checkpoint whitelist accepts validated Analysis evidence;
+- the existing Politics study packet exposes only a bounded Analysis summary;
+- the existing Daily Learning Packet carries that summary into fresh Chat.
 
-There is no generic “store arbitrary Politics JSON” escape hatch.
+There is still no generic “store arbitrary Politics JSON” escape hatch.
 
 That is correct and should remain true.
 
@@ -55,9 +57,9 @@ It defines:
 
 Historical 2026 materials authorize task geometry and rubric structure only. They do not authorize 2027 exact annual wording.
 
-## Smallest future engineering patch
+## Landed engineering patch
 
-Once the prerequisites exist, the expected implementation is bounded:
+The bounded implementation is now:
 
 ```text
 validated Analysis evidence module
@@ -66,6 +68,8 @@ validated Analysis evidence module
 → existing Daily Learning Packet composition
 → fresh Chat
 ```
+
+Targeted executable proof covers both the legacy drill-bank contract and the durable Analysis evidence path. The proof is intentionally placed before unrelated legacy Politics audits so Analysis can be verified independently of stale branch failures elsewhere.
 
 No new:
 
@@ -85,10 +89,14 @@ A learner-facing surface may be opened only after real friction proves a structu
 ## Current T3 verdict
 
 ```text
-private durability extension path   RESOLVED
+task/rubric semantics               CLOSED
+legacy drill geometry               BOUND · LEGACY-ONLY
+private durability extension path   LANDED
+bounded Daily Packet summary        LANDED
+targeted Analysis proof             PASSED
 new Analysis website                REJECTED BY DEFAULT
-storage schema implementation       READY · NEXT
 current learner blocker             NO
+2027 exact/current-affairs content  SOURCE-GATED
 ```
 
-T3 no longer has a semantic blocker. The next bounded engineering action is to add validated Analysis evidence to the existing Politics private checkpoint and existing Daily Packet without creating a second transport.
+T3 is closed at the correct boundary. No additional Analysis architecture is justified now. The next semantic expansion happens only when accepted 2027 Source or real learner friction creates a concrete need.
