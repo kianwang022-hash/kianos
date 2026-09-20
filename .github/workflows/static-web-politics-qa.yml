@@ -74,6 +74,8 @@ jobs:
         run: node scripts/audit-politics-coverage.mjs
       - name: Audit Xiao1000 semantic chapter routing
         run: node scripts/audit-politics-question-routing.mjs
+      - name: Prove Politics source fidelity fails closed
+        run: node scripts/test-politics-source-fidelity.mjs
       - name: Prove scoped Politics source loading without monoliths
         run: node scripts/audit-politics-scoped-source.mjs
       - name: Audit History batch content closure
