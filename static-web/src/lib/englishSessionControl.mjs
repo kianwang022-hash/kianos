@@ -77,6 +77,19 @@ function normalizeStep(step, index) {
     if(!['unseen','exposed','unknown'].includes(declaration.state)||declaration.basis!=='learner_statement'||!declaration.note||!Number.isFinite(Date.parse(declaration.observed_at)))throw new Error('ENGLISH_MATERIAL_DECLARATION_INVALID');
     params.material_exposure={state:declaration.state,basis:'learner_statement',note:clean(declaration.note,400),observed_at:new Date(declaration.observed_at).toISOString()};
   }
+  if(step.params?.assistance_context != null){
+    const declaration=step.params.assistance_context;
+    if(!['assisted','unknown'].includes(declaration.state)
+      || !['chat_context','learner_statement'].includes(declaration.basis)
+      || !declaration.note
+      || !Number.isFinite(Date.parse(declaration.observed_at)))throw new Error('ENGLISH_ASSISTANCE_DECLARATION_INVALID');
+    params.assistance_context={
+      state:declaration.state,
+      basis:declaration.basis,
+      note:clean(declaration.note,400),
+      observed_at:new Date(declaration.observed_at).toISOString()
+    };
+  }
   return {
     step_id: clean(step.step_id || step.stepId || ('step-' + (index + 1)), 80),
     task,
@@ -690,6 +703,132 @@ function englishForecastProgress(storage, day) {
   };
 }
 
+const ENGLISH_OBJECTIVE_TRANSFER_KEY='kianos-english-objective-transfer-claims-v1';
+const ENGLISH_TRANSLATION_TRANSFER_KEY='kianos-translation-transfer-v1';
+const ENGLISH_WRITING_EVIDENCE_KEY='kianos-writing-evidence-v1';
+
+function readOptionalLedger(storage,key,rowsKey){
+  const raw=storage?.getItem?.(key);
+  if(raw==null)return {status:'missing',rows:[]};
+  try{
+    const value=JSON.parse(raw);
+    if(!value||typeof value!=='object'||Array.isArray(value)||!Array.isArray(value[rowsKey]))return {status:'invalid',rows:[]};
+    return {status:'ready',rows:value[rowsKey]};
+  }catch{
+    return {status:'unreadable',rows:[]};
+  }
+}
+
+function recurrenceTimestamp(row){
+  for(const value of [row?.updatedAt,row?.reopenedAt,row?.closedAt,row?.createdAt,row?.admittedAt]){
+    const ms=Date.parse(String(value||''));
+    if(Number.isFinite(ms))return ms;
+  }
+  return Number.NEGATIVE_INFINITY;
+}
+
+function boundedRecurrenceFamily(rows,{limit=12,mapRow}={}){
+  const normalized=(Array.isArray(rows)?rows:[]).map(mapRow).filter(Boolean);
+  const sorted=normalized.sort((a,b)=>{
+    const ap=a.status==='pending'?1:0, bp=b.status==='pending'?1:0;
+    if(ap!==bp)return bp-ap;
+    return recurrenceTimestamp(b)-recurrenceTimestamp(a);
+  });
+  const take=Math.max(1,Math.min(24,Math.floor(Number(limit)||12)));
+  const selected=sorted.slice(0,take);
+  return {
+    total:sorted.length,
+    pending:sorted.filter(row=>row.status==='pending').length,
+    closed:sorted.filter(row=>row.status==='closed').length,
+    included:selected.length,
+    truncated:selected.length<sorted.length,
+    targets:selected
+  };
+}
+
+export function buildEnglishLongHorizonRecurrenceDigest(storage,{recentExactTruncated=false,limitPerFamily=12}={}){
+  const objective=readOptionalLedger(storage,ENGLISH_OBJECTIVE_TRANSFER_KEY,'claims');
+  const translation=readOptionalLedger(storage,ENGLISH_TRANSLATION_TRANSFER_KEY,'targets');
+  const writing=readOptionalLedger(storage,ENGLISH_WRITING_EVIDENCE_KEY,'targets');
+
+  const digest={
+    schema:'kianos.english.long-horizon-recurrence.v1',
+    semantics:'DURABLE_TASK_LOCAL_REPAIR_TRANSFER_PROJECTION; NOT_MASTERY; NOT_PRIORITY',
+    recent_exact_window_truncated:recentExactTruncated===true,
+    guardrails:[
+      'RECENT_EXACT_ABSENCE_IS_NOT_LONG_HORIZON_ABSENCE',
+      'PENDING_TARGET_IS_NOT_AUTOMATIC_REVIEW_DEBT',
+      'CLOSED_TARGET_CAN_REOPEN_ONLY_WITH_RELEVANT_FRESH_CONTRADICTION',
+      'RAW_PRIVATE_HISTORY_REMAINS_LOCAL'
+    ],
+    objective:{
+      status:objective.status,
+      ...boundedRecurrenceFamily(objective.rows,{
+        limit:limitPerFamily,
+        mapRow:(row)=>{
+          const id=clean(row?.claimId,240); if(!id)return null;
+          const status=String(row?.status||'').toUpperCase()==='CLOSED'?'closed':'pending';
+          return {
+            target_id:id,
+            task:clean(row?.task,40)||null,
+            label:clean(row?.statement,500)||null,
+            status,
+            source_object_id:clean(row?.sourceObjectId,240)||null,
+            history_events:Array.isArray(row?.history)?row.history.length:0,
+            updated_at:clean(row?.updatedAt,80)||clean(row?.createdAt,80)||null
+          };
+        }
+      })
+    },
+    translation:{
+      status:translation.status,
+      ...boundedRecurrenceFamily(translation.rows,{
+        limit:limitPerFamily,
+        mapRow:(row)=>{
+          const id=clean(row?.id,240); if(!id)return null;
+          return {
+            target_id:id,
+            task:'translation',
+            label:clean(row?.label,300)||null,
+            mechanism:[clean(row?.layer,120),clean(row?.skill,180)].filter(Boolean).join(' · ')||null,
+            underlying_demand:clean(row?.underlyingDemand,600)||null,
+            status:String(row?.status||'').toLowerCase()==='closed'?'closed':'pending',
+            source_task:clean(row?.sourceTask,240)||null,
+            last_source_task:clean(row?.lastSourceTask,240)||null,
+            evidence_events:Array.isArray(row?.evidence)?row.evidence.length:0,
+            updated_at:clean(row?.closedAt,80)||clean(row?.createdAt,80)||null
+          };
+        }
+      })
+    },
+    writing:{
+      status:writing.status,
+      ...boundedRecurrenceFamily(writing.rows,{
+        limit:limitPerFamily,
+        mapRow:(row)=>{
+          const id=clean(row?.targetId,240); if(!id)return null;
+          return {
+            target_id:id,
+            task:'writing',
+            label:clean(row?.label,300)||null,
+            underlying_demand:clean(row?.underlyingDemand,600)||null,
+            status:String(row?.status||'').toLowerCase()==='closed'?'closed':'pending',
+            origin_task_id:clean(row?.originTaskId,240)||null,
+            evidence_events:Array.isArray(row?.events)?row.events.length:0,
+            updated_at:clean(row?.updatedAt,80)||clean(row?.reopenedAt,80)||clean(row?.closedAt,80)||clean(row?.admittedAt,80)||null
+          };
+        }
+      })
+    }
+  };
+  digest.requires_deeper_review_if_decision_depends_on_missing_history=
+    digest.recent_exact_window_truncated
+    || digest.objective.truncated
+    || digest.translation.truncated
+    || digest.writing.truncated;
+  return digest;
+}
+
 export function buildEnglishEvidencePacket(storage, { day, now = Date.now(), catalog = [] } = {}) {
   if (!storage?.getItem) throw new Error('ENGLISH_EVIDENCE_STORAGE_UNAVAILABLE');
   if (!validDay(day)) throw new Error('ENGLISH_EVIDENCE_DAY_INVALID');
@@ -704,6 +843,7 @@ export function buildEnglishEvidencePacket(storage, { day, now = Date.now(), cat
     inventory: packetInventory.inventory,
     inventory_meta: packetInventory.inventory_meta,
     performance_profile: buildEnglishPerformanceProfile(rawInventory),
+    long_horizon_recurrence: buildEnglishLongHorizonRecurrenceDigest(storage,{recentExactTruncated:packetInventory.inventory_meta.truncated}),
     forecast_progress: englishForecastProgress(storage, day),
     resume: englishResumeEvidence(storage, day),
     tasks: clone({
@@ -755,6 +895,8 @@ export function buildEnglishChatHandoffText(storage, { day, now = Date.now(), ca
     '- Apply the current English Learning Contract: stable work stays cheap; real problems get the smallest useful repair; Chat owns cross-task next-step selection; the website only executes the selected task.',
     '- Missing evidence means unknown, not failed. Finished work must not be turned back into Resume debt.',
     '- Optional params.material_exposure={state:unseen|exposed|unknown,basis:learner_statement,observed_at:ISO,note:actual learner statement} may be supplied ONLY from real learner testimony before an attempt. Never infer unseen from missing storage or Content defaults.',
+    '- If prior Chat discussion or learner testimony materially cues the assigned task, params.assistance_context={state:assisted|unknown,basis:chat_context|learner_statement,observed_at:ISO,note:brief factual reason} may downgrade the next first-evidence claim. Do not declare unassisted; that remains the default only when no contrary evidence exists.',
+    '- performance_profile is task-level bounded telemetry. long_horizon_recurrence projects durable Objective/Translation/Writing Repair/Transfer targets. If recent exact attempts are truncated, absence from the recent window is not proof that a mechanism never existed.',
     '',
     'WHAT CHAT SHOULD DO',
     '- Explain the current English situation in normal language and choose a next action only when that is useful.',
