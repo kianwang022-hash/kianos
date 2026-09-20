@@ -15,8 +15,8 @@ This file owns F-scoped readiness truth only. It does not own medical Core, lear
 | S1 — medical / first-learning Source boundary | **PASS** | approved original/current Lecture sources were re-bound from File Library by title/page locator; F6/F8 stale reading gaps closed; remaining exact gaps explicit and fail-closed |
 | S2 — exact official F System question membership | **UNTESTED** | separate later boundary; no membership inferred from Outline placement |
 | K — Knowledge | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent K audit; bounded repair split acute disturbance-control from planned/ongoing intervention-safety while preserving identity/source/owner boundaries |
-| L — Learning Logic | **UNTESTED / CANDIDATE READY** | 9 Blocks / 121 KP → 40 LG; 5 whole + 3 natural + 1 integration Source-contact modes; fresh independent L audit required |
-| Content Realization / Optimization | **NOT_STARTED / DOWNSTREAM-FROZEN** | downstream |
+| L — Learning Logic | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent L audit; 9 Blocks / 121 KP → 40 LG; 3 whole + 5 natural + 1 integration; 0 hard edges; 2 non-gating PSRs |
+| Content Realization / Optimization | **NOT_STARTED / NEXT_ELIGIBLE** | accepted Learning now permits Content; not started by this audit |
 | P — Projection | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
 | R — Runtime | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
 | E — Evidence | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
@@ -149,9 +149,9 @@ F6 postoperative timing and F8 P270 matrix remain verified closures.
 
 No model-prior completion or silent modern-guideline substitution was introduced.
 
-## L candidate — BUILT / NOT ACCEPTED
+## L acceptance — PASS_AFTER_BOUNDED_REPAIR
 
-Candidate owner:
+Canonical Learning owner:
 
 `content/xizong/knowledge/learner/f-remaining-clinical-learning.json`
 
@@ -159,38 +159,66 @@ Builder evidence:
 
 `content/xizong/knowledge/learner/F_PHASE3_LEARNING_LOGIC_CONSTRUCTION.md`
 
-Fresh audit entry:
+Fresh independent acceptance evidence:
 
-`content/xizong/knowledge/learner/F_PHASE4_FRESH_INDEPENDENT_L_AUDIT_BRIEF.md`
+`content/xizong/knowledge/learner/F_PHASE4_FRESH_INDEPENDENT_L_ACCEPTANCE.md`
 
-Builder-candidate accounting:
+Verdict:
 
 ```text
-stable Blocks                = 9
-stable KP                    = 121
-Logic Groups                 = 40
-exact KP→LG membership       = 121 / 121
-duplicate / missing KP       = 0 / 0
-WHOLE_BLOCK_SOURCE           = 5
-NATURAL_SOURCE_UNITS         = 3
-INTEGRATION_PRIMARY          = 1 (F9)
-inside-F hard prerequisites  = 0
-non-gating PSR               = 2
+FRESH_L_PASS_AFTER_BOUNDED_REPAIR
 ```
 
-The default route is guidance only. The candidate explicitly treats zero hard edges, F9 integration-primary and the 5/3/1 Source-contact split as fresh-audit targets.
+Accepted Learning accounting:
 
-Source gaps remain live and S2 exact official-question membership remains UNTESTED.
+```text
+9 stable Blocks
+121 stable canonical KP
+40 Logic Groups
+KP assigned exactly once      = 121 / 121
+missing / duplicate KP        = 0 / 0
+WHOLE_BLOCK_SOURCE            = 3
+NATURAL_SOURCE_UNITS          = 5
+INTEGRATION_PRIMARY           = 1 (F9)
+inside-F hard prerequisites   = 0
+non-gating PSR                = 2
+```
+
+Fresh anti-anchored audit found bounded L defects without reopening K:
+
+1. F4 whole-Block Source contact delayed retrieval across distinct extent/depth/severity, resuscitation and wound/airway centers.
+2. F6 whole-Block Source contact delayed retrieval across routine recovery, postoperative deviations and incision/wound complications.
+3. F3-LG02 did not explicitly fail-close sterile-field spatial formation on original visual Source.
+4. F7-LG01 did not explicitly fail-close airway/procedural-space formation on original visual Source.
+
+The smallest responsible owner, `f-remaining-clinical-learning.json`, was repaired:
+
+- F4 → three natural Source units;
+- F6 → three natural Source units;
+- F3-LG02 → `visual_required` with the Current visual Source-gap state;
+- F7-LG01 → `visual_required` with the Current visual Source-gap state.
+
+Fresh re-audit accepted:
+
+- the low-switching F1→F9 route as guidance only;
+- zero inside-F hard readiness edges after explicit F1→F2 / F3→F4 / F5→F6 / F7→F8 attacks;
+- all 40 LG semantic jobs, including F2-LG03 and F9-LG02 singletons;
+- F9 ownership-first `INTEGRATION_PRIMARY`;
+- exact Source-gap fail-closed behavior;
+- external-owner negative space;
+- `121 KP → 40 LG → 9 Block Recall → 2 non-gating PSR → final F reconstruction`.
+
+S2 exact official-question membership remains UNTESTED. No question membership was inferred.
 
 ## Downstream state
 
-K is accepted; L is **not** yet accepted.
+K and L are accepted.
 
-Next required gate: **fresh independent L acceptance**.
+Next eligible stage: **F Content Realization / Optimization**.
 
-Until L passes:
+Current downstream rule:
 
-- do not treat candidate route/LG/Source-contact semantics as accepted;
-- do not start F Content / Projection / Runtime / Evidence;
-- do not infer official question membership;
-- do not manufacture learner progress.
+- Content is eligible but has not been started by this audit;
+- Projection / Runtime / Evidence remain downstream-frozen behind Content;
+- S2 exact official-question membership remains separately UNTESTED;
+- do not infer question membership or manufacture learner progress.
