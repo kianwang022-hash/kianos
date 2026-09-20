@@ -8,6 +8,8 @@ on:
       - 'static-web/package.json'
       - 'static-web/src/components/Politics*.astro'
       - 'static-web/src/lib/politics*.mjs'
+      - 'static-web/src/lib/dailyLearningPacketRuntime.mjs'
+      - 'static-web/src/lib/examOrchestratorClient.mjs'
       - 'static-web/src/pages/politics/**'
       - 'static-web/scripts/*politics*.mjs'
       - '.github/workflows/static-web-politics-functional-journey.yml'
@@ -17,6 +19,8 @@ on:
       - 'static-web/package.json'
       - 'static-web/src/components/Politics*.astro'
       - 'static-web/src/lib/politics*.mjs'
+      - 'static-web/src/lib/dailyLearningPacketRuntime.mjs'
+      - 'static-web/src/lib/examOrchestratorClient.mjs'
       - 'static-web/src/pages/politics/**'
       - 'static-web/scripts/*politics*.mjs'
       - '.github/workflows/static-web-politics-functional-journey.yml'
@@ -46,6 +50,9 @@ jobs:
       - name: Validate Politics runtime
         working-directory: static-web
         run: npm run validate:politics
+      - name: Stress cross-day Current-bound Politics Memory profile
+        working-directory: static-web
+        run: node scripts/validate-politics-memory-history-profile.mjs
       - name: Audit content hierarchy rollout across all PASS units
         working-directory: static-web
         run: node scripts/audit-politics-purpose-first-rollout.mjs

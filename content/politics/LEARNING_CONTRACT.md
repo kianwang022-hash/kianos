@@ -295,6 +295,39 @@ Precision is narrower still. A question may produce conceptual repair without pr
 
 Optional chapter-level `*.memory.json` sidecars may hold sparse, source-grounded candidates without making them first-round learner-facing content. Sidecars exist only where validation demonstrates a real need; do not materialize them across every chapter for schema completeness.
 
+### 6.1.1 Cross-day Memory evidence profile
+
+Politics Memory scheduling remains **Chat-owned**. The Website records exact Recall evidence and may export a bounded cross-day profile so a fresh Chat does not forget yesterday's `FORGOT / FUZZY / STABLE` history.
+
+This profile is evidence compression, not a scheduler and not a second learner ledger.
+
+Hard rules:
+
+- raw Recall events remain private learner truth;
+- Current Memory candidate catalog remains the semantic owner of what can be selected today;
+- an old event may inform Current planning only when its candidate still exists **and** its saved candidate snapshot still matches the Current candidate;
+- a global catalog revision change alone does not erase unchanged candidate evidence;
+- deleted or semantically changed candidates become stale/history-only and must not silently select a Current task;
+- the Daily Packet carries only bounded unstable/current-state summaries, a bounded stable sample and bounded recent events; overflow counts remain explicit;
+- `FORGOT / FUZZY / STABLE` are Recall evidence, not mastery labels;
+- elapsed time may be exposed as a fact, but Politics does not freeze a D1/D3/D7 learner-facing cadence;
+- the profile may not create `due`, `next_review`, mastery scores or priority scores;
+- Chat chooses today's Memory items from Current candidates using phase, real learner evidence and current study needs;
+- no historical Memory evidence can authorize unsupported analysis-output/current-affairs recitation before the required later Source is actually available.
+
+The intended loop is:
+
+```text
+private full Recall history
+→ Current-bound bounded Memory profile
+→ Daily Learning Packet
+→ Chat chooses today's small Memory plan
+→ Website executes
+→ new Recall evidence returns
+```
+
+This closes cross-day continuity without turning the Website into an autonomous spaced-repetition scheduler.
+
 ### 6.2 Analysis-output is a separate score channel
 
 First-round understanding and Xiao1000 performance do not by themselves prove that the learner can produce high-scoring analysis answers.

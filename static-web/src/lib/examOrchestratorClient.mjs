@@ -441,6 +441,7 @@ export function initExamHome(root) {
         plan: readModel,
         xizongPacketIndex,
         politicsCatalog,
+        politicsMemoryCatalog,
         base: catalog.base || '/'
       });
       const text = serializeDailyLearningPacketForChat(result.packet);
