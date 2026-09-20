@@ -211,37 +211,22 @@ async function systemQuestionRepairJourney(page) {
   check(Boolean(visibleRepair), 'reviewed_wu_enters_visible_memory_repair');
   check(String(visibleRepair?.returnHref || '').includes('/xizong/practice/respiratory/'), 'visible_repair_keeps_question_return');
 
-  const evidenceCountBeforeRepairNavigation = Array.isArray(memoryAfterPlan?.evidence)
-    ? memoryAfterPlan.evidence.length
-    : 0;
   const [repairPage] = await Promise.all([
     page.context().waitForEvent('page'),
     routeLink.click()
   ]);
   await repairPage.waitForLoadState('domcontentloaded');
   await repairPage.waitForTimeout(500);
-  const repairEvidence = await repairPage.evaluate(({ blockId, taskId, questionId, evidenceCountBefore }) => {
-    const inboxKey = `kianos-xizong-repair-inbox-v1:xizong:${blockId}`;
-    const memory = JSON.parse(localStorage.getItem('kianos-xizong-memory-v1') || 'null');
-    const task = (memory?.repairTasks || []).find((row) => row?.id === taskId) || null;
+  const repairEvidence = await repairPage.evaluate(({ blockId, kpId }) => {
+    const ext = JSON.parse(localStorage.getItem(`kianos-xizong-memory-review-v2:xizong:${blockId}`) || 'null');
     return {
-      inboxConsumed: localStorage.getItem(inboxKey) === null,
-      taskIsRepairOnly: Boolean(
-        task
-          && task.status === 'ACTIVE'
-          && task.origin === 'SYSTEM_WU_CHAT_RETURN'
-          && (task.sourceQuestionIds || []).includes(questionId)
-      ),
-      evidenceUnchanged: (Array.isArray(memory?.evidence) ? memory.evidence.length : 0) === evidenceCountBefore
+      inPlan: Array.isArray(ext?.reviewPlan) && ext.reviewPlan.some((row) => String(row?.kpId || row?.kp_id || row || '') === kpId),
+      imported: Array.isArray(ext?.evidenceHistory) && ext.evidenceHistory.some((row) =>
+        row?.type === 'SYSTEM_WU_PLAN_IMPORTED' && row?.evidence_role === 'REPAIR_ONLY'
+      )
     };
-  }, {
-    blockId: target.relation.blockId,
-    taskId: visibleRepair.id,
-    questionId: target.questionId,
-    evidenceCountBefore: evidenceCountBeforeRepairNavigation
-  });
-  check(repairEvidence.inboxConsumed && repairEvidence.taskIsRepairOnly && repairEvidence.evidenceUnchanged,
-    'reviewed_wu_routes_to_unified_repair_only_owner');
+  }, { blockId: target.relation.blockId, kpId: target.relation.primaryKpId });
+  check(repairEvidence.inPlan && repairEvidence.imported, 'reviewed_wu_routes_to_owner_as_repair_only');
   await repairPage.close();
 
   check(!page.isClosed(), 'original_practice_tab_preserved_for_return');

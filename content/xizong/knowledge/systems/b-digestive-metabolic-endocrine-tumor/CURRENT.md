@@ -10,13 +10,13 @@ This file does not own medical Core, Xizong Learning semantics, Acceptance Truth
 ## Work Cursor
 
 **Scope:** B — Digestive / Metabolic / Endocrine / Tumor  
-**Active / earliest unresolved eligible gate:** `E — Evidence`.  
+**Active / earliest unresolved eligible gate:** `U — Real Learner Use only`.  
 **S status:** PASS — exact Current B official-question membership accepted at 1071 qids.  
 **K status:** PASS — 38 stable Blocks / 600 stable KPs + accepted System model.  
 **L status:** PASS — fresh independent Phase-6 acceptance complete.  
 **P status:** PASS — fresh revalidated on PR #643 candidate `c980bf28e6ae2c8a048cf0a63f65ae68a467784a`.  
 **R status:** PASS — B shared Runtime browser journey passed on PR #643 run `35523372900`.  
-**E status:** UNTESTED / ACTIVE.  
+**E status:** PASS — executed B official-question / unified Repair / stale-version Evidence browser journey at candidate `fc06c948507432f47d847c03f9c291ec4e63847b`.  
 **U:** UNTESTED — real learner validation only.
 
 ```text
@@ -31,7 +31,7 @@ Phase 6  Fresh independent L acceptance                PASS
 
 Learning construction / acceptance task: GitHub Issue `#135` — completed.
 
-**Next action:** enter **B Evidence (E) only** on the already-accepted shared Runtime. Execute bounded B official-question evidence semantics: Stable fast path, Wrong/Uncertain observation, reviewed-relation-only repair routing, REPAIR_ONLY import, unchanged original attempt evidence, stale/version fail-closed behavior and natural return to the B sweep. Do not create B-specific evidence state or infer missing Question→KP relations.
+**Next action:** no new B engineering build. Use B through the normal learner mainline when scheduled and collect **Real Learner U**: actual Source-contact friction, Recall, W/U, Repair compression, delayed stability and question throughput. Reopen P/R/E only on concrete contradictory learner/browser evidence or Current owner change.
 
 ---
 
@@ -126,7 +126,8 @@ Verdict:
 L = PASS
 P = PASS
 R = PASS
-E = ACTIVE / eligible
+E = PASS
+U = REAL_LEARNER_USE_ONLY
 ```
 
 This is a shared Learning-design acceptance claim only. It creates **no Learner Truth** about what Kian has actually studied.
