@@ -15,8 +15,8 @@ This file owns E-scoped readiness truth only. It does not own medical Core, lear
 | S1 — medical / first-learning Source boundary | **PASS** | 20/20 canonical Block Source readback; locator policy, visual gaps, Source gaps and clinical/version boundaries explicit |
 | S2 — exact official E System question membership | **UNTESTED** | separate later Source sub-boundary; no membership inferred from Block/Outline placement |
 | K — Knowledge | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent K audit; one bounded System repair separated local invasion from metastatic competence / spread |
-| L — Learning Logic | **UNTESTED / CANDIDATE READY** | 20 Blocks / 212 KP → 67 LG; 11 whole-Block + 9 natural Source-unit contacts; fresh independent L audit required |
-| Content Realization / Optimization | **NOT_STARTED / DOWNSTREAM-FROZEN** | not eligible before accepted Learning |
+| L — Learning Logic | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent anti-anchored audit; E10 visual closure repaired at the smallest L owner, then re-audited |
+| Content Realization / Optimization | **NOT_STARTED / NEXT ELIGIBLE** | accepted K + L now permit Content work; no Content work was started by the L audit |
 | P — Projection | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
 | R — Runtime | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
 | E — Evidence | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
@@ -107,9 +107,9 @@ No Source, Block or KP identity changed.
 
 ---
 
-## L candidate — BUILT / NOT ACCEPTED
+## L acceptance — PASS_AFTER_BOUNDED_REPAIR
 
-Candidate owner:
+Accepted Learning owner:
 
 `content/xizong/knowledge/learner/e-reproductive-breast-learning.json`
 
@@ -117,11 +117,11 @@ Builder evidence:
 
 `content/xizong/knowledge/learner/E_PHASE2_LEARNING_LOGIC_CONSTRUCTION.md`
 
-Fresh audit entry:
+Fresh independent acceptance evidence:
 
-`content/xizong/knowledge/learner/E_PHASE3_FRESH_INDEPENDENT_L_AUDIT_BRIEF.md`
+`content/xizong/knowledge/learner/E_PHASE3_FRESH_INDEPENDENT_L_ACCEPTANCE.md`
 
-Builder-candidate accounting:
+Accepted accounting after bounded repair:
 
 ```text
 stable Blocks                = 20
@@ -135,27 +135,26 @@ inside-E hard prerequisites  = 0
 non-gating PSR               = 3
 ```
 
-The default route is low-switching guidance only. The candidate explicitly treats zero inside-E hard prerequisites as an **audit target**, not as accepted truth.
+Fresh independent route and readiness attack accepted **0 inside-E hard prerequisites**: useful order remains low-switching guidance rather than learner legality. The strongest attempted add edge, E13→E14, did not survive the hard-edge test because bounded reactivation is sufficient and E14 owns its treatment Source.
 
-Visual-dependent LGs preserve Current Source state rather than manufacturing closure:
+One real bounded Learning defect was found. E10's canonical Block declares `VISUAL_SOURCE_GAP`, including plasma-cell-mastitis adhesion / nipple-inversion relations, but the original Learning candidate had no E10 `visual_required` LG. The smallest repair added visual closure only to E10-LG03 and preserved `VISUAL_SOURCE_GAP`.
 
-- E9/E10/E11 visual Source gaps remain live;
-- E13/E14 partial visual support remains live;
-- prose cannot certify never-seen visual relations.
+After re-audit:
 
-S2 exact official-question membership remains UNTESTED, so Learning does not authorize a trusted E official-question sweep.
+- E9-LG02 / E10-LG03 / E11-LG03 keep visual gaps fail-closed;
+- E13-LG01/LG02 and E14-LG01/LG03 retain partial visual debt;
+- prose cannot certify never-seen visual relations;
+- E6 still separates local invasion from metastatic competence / spread;
+- S2 exact official-question membership remains UNTESTED, so Learning does not authorize a trusted E official-question sweep.
 
-## Downstream freeze
+## Downstream state
 
-K is accepted; L is **not** yet accepted.
+K and L are accepted for E.
 
-Next required gate: **fresh independent L acceptance**.
+Next eligible stage: **Content Realization / Optimization**.
 
-Until L passes:
-
-- do not treat the candidate route / LG / Source-contact semantics as accepted;
-- do not clean/optimize E Content wrappers;
-- do not start E Projection/Runtime/Evidence;
-- do not infer official question membership.
-
-The existing 20 Block Markdown files remain canonical medical Core substrate. Candidate Learning does not prove E Content closure or Kian learner progress.
+- Content remains **NOT_STARTED** at this acceptance point;
+- Projection / Runtime / Evidence remain downstream-frozen behind Content acceptance;
+- S2 official-question membership remains UNTESTED and must not be inferred;
+- the existing 20 Block Markdown files remain canonical medical Core substrate;
+- accepted Learning does not prove E Content closure or Kian learner progress.
