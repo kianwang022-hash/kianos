@@ -16,15 +16,16 @@ This file owns work cursor only. It does not own medical Core, accepted Learning
 **Source boundary:** **S1 PASS**  
 **Knowledge state:** **K PASS_AFTER_BOUNDED_REPAIR · accepted Knowledge frozen**  
 **Learning state:** **PASS_AFTER_BOUNDED_REPAIR · accepted Learning current**  
-**Earliest eligible next action:** **E Content Realization / Optimization**  
-**Downstream:** Content is now eligible; Projection / Runtime / Evidence remain frozen behind Content acceptance
+**Content state:** **role realization + wrapper alignment + 67-LG sufficiency audit complete · Content NOT YET independently accepted**  
+**Earliest eligible next action:** **fresh independent whole-E Content closure**  
+**Downstream:** Projection / Runtime / Evidence remain frozen behind accepted Content
 
 ```text
 S1 Source boundary                     = PASS
 S2 exact official-question membership  = UNTESTED / separate later boundary
 K  Knowledge                           = PASS_AFTER_BOUNDED_REPAIR
 L  Learning Logic                      = PASS_AFTER_BOUNDED_REPAIR
-Content                                = NOT_STARTED / NEXT ELIGIBLE
+Content                                = CANDIDATE_READY_FOR_FRESH_INDEPENDENT_CLOSURE
 P / R / E                              = downstream-frozen
 U                                      = no claim
 ```
@@ -167,14 +168,42 @@ Fresh independent L audit accepted the zero-hard-edge result after add/delete at
 
 The accepted Learning owner preserves the K repair separating **local invasion** from **metastatic competence / spread extent**, keeps E9/E10/E11 visual gaps and E13/E14 partial visual support fail-closed, and preserves Current-Study staging/treatment version boundaries.
 
-## Next gate — E Content Realization / Optimization
+## Content candidate — BUILT / AUDITED / NOT YET ACCEPTED
+
+Content owner:
+
+`content/xizong/knowledge/learner/e-reproductive-breast-content.json`
+
+Builder receipts:
+
+- `content/xizong/knowledge/learner/E_PHASE4A_CONTENT_ROLE_REALIZATION.md`
+- `content/xizong/knowledge/learner/E_PHASE4B_NATURAL_SOURCE_WRAPPER_ALIGNMENT.md`
+- `content/xizong/knowledge/learner/E_PHASE4C_CONTENT_SUFFICIENCY_AUDIT.md`
+
+Current candidate result:
 
 ```text
-accepted K
-→ accepted L
-→ E Content Realization / Optimization
-→ LG-by-LG Content sufficiency / density audit
-→ fresh independent Content closure
+20 Blocks / 212 KP / 67 LG
+Content Source-release coverage = 67 / 67
+natural-unit wrapper repairs     = 7 / 7 closed
+LG sufficiency audit             = 67 / 67 PASS
+targeted Recall-front repair     = 18 LG / 37 KP surfaces
+medical Core rewrite             = 0
+KP/LG identity change            = 0
 ```
 
-L acceptance does not itself start or complete Content. Projection / Runtime / Evidence remain downstream-frozen. S2 exact official-question membership remains separately UNTESTED.
+Visual gaps, E7 Source Gap, Current-Study version boundaries, external-owner boundaries and S2 UNTESTED remain explicit.
+
+Fresh audit entry:
+
+`content/xizong/knowledge/learner/E_PHASE4D_FRESH_INDEPENDENT_CONTENT_CLOSURE_BRIEF.md`
+
+## Next gate — fresh independent Content closure
+
+```text
+fresh whole-E Content closure
+→ PASS / bounded repair / BLOCKED
+→ only on Content PASS: E medical-content chain closes
+```
+
+Do not start Projection / Runtime / Evidence or F before E Content closes.
