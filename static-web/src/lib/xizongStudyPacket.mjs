@@ -401,11 +401,17 @@ function summarizeXizongForecastPractice(storage, {
 
   const transferCounts = { stable: 0, uncertain: 0, wrong: 0 };
   const transferKinds = {};
+  const transferKindStatus = {};
   for (const event of transferLatest.values()) {
     const status = String(event?.status || '');
     if (Object.hasOwn(transferCounts, status)) transferCounts[status] += 1;
     const kind = String(event?.probe_kind || 'UNSPECIFIED');
     transferKinds[kind] = (transferKinds[kind] || 0) + 1;
+    if (!transferKindStatus[kind]) {
+      transferKindStatus[kind] = { observed: 0, stable: 0, uncertain: 0, wrong: 0 };
+    }
+    transferKindStatus[kind].observed += 1;
+    if (Object.hasOwn(transferKindStatus[kind], status)) transferKindStatus[kind][status] += 1;
   }
 
   return {
@@ -443,7 +449,8 @@ function summarizeXizongForecastPractice(storage, {
       stable: transferCounts.stable,
       uncertain: transferCounts.uncertain,
       wrong: transferCounts.wrong,
-      by_probe_kind: transferKinds
+      by_probe_kind: transferKinds,
+      by_probe_kind_status: transferKindStatus
     },
     evidence_boundary:
       'Official question attempts are deduplicated by question id. Only FIRST_PASS SYSTEM_SWEEP attempts bound to the Current exact scope hash + inventory hash reduce remaining workload and calibrate preferred System-sweep error/speed rates; whole-paper/chat-set/retained/stale attempts remain broader performance evidence only.'
