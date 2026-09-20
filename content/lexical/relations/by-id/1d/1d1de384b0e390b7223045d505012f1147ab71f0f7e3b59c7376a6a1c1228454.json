@@ -3,30 +3,11 @@
   "relation_id": "relation:a7e173e36c65e09ea997",
   "canonical_record": null,
   "fact_record": null,
-  "word_views": [
-    {
-      "source_word_id": "word:answer",
-      "source_ordinal": 209,
-      "field": "semantic_neighbors",
-      "index": 0,
-      "payload": {
-        "difference_axes": {
-          "register": "respond is often more formal/neutral-reaction oriented",
-          "syntax": "answer can take a direct object (answer the question); respond normally uses to (respond to the question)"
-        },
-        "direction": "C",
-        "relation_id": "relation:a7e173e36c65e09ea997",
-        "relation_type": "semantic_contrast",
-        "shared_core": "give a verbal or behavioral response",
-        "source_sense_id": "sense:answer:c39f0d964d49504b",
-        "target_sense_id": "sense:respond:cba033438d535e3c",
-        "target_word": "respond",
-        "unsafe_swap": "Do not globally replace answer + object with respond + object."
-      }
-    }
-  ],
+  "word_views": [],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 1,
+    "retired_by": "BF02",
+    "retired_reason": "redundant narrower answer↔respond relation; broader answer↔reply/respond relation retained"
   }
 }

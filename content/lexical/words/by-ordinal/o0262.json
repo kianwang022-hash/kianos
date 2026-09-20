@@ -96,30 +96,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:d1ab80f8d7cb12bda8c3",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:argument:0c74cf35573e5b67:collocation:0"
-            ],
-            "meaning_cn": "书的梗概",
-            "phrase": "argument of a book"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "梗概，摘要",
-        "definition_en": "a summary of the subject or plot of a literary work or play",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:argument:0c74cf35573e5b67",
-        "sense_label_en": "a summary of the subject or plot of a literary work or play",
-        "sort_order": 2,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
             "collocation_id": "collocation:beadb92d5d7c9f570857",
             "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
@@ -202,7 +178,31 @@
     "word_id": "word:argument"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:argument:0c74cf35573e5b67",
+      "status": "reference_only",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "梗概，摘要",
+      "definition_en": "a summary of the subject or plot of a literary work or play",
+      "semantic_key": "14933526bb8808a96105f5f961532287d7864448c06ec88a92b17b6b5c0ddeca",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "argument:l2:3"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "argument:l2:3",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-21T00:00:00Z",
+      "source_row": 661,
+      "source_path": "content/lexical/canonical/senses/shards/o0257-0288.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -214,7 +214,7 @@
       },
       {
         "sense_id": "sense:argument:0c74cf35573e5b67",
-        "status": "active",
+        "status": "reference_only",
         "merged_into_sense_id": null,
         "source_row": 661,
         "source_path": "content/lexical/canonical/senses/shards/o0257-0288.json"
@@ -239,7 +239,6 @@
       "collocation:9e415bcd94a10c7f38d4",
       "collocation:9f6cb4389cd34dcb95b8",
       "collocation:beadb92d5d7c9f570857",
-      "collocation:d1ab80f8d7cb12bda8c3",
       "collocation:e18e22cd1f599ea0e1cd"
     ],
     "facts": [

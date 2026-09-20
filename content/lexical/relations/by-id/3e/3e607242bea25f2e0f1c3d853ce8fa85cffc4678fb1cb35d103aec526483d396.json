@@ -1,0 +1,62 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "relation:final-standard:apartment-flat:regional_choice",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:apartment",
+      "source_ordinal": 223,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "relation_id": "relation:final-standard:apartment-flat:regional_choice",
+        "relation_scope": "lexeme",
+        "relation_type": "regional_choice",
+        "target_word": "flat",
+        "boundary": "apartment is the standard everyday term in American English; flat is the standard everyday term in British English for the same kind of self-contained dwelling.",
+        "boundaries": [
+          "AmE apartment ↔ BrE flat：同类自成一体的住宅单位，主要差别是地区用词。"
+        ],
+        "learning_note": "美式英语通常用 apartment；英式英语通常用 flat。",
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "verification_status": "verified",
+        "writing_safe": true,
+        "task_tags": [
+          "reading",
+          "writing"
+        ]
+      }
+    },
+    {
+      "source_word_id": "word:flat",
+      "source_ordinal": 1953,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "relation_id": "relation:final-standard:apartment-flat:regional_choice",
+        "relation_scope": "lexeme",
+        "relation_type": "regional_choice",
+        "target_word": "apartment",
+        "boundary": "flat is the standard everyday term in British English; apartment is the standard everyday term in American English for the same kind of self-contained dwelling.",
+        "boundaries": [
+          "BrE flat ↔ AmE apartment：同类自成一体的住宅单位，主要差别是地区用词。"
+        ],
+        "learning_note": "英式英语通常用 flat；美式英语通常用 apartment。",
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "verification_status": "verified",
+        "writing_safe": true,
+        "task_tags": [
+          "reading",
+          "writing"
+        ]
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "BF02_final_standard_2026-09-21",
+    "semantic_delta": 1
+  }
+}
