@@ -67,6 +67,43 @@ Inbox (10–20 Source Packages)
 → ACCEPT only → incremental registry
 ```
 
+## Reviewed ACCEPT promotion
+
+Source-quality judgment remains a Chat/private-source responsibility.
+
+Promotion consumes an explicit private review file:
+
+`kian.external-source-quality-review-batch.v1`
+
+Canonical mechanical promotion tool:
+
+`tools/english-external/promote_reviewed_sources.py`
+
+It may only promote entries whose decision is `ACCEPT` and whose quality fields are compatible with safe admission.
+
+It:
+- verifies parsed-package hashes;
+- refuses parser-HOLD bytes even if a review mistakenly says ACCEPT;
+- copies accepted packages into `Active Source/INCREMENTAL/packages/<source_id>/`;
+- preserves optional source-native questions/answers;
+- updates the explicit Incremental registry;
+- leaves HOLD/REJECT untouched;
+- never activates the public runtime by itself.
+
+Full handoff:
+
+```
+Source Package
+→ batch parse / dedupe
+→ Chat Source Quality Review
+→ ACCEPT only
+→ promotion tool
+→ registry
+→ manifest builder
+→ public exact manifest SHA registration
+→ runtime
+```
+
 ## Registry + builder
 
 Normal admission does not hand-write SHA-256 values.
