@@ -569,3 +569,177 @@ Whole-lifecycle adversarial proof           INCOMPLETE
 ```
 
 The next build priority is therefore **Analysis ready inventory + Forecast**, not first-round UI expansion.
+
+
+---
+
+## 9. Politics-native control policy
+
+This section tells Chat how Politics evidence changes learning depth. It is not a Website scheduler.
+
+### REACTIVATE
+
+Use when:
+- the topic was understood before but current retrieval is not yet established;
+- Current source is being encountered for this cycle;
+- evidence is too sparse to justify deeper Build.
+
+Default action:
+- fast source/model recovery;
+- minimal compression;
+- move to Xiao1000 / task evidence quickly.
+
+Exit:
+- relation can be reconstructed;
+- relevant task evidence can now be collected.
+
+Do not:
+- replay a full course by default;
+- manufacture Memory merely because the topic exists.
+
+### BUILD
+
+Use when current evidence reveals a real capability defect.
+
+Examples:
+- relation/model cannot be reconstructed;
+- repeated option-boundary errors;
+- exact source-grounded item is repeatedly forgotten;
+- analysis IDENTIFY/SKELETON/BINDING fails.
+
+Default action:
+- smallest training operation matching the defect.
+
+Exit:
+- immediate repair succeeds and a new independent Verify task is ready.
+
+### VERIFY
+
+Use after apparent repair or when a capability looks strong but evidence is still thin.
+
+Default action:
+- the smallest independent changed-context task that can falsify the repaired claim.
+
+Exit to STABILIZE/MAINTAIN when:
+- the new task succeeds for the tested mechanism;
+- no new materially different failure appears.
+
+Return to BUILD when:
+- the same mechanism fails again;
+- a different cause is exposed.
+
+### STABILIZE
+
+Use when immediate performance is good but delayed retrieval / repeated transfer is not yet known.
+
+Default action:
+- selective delayed Recall or naturally occurring later-task verification.
+
+Do not:
+- create a fixed D1/D3/D7 schedule.
+
+Exit:
+- delayed evidence is stable enough that continued high-frequency practice has low decision value.
+
+### MAINTAIN
+
+Use when representative evidence supports stable performance.
+
+Default action:
+- let normal Xiao1000/current-year sets/Mock naturally resample the capability;
+- dedicated practice only when maintenance evidence is actually missing.
+
+Reopen only on:
+- newer contradictory evidence;
+- source revision;
+- fresh/current-year transfer drop;
+- timed/whole-paper failure;
+- explicit learner override supported by current reality.
+
+### ELASTIC
+
+Use only after the Protect-70 path is not currently threatened.
+
+Candidate Push-75 actions include:
+- reducing multiple-choice variance;
+- improving current-year exact retrieval;
+- stronger analysis material binding;
+- denser complete answers;
+- faster timed delivery.
+
+Every Elastic action must compete against Xizong/English opportunity cost.
+
+---
+
+## 10. Protect-70 decision order
+
+When several Politics gaps coexist, Chat uses this order as a safety check, not a permanent rank:
+
+1. **unresolved blocker that can invalidate the 70 path**
+   - large unlearned Objective scope;
+   - Analysis path absent;
+   - source legality/freshness blocker;
+   - severe timing/whole-paper failure;
+2. **high-recurrence mechanism causing repeated score loss**
+   - especially multiple-choice boundary failure or analysis material-binding failure;
+3. **high-value exact retention**
+   - only when source-grounded and actually needed;
+4. **maintenance**
+   - enough to preserve already-secure capability;
+5. **Push-75 Elastic**
+   - only after the floor is viable.
+
+This is not a Website priority score. Chat must still use current evidence and cross-subject capacity.
+
+---
+
+## 11. Automatic reduce-practice triggers
+
+Reduce dedicated Politics work for a capability when all material conditions are satisfied:
+
+- representative evidence exists for the relevant mechanism/task form;
+- the same mechanism is no longer producing W/U or output failure;
+- changed-context evidence is stable;
+- delayed evidence is stable when retention matters;
+- timed/whole-task evidence is stable when execution matters;
+- new practice mostly repeats known information.
+
+Reduction may mean:
+- fewer dedicated drills;
+- natural resampling through later normal work;
+- no standalone Review for already-stable items.
+
+Minimum Dose never overrides these rules as a quota.
+
+---
+
+## 12. Automatic increase-practice / reopen triggers
+
+Increase only the responsible capability when:
+
+- the same mechanism error recurs;
+- multiple-choice W/U materially exceeds single-choice and the cause is real boundary failure;
+- Memory relapses;
+- independent/fresh performance falls below exposed training performance;
+- Analysis skeleton survives but material binding fails;
+- exact current-year wording changes;
+- timed answer quality/completion collapses;
+- Whole Paper contradicts isolated task stability;
+- a learner override reveals a real mismatch in current state.
+
+Do not reopen the whole course when the defect is local.
+
+---
+
+## 13. False-Secure / false-Unstable invariants
+
+A Chat plan is semantically invalid if it:
+
+- declares Objective Secure from repeated Xiao1000 familiarity alone;
+- declares Analysis Secure without independent material binding and complete/timed evidence appropriate to phase;
+- admits unsupported legacy/current-year exact wording into Memory;
+- reopens heavy Build for a capability already supported by representative stable evidence without a newer contradiction;
+- ignores a current high-impact UNKNOWN that can plausibly break Protect 70;
+- spends Elastic time while an unresolved Protect-70 blocker remains.
+
+Website/runtime may reject an explicit contradiction if such an invariant is machine-checkable, but it may not choose the replacement task.
