@@ -14,26 +14,34 @@ This file owns work cursor only. It does not own medical Core, Learning semantic
 **Scope:** F — Remaining Clinical  
 **Lane-A role:** **NEXT MEDICAL CONTENT PRIORITY**  
 **Stable Current identity:** **9 Blocks / 121 canonical KP**  
-**Active gate:** **L — Learning Logic construction**  
+**Active gate:** **L — fresh independent Learning acceptance**  
 **Source state:** **S1 PASS after approved Source rebind; bounded unresolved exact fields remain explicit / fail-closed**  
-**Earliest eligible next action:** **construct F Learning Logic from accepted K; this Phase-2 audit itself does not start Learning**  
+**Earliest eligible next action:** **fresh independent L audit of the built F Learning candidate**  
 **Downstream:** Content / P / R / E frozen behind accepted Learning
 
 ```text
 S1 medical / first-learning Source boundary = PASS
 S2 exact official-question membership        = UNTESTED / separate later boundary
 K Knowledge                                  = PASS_AFTER_BOUNDED_REPAIR
-L Learning Logic                             = UNTESTED / NEXT_ELIGIBLE
-Content                                      = NOT_STARTED
+L Learning Logic                             = UNTESTED / CANDIDATE_READY_FOR_INDEPENDENT_AUDIT
+Content                                      = NOT_STARTED / downstream-frozen
 P / R / E                                    = downstream-frozen
 U Learner Use                                = no claim
 ```
 
-Active builder branch: **none — candidate merged to main**
+Active builder branch: **work/f-phase3-learning-logic-20260920-v2**
 
-Independent audit entry:
+Fresh K acceptance:
 
-`content/xizong/knowledge/learner/F_PHASE2_FRESH_INDEPENDENT_K_AUDIT_BRIEF.md`
+`content/xizong/knowledge/learner/F_PHASE2_FRESH_INDEPENDENT_K_ACCEPTANCE.md`
+
+Learning candidate:
+
+`content/xizong/knowledge/learner/f-remaining-clinical-learning.json`
+
+Fresh L audit entry:
+
+`content/xizong/knowledge/learner/F_PHASE4_FRESH_INDEPENDENT_L_AUDIT_BRIEF.md`
 
 ---
 
@@ -182,12 +190,40 @@ Preserved boundaries:
 
 ---
 
+## Learning candidate — BUILT / NOT ACCEPTED
+
+Candidate owner:
+
+`content/xizong/knowledge/learner/f-remaining-clinical-learning.json`
+
+Construction receipt:
+
+`content/xizong/knowledge/learner/F_PHASE3_LEARNING_LOGIC_CONSTRUCTION.md`
+
+Fresh audit entry:
+
+`content/xizong/knowledge/learner/F_PHASE4_FRESH_INDEPENDENT_L_AUDIT_BRIEF.md`
+
+Builder-candidate shape:
+
+```text
+9 Blocks / 121 canonical KP
+40 Logic Groups
+5 WHOLE_BLOCK_SOURCE
+3 NATURAL_SOURCE_UNITS
+1 INTEGRATION_PRIMARY (F9)
+0 inside-F hard prerequisite edges
+2 non-gating Partial-System Reconstructions
+```
+
+The candidate preserves the accepted dual-context K repair and keeps F9 ownership-first/low-connectivity. Zero hard edges and F9 integration-primary are candidate claims, not accepted truth.
+
 ## Next action
 
 ```text
-Learning Logic construction
-→ fresh independent L acceptance
-→ Content Realization / closure
+fresh independent L audit
+→ PASS / bounded repair / BLOCKED
+→ only on L PASS: Content Realization / closure
 ```
 
-Do not copy D/E topology for symmetry. Learning must derive F-specific learner units and Source-contact structure from the accepted dual-context K model rather than from the historical Guide.
+Do not copy D/E topology for symmetry. Content / Projection / Runtime / Evidence remain frozen until L acceptance.
