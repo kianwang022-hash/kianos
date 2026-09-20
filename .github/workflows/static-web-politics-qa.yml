@@ -56,6 +56,12 @@ jobs:
           node-version: '22'
       - name: Install dependencies
         run: npm install --no-audit --no-fund
+      - name: Prove Politics forecast sensors and stress model
+        run: node scripts/test-politics-forecast.mjs
+      - name: Prove Politics Analysis evidence lifecycle
+        run: node scripts/test-politics-analysis-evidence.mjs
+      - name: Prove Politics evidence reaches shared Daily Packet
+        run: node scripts/test-subject-daily-packets.mjs
       - name: Validate Politics cognitive projection derived assets
         run: node scripts/validate-politics-cognitive-projection-assets.mjs
       - name: Audit Politics canonical coverage
@@ -136,11 +142,5 @@ jobs:
         run: node scripts/audit-politics-marxism-runtime-evidence.mjs
       - name: Validate Politics Current bindings
         run: npm run validate:politics
-      - name: Prove Politics forecast sensors and stress model
-        run: node scripts/test-politics-forecast.mjs
-      - name: Prove Politics Analysis evidence lifecycle
-        run: node scripts/test-politics-analysis-evidence.mjs
-      - name: Prove Politics evidence reaches shared Daily Packet
-        run: node scripts/test-subject-daily-packets.mjs
       - name: Build Astro
         run: npm run build
