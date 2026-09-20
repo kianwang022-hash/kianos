@@ -36,6 +36,42 @@ Writing Source recovery is now **CLOSED**. The missing 2011 and 2026 Big Writing
 
 There is **no remaining English release hold**. Kian explicitly authorized #498 for promotion without a separate final material-presentation gate. Learner U remains **UNTESTED** until genuine use; that is still an evidence boundary, not an engineering defect.
 
+## Architecture+ closure — CLOSED 2026-09-20
+
+Architecture+ is closed on `main` via PR #592.
+
+Accepted addition:
+
+- one bounded `kianos.english.performance-profile.v1` derived from existing private attempt history;
+- raw learner history remains the only learner truth;
+- packet keeps at most 8 recent exact attempts per task family (48 across Reading A / Cloze / Part B / External / Translation / Writing) plus fixed-size task-local summaries;
+- 7,200-attempt stress proved full Evidence Packet generation stays under the permanent 500 ms regression gate;
+- timing / exposure / assistance / independent-transfer eligibility stay task-local;
+- workflow completion is explicitly **not** performance success or mastery.
+
+Architecture+ explicitly rejected:
+
+- a generic English Remember / spaced-repetition engine;
+- a cross-task mastery score or ranker;
+- automatic Review debt from Wrong / Uncertain / pending backend claims;
+- fake Translation / Writing auto-score;
+- a second learner ledger / aggregate truth store;
+- a subject-local recovery controller competing with top-level Campaign / Steward.
+
+Existing accepted capabilities remain authoritative:
+
+```text
+task-first performance
+→ cheap stable exit
+→ bounded repair only when evidence earns it
+→ fresh / generated transfer only when it can change a real decision
+→ exact Lexical handoff when lexical
+→ whole-paper 180-minute execution for formal score evidence
+→ Chat owns cross-task strategy
+```
+
+Do not reopen Architecture+ because a new scalar, taxonomy, memory cadence or ranking scheme appears theoretically attractive. Reopen only for a concrete learner-use defect or a failed invariant above.
+
 Do not reopen passed engineering paths merely because unrelated broad CI remains red.
 
 ---
