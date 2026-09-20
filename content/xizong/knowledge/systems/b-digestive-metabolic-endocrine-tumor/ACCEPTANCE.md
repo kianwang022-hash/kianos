@@ -12,45 +12,73 @@ This file owns B's current S/K/L/P/R/E/U readiness claims. It does not own medic
 ## Gate status
 
 ```text
-S  BLOCKED — separate exact Current official-question membership sub-boundary
+S  PASS — exact Current official-question membership accepted (1072 qids)
 K  PASS — 38 stable Blocks / 600 stable KPs + accepted System model
 L  PASS — fresh independent Learning acceptance complete
 P  UNTESTED — ACTIVE / earliest unresolved eligible learner-surface gate
 R  UNTESTED — downstream-frozen behind P
-E  UNTESTED — downstream-frozen behind R; exact official sweep evidence also depends on S
+E  UNTESTED — downstream-frozen behind R
 U  UNTESTED — real learner use only
 ```
 
 Current allowed conclusion:
 
-> **B Knowledge and Learning are accepted. Projection is now eligible and active. B is still not learner-ready: P/R/E are unaccepted, U requires real use, and the exact official-question sweep remains separately blocked by S question-scope closure.**
+> **B Source question scope, Knowledge and Learning are accepted. Projection remains the earliest unresolved active learner-surface gate. B is still not learner-ready because P/R/E are unaccepted and U requires real use.**
 
 Dependency-scoped rule:
 
-- the unresolved S question-membership boundary blocks loading/executing the honest official B System question sweep and evidence derived from that sweep;
-- it does **not** revoke K/L or block Projection of the already accepted first-learning / Recall / compression semantics that do not require qid membership.
+- exact B System-question membership is now accepted and may be consumed only after real B System completion + pre-question System Reconstruction;
+- S PASS does **not** create Question→Block/LG/KP relations and does not alter K/L/P semantics.
 
 ---
 
-## S — BLOCKED｜official-question membership sub-boundary
+## S — PASS｜official-question membership sub-boundary
 
-No accepted Current B question-scope owner yet records the exact official-question IDs needed for the later System sweep.
+Canonical owner:
 
-S may PASS only when a Current owner:
+`content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-question-scope.json`
 
-- contains stable exact question IDs;
-- resolves every ID against Current Question Truth;
-- derives membership from the canonical B source boundary plus explicit inclusion/exclusion/collision decisions;
-- checks neighboring-system negative space;
-- records provenance honestly;
-- does not count-fit a historical target such as `1072`;
-- does not infer precise Question→Block/KP relations from System membership.
+Current reconstruction receipt:
 
-The completed bounded historical recovery must not be replaced by renewed broad archaeology.
+`content/xizong/knowledge/learner/B_QUESTION_SCOPE_CURRENT_RECONSTRUCTION.md`
 
-Current Question Truth remains `content/xizong/questions/`; reviewed Question→Knowledge relations remain separate.
+Accepted identity:
 
----
+```text
+official B System question scope = 1072 exact qids
+year range                       = 2005–2026
+inventory SHA256                 = 2fb2cbb8287a4f5da73bc20afc344823c9022cba708fb99d5d04569a391c8ab8
+unresolved membership ambiguity  = 0
+```
+
+Evidence chain:
+
+```text
+Current 3750 immutable Question Truth
+← exact historical 3750-ID namespace match
+← reviewed 3750-row question → primary Lecture scope/page routing
+→ B reviewed Source coverage
+→ approved collision decisions
+→ Current B owner negative-space adjudication
+→ exact B qid inventory
+```
+
+Fresh Current boundary review found two stale historical-position candidates from general neural synapse physiology:
+
+- `xizong-official-2006-n020`;
+- `xizong-official-2006-n021`.
+
+Current D23 owns calcium regulation / parathyroid / GH-IGF Primary and uses Neuro only as bounded Recall for low-calcium excitability. General reflex/IPSP physiology remains external Neuro truth, so those two IDs are excluded.
+
+This yields 1072 naturally. The historical 1072 count is only a sanity check and was not used as a target.
+
+S PASS remains System-level membership only:
+
+- no Question→Block inference;
+- no Question→LG/KP inference;
+- reviewed Question→Knowledge relation owner remains separate;
+- learner attempts / Wrong / Uncertain / Memory / holdout remain Learner Truth.
+
 
 ## K — PASS
 
@@ -159,7 +187,7 @@ Representative counter-evidence includes G5 learner order `KP01–05 → KP12–
 ### Question / Memory boundary
 
 - official question order does not own first learning;
-- official System sweep occurs only after actual System learning + pre-question System Reconstruction and remains execution-gated by S exact qid scope;
+- official System sweep occurs only after actual System learning + pre-question System Reconstruction and uses the accepted exact S qid scope;
 - Wrong/Uncertain uses smallest-sufficient repair and returns to the mainline;
 - first Recall instability does not automatically stall the mainline indefinitely;
 - Connection Hooks do not become ordinary Memory before formal target-owner learning.
@@ -186,7 +214,7 @@ P must project the accepted Learning semantics without changing them. In particu
 - readiness DAG and learner-order semantics without turning backend route metadata into compulsory navigation;
 - six PSRs as optional/non-gating compression checkpoints;
 - System Recall timing based on Learner Truth rather than engineering readiness;
-- S-gated official-question sweep without guessed qids.
+- accepted exact official-question sweep without guessed qids or inferred precise relations.
 
 The historical D/M/G file layout and rich medical Markdown do not own page structure.
 
@@ -194,7 +222,7 @@ The historical D/M/G file layout and rich medical Markdown do not own page struc
 
 ## R / E
 
-`R` remains downstream-frozen behind P. `E` remains downstream-frozen behind R, and evidence for the exact official System question sweep additionally depends on S scope closure.
+`R` remains downstream-frozen behind P. `E` remains downstream-frozen behind R. Exact B question membership is now accepted, but question-derived Evidence still requires the later Runtime/Evidence gates.
 
 Old web/runtime existence is not acceptance evidence.
 
@@ -219,6 +247,7 @@ No repository state implies Kian has started, completed, recalled, answered, rep
 - lane Learning constitution → `content/xizong/LEARNING_CONTRACT.md`
 - shared study policy → `content/xizong/knowledge/learner/study-policy.json`
 - Phase-6 independent L evidence → `content/xizong/knowledge/learner/B_PHASE6_INDEPENDENT_L_ACCEPTANCE.md`
+- B exact System question scope → `content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-question-scope.json`
 - Current Question Truth → `content/xizong/questions/`
 - reviewed Question→Knowledge relations → `content/xizong/question-relations/`
 
