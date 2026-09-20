@@ -616,9 +616,53 @@ function repairForecast(progress, { wrongUncertainRate = null } = {}) {
     ?? progress?.repair_evidence?.active_repair_clusters
     ?? 0
   ));
-  const futureClusters = futureWu !== null && questionsPerCluster !== null
-    ? futureWu / questionsPerCluster
-    : null;
+
+  const compressionBySystem = new Map(
+    (Array.isArray(progress?.repair_evidence?.by_system) ? progress.repair_evidence.by_system : [])
+      .map((row) => [String(row?.canonical_id || ''), row])
+  );
+  const futureWuBySystem = workloadSystems.map((workload) => {
+    const errorRow = systemErrorRows.find((row) => row.canonical_id === String(workload?.canonical_id || '')) || {};
+    const rate = scenarioRate !== null
+      ? scenarioRate
+      : stratifiedObserved
+        ? finite(errorRow?.wrong_uncertain_rate)
+        : forecastRate;
+    return {
+      canonical_id: String(workload?.canonical_id || ''),
+      future_wrong_uncertain_questions:
+        rate === null ? null : Number(workload?.remaining_questions || 0) * rate
+    };
+  });
+  const compressionRows = futureWuBySystem.map((row) => {
+    const observed = compressionBySystem.get(row.canonical_id) || {};
+    const clusterSamples = Math.max(0, Number(observed?.question_backed_clusters || 0));
+    const ratio = positive(observed?.observed_question_to_cluster_ratio);
+    const usableRatio = ratio !== null && clusterSamples >= 3 ? ratio : null;
+    return {
+      canonical_id: row.canonical_id,
+      future_wrong_uncertain_questions:
+        row.future_wrong_uncertain_questions === null ? null : round(row.future_wrong_uncertain_questions),
+      observed_question_backed_clusters: clusterSamples,
+      observed_questions_per_cluster: ratio,
+      pricing_questions_per_cluster: usableRatio,
+      predicted_future_clusters:
+        row.future_wrong_uncertain_questions !== null && usableRatio !== null
+          ? round(row.future_wrong_uncertain_questions / usableRatio, 2)
+          : null
+    };
+  });
+  const systemCompressionMode = workloadSystems.length > 0;
+  const unpricedCompressionSystemIds = systemCompressionMode
+    ? compressionRows
+        .filter((row) => Number(row.future_wrong_uncertain_questions || 0) > 0 && row.pricing_questions_per_cluster === null)
+        .map((row) => row.canonical_id)
+    : [];
+  const futureClusters = systemCompressionMode
+    ? (futureWu !== null && unpricedCompressionSystemIds.length === 0
+        ? compressionRows.reduce((sum, row) => sum + Number(row.predicted_future_clusters || 0), 0)
+        : null)
+    : (futureWu !== null && questionsPerCluster !== null ? futureWu / questionsPerCluster : null);
   const totalClusters = futureClusters !== null ? activeClusters + futureClusters : null;
   const repairCalibrationRows = progress?.repair_evidence?.calibration_samples || [];
   const samples = repairCalibrationRows
@@ -643,7 +687,11 @@ function repairForecast(progress, { wrongUncertainRate = null } = {}) {
     risks.push('SYSTEM_WRONG_UNCERTAIN_RATE_LOW_SAMPLE');
   }
   if (rateSpread !== null && rateSpread >= 0.15) risks.push('WRONG_UNCERTAIN_SYSTEM_HETEROGENEITY');
-  if (questionsPerCluster === null) risks.push('REPAIR_COMPRESSION_UNOBSERVED');
+  if (!systemCompressionMode && questionsPerCluster === null) risks.push('REPAIR_COMPRESSION_UNOBSERVED');
+  if (systemCompressionMode && unpricedCompressionSystemIds.length) risks.push('SYSTEM_REPAIR_COMPRESSION_UNCALIBRATED');
+  if (systemCompressionMode && compressionRows.some((row) =>
+    row.observed_question_backed_clusters > 0 && row.observed_question_backed_clusters < 3
+  )) risks.push('SYSTEM_REPAIR_COMPRESSION_LOW_SAMPLE');
   if (mixedWindowSamples.length > 0 && samples.length < 3) risks.push('REPAIR_TIMER_CONTAMINATED_MIXED_WINDOW');
   if (samples.length < 3 && totalClusters !== null && totalClusters > 0) risks.push('REPAIR_TIME_UNCALIBRATED');
   return {
@@ -663,6 +711,8 @@ function repairForecast(progress, { wrongUncertainRate = null } = {}) {
     },
     compression: {
       observed_questions_per_cluster: questionsPerCluster,
+      system_rows: compressionRows,
+      unpriced_system_ids: unpricedCompressionSystemIds,
       active_clusters: activeClusters,
       predicted_future_wrong_uncertain_questions: futureWu === null ? null : round(futureWu),
       predicted_future_clusters: futureClusters === null ? null : round(futureClusters, 2),
@@ -682,7 +732,7 @@ function repairForecast(progress, { wrongUncertainRate = null } = {}) {
     band_minutes: band,
     risks,
     evidence_boundary:
-      'Future Repair pressure uses System-stratified Current exact-scope first-attempt W/U when available, weighted by each System own remaining question load. A fast/easy familiar System may not price an unobserved System. Scenario overrides intentionally apply one explicit W/U rate across the remaining known scope. Repair workload minutes require exclusive Repair timing; mixed Block-route lifetime windows are reference-only and may not be added as causal Repair time.'
+      'Future Repair pressure uses System-stratified Current exact-scope first-attempt W/U when available, weighted by each System own remaining question load. Repair compression is also System-stratified when exact System workload exists; an A1 compression ratio may not price another System without enough observed clusters. Scenario overrides intentionally apply one explicit W/U rate across the remaining known scope. Repair workload minutes require exclusive Repair timing; mixed Block-route lifetime windows are reference-only and may not be added as causal Repair time.'
   };
 }
 
