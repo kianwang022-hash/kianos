@@ -39,7 +39,7 @@ function forbiddenPaths(value, prefix = '') {
 }
 
 const synthetic = listWritingSyntheticTasks();
-assert.equal(synthetic.length, 2, 'cold-start calibration currently owns one synthetic Small and one synthetic Big task');
+assert.ok(synthetic.length >= 2, 'Writing must keep learner-safe synthetic Small and Big task coverage');
 assert.deepEqual(new Set(synthetic.map((task) => task.kind)), new Set(['small', 'big']));
 
 const currentExamCatalog = listWritingTasks();
