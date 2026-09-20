@@ -208,7 +208,7 @@ Unseen prompt interpreted correctly without answer cue.
 Necessary; wrong task interpretation can zero out otherwise known content.
 
 **Current state**
-MATERIAL BANK INCOMPLETE.
+READY BOUNDED BASELINE — covered by the r4 Analysis bank; learner performance remains Real-U gated.
 
 ---
 
@@ -230,7 +230,7 @@ Mark the minimum cue set needed for principle selection.
 Independent segmentation leads to the correct analysis direction.
 
 **Current state**
-MATERIAL BANK INCOMPLETE.
+READY BOUNDED BASELINE — 12 dedicated Material Segmentation tasks; learner stability remains Real-U gated.
 
 ---
 
@@ -252,7 +252,7 @@ Unseen cue → correct principle/owner without template leakage.
 Core.
 
 **Current state**
-STRUCTURAL BASELINE PARTIAL; ready-bank needed.
+READY BOUNDED BASELINE — 30 Principle Retrieval tasks plus stress variants; current-year exactness remains source-gated where applicable.
 
 ---
 
@@ -277,7 +277,7 @@ Independent skeleton covers the required logical moves.
 Core.
 
 **Current state**
-STRUCTURAL BASELINE PARTIAL.
+READY BOUNDED BASELINE — 30 Skeleton tasks; learner stability remains Real-U gated.
 
 ---
 
@@ -324,7 +324,7 @@ New material receives explicit, non-generic binding.
 Core.
 
 **Current state**
-MATERIAL GAP.
+READY BOUNDED BASELINE — 8 dedicated Material Binding tasks; current-year transfer remains source/Real-U gated.
 
 ---
 
@@ -346,7 +346,7 @@ First full output → repair → independent full output.
 Core.
 
 **Current state**
-MATERIAL + EVIDENCE GAP.
+READY BOUNDED SYSTEM BASELINE — 8 Complete Analysis tasks are time-boxed; authentic current-year/paper delivery remains source/Real-U gated.
 
 ---
 
