@@ -236,6 +236,7 @@ Hard rules:
 - Translation / Writing do not receive fake auto-scores;
 - External Reading remains growth evidence, not English-I score evidence;
 - the profile cannot create Review debt, choose the next task, or rank tasks by itself.
+- **Workflow completion is an execution fact, not performance success or mastery.** A reviewed Wrong, repaired Translation, or `TRANSFER_PENDING` Writing state may be workflow-complete while still carrying meaningful learner evidence.
 
 The purpose is operational compression:
 
