@@ -76,7 +76,7 @@ Do not reopen passed engineering paths merely because unrelated broad CI remains
 
 ---
 
-## Dynamic practice + baseline material preparation — CANDIDATE 2026-09-20
+## Dynamic practice + baseline material preparation — CONTENT READY 2026-09-20
 
 A bounded Content-only upgrade is prepared on this ref for normal learner use:
 
@@ -88,7 +88,7 @@ A bounded Content-only upgrade is prepared on this ref for normal learner use:
 
 No learner state, website state machine, Home scheduling logic, UI, or shared Runtime has been changed. Protected true-exam material was not consumed.
 
-This lane is complete when the candidate material passes structural/self-attack review and is integrated; learner U still requires real study use.
+Structural/self-attack review is complete on this ref (19/19 targeted checks). This bounded content lane is ready for integration; learner U still requires real study use.
 
 ---
 
