@@ -6,7 +6,7 @@ export const XIZONG_RETENTION_WINDOWS_DAYS = Object.freeze([1, 3, 7, 14, 30]);
 
 const DAY_MS = 86400000;
 const WEAK_RATINGS = new Set(['unknown', 'fuzzy']);
-const POSITIVE_RATINGS = new Set(['known', 'mastered']);
+const STABLE_RATINGS = new Set(['mastered']);
 
 function text(value) {
   return String(value || '');
@@ -259,7 +259,9 @@ export function appendMemoryEvidence(stateInput, event, at = null) {
   if (rating === 'unknown' || rating === 'fuzzy') {
     current.reviewRequested = true;
     current.reason = current.reason || 'UNSTABLE_MEMORY_EVIDENCE';
-  } else if (rating === 'mastered') {
+  } else if (rating === 'known' || rating === 'mastered') {
+    // A successful retrieval clears immediate Today pressure.
+    // "known" means recovered now, not yet durable; retention schedules the next delayed check.
     current.reviewRequested = false;
     current.reason = '';
   }
@@ -348,16 +350,38 @@ function retentionStateFromContext(state, cardId, context) {
     return { ...base, state: 'DUE_REQUESTED', due: true, dueReason: text(attention.reason || 'REVIEW_REQUESTED') };
   }
 
-  if (!POSITIVE_RATINGS.has(latestRating) || latestAt === null) {
+  if (latestAt === null) {
     return { ...base, state: 'EVIDENCE_UNRESOLVED', due: false, dueReason: 'LATEST_EVIDENCE_UNUSABLE_FOR_RETENTION_CLOCK' };
   }
 
-  let consecutivePositive = 0;
-  for (let index = events.length - 1; index >= 0; index -= 1) {
-    if (!POSITIVE_RATINGS.has(text(events[index]?.rating))) break;
-    consecutivePositive += 1;
+  // "known / 会了" proves retrieval now, but not durable stability.
+  // Give it one delayed re-check without allowing repeated "known" ratings to inflate the long interval.
+  if (latestRating === 'known') {
+    const intervalDays = XIZONG_RETENTION_WINDOWS_DAYS[0];
+    const dueAtMs = latestAt + intervalDays * DAY_MS;
+    const due = context.nowMs >= dueAtMs;
+    return {
+      ...base,
+      state: due ? 'DUE_DELAYED_STABILITY' : 'KNOWN_WAIT',
+      due,
+      dueReason: due ? 'DELAYED_STABILITY_CHECK' : '',
+      dueAt: new Date(dueAtMs).toISOString(),
+      overdueDays: due ? Math.floor((context.nowMs - dueAtMs) / DAY_MS) : 0,
+      stabilityStage: 0,
+      nextIntervalDays: intervalDays
+    };
   }
-  const stage = Math.max(1, consecutivePositive);
+
+  if (!STABLE_RATINGS.has(latestRating)) {
+    return { ...base, state: 'EVIDENCE_UNRESOLVED', due: false, dueReason: 'LATEST_EVIDENCE_UNUSABLE_FOR_RETENTION_CLOCK' };
+  }
+
+  let consecutiveStable = 0;
+  for (let index = events.length - 1; index >= 0; index -= 1) {
+    if (!STABLE_RATINGS.has(text(events[index]?.rating))) break;
+    consecutiveStable += 1;
+  }
+  const stage = Math.max(1, consecutiveStable);
   const intervalDays = XIZONG_RETENTION_WINDOWS_DAYS[Math.min(stage - 1, XIZONG_RETENTION_WINDOWS_DAYS.length - 1)];
   const dueAtMs = latestAt + intervalDays * DAY_MS;
   const due = context.nowMs >= dueAtMs;
@@ -418,7 +442,7 @@ export function todayMemoryQueue(stateInput, { now = Date.now(), maxItems = null
         nextIntervalDays: retention.nextIntervalDays
       };
     })
-    .filter((card) => card.reviewRequested || card.weakWeight >= 1 || ['DUE_WEAK', 'DUE_CONTENT_CHANGED', 'DUE_REQUESTED', 'DUE_DELAYED_STABILITY'].includes(card.retentionState))
+    .filter((card) => card.reviewRequested || ['DUE_WEAK', 'DUE_CONTENT_CHANGED', 'DUE_REQUESTED', 'DUE_DELAYED_STABILITY'].includes(card.retentionState))
     .sort((a, b) => {
       const retentionDelta = retentionPriority({ state: b.retentionState }) - retentionPriority({ state: a.retentionState });
       if (retentionDelta) return retentionDelta;
