@@ -112,7 +112,9 @@ FINAL_FRESH_REAUDIT #3 = FAIL @ 8c1813837e8908f308e73564c5abaaa5471173d8
 BOUNDED_REPAIR_PROOF #3 = PASS @ 00b238e23c407c48749ad046b7f4ca6a1ddc7798
 FINAL_FRESH_REAUDIT #4 = FAIL @ 7e83a256ea15e6617d44268c9958a52e3a7b25bb
 BOUNDED_REPAIR_PROOF #4 = PASS @ b6e3116e39a8cfb338debf327798dc3ccca6d914
-FINAL_FRESH_REAUDIT #5 = REQUIRED
+AUDIT_PROTOCOL = FINAL_CONVERGENCE_V2
+FINAL_CONVERGENCE_SWEEP = REQUIRED
+FINAL_ACCEPTANCE = PENDING_IF_SWEEP_REPAIRS
 SYSTEM_LOGIC_ACCEPTED = NOT YET
 KIAN_SPECIFIC_CALIBRATED = NO
 ```
@@ -221,9 +223,29 @@ Detailed report: `content/english/ENGLISH_HIGHEST_MATURITY_FRESH_AUDIT.md`.
 
 The long-diverged candidate still triggers unrelated repo-wide / other-subject CI debt. Those reds are not promoted into English defects when they fail outside the affected owner / impact cone. This remains another reason not to merge PR #640 wholesale.
 
-**Current head is a repaired candidate, not a Fresh PASS.** This audit context has now seen the Fresh #4 defect and repair implementation, so it is not eligible to issue Fresh #5.
+**Current head is a repaired candidate, not yet accepted.**
 
-Next = run one genuinely new anti-anchored Fresh re-audit #5 against the then-current candidate HEAD. Do not mark `SYSTEM_LOGIC_ACCEPTED` before that independent verdict.
+The open-ended Fresh #N chain is retired here. Fresh #1–#4 remain historical provenance only.
+
+Next = one genuinely fresh **Final Convergence Sweep** under `ENGLISH_HIGHEST_MATURITY_FRESH_AUDIT_BRIEF.md`.
+
+The sweep must finish the entire A–J / lifecycle search surface **before any repair** and must keep searching after the first material defect. It returns either:
+
+```text
+PASS — SYSTEM_LOGIC_ACCEPTED
+```
+
+or one consolidated blocker set.
+
+If the sweep finds blockers, repair that bounded set together and route once to `FINAL_ACCEPTANCE`. Final Acceptance verifies the repaired set, repair-induced cross-owner effects and one bounded novel regression pass; it does not restart another unlimited whole-system Fresh hunt.
+
+Low-friction fresh-chat entry:
+
+```text
+ki，继续英语最高成熟度收口
+```
+
+No bespoke prompt or old defect summary should be pasted. The fresh Chat must read Current + the audit brief and route itself.
 
 Accepted candidate closures already integrated into the package:
 
@@ -242,9 +264,11 @@ Final independent audit entry:
 
 Audit hygiene / freeze:
 
-- the final verdict must come from a genuinely fresh, anti-anchored auditor that has not been exposed to prior final-verdict reasoning;
-- a contaminated continuation Chat may inspect status but must not issue the Fresh verdict;
-- until that verdict, broad English maturity construction is frozen; only a material defect found by the Fresh audit may reopen the smallest exact owner;
+- final acceptance still requires a genuinely fresh, anti-anchored auditor;
+- a contaminated continuation Chat may inspect status or repair a found defect, but must not issue the later independent PASS;
+- Convergence Sweep must complete the defined audit surface before repair and must not stop at the first defect;
+- the audit surface is finite: mandatory dimensions A–J + lifecycle combinations + one final cross-dimension pass; do not invent indefinitely more hypothetical worlds after saturation;
+- until acceptance, broad English maturity construction is frozen; only material blockers from the current convergence/acceptance phase may reopen the smallest exact owners;
 - after a PASS, promotion must reconcile against latest `main` and carry only the necessary accepted write-set; do not treat this long-diverged branch as a wholesale merge payload.
 
 Do not reopen E0→E11 as a construction sequence. Do not rebuild already-satisfied domains for symmetry.
