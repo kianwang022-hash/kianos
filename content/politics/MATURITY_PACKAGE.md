@@ -364,7 +364,7 @@ This crosswalk follows the shared standard's **actual section numbers 0–28**, 
 | 19 | Adaptive generated-asset lifecycle | BUILDER CLOSED for current Analysis bank | analysis-output bank/manifest/validator |
 | 20 | Value of information / latency / latest useful date | BUILDER CLOSED semantics | MATURITY_REQUIREMENTS + mock/final + ingestion |
 | 21 | Future-source failure / supersession / rollback | BUILDER CLOSED preparation | later-stage/INGESTION_RULES |
-| 22 | Concurrent state / bounded context | BUILDER CLOSED for current transport | stale/replay/checkpoint tests + CURRENT route |
+| 22 | Concurrent state / bounded context | BUILDER REPAIRED after v5 F-01 stale-plan-basis finding; final Fresh audit required | stale-basis / replay / checkpoint tests + CURRENT route |
 | 23 | Independent anti-anchored audit | **OPEN — HARD FREEZE BLOCKER** | MATURITY_FRESH_INDEPENDENT_AUDIT_BRIEF.md → fresh evaluator result |
 | 24 | Adversarial methodology | BUILDER CLOSED candidate: full Cartesian stress grid + decision flips + metamorphic checks | Forecast tests + MATURITY_ADVERSARIAL_REPORT |
 | 25 | Causal repair / discrimination | BUILDER CLOSED policy | CAUSAL_REPAIR_POLICY.md |
@@ -399,20 +399,23 @@ M3 Analysis-bank + evidence identity proof       DONE
 M4 Forecast decision-flip/adversarial closure   DONE
 M5 Lifecycle + Fresh Chat / No-Website          DONE
 M6 v4 Source-fidelity finding repair             DONE · Politics QA PASS
-M7 Fresh Independent / Anti-Anchored re-audit   OPEN — HARD FREEZE BLOCKER
-M8 SYSTEM_LOGIC_ACCEPTED verdict                BLOCKED ON M7
-M9 KIAN_SPECIFIC_CALIBRATED                     REAL-U GATED
-M10 2027 handbook/current affairs/Xiao8/Xiao4   SOURCE GATED
+M7 v5 Fresh Independent audit                    FAIL · F-01 stale Chat Plan basis
+M8 F-01 shared stale-basis repair                DONE · PR #668 / main 9dcc15b
+M9 Final Fresh Independent / Anti-Anchored audit OPEN · LAST AUTOMATIC FREEZE AUDIT
+M10 SYSTEM_LOGIC_ACCEPTED verdict                BLOCKED ON M9
+M11 KIAN_SPECIFIC_CALIBRATED                     REAL-U GATED
+M12 2027 handbook/current affairs/Xiao8/Xiao4   SOURCE GATED
 ~~~
 
-Do not resume broad feature construction. The next maturity action is the bounded Fresh Independent Audit required by shared standard §23. Only a material finding from that audit may reopen the smallest responsible owner.
+Do not resume broad feature construction. The only automatic maturity action left in this closure cycle is the final Fresh Independent Audit required by shared standard §23.
 
-Fresh audit candidate is sealed and immutable for M7:
+Launcher target ref:
 
 ```text
-audit/politics-maturity-freeze-20260921
-@ 9da838f38dd025283407c9bf248e9fbf731adcaa
+audit/politics-maturity-freeze-20260921-v6
 ```
 
-A PASS/FAIL may certify only that exact SHA. Any material semantic repair requires a new sealed candidate and a new fresh audit.
+The launcher must resolve that immutable ref to its exact SHA and supply the separate audit-result ref. A PASS/FAIL certifies only that exact sealed SHA.
+
+If the final audit finds a new unrelated material blocker, stop the automatic repair → reseal → re-audit loop and report to Kian before any further repair or audit. If it finds only incomplete F-01 repair, return to that exact shared stale-basis owner without broad Politics redesign.
 
