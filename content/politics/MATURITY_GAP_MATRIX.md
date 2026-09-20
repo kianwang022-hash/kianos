@@ -78,7 +78,7 @@ Need:
 - progress signals without fake NU completion.
 
 Status:
-- **TARGETED PROOF ACTIVE — cumulative single/multiple + unit-composition sensors added; fake personal interval removed; CI pending**
+- **DONE at SYSTEM_LOGIC_ACCEPTED boundary — cumulative single/multiple + unit-composition sensors are implemented and targeted proof exists; personal throughput remains REAL-U gated rather than fabricated. Current branch CI is a promotion gate, not an unowned maturity task.**
 
 ## S0-T4 — Day-1 learner simulation
 Simulate:
@@ -104,7 +104,7 @@ Must attack:
 - interrupted NU.
 
 Status:
-- **TARGETED BROWSER PROOF ACTIVE — real Chat Plan import + stale rejection added to existing final cross-subject regression**
+- **DONE at SYSTEM_LOGIC_ACCEPTED boundary — real learner-facing Chat Plan import + stale rejection are covered by the final cross-subject regression. The test seam opens the containing learner dialog before exercising the import control.**
 
 ### Stage-0 Gate
 Day-1 safe when:
@@ -253,7 +253,7 @@ Current candidate:
 - bounded Mao structural coverage added from Current chapter compression;
 - Xi structure-only tasks added with current-year exactness blocked;
 - builder revalidation: PASS_AFTER_BOUNDED_REPAIR;
-- fresh independent audit still pending before final acceptance.
+- builder/system-quality validation is complete for the current structural bank. Politics does **not** claim whole-subject maturity here; Requirement #30 independent falsification remains a later whole-subject gate and must not be fabricated before phase-appropriate Real U/current-year evidence exists.
 
 ## S2-T3 — Analysis scoring owner
 Create/validate:
@@ -266,11 +266,11 @@ Create/validate:
 - second-review rule when strategy would change.
 
 Status:
-- **CANDIDATE CREATED — `content/politics/analysis-output/SCORING_RUBRIC.md`; diagnostic rubric ready, precise exam-score conversion remains current-year/external calibration work**
+- **SYSTEM-LOGIC READY — `content/politics/analysis-output/SCORING_RUBRIC.md`; diagnostic rubric is available, while precise exam-score conversion remains current-year/external-calibration gated.**
 
 ## S2-T4 — Analysis evidence ladder
 Status:
-- **IMPLEMENTED CANDIDATE — typed Analysis events reuse existing Politics evidence ledger; bounded profile enters Daily Packet; existing Review import accepts Analysis batches; checkpoint/restart browser proof pending**
+- **SYSTEM-LOGIC READY — typed Analysis events reuse the existing Politics evidence ledger; bounded profile enters Daily Packet; Analysis batches are identity/freshness checked; replay/conflict behavior is tested. Real learner performance remains REAL-U gated.**
 
 Implement evidence states for:
 - first IDENTIFY;
@@ -446,7 +446,7 @@ Must support:
 
 Current candidate:
 - `content/politics/later-stage/INGESTION_RULES.md`
-- **revalidate before acceptance**
+- **SYSTEM-LOGIC READY — ingestion/invalidation lifecycle validated; actual annual-source content and its real assimilation cost remain SOURCE/REAL-U gated.**
 
 ## X2 — Politics Forecast
 Current candidates:
