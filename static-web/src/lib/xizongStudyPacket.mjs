@@ -520,6 +520,9 @@ function summarizeXizongForecastRepairs(storage, systemRows = []) {
       const timerMinutes = detailKey && task?.createdAt && task?.completedAt
         ? timerMinutesForDetail(storage, detailKey, { startAt: task.createdAt, endAt: task.completedAt })
         : null;
+      const exclusiveRepairTimerMinutes = task?.id && task?.createdAt && task?.completedAt
+        ? timerMinutesForDetail(storage, `repair/${task.id}`, { startAt: task.createdAt, endAt: task.completedAt })
+        : null;
       calibrationSamples.push({
         repair_id: String(task?.id || ''),
         canonical_id: canonicalId,
@@ -528,8 +531,11 @@ function summarizeXizongForecastRepairs(storage, systemRows = []) {
         created_at: String(task?.createdAt || '') || null,
         completed_at: String(task?.completedAt || '') || null,
         timer_minutes_in_repair_window: Number.isFinite(timerMinutes) ? timerMinutes : null,
-        timing_semantics: 'BLOCK_ROUTE_LIFETIME_WINDOW_MIXED',
-        exclusive_repair_timer_minutes: null
+        timing_semantics: 'EXCLUSIVE_REPAIR_TIMER_WHEN_TAGGED_ELSE_MIXED_REFERENCE',
+        exclusive_repair_timer_minutes:
+          Number.isFinite(exclusiveRepairTimerMinutes) && exclusiveRepairTimerMinutes > 0
+            ? exclusiveRepairTimerMinutes
+            : null
       });
     }
   }
@@ -562,7 +568,7 @@ function summarizeXizongForecastRepairs(storage, systemRows = []) {
     by_system: bySystem,
     calibration_samples: calibrationSamples,
     evidence_boundary:
-      'Repair lifecycle is subject-owned. Official-question compression ratios use official question ids only; AI probes and non-official sources cannot reduce predicted official W/U workload. Compression is exposed by System so an easy/familiar System cannot silently price later-System Repair. DONE still requires later fresh verification. Block-route timer observed across a Repair lifetime window is explicitly mixed timing and must not be treated as exclusive Repair duration.'
+      'Repair lifecycle is subject-owned. Official-question compression ratios use official question ids only; AI probes and non-official sources cannot reduce predicted official W/U workload. Compression is exposed by System so an easy/familiar System cannot silently price later-System Repair. DONE still requires later fresh verification. Block-route timer observed across a Repair lifetime window is explicitly mixed timing and must not be treated as exclusive Repair duration. When Repair is entered through the existing Repair workspace/query context, the shared Study Timer records repair/<task_id> and that tagged duration is the only exclusive Repair-time calibration.'
   };
 }
 
