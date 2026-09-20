@@ -20,7 +20,7 @@ Do **not** read:
 
 ## Task
 
-Blind-grade every fixture.
+Blind-grade every fixture, including any complete-section Translation fixtures and dedicated Writing length-stress fixtures present in the bank.
 
 For each fixture return:
 
@@ -42,10 +42,15 @@ Requirements:
 
 - derive prompt-specific task requirements before judging Writing;
 - preserve multiple-valid-rendering tolerance in Translation;
+- for complete-section Translation, grade all five segments first, then aggregate conservatively and preserve section-level range width;
+- measure Writing length rather than guessing it;
+- for dedicated under-length fixtures, apply the current discretionary-length rule without inventing a fixed point deduction;
+- do not double-penalize the same root cause as both “short” and “underdeveloped” unless they are independently evidenced;
 - score first output quality, not repair potential;
 - do not award style over task fulfillment;
 - do not use quarter-point pseudo-precision in Translation;
-- do not use a midpoint merely because a band exists.
+- do not use a midpoint merely because a band exists;
+- if a Writing range crosses a band or any score could affect Secure / Forecast / Dynamic Control, mark independent re-score as required.
 
 ## After all grading is complete
 
@@ -69,6 +74,10 @@ Compare the blind grading to:
 6. Can the scorer explain uncertainty instead of forcing a point estimate?
 7. Does the rubric systematically overreward vocabulary sophistication?
 8. Does one dimension get double-counted under several labels?
+9. Does a five-segment Translation section keep one major semantic error visible after aggregation?
+10. Does under-length Writing lower/widen the range without becoming an invented fixed deduction or a duplicate content penalty?
+11. Can a single-rater score that would affect 85+ Forecast escape independent re-score?
+12. Is the scoring-standard version explicit and carried by the fixture/key pair?
 
 ## Verdict
 
@@ -78,7 +87,11 @@ PASS only if:
 - pairwise invariants hold;
 - major task/fidelity errors dominate cosmetic style;
 - uncertainty is preserved;
-- no exact-score fiction is introduced.
+- no exact-score fiction is introduced;
+- complete-section Translation aggregation behaves conservatively;
+- Writing length is handled without confounding the main task/style fixtures;
+- forecast-sensitive Writing scores have an independent re-score path;
+- scoring-standard version identity is explicit.
 
 If a material defect is found:
 
