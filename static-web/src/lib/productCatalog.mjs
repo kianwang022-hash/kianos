@@ -6,9 +6,9 @@ import { buildPoliticsPracticeCatalogCurrent } from './politicsPractice.mjs';
 import { publicPracticeCatalog } from './politicsPracticeView.mjs';
 import { listProjectableXizongSystems } from './xizong.mjs';
 import { loadXizongSystemQuestionSweep } from './xizongQuestions.mjs';
-import { listReadingSets } from './englishReadingSourceTruth.mjs';
-import { listClozeSets, listReadingBSets } from './englishObjectiveSourceTruth.mjs';
-import { listTranslationSets } from './englishTranslationSourceTruth.mjs';
+import { listReadingSets, loadReadingById } from './englishReadingSourceTruth.mjs';
+import { listClozeSets, listReadingBSets, loadClozeById, loadReadingBById } from './englishObjectiveSourceTruth.mjs';
+import { listTranslationSets, loadTranslationById } from './englishTranslationSourceTruth.mjs';
 import { listWritingExamRuntimeTasks } from './englishWritingRuntimeSourceTruth.mjs';
 import { listEnglishExamPapers, loadEnglishExamPaper } from './englishExamPaper.mjs';
 
@@ -72,10 +72,31 @@ function englishExternalForecastCatalog() {
 export function englishProductCatalog() {
   const writing = listWritingExamRuntimeTasks();
   const examObjects = [
-    ...listReadingSets().map((row) => compactEnglishExamObject('reading_a', row)),
-    ...listClozeSets().map((row) => compactEnglishExamObject('cloze', row)),
-    ...listReadingBSets().map((row) => compactEnglishExamObject('reading_b', row)),
-    ...listTranslationSets().map((row) => compactEnglishExamObject('translation', row)),
+    ...listReadingSets().map((row) => {
+      const item = loadReadingById(row.id);
+      return compactEnglishExamObject('reading_a', row, {
+        question_count: Array.isArray(item?.questions) ? item.questions.length : 0
+      });
+    }),
+    ...listClozeSets().map((row) => {
+      const item = loadClozeById(row.id);
+      return compactEnglishExamObject('cloze', row, {
+        question_count: Array.isArray(item?.questions) ? item.questions.length : 0
+      });
+    }),
+    ...listReadingBSets().map((row) => {
+      const item = loadReadingBById(row.id);
+      return compactEnglishExamObject('reading_b', row, {
+        question_count: Array.isArray(item?.questions) ? item.questions.length : 0,
+        task_form: String(item?.context?.taskForm || item?.context?.questionGroupType || '') || null
+      });
+    }),
+    ...listTranslationSets().map((row) => {
+      const item = loadTranslationById(row.id);
+      return compactEnglishExamObject('translation', row, {
+        prompt_count: Array.isArray(item?.prompts) ? item.prompts.length : 0
+      });
+    }),
     ...writing.map((row) => compactEnglishExamObject('writing', row, {
       writing_kind: String(row?.kind || '') || null
     }))
