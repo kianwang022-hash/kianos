@@ -468,18 +468,37 @@ function timingProfile(rows) {
 function taskPerformanceProfile(allRows, recentRows, task) {
   const history = allRows.filter((row) => row.task === task);
   const recent = recentRows.filter((row) => row.task === task);
-  const summarize = (rows) => ({
-    attempts: rows.length,
-    unreadable_attempts: rows.filter((row) => row.data_status === 'unreadable').length,
-    complete_attempts: rows.filter((row) => row.complete === true).length,
-    current_problem_bearing_attempts: rows.filter((row) => Number(row.problem_count || 0) > 0).length,
-    independent_transfer_candidates: rows.filter(safeIndependentTransferCandidate).length,
-    exposure: countValues(rows, (row) => row.prior_exposure || 'unknown', ['unseen', 'exposed', 'unknown']),
-    assistance: countValues(rows, (row) => row.assistance || 'unknown', ['unassisted', 'assisted', 'unknown']),
-    timing: timingProfile(rows)
-  });
+  const objectiveLike = ['reading_a','cloze','reading_b','external_reading'].includes(task);
+  const productive = ['translation','writing'].includes(task);
+
+  const summarize = (rows) => {
+    const summary = {
+      attempts: rows.length,
+      unreadable_attempts: rows.filter((row) => row.data_status === 'unreadable').length,
+      complete_attempts: rows.filter((row) => row.complete === true).length,
+      independent_transfer_candidates: rows.filter(safeIndependentTransferCandidate).length,
+      exposure: countValues(rows, (row) => row.prior_exposure || 'unknown', ['unseen', 'exposed', 'unknown']),
+      assistance: countValues(rows, (row) => row.assistance || 'unknown', ['unassisted', 'assisted', 'unknown']),
+      timing: timingProfile(rows)
+    };
+
+    if (objectiveLike) {
+      summary.problem_bearing_attempts = rows.filter((row) => Number(row.problem_count || 0) > 0).length;
+    }
+
+    if (productive) {
+      const repairStates = task === 'translation'
+        ? new Set(['repaired','transfer_pending'])
+        : new Set(['REPAIR_COMPLETE','TRANSFER_PENDING']);
+      summary.repair_bearing_attempts = rows.filter((row) => repairStates.has(String(row.stage || ''))).length;
+    }
+
+    return summary;
+  };
+
   return {
     role: ENGLISH_PROFILE_TASK_ROLE[task],
+    evidence_shape: objectiveLike ? 'QUESTION_OUTCOME' : 'PRODUCTIVE_REPAIR_STATE',
     history: summarize(history),
     recent: summarize(recent)
   };
