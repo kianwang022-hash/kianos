@@ -126,6 +126,7 @@ private normalized article / source-native questions / optional answer key
 
 Supported without another architecture change:
 
+- source-native semantic figures declared by explicit `[FIGURE]` blocks → inline figure/caption rendering with fail-closed malformed markers;
 - questionless authentic long-form → automatic Reading Only;
 - source-native questions without a formal key → manual/unscored review;
 - source-native questions with a formal key → answer bytes stay gated until Submit.
