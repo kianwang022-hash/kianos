@@ -315,11 +315,12 @@ Current verdict:
 
 Why:
 
-1. 2027 exact exam geometry is not yet Current;
-2. F exact official scope remains unpriced;
-3. current-year Biochemistry delta remains unresolved;
-4. 27-cycle late-stage material has not arrived, but its 26 baseline/delta/replacement slots are closed;
-5. X8/X9 Kian-specific evidence does not yet exist.
+1. F exact official scope is still being closed in the active parallel F lane;
+2. 2027 exam geometry / humanities / Biochemistry deltas are upstream-source blocked, not active build defects;
+3. 27-cycle late-stage material has not arrived, but its 26 baseline/delta/replacement slots are closed;
+4. X8/X9 Kian-specific evidence does not yet exist.
+
+Therefore Stage A may continue structural/loss-envelope work without pretending the blocked 2027 deltas can be solved now.
 
 Humanistic/non-System baseline coverage is now closed on main; only its 2027 delta remains upstream-BLOCKED.
 
@@ -342,10 +343,19 @@ Priority is learner/score impact, not repository neatness.
 
 These are explicit uncertainties, not active architecture work.
 
-## P1 — current highest unblocked Stage-A work
+## P1 — current active Stage-A work
 
-1. **F exact official-question membership**
-2. **2027 Biochemistry delta**
+1. **F exact official-question membership — ACTIVE IN PARALLEL CONTENT LANE**
+   - do not duplicate or steal this work in the maturity-control lane;
+   - consume its accepted result when it lands.
+
+## P1-BLOCKED — future-source deltas
+
+- **2027 Biochemistry delta — BLOCKED_UNTIL_27_SOURCE**
+- **2027 exam-format delta — BLOCKED_UNTIL_OFFICIAL_SOURCE**
+- **2027 humanities scope delta — BLOCKED_UNTIL_OFFICIAL_SOURCE**
+
+These are not active build tasks. Preserve the prior baseline and wait for the authoritative current-year source.
 
 Reason: these change real remaining workload without implying missing medical Core.
 
@@ -396,8 +406,8 @@ This package coordinates; exact owners still own truth.
 
 - [x] 2027 exam scope/geometry is explicitly authority-BLOCKED with historical 165/300 fallback kept prior-only
 - [x] humanistic/non-System baseline has exact Current owner, H1–H4 training/evidence path, 80 exact historical qids, and bounded 2027 BLOCKED delta
-- [ ] F exact System question scope closed
-- [ ] 2027 Biochemistry delta reconciled
+- [ ] F exact System question scope closed — **ACTIVE in parallel F lane**
+- [x] 2027 Biochemistry delta is correctly represented as **BLOCKED_UNTIL_27_SOURCE** with prior baseline preserved; no current build task exists
 - [x] 26 Case/Cram baseline, X8 role, overlap and 27 delta slot are closed; 27 net-new remains legitimate future-UNKNOWN
 - [x] four-mock baseline, leakage boundary and future X9/current-year delta slot are defined
 - [x] final-five-hour baseline and direct Case/Cram overlap/replacement rule are closed
