@@ -188,7 +188,7 @@ assert.deepEqual(expectedIds, fixtureIds, 'SEALED_KEY_FIXTURE_SET_MISMATCH');
 
 const equivalenceInvariant = invariants.find((row) => row.invariant_id === 'translation-semantic-equivalence');
 assert.ok(equivalenceInvariant, 'TRANSLATION_EQUIVALENCE_INVARIANT_MISSING');
-assert.deepEqual(new Set(equivalenceInvariant.better_or_equal || []), new Set(['ps-tr-001','ps-tr-002']));
+assert.deepEqual(new Set(equivalenceInvariant.better_or_equal || []), new Set(['fx-a5c741','fx-b84d30']));
 
 for (const requiredInvariant of [
   'translation-section-major-error-visible',
@@ -212,6 +212,7 @@ console.log(JSON.stringify({
   checks: {
     blind_fixture_bank_has_no_expected_scores: true,
     blind_fixture_ids_are_opaque: true,
+    blind_fixture_ids_do_not_encode_channel: true,
     blind_fixture_rows_have_no_calibration_metadata: true,
     blind_presentation_order_is_non_ordinal: true,
     sealed_expectation_key_complete: true,
