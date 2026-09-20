@@ -1,6 +1,6 @@
 # Politics Maturity Adversarial Report
 
-Status: **ACTIVE CLOSURE REPORT**
+Status: **SYSTEM-LOGIC ADVERSARIAL CLOSURE ACCEPTED**
 Parent result: MATURITY_PACKAGE.md
 Owner: PR #638
 
@@ -224,11 +224,15 @@ Status: **REAL_U / CURRENT-YEAR MOCK GATED**.
 
 ## 9. Current adversarial verdict
 
-System-logic blockers still open:
+Targeted latest-head execution closed the current system-logic blockers.
 
-1. new Analysis-bank validator must pass CI;
-2. new maturity adversarial Forecast test must pass CI;
-3. package/status owners must be reconciled after those results.
+Defects found and repaired during this closure:
+
+1. **Forecast null-as-zero defect** — default `explicit_remaining_units = null` was coerced by `Number(null)` into an explicit zero remaining-NU case, which could systematically understate workload. The owner now distinguishes absent input from explicit zero and preserves structural uncertainty.
+2. **Analysis identity transport defect** — r4 bank tasks had exact material/family identity, but durable evidence did not enforce it. Evidence now carries material identity/family, rejects reused exact/family material as FRESH, requires a different exact material for CHANGED_CONTEXT, and downgrades legacy identity-less fresh claims to UNKNOWN.
+3. **Whole-cycle capacity omission** — Forecast previously modeled first-round workload but lacked an explicit envelope for Analysis build, Future Source assimilation and Mock/final reserve. These now enter as explicit ranges; missing components keep whole-cycle workload UNKNOWN.
+
+Latest-head targeted proof: Analysis r4 bank PASS; Analysis evidence freshness PASS; Forecast decision-flip PASS; package 1–29/Fresh-Chat/No-Website/lifecycle PASS.
 
 Not blockers because reality has not supplied them yet:
 
@@ -237,4 +241,4 @@ Not blockers because reality has not supplied them yet:
 - authentic final whole-paper evidence;
 - precise Analysis score conversion.
 
-When the three current system-logic blockers close, this report permits a bounded SYSTEM_LOGIC_ACCEPTED verdict while keeping KIAN_SPECIFIC_CALIBRATED = NO.
+Verdict: **SYSTEM_LOGIC_ACCEPTED = YES** while **KIAN_SPECIFIC_CALIBRATED = NO** and current-year annual content remains Source-gated.
