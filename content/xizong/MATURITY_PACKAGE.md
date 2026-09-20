@@ -177,46 +177,61 @@ Required closure:
 
 Type:
 
-`TRANSFER_CASE_GAP / OPTIONAL_DELTA`
+`BASELINE_CLOSED + CURRENT_27_DELTA`
 
-Required closure:
+Current truth on main:
 
-    capability role
-    → overlap with Current
-    → replacement
-    → net-new case/precision/boundary value
-    → X8 training path
-    → workload admission
+- PR #641 merged the canonical 26-cycle late-stage baseline owner:
+  `content/xizong/knowledge/learner/xizong-26-late-stage-material-baseline.json`;
+- 26 Case/Cram identity = closed;
+- 16-session historical family is inventoried;
+- readable 80-page internal/diagnosis+partial-surgery and 50-page surgery compiled handouts are identified;
+- role is X8 case discrimination / case-pattern compression / confusable-boundary review, not medical Core replacement;
+- some raw historical SRT bytes remain unmounted, so sentence-level extraction for those exact transcripts stays fail-closed.
 
-Raw source duration may not be stacked.
+27-cycle rule:
 
-## G6 — Current-year multi-set / four-set mocks
+> Compare topic/capability contribution against Current canonical + 26 baseline and admit only PRESERVE / UPDATE / NEW / RETIRE / CONFLICT deltas.
+
+## G6 — Four mocks / current-year multi-set
 
 Type:
 
-`FUTURE_SOURCE / FORMAL_CALIBRATION_DELTA`
+`BASELINE_CLOSED + FUTURE_CURRENT_YEAR_DELTA`
 
-Required closure:
+Current truth:
 
-- arrival slot;
-- source-fidelity check;
-- freshness/exposure identity;
-- whole-paper / formal-calibration role;
-- replacement vs additional simulation workload.
+- 26 baseline contains **four complete 165-question teacher sets**;
+- annotated answers/explanation/timestamp leakage is present;
+- therefore they are transfer/stress material, **not official or clean unseen formal score evidence**;
+- future 27 mocks must be compared by capability/decision axis and freshness, not raw question count.
+
+No second mock truth system is needed.
 
 ## G7 — Final five-hour material
 
 Type:
 
-`OPTIONAL_DELTA / FINAL_COMPRESSION`
+`BASELINE_CLOSED + FINAL_COMPRESSION_DELTA`
 
-Role:
+Current truth:
 
-- late compression/delta only;
-- may replace redundant late review;
-- may not substitute for current-year Biochemistry/source delta.
+- 26 final-5h has four directly readable SRT sessions plus compact physiology/biochemistry/pathology PDFs;
+- role = final retrieval/compression / high-yield filter, not independent full curriculum;
+- transcripts explicitly reuse Case/Cram material;
+- visible “最后5h 内科/外科.pdf” files are body-verified Case/Cram handouts, not independent 5h files.
 
----
+Hard workload rule:
+
+> **Final 5h and Case/Cram must not be raw-stacked as independent full workloads.**
+
+27-cycle rule:
+
+- compare cue-by-cue against Current canonical + 26 baseline;
+- admit only current-year changes or clearly superior replacement/compression.
+
+Historical raw-source gaps that remain provenance-only do not reopen the closed family-role baseline unless they are needed for a concrete learner decision.
+
 
 # 5｜Method map by phase
 
@@ -303,7 +318,7 @@ Why:
 1. 2027 exact exam geometry is not yet Current;
 2. F exact official scope remains unpriced;
 3. current-year Biochemistry delta remains unresolved;
-4. case/狂背/four-set/final-five-hour net-new load is not fully reconciled;
+4. 27-cycle late-stage material has not arrived, but its 26 baseline/delta/replacement slots are closed;
 5. X8/X9 Kian-specific evidence does not yet exist.
 
 Humanistic/non-System baseline coverage is now closed on main; only its 2027 delta remains upstream-BLOCKED.
@@ -334,13 +349,17 @@ These are explicit uncertainties, not active architecture work.
 
 Reason: these change real remaining workload without implying missing medical Core.
 
-## P2 — price later capability material
+## P2 — late-stage baseline CLOSED; wait for 27 delta
 
-5. **Case / 狂背 net-new X8 value**
-6. **current-year multi-set / four-set X9 value**
-7. **final-five-hour replacement/compression value**
+The 26-cycle baseline now already owns:
 
-Reason: these determine score-formation and late-phase load, but should not be stacked before overlap/delta reconciliation.
+- Case/Cram X8 role;
+- four-mock transfer/stress role;
+- final-5h compression role;
+- direct Case/Cram↔5h overlap;
+- replacement/net-new admission rules.
+
+No further broad construction is needed now. Reopen only when 27-cycle material arrives or a concrete missing historical source is needed for a real decision.
 
 ## P3 — reconcile the 25-point envelope
 
@@ -379,9 +398,9 @@ This package coordinates; exact owners still own truth.
 - [x] humanistic/non-System baseline has exact Current owner, H1–H4 training/evidence path, 80 exact historical qids, and bounded 2027 BLOCKED delta
 - [ ] F exact System question scope closed
 - [ ] 2027 Biochemistry delta reconciled
-- [ ] case/狂背 net-new workload priced or explicitly reconciled as future-UNKNOWN
-- [x] current-year mocks/four-set slot and X9 role defined
-- [x] final-five-hour replacement/compression role defined
+- [x] 26 Case/Cram baseline, X8 role, overlap and 27 delta slot are closed; 27 net-new remains legitimate future-UNKNOWN
+- [x] four-mock baseline, leakage boundary and future X9/current-year delta slot are defined
+- [x] final-five-hour baseline and direct Case/Cram overlap/replacement rule are closed
 - [x] X1–X9 formation/evidence paths defined at SYSTEM_LOGIC level
 - [ ] 25-point loss envelope reconciled beyond the neutral historical baseline
 - [ ] remaining UNKNOWNs are only future Source or Real Learner U
