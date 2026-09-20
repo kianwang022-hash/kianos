@@ -166,21 +166,28 @@ function summarizeXizongForecastPractice(storage) {
 
 function summarizeXizongForecastRepairs(storage) {
   const memory = normalizeXizongMemoryState(readJson(storage, XIZONG_MEMORY_STORAGE_KEY, null));
-  const repairs = activeRepairTasks(memory);
+  const allRepairs = Array.isArray(memory.repairTasks) ? memory.repairTasks : [];
+  const activeRepairs = activeRepairTasks(memory);
   const sourceQuestionIds = new Set();
   let questionBackedClusters = 0;
-  for (const task of repairs) {
+  let completedClusters = 0;
+  for (const task of allRepairs) {
     const ids = Array.isArray(task?.sourceQuestionIds) ? task.sourceQuestionIds.map(String).filter(Boolean) : [];
     if (ids.length) questionBackedClusters += 1;
     ids.forEach((id) => sourceQuestionIds.add(id));
+    if (String(task?.status || '') === 'DONE') completedClusters += 1;
   }
   return {
     schema: 'kianos.xizong.repair-forecast-evidence.v1',
-    active_repair_clusters: repairs.length,
+    total_repair_clusters: allRepairs.length,
+    active_repair_clusters: activeRepairs.length,
+    completed_repair_clusters: completedClusters,
     question_backed_clusters: questionBackedClusters,
     unique_source_question_ids: sourceQuestionIds.size,
+    observed_question_to_cluster_ratio:
+      questionBackedClusters > 0 ? Number((sourceQuestionIds.size / questionBackedClusters).toFixed(3)) : null,
     evidence_boundary:
-      'Repair clusters are current subject-owned active repairs. Several Wrong/Uncertain questions may compress into one root-cause repair; completion still requires later fresh verification.'
+      'Repair lifecycle is subject-owned. The question-to-cluster ratio describes observed compression only; several Wrong/Uncertain questions may share one root cause, and DONE still requires later fresh verification.'
   };
 }
 
