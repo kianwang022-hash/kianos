@@ -110,7 +110,7 @@ Current stage:
 ```text
 E0 English-specific standard adaptation / falsification ✅ candidate
 E1 Score→Ability→Material→Method→Evidence Gap Matrix ✅ candidate
-E2 Material / Source Fidelity / Ready Inventory ← ACTIVE
+E2 Material / Source Fidelity / Ready Inventory ← ACTIVE · R1–R4 IMPLEMENTED_CANDIDATE
 E3 Productive scoring validity
 E4 Evidence / Exposure / long-horizon fidelity
 E5 Forecast v1
@@ -126,13 +126,14 @@ E11 Real Learner U / KIAN_SPECIFIC_CALIBRATED
 
 For every score-relevant capability, prove that required material is not merely present but correctly identified, fidelity-safe, answer/reference-gated, evidence-role-labeled, and executable through an accepted learner path.
 
-First E2 checks:
+E2 progress:
 
-1. reproduce whether the expanded Writing synthetic bank is executable by the current Writing runtime;
-2. verify whether Objective synthetic baseline objects can be addressed by existing Reading/Cloze/Part B workspaces and English Session Instruction;
-3. verify whether Translation synthetic baseline objects can be addressed by the existing Translation workspace and Session Instruction;
-4. inspect official/derived source-fidelity risks that can invalidate formal evidence;
-5. determine whether additional fresh Cloze / Stress material is actually required by representative evidence needs rather than by a quota.
+1. expanded Writing synthetic exact-count drift reproduced and minimally repaired on candidate;
+2. Objective synthetic baseline adapted into existing Reading/Cloze/Part B execution paths on candidate;
+3. Translation synthetic baseline adapted into existing Translation execution path on candidate;
+4. dedicated synthetic-readiness validator added to existing English Family CI;
+5. next: targeted CI/build/browser proof, then source-fidelity/fresh-capital self-attack;
+6. additional Cloze/Stress generation remains deferred until representative learner evidence justifies it.
 
 ### Boundaries
 
