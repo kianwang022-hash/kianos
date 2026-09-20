@@ -86,6 +86,106 @@ function clampIndex(value, length) {
   return Math.max(0, Math.min(length - 1, Math.floor(n)));
 }
 
+export function buildXizongForecastProgress(storage, packetIndex = []) {
+  if (!storage?.getItem) throw new Error('XIZONG_FORECAST_PROGRESS_STORAGE_UNAVAILABLE');
+  if (!Array.isArray(packetIndex) || !packetIndex.length) {
+    throw new Error('XIZONG_FORECAST_PROGRESS_PACKET_INDEX_REQUIRED');
+  }
+
+  const systems = new Map();
+  const completedBlockIds = [];
+  const startedIncomplete = [];
+  let observedBlocks = 0;
+
+  for (const row of packetIndex) {
+    const systemId = String(row?.systemId || '');
+    const canonicalId = String(row?.packetMeta?.canonicalId || '');
+    const blockId = String(row?.blockId || row?.packetMeta?.blockId || '');
+    const kpRows = Array.isArray(row?.kpRows) ? row.kpRows : [];
+    if (!systemId || !canonicalId || !blockId || !kpRows.length) {
+      throw new Error('XIZONG_FORECAST_PROGRESS_INDEX_ROW_INVALID');
+    }
+
+    if (!systems.has(systemId)) {
+      systems.set(systemId, {
+        system_id: systemId,
+        canonical_id: canonicalId,
+        canonical_blocks: 0,
+        canonical_kp: 0,
+        runtime_observed_blocks: 0,
+        runtime_completed_blocks: 0,
+        runtime_started_incomplete_blocks: 0,
+        runtime_observed_learned_kp: 0
+      });
+    }
+    const system = systems.get(systemId);
+    system.canonical_blocks += 1;
+    system.canonical_kp += kpRows.length;
+
+    const objectId = String(row?.packetMeta?.objectId || `xizong:${blockId}`);
+    const state = readJson(storage, `kianos-xizong-astro-v2:${objectId}`, null);
+    if (!record(state)) continue;
+
+    observedBlocks += 1;
+    system.runtime_observed_blocks += 1;
+    const learnedKp = Object.values(state.learned || {}).filter(Boolean).length;
+    system.runtime_observed_learned_kp += learnedKp;
+
+    if (state.completed === true) {
+      completedBlockIds.push(blockId);
+      system.runtime_completed_blocks += 1;
+      continue;
+    }
+
+    system.runtime_started_incomplete_blocks += 1;
+    startedIncomplete.push({
+      system_id: systemId,
+      canonical_id: canonicalId,
+      block_id: blockId,
+      kp_count: kpRows.length,
+      learned_kp_count: learnedKp,
+      current_stage: String(state.stage || ''),
+      group_index: Number.isInteger(Number(state.groupIndex)) ? Number(state.groupIndex) : null,
+      kp_index: Number.isInteger(Number(state.kpIndex)) ? Number(state.kpIndex) : null,
+      block_recall_done: state.blockRecallDone === true
+    });
+  }
+
+  const systemRows = [...systems.values()].sort((a,b) =>
+    String(a.canonical_id).localeCompare(String(b.canonical_id), undefined, { numeric: true })
+  );
+  const canonicalBlocks = packetIndex.length;
+  const canonicalKp = packetIndex.reduce((sum,row)=>sum+(Array.isArray(row?.kpRows)?row.kpRows.length:0),0);
+
+  return {
+    schema: 'kianos.xizong.forecast-progress.v1',
+    forecast_role: 'FACTUAL_SUBJECT_PROGRESS_SIGNAL_ONLY',
+    gate_workload_authority: false,
+    canonical_scope: {
+      systems: systemRows.length,
+      blocks: canonicalBlocks,
+      canonical_kp: canonicalKp,
+      block_weights: packetIndex.map((row) => ({
+        system_id: String(row.systemId || ''),
+        canonical_id: String(row.packetMeta?.canonicalId || ''),
+        block_id: String(row.blockId || row.packetMeta?.blockId || ''),
+        kp_count: Array.isArray(row.kpRows) ? row.kpRows.length : 0
+      }))
+    },
+    runtime_evidence: {
+      observed_blocks: observedBlocks,
+      completed_blocks: completedBlockIds.length,
+      started_incomplete_blocks: startedIncomplete.length,
+      no_runtime_evidence_blocks: Math.max(0, canonicalBlocks - observedBlocks),
+      completed_block_ids: completedBlockIds.sort(),
+      started_incomplete: startedIncomplete
+    },
+    systems: systemRows,
+    evidence_boundary:
+      'Factual KianOS runtime progress only. NO_RUNTIME_EVIDENCE does not prove unstudied; learned_kp is not mastery; Gate workload still requires subject-owned reconciliation into exam.subject-demand.v1.'
+  };
+}
+
 export function buildXizongStudyPacketFromStorage({
   storage,
   packetMeta,

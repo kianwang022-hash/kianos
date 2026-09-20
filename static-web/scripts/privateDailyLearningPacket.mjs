@@ -16,6 +16,7 @@ import { buildChatControlledExamReadModel } from '../src/lib/examPlanReadModel.m
 import { listProjectableXizongSystems, loadXizongBlock } from '../src/lib/xizong.mjs';
 import { buildXizongProductionBlock } from '../src/lib/xizongProductionProjection.mjs';
 import { politicsProductCatalog } from '../src/lib/productCatalog.mjs';
+import { buildPoliticsMemoryCandidateCatalogCurrent } from '../src/lib/politicsMemoryCandidates.mjs';
 
 class MemoryStorage {
   constructor() { this.map = new Map(); }
@@ -28,6 +29,7 @@ class MemoryStorage {
 
 let cachedXizongPacketIndex = null;
 let cachedPoliticsCatalog = null;
+let cachedPoliticsMemoryCatalog = null;
 
 function xizongPacketIndex() {
   if (cachedXizongPacketIndex) return cachedXizongPacketIndex;
@@ -70,6 +72,13 @@ function xizongPacketIndex() {
 function politicsCatalog() {
   if (!cachedPoliticsCatalog) cachedPoliticsCatalog = politicsProductCatalog('/');
   return cachedPoliticsCatalog;
+}
+
+function politicsMemoryCatalog() {
+  if (!cachedPoliticsMemoryCatalog) {
+    cachedPoliticsMemoryCatalog = buildPoliticsMemoryCandidateCatalogCurrent();
+  }
+  return cachedPoliticsMemoryCatalog;
 }
 
 function readProfile(storage, day) {
@@ -145,6 +154,7 @@ export function buildDailyLearningPacketFromPrivateCheckpoint(input, {
     plan,
     xizongPacketIndex: xizongPacketIndex(),
     politicsCatalog: politicsCatalog(),
+    politicsMemoryCatalog: politicsMemoryCatalog(),
     base
   });
 

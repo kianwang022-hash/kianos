@@ -29,6 +29,12 @@ import {
   politicsProductCatalog
 } from '../src/lib/productCatalog.mjs';
 import {
+  buildPoliticsMemoryCandidateCatalogCurrent
+} from '../src/lib/politicsMemoryCandidates.mjs';
+import {
+  POLITICS_MEMORY_EVIDENCE_KEY
+} from '../src/lib/politicsMemoryRuntime.mjs';
+import {
   buildDailyLearningPacketFromPrivateCheckpoint
 } from './privateDailyLearningPacket.mjs';
 
@@ -51,6 +57,20 @@ const block=loadXizongBlock(system.systemId,blockRef.slug);
 assert.ok(block.kpRecords.length>0);
 
 const politics=politicsProductCatalog('/');
+const politicsMemory=buildPoliticsMemoryCandidateCatalogCurrent();
+assert.ok(politicsMemory.candidates.length>0,'Current Politics Memory catalog must have candidates');
+const memoryCandidate=politicsMemory.candidates[0];
+const memorySnapshot={
+  id:memoryCandidate.id,
+  subject:memoryCandidate.subject,
+  chapter_id:memoryCandidate.chapter_id,
+  natural_unit_id:memoryCandidate.natural_unit_id||null,
+  family:memoryCandidate.family,
+  prompt:memoryCandidate.prompt,
+  answer_items:[...(memoryCandidate.answer_items||[])],
+  source_refs:[...(memoryCandidate.source_refs||[])],
+  source_role:memoryCandidate.source_role
+};
 const pSubject=politics.subjects[0];
 const pChapter=politics.chapters.find(row=>row.subject===pSubject.id)||politics.chapters[0];
 assert.ok(pChapter);
@@ -167,7 +187,18 @@ const storage=new MemoryStorage({
   }),
   'kianos-politics-attempts-v1':JSON.stringify({units:{}}),
   'kianos-politics-practice-meta-v1':JSON.stringify({}),
-  'kianos-politics-evidence-v1':JSON.stringify([])
+  'kianos-politics-evidence-v1':JSON.stringify([]),
+  [POLITICS_MEMORY_EVIDENCE_KEY]:JSON.stringify([{
+    schema:'kianos.politics.memory-recall-event.v1',
+    event_id:'private-relay-memory-yesterday',
+    plan_id:'private-relay-memory-plan',
+    study_day:'2026-09-19',
+    candidate_id:memoryCandidate.id,
+    catalog_revision:politicsMemory.revision,
+    candidate_snapshot:memorySnapshot,
+    response:'FORGOT',
+    observed_at:'2026-09-19T12:00:00.000Z'
+  }])
 });
 
 const shared=captureSharedControlCheckpoint(storage,{studyDay:day,now});
@@ -196,14 +227,52 @@ assert.equal(packet.total_minutes,70);
 assert.equal(packet.subjects.xizong.evidence.schema,'kianos.xizong.study_packet.v3');
 assert.equal(packet.subjects.xizong.evidence.current.block_id,block.blockId);
 assert.equal(packet.subjects.xizong.evidence.learning_state.current_stage,'kp_recall');
+const xzForecast=packet.subjects.xizong.evidence.forecast_progress;
+assert.equal(xzForecast.schema,'kianos.xizong.forecast-progress.v1');
+assert.equal(xzForecast.forecast_role,'FACTUAL_SUBJECT_PROGRESS_SIGNAL_ONLY');
+assert.equal(xzForecast.gate_workload_authority,false);
+assert.equal(xzForecast.canonical_scope.systems,systems.length);
+assert.equal(
+  xzForecast.canonical_scope.blocks,
+  systems.reduce((sum,row)=>sum+row.blocks.length,0)
+);
+assert.equal(
+  xzForecast.canonical_scope.canonical_kp,
+  systems.reduce((sum,row)=>sum+row.blocks.reduce((s,b)=>s+Number(b.kpCount||0),0),0)
+);
+assert.equal(xzForecast.canonical_scope.block_weights.length,xzForecast.canonical_scope.blocks);
+assert.ok(xzForecast.runtime_evidence.observed_blocks>=1);
+assert.match(xzForecast.evidence_boundary,/does not prove unstudied/i);
+assert.match(xzForecast.evidence_boundary,/exam\.subject-demand\.v1/);
 
 assert.equal(packet.subjects.english.evidence.schema,'kianos.english.evidence.v1');
 assert.equal(packet.subjects.english.evidence.resume.status,'ready');
 assert.equal(packet.subjects.english.evidence.resume.object_id,'reading-current-001');
 assert.equal(packet.subjects.english.evidence.resume.task,'reading_a');
+const enForecast=packet.subjects.english.evidence.forecast_progress;
+assert.equal(enForecast.schema,'kianos.english.forecast-progress.v1');
+assert.equal(enForecast.forecast_role,'FACTUAL_SUBJECT_PROGRESS_SIGNAL_ONLY');
+assert.equal(enForecast.gate_workload_authority,false);
+assert.equal(enForecast.scope,'CURRENT_EXPLICIT_SESSION_ONLY');
+assert.equal(enForecast.status,'active');
+assert.equal(enForecast.remaining_steps,1);
+assert.equal(enForecast.remaining_by_task.reading_a,1);
+assert.match(enForecast.evidence_boundary,/exam\.subject-demand\.v1/);
 
 assert.equal(packet.subjects.politics.evidence.schema,'kianos.politics.study_packet.v1');
 assert.equal(packet.subjects.politics.evidence.resume.title,pChapter.title);
+const polForecast=packet.subjects.politics.evidence.forecast_progress;
+assert.equal(polForecast.schema,'kianos.politics.forecast-progress.v1');
+assert.equal(polForecast.forecast_role,'FACTUAL_SUBJECT_PROGRESS_SIGNAL_ONLY');
+assert.equal(polForecast.gate_workload_authority,false);
+assert.equal(polForecast.scope,'FIRST_ROUND_CURRENT_CATALOG_PROGRESS_ONLY');
+assert.equal(polForecast.catalog_units,politics.units.length);
+assert.match(polForecast.evidence_boundary,/exam\.subject-demand\.v1/);
+const polMemoryProfile=packet.subjects.politics.evidence.memory?.history_profile;
+assert.equal(polMemoryProfile?.schema,'kianos.politics.memory-history-profile.v1',
+  'private relay must preserve landed cross-day Politics Memory profile');
+assert.equal(polMemoryProfile.unstable_recent.some(row=>row.candidate_id===memoryCandidate.id),true,
+  'yesterday FORGOT must survive into private Daily Packet');
 
 assert.equal(packet.schedule.phase.id,'A');
 assert.equal(packet.subjects.xizong.plan.role,'主推');
