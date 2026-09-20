@@ -36,7 +36,17 @@ Builder proof for the shared repair includes Exam Orchestrator, Final Cross-subj
 
 `SYSTEM_LOGIC_ACCEPTED` remains blocked until one final Fresh Independent audit certifies the newly sealed candidate. This is the **last automatically launched Fresh audit** in this closure cycle. If it finds a new unrelated material blocker, stop the automatic repair→seal→audit loop and report to Kian for a decision. If it finds only that F-01 is incompletely repaired, return to that exact shared owner; do not start broad Politics redesign.
 
-M9 uses an immutable candidate ref/SHA supplied by the Fresh Audit launcher. Do not derive the audited revision from the moving #638 head or from this Current file. A PASS/FAIL certifies only the launcher-bound candidate SHA.
+M9 launcher is now sealed and explicit:
+
+```text
+candidate_ref        audit/politics-maturity-freeze-20260921-v6
+candidate_head       2e5545ca018a50c5049c75b754f757421dcbb6fe
+audit_result_ref     audit-result/politics-maturity-freeze-20260921-v6
+shared_standard_ref  work/exam-subject-maturity-standard-20260920
+shared_standard_head 31ae8ee54857b896de7dab341f493d884f4b591b
+```
+
+The candidate ref is read-only. Do not derive the audited revision from the moving #638 head or from this Current file. A PASS/FAIL certifies only `2e5545ca018a50c5049c75b754f757421dcbb6fe`.
 
 
 **Politics Final Learner Acceptance — CLOSED for audited first-round paths**
