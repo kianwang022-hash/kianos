@@ -600,13 +600,23 @@ export function buildXizongScoreReadiness(progress, {
     }
   };
 
+  const contamination = String(contaminationStatus || 'UNKNOWN').toUpperCase();
+  const lowContamination = ['LEAST_CONTAMINATED','LOW','FRESH_EQUIVALENT'].includes(contamination);
+  const knownContamination = ['KNOWN_PRIOR_EXPOSURE','HIGH','CONTAMINATED'].includes(contamination);
   let scoreEstimateStatus = 'NOT_READY';
   if (formalPapers.length === 1) scoreEstimateStatus = 'REFERENCE_ONLY';
   else if (formalPapers.length === 2) scoreEstimateStatus = 'MULTI_REFERENCE_NO_EMPIRICAL_BAND';
   else if (formalPapers.length >= 3) scoreEstimateStatus = 'EMPIRICAL_BAND';
-  if (formalPapers.length && String(contaminationStatus).toUpperCase() === 'UNKNOWN') {
-    scoreEstimateStatus += '_CONTAMINATION_UNKNOWN';
-  }
+  if (formalPapers.length && contamination === 'UNKNOWN') scoreEstimateStatus += '_CONTAMINATION_UNKNOWN';
+  else if (formalPapers.length && knownContamination) scoreEstimateStatus += '_KNOWN_CONTAMINATION';
+  else if (formalPapers.length && lowContamination) scoreEstimateStatus += '_LOW_CONTAMINATION';
+
+  const scoreExtrapolationReady = formalPapers.length > 0 && lowContamination;
+  const evidenceResult = hardGaps.length > 0 || formalPapers.length === 0
+    ? 'NOT_READY'
+    : scoreExtrapolationReady
+      ? 'READY_FOR_DEFENSIBLE_ESTIMATE'
+      : 'EVIDENCE_PRESENT_LOW_CONFIDENCE';
 
   return {
     schema: 'kianos.xizong.score-readiness.v1',
@@ -617,7 +627,9 @@ export function buildXizongScoreReadiness(progress, {
       latest_score: latest ? Number(latest.earned_score) : null,
       latest_target_gap: latest ? round(requirement.target_score - Number(latest.earned_score || 0)) : null,
       empirical_band: empiricalBand,
-      contamination_status: String(contaminationStatus || 'UNKNOWN'),
+      contamination_status: contamination,
+      score_extrapolation_ready: scoreExtrapolationReady,
+      observed_score_is_not_fresh_prediction: formalPapers.length > 0 && !scoreExtrapolationReady,
       discipline_breakdown: latest?.discipline_breakdown || null
     },
     capabilities,
@@ -627,10 +639,11 @@ export function buildXizongScoreReadiness(progress, {
       coverage_ready: hardGaps.length === 0,
       formal_score_evidence_ready: formalPapers.length > 0,
       full_empirical_score_band_ready: Boolean(empiricalBand),
-      result: hardGaps.length === 0 && formalPapers.length > 0 ? 'EVIDENCE_PRESENT' : 'NOT_READY'
+      score_extrapolation_ready: scoreExtrapolationReady,
+      result: evidenceResult
     },
     boundary:
-      'Work completion and capability evidence do not manufacture predicted score. Score bands come only from formal performance evidence; material/capability layers explain confidence, risk and recoverable gaps.'
+      'Work completion and capability evidence do not manufacture predicted score. Formal scores remain observed evidence even when contaminated, but only least-contaminated/fresh-equivalent calibration authorizes stronger extrapolation; no arbitrary contamination point penalty is invented.'
   };
 }
 
