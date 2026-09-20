@@ -1,6 +1,6 @@
 # Politics Maturity Adversarial Report
 
-Status: **SYSTEM-LOGIC ADVERSARIAL CLOSURE ACCEPTED**
+Status: **BUILDER ADVERSARIAL CLOSURE COMPLETE · FRESH INDEPENDENT AUDIT PENDING**
 Parent result: MATURITY_PACKAGE.md
 Owner: PR #638
 
@@ -222,7 +222,23 @@ Browser execution cannot manufacture this evidence.
 
 Status: **REAL_U / CURRENT-YEAR MOCK GATED**.
 
-## 9. Current adversarial verdict
+## 9. Adversarial methodology closure
+
+The current Builder suite uses more than a hand-picked scenario list:
+
+- Forecast stress uses a **full Cartesian grid of 5,832 combinations per Unit-remainder case** across reactivation speed, single/multiple attempt cost, single/multiple W/U, Repair compression, Repair cost and Memory cost;
+- capacity is swept across explicit daily-minute surfaces;
+- targeted counterfactuals deliberately flip conclusions by worsening multiple-choice W/U and by removing one study week;
+- metamorphic checks require irrelevant metadata/order changes not to change the Forecast conclusion;
+- missing/partial evidence must preserve UNKNOWN rather than manufacture stability;
+- boundary/extreme cases include zero evidence, over-counted attempts, absent remaining-Unit input and partial later-stage workload;
+- historical performance is treated only as a falsification prior, never a current score floor.
+
+Because the principal workload axes are exhaustively combined inside the declared grid, random sampling would add little coverage for those same axes. A Fresh Independent Audit remains responsible for challenging whether the chosen axes themselves omit a learner-risk mechanism.
+
+Builder methodology verdict: **sufficient to enter independent freeze audit, not sufficient to self-certify maturity.**
+
+## 10. Current adversarial verdict
 
 Targeted latest-head execution closed the current system-logic blockers.
 
@@ -241,4 +257,4 @@ Not blockers because reality has not supplied them yet:
 - authentic final whole-paper evidence;
 - precise Analysis score conversion.
 
-Verdict: **SYSTEM_LOGIC_ACCEPTED = YES** while **KIAN_SPECIFIC_CALIBRATED = NO** and current-year annual content remains Source-gated.
+Builder verdict: **BUILDER_CLOSURE_COMPLETE = YES**. Shared mother-standard §23 still blocks `SYSTEM_LOGIC_ACCEPTED` until a Fresh Independent / Anti-Anchored Audit passes the exact candidate revision. `KIAN_SPECIFIC_CALIBRATED` remains NO and current-year annual content remains Source-gated.
