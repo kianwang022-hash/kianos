@@ -103,6 +103,37 @@ These are future-source identities only. They do not change the current active c
 
 Legacy TPO56–65 must not be promoted into a current TOEFL mock model merely because they retain TOEFL source identity.
 
+## Incremental Source lane
+
+The fixed repaired legacy pool remains independently gated:
+
+- TPO56–65: 30 passages / 395 questions;
+- IELTS17–19: 36 passages / 480 questions.
+
+New material uses the optional Incremental Source contract:
+
+`content/english/external/INCREMENTAL_SOURCE_CONTRACT.md`
+
+Activation is:
+
+```
+private normalized article / source-native questions / optional answer key
+→ INCREMENTAL/manifest.json with exact per-file hashes
+→ public manifest registers exact incremental-manifest SHA
+→ compiler adds incremental objects
+→ existing External Reading workspace
+```
+
+Supported without another architecture change:
+
+- questionless authentic long-form → automatic Reading Only;
+- source-native questions without a formal key → manual/unscored review;
+- source-native questions with a formal key → answer bytes stay gated until Submit.
+
+No directory auto-discovery and no generated questions are implied by source admission.
+
+Current state: the Incremental lane is implemented but **no incremental private bytes are activated yet**. Current learner inventory therefore remains 66 passages / 875 legacy question-answer slots.
+
 ## Future content update path
 
 A normal new External content update should be:
