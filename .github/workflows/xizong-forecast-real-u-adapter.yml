@@ -25,11 +25,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Install runtime
+        working-directory: static-web
+        run: npm install --no-audit --no-fund
       - name: Prove Current learner facts feed Forecast
         working-directory: static-web
         run: node scripts/test-xizong-forecast-real-u-adapter.mjs
       - name: Build Current site
         working-directory: static-web
-        run: |
-          npm install --no-audit --no-fund
-          npm run build
+        run: npm run build
