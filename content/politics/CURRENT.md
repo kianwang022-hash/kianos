@@ -19,15 +19,24 @@ M2 Reconcile stale Analysis/material status     DONE
 M3 Analysis-bank + evidence identity proof       DONE
 M4 Forecast decision-flip/adversarial closure   DONE
 M5 Full lifecycle + Fresh Chat/No-Website       DONE
-M6 v4 Source-fidelity finding repair             DONE · Politics QA PASS
-M7 Fresh Independent / Anti-Anchored re-audit    OPEN — HARD FREEZE BLOCKER
-M8 SYSTEM_LOGIC_ACCEPTED verdict                 BLOCKED ON M7
-M9 KIAN_SPECIFIC_CALIBRATED                     REAL-U GATED
-M10 current-year annual sources                  SOURCE GATED
+M6 v4 Source-fidelity finding repair             DONE · QA PASS
+M7 v5 Fresh Independent audit                    FAIL · F-01 stale Chat Plan basis
+M8 F-01 shared stale-basis repair                DONE · bounded shared owner only
+M9 Final Fresh Independent / Anti-Anchored audit OPEN · LAST AUTOMATIC FREEZE AUDIT
+M10 SYSTEM_LOGIC_ACCEPTED verdict                BLOCKED ON M9
+M11 KIAN_SPECIFIC_CALIBRATED                     REAL-U GATED
+M12 current-year annual sources                  SOURCE GATED
 ```
 Canonical maturity package: `MATURITY_PACKAGE.md`.
-Fresh audit v4 produced a valid FAIL on Chengfeng Source-fidelity admission. The smallest owner was repaired: unreviewed/misclassified OCR now fails closed before Runtime/Practice/Review while raw shard parity remains intact; Static Web Politics QA run 35542360736 passed. SYSTEM_LOGIC_ACCEPTED remains blocked until a new Fresh Independent audit passes the repaired sealed candidate.
-M7 uses an immutable candidate ref/SHA supplied by the Fresh Audit launcher. Do not derive the audited revision from the moving #638 head or from this Current file. A PASS/FAIL certifies only the launcher-bound candidate SHA; any material semantic repair requires a new seal and a new Fresh Audit.
+Fresh audit v4 produced a valid FAIL on Chengfeng Source-fidelity admission; that bounded Source/Runtime admission defect remains repaired and proven.
+
+Fresh audit v5 then produced one new material blocker, F-01: a same-day Chat Plan was not bound to the learner-evidence snapshot used to create it. The smallest shared owner was repaired through PR #668 and landed on main as `9dcc15b`: the existing Daily Learning Packet now carries a deterministic `learner_evidence_basis`, Chat Plan returns that basis unchanged, and Home read/import plus private-control import fail closed once current durable learner evidence or explicit planning facts no longer match. The repair was replayed onto #638 without changing Politics Content, Forecast, Memory, Source or Analysis semantics.
+
+Builder proof for the shared repair includes Exam Orchestrator, Final Cross-subject, Mac Visual, Politics Functional, Authority/Semantic and Xizong Forecast PASS on #668. The #638 reconcile also passed Static Web Politics QA, Exam Orchestrator, Politics Functional, Politics Final Fresh Execution and Mac Visual on the reconciled product code. A later Final Cross-subject red was traced to synthetic-test contamination by the live private-control relay; the latest #638 change only isolates that test harness and is **not** being counted as a fresh product PASS.
+
+`SYSTEM_LOGIC_ACCEPTED` remains blocked until one final Fresh Independent audit certifies the newly sealed candidate. This is the **last automatically launched Fresh audit** in this closure cycle. If it finds a new unrelated material blocker, stop the automatic repair→seal→audit loop and report to Kian for a decision. If it finds only that F-01 is incompletely repaired, return to that exact shared owner; do not start broad Politics redesign.
+
+M9 uses an immutable candidate ref/SHA supplied by the Fresh Audit launcher. Do not derive the audited revision from the moving #638 head or from this Current file. A PASS/FAIL certifies only the launcher-bound candidate SHA.
 
 
 **Politics Final Learner Acceptance — CLOSED for audited first-round paths**
