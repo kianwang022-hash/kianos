@@ -33,7 +33,7 @@
   "future_source_families": {
     "schema": "kianos.politics.future-source-slots.v1",
     "exam_cycle": "2027",
-    "authority_rule": "UNBOUND_HAS_ZERO_CURRENT_YEAR_AUTHORITY",
+    "authority_rule": "ONLY_BOUND_HAS_CURRENT_YEAR_AUTHORITY",
     "families": {
       "memory_handbook": {
         "status": "UNBOUND",
@@ -41,7 +41,9 @@
         "sha256": null,
         "revision_id": null,
         "supersedes_revision_id": null,
-        "bound_at": null
+        "bound_at": null,
+        "current_year_authority": false,
+        "status_reason": null
       },
       "current_affairs": {
         "status": "UNBOUND",
@@ -49,7 +51,9 @@
         "sha256": null,
         "revision_id": null,
         "supersedes_revision_id": null,
-        "bound_at": null
+        "bound_at": null,
+        "current_year_authority": false,
+        "status_reason": null
       },
       "xiao8": {
         "status": "UNBOUND",
@@ -57,7 +61,9 @@
         "sha256": null,
         "revision_id": null,
         "supersedes_revision_id": null,
-        "bound_at": null
+        "bound_at": null,
+        "current_year_authority": false,
+        "status_reason": null
       },
       "xiao4": {
         "status": "UNBOUND",
@@ -65,9 +71,18 @@
         "sha256": null,
         "revision_id": null,
         "supersedes_revision_id": null,
-        "bound_at": null
+        "bound_at": null,
+        "current_year_authority": false,
+        "status_reason": null
       }
-    }
+    },
+    "allowed_statuses": [
+      "UNBOUND",
+      "PARTIAL",
+      "BOUND",
+      "STALE",
+      "REJECTED"
+    ]
   },
   "source_inventory": {
     "questions": {
