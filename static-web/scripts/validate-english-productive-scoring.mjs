@@ -25,6 +25,10 @@ assert.equal(fixtures.scoring_standard_version, 'english.productive-scoring.v2')
 assert.equal(fixtures.rules?.protected_true_exam_consumption, false);
 assert.equal(fixtures.rules?.learner_visible, false);
 assert.equal(fixtures.rules?.expected_results_sealed_separately, keyPath);
+assert.ok(!Object.prototype.hasOwnProperty.call(fixtures.rules || {}, 'non_length_fixture_control'),
+  'BLIND_RULE_LEAK_NON_LENGTH_CONTROL');
+assert.match(String(fixtures.rules?.blind_metadata_policy || ''), /opaque/i,
+  'BLIND_METADATA_POLICY_MISSING');
 
 assert.equal(key.schema, 'kianos.english.productive_scoring_fixtures_key.v1');
 assert.equal(key.source_bank, fixturesPath);
@@ -59,6 +63,14 @@ for (const marker of [
 const writingIds = new Set((writing.tasks || []).map((row) => row.id));
 const translationIds = new Set((translation.tasks || []).map((row) => row.id));
 const fixtureIds = new Set();
+const forbiddenBlindIdToken = /(strong|weak|low|mid|wrong|misread|missing|under|length|error|fragment|complete|polished|plain|fluent|major|reference)/i;
+const assertExactKeys = (row, allowed, label) => {
+  assert.deepEqual(
+    Object.keys(row).sort(),
+    [...allowed].sort(),
+    'BLIND_FIXTURE_METADATA_LEAK:' + label + ':' + row.fixture_id
+  );
+};
 const allFixtures = [
   ...(fixtures.translation || []),
   ...(fixtures.translation_section || []),
@@ -69,6 +81,11 @@ const allFixtures = [
 for (const row of allFixtures) {
   assert.ok(row.fixture_id && !fixtureIds.has(row.fixture_id), 'DUPLICATE_FIXTURE:' + row.fixture_id);
   fixtureIds.add(row.fixture_id);
+  assert.ok(!forbiddenBlindIdToken.test(row.fixture_id), 'BLIND_FIXTURE_ID_SEMANTIC_LEAK:' + row.fixture_id);
+  for (const forbiddenField of ['controlled_axis','calibration_axis','controlled_features','guardrail','expected_relation','expected_band','expected_range_hint','expected_uncertainty','requires_independent_rescore']) {
+    assert.ok(!Object.prototype.hasOwnProperty.call(row, forbiddenField),
+      'BLIND_FIXTURE_FIELD_LEAK:' + forbiddenField + ':' + row.fixture_id);
+  }
   const hasSingleResponse = row.response && String(row.response).trim();
   const hasSectionResponses = Array.isArray(row.responses) && row.responses.length > 0;
   assert.ok(hasSingleResponse || hasSectionResponses, 'EMPTY_FIXTURE_RESPONSE:' + row.fixture_id);
@@ -79,6 +96,8 @@ for (const row of allFixtures) {
 }
 
 for (const row of fixtures.translation || []) {
+  assert.match(row.fixture_id, /^ps-tr-\d{3}$/, 'TRANSLATION_FIXTURE_ID_NOT_OPAQUE:' + row.fixture_id);
+  assertExactKeys(row, ['fixture_id','task_id','source_segment','response'], 'translation');
   assert.ok(translationIds.has(row.task_id), 'TRANSLATION_FIXTURE_TASK_NOT_CURRENT:' + row.fixture_id);
   assert.ok(Number.isInteger(row.source_segment) && row.source_segment >= 1 && row.source_segment <= 5,
     'TRANSLATION_SEGMENT_INVALID:' + row.fixture_id);
@@ -94,12 +113,17 @@ for (const row of fixtures.translation || []) {
 }
 
 for (const row of fixtures.translation_section || []) {
+  assert.match(row.fixture_id, /^ps-tr-\d{3}$/, 'TRANSLATION_SECTION_ID_NOT_OPAQUE:' + row.fixture_id);
+  assertExactKeys(row, ['fixture_id','task_id','unit','responses'], 'translation_section');
   assert.ok(translationIds.has(row.task_id), 'TRANSLATION_SECTION_TASK_NOT_CURRENT:' + row.fixture_id);
   assert.equal(row.unit, 'complete_section', 'TRANSLATION_SECTION_UNIT_INVALID:' + row.fixture_id);
   assert.equal(row.responses?.length, 5, 'TRANSLATION_SECTION_MUST_HAVE_FIVE_SEGMENTS:' + row.fixture_id);
   assert.deepEqual(row.responses.map((x) => x.source_segment), [1,2,3,4,5],
     'TRANSLATION_SECTION_SEGMENT_ORDER_INVALID:' + row.fixture_id);
-  for (const item of row.responses) assert.ok(String(item.response || '').trim(), 'TRANSLATION_SECTION_EMPTY_SEGMENT:' + row.fixture_id);
+  for (const item of row.responses) {
+    assertExactKeys(item, ['source_segment','response'], 'translation_section_response');
+    assert.ok(String(item.response || '').trim(), 'TRANSLATION_SECTION_EMPTY_SEGMENT:' + row.fixture_id);
+  }
   const expected = key.expectations[row.fixture_id];
   assert.equal(expected.channel, 'translation');
   assert.ok(Array.isArray(expected.expected_range_hint) && expected.expected_range_hint.length === 2,
@@ -114,12 +138,15 @@ for (const row of fixtures.translation_section || []) {
 const wordCount = (value) => String(value || '').trim().split(/\s+/).filter(Boolean).length;
 
 for (const row of fixtures.writing_small || []) {
+  assert.match(row.fixture_id, /^ps-sw-\d{3}$/, 'SMALL_FIXTURE_ID_NOT_OPAQUE:' + row.fixture_id);
+  assertExactKeys(row, ['fixture_id','task_id','response'], 'writing_small');
   assert.ok(writingIds.has(row.task_id), 'WRITING_FIXTURE_TASK_NOT_CURRENT:' + row.fixture_id);
   const expected = key.expectations[row.fixture_id];
   assert.equal(expected.channel, 'writing_small');
   assert.ok(expected.expected_band, 'WRITING_BAND_MISSING:' + row.fixture_id);
   const wc = wordCount(row.response);
-  if (row.controlled_axis === 'length_deficit') {
+  const isLengthStress = expected.calibration_axis === 'length_deficit';
+  if (isLengthStress) {
     assert.ok(wc < 80, 'SMALL_LENGTH_STRESS_NOT_SHORT:' + row.fixture_id);
     assert.equal(expected.requires_independent_rescore, true, 'SMALL_LENGTH_STRESS_MUST_RESCORE:' + row.fixture_id);
   } else {
@@ -128,12 +155,15 @@ for (const row of fixtures.writing_small || []) {
 }
 
 for (const row of fixtures.writing_big || []) {
+  assert.match(row.fixture_id, /^ps-bw-\d{3}$/, 'BIG_FIXTURE_ID_NOT_OPAQUE:' + row.fixture_id);
+  assertExactKeys(row, ['fixture_id','task_id','response'], 'writing_big');
   assert.ok(writingIds.has(row.task_id), 'WRITING_FIXTURE_TASK_NOT_CURRENT:' + row.fixture_id);
   const expected = key.expectations[row.fixture_id];
   assert.equal(expected.channel, 'writing_big');
   assert.ok(expected.expected_band, 'WRITING_BAND_MISSING:' + row.fixture_id);
   const wc = wordCount(row.response);
-  if (row.controlled_axis === 'length_deficit') {
+  const isLengthStress = expected.calibration_axis === 'length_deficit';
+  if (isLengthStress) {
     assert.ok(wc < 160, 'BIG_LENGTH_STRESS_NOT_SHORT:' + row.fixture_id);
     assert.equal(expected.requires_independent_rescore, true, 'BIG_LENGTH_STRESS_MUST_RESCORE:' + row.fixture_id);
   } else {
@@ -158,7 +188,7 @@ assert.deepEqual(expectedIds, fixtureIds, 'SEALED_KEY_FIXTURE_SET_MISMATCH');
 
 const equivalenceInvariant = invariants.find((row) => row.invariant_id === 'translation-semantic-equivalence');
 assert.ok(equivalenceInvariant, 'TRANSLATION_EQUIVALENCE_INVARIANT_MISSING');
-assert.deepEqual(new Set(equivalenceInvariant.better_or_equal || []), new Set(['tr-cal-01-strong-a','tr-cal-01-strong-b-alt']));
+assert.deepEqual(new Set(equivalenceInvariant.better_or_equal || []), new Set(['ps-tr-001','ps-tr-002']));
 
 for (const requiredInvariant of [
   'translation-section-major-error-visible',
@@ -181,6 +211,9 @@ console.log(JSON.stringify({
   },
   checks: {
     blind_fixture_bank_has_no_expected_scores: true,
+    blind_fixture_ids_are_opaque: true,
+    blind_fixture_rows_have_no_calibration_metadata: true,
+    blind_presentation_order_is_non_ordinal: true,
     sealed_expectation_key_complete: true,
     scoring_standard_version_bound: true,
     no_exact_gold_score: true,
