@@ -48,6 +48,10 @@ export function buildDailyLearningPacket({
     timezone: time.timezone,
     generated_at: new Date(now).toISOString(),
     total_minutes: time.total_minutes,
+    recent_time: {
+      window_days: 7,
+      days: cloneJson(time.recent_days || [])
+    },
     timer: cloneJson(time.timer),
     control: cloneJson(controlReceipt(storage)),
     schedule: plan ? {
