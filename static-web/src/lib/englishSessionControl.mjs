@@ -44,13 +44,17 @@ const readJson = (storage, key) => {
   }
 };
 
-function exposureKnowsExactSource(exposure, sourceHash) {
-  if (!sourceHash) return false;
+function exposureKnowsSource(exposure, semanticSourceHash, exactSourceHash) {
+  if (!semanticSourceHash && !exactSourceHash) return false;
   return Object.values(exposure?.materials || {}).some((material) => {
-    const eventMatch = Array.isArray(material?.events)
-      && material.events.some((event) => event?.source_hash === sourceHash);
-    const declarationMatch = material?.declaration?.state === 'exposed'
-      && material?.declaration?.source_hash === sourceHash;
+    const eventMatch = Array.isArray(material?.events) && material.events.some((event) =>
+      (semanticSourceHash && event?.semantic_source_hash === semanticSourceHash)
+      || (exactSourceHash && event?.source_hash === exactSourceHash)
+    );
+    const declarationMatch = material?.declaration?.state === 'exposed' && (
+      (semanticSourceHash && material?.declaration?.semantic_source_hash === semanticSourceHash)
+      || (exactSourceHash && material?.declaration?.source_hash === exactSourceHash)
+    );
     return eventMatch || declarationMatch;
   });
 }
@@ -251,11 +255,11 @@ export function writeEnglishSessionInstruction(storage, input, expectedDay = nul
         if(d.state==='unseen'&&(
           m.events.length
           || m.declaration?.state==='exposed'
-          || (step.task!=='full_paper'&&exposureKnowsExactSource(exposure,step.source_hash))
+          || (step.task!=='full_paper'&&exposureKnowsSource(exposure,owner.semantic_source_hash||owner.source_hash,step.source_hash))
           || ['kianos-reading-attempt-v1:','kianos-cloze-attempt-v1:','kianos-reading-b-attempt-v1:','kianos-english-external-reading-attempt-v1:','kianos-translation-attempt-v2:','kianos-writing-runtime-v1:'].some(prefix=>storage.getItem(prefix+id)!=null)
         ))throw new Error('ENGLISH_MATERIAL_ALREADY_EXPOSED:'+id);
         if(m.declaration&&Date.parse(d.observed_at)<Date.parse(m.declaration.observed_at))throw new Error('ENGLISH_MATERIAL_DECLARATION_STALE');
-        m.declaration={...d,session_instruction_id:instruction.session_id,source_hash:step.task==='full_paper'?null:(step.source_hash||null)};exposure.materials[id]=m;
+        m.declaration={...d,session_instruction_id:instruction.session_id,source_hash:step.task==='full_paper'?null:(step.source_hash||null),semantic_source_hash:step.task==='full_paper'?null:(owner.semantic_source_hash||owner.source_hash||null)};exposure.materials[id]=m;
       }
     }
     changes.push([ENGLISH_MATERIAL_EXPOSURE_KEY,exposure]);
