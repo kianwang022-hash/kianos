@@ -2,7 +2,7 @@
 Role: **English engineering work cursor + scope router**  
 Parent: root `CURRENT.md`
 
-This file does not own Learning Logic, Content, Acceptance Truth, learner history, or shared-platform authority. A bare `继续英语 / Reading / Translation / Writing / 词汇` is LEARN unless the conversation clearly establishes BUILD / UI / CONTROL.
+This file does not own Learning Logic, Content, Acceptance Truth, learner truth / history, or shared-platform authority. A bare `继续英语 / Reading / Translation / Writing / 词汇` is LEARN unless the conversation clearly establishes BUILD / UI / CONTROL.
 
 ## Current engineering state
 **Integration:** PR #498 merged to `main`.  
