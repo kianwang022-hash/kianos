@@ -1,5 +1,6 @@
 import { readPoliticsSnapshot, selectPoliticsReview, resolvePoliticsContinue, politicsReviewPacket } from './politicsPracticeState.mjs';
 import { applyPoliticsChatReturn, readPoliticsChatReturn } from './politicsChatReturn.mjs';
+import { POLITICS_ANALYSIS_BATCH_SCHEMA, applyPoliticsAnalysisEvidenceBatch } from './politicsAnalysisEvidence.mjs';
 const outcomes = { WRONG: '上次答错', UNCERTAIN: '上次不确定', STABLE: '本次稳定' };
 export function initPoliticsReview(root) {
   if (!(root instanceof HTMLElement)) return;
@@ -102,6 +103,15 @@ export function initPoliticsReview(root) {
     const status = $('[data-review-return-status]');
     try {
       const parsed = JSON.parse(field?.value || '');
+      if (parsed?.schema === POLITICS_ANALYSIS_BATCH_SCHEMA) {
+        const result = applyPoliticsAnalysisEvidenceBatch(localStorage, parsed, { expectedDay: today() });
+        if (status) status.textContent = result.appended
+          ? `已导入主观题证据 ${result.appended} 条。`
+          : '这批主观题证据已经导入过。';
+        renderChatReturn(null);
+        render();
+        return;
+      }
       const result = applyPoliticsChatReturn(localStorage, catalog, parsed);
       if (status) status.textContent = result.status === 'idempotent'
         ? '这份返回已经导入过，没有重复创建任何跟进。'
