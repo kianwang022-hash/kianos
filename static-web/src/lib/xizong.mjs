@@ -109,6 +109,58 @@ function blockFiles(dirName) {
     .sort((a, b) => a.ordinal - b.ordinal);
 }
 
+function normalizeBStableBlockId(value) {
+  const text = String(value || '').trim();
+  const match = text.match(/^(?:dme-)?([dmg])0*(\d{1,2})$/i);
+  return match ? `${match[1].toUpperCase()}${Number(match[2])}` : null;
+}
+
+function bBlockIdFromFile(pathName, text) {
+  const front = String(text || '').startsWith('---\n')
+    ? String(text).slice(0, String(text).indexOf('\n---', 4))
+    : '';
+  const explicit = front.match(/^block_id:\s*(\S+)\s*$/m)?.[1];
+  const order = front.match(/^order:\s*(\S+)\s*$/m)?.[1];
+  const fromExplicit = normalizeBStableBlockId(explicit);
+  const fromOrder = normalizeBStableBlockId(order);
+  const fileMatch = String(pathName).match(/(?:^|_)([DMG])0*(\d{1,2})(?=_|\.md$)/i);
+  const fromFile = fileMatch ? `${fileMatch[1].toUpperCase()}${Number(fileMatch[2])}` : null;
+  const candidates = [fromExplicit, fromOrder, fromFile].filter(Boolean);
+  if (!candidates.length) return null;
+  if (new Set(candidates).size !== 1) throw new Error(`CURRENT_XIZONG_B_BLOCK_ID_CONFLICT:${pathName}:${candidates.join('/')}`);
+  return candidates[0];
+}
+
+function bBlockFiles(dirName, route) {
+  const familyDirs = ['d-d1-d23', 'm-m1-m10', 'g-g1-g5'];
+  const rows = [];
+  for (const family of familyDirs) {
+    const root = `${SYSTEMS_ROOT}/${dirName}/${family}`;
+    if (!fs.existsSync(absolute(root))) throw new Error(`CURRENT_XIZONG_B_BLOCK_FAMILY_MISSING:${family}`);
+    for (const name of fs.readdirSync(absolute(root)).filter((item) => /\.md$/i.test(item))) {
+      const pathName = `${root}/${name}`;
+      const text = readText(pathName);
+      const blockId = bBlockIdFromFile(name, text);
+      if (blockId) rows.push({ name, blockId, path: pathName });
+    }
+  }
+  const byId = new Map();
+  for (const row of rows) {
+    if (byId.has(row.blockId)) throw new Error(`CURRENT_XIZONG_B_BLOCK_DUPLICATE:${row.blockId}`);
+    byId.set(row.blockId, row);
+  }
+  return route.map((row, index) => {
+    const file = byId.get(String(row.id || ''));
+    if (!file) throw new Error(`CURRENT_XIZONG_B_BLOCK_FILE_MISSING:${row.id}`);
+    return { ...file, ordinal: index + 1 };
+  });
+}
+
+function blockFilesForRecord(record, route) {
+  if (record.identity.canonicalId === 'B') return bBlockFiles(record.dirName, route);
+  return blockFiles(record.dirName);
+}
+
 function extractCenterQuestion(markdown) {
   const source = String(markdown);
   const patterns = [
@@ -200,8 +252,109 @@ function parseKps(markdown, blockId) {
   });
 }
 
-function normalizeLogicGroups(system, blockId, kpRecords) {
+function parseKpsFromStableMarkers(markdown, blockId) {
+  const source = String(markdown);
+  const matches = [...source.matchAll(/^(#{2,4})\s+(KP(\d+))[｜|]\s*(.+)$/gm)];
+  const headings = headingRecords(source);
+  const markerRows = [...source.matchAll(/<!--\s*kianos:kp\s+id=["']([^"']+)["']\s*-->/g)]
+    .map((match) => ({ id: String(match[1] || ''), index: match.index || 0 }));
+  if (markerRows.length !== matches.length || new Set(markerRows.map((row) => row.id)).size !== markerRows.length) {
+    throw new Error(`CURRENT_XIZONG_B_KP_MARKER_COUNT_MISMATCH:${blockId}:${markerRows.length}/${matches.length}`);
+  }
+  return matches.map((match, index) => {
+    const level = match[1].length;
+    const start = match.index || 0;
+    const afterHeading = start + match[0].length;
+    const nextKp = matches[index + 1]?.index ?? source.length;
+    const nextBoundary = headings.find((heading) => heading.index > start && heading.level <= level)?.index ?? source.length;
+    const end = Math.min(nextKp, nextBoundary);
+    const body = source.slice(afterHeading, end).trim();
+    const ordinal = Number(match[3]);
+    const suffix = `-kp${pad2(ordinal)}`;
+    const candidates = markerRows.filter((row) => row.index < start && row.id.toLowerCase().endsWith(suffix));
+    const marker = candidates.at(-1);
+    if (!marker) throw new Error(`CURRENT_XIZONG_B_KP_MARKER_MISSING:${blockId}:KP${pad2(ordinal)}`);
+    return {
+      kpId: marker.id,
+      displayId: match[2],
+      ordinal,
+      title: String(match[4] || '').trim(),
+      prompt: metadataValue(body, '主提示'),
+      sourceLocator: metadataValue(body, '讲义定位 →') || metadataValue(body, '讲义定位'),
+      outlineLocator: metadataValue(body, 'Outline →') || metadataValue(body, 'Outline'),
+      detailMarkdown: stripKpMetadata(body)
+    };
+  });
+}
+
+function normalizeLearningLogicGroups(blockId, kpRecords, blockSupport) {
+  const groupMap = blockSupport?.logic_groups || {};
+  const ids = Object.keys(groupMap);
+  if (!ids.length) throw new Error(`CURRENT_XIZONG_LEARNING_LOGIC_MISSING:${blockId}`);
+  const order = Array.isArray(blockSupport?.learner_order) && blockSupport.learner_order.length
+    ? blockSupport.learner_order.map(String)
+    : ids;
+  if (order.length !== ids.length || new Set(order).size !== order.length || order.some((id) => !groupMap[id])) {
+    throw new Error(`CURRENT_XIZONG_LEARNER_ORDER_INVALID:${blockId}`);
+  }
+  const kpByOrdinal = new Map(kpRecords.map((record) => [record.ordinal, record]));
+  const seen = new Set();
+  const normalized = order.map((groupId, index) => {
+    const group = groupMap[groupId] || {};
+    let ordinals = [];
+    if (Array.isArray(group.kp_members)) {
+      ordinals = group.kp_members.map(Number);
+    } else if (Array.isArray(group.kp) && group.kp.length === 2) {
+      const start = Number(group.kp[0]);
+      const end = Number(group.kp[1]);
+      if (Number.isInteger(start) && Number.isInteger(end) && start >= 1 && end >= start) {
+        ordinals = Array.from({ length: end - start + 1 }, (_, offset) => start + offset);
+      }
+    }
+    if (!ordinals.length || ordinals.some((ordinal) => !Number.isInteger(ordinal) || !kpByOrdinal.has(ordinal))) {
+      throw new Error(`CURRENT_XIZONG_LOGIC_RANGE_INVALID:${blockId}:${groupId}`);
+    }
+    for (const ordinal of ordinals) {
+      if (seen.has(ordinal)) throw new Error(`CURRENT_XIZONG_LOGIC_OVERLAP:${blockId}:KP${pad2(ordinal)}`);
+      seen.add(ordinal);
+    }
+    return {
+      groupId,
+      order: index + 1,
+      label: String(group.label || `Logic Group ${index + 1}`),
+      start: Math.min(...ordinals),
+      end: Math.max(...ordinals),
+      kpIds: ordinals.map((ordinal) => kpByOrdinal.get(ordinal).kpId),
+      kpCount: ordinals.length,
+      membershipMode: Array.isArray(group.kp_members) ? 'EXPLICIT_ORDINAL_LIST' : 'LEARNING_RANGE'
+    };
+  });
+  const expected = kpRecords.map((record) => record.ordinal).sort((a, b) => a - b);
+  const actual = [...seen].sort((a, b) => a - b);
+  if (actual.length !== expected.length || actual.some((value, index) => value !== expected[index])) {
+    throw new Error(`CURRENT_XIZONG_LOGIC_FLATTEN_MISMATCH:${blockId}`);
+  }
+  const groupByOrdinal = new Map();
+  for (const group of normalized) {
+    for (const kpId of group.kpIds) {
+      const record = kpRecords.find((row) => row.kpId === kpId);
+      if (record) groupByOrdinal.set(record.ordinal, group);
+    }
+  }
+  for (const record of kpRecords) {
+    const group = groupByOrdinal.get(record.ordinal);
+    if (!group) throw new Error(`CURRENT_XIZONG_KP_UNASSIGNED:${record.kpId}`);
+    record.groupId = group.groupId;
+    record.groupLabel = group.label;
+  }
+  return normalized;
+}
+
+function normalizeLogicGroups(system, blockId, kpRecords, blockSupport = null) {
   const groups = system?.logic_index?.[blockId];
+  if ((!Array.isArray(groups) || !groups.length) && blockSupport?.logic_groups) {
+    return normalizeLearningLogicGroups(blockId, kpRecords, blockSupport);
+  }
   if (!Array.isArray(groups) || !groups.length) throw new Error(`CURRENT_XIZONG_LOGIC_INDEX_MISSING:${blockId}`);
 
   const ordinals = [];
@@ -271,10 +424,19 @@ function loadLearningSupport(record) {
     throw new Error(`CURRENT_XIZONG_LEARNING_SUPPORT_BLOCK_MISMATCH:${record.identity.systemId}`);
   }
   for (const blockId of expectedBlocks) {
+    const blockSupport = support?.blocks?.[blockId] || {};
     const expectedGroups = (record.system?.logic_index?.[blockId] || []).map((group) => group.id);
-    const actualGroups = Object.keys(support?.blocks?.[blockId]?.logic_groups || {});
-    if (expectedGroups.length !== actualGroups.length || expectedGroups.some((id) => !actualGroups.includes(id))) {
-      throw new Error(`CURRENT_XIZONG_LEARNING_SUPPORT_LOGIC_MISMATCH:${blockId}`);
+    const actualGroups = Object.keys(blockSupport.logic_groups || {});
+    if (!actualGroups.length) throw new Error(`CURRENT_XIZONG_LEARNING_SUPPORT_LOGIC_MISSING:${blockId}`);
+    if (expectedGroups.length) {
+      if (expectedGroups.length !== actualGroups.length || expectedGroups.some((id) => !actualGroups.includes(id))) {
+        throw new Error(`CURRENT_XIZONG_LEARNING_SUPPORT_LOGIC_MISMATCH:${blockId}`);
+      }
+    } else {
+      const learnerOrder = Array.isArray(blockSupport.learner_order) ? blockSupport.learner_order.map(String) : [];
+      if (learnerOrder.length !== actualGroups.length || new Set(learnerOrder).size !== learnerOrder.length || learnerOrder.some((id) => !actualGroups.includes(id))) {
+        throw new Error(`CURRENT_XIZONG_LEARNING_SUPPORT_ORDER_MISMATCH:${blockId}`);
+      }
     }
   }
   return { path: pathName, sourceHash: sha256(text), raw: support };
@@ -283,13 +445,16 @@ function loadLearningSupport(record) {
 function normalizeSystem(record) {
   const { system, identity, dirName, systemPath, sourceHash } = record;
   const route = directBlockRoute(system);
-  const files = blockFiles(dirName);
+  const learningSupport = loadLearningSupport(record);
+  const files = blockFilesForRecord(record, route);
   const fileByOrdinal = new Map(files.map((file) => [file.ordinal, file]));
+  const fileByBlockId = new Map(files.filter((file) => file.blockId).map((file) => [file.blockId, file]));
   const blocks = route.map((row, index) => {
     const ordinal = blockOrdinalFromId(row.id) || index + 1;
-    const file = fileByOrdinal.get(ordinal);
+    const file = identity.canonicalId === 'B' ? fileByBlockId.get(String(row.id)) : fileByOrdinal.get(ordinal);
     if (!file) throw new Error(`CURRENT_XIZONG_BLOCK_FILE_MISSING:${row.id}`);
     const match = String(row.id).match(/-(r|b)(\d+)$/i);
+    const bMatch = identity.canonicalId === 'B' ? String(row.id).match(/^([DMG])(\d+)$/) : null;
     return {
       blockId: row.id,
       label: String(row.label || `B${ordinal}`),
@@ -297,7 +462,11 @@ function normalizeSystem(record) {
       kpCount: Number(row.kp || 0),
       outlineCount: Number(row.outline || 0),
       ordinal,
-      slug: match ? `${match[1].toLowerCase()}${pad2(Number(match[2]))}` : `b${pad2(ordinal)}`,
+      slug: match
+        ? `${match[1].toLowerCase()}${pad2(Number(match[2]))}`
+        : bMatch
+          ? `${bMatch[1].toLowerCase()}${pad2(Number(bMatch[2]))}`
+          : `b${pad2(ordinal)}`,
       sourcePath: file.path
     };
   });
@@ -331,7 +500,7 @@ function normalizeSystem(record) {
     blocks,
     sourcePath: systemPath,
     sourceHash,
-    learningSupport: loadLearningSupport(record),
+    learningSupport,
     raw: system
   };
 }
@@ -342,7 +511,7 @@ export function listProjectableXizongSystems() {
     .map(systemRecordFromDir)
     .filter(Boolean)
     .filter((record) => record.projectionAccepted)
-    .filter((record) => directBlockRoute(record.system).length > 0 && record.system?.logic_index)
+    .filter((record) => directBlockRoute(record.system).length > 0)
     .map(normalizeSystem);
 }
 
@@ -354,7 +523,7 @@ export function loadXizongSystem(systemId) {
     .find((candidate) => candidate.identity.systemId === systemId);
   if (!record) throw new Error(`CURRENT_XIZONG_SYSTEM_NOT_FOUND:${systemId}`);
   if (!record.projectionAccepted) throw new Error(`CURRENT_XIZONG_PROJECTION_NOT_ACCEPTED:${systemId}`);
-  if (!record.system?.logic_index) throw new Error(`CURRENT_XIZONG_SYSTEM_NOT_PROJECTABLE:${systemId}`);
+  if (!directBlockRoute(record.system).length) throw new Error(`CURRENT_XIZONG_SYSTEM_NOT_PROJECTABLE:${systemId}`);
   return normalizeSystem(record);
 }
 
@@ -364,7 +533,13 @@ export function loadXizongBlock(systemId, blockSlugOrId) {
   if (!blockMeta) throw new Error(`CURRENT_XIZONG_BLOCK_NOT_FOUND:${systemId}:${blockSlugOrId}`);
 
   const markdown = readText(blockMeta.sourcePath);
-  const kpRecords = parseKps(markdown, blockMeta.blockId);
+  const blockSupport = system.learningSupport?.raw?.blocks?.[blockMeta.blockId] || null;
+  if (system.learningSupport && !blockSupport) {
+    throw new Error(`CURRENT_XIZONG_BLOCK_LEARNING_SUPPORT_MISSING:${blockMeta.blockId}`);
+  }
+  const kpRecords = system.canonicalId === 'B'
+    ? parseKpsFromStableMarkers(markdown, blockMeta.blockId)
+    : parseKps(markdown, blockMeta.blockId);
   if (kpRecords.length !== blockMeta.kpCount) {
     throw new Error(`CURRENT_XIZONG_BLOCK_KP_COUNT_MISMATCH:${blockMeta.blockId}:${kpRecords.length}/${blockMeta.kpCount}`);
   }
@@ -376,11 +551,7 @@ export function loadXizongBlock(systemId, blockSlugOrId) {
     if (!kpOrdinalSet.has(ordinal)) throw new Error(`CURRENT_XIZONG_KP_IDENTITY_SET_MISMATCH:${blockMeta.blockId}:missing-${ordinal}`);
   }
 
-  let logicGroups = normalizeLogicGroups(system.raw, blockMeta.blockId, kpRecords);
-  const blockSupport = system.learningSupport?.raw?.blocks?.[blockMeta.blockId] || null;
-  if (system.learningSupport && !blockSupport) {
-    throw new Error(`CURRENT_XIZONG_BLOCK_LEARNING_SUPPORT_MISSING:${blockMeta.blockId}`);
-  }
+  let logicGroups = normalizeLogicGroups(system.raw, blockMeta.blockId, kpRecords, blockSupport);
   if (blockSupport) {
     logicGroups = logicGroups.map((group) => {
       const learning = blockSupport.logic_groups?.[group.groupId];
