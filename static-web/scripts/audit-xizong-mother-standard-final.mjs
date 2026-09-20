@@ -129,7 +129,7 @@ function baseProgress() {
 }
 
 // Fresh Chat attack: only Current + Maturity Package are read.
-const repoRoot = path.resolve(process.cwd(), '..');
+const repoRoot = process.cwd();
 const current = fs.readFileSync(path.join(repoRoot,'content/xizong/CURRENT.md'),'utf8');
 const maturity = fs.readFileSync(path.join(repoRoot,'content/xizong/MATURITY_PACKAGE.md'),'utf8');
 assert.match(current,/subject maturity \/ 270–275 control → \`MATURITY_PACKAGE\.md\`/);
