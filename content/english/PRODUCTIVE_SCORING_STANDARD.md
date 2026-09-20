@@ -1,7 +1,8 @@
 # English Productive Scoring Standard
 
 Status: **CANDIDATE · E3 PRODUCTIVE SCORING OWNER**
-Date: 2026-09-20
+Version: **english.productive-scoring.v2**
+Date: 2026-09-21
 Scope: English I Translation / Small Writing / Big Writing
 Parent: `ENGLISH_HIGHEST_MATURITY_STAGE_PLAN.md#E3`
 
@@ -474,6 +475,8 @@ The evidence object should also carry:
 - paper/typed modality.
 
 If the rubric changes materially, old score evidence must be reinterpreted as PRESERVE / MIGRATE / STALE rather than silently rescored under new semantics.
+
+Every admitted score-evidence object must carry the exact scoring-standard version. Evidence with a missing or different version cannot silently masquerade as current-v2 evidence; it must be explicitly reconciled before it can affect Secure state, Forecast, Dynamic Control or task allocation.
 
 ---
 
