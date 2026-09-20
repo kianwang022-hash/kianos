@@ -219,6 +219,10 @@ async function systemRecallToPracticeJourney(page) {
   // become eligible for W/U Repair even if a bogus Chat packet tries to coerce it.
   await selectQuestion(stableTarget);
   await answerCorrect(stableTarget);
+  // Stable system-practice attempts schedule automatic navigation after 520ms.
+  // Let that task settle before manually selecting the reviewed W/U target, or
+  // the stale timer can race the later selection and invalidate the browser test.
+  await page.waitForTimeout(650);
   const sweepKey = `kianos:xizong:system-question-sweep:${SYSTEM_ID}:v1`;
   const stableState = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), sweepKey);
   check(stableState?.results?.[stableTarget.questionId]?.status === 'stable',
