@@ -158,6 +158,51 @@ async function fullNineStepJourney(browser, paper) {
     const score = String(await page.locator('[data-exam-objective-score]').textContent() || '');
     check(score.includes('/ 60'), 'full_paper_release_not_out_of_60', score);
     check((await page.locator('[data-exam-result]').innerText()).includes('Chat'), 'full_paper_productive_review_not_routed_to_chat');
+    check(await page.locator('[data-exam-score-return]').isVisible(), 'full_paper_score_return_missing');
+
+    const productiveScoreReturn = await page.evaluate(() => {
+      const state = JSON.parse(localStorage.getItem('kianos-english-exam-session-v1') || 'null');
+      const stepFor = (channel) => {
+        if (channel === 'translation') return state.steps.find((step) => step.task === 'translation');
+        const kind = channel === 'writing_small' ? 'small' : 'big';
+        return state.steps.find((step) => step.task === 'writing' && step.writing_kind === kind);
+      };
+      const channel = (name, low, high) => {
+        const step = stepFor(name);
+        return {
+          step_id: step.step_id,
+          object_id: step.object_id,
+          source_hash: step.source_hash,
+          score_range: { low, high },
+          confidence: 'MEDIUM',
+          review_mode: 'INDEPENDENT_RESCORE_RECONCILED',
+          requires_independent_rescore: false
+        };
+      };
+      return {
+        schema: 'kianos.english.exam-productive-score-return.v1',
+        session_id: state.session_id,
+        paper_id: state.paper_id,
+        paper_source_hash: state.source_hash,
+        scoring_standard_version: 'english.productive-scoring.v2',
+        review_of: 'SEALED_FIRST_OUTPUT',
+        channels: {
+          translation: channel('translation', 8, 9),
+          writing_small: channel('writing_small', 8, 9),
+          writing_big: channel('writing_big', 15, 17)
+        }
+      };
+    });
+    await page.locator('[data-exam-score-return-input]').fill(JSON.stringify(productiveScoreReturn));
+    await page.locator('[data-exam-score-return-apply]').click();
+    await page.locator('[data-exam-integrated-score]').waitFor({ state: 'visible' });
+    const integrated = String(await page.locator('[data-exam-integrated-score]').textContent() || '');
+    check(integrated.includes('/ 100'), 'full_paper_integrated_score_not_out_of_100', integrated);
+    const scoredState = await page.evaluate(() => JSON.parse(localStorage.getItem('kianos-english-exam-session-v1') || 'null'));
+    check(scoredState?.status === 'SCORED', 'full_paper_score_return_not_persisted', JSON.stringify(scoredState?.status));
+    check(scoredState?.release?.productive?.status === 'SCORED', 'full_paper_productive_score_not_closed');
+    check(scoredState?.release?.integrated?.score_eligible === false, 'typed_full_paper_wrongly_formal_score_eligible');
+    check(await page.locator('[data-exam-score-return]').isHidden(), 'score_return_panel_not_closed_after_import');
 
     await page.screenshot({ path: path.join(auditDir, 'english-exam-9-step-complete.png'), fullPage: false });
   } finally {
@@ -248,6 +293,8 @@ try {
     delayed_objective_release: true,
     mock_storage_isolated: true,
     productive_review_owner: 'CHAT',
+    productive_score_return_persisted: true,
+    typed_whole_paper_not_formal_score_eligible: true,
     full_browser_steps_completed: 9,
     normal_learning_storage_preserved: true
   }, null, 2));
