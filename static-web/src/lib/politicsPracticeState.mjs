@@ -248,7 +248,6 @@ export function politicsReviewPacket(catalog, snapshot, options = {}) {
 
 function politicsForecastProgress(catalog, snapshot) {
   const units = Array.isArray(catalog?.units) ? catalog.units : [];
-  const questions = Array.isArray(catalog?.questions) ? catalog.questions : [];
   const rows = units.map((unit, index) => {
     const questionIds = Array.isArray(unit?.questionIds) ? unit.questionIds : [];
     const observedQuestionIds = questionIds.filter((questionId) =>
@@ -266,49 +265,6 @@ function politicsForecastProgress(catalog, snapshot) {
         questionIds.length > 0 && observedQuestionIds.length === questionIds.length
     };
   });
-
-  const validOutcomes = new Set(['WRONG', 'UNCERTAIN', 'STABLE']);
-  const currentlyAdmitted = (question) =>
-    Boolean(question?.unitKey) && question?.scopeStatus !== 'QUESTION_SCOPE_UNRESOLVED';
-  const objectiveByType = Object.fromEntries(['single', 'multiple'].map((type) => {
-    const typedQuestions = questions.filter((question) => question?.type === type);
-    const summary = {
-      source_questions: typedQuestions.length,
-      currently_admitted_questions: 0,
-      withheld_questions: 0,
-      first_attempt_questions: 0,
-      historical_first_attempt_on_withheld_questions: 0,
-      stable_count: 0,
-      wrong_count: 0,
-      uncertain_count: 0,
-      cause_counts: { memory: 0, understanding: 0, options: 0, careless: 0 }
-    };
-    for (const question of typedQuestions) {
-      const admitted = currentlyAdmitted(question);
-      if (admitted) summary.currently_admitted_questions += 1;
-      else summary.withheld_questions += 1;
-
-      const first = findPoliticsFirstAttempt(snapshot?.attempts || { units: {} }, question.id)?.attempt;
-      if (!first) continue;
-      if (!admitted) {
-        summary.historical_first_attempt_on_withheld_questions += 1;
-        continue;
-      }
-
-      summary.first_attempt_questions += 1;
-      const latest = validOutcomes.has(snapshot?.meta?.latestOutcome?.[question.id])
-        ? snapshot.meta.latestOutcome[question.id]
-        : first.outcome;
-      if (latest === 'STABLE') summary.stable_count += 1;
-      if (latest === 'WRONG') summary.wrong_count += 1;
-      if (latest === 'UNCERTAIN') summary.uncertain_count += 1;
-      const cause = String(snapshot?.meta?.causes?.[question.id] || '');
-      if (Object.prototype.hasOwnProperty.call(summary.cause_counts, cause)) {
-        summary.cause_counts[cause] += 1;
-      }
-    }
-    return [type, summary];
-  }));
 
   const lastUnitId = String(
     snapshot?.last?.unit_id
@@ -333,7 +289,6 @@ function politicsForecastProgress(catalog, snapshot) {
     complete_question_coverage_unit_keys: coverageComplete
       .map((row) => row.unit_key)
       .filter(Boolean),
-    objective_evidence_by_type: objectiveByType,
     current_navigation: {
       unit_id: lastUnitId || null,
       catalog_index: currentIndex >= 0 ? currentIndex : null,
@@ -341,7 +296,7 @@ function politicsForecastProgress(catalog, snapshot) {
         currentIndex >= 0 ? Math.max(0, rows.length - currentIndex - 1) : null
     },
     evidence_boundary:
-      'Question coverage and single/multiple splits are first-round factual evidence only. They do not prove source-learning completion, long-term memory, analysis-output readiness, exam score or Gate workload; those require Politics-owned reconciliation into exam.subject-demand.v1.'
+      'Question coverage is first-round factual progress only. It does not prove source-learning completion, long-term memory, analysis-output readiness or Gate workload; those require Politics-owned reconciliation into exam.subject-demand.v1.'
   };
 }
 
@@ -355,23 +310,14 @@ export function politicsDailyEvidencePacket(catalog, snapshot, {
   }
   if (snapshot?.errors?.length) throw new Error('POLITICS_DAILY_EVIDENCE_UNREADABLE');
 
-  const questionById = new Map((catalog?.questions || []).map((question) => [question.id, question]));
   const todayAttempts = [];
   for (const [unitKey, unit] of Object.entries(snapshot?.attempts?.units || {})) {
     for (const attempt of Object.values(unit?.attempts || {})) {
       if (attempt?.study_day !== day || !attempt?.question_id) continue;
       const currentOutcome = snapshot?.meta?.latestOutcome?.[attempt.question_id] || attempt.outcome;
-      const question = questionById.get(attempt.question_id);
-      const currentAdmissionStatus = !question
-        ? 'NOT_IN_CURRENT_CATALOG'
-        : (question.unitKey && question.scopeStatus !== 'QUESTION_SCOPE_UNRESOLVED'
-          ? 'ADMITTED'
-          : 'WITHHELD_CURRENT');
       todayAttempts.push({
         question_id: attempt.question_id,
         unit_key: unitKey,
-        question_type: ['single', 'multiple'].includes(question?.type) ? question.type : null,
-        current_admission_status: currentAdmissionStatus,
         outcome: currentOutcome,
         first_outcome: attempt.outcome,
         uncertain: attempt.uncertain === true,

@@ -7,7 +7,6 @@ import assert from 'node:assert/strict';
 import { chromium } from 'playwright';
 import { buildPoliticsPracticeCatalogCurrent } from '../src/lib/politicsPractice.mjs';
 import { PRACTICE_KEYS as K, politicsReviewPacket } from '../src/lib/politicsPracticeState.mjs';
-import { POLITICS_ANALYSIS_EVIDENCE_KEY } from '../src/lib/politicsAnalysisEvidence.mjs';
 const out=path.resolve(process.env.POLITICS_FRESH_EVIDENCE || '../qa/politics-final-fresh');fs.mkdirSync(out,{recursive:true});
 const catalog=buildPoliticsPracticeCatalogCurrent('/'),site=path.resolve('dist');
 const mime={'.html':'text/html','.js':'text/javascript','.mjs':'text/javascript','.json':'application/json','.css':'text/css','.svg':'image/svg+xml','.png':'image/png','.woff2':'font/woff2'};
@@ -22,7 +21,6 @@ async function start(page,q){await page.goto(`${base}/politics/practice/?questio
 async function answer(page,q,outcome='WRONG'){if(outcome==='UNCERTAIN')await page.locator('[data-uncertain]').click();const choice=outcome==='WRONG'?q.options.find(o=>!q.answer.includes(o.label))?.label||q.answer[0]:q.answer;for(const l of choice)await page.locator(`[data-option="${l}"]`).click();await page.locator('[data-submit]').click();}
 const visibleResult=page=>page.locator('[data-submitted-result]').waitFor({state:'visible'});
 const shot=(page,name)=>page.screenshot({path:path.join(out,name+'.png'),fullPage:true});
-const expectText=async(locator,text)=>{await locator.waitFor({state:'visible'});assert.ok((await locator.textContent()).includes(text));};
 
 for(const subject of ['marxism','history','mao','xi','ethics_law'])await check('single-workbench-clean-WU-continue:'+subject,async()=>{
  const {c,page}=await context();const q=first(subject),requests=[];page.on('request',r=>{if(r.url().includes('/practice-review/'))requests.push(r.url());});
@@ -54,41 +52,6 @@ await check('real-browser-restart-preserves-private-first-and-events',async()=>{
 await check('Review-and-Home-no-auto-Chat-no-stable-debt',async()=>{const {c,page}=await context();try{const q=first('history');await start(page,q);await answer(page,q,'STABLE');await visibleResult(page);const before=await state(page);assert.equal(before.events?.length||0,0);await page.goto(base+'/politics/review/');await page.locator('[data-review-empty]').waitFor({state:'visible'});assert.equal(await page.locator('[data-review-question]').count(),0);await shot(page,'review-stable');await page.goto(base+'/politics/');await page.waitForTimeout(200);assert.equal(await page.locator('[data-review-copy]').count(),0);await shot(page,'home');const after=await state(page);assert.deepEqual(after.attempts,before.attempts);assert.deepEqual(after.events,before.events);}finally{await c.close();}});
 
 await check('Review-WU-packet-only-on-explicit-click',async()=>{const {c,page}=await context(()=>{window.__copies=[];Object.defineProperty(navigator,'clipboard',{value:{writeText:async text=>window.__copies.push(text)},configurable:true});});try{const q=first('history');await start(page,q);await answer(page,q);await visibleResult(page);await page.goto(base+'/politics/review/');await page.locator('[data-review-question]').first().waitFor();assert.equal((await page.evaluate(()=>window.__copies)).length,0);await page.locator('[data-review-copy]').click();const once=await state(page);await page.locator('[data-review-copy]').click();const twice=await state(page);assert.deepEqual(twice,once);const packets=await page.evaluate(()=>window.__copies.map(JSON.parse));assert.equal(packets.length,2);assert.equal(packets[0].first_attempts[0].attempt.question_id,q.id);assert.equal(packets[0].review_policy.no_follow_up_is_valid,true);await shot(page,'review-Wrong');}finally{await c.close();}});
-
-await check('Review-imports-legacy-Analysis-evidence-and-rejects-unbound-current-year-exact',async()=>{
- const {c,page}=await context();
- try{
-  await page.goto(base+'/politics/review/');
-  await page.locator('[data-review-return] summary').click();
-  const legacy={
-   schema:'kianos.politics.analysis-evidence.v1',direction:'CHAT_TO_LEARNER',
-   evidence_id:'browser-analysis-legacy-001',task_id:'LEG26-X8-S01-Q34-2-B',task_revision:'legacy26-x8-s01-q34-2-bind-v1',
-   rubric_version:'politics-analysis-rubric-v1',subject:'marxism',subquestion_id:'34-2',
-   task_mode:'BIND',attempt_role:'FIRST',fresh_material:false,
-   freshness_class:'LEGACY_GEOMETRY_ONLY',formulation_requirement:'NONE',
-   source_basis:{family:'LEG26_XIAO8',identity:'2026 Xiao8 set1 Q34(2)',revision:null,authority_status:'LEGACY_GEOMETRY'},
-   study_day:new Date().toLocaleDateString('en-CA'),observed_at:new Date().toISOString(),
-   rubric:{I:2,S:1,B:1,F:'NA',D:'NA'},critical_flags:['MATERIAL_UNBOUND'],
-   assessment_confidence:'MEDIUM',delivery_timing:'NA',elapsed_seconds:null,
-   diagnosis_summary:'SYNTHETIC browser analysis evidence',repair_instruction:'只修材料绑定。'
-  };
-  await page.locator('[data-review-return-text]').fill(JSON.stringify(legacy));
-  await page.locator('[data-review-return-apply]').click();
-  await expectText(page.locator('[data-review-return-status]'),'已保存 Analysis 证据');
-  const stored=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)||'null'),POLITICS_ANALYSIS_EVIDENCE_KEY);
-  assert.equal(stored.schema,'kianos.politics.analysis-evidence-store.v1');assert.equal(stored.records.length,1);assert.equal(stored.records[0].task_mode,'BIND');
-  const exact={...legacy,evidence_id:'browser-analysis-current-001',task_id:'POL27-X8-001',task_revision:'pol27-x8-formulation-v1',
-   task_mode:'FORMULATION',attempt_role:'FIRST',fresh_material:true,freshness_class:'CURRENT_YEAR_EXACT_REQUIRED',formulation_requirement:'CURRENT_YEAR_EXACT',
-   source_basis:{family:'xiao8',identity:'future/xiao8/rev1/q34',revision:'xiao8-rev1',authority_status:'BOUND'},
-   rubric:{I:2,S:2,B:2,F:2,D:'NA'},critical_flags:[]};
-  await page.locator('[data-review-return-text]').fill(JSON.stringify(exact));
-  await page.locator('[data-review-return-apply]').click();
-  await expectText(page.locator('[data-review-return-status]'),'CURRENT_YEAR_SOURCE_NOT_CURRENT_BOUND');
-  const after=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)||'null'),POLITICS_ANALYSIS_EVIDENCE_KEY);
-  assert.equal(after.records.length,1);
-  await shot(page,'review-analysis-import');
- }finally{await c.close();}
-});
 
 await check('missing-or-wrong-review-payload-fails-closed-before-submit',async()=>{const {c,page}=await context();try{const q=first('history');await page.route('**/practice-review/**',route=>route.fulfill({status:503,body:'synthetic unavailable'}));await start(page,q);await answer(page,q);await page.locator('[data-practice-error]').waitFor({state:'visible'});let s=await state(page);assert.equal(s.attempts?.units?.[q.unitKey]?.attempts?.[q.id],undefined);assert.equal(await page.locator('[data-submitted-result]').isVisible(),false);await page.unroute('**/practice-review/**');await page.route('**/practice-review/**',async route=>{const p=await (await route.fetch()).json();p.id='SYNTHETIC-WRONG-OBJECT';await route.fulfill({json:p});});await page.locator('[data-submit]').click();await page.locator('[data-practice-error]').waitFor({state:'visible'});s=await state(page);assert.equal(s.attempts?.units?.[q.unitKey]?.attempts?.[q.id],undefined);}finally{await c.close();}});
 

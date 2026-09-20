@@ -10,6 +10,25 @@ Purpose:
 
 This is not a requirement for more architecture. It is a requirement that every retained component materially improves learning, prediction, execution, robustness or learner attention cost.
 
+## Ownership boundary
+
+This document is the **shared acceptance bar only**.
+
+```text
+Shared maturity standard
+→ defines the questions every subject must answer
+
+Subject maturity owner
+→ adapts those questions to the subject
+→ owns subject stage plan / implementation / exact Current
+```
+
+This shared owner must not become a continuation cursor for Xizong, English or Politics, and must not own subject-specific Forecast, Analysis, Future Source, runtime/evidence or learner execution state.
+
+Subject-specific artifacts may be inspected when auditing the shared bar, but their implementation truth remains in the subject owner.
+
+---
+
 ---
 
 ## 0. Score closure

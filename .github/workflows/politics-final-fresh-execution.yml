@@ -59,18 +59,6 @@ jobs:
           npm install --no-audit --no-fund
           npm install --no-save playwright@1.56.1 --no-audit --no-fund
           npx playwright install chromium
-      - name: Politics maturity Objective evidence split
-        working-directory: static-web
-        run: node scripts/test-politics-maturity-objective-evidence.mjs > "$POLITICS_FRESH_EVIDENCE/maturity-objective-evidence.log" 2>&1
-      - name: Politics future-source fail-closed slots
-        working-directory: static-web
-        run: node scripts/validate-politics-future-source-slots.mjs > "$POLITICS_FRESH_EVIDENCE/future-source-slots.log" 2>&1
-      - name: Politics Analysis evidence transport
-        working-directory: static-web
-        run: node scripts/test-politics-analysis-evidence.mjs > "$POLITICS_FRESH_EVIDENCE/analysis-evidence.log" 2>&1
-      - name: Politics legacy Analysis drill index
-        working-directory: static-web
-        run: node scripts/validate-politics-analysis-legacy-drills.mjs > "$POLITICS_FRESH_EVIDENCE/analysis-legacy-drills.log" 2>&1
       - name: Build exact Current
         id: build
         working-directory: static-web

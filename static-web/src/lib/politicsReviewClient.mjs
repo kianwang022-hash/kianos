@@ -1,19 +1,11 @@
 import { readPoliticsSnapshot, selectPoliticsReview, resolvePoliticsContinue, politicsReviewPacket } from './politicsPracticeState.mjs';
 import { applyPoliticsChatReturn, readPoliticsChatReturn } from './politicsChatReturn.mjs';
-import {
-  POLITICS_ANALYSIS_EVIDENCE_SCHEMA,
-  applyPoliticsAnalysisEvidence
-} from './politicsAnalysisEvidence.mjs';
 const outcomes = { WRONG: '上次答错', UNCERTAIN: '上次不确定', STABLE: '本次稳定' };
 export function initPoliticsReview(root) {
   if (!(root instanceof HTMLElement)) return;
   const $ = s => root.querySelector(s), $$ = s => [...root.querySelectorAll(s)];
   const catalog = JSON.parse($('[data-review-catalog]').textContent), base = root.dataset.base || '/';
-  const analysisSourceBindings = JSON.parse($('[data-analysis-source-bindings]')?.textContent || '[]');
-  const acceptedLegacyTasks = JSON.parse($('[data-analysis-legacy-tasks]')?.textContent || '[]');
   $('[data-review-catalog]').remove();
-  $('[data-analysis-source-bindings]')?.remove();
-  $('[data-analysis-legacy-tasks]')?.remove();
   let filter = 'all';
   const today = () => new Date().toLocaleDateString('en-CA'); // Same study-day semantics as native Politics.
   const options = () => ({ day: today(), filter, subject: $('[data-review-subject]').value });
@@ -110,22 +102,6 @@ export function initPoliticsReview(root) {
     const status = $('[data-review-return-status]');
     try {
       const parsed = JSON.parse(field?.value || '');
-      if (parsed?.schema === POLITICS_ANALYSIS_EVIDENCE_SCHEMA) {
-        const result = applyPoliticsAnalysisEvidence(localStorage, parsed, {
-          boundCurrentYearSources: analysisSourceBindings,
-          acceptedLegacyTasks
-        });
-        if (status) {
-          const rubric = Object.entries(result.value.rubric || {})
-            .filter(([, value]) => value !== 'NA')
-            .map(([key, value]) => key + String(value))
-            .join(' ');
-          status.textContent = result.status === 'idempotent'
-            ? '这条 Analysis 证据已经保存过，没有重复写入。'
-            : '已保存 Analysis 证据：' + result.value.task_mode + (rubric ? ' · ' + rubric : '');
-        }
-        return;
-      }
       const result = applyPoliticsChatReturn(localStorage, catalog, parsed);
       if (status) status.textContent = result.status === 'idempotent'
         ? '这份返回已经导入过，没有重复创建任何跟进。'

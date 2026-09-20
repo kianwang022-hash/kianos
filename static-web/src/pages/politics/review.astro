@@ -3,33 +3,13 @@ import Base from '../../layouts/PoliticsBase.astro';
 import { politicsProductCatalog } from '../../lib/productCatalog.mjs';
 import '../../styles/product-closure.css';
 import '../../styles/politics-review-workspace.css';
-import fs from 'node:fs';
-import path from 'node:path';
-import { buildPoliticsAnalysisRegistry } from '../../lib/politicsAnalysisRegistry.mjs';
 
 const base = import.meta.env.BASE_URL;
 const catalog = politicsProductCatalog(base);
-const repoRoot = process.env.KIANOS_REPO_ROOT
-  ? path.resolve(process.env.KIANOS_REPO_ROOT)
-  : path.resolve(process.cwd(), '..');
-const politicsManifest = JSON.parse(fs.readFileSync(path.join(repoRoot, 'content/politics/manifest.json'), 'utf8'));
-const legacyAnalysisIndex = JSON.parse(fs.readFileSync(
-  path.join(repoRoot, 'content/politics/derived/analysis/legacy26-drill-index.v1.json'),
-  'utf8'
-));
-const {
-  boundCurrentYearSources: analysisSourceBindings,
-  acceptedLegacyTasks: acceptedLegacyAnalysisTasks
-} = buildPoliticsAnalysisRegistry({
-  manifest: politicsManifest,
-  legacyIndex: legacyAnalysisIndex
-});
 ---
 <Base title="政治 · 复习" active="politics" showLead={false}>
   <section class="politicsReviewPage politicsReviewV2" data-politics-review data-base={base}>
     <script type="application/json" data-review-catalog set:html={JSON.stringify(catalog).replace(/</g, '\\u003c')} />
-    <script type="application/json" data-analysis-source-bindings set:html={JSON.stringify(analysisSourceBindings).replace(/</g, '\\u003c')} />
-    <script type="application/json" data-analysis-legacy-tasks set:html={JSON.stringify(acceptedLegacyAnalysisTasks).replace(/</g, '\\u003c')} />
 
     <header class="reviewPageHeader">
       <div>
@@ -64,10 +44,10 @@ const {
     <p data-review-error class="examError" role="alert" hidden></p>
 
     <details class="reviewChatReturn" data-review-return>
-      <summary>导入 Chat 返回 / Analysis 证据</summary>
+      <summary>导入 Chat 返回</summary>
       <div class="reviewChatReturnBody">
-        <p>复习返回仍绑定本页同一批次；Analysis 只接受带任务、来源与 rubric 身份的结构化证据。旧批次、冲突重放和未绑定的当年精确材料都会被拒绝。</p>
-        <textarea data-review-return-text rows="8" spellcheck="false" placeholder="粘贴 kianos.politics.chat-return.v1 或 kianos.politics.analysis-evidence.v1 JSON"></textarea>
+        <p>只接受从本页同一批次导出的结构化返回；旧批次、错误题号、冲突重放都会被拒绝。</p>
+        <textarea data-review-return-text rows="8" spellcheck="false" placeholder="把 Chat 返回的 kianos.politics.chat-return.v1 JSON 粘贴到这里"></textarea>
         <div class="reviewChatReturnActions">
           <button data-review-return-apply class="examQuiet" type="button">核对并导入</button>
           <p data-review-return-status aria-live="polite"></p>
