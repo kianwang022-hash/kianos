@@ -109,6 +109,14 @@
       "note": "Used only to establish the 2026 four-part clinical-humanities scope and approximate 6% share. Exact 2027 scope remains UNKNOWN until a current primary outline is recovered."
     },
     {
+      "id": "H-SRC-PHYSICIAN-CHARTER",
+      "role": "PROFESSIONALISM_PRIMARY_REFERENCE",
+      "authority": "ORIGINAL_CHARTER_PUBLISHER",
+      "locator": "https://www.abimfoundation.org/what-we-do/physician-charter",
+      "identity": "Medical Professionalism in the New Millennium: A Physician Charter",
+      "note": "Primary reference for the three fundamental principles and ten professional responsibilities named by the 306 humanities scope; official-question explanations remain the exam-facing substrate."
+    },
+    {
       "id": "H-SRC-PHYSICIANS-LAW",
       "role": "CURRENT_LAW_PRIMARY",
       "authority": "PRIMARY",
@@ -187,6 +195,27 @@
       ]
     },
     {
+      "id": "H1-K3",
+      "domain": "H1",
+      "rule": "《新千年的医师专业精神》三项基本原则：患者利益优先、患者自主、社会公正。十项专业责任按原 Charter 的责任层记忆：专业胜任、对患者诚实、患者保密、维持适当医患关系、提高医疗质量、改善医疗可及性、公正分配有限资源、科学知识、管理利益冲突、专业责任。",
+      "evidence_qids": [
+        "xizong-official-2018-n108",
+        "xizong-official-2022-n108",
+        "xizong-official-2025-n108",
+        "xizong-official-2024-n109"
+      ],
+      "source_ref": "H-SRC-PHYSICIAN-CHARTER"
+    },
+    {
+      "id": "H1-K4",
+      "domain": "H1",
+      "rule": "利益冲突题先区分“存在关系”与“关系被不当支配专业判断”：核心是识别、披露和管理冲突，保持专业独立，不把所有行业合作一律等同于违规。",
+      "evidence_qids": [
+        "xizong-official-2017-n114",
+        "xizong-official-2024-n109"
+      ]
+    },
+    {
       "id": "H2-K1",
       "domain": "H2",
       "rule": "医学知识不对称使患者把健康利益托付给医务人员，因此医患关系的核心是专业受托与信任，不应简化为普通消费关系。",
@@ -214,6 +243,16 @@
         "xizong-official-2017-n110",
         "xizong-official-2026-n110",
         "xizong-official-2026-n111"
+      ]
+    },
+    {
+      "id": "H2-K4",
+      "domain": "H2",
+      "rule": "沟通必须服从患者能力与情境：儿童采用患儿+监护人双通道；生物-心理-社会模式同时处理疾病、情绪与生活情境；共同决策不等于满足无医学指征的治疗要求。",
+      "evidence_qids": [
+        "xizong-official-2019-n111",
+        "xizong-official-2021-n110",
+        "xizong-official-2022-n111"
       ]
     },
     {
@@ -257,6 +296,40 @@
         "xizong-official-2017-n111",
         "xizong-official-2017-n113",
         "xizong-official-2021-n115"
+      ]
+    },
+    {
+      "id": "H3-K5",
+      "domain": "H3",
+      "rule": "生殖/遗传伦理用边界原则而非死背案例：辅助生殖优先治疗/弥补生殖功能障碍，不把非医疗增强自动合理化；遗传咨询强调准确信息、非指令性与自主选择；涉及家属/非亲子/生殖隐私冲突时若制度依赖强则 fail-closed。",
+      "evidence_qids": [
+        "xizong-official-2021-n112",
+        "xizong-official-2021-n113",
+        "xizong-official-2019-n112",
+        "xizong-official-2022-n110",
+        "xizong-official-2022-n112"
+      ]
+    },
+    {
+      "id": "H3-K6",
+      "domain": "H3",
+      "rule": "研究伦理的高频命名锚点：纽伦堡法典→自愿同意；赫尔辛基宣言→涉及人的医学研究伦理；双重效应原则→好的目的不能以坏结果为手段且获益/风险须相称。命名锚点用于考试辨析，不替代具体 Current 规范。",
+      "evidence_qids": [
+        "xizong-official-2019-n113",
+        "xizong-official-2019-n114",
+        "xizong-official-2020-n114",
+        "xizong-official-2022-n113"
+      ]
+    },
+    {
+      "id": "H3-K7",
+      "domain": "H3",
+      "rule": "研究与治疗目的必须区分：临床研究主要产生可推广知识，不保证个体直接获益；招募不得把试验包装成常规免费治疗；剩余样本等 consent-waiver 问题必须看可识别性、风险、伦理审查和现行规范。",
+      "evidence_qids": [
+        "xizong-official-2021-n114",
+        "xizong-official-2024-n114",
+        "xizong-official-2026-n113",
+        "xizong-official-2026-n114"
       ]
     },
     {
@@ -330,6 +403,36 @@
       "role": "DERIVED_RECALL_NOT_OFFICIAL_SCORE_EVIDENCE",
       "prompt": "法律题里哪些内容默认禁止凭记忆补？",
       "answer_cue": "数字/期限、罚则、报告时限、事故等级、注册条件、责任类型等精确字段。"
+    },
+    {
+      "id": "H-R9",
+      "role": "DERIVED_RECALL_NOT_OFFICIAL_SCORE_EVIDENCE",
+      "prompt": "医师专业精神的三项基本原则是什么？",
+      "answer_cue": "患者利益优先、患者自主、社会公正。"
+    },
+    {
+      "id": "H-R10",
+      "role": "DERIVED_RECALL_NOT_OFFICIAL_SCORE_EVIDENCE",
+      "prompt": "十项专业责任怎么快速恢复？",
+      "answer_cue": "胜任、诚实、保密、适当关系、质量、可及、公正资源、科学知识、利益冲突、专业责任。"
+    },
+    {
+      "id": "H-R11",
+      "role": "DERIVED_RECALL_NOT_OFFICIAL_SCORE_EVIDENCE",
+      "prompt": "纽伦堡法典、赫尔辛基宣言、双重效应原则分别抓什么？",
+      "answer_cue": "纽伦堡=自愿同意；赫尔辛基=人体医学研究伦理；双重效应=善目的不能以坏结果作手段且获益风险相称。"
+    },
+    {
+      "id": "H-R12",
+      "role": "DERIVED_RECALL_NOT_OFFICIAL_SCORE_EVIDENCE",
+      "prompt": "遗传咨询最核心的沟通原则是什么？",
+      "answer_cue": "准确告知风险和选择，但不替患者作价值决定：非指令性 + 自主；隐私冲突按具体规范处理。"
+    },
+    {
+      "id": "H-R13",
+      "role": "DERIVED_RECALL_NOT_OFFICIAL_SCORE_EVIDENCE",
+      "prompt": "研究和临床治疗最关键的目的差异是什么？",
+      "answer_cue": "研究主要产生可推广知识；临床治疗主要追求个体患者获益。"
     }
   ],
   "official_question_scope": {
@@ -476,5 +579,29 @@
     "official_question_validation": "READY_80_EXACT_QIDS",
     "current_year_delta": "BLOCKED_UPSTREAM_2027_OUTLINE",
     "learner_evidence": "NOT_ASSERTED"
+  },
+  "targeted_proof": {
+    "status": "PASS_AFTER_BOUNDED_CONTENT_REPAIR",
+    "official_explanation_attack": {
+      "population": "All 80 approved humanities explanations, 2017-2026 N108-N115",
+      "count": 80,
+      "truth_gate_requirement": "PASS",
+      "explanation_status_requirement": "APPROVED",
+      "first_draft_blind_spots_found": [
+        "exact three professionalism principles / ten responsibilities were under-specified",
+        "pediatric and bio-psycho-social communication were not explicit",
+        "reproductive/genetic ethics were under-specified",
+        "named research-ethics anchors and double-effect were under-specified",
+        "research-vs-treatment / therapeutic-misconception boundary was under-specified"
+      ],
+      "repair": "Added only H1/H2/H3 compression and recall rows to this same owner; no new Question, Explanation, KP, Review or Forecast system."
+    },
+    "source_fidelity_checks": [
+      "Current Physicians Law source is versioned separately from historical 执业医师法 questions.",
+      "Drug law, Civil Code, medical-dispute regulation and medical-accident regulation are pinned to official/current government sources.",
+      "Numeric/legal exact fields remain fail-closed unless the current source is checked.",
+      "The 2027 exact humanities outline remains BLOCKED rather than inferred from the 2026 baseline."
+    ],
+    "self_attack_answer": "A file can look complete while the learner still cannot discriminate close options or transfer to a new case. Therefore this owner is only material readiness; learner mastery requires official unseen performance and later learner U, and derived recall never upgrades itself to score evidence."
   }
 }
