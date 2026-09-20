@@ -136,7 +136,7 @@ If Chat materially helped before or during generation:
 Every scoring result contains:
 
 - plausible score range;
-- central estimate only when useful;
+- central estimate only when useful **and never as an unqualified midpoint shortcut**;
 - confidence;
 - reasons;
 - material scoring ambiguity;
@@ -161,7 +161,7 @@ Segment analysis supports the total, but do not lose whole-section consistency.
 
 Each 2-point segment is judged conservatively.
 
-### 1.75–2.00-like
+### 1.5–2.0-like
 
 - proposition and major relations accurate;
 - materially complete;
@@ -169,20 +169,20 @@ Each 2-point segment is judged conservatively.
 - Chinese is clear and natural enough;
 - only trivial wording/style issues.
 
-### 1.25–1.75-like
+### 1.0–1.5-like
 
 - core proposition substantially correct;
 - one or more minor losses / awkward reconstructions;
 - no major distortion of the sentence's main relation;
 - still clearly usable.
 
-### 0.75–1.25-like
+### 0.5–1.0-like
 
 - meaningful part of the source is recovered;
 - but one material relation / attachment / scope / omission error reduces fidelity;
 - or Chinese expression materially obscures part of the meaning.
 
-### 0.25–0.75-like
+### 0–0.5-like
 
 - fragments / isolated meaning recovered;
 - major misunderstanding, omission or relation distortion;
@@ -194,7 +194,7 @@ Each 2-point segment is judged conservatively.
 - unrelated;
 - meaning not recoverable.
 
-These are **operational anchors**, not claims that an official marker mechanically awards these exact decimals.
+These are **broad operational anchors**, not claims that an official marker mechanically awards these exact decimals. Avoid quarter-point pseudo-precision unless an accepted scoring source or repeated calibrated rater evidence justifies it.
 
 ## 3.3 Severity coding
 
@@ -243,7 +243,21 @@ Require a second anchored review when any is true:
 
 # 4｜Small Writing scoring protocol
 
-## 4.1 Band decision dimensions
+## 4.1 Prompt-specific task checklist before banding
+
+Before judging style, derive the current prompt's required communicative moves / content points from the exact task.
+
+A scorer must be able to state:
+
+```text
+what the prompt required
+→ what the first draft actually completed
+→ what was omitted / distorted
+```
+
+Only then assign a holistic band.
+
+## 4.2 Band decision dimensions
 
 Use the holistic band descriptors, with English-specific diagnostic mapping:
 
@@ -270,7 +284,7 @@ Use the holistic band descriptors, with English-specific diagnostic mapping:
 ### Intended effect
 - the target reader can act/understand as intended.
 
-## 4.2 Operational band anchors
+## 4.3 Operational band anchors
 
 ### 9–10
 Very strong completion of the communicative task; all essential moves/details present; language natural and accurate; organization concise; register/format appropriate; intended effect fully achieved.
@@ -290,7 +304,7 @@ Major task failure; little relevant content; severe language/control problems; r
 ### 0
 Too little language to assess / unrelated / unreadable.
 
-## 4.3 Hard guard
+## 4.4 Hard guard
 
 A polished template that misses a required communicative move cannot be placed in the top band merely because the English sounds advanced.
 
@@ -298,7 +312,17 @@ A polished template that misses a required communicative move cannot be placed i
 
 # 5｜Big Writing scoring protocol
 
-## 5.1 Band decision dimensions
+## 5.1 Prompt/material-specific checklist before banding
+
+Before assigning a band, explicitly recover:
+
+- what the source material actually shows;
+- what interpretive job the prompt requires;
+- what key content relation must not be reversed or invented.
+
+Then judge fulfillment/development.
+
+## 5.2 Band decision dimensions
 
 ### Material grounding
 - observation is faithful to the supplied material;
@@ -326,7 +350,7 @@ A polished template that misses a required communicative move cannot be placed i
 - appropriate academic/expository register;
 - complete answer in required form/length range.
 
-## 5.2 Operational band anchors
+## 5.3 Operational band anchors
 
 ### 17–20
 Very strong fulfillment; grounded interpretation; all key content effectively developed; rich/sufficient language with very few errors; coherent, well organized; appropriate style/register; intended effect fully achieved.
@@ -346,7 +370,7 @@ Major task failure; very little relevant/developed content; severe language/orga
 ### 0
 Too little language to assess / unrelated / unreadable.
 
-## 5.3 Topic-package guard
+## 5.4 Topic-package guard
 
 Different prompt IDs do not prove transfer when the learner reuses the same memorized content package.
 
@@ -378,6 +402,17 @@ This object is scoring evidence for Chat/Forecast.
 
 It is not a Website mutation instruction by default.
 
+The evidence object should also carry:
+
+- scoring-standard version;
+- task/source hash;
+- first-attempt identity;
+- scoring timestamp;
+- rater/review mode;
+- paper/typed modality.
+
+If the rubric changes materially, old score evidence must be reinterpreted as PRESERVE / MIGRATE / STALE rather than silently rescored under new semantics.
+
 ---
 
 # 7｜Calibration / bias attacks
@@ -407,7 +442,7 @@ The scoring system must survive at least these counterexamples.
 
 ---
 
-# 8｜Calibration fixtures
+# 9｜Calibration fixtures
 
 Use synthetic / engineering fixtures only.
 
@@ -423,11 +458,17 @@ Fixture set should contain:
 
 Fixtures test evaluator consistency and bias.
 
-They do not calibrate real exam-score distribution by themselves.
+Fresh scoring audit must:
+- grade a blind fixture bank without access to the expectation key;
+- randomize or at least vary fixture order when practical;
+- compare to the sealed key only after grading;
+- report both under-scoring and over-scoring failures.
+
+Fixtures do not calibrate real exam-score distribution by themselves.
 
 ---
 
-# 9｜Forecast use
+# 10｜Forecast use
 
 Forecast may use productive score evidence only if:
 
@@ -441,7 +482,7 @@ English total score synthesis must not assume Translation/Writing scoring error 
 
 ---
 
-# 10｜E3 closure criteria
+# 11｜E3 closure criteria
 
 E3 closes only when:
 
