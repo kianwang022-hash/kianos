@@ -96,10 +96,11 @@ The required review order is:
 
 ```text
 Question Truth
-→ independent solve / provisional exam target + decision axis
+→ independent solve / provisional exam target + decision axis + minimal answer logic
 → exact Current Knowledge owner
 → smallest sufficient System / Block / LG / KP target
 → self-attack
+→ record concise independent mapping basis in review evidence
 → optional post-decision conflict check against old Explanation
 → REVIEWED relation
 ```
