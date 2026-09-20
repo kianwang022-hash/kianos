@@ -313,7 +313,13 @@ const base=import.meta.env.BASE_URL;
         task:'external_reading',
         object_id:active.object_id,
         source_hash:active.content_hash,
+        semantic_source_hash:active.semantic_source_hash||active.content_hash,
         snapshot:{
+          evidence:{
+            source_kind:'external',
+            evidence_role:active.question_origin==='CHAT_GENERATED'?'TRANSFER':'GROWTH',
+            semantic_source_hash:active.semantic_source_hash||active.content_hash
+          },
           source_family:active.source_family,
           source_format:active.source_format,
           collection:active.collection,
