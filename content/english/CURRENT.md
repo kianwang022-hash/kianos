@@ -207,6 +207,18 @@ Targeted repaired-code proof PASS on `00b238e23c407c48749ad046b7f4ca6a1ddc7798`:
 - stale-v1 Whole Paper productive scoring identity makes the integrated score formally ineligible and removes `INTEGRATED_HIGH`;
 - the full Forecast system-logic validator passes with dedicated stale-revision local + integrated attacks.
 
+Final Fresh re-audit #4 locked `7e83a256ea15e6617d44268c9958a52e3a7b25bb` and returned:
+
+```text
+FAIL — material system-logic blind spots remain
+```
+
+Fresh #4 found a novel Whole Paper cross-layer closure defect: the real session stopped at Objective `/60` + `CHAT_REVIEW_REQUIRED`, while `full_paper` was already considered complete and Forecast's integrated `whole_paper.score_range` had no actual Whole Paper evidence producer. Local Whole Paper and Forecast checks could therefore both be green while productive score state lived outside the durable session.
+
+Bounded repair on code head `b6e3116e39a8cfb338debf327798dc3ccca6d914` keeps the same Whole Paper session and adds one identity-bound Chat productive-score return. `RELEASED` no longer closes `full_paper`; valid return advances to `SCORED`, preserves Translation / Small Writing / Big Writing ranges plus the integrated `/100` range in Fresh-Chat evidence, rejects stale/wrong identity and unresolved rescore state, and keeps browser-typed integrated evidence formally score-ineligible. `English Exam Session` exact-head Actions PASS includes semantic validation, site build and the real browser return journey.
+
+Detailed report: `content/english/ENGLISH_HIGHEST_MATURITY_FRESH_AUDIT.md`.
+
 The long-diverged candidate still triggers unrelated repo-wide / other-subject CI debt. Those reds are not promoted into English defects when they fail outside the affected owner / impact cone. This remains another reason not to merge PR #640 wholesale.
 
 **Current head is a repaired candidate, not a Fresh PASS.** This audit context has now seen the Fresh #4 defect and repair implementation, so it is not eligible to issue Fresh #5.
