@@ -67,7 +67,7 @@ for(const book of [17,18,19]){
 }
 
 try{
-  const state=ensureExternalReadingPrivateBundle({sourceRoot,privateDir,force:true});
+  const state=ensureExternalReadingPrivateBundle({sourceRoot,privateDir,force:true,enforceSourceHashGate:false});
   assert.equal(state.status,'ready',state.error||state.status);
   assert.equal(state.bundle.passages.length,66);
   assert.deepEqual(state.bundle.counts.toefl,{collections:10,passages:30,questions:395,answer_slots:395});
@@ -111,6 +111,12 @@ try{
   assert.equal(missing.status,'missing_source');
   assert(missing.missing.length>0);
 
+  const stale=ensureExternalReadingPrivateBundle({sourceRoot,privateDir:path.join(temp,'stale-gate')});
+  assert.equal(stale.status,'stale_source');
+  assert.equal(stale.bundle,null);
+  assert.equal(stale.mismatches.length,14);
+  assert(stale.mismatches.every(row=>row.relative&&row.expected_sha256&&row.actual_sha256));
+
   console.log(JSON.stringify({
     status:'PASS',
     passages:rows.length,
@@ -119,7 +125,8 @@ try{
     public_source_bytes:0,
     answer_gate:'PASS',
     cognition_boundary:'PASS',
-    missing_source_fail_closed:'PASS'
+    missing_source_fail_closed:'PASS',
+    stale_source_hash_gate:'PASS'
   },null,2));
 }finally{
   fs.rmSync(temp,{recursive:true,force:true});

@@ -40,7 +40,26 @@
     "bridge": "static-web/scripts/privateExternalReadingBridge.mjs",
     "runtime_route": "/external-reading/",
     "compile_policy": "ON_DEMAND_WHEN_PRIVATE_SOURCE_NEWER",
-    "failure_policy": "FAIL_CLOSED_NO_LEGACY_FALLBACK"
+    "failure_policy": "FAIL_CLOSED_NO_LEGACY_FALLBACK",
+    "active_private_source_version": "repaired-candidate-2026-09-20-pass15",
+    "expected_active_archive_sha256": "cf98e07b9a7e2ef61fe5071423a40fcc809d6823414be37d2e92c004645f87f9",
+    "expected_active_source_sha256": {
+      "source_manifest.json": "c69a50749f9e24ed02b41ae0f4c41928dbb6c6b4764ba80b17a1a7767bfbf292",
+      "TOEFL/TPO56.md": "905e8b0bddf41f44bccbb182c403fe576da131c8b9f47e992b5358533a3dbd38",
+      "TOEFL/TPO57.md": "6f145ae864215e5f66fc4ec1b7a8f5687544e3a7e6ce752d38c50f95e6af846c",
+      "TOEFL/TPO58.md": "3dcbdf8cad9e3751f277b5ceb94e0fd50b4282635425ce01a40ecd78b2cde8d8",
+      "TOEFL/TPO59.md": "7f0f10a290fc8c5a8b81ad9225de038a298a56e8177dfe5bd6e095eb46d87cdf",
+      "TOEFL/TPO60.md": "b286947db94dd62d1b098b3d5275d6d2bbaf9984833f4ce0c05f6865f9e0790c",
+      "TOEFL/TPO61.md": "6d4e022d9117fdb7403de3157a7c3f21863b301c62118d9d9c7c6f0b2c040afe",
+      "TOEFL/TPO62.md": "ed46cc1dff0299e211a940a99762bc4e9de296d9fe27a2d07c5f991bca8585af",
+      "TOEFL/TPO63.md": "c9046aa5697ecd2f4c25dd7482fffd184c28873614b34ebf671f4aa334944cea",
+      "TOEFL/TPO64.md": "06e7895b2ae308ec67bfd94cf42982bc1c50eb3339ed3ba0338997ea42e77518",
+      "TOEFL/TPO65.md": "eac8e63cee9af621d4cdc200429e276643f65c655cbdc68ace7016ccad87856b",
+      "IELTS/Cambridge_IELTS_17_Academic_Reading.md": "353fbd8b26549fe8e50a43af02411488c2272604a059221c64460cf797f0f38c",
+      "IELTS/Cambridge_IELTS_18_Academic_Reading.md": "022b7c0b2cda15adf373d1bb101d2123b6c3bcb7b29bab387e4ab14b681a4da8",
+      "IELTS/Cambridge_IELTS_19_Academic_Reading.md": "7080e05e9143c173a852b944af43a530b42f626bbeeea691c6d45c2a63cd4677"
+    },
+    "stale_source_policy": "FAIL_CLOSED_BEFORE_COMPILE"
   },
   "source_priority": [
     {
@@ -107,10 +126,8 @@
         "passage_number": 1,
         "question_count": 14,
         "source_owner": "TOEFL/TPO56.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
-        "known_source_flags": [
-          "KNOWN_OCR_DEBT"
-        ]
+        "source_quality": "REPAIRED_CANDIDATE",
+        "known_source_flags": []
       },
       {
         "object_id": "tpo56-p2",
@@ -121,10 +138,8 @@
         "passage_number": 2,
         "question_count": 13,
         "source_owner": "TOEFL/TPO56.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
-        "known_source_flags": [
-          "KNOWN_OCR_DEBT"
-        ]
+        "source_quality": "REPAIRED_CANDIDATE",
+        "known_source_flags": []
       },
       {
         "object_id": "tpo56-p3",
@@ -135,10 +150,8 @@
         "passage_number": 3,
         "question_count": 14,
         "source_owner": "TOEFL/TPO56.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
-        "known_source_flags": [
-          "KNOWN_OCR_DEBT"
-        ]
+        "source_quality": "REPAIRED_CANDIDATE",
+        "known_source_flags": []
       },
       {
         "object_id": "tpo57-p1",
@@ -149,7 +162,7 @@
         "passage_number": 1,
         "question_count": 14,
         "source_owner": "TOEFL/TPO57.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE",
         "known_source_flags": []
       },
       {
@@ -161,7 +174,7 @@
         "passage_number": 2,
         "question_count": 14,
         "source_owner": "TOEFL/TPO57.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE",
         "known_source_flags": []
       },
       {
@@ -173,7 +186,7 @@
         "passage_number": 3,
         "question_count": 14,
         "source_owner": "TOEFL/TPO57.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE",
         "known_source_flags": []
       },
       {
@@ -185,7 +198,7 @@
         "passage_number": 1,
         "question_count": 14,
         "source_owner": "TOEFL/TPO58.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE",
         "known_source_flags": []
       },
       {
@@ -197,7 +210,7 @@
         "passage_number": 2,
         "question_count": 14,
         "source_owner": "TOEFL/TPO58.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE",
         "known_source_flags": []
       },
       {
@@ -209,7 +222,7 @@
         "passage_number": 3,
         "question_count": 14,
         "source_owner": "TOEFL/TPO58.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE",
         "known_source_flags": []
       },
       {
@@ -221,10 +234,8 @@
         "passage_number": 1,
         "question_count": 14,
         "source_owner": "TOEFL/TPO59.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
-        "known_source_flags": [
-          "KNOWN_OCR_DEBT"
-        ]
+        "source_quality": "REPAIRED_CANDIDATE",
+        "known_source_flags": []
       },
       {
         "object_id": "tpo59-p2",
@@ -235,10 +246,8 @@
         "passage_number": 2,
         "question_count": 14,
         "source_owner": "TOEFL/TPO59.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
-        "known_source_flags": [
-          "KNOWN_OCR_DEBT"
-        ]
+        "source_quality": "REPAIRED_CANDIDATE",
+        "known_source_flags": []
       },
       {
         "object_id": "tpo59-p3",
@@ -249,10 +258,8 @@
         "passage_number": 3,
         "question_count": 14,
         "source_owner": "TOEFL/TPO59.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
-        "known_source_flags": [
-          "KNOWN_OCR_DEBT"
-        ]
+        "source_quality": "REPAIRED_CANDIDATE",
+        "known_source_flags": []
       },
       {
         "object_id": "tpo60-p1",
@@ -263,7 +270,7 @@
         "passage_number": 1,
         "question_count": 14,
         "source_owner": "TOEFL/TPO60.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE",
         "known_source_flags": []
       },
       {
@@ -275,7 +282,7 @@
         "passage_number": 2,
         "question_count": 14,
         "source_owner": "TOEFL/TPO60.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE",
         "known_source_flags": []
       },
       {
@@ -287,7 +294,7 @@
         "passage_number": 3,
         "question_count": 14,
         "source_owner": "TOEFL/TPO60.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE",
         "known_source_flags": []
       },
       {
@@ -299,7 +306,7 @@
         "passage_number": 1,
         "question_count": 14,
         "source_owner": "TOEFL/TPO61.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE",
         "known_source_flags": []
       },
       {
@@ -311,7 +318,7 @@
         "passage_number": 2,
         "question_count": 14,
         "source_owner": "TOEFL/TPO61.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE",
         "known_source_flags": []
       },
       {
@@ -323,7 +330,7 @@
         "passage_number": 3,
         "question_count": 14,
         "source_owner": "TOEFL/TPO61.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE",
         "known_source_flags": []
       },
       {
@@ -335,7 +342,7 @@
         "passage_number": 1,
         "question_count": 14,
         "source_owner": "TOEFL/TPO62.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE_SOURCE_PAGE_REVIEW_RETAINED",
         "known_source_flags": [
           "SOURCE_REVIEW_MARKER"
         ]
@@ -349,7 +356,7 @@
         "passage_number": 2,
         "question_count": 14,
         "source_owner": "TOEFL/TPO62.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE_SOURCE_PAGE_REVIEW_RETAINED",
         "known_source_flags": [
           "SOURCE_REVIEW_MARKER"
         ]
@@ -363,7 +370,7 @@
         "passage_number": 3,
         "question_count": 14,
         "source_owner": "TOEFL/TPO62.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE_SOURCE_PAGE_REVIEW_RETAINED",
         "known_source_flags": [
           "SOURCE_REVIEW_MARKER"
         ]
@@ -377,7 +384,7 @@
         "passage_number": 1,
         "question_count": 14,
         "source_owner": "TOEFL/TPO63.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE",
         "known_source_flags": []
       },
       {
@@ -389,7 +396,7 @@
         "passage_number": 2,
         "question_count": 14,
         "source_owner": "TOEFL/TPO63.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE",
         "known_source_flags": []
       },
       {
@@ -401,7 +408,7 @@
         "passage_number": 3,
         "question_count": 14,
         "source_owner": "TOEFL/TPO63.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE",
         "known_source_flags": []
       },
       {
@@ -413,7 +420,7 @@
         "passage_number": 1,
         "question_count": 10,
         "source_owner": "TOEFL/TPO64.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE",
         "known_source_flags": []
       },
       {
@@ -425,7 +432,7 @@
         "passage_number": 2,
         "question_count": 10,
         "source_owner": "TOEFL/TPO64.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE",
         "known_source_flags": []
       },
       {
@@ -437,7 +444,7 @@
         "passage_number": 3,
         "question_count": 10,
         "source_owner": "TOEFL/TPO64.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE",
         "known_source_flags": []
       },
       {
@@ -449,10 +456,8 @@
         "passage_number": 1,
         "question_count": 10,
         "source_owner": "TOEFL/TPO65.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
-        "known_source_flags": [
-          "KNOWN_PRESENTATION_OCR_DEBT"
-        ]
+        "source_quality": "REPAIRED_CANDIDATE",
+        "known_source_flags": []
       },
       {
         "object_id": "tpo65-p2",
@@ -463,10 +468,8 @@
         "passage_number": 2,
         "question_count": 10,
         "source_owner": "TOEFL/TPO65.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
-        "known_source_flags": [
-          "KNOWN_PRESENTATION_OCR_DEBT"
-        ]
+        "source_quality": "REPAIRED_CANDIDATE",
+        "known_source_flags": []
       },
       {
         "object_id": "tpo65-p3",
@@ -477,10 +480,8 @@
         "passage_number": 3,
         "question_count": 10,
         "source_owner": "TOEFL/TPO65.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
-        "known_source_flags": [
-          "KNOWN_PRESENTATION_OCR_DEBT"
-        ]
+        "source_quality": "REPAIRED_CANDIDATE",
+        "known_source_flags": []
       },
       {
         "object_id": "ielts17-t1-p1",
@@ -491,7 +492,7 @@
         "passage_number": 1,
         "question_count": 13,
         "source_owner": "IELTS/Cambridge_IELTS_17_Academic_Reading.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE",
         "known_source_flags": []
       },
       {
@@ -503,7 +504,7 @@
         "passage_number": 2,
         "question_count": 13,
         "source_owner": "IELTS/Cambridge_IELTS_17_Academic_Reading.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE",
         "known_source_flags": []
       },
       {
@@ -515,7 +516,7 @@
         "passage_number": 3,
         "question_count": 14,
         "source_owner": "IELTS/Cambridge_IELTS_17_Academic_Reading.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE",
         "known_source_flags": []
       },
       {
@@ -527,7 +528,7 @@
         "passage_number": 1,
         "question_count": 13,
         "source_owner": "IELTS/Cambridge_IELTS_17_Academic_Reading.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE",
         "known_source_flags": []
       },
       {
@@ -539,7 +540,7 @@
         "passage_number": 2,
         "question_count": 13,
         "source_owner": "IELTS/Cambridge_IELTS_17_Academic_Reading.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE",
         "known_source_flags": []
       },
       {
@@ -551,7 +552,7 @@
         "passage_number": 3,
         "question_count": 14,
         "source_owner": "IELTS/Cambridge_IELTS_17_Academic_Reading.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE",
         "known_source_flags": []
       },
       {
@@ -563,7 +564,7 @@
         "passage_number": 1,
         "question_count": 13,
         "source_owner": "IELTS/Cambridge_IELTS_17_Academic_Reading.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE",
         "known_source_flags": []
       },
       {
@@ -575,7 +576,7 @@
         "passage_number": 2,
         "question_count": 13,
         "source_owner": "IELTS/Cambridge_IELTS_17_Academic_Reading.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE",
         "known_source_flags": []
       },
       {
@@ -587,7 +588,7 @@
         "passage_number": 3,
         "question_count": 14,
         "source_owner": "IELTS/Cambridge_IELTS_17_Academic_Reading.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE",
         "known_source_flags": []
       },
       {
@@ -599,7 +600,7 @@
         "passage_number": 1,
         "question_count": 13,
         "source_owner": "IELTS/Cambridge_IELTS_17_Academic_Reading.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE",
         "known_source_flags": []
       },
       {
@@ -611,7 +612,7 @@
         "passage_number": 2,
         "question_count": 13,
         "source_owner": "IELTS/Cambridge_IELTS_17_Academic_Reading.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE",
         "known_source_flags": []
       },
       {
@@ -623,7 +624,7 @@
         "passage_number": 3,
         "question_count": 14,
         "source_owner": "IELTS/Cambridge_IELTS_17_Academic_Reading.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE",
         "known_source_flags": []
       },
       {
@@ -635,7 +636,7 @@
         "passage_number": 1,
         "question_count": 13,
         "source_owner": "IELTS/Cambridge_IELTS_18_Academic_Reading.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE_VISUAL_QA_REMAINS",
         "known_source_flags": [
           "OCR_UNCERTAIN",
           "VISUAL_STRUCTURE_REQUIRED"
@@ -650,7 +651,7 @@
         "passage_number": 2,
         "question_count": 13,
         "source_owner": "IELTS/Cambridge_IELTS_18_Academic_Reading.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE_VISUAL_QA_REMAINS",
         "known_source_flags": [
           "OCR_UNCERTAIN",
           "VISUAL_STRUCTURE_REQUIRED"
@@ -665,7 +666,7 @@
         "passage_number": 3,
         "question_count": 14,
         "source_owner": "IELTS/Cambridge_IELTS_18_Academic_Reading.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE_VISUAL_QA_REMAINS",
         "known_source_flags": [
           "OCR_UNCERTAIN",
           "VISUAL_STRUCTURE_REQUIRED"
@@ -680,7 +681,7 @@
         "passage_number": 1,
         "question_count": 13,
         "source_owner": "IELTS/Cambridge_IELTS_18_Academic_Reading.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE_VISUAL_QA_REMAINS",
         "known_source_flags": [
           "OCR_UNCERTAIN",
           "VISUAL_STRUCTURE_REQUIRED"
@@ -695,7 +696,7 @@
         "passage_number": 2,
         "question_count": 13,
         "source_owner": "IELTS/Cambridge_IELTS_18_Academic_Reading.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE_VISUAL_QA_REMAINS",
         "known_source_flags": [
           "OCR_UNCERTAIN",
           "VISUAL_STRUCTURE_REQUIRED"
@@ -710,7 +711,7 @@
         "passage_number": 3,
         "question_count": 14,
         "source_owner": "IELTS/Cambridge_IELTS_18_Academic_Reading.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE_VISUAL_QA_REMAINS",
         "known_source_flags": [
           "OCR_UNCERTAIN",
           "VISUAL_STRUCTURE_REQUIRED"
@@ -725,7 +726,7 @@
         "passage_number": 1,
         "question_count": 13,
         "source_owner": "IELTS/Cambridge_IELTS_18_Academic_Reading.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE_VISUAL_QA_REMAINS",
         "known_source_flags": [
           "OCR_UNCERTAIN",
           "VISUAL_STRUCTURE_REQUIRED"
@@ -740,7 +741,7 @@
         "passage_number": 2,
         "question_count": 13,
         "source_owner": "IELTS/Cambridge_IELTS_18_Academic_Reading.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE_VISUAL_QA_REMAINS",
         "known_source_flags": [
           "OCR_UNCERTAIN",
           "VISUAL_STRUCTURE_REQUIRED"
@@ -755,7 +756,7 @@
         "passage_number": 3,
         "question_count": 14,
         "source_owner": "IELTS/Cambridge_IELTS_18_Academic_Reading.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE_VISUAL_QA_REMAINS",
         "known_source_flags": [
           "OCR_UNCERTAIN",
           "VISUAL_STRUCTURE_REQUIRED"
@@ -770,7 +771,7 @@
         "passage_number": 1,
         "question_count": 13,
         "source_owner": "IELTS/Cambridge_IELTS_18_Academic_Reading.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE_VISUAL_QA_REMAINS",
         "known_source_flags": [
           "OCR_UNCERTAIN",
           "VISUAL_STRUCTURE_REQUIRED"
@@ -785,7 +786,7 @@
         "passage_number": 2,
         "question_count": 13,
         "source_owner": "IELTS/Cambridge_IELTS_18_Academic_Reading.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE_VISUAL_QA_REMAINS",
         "known_source_flags": [
           "OCR_UNCERTAIN",
           "VISUAL_STRUCTURE_REQUIRED"
@@ -800,7 +801,7 @@
         "passage_number": 3,
         "question_count": 14,
         "source_owner": "IELTS/Cambridge_IELTS_18_Academic_Reading.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE_VISUAL_QA_REMAINS",
         "known_source_flags": [
           "OCR_UNCERTAIN",
           "VISUAL_STRUCTURE_REQUIRED"
@@ -815,11 +816,10 @@
         "passage_number": 1,
         "question_count": 13,
         "source_owner": "IELTS/Cambridge_IELTS_19_Academic_Reading.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE_VISUAL_QA_REMAINS",
         "known_source_flags": [
           "OCR_UNCERTAIN",
-          "VISUAL_STRUCTURE_REQUIRED",
-          "HISTORICAL_ANSWER_KEY_VARIANT"
+          "VISUAL_STRUCTURE_REQUIRED"
         ]
       },
       {
@@ -831,11 +831,10 @@
         "passage_number": 2,
         "question_count": 13,
         "source_owner": "IELTS/Cambridge_IELTS_19_Academic_Reading.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE_VISUAL_QA_REMAINS",
         "known_source_flags": [
           "OCR_UNCERTAIN",
-          "VISUAL_STRUCTURE_REQUIRED",
-          "HISTORICAL_ANSWER_KEY_VARIANT"
+          "VISUAL_STRUCTURE_REQUIRED"
         ]
       },
       {
@@ -847,11 +846,10 @@
         "passage_number": 3,
         "question_count": 14,
         "source_owner": "IELTS/Cambridge_IELTS_19_Academic_Reading.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE_VISUAL_QA_REMAINS",
         "known_source_flags": [
           "OCR_UNCERTAIN",
-          "VISUAL_STRUCTURE_REQUIRED",
-          "HISTORICAL_ANSWER_KEY_VARIANT"
+          "VISUAL_STRUCTURE_REQUIRED"
         ]
       },
       {
@@ -863,11 +861,10 @@
         "passage_number": 1,
         "question_count": 13,
         "source_owner": "IELTS/Cambridge_IELTS_19_Academic_Reading.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE_VISUAL_QA_REMAINS",
         "known_source_flags": [
           "OCR_UNCERTAIN",
-          "VISUAL_STRUCTURE_REQUIRED",
-          "HISTORICAL_ANSWER_KEY_VARIANT"
+          "VISUAL_STRUCTURE_REQUIRED"
         ]
       },
       {
@@ -879,11 +876,10 @@
         "passage_number": 2,
         "question_count": 13,
         "source_owner": "IELTS/Cambridge_IELTS_19_Academic_Reading.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE_VISUAL_QA_REMAINS",
         "known_source_flags": [
           "OCR_UNCERTAIN",
-          "VISUAL_STRUCTURE_REQUIRED",
-          "HISTORICAL_ANSWER_KEY_VARIANT"
+          "VISUAL_STRUCTURE_REQUIRED"
         ]
       },
       {
@@ -895,11 +891,10 @@
         "passage_number": 3,
         "question_count": 14,
         "source_owner": "IELTS/Cambridge_IELTS_19_Academic_Reading.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE_VISUAL_QA_REMAINS",
         "known_source_flags": [
           "OCR_UNCERTAIN",
-          "VISUAL_STRUCTURE_REQUIRED",
-          "HISTORICAL_ANSWER_KEY_VARIANT"
+          "VISUAL_STRUCTURE_REQUIRED"
         ]
       },
       {
@@ -911,11 +906,10 @@
         "passage_number": 1,
         "question_count": 13,
         "source_owner": "IELTS/Cambridge_IELTS_19_Academic_Reading.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE_VISUAL_QA_REMAINS",
         "known_source_flags": [
           "OCR_UNCERTAIN",
-          "VISUAL_STRUCTURE_REQUIRED",
-          "HISTORICAL_ANSWER_KEY_VARIANT"
+          "VISUAL_STRUCTURE_REQUIRED"
         ]
       },
       {
@@ -927,11 +921,10 @@
         "passage_number": 2,
         "question_count": 13,
         "source_owner": "IELTS/Cambridge_IELTS_19_Academic_Reading.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE_VISUAL_QA_REMAINS",
         "known_source_flags": [
           "OCR_UNCERTAIN",
-          "VISUAL_STRUCTURE_REQUIRED",
-          "HISTORICAL_ANSWER_KEY_VARIANT"
+          "VISUAL_STRUCTURE_REQUIRED"
         ]
       },
       {
@@ -943,11 +936,10 @@
         "passage_number": 3,
         "question_count": 14,
         "source_owner": "IELTS/Cambridge_IELTS_19_Academic_Reading.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE_VISUAL_QA_REMAINS",
         "known_source_flags": [
           "OCR_UNCERTAIN",
-          "VISUAL_STRUCTURE_REQUIRED",
-          "HISTORICAL_ANSWER_KEY_VARIANT"
+          "VISUAL_STRUCTURE_REQUIRED"
         ]
       },
       {
@@ -959,11 +951,10 @@
         "passage_number": 1,
         "question_count": 13,
         "source_owner": "IELTS/Cambridge_IELTS_19_Academic_Reading.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE_VISUAL_QA_REMAINS",
         "known_source_flags": [
           "OCR_UNCERTAIN",
-          "VISUAL_STRUCTURE_REQUIRED",
-          "HISTORICAL_ANSWER_KEY_VARIANT"
+          "VISUAL_STRUCTURE_REQUIRED"
         ]
       },
       {
@@ -975,11 +966,10 @@
         "passage_number": 2,
         "question_count": 13,
         "source_owner": "IELTS/Cambridge_IELTS_19_Academic_Reading.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE_VISUAL_QA_REMAINS",
         "known_source_flags": [
           "OCR_UNCERTAIN",
-          "VISUAL_STRUCTURE_REQUIRED",
-          "HISTORICAL_ANSWER_KEY_VARIANT"
+          "VISUAL_STRUCTURE_REQUIRED"
         ]
       },
       {
@@ -991,18 +981,18 @@
         "passage_number": 3,
         "question_count": 14,
         "source_owner": "IELTS/Cambridge_IELTS_19_Academic_Reading.md",
-        "source_quality": "CANDIDATE_NOT_PROVEN_CLEAN",
+        "source_quality": "REPAIRED_CANDIDATE_VISUAL_QA_REMAINS",
         "known_source_flags": [
           "OCR_UNCERTAIN",
-          "VISUAL_STRUCTURE_REQUIRED",
-          "HISTORICAL_ANSWER_KEY_VARIANT"
+          "VISUAL_STRUCTURE_REQUIRED"
         ]
       }
     ]
   },
   "source_quality": {
-    "corpus_claim": "SOURCE_BYTES_KNOWN_PRESENT_HISTORICALLY; NOT PROVEN CLEAN",
+    "corpus_claim": "REPAIRED_CANDIDATE_2026_09_20; NOT CORPUS_WIDE_PROVEN_CLEAN",
     "proven_clean_objects": 0,
-    "policy": "Mechanical or exact hash-bound presentation cleanup only; ambiguous OCR remains explicit debt until source-page evidence resolves it."
+    "policy": "Active private source must hash-match the repaired candidate before compilation; remaining uncertainty is explicit and source-bound.",
+    "active_candidate_archive_sha256": "cf98e07b9a7e2ef61fe5071423a40fcc809d6823414be37d2e92c004645f87f9"
   }
 }

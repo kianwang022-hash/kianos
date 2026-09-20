@@ -203,6 +203,10 @@ if (siteOk) {
   } else if (external.status === 404 && external.value?.status === 'missing_source') {
     const missing = Array.isArray(external.value?.missing) ? external.value.missing.length : 0;
     record('WARN', 'External Reading private source', `missing ${missing} source file(s) under ${external.value?.source_root || 'default private source root'}`);
+  } else if (external.status === 409 && external.value?.status === 'stale_source') {
+    const mismatches = Array.isArray(external.value?.mismatches) ? external.value.mismatches : [];
+    const first = mismatches[0]?.relative ? ` · first: ${mismatches[0].relative}` : '';
+    record('WARN', 'External Reading private source', `stale repaired-source hash set · ${mismatches.length} mismatch(es)${first}`);
   } else {
     record('WARN', 'External Reading private source', external.error || `HTTP ${external.status} · ${external.value?.status || external.value?.error || 'not ready'}`);
   }
