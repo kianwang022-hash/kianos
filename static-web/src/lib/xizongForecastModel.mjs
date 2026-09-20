@@ -81,11 +81,18 @@ function combineModelFormBands(estimators = []) {
   const p20 = Math.min(...valid.map((row) => row.band_minutes.p20));
   const p50s = valid.map((row) => row.band_minutes.p50);
   const p80 = Math.max(...valid.map((row) => row.band_minutes.p80));
+  const overlapLower = Math.max(...valid.map((row) => row.band_minutes.p20));
+  const overlapUpper = Math.min(...valid.map((row) => row.band_minutes.p80));
   return {
     p20: round(p20),
     p50: round(median(p50s)),
     p80: round(p80),
     estimator_count: valid.length,
+    estimator_bands_overlap: overlapLower <= overlapUpper,
+    estimator_overlap_minutes: {
+      lower: round(overlapLower),
+      upper: round(overlapUpper)
+    },
     p50_model_spread_ratio: p50s.length > 1 && Math.min(...p50s) > 0
       ? round(Math.max(...p50s) / Math.min(...p50s), 3)
       : 1
@@ -135,7 +142,7 @@ function knowledgeForecast(progress) {
   if (Number(progress?.runtime_evidence?.started_incomplete_blocks || 0) > 0) {
     risks.push('STARTED_INCOMPLETE_BLOCKS_PRICED_AS_FULL_REMAINING');
   }
-  if (band?.p50_model_spread_ratio > 1.35) risks.push('STRUCTURAL_ESTIMATORS_DIVERGE');
+  if (band && band.estimator_bands_overlap === false) risks.push('STRUCTURAL_ESTIMATORS_DIVERGE');
   return {
     component: 'FIRST_PASS_KNOWLEDGE_CLOSURE',
     required: true,
@@ -243,7 +250,11 @@ function repairForecast(progress, { wrongUncertainRate = null } = {}) {
   const rate = wrongUncertainRate === null ? observedRate : Math.max(0, Math.min(1, Number(wrongUncertainRate)));
   const remainingQuestions = finite(progress?.question_workload?.known_remaining_questions);
   const questionsPerCluster = positive(progress?.repair_evidence?.observed_question_to_cluster_ratio);
-  const activeClusters = Math.max(0, Number(progress?.repair_evidence?.active_repair_clusters || 0));
+  const activeClusters = Math.max(0, Number(
+    progress?.repair_evidence?.active_question_backed_clusters
+    ?? progress?.repair_evidence?.active_repair_clusters
+    ?? 0
+  ));
   const futureWu = rate !== null && remainingQuestions !== null ? remainingQuestions * rate : null;
   const futureClusters = futureWu !== null && questionsPerCluster !== null
     ? futureWu / questionsPerCluster
