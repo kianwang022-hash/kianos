@@ -220,9 +220,22 @@ export function readPoliticsAnalysisEvidenceStore(storage) {
   return validatePoliticsAnalysisStore(value);
 }
 
-export function applyPoliticsAnalysisEvidence(storage, input, { now = Date.now() } = {}) {
+export function applyPoliticsAnalysisEvidence(storage, input, {
+  now = Date.now(),
+  boundCurrentYearSources = []
+} = {}) {
   if (!storage?.getItem || !storage?.setItem) fail('STORAGE_UNAVAILABLE');
   const normalized = validatePoliticsAnalysisEvidence(input, { now });
+  if (normalized.freshness_class === 'CURRENT_YEAR_EXACT_REQUIRED') {
+    const bindings = Array.isArray(boundCurrentYearSources) ? boundCurrentYearSources : [];
+    const matched = bindings.some((row) =>
+      record(row)
+      && clean(row.family, 160) === normalized.source_basis.family
+      && clean(row.revision, 240) === normalized.source_basis.revision
+      && row.current_year_authority === true
+    );
+    if (!matched) fail('CURRENT_YEAR_SOURCE_NOT_CURRENT_BOUND');
+  }
   const store = readPoliticsAnalysisEvidenceStore(storage);
   const existing = store.records.find(record => record.evidence_id === normalized.evidence_id);
 
