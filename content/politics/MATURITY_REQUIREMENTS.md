@@ -1,6 +1,6 @@
 # Politics Highest-Bar Maturity Requirements
 
-Status: **ACTIVE SUBJECT ADAPTATION — derived from shared highest-bar standard**
+Status: **POLITICS-SPECIFIC CANDIDATE — implementation must follow this adapted standard**
 
 Purpose:
 
@@ -18,6 +18,185 @@ Current target:
 Optimization goal:
 
 > Reach the score target with the least learner time, review debt, switching friction and maintenance burden compatible with durable exam performance.
+
+---
+
+# 0. Politics-specific adaptations that override generic defaults
+
+The shared subject maturity standard is a quality bar, not a universal learning algorithm.
+
+For Politics, the following subject-specific rules take precedence over generic interpretations.
+
+## P0.1 Score control is asymmetric
+
+Politics has two fundamentally different score channels:
+
+```text
+Objective
+= early-cycle high-information channel
+
+Analysis
+= later-cycle output-conversion channel
+```
+
+Therefore:
+
+- early Objective confidence may become relatively narrow;
+- early final-total confidence must remain wider;
+- Analysis UNKNOWN is legitimate before current-year output evidence exists;
+- the system must never infer a 70/75 total-score claim from Objective evidence alone.
+
+## P0.2 Xiao1000 is full-consumption learning material, not a calibration holdout
+
+All 1148 Xiao1000 Objective questions are learning assets.
+
+Do not reserve untouched Xiao1000 merely to create a fresh test set.
+
+Use them to:
+
+- learn boundaries;
+- expose W/U;
+- discover exact-memory needs;
+- validate first-round knowledge;
+- drive causal Repair.
+
+Later fresh/current-year calibration comes from:
+
+- changed-context generated transfer when legitimate;
+- Xiao8;
+- Xiao4;
+- current-year accepted mocks / mixed sets.
+
+## P0.3 Politics first-round cost is expected to be memory/compression-heavy, not understanding-heavy
+
+Current learner prior:
+
+- prior-cycle Politics score was about 60;
+- Objective study was incomplete;
+- Analysis/subjective preparation was essentially not systematically built;
+- much of the conceptual framework has been understood before;
+- exact memory may have decayed substantially.
+
+This means the default first-round hypothesis is:
+
+```text
+reactivation is relatively cheap
+compression / exact retrieval / option discrimination are the larger costs
+```
+
+This is a hypothesis to calibrate from real U, not a permanent truth.
+
+## P0.4 Historical 60 is a sanity prior, not a floor
+
+The prior 60 score must be used only to attack implausible models.
+
+A Forecast that says:
+
+> completing Objective coverage + building real Analysis capability still requires extremely large Politics workload merely to reach 70
+
+must explain why the historical incomplete-preparation result was already ~60.
+
+If it cannot, suspect workload/score-model overestimation.
+
+The opposite attack is also required:
+
+> prior 60 does not make current 70/75 automatic.
+
+## P0.5 Politics Memory is selective admission, never automatic accumulation
+
+Politics exactness can create large fake debt if every candidate becomes a card.
+
+Therefore:
+
+```text
+candidate
+≠ durable Memory
+≠ review debt
+```
+
+Durable Memory requires:
+
+```text
+source support
++
+real Objective/Analysis need
+```
+
+No fixed cadence is learner-facing truth.
+
+## P0.6 Source freshness is domain-dependent
+
+Politics later-stage material has unequal annual-delta risk.
+
+Relatively stable structural use may begin earlier for:
+
+- Marxist principles;
+- stable historical causal structures;
+- stable conceptual ethics/life-value themes.
+
+Strong current-year source gates apply especially to:
+
+- Xi/current policy wording;
+- current affairs;
+- recent-history additions;
+- legal/normative exact wording;
+- current-year recitation emphasis;
+- Xiao8/Xiao4 final framing.
+
+Historical structure may be reused.
+Historical exact current-year wording may not.
+
+## P0.7 Analysis training must start structurally before current-year recitation arrives
+
+The system must not wait until November to discover that:
+
+- prompt interpretation is weak;
+- principle retrieval is weak;
+- skeleton construction is weak;
+- material binding is weak.
+
+Stable structural drills may be prepared and used earlier.
+
+However:
+
+> current-year exact wording remains source-gated.
+
+## P0.8 Protect-70 and Push-75 are different control modes
+
+Before Protect-70 risks are bounded:
+
+> Politics time is defensive / viability-preserving.
+
+After Protect-70 is genuinely supported:
+
+> additional Politics time becomes Elastic and competes with Xizong/English.
+
+The system must not keep investing in Politics merely because further improvement is theoretically possible.
+
+## P0.9 Analysis may remain Chat-primary
+
+Politics maturity does not require a dedicated Analysis Website.
+
+A Website helper is justified only if real learner use proves that Chat-primary execution creates material friction.
+
+Do not build a new Analysis Runtime merely for symmetry.
+
+## P0.10 Late annual sources should update content, not redesign the system
+
+For handbook/current affairs/Xiao8/Xiao4:
+
+```text
+prior-year baseline
++ Current stable Politics knowledge
++ new 2027 source
+→ delta
+→ validate
+→ update responsible derived/current-year assets
+→ existing learning loop continues
+```
+
+Arrival of a known annual source is not permission to redesign Politics.
+
 
 ---
 
