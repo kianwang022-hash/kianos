@@ -1,0 +1,580 @@
+{
+  "schema": "kianos.politics.later-stage-subject-bundle-part.v1",
+  "subject": "history",
+  "part": 2,
+  "historical_audit_ref": "work/politics-later-l-fastpath-20260918",
+  "chapters": [
+    {
+      "chapter_path": "content/politics/learning/history/ch06.json",
+      "chapter_id": "POL27-LEARN-HISTORY-C06",
+      "title": "第六章｜为什么抗日战争成为全民族战争，中国共产党又为什么成为中流砥柱",
+      "later_stage_knowledge": {
+        "schema": "kianos.politics.later_stage_knowledge.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "phase_scope": [
+          "CONSOLIDATION",
+          "PRECISION",
+          "ANALYSIS_OUTPUT"
+        ],
+        "compression_model": {
+          "cognition": "ANTI_JAPANESE_WAR_CAUSE_HIERARCHY",
+          "purpose": "Preserve the chapter causal movie first; use horizontal compression only for later exact identity/confusable repair.",
+          "reconstruction_source": "chapter_compression",
+          "chapter_compression": {
+            "timeline": [
+              "日本侵华升级",
+              "抗日救亡运动",
+              "抗日民族统一战线形成",
+              "全面抗战",
+              "正面战场与敌后战场",
+              "持久战和根据地建设",
+              "长期坚持",
+              "抗战胜利",
+              "台湾及澎湖列岛重归中国主权管辖"
+            ],
+            "stage_shift": "民族危机升级 → 全国联合抗日 → 两大战场长期战争 → 中国共产党组织群众并发展敌后力量 → 民族精神、党的中流砥柱作用、全民族抗战和国际支援共同汇入胜利 → 战后中国前途问题重新成为中心",
+            "review_prompt": "闭卷回答三个问题：为什么抗日战争必须靠全民族共同抗战？为什么中国共产党在其中发挥了中流砥柱作用？抗战胜利又为什么不仅是一次军事胜利？"
+          },
+          "horizontal_knowledge_owner": "content/politics/learning/history/later-stage-knowledge.json",
+          "horizontal_candidate_refs": [
+            {
+              "line": "meetings",
+              "id": "HIST-MTG-008"
+            },
+            {
+              "line": "meetings",
+              "id": "HIST-MTG-009"
+            },
+            {
+              "line": "meetings",
+              "id": "HIST-MTG-010"
+            },
+            {
+              "line": "meetings",
+              "id": "HIST-MTG-011"
+            },
+            {
+              "line": "meetings",
+              "id": "HIST-MTG-012"
+            },
+            {
+              "line": "land_policy",
+              "id": "HIST-LAND-007"
+            },
+            {
+              "line": "ideological_liberation",
+              "id": "HIST-IDEA-005"
+            }
+          ]
+        },
+        "precision_knowledge": {
+          "policy": "REFERENCE_SUBJECT_HORIZONTAL_K",
+          "owner_path": "content/politics/learning/history/later-stage-knowledge.json",
+          "candidate_refs": [
+            {
+              "line": "meetings",
+              "id": "HIST-MTG-008"
+            },
+            {
+              "line": "meetings",
+              "id": "HIST-MTG-009"
+            },
+            {
+              "line": "meetings",
+              "id": "HIST-MTG-010"
+            },
+            {
+              "line": "meetings",
+              "id": "HIST-MTG-011"
+            },
+            {
+              "line": "meetings",
+              "id": "HIST-MTG-012"
+            },
+            {
+              "line": "land_policy",
+              "id": "HIST-LAND-007"
+            },
+            {
+              "line": "ideological_liberation",
+              "id": "HIST-IDEA-005"
+            }
+          ],
+          "candidate_domains": [
+            "抗日民族统一战线/会议 identities",
+            "抗战路线与战略阶段 boundaries",
+            "抗战胜利原因/意义 hierarchy"
+          ],
+          "admission_state": "CANDIDATE_ONLY",
+          "current_year_delta_risk": "LOW_TO_MEDIUM",
+          "rule": "History precision is mainly cross-cutting identity/timeline knowledge. Exact recent-history items require current-year refresh."
+        },
+        "analysis_output_hooks": [
+          {
+            "id": "HISTORY-C06-OUT-ANTI-JAPANESE-WAR",
+            "title": "抗日战争胜利与党的作用",
+            "material_cues": [
+              "抗日战争",
+              "统一战线",
+              "中流砥柱",
+              "胜利原因/意义"
+            ],
+            "retrieval_target": "先按全民族抗战与党作用组织，再区分胜利原因层级和历史意义。",
+            "answer_skeleton": [
+              "民族危机促成全民族抗战",
+              "中共推动统一战线/敌后战场/根据地建设",
+              "多因素共同形成胜利条件",
+              "说明国内民族解放意义",
+              "说明世界反法西斯战争意义"
+            ],
+            "current_year_status": "STABLE_HISTORICAL"
+          }
+        ],
+        "output_source_role": "VERY_HIGH_VALUE_CHAT_FIRST_OUTPUT_BASELINE",
+        "historical_output_value": [
+          "抗战中国/世界意义",
+          "党在抗战中的历史作用",
+          "北上抗日/长征相关转折"
+        ],
+        "first_round_effect": "NONE"
+      }
+    },
+    {
+      "chapter_path": "content/politics/learning/history/ch07.json",
+      "chapter_id": "POL27-LEARN-HISTORY-C07",
+      "title": "第七章｜抗战胜利以后，中国为什么没有走向联合政府，而是迅速进入决战",
+      "later_stage_knowledge": {
+        "schema": "kianos.politics.later_stage_knowledge.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "phase_scope": [
+          "CONSOLIDATION",
+          "PRECISION",
+          "ANALYSIS_OUTPUT"
+        ],
+        "compression_model": {
+          "cognition": "POSTWAR_CHOICE_TO_NEW_STATE",
+          "purpose": "Preserve the chapter causal movie first; use horizontal compression only for later exact identity/confusable repair.",
+          "reconstruction_source": "chapter_compression",
+          "chapter_compression": {
+            "timeline": [
+              "争取和平民主",
+              "全面内战",
+              "战略防御",
+              "战略进攻",
+              "第二条战线",
+              "民主党派政治选择变化",
+              "战略决战",
+              "新政协和新国家筹备"
+            ],
+            "stage_shift": "抗战胜利后的和平期待 → 国民党发动内战 → 人民战争由防御转进攻 → 国统区政治危机加深 → 民主力量重新组合 → 军事和政治两条线共同汇入新中国建立",
+            "review_prompt": "闭卷回答：为什么解放战争的胜利不能只解释成战场上的军事胜利，而必须同时看土地、群众、国统区危机、民主党派选择和新政权筹备？"
+          },
+          "horizontal_knowledge_owner": "content/politics/learning/history/later-stage-knowledge.json",
+          "horizontal_candidate_refs": [
+            {
+              "line": "meetings",
+              "id": "HIST-MTG-013"
+            },
+            {
+              "line": "people_documents",
+              "id": "HIST-PDOC-007"
+            },
+            {
+              "line": "land_policy",
+              "id": "HIST-LAND-008"
+            },
+            {
+              "line": "land_policy",
+              "id": "HIST-LAND-009"
+            }
+          ]
+        },
+        "precision_knowledge": {
+          "policy": "REFERENCE_SUBJECT_HORIZONTAL_K",
+          "owner_path": "content/politics/learning/history/later-stage-knowledge.json",
+          "candidate_refs": [
+            {
+              "line": "meetings",
+              "id": "HIST-MTG-013"
+            },
+            {
+              "line": "people_documents",
+              "id": "HIST-PDOC-007"
+            },
+            {
+              "line": "land_policy",
+              "id": "HIST-LAND-008"
+            },
+            {
+              "line": "land_policy",
+              "id": "HIST-LAND-009"
+            }
+          ],
+          "candidate_domains": [
+            "重庆谈判/政协/解放战争 milestones",
+            "战略阶段/重大会议 identities",
+            "解放区土地政策演变",
+            "新政协/共同纲领/建国 milestones"
+          ],
+          "admission_state": "CANDIDATE_ONLY",
+          "current_year_delta_risk": "LOW_TO_MEDIUM",
+          "rule": "History precision is mainly cross-cutting identity/timeline knowledge. Exact recent-history items require current-year refresh."
+        },
+        "analysis_output_hooks": [
+          {
+            "id": "HISTORY-C07-OUT-POSTWAR-CHOICE",
+            "title": "战后政治选择与新中国建立",
+            "material_cues": [
+              "重庆谈判",
+              "政协",
+              "解放战争",
+              "新政协",
+              "新中国成立"
+            ],
+            "retrieval_target": "解释为什么战后和平民主尝试最终转入人民解放战争，并形成新的国家政权。",
+            "answer_skeleton": [
+              "抗战胜利后出现和平民主可能",
+              "国民党军事/政治选择使矛盾升级",
+              "解放战争和第二条战线发展",
+              "政治力量重组与新政协",
+              "新中国建立完成阶段性历史转折"
+            ],
+            "current_year_status": "STABLE_HISTORICAL"
+          }
+        ],
+        "output_source_role": "HISTORY_ANALYSIS_CROSS_TOPIC_SUPPORT",
+        "historical_output_value": [
+          "专题史实可供后期按题目组织"
+        ],
+        "first_round_effect": "NONE"
+      }
+    },
+    {
+      "chapter_path": "content/politics/learning/history/ch08.json",
+      "chapter_id": "POL27-LEARN-HISTORY-C08",
+      "title": "第八章｜新中国成立以后，为什么还要经历从巩固政权到社会主义制度建立的第二次转变",
+      "later_stage_knowledge": {
+        "schema": "kianos.politics.later_stage_knowledge.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "phase_scope": [
+          "CONSOLIDATION",
+          "PRECISION",
+          "ANALYSIS_OUTPUT"
+        ],
+        "compression_model": {
+          "cognition": "NEW_STATE_TO_SOCIALIST_SYSTEM_TRANSITION",
+          "purpose": "Preserve the chapter causal movie first; use horizontal compression only for later exact identity/confusable repair.",
+          "reconstruction_source": "chapter_compression",
+          "chapter_compression": {
+            "timeline": [
+              "新中国成立",
+              "巩固政权和恢复经济",
+              "过渡时期总路线",
+              "社会主义工业化与三大改造",
+              "社会主义基本制度建立",
+              "《论十大关系》与中共八大",
+              "社会主义建设探索",
+              "成就与曲折"
+            ],
+            "stage_shift": "夺取政权 → 巩固新国家 → 从新民主主义向社会主义过渡 → 社会主义基本制度建立 → 从中国实际出发探索建设道路 → 建设任务成为中心 → 初步探索与曲折 → 为改革开放积累正反经验",
+            "review_prompt": "闭卷区分三个问题：1949后先解决什么？1953—1956为什么要过渡？1956以后为什么又必须重新探索建设道路？"
+          },
+          "horizontal_knowledge_owner": "content/politics/learning/history/later-stage-knowledge.json",
+          "horizontal_candidate_refs": [
+            {
+              "line": "meetings",
+              "id": "HIST-MTG-014"
+            },
+            {
+              "line": "meetings",
+              "id": "HIST-MTG-015"
+            },
+            {
+              "line": "meetings",
+              "id": "HIST-MTG-016"
+            },
+            {
+              "line": "people_documents",
+              "id": "HIST-PDOC-008"
+            },
+            {
+              "line": "land_policy",
+              "id": "HIST-LAND-010"
+            },
+            {
+              "line": "land_policy",
+              "id": "HIST-LAND-011"
+            }
+          ]
+        },
+        "precision_knowledge": {
+          "policy": "REFERENCE_SUBJECT_HORIZONTAL_K",
+          "owner_path": "content/politics/learning/history/later-stage-knowledge.json",
+          "candidate_refs": [
+            {
+              "line": "meetings",
+              "id": "HIST-MTG-014"
+            },
+            {
+              "line": "meetings",
+              "id": "HIST-MTG-015"
+            },
+            {
+              "line": "meetings",
+              "id": "HIST-MTG-016"
+            },
+            {
+              "line": "people_documents",
+              "id": "HIST-PDOC-008"
+            },
+            {
+              "line": "land_policy",
+              "id": "HIST-LAND-010"
+            },
+            {
+              "line": "land_policy",
+              "id": "HIST-LAND-011"
+            }
+          ],
+          "candidate_domains": [
+            "新中国巩固政权 milestones",
+            "过渡时期/制度确立 identities",
+            "社会主义建设初步探索会议与文献"
+          ],
+          "admission_state": "CANDIDATE_ONLY",
+          "current_year_delta_risk": "LOW_TO_MEDIUM",
+          "rule": "History precision is mainly cross-cutting identity/timeline knowledge. Exact recent-history items require current-year refresh."
+        },
+        "analysis_output_hooks": [],
+        "output_source_role": "NO_DEDICATED_HISTORY_OUTPUT_TEMPLATE",
+        "historical_output_value": [],
+        "first_round_effect": "NONE"
+      }
+    },
+    {
+      "chapter_path": "content/politics/learning/history/ch09.json",
+      "chapter_id": "POL27-LEARN-HISTORY-C09",
+      "title": "第九章｜为什么1978前后成为新的历史转折，中国又怎样重新打开现代化道路",
+      "later_stage_knowledge": {
+        "schema": "kianos.politics.later_stage_knowledge.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "phase_scope": [
+          "CONSOLIDATION",
+          "PRECISION",
+          "ANALYSIS_OUTPUT"
+        ],
+        "compression_model": {
+          "cognition": "REFORM_OPENING_STAGE_BREAKTHROUGHS",
+          "purpose": "Preserve the chapter causal movie first; use horizontal compression only for later exact identity/confusable repair.",
+          "reconstruction_source": "chapter_compression",
+          "chapter_compression": {
+            "timeline": [
+              "真理标准问题讨论",
+              "十一届三中全会",
+              "拨乱反正与改革开放起步",
+              "农村与城市改革展开",
+              "对外开放扩大",
+              "南方谈话",
+              "中国特色社会主义道路和理论发展",
+              "现代化建设持续推进"
+            ],
+            "stage_shift": "总结建设曲折 → 思想解放与拨乱反正 → 工作重心转移 → 改革开放 → 体制不断调整 → 南方谈话推动改革继续突破 → 中国特色社会主义道路形成发展 → 为新时代奠定基础",
+            "review_prompt": "闭卷回答：为什么改革开放既是1978前后的一次历史转折，又是一条在实践和理论相互突破中长期推进的社会主义自我发展道路？"
+          },
+          "horizontal_knowledge_owner": "content/politics/learning/history/later-stage-knowledge.json",
+          "horizontal_candidate_refs": [
+            {
+              "line": "meetings",
+              "id": "HIST-MTG-017"
+            },
+            {
+              "line": "meetings",
+              "id": "HIST-MTG-018"
+            },
+            {
+              "line": "meetings",
+              "id": "HIST-MTG-019"
+            },
+            {
+              "line": "meetings",
+              "id": "HIST-MTG-020"
+            },
+            {
+              "line": "meetings",
+              "id": "HIST-MTG-021"
+            },
+            {
+              "line": "meetings",
+              "id": "HIST-MTG-022"
+            },
+            {
+              "line": "meetings",
+              "id": "HIST-MTG-023"
+            },
+            {
+              "line": "meetings",
+              "id": "HIST-MTG-024"
+            },
+            {
+              "line": "land_policy",
+              "id": "HIST-LAND-012"
+            },
+            {
+              "line": "ideological_liberation",
+              "id": "HIST-IDEA-006"
+            }
+          ]
+        },
+        "precision_knowledge": {
+          "policy": "REFERENCE_SUBJECT_HORIZONTAL_K",
+          "owner_path": "content/politics/learning/history/later-stage-knowledge.json",
+          "candidate_refs": [
+            {
+              "line": "meetings",
+              "id": "HIST-MTG-017"
+            },
+            {
+              "line": "meetings",
+              "id": "HIST-MTG-018"
+            },
+            {
+              "line": "meetings",
+              "id": "HIST-MTG-019"
+            },
+            {
+              "line": "meetings",
+              "id": "HIST-MTG-020"
+            },
+            {
+              "line": "meetings",
+              "id": "HIST-MTG-021"
+            },
+            {
+              "line": "meetings",
+              "id": "HIST-MTG-022"
+            },
+            {
+              "line": "meetings",
+              "id": "HIST-MTG-023"
+            },
+            {
+              "line": "meetings",
+              "id": "HIST-MTG-024"
+            },
+            {
+              "line": "land_policy",
+              "id": "HIST-LAND-012"
+            },
+            {
+              "line": "ideological_liberation",
+              "id": "HIST-IDEA-006"
+            }
+          ],
+          "candidate_domains": [
+            "十一届三中全会/真理标准讨论/南方谈话 milestones",
+            "改革开放阶段会议 identities",
+            "农村改革与土地经营制度 boundaries"
+          ],
+          "admission_state": "CANDIDATE_ONLY",
+          "current_year_delta_risk": "LOW_TO_MEDIUM",
+          "rule": "History precision is mainly cross-cutting identity/timeline knowledge. Exact recent-history items require current-year refresh."
+        },
+        "analysis_output_hooks": [
+          {
+            "id": "HISTORY-C09-OUT-REFORM-OPENING",
+            "title": "改革开放历史进程",
+            "material_cues": [
+              "真理标准讨论",
+              "十一届三中全会",
+              "南方谈话",
+              "社会主义市场经济"
+            ],
+            "retrieval_target": "按思想解放—历史转折—改革推进—再次突破组织，不把会议逐个罗列。",
+            "answer_skeleton": [
+              "真理标准讨论提供思想先导",
+              "十一届三中全会完成伟大转折并开启新时期",
+              "改革开放逐步推进",
+              "南方谈话推动再次思想解放和改革突破",
+              "市场经济体制目标等使改革进入新阶段"
+            ],
+            "current_year_status": "STABLE_TO_HIGH_DELTA_LATE_SECTION"
+          }
+        ],
+        "output_source_role": "HISTORY_ANALYSIS_CROSS_TOPIC_SUPPORT",
+        "historical_output_value": [
+          "历史进程/专题史实组织"
+        ],
+        "first_round_effect": "NONE"
+      }
+    },
+    {
+      "chapter_path": "content/politics/learning/history/ch10.json",
+      "chapter_id": "POL27-LEARN-HISTORY-C10",
+      "title": "第十章｜为什么中国特色社会主义进入新时代，史纲在这里收束而不是再变成一门会议史",
+      "later_stage_knowledge": {
+        "schema": "kianos.politics.later_stage_knowledge.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "phase_scope": [
+          "CONSOLIDATION",
+          "PRECISION",
+          "ANALYSIS_OUTPUT"
+        ],
+        "compression_model": {
+          "cognition": "RECENT_HISTORY_STAGE_POSITION",
+          "purpose": "Preserve the chapter causal movie first; use horizontal compression only for later exact identity/confusable repair.",
+          "reconstruction_source": "chapter_compression",
+          "chapter_compression": {
+            "timeline": [
+              "改革开放长期发展",
+              "中国特色社会主义事业不断推进",
+              "进入新时代",
+              "国家治理和现代化任务升级",
+              "历史性成就和历史性变革",
+              "民族复兴进入新的历史阶段"
+            ],
+            "whole_course_bridge": "近代危机 → 各阶级救国探索 → 辛亥革命 → 五四与新的领导力量 → 新民主主义革命道路成熟 → 抗战胜利 → 解放战争与新中国 → 社会主义制度建立 → 建设探索 → 改革开放 → 新时代",
+            "review_prompt": "不要背会议清单。闭卷用一条长线回答：近代以来中国为什么会从‘寻找救国道路’一步步走到‘中国特色社会主义进入新时代’？"
+          },
+          "horizontal_knowledge_owner": "content/politics/learning/history/later-stage-knowledge.json",
+          "horizontal_candidate_refs": []
+        },
+        "precision_knowledge": {
+          "policy": "REFERENCE_SUBJECT_HORIZONTAL_K",
+          "owner_path": "content/politics/learning/history/later-stage-knowledge.json",
+          "candidate_refs": [],
+          "candidate_domains": [
+            "新时代历史方位/会议 milestone candidates only"
+          ],
+          "admission_state": "REFERENCE_ONLY_HIGH_DELTA",
+          "current_year_delta_risk": "VERY_HIGH",
+          "rule": "History precision is mainly cross-cutting identity/timeline knowledge. Exact recent-history items require current-year refresh."
+        },
+        "analysis_output_hooks": [
+          {
+            "id": "HISTORY-C10-OUT-NEW-ERA",
+            "title": "改革开放长线到新时代",
+            "material_cues": [
+              "新时代",
+              "历史方位",
+              "改革开放成就",
+              "新征程"
+            ],
+            "retrieval_target": "只承担历史阶段衔接，不复制新思想政策体系。",
+            "answer_skeleton": [
+              "长期改革开放形成新的发展基础",
+              "历史任务和社会条件进入新阶段",
+              "新时代在中国特色社会主义长期实践基础上形成",
+              "具体理论政策交还新思想/时政主干"
+            ],
+            "current_year_status": "VERY_HIGH_DELTA_REFRESH_REQUIRED"
+          }
+        ],
+        "output_source_role": "CHAT_FIRST_HIGH_DELTA_CROSS_SUBJECT_OUTPUT",
+        "historical_output_value": [
+          "历史进程/新征程母版"
+        ],
+        "first_round_effect": "NONE"
+      }
+    }
+  ]
+}
