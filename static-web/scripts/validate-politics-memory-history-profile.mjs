@@ -150,6 +150,34 @@ assert.equal(profile.unstable_recent.length,5,'recent unstable sample cap failed
 assert.equal(profile.unstable_oldest.length,5,'oldest unstable sample cap failed');
 assert.ok(profile.unstable_overflow>0,'unstable overflow not surfaced');
 assert.ok(profile.unstable_total>10,'unstable total missing');
+const selectedUnstableIds=[
+  ...profile.unstable_recent.map(row=>row.candidate_id),
+  ...profile.unstable_oldest.map(row=>row.candidate_id)
+];
+assert.equal(new Set(selectedUnstableIds).size,selectedUnstableIds.length,
+  'recent/oldest unstable samples duplicated candidate identities');
+
+const smallCatalog={
+  ...memoryCatalog,
+  revision:'memory-small-current',
+  candidates:candidates.slice(0,70)
+};
+const smallIds=new Set(smallCatalog.candidates.map(row=>row.id));
+const smallEvents=events.filter(row=>smallIds.has(row.candidate_id));
+const smallProfile=buildPoliticsMemoryHistoryProfile(smallEvents,smallCatalog,{
+  now,
+  currentDay:day
+});
+const smallSelected=[
+  ...smallProfile.unstable_recent.map(row=>row.candidate_id),
+  ...smallProfile.unstable_oldest.map(row=>row.candidate_id)
+];
+assert.equal(new Set(smallSelected).size,smallSelected.length,
+  'under-cap unstable sample duplicated identities');
+assert.equal(smallProfile.unstable_total,70);
+assert.equal(smallProfile.unstable_included,70,'under-cap sample should include every unstable candidate exactly once');
+assert.equal(smallProfile.unstable_overflow,0,'under-cap unstable set must not report overflow');
+
 assert.equal(profile.oldest_stable_sample.length,5,'stable sample cap failed');
 assert.ok(profile.oldest_stable_overflow>0,'stable overflow not surfaced');
 assert.equal(profile.recent_events.length,12,'recent event cap failed');
@@ -217,6 +245,7 @@ console.log(JSON.stringify({
   unstable_recent_in_packet:profile.unstable_recent.length,
   unstable_oldest_in_packet:profile.unstable_oldest.length,
   unstable_total:profile.unstable_total,
+  unstable_included:profile.unstable_included,
   unstable_overflow:profile.unstable_overflow,
   stable_sample_in_packet:profile.oldest_stable_sample.length,
   stable_overflow:profile.oldest_stable_overflow,
