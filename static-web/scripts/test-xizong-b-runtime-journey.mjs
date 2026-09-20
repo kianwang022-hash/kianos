@@ -341,25 +341,63 @@ async function systemRecallToPracticeJourney(page) {
     (task?.sourceQuestionIds || []).includes(stableTarget.questionId)
   ), 'b_stable_control_remains_outside_repair');
 
+  const evidenceCountBeforeRepairNavigation = Array.isArray(memoryAfterPlan?.evidence)
+    ? memoryAfterPlan.evidence.length
+    : 0;
+  const repairTaskId = visibleRepair.id;
   const [repairPage] = await Promise.all([
     page.context().waitForEvent('page'),
     routeLink.click()
   ]);
   await repairPage.waitForLoadState('domcontentloaded');
   await repairPage.waitForTimeout(500);
-  const repairEvidence = await repairPage.evaluate(({ blockId, kpId }) => {
-    const ext = JSON.parse(localStorage.getItem(`kianos-xizong-memory-review-v2:xizong:${blockId}`) || 'null');
+  const repairMigration = await repairPage.evaluate(({ blockId, taskId, questionId }) => {
+    const inboxKey = `kianos-xizong-repair-inbox-v1:xizong:${blockId}`;
+    const memory = JSON.parse(localStorage.getItem('kianos-xizong-memory-v1') || 'null');
+    const task = (memory?.repairTasks || []).find((row) => row?.id === taskId) || null;
     return {
-      inPlan: Array.isArray(ext?.reviewPlan) && ext.reviewPlan.some((row) =>
-        String(row?.kpId || row?.kp_id || row || '') === kpId
-      ),
-      imported: Array.isArray(ext?.evidenceHistory) && ext.evidenceHistory.some((row) =>
-        row?.type === 'SYSTEM_WU_PLAN_IMPORTED' && row?.evidence_role === 'REPAIR_ONLY'
-      )
+      inboxConsumed: localStorage.getItem(inboxKey) === null,
+      task,
+      evidenceCount: Array.isArray(memory?.evidence) ? memory.evidence.length : 0,
+      questionBound: Boolean(task && (task.sourceQuestionIds || []).includes(questionId))
     };
-  }, { blockId: reviewedTarget.relation.blockId, kpId: reviewedTarget.relation.primaryKpId });
-  check(repairEvidence.inPlan && repairEvidence.imported,
-    'b_reviewed_wu_routes_to_owner_as_repair_only');
+  }, {
+    blockId: reviewedTarget.relation.blockId,
+    taskId: repairTaskId,
+    questionId: reviewedTarget.questionId
+  });
+  check(repairMigration.inboxConsumed,
+    'b_reviewed_wu_inbox_consumed_by_unified_repair_owner');
+  check(
+    repairMigration.task?.status === 'ACTIVE'
+      && repairMigration.task?.origin === 'SYSTEM_WU_CHAT_RETURN'
+      && repairMigration.questionBound,
+    'b_reviewed_wu_remains_repair_only_task'
+  );
+  check(repairMigration.evidenceCount === evidenceCountBeforeRepairNavigation,
+    'b_repair_import_does_not_manufacture_memory_evidence');
+
+  await repairPage.goto(`${BASE}/xizong/memory/`, { waitUntil:'domcontentloaded' });
+  await repairPage.locator('[data-memory-view="REPAIR"]').click();
+  await repairPage.locator('[data-memory-repair-card]').waitFor({ state:'visible' });
+  const evidenceBeforeComplete = await repairPage.evaluate(() => {
+    const memory = JSON.parse(localStorage.getItem('kianos-xizong-memory-v1') || 'null');
+    return Array.isArray(memory?.evidence) ? memory.evidence.length : 0;
+  });
+  await repairPage.locator('[data-repair-complete]').click();
+  await repairPage.waitForTimeout(100);
+  const completedRepair = await repairPage.evaluate((taskId) => {
+    const memory = JSON.parse(localStorage.getItem('kianos-xizong-memory-v1') || 'null');
+    const task = (memory?.repairTasks || []).find((row) => row?.id === taskId) || null;
+    return {
+      task,
+      evidenceCount: Array.isArray(memory?.evidence) ? memory.evidence.length : 0
+    };
+  }, repairTaskId);
+  check(completedRepair.task?.status === 'DONE',
+    'b_repair_completion_closes_task');
+  check(completedRepair.evidenceCount === evidenceBeforeComplete,
+    'b_repair_completion_does_not_promote_mastery_evidence');
   await repairPage.close();
 
   check(!page.isClosed(), 'b_original_practice_tab_preserved_for_return');

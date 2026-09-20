@@ -66,11 +66,12 @@ assert(component.includes('没有匹配到本轮真实 W/U 题号'), 'invalid-re
 assert(page.includes('<XizongSystemRepairReturn system={system} />'), 'repair-return-not-mounted');
 assert(blockPage.includes('<XizongRepairInboxBridge block={projection} />'), 'repair-inbox-bridge-not-mounted');
 assert(bridge.includes('kianos-xizong-repair-inbox-v1:'), 'bridge-does-not-read-repair-inbox');
-assert(bridge.includes('kianos-xizong-memory-review-v2:'), 'bridge-does-not-merge-into-block-evidence-owner');
-assert(bridge.includes("type: 'SYSTEM_WU_PLAN_IMPORTED'"), 'bridge-import-evidence-missing');
-assert(bridge.includes("evidence_role: 'REPAIR_ONLY'"), 'bridge-repair-role-missing');
+assert(bridge.includes('XIZONG_MEMORY_STORAGE_KEY'), 'bridge-does-not-use-unified-memory-owner');
+assert(bridge.includes('setRepairTasks'), 'bridge-bypasses-unified-repair-task-owner');
+assert(bridge.includes("'SYSTEM_WU_CHAT_RETURN'"), 'bridge-system-wu-repair-origin-missing');
 assert(bridge.includes("window.addEventListener('storage'"), 'open-block-tab-cannot-receive-repair-inbox');
-assert(bridge.includes('window.location.reload();'), 'repair-inbox-consumption-does-not-rebuild-memory-state');
+assert(bridge.includes("kianos:xizong-repair-inbox-migrated"), 'repair-inbox-migration-event-missing');
+assert(!bridge.includes('appendMemoryEvidence'), 'repair-inbox-must-not-write-recall/mastery-evidence');
 assert(component.includes('XIZONG_MEMORY_STORAGE_KEY'), 'visible-memory-repair-delivery-missing');
 assert(component.includes('setRepairTasks'), 'visible-memory-repair-owner-bypassed');
 assert(component.includes("origin: 'SYSTEM_WU_CHAT_RETURN'"), 'visible-repair-origin-missing');
