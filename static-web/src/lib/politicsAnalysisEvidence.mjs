@@ -233,6 +233,20 @@ export function validatePoliticsAnalysisStore(value) {
     }
     return { ...normalized, applied_at: validIso(raw.applied_at) || normalized.observed_at };
   });
+
+  const observedTaskKeys = new Set(records
+    .filter(record => ['FIRST', 'REPAIR'].includes(record.attempt_role))
+    .map(record => record.task_id + '@' + record.task_revision));
+  for (const row of records) {
+    const taskKey = row.task_id + '@' + row.task_revision;
+    if (row.attempt_role === 'REPAIR' && !firstByTaskRevision.has(taskKey)) {
+      fail('STORE_REPAIR_WITHOUT_FIRST', taskKey);
+    }
+    if (row.attempt_role === 'TRANSFER') {
+      const transferKey = row.transfer_of.task_id + '@' + row.transfer_of.task_revision;
+      if (!observedTaskKeys.has(transferKey)) fail('STORE_TRANSFER_BASIS_MISSING', transferKey);
+    }
+  }
   return { schema: POLITICS_ANALYSIS_STORE_SCHEMA, records };
 }
 
