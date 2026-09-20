@@ -1,7 +1,7 @@
 ---
 import { examProductCatalog, politicsProductCatalog } from '../lib/productCatalog.mjs';
 import { buildPoliticsMemoryCandidateCatalogCurrent } from '../lib/politicsMemoryCandidates.mjs';
-const { xizongPacketIndex = [] } = Astro.props;
+const { xizongPacketIndex = [], xizongForecastQuestionScope = null } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const catalog = examProductCatalog(base);
 const politicsCatalog = politicsProductCatalog(base);
