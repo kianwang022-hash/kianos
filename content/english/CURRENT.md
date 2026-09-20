@@ -97,27 +97,21 @@ Structural/self-attack review is complete on this ref (19/19 targeted checks). T
 Active ref: `work/english-highest-maturity-adaptation-20260920`
 Owner package: `ENGLISH_HIGHEST_MATURITY_STANDARD.md` + `ENGLISH_HIGHEST_MATURITY_STAGE_PLAN.md` + `ENGLISH_MATURITY_GAP_MATRIX.md`.
 
-Current: **E4 Evidence / Exposure / long-horizon fidelity — ACTIVE · R1–R6 IMPLEMENTED_CANDIDATE**.
-E2 Material / Source Fidelity / Ready Inventory is **CLOSED CANDIDATE** after structural/build/browser proof on PR #640.
-E3 Productive Scoring Validity is **CLOSED CANDIDATE · FRESH PASS** on exact audited head `2066019e657ea6d479c924c26ea5cbe418c89fe7`.
+Current: **Highest-maturity remaining-domain audit — ACTIVE**.
+E2 Material / Source Fidelity / Ready Inventory is **CLOSED CANDIDATE**.
+E3 Productive Scoring Validity is **CLOSED CANDIDATE · FRESH PASS**.
+E4 Evidence / Exposure / long-horizon fidelity is **CLOSED CANDIDATE** after latest-head structural + browser + cross-subject proof and bounded self-attack.
 
-E3 blind acceptance locked all 18 current fixtures before sealed-key reveal and passed semantic-equivalence, Task>Style, Grounding>Fluency, length-stress, complete-section Translation aggregation, uncertainty and re-score invariants. Acceptance: `ENGLISH_PRODUCTIVE_SCORING_E3_FRESH_AUDIT.md`.
+Current task is **not E5 implementation**. Audit the remaining mother-standard domains against existing English truth:
 
-Next: latest-head CI/browser proof must validate exact-source exposure continuity, Chat assistance provenance, bounded long-horizon recurrence and whole-paper constituent contamination. If green, run one bounded E4 self-attack and close only if no material evidence-fidelity defect remains.
+- Forecast SYSTEM LOGIC;
+- Dynamic Control;
+- Future Source readiness;
+- Chat↔Website / Day-1 execution;
+- lifecycle / adversarial / fail-safe coverage;
+- SYSTEM_LOGIC_ACCEPTED vs KIAN_SPECIFIC_CALIBRATED boundary.
 
-**Post-E4 maturity gate:** do not open E5 merely because it is next in the Stage Plan. First separate:
-
-```text
-Forecast SYSTEM LOGIC
-vs
-KIAN-SPECIFIC Forecast CALIBRATION
-```
-
-The mother standard still requires Forecast logic in the final Maturity Package: remaining workload, uncertainty, sensitivity, decision-flip surface, highest-value next evidence and score-path confidence. That logic may be accepted before Kian-specific parameters exist, provided UNKNOWN stays explicit and no fake precision is introduced.
-
-Kian-specific numerical calibration remains Real Learner U-dependent. Current missing learner parameters include Objective residual performance, Translation/Small/Big first-output level, task duration and delayed Lexical retention.
-
-After E4, first audit whether the existing English Forecast / Dynamic Control / Future Source / Chat↔Website / lifecycle logic already satisfies the maturity standard. Only build the smallest missing system-logic owner. Do not automatically construct E5→E10 as a pipeline.
+Mark already-satisfied domains as satisfied without rebuilding them. Open only the smallest owner for a concrete system-logic gap. If the only remaining gaps are Kian-specific learner parameters or paper-mode evidence, stop maturity engineering and return to real English study.
 
 Boundaries: reuse existing task workspaces/transport; no second scheduler/ledger/mastery; no broad Guide rewrite; no protected true-exam consumption for engineering proof; no automatic E4→E5 transition.
 
