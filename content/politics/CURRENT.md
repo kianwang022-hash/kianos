@@ -20,17 +20,23 @@ Politics whole-cycle maturity has one implementation owner:
 
 The shared Exam Subject Maturity Standard / PR #644 is an upstream acceptance bar only. It is not a Politics continuation cursor and does not own Politics Forecast, Analysis, Future Source or execution state.
 
-Current maturity state:
+Current mother-standard execution state:
 
 ```text
-T1 Objective reconciliation       CLOSED
-T2 Early Objective Forecast       CURRENT-SOURCE BUILD CLOSED
-T3 Analysis foundation/evidence   CLOSED
-T4 Future Source ingress prep     CLOSED
-T5+                               SOURCE / REAL-U / EVIDENCE GATED
+M0 Ownership correction                         DONE
+M1 Single Politics Maturity Package             DONE
+M2 Reconcile stale Analysis/material status     ACTIVE
+M3 Analysis-bank machine quality proof          ACTIVE
+M4 Forecast decision-flip/adversarial closure   ACTIVE
+M5 Full lifecycle + Fresh Chat/No-Website       PENDING
+M6 SYSTEM_LOGIC_ACCEPTED verdict                PENDING
+M7 KIAN_SPECIFIC_CALIBRATED                     REAL-U GATED
+M8 current-year annual sources                  SOURCE GATED
 ```
 
-Normal next input is real Politics study → Real U → Forecast recalibration → bounded repair, not another broad maturity build.
+Canonical maturity package: `MATURITY_PACKAGE.md`.
+
+Do not jump to broad STOP until M2–M5 close. Real study may still continue in parallel because first-round learner paths are already accepted.
 
 
 **Politics Final Learner Acceptance — CLOSED for audited first-round paths**
