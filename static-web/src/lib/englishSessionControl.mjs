@@ -368,7 +368,28 @@ export function englishAttemptInventory(storage) {
     for(const [task,prefix] of Object.entries(prefixes)){
       if(!key?.startsWith(prefix))continue;
       const value=readJson(storage,key);if(!value) {rows.push({task,object_id:key.slice(prefix.length),data_status:'unreadable'});continue;}
-      rows.push({task,object_id:key.slice(prefix.length),source_hash:value.sourceHash||value.binding?.source_hash||null,attempt_id:value.attemptId||value.binding?.attempt_id||null,submitted:value.submitted===true,stage:value.stage||value.state||null,problem_count:problemCount(value),started_at:value.startedAt||value.createdAt||null,submitted_at:value.firstSubmittedAt||value.submittedAt||null,updated_at:value.updatedAt||value.saved_at||null,prior_exposure:value.binding?.prior_exposure||'unknown',assistance:value.binding?.assistance||'unknown',complete:englishStepIsComplete(storage,{task,object_id:key.slice(prefix.length),source_hash:value.binding?.source_hash}),first_evidence:value.firstEvidenceMeta||null});
+      const snapshot=value.binding?.source_snapshot&&typeof value.binding.source_snapshot==='object'?value.binding.source_snapshot:{};
+      rows.push({
+        task,
+        object_id:key.slice(prefix.length),
+        source_hash:value.sourceHash||value.binding?.source_hash||null,
+        attempt_id:value.attemptId||value.binding?.attempt_id||null,
+        submitted:value.submitted===true,
+        stage:value.stage||value.state||null,
+        problem_count:problemCount(value),
+        started_at:value.startedAt||value.createdAt||null,
+        submitted_at:value.firstSubmittedAt||value.submittedAt||null,
+        updated_at:value.updatedAt||value.saved_at||null,
+        prior_exposure:value.binding?.prior_exposure||'unknown',
+        assistance:value.binding?.assistance||'unknown',
+        complete:englishStepIsComplete(storage,{task,object_id:key.slice(prefix.length),source_hash:value.binding?.source_hash}),
+        first_evidence:value.firstEvidenceMeta||null,
+        source_family:clean(snapshot.source_family,100)||null,
+        source_format:clean(snapshot.source_format,100)||null,
+        question_origin:clean(snapshot.question_origin,100)||null,
+        drill_origin:clean(snapshot.drill_origin,100)||null,
+        training_target_kind:clean(snapshot.training_target?.kind,120)||null
+      });
     }
   }
   return rows; // Facts, never a recommendation or a priority score.
@@ -497,6 +518,14 @@ function taskPerformanceProfile(allRows, recentRows, task) {
         ? new Set(['repaired','transfer_pending'])
         : new Set(['REPAIR_COMPLETE','TRANSFER_PENDING']);
       summary.repair_bearing_attempts = rows.filter((row) => repairStates.has(String(row.stage || ''))).length;
+    }
+
+    if (task === 'external_reading') {
+      summary.generated_drill = {
+        attempts: rows.filter((row) => row.question_origin === 'CHAT_GENERATED').length,
+        synthetic_attempts: rows.filter((row) => row.drill_origin === 'CHAT_GENERATED_SYNTHETIC').length,
+        generated_on_external_source_attempts: rows.filter((row) => row.drill_origin === 'CHAT_GENERATED_ON_EXTERNAL_SOURCE').length
+      };
     }
 
     return summary;
@@ -633,6 +662,90 @@ function englishResumeEvidence(storage, day) {
   };
 }
 
+function englishExposureState(ledger, objectId) {
+  const material = ledger?.materials?.[String(objectId || '')];
+  const events = Array.isArray(material?.events) ? material.events : [];
+  const declared = String(material?.declaration?.state || '').toLowerCase();
+  if (events.length || declared === 'exposed') return 'exposed';
+  if (declared === 'unseen') return 'explicit_unseen';
+  return 'unknown';
+}
+
+function countEnglishExposure(rows, ledger) {
+  const counts = { exposed: 0, explicit_unseen: 0, unknown: 0 };
+  for (const row of rows || []) {
+    const state = englishExposureState(ledger, row?.object_id);
+    counts[state] += 1;
+  }
+  return counts;
+}
+
+function englishForecastMaterialEvidence(storage, catalog) {
+  if (!catalog || typeof catalog !== 'object' || Array.isArray(catalog) || catalog.schema !== 'kianos.english.forecast-catalog.v1') {
+    return {
+      schema: 'kianos.english.forecast-material-evidence.v1',
+      status: 'catalog_missing',
+      evidence_boundary:
+        'No build-time English forecast catalog was supplied. Missing catalog is unknown, not zero remaining material.'
+    };
+  }
+
+  const ledger = readEnglishExposure(storage);
+  const examObjects = Array.isArray(catalog.exam_objects) ? catalog.exam_objects : [];
+  const byTask = {};
+  for (const task of ['reading_a','cloze','reading_b','translation','writing']) {
+    const rows = examObjects.filter((row) => row?.task === task);
+    byTask[task] = {
+      registered_objects: rows.length,
+      exposure: countEnglishExposure(rows, ledger)
+    };
+  }
+
+  const wholePapers = (Array.isArray(catalog.whole_papers) ? catalog.whole_papers : []).map((paper) => {
+    const objectIds = Array.isArray(paper?.object_ids) ? paper.object_ids : [];
+    const states = objectIds.map((objectId) => englishExposureState(ledger, objectId));
+    return {
+      paper_id: String(paper?.paper_id || ''),
+      year: Number(paper?.year || 0) || null,
+      duration_minutes: Number(paper?.duration_minutes || 0) || null,
+      total_points: Number(paper?.total_points || 0) || null,
+      component_objects: objectIds.length,
+      exposure: {
+        exposed: states.filter((state) => state === 'exposed').length,
+        explicit_unseen: states.filter((state) => state === 'explicit_unseen').length,
+        unknown: states.filter((state) => state === 'unknown').length
+      },
+      ledger_fresh_candidate:
+        objectIds.length > 0 && states.every((state) => state === 'explicit_unseen')
+    };
+  });
+
+  const externalObjects = Array.isArray(catalog.external_reading?.objects)
+    ? catalog.external_reading.objects
+    : [];
+  const externalExposure = countEnglishExposure(externalObjects, ledger);
+
+  return {
+    schema: 'kianos.english.forecast-material-evidence.v1',
+    status: 'ready',
+    official_exam: {
+      registered_objects: examObjects.length,
+      by_task: byTask,
+      whole_papers: wholePapers,
+      private_ledger_fresh_whole_papers: wholePapers.filter((paper) => paper.ledger_fresh_candidate).length
+    },
+    external_reading: {
+      registered_objects: Number(catalog.external_reading?.registered_object_count || externalObjects.length || 0),
+      exposure: externalExposure,
+      tpo: clone(catalog.external_reading?.tpo || null),
+      ielts: clone(catalog.external_reading?.ielts || null),
+      evidence_boundary: clean(catalog.external_reading?.evidence_boundary, 600) || null
+    },
+    evidence_boundary:
+      'Exposure is private-ledger factual state only. UNKNOWN is never upgraded to unseen. Historical exposure outside this device/session must be supplied by the learner or Chat and may contaminate official-paper score/timing evidence.'
+  };
+}
+
 function englishForecastProgress(storage, day) {
   const state = readEnglishSessionInstruction(storage, day);
   if (state.status !== 'ready' || !state.instruction) {
@@ -705,6 +818,7 @@ export function buildEnglishEvidencePacket(storage, { day, now = Date.now(), cat
     inventory_meta: packetInventory.inventory_meta,
     performance_profile: buildEnglishPerformanceProfile(rawInventory),
     forecast_progress: englishForecastProgress(storage, day),
+    forecast_materials: englishForecastMaterialEvidence(storage, catalog),
     resume: englishResumeEvidence(storage, day),
     tasks: clone({
       reading_a: objectiveEvidence(storage, LAST_LOCATION_KEYS.reading_a, 'kianos-reading-attempt-v1:'),
