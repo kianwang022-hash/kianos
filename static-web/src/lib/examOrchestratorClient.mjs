@@ -16,6 +16,7 @@ import {
   EXAM_CHAT_PLAN_KEY,
   readExamChatPlan,
   validateExamChatPlan,
+  validateExamChatPlanAgainstStorage,
   writeExamChatPlan
 } from './examChatPlan.mjs';
 import { buildExamStudyTimeOverlay } from './examStudyTime.mjs';
@@ -565,7 +566,7 @@ export function initExamHome(root) {
       const preview = $('[data-exam-import-preview]');
 
       if (parsed?.schema === EXAM_CHAT_PLAN_SCHEMA) {
-        const value = validateExamChatPlan(parsed, day());
+        const value = validateExamChatPlanAgainstStorage(localStorage, parsed, day());
         pendingImport = { kind: 'chat-plan', value };
         preview.textContent = [
           `将载入 Chat 今日安排：${value.study_day}`,
