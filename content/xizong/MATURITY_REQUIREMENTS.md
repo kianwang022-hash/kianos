@@ -480,6 +480,14 @@ Normal learner-facing output should remain close to:
 
 These are **maturity stages**, not a static date plan.
 
+Stage relationship:
+
+    Stage A = truth/scope/material foundation
+    Stage B → Stage C → Stage D = primary learner-capability progression
+    Stage E = continuous Kian-specific control overlay once real learner U begins
+
+Stage E is not a final phase that waits for Stage D. It starts as soon as real learner evidence exists and keeps recalibrating B–D.
+
 ## Stage A — SCORE / SCOPE / MATERIAL TRUTH
 
 Goal:
@@ -562,11 +570,15 @@ Exit Gate:
 - contamination status is explicit;
 - whole-paper success cannot hide an open material case/cross-System failure.
 
-## Stage E — KIAN-SPECIFIC DYNAMIC CONTROL
+## Stage E — KIAN-SPECIFIC DYNAMIC CONTROL · CONTINUOUS OVERLAY
+
+Activation:
+
+> Start as soon as real Kian learner evidence exists; do not wait for Stage D.
 
 Goal:
 
-> Let real Kian data continuously decide what gets more time, less time or no time.
+> Let real Kian data continuously decide what gets more time, less time or no time while Stages B–D progress.
 
 Inputs:
 
@@ -588,7 +600,7 @@ Exit behavior:
     → compress stable work
     → reallocate only when justified
 
-Stage E does not end in a new architecture. It ends in ordinary learning.
+Stage E does not end in a new architecture and is not a separate curriculum. It is the continuous feedback/control layer over ordinary learning.
 
 ---
 
