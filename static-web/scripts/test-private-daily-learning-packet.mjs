@@ -35,6 +35,10 @@ import {
   POLITICS_MEMORY_EVIDENCE_KEY
 } from '../src/lib/politicsMemoryRuntime.mjs';
 import {
+  XIZONG_MEMORY_SCHEMA,
+  XIZONG_MEMORY_STORAGE_KEY
+} from '../src/lib/xizongMemoryModel.mjs';
+import {
   buildDailyLearningPacketFromPrivateCheckpoint
 } from './privateDailyLearningPacket.mjs';
 
@@ -195,6 +199,23 @@ const storage=new MemoryStorage({
     ]
   }),
 
+  [XIZONG_MEMORY_STORAGE_KEY]:JSON.stringify({
+    schema:XIZONG_MEMORY_SCHEMA,
+    repairTasks:[
+      {
+        id:'repair:forecast:active',
+        status:'ACTIVE',
+        sourceQuestionIds:['xizong-official-2025-n002','xizong-official-2025-n003']
+      },
+      {
+        id:'repair:forecast:done',
+        status:'DONE',
+        completedAt:'2026-09-20T00:30:00+08:00',
+        sourceQuestionIds:['xizong-official-2025-n004']
+      }
+    ]
+  }),
+
   'kianos-english-session-instruction-v1':JSON.stringify(englishSession),
   'kianos-reading-last-location-v1':JSON.stringify({
     id:'reading-current-001',
@@ -283,6 +304,12 @@ assert.equal(xzForecast.practice_evidence.first_pass.wrong,1);
 assert.equal(xzForecast.practice_evidence.first_pass.wrong_or_uncertain,1);
 assert.equal(xzForecast.practice_evidence.first_pass.wrong_or_uncertain_rate,0.5);
 assert.equal(xzForecast.repair_evidence.schema,'kianos.xizong.repair-forecast-evidence.v1');
+assert.equal(xzForecast.repair_evidence.total_repair_clusters,2);
+assert.equal(xzForecast.repair_evidence.active_repair_clusters,1);
+assert.equal(xzForecast.repair_evidence.completed_repair_clusters,1);
+assert.equal(xzForecast.repair_evidence.question_backed_clusters,2);
+assert.equal(xzForecast.repair_evidence.unique_source_question_ids,3);
+assert.equal(xzForecast.repair_evidence.observed_question_to_cluster_ratio,1.5);
 assert.match(xzForecast.evidence_boundary,/does not prove unstudied/i);
 assert.match(xzForecast.evidence_boundary,/exam\.subject-demand\.v1/);
 
