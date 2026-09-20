@@ -295,7 +295,13 @@ const base = import.meta.env.BASE_URL;
       const returnLink = q('[data-repair-return-link]');
       if (blockLink instanceof HTMLAnchorElement) {
         blockLink.hidden = !item.blockHref;
-        blockLink.href = item.blockHref || '#';
+        if (item.blockHref) {
+          const target = new URL(item.blockHref, window.location.origin);
+          target.searchParams.set('repair', item.id);
+          blockLink.href = `${target.pathname}${target.search}${target.hash}`;
+        } else {
+          blockLink.href = '#';
+        }
       }
       if (returnLink instanceof HTMLAnchorElement) {
         returnLink.hidden = !item.returnHref;
@@ -493,6 +499,12 @@ const base = import.meta.env.BASE_URL;
       state = completeRepairTask(state, item.id);
       save();
       const completedId = item.id;
+      const currentUrl = new URL(window.location.href);
+      if (currentUrl.searchParams.get('repair') === completedId) {
+        currentUrl.searchParams.delete('repair');
+        window.history.replaceState({}, '', `${currentUrl.pathname}${currentUrl.search}${currentUrl.hash}`);
+        window.KianOSStudyTimer?.refreshContext?.();
+      }
       index = Math.min(index, Math.max(0, currentItems.length - 2));
       rebuild();
       if (chatRepairTaskId === completedId) {

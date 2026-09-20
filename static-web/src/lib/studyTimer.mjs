@@ -130,10 +130,20 @@ function closeRunningSegment(storage, state, endedAt, source = 'timer') {
   });
 }
 
-export function resolveStudyTimerContext(pathname, base = '/') {
+export function resolveStudyTimerContext(pathname, base = '/', search = '') {
   const route = localRoute(pathname || '', base);
   const segment = topSegment(route);
   if (segment === 'xizong') {
+    const params = new URLSearchParams(String(search || '').replace(/^\?/, ''));
+    const repairId = String(params.get('repair') || '').slice(0, 160);
+    if (repairId) {
+      return {
+        subject: 'xizong',
+        route,
+        detailKey: `repair/${repairId}`,
+        detailLabel: 'Repair'
+      };
+    }
     const parts = route.split('/').filter(Boolean).slice(1);
     const detailKey = parts.length ? parts.join('/') : 'overview';
     return { subject: 'xizong', route, detailKey, detailLabel: detailKey };
@@ -272,6 +282,14 @@ export function studyDayAt(timestamp, timeZone = STUDY_TIMER_TIMEZONE) {
   }).format(new Date(timestamp));
 }
 
+function shiftStudyDay(day, offset) {
+  const match = String(day || '').match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!match) throw new Error('Invalid study day.');
+  const date = new Date(Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3])));
+  date.setUTCDate(date.getUTCDate() + Number(offset || 0));
+  return date.toISOString().slice(0, 10);
+}
+
 function dayBoundary(start, end, timeZone) {
   const startDay = studyDayAt(start, timeZone);
   if (studyDayAt(end - 1, timeZone) === startDay) return end;
@@ -373,6 +391,21 @@ export function buildDailyStudyTimePacket(storage, { day = studyDayAt(Date.now()
         .sort((a, b) => b.minutes - a.minutes)
     };
   }
+  const recentDays = Array.from({ length: 7 }, (_, index) => {
+    const recentDay = shiftStudyDay(day, index - 6);
+    const recent = aggregateStudyTime(storage, { day: recentDay, now, timeZone });
+    return {
+      day: recentDay,
+      total_minutes: Math.round(recent.totalMs / 60000),
+      subjects: Object.fromEntries(
+        STUDY_SUBJECTS.map((subject) => [
+          subject,
+          Math.round(recent.bySubject[subject].ms / 60000)
+        ])
+      )
+    };
+  });
+
   const state = readStudyTimerState(storage);
   return {
     schema: 'kianos.study-time-packet.v1',
@@ -381,6 +414,7 @@ export function buildDailyStudyTimePacket(storage, { day = studyDayAt(Date.now()
     generated_at: new Date(now).toISOString(),
     total_minutes: Math.round(aggregate.totalMs / 60000),
     subjects,
+    recent_days: recentDays,
     timer: {
       running: state.running,
       active_subject: state.subject,

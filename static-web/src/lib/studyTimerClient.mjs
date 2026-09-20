@@ -25,7 +25,7 @@ function emit(detail = {}) {
 }
 
 function currentContext(base) {
-  return resolveStudyTimerContext(window.location.pathname, base);
+  return resolveStudyTimerContext(window.location.pathname, base, window.location.search);
 }
 
 export function initStudyTimerRuntime({ base = import.meta.env.BASE_URL } = {}) {

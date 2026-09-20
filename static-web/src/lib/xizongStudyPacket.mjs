@@ -5,9 +5,20 @@ import {
 } from './xizongRetainedPractice.mjs';
 import { summarizeXizongScoreAttribution } from './xizongScoreAttribution.mjs';
 import {
+  buildXizongWorkloadForecast,
+  XIZONG_HISTORICAL_MODERN_165_SCORE_PROFILE,
+  xizongHistoricalDisciplineForQuestion
+} from './xizongForecastModel.mjs';
+import {
+  aggregateStudyTime,
+  readStudyTimerLedger,
+  studyDayAt
+} from './studyTimer.mjs';
+import {
   XIZONG_MEMORY_STORAGE_KEY,
   normalizeXizongMemoryState,
   memorySummary,
+  memoryFamilySummary,
   todayMemoryQueue,
   markedFragments,
   activeRepairTasks
@@ -54,6 +65,645 @@ function scoreAttemptHistoryFromStorageEntries(entries) {
   return events;
 }
 
+function studyDayFromIso(value) {
+  const timestamp = Date.parse(String(value || ''));
+  return Number.isFinite(timestamp) ? studyDayAt(timestamp) : null;
+}
+
+function eventYear(event) {
+  const direct = Number(event?.year);
+  if (Number.isInteger(direct)) return direct;
+  const match = String(event?.question_id || '').match(/^xizong-official-(\d{4})-n\d{3}$/);
+  return match ? Number(match[1]) : null;
+}
+
+function timerMinutesForDetail(storage, detailKey, { startAt = null, endAt = null } = {}) {
+  const key = String(detailKey || '');
+  if (!key) return 0;
+  const start = startAt == null ? Number.NEGATIVE_INFINITY : Date.parse(String(startAt));
+  const end = endAt == null ? Number.POSITIVE_INFINITY : Date.parse(String(endAt));
+  if (startAt != null && !Number.isFinite(start)) return 0;
+  if (endAt != null && !Number.isFinite(end)) return 0;
+  let ms = 0;
+  for (const session of readStudyTimerLedger(storage).sessions || []) {
+    if (session?.excluded || session?.subject !== 'xizong') continue;
+    if (String(session?.context?.detailKey || '') !== key) continue;
+    const from = Math.max(Number(session.startedAt || 0), start);
+    const to = Math.min(Number(session.endedAt || 0), end);
+    if (Number.isFinite(from) && Number.isFinite(to) && to > from) ms += to - from;
+  }
+  return Math.round(ms / 60000);
+}
+
+function repairDetailKey(task) {
+  const href = String(task?.blockHref || task?.returnHref || '');
+  const match = href.match(/(?:^|\/)xizong\/([^/]+)\/([^/]+)(?:\/|$)/);
+  return match ? `${match[1]}/${match[2]}` : null;
+}
+
+function xizongPracticeMinutesForDay(storage, day, now, detailKeys = null) {
+  if (!day) return 0;
+  const aggregate = aggregateStudyTime(storage, { day, now });
+  const allowed = detailKeys instanceof Set ? detailKeys : null;
+  return Math.round(
+    Object.entries(aggregate?.bySubject?.xizong?.details || {})
+      .filter(([detail]) => {
+        const key = String(detail);
+        if (allowed) return allowed.has(key);
+        return key.startsWith('practice/');
+      })
+      .reduce((sum, [, value]) => sum + Number(value || 0), 0) / 60000
+  );
+}
+
+
+function attemptIndex(event) {
+  const value = Number(event?.attempt_index);
+  return Number.isInteger(value) && value > 0 ? value : null;
+}
+
+function attemptTimestamp(event) {
+  const value = Date.parse(String(event?.submitted_at || event?.updatedAt || ''));
+  return Number.isFinite(value) ? value : null;
+}
+
+function earlierAttempt(candidate, current) {
+  if (!current) return true;
+  const candidateIndex = attemptIndex(candidate);
+  const currentIndex = attemptIndex(current);
+  if (candidateIndex !== null && currentIndex !== null && candidateIndex !== currentIndex) {
+    return candidateIndex < currentIndex;
+  }
+  const candidateAt = attemptTimestamp(candidate);
+  const currentAt = attemptTimestamp(current);
+  if (candidateAt !== null && currentAt !== null && candidateAt !== currentAt) {
+    return candidateAt < currentAt;
+  }
+  return false;
+}
+
+function laterAttempt(candidate, current) {
+  if (!current) return true;
+  const candidateIndex = attemptIndex(candidate);
+  const currentIndex = attemptIndex(current);
+  if (candidateIndex !== null && currentIndex !== null && candidateIndex !== currentIndex) {
+    return candidateIndex > currentIndex;
+  }
+  const candidateAt = attemptTimestamp(candidate);
+  const currentAt = attemptTimestamp(current);
+  if (candidateAt !== null && currentAt !== null && candidateAt !== currentAt) {
+    return candidateAt > currentAt;
+  }
+  return false;
+}
+
+function summarizeXizongForecastPractice(storage, {
+  holdoutYears = [],
+  now = Date.now(),
+  questionScope = null
+} = {}) {
+  const storageEntries = listStorageKeys(storage)
+    .filter((key) => /^kianos:xizong:(?:system|chat-set|retained|paper)-question-sweep:.*:v1$/.test(key))
+    .map((key) => [key, storage.getItem(key)]);
+  const allEvents = scoreAttemptHistoryFromStorageEntries(storageEntries);
+  const events = allEvents
+    .filter((event) => /^xizong-official-\d{4}-n\d{3}$/.test(String(event?.question_id || '')));
+  const transferLatest = new Map();
+  for (const event of allEvents) {
+    const questionId = String(event?.question_id || '');
+    if (String(event?.question_source || '') !== 'AI_TRANSFER_PROBE' || !questionId) continue;
+    if (laterAttempt(event, transferLatest.get(questionId))) transferLatest.set(questionId, event);
+  }
+
+  const firstPass = new Map();
+  const latest = new Map();
+  for (const event of events) {
+    const questionId = String(event?.question_id || '');
+    if (!questionId) continue;
+    if (String(event?.study_phase || '') === 'FIRST_PASS' && earlierAttempt(event, firstPass.get(questionId))) {
+      firstPass.set(questionId, event);
+    }
+    if (laterAttempt(event, latest.get(questionId))) latest.set(questionId, event);
+  }
+
+  const firstPassCounts = { stable: 0, uncertain: 0, wrong: 0 };
+  const holdout = new Set((Array.isArray(holdoutYears) ? holdoutYears : []).map(Number).filter(Number.isInteger));
+  const byDay = new Map();
+  const bySystem = new Map();
+  const currentScopeBySystem = new Map(
+    (Array.isArray(questionScope?.systems) ? questionScope.systems : [])
+      .filter((row) => row?.status === 'EXACT')
+      .map((row) => [String(row?.system_id || ''), row])
+  );
+  const currentCoverageBySystem = new Map();
+  const currentScopeFirstAttempt = new Map();
+  const currentScopeTimingBySystemDay = new Map();
+  let eligibleAttempted = 0;
+  let currentScopeEligibleAttempted = 0;
+  let heldoutObserved = 0;
+  for (const event of firstPass.values()) {
+    const status = String(event?.status || '');
+    if (Object.hasOwn(firstPassCounts, status)) firstPassCounts[status] += 1;
+    const year = eventYear(event);
+    const eligible = !holdout.has(year);
+    if (eligible) eligibleAttempted += 1;
+    else heldoutObserved += 1;
+    const eventSystemId = String(event?.system_id || '');
+    const currentScope = currentScopeBySystem.get(eventSystemId);
+    const systemKey = String(currentScope?.canonical_id || event?.canonical_id || eventSystemId || 'UNKNOWN');
+    if (!bySystem.has(systemKey)) {
+      bySystem.set(systemKey, {
+        canonical_id: systemKey,
+        system_id: eventSystemId || String(currentScope?.system_id || ''),
+        attempted: 0,
+        eligible_attempted: 0,
+        current_scope_eligible_attempted: 0,
+        current_scope_unique_attempted: 0,
+        current_scope_stable: 0,
+        current_scope_uncertain: 0,
+        current_scope_wrong: 0,
+        stable: 0,
+        uncertain: 0,
+        wrong: 0
+      });
+    }
+    const systemRow = bySystem.get(systemKey);
+    systemRow.attempted += 1;
+    if (eligible) systemRow.eligible_attempted += 1;
+    if (Object.hasOwn(firstPassCounts, status)) systemRow[status] += 1;
+    const day = studyDayFromIso(event?.submitted_at);
+    if (!day) continue;
+    if (!byDay.has(day)) byDay.set(day, { day, attempted: 0, stable: 0, uncertain: 0, wrong: 0 });
+    const row = byDay.get(day);
+    row.attempted += 1;
+    if (Object.hasOwn(firstPassCounts, status)) row[status] += 1;
+  }
+
+  for (const event of events) {
+    if (String(event?.study_phase || '') !== 'FIRST_PASS') continue;
+    if (String(event?.context || '') !== 'SYSTEM_SWEEP') continue;
+    const eventSystemId = String(event?.system_id || '');
+    const currentScope = currentScopeBySystem.get(eventSystemId);
+    if (!currentScope) continue;
+    if (String(event?.scope_hash || '') !== String(currentScope?.scope_hash || '')) continue;
+    if (String(event?.question_inventory_hash || '') !== String(currentScope?.question_inventory_hash || '')) continue;
+    if (holdout.has(eventYear(event))) continue;
+    const questionId = String(event?.question_id || '');
+    if (!questionId) continue;
+    const canonicalId = String(currentScope?.canonical_id || event?.canonical_id || eventSystemId);
+    if (!currentCoverageBySystem.has(canonicalId)) currentCoverageBySystem.set(canonicalId, new Set());
+    currentCoverageBySystem.get(canonicalId).add(questionId);
+    if (earlierAttempt(event, currentScopeFirstAttempt.get(questionId))) {
+      currentScopeFirstAttempt.set(questionId, event);
+    }
+  }
+  for (const [canonicalId, ids] of currentCoverageBySystem.entries()) {
+    let row = bySystem.get(canonicalId);
+    if (!row) {
+      row = {
+        canonical_id: canonicalId,
+        system_id: String(
+          [...currentScopeBySystem.values()].find((scope) => String(scope?.canonical_id || '') === canonicalId)?.system_id || ''
+        ),
+        attempted: 0,
+        eligible_attempted: 0,
+        current_scope_eligible_attempted: 0,
+        current_scope_unique_attempted: 0,
+        current_scope_stable: 0,
+        current_scope_uncertain: 0,
+        current_scope_wrong: 0,
+        stable: 0,
+        uncertain: 0,
+        wrong: 0
+      };
+      bySystem.set(canonicalId, row);
+    }
+    row.current_scope_eligible_attempted = ids.size;
+    currentScopeEligibleAttempted += ids.size;
+  }
+
+  const wrongUncertain = firstPassCounts.wrong + firstPassCounts.uncertain;
+  const currentScopeCounts = { stable: 0, uncertain: 0, wrong: 0 };
+  for (const event of currentScopeFirstAttempt.values()) {
+    const status = String(event?.status || '');
+    if (Object.hasOwn(currentScopeCounts, status)) currentScopeCounts[status] += 1;
+    const eventSystemId = String(event?.system_id || '');
+    const currentScope = currentScopeBySystem.get(eventSystemId);
+    const canonicalId = String(currentScope?.canonical_id || event?.canonical_id || eventSystemId || 'UNKNOWN');
+    const row = bySystem.get(canonicalId);
+    if (!row) continue;
+    row.current_scope_unique_attempted += 1;
+    if (status === 'stable') row.current_scope_stable += 1;
+    else if (status === 'uncertain') row.current_scope_uncertain += 1;
+    else if (status === 'wrong') row.current_scope_wrong += 1;
+
+    const day = studyDayFromIso(event?.submitted_at);
+    if (day) {
+      const timingKey = `${canonicalId}\u0000${day}`;
+      if (!currentScopeTimingBySystemDay.has(timingKey)) {
+        currentScopeTimingBySystemDay.set(timingKey, {
+          canonical_id: canonicalId,
+          system_id: String(currentScope?.system_id || eventSystemId || ''),
+          day,
+          attempted: 0,
+          stable: 0,
+          uncertain: 0,
+          wrong: 0
+        });
+      }
+      const timingRow = currentScopeTimingBySystemDay.get(timingKey);
+      timingRow.attempted += 1;
+      if (status === 'stable') timingRow.stable += 1;
+      else if (status === 'uncertain') timingRow.uncertain += 1;
+      else if (status === 'wrong') timingRow.wrong += 1;
+    }
+  }
+  const currentScopeWrongUncertain = currentScopeCounts.wrong + currentScopeCounts.uncertain;
+  for (const row of bySystem.values()) {
+    const wu = Number(row.current_scope_wrong || 0) + Number(row.current_scope_uncertain || 0);
+    row.current_scope_wrong_or_uncertain = wu;
+    row.current_scope_wrong_or_uncertain_rate = Number(row.current_scope_unique_attempted || 0) > 0
+      ? Number((wu / Number(row.current_scope_unique_attempted)).toFixed(4))
+      : null;
+    row.current_scope_speed_by_day = [...currentScopeTimingBySystemDay.values()]
+      .filter((sample) => sample.canonical_id === row.canonical_id)
+      .sort((a, b) => a.day.localeCompare(b.day))
+      .map((sample) => {
+        const detailKey = sample.system_id ? `practice/${sample.system_id}` : '';
+        const timerMinutes = detailKey
+          ? xizongPracticeMinutesForDay(storage, sample.day, now, new Set([detailKey]))
+          : 0;
+        return {
+          ...sample,
+          practice_timer_minutes: timerMinutes,
+          observed_minutes_per_attempt:
+            sample.attempted > 0 && timerMinutes > 0
+              ? Number((timerMinutes / sample.attempted).toFixed(3))
+              : null,
+          timing_semantics: 'SYSTEM_ROUTE_DAY_UPPER_BOUND'
+        };
+      });
+  }
+  const unresolvedWrongUncertain = [...firstPass.entries()]
+    .filter(([, event]) => ['wrong', 'uncertain'].includes(String(event?.status || '')))
+    .filter(([questionId]) => ['wrong', 'uncertain'].includes(String(latest.get(questionId)?.status || '')))
+    .length;
+  const latestSubmittedAt = [...latest.values()]
+    .map((event) => String(event?.submitted_at || ''))
+    .filter(Boolean)
+    .sort()
+    .at(-1) || null;
+
+  const currentByDay = new Map();
+  for (const event of currentScopeFirstAttempt.values()) {
+    const day = studyDayFromIso(event?.submitted_at);
+    if (!day) continue;
+    if (!currentByDay.has(day)) {
+      currentByDay.set(day, { attempted: 0, stable: 0, uncertain: 0, wrong: 0, system_ids: new Set() });
+    }
+    const row = currentByDay.get(day);
+    row.attempted += 1;
+    const systemId = String(event?.system_id || '');
+    if (systemId) row.system_ids.add(systemId);
+    const status = String(event?.status || '');
+    if (Object.hasOwn(row, status)) row[status] += 1;
+  }
+
+  const dayRows = [...byDay.values()].sort((a, b) => a.day.localeCompare(b.day)).slice(-30)
+    .map((row) => {
+      const practiceTimerMinutes = xizongPracticeMinutesForDay(storage, row.day, now);
+      const current = currentByDay.get(row.day)
+        || { attempted: 0, stable: 0, uncertain: 0, wrong: 0, system_ids: new Set() };
+      const currentDetailKeys = new Set(
+        [...current.system_ids].map((systemId) => `practice/${systemId}`)
+      );
+      const currentTimerMinutes = currentDetailKeys.size
+        ? xizongPracticeMinutesForDay(storage, row.day, now, currentDetailKeys)
+        : 0;
+      return {
+        ...row,
+        practice_timer_minutes: practiceTimerMinutes,
+        observed_minutes_per_attempt:
+          row.attempted > 0 && practiceTimerMinutes > 0
+            ? Number((practiceTimerMinutes / row.attempted).toFixed(3))
+            : null,
+        current_scope_attempted: current.attempted,
+        current_scope_stable: current.stable,
+        current_scope_uncertain: current.uncertain,
+        current_scope_wrong: current.wrong,
+        current_scope_practice_timer_minutes: currentTimerMinutes,
+        current_scope_observed_minutes_per_attempt:
+          current.attempted > 0 && currentTimerMinutes > 0
+            ? Number((currentTimerMinutes / current.attempted).toFixed(3))
+            : null
+      };
+    });
+
+  const transferCounts = { stable: 0, uncertain: 0, wrong: 0 };
+  const transferKinds = {};
+  const transferKindStatus = {};
+  for (const event of transferLatest.values()) {
+    const status = String(event?.status || '');
+    if (Object.hasOwn(transferCounts, status)) transferCounts[status] += 1;
+    const kind = String(event?.probe_kind || 'UNSPECIFIED');
+    transferKinds[kind] = (transferKinds[kind] || 0) + 1;
+    if (!transferKindStatus[kind]) {
+      transferKindStatus[kind] = { observed: 0, stable: 0, uncertain: 0, wrong: 0 };
+    }
+    transferKindStatus[kind].observed += 1;
+    if (Object.hasOwn(transferKindStatus[kind], status)) transferKindStatus[kind][status] += 1;
+  }
+
+  return {
+    schema: 'kianos.xizong.practice-forecast-evidence.v1',
+    official_attempt_events: events.length,
+    first_pass: {
+      attempted_questions: firstPass.size,
+      stable: firstPassCounts.stable,
+      uncertain: firstPassCounts.uncertain,
+      wrong: firstPassCounts.wrong,
+      wrong_or_uncertain: wrongUncertain,
+      wrong_or_uncertain_rate: firstPass.size ? Number((wrongUncertain / firstPass.size).toFixed(4)) : null,
+      eligible_attempted_questions: eligibleAttempted,
+      current_scope_eligible_attempted_questions: currentScopeEligibleAttempted,
+      current_scope_unique_attempted_questions: currentScopeFirstAttempt.size,
+      current_scope_stable: currentScopeCounts.stable,
+      current_scope_uncertain: currentScopeCounts.uncertain,
+      current_scope_wrong: currentScopeCounts.wrong,
+      current_scope_wrong_or_uncertain: currentScopeWrongUncertain,
+      current_scope_wrong_or_uncertain_rate:
+        currentScopeFirstAttempt.size
+          ? Number((currentScopeWrongUncertain / currentScopeFirstAttempt.size).toFixed(4))
+          : null,
+      heldout_observed_questions: heldoutObserved,
+      by_system: [...bySystem.values()].sort((a, b) => String(a.canonical_id).localeCompare(String(b.canonical_id), undefined, { numeric: true })),
+      by_day: dayRows
+    },
+    latest: {
+      observed_questions: latest.size,
+      unresolved_wrong_uncertain_questions: unresolvedWrongUncertain,
+      last_submitted_at: latestSubmittedAt
+    },
+    fresh_transfer: {
+      observed_probes: transferLatest.size,
+      stable: transferCounts.stable,
+      uncertain: transferCounts.uncertain,
+      wrong: transferCounts.wrong,
+      by_probe_kind: transferKinds,
+      by_probe_kind_status: transferKindStatus
+    },
+    evidence_boundary:
+      'Official question attempts are deduplicated by question id. Only FIRST_PASS SYSTEM_SWEEP attempts bound to the Current exact scope hash + inventory hash reduce remaining workload and calibrate preferred System-sweep error/speed rates; whole-paper/chat-set/retained/stale attempts remain broader performance evidence only.'
+  };
+}
+
+function summarizeXizongForecastRepairs(storage, systemRows = []) {
+  const memory = normalizeXizongMemoryState(readJson(storage, XIZONG_MEMORY_STORAGE_KEY, null));
+  const allRepairs = Array.isArray(memory.repairTasks) ? memory.repairTasks : [];
+  const activeRepairs = activeRepairTasks(memory);
+  const sourceQuestionIds = new Set();
+  const canonicalBySystem = new Map();
+  for (const row of Array.isArray(systemRows) ? systemRows : []) {
+    const systemId = String(row?.system_id || '');
+    const canonicalId = String(row?.canonical_id || '');
+    if (systemId && canonicalId) canonicalBySystem.set(systemId, canonicalId);
+    if (canonicalId) canonicalBySystem.set(canonicalId, canonicalId);
+  }
+  const systemBuckets = new Map();
+  const systemBucket = (canonicalId) => {
+    const key = String(canonicalId || 'UNKNOWN');
+    if (!systemBuckets.has(key)) {
+      systemBuckets.set(key, {
+        canonical_id: key,
+        question_backed_clusters: 0,
+        active_question_backed_clusters: 0,
+        completed_question_backed_clusters: 0,
+        source_question_ids: new Set()
+      });
+    }
+    return systemBuckets.get(key);
+  };
+
+  let questionBackedClusters = 0;
+  let activeQuestionBackedClusters = 0;
+  let completedClusters = 0;
+  let completedQuestionBackedClusters = 0;
+  const calibrationSamples = [];
+  for (const task of allRepairs) {
+    const ids = Array.isArray(task?.sourceQuestionIds) ? task.sourceQuestionIds.map(String).filter(Boolean) : [];
+    const officialIds = ids.filter((id) => /^xizong-official-\d{4}-n\d{3}$/.test(id));
+    const done = String(task?.status || '') === 'DONE';
+    if (done) completedClusters += 1;
+    if (!officialIds.length) continue;
+
+    const detailKey = repairDetailKey(task);
+    const routeSystemId = String(detailKey || '').split('/')[0] || '';
+    const taskSystemId = String(task?.systemId || routeSystemId || '');
+    const canonicalId = canonicalBySystem.get(taskSystemId) || taskSystemId || 'UNKNOWN';
+    const bucket = systemBucket(canonicalId);
+
+    questionBackedClusters += 1;
+    bucket.question_backed_clusters += 1;
+    if (done) {
+      completedQuestionBackedClusters += 1;
+      bucket.completed_question_backed_clusters += 1;
+    } else {
+      activeQuestionBackedClusters += 1;
+      bucket.active_question_backed_clusters += 1;
+    }
+    officialIds.forEach((id) => {
+      sourceQuestionIds.add(id);
+      bucket.source_question_ids.add(id);
+    });
+
+    if (done) {
+      const timerMinutes = detailKey && task?.createdAt && task?.completedAt
+        ? timerMinutesForDetail(storage, detailKey, { startAt: task.createdAt, endAt: task.completedAt })
+        : null;
+      const exclusiveRepairTimerMinutes = task?.id && task?.createdAt && task?.completedAt
+        ? timerMinutesForDetail(storage, `repair/${task.id}`, { startAt: task.createdAt, endAt: task.completedAt })
+        : null;
+      calibrationSamples.push({
+        repair_id: String(task?.id || ''),
+        canonical_id: canonicalId,
+        source_question_count: officialIds.length,
+        detail_key: detailKey,
+        created_at: String(task?.createdAt || '') || null,
+        completed_at: String(task?.completedAt || '') || null,
+        timer_minutes_in_repair_window: Number.isFinite(timerMinutes) ? timerMinutes : null,
+        timing_semantics: 'EXCLUSIVE_REPAIR_TIMER_WHEN_TAGGED_ELSE_MIXED_REFERENCE',
+        exclusive_repair_timer_minutes:
+          Number.isFinite(exclusiveRepairTimerMinutes) && exclusiveRepairTimerMinutes > 0
+            ? exclusiveRepairTimerMinutes
+            : null
+      });
+    }
+  }
+
+  const bySystem = [...systemBuckets.values()]
+    .map((row) => ({
+      canonical_id: row.canonical_id,
+      question_backed_clusters: row.question_backed_clusters,
+      active_question_backed_clusters: row.active_question_backed_clusters,
+      completed_question_backed_clusters: row.completed_question_backed_clusters,
+      unique_source_question_ids: row.source_question_ids.size,
+      observed_question_to_cluster_ratio:
+        row.question_backed_clusters > 0
+          ? Number((row.source_question_ids.size / row.question_backed_clusters).toFixed(3))
+          : null
+    }))
+    .sort((a, b) => String(a.canonical_id).localeCompare(String(b.canonical_id), undefined, { numeric: true }));
+
+  return {
+    schema: 'kianos.xizong.repair-forecast-evidence.v1',
+    total_repair_clusters: allRepairs.length,
+    active_repair_clusters: activeRepairs.length,
+    active_question_backed_clusters: activeQuestionBackedClusters,
+    completed_repair_clusters: completedClusters,
+    completed_question_backed_clusters: completedQuestionBackedClusters,
+    question_backed_clusters: questionBackedClusters,
+    unique_source_question_ids: sourceQuestionIds.size,
+    observed_question_to_cluster_ratio:
+      questionBackedClusters > 0 ? Number((sourceQuestionIds.size / questionBackedClusters).toFixed(3)) : null,
+    by_system: bySystem,
+    calibration_samples: calibrationSamples,
+    evidence_boundary:
+      'Repair lifecycle is subject-owned. Official-question compression ratios use official question ids only; AI probes and non-official sources cannot reduce predicted official W/U workload. Compression is exposed by System so an easy/familiar System cannot silently price later-System Repair. DONE still requires later fresh verification. Block-route timer observed across a Repair lifetime window is explicitly mixed timing and must not be treated as exclusive Repair duration. When Repair is entered through the existing Repair workspace/query context, the shared Study Timer records repair/<task_id> and that tagged duration is the only exclusive Repair-time calibration.'
+  };
+}
+
+function summarizeXizongSystemRecallForecast(storage, systemRows = []) {
+  return (Array.isArray(systemRows) ? systemRows : []).map((system) => {
+    const systemId = String(system?.system_id || '');
+    const recall = readJson(storage, `kianos:xizong:system-recall:${systemId}:v1`, {}) || {};
+    const sweep = readJson(storage, `kianos:xizong:system-question-sweep:${systemId}:v1`, {}) || {};
+    const firstPassRoundIds = new Set(
+      (Array.isArray(sweep?.attemptHistory) ? sweep.attemptHistory : [])
+        .filter((event) => String(event?.study_phase || '') === 'FIRST_PASS')
+        .map((event) => String(event?.round_id || ''))
+        .filter(Boolean)
+    );
+    const history = (Array.isArray(recall?.history) ? recall.history : [])
+      .filter((event) => Number.isFinite(Date.parse(String(event?.completed_at || ''))))
+      .sort((a, b) => Date.parse(a.completed_at) - Date.parse(b.completed_at));
+    let previousAt = null;
+    const events = history.map((event) => {
+      const afterRoundId = String(event?.after_round_id || '');
+      const completedAt = String(event?.completed_at || '');
+      const timerMinutes = timerMinutesForDetail(storage, `${systemId}/recall`, {
+        startAt: previousAt,
+        endAt: completedAt
+      });
+      previousAt = completedAt;
+      return {
+        completed_at: completedAt,
+        after_round_id: afterRoundId || null,
+        role: !afterRoundId
+          ? 'PRE_QUESTION_OR_MANUAL'
+          : firstPassRoundIds.has(afterRoundId)
+            ? 'POST_FIRST_PASS'
+            : 'POST_OTHER_ROUND',
+        timer_minutes_since_previous_recall: timerMinutes
+      };
+    });
+    return {
+      system_id: systemId,
+      canonical_id: String(system?.canonical_id || ''),
+      pre_question_recall_observed: events.some((event) => event.role === 'PRE_QUESTION_OR_MANUAL'),
+      post_first_pass_recall_observed: events.some((event) => event.role === 'POST_FIRST_PASS'),
+      first_pass_round_ids: [...firstPassRoundIds],
+      events
+    };
+  });
+}
+
+function summarizeXizongFormalScoreEvidence(storage) {
+  const rows = [];
+  for (const key of listStorageKeys(storage)) {
+    if (!/^kianos:xizong:paper-question-sweep:paper-\d{4}:v1$/.test(key)) continue;
+    const state = readJson(storage, key, null);
+    const seal = state?.paperSeal;
+    if (!record(seal) || !seal.sealedAt || !record(seal.summary)) continue;
+    const match = key.match(/paper-(\d{4})/);
+    const year = match ? Number(match[1]) : null;
+    let disciplineBreakdown = null;
+    if (Number.isInteger(year) && year >= 2017 && year <= 2026) {
+      const byQuestion = new Map();
+      for (const event of Array.isArray(state?.attemptHistory) ? state.attemptHistory : []) {
+        if (event?.type && event.type !== 'QUESTION_ATTEMPT') continue;
+        const questionId = String(event?.question_id || '');
+        if (!questionId || Number(event?.year) !== year) continue;
+        if (!byQuestion.has(questionId) || laterAttempt(event, byQuestion.get(questionId))) {
+          byQuestion.set(questionId, event);
+        }
+      }
+      const disciplineRows = Object.fromEntries(
+        Object.entries(XIZONG_HISTORICAL_MODERN_165_SCORE_PROFILE.disciplines).map(([id, profile]) => [
+          id,
+          {
+            id,
+            label: profile.label,
+            max_points: Number(profile.points || 0),
+            answered_points: 0,
+            earned_points: 0,
+            wrong_points: 0,
+            uncertain_correct_points: 0,
+            unanswered_points: Number(profile.points || 0),
+            answered_questions: 0
+          }
+        ])
+      );
+      for (const event of byQuestion.values()) {
+        const discipline = xizongHistoricalDisciplineForQuestion(year, event?.number);
+        const row = disciplineRows[discipline];
+        if (!row) continue;
+        const points = Number(event?.points_possible || 0);
+        if (!Number.isFinite(points) || points <= 0) continue;
+        row.answered_points += points;
+        row.answered_questions += 1;
+        const status = String(event?.status || '');
+        if (status === 'stable' || status === 'uncertain') row.earned_points += points;
+        if (status === 'wrong') row.wrong_points += points;
+        if (status === 'uncertain') row.uncertain_correct_points += points;
+      }
+      for (const row of Object.values(disciplineRows)) {
+        row.answered_points = Number(row.answered_points.toFixed(1));
+        row.earned_points = Number(row.earned_points.toFixed(1));
+        row.wrong_points = Number(row.wrong_points.toFixed(1));
+        row.uncertain_correct_points = Number(row.uncertain_correct_points.toFixed(1));
+        row.unanswered_points = Number(Math.max(0, row.max_points - row.answered_points).toFixed(1));
+      }
+      disciplineBreakdown = {
+        authority: XIZONG_HISTORICAL_MODERN_165_SCORE_PROFILE.authority,
+        disciplines: disciplineRows
+      };
+    }
+    rows.push({
+      year,
+      sealed_at: String(seal.sealedAt || ''),
+      review_unlocked_at: String(seal.reviewUnlockedAt || '') || null,
+      answered_count: Number(seal.summary.answeredCount || 0),
+      correct_count: Number(seal.summary.correctCount || 0),
+      wrong_count: Number(seal.summary.wrongCount || 0),
+      unanswered_count: Number(seal.summary.unansweredCount || 0),
+      question_count: Number(seal.summary.questionCount || 0),
+      earned_score: Number(seal.summary.earnedScore || 0),
+      max_score: Number(seal.summary.maxScore || 0),
+      internal_holdout_protected_before_seal: seal?.evidenceContext?.internalHoldoutProtectedBeforeSeal === true,
+      external_exposure_status: String(seal?.evidenceContext?.externalExposureStatus || 'UNKNOWN'),
+      discipline_breakdown: disciplineBreakdown
+    });
+  }
+  rows.sort((a, b) => String(a.sealed_at).localeCompare(String(b.sealed_at)));
+  return {
+    schema: 'kianos.xizong.formal-score-evidence.v1',
+    sealed_papers: rows,
+    latest: rows.at(-1) || null,
+    evidence_boundary:
+      'Sealed whole-paper score is formal observed evidence. Internal Holdout protection before seal is preserved as a contamination signal, but it does not prove external non-exposure. Review unlock or prior exposure affects future freshness and score extrapolation, not the score observed at seal time.'
+  };
+}
+
 function boundedScoreAttribution(attribution) {
   const source = record(attribution) ? attribution : {};
   const targets = Array.isArray(source.targets) ? source.targets : [];
@@ -79,6 +729,80 @@ function boundedScoreAttribution(attribution) {
   };
 }
 
+function reconcileForecastQuestionScope(questionScope, practiceEvidence, holdoutYears = []) {
+  if (!record(questionScope) || questionScope.schema !== 'kianos.xizong.forecast-question-scope.v1') {
+    return {
+      schema: 'kianos.xizong.forecast-question-workload.v1',
+      status: 'UNKNOWN',
+      reason: 'CURRENT_QUESTION_SCOPE_NOT_ATTACHED',
+      unknown_systems: [],
+      known_eligible_questions: null,
+      known_remaining_questions: null
+    };
+  }
+
+  const holdout = new Set((Array.isArray(holdoutYears) ? holdoutYears : []).map(Number).filter(Number.isInteger));
+  const practiceBySystem = new Map(
+    (practiceEvidence?.first_pass?.by_system || []).map((row) => [String(row?.canonical_id || ''), row])
+  );
+  const systems = (questionScope.systems || []).map((row) => {
+    if (row?.status !== 'EXACT') {
+      return {
+        canonical_id: String(row?.canonical_id || ''),
+        system_id: String(row?.system_id || ''),
+        status: 'UNKNOWN',
+        eligible_questions: null,
+        attempted_questions: null,
+        remaining_questions: null,
+        reason: String(row?.reason || 'EXACT_SCOPE_UNAVAILABLE')
+      };
+    }
+    const heldout = Object.entries(row?.year_counts || {})
+      .filter(([year]) => holdout.has(Number(year)))
+      .reduce((sum, [, count]) => sum + Number(count || 0), 0);
+    const eligible = Math.max(0, Number(row?.question_count || 0) - heldout);
+    const practice = practiceBySystem.get(String(row?.canonical_id || ''));
+    const attempted = Math.min(eligible, Math.max(0, Number(practice?.current_scope_eligible_attempted || 0)));
+    return {
+      canonical_id: String(row?.canonical_id || ''),
+      system_id: String(row?.system_id || ''),
+      status: 'EXACT',
+      exact_questions: Number(row?.question_count || 0),
+      heldout_questions: heldout,
+      eligible_questions: eligible,
+      attempted_questions: attempted,
+      remaining_questions: Math.max(0, eligible - attempted)
+    };
+  });
+  const knownEligible = systems
+    .filter((row) => row.status === 'EXACT')
+    .reduce((sum, row) => sum + Number(row.eligible_questions || 0), 0);
+  const knownRemainingBySystem = systems
+    .filter((row) => row.status === 'EXACT')
+    .reduce((sum, row) => sum + Number(row.remaining_questions || 0), 0);
+  const duplicateMemberships = Number(questionScope.cross_system_duplicate_memberships || 0);
+  const unionHeldout = Object.entries(questionScope.union_year_counts || {})
+    .filter(([year]) => holdout.has(Number(year)))
+    .reduce((sum, [, count]) => sum + Number(count || 0), 0);
+  const unionEligible = Math.max(0, Number(questionScope.exact_union_questions || 0) - unionHeldout);
+
+  return {
+    schema: 'kianos.xizong.forecast-question-workload.v1',
+    status: questionScope.scope_complete ? 'EXACT_COMPLETE' : 'EXACT_PARTIAL',
+    holdout_years: [...holdout].sort((a, b) => a - b),
+    exact_union_questions: Number(questionScope.exact_union_questions || 0),
+    exact_union_eligible_questions: unionEligible,
+    summed_system_eligible_questions: knownEligible,
+    cross_system_duplicate_memberships: duplicateMemberships,
+    known_remaining_questions: duplicateMemberships === 0 ? knownRemainingBySystem : null,
+    known_remaining_is_lower_bound: !questionScope.scope_complete,
+    unknown_systems: [...(questionScope.unknown_systems || [])],
+    systems,
+    evidence_boundary:
+      'Known remaining questions are exact only when System scopes are exact and duplicate membership is zero. UNKNOWN systems remain unpriced and make the known total a lower bound.'
+  };
+}
+
 function clampIndex(value, length) {
   if (!length) return 0;
   const n = Number(value || 0);
@@ -86,7 +810,11 @@ function clampIndex(value, length) {
   return Math.max(0, Math.min(length - 1, Math.floor(n)));
 }
 
-export function buildXizongForecastProgress(storage, packetIndex = []) {
+export function buildXizongForecastProgress(storage, packetIndex = [], {
+  questionScope = null,
+  day = studyDayAt(Date.now()),
+  now = Date.now()
+} = {}) {
   if (!storage?.getItem) throw new Error('XIZONG_FORECAST_PROGRESS_STORAGE_UNAVAILABLE');
   if (!Array.isArray(packetIndex) || !packetIndex.length) {
     throw new Error('XIZONG_FORECAST_PROGRESS_PACKET_INDEX_REQUIRED');
@@ -94,7 +822,9 @@ export function buildXizongForecastProgress(storage, packetIndex = []) {
 
   const systems = new Map();
   const completedBlockIds = [];
+  const completedBlockRows = [];
   const startedIncomplete = [];
+  const recallTotals = { rated: 0, unknown: 0, fuzzy: 0, known: 0, mastered: 0 };
   let observedBlocks = 0;
 
   for (const row of packetIndex) {
@@ -102,6 +832,8 @@ export function buildXizongForecastProgress(storage, packetIndex = []) {
     const canonicalId = String(row?.packetMeta?.canonicalId || '');
     const blockId = String(row?.blockId || row?.packetMeta?.blockId || '');
     const kpRows = Array.isArray(row?.kpRows) ? row.kpRows : [];
+    const logicGroupCount = new Set(kpRows.map((kp) => String(kp?.groupId || '')).filter(Boolean)).size;
+    const routeKey = String(row?.routeKey || (row?.slug ? `${systemId}/${row.slug}` : ''));
     if (!systemId || !canonicalId || !blockId || !kpRows.length) {
       throw new Error('XIZONG_FORECAST_PROGRESS_INDEX_ROW_INVALID');
     }
@@ -112,15 +844,22 @@ export function buildXizongForecastProgress(storage, packetIndex = []) {
         canonical_id: canonicalId,
         canonical_blocks: 0,
         canonical_kp: 0,
+        canonical_logic_groups: 0,
         runtime_observed_blocks: 0,
         runtime_completed_blocks: 0,
         runtime_started_incomplete_blocks: 0,
-        runtime_observed_learned_kp: 0
+        runtime_observed_learned_kp: 0,
+        runtime_recall_rated_kp: 0,
+        runtime_recall_unknown: 0,
+        runtime_recall_fuzzy: 0,
+        runtime_recall_known: 0,
+        runtime_recall_mastered: 0
       });
     }
     const system = systems.get(systemId);
     system.canonical_blocks += 1;
     system.canonical_kp += kpRows.length;
+    system.canonical_logic_groups += logicGroupCount;
 
     const objectId = String(row?.packetMeta?.objectId || `xizong:${blockId}`);
     const state = readJson(storage, `kianos-xizong-astro-v2:${objectId}`, null);
@@ -130,9 +869,40 @@ export function buildXizongForecastProgress(storage, packetIndex = []) {
     system.runtime_observed_blocks += 1;
     const learnedKp = Object.values(state.learned || {}).filter(Boolean).length;
     system.runtime_observed_learned_kp += learnedKp;
+    const recallCounts = { rated: 0, unknown: 0, fuzzy: 0, known: 0, mastered: 0 };
+    for (const rating of Object.values(state.ratings || {})) {
+      const value = String(rating || '');
+      if (!['unknown','fuzzy','known','mastered'].includes(value)) continue;
+      recallCounts.rated += 1;
+      recallCounts[value] += 1;
+      recallTotals.rated += 1;
+      recallTotals[value] += 1;
+    }
+    system.runtime_recall_rated_kp += recallCounts.rated;
+    system.runtime_recall_unknown += recallCounts.unknown;
+    system.runtime_recall_fuzzy += recallCounts.fuzzy;
+    system.runtime_recall_known += recallCounts.known;
+    system.runtime_recall_mastered += recallCounts.mastered;
 
     if (state.completed === true) {
       completedBlockIds.push(blockId);
+      completedBlockRows.push({
+        system_id: systemId,
+        canonical_id: canonicalId,
+        block_id: blockId,
+        route_key: routeKey || null,
+        kp_count: kpRows.length,
+        logic_group_count: logicGroupCount,
+        learned_kp_count: learnedKp,
+        recall_counts: recallCounts,
+        block_recall_done: state.blockRecallDone === true,
+        block_recall_completed_at: String(state.blockRecallCompletedAt || '') || null,
+        completed_at: String(state.completedAt || '') || null,
+        study_day: studyDayFromIso(state.completedAt),
+        timer_minutes_to_completion: routeKey && state.completedAt
+          ? timerMinutesForDetail(storage, routeKey, { endAt: state.completedAt })
+          : null
+      });
       system.runtime_completed_blocks += 1;
       continue;
     }
@@ -142,12 +912,15 @@ export function buildXizongForecastProgress(storage, packetIndex = []) {
       system_id: systemId,
       canonical_id: canonicalId,
       block_id: blockId,
+      route_key: routeKey || null,
       kp_count: kpRows.length,
       learned_kp_count: learnedKp,
+      recall_counts: recallCounts,
       current_stage: String(state.stage || ''),
       group_index: Number.isInteger(Number(state.groupIndex)) ? Number(state.groupIndex) : null,
       kp_index: Number.isInteger(Number(state.kpIndex)) ? Number(state.kpIndex) : null,
-      block_recall_done: state.blockRecallDone === true
+      block_recall_done: state.blockRecallDone === true,
+      timer_minutes_recorded: routeKey ? timerMinutesForDetail(storage, routeKey) : null
     });
   }
 
@@ -156,8 +929,29 @@ export function buildXizongForecastProgress(storage, packetIndex = []) {
   );
   const canonicalBlocks = packetIndex.length;
   const canonicalKp = packetIndex.reduce((sum,row)=>sum+(Array.isArray(row?.kpRows)?row.kpRows.length:0),0);
+  const canonicalLogicGroups = packetIndex.reduce((sum, row) => {
+    const groups = new Set((Array.isArray(row?.kpRows) ? row.kpRows : [])
+      .map((kp) => String(kp?.groupId || ''))
+      .filter(Boolean));
+    return sum + groups.size;
+  }, 0);
+  const holdoutYears = readJson(storage, 'kianos:xizong:full-paper-holdout-years:v1', []) || [];
+  const practiceEvidence = summarizeXizongForecastPractice(storage, { holdoutYears, now, questionScope });
+  const repairEvidence = summarizeXizongForecastRepairs(storage, systemRows);
+  const memory = normalizeXizongMemoryState(readJson(storage, XIZONG_MEMORY_STORAGE_KEY, null));
+  const memoryEvidence = {
+    schema: 'kianos.xizong.memory-forecast-evidence.v1',
+    total: memorySummary(memory, now),
+    core: memoryFamilySummary(memory, 'CORE', now),
+    precision: memoryFamilySummary(memory, 'PRECISION', now),
+    evidence_boundary:
+      'Memory contains selectively admitted future-review objects only. Absence from Memory does not prove stability or weakness.'
+  };
+  const questionWorkload = reconcileForecastQuestionScope(questionScope, practiceEvidence, holdoutYears);
+  const systemRecallEvidence = summarizeXizongSystemRecallForecast(storage, systemRows);
+  const formalScoreEvidence = summarizeXizongFormalScoreEvidence(storage);
 
-  return {
+  const progress = {
     schema: 'kianos.xizong.forecast-progress.v1',
     forecast_role: 'FACTUAL_SUBJECT_PROGRESS_SIGNAL_ONLY',
     gate_workload_authority: false,
@@ -165,11 +959,16 @@ export function buildXizongForecastProgress(storage, packetIndex = []) {
       systems: systemRows.length,
       blocks: canonicalBlocks,
       canonical_kp: canonicalKp,
+      logic_groups: canonicalLogicGroups,
       block_weights: packetIndex.map((row) => ({
         system_id: String(row.systemId || ''),
         canonical_id: String(row.packetMeta?.canonicalId || ''),
         block_id: String(row.blockId || row.packetMeta?.blockId || ''),
-        kp_count: Array.isArray(row.kpRows) ? row.kpRows.length : 0
+        route_key: String(row.routeKey || (row?.slug ? `${row.systemId}/${row.slug}` : '')),
+        kp_count: Array.isArray(row.kpRows) ? row.kpRows.length : 0,
+        logic_group_count: new Set((Array.isArray(row?.kpRows) ? row.kpRows : [])
+          .map((kp) => String(kp?.groupId || ''))
+          .filter(Boolean)).size
       }))
     },
     runtime_evidence: {
@@ -178,12 +977,25 @@ export function buildXizongForecastProgress(storage, packetIndex = []) {
       started_incomplete_blocks: startedIncomplete.length,
       no_runtime_evidence_blocks: Math.max(0, canonicalBlocks - observedBlocks),
       completed_block_ids: completedBlockIds.sort(),
-      started_incomplete: startedIncomplete
+      completed_blocks_detail: completedBlockRows.sort((a, b) =>
+        String(a.completed_at || '').localeCompare(String(b.completed_at || ''))
+      ),
+      started_incomplete: startedIncomplete,
+      recall: recallTotals
     },
+    practice_evidence: practiceEvidence,
+    memory_evidence: memoryEvidence,
+    repair_evidence: repairEvidence,
+    question_workload: questionWorkload,
+    system_recall_evidence: systemRecallEvidence,
+    formal_score_evidence: formalScoreEvidence,
+    observation_day: day,
     systems: systemRows,
     evidence_boundary:
       'Factual KianOS runtime progress only. NO_RUNTIME_EVIDENCE does not prove unstudied; learned_kp is not mastery; Gate workload still requires subject-owned reconciliation into exam.subject-demand.v1.'
   };
+  progress.workload_forecast = buildXizongWorkloadForecast(progress);
+  return progress;
 }
 
 export function buildXizongStudyPacketFromStorage({

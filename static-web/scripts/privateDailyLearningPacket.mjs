@@ -13,7 +13,12 @@ import {
   validateExamProfile
 } from '../src/lib/examOrchestrator.mjs';
 import { buildChatControlledExamReadModel } from '../src/lib/examPlanReadModel.mjs';
-import { listProjectableXizongSystems, loadXizongBlock } from '../src/lib/xizong.mjs';
+import {
+  listCurrentXizongSystemIdentities,
+  listProjectableXizongSystems,
+  loadXizongBlock
+} from '../src/lib/xizong.mjs';
+import { buildXizongForecastQuestionScope } from '../src/lib/xizongQuestions.mjs';
 import { buildXizongProductionBlock } from '../src/lib/xizongProductionProjection.mjs';
 import { politicsProductCatalog } from '../src/lib/productCatalog.mjs';
 import { buildPoliticsMemoryCandidateCatalogCurrent } from '../src/lib/politicsMemoryCandidates.mjs';
@@ -28,6 +33,7 @@ class MemoryStorage {
 }
 
 let cachedXizongPacketIndex = null;
+let cachedXizongForecastQuestionScope = null;
 let cachedPoliticsCatalog = null;
 let cachedPoliticsMemoryCatalog = null;
 
@@ -40,6 +46,7 @@ function xizongPacketIndex() {
     return {
       systemId: system.systemId,
       slug: blockRef.slug,
+      routeKey: `${system.systemId}/${blockRef.slug}`,
       blockId: canonical.blockId,
       blockLabel: canonical.label,
       packetMeta: {
@@ -67,6 +74,13 @@ function xizongPacketIndex() {
     };
   }));
   return cachedXizongPacketIndex;
+}
+
+function xizongForecastQuestionScope() {
+  if (!cachedXizongForecastQuestionScope) {
+    cachedXizongForecastQuestionScope = buildXizongForecastQuestionScope(listCurrentXizongSystemIdentities());
+  }
+  return cachedXizongForecastQuestionScope;
 }
 
 function politicsCatalog() {
@@ -153,6 +167,7 @@ export function buildDailyLearningPacketFromPrivateCheckpoint(input, {
     now: timestamp,
     plan,
     xizongPacketIndex: xizongPacketIndex(),
+    xizongForecastQuestionScope: xizongForecastQuestionScope(),
     politicsCatalog: politicsCatalog(),
     politicsMemoryCatalog: politicsMemoryCatalog(),
     base

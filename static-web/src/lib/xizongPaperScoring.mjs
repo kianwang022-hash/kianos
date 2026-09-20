@@ -60,12 +60,16 @@ export function scoreXizongPaperResults(format, questions, results = {}) {
   };
 }
 
-export function sealXizongPaperState(state, summary, now = new Date().toISOString()) {
+export function sealXizongPaperState(state, summary, now = new Date().toISOString(), evidenceContext = {}) {
   return {
     ...(state && typeof state === 'object' ? state : {}),
     paperSeal: {
       sealedAt: String(now),
       reviewUnlockedAt: '',
+      evidenceContext: {
+        internalHoldoutProtectedBeforeSeal: evidenceContext?.internalHoldoutProtectedBeforeSeal === true,
+        externalExposureStatus: String(evidenceContext?.externalExposureStatus || 'UNKNOWN')
+      },
       summary: {
         answeredCount: Number(summary?.answeredCount || 0),
         correctCount: Number(summary?.correctCount || 0),

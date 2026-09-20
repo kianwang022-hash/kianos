@@ -48,6 +48,13 @@ export function buildDailyLearningPacket({
     timezone: time.timezone,
     generated_at: new Date(now).toISOString(),
     total_minutes: time.total_minutes,
+    recent_time: {
+      window_days: 7,
+      source: 'study_timer_ledger',
+      days: cloneJson(time.recent_days || []),
+      evidence_boundary:
+        'Rolling time is timer-ledger evidence only. Zero minutes do not prove zero study when the timer was not running or historical manual evidence exists elsewhere.'
+    },
     timer: cloneJson(time.timer),
     control: cloneJson(controlReceipt(storage)),
     schedule: plan ? {

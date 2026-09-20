@@ -925,10 +925,13 @@ const payload = JSON.stringify({
           });
         }
         const summary = scoreXizongPaperResults(data.paperFormat, data.questions, next.results || {});
-        next = sealXizongPaperState(next, summary);
+        const sealedYear = Number(data.paperFormat?.year);
+        next = sealXizongPaperState(next, summary, new Date().toISOString(), {
+          internalHoldoutProtectedBeforeSeal: Number.isFinite(sealedYear) && holdoutYears.includes(sealedYear),
+          externalExposureStatus: 'UNKNOWN'
+        });
         if (!writeJson(sweepKey, next)) return;
         sweepState = next;
-        const sealedYear = Number(data.paperFormat?.year);
         const savedHoldout = readJson(holdoutKey, []);
         if (Number.isFinite(sealedYear) && Array.isArray(savedHoldout) && savedHoldout.map(Number).includes(sealedYear)) {
           writeJson(holdoutKey, savedHoldout.map(Number).filter((year) => year !== sealedYear));

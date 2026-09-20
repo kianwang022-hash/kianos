@@ -25,6 +25,7 @@ import {
   listProjectableXizongSystems,
   loadXizongBlock
 } from '../src/lib/xizong.mjs';
+import { loadXizongSystemQuestionSweep } from '../src/lib/xizongQuestions.mjs';
 import {
   politicsProductCatalog
 } from '../src/lib/productCatalog.mjs';
@@ -34,6 +35,10 @@ import {
 import {
   POLITICS_MEMORY_EVIDENCE_KEY
 } from '../src/lib/politicsMemoryRuntime.mjs';
+import {
+  XIZONG_MEMORY_SCHEMA,
+  XIZONG_MEMORY_STORAGE_KEY
+} from '../src/lib/xizongMemoryModel.mjs';
 import {
   buildDailyLearningPacketFromPrivateCheckpoint
 } from './privateDailyLearningPacket.mjs';
@@ -54,6 +59,12 @@ assert.ok(systems.length>0,'Current Xizong must have a projectable system');
 const system=systems[0];
 const blockRef=system.blocks[0];
 const block=loadXizongBlock(system.systemId,blockRef.slug);
+const currentSweep=loadXizongSystemQuestionSweep(system);
+assert.ok(currentSweep?.questions?.length>0,'Current first Xizong System must expose exact official questions');
+const currentForecastQuestion=currentSweep.questions[0];
+const staleForecastQid=currentForecastQuestion.questionId==='xizong-official-2025-n001'
+  ? 'xizong-official-2025-n002'
+  : 'xizong-official-2025-n001';
 assert.ok(block.kpRecords.length>0);
 
 const politics=politicsProductCatalog('/');
@@ -167,8 +178,118 @@ const storage=new MemoryStorage({
     kpIndex:0,
     learned:{[block.kpRecords[0].kpId]:true},
     ratings:{},
-    blockRecallDone:false,
-    completed:false
+    blockRecallDone:true,
+    blockRecallCompletedAt:'2026-09-20T00:15:00+08:00',
+    completed:true,
+    completedAt:'2026-09-20T00:20:00+08:00'
+  }),
+  'kianos:xizong:system-question-sweep:forecast-fixture:v1':JSON.stringify({
+    attemptHistory:[
+      {
+        type:'QUESTION_ATTEMPT',
+        question_id:currentForecastQuestion.questionId,
+        question_source:'OFFICIAL_EXAM',
+        system_id:system.systemId,
+        canonical_id:system.canonicalId,
+        study_phase:'FIRST_PASS',
+        context:'SYSTEM_SWEEP',
+        round_id:'forecast-current-round',
+        attempt_index:1,
+        status:'stable',
+        year:currentForecastQuestion.year,
+        scope_hash:currentSweep.scopeHash,
+        question_inventory_hash:currentSweep.questionInventoryHash,
+        submitted_at:'2026-09-19T23:50:00+08:00'
+      },
+      {
+        type:'QUESTION_ATTEMPT',
+        question_id:staleForecastQid,
+        question_source:'OFFICIAL_EXAM',
+        system_id:system.systemId,
+        canonical_id:system.canonicalId,
+        study_phase:'FIRST_PASS',
+        context:'SYSTEM_SWEEP',
+        round_id:'forecast-stale-round',
+        attempt_index:1,
+        status:'wrong',
+        scope_hash:'stale-scope',
+        question_inventory_hash:'stale-inventory',
+        submitted_at:'2026-09-20T00:05:00+08:00'
+      }
+    ]
+  }),
+  'kianos:xizong:paper-question-sweep:paper-2026:v1':JSON.stringify({
+    paperSeal:{
+      sealedAt:'2026-09-20T01:30:00+08:00',
+      reviewUnlockedAt:'',
+      summary:{
+        answeredCount:3,
+        correctCount:2,
+        wrongCount:1,
+        unansweredCount:162,
+        questionCount:165,
+        earnedScore:3.5,
+        maxScore:300
+      }
+    },
+    attemptHistory:[
+      {
+        type:'QUESTION_ATTEMPT',
+        question_id:'xizong-official-2026-n001',
+        question_source:'OFFICIAL_EXAM',
+        study_phase:'FIRST_PASS',
+        attempt_index:1,
+        status:'stable',
+        year:2026,
+        number:1,
+        points_possible:1.5,
+        result_visibility:'hidden',
+        submitted_at:'2026-09-20T01:20:00+08:00'
+      },
+      {
+        type:'QUESTION_ATTEMPT',
+        question_id:'xizong-official-2026-n057',
+        question_source:'OFFICIAL_EXAM',
+        study_phase:'FIRST_PASS',
+        attempt_index:1,
+        status:'uncertain',
+        year:2026,
+        number:57,
+        points_possible:2,
+        result_visibility:'hidden',
+        submitted_at:'2026-09-20T01:21:00+08:00'
+      },
+      {
+        type:'QUESTION_ATTEMPT',
+        question_id:'xizong-official-2026-n108',
+        question_source:'OFFICIAL_EXAM',
+        study_phase:'FIRST_PASS',
+        attempt_index:1,
+        status:'wrong',
+        year:2026,
+        number:108,
+        points_possible:2,
+        result_visibility:'hidden',
+        submitted_at:'2026-09-20T01:22:00+08:00'
+      }
+    ]
+  }),
+
+  [XIZONG_MEMORY_STORAGE_KEY]:JSON.stringify({
+    schema:XIZONG_MEMORY_SCHEMA,
+    repairTasks:[
+      {
+        id:'repair:forecast:active',
+        status:'ACTIVE',
+        sourceQuestionIds:['xizong-official-2025-n002','xizong-official-2025-n003']
+      },
+      {
+        id:'repair:forecast:done',
+        status:'DONE',
+        completedAt:'2026-09-20T00:30:00+08:00',
+        sourceQuestionIds:['xizong-official-2025-n004']
+      }
+    ]
   }),
 
   'kianos-english-session-instruction-v1':JSON.stringify(englishSession),
@@ -220,6 +341,11 @@ assert.equal(packet.timezone,'Asia/Shanghai');
 
 assert.equal(packet.subjects.xizong.time.minutes,30,
   'cross-midnight Xizong session must contribute only the 00:00–00:30 slice to 9/20');
+assert.equal(packet.recent_time.window_days,7);
+assert.equal(packet.recent_time.days.length,7);
+assert.equal(packet.recent_time.days.find((row)=>row.day==='2026-09-19')?.subjects?.xizong,30);
+assert.equal(packet.recent_time.days.find((row)=>row.day==='2026-09-20')?.subjects?.xizong,30);
+assert.equal(packet.recent_time.days.find((row)=>row.day==='2026-09-20')?.subjects?.english,40);
 assert.equal(packet.subjects.english.time.minutes,40);
 assert.equal(packet.subjects.politics.time.minutes,0);
 assert.equal(packet.total_minutes,70);
@@ -241,7 +367,59 @@ assert.equal(
   systems.reduce((sum,row)=>sum+row.blocks.reduce((s,b)=>s+Number(b.kpCount||0),0),0)
 );
 assert.equal(xzForecast.canonical_scope.block_weights.length,xzForecast.canonical_scope.blocks);
+assert.ok(xzForecast.canonical_scope.logic_groups>0);
 assert.ok(xzForecast.runtime_evidence.observed_blocks>=1);
+assert.ok(xzForecast.runtime_evidence.completed_blocks>=1);
+assert.equal(
+  xzForecast.runtime_evidence.completed_blocks_detail.find((row)=>row.block_id===block.blockId)?.study_day,
+  '2026-09-20'
+);
+assert.equal(xzForecast.practice_evidence.first_pass.attempted_questions,5,
+  'broader performance evidence may include System + sealed whole-paper attempts');
+assert.equal(xzForecast.practice_evidence.first_pass.stable,2);
+assert.equal(xzForecast.practice_evidence.first_pass.uncertain,1);
+assert.equal(xzForecast.practice_evidence.first_pass.wrong,2);
+assert.equal(xzForecast.practice_evidence.first_pass.wrong_or_uncertain,3);
+assert.equal(xzForecast.practice_evidence.first_pass.wrong_or_uncertain_rate,0.6);
+assert.equal(xzForecast.practice_evidence.first_pass.current_scope_eligible_attempted_questions,1);
+assert.equal(xzForecast.practice_evidence.first_pass.current_scope_unique_attempted_questions,1);
+assert.equal(xzForecast.practice_evidence.first_pass.current_scope_wrong_or_uncertain,0);
+assert.equal(xzForecast.practice_evidence.first_pass.current_scope_wrong_or_uncertain_rate,0);
+assert.equal(xzForecast.workload_forecast.components.repair.error_rate.source,'CURRENT_EXACT_SCOPE_FIRST_ATTEMPT');
+assert.equal(xzForecast.workload_forecast.components.repair.error_rate.value,0,
+  'stale Wrong must not inflate future Repair pressure once Current exact-scope evidence exists');
+assert.equal(xzForecast.question_workload.status,'EXACT_PARTIAL');
+assert.equal(xzForecast.question_workload.cross_system_duplicate_memberships,0);
+assert.equal(xzForecast.question_workload.known_remaining_is_lower_bound,true);
+assert.ok(xzForecast.question_workload.unknown_systems.includes('F'));
+assert.equal(
+  xzForecast.question_workload.known_remaining_questions,
+  xzForecast.question_workload.exact_union_questions-1,
+  'only the exact Current SYSTEM_SWEEP attempt may reduce known remaining workload'
+);
+assert.equal(xzForecast.workload_forecast.schema,'kianos.xizong.workload-forecast.v1');
+assert.equal(xzForecast.workload_forecast.first_round.full_band_minutes,null,
+  'one synthetic completed Block is insufficient for a fake full P20/P50/P80 forecast');
+assert.equal(xzForecast.repair_evidence.schema,'kianos.xizong.repair-forecast-evidence.v1');
+assert.equal(xzForecast.repair_evidence.total_repair_clusters,2);
+assert.equal(xzForecast.repair_evidence.active_repair_clusters,1);
+assert.equal(xzForecast.repair_evidence.completed_repair_clusters,1);
+assert.equal(xzForecast.repair_evidence.question_backed_clusters,2);
+assert.equal(xzForecast.repair_evidence.unique_source_question_ids,3);
+assert.equal(xzForecast.repair_evidence.observed_question_to_cluster_ratio,1.5);
+assert.equal(xzForecast.runtime_evidence.recall.rated,0);
+assert.equal(xzForecast.memory_evidence.schema,'kianos.xizong.memory-forecast-evidence.v1');
+assert.equal(xzForecast.memory_evidence.precision.cards,0);
+assert.equal(xzForecast.practice_evidence.fresh_transfer.observed_probes,0);
+assert.equal(xzForecast.formal_score_evidence.latest.year,2026);
+const disciplineBreakdown=xzForecast.formal_score_evidence.latest.discipline_breakdown?.disciplines;
+assert.ok(disciplineBreakdown,'sealed modern paper must expose historical discipline breakdown');
+assert.equal(disciplineBreakdown.physiology.earned_points,1.5);
+assert.equal(disciplineBreakdown.physiology.wrong_points,0);
+assert.equal(disciplineBreakdown.surgery.earned_points,2);
+assert.equal(disciplineBreakdown.surgery.uncertain_correct_points,2);
+assert.equal(disciplineBreakdown.humanism.earned_points,0);
+assert.equal(disciplineBreakdown.humanism.wrong_points,2);
 assert.match(xzForecast.evidence_boundary,/does not prove unstudied/i);
 assert.match(xzForecast.evidence_boundary,/exam\.subject-demand\.v1/);
 

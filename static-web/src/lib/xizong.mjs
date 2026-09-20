@@ -336,6 +336,43 @@ function normalizeSystem(record) {
   };
 }
 
+export function listCurrentXizongSystemIdentities() {
+  const manifest = assertCurrentManifest();
+  const ownerPaths = Object.values(manifest?.macro_domain_taxonomy?.domains || {})
+    .flatMap((domain) => Array.isArray(domain?.system_owners) ? domain.system_owners : [])
+    .map(String)
+    .filter(Boolean);
+  const rows = ownerPaths.map((ownerPath) => {
+    const match = ownerPath.match(/^systems\/([^/]+)\/?$/);
+    if (!match) throw new Error(`CURRENT_XIZONG_SYSTEM_OWNER_PATH_INVALID:${ownerPath}`);
+    const dirName = match[1];
+    const systemPath = `${SYSTEMS_ROOT}/${dirName}/system.json`;
+    if (!fs.existsSync(absolute(systemPath))) {
+      throw new Error(`CURRENT_XIZONG_SYSTEM_OWNER_MISSING:${dirName}`);
+    }
+    const system = readJson(systemPath);
+    const identity = systemIdentity(system);
+    if (!identity.systemId || !identity.canonicalId || !identity.title) {
+      throw new Error(`CURRENT_XIZONG_SYSTEM_IDENTITY_INVALID:${dirName}`);
+    }
+    return {
+      systemId: identity.systemId,
+      canonicalId: identity.canonicalId,
+      title: identity.title,
+      semanticAuthority: String(system?.semantic_authority || ''),
+      lifecycleStatus: String(system?.status || ''),
+      projectionAccepted: systemProjectionAccepted(dirName)
+    };
+  });
+  const expected = Number(manifest?.identity?.numbered_systems || 0);
+  if (!expected || rows.length !== expected) {
+    throw new Error(`CURRENT_XIZONG_SYSTEM_ROSTER_COUNT_MISMATCH:${rows.length}/${expected}`);
+  }
+  return rows.sort((a,b) =>
+    String(a.canonicalId).localeCompare(String(b.canonicalId), undefined, { numeric: true })
+  );
+}
+
 export function listProjectableXizongSystems() {
   assertCurrentManifest();
   return systemDirectoryCandidates()
