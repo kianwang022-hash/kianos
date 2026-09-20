@@ -285,6 +285,82 @@ function summarizeXizongForecastRepairs(storage) {
   };
 }
 
+function summarizeXizongSystemRecallForecast(storage, systemRows = []) {
+  return (Array.isArray(systemRows) ? systemRows : []).map((system) => {
+    const systemId = String(system?.system_id || '');
+    const recall = readJson(storage, `kianos:xizong:system-recall:${systemId}:v1`, {}) || {};
+    const sweep = readJson(storage, `kianos:xizong:system-question-sweep:${systemId}:v1`, {}) || {};
+    const firstPassRoundIds = new Set(
+      (Array.isArray(sweep?.attemptHistory) ? sweep.attemptHistory : [])
+        .filter((event) => String(event?.study_phase || '') === 'FIRST_PASS')
+        .map((event) => String(event?.round_id || ''))
+        .filter(Boolean)
+    );
+    const history = (Array.isArray(recall?.history) ? recall.history : [])
+      .filter((event) => Number.isFinite(Date.parse(String(event?.completed_at || ''))))
+      .sort((a, b) => Date.parse(a.completed_at) - Date.parse(b.completed_at));
+    let previousAt = null;
+    const events = history.map((event) => {
+      const afterRoundId = String(event?.after_round_id || '');
+      const completedAt = String(event?.completed_at || '');
+      const timerMinutes = timerMinutesForDetail(storage, `${systemId}/recall`, {
+        startAt: previousAt,
+        endAt: completedAt
+      });
+      previousAt = completedAt;
+      return {
+        completed_at: completedAt,
+        after_round_id: afterRoundId || null,
+        role: !afterRoundId
+          ? 'PRE_QUESTION_OR_MANUAL'
+          : firstPassRoundIds.has(afterRoundId)
+            ? 'POST_FIRST_PASS'
+            : 'POST_OTHER_ROUND',
+        timer_minutes_since_previous_recall: timerMinutes
+      };
+    });
+    return {
+      system_id: systemId,
+      canonical_id: String(system?.canonical_id || ''),
+      pre_question_recall_observed: events.some((event) => event.role === 'PRE_QUESTION_OR_MANUAL'),
+      post_first_pass_recall_observed: events.some((event) => event.role === 'POST_FIRST_PASS'),
+      first_pass_round_ids: [...firstPassRoundIds],
+      events
+    };
+  });
+}
+
+function summarizeXizongFormalScoreEvidence(storage) {
+  const rows = [];
+  for (const key of listStorageKeys(storage)) {
+    if (!/^kianos:xizong:paper-question-sweep:paper-\d{4}:v1$/.test(key)) continue;
+    const state = readJson(storage, key, null);
+    const seal = state?.paperSeal;
+    if (!record(seal) || !seal.sealedAt || !record(seal.summary)) continue;
+    const match = key.match(/paper-(\d{4})/);
+    rows.push({
+      year: match ? Number(match[1]) : null,
+      sealed_at: String(seal.sealedAt || ''),
+      review_unlocked_at: String(seal.reviewUnlockedAt || '') || null,
+      answered_count: Number(seal.summary.answeredCount || 0),
+      correct_count: Number(seal.summary.correctCount || 0),
+      wrong_count: Number(seal.summary.wrongCount || 0),
+      unanswered_count: Number(seal.summary.unansweredCount || 0),
+      question_count: Number(seal.summary.questionCount || 0),
+      earned_score: Number(seal.summary.earnedScore || 0),
+      max_score: Number(seal.summary.maxScore || 0)
+    });
+  }
+  rows.sort((a, b) => String(a.sealed_at).localeCompare(String(b.sealed_at)));
+  return {
+    schema: 'kianos.xizong.formal-score-evidence.v1',
+    sealed_papers: rows,
+    latest: rows.at(-1) || null,
+    evidence_boundary:
+      'Sealed whole-paper score is formal paper evidence. Review unlock or prior exposure affects future freshness but does not rewrite the score observed at seal time.'
+  };
+}
+
 function boundedScoreAttribution(attribution) {
   const source = record(attribution) ? attribution : {};
   const targets = Array.isArray(source.targets) ? source.targets : [];
@@ -498,6 +574,8 @@ export function buildXizongForecastProgress(storage, packetIndex = [], {
   const practiceEvidence = summarizeXizongForecastPractice(storage, { holdoutYears, now });
   const repairEvidence = summarizeXizongForecastRepairs(storage);
   const questionWorkload = reconcileForecastQuestionScope(questionScope, practiceEvidence, holdoutYears);
+  const systemRecallEvidence = summarizeXizongSystemRecallForecast(storage, systemRows);
+  const formalScoreEvidence = summarizeXizongFormalScoreEvidence(storage);
 
   return {
     schema: 'kianos.xizong.forecast-progress.v1',
@@ -533,6 +611,8 @@ export function buildXizongForecastProgress(storage, packetIndex = [], {
     practice_evidence: practiceEvidence,
     repair_evidence: repairEvidence,
     question_workload: questionWorkload,
+    system_recall_evidence: systemRecallEvidence,
+    formal_score_evidence: formalScoreEvidence,
     observation_day: day,
     systems: systemRows,
     evidence_boundary:
