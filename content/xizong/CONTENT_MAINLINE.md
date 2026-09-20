@@ -134,7 +134,7 @@ E medical-content chain CLOSED
 
 Do not copy D topology for symmetry. Do not infer official-question membership from accepted K.
 
-## F｜Remaining Clinical — CONTENT ACTIVE / PHASE 5B NEXT
+## F｜Remaining Clinical — CONTENT ACTIVE / PHASE 5C NEXT
 
 F Current identity has now been reconciled to **9 Blocks / 121 KP**.
 
@@ -149,7 +149,7 @@ Current state:
 S1 Source boundary  PASS_AFTER_SOURCE_REBIND
 K Knowledge         PASS_AFTER_BOUNDED_REPAIR
 L Learning Logic    PASS_AFTER_BOUNDED_REPAIR
-Content             ACTIVE / PHASE5A_ROLE_CANDIDATE_BUILT
+Content             ACTIVE / PHASE5B_WRAPPER_CLEANUP_CLOSED
 ```
 
 The old 12-Block transition Guide is not Current F identity; its first three physiology-foundation Blocks are historical substrate, while Current canonical F is F1–F9.
@@ -189,7 +189,7 @@ Accepted Learning shape:
 
 Fresh L audit preserved all 40 LG identities and the zero-hard-edge / F9 ownership-first model, while making four bounded Learning repairs: F4/F6 now use genuine natural Source units, and F3-LG02/F7-LG01 now explicitly require real original-Source visual formation.
 
-Content Realization / Optimization is now active. Phase 5A has built the canonical Content-role candidate with 40/40 accepted LG Source-release coverage and no medical-Core rewrite. Concrete blocking debt is now wrapper/authority alignment: 9/9 Blocks still expose stale route fields, while F1/F2/F4/F6/F8 still collapse accepted natural Source units into generic whole-Block first-pass wrappers. Phase 5B is next.
+Content Realization / Optimization is active. Phase 5A built the canonical Content-role candidate with 40/40 accepted LG Source-release coverage and no medical-Core rewrite. Phase 5B has now removed the stale 9/9 route frontmatters, aligned all five natural-unit wrappers, preserved the three whole-source Blocks and F9 ownership-first integration, and repaired only concrete false learner-state assumptions. Phase 5C is next: 40-LG Content sufficiency / density + Recall-front audit.
 
 ---
 
@@ -348,7 +348,7 @@ Do not reopen the generation standard unless fresh evidence shows the shared met
 
 ```text
 Medical:
-F Content Phase 5B wrapper / authority cleanup = next medical-content priority
+F Content Phase 5C 40-LG sufficiency / Recall-front audit = next medical-content priority
 E scoped Projection may proceed independently downstream only when it does not consume F semantic attention
 D scoped Projection may proceed independently downstream only when it does not consume F semantic attention
 
@@ -420,8 +420,8 @@ F 9 Blocks / 121 KP
 → L PASS_AFTER_BOUNDED_REPAIR: 40 LG / 3 whole + 5 natural + 1 integration / 0 hard edges / 2 non-gating PSRs
 → bounded L repairs: F4/F6 Source units + F3/F7 visual fail-closed
 → Content Phase 5A BUILT: 40/40 LG Source-release coverage; medical Core rewrite 0
-→ open debt: 9/9 stale route fields + F1/F2/F4/F6/F8 natural-unit wrapper mismatch
-→ Phase 5B wrapper / authority cleanup NEXT
+→ Content Phase 5B CLOSED: stale route fields 0/9; natural wrappers 5/5; whole 3/3 preserved; F9 integration preserved
+→ Phase 5C 40-LG sufficiency / Recall-front audit NEXT
 
 QUESTIONS
 Current trusted System-question entry = A1 / A2 / A3 only
