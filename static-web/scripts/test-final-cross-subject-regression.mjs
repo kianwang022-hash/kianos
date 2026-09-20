@@ -375,6 +375,9 @@ try {
     'Seeded learner evidence does not manufacture a Chat Plan');
 
   // 3. Import the exact Chat Plan through the real learner-facing Home control.
+  // The import control lives inside the learner-facing “安排说明” dialog.
+  await page.locator('[data-exam-why]').click();
+  await page.locator('[data-exam-why-dialog][open]').waitFor();
   await page.locator('details.examAdvanced > summary').click();
   await page.locator('[data-exam-import]').setInputFiles(chatPlanFile);
   await page.locator('[data-exam-import-confirm]:visible').waitFor();
