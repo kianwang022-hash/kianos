@@ -9,6 +9,7 @@ import EnglishResume from '../components/EnglishResume.astro';
 import { inspectReadingSources } from '../lib/current.mjs';
 import { inspectLexicalSources } from '../lib/lexical.mjs';
 import {
+  buildXizongForecastCanonicalScope,
   listCurrentXizongSystemIdentities,
   listProjectableXizongSystems,
   loadXizongBlock
@@ -84,6 +85,7 @@ const xizongPacketIndex = xizongSystems.flatMap((system) => system.blocks.map((b
     }))
   };
 }));
+const xizongForecastCanonicalScope = buildXizongForecastCanonicalScope(xizongPacketIndex);
 const xizongHref = firstSystem ? `${base}xizong/${firstSystem.systemId}/` : `${base}xizong/`;
 const politicsHref = firstSubject && firstChapter ? `${base}politics/${firstSubject.subject}/${firstChapter.code}/` : `${base}politics/`;
 ---
@@ -161,7 +163,7 @@ const politicsHref = firstSubject && firstChapter ? `${base}politics/${firstSubj
     </section>
 
     <aside class="homeL3Support" aria-label="今日安排与学习支持">
-      <ExamOrchestratorHome xizongPacketIndex={xizongPacketIndex} xizongForecastQuestionScope={xizongForecastQuestionScope} />
+      <ExamOrchestratorHome xizongPacketIndex={xizongPacketIndex} xizongForecastQuestionScope={xizongForecastQuestionScope} xizongForecastCanonicalScope={xizongForecastCanonicalScope} />
     </aside>
   </div>
 </Base>
