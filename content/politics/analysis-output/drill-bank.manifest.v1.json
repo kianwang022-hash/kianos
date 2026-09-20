@@ -6,20 +6,24 @@
     "floor": "PROTECT_70",
     "upside": "PUSH_75"
   },
-  "prompt_count": 72,
+  "prompt_count": 104,
   "role_counts": {
-    "PRINCIPLE_RETRIEVAL": 20,
-    "SKELETON": 20,
+    "PRINCIPLE_RETRIEVAL": 30,
+    "SKELETON": 30,
     "MATERIAL_BINDING": 8,
     "COMPLETE_ANALYSIS": 8,
     "STRESS_VARIANT": 8,
-    "FORMULATION_RETRIEVAL": 8
+    "FORMULATION_RETRIEVAL": 8,
+    "MATERIAL_SEGMENTATION": 12
   },
   "coverage": {
     "stable_structural_topics": 20,
     "current_year_high_delta_exactness": "BLOCKED_UNTIL_2027_DESIGNATED_SOURCE",
     "mao_analysis_specific_bank": "NOT_INVENTED_WITHOUT_ACCEPTED_LATER_OUTPUT_OWNER",
-    "xi_current_year_bank": "STRUCTURAL_SLOTS_EXIST_IN_LATER_STAGE_BASELINE; EXACT/CURRENT_MATERIAL_WAIT_FOR_2027_SOURCE"
+    "xi_current_year_bank": "STRUCTURAL_SLOTS_EXIST_IN_LATER_STAGE_BASELINE; EXACT/CURRENT_MATERIAL_WAIT_FOR_2027_SOURCE",
+    "material_segmentation": "READY_BOUNDED_MULTI_SUBJECT",
+    "mao_structural_bank": "READY_BOUNDED_CURRENT_KNOWLEDGE_ONLY",
+    "xi_structural_bank": "READY_BOUNDED_STRUCTURE_ONLY_CURRENT_YEAR_EXACTNESS_BLOCKED"
   },
   "rules": {
     "prompt_answer_separation": true,
@@ -42,5 +46,16 @@
       "FORMULATION_RETRIEVAL reveals the topic intentionally because formulation, not identification, is the tested construct",
       "same task after answer reveal is never fresh transfer"
     ]
+  },
+  "bank_revision": 2,
+  "revalidation": {
+    "status": "REPAIRED_AFTER_POLITICS_SPECIFIC_MATURITY_REVIEW",
+    "findings": [
+      "Dedicated Material Segmentation coverage was absent.",
+      "The 72-task bank had zero Mao and zero Xi prompts; this could falsely imply whole-subject Analysis coverage.",
+      "Mao was added only from stable Current chapter compression; no annual exactness was invented.",
+      "Xi was added only for structural identification/skeleton; current-year exact wording remains blocked."
+    ],
+    "current_total": 104
   }
 }
