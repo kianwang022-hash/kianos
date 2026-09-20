@@ -472,6 +472,10 @@ function taskPerformanceProfile(allRows, recentRows, task) {
   const productive = ['translation','writing'].includes(task);
 
   const summarize = (rows) => {
+    const cleanTimingRows = rows.filter((row) =>
+      row?.prior_exposure === 'unseen'
+      && row?.assistance === 'unassisted'
+    );
     const summary = {
       attempts: rows.length,
       unreadable_attempts: rows.filter((row) => row.data_status === 'unreadable').length,
@@ -479,7 +483,9 @@ function taskPerformanceProfile(allRows, recentRows, task) {
       independent_transfer_candidates: rows.filter(safeIndependentTransferCandidate).length,
       exposure: countValues(rows, (row) => row.prior_exposure || 'unknown', ['unseen', 'exposed', 'unknown']),
       assistance: countValues(rows, (row) => row.assistance || 'unknown', ['unassisted', 'assisted', 'unknown']),
-      timing: timingProfile(rows)
+      timing_basis: 'UNSEEN_UNASSISTED_ONLY',
+      timing: timingProfile(cleanTimingRows),
+      timing_all: timingProfile(rows)
     };
 
     if (objectiveLike) {
@@ -536,6 +542,8 @@ export function buildEnglishPerformanceProfile(rows, {
     guardrails: [
       'RAW_PRIVATE_HISTORY_REMAINS_LOCAL',
       'DO_NOT_COMPARE_RAW_ELAPSED_TIME_ACROSS_TASK_TYPES',
+      'DEFAULT_TIMING_USES_UNSEEN_UNASSISTED_ATTEMPTS_ONLY',
+      'TIMING_ALL_IS_OBSERVATIONAL_NOT_CLEAN_SPEED_CALIBRATION',
       'EXPOSED_OR_ASSISTED_WORK_IS_NOT_INDEPENDENT_TRANSFER',
       'UNCALIBRATED_TIMING_IS_UNKNOWN_NOT_SLOW',
       'TRANSLATION_AND_WRITING_HAVE_NO_AUTO_SCORE',
