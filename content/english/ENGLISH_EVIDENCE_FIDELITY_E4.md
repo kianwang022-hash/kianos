@@ -10,6 +10,25 @@ Purpose:
 
 ---
 
+## 0｜Opening-gate verdict
+
+**OPEN = YES.**
+
+E4 is allowed to exist because the reproduced gaps can directly make a near-term English decision wrong:
+
+- exposed material can be misread as clean calibration;
+- prior Chat help can be misread as independent evidence;
+- whole-paper scores can lose constituent contamination context;
+- bounded recent packets can hide durable recurrence.
+
+Those defects affect Chat interpretation, score calibration and later Forecast inputs **before** any mature Forecast exists.
+
+E4 is therefore decision-relevant evidence repair, not stage-number completion.
+
+E4 is **not** authorization to build Forecast, Dynamic Control, a new memory system, or any learner-facing architecture.
+
+---
+
 ## 1｜Current accepted foundations
 
 Already strong:
@@ -173,7 +192,35 @@ recent-window absence with older recurrence still present
 
 and a whole-paper score must not lose constituent contamination facts.
 
-E4 remains open until these claims survive targeted proof.
+E4 closes when:
+
+1. exact-source exposure cannot be laundered through another object id;
+2. material Chat/learner assistance is preserved as evidence provenance;
+3. whole-paper release retains section-level and paper-level contamination facts;
+4. bounded long-horizon recurrence remains visible without shipping raw history;
+5. broken/stale evidence fails closed or remains UNKNOWN;
+6. targeted structural + learner-facing proof finds no material decision-changing evidence defect.
+
+E4 does **not** need to prove:
+- Kian's current score;
+- Forecast accuracy;
+- handwriting calibration;
+- Dynamic Control;
+- full lifecycle maturity.
+
+### Post-E4 rule
+
+Closing E4 does **not** open E5.
+
+Default after E4:
+
+```text
+stop maturity engineering
+→ begin / continue real English study
+→ collect Real Learner U
+```
+
+Only a later real decision that materially needs workload/uncertainty forecasting may open E5 under the Stage Plan opening gate.
 
 
 ---
