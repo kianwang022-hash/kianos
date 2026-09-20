@@ -879,11 +879,13 @@ Canonical detailed report:
 
 `content/english/ENGLISH_HIGHEST_MATURITY_FRESH_AUDIT.md`
 
-This Chat has seen the Fresh #4 defect and repair and cannot issue Fresh PASS.
+This Chat has seen the Fresh #4 defect and repair and cannot issue the independent final PASS.
 
 Next mandatory gate:
 
-> **Final Fresh anti-anchored re-audit #5 in a new Chat.**
+> **Final Convergence Sweep in one fresh anti-anchored Chat.**
+
+That sweep must finish the entire defined search surface before any repair and must not stop at the first blocker.
 
 `SYSTEM_LOGIC_ACCEPTED` remains unset.
 
@@ -954,14 +956,16 @@ Current candidate state after Fresh re-audit #4 bounded repair:
 SYSTEM_LOGIC_CANDIDATE = YES
 FINAL_FRESH_REAUDIT #4 = FAIL @ 7e83a256ea15e6617d44268c9958a52e3a7b25bb
 BOUNDED_REPAIR_PROOF #4 = PASS @ b6e3116e39a8cfb338debf327798dc3ccca6d914
-FINAL_FRESH_REAUDIT #5 = REQUIRED
+AUDIT_PROTOCOL = FINAL_CONVERGENCE_V2
+FINAL_CONVERGENCE_SWEEP = REQUIRED
+FINAL_ACCEPTANCE = PENDING_IF_SWEEP_REPAIRS
 SYSTEM_LOGIC_ACCEPTED = NOT YET
 KIAN_SPECIFIC_CALIBRATED = NO
 ```
 
 This Chat is repair-contaminated and cannot convert the candidate to accepted.
 
-If a genuinely new anti-anchored Fresh #5 finds no material all-green failure:
+If the fresh Final Convergence Sweep finds no material blocker:
 
 ```text
 SYSTEM_LOGIC_ACCEPTED = YES
