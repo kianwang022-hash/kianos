@@ -3670,7 +3670,7 @@
     "ordinal": 475,
     "word": "between",
     "source_owner_path": "content/lexical/words/by-ordinal/o0475.json",
-    "source_fingerprint": "20c32cc9bc405a42dc5c0c8d767b13e3bc2a84abb5c6d7a37db0ce5c1ea895ca",
+    "source_fingerprint": "38c738394674b8c79dd74a6ffc3414a3d3a40df7544558e20b63ceae2ae5f150",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3798,7 +3798,25 @@
     ],
     "reference": {
       "confusables": [],
-      "relations": [],
+      "relations": [
+        {
+          "title": "between ↔ among",
+          "target_word": "among",
+          "lines": [
+            {
+              "text": "between 强调可区分实体之间的关系、配对或范围，即使对象超过两个也可用；among 强调置于群体/集合内部。",
+              "lang": "cn"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:final-standard:among-between:selection_boundary",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "between ↔ among"
+          }
+        }
+      ],
       "form": null,
       "family": []
     }

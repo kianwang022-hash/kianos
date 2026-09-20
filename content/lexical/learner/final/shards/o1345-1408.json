@@ -3740,7 +3740,7 @@
     "ordinal": 1378,
     "word": "digital",
     "source_owner_path": "content/lexical/words/by-ordinal/o1378.json",
-    "source_fingerprint": "d0b14298d37dc64049ef8768a082382136fb6bbbd28607b5403a90036981b3c5",
+    "source_fingerprint": "b127d55f8f9d6493550ca9381339823a7cf39bca44773e64af71336de5189d01",
     "sense_lineage": [
       {
         "word_id": "word:digital",
@@ -3843,7 +3843,25 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [],
+      "relations": [
+        {
+          "title": "digital ↔ analog",
+          "target_word": "analog",
+          "lines": [
+            {
+              "text": "digital 表离散编码的数字信号/系统；analog 表连续变化的模拟信号/系统。",
+              "lang": "cn"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:final-standard:analog-digital:semantic_contrast",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "digital ↔ analog"
+          }
+        }
+      ],
       "form": null,
       "family": []
     }

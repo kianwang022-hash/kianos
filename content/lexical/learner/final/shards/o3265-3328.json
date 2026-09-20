@@ -1337,7 +1337,7 @@
     "ordinal": 3277,
     "word": "number",
     "source_owner_path": "content/lexical/words/by-ordinal/o3277.json",
-    "source_fingerprint": "bbb12c2e9786736c958575334332cf32825542729ba8c3efc6175637ff773a7c",
+    "source_fingerprint": "f61e2d18a23bbdf42aad8b2073973d3fa90a24800d0009551afde9d2cd18f6e6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1526,7 +1526,25 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [],
+      "relations": [
+        {
+          "title": "number ↔ amount",
+          "target_word": "amount",
+          "lines": [
+            {
+              "text": "默认写作选择：number of + 可数复数名词；amount of + 不可数名词。",
+              "lang": "cn"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:final-standard:amount-number:countability_boundary",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "number ↔ amount"
+          }
+        }
+      ],
       "form": null,
       "family": []
     }
