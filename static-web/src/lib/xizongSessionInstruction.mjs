@@ -94,6 +94,26 @@ export function normalizeXizongInlinePracticeQuestions(input, context = 'PRACTIC
     if (!targetKpIds.length || targetKpIds.length > 8) fail('INLINE_QUESTION_TARGET_REQUIRED', questionId);
     const canonicalSourceHash = clean(raw.canonical_source_hash || raw.canonicalSourceHash, 180);
     if (!canonicalSourceHash) fail('INLINE_QUESTION_SOURCE_HASH_REQUIRED', questionId);
+    const evidenceIntent = clean(raw.evidence_intent || raw.evidenceIntent || 'TRANSFER_TRAINING', 40).toUpperCase();
+    if (!['TRANSFER_TRAINING','FRESH_TRANSFER_CHECK'].includes(evidenceIntent)) {
+      fail('INLINE_QUESTION_EVIDENCE_INTENT_INVALID', questionId);
+    }
+    const semanticFamilyId = clean(raw.semantic_family_id || raw.semanticFamilyId, 180);
+    const derivedFromIds = [...new Set((Array.isArray(raw.derived_from_ids || raw.derivedFromIds)
+      ? (raw.derived_from_ids || raw.derivedFromIds)
+      : []).map((id) => clean(id, 180)).filter(Boolean))].slice(0, 8);
+    const changedDimensions = [...new Set((Array.isArray(raw.changed_dimensions || raw.changedDimensions)
+      ? (raw.changed_dimensions || raw.changedDimensions)
+      : []).map((value) => clean(value, 160)).filter(Boolean))].slice(0, 8);
+    if (evidenceIntent === 'FRESH_TRANSFER_CHECK') {
+      if (!semanticFamilyId) fail('INLINE_QUESTION_SEMANTIC_FAMILY_REQUIRED', questionId);
+      if (!derivedFromIds.length) fail('INLINE_QUESTION_DERIVATION_REQUIRED', questionId);
+      if (!changedDimensions.length) fail('INLINE_QUESTION_CHANGED_DIMENSION_REQUIRED', questionId);
+    }
+    const freshTransferEligible = evidenceIntent === 'FRESH_TRANSFER_CHECK'
+      && Boolean(semanticFamilyId)
+      && derivedFromIds.length > 0
+      && changedDimensions.length > 0;
     const explanation = cleanExplanation(raw.explanation);
     if (!explanation.examTarget) fail('INLINE_QUESTION_EXAM_TARGET_REQUIRED', questionId);
     if (!explanation.decisionAxis) fail('INLINE_QUESTION_DECISION_AXIS_REQUIRED', questionId);
@@ -112,7 +132,13 @@ export function normalizeXizongInlinePracticeQuestions(input, context = 'PRACTIC
       questionId,
       sourceKind: 'AI_TRANSFER_PROBE',
       scoringRole: 'TRANSFER_ONLY',
-      qualityGate: 'TARGET+DECISION_AXIS+FAILURE+TRANSFER+DISTRACTOR',
+      qualityGate: 'TARGET+DECISION_AXIS+FAILURE+TRANSFER+DISTRACTOR+SEMANTIC_IDENTITY',
+      evidenceIntent,
+      semanticFamilyId: semanticFamilyId || null,
+      derivedFromIds,
+      changedDimensions,
+      freshTransferEligible,
+      freshnessClass: freshTransferEligible ? 'CHANGED_CONTEXT' : 'TRAINING_OR_UNVERIFIED_DERIVATIVE',
       probeKind,
       year: 'AI',
       number: index + 1,
