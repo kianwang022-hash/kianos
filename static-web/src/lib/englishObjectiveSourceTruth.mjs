@@ -2,19 +2,35 @@ import {
   inspectObjectiveTask,
   listClozeSets as baseListClozeSets,
   loadClozeById as baseLoadClozeById,
-  loadClozeAnswersById,
+  loadClozeAnswersById as baseLoadClozeAnswersById,
   listReadingBSets as baseListReadingBSets,
   loadReadingBById as baseLoadReadingBById,
-  loadReadingBAnswersById
+  loadReadingBAnswersById as baseLoadReadingBAnswersById
 } from './englishObjective.mjs';
 import { projectObjectiveSourceTruth } from './englishSourceTruth.mjs';
+import {
+  listSyntheticClozeSets,
+  loadSyntheticClozeById,
+  loadSyntheticClozeAnswersById,
+  listSyntheticReadingBSets,
+  loadSyntheticReadingBById,
+  loadSyntheticReadingBAnswersById
+} from './englishSyntheticBaseline.mjs';
 
-export { inspectObjectiveTask, loadClozeAnswersById, loadReadingBAnswersById };
+export { inspectObjectiveTask };
 export const listClozeSets = baseListClozeSets;
 export const listReadingBSets = baseListReadingBSets;
+export const listExecutableClozeSets = () => [...baseListClozeSets(), ...listSyntheticClozeSets()];
+export const listExecutableReadingBSets = () => [...baseListReadingBSets(), ...listSyntheticReadingBSets()];
 
 export function loadClozeById(id) {
+  if (listSyntheticClozeSets().some((row) => row.id === id)) return loadSyntheticClozeById(id);
   return projectObjectiveSourceTruth(baseLoadClozeById(id));
+}
+
+export function loadClozeAnswersById(id) {
+  if (listSyntheticClozeSets().some((row) => row.id === id)) return loadSyntheticClozeAnswersById(id);
+  return baseLoadClozeAnswersById(id);
 }
 
 export function loadDefaultCloze() {
@@ -26,7 +42,13 @@ export function loadDefaultCloze() {
 }
 
 export function loadReadingBById(id) {
+  if (listSyntheticReadingBSets().some((row) => row.id === id)) return loadSyntheticReadingBById(id);
   return projectObjectiveSourceTruth(baseLoadReadingBById(id));
+}
+
+export function loadReadingBAnswersById(id) {
+  if (listSyntheticReadingBSets().some((row) => row.id === id)) return loadSyntheticReadingBAnswersById(id);
+  return baseLoadReadingBAnswersById(id);
 }
 
 export function loadDefaultReadingB() {
