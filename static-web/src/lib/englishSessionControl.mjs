@@ -44,6 +44,17 @@ const readJson = (storage, key) => {
   }
 };
 
+function exposureKnowsExactSource(exposure, sourceHash) {
+  if (!sourceHash) return false;
+  return Object.values(exposure?.materials || {}).some((material) => {
+    const eventMatch = Array.isArray(material?.events)
+      && material.events.some((event) => event?.source_hash === sourceHash);
+    const declarationMatch = material?.declaration?.state === 'exposed'
+      && material?.declaration?.source_hash === sourceHash;
+    return eventMatch || declarationMatch;
+  });
+}
+
 function normalizeStep(step, index) {
   if (!step || typeof step !== 'object' || Array.isArray(step)) {
     throw new Error('ENGLISH_SESSION_STEP_INVALID:' + index);
@@ -237,7 +248,12 @@ export function writeEnglishSessionInstruction(storage, input, expectedDay = nul
       if(!ids?.length)throw new Error('ENGLISH_MATERIAL_DECLARATION_IDENTITIES_REQUIRED');
       for(const id of ids){
         const m=exposure.materials[id]||{object_id:id,events:[]};
-        if(d.state==='unseen'&&(m.events.length||m.declaration?.state==='exposed'||['kianos-reading-attempt-v1:','kianos-cloze-attempt-v1:','kianos-reading-b-attempt-v1:','kianos-english-external-reading-attempt-v1:','kianos-translation-attempt-v2:','kianos-writing-runtime-v1:'].some(prefix=>storage.getItem(prefix+id)!=null)))throw new Error('ENGLISH_MATERIAL_ALREADY_EXPOSED:'+id);
+        if(d.state==='unseen'&&(
+          m.events.length
+          || m.declaration?.state==='exposed'
+          || (step.task!=='full_paper'&&exposureKnowsExactSource(exposure,step.source_hash))
+          || ['kianos-reading-attempt-v1:','kianos-cloze-attempt-v1:','kianos-reading-b-attempt-v1:','kianos-english-external-reading-attempt-v1:','kianos-translation-attempt-v2:','kianos-writing-runtime-v1:'].some(prefix=>storage.getItem(prefix+id)!=null)
+        ))throw new Error('ENGLISH_MATERIAL_ALREADY_EXPOSED:'+id);
         if(m.declaration&&Date.parse(d.observed_at)<Date.parse(m.declaration.observed_at))throw new Error('ENGLISH_MATERIAL_DECLARATION_STALE');
         m.declaration={...d,session_instruction_id:instruction.session_id,source_hash:step.task==='full_paper'?null:(step.source_hash||null)};exposure.materials[id]=m;
       }
@@ -831,7 +847,10 @@ export function buildEnglishLongHorizonRecurrenceDigest(storage,{recentExactTrun
     digest.recent_exact_window_truncated
     || digest.objective.truncated
     || digest.translation.truncated
-    || digest.writing.truncated;
+    || digest.writing.truncated
+    || ['invalid','unreadable'].includes(digest.objective.status)
+    || ['invalid','unreadable'].includes(digest.translation.status)
+    || ['invalid','unreadable'].includes(digest.writing.status);
   return digest;
 }
 
