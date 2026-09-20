@@ -25,6 +25,94 @@ function parseJson(storage, key, fallback = null) {
   catch { fail('STORED_JSON_INVALID', key); }
 }
 
+const AI_PROBE_KINDS = new Set(['MECHANISM_VARIANT','DISCRIMINATION','MINI_CASE','CONDITION_CHANGE','PRECISION']);
+const AI_PROBE_TYPES = new Set(['A','X']);
+
+function cleanExplanation(raw) {
+  const value = raw && typeof raw === 'object' && !Array.isArray(raw) ? raw : {};
+  const reasoning = Array.isArray(value.reasoning_chain || value.reasoningChain)
+    ? (value.reasoning_chain || value.reasoningChain).map((item) => clean(item, 800)).filter(Boolean).slice(0, 8)
+    : [];
+  const distractors = Array.isArray(value.valuable_distractors || value.valuableDistractors)
+    ? (value.valuable_distractors || value.valuableDistractors).map((row) => ({
+        option: clean(row?.option, 8),
+        reason: clean(row?.reason, 800)
+      })).filter((row) => row.option && row.reason).slice(0, 6)
+    : [];
+  return {
+    examTarget: clean(value.exam_target || value.examTarget, 800),
+    decisionAxis: clean(value.decision_axis || value.decisionAxis, 800),
+    reasoningChain: reasoning,
+    correctOptionReason: clean(value.correct_option_reason || value.correctOptionReason, 1200),
+    commonFailureNode: clean(value.common_failure_node || value.commonFailureNode, 800),
+    transferRule: clean(value.transfer_rule || value.transferRule, 1000),
+    valuableDistractors: distractors
+  };
+}
+
+export function normalizeXizongInlinePracticeQuestions(input, context = 'PRACTICE_SET') {
+  const rows = Array.isArray(input) ? input : [];
+  if (rows.length > 8) fail('INLINE_QUESTION_COUNT_INVALID', context);
+  const seen = new Set();
+  return rows.map((raw, index) => {
+    if (!raw || typeof raw !== 'object' || Array.isArray(raw)) fail('INLINE_QUESTION_INVALID', context + ':' + index);
+    const questionId = clean(raw.question_id || raw.questionId, 180);
+    if (!/^xizong-ai-probe:[A-Za-z0-9._:-]{8,160}$/.test(questionId)) {
+      fail('INLINE_QUESTION_ID_INVALID', context + ':' + index);
+    }
+    if (seen.has(questionId)) fail('INLINE_QUESTION_ID_DUPLICATE', questionId);
+    seen.add(questionId);
+    const sourceKind = clean(raw.source_kind || raw.sourceKind, 40).toUpperCase();
+    if (sourceKind !== 'AI_TRANSFER_PROBE') fail('INLINE_QUESTION_SOURCE_INVALID', questionId);
+    const probeKind = clean(raw.probe_kind || raw.probeKind, 40).toUpperCase();
+    if (!AI_PROBE_KINDS.has(probeKind)) fail('INLINE_QUESTION_PROBE_KIND_INVALID', questionId);
+    const questionType = clean(raw.question_type || raw.questionType || 'A', 8).toUpperCase();
+    if (!AI_PROBE_TYPES.has(questionType)) fail('INLINE_QUESTION_TYPE_INVALID', questionId);
+    const stem = clean(raw.stem, 2400);
+    if (!stem) fail('INLINE_QUESTION_STEM_REQUIRED', questionId);
+    const rawOptions = Array.isArray(raw.options)
+      ? raw.options
+      : raw.options && typeof raw.options === 'object'
+        ? Object.entries(raw.options).map(([label, textValue]) => ({ label, text: textValue }))
+        : [];
+    const options = rawOptions.map((row) => ({
+      label: clean(row?.label, 4).toUpperCase(),
+      text: clean(row?.text, 1200)
+    })).filter((row) => row.label && row.text);
+    if (options.length < 2 || options.length > 5) fail('INLINE_QUESTION_OPTIONS_INVALID', questionId);
+    if (new Set(options.map((row) => row.label)).size !== options.length) fail('INLINE_QUESTION_OPTION_DUPLICATE', questionId);
+    const optionLabels = new Set(options.map((row) => row.label));
+    const correctAnswer = clean(raw.correct_answer || raw.correctAnswer, 12).toUpperCase();
+    const correctLabels = [...new Set(correctAnswer.match(/[A-Z]/g) || [])];
+    if (!correctLabels.length || correctLabels.some((label) => !optionLabels.has(label))) {
+      fail('INLINE_QUESTION_ANSWER_INVALID', questionId);
+    }
+    if (questionType === 'A' && correctLabels.length !== 1) fail('INLINE_QUESTION_SINGLE_ANSWER_REQUIRED', questionId);
+    const targetKpIds = [...new Set((Array.isArray(raw.target_kp_ids || raw.targetKpIds)
+      ? (raw.target_kp_ids || raw.targetKpIds)
+      : []).map((id) => clean(id, 200)).filter(Boolean))];
+    if (!targetKpIds.length || targetKpIds.length > 8) fail('INLINE_QUESTION_TARGET_REQUIRED', questionId);
+    const canonicalSourceHash = clean(raw.canonical_source_hash || raw.canonicalSourceHash, 180);
+    if (!canonicalSourceHash) fail('INLINE_QUESTION_SOURCE_HASH_REQUIRED', questionId);
+    return {
+      questionId,
+      sourceKind: 'AI_TRANSFER_PROBE',
+      scoringRole: 'TRANSFER_ONLY',
+      probeKind,
+      year: 'AI',
+      number: index + 1,
+      questionType,
+      stem,
+      options,
+      correctAnswer: correctLabels.join(''),
+      explanation: cleanExplanation(raw.explanation),
+      relation: null,
+      targetKpIds,
+      canonicalSourceHash
+    };
+  });
+}
+
 function memoryTarget(raw, stepId, index) {
   if (!raw || typeof raw !== 'object' || Array.isArray(raw)) {
     fail('MEMORY_TARGET_INVALID', stepId + ':' + index);
@@ -59,14 +147,17 @@ function normalizeStep(raw, index) {
   if (kind === 'PRACTICE_SET') {
     const rawQuestionIds = (Array.isArray(raw.question_ids) ? raw.question_ids : [])
       .map((id) => clean(id, 160)).filter(Boolean);
-    if (!rawQuestionIds.length) fail('PRACTICE_IDS_REQUIRED', stepId);
     if (new Set(rawQuestionIds).size !== rawQuestionIds.length) fail('PRACTICE_IDS_DUPLICATE', stepId);
     if (rawQuestionIds.some((id) => !/^xizong-official-\d{4}-n\d{3}$/.test(id))) {
       fail('PRACTICE_ID_INVALID', stepId);
     }
+    const inlineQuestions = normalizeXizongInlinePracticeQuestions(raw.inline_questions || raw.inlineQuestions, stepId);
+    if (!rawQuestionIds.length && !inlineQuestions.length) fail('PRACTICE_ITEMS_REQUIRED', stepId);
+    if (rawQuestionIds.length + inlineQuestions.length > 20) fail('PRACTICE_ITEM_COUNT_INVALID', stepId);
     return {
       ...base,
       question_ids: rawQuestionIds,
+      inline_questions: inlineQuestions,
       study_phase: ['FIRST_PASS','SECOND_PASS','LATE_REVIEW'].includes(String(raw.study_phase || ''))
         ? String(raw.study_phase)
         : 'SECOND_PASS',
@@ -314,7 +405,11 @@ function stepComplete(storage, instruction, runtime, step) {
   if (step.kind === 'PRACTICE_SET') {
     const sweep = parseJson(storage, xizongChatSetSweepKey(instruction.session_id, step.step_id), null);
     const history = Array.isArray(sweep?.attemptHistory) ? sweep.attemptHistory : [];
-    return step.question_ids.every((id) =>
+    const ids = [
+      ...(step.question_ids || []),
+      ...(step.inline_questions || []).map((row) => row.questionId)
+    ];
+    return ids.every((id) =>
       Boolean(sweep?.results?.[id])
       || history.some((row) => row?.type === 'QUESTION_ATTEMPT' && row?.question_id === id)
     );
@@ -424,7 +519,8 @@ export function activateXizongSessionCurrentStep(storage, {
       result_visibility: 'immediate',
       speed: step.speed,
       allow_holdout: step.allow_holdout,
-      question_ids: step.question_ids
+      question_ids: step.question_ids,
+      inline_questions: step.inline_questions || []
     }]);
   }
 
