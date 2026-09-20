@@ -1,9 +1,9 @@
-import { listClozeSets, loadClozeAnswersById } from '../../lib/englishObjective.mjs';
+import { listExecutableClozeSets, loadClozeAnswersById } from '../../lib/englishObjectiveSourceTruth.mjs';
 
 export const prerender = true;
 
 export function getStaticPaths() {
-  return listClozeSets().map((item) => ({
+  return listExecutableClozeSets().map((item) => ({
     params: { id: item.id },
     props: { objectId: item.id }
   }));
