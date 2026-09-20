@@ -103,9 +103,13 @@ E3 Productive Scoring Validity is **CLOSED CANDIDATE · FRESH PASS** on exact au
 
 E3 blind acceptance locked all 18 current fixtures before sealed-key reveal and passed semantic-equivalence, Task>Style, Grounding>Fluency, length-stress, complete-section Translation aggregation, uncertainty and re-score invariants. Acceptance: `ENGLISH_PRODUCTIVE_SCORING_E3_FRESH_AUDIT.md`.
 
-Next: latest-head CI/browser proof must validate exact-source exposure continuity, Chat assistance provenance, bounded long-horizon recurrence and whole-paper constituent contamination. If green, run E4 self-attack and close only if no material evidence-fidelity defect remains.
+Next: latest-head CI/browser proof must validate exact-source exposure continuity, Chat assistance provenance, bounded long-horizon recurrence and whole-paper constituent contamination. If green, run one bounded E4 self-attack and close only if no material evidence-fidelity defect remains.
 
-Boundaries: reuse existing task workspaces/transport; no second scheduler/ledger/mastery; no broad Guide rewrite; no protected true-exam consumption for engineering proof.
+**Stage-opening gate after E4:** E5 Forecast is currently **NOT AUTHORIZED** merely because it is next in the Stage Plan. After E4 closes, default action is **return to real English study / Real Learner U**. Open E5 only when a real near-term planning decision would otherwise be materially wrong or impossible and the needed learner parameters are available enough to make Forecast decision-relevant.
+
+Minimum evidence expected before a serious E5 open decision normally includes current learner evidence for Objective residual performance, Translation/Small/Big first-output level, task duration, and at least an initial Lexical retention trajectory. Missing these keeps E5 prior-heavy and therefore deferred.
+
+Boundaries: reuse existing task workspaces/transport; no second scheduler/ledger/mastery; no broad Guide rewrite; no protected true-exam consumption for engineering proof; no automatic E4→E5 transition.
 
 
 ---
