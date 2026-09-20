@@ -134,7 +134,7 @@ E medical-content chain CLOSED
 
 Do not copy D topology for symmetry. Do not infer official-question membership from accepted K.
 
-## F｜Remaining Clinical — K ACCEPTED / LEARNING NEXT
+## F｜Remaining Clinical — LEARNING CANDIDATE / INDEPENDENT ACCEPTANCE NEXT
 
 F Current identity has now been reconciled to **9 Blocks / 121 KP**.
 
@@ -148,7 +148,7 @@ Current state:
 ```text
 S1 Source boundary  PASS_AFTER_SOURCE_REBIND
 K Knowledge         PASS_AFTER_BOUNDED_REPAIR
-L Learning Logic    UNTESTED / next eligible
+L Learning Logic    CANDIDATE / independent acceptance next
 Content             downstream-frozen
 ```
 
@@ -170,7 +170,18 @@ Fresh acceptance evidence:
 
 `content/xizong/knowledge/learner/F_PHASE2_FRESH_INDEPENDENT_K_ACCEPTANCE.md`
 
-**Learning Logic construction is the next F medical-content task.** This K audit did not start Learning.
+Learning Logic is now built as a candidate:
+
+```text
+9 Blocks / 121 KP → 40 LG
+5 WHOLE_BLOCK_SOURCE
+3 NATURAL_SOURCE_UNITS
+1 INTEGRATION_PRIMARY (F9)
+0 inside-F hard prerequisite edges
+2 non-gating PSRs
+```
+
+Fresh independent L acceptance is the next F medical-content gate. Content remains frozen.
 
 ---
 
@@ -329,7 +340,7 @@ Do not reopen the generation standard unless fresh evidence shows the shared met
 
 ```text
 Medical:
-F Learning Logic construction = next medical-content priority
+F fresh independent L acceptance = next medical-content priority
 E scoped Projection may proceed independently downstream only when it does not consume F semantic attention
 D scoped Projection may proceed independently downstream only when it does not consume F semantic attention
 
@@ -398,8 +409,8 @@ NEXT MEDICAL CONTENT PRIORITY
 F 9 Blocks / 121 KP
 → S1 PASS after Source rebind
 → K PASS_AFTER_BOUNDED_REPAIR
-→ Learning Logic construction NEXT
-→ fresh independent L acceptance
+→ Learning candidate built: 40 LG / 5 whole + 3 natural + 1 integration / 0 hard edges
+→ fresh independent L acceptance NEXT
 → Content
 
 QUESTIONS

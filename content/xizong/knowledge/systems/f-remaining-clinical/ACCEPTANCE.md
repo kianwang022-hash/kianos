@@ -15,7 +15,7 @@ This file owns F-scoped readiness truth only. It does not own medical Core, lear
 | S1 — medical / first-learning Source boundary | **PASS** | approved original/current Lecture sources were re-bound from File Library by title/page locator; F6/F8 stale reading gaps closed; remaining exact gaps explicit and fail-closed |
 | S2 — exact official F System question membership | **UNTESTED** | separate later boundary; no membership inferred from Outline placement |
 | K — Knowledge | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent K audit; bounded repair split acute disturbance-control from planned/ongoing intervention-safety while preserving identity/source/owner boundaries |
-| L — Learning Logic | **UNTESTED / NEXT ELIGIBLE** | K accepted; Learning construction is the next F stage |
+| L — Learning Logic | **UNTESTED / CANDIDATE READY** | 9 Blocks / 121 KP → 40 LG; 5 whole + 3 natural + 1 integration Source-contact modes; fresh independent L audit required |
 | Content Realization / Optimization | **NOT_STARTED / DOWNSTREAM-FROZEN** | downstream |
 | P — Projection | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
 | R — Runtime | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
@@ -149,18 +149,48 @@ F6 postoperative timing and F8 P270 matrix remain verified closures.
 
 No model-prior completion or silent modern-guideline substitution was introduced.
 
-## Downstream state
+## L candidate — BUILT / NOT ACCEPTED
 
-K is now accepted.
+Candidate owner:
+
+`content/xizong/knowledge/learner/f-remaining-clinical-learning.json`
+
+Builder evidence:
+
+`content/xizong/knowledge/learner/F_PHASE3_LEARNING_LOGIC_CONSTRUCTION.md`
+
+Fresh audit entry:
+
+`content/xizong/knowledge/learner/F_PHASE4_FRESH_INDEPENDENT_L_AUDIT_BRIEF.md`
+
+Builder-candidate accounting:
 
 ```text
-S1 PASS
-→ K PASS_AFTER_BOUNDED_REPAIR
-→ L UNTESTED / next eligible
-→ Content / P / R / E downstream-frozen
-→ U NO_CLAIM
+stable Blocks                = 9
+stable KP                    = 121
+Logic Groups                 = 40
+exact KP→LG membership       = 121 / 121
+duplicate / missing KP       = 0 / 0
+WHOLE_BLOCK_SOURCE           = 5
+NATURAL_SOURCE_UNITS         = 3
+INTEGRATION_PRIMARY          = 1 (F9)
+inside-F hard prerequisites  = 0
+non-gating PSR               = 2
 ```
 
-The next eligible F stage is **Learning Logic construction**.
+The default route is guidance only. The candidate explicitly treats zero hard edges, F9 integration-primary and the 5/3/1 Source-contact split as fresh-audit targets.
 
-This K audit does not start Learning, does not infer official F question membership, and does not manufacture learner progress.
+Source gaps remain live and S2 exact official-question membership remains UNTESTED.
+
+## Downstream state
+
+K is accepted; L is **not** yet accepted.
+
+Next required gate: **fresh independent L acceptance**.
+
+Until L passes:
+
+- do not treat candidate route/LG/Source-contact semantics as accepted;
+- do not start F Content / Projection / Runtime / Evidence;
+- do not infer official question membership;
+- do not manufacture learner progress.
