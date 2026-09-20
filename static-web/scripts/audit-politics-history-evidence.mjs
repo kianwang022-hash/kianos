@@ -12,7 +12,6 @@ const repoRoot = process.env.KIANOS_REPO_ROOT
   : path.resolve(process.cwd(), '..');
 
 const unitReturnEnhancer = fs.readFileSync(path.join(repoRoot, 'static-web/src/components/PoliticsUnitReturnEnhancer.astro'), 'utf8');
-const chapterRuntime = fs.readFileSync(path.join(repoRoot, 'static-web/src/components/PoliticsChapterRuntime.astro'), 'utf8');
 const failures = [];
 
 function emptyStore() {
@@ -48,12 +47,11 @@ for (const requiredSnippet of [
   }
 }
 
-if (!chapterRuntime.includes('if (needsRepair) recordPoliticsEvidence')) {
-  failures.push({ code: 'HISTORY_E_DURABLE_REPAIR_DEBT_NOT_GATED' });
-}
-if (!chapterRuntime.includes("outcome,\n      selected,")) {
-  failures.push({ code: 'HISTORY_E_REPAIR_EVENT_OUTCOME_NOT_PRESERVED' });
-}
+// Current evidence authority is the immutable first-attempt snapshot + Unit Return
+// evaluation. Wrong/Uncertain does not create durable Repair debt at submit time;
+// later learner-triggered Review/Chat decides whether any follow-up is justified.
+// The direct model checks below therefore own preservation/gating proof instead of
+// stale source-string checks against the retired ChapterRuntime path.
 
 const historyPaths = listPoliticsChapterPathsCurrent()
   .filter((row) => String(row?.subject || '') === 'history')
@@ -160,7 +158,7 @@ const report = {
     'APPROPRIATE_UNIT_OR_CANONICAL_NODE_PRECISION',
     'OUT_OF_SCOPE_REJECTED',
     'PERSISTENCE_FAILURE_FAILS_CLOSED',
-    'DURABLE_REPAIR_DEBT_ONLY_WHEN_NEEDED'
+    'W_U_EVIDENCE_DOES_NOT_MANUFACTURE_MASTERY_OR_AUTOMATIC_DURABLE_REPAIR_DEBT'
   ],
   user_validation_gate: 'UNTESTED_NOT_INFERRED',
   failure_count: failures.length,
