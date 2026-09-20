@@ -7,6 +7,11 @@ import {
   xizongChatSetSweepKey
 } from '../src/lib/xizongSessionInstruction.mjs';
 import { recordXizongQuestionAttempt } from '../src/lib/xizongQuestionAttempts.mjs';
+import {
+  XIZONG_MEMORY_STORAGE_KEY,
+  createXizongMemoryState,
+  releaseBlockMemory
+} from '../src/lib/xizongMemoryModel.mjs';
 import { collectXizongRetainedEvidence } from '../src/lib/xizongRetainedPractice.mjs';
 
 function assert(condition, message) {
@@ -79,6 +84,31 @@ try {
 assert(rejected, 'probe-burden-cap-must-reject-third-inline-question');
 
 const storage = new Storage();
+const currentMemory = releaseBlockMemory(createXizongMemoryState(), {
+  blockId: 'circulation-b01',
+  systemId: 'circulation',
+  canonicalId: 'A1',
+  blockLabel: 'B01',
+  blockTitle: '正常机械循环',
+  sourceHash: 'fixture-current-owner-hash',
+  coreCards: [{
+    id: 'core:circulation-b01-kp01',
+    blockId: 'circulation-b01',
+    systemId: 'circulation',
+    canonicalId: 'A1',
+    blockLabel: 'B01',
+    blockTitle: '正常机械循环',
+    kpId: 'circulation-b01-kp01',
+    displayId: 'KP01',
+    title: '循环机制',
+    promptCanonical: '主动恢复循环主链',
+    coreHtml: '<p>fixture</p>',
+    sourceHash: 'fixture-current-owner-hash'
+  }],
+  precisionCards: []
+}, '2026-09-20T00:30:00.000Z');
+storage.setItem(XIZONG_MEMORY_STORAGE_KEY, JSON.stringify(currentMemory));
+
 const day = '2026-09-20';
 const generatedAt = '2026-09-20T01:00:00.000Z';
 const instruction = {
@@ -105,6 +135,78 @@ const installed = installAndActivateXizongSessionInstruction(storage, instructio
   holdoutYears: []
 });
 assert(installed.installed.status === 'applied', 'session-not-applied');
+
+const staleStorage = new Storage();
+const staleMemory = releaseBlockMemory(createXizongMemoryState(), {
+  blockId: 'circulation-b01',
+  sourceHash: 'fixture-new-owner-hash',
+  coreCards: [{
+    id: 'core:circulation-b01-kp01',
+    blockId: 'circulation-b01',
+    kpId: 'circulation-b01-kp01',
+    sourceHash: 'fixture-new-owner-hash'
+  }],
+  precisionCards: []
+}, '2026-09-20T00:40:00.000Z');
+staleStorage.setItem(XIZONG_MEMORY_STORAGE_KEY, JSON.stringify(staleMemory));
+let staleRejected = false;
+try {
+  installAndActivateXizongSessionInstruction(staleStorage, instruction, {
+    expectedDay: day,
+    now: Date.parse('2026-09-20T01:01:00.000Z'),
+    holdoutYears: []
+  });
+} catch (error) {
+  staleRejected = /INLINE_QUESTION_SOURCE_REVISION_MISMATCH/.test(String(error));
+}
+assert(staleRejected, 'stale-ai-probe-source-hash-was-accepted');
+
+const missingOwnerInstruction = JSON.parse(JSON.stringify(instruction));
+missingOwnerInstruction.session_id = 'xz-targeted-practice-missing-owner';
+missingOwnerInstruction.steps[0].inline_questions[0].target_kp_ids = ['circulation-b99-kp99'];
+let missingOwnerRejected = false;
+try {
+  installAndActivateXizongSessionInstruction(storage, missingOwnerInstruction, {
+    expectedDay: day,
+    now: Date.parse('2026-09-20T01:02:00.000Z'),
+    holdoutYears: []
+  });
+} catch (error) {
+  missingOwnerRejected = /INLINE_QUESTION_TARGET_OWNER_MISSING/.test(String(error));
+}
+assert(missingOwnerRejected, 'ai-probe-missing-current-owner-was-accepted');
+
+const multiSourceStorage = new Storage();
+let multiSourceMemory = currentMemory;
+multiSourceMemory = releaseBlockMemory(multiSourceMemory, {
+  blockId: 'circulation-b02',
+  sourceHash: 'fixture-second-owner-hash',
+  coreCards: [{
+    id: 'core:circulation-b02-kp01',
+    blockId: 'circulation-b02',
+    kpId: 'circulation-b02-kp01',
+    sourceHash: 'fixture-second-owner-hash'
+  }],
+  precisionCards: []
+}, '2026-09-20T00:50:00.000Z');
+multiSourceStorage.setItem(XIZONG_MEMORY_STORAGE_KEY, JSON.stringify(multiSourceMemory));
+const multiSourceInstruction = JSON.parse(JSON.stringify(instruction));
+multiSourceInstruction.session_id = 'xz-targeted-practice-multi-source';
+multiSourceInstruction.steps[0].inline_questions[0].target_kp_ids = [
+  'circulation-b01-kp01',
+  'circulation-b02-kp01'
+];
+let multiSourceRejected = false;
+try {
+  installAndActivateXizongSessionInstruction(multiSourceStorage, multiSourceInstruction, {
+    expectedDay: day,
+    now: Date.parse('2026-09-20T01:03:00.000Z'),
+    holdoutYears: []
+  });
+} catch (error) {
+  multiSourceRejected = /INLINE_QUESTION_MULTI_SOURCE_TARGET_UNSUPPORTED/.test(String(error));
+}
+assert(multiSourceRejected, 'cross-owner-ai-probe-was-accepted');
 const set = JSON.parse(storage.getItem(XIZONG_CHAT_SET_KEY));
 assert(set.schema === 'kianos.xizong.chat_set.v1', 'chat-set-schema');
 assert(set.question_ids.length === 1 && set.question_ids[0] === officialId, 'official-question-preserved');
@@ -179,6 +281,8 @@ const landing = fs.readFileSync(path.resolve(process.cwd(), 'src/pages/xizong/pr
 const targetedPage = fs.readFileSync(path.resolve(process.cwd(), 'src/pages/xizong/practice/chat-set.astro'), 'utf8');
 assert(component.includes('questions: [...officialQuestions, ...inlineQuestions]'), 'official-first-render-order');
 assert(component.includes("currentQuestion.sourceKind === 'AI_TRANSFER_PROBE'"), 'probe-ui-provenance-branch');
+assert(component.includes('validateXizongInlinePracticeQuestionBindings'), 'workbench-does-not-revalidate-probe-binding');
+assert(landing.includes('validateXizongInlinePracticeQuestionBindings'), 'manual-fallback-bypasses-probe-binding');
 assert(landing.includes('专项训练') && landing.includes('真题复刷与精准变式'), 'targeted-entry-copy');
 assert(targetedPage.includes('专项训练'), 'targeted-route-copy');
 
@@ -190,6 +294,10 @@ console.log(JSON.stringify({
   existing_workbench_reused: true,
   ai_probe_score_boundary: 'TRANSFER_ONLY',
   ai_probe_official_queue_pollution: 0,
+  current_owner_binding: 'SESSION+MANUAL_FALLBACK+WORKBENCH',
+  stale_source_rejected: true,
+  missing_owner_rejected: true,
+  multi_source_probe_rejected: true,
   probe_budget_policy: 'owned by Xizong study policy'
 }, null, 2));
 console.log('PASS Xizong targeted practice: official reuse + inline AI probe, one Workbench, evidence boundaries preserved');
