@@ -279,5 +279,21 @@
     ],
     "learning_boundary_rule": "前台不展示工程化 Learning Boundary 字段；通过主提示、当前 Core、Source checkpoint 和轻量‘后面再展开’提示自然表达本轮到此为止。",
     "layout_rule": "左侧负责位置/Logic Map；中间负责 Primary Cognitive Path；右侧优先负责 Attention Projection，而不是工程 workflow rail。"
+  },
+  "score_attribution": {
+    "role": "OBSERVED_OFFICIAL_POINT_WEIGHT_TO_REVIEWED_KNOWLEDGE_OWNER",
+    "source": "Official question attempts only; exact historical point geometry comes from exam-format owner.",
+    "freeze_rule": "Persist points_possible + reviewed Question→Knowledge relation snapshot on the attempt so later owner changes do not silently reinterpret old evidence.",
+    "current_summary_rule": "For current weakness attribution, use latest official attempt per immutable question identity; preserve full attempt history separately.",
+    "primary_only_rule": "Count the question's points once against the reviewed PRIMARY KP when resolved; otherwise reviewed Block; otherwise UNMAPPED. Supporting KPs never duplicate points.",
+    "status_semantics": {
+      "wrong": "observed wrong point weight under this attempt",
+      "uncertain": "observed fragile point weight under this attempt",
+      "stable": "observed protected point weight under this attempt"
+    },
+    "reuse_rule": "True-question reuse remains high-value; preserve FIRST_ATTEMPT vs REUSE because repeated correctness is useful but not fully fresh.",
+    "ai_probe_rule": "AI_TRANSFER_PROBE is TRANSFER_ONLY and contributes zero official score-attribution weight.",
+    "prediction_boundary": "Observed point weight is not predicted score gain/loss and must not be presented as a guaranteed point value for a KP.",
+    "formal_score_truth": "Sealed whole-paper scoring remains authoritative for actual paper score evidence."
   }
 }
