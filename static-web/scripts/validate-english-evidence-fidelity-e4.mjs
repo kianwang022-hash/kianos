@@ -141,6 +141,48 @@ saveEnglishAttempt(declaredStorage,'kianos-reading-attempt-v1:declared-alias-b',
 assert.equal(declaredAliasValue.binding.prior_exposure,'exposed','exposed declaration lost exact-source identity before open');
 assert.equal(declaredAliasValue.firstEvidenceMeta?.independent_transfer_candidate,false);
 
+// 2c) Once the system knows an exact source was exposed, a later "unseen" declaration must fail closed.
+const declarationOnlyStorage=new MemoryStorage();
+writeEnglishSessionInstruction(declarationOnlyStorage,{
+  schema:'kianos.english.session-instruction.v1',
+  session_id:'e4-exposed-a',
+  study_day:day,
+  generated_at:'2026-09-21T11:40:00.000Z',
+  current_step:0,
+  steps:[{
+    step_id:'s1',
+    task:'reading_a',
+    object_id:'declared-source-a',
+    source_hash:'declared-source-hash',
+    params:{material_exposure:{
+      state:'exposed',
+      basis:'learner_statement',
+      observed_at:'2026-09-21T11:39:00.000Z',
+      note:'Already seen.'
+    }}
+  }]
+},day,{catalog:[{task:'reading_a',object_id:'declared-source-a',source_hash:'declared-source-hash'}],now:Date.parse('2026-09-21T11:41:00.000Z')});
+declarationOnlyStorage.removeItem(ENGLISH_SESSION_KEY);
+assert.throws(()=>writeEnglishSessionInstruction(declarationOnlyStorage,{
+  schema:'kianos.english.session-instruction.v1',
+  session_id:'e4-unseen-alias',
+  study_day:day,
+  generated_at:'2026-09-21T11:45:00.000Z',
+  current_step:0,
+  steps:[{
+    step_id:'s1',
+    task:'reading_a',
+    object_id:'declared-source-b',
+    source_hash:'declared-source-hash',
+    params:{material_exposure:{
+      state:'unseen',
+      basis:'learner_statement',
+      observed_at:'2026-09-21T11:44:00.000Z',
+      note:'Conflicting later declaration.'
+    }}
+  }]
+},day,{catalog:[{task:'reading_a',object_id:'declared-source-b',source_hash:'declared-source-hash'}],now:Date.parse('2026-09-21T11:46:00.000Z')}),/ENGLISH_MATERIAL_ALREADY_EXPOSED/);
+
 // 3) Reuse existing durable ledgers for bounded long-horizon recurrence.
 storage.setItem('kianos-english-objective-transfer-claims-v1',JSON.stringify({
   version:1,
@@ -178,6 +220,13 @@ assert.equal(digest.translation.targets[0].target_id,'t-pending');
 assert.equal(digest.writing.targets[0].target_id,'w-pending');
 assert.equal(digest.requires_deeper_review_if_decision_depends_on_missing_history,true);
 assert.ok(digest.guardrails.includes('RECENT_EXACT_ABSENCE_IS_NOT_LONG_HORIZON_ABSENCE'));
+
+const brokenLedgerStorage=new MemoryStorage({
+  'kianos-english-objective-transfer-claims-v1':'{not-json'
+});
+const brokenDigest=buildEnglishLongHorizonRecurrenceDigest(brokenLedgerStorage,{recentExactTruncated:false});
+assert.equal(brokenDigest.objective.status,'unreadable');
+assert.equal(brokenDigest.requires_deeper_review_if_decision_depends_on_missing_history,true);
 
 const packet=buildEnglishEvidencePacket(storage,{day,now:now+120000,catalog:[]});
 assert.equal(packet.long_horizon_recurrence.schema,'kianos.english.long-horizon-recurrence.v1');
@@ -275,8 +324,10 @@ console.log(JSON.stringify({
     chat_cannot_declare_unassisted:true,
     exact_source_hash_cross_object_exposure:true,
     exposed_declaration_cross_object_exposure:true,
+    known_exposure_rejects_later_unseen_alias:true,
     bounded_long_horizon_recurrence_digest:true,
     recent_absence_not_long_horizon_absence:true,
+    broken_recurrence_ledger_requires_deeper_review:true,
     whole_paper_constituent_exposure_preserved:true,
     whole_paper_constituent_assistance_preserved:true,
     whole_paper_release_keeps_contamination_context:true
