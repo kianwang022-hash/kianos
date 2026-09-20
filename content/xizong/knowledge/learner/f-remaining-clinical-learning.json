@@ -1,8 +1,8 @@
 {
   "schema": "kianos.xizong.system_learning_support.v2",
-  "status": "CANDIDATE",
-  "construction_status": "F_PHASE3_L_CANDIDATE_READY_FOR_FRESH_INDEPENDENT_AUDIT",
-  "authority": "BUILDER_CANDIDATE_NOT_ACCEPTED",
+  "status": "CURRENT",
+  "construction_status": "F_PHASE4_FRESH_L_ACCEPTED_AFTER_BOUNDED_REPAIR",
+  "authority": "CHAT_APPROVED_LEARNING_ACCEPTANCE",
   "system_id": "remaining-clinical",
   "canonical_id": "F",
   "scope": "F — Remaining Clinical first-learning cognition, Source contact, retrieval closure, compression and repair return",
@@ -11,7 +11,8 @@
   "system_knowledge_owner": "content/xizong/knowledge/systems/f-remaining-clinical/system.json",
   "construction_receipts": [
     "content/xizong/knowledge/learner/F_PHASE2_FRESH_INDEPENDENT_K_ACCEPTANCE.md",
-    "content/xizong/knowledge/learner/F_PHASE3_LEARNING_LOGIC_CONSTRUCTION.md"
+    "content/xizong/knowledge/learner/F_PHASE3_LEARNING_LOGIC_CONSTRUCTION.md",
+    "content/xizong/knowledge/learner/F_PHASE4_FRESH_INDEPENDENT_L_ACCEPTANCE.md"
   ],
   "role": "System-specific Learning candidate for F. It decides learner order, Source-contact granularity, Logic Groups, retrieval closure, compression and repair return without rewriting accepted F medical Knowledge.",
   "rule": "Preserve the accepted dual-context F Knowledge model. Acute disturbance-control and planned intervention-safety share coordinates but do not become one serial learner workflow; F9 remains ownership-first and low-connectivity.",
@@ -777,15 +778,25 @@
   },
   "acceptance": {
     "evidence_mode": [
-      "BUILDER_SEMANTIC_READBACK",
+      "FRESH_ANTI_ANCHORED_SEMANTIC_READBACK",
+      "INDEPENDENT_PROVISIONAL_LEARNER_MODEL",
+      "ALTERNATIVE_ROUTE_FALSIFICATION",
+      "HARD_EDGE_ADD_DELETE_ATTACK",
       "EXACT_121_KP_PARTITION_ACCOUNTING",
-      "SELF_ADVERSARIAL_HARD_EDGE_DELETE_ADD_TEST",
-      "SOURCE_CONTACT_CONTINUITY_CHECK",
-      "SOURCE_GAP_PRESERVATION_CHECK"
+      "LOGIC_GROUP_SEMANTIC_READBACK",
+      "SOURCE_CONTACT_CONTINUITY_REPAIR_AND_REAUDIT",
+      "VISUAL_FAIL_CLOSED_REPAIR_AND_REAUDIT",
+      "EXTERNAL_OWNER_NEGATIVE_SPACE_ATTACK",
+      "COMPRESSION_REAUDIT"
     ],
-    "independence": "NOT_YET_FRESH",
-    "l_pass_claimed": false,
-    "verdict": "CANDIDATE_PENDING_FRESH_INDEPENDENT_L_AUDIT",
-    "required_next": "content/xizong/knowledge/learner/F_PHASE4_FRESH_INDEPENDENT_L_AUDIT_BRIEF.md"
+    "independence": "FRESH_AUDITOR",
+    "l_pass_claimed": true,
+    "verdict": "FRESH_L_PASS_AFTER_BOUNDED_REPAIR",
+    "material_repairs": [
+      "F4 Source contact changed from WHOLE_BLOCK_SOURCE to three NATURAL_SOURCE_UNITS so first retrieval is not delayed across extent/depth/severity, resuscitation and wound/airway centers.",
+      "F6 Source contact changed from WHOLE_BLOCK_SOURCE to three NATURAL_SOURCE_UNITS so routine recovery, organ/time deviations and incision/wound complications close at genuine Source boundaries.",
+      "F3-LG02 now requires real original-Source visual contact for sterile-field spatial boundaries.",
+      "F7-LG01 now requires real original-Source visual contact for anesthesia airway/procedural-space formation."
+    ]
   }
 }
