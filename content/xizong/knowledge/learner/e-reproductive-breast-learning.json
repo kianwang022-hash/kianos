@@ -1,8 +1,8 @@
 {
   "schema": "kianos.xizong.system_learning_support.v2",
-  "status": "CANDIDATE",
-  "construction_status": "L_CANDIDATE_READY_FOR_FRESH_INDEPENDENT_AUDIT",
-  "authority": "BUILDER_CANDIDATE_NOT_ACCEPTED",
+  "status": "CURRENT",
+  "construction_status": "PHASE3_FRESH_L_ACCEPTED_AFTER_BOUNDED_REPAIR",
+  "authority": "CHAT_APPROVED_LEARNING_ACCEPTANCE",
   "system_id": "reproductive-breast",
   "canonical_id": "E",
   "scope": "E — Reproductive / Breast first-learning cognition, Source contact, retrieval closure, compression and repair return",
@@ -11,9 +11,10 @@
   "system_knowledge_owner": "content/xizong/knowledge/systems/e-reproductive-breast/system.json",
   "construction_receipts": [
     "content/xizong/knowledge/learner/E_PHASE1_FRESH_INDEPENDENT_K_ACCEPTANCE.md",
-    "content/xizong/knowledge/learner/E_PHASE2_LEARNING_LOGIC_CONSTRUCTION.md"
+    "content/xizong/knowledge/learner/E_PHASE2_LEARNING_LOGIC_CONSTRUCTION.md",
+    "content/xizong/knowledge/learner/E_PHASE3_FRESH_INDEPENDENT_L_ACCEPTANCE.md"
   ],
-  "role": "System-specific Learning candidate. It may decide learner order, Source-contact granularity, Logic Groups, retrieval closure and compression but may not rewrite accepted E medical Knowledge.",
+  "role": "System-specific accepted Learning authority for E first-learning cognition, learner order, Source-contact granularity, Logic Groups, retrieval closure, compression and smallest-sufficient repair return. It may not rewrite accepted E medical Knowledge.",
   "rule": "Preserve the accepted two-trunk E Knowledge model while minimizing switching and false prerequisites. Every canonical KP is retrieved exactly once inside one local Logic Group; Logic Group count never determines Source-contact count.",
   "identity": {
     "stable_block_count": 20,
@@ -352,7 +353,7 @@
       "tumor_common": "reactivate only the generic atypia/in-situ/invasion/spread/evidence language needed by the current organ-specific Block",
       "prostate_urinary": "interface only; never become E hard readiness"
     },
-    "hard_edge_rule": "A hard edge is allowed only if the later Block intentionally consumes an already-formed E model, does not rebuild it, and bounded reactivation is insufficient. Current E candidate finds no inside-E edge meeting that bar; this zero-hard-edge claim is a required fresh-audit target.",
+    "hard_edge_rule": "A hard edge is allowed only if the later Block intentionally consumes an already-formed E model, does not rebuild it, and bounded reactivation is insufficient. Fresh independent E L audit found no inside-E edge meeting that bar.",
     "flex_rule": "The default route is low-switching guidance across physiology → reproductive pathology → low-connectivity surgery/benign breast → breast malignancy. Earlier E Blocks frequently improve later compression, but every Current E Block retains enough accepted Primary Source to form honestly with bounded reactivation. Useful order, Source continuity and comparison value are not hard legality."
   },
   "first_pass_chain": [
@@ -1269,7 +1270,7 @@
     "fine_grain_rule": "System-level interfaces are allowed; finer external Block/KP routing fails closed without separately reviewed Current authority."
   },
   "projection_boundary": {
-    "status": "DOWNSTREAM_FROZEN_PENDING_FRESH_L_ACCEPTANCE_AND_CONTENT_REALIZATION",
+    "status": "DOWNSTREAM_FROZEN_PENDING_CONTENT_REALIZATION",
     "requirements_if_later_eligible": [
       "support explicit per-Block Logic-Group membership without assuming equal group size",
       "support mixed whole-Block and natural-Source-unit contact without per-LG bouncing",
@@ -1282,15 +1283,20 @@
   },
   "acceptance": {
     "evidence_mode": [
-      "BUILDER_SEMANTIC_READBACK",
+      "FRESH_ANTI_ANCHORED_SEMANTIC_READBACK",
       "EXACT_212_KP_PARTITION_ACCOUNTING",
-      "SELF_ADVERSARIAL_HARD_EDGE_DELETE_TEST",
+      "ALTERNATIVE_ROUTE_FALSIFICATION",
+      "HARD_EDGE_ADD_DELETE_ATTACK",
       "SOURCE_CONTACT_CONTINUITY_CHECK",
-      "VISUAL_GAP_PRESERVATION_CHECK"
+      "VISUAL_FAIL_CLOSED_REPAIR_AND_REAUDIT",
+      "NEGATIVE_SPACE_VERSION_BOUNDARY_ATTACK",
+      "COMPRESSION_REAUDIT"
     ],
-    "independence": "NOT_YET_FRESH",
-    "l_pass_claimed": false,
-    "verdict": "CANDIDATE_PENDING_FRESH_INDEPENDENT_L_AUDIT",
-    "required_next": "content/xizong/knowledge/learner/E_PHASE3_FRESH_INDEPENDENT_L_AUDIT_BRIEF.md"
+    "independence": "FRESH_AUDITOR",
+    "l_pass_claimed": true,
+    "verdict": "FRESH_L_PASS_AFTER_BOUNDED_REPAIR",
+    "material_repairs": [
+      "E10-LG03 now requires real visual Source contact and remains VISUAL_SOURCE_GAP, preventing prose-only closure of the plasma-cell-mastitis / nipple-inversion visual relation without adding per-LG Source bouncing."
+    ]
   }
 }
