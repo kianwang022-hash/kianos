@@ -29,7 +29,7 @@ P / R / E                                    = downstream-frozen
 U Learner Use                                = no claim
 ```
 
-Active builder branch: **work/f-phase3-learning-logic-20260920-v2**
+Active builder branch: **none — Learning candidate merged to main**
 
 Fresh K acceptance:
 
