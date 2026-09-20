@@ -474,6 +474,20 @@ Do **not** copy the full historical answer merely because it is longer.
 - **Ethics/Law:** train concept/value ownership, normative move selection and material application.
 - **Current affairs:** before 2027 current-affairs Source, use historical material only for question geometry / binding practice, not current-fact recall.
 
+### Legacy seed stop rule
+
+The historical drill bank is deliberately **representative, not exhaustive**.
+
+Its job is to expose the reusable pre-2027 task geometry across the real Analysis lanes and modes. It is not a requirement to materialize every historical Xiao8 subquestion.
+
+Add another legacy drill only when at least one is true:
+
+- it exposes a genuinely new task geometry / failure mode not represented by the current seed;
+- Chat needs a fresh historical task for TRANSFER rather than reusing an already-seen pair;
+- the learner is actually assigned that exact historical task and durable evidence therefore needs stable task identity.
+
+Historical volume by itself is not maturity. If additional old questions only repeat IDENTIFY / SKELETON / BIND / DELIVER geometry already covered, leave them in the private source and do not expand the registry merely for completeness.
+
 ## 8.2 Full prose
 
 Do not write every drill in full.
