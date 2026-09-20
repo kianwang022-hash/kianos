@@ -138,9 +138,9 @@
         "unknown": "Immediate weak evidence; keep due now.",
         "fuzzy": "Immediate weak evidence; keep due now.",
         "known": "Successful retrieval in the current attempt, but not durable stability. Clear immediate Today pressure, schedule one delayed D1 recheck, and do not advance the long stability interval.",
-        "mastered": "Durable stability evidence. Consecutive mastered retrievals advance the bounded D2→D4→D7→D14 delayed-stability window; D14 is the cap during the current exam horizon."
+        "mastered": "Durable stability evidence. A mastered event may be recorded at any time, but it advances the bounded D2→D4→D7→D14 stability stage only when it occurs at or after the previous qualified delayed-check boundary; early repeated mastered ratings remain evidence and do not postpone or inflate the clock."
       },
-      "no_inflation_rule": "Repeated known ratings alone stay on D1 recheck and never expand the long interval; only mastered advances D2/D4/D7/D14. Overdue review remains one due item, not historical day debt.",
+      "no_inflation_rule": "Repeated known ratings stay on D1 and never expand the long interval. Repeated mastered ratings before the currently earned delayed-check boundary also do not advance or postpone the D2/D4/D7/D14 clock. Overdue review remains one due item, not historical day debt.",
       "exam_horizon_rule": "Current exam-horizon cadence is intentionally denser than long-horizon spaced repetition: unknown/fuzzy immediate, known D1, mastered D2→D4→D7→D14, then D14 cap. This applies only to selectively admitted Memory, never the full released library."
     }
   },

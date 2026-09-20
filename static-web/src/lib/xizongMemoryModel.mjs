@@ -313,6 +313,40 @@ function eventTime(row) {
   return Number.isFinite(value) ? value : null;
 }
 
+function qualifiedStableClock(events, contentChangedAt = null) {
+  const tail = [];
+  for (let index = events.length - 1; index >= 0; index -= 1) {
+    const row = events[index];
+    if (!STABLE_RATINGS.has(text(row?.rating))) break;
+    tail.unshift(row);
+  }
+
+  let stage = 0;
+  let anchorAt = null;
+  for (const row of tail) {
+    const at = eventTime(row);
+    if (at === null) continue;
+    if (Number.isFinite(contentChangedAt) && at < contentChangedAt) continue;
+
+    if (stage === 0) {
+      stage = 1;
+      anchorAt = at;
+      continue;
+    }
+
+    const priorIntervalDays = XIZONG_RETENTION_WINDOWS_DAYS[
+      Math.min(stage - 1, XIZONG_RETENTION_WINDOWS_DAYS.length - 1)
+    ];
+    const qualifiesAt = anchorAt + priorIntervalDays * DAY_MS;
+    if (at < qualifiesAt) continue;
+
+    stage += 1;
+    anchorAt = at;
+  }
+
+  return { stage, anchorAt };
+}
+
 function retentionStateFromContext(state, cardId, context) {
   const id = text(cardId);
   const card = state.cards[id];
@@ -383,14 +417,17 @@ function retentionStateFromContext(state, cardId, context) {
     return { ...base, state: 'EVIDENCE_UNRESOLVED', due: false, dueReason: 'LATEST_EVIDENCE_UNUSABLE_FOR_RETENTION_CLOCK' };
   }
 
-  let consecutiveStable = 0;
-  for (let index = events.length - 1; index >= 0; index -= 1) {
-    if (!STABLE_RATINGS.has(text(events[index]?.rating))) break;
-    consecutiveStable += 1;
+  const stableClock = qualifiedStableClock(
+    events,
+    Number.isFinite(contentChangedAt) ? contentChangedAt : null
+  );
+  if (stableClock.stage < 1 || stableClock.anchorAt === null) {
+    return { ...base, state: 'EVIDENCE_UNRESOLVED', due: false, dueReason: 'STABILITY_CLOCK_UNPROVEN' };
   }
-  const stage = Math.max(1, consecutiveStable);
+
+  const stage = stableClock.stage;
   const intervalDays = XIZONG_RETENTION_WINDOWS_DAYS[Math.min(stage - 1, XIZONG_RETENTION_WINDOWS_DAYS.length - 1)];
-  const dueAtMs = latestAt + intervalDays * DAY_MS;
+  const dueAtMs = stableClock.anchorAt + intervalDays * DAY_MS;
   const due = context.nowMs >= dueAtMs;
 
   return {
