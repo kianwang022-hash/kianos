@@ -524,6 +524,8 @@ It must test whether task-local capability survives:
 
 Whole Paper may reopen a locally stable module.
 
+Formal whole-paper evidence must reconcile constituent exposure / assistance / source revision. An exact Objective score is not automatically a clean score-calibration claim when constituent material is exposed, assisted or unknown.
+
 But one noisy Whole Paper does not automatically justify heavy rebuild. Reopen intensity must match the strength and recurrence of counterevidence.
 
 The number of whole-paper runs is an evidence prior, not a sacred quota. Two strong representative runs may sometimes be more informative than three contaminated runs; five unstable runs still do not prove Secure.
@@ -835,6 +837,8 @@ Outputs:
 - highest-value next evidence.
 
 Do not produce fake precision.
+
+When no sufficiently clean complete official paper remains, English may use a **composite calibration** built from low-contamination section evidence + anchored productive scoring + separate whole-paper timing/fatigue evidence. This must carry wider uncertainty than a genuinely clean integrated paper and may not be mislabeled as equivalent.
 
 ---
 
@@ -1166,6 +1170,8 @@ Required transport invariants:
 - fail closed when instruction is invalid.
 
 Any synthetic/derived asset intended for normal learner use must be addressable through this same execution path or an already accepted task-native path.
+
+Bounded Daily/Evidence packets are the normal handoff. Packet truncation must remain explicit. If a strategy decision depends on long-horizon mechanism recurrence that is not represented in the recent exact window, Chat should request a targeted deeper review/export rather than infer that the mechanism never existed. The answer is not to ship the entire raw history every day.
 
 No second English scheduler/runtime is allowed.
 
