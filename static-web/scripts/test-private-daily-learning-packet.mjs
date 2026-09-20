@@ -380,6 +380,12 @@ assert.equal(xzForecast.practice_evidence.first_pass.wrong,1);
 assert.equal(xzForecast.practice_evidence.first_pass.wrong_or_uncertain,1);
 assert.equal(xzForecast.practice_evidence.first_pass.wrong_or_uncertain_rate,0.5);
 assert.equal(xzForecast.practice_evidence.first_pass.current_scope_eligible_attempted_questions,1);
+assert.equal(xzForecast.practice_evidence.first_pass.current_scope_unique_attempted_questions,1);
+assert.equal(xzForecast.practice_evidence.first_pass.current_scope_wrong_or_uncertain,0);
+assert.equal(xzForecast.practice_evidence.first_pass.current_scope_wrong_or_uncertain_rate,0);
+assert.equal(xzForecast.workload_forecast.components.repair.error_rate.source,'CURRENT_EXACT_SCOPE_FIRST_ATTEMPT');
+assert.equal(xzForecast.workload_forecast.components.repair.error_rate.value,0,
+  'stale Wrong must not inflate future Repair pressure once Current exact-scope evidence exists');
 assert.equal(xzForecast.question_workload.status,'EXACT_PARTIAL');
 assert.equal(xzForecast.question_workload.cross_system_duplicate_memberships,0);
 assert.equal(xzForecast.question_workload.known_remaining_is_lower_bound,true);
