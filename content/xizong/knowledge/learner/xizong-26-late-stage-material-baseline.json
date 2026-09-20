@@ -1,0 +1,360 @@
+{
+  "schema": "kianos.xizong.late_stage_material_baseline.v1",
+  "status": "HISTORICAL_26_BASELINE_ABSORBED_AT_ASSET_ROLE_LEVEL",
+  "cycle_identity": {
+    "source_cycle_label": "26考研",
+    "relative_to_current": "LAST_YEAR_BASELINE",
+    "current_cycle_label": "27考研",
+    "rule": "Cycle labels are source/vendor identities. A 26考研 asset remains historical baseline even if uploaded in 2026. Do not promote it to 27 Current-year truth by upload date."
+  },
+  "purpose": "Absorb last-year late-stage materials before any 27-cycle delta/replacement analysis. This owner records asset identity, role, overlap and admissible reuse; it is not a second Knowledge, Question, Review, Forecast or scheduler system.",
+  "authority_boundary": {
+    "may_own": [
+      "late-stage source-family inventory",
+      "year/cycle identity",
+      "material role",
+      "replacement/overlap relationships",
+      "source-fidelity and answer-leakage warnings",
+      "future current-year delta slots"
+    ],
+    "may_not_own": [
+      "medical canonical Knowledge",
+      "Question Truth",
+      "approved Explanation Truth",
+      "Question→Knowledge mappings",
+      "learner state/mastery",
+      "Forecast pricing",
+      "daily scheduling"
+    ]
+  },
+  "baseline_families": [
+    {
+      "family_id": "26-CASE-CRAM",
+      "label": "病例分析&狂背",
+      "cycle": "26考研",
+      "primary_roles": [
+        "CASE_DISCRIMINATION",
+        "CASE_PATTERN_COMPRESSION",
+        "RETRIEVAL_COMPRESSION",
+        "CONFUSABLE_BOUNDARY_REVIEW",
+        "INTERNAL_MEDICINE_AND_SURGERY_LATE_STAGE_RECALL"
+      ],
+      "transcript_inventory": {
+        "provenance_status": "16 SRT filenames confirmed from prior source inventory",
+        "raw_bytes_status": "PROVENANCE_CONFIRMED_BUT_RAW_TRANSCRIPTS_NOT_CURRENTLY_MOUNTED_AS_DIRECT_FILES",
+        "counts": {
+          "internal_diagnosis_plus_partial_surgery": 9,
+          "surgery": 7,
+          "total": 16
+        },
+        "filenames": [
+          "01.病例分析&狂背 内科含诊断+部分外科1 天天师兄26考研_文稿.srt",
+          "02.病例分析&狂背 内科含诊断+部分外科2 天天师兄26考研_文稿.srt",
+          "03.病例分析&狂背 内科含诊断+部分外科 3 天天师兄26考研_文稿.srt",
+          "04.病例分析&狂背 内科含诊断+部分外科 4 天天师兄26考研-2_文稿.srt",
+          "05.病例分析&狂背 内科含诊断+部分外科5 天天师兄26考研_文稿.srt",
+          "06.病例分析&狂背 内科含诊断+部分外科6 天天师兄26考研_文稿.srt",
+          "07.病例分析&狂背 内科含诊断+部分外科7 天天师兄26考研1_文稿.srt",
+          "08.病例分析&狂背 内科含诊断+部分外科 8  天天师兄26考研_文稿.srt",
+          "09.病例分析&狂背 内科含诊断+部分外科9 天天师兄26考研_文稿.srt",
+          "10.病例分析&狂背 外科1 天天师兄26考研_文稿.srt",
+          "11.病例分析&狂背 外科2 天天师兄26考研_文稿.srt",
+          "12.病例分析&狂背 外科3 天天师兄26考研 _文稿.srt",
+          "13.病例分析&狂背 外科4 天天师兄26考研_文稿.srt",
+          "14.病例分析&狂背 外科5 天天师兄26考研_3_文稿.srt",
+          "15.病例分析&狂背 外科6 天天师兄26考研_文稿.srt",
+          "16.病例分析&狂背 外科7 天天师兄26考研_文稿.srt"
+        ]
+      },
+      "directly_readable_compiled_material": [
+        {
+          "library_file_id": "libfile_f3f0576944988191a63db15eb62da779",
+          "visible_name": "最后5h 内科.pdf",
+          "true_content_identity": "26考研【病例分析&狂背】内科含诊断+部分外科",
+          "pages": 80,
+          "source_evidence": "Page 1 explicitly says 天天师兄 26考研 and 【病例分析&狂背】内科含诊断+部分外科; it summarizes 2017-2025 exam distribution.",
+          "naming_warning": "The visible filename says 最后5h, but the document body is Case/Cram. Do not count it as an independent 5h PDF."
+        },
+        {
+          "library_file_id": "libfile_c5178b185298819193b13d9098ef4465",
+          "visible_name": "最后5h 外科.pdf",
+          "true_content_identity": "26考研【病例分析&狂背】外科",
+          "pages": 50,
+          "source_evidence": "Page 1 explicitly says 天天师兄 26考研 and 【病例分析&狂背】外科; it summarizes 2017-2025 exam distribution.",
+          "naming_warning": "The visible filename says 最后5h, but the document body is Case/Cram. Do not count it as an independent 5h PDF."
+        }
+      ],
+      "current_reuse_rule": "Treat as historical training/compression substrate. Extract only net-new case discriminators, decision pivots, confusable boundaries and useful compression that are compatible with Current canonical Source. Never replace canonical medical Core with mnemonic/teacher wording.",
+      "current_year_delta_slot": "When 27病例/狂背 appears: compare topic-by-topic against this baseline and Current canonical owners; classify PRESERVE / UPDATED / NEW / RETIRE / CONFLICT."
+    },
+    {
+      "family_id": "26-FOUR-MOCKS",
+      "label": "天天师兄四套卷",
+      "cycle": "26考研",
+      "primary_roles": [
+        "FULL_PAPER_STRESS",
+        "CROSS_SYSTEM_SWITCHING",
+        "DECISIVE_CONDITION_DISCRIMINATION",
+        "TRANSFER_CASE",
+        "CONFUSABLE_BOUNDARY_PROBING"
+      ],
+      "directly_readable_source": {
+        "library_file_id": "libfile_320cd8cf6d048191962c059f503a9ed7",
+        "visible_name": "e1bfc36c-b711-4bc0-89b5-13aafd134254.pdf",
+        "pages": 252,
+        "content_identity": "天天师兄四套卷",
+        "set_boundaries": [
+          {
+            "set": 1,
+            "start_pdf_page": 1,
+            "end_pdf_page": 60
+          },
+          {
+            "set": 2,
+            "start_pdf_page": 61,
+            "end_pdf_page": 134
+          },
+          {
+            "set": 3,
+            "start_pdf_page": 135,
+            "end_pdf_page": 199
+          },
+          {
+            "set": 4,
+            "start_pdf_page": 200,
+            "end_pdf_page": 252
+          }
+        ],
+        "paper_geometry": {
+          "questions_per_set": 165,
+          "current_style_points": 300,
+          "proof": "Set 4 begins at page 200 and ends with Q164-Q165 on page 252; other sets also end at Q165."
+        }
+      },
+      "source_fidelity_and_evidence": {
+        "answer_leakage": "PRESENT",
+        "explanation_or_video_timestamp_annotations": "PRESENT",
+        "official_identity": "NOT_OFFICIAL",
+        "score_evidence_rule": "Do not treat score on this annotated source as official or clean unseen evidence.",
+        "use_rule": "Use as teacher-authored transfer/stress material or derive clean fresh items only when answers/annotations can be safely separated. If a clean question-only original is later recovered, that may become the preferred timed surface."
+      },
+      "provenance_name_conflict": {
+        "historical_folder_name": "小凯3套卷",
+        "actual_content": "four sets",
+        "resolution": "CONTENT_WINS_OVER_FOLDER_NAME; do not infer set count from legacy folder naming."
+      },
+      "current_year_delta_slot": "When 27 multi-set mocks arrive: compare by tested capability/decision axis, not raw question count or video duration; preserve useful unique transfer cases and replace stale/duplicated items."
+    },
+    {
+      "family_id": "26-FINAL-5H",
+      "label": "最终5小时",
+      "cycle": "26考研",
+      "primary_roles": [
+        "FINAL_COMPRESSION",
+        "RETRIEVAL_CUEING",
+        "LAST_STAGE_POINT_PICKUP",
+        "HIGH_YIELD_FILTER"
+      ],
+      "transcript_inventory": {
+        "raw_status": "DIRECTLY_READABLE",
+        "sessions": [
+          {
+            "library_file_id": "libfile_fc07d48c71dc8191be02e0012d426ad9",
+            "visible_name": "01.5小时第一场1 天天师兄 上岸！必胜！_文稿.srt",
+            "lines": 3184,
+            "coverage": "Physiology first; teacher states session order will cover physiology/biochemistry/pathology and part of internal medicine.",
+            "role_note": "Teacher explicitly frames 5h as last-stage review of previously learned content: pick up points, do not get stuck on one item."
+          },
+          {
+            "library_file_id": "libfile_59a8e85fe0208191bd25265f5e977412",
+            "visible_name": "02.5小时第一场2 天天师兄 加油！稳过！_文稿.srt",
+            "lines": 3056,
+            "coverage": "Biochemistry → pathology → part of internal medicine.",
+            "overlap_note": "Teacher explicitly tells learners to review some biochemistry through 狂背 instead of re-teaching it live, then switches to the internal-medicine 病例分析&狂背 handout."
+          },
+          {
+            "library_file_id": "libfile_05955b2649848191819aba7dffd307e5",
+            "visible_name": "03. 5小时第二场-1 天天师兄_文稿.srt",
+            "lines": 2688,
+            "coverage": "Continues internal medicine; opening recovered section starts with circulation/heart failure."
+          },
+          {
+            "library_file_id": "libfile_a0a98bcc6a2c819198bc33450467710e",
+            "visible_name": "19.5小时第二场2 天天师兄 登顶！珍重！_文稿.srt",
+            "lines": 1932,
+            "coverage": "Final surgery-heavy segment; directly continues abdominal/surgical review."
+          }
+        ]
+      },
+      "independent_compression_pdfs": [
+        {
+          "library_file_id": "libfile_b89d8dc0ca348191a7ee855ed8c5b226",
+          "visible_name": "生理 5小时 天天师兄(1).pdf",
+          "pages": 13
+        },
+        {
+          "library_file_id": "libfile_352e5a8ddda08191af77787d16ecee72",
+          "visible_name": "生化 5小时 天天师兄.pdf",
+          "pages": 3,
+          "overlap_note": "Page 1 starts with 狂背 / 循环大串讲 / enzyme and gene-expression mega-reviews, confirming strong compression overlap."
+        },
+        {
+          "library_file_id": "libfile_d47cf42c2d708191bb16a636a1fb8c9f",
+          "visible_name": "病理 5小时 天天师兄.pdf",
+          "pages": 7
+        }
+      ],
+      "internal_surgery_pdf_rule": "No separate clean internal/surgery 5h PDF is asserted. The 5h transcripts explicitly reuse the Case/Cram handouts. Therefore the 80-page internal and 50-page surgery Case/Cram PDFs must not be counted again as separate 5h material.",
+      "workload_rule": "5h is a replacement/compression layer over prior learning and Case/Cram, not additive full-course workload.",
+      "current_year_delta_slot": "When 27 5h arrives: compare cue-by-cue against Current canonical + 26 baseline; keep only current-year changes and genuinely better compression."
+    },
+    {
+      "family_id": "26-TEN-YEAR-COMMENTARY",
+      "label": "冲刺十年真题字幕",
+      "cycle": "26考研",
+      "primary_roles": [
+        "TEACHER_EXPLANATION_ENRICHMENT",
+        "EXAM_DECISION_LANGUAGE",
+        "CONFUSABLE_OPTION_COMMENTARY"
+      ],
+      "provenance_status": {
+        "transcript_count": 46,
+        "covered_exam_years": "2016-2025",
+        "raw_bytes_status": "PROVENANCE_CONFIRMED_NOT_CURRENTLY_MOUNTED_AS_DIRECT_FILES"
+      },
+      "replacement_rule": "Canonical 3750 Question Truth + approved explanations already own official question/answer truth. This family may contribute only additional teacher reasoning/method cues after fidelity review; never create duplicate Question Truth or Explanation Truth."
+    },
+    {
+      "family_id": "26-LICENSED-EXAM-STAGE",
+      "label": "内外执医阶段考",
+      "cycle": "26考研",
+      "primary_roles": [
+        "TRANSFER_CASE",
+        "NOVEL_CASE_VARIATION",
+        "STRESS_PRACTICE"
+      ],
+      "provenance_status": {
+        "transcript_count": 2,
+        "raw_bytes_status": "PROVENANCE_CONFIRMED_NOT_CURRENTLY_MOUNTED_AS_DIRECT_FILES"
+      },
+      "score_evidence_rule": "Not official 306 score evidence."
+    },
+    {
+      "family_id": "26-DIFFICULTY-FILTER",
+      "label": "难点精筛",
+      "cycle": "26考研",
+      "primary_roles": [
+        "HARD_ITEM_FILTER",
+        "PRECISION_RETRIEVAL",
+        "BOUNDARY_REPAIR"
+      ],
+      "provenance_status": {
+        "files": [
+          "外科难点精筛.pdf",
+          "天天版本内科难点精筛.pdf",
+          "小亮版本内科难点精筛.pdf",
+          "生化难点精筛.pdf",
+          "病理难点精筛.pdf"
+        ],
+        "raw_bytes_status": "PROVENANCE_CONFIRMED_NOT_CURRENTLY_MOUNTED_AS_DIRECT_FILES"
+      },
+      "dedupe_rule": "Do not schedule as separate workload until overlap with four-set mocks / Case-Cram / Current canonical content is measured."
+    },
+    {
+      "family_id": "26-TEST-SUMMARY",
+      "label": "26天天师兄测试总结",
+      "cycle": "26考研",
+      "directly_readable_source": {
+        "library_file_id": "libfile_a57c1737fa1c8191bbee33edb90afb12",
+        "visible_name": "26天天师兄测试总结.pdf",
+        "pages": 138
+      },
+      "primary_roles": [
+        "MIXED_TEST_REVIEW",
+        "HUMANITIES_PRACTICE",
+        "PRECISION_RECALL"
+      ],
+      "rule": "Treat as mixed historical review material. Extract only bounded useful deltas; do not promote any old-law/current-sensitive item without versioned Source check."
+    }
+  ],
+  "overlap_graph": [
+    {
+      "from": "26-FINAL-5H",
+      "to": "26-CASE-CRAM",
+      "relationship": "HIGH_OVERLAP_AND_DIRECT_REUSE",
+      "evidence": "5h transcripts explicitly say internal medicine will use the 病例分析&狂背 handout; some biochemistry content is delegated back to 狂背.",
+      "consequence": "Do not raw-stack Case/Cram handout pages plus 5h as independent workload."
+    },
+    {
+      "from": "26-FOUR-MOCKS",
+      "to": "26-DIFFICULTY-FILTER",
+      "relationship": "LIKELY_DERIVED_OR_OVERLAPPING",
+      "status": "NEEDS_ITEM_LEVEL_DEDUPE",
+      "consequence": "Difficulty-filter files are not a separate guaranteed workload."
+    },
+    {
+      "from": "26-TEN-YEAR-COMMENTARY",
+      "to": "CURRENT_CANONICAL_OFFICIAL_QUESTIONS",
+      "relationship": "EXPLANATION_OVERLAY_ONLY",
+      "consequence": "No duplicate Question Truth."
+    },
+    {
+      "from": "26-CASE-CRAM",
+      "to": "CURRENT_CANONICAL_MEDICAL_CONTENT",
+      "relationship": "COMPRESSION_TRANSFER_OVERLAY",
+      "consequence": "Preserve canonical Core; import only useful case pivots, decision axes, confusable boundaries and compression."
+    }
+  ],
+  "absorption_policy": {
+    "now": [
+      "Treat 26 assets as the complete last-year baseline, not Future Source.",
+      "Preserve source-cycle identity on every derived row.",
+      "Extract capability contribution before deciding workload.",
+      "Record replacement / overlap / net-new rather than raw time/page stacking."
+    ],
+    "when_27_arrives": [
+      "First identify exact 27 source-cycle identity.",
+      "Run source fidelity and current-year semantic checks.",
+      "Compare against Current canonical content and this 26 baseline.",
+      "Classify PRESERVE / UPDATE / NEW / RETIRE / CONFLICT.",
+      "Only net-new or clearly superior replacement becomes new workload."
+    ],
+    "forbidden": [
+      "Treating upload date as source year.",
+      "Using 26 clinical/law/current-sensitive claims as 27 truth without verification.",
+      "Counting 5h and Case/Cram as independent full workloads when one explicitly reuses the other.",
+      "Treating teacher mocks as official score evidence.",
+      "Creating a second Question, Knowledge, Review or Forecast system."
+    ]
+  },
+  "current_unknowns": [
+    {
+      "id": "26-U1",
+      "status": "RAW_SOURCE_NOT_MOUNTED",
+      "scope": "16 Case/Cram SRT raw transcript bytes",
+      "effect": "Asset existence/order/identity is confirmed, but transcript-level extraction beyond the readable compiled handouts cannot yet be reproduced from the raw SRT files."
+    },
+    {
+      "id": "26-U2",
+      "status": "RAW_SOURCE_NOT_MOUNTED",
+      "scope": "46 ten-year commentary SRT raw transcript bytes",
+      "effect": "Do not claim full teacher-commentary extraction yet."
+    },
+    {
+      "id": "26-U3",
+      "status": "RAW_SOURCE_NOT_MOUNTED",
+      "scope": "5 difficulty-filter PDFs and 2 licensed-exam stage SRTs",
+      "effect": "Keep as confirmed provenance until direct bytes are recovered."
+    }
+  ],
+  "readiness": {
+    "year_identity": "CLOSED_FOR_VISIBLE_26_ASSETS",
+    "family_inventory": "CLOSED_BASELINE",
+    "four_mock_identity": "CLOSED_4_SETS",
+    "case_cram_identity": "CLOSED_26_CASE_CRAM",
+    "final_5h_identity": "CLOSED_26_FINAL_COMPRESSION",
+    "overlap_case_cram_vs_5h": "CLOSED_HIGH_OVERLAP_DIRECT_REUSE",
+    "item_level_delta_to_current": "NOT_YET_COMPLETE",
+    "current_27_delta": "BLOCKED_UNTIL_27_SOURCE"
+  }
+}
