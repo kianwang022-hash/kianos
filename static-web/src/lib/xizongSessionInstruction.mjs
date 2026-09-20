@@ -52,7 +52,7 @@ function cleanExplanation(raw) {
 
 export function normalizeXizongInlinePracticeQuestions(input, context = 'PRACTICE_SET') {
   const rows = Array.isArray(input) ? input : [];
-  if (rows.length > 8) fail('INLINE_QUESTION_COUNT_INVALID', context);
+  if (rows.length > 2) fail('INLINE_QUESTION_COUNT_INVALID', context);
   const seen = new Set();
   return rows.map((raw, index) => {
     if (!raw || typeof raw !== 'object' || Array.isArray(raw)) fail('INLINE_QUESTION_INVALID', context + ':' + index);
