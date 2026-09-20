@@ -379,18 +379,19 @@ function candidateSnapshotMatchesCurrent(snapshot, candidate) {
     === JSON.stringify(normalizeCandidateSnapshot(candidate));
 }
 
-function ageDays(now, observedAt) {
-  const latest = Date.parse(clean(observedAt, 80));
-  const current = Number(now);
-  if (!Number.isFinite(latest) || !Number.isFinite(current)) return null;
-  return Math.max(0, Math.floor((current - latest) / 86400000));
+function studyDayDistance(currentDay, priorDay) {
+  if (!validDay(currentDay) || !validDay(priorDay)) return null;
+  const current = Date.parse(currentDay + 'T00:00:00Z');
+  const prior = Date.parse(priorDay + 'T00:00:00Z');
+  if (!Number.isFinite(current) || !Number.isFinite(prior)) return null;
+  return Math.max(0, Math.floor((current - prior) / 86400000));
 }
 
 function responseCount(events, response) {
   return events.filter((row) => row.response === response).length;
 }
 
-function boundedHistoryState(candidate, events, now) {
+function boundedHistoryState(candidate, events, currentDay) {
   const sorted = [...events].sort((a, b) => String(a.observed_at || '').localeCompare(String(b.observed_at || '')));
   const latest = sorted.at(-1);
   return {
@@ -403,7 +404,8 @@ function boundedHistoryState(candidate, events, now) {
     source_refs: [...new Set((candidate.source_refs || []).map((ref) => clean(ref, 240)).filter(Boolean))].sort(),
     latest_response: latest?.response || null,
     latest_observed_at: latest?.observed_at || null,
-    days_since_latest: ageDays(now, latest?.observed_at),
+    latest_study_day: latest?.study_day || null,
+    study_days_since_latest: studyDayDistance(currentDay, latest?.study_day),
     event_count: sorted.length,
     forgot_count: responseCount(sorted, 'FORGOT'),
     fuzzy_count: responseCount(sorted, 'FUZZY'),
@@ -418,12 +420,16 @@ function boundedHistoryState(candidate, events, now) {
 
 export function buildPoliticsMemoryHistoryProfile(evidenceInput, catalog, {
   now = Date.now(),
+  currentDay = null,
   unstableLimit = POLITICS_MEMORY_PROFILE_UNSTABLE_LIMIT,
   stableLimit = POLITICS_MEMORY_PROFILE_STABLE_LIMIT,
   recentEventLimit = POLITICS_MEMORY_PROFILE_RECENT_EVENT_LIMIT
 } = {}) {
   const byId = catalogMap(catalog);
   const currentRevision = clean(catalog?.revision, 200);
+  const resolvedCurrentDay = validDay(currentDay)
+    ? currentDay
+    : new Date(Number(now)).toISOString().slice(0, 10);
   if (!currentRevision) fail('CATALOG_REVISION_REQUIRED');
 
   const evidence = validateStoredEvidenceShape(Array.isArray(evidenceInput) ? evidenceInput : []);
@@ -451,15 +457,19 @@ export function buildPoliticsMemoryHistoryProfile(evidenceInput, catalog, {
   }
 
   const states = [...grouped.entries()].map(([id, rows]) =>
-    boundedHistoryState(byId.get(id), rows, now)
+    boundedHistoryState(byId.get(id), rows, resolvedCurrentDay)
   );
 
-  const unstable = states
+  const unstableRecent = states
     .filter((row) => row.latest_response === 'FORGOT' || row.latest_response === 'FUZZY')
     .sort((a, b) =>
       String(b.latest_observed_at || '').localeCompare(String(a.latest_observed_at || ''))
       || a.candidate_id.localeCompare(b.candidate_id)
     );
+  const unstableOldest = [...unstableRecent].sort((a, b) =>
+    String(a.latest_observed_at || '').localeCompare(String(b.latest_observed_at || ''))
+    || a.candidate_id.localeCompare(b.candidate_id)
+  );
 
   const stable = states
     .filter((row) => row.latest_response === 'STABLE')
@@ -479,7 +489,9 @@ export function buildPoliticsMemoryHistoryProfile(evidenceInput, catalog, {
       plan_id: row.plan_id
     }));
 
-  const unstableCap = Math.max(1, Math.min(200, Math.floor(Number(unstableLimit) || POLITICS_MEMORY_PROFILE_UNSTABLE_LIMIT)));
+  const unstableCap = Math.max(2, Math.min(200, Math.floor(Number(unstableLimit) || POLITICS_MEMORY_PROFILE_UNSTABLE_LIMIT)));
+  const unstableRecentCap = Math.ceil(unstableCap / 2);
+  const unstableOldestCap = Math.floor(unstableCap / 2);
   const stableCap = Math.max(1, Math.min(100, Math.floor(Number(stableLimit) || POLITICS_MEMORY_PROFILE_STABLE_LIMIT)));
 
   return {
@@ -496,8 +508,10 @@ export function buildPoliticsMemoryHistoryProfile(evidenceInput, catalog, {
       latest_fuzzy_candidates: states.filter((row) => row.latest_response === 'FUZZY').length,
       latest_stable_candidates: states.filter((row) => row.latest_response === 'STABLE').length
     },
-    latest_unstable: unstable.slice(0, unstableCap),
-    latest_unstable_overflow: Math.max(0, unstable.length - unstableCap),
+    unstable_recent: unstableRecent.slice(0, unstableRecentCap),
+    unstable_oldest: unstableOldest.slice(0, unstableOldestCap),
+    unstable_total: unstableRecent.length,
+    unstable_overflow: Math.max(0, unstableRecent.length - unstableCap),
     oldest_stable_sample: stable.slice(0, stableCap),
     oldest_stable_overflow: Math.max(0, stable.length - stableCap),
     recent_events: recentEvents,
