@@ -114,6 +114,15 @@ export function validatePoliticsAnalysisEvidence(input, { now = Date.now() } = {
   if (!observedAt || Date.parse(observedAt) > Number(now) + 300_000) fail('OBSERVED_AT_INVALID');
   if (!CONFIDENCE.has(assessmentConfidence)) fail('CONFIDENCE_INVALID');
 
+  if (['IDENTIFY', 'SKELETON', 'BIND'].includes(taskMode) && formulationRequirement !== 'NONE') {
+    fail('NON_FORMULATION_MODE_HAS_FORMULATION_TARGET', taskMode);
+  }
+  if (taskMode === 'FORMULATION' && formulationRequirement === 'NONE') {
+    fail('FORMULATION_MODE_TARGET_REQUIRED');
+  }
+  if (formulationRequirement === 'STABLE_SOURCE' && freshnessClass !== 'STABLE_CURRENT') {
+    fail('STABLE_FORMULATION_FRESHNESS_MISMATCH');
+  }
   if (freshnessClass === 'LEGACY_GEOMETRY_ONLY' && formulationRequirement !== 'NONE') {
     fail('LEGACY_EXACT_FORMULATION_FORBIDDEN');
   }
@@ -140,7 +149,19 @@ export function validatePoliticsAnalysisEvidence(input, { now = Date.now() } = {
 
   const freshMaterial = input.fresh_material === true;
   if (attemptRole === 'TRANSFER' && !freshMaterial) fail('TRANSFER_REQUIRES_FRESH_MATERIAL');
-  if (attemptRole !== 'TRANSFER' && freshMaterial) fail('FRESH_MATERIAL_ROLE_MISMATCH');
+  if (attemptRole === 'REPAIR' && freshMaterial) fail('REPAIR_CANNOT_BE_FRESH_MATERIAL');
+
+  let transferOf = null;
+  if (attemptRole === 'TRANSFER') {
+    if (!record(input.transfer_of)) fail('TRANSFER_BASIS_REQUIRED');
+    const transferTaskId = clean(input.transfer_of.task_id, 240);
+    const transferTaskRevision = clean(input.transfer_of.task_revision, 240);
+    if (!transferTaskId || !transferTaskRevision) fail('TRANSFER_BASIS_INVALID');
+    if (transferTaskId === taskId && transferTaskRevision === taskRevision) fail('TRANSFER_MUST_USE_DIFFERENT_TASK');
+    transferOf = { task_id: transferTaskId, task_revision: transferTaskRevision };
+  } else if (input.transfer_of != null) {
+    fail('NON_TRANSFER_HAS_TRANSFER_BASIS');
+  }
 
   const deliveryTiming = clean(input.delivery_timing || 'NA', 20);
   const rawElapsed = input.elapsed_seconds;
@@ -169,6 +190,7 @@ export function validatePoliticsAnalysisEvidence(input, { now = Date.now() } = {
     task_mode: taskMode,
     attempt_role: attemptRole,
     fresh_material: freshMaterial,
+    transfer_of: transferOf,
     freshness_class: freshnessClass,
     formulation_requirement: formulationRequirement,
     source_basis: sourceBasis,
@@ -248,10 +270,22 @@ export function applyPoliticsAnalysisEvidence(storage, input, {
   }
 
   const taskKey = normalized.task_id + '@' + normalized.task_revision;
-  if (normalized.attempt_role === 'FIRST' && store.records.some(record =>
-    record.attempt_role === 'FIRST'
-    && (record.task_id + '@' + record.task_revision) === taskKey)) {
+  const sameTask = store.records.filter(record =>
+    (record.task_id + '@' + record.task_revision) === taskKey
+  );
+  if (normalized.attempt_role === 'FIRST' && sameTask.some(record => record.attempt_role === 'FIRST')) {
     fail('FIRST_ALREADY_RECORDED', taskKey);
+  }
+  if (normalized.attempt_role === 'REPAIR' && !sameTask.some(record => record.attempt_role === 'FIRST')) {
+    fail('REPAIR_WITHOUT_FIRST', taskKey);
+  }
+  if (normalized.attempt_role === 'TRANSFER') {
+    const transferKey = normalized.transfer_of.task_id + '@' + normalized.transfer_of.task_revision;
+    if (!store.records.some(record =>
+      (record.task_id + '@' + record.task_revision) === transferKey
+      && ['FIRST', 'REPAIR'].includes(record.attempt_role))) {
+      fail('TRANSFER_BASIS_NOT_OBSERVED', transferKey);
+    }
   }
   if (store.records.length >= MAX_RECORDS) fail('STORE_TOO_LARGE');
 
@@ -281,6 +315,7 @@ function brief(record) {
     task_mode: record.task_mode,
     attempt_role: record.attempt_role,
     fresh_material: record.fresh_material,
+    transfer_of: record.transfer_of,
     freshness_class: record.freshness_class,
     formulation_requirement: record.formulation_requirement,
     source_basis: record.source_basis,
