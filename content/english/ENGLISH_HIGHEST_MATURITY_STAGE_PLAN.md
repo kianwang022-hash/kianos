@@ -604,9 +604,17 @@ State:
 
 ---
 
-## E10｜Fresh Independent Audit / SYSTEM_LOGIC_ACCEPTED
+## E10｜Final Convergence / SYSTEM_LOGIC_ACCEPTED
 
-A fresh anti-anchored auditor receives only:
+Final closure is finite by design. Do not run an open-ended one-defect-per-Fresh sequence.
+
+Canonical protocol:
+
+`content/english/ENGLISH_HIGHEST_MATURITY_FRESH_AUDIT_BRIEF.md`
+
+### Phase A — Final Convergence Sweep
+
+A fresh anti-anchored auditor receives:
 
 - Current owners;
 - English Highest Maturity Standard;
@@ -614,21 +622,66 @@ A fresh anti-anchored auditor receives only:
 
 It attacks:
 
-> all checks PASS but 85+ is still materially endangered or learner attention cost remains high.
+> all checks PASS but 85+ is still materially endangered, evidence is misinterpreted, or learner attention cost remains materially high.
 
-If material defect:
+The auditor must complete all mandatory dimensions and lifecycle combinations **before repairing anything**.
+
+Finding one blocker does not end the sweep.
+
+The sweep ends only after:
+
+- every mandatory dimension has an explicit attack result;
+- required combined lifecycle states are covered;
+- known historical defect families are re-attacked after the novel pass;
+- one final cross-dimension pass finds no new material requirement class.
+
+If no material blocker exists:
 
 ```text
-smallest responsible repair
-→ targeted proof
-→ re-audit
+PASS — SYSTEM_LOGIC_ACCEPTED
 ```
 
-Freeze SYSTEM_LOGIC_ACCEPTED only when remaining uncertainty is:
+If one or more material blockers exist:
+
+```text
+complete consolidated blocker set
+→ smallest existing owners
+→ one bounded repair batch
+→ targeted proof
+→ FINAL_ACCEPTANCE_REQUIRED
+```
+
+Do not create another numbered Fresh chain.
+
+### Phase B — Final Acceptance
+
+Only required if the Convergence Sweep found blockers and they were repaired.
+
+A new fresh auditor verifies:
+
+- every harvested blocker is closed;
+- repair-induced cross-owner paths remain safe;
+- one bounded novel regression pass across the mandatory dimensions;
+- Stop Rule.
+
+If the acceptance pass finds blockers, it must finish that bounded pass and return the full blocker set rather than stopping at the first one.
+
+Any retry after repair is limited to repaired impact cones, repair-induced effects and the Stop Rule. It does not reopen another unlimited whole-system hunt.
+
+Freeze `SYSTEM_LOGIC_ACCEPTED` only when remaining uncertainty is:
 
 - Kian-specific learner data;
 - genuinely unavailable evidence;
-- low-value unknown that cannot alter current action.
+- low-value unknown that cannot alter the current defensible action.
+
+Fresh-chat entry should remain low-friction:
+
+```text
+ki，继续英语最高成熟度收口
+```
+
+Current routes the worker to the correct phase automatically.
+
 
 ---
 
@@ -804,3 +857,7 @@ At every stage ask:
 If no:
 
 > stop system work and study.
+
+Final audit itself is also subject to this rule.
+
+Once the finite Convergence / Acceptance surface is saturated, do not keep generating new audit rounds merely because another hypothetical can be imagined. After `SYSTEM_LOGIC_ACCEPTED`, broad maturity engineering stays frozen until concrete Real Learner U, Forecast miss, source change, invalid evidence or learner-visible execution friction reopens a smallest responsible owner.
