@@ -30,16 +30,29 @@ export function validatePoliticsAnalysisEvidence(input, { expectedDay = null } =
   const taskRevision = clean(input.task_revision, 220);
   const attemptId = clean(input.attempt_id, 220);
   const sourceBasis = clean(input.source_basis, 600);
+  const materialIdentity = clean(input.material_identity, 220) || null;
+  const materialFamilyId = clean(input.material_family_id, 700) || null;
   const studyDay = clean(input.study_day, 20);
   const observedAt = validIso(input.observed_at);
   const requestedDepth = clean(input.requested_depth, 80);
-  const exposureState = clean(input.exposure_state || 'UNKNOWN', 80);
+  const requestedExposureState = clean(input.exposure_state || 'UNKNOWN', 80);
   if (!eventId || !taskId || !taskRevision || !attemptId || !sourceBasis || !validDay(studyDay) || !observedAt) {
     throw new Error('POLITICS_ANALYSIS_EVIDENCE_IDENTITY_INVALID');
   }
   if (expectedDay && studyDay !== expectedDay) throw new Error('POLITICS_ANALYSIS_EVIDENCE_DAY_MISMATCH');
   if (!DEPTHS.has(requestedDepth)) throw new Error('POLITICS_ANALYSIS_EVIDENCE_DEPTH_INVALID');
-  if (!EXPOSURES.has(exposureState)) throw new Error('POLITICS_ANALYSIS_EVIDENCE_EXPOSURE_INVALID');
+  if (!EXPOSURES.has(requestedExposureState)) throw new Error('POLITICS_ANALYSIS_EVIDENCE_EXPOSURE_INVALID');
+  if ((materialIdentity && !materialFamilyId) || (!materialIdentity && materialFamilyId)) {
+    throw new Error('POLITICS_ANALYSIS_EVIDENCE_MATERIAL_IDENTITY_PARTIAL');
+  }
+  const identityBound = Boolean(materialIdentity && materialFamilyId);
+  const exposureState =
+    ['FRESH','CHANGED_CONTEXT'].includes(requestedExposureState) && !identityBound
+      ? 'UNKNOWN'
+      : requestedExposureState;
+  const materialIdentityStatus = identityBound
+    ? 'BOUND'
+    : 'LEGACY_MATERIAL_IDENTITY_UNAVAILABLE';
   const ratings = normalizeRatings(input.ratings || {});
   if (!Object.keys(ratings).length) throw new Error('POLITICS_ANALYSIS_EVIDENCE_RATINGS_EMPTY');
   const currentYearStatus = clean(input.current_year_status || 'UNKNOWN', 120);
@@ -54,6 +67,9 @@ export function validatePoliticsAnalysisEvidence(input, { expectedDay = null } =
     task_revision: taskRevision,
     attempt_id: attemptId,
     source_basis: sourceBasis,
+    material_identity: materialIdentity,
+    material_family_id: materialFamilyId,
+    material_identity_status: materialIdentityStatus,
     current_year_status: currentYearStatus,
     study_day: studyDay,
     observed_at: observedAt,
@@ -99,6 +115,15 @@ export function applyPoliticsAnalysisEvidenceBatch(storage, input, {
   catch { throw new Error('POLITICS_ANALYSIS_EVIDENCE_LEDGER_UNREADABLE'); }
   if (!Array.isArray(existing) || !existing.every(record)) throw new Error('POLITICS_ANALYSIS_EVIDENCE_LEDGER_INVALID');
   const byId = new Map(existing.filter((row) => row?.event_id).map((row) => [row.event_id, row]));
+  const seenExactMaterial = new Set();
+  const seenMaterialFamily = new Set();
+  for (const row of existing) {
+    if (row?.schema !== POLITICS_ANALYSIS_EVIDENCE_SCHEMA) continue;
+    if (row.material_identity) seenExactMaterial.add(String(row.material_identity));
+    const family = row.material_family_id || (row.source_basis ? 'source-family:' + row.source_basis : null);
+    if (family) seenMaterialFamily.add(String(family));
+  }
+
   let appended = 0;
   const next = [...existing];
   for (const event of batch.events) {
@@ -107,8 +132,23 @@ export function applyPoliticsAnalysisEvidenceBatch(storage, input, {
       if (JSON.stringify(prior) !== JSON.stringify(event)) throw new Error('POLITICS_ANALYSIS_EVIDENCE_CONFLICT_KEEP_FIRST:' + event.event_id);
       continue;
     }
+
+    if (event.exposure_state === 'FRESH') {
+      if (seenExactMaterial.has(event.material_identity)) {
+        throw new Error('POLITICS_ANALYSIS_EVIDENCE_FRESH_EXACT_MATERIAL_REUSED:' + event.event_id);
+      }
+      if (seenMaterialFamily.has(event.material_family_id)) {
+        throw new Error('POLITICS_ANALYSIS_EVIDENCE_FRESH_MATERIAL_FAMILY_EXPOSED:' + event.event_id);
+      }
+    }
+    if (event.exposure_state === 'CHANGED_CONTEXT' && seenExactMaterial.has(event.material_identity)) {
+      throw new Error('POLITICS_ANALYSIS_EVIDENCE_CHANGED_CONTEXT_EXACT_MATERIAL_REUSED:' + event.event_id);
+    }
+
     next.push(event);
     byId.set(event.event_id, event);
+    if (event.material_identity) seenExactMaterial.add(event.material_identity);
+    if (event.material_family_id) seenMaterialFamily.add(event.material_family_id);
     appended += 1;
   }
   storage.setItem(evidenceKey, JSON.stringify(next));
@@ -122,7 +162,7 @@ export function buildPoliticsAnalysisEvidenceProfile(eventsInput = [], { recentL
     .filter(Boolean)
     .sort((a,b) => String(a.observed_at).localeCompare(String(b.observed_at)));
   const latestByTask = new Map();
-  for (const event of events) latestByTask.set(event.task_id, event);
+  for (const event of events) latestByTask.set(event.task_id + '@' + event.task_revision, event);
   const ratingCounts = Object.fromEntries(['D1','D2','D3','D4','D5','D6','D7'].map((d) => [d, { broken:0, partial:0, usable:0, unknown:0 }]));
   for (const event of latestByTask.values()) {
     for (const [dimension,value] of Object.entries(event.ratings || {})) {
@@ -137,17 +177,26 @@ export function buildPoliticsAnalysisEvidenceProfile(eventsInput = [], { recentL
   const recent = events.slice(-Math.max(1, Math.min(100, Number(recentLimit) || 30))).map((event) => ({
     event_id:event.event_id, task_id:event.task_id, task_revision:event.task_revision, study_day:event.study_day,
     observed_at:event.observed_at, requested_depth:event.requested_depth, exposure_state:event.exposure_state,
+    material_identity:event.material_identity, material_family_id:event.material_family_id,
+    material_identity_status:event.material_identity_status,
     ratings:event.ratings, current_year_status:event.current_year_status, second_review_status:event.second_review_status
   }));
   return {
     schema: POLITICS_ANALYSIS_PROFILE_SCHEMA,
     role: 'BOUNDED_PRIVATE_ANALYSIS_EVIDENCE_PROFILE_NOT_SCORE_OR_SCHEDULER',
-    summary: { total_events: events.length, current_tasks_with_evidence: latestByTask.size, dimensions: ratingCounts },
+    summary: {
+      total_events: events.length,
+      current_tasks_with_evidence: latestByTask.size,
+      current_task_revisions_with_evidence: latestByTask.size,
+      dimensions: ratingCounts
+    },
     recent_events: recent,
     boundary: [
       'RAW_ANSWERS_REMAIN_PRIVATE_CHAT_OR_LOCAL_TRUTH',
       'DIAGNOSTIC_RATINGS_ARE_NOT_EXAM_SCORE',
       'EXPOSED_OR_REPAIR_SAME_TASK_IS_NOT_FRESH_TRANSFER',
+      'FRESH_REQUIRES_UNSEEN_EXACT_MATERIAL_AND_UNSEEN_MATERIAL_FAMILY',
+      'MISSING_LEGACY_MATERIAL_IDENTITY_DOWNGRADES_FRESHNESS_TO_UNKNOWN',
       'CHAT_DECIDES_NEXT_ANALYSIS_ACTION'
     ]
   };
