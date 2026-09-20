@@ -40,6 +40,7 @@ function xizongPacketIndex() {
     return {
       systemId: system.systemId,
       slug: blockRef.slug,
+      routeKey: `${system.systemId}/${blockRef.slug}`,
       blockId: canonical.blockId,
       blockLabel: canonical.label,
       packetMeta: {
