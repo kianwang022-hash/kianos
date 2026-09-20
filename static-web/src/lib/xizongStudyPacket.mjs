@@ -14,6 +14,7 @@ import {
   XIZONG_MEMORY_STORAGE_KEY,
   normalizeXizongMemoryState,
   memorySummary,
+  memoryFamilySummary,
   todayMemoryQueue,
   markedFragments,
   activeRepairTasks
@@ -155,8 +156,15 @@ function summarizeXizongForecastPractice(storage, {
   const storageEntries = listStorageKeys(storage)
     .filter((key) => /^kianos:xizong:(?:system|chat-set|retained|paper)-question-sweep:.*:v1$/.test(key))
     .map((key) => [key, storage.getItem(key)]);
-  const events = scoreAttemptHistoryFromStorageEntries(storageEntries)
+  const allEvents = scoreAttemptHistoryFromStorageEntries(storageEntries);
+  const events = allEvents
     .filter((event) => /^xizong-official-\d{4}-n\d{3}$/.test(String(event?.question_id || '')));
+  const transferLatest = new Map();
+  for (const event of allEvents) {
+    const questionId = String(event?.question_id || '');
+    if (String(event?.question_source || '') !== 'AI_TRANSFER_PROBE' || !questionId) continue;
+    if (laterAttempt(event, transferLatest.get(questionId))) transferLatest.set(questionId, event);
+  }
 
   const firstPass = new Map();
   const latest = new Map();
@@ -276,6 +284,15 @@ function summarizeXizongForecastPractice(storage, {
       };
     });
 
+  const transferCounts = { stable: 0, uncertain: 0, wrong: 0 };
+  const transferKinds = {};
+  for (const event of transferLatest.values()) {
+    const status = String(event?.status || '');
+    if (Object.hasOwn(transferCounts, status)) transferCounts[status] += 1;
+    const kind = String(event?.probe_kind || 'UNSPECIFIED');
+    transferKinds[kind] = (transferKinds[kind] || 0) + 1;
+  }
+
   return {
     schema: 'kianos.xizong.practice-forecast-evidence.v1',
     official_attempt_events: events.length,
@@ -296,6 +313,13 @@ function summarizeXizongForecastPractice(storage, {
       observed_questions: latest.size,
       unresolved_wrong_uncertain_questions: unresolvedWrongUncertain,
       last_submitted_at: latestSubmittedAt
+    },
+    fresh_transfer: {
+      observed_probes: transferLatest.size,
+      stable: transferCounts.stable,
+      uncertain: transferCounts.uncertain,
+      wrong: transferCounts.wrong,
+      by_probe_kind: transferKinds
     },
     evidence_boundary:
       'Official question attempts are deduplicated by question id. Only FIRST_PASS SYSTEM_SWEEP attempts bound to the Current exact scope hash + inventory hash reduce remaining workload; whole-paper/chat-set/retained/stale attempts remain performance evidence only. First-pass Wrong/Uncertain is raw repair pressure, not one-repair-per-question debt.'
@@ -550,6 +574,7 @@ export function buildXizongForecastProgress(storage, packetIndex = [], {
   const completedBlockIds = [];
   const completedBlockRows = [];
   const startedIncomplete = [];
+  const recallTotals = { rated: 0, unknown: 0, fuzzy: 0, known: 0, mastered: 0 };
   let observedBlocks = 0;
 
   for (const row of packetIndex) {
@@ -573,7 +598,12 @@ export function buildXizongForecastProgress(storage, packetIndex = [], {
         runtime_observed_blocks: 0,
         runtime_completed_blocks: 0,
         runtime_started_incomplete_blocks: 0,
-        runtime_observed_learned_kp: 0
+        runtime_observed_learned_kp: 0,
+        runtime_recall_rated_kp: 0,
+        runtime_recall_unknown: 0,
+        runtime_recall_fuzzy: 0,
+        runtime_recall_known: 0,
+        runtime_recall_mastered: 0
       });
     }
     const system = systems.get(systemId);
@@ -589,6 +619,20 @@ export function buildXizongForecastProgress(storage, packetIndex = [], {
     system.runtime_observed_blocks += 1;
     const learnedKp = Object.values(state.learned || {}).filter(Boolean).length;
     system.runtime_observed_learned_kp += learnedKp;
+    const recallCounts = { rated: 0, unknown: 0, fuzzy: 0, known: 0, mastered: 0 };
+    for (const rating of Object.values(state.ratings || {})) {
+      const value = String(rating || '');
+      if (!['unknown','fuzzy','known','mastered'].includes(value)) continue;
+      recallCounts.rated += 1;
+      recallCounts[value] += 1;
+      recallTotals.rated += 1;
+      recallTotals[value] += 1;
+    }
+    system.runtime_recall_rated_kp += recallCounts.rated;
+    system.runtime_recall_unknown += recallCounts.unknown;
+    system.runtime_recall_fuzzy += recallCounts.fuzzy;
+    system.runtime_recall_known += recallCounts.known;
+    system.runtime_recall_mastered += recallCounts.mastered;
 
     if (state.completed === true) {
       completedBlockIds.push(blockId);
@@ -600,6 +644,7 @@ export function buildXizongForecastProgress(storage, packetIndex = [], {
         kp_count: kpRows.length,
         logic_group_count: logicGroupCount,
         learned_kp_count: learnedKp,
+        recall_counts: recallCounts,
         block_recall_done: state.blockRecallDone === true,
         block_recall_completed_at: String(state.blockRecallCompletedAt || '') || null,
         completed_at: String(state.completedAt || '') || null,
@@ -620,6 +665,7 @@ export function buildXizongForecastProgress(storage, packetIndex = [], {
       route_key: routeKey || null,
       kp_count: kpRows.length,
       learned_kp_count: learnedKp,
+      recall_counts: recallCounts,
       current_stage: String(state.stage || ''),
       group_index: Number.isInteger(Number(state.groupIndex)) ? Number(state.groupIndex) : null,
       kp_index: Number.isInteger(Number(state.kpIndex)) ? Number(state.kpIndex) : null,
@@ -642,6 +688,15 @@ export function buildXizongForecastProgress(storage, packetIndex = [], {
   const holdoutYears = readJson(storage, 'kianos:xizong:full-paper-holdout-years:v1', []) || [];
   const practiceEvidence = summarizeXizongForecastPractice(storage, { holdoutYears, now, questionScope });
   const repairEvidence = summarizeXizongForecastRepairs(storage);
+  const memory = normalizeXizongMemoryState(readJson(storage, XIZONG_MEMORY_STORAGE_KEY, null));
+  const memoryEvidence = {
+    schema: 'kianos.xizong.memory-forecast-evidence.v1',
+    total: memorySummary(memory, now),
+    core: memoryFamilySummary(memory, 'CORE', now),
+    precision: memoryFamilySummary(memory, 'PRECISION', now),
+    evidence_boundary:
+      'Memory contains selectively admitted future-review objects only. Absence from Memory does not prove stability or weakness.'
+  };
   const questionWorkload = reconcileForecastQuestionScope(questionScope, practiceEvidence, holdoutYears);
   const systemRecallEvidence = summarizeXizongSystemRecallForecast(storage, systemRows);
   const formalScoreEvidence = summarizeXizongFormalScoreEvidence(storage);
@@ -675,9 +730,11 @@ export function buildXizongForecastProgress(storage, packetIndex = [], {
       completed_blocks_detail: completedBlockRows.sort((a, b) =>
         String(a.completed_at || '').localeCompare(String(b.completed_at || ''))
       ),
-      started_incomplete: startedIncomplete
+      started_incomplete: startedIncomplete,
+      recall: recallTotals
     },
     practice_evidence: practiceEvidence,
+    memory_evidence: memoryEvidence,
     repair_evidence: repairEvidence,
     question_workload: questionWorkload,
     system_recall_evidence: systemRecallEvidence,
