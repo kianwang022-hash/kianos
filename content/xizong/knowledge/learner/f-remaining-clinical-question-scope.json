@@ -1,0 +1,237 @@
+{
+  "schema": "kianos.xizong.system_question_scope.v2",
+  "status": "CURRENT",
+  "authority": "CHAT_APPROVED_CURRENT_RECONSTRUCTION_FROM_REVIEWED_LECTURE_SCOPE_WITH_EXTERNAL_OWNER_REPAIR",
+  "system": {
+    "canonical_id": "F",
+    "system_id": "remaining-clinical",
+    "title": "Remaining Clinical / 剩余独立临床模块"
+  },
+  "role": "FIRST_PASS_SYSTEM_OFFICIAL_QUESTION_SCOPE_ONLY",
+  "learner_use": "After real F System completion + final F System Reconstruction, expand this exact identifier scope and run the trusted F official-question sweep. Correct-and-clear may fast-pass; Wrong/Uncertain remain repair evidence. Exact Question→Block/LG/KP routing remains separate.",
+  "question_count": 70,
+  "question_id_inventory_sha256": "f99f2ad151fbbf024ecf445447d3fda33d3de83f8ce90d791710b0259605e6b8",
+  "id_expansion": {
+    "id_template": "xizong-official-{year}-n{number:03d}",
+    "spec_format": "comma-separated single numbers or inclusive a-b ranges",
+    "question_number_spec_by_year": {
+      "2005": "87,90,121-122",
+      "2006": "86-87,147",
+      "2007": "85,100,143,153",
+      "2008": "67,77,80",
+      "2009": "77,80-81,87",
+      "2010": "85,113,169,175",
+      "2011": "77,84,176",
+      "2012": "67,80,178",
+      "2013": "78,84",
+      "2014": "41,145-146",
+      "2015": "68,82,145-146",
+      "2016": "84-85,171",
+      "2017": "130-131",
+      "2018": "130-131,156",
+      "2019": "57,130-131",
+      "2020": "95-96,130-131",
+      "2021": "57,59,130-131",
+      "2022": "130-131",
+      "2023": "41,57-58,156",
+      "2024": "58,130-131",
+      "2025": "156,163",
+      "2026": "59,156,163"
+    }
+  },
+  "year_counts": {
+    "2005": 4,
+    "2006": 3,
+    "2007": 4,
+    "2008": 3,
+    "2009": 4,
+    "2010": 4,
+    "2011": 3,
+    "2012": 3,
+    "2013": 2,
+    "2014": 3,
+    "2015": 4,
+    "2016": 3,
+    "2017": 2,
+    "2018": 3,
+    "2019": 3,
+    "2020": 4,
+    "2021": 4,
+    "2022": 2,
+    "2023": 4,
+    "2024": 3,
+    "2025": 2,
+    "2026": 3
+  },
+  "reconstruction": {
+    "mode": "CURRENT_RECONSTRUCTION_FROM_REVIEWED_F_SOURCE_SCOPE_WITH_EXTERNAL_OWNER_REPAIR",
+    "current_question_truth_identity_check": {
+      "owner_path": "content/xizong/questions/",
+      "question_count": 3750,
+      "current_question_id_inventory_sha256": "0abc1a3cadbb41b36808fe86ff58c21ede6f4297312e9fb4c2da62b865ef2c82",
+      "historical_and_current_question_id_inventory": "EXACT_MATCH_3750_OF_3750"
+    },
+    "historical_evidence": {
+      "source_repository": "kianwang022-hash/kianos-site-v238-recovery",
+      "source_ref": "a38444057dd46fbf1765052d17c5f6b6a018d2f7",
+      "exact_resolver": {
+        "path": "app/learning/xizong-question-pool.js",
+        "blob_sha1": "8b73c9e0a49e02ad3cf296832f90dd19fe4da161",
+        "function": "resolveSystemClosureFromSourceUnion"
+      },
+      "question_to_lecture_routing": {
+        "path": "public/xizong-system-source-routing.v1.local.json",
+        "blob_sha1": "e184f0fc899de0a6bf47c5b194fe328d2f1977de",
+        "row_count": 3750
+      },
+      "source_scope_contract": {
+        "path": "public/xizong-system-official-scope.v2.local.json",
+        "blob_sha1": "b239dba8e3e2969b47a534be9d5daa3e001ab5d3"
+      },
+      "historical_frozen_f_count": 27,
+      "limitation": "The frozen resolver captured only the toxicology slice for F. Current F surgery blocks were under-resolved because the old page-union scope had null/legacy surgery page routing and preceded the accepted Current 9-Block ownership split."
+    },
+    "current_f_owner": {
+      "system_owner": "content/xizong/knowledge/systems/f-remaining-clinical/system.json",
+      "learning_owner": "content/xizong/knowledge/learner/f-remaining-clinical-learning.json",
+      "content_owner": "content/xizong/knowledge/learner/f-remaining-clinical-content.json",
+      "stable_blocks": 9,
+      "stable_kp": 121,
+      "accepted_learning_lg": 40,
+      "source_modes": {
+        "whole_block_source": [
+          "F3",
+          "F5",
+          "F7"
+        ],
+        "natural_source_units": [
+          "F1",
+          "F2",
+          "F4",
+          "F6",
+          "F8"
+        ],
+        "integration_primary": [
+          "F9"
+        ]
+      },
+      "ownership_boundary": [
+        "F1/F2 own acute toxic-exposure control and organophosphate/cholinergic application.",
+        "F3/F4 own asepsis/open-wound and burn Primary.",
+        "F5/F6 own perioperative preparation/recovery/incision-complication Primary.",
+        "F7/F8 own general/local/neuraxial anesthesia Primary at Current Source depth.",
+        "F9 owns residual laparoscopy and surface-lesion Micro Primary plus ownership-first integration.",
+        "F9 does not re-own transplant, tumor-general/cancer-prevention, cancer-pain or complete pharmacology Primary."
+      ]
+    },
+    "accepted_membership_components": [
+      {
+        "component": "acute toxicology",
+        "historical_scope": "internal_medicine|第七章 中毒|1.中毒",
+        "qid_count": 27,
+        "current_owner": "F1/F2",
+        "decision": "ACCEPT_F"
+      },
+      {
+        "component": "burn",
+        "historical_scope": "surgery|六、外科总论|4.烧伤",
+        "qid_count": 9,
+        "current_owner": "F4",
+        "decision": "ACCEPT_F"
+      },
+      {
+        "component": "perioperative",
+        "historical_scope": "surgery|六、外科总论|6.围术期",
+        "qid_count": 10,
+        "current_owner": "F5/F6",
+        "decision": "ACCEPT_F"
+      },
+      {
+        "component": "anesthesia",
+        "historical_scope": "surgery|六、外科总论|7.麻醉",
+        "qid_count": 14,
+        "current_owner": "F7/F8",
+        "decision": "ACCEPT_F"
+      },
+      {
+        "component": "common wound summary",
+        "historical_scope": "surgery|六、外科总论|串·常考伤口小结",
+        "qid_count": 4,
+        "current_owner": "F3/F6",
+        "decision": "ACCEPT_F"
+      },
+      {
+        "component": "other general surgery after Current ownership split",
+        "historical_scope": "surgery|六、外科总论|9.其它外科总论",
+        "historical_candidate_count": 8,
+        "accepted_f_qids": [
+          "xizong-official-2009-n080",
+          "xizong-official-2010-n113",
+          "xizong-official-2011-n176",
+          "xizong-official-2012-n178",
+          "xizong-official-2015-n082",
+          "xizong-official-2026-n163"
+        ],
+        "excluded_external_owner_qids": [
+          "xizong-official-2012-n081",
+          "xizong-official-2018-n058"
+        ],
+        "current_owner": "F3/F6/F9 Micro Primary after ownership split",
+        "decision": "ACCEPT_6_OF_8_AFTER_EXTERNAL_OWNER_REPAIR"
+      }
+    ],
+    "external_owner_repairs": [
+      {
+        "question_id": "xizong-official-2012-n081",
+        "historical_route": "surgery|六、外科总论|9.其它外科总论",
+        "current_owner": "content/xizong/knowledge/overlays/o9-tumor-general/",
+        "transfer": "F candidate → O9 tumor-general overlay",
+        "reason": "The question tests cancer secondary prevention. Current F9 marks cancer prevention as Explicit Recall / Integration from the Tumor Gate and explicitly does not re-own tumor-general Primary."
+      },
+      {
+        "question_id": "xizong-official-2018-n058",
+        "historical_route": "surgery|六、外科总论|9.其它外科总论",
+        "current_owner": "C / H14 transplant Primary",
+        "transfer": "F candidate → C",
+        "reason": "The question tests pre-existing donor-specific antibody causing hyperacute rejection. Current F9 routes transplant to H14 Recall and explicitly does not re-own transplant Primary."
+      }
+    ],
+    "source_fidelity_caveats": [
+      {
+        "question_id": "xizong-official-2010-n113",
+        "status": "SYSTEM_MEMBERSHIP_RETAINED_PRECISE_SUBQUESTION_BLOCKED",
+        "reason": "Current Question Truth preserves the shared trauma stem/options/official answer but the exact subquestion sentence is missing. Reviewed historical source routing plus Current F3 trauma/open-wound boundary is sufficient for System membership, but no Question→KP relation or reconstructed subquestion is asserted."
+      },
+      {
+        "question_id": "xizong-official-2023-n041",
+        "status": "HISTORICAL_DECISION_AXIS_NOT_PROMOTED",
+        "reason": "Membership is supported by the reviewed toxicology route. The old awareness-before-fever timing cue is not promoted into Current toxicology truth; Current diagnosis remains grounded in exposure and cholinergic syndrome."
+      }
+    ],
+    "final_reconciliation": {
+      "historical_frozen_f_count": 27,
+      "reviewed_current_source_candidate_count": 72,
+      "external_owner_exclusion_count": 2,
+      "current_exact_f_count": 70,
+      "cross_system_overlap_with_A1_to_E_after_repairs": 0,
+      "unresolved_membership_ambiguities": []
+    },
+    "decision": "ACCEPT_CURRENT_F_SYSTEM_SCOPE_AFTER_REVIEWED_LECTURE_SCOPE_AND_EXTERNAL_OWNER_RECONCILIATION"
+  },
+  "runtime_validation": [
+    "Expand question_number_spec_by_year deterministically.",
+    "Require exactly 70 unique IDs.",
+    "Require expanded inventory SHA256 = f99f2ad151fbbf024ecf445447d3fda33d3de83f8ce90d791710b0259605e6b8.",
+    "Require Current Question Truth ordered-ID inventory SHA256 = 0abc1a3cadbb41b36808fe86ff58c21ede6f4297312e9fb4c2da62b865ef2c82.",
+    "Require zero overlap with accepted A1/A2/A3/B/C/D/E System-scope owners after the recorded C transfer.",
+    "Fail closed if Current F owner boundaries, O9/C external-owner boundaries, historical routing identities, or Current Question Truth inventory changes."
+  ],
+  "boundaries": [
+    "System-level official-question membership only; not Question Truth.",
+    "Does not assert Question-to-Block, Question-to-Logic-Group, or Question-to-KP mapping.",
+    "Do not infer membership from Block placement, LG placement, Outline count, keyword similarity or historical count fitting.",
+    "F9 Integration Primary means ownership-first integration; external-owner Recall items do not become F medical Primary.",
+    "Reviewed Question→Knowledge relations remain a separate owner and may be sparse.",
+    "No learner attempt, mastery, Wrong/Uncertain, notes, Memory, holdout or review state belongs in this shared Current scope owner."
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "relation:final-standard:analog-digital:semantic_contrast",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:analog",
+      "source_ordinal": 186,
+      "field": "semantic_neighbors",
+      "index": 1,
+      "payload": {
+        "relation_id": "relation:final-standard:analog-digital:semantic_contrast",
+        "relation_scope": "lexeme",
+        "relation_type": "semantic_contrast",
+        "target_word": "digital",
+        "boundary": "analog 表连续变化的模拟信号/系统；digital 表离散编码的数字信号/系统。技术语境下二者是关键对比。",
+        "boundaries": [
+          "analog 表连续变化的模拟信号/系统；digital 表离散编码的数字信号/系统。技术语境下二者是关键对比。"
+        ],
+        "learning_note": "analog 表连续变化的模拟信号/系统；digital 表离散编码的数字信号/系统。技术语境下二者是关键对比。",
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "verification_status": "verified",
+        "writing_safe": true,
+        "task_tags": [
+          "reading",
+          "writing"
+        ]
+      }
+    },
+    {
+      "source_word_id": "word:digital",
+      "source_ordinal": 1378,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "relation_id": "relation:final-standard:analog-digital:semantic_contrast",
+        "relation_scope": "lexeme",
+        "relation_type": "semantic_contrast",
+        "target_word": "analog",
+        "boundary": "digital 表离散编码的数字信号/系统；analog 表连续变化的模拟信号/系统。",
+        "boundaries": [
+          "digital 表离散编码的数字信号/系统；analog 表连续变化的模拟信号/系统。"
+        ],
+        "learning_note": "digital 表离散编码的数字信号/系统；analog 表连续变化的模拟信号/系统。",
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "verification_status": "verified",
+        "writing_safe": true,
+        "task_tags": [
+          "reading",
+          "writing"
+        ]
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "BF01_final_standard_2026-09-20",
+    "semantic_delta": 1
+  }
+}

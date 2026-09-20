@@ -39,7 +39,7 @@
       "Mac_visual_acceptance",
       "runtime_adoption",
       "learner_progress",
-      "S_K_L_P_R_E_U_promotion"
+      "R_E_U_promotion"
     ],
     "eligibility_accounting": {
       "rule": "Projection eligibility requires accepted Current Knowledge and System-specific Learning authority; scoped Acceptance Truth controls eligibility rather than stale construction-status strings. Eligibility does not imply compilation or P acceptance.",
@@ -47,7 +47,7 @@
         {"canonical_id":"A1","system_id":"circulation","status":"ELIGIBLE_COMPILED","block_count":12,"owner_root":"content/xizong/knowledge/systems/a1-circulation/"},
         {"canonical_id":"A2","system_id":"respiratory","status":"ELIGIBLE_COMPILED","block_count":12,"owner_root":"content/xizong/knowledge/systems/a2-respiratory/"},
         {"canonical_id":"A3","system_id":"urinary","status":"ELIGIBLE_COMPILED","block_count":14,"owner_root":"content/xizong/knowledge/systems/a3-urinary/"},
-        {"canonical_id":"B","system_id":"digestive-metabolic-endocrine-tumor","status":"ELIGIBLE_COMPILED_PENDING_FRESH_P_ACCEPTANCE","block_count":38,"owner_root":"content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/"}
+        {"canonical_id":"B","system_id":"digestive-metabolic-endocrine-tumor","status":"ELIGIBLE_COMPILED_P_ACCEPTED","block_count":38,"owner_root":"content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/"}
       ],
       "eligible_not_compiled": [
         {
@@ -97,7 +97,7 @@
       "eligible_not_compiled_blocks": 27,
       "eligible_block_accounting": {
         "ASSET_VALIDATED_A_SYSTEMS": 38,
-        "B_COMPILED_PENDING_FRESH_P_ACCEPTANCE": 38,
+        "B_COMPILED_P_ACCEPTED": 38,
         "C_ELIGIBLE_NOT_COMPILED": 27
       },
       "stale_accounting": {
@@ -158,6 +158,6 @@
       ]
     }
   },
-  "runtime_adoption": "PENDING_SHARED_SEMANTIC_RENDERER",
+  "runtime_adoption": "B_P_ACCEPTED_SHARED_RUNTIME_R_GATE_ACTIVE",
   "separate_runtime_blocker": "None at Projection eligibility level. Renderer adoption remains downstream and must preserve Current learning topology, protected Recall visibility, and learner-state boundaries."
 }

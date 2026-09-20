@@ -1036,6 +1036,20 @@
       "BACKEND_REFERENCE_ONLY",
       "DO_NOT_SURFACE"
     ],
-    "attention_gate": "ACCEPTED_SOURCE_MAY_REMAIN_BACKEND_ONLY"
+    "attention_gate": "ACCEPTED_SOURCE_MAY_REMAIN_BACKEND_ONLY",
+    "source_native_figures": {
+      "supported": true,
+      "marker": "[FIGURE]",
+      "fields": [
+        "caption",
+        "source_position",
+        "source_url",
+        "figure_note"
+      ],
+      "origin": "SOURCE_NATIVE",
+      "rendering": "INLINE_WITH_PARAGRAPH_BLOCK_ORDER",
+      "url_policy": "HTTPS_ONLY_FOR_REMOTE_PREVIEW",
+      "malformed_policy": "FAIL_CLOSED"
+    }
   }
 }

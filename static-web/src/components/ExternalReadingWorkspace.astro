@@ -321,6 +321,7 @@ const base=import.meta.env.BASE_URL;
           passage_number:active.passage_number,
           title:active.title,
           paragraphs:active.passage_paragraphs,
+          figures:(active.source_figures||[]).map(({figure_id,ordinal,caption,source_url,source_position,figure_note,origin})=>({figure_id,ordinal,caption,source_url,source_position,figure_note,origin})),
           questions:(active.questions||[]).map(({question_id,ordinal,prompt,options,response_kind,origin})=>({question_id,ordinal,prompt,options,response_kind,origin})),
           question_origin:active.question_origin||'SOURCE_NATIVE',
           drill_origin:active.drill_origin||null,
@@ -360,7 +361,51 @@ const base=import.meta.env.BASE_URL;
       setText(questionOriginNote,generated?'题目由 Chat 生成 · 只作训练证据，不冒充原题':'原题身份保留 · 不套考研题型法');
       if(paragraphs instanceof HTMLElement){
         paragraphs.innerHTML='';
-        for(const row of active.passage_paragraphs||[]){const p=document.createElement('p');p.textContent=typeof row==='string'?row:(row.text||'');paragraphs.appendChild(p);}
+        const fallback=(active.passage_paragraphs||[]).map(row=>({type:'paragraph',text:typeof row==='string'?row:(row.text||'')}));
+        const blocks=Array.isArray(active.passage_blocks)&&active.passage_blocks.length?active.passage_blocks:fallback;
+        for(const block of blocks){
+          if(block?.type==='figure'&&block.figure){
+            const figure=document.createElement('figure');
+            figure.className='externalSourceFigure';
+            figure.dataset.figureId=String(block.figure.figure_id||'');
+            const url=String(block.figure.source_url||'').trim();
+            if(url.startsWith('https://')){
+              const img=document.createElement('img');
+              img.src=url;
+              img.alt=String(block.figure.caption||'Source figure');
+              img.loading='lazy';
+              img.decoding='async';
+              img.referrerPolicy='no-referrer';
+              img.addEventListener('error',()=>{img.hidden=true;figure.classList.add('image-missing');});
+              figure.appendChild(img);
+            }else{
+              figure.classList.add('image-missing');
+            }
+            const caption=document.createElement('figcaption');
+            const strong=document.createElement('strong');
+            strong.textContent=String(block.figure.caption||'Source figure');
+            caption.appendChild(strong);
+            if(block.figure.figure_note){
+              const note=document.createElement('small');
+              note.textContent=String(block.figure.figure_note);
+              caption.appendChild(note);
+            }
+            if(url.startsWith('https://')){
+              const link=document.createElement('a');
+              link.href=url;link.target='_blank';link.rel='noopener noreferrer';
+              link.textContent='Source figure ↗';
+              caption.appendChild(link);
+            }
+            figure.appendChild(caption);
+            paragraphs.appendChild(figure);
+            continue;
+          }
+          if(block?.type==='paragraph'){
+            const p=document.createElement('p');
+            p.textContent=String(block.text||'');
+            paragraphs.appendChild(p);
+          }
+        }
       }
       const warnings=[...new Set(active.warnings||[])];
       const generatedNote=generated?`训练目标：${active.training_target?.note||active.training_target?.kind||'当前 Chat 指定训练'}。题目是 Chat-generated，不是 TOEFL / IELTS / 考研原题。`:'';
@@ -440,6 +485,14 @@ const base=import.meta.env.BASE_URL;
   .externalReadingOnly{display:grid;gap:12px;padding:24px}.externalReadingOnly h2{margin:0;font-size:24px}.externalReadingOnly p{margin:0;font-size:15px;line-height:1.65;color:var(--study-muted)}
   .externalSourceQuestion{margin:10px 0}.externalSourceQuestion summary{font-size:12px;font-weight:750;cursor:pointer}.externalSourceQuestion pre{white-space:pre-wrap;font:inherit;font-size:13px;line-height:1.55;color:var(--study-muted)}
   .externalReadingFreeText{box-sizing:border-box;width:100%;padding:10px 12px;border:1px solid var(--study-line);border-radius:8px;font:inherit;font-size:15px;line-height:1.55}
+  .externalSourceFigure{margin:24px 0;padding:12px;border:1px solid var(--study-line);border-radius:10px;background:color-mix(in srgb,var(--study-surface) 94%,transparent)}
+  .externalSourceFigure img{display:block;width:100%;height:auto;max-height:620px;object-fit:contain;border-radius:7px;background:white}
+  .externalSourceFigure figcaption{display:grid;gap:5px;padding:10px 2px 2px}
+  .externalSourceFigure figcaption strong{font-size:14px;line-height:1.45}
+  .externalSourceFigure figcaption small{font-size:12px;line-height:1.55;color:var(--study-muted)}
+  .externalSourceFigure figcaption a{width:max-content;font-size:12px;font-weight:750;color:var(--study-green);text-decoration:none}
+  .externalSourceFigure.image-missing{border-style:dashed}
+  .externalSourceFigure.image-missing::before{content:'Source figure preview unavailable';display:block;padding:12px 4px;font-size:12px;color:var(--study-muted)}
   .externalReadingUnavailable{padding:18px 0;font-size:15px;color:var(--study-muted)}
   @media(max-width:900px){.externalReadingTop{align-items:flex-start;flex-direction:column}.externalReadingTop h1{font-size:28px}}
 </style>

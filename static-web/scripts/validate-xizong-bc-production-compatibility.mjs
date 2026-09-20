@@ -48,9 +48,9 @@ const manifest = readJson('content/xizong/projection/manifest.json');
 const projectableIds = new Set(listProjectableXizongSystems().map((system) => system.systemId));
 const blockUi = read('static-web/src/components/XizongBlockV6.astro');
 
-// B compatibility: preserve accepted whole-LG Source contact all the way through
-// the shared semantic presenter. Compiled B Projection exists, but this acceptance
-// must not silently promote B's separate scoped P/product-route gate.
+// B compatibility after fresh P acceptance: preserve accepted whole-LG Source contact
+// through the shared semantic presenter and require the real B product route to be
+// projectable. R/E/U remain separate gates and are not promoted here.
 const { block: semanticBD1 } = loadXizongSemanticBlock('digestive-metabolic-endocrine-tumor', 'D1');
 const bProduction = buildXizongProductionBlock(
   compatibilityCanonicalBlock('digestive-metabolic-endocrine-tumor', semanticBD1)
@@ -65,8 +65,8 @@ assert(bProduction.cognitiveProjection.compiled === true, 'B:D1:compiled-project
 assert(Boolean(loadCompiledXizongProjectionAsset('digestive-metabolic-endocrine-tumor', 'D1')?.asset), 'B:D1:compiled-asset-missing');
 assert(JSON.stringify(bProduction.logicGroups[0].kpOrdinals) === JSON.stringify(semanticBD1.logicGroups[0].kpOrdinals), 'B:D1:membership-normalized');
 assert(bProduction.cognitiveProjection.locationObjects.some((row) => row.role === 'MAP'), 'B:D1:semantic-lg-map-not-renderable');
-assert(manifest.validation?.eligibility_accounting?.compiled?.some((row) => row.canonical_id === 'B' && row.status === 'ELIGIBLE_COMPILED_PENDING_FRESH_P_ACCEPTANCE'), 'B:manifest-fresh-p-boundary-lost');
-assert(!projectableIds.has('digestive-metabolic-endocrine-tumor'), 'B:compatibility-illegally-promoted-product-route');
+assert(manifest.validation?.eligibility_accounting?.compiled?.some((row) => row.canonical_id === 'B' && row.status === 'ELIGIBLE_COMPILED_P_ACCEPTED'), 'B:manifest-p-acceptance-boundary-lost');
+assert(projectableIds.has('digestive-metabolic-endocrine-tumor'), 'B:p-accepted-product-route-not-projectable');
 
 // C compatibility: explicit/non-contiguous LG membership must survive the same
 // production presenter. Missing compiled Projection is a legal Current state and
@@ -113,7 +113,7 @@ console.log([
   `C-H1 explicit=${productionCLg.kpOrdinals.join(',')}`,
   `C-source=${cProduction.sourceContact.mode}`,
   `C-projection=${cProduction.cognitiveProjection.compiled ? 'compiled' : 'legally-uncompiled'}`,
-  'ProductRoute=B/C_NOT_PROMOTED',
+  'ProductRoute=B_P_ACCEPTED/C_NOT_PROMOTED',
   'Runtime=shared_V6_v2_store',
   'U=NOT_TESTED_BY_THIS_SCRIPT'
 ].join(' | '));

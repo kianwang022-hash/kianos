@@ -1,0 +1,45 @@
+{
+  "schema": "kianos.lexical.final_mutation_receipt.v1",
+  "package_id": "BF01-MAT-TEST-20260920",
+  "candidate_id": "BF01",
+  "range": {
+    "start_ordinal": 101,
+    "end_ordinal": 200
+  },
+  "lane": "A",
+  "package_sha256": "fef1854f54176e9e55f5329b4bae6e56bd48a33e4a2b54f2ac07f2b7d2be7abd",
+  "source_head": "b73b5915737acb03dccceb280f91938393cb0f02",
+  "semantic_dependency_read_set": {
+    "content/lexical/CURRENT.md": "cc7b43ce21c334216989e8a2d7eccf6aa71b25d73ba17fb24f17eff2b9f7fb55",
+    "content/lexical/LEARNING_CONTRACT.md": "b1d0b67f611fde916f9b39cd3227f44c9e9c3bc724e68f9467b33131b58c1a33",
+    "content/lexical/CONTENT_ASSET_CONTRACT.md": "026a1aaa6af7fdd0f29ae5a17d3ac3646bf1a2397ad561d23cca26ab457fce35",
+    "content/lexical/CONTENT_EXECUTION.md": "90ee050f01907cffd9598aaed048d969dd47b1edfe83ca8e93dd3a0f21725763",
+    "content/lexical/FINAL_SEMANTIC_FREEZE.md": "16bb018d994f796c5a4e8a51cc01f3b564632a1150bc03c19c9d0161add734fe",
+    "content/lexical/schema.json": "a14e8b61f1a1b67e618e4ea7a6089886354d1e5932d29c2c791fd05550d3d622",
+    "content/lexical/learner/repair-blueprints/shards/o0101-0150.json": "899bca813c237bde11240db46ebc36971b24192c6f6c0f64872516d90e6c687a",
+    "content/lexical/learner/repair-blueprints/shards/o0151-0200.json": "25607d2728a3259df9803da84a1aae55e827f5485b0b4efe3f6ef117f535db15"
+  },
+  "semantic_dependency_count": 8,
+  "applied_paths": [
+    "content/lexical/learner/repair-blueprints/shards/o0101-0150.json",
+    "content/lexical/learner/repair-blueprints/shards/o0151-0200.json",
+    "content/lexical/execution/manifests/o0101-o0200.final-materialization.json"
+  ],
+  "before_sha256": {
+    "content/lexical/learner/repair-blueprints/shards/o0101-0150.json": "899bca813c237bde11240db46ebc36971b24192c6f6c0f64872516d90e6c687a",
+    "content/lexical/learner/repair-blueprints/shards/o0151-0200.json": "25607d2728a3259df9803da84a1aae55e827f5485b0b4efe3f6ef117f535db15",
+    "content/lexical/execution/manifests/o0101-o0200.final-materialization.json": null
+  },
+  "after_sha256": {
+    "content/lexical/learner/repair-blueprints/shards/o0101-0150.json": "7fe98896eec3725a7666b6be8a8c795b6dd6361111dcd759033f4ca97c9fc56f",
+    "content/lexical/learner/repair-blueprints/shards/o0151-0200.json": "473bf6225299cef2e7ebb430548a41a52bc43cd1aaab81ad1a57271840b1147a",
+    "content/lexical/execution/manifests/o0101-o0200.final-materialization.json": "6bba6271ae656b3a0aadda97ecb256916d2ca347554ddbd0340df7ffd7480c43"
+  },
+  "semantic_decision": "external_human_and_chat_approved; executor_mechanical_only",
+  "main_merge_authorized": false,
+  "status": "CANDIDATE_READY_FOR_PR_AUDIT",
+  "final_learner_objects": {
+    "object_count": 7946,
+    "manifest_sha256": "cbf240100807c26dd87e3602e9c593921b886b68004fff41299ee1981d8d7230"
+  }
+}

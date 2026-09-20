@@ -258,7 +258,7 @@
     "ordinal": 130,
     "word": "aircraft",
     "source_owner_path": "content/lexical/words/by-ordinal/o0130.json",
-    "source_fingerprint": "f295d37185dd82aa092304a35f37b843e5084bf29ddefb6cd5d529cff78f4495",
+    "source_fingerprint": "3506905ee10bb2621d42ef2265029c71179543dee1257e8b61b1979601c11890",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -325,7 +325,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "aircraft has an invariant plural: one aircraft / several aircraft.",
+        "boundaries": [
+          {
+            "surface": "aircraft",
+            "condition": "singular",
+            "note": "one aircraft"
+          },
+          {
+            "surface": "aircraft",
+            "condition": "plural",
+            "note": "several aircraft"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "aircraft has an invariant plural: one aircraft / several aircraft."
+        }
+      },
       "family": []
     }
   },
@@ -486,7 +507,7 @@
     "ordinal": 133,
     "word": "aisle",
     "source_owner_path": "content/lexical/words/by-ordinal/o0133.json",
-    "source_fingerprint": "2861f57ade7d95613dab2326222a315106f6bd504b70db7f618b101df21bb6f4",
+    "source_fingerprint": "889fde2090f40f98d76f4ff403dabcce0edcb8df312cc457f47cec4707fc87bd",
     "sense_lineage": [
       {
         "word_id": "word:aisle",
@@ -569,29 +590,7 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:aisle:handoff-619abe848902545c",
-        "source_locator": "record.constructions[0]",
-        "pattern": "side aisle",
-        "lines": [
-          {
-            "text": "侧廊（教堂建筑，低优先级）",
-            "lang": "cn"
-          },
-          {
-            "text": "a side passage in a church; reference-level",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:aisle:handoff-619abe848902545c",
-          "target_locator": "record.constructions[0]",
-          "target_label": "side aisle"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [
         {
@@ -1017,7 +1016,7 @@
     "ordinal": 137,
     "word": "alcohol",
     "source_owner_path": "content/lexical/words/by-ordinal/o0137.json",
-    "source_fingerprint": "19444e49fdcf4e62e068339c57e2c9ea0e84c90d73afde8efb2a3faea26bc858",
+    "source_fingerprint": "f4dfc28b89b57f8b97a82934629a6f6acb0e4aee3f5e838193e69b63c8fdd0c1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1098,29 +1097,7 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:alcohol:handoff-4404510a1200fb4b",
-        "source_locator": "record.constructions[0]",
-        "pattern": "alcoholic drink vs alcohol (chemistry)",
-        "lines": [
-          {
-            "text": "酒精饮料与化学意义的醇类",
-            "lang": "cn"
-          },
-          {
-            "text": "a drink containing ethanol versus ethanol or the chemical class",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:alcohol:handoff-4404510a1200fb4b",
-          "target_locator": "record.constructions[0]",
-          "target_label": "alcoholic drink vs alcohol (chemistry)"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1134,7 +1111,7 @@
     "ordinal": 138,
     "word": "alert",
     "source_owner_path": "content/lexical/words/by-ordinal/o0138.json",
-    "source_fingerprint": "0ed3d4b15f95c51d9e2150f4482ce7e7befef5eafd84771475784ed1661ea33f",
+    "source_fingerprint": "d696a7d22d75dd56daeefef8f4d3274686e79adc05a9223308511498d6ead29f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1293,7 +1270,25 @@
       }
     ],
     "reference": {
-      "confusables": [],
+      "confusables": [
+        {
+          "title": "alert ↔ alter",
+          "target_word": "alter",
+          "lines": [
+            {
+              "text": "alert 表警觉、警报或提醒；alter 表改变、修改。",
+              "lang": "cn"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "deep:confusables:alter:ec2b2a5d2e1f3a7b",
+            "target_locator": "record.confusables[0]",
+            "target_label": "alert ↔ alter"
+          }
+        }
+      ],
       "relations": [],
       "form": null,
       "family": []
@@ -1620,7 +1615,7 @@
     "ordinal": 142,
     "word": "align",
     "source_owner_path": "content/lexical/words/by-ordinal/o0142.json",
-    "source_fingerprint": "5e4afcf2ca066199b2c6645fe2e19e94da15f3b24ba6963a00a6b9587d3539fb",
+    "source_fingerprint": "440a798914a0f48f519729f6a99490c9e30dac65ae3b397f25be111c717f3851",
     "sense_lineage": [
       {
         "word_id": "word:align",
@@ -1763,7 +1758,26 @@
         }
       ],
       "form": null,
-      "family": []
+      "family": [
+        {
+          "target_word": "alignment",
+          "lines": [
+            {
+              "text": "对齐；一致；结盟",
+              "lang": "cn"
+            },
+            {
+              "text": "align（动词）→ alignment（名词）：物理对齐、战略/组织/概念一致。",
+              "lang": "cn"
+            },
+            {
+              "text": "the state or process of being aligned physically or strategically",
+              "lang": "en"
+            }
+          ],
+          "source_locator": "record.word_family[0]"
+        }
+      ]
     }
   },
   {
@@ -2354,7 +2368,7 @@
     "ordinal": 146,
     "word": "allege",
     "source_owner_path": "content/lexical/words/by-ordinal/o0146.json",
-    "source_fingerprint": "3c885489177db6e1d2eb802ed77819dd74193019fef6d64ca366f8e4da18672b",
+    "source_fingerprint": "b2801912cdf8474d93cb744ef08442570858c124b7e8999cdafde942bfe12dd4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2429,29 +2443,8 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "deep:constructions:allege:676ec344dd90514c",
-        "source_locator": "record.constructions[0]",
-        "pattern": "vt. + that-clause / vt. + object",
-        "lines": [
-          {
-            "text": "宣称，断言",
-            "lang": "cn"
-          },
-          {
-            "text": "report or maintain (as a fact) without proof",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "deep:constructions:allege:676ec344dd90514c",
-          "target_locator": "record.constructions[0]",
-          "target_label": "vt. + that-clause / vt. + object"
-        }
-      },
-      {
         "id": "construction:allege:baseline-v2-be-alleged-to",
-        "source_locator": "record.constructions[1]",
+        "source_locator": "record.constructions[0]",
         "pattern": "be alleged to do / have done sth",
         "lines": [
           {
@@ -2470,7 +2463,7 @@
         "repair": {
           "target_kind": "construction",
           "target_id": "construction:allege:baseline-v2-be-alleged-to",
-          "target_locator": "record.constructions[1]",
+          "target_locator": "record.constructions[0]",
           "target_label": "be alleged to do / have done sth"
         }
       }
@@ -2479,7 +2472,26 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [
+        {
+          "target_word": "allegation",
+          "lines": [
+            {
+              "text": "指控；未经证实的说法",
+              "lang": "cn"
+            },
+            {
+              "text": "allege（动词）→ allegation（名词）：法律、新闻和学术中常见。",
+              "lang": "cn"
+            },
+            {
+              "text": "a claim or accusation that has not yet been proved",
+              "lang": "en"
+            }
+          ],
+          "source_locator": "record.word_family[0]"
+        }
+      ]
     }
   },
   {
@@ -2829,7 +2841,7 @@
     "ordinal": 150,
     "word": "allocate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0150.json",
-    "source_fingerprint": "f3b50bcc23a97f3fc2a092e121e9d158412647af4c320dd61780dc3284294ddc",
+    "source_fingerprint": "f02bcae35fe00c72157263b3b939e738b5c168141eff04b911e384df2a14db25",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2937,7 +2949,26 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [
+        {
+          "target_word": "allocation",
+          "lines": [
+            {
+              "text": "分配；配置",
+              "lang": "cn"
+            },
+            {
+              "text": "allocate（动词）→ allocation（名词）：资源、资金、时间等的分配。",
+              "lang": "cn"
+            },
+            {
+              "text": "the act or result of allocating resources, money, time, or capacity",
+              "lang": "en"
+            }
+          ],
+          "source_locator": "record.word_family[0]"
+        }
+      ]
     }
   },
   {
@@ -2946,7 +2977,7 @@
     "ordinal": 151,
     "word": "allow",
     "source_owner_path": "content/lexical/words/by-ordinal/o0151.json",
-    "source_fingerprint": "417135a8c5d2ebe8ec7b9fc303a29caf441dbc8c58e0c6791e6cd617b3570c40",
+    "source_fingerprint": "ca6c09762811bee195802eb58aaf075918424440db4e3dd4557b205bc6e99e15",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3255,7 +3286,7 @@
     "ordinal": 152,
     "word": "allowance",
     "source_owner_path": "content/lexical/words/by-ordinal/o0152.json",
-    "source_fingerprint": "427432586735e4cb863b4f06af2e5ad6dd5f4509fbefd529aa0911c771cb6ef0",
+    "source_fingerprint": "f76cb98a4f5be48d91e775186601cba3b74ff08c9b982ad941651c9fa57cd3b8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3285,21 +3316,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:6eac4b0af56f4efae8f9",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "make allowance for + sth",
-            "meaning_cn": "考虑到；顾及",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:6eac4b0af56f4efae8f9",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "make allowance for + sth"
-            }
-          },
-          {
             "id": "collocation:6a829d117f69b8c21a08",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "a monthly allowance",
             "meaning_cn": "每月津贴",
             "kind": "usage_example",
@@ -3403,7 +3421,7 @@
     "ordinal": 153,
     "word": "alloy",
     "source_owner_path": "content/lexical/words/by-ordinal/o0153.json",
-    "source_fingerprint": "0a78a0d287a925194e20eca2b278e80838afa92ed17bb288a15b83b1c227428d",
+    "source_fingerprint": "91420932491be036c8a696923a78a0a657bbfe13c547527ac643e6d80c53b3ae",
     "sense_lineage": [
       {
         "word_id": "word:alloy",
@@ -3489,7 +3507,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "noun alloy normally has initial stress; verb alloy shifts stress to the second syllable.",
+        "boundaries": [
+          {
+            "surface": "alloy",
+            "condition": "noun",
+            "note": "initial stress"
+          },
+          {
+            "surface": "alloy",
+            "condition": "verb",
+            "note": "second-syllable stress"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "noun alloy normally has initial stress; verb alloy shifts stress to the second syllable."
+        }
+      },
       "family": []
     }
   },
@@ -3499,7 +3538,7 @@
     "ordinal": 154,
     "word": "ally",
     "source_owner_path": "content/lexical/words/by-ordinal/o0154.json",
-    "source_fingerprint": "57653f029362cf43829acde6a52a05f5cc9d00061ee6091f0fa5141557d9a7f8",
+    "source_fingerprint": "b40138d438c1e4de4d8dfda0681aa547ff3ee634985c6047ffdb6890dfb8122b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3693,7 +3732,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "noun ally normally has initial stress; verb ally has final stress.",
+        "boundaries": [
+          {
+            "surface": "ally",
+            "condition": "noun",
+            "note": "initial stress"
+          },
+          {
+            "surface": "ally",
+            "condition": "verb",
+            "note": "final stress"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "noun ally normally has initial stress; verb ally has final stress."
+        }
+      },
       "family": []
     }
   },
@@ -3980,7 +4040,7 @@
     "ordinal": 157,
     "word": "along",
     "source_owner_path": "content/lexical/words/by-ordinal/o0157.json",
-    "source_fingerprint": "63705e435765b31373483c42356ee35b80cd628c252ad12d3213b6e955f70d9b",
+    "source_fingerprint": "da4190995c64e0a9b303db69186826e816c811fce85b09386775e13ae6262bc5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4011,21 +4071,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:645c8be5267ee12a041e",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "along with + sb/sth",
-            "meaning_cn": "连同；和……一起",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:645c8be5267ee12a041e",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "along with + sb/sth"
-            }
-          },
-          {
             "id": "collocation:46b0044c93a375f018cf",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "walk along the street",
             "meaning_cn": "沿着街道走",
             "kind": "usage_example",
@@ -4565,7 +4612,7 @@
     "ordinal": 163,
     "word": "alter",
     "source_owner_path": "content/lexical/words/by-ordinal/o0163.json",
-    "source_fingerprint": "7d45a271882c84f377ab598f57a0bb427c18b2ed02e9f0685eee0c55f554cc21",
+    "source_fingerprint": "8dd5a3f0fdbffe5186dbdaec96302e74c13b850a69194e589a92fe763ee1ffde",
     "sense_lineage": [
       {
         "word_id": "word:alter",
@@ -4579,7 +4626,7 @@
       "parts": [
         "1V"
       ],
-      "density": "rich"
+      "density": "light"
     },
     "word_feel": {
       "summary_cn": "改变；更改",
@@ -4611,29 +4658,7 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:alter:handoff-4ec2d126e1c97f71",
-        "source_locator": "record.constructions[0]",
-        "pattern": "alter = change/modify",
-        "lines": [
-          {
-            "text": "改变；修改（普通义）",
-            "lang": "cn"
-          },
-          {
-            "text": "change or modify something; the animal sense is reference-only",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:alter:handoff-4ec2d126e1c97f71",
-          "target_locator": "record.constructions[0]",
-          "target_label": "alter = change/modify"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [
         {
@@ -4702,7 +4727,7 @@
     "ordinal": 164,
     "word": "alternate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0164.json",
-    "source_fingerprint": "2647b440e230d4d6ae0c2a316ed8644fdfe3f485f671ca09dbbf6ea84ca63f2b",
+    "source_fingerprint": "f9d6258d0767665982e257a2c5d39360797dab579a068828b1f8fcd7e7ed485d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4857,31 +4882,27 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:alternate:handoff-d010fa12fddf4c10",
-        "source_locator": "record.constructions[0]",
-        "pattern": "an alternate",
-        "lines": [
-          {
-            "text": "替代者；候补者",
-            "lang": "cn"
-          },
-          {
-            "text": "a substitute or stand-in",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:alternate:handoff-d010fa12fddf4c10",
-          "target_locator": "record.constructions[0]",
-          "target_label": "an alternate"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
-      "confusables": [],
+      "confusables": [
+        {
+          "title": "alternate ↔ alternative",
+          "target_word": "alternative",
+          "lines": [
+            {
+              "text": "alternate = 交替、轮流、每隔一个或候补；alternative = 另一可选方案或替代方案。",
+              "lang": "cn"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "confusable:5f8097e4dfdf95849b33",
+            "target_locator": "record.confusables[0]",
+            "target_label": "alternate ↔ alternative"
+          }
+        }
+      ],
       "relations": [],
       "form": {
         "boundary": "",
@@ -5176,7 +5197,7 @@
     "ordinal": 167,
     "word": "altitude",
     "source_owner_path": "content/lexical/words/by-ordinal/o0167.json",
-    "source_fingerprint": "d9383ad8d609d292652865d3f262cf6e10422d803439fc01e7db40eea8065b15",
+    "source_fingerprint": "fa5b4c9fd6a59ce619200d1c0bc42e1cdf4670b9a2d95cfa00092983ab2556b0",
     "sense_lineage": [
       {
         "word_id": "word:altitude",
@@ -5244,29 +5265,7 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:altitude:handoff-0c259bb987e8f65e",
-        "source_locator": "record.constructions[0]",
-        "pattern": "altitude of a triangle",
-        "lines": [
-          {
-            "text": "三角形的高（专业，低优先级）",
-            "lang": "cn"
-          },
-          {
-            "text": "geometry-specific use; reference-level",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:altitude:handoff-0c259bb987e8f65e",
-          "target_locator": "record.constructions[0]",
-          "target_label": "altitude of a triangle"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5611,7 +5610,7 @@
     "ordinal": 171,
     "word": "amateur",
     "source_owner_path": "content/lexical/words/by-ordinal/o0171.json",
-    "source_fingerprint": "3220f4c1c8539c6458907413fcc510f9f9e4e9980fcbcf7d30d34e44a1ad3d3a",
+    "source_fingerprint": "6b21bec61089b212b8eae8e2b996d0e826278316e946be8d7f9b2deda63d905b",
     "sense_lineage": [
       {
         "word_id": "word:amateur",
@@ -5646,7 +5645,7 @@
         "governing_pattern": "",
         "definition_cn": "业余爱好者；非职业参与者",
         "definition_en": "a person who pursues an activity as a pastime or on a non-professional basis",
-        "note": "",
+        "note": "通常中性表示非职业/业余；在评价工作或表现时也可带“不专业、经验不足”的负面色彩。",
         "identity_overlay": null,
         "usage": [
           {
@@ -5680,7 +5679,7 @@
         "governing_pattern": "",
         "definition_cn": "业余的",
         "definition_en": "engaged in as a pastime, not professionally",
-        "note": "",
+        "note": "通常中性表示非职业/业余；在评价工作或表现时也可带“不专业、经验不足”的负面色彩。",
         "identity_overlay": null,
         "usage": [
           {
@@ -5709,29 +5708,7 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:amateur:handoff-67bd77879a60263e",
-        "source_locator": "record.constructions[0]",
-        "pattern": "amateur = inexperienced/unskilled (contextual)",
-        "lines": [
-          {
-            "text": "业余的；语境中可指经验不足",
-            "lang": "cn"
-          },
-          {
-            "text": "non-professional, sometimes evaluatively inexperienced",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:amateur:handoff-67bd77879a60263e",
-          "target_locator": "record.constructions[0]",
-          "target_label": "amateur = inexperienced/unskilled (contextual)"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5929,7 +5906,7 @@
     "ordinal": 174,
     "word": "ambiguous",
     "source_owner_path": "content/lexical/words/by-ordinal/o0174.json",
-    "source_fingerprint": "d813bb6016ea6cbf8f5afb896a20dbfda652db3aa55b9a4dbf16a157d451fb49",
+    "source_fingerprint": "f89d1f90667af7aa9360c4b7d6a7d4a35a0d37faa9403dfa28cad75116f6b153",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5989,7 +5966,26 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [
+        {
+          "target_word": "ambiguity",
+          "lines": [
+            {
+              "text": "歧义；模糊性",
+              "lang": "cn"
+            },
+            {
+              "text": "ambiguous（形容词）→ ambiguity（名词）：把含混/多义状态名词化。",
+              "lang": "cn"
+            },
+            {
+              "text": "the quality of having more than one possible meaning or being unclear",
+              "lang": "en"
+            }
+          ],
+          "source_locator": "record.word_family[0]"
+        }
+      ]
     }
   },
   {
@@ -6263,7 +6259,7 @@
     "ordinal": 178,
     "word": "amend",
     "source_owner_path": "content/lexical/words/by-ordinal/o0178.json",
-    "source_fingerprint": "1a9d344d27189afd76b5c5d122f79828d733fb0c2f44d93ed0e4965611d02aa7",
+    "source_fingerprint": "3aea54b73e700cac12624364893e4e2e1a8dad49750f0b460199e456d190106c",
     "sense_lineage": [
       {
         "word_id": "word:amend",
@@ -6362,7 +6358,26 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [
+        {
+          "target_word": "amendment",
+          "lines": [
+            {
+              "text": "修正；修正案",
+              "lang": "cn"
+            },
+            {
+              "text": "amend（动词）→ amendment（名词）：法律、合同、制度文本中的修改。",
+              "lang": "cn"
+            },
+            {
+              "text": "a change made to a law, document, agreement, or proposal",
+              "lang": "en"
+            }
+          ],
+          "source_locator": "record.word_family[0]"
+        }
+      ]
     }
   },
   {
@@ -6514,7 +6529,7 @@
     "ordinal": 181,
     "word": "among",
     "source_owner_path": "content/lexical/words/by-ordinal/o0181.json",
-    "source_fingerprint": "03cbb97d89c289914a84725e6cda966653b09c50782320876301055c4946060b",
+    "source_fingerprint": "0e697e8b5e0bda350ee1caea550a73ca7968ccf9d5eea48d40e90dfd3ecfd1eb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6594,7 +6609,25 @@
     ],
     "reference": {
       "confusables": [],
-      "relations": [],
+      "relations": [
+        {
+          "title": "among ↔ between",
+          "target_word": "between",
+          "lines": [
+            {
+              "text": "among 把对象放在群体/集合内部；between 强调可区分实体之间的关系、配对或范围，between 并不只限两个对象。",
+              "lang": "cn"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:final-standard:among-between:selection_boundary",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "among ↔ between"
+          }
+        }
+      ],
       "form": null,
       "family": []
     }
@@ -6605,7 +6638,7 @@
     "ordinal": 182,
     "word": "amount",
     "source_owner_path": "content/lexical/words/by-ordinal/o0182.json",
-    "source_fingerprint": "d2cd8005ce3ed02db061edc6e476bd7c83a89e2b3efc9b9bce325a6ae95fa9e4",
+    "source_fingerprint": "057b7a72ecc1ed9aecc1ca612e6003401dd312b741269543e00b8f2365674cd0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6711,6 +6744,10 @@
           {
             "text": "总计为；等同于",
             "lang": "cn"
+          },
+          {
+            "text": "total or add up to; be equivalent to",
+            "lang": "en"
           }
         ],
         "repair": {
@@ -6723,7 +6760,25 @@
     ],
     "reference": {
       "confusables": [],
-      "relations": [],
+      "relations": [
+        {
+          "title": "amount ↔ number",
+          "target_word": "number",
+          "lines": [
+            {
+              "text": "默认写作选择：amount of + 不可数名词；number of + 可数复数名词。",
+              "lang": "cn"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:final-standard:amount-number:countability_boundary",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "amount ↔ number"
+          }
+        }
+      ],
       "form": null,
       "family": []
     }
@@ -7086,7 +7141,7 @@
     "ordinal": 186,
     "word": "analog",
     "source_owner_path": "content/lexical/words/by-ordinal/o0186.json",
-    "source_fingerprint": "9b873f13536a0fcb8a57651049329732edfc3b1480a1d24725ffddb90039333f",
+    "source_fingerprint": "2eeae55bae26b23c4e8e38d71b92a84248783714cca877fdb97a11fec427c219",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7183,29 +7238,7 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:analog:handoff-851570fc4e14df5d",
-        "source_locator": "record.constructions[0]",
-        "pattern": "analog ↔ digital",
-        "lines": [
-          {
-            "text": "模拟系统/信号与数字系统/信号的对比",
-            "lang": "cn"
-          },
-          {
-            "text": "contrast continuous analog representation with digital representation",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:analog:handoff-851570fc4e14df5d",
-          "target_locator": "record.constructions[0]",
-          "target_label": "analog ↔ digital"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [
@@ -7225,6 +7258,23 @@
             "target_locator": "record.semantic_neighbors[0]",
             "target_label": "analog ↔ analogue"
           }
+        },
+        {
+          "title": "analog ↔ digital",
+          "target_word": "digital",
+          "lines": [
+            {
+              "text": "analog 表连续变化的模拟信号/系统；digital 表离散编码的数字信号/系统。技术语境下二者是关键对比。",
+              "lang": "cn"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:final-standard:analog-digital:semantic_contrast",
+            "target_locator": "record.semantic_neighbors[1]",
+            "target_label": "analog ↔ digital"
+          }
         }
       ],
       "form": null,
@@ -7237,7 +7287,7 @@
     "ordinal": 187,
     "word": "analogy",
     "source_owner_path": "content/lexical/words/by-ordinal/o0187.json",
-    "source_fingerprint": "d012b7058b95922c389e308417e9f536d2ff4ec0cab501e7181ba9059923b716",
+    "source_fingerprint": "9957d0d48c482cfa978b973ba291873c68568e61f0fe90f8fa0542c1063eccf1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7338,7 +7388,26 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [
+        {
+          "target_word": "analogous",
+          "lines": [
+            {
+              "text": "类似的；可类比的",
+              "lang": "cn"
+            },
+            {
+              "text": "analogy（名词）→ analogous（形容词）：表示在相关方面相似、可作类比。",
+              "lang": "cn"
+            },
+            {
+              "text": "similar or comparable in relevant respects",
+              "lang": "en"
+            }
+          ],
+          "source_locator": "record.word_family[0]"
+        }
+      ]
     }
   },
   {
@@ -7481,7 +7550,7 @@
     "ordinal": 189,
     "word": "analysis",
     "source_owner_path": "content/lexical/words/by-ordinal/o0189.json",
-    "source_fingerprint": "a05c73c8b32a955549868f0724069f1e8a366cb35091131b379514f2c081c6e7",
+    "source_fingerprint": "ca0d27bbf33593f0d460604410c1000413980cef184438539a7ccccf119a7271",
     "sense_lineage": [
       {
         "word_id": "word:analysis",
@@ -7549,33 +7618,32 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:analysis:handoff-57caf9e6a746b1cd",
-        "source_locator": "record.constructions[0]",
-        "pattern": "literary structural analysis",
-        "lines": [
-          {
-            "text": "文学结构分析（参考层）",
-            "lang": "cn"
-          },
-          {
-            "text": "domain-specific use of detailed examination; reference-level",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:analysis:handoff-57caf9e6a746b1cd",
-          "target_locator": "record.constructions[0]",
-          "target_label": "literary structural analysis"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "analysis has the irregular plural analyses.",
+        "boundaries": [
+          {
+            "surface": "analysis",
+            "condition": "singular",
+            "note": "analysis"
+          },
+          {
+            "surface": "analyses",
+            "condition": "plural",
+            "note": "plural of analysis"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "analysis has the irregular plural analyses."
+        }
+      },
       "family": []
     }
   },
@@ -7585,7 +7653,7 @@
     "ordinal": 190,
     "word": "analytic",
     "source_owner_path": "content/lexical/words/by-ordinal/o0190.json",
-    "source_fingerprint": "d2decccaaaa6f5a8714787203ded72d665726560860ed6463ab601b90a996dd3",
+    "source_fingerprint": "285233f84f501de8143025eeaf4d09333f497d24c25cbad888ae43c21f37dc13",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7692,32 +7760,28 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:analytic:handoff-9c18acc0a7980bd5",
-        "source_locator": "record.constructions[0]",
-        "pattern": "analytic vs analytical",
-        "lines": [
-          {
-            "text": "analytic 偏技术固定搭配；analytical 偏一般分析能力",
-            "lang": "cn"
-          },
-          {
-            "text": "related forms with different usage preferences",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:analytic:handoff-9c18acc0a7980bd5",
-          "target_locator": "record.constructions[0]",
-          "target_label": "analytic vs analytical"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [],
+      "relations": [
+        {
+          "title": "analytic ↔ analytical",
+          "target_word": "analytical",
+          "lines": [
+            {
+              "text": "analytical 是一般“分析性的/善于分析的”更常见选择；analytic 也可用于一般正式语境，并在数学、语言学等技术固定搭配中常见。二者大量重叠，不作绝对二分。",
+              "lang": "cn"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:final-standard:analytic-analytical:usage_boundary",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "analytic ↔ analytical"
+          }
+        }
+      ],
       "form": null,
       "family": []
     }
@@ -7728,7 +7792,7 @@
     "ordinal": 191,
     "word": "ancestor",
     "source_owner_path": "content/lexical/words/by-ordinal/o0191.json",
-    "source_fingerprint": "6a5fedd500ec6dc0aa3916968bcb4ae13c1ea36c3f5c4ad641779afd905a016d",
+    "source_fingerprint": "d1d67b7c54d325e4f3a58189d267a5b578d6ea2be5abd339798013791280e64c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7737,13 +7801,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "祖先",
-      "decision_cn": "",
+      "summary_cn": "祖先；（生物或演化意义上的）祖先、来源",
+      "decision_cn": "祖先",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "祖先"
+        "target_label": "祖先；（生物或演化意义上的）祖先、来源"
       }
     },
     "senses": [
@@ -7752,8 +7816,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "祖先；祖宗",
-        "definition_en": "a person from whom one is descended, usually more remote than a grandparent",
+        "definition_cn": "祖先；祖宗；（生物/演化）祖先、共同祖先",
+        "definition_en": "a person, organism, species, or earlier form from which another is descended or evolved",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7778,34 +7842,12 @@
           "target_kind": "sense",
           "target_id": "sense:ancestor:7146a4ffd8a251f9",
           "target_locator": "record.senses[0]",
-          "target_label": "祖先；祖宗"
+          "target_label": "祖先；祖宗；（生物/演化）祖先、共同祖先"
         }
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:ancestor:handoff-f3e01ac3abbf4faa",
-        "source_locator": "record.constructions[0]",
-        "pattern": "biological/evolutionary ancestor",
-        "lines": [
-          {
-            "text": "生物学上的祖先或演化来源",
-            "lang": "cn"
-          },
-          {
-            "text": "an organism or form from which later ones evolved",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:ancestor:handoff-f3e01ac3abbf4faa",
-          "target_locator": "record.constructions[0]",
-          "target_label": "biological/evolutionary ancestor"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],

@@ -1,0 +1,189 @@
+{
+  "schema": "kianos.english.translation.synthetic_tasks.v1",
+  "status": "CURRENT_CANDIDATE",
+  "purpose": "Bounded complete-section Translation inventory for cold calibration, repair, independent transfer and later edge checks without consuming protected true-exam material.",
+  "rules": {
+    "learner_unit": "one complete 5-segment section",
+    "score_equivalent": false,
+    "preserve_first_output": true,
+    "reference_sealed": "content/english/modules/translation/synthetic-tasks.reference.v1.json",
+    "exposure_downgrade": "Any section exposed through reference review or repair cannot later serve as independent transfer evidence for the same mechanism."
+  },
+  "tasks": [
+    {
+      "id": "translation-syn-cal-01",
+      "role": "CALIBRATION",
+      "theme": "Prediction and planning",
+      "context": "A short passage on why planning requires more than predicting one exact future.",
+      "segments": [
+        {
+          "n": 1,
+          "text": "Plans are often judged by whether their predictions turn out to be correct, but a useful plan may remain valuable even when the future differs from what was expected."
+        },
+        {
+          "n": 2,
+          "text": "Its deeper function is to make assumptions visible, so that people can notice which changes would actually require them to act differently."
+        },
+        {
+          "n": 3,
+          "text": "This is especially important when a decision must be made before all relevant information is available, as is usually the case outside controlled experiments."
+        },
+        {
+          "n": 4,
+          "text": "A team that has identified the conditions under which its strategy should change is less likely to confuse persistence with discipline."
+        },
+        {
+          "n": 5,
+          "text": "The goal, therefore, is not to eliminate uncertainty but to design decisions that can respond intelligently to it."
+        }
+      ],
+      "target_mechanisms": [
+        "proposition_hierarchy",
+        "scope",
+        "reference",
+        "relation",
+        "natural_chinese_reconstruction"
+      ]
+    },
+    {
+      "id": "translation-syn-cal-02",
+      "role": "CALIBRATION",
+      "theme": "Measurement and behavior",
+      "context": "A passage on how metrics influence the behavior they are supposed to measure.",
+      "segments": [
+        {
+          "n": 1,
+          "text": "Once a measure becomes important enough to affect rewards, people have a reason to improve the number even when doing so does not improve the underlying result."
+        },
+        {
+          "n": 2,
+          "text": "This does not make measurement useless; rather, it means that a metric must be treated as evidence about performance instead of as performance itself."
+        },
+        {
+          "n": 3,
+          "text": "The distinction is easy to state but difficult to preserve when organizations need a simple number on which to base repeated decisions."
+        },
+        {
+          "n": 4,
+          "text": "What makes the problem harder is that the most visible distortions often appear only after people have learned how the system responds to their behavior."
+        },
+        {
+          "n": 5,
+          "text": "For that reason, good measurement requires not only a clear metric but also periodic checks on whether the metric still tracks the outcome that originally justified it."
+        }
+      ],
+      "target_mechanisms": [
+        "attachment",
+        "concession",
+        "not_only_but_also",
+        "relative_clause",
+        "fidelity"
+      ]
+    },
+    {
+      "id": "translation-syn-transfer-01",
+      "role": "TRANSFER",
+      "theme": "Learning from error",
+      "context": "A passage on why mistakes become useful only when their causes can be reconstructed.",
+      "segments": [
+        {
+          "n": 1,
+          "text": "An error does not automatically become a lesson merely because the person who made it later knows the correct answer."
+        },
+        {
+          "n": 2,
+          "text": "To learn from failure, one must recover the decision as it appeared before the outcome was known, including the evidence that seemed persuasive at the time."
+        },
+        {
+          "n": 3,
+          "text": "Otherwise, hindsight can make the mistaken choice look so obviously unreasonable that there is nothing left to explain."
+        },
+        {
+          "n": 4,
+          "text": "The more accurately the original reasoning is reconstructed, the easier it becomes to distinguish a bad process from a reasonable process that happened to produce a bad result."
+        },
+        {
+          "n": 5,
+          "text": "That distinction matters because correcting the wrong cause can make future decisions worse rather than better."
+        }
+      ],
+      "target_mechanisms": [
+        "temporal_scope",
+        "including_attachment",
+        "hindsight_relation",
+        "comparative_structure",
+        "causal_fidelity"
+      ]
+    },
+    {
+      "id": "translation-syn-transfer-02",
+      "role": "TRANSFER",
+      "theme": "Technology and judgment",
+      "context": "A passage on tools that reduce effort without replacing responsibility.",
+      "segments": [
+        {
+          "n": 1,
+          "text": "Tools are most valuable when they reduce the cost of routine work without hiding the point at which human judgment is still required."
+        },
+        {
+          "n": 2,
+          "text": "A system that produces a recommendation can save time, but the recommendation may be dangerous if users cannot tell what information it relied on or where its limits lie."
+        },
+        {
+          "n": 3,
+          "text": "Transparency, in this sense, does not require every user to understand every technical detail."
+        },
+        {
+          "n": 4,
+          "text": "It requires enough visibility for people to recognize when the tool is operating outside the conditions in which its output is trustworthy."
+        },
+        {
+          "n": 5,
+          "text": "The aim is not to keep humans involved in every step, but to keep responsibility attached to the steps where error would materially change the decision."
+        }
+      ],
+      "target_mechanisms": [
+        "when_clause",
+        "conditional_risk",
+        "reference",
+        "nested_relative_clause",
+        "contrast_scope"
+      ]
+    },
+    {
+      "id": "translation-syn-edge-01",
+      "role": "STRESS_EDGE",
+      "theme": "Institutions and slow change",
+      "context": "A denser passage designed to test long attachment, qualification and degree/modality without being used as score-equivalent evidence.",
+      "segments": [
+        {
+          "n": 1,
+          "text": "Institutions that appear resistant to change are sometimes preserving arrangements whose value is difficult to observe precisely because those arrangements prevent certain problems from becoming visible."
+        },
+        {
+          "n": 2,
+          "text": "Removing a rule can therefore seem harmless at first, since the events it was designed to prevent may not occur immediately or may be attributed to unrelated causes."
+        },
+        {
+          "n": 3,
+          "text": "This is not an argument for keeping every old rule, many of which survive long after their original purpose has disappeared."
+        },
+        {
+          "n": 4,
+          "text": "It is an argument for asking what function a practice may be performing before concluding, from the absence of an obvious benefit, that it performs none."
+        },
+        {
+          "n": 5,
+          "text": "Reform is strongest when it can distinguish between inherited friction that merely consumes effort and inherited constraints that quietly protect a valuable outcome."
+        }
+      ],
+      "target_mechanisms": [
+        "long_attachment",
+        "causal_qualification",
+        "concession",
+        "from_structure",
+        "contrast_precision"
+      ]
+    }
+  ]
+}

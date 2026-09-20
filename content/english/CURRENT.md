@@ -76,6 +76,22 @@ Do not reopen passed engineering paths merely because unrelated broad CI remains
 
 ---
 
+## Dynamic practice + baseline material preparation — CONTENT READY 2026-09-20
+
+A bounded Content-only upgrade is prepared on this ref for normal learner use:
+
+- dynamic evidence-floor / Build→Verify→Maintain / Elastic marginal-ROI rules live in the English Learning Contract;
+- module-level mode cannot hide open mechanism-level risk;
+- Whole Paper is treated as the integrated constraint validator and may absorb later maintenance probes;
+- baseline synthetic inventories now exist for Objective, Translation and Writing with explicit evidence-role downgrade rules;
+- targeted post-failure generation stays at the exact task owner and does not create a second scheduler, ledger or runtime.
+
+No learner state, website state machine, Home scheduling logic, UI, or shared Runtime has been changed. Protected true-exam material was not consumed.
+
+Structural/self-attack review is complete on this ref (19/19 targeted checks). This bounded content lane is ready for integration; learner U still requires real study use.
+
+---
+
 ## External Reading — Current truth
 
 External Reading is a **continuous English Content lane**, not a one-off importer and not a replacement for 考研 Reading A strategy.

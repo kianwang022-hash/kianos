@@ -60,6 +60,7 @@ assert(normalized[0].sourceKind === 'AI_TRANSFER_PROBE', 'probe-source');
 assert(normalized[0].scoringRole === 'TRANSFER_ONLY', 'probe-scoring-role');
 assert(normalized[0].targetKpIds[0] === 'circulation-b01-kp01', 'probe-target');
 assert(normalized[0].correctAnswer === 'C', 'probe-answer');
+assert(normalized[0].qualityGate === 'TARGET+DECISION_AXIS+FAILURE+TRANSFER+DISTRACTOR', 'probe-quality-gate');
 
 let rejected = false;
 try {
@@ -72,6 +73,46 @@ try {
   normalizeXizongInlinePracticeQuestions([{ ...probeRaw, target_kp_ids: [] }], 'TEST_BAD_TARGET');
 } catch { rejected = true; }
 assert(rejected, 'probe-requires-canonical-target');
+
+rejected = false;
+try {
+  normalizeXizongInlinePracticeQuestions([{
+    ...probeRaw,
+    explanation: { ...probeRaw.explanation, decision_axis: '' }
+  }], 'TEST_BAD_DECISION_AXIS');
+} catch { rejected = true; }
+assert(rejected, 'probe-requires-decision-axis');
+
+rejected = false;
+try {
+  normalizeXizongInlinePracticeQuestions([{
+    ...probeRaw,
+    explanation: { ...probeRaw.explanation, reasoning_chain: ['只有一步'] }
+  }], 'TEST_THIN_REASONING');
+} catch { rejected = true; }
+assert(rejected, 'probe-requires-nontrivial-reasoning-chain');
+
+rejected = false;
+try {
+  normalizeXizongInlinePracticeQuestions([{
+    ...probeRaw,
+    explanation: {
+      ...probeRaw.explanation,
+      valuable_distractors: [{ option: 'C', reason: '把正确项伪装成 distractor' }]
+    }
+  }], 'TEST_BAD_DISTRACTOR_BINDING');
+} catch { rejected = true; }
+assert(rejected, 'probe-distractor-must-bind-wrong-option');
+
+rejected = false;
+try {
+  normalizeXizongInlinePracticeQuestions([{
+    ...probeRaw,
+    explanation: { ...probeRaw.explanation, valuable_distractors: [] }
+  }], 'TEST_NO_DISTRACTOR_MECHANISM');
+} catch { rejected = true; }
+assert(rejected, 'probe-requires-distractor-mechanism');
+
 
 rejected = false;
 try {

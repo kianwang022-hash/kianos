@@ -264,6 +264,77 @@ def _assert_registered_sha(path: Path, expected: str, label: str) -> str:
     return actual
 
 
+FIGURE_BLOCK_RE = re.compile(
+    r"(?ms)^\[FIGURE\]\s*\n"
+    r"(?P<body>(?:(?:caption|source_position|source_url|figure_note):[^\n]*(?:\n|$))+)"
+)
+
+
+def _compile_incremental_body(raw_text: str, *, title: str, source_family: str, object_id: str) -> dict:
+    blocks: list[dict] = []
+    paragraphs: list[str] = []
+    figures: list[dict] = []
+    warnings: list[str] = []
+    spacing_repairs: list[str] = []
+
+    def add_text_chunk(value: str) -> None:
+        if not value.strip():
+            return
+        normalized = normalize_external_passage(value, title=title, source_family=source_family)
+        spacing_repairs.extend(normalized["spacing_repairs"])
+        warnings.extend(normalized["warnings"])
+        for paragraph in normalized["paragraphs"]:
+            paragraphs.append(paragraph)
+            blocks.append({"type": "paragraph", "text": paragraph})
+
+    figure_matches = list(FIGURE_BLOCK_RE.finditer(raw_text))
+    unmatched_probe = FIGURE_BLOCK_RE.sub("", raw_text)
+    if "[FIGURE]" in unmatched_probe:
+        raise SystemExit(f"{object_id}: malformed [FIGURE] block")
+
+    cursor = 0
+    for ordinal, match in enumerate(figure_matches, 1):
+        add_text_chunk(raw_text[cursor:match.start()])
+        fields: dict[str, str] = {}
+        for line in match.group("body").splitlines():
+            if ":" not in line:
+                continue
+            key, value = line.split(":", 1)
+            fields[key.strip()] = value.strip()
+        source_url = fields.get("source_url", "")
+        caption = fields.get("caption", "")
+        figure_note = fields.get("figure_note", "")
+        source_position = fields.get("source_position", "")
+        if not caption:
+            warnings.append("SOURCE_FIGURE_CAPTION_MISSING")
+        if source_url and not source_url.startswith("https://"):
+            warnings.append("SOURCE_FIGURE_URL_NOT_HTTPS")
+        figure = {
+            "figure_id": f"{object_id}-fig{ordinal}",
+            "ordinal": ordinal,
+            "caption": caption,
+            "source_url": source_url,
+            "source_position": source_position,
+            "figure_note": figure_note,
+            "origin": "SOURCE_NATIVE",
+        }
+        figures.append(figure)
+        blocks.append({"type": "figure", "figure": figure})
+        cursor = match.end()
+
+    add_text_chunk(raw_text[cursor:])
+    learner_text = "\n\n".join(paragraphs).strip()
+    return {
+        "text": learner_text,
+        "paragraphs": paragraphs,
+        "blocks": blocks,
+        "figures": figures,
+        "spacing_repairs": list(dict.fromkeys(spacing_repairs)),
+        "warnings": list(dict.fromkeys(warnings)),
+        "source_text_sha256": hashlib.sha256(raw_text.encode("utf-8")).hexdigest(),
+    }
+
+
 def _compile_incremental_questions(object_id: str, root: Path, row: dict) -> tuple[list[dict], dict[str, str], str, str, list[dict]]:
     question_path_value = str(row.get("questions_path") or "").strip()
     answer_path_value = str(row.get("answers_path") or "").strip()
@@ -364,7 +435,7 @@ def compile_incremental(root: Path, manifest_path: Path | None) -> list[dict]:
         collection = str(row.get("collection") or "External Reading").strip()
         title = str(row.get("title") or object_id).strip()
         raw_text = source_path.read_text(encoding="utf-8")
-        normalized = normalize_external_passage(raw_text, title=title, source_family=source_family)
+        normalized = _compile_incremental_body(raw_text, title=title, source_family=source_family, object_id=object_id)
         questions, answers, question_source, answer_status, auxiliary_refs = _compile_incremental_questions(object_id, root, row)
         warnings = list(dict.fromkeys(
             list(normalized["warnings"])
@@ -382,6 +453,8 @@ def compile_incremental(root: Path, manifest_path: Path | None) -> list[dict]:
             "title": title,
             "passage_text": normalized["text"],
             "passage_paragraphs": normalized["paragraphs"],
+            "passage_blocks": normalized["blocks"],
+            "source_figures": normalized["figures"],
             "question_source_text": question_source,
             "questions": questions,
             "answer_key": answers,

@@ -250,9 +250,11 @@ Receipt:
 ```text
 historical resolver candidate = 326
 Current owner exclusions      = 38
-C exact official qids         = 289
++ D→C RA transfer             = 1
++ F→C transplant transfer     = 1
+C exact official qids         = 290
 2005–2026
-inventory SHA256 = 3c04968c9fb88b216c15f249a95ac8ea985ebd6f9166ae59b57a27c61ff0287b
+inventory SHA256 = 4dc16a032d2833f7b285a68b38e7020e111fba04c67a3b873e8b3238f30db009
 System membership only; no inferred Question→Block/LG/KP relation
 ```
 
@@ -309,7 +311,33 @@ Owner repairs:
 
 System membership only; no inferred Question→Block/LG/KP relation.
 
-Next exact-scope target: **F — Remaining Clinical**.
+### F scope closure — PASS_AFTER_EXTERNAL_OWNER_REPAIR
+
+Canonical owner:
+
+`content/xizong/knowledge/learner/f-remaining-clinical-question-scope.json`
+
+Receipt:
+
+`content/xizong/knowledge/learner/F_QUESTION_SCOPE_CURRENT_RECONSTRUCTION.md`
+
+```text
+historical frozen F pool                = 27
+reviewed Current Source candidates      = 72
+external-owner exclusions              = 2
+F exact official qids                  = 70
+2005–2026
+inventory SHA256 = f99f2ad151fbbf024ecf445447d3fda33d3de83f8ce90d791710b0259605e6b8
+cross A1–E overlap after repair         = 0
+```
+
+External-owner repairs:
+
+- `2012 N081` cancer secondary prevention → retained O9 tumor-general overlay, not F/B;
+- `2018 N058` hyperacute rejection → C/H14, so C scope becomes 290;
+- F9 remains `INTEGRATION_PRIMARY`: external Recall does not become duplicate medical Primary.
+
+F System membership is closed. No Question→Block/LG/KP mapping was inferred.
 
 ## B2｜Question → Knowledge Crosswalk
 
@@ -329,6 +357,50 @@ question-relations/README.md
 ```
 
 Rules remain: REVIEWED rows only are positive mapping truth; no linear frontier; no inferred target; missing mapping is legal; exact Current owner review is required. Ordinary batch progress belongs to `continuation.json`, not this file.
+
+---
+
+## B3｜Late-stage material readiness — 26 cycle baseline absorbed
+
+Canonical baseline owner:
+
+`content/xizong/knowledge/learner/xizong-26-late-stage-material-baseline.json`
+
+Current boundary:
+
+```text
+26考研 late-stage assets = LAST-YEAR BASELINE
+→ absorb now as historical Source / compression / transfer substrate
+→ preserve cycle identity
+→ never infer 27 truth from upload date
+→ when 27 Source appears, run PRESERVE / UPDATE / NEW / RETIRE / CONFLICT
+```
+
+Recovered/verified baseline families include:
+
+- **病例分析&狂背** — 16-session historical transcript inventory; directly readable 80-page Internal/Diagnosis + 50-page Surgery handouts;
+- **天天师兄四套卷** — four complete 165-question teacher mocks in one 252-page source; annotated/answer-visible, therefore transfer/stress material rather than clean official score evidence;
+- **最终5小时** — four directly readable 26-cycle SRT sessions plus compact Physiology/Biochemistry/Pathology PDFs;
+- **十年真题讲解 / 执医阶段考 / 难点精筛 / 测试总结** — historical supporting families with narrower roles.
+
+Important overlap closure:
+
+```text
+病例分析&狂背 = clinical case + compression baseline
+5h             = final compression / retrieval layer
+5h explicitly reuses Case/Cram handouts
+→ DO NOT raw-stack them as independent full workloads
+
+four mocks = separate transfer / stress role
+→ knowledge overlap is allowed
+→ not official Question Truth / not clean unseen score evidence
+```
+
+The visible files named `最后5h 内科.pdf` / `最后5h 外科.pdf` are body-verified **病例分析&狂背** handouts, not separate 5h PDFs. Do not double-count them.
+
+This lane does not create another Knowledge, Question, Explanation, Review, Forecast or scheduler owner. Current canonical medical truth remains under the accepted medical owners. Historical teacher material may contribute only source-compatible compression, case pivots, transfer variants and confusable-boundary probes.
+
+Remaining bounded source limitation: some historical raw SRT/PDF bytes are known from provenance but are not directly mounted now, so sentence-level Source fidelity for those exact files remains fail-closed. This does not erase the verified 26-cycle family/topic baseline.
 
 ---
 
@@ -526,15 +598,21 @@ F 9 Blocks / 121 KP
 → F medical-content chain CLOSED
 
 QUESTIONS
-Current trusted System-question entry = A1 / A2 / A3 / B / C / D / E
+Current trusted System-question entry = A1 / A2 / A3 / B / C / D / E / F
 A3 exact official-question membership = PASS / 244 qids
 B exact official-question membership = PASS / 1071 qids
-C exact official-question membership = PASS_AFTER_BOUNDED_REPAIR / 289 qids
+C exact official-question membership = PASS_AFTER_BOUNDED_REPAIR / 290 qids
 D exact official-question membership = PASS_AFTER_BOUNDED_REPAIR / 355 qids
 E exact official-question membership = PASS_AFTER_CROSS_SYSTEM_OWNER_REPAIR / 83 qids
-F exact official-question membership = CURRENT COMPLETION LANE
-→ next target = F
+F exact official-question membership = PASS_AFTER_EXTERNAL_OWNER_REPAIR / 70 qids
+→ A1–F exact System-question membership completion lane CLOSED
 + Crosswalk C2 continuous reviewed batches
+
+LATE-STAGE MATERIAL
+26 cycle baseline = absorbed / year-pinned / topic-role indexed
+→ Case/Cram ↔ 5h high-overlap direct reuse closed
+→ four mocks = 4 × 165 teacher transfer/stress sets, not official score evidence
+→ 27 materials enter by delta/replacement only
 
 VISUAL
 continuous sparse high-value Extension batches

@@ -5252,7 +5252,7 @@
     "ordinal": 102,
     "word": "affiliate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0102.json",
-    "source_fingerprint": "efea918e380300e2c1b8ba2b8dfb49a4e7b8b1f02e5656adef341e650363ea35",
+    "source_fingerprint": "b7cdfa5de63223ace4b646040dce72826df8f0536214d20609f8e399d7fa1833",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5388,7 +5388,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "noun affiliate ends in /-ət/; verb affiliate ends in /-eɪt/.",
+        "boundaries": [
+          {
+            "surface": "affiliate",
+            "condition": "noun",
+            "note": "final syllable /-ət/"
+          },
+          {
+            "surface": "affiliate",
+            "condition": "verb",
+            "note": "final syllable /-eɪt/"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "noun affiliate ends in /-ət/; verb affiliate ends in /-eɪt/."
+        }
+      },
       "family": []
     }
   },
@@ -5525,7 +5546,7 @@
     "ordinal": 104,
     "word": "affluent",
     "source_owner_path": "content/lexical/words/by-ordinal/o0104.json",
-    "source_fingerprint": "8194456f01952d70c7627f2700406349a14356929f0b8c44b58817244512fa60",
+    "source_fingerprint": "ef57b56fc6c2a61ef2b5d322e8a6f604015427a921176316a84f6c5683842f50",
     "sense_lineage": [
       {
         "word_id": "word:affluent",
@@ -5546,7 +5567,7 @@
       "parts": [
         "1A"
       ],
-      "density": "rich"
+      "density": "light"
     },
     "word_feel": {
       "summary_cn": "富裕的；繁荣的",
@@ -5578,34 +5599,31 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:affluent:handoff-69c4968313497926",
-        "source_locator": "record.constructions[0]",
-        "pattern": "affluent",
-        "lines": [
-          {
-            "text": "富裕的；繁荣的",
-            "lang": "cn"
-          },
-          {
-            "text": "wealthy or prosperous",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:affluent:handoff-69c4968313497926",
-          "target_locator": "record.constructions[0]",
-          "target_label": "affluent"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [
+        {
+          "target_word": "affluence",
+          "lines": [
+            {
+              "text": "富裕；富足",
+              "lang": "cn"
+            },
+            {
+              "text": "affluent（形容词）→ affluence（名词）：把富裕状态名词化。",
+              "lang": "cn"
+            },
+            {
+              "text": "the state of having a great deal of money or wealth",
+              "lang": "en"
+            }
+          ],
+          "source_locator": "record.word_family[0]"
+        }
+      ]
     }
   },
   {
@@ -5767,7 +5785,7 @@
     "ordinal": 106,
     "word": "afraid",
     "source_owner_path": "content/lexical/words/by-ordinal/o0106.json",
-    "source_fingerprint": "a834aa698632766a40db5ecca42b6136ef9f85fefeba84a51898b6f759176c18",
+    "source_fingerprint": "81b3ecc9cd6b9516a28581ab0cbe92884cb5e1ddd8fb44ea12497fb6b2693c09",
     "sense_lineage": [
       {
         "word_id": "word:afraid",
@@ -5849,33 +5867,8 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "deep:constructions:afraid:19446cc79a2f9fa4",
-        "source_locator": "record.constructions[0]",
-        "pattern": "a. + of + sth / to do",
-        "lines": [
-          {
-            "text": "害怕的",
-            "lang": "cn"
-          },
-          {
-            "text": "afraid of + sth/to do",
-            "lang": "en"
-          },
-          {
-            "text": "feeling fear or anxiety",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "deep:constructions:afraid:19446cc79a2f9fa4",
-          "target_locator": "record.constructions[0]",
-          "target_label": "a. + of + sth / to do"
-        }
-      },
-      {
         "id": "construction:afraid:handoff-42f33310cd964dd2",
-        "source_locator": "record.constructions[1]",
+        "source_locator": "record.constructions[0]",
         "pattern": "I’m afraid (that) ...",
         "lines": [
           {
@@ -5890,13 +5883,13 @@
         "repair": {
           "target_kind": "construction",
           "target_id": "construction:afraid:handoff-42f33310cd964dd2",
-          "target_locator": "record.constructions[1]",
+          "target_locator": "record.constructions[0]",
           "target_label": "I’m afraid (that) ..."
         }
       },
       {
         "id": "construction:afraid:handoff-54531a774785ccd8",
-        "source_locator": "record.constructions[2]",
+        "source_locator": "record.constructions[1]",
         "pattern": "afraid of doing vs afraid to do",
         "lines": [
           {
@@ -5911,7 +5904,7 @@
         "repair": {
           "target_kind": "construction",
           "target_id": "construction:afraid:handoff-54531a774785ccd8",
-          "target_locator": "record.constructions[2]",
+          "target_locator": "record.constructions[1]",
           "target_label": "afraid of doing vs afraid to do"
         }
       }
@@ -6318,7 +6311,7 @@
     "ordinal": 111,
     "word": "again",
     "source_owner_path": "content/lexical/words/by-ordinal/o0111.json",
-    "source_fingerprint": "70aba552aaf881c401539fb26696097d5ae72b893379f8fc06e9355e349ff08b",
+    "source_fingerprint": "af9bc4aeed808d78f97e9abaa1f0a8bc778c1b80b5ea1a4d1c136190f795d68b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6362,6 +6355,19 @@
             "meaning_cn": "再三；反复",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:again:final-standard-then-again",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "then again",
+            "meaning_cn": "话又说回来；另一方面；重新考虑刚才所说",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:again:final-standard-then-again",
+              "target_locator": "record.senses[0].collocations[2]",
+              "target_label": "then again"
+            }
           }
         ],
         "repair": {
@@ -7052,7 +7058,7 @@
     "ordinal": 116,
     "word": "agent",
     "source_owner_path": "content/lexical/words/by-ordinal/o0116.json",
-    "source_fingerprint": "bb426a56be71f7a8259fef80fb8422692a9ef97c90affdf5c7cafa3a3481c983",
+    "source_fingerprint": "7e377822d44cd8e599d365854b7cc33d070e57adf9857cb24c59a72c7feed03f",
     "sense_lineage": [
       {
         "word_id": "word:agent",
@@ -7211,50 +7217,7 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:agent:handoff-ab6205496ef20d47",
-        "source_locator": "record.constructions[0]",
-        "pattern": "secret/intelligence agent",
-        "lines": [
-          {
-            "text": "秘密特工；情报人员",
-            "lang": "cn"
-          },
-          {
-            "text": "a person who gathers intelligence or works secretly",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:agent:handoff-ab6205496ef20d47",
-          "target_locator": "record.constructions[0]",
-          "target_label": "secret/intelligence agent"
-        }
-      },
-      {
-        "id": "construction:agent:handoff-7d76dba31af3b767",
-        "source_locator": "record.constructions[1]",
-        "pattern": "agent as cause/substance",
-        "lines": [
-          {
-            "text": "起作用的因素或物质",
-            "lang": "cn"
-          },
-          {
-            "text": "a person, substance, or force that produces an effect",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:agent:handoff-7d76dba31af3b767",
-          "target_locator": "record.constructions[1]",
-          "target_label": "agent as cause/substance"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7368,7 +7331,7 @@
     "ordinal": 118,
     "word": "aggregate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0118.json",
-    "source_fingerprint": "d55b6ca4051528dfe135ecf2706d6088412b91bd3fcf353ec5b46e70df9d3ace",
+    "source_fingerprint": "4f9500165faa893080df29648c93b5558fd035c9f1fe77a70261244ce9b449e9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7597,7 +7560,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "noun/adjective aggregate end in /-gət/; verb aggregate ends in /-geɪt/.",
+        "boundaries": [
+          {
+            "surface": "aggregate",
+            "condition": "noun or adjective",
+            "note": "final syllable /-gət/"
+          },
+          {
+            "surface": "aggregate",
+            "condition": "verb",
+            "note": "final syllable /-geɪt/"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "noun/adjective aggregate end in /-gət/; verb aggregate ends in /-geɪt/."
+        }
+      },
       "family": []
     }
   },
@@ -8783,7 +8767,7 @@
     "ordinal": 128,
     "word": "aim",
     "source_owner_path": "content/lexical/words/by-ordinal/o0128.json",
-    "source_fingerprint": "e34cb7f8499627319b8d0792288f7c11acb845b3839710314b405888a70e6987",
+    "source_fingerprint": "b4fd724dfe32958aa413ebf2f3777135ad88137ef6b1d1ae6218066c0e8ce13a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8929,59 +8913,8 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "deep:constructions:aim:ff40daf5c3846391",
-        "source_locator": "record.constructions[0]",
-        "pattern": "aim at sb/sth",
-        "lines": [
-          {
-            "text": "瞄准某人/某物",
-            "lang": "cn"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "deep:constructions:aim:ff40daf5c3846391",
-          "target_locator": "record.constructions[0]",
-          "target_label": "aim at sb/sth"
-        }
-      },
-      {
-        "id": "deep:constructions:aim:b27bb9f3ebb07596",
-        "source_locator": "record.constructions[1]",
-        "pattern": "aim at doing sth",
-        "lines": [
-          {
-            "text": "旨在做某事",
-            "lang": "cn"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "deep:constructions:aim:b27bb9f3ebb07596",
-          "target_locator": "record.constructions[1]",
-          "target_label": "aim at doing sth"
-        }
-      },
-      {
-        "id": "deep:constructions:aim:7ffe478783a5319f",
-        "source_locator": "record.constructions[2]",
-        "pattern": "aim for sth",
-        "lines": [
-          {
-            "text": "力求达到某目标",
-            "lang": "cn"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "deep:constructions:aim:7ffe478783a5319f",
-          "target_locator": "record.constructions[2]",
-          "target_label": "aim for sth"
-        }
-      },
-      {
         "id": "construction:aim:handoff-fa119829a55165fd",
-        "source_locator": "record.constructions[3]",
+        "source_locator": "record.constructions[0]",
         "pattern": "aim to do sth",
         "lines": [
           {
@@ -8992,13 +8925,13 @@
         "repair": {
           "target_kind": "construction",
           "target_id": "construction:aim:handoff-fa119829a55165fd",
-          "target_locator": "record.constructions[3]",
+          "target_locator": "record.constructions[0]",
           "target_label": "aim to do sth"
         }
       },
       {
         "id": "construction:aim:handoff-3f95f5c9d821a85f",
-        "source_locator": "record.constructions[4]",
+        "source_locator": "record.constructions[1]",
         "pattern": "be aimed at sth/doing sth",
         "lines": [
           {
@@ -9009,7 +8942,7 @@
         "repair": {
           "target_kind": "construction",
           "target_id": "construction:aim:handoff-3f95f5c9d821a85f",
-          "target_locator": "record.constructions[4]",
+          "target_locator": "record.constructions[1]",
           "target_label": "be aimed at sth/doing sth"
         }
       }

@@ -100,6 +100,11 @@ try{
   assert.equal(await page.locator('[data-external-question-mode]').isVisible(),false);
   assert.equal(await page.locator('[data-external-submit]').isVisible(),false);
   assert.equal(await page.locator('[data-external-mode]').isVisible(),false);
+  assert.equal(await page.locator('.externalSourceFigure').count(),1);
+  assert.match(await page.locator('.externalSourceFigure figcaption').textContent(),/Synthetic source-native chart/);
+  assert.equal(await page.locator('.externalSourceFigure img').getAttribute('src'),'https://example.invalid/synthetic-source-figure.png');
+  const renderedPassage=await page.locator('[data-external-paragraphs]').textContent();
+  assert.doesNotMatch(renderedPassage,/\[FIGURE\]|source_position:|source_url:/);
   await page.locator('[data-external-finish]').click();
   const incrementalReadOnly=await page.evaluate(()=>JSON.parse(localStorage.getItem('kianos-english-external-reading-attempt-v1:future-synthetic-longform')||'null'));
   assert.equal(incrementalReadOnly?.stage,'completed');
@@ -130,6 +135,7 @@ try{
     reading_only_without_fake_questions:'PASS',
     incremental_family_tabs:'PASS',
     incremental_questionless_auto_read_only:'PASS',
+    source_native_figure_render:'PASS',
     incremental_source_backed_answer_gate:'PASS',
     no_auto_debt:'PASS',
     screenshot:path.join(out,'external-reading-synthetic.png')

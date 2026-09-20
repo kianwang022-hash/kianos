@@ -94,10 +94,25 @@ export function normalizeXizongInlinePracticeQuestions(input, context = 'PRACTIC
     if (!targetKpIds.length || targetKpIds.length > 8) fail('INLINE_QUESTION_TARGET_REQUIRED', questionId);
     const canonicalSourceHash = clean(raw.canonical_source_hash || raw.canonicalSourceHash, 180);
     if (!canonicalSourceHash) fail('INLINE_QUESTION_SOURCE_HASH_REQUIRED', questionId);
+    const explanation = cleanExplanation(raw.explanation);
+    if (!explanation.examTarget) fail('INLINE_QUESTION_EXAM_TARGET_REQUIRED', questionId);
+    if (!explanation.decisionAxis) fail('INLINE_QUESTION_DECISION_AXIS_REQUIRED', questionId);
+    if (!explanation.correctOptionReason) fail('INLINE_QUESTION_CORRECT_REASON_REQUIRED', questionId);
+    if (!explanation.commonFailureNode) fail('INLINE_QUESTION_FAILURE_NODE_REQUIRED', questionId);
+    if (!explanation.transferRule) fail('INLINE_QUESTION_TRANSFER_RULE_REQUIRED', questionId);
+    if (explanation.reasoningChain.length < 2) fail('INLINE_QUESTION_REASONING_CHAIN_TOO_THIN', questionId);
+    if (!explanation.valuableDistractors.length) fail('INLINE_QUESTION_DISTRACTOR_MECHANISM_REQUIRED', questionId);
+    for (const distractor of explanation.valuableDistractors) {
+      if (!optionLabels.has(distractor.option) || correctLabels.includes(distractor.option)) {
+        fail('INLINE_QUESTION_DISTRACTOR_BINDING_INVALID', questionId);
+      }
+    }
+
     return {
       questionId,
       sourceKind: 'AI_TRANSFER_PROBE',
       scoringRole: 'TRANSFER_ONLY',
+      qualityGate: 'TARGET+DECISION_AXIS+FAILURE+TRANSFER+DISTRACTOR',
       probeKind,
       year: 'AI',
       number: index + 1,
@@ -105,7 +120,7 @@ export function normalizeXizongInlinePracticeQuestions(input, context = 'PRACTIC
       stem,
       options,
       correctAnswer: correctLabels.join(''),
-      explanation: cleanExplanation(raw.explanation),
+      explanation,
       relation: null,
       targetKpIds,
       canonicalSourceHash
