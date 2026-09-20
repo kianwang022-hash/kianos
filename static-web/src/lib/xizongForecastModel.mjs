@@ -866,6 +866,96 @@ function recordLike(value) {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
 }
 
+function daySpanInclusive(startDay, endDay) {
+  const start = Date.parse(String(startDay || '') + 'T00:00:00Z');
+  const end = Date.parse(String(endDay || '') + 'T00:00:00Z');
+  if (!Number.isFinite(start) || !Number.isFinite(end) || end < start) return null;
+  return Math.floor((end - start) / 86400000) + 1;
+}
+
+function capacityThroughDeadline({
+  startDay,
+  deadlineDay,
+  dailyMinutes = null,
+  capacityMinutesByDay = null
+} = {}) {
+  const days = daySpanInclusive(startDay, deadlineDay);
+  if (days === null) return null;
+  const fallback = positive(dailyMinutes);
+  let total = 0;
+  for (let index = 0; index < days; index += 1) {
+    const day = addDays(startDay, index);
+    const specific = recordLike(capacityMinutesByDay) ? finite(capacityMinutesByDay[day]) : null;
+    const capacity = specific === null ? fallback : Math.max(0, specific);
+    if (capacity === null) return null;
+    total += capacity;
+  }
+  return { days, minutes: round(total) };
+}
+
+export function assessXizongDeadlineFeasibility(forecast, {
+  startDay,
+  deadlineDay,
+  dailyMinutes = null,
+  capacityMinutesByDay = null,
+  netIncrementMinutes = 0,
+  materialItems = null,
+  scope = 'score_formation'
+} = {}) {
+  if (!forecast || forecast.schema !== XIZONG_FORECAST_MODEL_SCHEMA) {
+    throw new Error('XIZONG_FORECAST_MODEL_REQUIRED');
+  }
+  const scenario = applyXizongForecastScenario(forecast, {
+    dailyMinutes,
+    startDay,
+    capacityMinutesByDay,
+    netIncrementMinutes,
+    materialItems
+  });
+  const target = scope === 'first_round' ? scenario.first_round : scenario.score_formation;
+  const capacity = capacityThroughDeadline({ startDay, deadlineDay, dailyMinutes, capacityMinutesByDay });
+  if (!capacity || !target?.band_minutes) {
+    return {
+      schema: 'kianos.xizong.deadline-feasibility.v1',
+      scope,
+      start_day: startDay || null,
+      deadline_day: deadlineDay || null,
+      status: 'UNPRICED',
+      capacity,
+      band_minutes: target?.band_minutes || null,
+      fit: null,
+      required_average_minutes_per_day: null
+    };
+  }
+  const fit = Object.fromEntries(
+    ['p20','p50','p80'].map((key) => [key, Number(target.band_minutes[key] || 0) <= capacity.minutes])
+  );
+  const requiredAverage = Object.fromEntries(
+    ['p20','p50','p80'].map((key) => [
+      key,
+      capacity.days > 0 ? round(Number(target.band_minutes[key] || 0) / capacity.days, 1) : null
+    ])
+  );
+  let status = 'P80_FITS';
+  if (!fit.p20) status = 'EVEN_P20_DOES_NOT_FIT';
+  else if (!fit.p50) status = 'P20_ONLY_FITS';
+  else if (!fit.p80) status = 'P50_FITS_P80_DOES_NOT';
+  return {
+    schema: 'kianos.xizong.deadline-feasibility.v1',
+    scope,
+    start_day: startDay,
+    deadline_day: deadlineDay,
+    status,
+    capacity,
+    band_minutes: target.band_minutes,
+    fit,
+    required_average_minutes_per_day: requiredAverage,
+    full_scope: Boolean(target.full_scope),
+    boundary:
+      'The deadline is a capacity constraint, not a completion target invented by calendar. UNPRICED scope remains unknown; fit classification never deletes protected work to make a date look feasible.'
+  };
+}
+
 export function applyXizongForecastScenario(forecast, {
   dailyMinutes = null,
   netIncrementMinutes = 0,
