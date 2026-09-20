@@ -3,6 +3,11 @@ import {
   readEnglishExamSession,
   summarizeEnglishExamSession
 } from './englishExamSession.mjs';
+import {
+  buildLexicalRetentionTransferSummary,
+  LEXICAL_LEDGER_SCHEMA,
+  LEXICAL_LEDGER_STORAGE_KEY
+} from './lexicalEvidence.mjs';
 
 export const ENGLISH_SESSION_SCHEMA = 'kianos.english.session-instruction.v1';
 export const ENGLISH_SESSION_KEY = 'kianos-english-session-instruction-v1';
@@ -43,6 +48,37 @@ const readJson = (storage, key) => {
     return null;
   }
 };
+
+function lexicalRetentionTransferEvidence(storage) {
+  const raw = storage?.getItem?.(LEXICAL_LEDGER_STORAGE_KEY);
+  if (raw == null) {
+    return {
+      status: 'missing',
+      semantics: 'MISSING_PRIVATE_LEDGER_IS_UNKNOWN_NOT_ZERO',
+      summary: null
+    };
+  }
+  try {
+    const ledger = JSON.parse(raw);
+    if (!ledger || ledger.schema !== LEXICAL_LEDGER_SCHEMA) {
+      return {
+        status: 'invalid',
+        semantics: 'INVALID_PRIVATE_LEDGER_IS_UNKNOWN_NOT_ZERO',
+        summary: null
+      };
+    }
+    return {
+      status: 'ready',
+      ...buildLexicalRetentionTransferSummary(ledger)
+    };
+  } catch {
+    return {
+      status: 'unreadable',
+      semantics: 'UNREADABLE_PRIVATE_LEDGER_IS_UNKNOWN_NOT_ZERO',
+      summary: null
+    };
+  }
+}
 
 function exposureKnowsSource(exposure, semanticSourceHash, exactSourceHash) {
   if (!semanticSourceHash && !exactSourceHash) return false;
@@ -441,7 +477,7 @@ export function englishAttemptInventory(storage) {
     for(const [task,prefix] of Object.entries(prefixes)){
       if(!key?.startsWith(prefix))continue;
       const value=readJson(storage,key);if(!value) {rows.push({task,object_id:key.slice(prefix.length),data_status:'unreadable'});continue;}
-      rows.push({task,object_id:key.slice(prefix.length),source_hash:value.sourceHash||value.binding?.source_hash||null,attempt_id:value.attemptId||value.binding?.attempt_id||null,submitted:value.submitted===true,stage:value.stage||value.state||null,problem_count:problemCount(value),started_at:value.startedAt||value.createdAt||null,submitted_at:value.firstSubmittedAt||value.submittedAt||null,updated_at:value.updatedAt||value.saved_at||null,prior_exposure:value.binding?.prior_exposure||'unknown',assistance:value.binding?.assistance||'unknown',complete:englishStepIsComplete(storage,{task,object_id:key.slice(prefix.length),source_hash:value.binding?.source_hash}),first_evidence:value.firstEvidenceMeta||null});
+      rows.push({task,object_id:key.slice(prefix.length),source_hash:value.sourceHash||value.binding?.source_hash||null,attempt_id:value.attemptId||value.binding?.attempt_id||null,submitted:value.submitted===true,stage:value.stage||value.state||null,problem_count:problemCount(value),started_at:value.startedAt||value.createdAt||null,submitted_at:value.firstSubmittedAt||value.submittedAt||null,updated_at:value.updatedAt||value.saved_at||null,prior_exposure:value.binding?.prior_exposure||'unknown',assistance:value.binding?.assistance||'unknown',task_form:task==='reading_b'?(clean(value?.binding?.source_snapshot?.context?.taskForm||value?.binding?.source_snapshot?.context?.task_form,80)||null):null,complete:englishStepIsComplete(storage,{task,object_id:key.slice(prefix.length),source_hash:value.binding?.source_hash}),first_evidence:value.firstEvidenceMeta||null});
     }
   }
   return rows; // Facts, never a recommendation or a priority score.
@@ -468,6 +504,13 @@ const ENGLISH_PROFILE_TASK_ROLE = Object.freeze({
   translation: 'EXAM_PRODUCTIVE',
   writing: 'EXAM_PRODUCTIVE'
 });
+
+const READING_B_FORMS = Object.freeze([
+  'gap_match',
+  'ordering',
+  'heading_match',
+  'comment_match'
+]);
 
 function englishAttemptTimestamp(row) {
   for (const raw of [
@@ -565,6 +608,24 @@ function taskPerformanceProfile(allRows, recentRows, task) {
       summary.problem_bearing_attempts = rows.filter((row) => Number(row.problem_count || 0) > 0).length;
     }
 
+    if (task === 'reading_b') {
+      const byForm = Object.fromEntries(READING_B_FORMS.map((form) => {
+        const formRows = rows.filter((row) => row.task_form === form);
+        return [form, {
+          attempts: formRows.length,
+          independent_transfer_candidates: formRows.filter(safeIndependentTransferCandidate).length,
+          problem_bearing_attempts: formRows.filter((row) => Number(row.problem_count || 0) > 0).length
+        }];
+      }));
+      summary.form_coverage = {
+        required_forms: [...READING_B_FORMS],
+        covered_forms: READING_B_FORMS.filter((form) => byForm[form].attempts > 0),
+        unknown_form_attempts: rows.filter((row) => !READING_B_FORMS.includes(String(row.task_form || ''))).length,
+        by_form: byForm,
+        semantics: 'FORM_LEVEL_FACTS_ONLY; AGGREGATE_READING_B_STABILITY_DOES_NOT_PROVE_EACH_FORM'
+      };
+    }
+
     if (productive) {
       const repairStates = task === 'translation'
         ? new Set(['repaired','transfer_pending'])
@@ -621,7 +682,8 @@ export function buildEnglishPerformanceProfile(rows, {
       'UNCALIBRATED_TIMING_IS_UNKNOWN_NOT_SLOW',
       'TRANSLATION_AND_WRITING_HAVE_NO_AUTO_SCORE',
       'PROFILE_CREATES_NO_REVIEW_OR_TEST_DEBT',
-      'WORKFLOW_COMPLETE_IS_NOT_PERFORMANCE_SUCCESS'
+      'WORKFLOW_COMPLETE_IS_NOT_PERFORMANCE_SUCCESS',
+      'READING_B_AGGREGATE_DOES_NOT_PROVE_FORM_COVERAGE'
     ]
   };
 }
@@ -913,6 +975,7 @@ export function buildEnglishEvidencePacket(storage, { day, now = Date.now(), cat
     inventory_meta: packetInventory.inventory_meta,
     performance_profile: buildEnglishPerformanceProfile(rawInventory),
     long_horizon_recurrence: buildEnglishLongHorizonRecurrenceDigest(storage,{recentExactTruncated:packetInventory.inventory_meta.truncated}),
+    lexical: lexicalRetentionTransferEvidence(storage),
     forecast_progress: englishForecastProgress(storage, day),
     resume: englishResumeEvidence(storage, day),
     tasks: clone({
@@ -965,7 +1028,8 @@ export function buildEnglishChatHandoffText(storage, { day, now = Date.now(), ca
     '- Missing evidence means unknown, not failed. Finished work must not be turned back into Resume debt.',
     '- Optional params.material_exposure={state:unseen|exposed|unknown,basis:learner_statement,observed_at:ISO,note:actual learner statement} may be supplied ONLY from real learner testimony before an attempt. Never infer unseen from missing storage or Content defaults.',
     '- If prior Chat discussion or learner testimony materially cues the assigned task, params.assistance_context={state:assisted|unknown,basis:chat_context|learner_statement,observed_at:ISO,note:brief factual reason} may downgrade the next first-evidence claim. Do not declare unassisted; that remains the default only when no contrary evidence exists.',
-    '- performance_profile is task-level bounded telemetry. long_horizon_recurrence projects durable Objective/Translation/Writing Repair/Transfer targets. If recent exact attempts are truncated, absence from the recent window is not proof that a mechanism never existed.',
+    '- performance_profile is task-level bounded telemetry. For Part B, form_coverage must be read before any aggregate stability claim. long_horizon_recurrence projects durable Objective/Translation/Writing Repair/Transfer targets. If recent exact attempts are truncated, absence from the recent window is not proof that a mechanism never existed.',
+    '- lexical projects bounded delayed-retention and clean real-English-context evidence from the existing private Lexical ledger. It is not mastery or a schedule. If lexical status is missing/invalid/unreadable, lexical retention stays UNKNOWN rather than zero.',
     '- If any long_horizon_recurrence family reports invalid/unreadable, treat that recurrence history as UNKNOWN and request targeted recovery/deeper review if the decision depends on it; never interpret it as zero historical problems.',
     '',
     'WHAT CHAT SHOULD DO',
