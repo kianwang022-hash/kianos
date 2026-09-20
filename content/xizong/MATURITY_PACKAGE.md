@@ -6,7 +6,11 @@ Subject requirement source: `work/exam-subject-maturity-standard-20260920@7d3e2b
 
 Purpose:
 
-> Keep one practical Xizong maturity package that turns the 275 working target into capability, material, method, evidence, gap and next-owner truth. Stage A is closed; normal continuation now moves through real learner-capability evidence.
+> Keep one practical **Xizong-adapted** maturity package that turns the 275 working target into score/loss logic, X1–X9 capability, Material, Method, Evidence, Forecast inputs, dynamic control boundaries and next-owner truth.
+
+The shared maturity standard is a highest-bar question set. This package is Xizong's subject-native adaptation; it must not be replaced by the generic S/K/L/P/R/E engineering gate order.
+
+Stage A is closed. Stage B–D are capability stages, while Stage E is a continuous Real-U calibration overlay. Content/Material Closure and Forecast are supporting lanes that return bounded outputs into this package.
 
 This is not a second Knowledge, learner-state, Forecast or scheduler owner.
 
@@ -433,6 +437,40 @@ Stage A verdict:
 > **CLOSED — move the maturity mainline to Stage B learner-capability use, with Stage E calibration beginning as soon as Real Learner U exists.**
 
 Do not reopen Stage A for unavailable 2027 Sources. Reopen only when a new authoritative Source arrives or a concrete Current scope/material defect is discovered.
+
+---
+
+# 10.5｜Integrated lane hierarchy
+
+Xizong maturity is coordinated at subject level:
+
+```text
+Xizong maturity owner
+├─ Content / Material Closure
+│  └─ returns Material Gap Matrix + bounded closure
+├─ Forecast / Capacity
+│  └─ returns workload range + uncertainty + sensitivity
+├─ exact engineering readiness owners
+│  └─ repair only a learner-action blocker
+└─ Real Learner U
+   └─ returns throughput / error / retention / transfer / execution evidence
+
+all bounded outputs
+→ Xizong subject-native stage judgment
+→ smallest next high-value action
+```
+
+Rules:
+
+- Content/Material does not become Forecast;
+- Forecast does not become scheduler;
+- S/K/L/P/R/E does not become the maturity stage order;
+- Real U does not replace the need for Source/material truth or Forecast;
+- the top-level Xizong maturity owner integrates all four and applies the stop rule.
+
+The original optimization intent is therefore preserved:
+
+> first adapt the shared highest-bar standard to Xizong, then let each bounded lane solve its own real gap, and finally reconcile those outputs back into one 270/275 maturity model.
 
 ---
 
