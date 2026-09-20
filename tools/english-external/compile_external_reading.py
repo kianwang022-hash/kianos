@@ -444,29 +444,29 @@ def main() -> int:
     incremental_manifest = args.incremental_manifest.expanduser().resolve() if args.incremental_manifest else None
     if incremental_manifest is not None and not incremental_manifest.is_file():
         raise SystemExit(f"incremental manifest missing: {incremental_manifest}")
-    passages = compile_toefl(root) + compile_ielts(root) + compile_incremental(root, incremental_manifest)
+    legacy_toefl = compile_toefl(root)
+    legacy_ielts = compile_ielts(root)
+    incremental = compile_incremental(root, incremental_manifest)
+    passages = legacy_toefl + legacy_ielts + incremental
     counts = {
         "toefl": {
-            "collections": len({p["collection"] for p in passages if p["source_family"] == "TOEFL_TPO"}),
-            "passages": sum(p["source_family"] == "TOEFL_TPO" for p in passages),
-            "questions": sum(len(p["questions"]) for p in passages if p["source_family"] == "TOEFL_TPO"),
-            "answer_slots": sum(len(p["answer_key"]) for p in passages if p["source_family"] == "TOEFL_TPO"),
+            "collections": len({p["collection"] for p in legacy_toefl}),
+            "passages": len(legacy_toefl),
+            "questions": sum(len(p["questions"]) for p in legacy_toefl),
+            "answer_slots": sum(len(p["answer_key"]) for p in legacy_toefl),
         },
         "ielts": {
-            "books": len({p["collection"] for p in passages if p["source_family"] == "IELTS_ACADEMIC" and str(p["passage_id"]).startswith("ielts")}),
-            "tests": len({(p["collection"], p["test"]) for p in passages if p["source_family"] == "IELTS_ACADEMIC" and str(p["passage_id"]).startswith("ielts")}),
-            "passages": sum(p["source_family"] == "IELTS_ACADEMIC" and str(p["passage_id"]).startswith("ielts") for p in passages),
-            "questions": sum(len(p["questions"]) for p in passages if p["source_family"] == "IELTS_ACADEMIC" and str(p["passage_id"]).startswith("ielts")),
-            "mechanically_parsed_answer_slots": sum(len(p["answer_key"]) for p in passages if p["source_family"] == "IELTS_ACADEMIC" and str(p["passage_id"]).startswith("ielts")),
-            "source_key_question_slots": sum(len(p["questions"]) for p in passages if p["source_family"] == "IELTS_ACADEMIC" and str(p["passage_id"]).startswith("ielts")),
+            "books": len({p["collection"] for p in legacy_ielts}),
+            "tests": len({(p["collection"], p["test"]) for p in legacy_ielts}),
+            "passages": len(legacy_ielts),
+            "questions": sum(len(p["questions"]) for p in legacy_ielts),
+            "mechanically_parsed_answer_slots": sum(len(p["answer_key"]) for p in legacy_ielts),
+            "source_key_question_slots": sum(len(p["questions"]) for p in legacy_ielts),
         },
         "incremental": {
-            "objects": sum(not (str(p["passage_id"]).startswith("tpo") or str(p["passage_id"]).startswith("ielts")) for p in passages),
-            "questions": sum(len(p["questions"]) for p in passages if not (str(p["passage_id"]).startswith("tpo") or str(p["passage_id"]).startswith("ielts"))),
-            "questionless_objects": sum(
-                not (str(p["passage_id"]).startswith("tpo") or str(p["passage_id"]).startswith("ielts")) and not p["questions"]
-                for p in passages
-            ),
+            "objects": len(incremental),
+            "questions": sum(len(p["questions"]) for p in incremental),
+            "questionless_objects": sum(not p["questions"] for p in incremental),
         },
     }
     if counts["toefl"] != {"collections": 10, "passages": 30, "questions": 395, "answer_slots": 395}:
