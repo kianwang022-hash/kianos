@@ -2,7 +2,8 @@ export const XIZONG_MEMORY_SCHEMA = 'kianos.xizong.memory.v1';
 export const XIZONG_MEMORY_STORAGE_KEY = 'kianos-xizong-memory-v1';
 export const MEMORY_FAMILIES = Object.freeze(['CORE', 'PRECISION']);
 export const MEMORY_RATINGS = Object.freeze(['unknown', 'fuzzy', 'known', 'mastered']);
-export const XIZONG_RETENTION_WINDOWS_DAYS = Object.freeze([1, 3, 7, 14, 30]);
+export const XIZONG_KNOWN_RECHECK_DAYS = 1;
+export const XIZONG_RETENTION_WINDOWS_DAYS = Object.freeze([2, 4, 7, 14]);
 
 const DAY_MS = 86400000;
 const WEAK_RATINGS = new Set(['unknown', 'fuzzy']);
@@ -357,7 +358,7 @@ function retentionStateFromContext(state, cardId, context) {
   // "known / 会了" proves retrieval now, but not durable stability.
   // Give it one delayed re-check without allowing repeated "known" ratings to inflate the long interval.
   if (latestRating === 'known') {
-    const intervalDays = XIZONG_RETENTION_WINDOWS_DAYS[0];
+    const intervalDays = XIZONG_KNOWN_RECHECK_DAYS;
     const dueAtMs = latestAt + intervalDays * DAY_MS;
     const due = context.nowMs >= dueAtMs;
     return {
