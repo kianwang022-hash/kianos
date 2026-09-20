@@ -294,6 +294,26 @@ function problemCount(attempt = {}) {
   ).length;
 }
 
+function objectiveResultStats(attempt = {}) {
+  if (attempt?.submitted !== true || !attempt?.results || typeof attempt.results !== 'object' || Array.isArray(attempt.results)) {
+    return null;
+  }
+  const values = Object.values(attempt.results).map((value) => String(value || ''));
+  if (!values.length) return null;
+  const correct = values.filter((value) => value === 'correct').length;
+  const wrong = values.filter((value) => value === 'wrong').length;
+  const unanswered = values.filter((value) => value === 'unanswered').length;
+  const uncertain = new Set(Array.isArray(attempt?.uncertain) ? attempt.uncertain.map(String) : []);
+  return {
+    question_count: values.length,
+    correct_count: correct,
+    wrong_count: wrong,
+    unanswered_count: unanswered,
+    uncertain_count: uncertain.size,
+    accuracy: Number((correct / values.length).toFixed(4))
+  };
+}
+
 function objectiveEvidence(storage, lastKey, attemptPrefix) {
   const last = readJson(storage, lastKey);
   if (!last?.id) return { last_object: null, attempt: null };
@@ -369,6 +389,9 @@ export function englishAttemptInventory(storage) {
       if(!key?.startsWith(prefix))continue;
       const value=readJson(storage,key);if(!value) {rows.push({task,object_id:key.slice(prefix.length),data_status:'unreadable'});continue;}
       const snapshot=value.binding?.source_snapshot&&typeof value.binding.source_snapshot==='object'?value.binding.source_snapshot:{};
+      const objectiveStats=['reading_a','cloze','reading_b','external_reading'].includes(task)
+        ? objectiveResultStats(value)
+        : null;
       rows.push({
         task,
         object_id:key.slice(prefix.length),
@@ -377,6 +400,12 @@ export function englishAttemptInventory(storage) {
         submitted:value.submitted===true,
         stage:value.stage||value.state||null,
         problem_count:problemCount(value),
+        question_count:objectiveStats?.question_count??null,
+        correct_count:objectiveStats?.correct_count??null,
+        wrong_count:objectiveStats?.wrong_count??null,
+        unanswered_count:objectiveStats?.unanswered_count??null,
+        uncertain_count:objectiveStats?.uncertain_count??null,
+        accuracy:objectiveStats?.accuracy??null,
         started_at:value.startedAt||value.createdAt||null,
         submitted_at:value.firstSubmittedAt||value.submittedAt||null,
         updated_at:value.updatedAt||value.saved_at||null,
@@ -505,6 +534,34 @@ function timingProfile(rows) {
   };
 }
 
+function objectiveScoreProfile(rows, task) {
+  if (!['reading_a','cloze','reading_b'].includes(task)) return null;
+  const scored = rows.filter((row) =>
+    row?.submitted === true
+    && Number.isFinite(Number(row?.question_count))
+    && Number(row.question_count) > 0
+    && Number.isFinite(Number(row?.correct_count))
+  );
+  const points = scored.map((row) =>
+    Number(((Number(row.correct_count) / Number(row.question_count)) * 10).toFixed(2))
+  );
+  return {
+    attempts: scored.length,
+    questions: scored.reduce((sum, row) => sum + Number(row.question_count || 0), 0),
+    correct: scored.reduce((sum, row) => sum + Number(row.correct_count || 0), 0),
+    wrong: scored.reduce((sum, row) => sum + Number(row.wrong_count || 0), 0),
+    unanswered: scored.reduce((sum, row) => sum + Number(row.unanswered_count || 0), 0),
+    uncertain: scored.reduce((sum, row) => sum + Number(row.uncertain_count || 0), 0),
+    perfect_attempts: scored.filter((row) => Number(row.correct_count) === Number(row.question_count)).length,
+    mean_points: points.length
+      ? Number((points.reduce((sum, value) => sum + value, 0) / points.length).toFixed(2))
+      : null,
+    p20_points: quantileNumber(points, 0.2),
+    p50_points: quantileNumber(points, 0.5),
+    p80_points: quantileNumber(points, 0.8)
+  };
+}
+
 function taskPerformanceProfile(allRows, recentRows, task) {
   const history = allRows.filter((row) => row.task === task);
   const recent = recentRows.filter((row) => row.task === task);
@@ -528,6 +585,16 @@ function taskPerformanceProfile(allRows, recentRows, task) {
       timing: timingProfile(cleanTimingRows),
       timing_all: timingProfile(rows)
     };
+
+    if (['reading_a','cloze','reading_b'].includes(task)) {
+      const cleanScoreRows = rows.filter((row) =>
+        row?.prior_exposure === 'unseen'
+        && row?.assistance === 'unassisted'
+      );
+      summary.score_basis = 'EXPLICIT_UNSEEN_UNASSISTED_SUBMITTED_ONLY';
+      summary.score = objectiveScoreProfile(cleanScoreRows, task);
+      summary.score_all_observational = objectiveScoreProfile(rows, task);
+    }
 
     if (objectiveLike) {
       summary.problem_bearing_attempts = rows.filter((row) => Number(row.problem_count || 0) > 0).length;
@@ -620,6 +687,8 @@ export function buildEnglishPerformanceProfile(rows, {
       'RAW_PRIVATE_HISTORY_REMAINS_LOCAL',
       'DO_NOT_COMPARE_RAW_ELAPSED_TIME_ACROSS_TASK_TYPES',
       'DEFAULT_TIMING_USES_UNSEEN_UNASSISTED_ATTEMPTS_ONLY',
+      'DEFAULT_OBJECTIVE_SCORE_USES_EXPLICIT_UNSEEN_UNASSISTED_SUBMITTED_ATTEMPTS_ONLY',
+      'UNKNOWN_OFFICIAL_EXPOSURE_NEVER_COUNTS_AS_FRESH_SCORE_EVIDENCE',
       'P20_P50_P80_TIMING_ARE_EMPIRICAL_TASK_LOCAL_QUANTILES_NOT_COMPLETION_FORECASTS',
       'TIMING_ALL_IS_OBSERVATIONAL_NOT_CLEAN_SPEED_CALIBRATION',
       'EXPOSED_OR_ASSISTED_WORK_IS_NOT_INDEPENDENT_TRANSFER',
