@@ -8,9 +8,8 @@ on:
       - "static-web/scripts/privateLearnerBridge.mjs"
       - "static-web/scripts/privateExternalReadingBridge.mjs"
       - "static-web/scripts/privateControlBridge.mjs"
+      - "static-web/scripts/kianos-static-server.mjs"
       - "static-web/scripts/test-current-static-runtime.mjs"
-      - "static-web/scripts/staticJsonPreviewBridge.mjs"
-      - "static-web/astro.config.mjs"
       - "static-web/package.json"
       - ".github/workflows/current-static-runtime.yml"
 
@@ -29,11 +28,10 @@ jobs:
       - name: Syntax check runtime owners
         run: |
           node --check scripts/kianos-current-sync.mjs
+          node --check scripts/kianos-static-server.mjs
           node --check scripts/privateLearnerBridge.mjs
           node --check scripts/privateExternalReadingBridge.mjs
           node --check scripts/privateControlBridge.mjs
-          node --check scripts/staticJsonPreviewBridge.mjs
-          node --check astro.config.mjs
           node --check scripts/test-current-static-runtime.mjs
       - run: npm run build
       - run: npm run test:current-static-runtime
