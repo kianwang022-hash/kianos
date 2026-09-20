@@ -47,7 +47,12 @@ const bRelation = loadReviewedXizongQuestionRelation(bRelationId);
 const bSystemPath = path.join(repoRoot, 'content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/system.json');
 const bSystem = JSON.parse(fs.readFileSync(bSystemPath, 'utf8'));
 check((bSystem?.identity?.legacy_system_id_variants || []).includes(bRelation?.sourceSystemId), 'b_relation_uses_explicit_legacy_alias', bRelation?.sourceSystemId || 'missing');
-check(bRelation?.targetStatus === 'UNRESOLVED_BLOCK' && !bRelation?.knowledgePath, 'b_projection_gate_fails_closed', bRelation?.targetStatus || 'missing');
+check(bRelation?.reviewStatus === 'REVIEWED', 'b_relation_is_reviewed');
+check(bRelation?.systemId === bSystem?.system_id, 'b_relation_resolves_to_current_system', bRelation?.systemId || 'missing');
+check(bRelation?.blockId === 'D2', 'b_relation_current_block', bRelation?.blockId || 'missing');
+check(bRelation?.targetStatus === 'RESOLVED_KP', 'b_reviewed_relation_resolves_to_current_kp', bRelation?.targetStatus || 'missing');
+check(bRelation?.primaryKpId === 'digestive-d2-kp08' && bRelation?.primaryRuntimeKpId === 'digestive-d2-kp08', 'b_relation_primary_kp_exact');
+check(Boolean(bRelation?.knowledgePath), 'b_relation_has_current_knowledge_path');
 
 const practiceSource = fs.readFileSync(path.join(repoRoot, 'static-web/src/components/XizongPracticeWorkbench.astro'), 'utf8');
 const reverseSource = fs.readFileSync(path.join(repoRoot, 'static-web/src/components/XizongQuestionCrosswalkReverse.astro'), 'utf8');
