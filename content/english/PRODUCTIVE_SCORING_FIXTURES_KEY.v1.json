@@ -1,0 +1,215 @@
+{
+  "schema": "kianos.english.productive_scoring_fixtures_key.v1",
+  "status": "CANDIDATE",
+  "source_bank": "content/english/PRODUCTIVE_SCORING_FIXTURES.v1.json",
+  "purpose": "Sealed engineering expectation key. Do not provide to a fresh grader before it scores the blind fixture bank.",
+  "exact_score_gold": false,
+  "expectations": {
+    "tr-cal-01-strong-a": {
+      "channel": "translation",
+      "expected_relation": "HIGH",
+      "expected_range_hint": [
+        1.75,
+        2
+      ],
+      "controlled_features": [
+        "core proposition preserved",
+        "contrast preserved",
+        "natural Chinese"
+      ],
+      "guardrail": null,
+      "must_not_penalize": [
+        "wording differs from stored reference"
+      ]
+    },
+    "tr-cal-01-strong-b-alt": {
+      "channel": "translation",
+      "expected_relation": "HIGH",
+      "expected_range_hint": [
+        1.75,
+        2
+      ],
+      "controlled_features": [
+        "semantic-equivalent alternative restructuring",
+        "contrast preserved",
+        "natural Chinese"
+      ],
+      "guardrail": null,
+      "must_not_penalize": [
+        "surface wording very different from stored reference"
+      ]
+    },
+    "tr-cal-01-mid": {
+      "channel": "translation",
+      "expected_relation": "MID",
+      "expected_range_hint": [
+        1,
+        1.5
+      ],
+      "controlled_features": [
+        "main contrast mostly recovered",
+        "precision reduced",
+        "expected/turned-out distinction weakened"
+      ],
+      "guardrail": null,
+      "must_not_penalize": []
+    },
+    "tr-cal-01-fluent-wrong": {
+      "channel": "translation",
+      "expected_relation": "LOW",
+      "expected_range_hint": [
+        0,
+        0.75
+      ],
+      "controlled_features": [
+        "very fluent Chinese",
+        "core proposition reversed",
+        "contrast destroyed"
+      ],
+      "guardrail": "fluency must not hide major meaning distortion",
+      "must_not_penalize": []
+    },
+    "tr-cal-01-fragment": {
+      "channel": "translation",
+      "expected_relation": "LOW",
+      "expected_range_hint": [
+        0.25,
+        0.75
+      ],
+      "controlled_features": [
+        "isolated meaning fragments",
+        "relation incomplete",
+        "poor completeness"
+      ],
+      "guardrail": null,
+      "must_not_penalize": []
+    },
+    "sw-extension-strong": {
+      "channel": "writing_small",
+      "expected_relation": "HIGH",
+      "expected_band": "7-10",
+      "controlled_features": [
+        "all required moves present",
+        "specific new deadline",
+        "responsible tone",
+        "plain but stable language"
+      ],
+      "guardrail": null
+    },
+    "sw-extension-polished-missing-request": {
+      "channel": "writing_small",
+      "expected_relation": "MID_LOW",
+      "expected_band": "3-6",
+      "controlled_features": [
+        "polished language",
+        "explains situation",
+        "never actually requests extension",
+        "no specific Wednesday deadline"
+      ],
+      "guardrail": "style must not hide task failure"
+    },
+    "sw-extension-plain-complete": {
+      "channel": "writing_small",
+      "expected_relation": "HIGH",
+      "expected_band": "7-8",
+      "controlled_features": [
+        "simple language",
+        "all essential moves",
+        "clear reader utility"
+      ],
+      "guardrail": "plain language should not be punished merely for lacking ornate vocabulary"
+    },
+    "sw-extension-low": {
+      "channel": "writing_small",
+      "expected_relation": "LOW",
+      "expected_band": "1-4",
+      "controlled_features": [
+        "missing specific new deadline",
+        "weak completeness",
+        "language errors/limited control"
+      ],
+      "guardrail": null
+    },
+    "bw-info-strong": {
+      "channel": "writing_big",
+      "expected_relation": "HIGH",
+      "expected_band": "13-20",
+      "controlled_features": [
+        "material relation correctly grounded",
+        "specific core message",
+        "mechanism developed",
+        "coherent progression",
+        "stable English"
+      ],
+      "guardrail": null
+    },
+    "bw-info-generic-slogan": {
+      "channel": "writing_big",
+      "expected_relation": "MID",
+      "expected_band": "9-12",
+      "controlled_features": [
+        "task broadly on theme",
+        "generic slogan development",
+        "little mechanism",
+        "weak grounding after first sentence"
+      ],
+      "guardrail": null
+    },
+    "bw-info-fluent-misread": {
+      "channel": "writing_big",
+      "expected_relation": "LOW_MID",
+      "expected_band": "5-12",
+      "controlled_features": [
+        "fluent English",
+        "central material relation reversed/misread",
+        "coherent but wrong task interpretation"
+      ],
+      "guardrail": "language fluency must not hide material-grounding failure"
+    },
+    "bw-info-simple-strong": {
+      "channel": "writing_big",
+      "expected_relation": "HIGH",
+      "expected_band": "13-16",
+      "controlled_features": [
+        "simple vocabulary",
+        "correct grounding",
+        "real mechanism",
+        "balanced boundary"
+      ],
+      "guardrail": "simple language with strong task/development should outrank ornate misread writing"
+    },
+    "bw-info-low": {
+      "channel": "writing_big",
+      "expected_relation": "LOW",
+      "expected_band": "1-8",
+      "controlled_features": [
+        "mostly ignores contrast",
+        "weak task fulfillment",
+        "generic unrelated development"
+      ],
+      "guardrail": null
+    }
+  },
+  "pairwise_invariants": [
+    {
+      "invariant_id": "translation-semantic-equivalence",
+      "better_or_equal": [
+        "tr-cal-01-strong-a",
+        "tr-cal-01-strong-b-alt"
+      ],
+      "rule": "Both semantic-equivalent strong translations must remain in overlapping high ranges despite different surface wording."
+    },
+    {
+      "invariant_id": "small-task-over-style",
+      "preferred": "sw-extension-plain-complete",
+      "over": "sw-extension-polished-missing-request",
+      "rule": "Complete plain communication should outscore polished prose that omits the actual request/new deadline."
+    },
+    {
+      "invariant_id": "big-grounding-over-fluency",
+      "preferred": "bw-info-simple-strong",
+      "over": "bw-info-fluent-misread",
+      "rule": "Correct material grounding and development should outscore fluent but materially misread writing."
+    }
+  ]
+}
