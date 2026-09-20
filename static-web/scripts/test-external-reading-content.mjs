@@ -79,8 +79,8 @@ const parseComplete=spawnSync('python3',[
 assert.equal(parseComplete.status,0,parseComplete.stderr||parseComplete.stdout||'source package parser failed');
 assert.equal(fs.readFileSync(path.join(completeOut,'raw','source_package.md'),'utf8'),completePackage);
 const parsedArticle=fs.readFileSync(path.join(completeOut,'normalized','article.md'),'utf8');
-assert.match(parsedArticle,/First source paragraph stays unchanged\\./);
-assert.match(parsedArticle,/Second source paragraph also stays unchanged\\./);
+assert.match(parsedArticle,/First source paragraph stays unchanged\./);
+assert.match(parsedArticle,/Second source paragraph also stays unchanged\./);
 assert.doesNotMatch(parsedArticle,/extraction_check:/);
 assert.doesNotMatch(parsedArticle,/publication:/);
 const parsedMeta=JSON.parse(fs.readFileSync(path.join(completeOut,'meta.json'),'utf8'));
