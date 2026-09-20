@@ -14,16 +14,16 @@ This file owns work cursor only. It does not own medical Core, Learning semantic
 **Scope:** F — Remaining Clinical  
 **Lane-A role:** **NEXT MEDICAL CONTENT PRIORITY**  
 **Stable Current identity:** **9 Blocks / 121 canonical KP**  
-**Active gate:** **K — fresh independent Knowledge acceptance**  
+**Active gate:** **L — Learning Logic construction**  
 **Source state:** **S1 PASS after approved Source rebind; bounded unresolved exact fields remain explicit / fail-closed**  
-**Earliest eligible next action:** **fresh independent K audit of the F candidate; do not begin Learning before K PASS**  
-**Downstream:** L / Content / P / R / E frozen behind K
+**Earliest eligible next action:** **construct F Learning Logic from accepted K; this Phase-2 audit itself does not start Learning**  
+**Downstream:** Content / P / R / E frozen behind accepted Learning
 
 ```text
 S1 medical / first-learning Source boundary = PASS
 S2 exact official-question membership        = UNTESTED / separate later boundary
-K Knowledge                                  = UNTESTED / CANDIDATE_READY_FOR_INDEPENDENT_AUDIT
-L Learning Logic                             = UNTESTED / downstream-frozen
+K Knowledge                                  = PASS_AFTER_BOUNDED_REPAIR
+L Learning Logic                             = UNTESTED / NEXT_ELIGIBLE
 Content                                      = NOT_STARTED
 P / R / E                                    = downstream-frozen
 U Learner Use                                = no claim
@@ -131,26 +131,63 @@ Remaining exact gaps belong to Current exam Source, so they stay explicit and mu
 
 ---
 
-## K eligibility
+## Accepted Knowledge — PASS_AFTER_BOUNDED_REPAIR
 
-The existing 9 Block Markdown files contain substantial usable medical Core. S1 now passes because the authoritative Source families, locators, verified closures and unresolved exact gaps are all explicit.
+Canonical Knowledge owner:
 
-Knowledge reconstruction may now proceed, but it must:
+`content/xizong/knowledge/systems/f-remaining-clinical/system.json`
 
-- preserve the remaining F1/F2/F3/F4/F9 exact Source gaps;
-- treat original visuals as Source-owned where required;
-- refuse to infer missing exact values/lists;
-- avoid reviving the historical 12-Block topology.
+Fresh independent acceptance:
+
+`content/xizong/knowledge/learner/F_PHASE2_FRESH_INDEPENDENT_K_ACCEPTANCE.md`
+
+Verdict:
+
+```text
+FRESH_K_PASS_AFTER_BOUNDED_REPAIR
+```
+
+Fresh independent audit preserved the 9-Block / 121-KP identity and found one bounded System-level defect: the original mother model treated harmful acute disturbance and planned surgery/anesthesia as if they shared one universal source-control chain.
+
+The repaired accepted K model uses two related but non-identical contexts:
+
+```text
+F1–F4  acute disturbance-control
+       harmful input / contamination / tissue injury
+       → immediate threat
+       → vital support + source control when applicable
+       → bounded specific control
+       → iatrogenic risk / recovery
+
+F5–F8  intervention-safety
+       urgency + physiologic reserve
+       → intended surgery / anesthesia + action space
+       → vital support / monitoring
+       → iatrogenic risk
+       → recovery / deviation
+
+F9     low-connectivity residual tail
+       ownership split first
+```
+
+Source control is now conditional rather than universal. Planned surgery/anesthesia is an `INTERVENTION_CONTEXT`, not mislabeled as a harmful `DISTURBANCE_SOURCE`.
+
+Preserved boundaries:
+
+- F1/F2/F3/F4/F9 exact Source gaps remain fail-closed;
+- F6/F8 verified Source rebind closures remain closed;
+- external shock/airway/renal/liver/infection/NMJ/tumor truth remains with its real owner;
+- S2 exact official-question membership remains UNTESTED;
+- no learner route, hard readiness, LG decomposition or Source-contact choreography was accepted at K.
 
 ---
 
 ## Next action
 
 ```text
-fresh independent K audit of the existing F candidate
-→ on K PASS: Learning Logic construction
-→ independent L acceptance
+Learning Logic construction
+→ fresh independent L acceptance
 → Content Realization / closure
 ```
 
-Do not copy D/E topology for symmetry.
+Do not copy D/E topology for symmetry. Learning must derive F-specific learner units and Source-contact structure from the accepted dual-context K model rather than from the historical Guide.
