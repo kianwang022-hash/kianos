@@ -30,24 +30,29 @@
     "no_answer_leakage_on_first_attempt": true,
     "same_task_after_reveal": "REPAIR_ONLY_NOT_FRESH_TRANSFER",
     "synthetic_score_role": "MECHANISM_EVIDENCE_ONLY_UNLESS_EXTERNALLY_CALIBRATED",
-    "source_fidelity": "all stable topic answers derive from audited Current/later-stage hooks; current-year exact wording is excluded"
+    "source_fidelity": "all stable topic answers derive from audited Current/later-stage hooks; current-year exact wording is excluded",
+    "material_identity": "normalized exact material → deterministic fnv1a64-utf16 identity",
+    "material_family_identity": "source_basis-scoped family; same family is never FRESH after prior exposure",
+    "changed_context": "requires different exact material_identity; same family may be CHANGED_CONTEXT but not FRESH"
   },
   "official_corroboration_note": "Broad stable Marxism/history/ethics constructs were spot-checked against authoritative public sources before this bank was materialized; current-year exact exam wording remains source-gated.",
   "builder_self_attack": {
     "status": "PASS_AFTER_BOUNDED_REPAIR",
     "defects_found": [
       "8 stress variants lacked an explicit competing principle and therefore did not truly test discrimination",
-      "formulation retrieval prompts used an underspecified generic topic cue; repaired to reveal the intended topic by design"
+      "formulation retrieval prompts used an underspecified generic topic cue; repaired to reveal the intended topic by design",
+      "task identity did not carry exact material identity, so reused source hooks could allow same/near-derived material to be mislabeled fresh"
     ],
     "invariants": [
       "Prompt IDs are unique and have exactly one answer-key row",
       "PRINCIPLE_RETRIEVAL does not reveal the exact expected topic string",
       "STRESS_VARIANT carries an explicit competing principle",
       "FORMULATION_RETRIEVAL reveals the topic intentionally because formulation, not identification, is the tested construct",
-      "same task after answer reveal is never fresh transfer"
+      "same task after answer reveal is never fresh transfer",
+      "FRESH evidence must use an unseen exact material_identity and an unseen material_family_id; CHANGED_CONTEXT must use a different exact material_identity"
     ]
   },
-  "bank_revision": 3,
+  "bank_revision": 4,
   "revalidation": {
     "status": "REPAIRED_AFTER_POLITICS_SPECIFIC_MATURITY_REVIEW",
     "findings": [
@@ -61,6 +66,12 @@
       "status": "REPAIRED",
       "prompt_count_repaired": 72,
       "reason": "legacy 72 prompts had answer-key source_hook but no prompt-level source_basis; normalized without changing task semantics"
+    },
+    "material_identity_repair": {
+      "status": "REPAIRED",
+      "reason": "task_id/source_basis alone could not prove fresh material when the same source hook was reused across task roles",
+      "task_revision": "bank-r4",
+      "prompt_count_revised": 104
     }
   }
 }
