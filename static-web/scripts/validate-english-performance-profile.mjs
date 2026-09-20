@@ -143,6 +143,7 @@ assert.equal(profile.tasks.reading_a.role,'EXAM_OBJECTIVE');
 assert.equal(profile.tasks.translation.role,'EXAM_PRODUCTIVE');
 assert.equal(profile.tasks.writing.role,'EXAM_PRODUCTIVE');
 assert.equal(profile.tasks.external_reading.role,'GROWTH_READING');
+assert.equal(profile.tasks.reading_a.history.score_basis,'EXPLICIT_UNSEEN_UNASSISTED_SUBMITTED_ONLY');
 assert.equal(profile.tasks.reading_a.evidence_shape,'QUESTION_OUTCOME');
 assert.equal(profile.tasks.cloze.evidence_shape,'QUESTION_OUTCOME');
 assert.equal(profile.tasks.reading_b.evidence_shape,'QUESTION_OUTCOME');
@@ -177,10 +178,17 @@ assert.notEqual(
   profile.tasks.writing.history.timing.median_elapsed_seconds,
   'task-local elapsed timing was collapsed into one cross-task value'
 );
+for(const task of ['reading_a','cloze','reading_b']){
+  const row=profile.tasks[task].history;
+  assert.equal(row.score_basis,'EXPLICIT_UNSEEN_UNASSISTED_SUBMITTED_ONLY',`score basis:${task}`);
+  assert.ok(row.score.attempts>0,`clean objective score samples missing:${task}`);
+  assert.ok(row.score.p20_points<=row.score.p50_points,`objective score p20/p50 invalid:${task}`);
+  assert.ok(row.score.p50_points<=row.score.p80_points,`objective score p50/p80 invalid:${task}`);
+}
 assert.equal(
-  Object.values(profile.tasks).some(row=>Object.prototype.hasOwnProperty.call(row,'score')),
+  Object.values(profile.tasks).some(row=>Object.prototype.hasOwnProperty.call(row,'mastery')),
   false,
-  'subject profile invented task scores'
+  'subject profile invented mastery'
 );
 
 const tamperedRows=[
