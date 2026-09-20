@@ -8,6 +8,17 @@ export const ENGLISH_SCORE_CHANNELS=Object.freeze({
   writing_big:Object.freeze({label:'Big Writing',max_points:20})
 });
 
+export const ENGLISH_FORECAST_FAMILIES=Object.freeze([
+  'reading_a',
+  'cloze',
+  'reading_b',
+  'translation',
+  'writing_small',
+  'writing_big',
+  'lexical',
+  'whole_paper'
+]);
+
 const finite=(value)=>{
   if(value===null||value===undefined||value==='')return null;
   const n=Number(value);
@@ -131,8 +142,32 @@ function sumBands(rows){
 }
 
 function workloadForecast(input){
+  const source=input?.task_families&&typeof input.task_families==='object'&&!Array.isArray(input.task_families)
+    ? input.task_families
+    : {};
   const families=[];
-  for(const [familyId,family] of Object.entries(input?.task_families||{})){
+  const missingFamilyIds=[];
+
+  for(const familyId of ENGLISH_FORECAST_FAMILIES){
+    const family=source[familyId];
+    if(!family||typeof family!=='object'||Array.isArray(family)){
+      missingFamilyIds.push(familyId);
+      families.push({
+        id:familyId,
+        label:familyId,
+        operating_mode:'UNKNOWN',
+        open_mechanisms:[],
+        buckets:[],
+        required_bucket_count:0,
+        unpriced_bucket_ids:['SCOPE_UNDECLARED'],
+        known_priced_band_minutes:{p20:0,p50:0,p80:0},
+        full_band_minutes:null,
+        confidence:'UNKNOWN',
+        scope_complete:false
+      });
+      continue;
+    }
+
     const buckets=(Array.isArray(family?.work_buckets)?family.work_buckets:[])
       .map((bucket)=>bucketForecast(bucket,familyId));
     const requiredBuckets=buckets.filter((row)=>row.required);
@@ -140,8 +175,14 @@ function workloadForecast(input){
     const unpricedRequired=requiredBuckets.filter((row)=>!row.band_minutes);
     const priorOnly=requiredBuckets.filter((row)=>row.pricing_source==='PRIOR_ONLY');
     const empirical=requiredBuckets.filter((row)=>row.pricing_source==='EMPIRICAL');
+    const scopeComplete=family.scope_complete===true;
     const knownBand=sumBands(pricedRequired);
-    const fullBand=unpricedRequired.length?null:knownBand;
+    const scopeUnknown=!scopeComplete;
+    const fullBand=(unpricedRequired.length||scopeUnknown)?null:knownBand;
+    const unpricedIds=[
+      ...unpricedRequired.map((row)=>row.id),
+      ...(scopeUnknown?['SCOPE_UNDECLARED']:[])
+    ];
     families.push({
       id:familyId,
       label:String(family?.label||familyId),
@@ -149,21 +190,23 @@ function workloadForecast(input){
       open_mechanisms:Array.isArray(family?.open_mechanisms)?family.open_mechanisms.map(String):[],
       buckets,
       required_bucket_count:requiredBuckets.length,
-      unpriced_bucket_ids:unpricedRequired.map((row)=>row.id),
+      unpriced_bucket_ids:unpricedIds,
       known_priced_band_minutes:knownBand,
       full_band_minutes:fullBand,
-      confidence:unpricedRequired.length?'PARTIAL'
+      confidence:(unpricedRequired.length||scopeUnknown)?'PARTIAL'
         : priorOnly.length?'PRIOR_HEAVY'
         : empirical.length===requiredBuckets.length&&requiredBuckets.length?'EMPIRICAL'
-        :'MIXED'
+        :'MIXED',
+      scope_complete:scopeComplete
     });
   }
 
   const requiredRows=families.flatMap((family)=>family.buckets.filter((row)=>row.required));
   const pricedRows=requiredRows.filter((row)=>row.band_minutes);
   const unpricedRows=requiredRows.filter((row)=>!row.band_minutes);
+  const incompleteFamilies=families.filter((family)=>!family.scope_complete);
   const knownBand=sumBands(pricedRows);
-  const fullBand=unpricedRows.length?null:knownBand;
+  const fullBand=(unpricedRows.length||incompleteFamilies.length)?null:knownBand;
   const priorCount=requiredRows.filter((row)=>row.pricing_source==='PRIOR_ONLY').length;
   const empiricalCount=requiredRows.filter((row)=>row.pricing_source==='EMPIRICAL').length;
 
@@ -171,9 +214,14 @@ function workloadForecast(input){
     families,
     known_priced_band_minutes:knownBand,
     full_band_minutes:fullBand,
-    full_scope_priced:unpricedRows.length===0,
-    unpriced_bucket_ids:unpricedRows.map((row)=>familyBucketId(row)),
-    workload_confidence:unpricedRows.length?'PARTIAL'
+    full_scope_priced:unpricedRows.length===0&&incompleteFamilies.length===0,
+    missing_family_ids:missingFamilyIds,
+    incomplete_family_ids:incompleteFamilies.map((row)=>row.id),
+    unpriced_bucket_ids:[
+      ...unpricedRows.map((row)=>familyBucketId(row)),
+      ...incompleteFamilies.map((row)=>row.id+':SCOPE_UNDECLARED')
+    ],
+    workload_confidence:(unpricedRows.length||incompleteFamilies.length)?'PARTIAL'
       : priorCount?'PRIOR_HEAVY'
       : empiricalCount===requiredRows.length&&requiredRows.length?'EMPIRICAL'
       :'MIXED',
