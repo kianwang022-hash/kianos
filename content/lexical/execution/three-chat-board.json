@@ -274,18 +274,15 @@
     "C": {
       "role": "PRODUCTION_C_FINAL_SWEEP",
       "current_assignment": {
-        "candidate_id": "BF08",
+        "candidate_id": "BF07",
         "range": [
-          801,
-          900
+          701,
+          800
         ],
-        "state": "WAITING_BOUNDED_HUMAN_DELTA_GATE",
-        "review_head": "92f70d59e776db548dae118bd26fc15d8a133d12",
-        "review_branch": "work/lexical-final-backfill-c-o0801-o0900",
-        "review_request_commit": "3891762930c342adf2706739b67c74f340bb8419",
+        "state": "REVIEW_BUNDLE_NEEDED",
         "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
         "allowed_now": [
-          "consume review bundle",
+          "freeze current main and export review bundle",
           "fresh owner/module judgment",
           "same-Chat Self-Adversarial Attack",
           "write smallest stabilized proposal",
@@ -298,46 +295,7 @@
           "merge backfill candidate",
           "invent a newer semantic standard"
         ],
-        "next_action": "Kian reviews only the six genuinely new material deltas in PR #585. On p, approve exactly those six plus the reported bounded corrections/Test changes, freeze BF08 backlog, and leave C ready for o0701-o0800.",
-        "review_workflow_run": 35481277128,
-        "review_artifact_id": 10595274445,
-        "review_artifact_digest": "sha256:aad818d2349caab76983f8c7467cc9309fea388f3c46a1c3c3e0a63cd5d136a0",
-        "review_bundle_coverage": "100/100",
-        "proposal_pr": 585,
-        "proposal_head": "4ab4daa02f3aa4909bd9192ed1755a1aa90b5614",
-        "proposal_path": "content/lexical/execution/manifests/o0801-o0900.final-semantic-sweep-c-proposal.md",
-        "module_matrix_path": "content/lexical/execution/manifests/o0801-o0900.final-semantic-sweep-c-module-matrix.tsv",
-        "fresh_read_coverage": "100/100",
-        "self_attack": "COMPLETE",
-        "content_affected_owners": 26,
-        "content_no_change": 74,
-        "blocked": 0,
-        "new_material_delta_owners": [
-          820,
-          821,
-          828,
-          856,
-          858,
-          891
-        ],
-        "old_test_blueprints": 29,
-        "stabilized_test_blueprints": 16,
-        "canonical_semantic_mutation": false,
-        "shared_write_set_if_approved": [
-          "cigaret↔cigarette spelling identity; shared word:cigarette@o5522",
-          "coalesced cite↔site↔sight homophone Relation; shared word:site@o4463, word:sight@o4430",
-          "claim↔allege↔assert reporting-stance Relation; shared word:allege@o0146, word:assert@o0300",
-          "civilisation↔civilization Form boundary",
-          "civilise↔civilize Form boundary",
-          "classic↔classical reciprocal Relation",
-          "cloth↔clothe confusable reciprocal Relation",
-          "clothe↔dress semantic contrast; shared word:dress@o1508",
-          "coach↔train semantic contrast; shared word:train@o5092",
-          "coarse↔course confusable; shared word:course@o1128",
-          "college↔colleague confusable reciprocal Relation",
-          "color↔colour Form boundary"
-        ],
-        "semantic_freshness_note": "Review froze from main 92f70d59. Pre-proposal drift check showed only live Lexical board plus Xizong/static-web changes; no o0801-o0900 Word/Relation/Form semantic owner or Lexical semantic contract changed. FINAL_SEMANTIC_FREEZE v1 remains current."
+        "next_action": "Create/consume o0701-o0800 review bundle, perform Fresh Read + Self Attack, freeze proposal; this is C's final Production batch."
       },
       "scheduled_ranges": [
         [
@@ -365,10 +323,7 @@
           800
         ]
       ],
-      "next_new_review_range": [
-        701,
-        800
-      ],
+      "next_new_review_range": null,
       "direction_note": "Preserve completed o0201-o0300 lookahead; all new C review proceeds high→low.",
       "preserved_assignments": [
         {
@@ -610,6 +565,89 @@
             "second_approval_at": "2026-09-20",
             "sync_main_head": "27942301f95fffd31d9fbd463280cdee14c0b519",
             "advance_after_approval": false
+          }
+        },
+        {
+          "candidate_id": "BF08",
+          "range": [
+            801,
+            900
+          ],
+          "state": "DELTA_APPROVED_FROZEN_BACKLOG",
+          "review_head": "92f70d59e776db548dae118bd26fc15d8a133d12",
+          "review_branch": "work/lexical-final-backfill-c-o0801-o0900",
+          "review_request_commit": "3891762930c342adf2706739b67c74f340bb8419",
+          "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
+          "allowed_now": [
+            "consume review bundle",
+            "fresh owner/module judgment",
+            "same-Chat Self-Adversarial Attack",
+            "write smallest stabilized proposal",
+            "gate only genuinely new material delta"
+          ],
+          "forbidden_now": [
+            "canonical semantic materialization",
+            "FLOB rebuild",
+            "launch B audit",
+            "merge backfill candidate",
+            "invent a newer semantic standard"
+          ],
+          "next_action": "Frozen backlog. Do not materialize/audit until production_sweep.status is COMPLETE; refreeze latest main/dependencies before future materialization.",
+          "review_workflow_run": 35481277128,
+          "review_artifact_id": 10595274445,
+          "review_artifact_digest": "sha256:aad818d2349caab76983f8c7467cc9309fea388f3c46a1c3c3e0a63cd5d136a0",
+          "review_bundle_coverage": "100/100",
+          "proposal_pr": 585,
+          "proposal_head": "a58b4ef209c1b7527e00533db4ef9046000723cc",
+          "proposal_path": "content/lexical/execution/manifests/o0801-o0900.final-semantic-sweep-c-proposal.md",
+          "module_matrix_path": "content/lexical/execution/manifests/o0801-o0900.final-semantic-sweep-c-module-matrix.tsv",
+          "fresh_read_coverage": "100/100",
+          "self_attack": "COMPLETE",
+          "content_affected_owners": 26,
+          "content_no_change": 74,
+          "blocked": 0,
+          "new_material_delta_owners": [
+            820,
+            821,
+            828,
+            856,
+            858,
+            891
+          ],
+          "old_test_blueprints": 29,
+          "stabilized_test_blueprints": 16,
+          "canonical_semantic_mutation": false,
+          "shared_write_set_if_approved": [
+            "cigaret↔cigarette spelling identity; shared word:cigarette@o5522",
+            "coalesced cite↔site↔sight homophone Relation; shared word:site@o4463, word:sight@o4430",
+            "claim↔allege↔assert reporting-stance Relation; shared word:allege@o0146, word:assert@o0300",
+            "civilisation↔civilization Form boundary",
+            "civilise↔civilize Form boundary",
+            "classic↔classical reciprocal Relation",
+            "cloth↔clothe confusable reciprocal Relation",
+            "clothe↔dress semantic contrast; shared word:dress@o1508",
+            "coach↔train semantic contrast; shared word:train@o5092",
+            "coarse↔course confusable; shared word:course@o1128",
+            "college↔colleague confusable reciprocal Relation",
+            "color↔colour Form boundary"
+          ],
+          "semantic_freshness_note": "Review froze from main 92f70d59. Pre-proposal drift check showed only live Lexical board plus Xizong/static-web changes; no o0801-o0900 Word/Relation/Form semantic owner or Lexical semantic contract changed. FINAL_SEMANTIC_FREEZE v1 remains current.",
+          "proposal_blob_sha": "c1a1f3f678879eedc42e2bdb3d72f4a8e55c6c0a",
+          "human_gate": {
+            "approved": true,
+            "approved_at": "2026-09-20",
+            "approval_ref": "Kian p on o0801-o0900 Production C proposal",
+            "approved_owners": [
+              820,
+              821,
+              828,
+              856,
+              858,
+              891
+            ],
+            "proposal_path": "content/lexical/execution/manifests/o0801-o0900.final-semantic-sweep-c-proposal.md",
+            "proposal_blob_sha": "c1a1f3f678879eedc42e2bdb3d72f4a8e55c6c0a",
+            "sync_main_head": "2ba45be3ee4cde26be79298d83b8868427505eea"
           }
         }
       ],
@@ -1519,14 +1557,17 @@
           1000
         ],
         "state": "PRODUCTION_DELTA_APPROVED_FROZEN_BACKLOG"
+      },
+      {
+        "range": [
+          801,
+          900
+        ],
+        "state": "PRODUCTION_DELTA_APPROVED_FROZEN_BACKLOG"
       }
     ],
     "A_remaining": [],
     "C_remaining": [
-      [
-        801,
-        900
-      ],
       [
         701,
         800
