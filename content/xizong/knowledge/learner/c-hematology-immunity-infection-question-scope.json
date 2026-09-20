@@ -1,0 +1,147 @@
+{
+  "schema": "kianos.xizong.system_question_scope.v2",
+  "status": "CURRENT",
+  "authority": "CHAT_APPROVED_CURRENT_RECONSTRUCTION_FROM_EXACT_RESOLVER_WITH_BOUNDED_OWNER_REPAIR",
+  "system": {
+    "canonical_id": "C",
+    "system_id": "hematology-immunity-infection",
+    "title": "血液 / 免疫 / 感染"
+  },
+  "role": "FIRST_PASS_SYSTEM_OFFICIAL_QUESTION_SCOPE_ONLY",
+  "learner_use": "After real C System completion + pre-question System Reconstruction, expand this exact identifier scope and run the C official-question sweep. Correct-and-clear may fast-pass; Wrong/Uncertain remain repair evidence.",
+  "question_count": 288,
+  "question_id_inventory_sha256": "2ef4aea5c284fb9ced4b418bcde4df202f403b2f68651c6fad23b4d0fa77ea1f",
+  "id_expansion": {
+    "id_template": "xizong-official-{year}-n{number:03d}",
+    "spec_format": "comma-separated single numbers or inclusive a-b ranges",
+    "question_number_spec_by_year": {
+      "2005": "4,47,50,77-78,80,83-84",
+      "2006": "46,49,77-80,83-84,90,140,145",
+      "2007": "4,47-48,50,68-69,75-76,83,117-118,152,172-173",
+      "2008": "4,46-47,52,71-72,75-76,105-107,165,167-168,173",
+      "2009": "4,24,53,72-74,102-104,173",
+      "2010": "4,46,51,71-72,75-76,105-107,138,152,165,167-168,173",
+      "2011": "4-5,23,49,53-54,71-72,75-76,83,102-104,134,173",
+      "2012": "4-6,51,55,71-72,75-76,105-107,168,173",
+      "2013": "4,6,51-52,55,71-72,75-76,105,107,165,173",
+      "2014": "4,49,53-54,71-72,75-76,105-107,137-138,152,173",
+      "2015": "4,49,53,71-72,75-76,105-107,140,152,166,173",
+      "2016": "4-5,47,52,55,71-72,75-76,105-107,167,173",
+      "2017": "3,38,40,54,56,70-72,85-87,91-92,152-153,158",
+      "2018": "3,38,41,56,85-87,91-92,126-127,158",
+      "2019": "36,41,48,54,56,85-87,91-92,158",
+      "2020": "4,33,39,41,54,56,85-87,91-92,126-127,158",
+      "2021": "31,33,53,55-56,70-72,85-86,91-92,136,158,165",
+      "2022": "3-4,35-36,41,54,56,85-87,91-92,149,151,158",
+      "2023": "4,53,55-56,85-87,91-92,126-127,158",
+      "2024": "33,37,54,56,85-87,91-92,158",
+      "2025": "31,39,54,56,85-87,91-92,158",
+      "2026": "5,40,53,55-56,85-87,91-92,150,152,158"
+    }
+  },
+  "year_counts": {
+    "2005": 8,
+    "2006": 11,
+    "2007": 14,
+    "2008": 15,
+    "2009": 10,
+    "2010": 16,
+    "2011": 16,
+    "2012": 14,
+    "2013": 13,
+    "2014": 15,
+    "2015": 14,
+    "2016": 14,
+    "2017": 16,
+    "2018": 12,
+    "2019": 11,
+    "2020": 14,
+    "2021": 15,
+    "2022": 15,
+    "2023": 12,
+    "2024": 10,
+    "2025": 10,
+    "2026": 13
+  },
+  "reconstruction": {
+    "mode": "EXACT_EXECUTABLE_HISTORICAL_RESOLVER_PLUS_CURRENT_OWNER_BOUNDARY_REPAIR",
+    "current_question_truth_identity_check": {
+      "owner_path": "content/xizong/questions/",
+      "question_count": 3750,
+      "current_question_id_inventory_sha256": "0abc1a3cadbb41b36808fe86ff58c21ede6f4297312e9fb4c2da62b865ef2c82",
+      "historical_and_current_question_id_inventory": "EXACT_MATCH_3750_OF_3750"
+    },
+    "historical_resolver": {
+      "source_repository": "kianwang022-hash/kianos-site-v238-recovery",
+      "source_ref": "a38444057dd46fbf1765052d17c5f6b6a018d2f7",
+      "resolver_path": "app/learning/xizong-question-pool.js",
+      "resolver_blob_sha1": "8b73c9e0a49e02ad3cf296832f90dd19fe4da161",
+      "resolver_function": "resolveSystemClosureFromSourceUnion",
+      "routing_path": "public/xizong-system-source-routing.v1.local.json",
+      "routing_blob_sha1": "e184f0fc899de0a6bf47c5b194fe328d2f1977de",
+      "contract_path": "public/xizong-system-official-scope.v2.local.json",
+      "contract_blob_sha1": "b239dba8e3e2969b47a534be9d5daa3e001ab5d3",
+      "test_path": "tests/xizong-system-official-scope-local-apply.test.mjs",
+      "test_blob_sha1": "d9a678c0eed481359e15b729469d0c6d393165f8",
+      "historical_candidate_count": 326,
+      "historical_expected_count": 326,
+      "eight_system_count_gate_exact": true
+    },
+    "current_c_boundary": {
+      "system_owner": "content/xizong/knowledge/systems/c-hematology-immunity-infection/system.json",
+      "medical_core_root": "content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/",
+      "stable_blocks": 27,
+      "stable_kp": 423,
+      "accepted_learning_lg": 133,
+      "negative_space": [
+        "general tissue repair is baseline/Recall, not C Primary",
+        "reproductive/gynecologic/prostate disease Primary remains with owning reproductive/urinary/tumor Systems",
+        "normal hemostasis is Circulation Primary",
+        "complete RBC metabolism / iron-B12-folate-one-carbon / tumor-molecular foundation remains external",
+        "complete organ-specific infection diagnosis/treatment remains external"
+      ]
+    },
+    "bounded_current_repair": {
+      "historical_candidate_count": 326,
+      "excluded_count": 38,
+      "excluded_scope_groups": [
+        {
+          "lecture_scope_key": "pathology|第九章|1.损伤的修复",
+          "excluded_question_count": 19,
+          "decision": "EXCLUDE_FROM_C_SYSTEM_SCOPE",
+          "basis": "H20/H25 treat general inflammation/repair as Recall baseline; the excluded stems are generic regeneration, granulation tissue, fracture/wound repair rather than C infection Primary."
+        },
+        {
+          "lecture_scope_key": "pathology|第六章 生殖系统疾病|",
+          "excluded_question_count": 19,
+          "decision": "EXCLUDE_FROM_C_SYSTEM_SCOPE",
+          "basis": "H12–H14 Primary is immune/hypersensitivity/deficiency/transplant; the excluded stems are cervical/gestational-trophoblastic/ovarian/uterine/prostate organ pathology and remain external owner truth."
+        }
+      ],
+      "final_count": 288,
+      "unresolved_membership_ambiguities": []
+    },
+    "preserved_historical_owner_checks": [
+      "normal-hemostasis questions remain outside C through reviewed Circulation collision ownership",
+      "COPD / pulmonary-hypertension / gastritis / pulmonary-TB / breast-disease neighboring owner collisions remain outside C",
+      "H1 physiology blood-properties Primary remains in C",
+      "H22/H23 selected infectious pathology Primary remains in C"
+    ],
+    "decision": "ACCEPT_REPAIRED_CURRENT_C_SYSTEM_SCOPE"
+  },
+  "runtime_validation": [
+    "Expand question_number_spec_by_year deterministically.",
+    "Require exactly 288 unique IDs.",
+    "Require expanded inventory SHA256 = 2ef4aea5c284fb9ced4b418bcde4df202f403b2f68651c6fad23b4d0fa77ea1f.",
+    "Require Current Question Truth ordered-ID inventory SHA256 = 0abc1a3cadbb41b36808fe86ff58c21ede6f4297312e9fb4c2da62b865ef2c82.",
+    "Fail closed if Current C owner boundary, historical resolver identities, or Current Question Truth inventory changes."
+  ],
+  "boundaries": [
+    "System-level official-question membership only; not Question Truth.",
+    "Does not assert Question-to-Block, Question-to-Logic-Group, or Question-to-KP mapping.",
+    "Do not infer membership from nullable Current classification fields, keywords, Outline placement, or historical count fitting.",
+    "Reviewed Question→Knowledge relations remain a separate owner and may be sparse.",
+    "Wrong/Uncertain repair may use an existing REVIEWED precise relation when available; otherwise leave precise routing unresolved.",
+    "No learner attempt, mastery, Wrong/Uncertain, notes, Memory, holdout, or review state belongs in this shared Current scope owner."
+  ]
+}
