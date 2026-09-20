@@ -1,6 +1,6 @@
 # Politics Score / Ability / Material / Method / Evidence Matrix
 
-Status: **PRE-ADAPTATION DRAFT — informational only until regenerated from Politics MATURITY_REQUIREMENTS**
+Status: **ACTIVE — revalidated against Politics MATURITY_REQUIREMENTS**
 
 Purpose: operationalize **Protect 70 / Push 75** without creating a second Politics knowledge system.
 
@@ -562,8 +562,8 @@ Analysis structural semantics              PARTIAL-STRONG
 Analysis ready training inventory          INCOMPLETE
 Analysis evidence ladder                    INCOMPLETE
 Current-year exact analysis source          FUTURE
-Politics Forecast                           INCOMPLETE
-Dynamic control semantics                   PARTIAL
+Politics Forecast                           CANDIDATE / SENSOR+STRESS PROOF PENDING
+Dynamic control semantics                   ACTIVE POLITICS-NATIVE POLICY
 First-round Chat↔Website execution          STRONG
 Whole-lifecycle adversarial proof           INCOMPLETE
 ```
@@ -743,3 +743,80 @@ A Chat plan is semantically invalid if it:
 - spends Elastic time while an unresolved Protect-70 blocker remains.
 
 Website/runtime may reject an explicit contradiction if such an invariant is machine-checkable, but it may not choose the replacement task.
+
+
+---
+
+## 14. Analysis stop / reopen matrix
+
+This closes the missing control semantics for A1–A9.
+
+| Capability | Reduce / stop dedicated practice when | Reopen when |
+| --- | --- | --- |
+| A1 Prompt interpretation | representative unseen prompts are interpreted correctly across more than one relation type | new prompt relation is misread or a correct topic is answered to the wrong task |
+| A2 Material segmentation | decisive cues are consistently extracted and support correct downstream principle selection | learner copies material, misses decisive cue, or downstream error is traced to segmentation |
+| A3 Principle retrieval | unseen cues map to the correct owner across representative domains | same principle-selection mechanism fails again or a competing principle wins incorrectly |
+| A4 Skeleton construction | 3–5 answer moves are complete, relevant and non-dumping on changed material | new material yields missing/irrelevant moves or broad template dumping |
+| A5 Exact formulation retrieval | source-grounded wording is recalled after delay and used correctly where exactness matters | current-year source changes, recall relapses, or wording error causes Objective/Analysis loss |
+| A6 Material binding | independent answers attach each major move to concrete material cues without generic padding | memorized skeleton remains correct but material-specific linkage is weak or missing |
+| A7 Complete answer delivery | independent complete answers remain coherent, sufficiently dense and complete without repair-heavy rewriting | new prompt produces incomplete/disorganized prose or delivery cost is excessive |
+| A8 Timed analysis execution | phase-appropriate complete answers remain usable under realistic time/handwriting constraints | timed quality/completion falls below untimed capability or whole-paper time pressure exposes failure |
+| A9 Whole-paper switching | Objective + Analysis coexist with viable pacing, completion and fatigue control | full-paper evidence contradicts local task stability |
+
+No fixed quota closes these capabilities. Representative performance evidence closes them.
+
+---
+
+## 15. Analysis scoring-validity boundary
+
+Analysis diagnosis and score estimation must be kept separate.
+
+For every rated Analysis task, the evaluator may diagnose:
+
+- prompt interpretation;
+- principle selection;
+- skeleton/logic;
+- material binding;
+- formulation quality;
+- completeness;
+- timing/delivery.
+
+However:
+
+- internally consistent Chat/model scoring does not by itself prove real exam-score validity;
+- same-rubric agreement is not external validation;
+- when a subjective score would materially change Protect-70/Push-75 strategy, require anchored re-score, independent second review, or the strongest available external calibration;
+- absent adequate external calibration, Analysis score confidence remains wide even when mechanism diagnosis is strong.
+
+Therefore the Analysis material/evidence chain may become operational before the final numeric score channel becomes narrowly calibrated.
+
+---
+
+## 16. Historical sanity prior
+
+Previous-cycle Politics score of about 60, despite incomplete Objective study and essentially absent systematic Analysis preparation, is used only as a falsification prior.
+
+It must trigger model review when a Forecast implies implausibly large work merely to reach 70 without a mechanism explaining that history.
+
+It must never be treated as a current score floor or guarantee.
+
+---
+
+## 17. Politics freshness gradient inside the matrix
+
+Low-delta structural evidence may support early Build/Verify mainly for:
+
+- Marxist principle relations;
+- stable historical causal structures;
+- stable conceptual ethics/life-value structures.
+
+High-delta exact claims stay blocked pending designated current-year source, especially:
+
+- Xi/current policy wording;
+- current affairs;
+- recent-history annual additions;
+- legal/normative exact wording;
+- current-year recitation emphasis;
+- Xiao8/Xiao4 final framing.
+
+A capability may therefore be structurally Verify-ready while its exact current-year wording remains UNKNOWN.
