@@ -1,0 +1,2379 @@
+{
+  "schema": "kianos.politics.later-stage-subject-bundle.v1",
+  "subject": "marxism",
+  "status": "AUDITED_CANDIDATE_BASELINE_CURRENT_YEAR_ADMISSION_PENDING",
+  "historical_audit_ref": "work/politics-later-l-fastpath-20260918",
+  "canonical_promotion_rule": "ON_CURRENT_YEAR_ACCEPTANCE_PROMOTE_ONLY_VALIDATED_DELTA_TO_CURRENT_CHAPTER_OR_MEMORY_OWNER",
+  "chapters": [
+    {
+      "chapter_path": "content/politics/learning/marxism/ch00.json",
+      "chapter_id": "POL27-LEARN-MARX-C00",
+      "title": "导论 马克思主义是关于无产阶级和人类解放的科学",
+      "later_stage_knowledge": {
+        "schema": "kianos.politics.later_stage_knowledge.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "phase_scope": [
+          "CONSOLIDATION",
+          "PRECISION"
+        ],
+        "compression_model": {
+          "cognition": "THEORY_IDENTITY_AND_DEVELOPMENT_SEQUENCE",
+          "purpose": "Retain why Marxism arose, what kind of theory it became, why it develops, and why it remains usable without rereading a people/work list.",
+          "reconstruction_prompt": "不列人物著作，解释马克思主义为什么产生、形成了什么、为什么必须发展、基本特征与当代价值分别在回答什么。",
+          "reconstruction_targets": [
+            {
+              "id": "MARX-C00-LK-C01",
+              "claim": "现实社会条件、阶级实践和思想理论来源共同构成马克思主义产生的条件，而不是思想家凭空设计。",
+              "owner_ids": [
+                "POL27-CF-MARX-C00-S01"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MARX-C00-LK-C02",
+              "claim": "马克思主义形成相互联系的完整理论体系，不是单一学科观点集合。",
+              "owner_ids": [
+                "POL27-CF-MARX-C00-S01"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MARX-C00-LK-C03",
+              "claim": "理论来自并回应实践，因此坚持基本立场与随实践发展并不矛盾。",
+              "owner_ids": [
+                "POL27-CF-MARX-C00-S01",
+                "POL27-CF-MARX-C00-S02"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MARX-C00-LK-C04",
+              "claim": "基本特征回答理论品格，当代价值回答这套立场观点方法为何仍能分析现实。",
+              "owner_ids": [
+                "POL27-CF-MARX-C00-S02"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            }
+          ],
+          "decisive_boundaries": [
+            {
+              "id": "MARX-C00-LK-B01",
+              "boundary": "坚持马克思主义 ≠ 教条化经典具体结论",
+              "owner_ids": [
+                "POL27-CF-MARX-C00-S02"
+              ]
+            },
+            {
+              "id": "MARX-C00-LK-B02",
+              "boundary": "理论持续发展 ≠ 抛弃基本立场",
+              "owner_ids": [
+                "POL27-CF-MARX-C00-S01",
+                "POL27-CF-MARX-C00-S02"
+              ]
+            }
+          ],
+          "cross_unit_confusables": []
+        },
+        "precision_knowledge": {
+          "policy": "REFERENCE_MEMORY_SIDECAR",
+          "owner_path": "content/politics/learning/marxism/ch00.memory.json",
+          "candidate_ids": [
+            "POL27-MEM-MARX-C00-S01-M01",
+            "POL27-MEM-MARX-C00-S02-M01"
+          ],
+          "admission_state": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+          "deferred_domains": [
+            "马恩列经典著作—人物—理论标志完整对应",
+            "基本特征完整逐项固定表述"
+          ],
+          "rule": "Readable Current+historical candidates are materialized; OCR-uncertain works/features remain explicitly deferred rather than guessed."
+        },
+        "analysis_output_hooks": [],
+        "analysis_output_status": "NONE_PRIMARY",
+        "first_round_effect": "NONE"
+      },
+      "memory_candidate_sidecar": {
+        "schema": "kianos.politics.memory_projection.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "chapter_id": "POL27-LEARN-MARX-C00",
+        "policy": "SOURCE_GROUNDED_SELECTIVE",
+        "principle": "Candidate existence is Knowledge; durable review debt requires later admission evidence.",
+        "preferred_memory_reference": {
+          "role": "DESIGNATED_MEMORY_HANDBOOK",
+          "label": "腿姐《冲刺背诵手册》",
+          "binding_status": "HISTORICAL_BASELINE_BOUND_CURRENT_YEAR_RECHECK_REQUIRED",
+          "historical_package": "content/politics/source/historical/leg26/manifest.json",
+          "historical_subject_source": "content/politics/source/historical/leg26/LEG26-MARX.md",
+          "rule": "Current region ownership + readable LEG26 may create candidate-only Knowledge. OCR-uncertain rows remain deferred until visual/current-year confirmation."
+        },
+        "admission_gate": {
+          "default": "NOT_ADMITTED",
+          "requires_source_grounding": true,
+          "admit_when_any": [
+            "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_CONFIRMS",
+            "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED"
+          ],
+          "do_not_admit_for": [
+            "historical handbook presence alone",
+            "OCR reconstruction by guess",
+            "chapter importance alone"
+          ]
+        },
+        "units": {
+          "POL27-CF-MARX-C00-S01": {
+            "title": "马克思主义的创立和发展",
+            "candidates": [
+              {
+                "id": "POL27-MEM-MARX-C00-S01-M01",
+                "form": "identity_structure",
+                "statement": "马克思主义由马克思主义哲学、马克思主义政治经济学和科学社会主义三个基本组成部分构成。",
+                "source_refs": [
+                  "POL27-CF-MARX-C00-S01"
+                ],
+                "current_recall_basis": {
+                  "priority": "P1",
+                  "forms": [
+                    "timeline",
+                    "identity"
+                  ]
+                },
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MARX-P011"
+                ],
+                "historical_handbook_alignment": "DIRECT_READABLE_SUPPORT",
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              }
+            ]
+          },
+          "POL27-CF-MARX-C00-S02": {
+            "title": "马克思主义的基本特征和当代价值",
+            "candidates": [
+              {
+                "id": "POL27-MEM-MARX-C00-S02-M01",
+                "form": "fixed_summary",
+                "statement": "马克思主义基本特征可从整体上把握为科学性和革命性的统一。",
+                "source_refs": [
+                  "POL27-CF-MARX-C00-S02"
+                ],
+                "current_recall_basis": {
+                  "priority": "P1",
+                  "forms": [
+                    "list"
+                  ]
+                },
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MARX-P011"
+                ],
+                "historical_handbook_alignment": "DIRECT_READABLE_SUPPORT",
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              }
+            ]
+          }
+        },
+        "deferred_candidate_domains": [
+          {
+            "domain": "马恩列经典著作—人物—理论标志完整对应",
+            "reason": "Historically high-value, but requires exact Current node binding plus visual/current-year verification before candidate wording is frozen."
+          },
+          {
+            "domain": "基本特征完整逐项固定表述",
+            "reason": "LEG26 OCR table is partially corrupted; do not reconstruct the exact list from OCR/model memory."
+          }
+        ]
+      }
+    },
+    {
+      "chapter_path": "content/politics/learning/marxism/ch01.json",
+      "chapter_id": "POL27-LEARN-MARX-C01",
+      "title": "第一章 世界的物质性及发展规律",
+      "later_stage_knowledge": {
+        "schema": "kianos.politics.later_stage_knowledge.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "phase_scope": [
+          "CONSOLIDATION",
+          "PRECISION",
+          "ANALYSIS_OUTPUT"
+        ],
+        "compression_model": {
+          "cognition": "PHILOSOPHICAL_AXIS_AND_MATERIALISM_CHAIN",
+          "purpose": "Recover the three classification axes and the material→movement→practice/consciousness→law/initiative→material-unity chain.",
+          "reconstruction_prompt": "先说清唯物/唯心、可知/不可知、辩证/形而上三条轴，再从物质一路恢复到意识能动性、客观规律和世界物质统一性。",
+          "reconstruction_targets": [
+            {
+              "id": "MARX-C01-LK-C01",
+              "claim": "唯物/唯心回答第一性，可知/不可知回答认识可能性，辩证/形而上回答怎样理解世界的存在发展。",
+              "owner_ids": [
+                "POL27-CF-MARX-C01-S01"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MARX-C01-LK-C02",
+              "claim": "物质以运动方式存在，绝对运动中包含相对静止，时间空间是运动着物质的存在形式。",
+              "owner_ids": [
+                "POL27-CF-MARX-C01-S02"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MARX-C01-LK-C03",
+              "claim": "物质决定意识与意识具有能动作用必须同时成立；意识改变现实必须经过实践并受客观规律制约。",
+              "owner_ids": [
+                "POL27-CF-MARX-C01-S02"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MARX-C01-LK-C04",
+              "claim": "自然界、人类社会、主观世界和技术产物的多样性最终仍统一于物质世界。",
+              "owner_ids": [
+                "POL27-CF-MARX-C01-S02"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            }
+          ],
+          "decisive_boundaries": [
+            {
+              "id": "MARX-C01-LK-B01",
+              "boundary": "唯物/唯心 ≠ 可知/不可知 ≠ 辩证/形而上",
+              "owner_ids": [
+                "POL27-CF-MARX-C01-S01"
+              ]
+            },
+            {
+              "id": "MARX-C01-LK-B02",
+              "boundary": "静止 ≠ 与运动并列的另一种绝对状态",
+              "owner_ids": [
+                "POL27-CF-MARX-C01-S02"
+              ]
+            },
+            {
+              "id": "MARX-C01-LK-B03",
+              "boundary": "意识能动作用 ≠ 意识直接创造物质",
+              "owner_ids": [
+                "POL27-CF-MARX-C01-S02"
+              ]
+            },
+            {
+              "id": "MARX-C01-LK-B04",
+              "boundary": "世界多样性 ≠ 多个并列本原",
+              "owner_ids": [
+                "POL27-CF-MARX-C01-S02"
+              ]
+            }
+          ],
+          "cross_unit_confusables": [
+            {
+              "id": "MARX-C01-LK-X01",
+              "items": [
+                "物质决定意识",
+                "意识能动作用"
+              ],
+              "reason": "决定关系和反作用必须同时保留，否则分别滑向主观主义或消极机械论。"
+            }
+          ]
+        },
+        "precision_knowledge": {
+          "policy": "REFERENCE_MEMORY_SIDECAR",
+          "owner_path": "content/politics/learning/marxism/ch01.memory.json",
+          "candidate_ids": [
+            "POL27-MEM-MARX-C01-S01-M01",
+            "POL27-MEM-MARX-C01-S02-M01",
+            "POL27-MEM-MARX-C01-S02-M02"
+          ],
+          "admission_state": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+          "deferred_domains": [
+            "物质—意识完整固定表述"
+          ],
+          "rule": "Candidate-only Knowledge is materialized from Current P0/P1 recall needs plus historical handbook support; durable review debt remains admission-gated."
+        },
+        "analysis_output_hooks": [
+          {
+            "id": "MARX-C01-OUT-LAW-INITIATIVE",
+            "title": "客观规律性与主观能动性",
+            "material_cues": [
+              "尊重规律",
+              "主动作为",
+              "规划设计",
+              "发挥人的作用",
+              "不能蛮干"
+            ],
+            "owner_ids": [
+              "POL27-CF-MARX-C01-S02"
+            ],
+            "retrieval_target": "同时保留规律客观性和人的能动作用，不能只写一边。",
+            "answer_skeleton": [
+              "指出规律不以人的意志为转移",
+              "说明正确发挥能动性以认识/利用规律为前提",
+              "说明能动作用通过实践实现",
+              "回扣材料中的条件与行动"
+            ],
+            "historical_output_refs": [
+              "LEG26-LOWER-MARX-P054",
+              "LEG26-LOWER-MARX-P055"
+            ],
+            "current_year_status": "HISTORICAL_OUTPUT_BASELINE_CURRENT_YEAR_RECHECK_REQUIRED"
+          }
+        ],
+        "first_round_effect": "NONE",
+        "deferred_output_domains": [
+          {
+            "domain": "实践与人与自然关系",
+            "reason": "Historical LEG26 output source is useful, but the current chapter Knowledge object does not yet own a sufficiently explicit later-output relation. Requires exact Current source-node binding before promotion."
+          }
+        ]
+      },
+      "memory_candidate_sidecar": {
+        "schema": "kianos.politics.memory_projection.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "chapter_id": "POL27-LEARN-MARX-C01",
+        "policy": "SOURCE_GROUNDED_SELECTIVE",
+        "principle": "Candidate existence is Knowledge; durable review debt requires later admission evidence.",
+        "preferred_memory_reference": {
+          "role": "DESIGNATED_MEMORY_HANDBOOK",
+          "label": "腿姐《冲刺背诵手册》",
+          "binding_status": "HISTORICAL_BASELINE_BOUND_CURRENT_YEAR_RECHECK_REQUIRED",
+          "historical_package": "content/politics/source/historical/leg26/manifest.json",
+          "historical_subject_source": "content/politics/source/historical/leg26/LEG26-MARX.md",
+          "rule": "Current canonical region/chapter Knowledge must independently support the relation. LEG26 supplies historical retention priority; current-year source/WU/output evidence governs admission."
+        },
+        "admission_gate": {
+          "default": "NOT_ADMITTED",
+          "requires_source_grounding": true,
+          "admit_when_any": [
+            "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_CONFIRMS",
+            "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED",
+            "LATER_ANALYSIS_OUTPUT_REQUIRES_EXACT_FORMULATION"
+          ],
+          "do_not_admit_for": [
+            "historical handbook presence alone",
+            "chapter importance alone",
+            "one stable correct answer"
+          ]
+        },
+        "units": {
+          "POL27-CF-MARX-C01-S01": {
+            "title": "哲学及其基本问题",
+            "candidates": [
+              {
+                "id": "POL27-MEM-MARX-C01-S01-M01",
+                "form": "confusable_axis",
+                "statement": "唯物主义/唯心主义回答思维与存在何者第一性；可知论/不可知论回答思维能否认识存在；辩证法/形而上学回答怎样理解世界的存在和发展。",
+                "source_refs": [
+                  "POL27-CF-MARX-C01-S01"
+                ],
+                "current_recall_basis": {
+                  "priority": "P0",
+                  "forms": [
+                    "boundary"
+                  ]
+                },
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MARX-P012"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              }
+            ]
+          },
+          "POL27-CF-MARX-C01-S02": {
+            "title": "世界的多样性与物质统一性",
+            "candidates": [
+              {
+                "id": "POL27-MEM-MARX-C01-S02-M01",
+                "form": "fixed_relation",
+                "statement": "运动是绝对的、无条件的；静止是相对的、有条件的，静止是运动中的相对稳定状态。",
+                "source_refs": [
+                  "POL27-CF-MARX-C01-S02"
+                ],
+                "current_recall_basis": {
+                  "priority": "P0",
+                  "forms": [
+                    "boundary",
+                    "hat"
+                  ]
+                },
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MARX-P013"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              },
+              {
+                "id": "POL27-MEM-MARX-C01-S02-M02",
+                "form": "relation_boundary",
+                "statement": "尊重客观规律是正确发挥主观能动性的前提；人的能动作用必须通过实践并依赖现实物质条件。",
+                "source_refs": [
+                  "POL27-CF-MARX-C01-S02"
+                ],
+                "current_recall_basis": {
+                  "priority": "P0",
+                  "forms": [
+                    "boundary",
+                    "hat"
+                  ]
+                },
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MARX-P018",
+                  "LEG26-LOWER-MARX-P055"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              }
+            ]
+          }
+        },
+        "deferred_candidate_domains": [
+          {
+            "domain": "物质—意识完整固定表述",
+            "reason": "Current chapter relation is clear, but exact designated-memory wording should be rebound before candidate-level wording is frozen."
+          }
+        ]
+      }
+    },
+    {
+      "chapter_path": "content/politics/learning/marxism/ch02.json",
+      "chapter_id": "POL27-LEARN-MARX-C02",
+      "title": "第二章 唯物辩证法",
+      "later_stage_knowledge": {
+        "schema": "kianos.politics.later_stage_knowledge.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "phase_scope": [
+          "CONSOLIDATION",
+          "ANALYSIS_OUTPUT"
+        ],
+        "compression_model": {
+          "cognition": "DIRECTED_RELATION_RECONSTRUCTION",
+          "purpose": "Recover one coherent dialectical model instead of rereading five isolated definitions.",
+          "reconstruction_prompt": "不看答案，解释：事物为什么处在联系中、什么才叫发展、发展动力从哪里来、状态怎样跃迁、为什么发展前进又曲折，以及这些规律怎样变成方法。",
+          "reconstruction_targets": [
+            {
+              "id": "MARX-C02-LK-C01",
+              "claim": "联系首先提供事物存在和变化的条件化关系网络；普遍联系不等于任意联系。",
+              "owner_ids": [
+                "POL27-CF-MARX-C02-S01"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MARX-C02-LK-C02",
+              "claim": "发展说明变化的方向性和新事物生成，不能把一切变化都叫发展。",
+              "owner_ids": [
+                "POL27-CF-MARX-C02-S01"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MARX-C02-LK-C03",
+              "claim": "内部矛盾解释发展的根本动力；矛盾分析必须同时保留普遍性、特殊性和不平衡性。",
+              "owner_ids": [
+                "POL27-CF-MARX-C02-K03",
+                "POL27-CF-MARX-C02-S01"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MARX-C02-LK-C04",
+              "claim": "量变—质变解释状态跃迁，辩证否定/否定之否定解释发展形式的前进性与曲折性。",
+              "owner_ids": [
+                "POL27-CF-MARX-C02-S01"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MARX-C02-LK-C05",
+              "claim": "客观世界的辩证运动要求认识和实践采用联系、发展、具体分析而非孤立、静止、无原则折中。",
+              "owner_ids": [
+                "POL27-CF-MARX-C02-S02"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            }
+          ],
+          "decisive_boundaries": [
+            {
+              "id": "MARX-C02-LK-B01",
+              "boundary": "联系普遍 ≠ 联系任意",
+              "owner_ids": [
+                "POL27-CF-MARX-C02-S01"
+              ]
+            },
+            {
+              "id": "MARX-C02-LK-B02",
+              "boundary": "变化 ≠ 发展",
+              "owner_ids": [
+                "POL27-CF-MARX-C02-S01"
+              ]
+            },
+            {
+              "id": "MARX-C02-LK-B03",
+              "boundary": "主要矛盾 ≠ 矛盾主要方面",
+              "owner_ids": [
+                "POL27-CF-MARX-C02-K03"
+              ]
+            },
+            {
+              "id": "MARX-C02-LK-B04",
+              "boundary": "辩证否定 ≠ 简单抛弃",
+              "owner_ids": [
+                "POL27-CF-MARX-C02-S01"
+              ]
+            },
+            {
+              "id": "MARX-C02-LK-B05",
+              "boundary": "辩证思维 ≠ 无原则折中",
+              "owner_ids": [
+                "POL27-CF-MARX-C02-S02"
+              ]
+            }
+          ],
+          "cross_unit_confusables": [
+            {
+              "id": "MARX-C02-LK-X01",
+              "items": [
+                "矛盾普遍性/特殊性",
+                "主要矛盾/矛盾主要方面"
+              ],
+              "reason": "都属于矛盾分析，但一个处理一般—个别，另一个处理复杂矛盾体系中的地位/方面，不能互换。"
+            },
+            {
+              "id": "MARX-C02-LK-X02",
+              "items": [
+                "量变质变",
+                "否定之否定"
+              ],
+              "reason": "前者回答状态怎样跃迁，后者回答发展为什么表现为前进性与曲折性。"
+            }
+          ]
+        },
+        "precision_knowledge": {
+          "policy": "REFERENCE_EXISTING_MEMORY_SIDECAR",
+          "owner_path": "content/politics/learning/marxism/ch02.memory.json",
+          "candidate_ids": [
+            "POL27-MEM-MARX-C02-K03-M01",
+            "POL27-MEM-MARX-C02-K03-M02",
+            "POL27-MEM-MARX-C02-K03-M03",
+            "POL27-MEM-MARX-C02-K03-M04"
+          ],
+          "admission_state": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+          "rule": "Compression may reference these candidates; it may not silently promote them into durable Memory."
+        },
+        "analysis_output_hooks": [
+          {
+            "id": "MARX-C02-OUT-RELATION-DEVELOPMENT",
+            "title": "联系与发展",
+            "material_cues": [
+              "相互影响/相互制约",
+              "循环/系统关系",
+              "过程/变化/创新/新事物"
+            ],
+            "owner_ids": [
+              "POL27-CF-MARX-C02-S01"
+            ],
+            "retrieval_target": "先判断材料在强调关系网络还是发展过程；只写材料真正命中的原理。",
+            "answer_skeleton": [
+              "指出联系或发展的核心关系",
+              "说明其客观/条件/过程属性",
+              "把原理重新扣回材料中的关系或变化",
+              "给出相应方法论要求"
+            ],
+            "historical_output_refs": [
+              "LEG26-LOWER-MARX-P051"
+            ],
+            "current_year_status": "HISTORICAL_OUTPUT_BASELINE_CURRENT_YEAR_RECHECK_REQUIRED"
+          },
+          {
+            "id": "MARX-C02-OUT-CONTRADICTION",
+            "title": "矛盾分析法",
+            "material_cues": [
+              "正反两面",
+              "对立又依存",
+              "转化",
+              "差异化处理",
+              "重点/关键/主流"
+            ],
+            "owner_ids": [
+              "POL27-CF-MARX-C02-K03",
+              "POL27-CF-MARX-C02-S01"
+            ],
+            "retrieval_target": "先判断材料命中同一性/斗争性、普遍性/特殊性，还是主次结构；不能把所有矛盾原理全写上。",
+            "answer_skeleton": [
+              "识别材料中的具体矛盾关系",
+              "调用最小命中原理",
+              "说明条件/层级/方向边界",
+              "回扣材料并给出具体分析或抓重点的方法论"
+            ],
+            "historical_output_refs": [
+              "LEG26-LOWER-MARX-P051",
+              "LEG26-LOWER-MARX-P052",
+              "LEG26-LOWER-MARX-P053"
+            ],
+            "precision_refs": [
+              "POL27-MEM-MARX-C02-K03-M01",
+              "POL27-MEM-MARX-C02-K03-M03",
+              "POL27-MEM-MARX-C02-K03-M04"
+            ],
+            "current_year_status": "HISTORICAL_OUTPUT_BASELINE_CURRENT_YEAR_RECHECK_REQUIRED"
+          }
+        ],
+        "first_round_effect": "NONE",
+        "deferred_output_domains": [
+          {
+            "domain": "原因结果/必然偶然/现象本质等辩证范畴",
+            "reason": "LEG26 lower volume contains useful output material, but Current C02 chapter Knowledge does not yet explicitly own these relations. Requires Source→K binding before later Output promotion."
+          }
+        ]
+      },
+      "memory_candidate_sidecar": {
+        "schema": "kianos.politics.memory_projection.v1",
+        "status": "CURRENT_PILOT",
+        "chapter_id": "POL27-LEARN-MARX-C02",
+        "policy": "SOURCE_GROUNDED_SELECTIVE",
+        "principle": "Understanding may synthesize; durable Memory may not expand beyond grounded candidates.",
+        "preferred_memory_reference": {
+          "role": "DESIGNATED_MEMORY_HANDBOOK",
+          "label": "腿姐《冲刺背诵手册》",
+          "binding_status": "HISTORICAL_BASELINE_BOUND_CURRENT_YEAR_RECHECK_REQUIRED",
+          "historical_package": "content/politics/source/historical/leg26/manifest.json",
+          "historical_subject_source": "content/politics/source/historical/leg26/LEG26-MARX.md",
+          "rule": "LEG26 may confirm historical memory priority and wording shape only when Current Chengfeng/Knowledge still supports the claim. It does not by itself admit 2027 Memory; current-year designated-memory delta/corroboration still governs final admission."
+        },
+        "admission_gate": {
+          "default": "NOT_ADMITTED",
+          "requires_source_grounding": true,
+          "admit_when_any": [
+            "DESIGNATED_MEMORY_SOURCE_CONFIRMS",
+            "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED"
+          ],
+          "do_not_admit_for": [
+            "explanation richness alone",
+            "one correct understanding answer",
+            "AI-generated extension without source support"
+          ]
+        },
+        "units": {
+          "POL27-CF-MARX-C02-K03": {
+            "runtime_region": "POL27-REGION-PILOT-MARX-REG-01",
+            "title": "对立统一规律",
+            "candidates": [
+              {
+                "id": "POL27-MEM-MARX-C02-K03-M01",
+                "form": "boundary",
+                "statement": "同一性强调相互依存、相互贯通，是有条件的、相对的；斗争性强调相互排斥、相互分离，是无条件的、绝对的。",
+                "source_refs": [
+                  "POL27-CF-MARX-C02-K03"
+                ],
+                "handbook_alignment": "HISTORICAL_CONFIRMED_CURRENT_YEAR_RECHECK_REQUIRED",
+                "admission": "CANDIDATE_ONLY",
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MARX-P019",
+                  "LEG26-LOWER-MARX-P052"
+                ],
+                "historical_handbook_alignment": "DIRECT_SUPPORT",
+                "historical_review_note": "LEG26 explicitly preserves the conditional/relative versus unconditional/absolute boundary and later reuses it as analysis-output principle content.",
+                "current_year_corroboration": "CURRENT_CHENGFENG_K03_GROUNDING_PRESENT",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              },
+              {
+                "id": "POL27-MEM-MARX-C02-K03-M02",
+                "form": "boundary",
+                "statement": "同一性和斗争性在矛盾统一体中同时存在，不能理解为时而同一、时而斗争。",
+                "source_refs": [
+                  "POL27-CF-MARX-C02-K03"
+                ],
+                "handbook_alignment": "HISTORICAL_CONFIRMED_CURRENT_YEAR_RECHECK_REQUIRED",
+                "admission": "CANDIDATE_ONLY",
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MARX-P019",
+                  "LEG26-LOWER-MARX-P052"
+                ],
+                "historical_handbook_alignment": "CORE_RELATION_SUPPORTED_EXACT_WORDING_NOT_OWNED",
+                "historical_review_note": "LEG26 says 同一性和斗争性不能单独起作用 / are mutually connected; the pilot's '时而同一、时而斗争' wording is an explanatory reformulation, so it remains non-exact.",
+                "current_year_corroboration": "CURRENT_CHENGFENG_K03_GROUNDING_PRESENT",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              },
+              {
+                "id": "POL27-MEM-MARX-C02-K03-M03",
+                "form": "direction",
+                "statement": "共性寓于个性之中，并通过个性表现；不能倒置为个性寓于共性之中。",
+                "source_refs": [
+                  "POL27-CF-MARX-C02-K03"
+                ],
+                "handbook_alignment": "HISTORICAL_CONFIRMED_CURRENT_YEAR_RECHECK_REQUIRED",
+                "admission": "CANDIDATE_ONLY",
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MARX-P020",
+                  "LEG26-LOWER-MARX-P052"
+                ],
+                "historical_handbook_alignment": "DIRECT_SUPPORT_WITH_OCR_VISUAL_CHECK_ON_GLYPH_IF_PROMOTED",
+                "historical_review_note": "LEG26 owns the commonality/particularity direction; OCR renders 寓 as 寅 in the transcription, so exact learner wording must be checked against the PDF page before promotion.",
+                "current_year_corroboration": "CURRENT_CHENGFENG_K03_GROUNDING_PRESENT",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              },
+              {
+                "id": "POL27-MEM-MARX-C02-K03-M04",
+                "form": "trap_boundary",
+                "statement": "矛盾双方可以在一定条件下转化，但不把矛盾双方描述为调和。",
+                "source_refs": [
+                  "POL27-CF-MARX-C02-K03"
+                ],
+                "handbook_alignment": "HISTORICAL_CONFIRMED_CURRENT_YEAR_RECHECK_REQUIRED",
+                "admission": "CANDIDATE_ONLY",
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MARX-P019",
+                  "LEG26-LOWER-MARX-P052"
+                ],
+                "historical_handbook_alignment": "DIRECT_BOUNDARY_SUPPORT",
+                "historical_review_note": "LEG26 rejects '矛盾可以调和' and its lower-volume output material trains transformation/opposition-unity usage; keep the current boundary as a candidate until current-year handbook delta is known.",
+                "current_year_corroboration": "CURRENT_CHENGFENG_K03_GROUNDING_PRESENT",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              }
+            ]
+          }
+        },
+        "review_state": {
+          "leg26_batch": "MARX_C02_K03_20260918",
+          "historical_memory_alignment": "COMPLETE",
+          "current_year_memory_admission": "PENDING_CURRENT_YEAR_HANDBOOK_DELTA",
+          "analysis_output_baseline": "BOUND_IN_MARXISM_SOURCE_REVIEW_NOT_PROMOTED_TO_LEARNER_RUNTIME"
+        }
+      }
+    },
+    {
+      "chapter_path": "content/politics/learning/marxism/ch03.json",
+      "chapter_id": "POL27-LEARN-MARX-C03",
+      "title": "第三章 实践、认识、真理与价值",
+      "later_stage_knowledge": {
+        "schema": "kianos.politics.later_stage_knowledge.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "phase_scope": [
+          "CONSOLIDATION",
+          "PRECISION",
+          "ANALYSIS_OUTPUT"
+        ],
+        "compression_model": {
+          "cognition": "PRACTICE_RECOGNITION_TRUTH_VALUE_LOOP",
+          "purpose": "Retain one full loop from practice to recognition to truth/value and back to practice.",
+          "reconstruction_prompt": "闭卷恢复：实践怎样产生认识，感性怎样上升到理性，为什么必须回实践，真理如何被检验，价值怎样进入，最后怎样重新回到改造世界。",
+          "reconstruction_targets": [
+            {
+              "id": "MARX-C03-LK-C01",
+              "claim": "实践是主体与客观世界发生现实联系的活动，也是认识的来源、动力、检验和目的基础。",
+              "owner_ids": [
+                "POL27-CF-MARX-C03-S01"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MARX-C03-LK-C02",
+              "claim": "感性认识提供直接材料，理性认识把握本质规律；认识必须再回实践并在新实践中继续发展。",
+              "owner_ids": [
+                "POL27-CF-MARX-C03-S01"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MARX-C03-LK-C03",
+              "claim": "真理具有客观性，同时任何具体真理又受条件和认识程度限制；实践检验也是历史发展的过程。",
+              "owner_ids": [
+                "POL27-CF-MARX-C03-S02"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MARX-C03-LK-C04",
+              "claim": "价值回答对象对主体需要的意义，但正确价值实现不能脱离真理和客观规律。",
+              "owner_ids": [
+                "POL27-CF-MARX-C03-S02"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MARX-C03-LK-C05",
+              "claim": "认识世界与改造世界、改造客观世界与主观世界统一于不断发展的实践；自由建立在认识必然基础上。",
+              "owner_ids": [
+                "POL27-CF-MARX-C03-S03"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            }
+          ],
+          "decisive_boundaries": [
+            {
+              "id": "MARX-C03-LK-B01",
+              "boundary": "实践 ≠ 主观思考",
+              "owner_ids": [
+                "POL27-CF-MARX-C03-S01"
+              ]
+            },
+            {
+              "id": "MARX-C03-LK-B02",
+              "boundary": "感性认识 ≠ 错误认识；理性认识 ≠ 脱离感性材料",
+              "owner_ids": [
+                "POL27-CF-MARX-C03-S01"
+              ]
+            },
+            {
+              "id": "MARX-C03-LK-B03",
+              "boundary": "真理绝对性 ≠ 一整块永不发展的终极知识",
+              "owner_ids": [
+                "POL27-CF-MARX-C03-S02"
+              ]
+            },
+            {
+              "id": "MARX-C03-LK-B04",
+              "boundary": "真理相对性 ≠ 没有客观标准",
+              "owner_ids": [
+                "POL27-CF-MARX-C03-S02"
+              ]
+            },
+            {
+              "id": "MARX-C03-LK-B05",
+              "boundary": "实践标准 ≠ 一次实践永久终结认识",
+              "owner_ids": [
+                "POL27-CF-MARX-C03-S02"
+              ]
+            },
+            {
+              "id": "MARX-C03-LK-B06",
+              "boundary": "自由 ≠ 摆脱客观规律",
+              "owner_ids": [
+                "POL27-CF-MARX-C03-S03"
+              ]
+            }
+          ],
+          "cross_unit_confusables": [
+            {
+              "id": "MARX-C03-LK-X01",
+              "items": [
+                "感性认识/理性认识",
+                "现象/本质"
+              ],
+              "reason": "前者是认识阶段，后者是客观事物的表现—内在关系，不能等同。"
+            },
+            {
+              "id": "MARX-C03-LK-X02",
+              "items": [
+                "真理",
+                "价值"
+              ],
+              "reason": "真理判断主客观是否符合，价值判断客体对主体的意义，实践要求二者统一但不能互替。"
+            }
+          ]
+        },
+        "precision_knowledge": {
+          "policy": "REFERENCE_MEMORY_SIDECAR",
+          "owner_path": "content/politics/learning/marxism/ch03.memory.json",
+          "candidate_ids": [
+            "POL27-MEM-MARX-C03-S01-M01",
+            "POL27-MEM-MARX-C03-S01-M02",
+            "POL27-MEM-MARX-C03-S02-M01",
+            "POL27-MEM-MARX-C03-S02-M02",
+            "POL27-MEM-MARX-C03-S02-M03"
+          ],
+          "admission_state": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+          "deferred_domains": [],
+          "rule": "Candidate-only Knowledge is materialized from Current P0/P1 recall needs plus historical handbook support; durable review debt remains admission-gated."
+        },
+        "analysis_output_hooks": [
+          {
+            "id": "MARX-C03-OUT-PRACTICE-RECOGNITION",
+            "title": "实践与认识",
+            "material_cues": [
+              "实践产生认识",
+              "理论指导行动",
+              "认识不断深化",
+              "反复探索"
+            ],
+            "owner_ids": [
+              "POL27-CF-MARX-C03-S01"
+            ],
+            "retrieval_target": "按实践→认识→再实践恢复循环，而不是只写‘实践重要’。",
+            "answer_skeleton": [
+              "实践是认识基础",
+              "感性到理性说明认识深化",
+              "认识回实践指导并接受检验",
+              "新实践继续推动认识发展"
+            ],
+            "historical_output_refs": [
+              "LEG26-LOWER-MARX-P055",
+              "LEG26-LOWER-MARX-P056"
+            ],
+            "current_year_status": "HISTORICAL_OUTPUT_BASELINE_CURRENT_YEAR_RECHECK_REQUIRED"
+          },
+          {
+            "id": "MARX-C03-OUT-TRUTH-VALUE",
+            "title": "真理与价值",
+            "material_cues": [
+              "正确认识",
+              "条件变化",
+              "评价/效用",
+              "合规律性与合目的性"
+            ],
+            "owner_ids": [
+              "POL27-CF-MARX-C03-S02"
+            ],
+            "retrieval_target": "先判断题目是真理性质、真理检验，还是价值尺度/二者统一。",
+            "answer_skeleton": [
+              "给出命中的真理或价值关系",
+              "说明条件/客观性边界",
+              "说明二者统一于实践",
+              "回扣材料中的事实与目的"
+            ],
+            "historical_output_refs": [
+              "LEG26-LOWER-MARX-P057",
+              "LEG26-LOWER-MARX-P058"
+            ],
+            "current_year_status": "HISTORICAL_OUTPUT_BASELINE_CURRENT_YEAR_RECHECK_REQUIRED"
+          }
+        ],
+        "first_round_effect": "NONE",
+        "deferred_output_domains": [
+          {
+            "domain": "守正创新 / 理论创新与实践创新",
+            "reason": "LEG26 lower volume supports later output, but Current C03 chapter Knowledge does not explicitly own the relation at the required output precision. Bind to Current source before promotion."
+          }
+        ]
+      },
+      "memory_candidate_sidecar": {
+        "schema": "kianos.politics.memory_projection.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "chapter_id": "POL27-LEARN-MARX-C03",
+        "policy": "SOURCE_GROUNDED_SELECTIVE",
+        "principle": "Candidate existence is Knowledge; durable review debt requires later admission evidence.",
+        "preferred_memory_reference": {
+          "role": "DESIGNATED_MEMORY_HANDBOOK",
+          "label": "腿姐《冲刺背诵手册》",
+          "binding_status": "HISTORICAL_BASELINE_BOUND_CURRENT_YEAR_RECHECK_REQUIRED",
+          "historical_package": "content/politics/source/historical/leg26/manifest.json",
+          "historical_subject_source": "content/politics/source/historical/leg26/LEG26-MARX.md",
+          "rule": "Current canonical region/chapter Knowledge must independently support the relation. LEG26 supplies historical retention priority; current-year source/WU/output evidence governs admission."
+        },
+        "admission_gate": {
+          "default": "NOT_ADMITTED",
+          "requires_source_grounding": true,
+          "admit_when_any": [
+            "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_CONFIRMS",
+            "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED",
+            "LATER_ANALYSIS_OUTPUT_REQUIRES_EXACT_FORMULATION"
+          ],
+          "do_not_admit_for": [
+            "historical handbook presence alone",
+            "chapter importance alone",
+            "one stable correct answer"
+          ]
+        },
+        "units": {
+          "POL27-CF-MARX-C03-S01": {
+            "title": "实践与认识",
+            "candidates": [
+              {
+                "id": "POL27-MEM-MARX-C03-S01-M01",
+                "form": "fixed_relation_set",
+                "statement": "实践是认识的基础，对认识具有决定作用：是认识的来源、发展的动力、检验认识真理性的根本标准，也是认识的目的。",
+                "source_refs": [
+                  "POL27-CF-MARX-C03-S01"
+                ],
+                "current_recall_basis": {
+                  "priority": "P0",
+                  "forms": [
+                    "boundary",
+                    "sequence"
+                  ]
+                },
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MARX-P026",
+                  "LEG26-UPPER-MARX-P027",
+                  "LEG26-LOWER-MARX-P055"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              },
+              {
+                "id": "POL27-MEM-MARX-C03-S01-M02",
+                "form": "confusable_boundary",
+                "statement": "感性认识是认识的直接、具体阶段并有待深化；理性认识在感性材料基础上把握本质和规律。感性认识有局限不等于不可靠。",
+                "source_refs": [
+                  "POL27-CF-MARX-C03-S01"
+                ],
+                "current_recall_basis": {
+                  "priority": "P0",
+                  "forms": [
+                    "boundary",
+                    "sequence"
+                  ]
+                },
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MARX-P033",
+                  "LEG26-UPPER-MARX-P034",
+                  "LEG26-LOWER-MARX-P056"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              }
+            ]
+          },
+          "POL27-CF-MARX-C03-S02": {
+            "title": "真理与价值",
+            "candidates": [
+              {
+                "id": "POL27-MEM-MARX-C03-S02-M01",
+                "form": "hat_relation",
+                "statement": "真理的客观性是真理的本质属性；真理的客观性决定真理的一元性。",
+                "source_refs": [
+                  "POL27-CF-MARX-C03-S02"
+                ],
+                "current_recall_basis": {
+                  "priority": "P0",
+                  "forms": [
+                    "boundary",
+                    "hat"
+                  ]
+                },
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MARX-P031",
+                  "LEG26-LOWER-MARX-P057"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              },
+              {
+                "id": "POL27-MEM-MARX-C03-S02-M02",
+                "form": "relation_boundary",
+                "statement": "任何具体真理都是绝对性与相对性的统一；相对性不等于没有客观标准，绝对性也不等于真理无需发展。",
+                "source_refs": [
+                  "POL27-CF-MARX-C03-S02"
+                ],
+                "current_recall_basis": {
+                  "priority": "P0",
+                  "forms": [
+                    "boundary",
+                    "hat"
+                  ]
+                },
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MARX-P031",
+                  "LEG26-UPPER-MARX-P032",
+                  "LEG26-LOWER-MARX-P057"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              },
+              {
+                "id": "POL27-MEM-MARX-C03-S02-M03",
+                "form": "standard_boundary",
+                "statement": "实践是检验认识真理性的根本标准；实践检验是历史发展的过程，不等于一次实践永久终结认识。",
+                "source_refs": [
+                  "POL27-CF-MARX-C03-S02"
+                ],
+                "current_recall_basis": {
+                  "priority": "P0",
+                  "forms": [
+                    "boundary",
+                    "hat"
+                  ]
+                },
+                "historical_handbook_refs": [
+                  "LEG26-LOWER-MARX-P058"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              }
+            ]
+          }
+        },
+        "deferred_candidate_domains": []
+      }
+    },
+    {
+      "chapter_path": "content/politics/learning/marxism/ch04.json",
+      "chapter_id": "POL27-LEARN-MARX-C04",
+      "title": "第四章 人类社会及其发展规律",
+      "later_stage_knowledge": {
+        "schema": "kianos.politics.later_stage_knowledge.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "phase_scope": [
+          "CONSOLIDATION",
+          "PRECISION",
+          "ANALYSIS_OUTPUT"
+        ],
+        "compression_model": {
+          "cognition": "SOCIAL_STRUCTURE_HIERARCHY_AND_DRIVERS",
+          "purpose": "Keep structure, driver hierarchy and historical subject roles distinct.",
+          "reconstruction_prompt": "分三层恢复：社会结构怎么搭；社会为什么发展；谁在现实中创造历史。",
+          "reconstruction_targets": [
+            {
+              "id": "MARX-C04-LK-C01",
+              "claim": "社会存在决定社会意识，同时社会意识具有相对独立性并反作用。",
+              "owner_ids": [
+                "POL27-CF-MARX-C04-S01"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MARX-C04-LK-C02",
+              "claim": "生产力—生产关系、经济基础—上层建筑构成社会基本结构；前者更基础。",
+              "owner_ids": [
+                "POL27-CF-MARX-C04-S01"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MARX-C04-LK-C03",
+              "claim": "生产力是最终决定力量，社会基本矛盾是根本动力；阶级斗争、革命、改革、科技等处于不同具体动力层级。",
+              "owner_ids": [
+                "POL27-CF-MARX-C04-S01",
+                "POL27-CF-MARX-C04-S02"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MARX-C04-LK-C04",
+              "claim": "人民群众通过现实实践创造历史，个人/历史人物只能在具体社会历史条件中发挥作用。",
+              "owner_ids": [
+                "POL27-CF-MARX-C04-S03"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            }
+          ],
+          "decisive_boundaries": [
+            {
+              "id": "MARX-C04-LK-B01",
+              "boundary": "社会存在决定社会意识 ≠ 社会意识无反作用",
+              "owner_ids": [
+                "POL27-CF-MARX-C04-S01"
+              ]
+            },
+            {
+              "id": "MARX-C04-LK-B02",
+              "boundary": "生产力最终决定力量 ≠ 社会基本矛盾根本动力",
+              "owner_ids": [
+                "POL27-CF-MARX-C04-S01",
+                "POL27-CF-MARX-C04-S02"
+              ]
+            },
+            {
+              "id": "MARX-C04-LK-B03",
+              "boundary": "经济基础 ≠ 全部经济活动 ≠ 生产力",
+              "owner_ids": [
+                "POL27-CF-MARX-C04-S01"
+              ]
+            },
+            {
+              "id": "MARX-C04-LK-B04",
+              "boundary": "人民群众创造历史 ≠ 个人毫无作用",
+              "owner_ids": [
+                "POL27-CF-MARX-C04-S03"
+              ]
+            }
+          ],
+          "cross_unit_confusables": [
+            {
+              "id": "MARX-C04-LK-X01",
+              "items": [
+                "最终决定力量",
+                "根本动力",
+                "重要动力"
+              ],
+              "reason": "都在解释社会发展，但帽子对应层级不同，是高频串帽子风险。"
+            }
+          ]
+        },
+        "precision_knowledge": {
+          "policy": "REFERENCE_MEMORY_SIDECAR",
+          "owner_path": "content/politics/learning/marxism/ch04.memory.json",
+          "candidate_ids": [
+            "POL27-MEM-MARX-C04-S01-M01",
+            "POL27-MEM-MARX-C04-S02-M01",
+            "POL27-MEM-MARX-C04-S02-M02",
+            "POL27-MEM-MARX-C04-S03-M01"
+          ],
+          "admission_state": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+          "deferred_domains": [],
+          "rule": "Candidate-only Knowledge is materialized from Current P0/P1 recall needs plus historical handbook support; durable review debt remains admission-gated."
+        },
+        "analysis_output_hooks": [
+          {
+            "id": "MARX-C04-OUT-TECH",
+            "title": "科学技术与社会发展",
+            "material_cues": [
+              "人工智能",
+              "互联网",
+              "科技创新",
+              "生产力变化"
+            ],
+            "owner_ids": [
+              "POL27-CF-MARX-C04-S02"
+            ],
+            "retrieval_target": "科技是重要推动力量，但不要越级替代生产力/基本矛盾的层级。",
+            "answer_skeleton": [
+              "说明科学技术能够转化为现实生产力并深刻影响社会发展",
+              "说明科学技术是重要推动力量，但不能越级替代社会基本矛盾/生产力层级",
+              "结合材料说明技术作用通过具体社会生产和实践条件发生",
+              "回扣材料中的科技应用与社会发展"
+            ],
+            "historical_output_refs": [
+              "LEG26-LOWER-MARX-P059"
+            ],
+            "current_year_status": "HISTORICAL_OUTPUT_BASELINE_CURRENT_YEAR_RECHECK_REQUIRED"
+          },
+          {
+            "id": "MARX-C04-OUT-REFORM",
+            "title": "改革与社会基本矛盾",
+            "material_cues": [
+              "改革",
+              "制度调整",
+              "生产关系/上层建筑",
+              "生产力释放"
+            ],
+            "owner_ids": [
+              "POL27-CF-MARX-C04-S02"
+            ],
+            "retrieval_target": "把改革定位为同一社会形态内部解决基本矛盾的调整，而不是社会革命的同义词。",
+            "answer_skeleton": [
+              "指出改革针对不适应生产力/社会发展的关系环节",
+              "说明其属于制度自我调整完善",
+              "说明其推动生产力和社会进步",
+              "回扣材料中的具体改革对象"
+            ],
+            "historical_output_refs": [
+              "LEG26-LOWER-MARX-P059",
+              "LEG26-LOWER-MARX-P060"
+            ],
+            "current_year_status": "HISTORICAL_OUTPUT_BASELINE_CURRENT_YEAR_RECHECK_REQUIRED"
+          },
+          {
+            "id": "MARX-C04-OUT-PEOPLE",
+            "title": "人民群众与历史创造",
+            "material_cues": [
+              "人民主体",
+              "群众实践",
+              "依靠人民",
+              "历史创造"
+            ],
+            "owner_ids": [
+              "POL27-CF-MARX-C04-S03"
+            ],
+            "retrieval_target": "先写人民群众的历史主体地位，再落到物质/精神财富和社会变革实践。",
+            "answer_skeleton": [
+              "指出人民群众是历史主体和创造者",
+              "说明其物质/精神财富创造作用",
+              "说明其社会变革决定力量",
+              "回扣材料中的群众实践/人民立场"
+            ],
+            "historical_output_refs": [
+              "LEG26-LOWER-MARX-P060"
+            ],
+            "current_year_status": "HISTORICAL_OUTPUT_BASELINE_CURRENT_YEAR_RECHECK_REQUIRED"
+          }
+        ],
+        "first_round_effect": "NONE"
+      },
+      "memory_candidate_sidecar": {
+        "schema": "kianos.politics.memory_projection.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "chapter_id": "POL27-LEARN-MARX-C04",
+        "policy": "SOURCE_GROUNDED_SELECTIVE",
+        "principle": "Candidate existence is Knowledge; durable review debt requires later admission evidence.",
+        "preferred_memory_reference": {
+          "role": "DESIGNATED_MEMORY_HANDBOOK",
+          "label": "腿姐《冲刺背诵手册》",
+          "binding_status": "HISTORICAL_BASELINE_BOUND_CURRENT_YEAR_RECHECK_REQUIRED",
+          "historical_package": "content/politics/source/historical/leg26/manifest.json",
+          "historical_subject_source": "content/politics/source/historical/leg26/LEG26-MARX.md",
+          "rule": "Current canonical region/chapter Knowledge must independently support the relation. LEG26 supplies historical retention priority; current-year source/WU/output evidence governs admission."
+        },
+        "admission_gate": {
+          "default": "NOT_ADMITTED",
+          "requires_source_grounding": true,
+          "admit_when_any": [
+            "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_CONFIRMS",
+            "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED",
+            "LATER_ANALYSIS_OUTPUT_REQUIRES_EXACT_FORMULATION"
+          ],
+          "do_not_admit_for": [
+            "historical handbook presence alone",
+            "chapter importance alone",
+            "one stable correct answer"
+          ]
+        },
+        "units": {
+          "POL27-CF-MARX-C04-S01": {
+            "title": "人类社会的存在与发展规律",
+            "candidates": [
+              {
+                "id": "POL27-MEM-MARX-C04-S01-M01",
+                "form": "relation_boundary",
+                "statement": "社会存在决定社会意识；社会意识具有相对独立性并能动地反作用于社会存在。",
+                "source_refs": [
+                  "POL27-CF-MARX-C04-S01"
+                ],
+                "current_recall_basis": {
+                  "priority": "P0",
+                  "forms": [
+                    "boundary",
+                    "hat"
+                  ]
+                },
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MARX-P038",
+                  "LEG26-UPPER-MARX-P039"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              }
+            ]
+          },
+          "POL27-CF-MARX-C04-S02": {
+            "title": "社会历史发展的动力",
+            "candidates": [
+              {
+                "id": "POL27-MEM-MARX-C04-S02-M01",
+                "form": "hat_boundary",
+                "statement": "生产力是人类社会发展的最终决定力量；社会基本矛盾是历史发展的根本动力。二者不是同一个帽子。",
+                "source_refs": [
+                  "POL27-CF-MARX-C04-S01",
+                  "POL27-CF-MARX-C04-S02"
+                ],
+                "current_recall_basis": {
+                  "priority": "P0",
+                  "forms": [
+                    "boundary",
+                    "hat"
+                  ]
+                },
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MARX-P025",
+                  "LEG26-UPPER-MARX-P036"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              },
+              {
+                "id": "POL27-MEM-MARX-C04-S02-M02",
+                "form": "hat_boundary",
+                "statement": "科学技术是推动社会发展的重要力量并能转化为现实生产力，但不能越级替代社会基本矛盾的根本动力地位。",
+                "source_refs": [
+                  "POL27-CF-MARX-C04-S02"
+                ],
+                "current_recall_basis": {
+                  "priority": "P0",
+                  "forms": [
+                    "hat"
+                  ]
+                },
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MARX-P036",
+                  "LEG26-LOWER-MARX-P059"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              }
+            ]
+          },
+          "POL27-CF-MARX-C04-S03": {
+            "title": "人民群众在历史发展中的作用",
+            "candidates": [
+              {
+                "id": "POL27-MEM-MARX-C04-S03-M01",
+                "form": "identity_boundary",
+                "statement": "人民群众是社会历史的主体和历史的创造者，是社会物质财富、精神财富的创造者，也是社会变革的决定力量；个人作用受具体社会历史条件制约。",
+                "source_refs": [
+                  "POL27-CF-MARX-C04-S03"
+                ],
+                "current_recall_basis": {
+                  "priority": "P1",
+                  "forms": [
+                    "boundary",
+                    "identity"
+                  ]
+                },
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MARX-P039",
+                  "LEG26-LOWER-MARX-P060"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              }
+            ]
+          }
+        },
+        "deferred_candidate_domains": []
+      }
+    },
+    {
+      "chapter_path": "content/politics/learning/marxism/ch05.json",
+      "chapter_id": "POL27-LEARN-MARX-C05",
+      "title": "第五章 资本主义的本质及规律",
+      "later_stage_knowledge": {
+        "schema": "kianos.politics.later_stage_knowledge.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "phase_scope": [
+          "CONSOLIDATION",
+          "PRECISION"
+        ],
+        "compression_model": {
+          "cognition": "ECONOMIC_MECHANISM_CHAIN",
+          "purpose": "Reconstruct how value becomes capital and surplus value instead of memorizing disconnected political-economy terms.",
+          "reconstruction_prompt": "从‘商品为什么有价值’开始，一路解释到‘货币为什么能变成资本、剩余价值从哪里来、为什么又表现成工资/利润等现实形式’。",
+          "reconstruction_targets": [
+            {
+              "id": "MARX-C05-LK-C01",
+              "claim": "商品二因素以劳动二重性为基础：具体劳动生产使用价值，抽象劳动形成价值。",
+              "owner_ids": [
+                "POL27-CF-MARX-C05-S01"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MARX-C05-LK-C02",
+              "claim": "价值量由社会必要劳动时间决定，货币是价值形式发展的结果，价值规律通过现实价格/竞争机制表现。",
+              "owner_ids": [
+                "POL27-CF-MARX-C05-S01"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MARX-C05-LK-C03",
+              "claim": "劳动力成为商品使价值增殖成为可能：必要劳动再生产劳动力价值，剩余劳动创造剩余价值。",
+              "owner_ids": [
+                "POL27-CF-MARX-C05-S02"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MARX-C05-LK-C04",
+              "claim": "资本积累、循环、周转和社会总资本再生产解释剩余价值怎样持续实现与扩大。",
+              "owner_ids": [
+                "POL27-CF-MARX-C05-S02"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MARX-C05-LK-C05",
+              "claim": "工资、利润等现实形式会遮蔽劳动力价值和剩余价值的真实关系；上层建筑进一步与资本主义经济基础相适应。",
+              "owner_ids": [
+                "POL27-CF-MARX-C05-S02",
+                "POL27-CF-MARX-C05-S03"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            }
+          ],
+          "decisive_boundaries": [
+            {
+              "id": "MARX-C05-LK-B01",
+              "boundary": "使用价值 ≠ 价值来源",
+              "owner_ids": [
+                "POL27-CF-MARX-C05-S01"
+              ]
+            },
+            {
+              "id": "MARX-C05-LK-B02",
+              "boundary": "个别劳动时间 ≠ 商品价值量的直接决定者",
+              "owner_ids": [
+                "POL27-CF-MARX-C05-S01"
+              ]
+            },
+            {
+              "id": "MARX-C05-LK-B03",
+              "boundary": "资本 ≠ 任何货币",
+              "owner_ids": [
+                "POL27-CF-MARX-C05-S02"
+              ]
+            },
+            {
+              "id": "MARX-C05-LK-B04",
+              "boundary": "不变资本/可变资本 ≠ 固定资本/流动资本",
+              "owner_ids": [
+                "POL27-CF-MARX-C05-S02"
+              ]
+            },
+            {
+              "id": "MARX-C05-LK-B05",
+              "boundary": "利润 ≠ 独立于剩余价值的新价值来源",
+              "owner_ids": [
+                "POL27-CF-MARX-C05-S02"
+              ]
+            }
+          ],
+          "cross_unit_confusables": [
+            {
+              "id": "MARX-C05-LK-X01",
+              "items": [
+                "具体劳动/抽象劳动",
+                "使用价值/价值"
+              ],
+              "reason": "两个二分属于不同层级，但劳动二重性解释商品二因素的来源。"
+            },
+            {
+              "id": "MARX-C05-LK-X02",
+              "items": [
+                "绝对剩余价值",
+                "相对剩余价值",
+                "超额剩余价值"
+              ],
+              "reason": "都与剩余劳动/生产率相关，但实现条件和主体层级不同，后续 Precision 需要单独确认。"
+            },
+            {
+              "id": "MARX-C05-LK-X03",
+              "items": [
+                "不变资本/可变资本",
+                "固定资本/流动资本"
+              ],
+              "reason": "前者按剩余价值生产中的作用划分，后者与价值转移/周转方式相关，不能交叉替换。"
+            },
+            {
+              "id": "MARX-C05-LK-X04",
+              "items": [
+                "剩余价值",
+                "利润"
+              ],
+              "reason": "利润是剩余价值的现实转化形式之一，不是新的价值来源。"
+            }
+          ]
+        },
+        "precision_knowledge": {
+          "policy": "REFERENCE_MEMORY_SIDECAR",
+          "owner_path": "content/politics/learning/marxism/ch05.memory.json",
+          "admission_state": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_AND_OCR_EXACTNESS_RECHECK_REQUIRED",
+          "deferred_domains": [
+            "剩余价值率/利润率等公式 exactness",
+            "资本有机构成公式/符号 exactness",
+            "经济危机完整 fixed list"
+          ],
+          "rule": "Only candidates already grounded by Current chapter knowledge are materialized now; formula/list exactness waits for exact current-source binding and current-year handbook corroboration."
+        },
+        "analysis_output_hooks": [],
+        "analysis_output_status": "LOW_PRIMARY_NO_PROACTIVE_OUTPUT_K_IN_THIS_CALIBRATION",
+        "first_round_effect": "NONE"
+      },
+      "memory_candidate_sidecar": {
+        "schema": "kianos.politics.memory_projection.v1",
+        "status": "CURRENT_K_CALIBRATION",
+        "chapter_id": "POL27-LEARN-MARX-C05",
+        "policy": "SOURCE_GROUNDED_SELECTIVE",
+        "principle": "Later precision is sparse. Current understanding + designated memory source support may create candidates; candidates do not become durable debt automatically.",
+        "preferred_memory_reference": {
+          "role": "DESIGNATED_MEMORY_HANDBOOK",
+          "label": "腿姐《冲刺背诵手册》",
+          "binding_status": "HISTORICAL_BASELINE_BOUND_CURRENT_YEAR_RECHECK_REQUIRED",
+          "historical_package": "content/politics/source/historical/leg26/manifest.json",
+          "historical_subject_source": "content/politics/source/historical/leg26/LEG26-MARX.md",
+          "rule": "LEG26 may support historical priority and candidate wording only when Current chapter Knowledge independently supports the relation. Current-year handbook/PDF exactness is still required for durable admission."
+        },
+        "admission_gate": {
+          "default": "NOT_ADMITTED",
+          "requires_source_grounding": true,
+          "admit_when_any": [
+            "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_CONFIRMS",
+            "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED",
+            "LATER_ANALYSIS_OUTPUT_REQUIRES_EXACT_FORMULATION"
+          ],
+          "do_not_admit_for": [
+            "chapter importance alone",
+            "historical handbook presence alone",
+            "one stable correct answer",
+            "formula OCR without exact current-source verification"
+          ]
+        },
+        "units": {
+          "POL27-CF-MARX-C05-S01": {
+            "title": "商品经济和价值规律",
+            "candidates": [
+              {
+                "id": "POL27-MEM-MARX-C05-S01-M01",
+                "form": "confusable_relation",
+                "statement": "具体劳动生产使用价值，抽象劳动形成价值；劳动二重性是理解商品二因素的劳动基础。",
+                "source_refs": [
+                  "POL27-CF-MARX-C05-S01"
+                ],
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MARX-P043",
+                  "LEG26-UPPER-MARX-P058"
+                ],
+                "historical_handbook_alignment": "DIRECT_RELATION_SUPPORT",
+                "admission": "CANDIDATE_ONLY",
+                "current_year_corroboration": "CURRENT_CHAPTER_KNOWLEDGE_PRESENT",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              },
+              {
+                "id": "POL27-MEM-MARX-C05-S01-M02",
+                "form": "precision_relation",
+                "statement": "商品价值量由社会必要劳动时间决定；劳动生产率变化通过改变单位商品所需社会必要劳动时间影响单位商品价值量。",
+                "source_refs": [
+                  "POL27-CF-MARX-C05-S01"
+                ],
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MARX-P044",
+                  "LEG26-UPPER-MARX-P049"
+                ],
+                "historical_handbook_alignment": "DIRECT_RELATION_SUPPORT",
+                "admission": "CANDIDATE_ONLY",
+                "current_year_corroboration": "CURRENT_CHAPTER_KNOWLEDGE_PRESENT",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              }
+            ]
+          },
+          "POL27-CF-MARX-C05-S02": {
+            "title": "资本主义经济制度",
+            "candidates": [
+              {
+                "id": "POL27-MEM-MARX-C05-S02-M01",
+                "form": "essence_boundary",
+                "statement": "工资表现为‘劳动的价格’，但本质上是劳动力价值或价格的转化形式。",
+                "source_refs": [
+                  "POL27-CF-MARX-C05-S02"
+                ],
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MARX-P045"
+                ],
+                "historical_handbook_alignment": "DIRECT_SUPPORT",
+                "admission": "CANDIDATE_ONLY",
+                "current_year_corroboration": "CURRENT_CHAPTER_KNOWLEDGE_PRESENT",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              },
+              {
+                "id": "POL27-MEM-MARX-C05-S02-M02",
+                "form": "confusable_classification",
+                "statement": "不变资本/可变资本与固定资本/流动资本是不同分类标准：前者按资本在剩余价值生产中的作用区分，后者服务于资本周转/价值转移分析。",
+                "source_refs": [
+                  "POL27-CF-MARX-C05-S02"
+                ],
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MARX-P053",
+                  "LEG26-UPPER-MARX-P054"
+                ],
+                "historical_handbook_alignment": "DIRECT_BOUNDARY_SUPPORT",
+                "admission": "CANDIDATE_ONLY",
+                "current_year_corroboration": "CURRENT_CHAPTER_KNOWLEDGE_PRESENT",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              },
+              {
+                "id": "POL27-MEM-MARX-C05-S02-M03",
+                "form": "mechanism_boundary",
+                "statement": "必要劳动再生产劳动力价值，剩余劳动创造剩余价值；绝对剩余价值和相对剩余价值是两种主要提高剩余价值的方法。",
+                "source_refs": [
+                  "POL27-CF-MARX-C05-S02"
+                ],
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MARX-P047",
+                  "LEG26-UPPER-MARX-P048"
+                ],
+                "historical_handbook_alignment": "DIRECT_MECHANISM_SUPPORT",
+                "admission": "CANDIDATE_ONLY",
+                "current_year_corroboration": "CURRENT_CHAPTER_KNOWLEDGE_PRESENT",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              },
+              {
+                "id": "POL27-MEM-MARX-C05-S02-M04",
+                "form": "essence_boundary",
+                "statement": "利润不是独立的新价值来源，而是剩余价值在现实经济关系中的转化形式。",
+                "source_refs": [
+                  "POL27-CF-MARX-C05-S02"
+                ],
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MARX-P050",
+                  "LEG26-UPPER-MARX-P055"
+                ],
+                "historical_handbook_alignment": "DIRECT_SUPPORT",
+                "admission": "CANDIDATE_ONLY",
+                "current_year_corroboration": "CURRENT_CHAPTER_KNOWLEDGE_PRESENT",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              }
+            ]
+          }
+        },
+        "deferred_candidate_domains": [
+          {
+            "domain": "剩余价值率/利润率等公式",
+            "reason": "Historical OCR contains formula candidates, but exact symbols/denominators require Current source-node binding + visual PDF/current-year confirmation before materialization."
+          },
+          {
+            "domain": "资本有机构成公式/符号",
+            "reason": "Concept relation is current-owned, but exact formula notation is not yet bound at candidate-object precision."
+          },
+          {
+            "domain": "经济危机完整固定列表",
+            "reason": "High-yield historical list exists, but chapter/current-year exactness should be reconciled before durable candidate creation."
+          }
+        ]
+      }
+    },
+    {
+      "chapter_path": "content/politics/learning/marxism/ch06.json",
+      "chapter_id": "POL27-LEARN-MARX-C06",
+      "title": "第六章 资本主义的发展及趋势",
+      "later_stage_knowledge": {
+        "schema": "kianos.politics.later_stage_knowledge.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "phase_scope": [
+          "CONSOLIDATION",
+          "PRECISION"
+        ],
+        "compression_model": {
+          "cognition": "FORM_CHANGE_VS_ESSENCE_CHAIN",
+          "purpose": "Distinguish capitalist adaptation/new forms from claims that the capitalist essence changed.",
+          "reconstruction_prompt": "从自由竞争一路恢复到垄断、金融资本、国家垄断、全球化和当代新变化，再解释为什么‘形式变了’不等于‘基本矛盾消失’。",
+          "reconstruction_targets": [
+            {
+              "id": "MARX-C06-LK-C01",
+              "claim": "竞争推动资本集中，集中发展到一定程度产生垄断；垄断使竞争形式更复杂而不是消灭竞争。",
+              "owner_ids": [
+                "POL27-CF-MARX-C06-S01"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MARX-C06-LK-C02",
+              "claim": "垄断利润/垄断价格改变价值和剩余价值的分配实现方式，但不创造新的价值来源。",
+              "owner_ids": [
+                "POL27-CF-MARX-C06-S01"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MARX-C06-LK-C03",
+              "claim": "金融资本、国家垄断和全球化是资本主义在更高集中和跨国条件下的结构变化。",
+              "owner_ids": [
+                "POL27-CF-MARX-C06-S01"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MARX-C06-LK-C04",
+              "claim": "二战后及当代变化具有真实适应作用，但仍主要是资本主义关系在自身范围内调整。",
+              "owner_ids": [
+                "POL27-CF-MARX-C06-S02"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MARX-C06-LK-C05",
+              "claim": "资本主义既有历史进步性又有历史局限；历史趋势不等于短期自动直线完成。",
+              "owner_ids": [
+                "POL27-CF-MARX-C06-S03"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            }
+          ],
+          "decisive_boundaries": [
+            {
+              "id": "MARX-C06-LK-B01",
+              "boundary": "垄断 ≠ 消灭竞争",
+              "owner_ids": [
+                "POL27-CF-MARX-C06-S01"
+              ]
+            },
+            {
+              "id": "MARX-C06-LK-B02",
+              "boundary": "垄断利润/价格 ≠ 新价值来源/价值规律失效",
+              "owner_ids": [
+                "POL27-CF-MARX-C06-S01"
+              ]
+            },
+            {
+              "id": "MARX-C06-LK-B03",
+              "boundary": "国家垄断资本主义 ≠ 社会主义",
+              "owner_ids": [
+                "POL27-CF-MARX-C06-S01"
+              ]
+            },
+            {
+              "id": "MARX-C06-LK-B04",
+              "boundary": "资本主义新变化 ≠ 基本矛盾消失",
+              "owner_ids": [
+                "POL27-CF-MARX-C06-S02"
+              ]
+            },
+            {
+              "id": "MARX-C06-LK-B05",
+              "boundary": "历史趋势 ≠ 短期自动实现",
+              "owner_ids": [
+                "POL27-CF-MARX-C06-S03"
+              ]
+            }
+          ],
+          "cross_unit_confusables": [
+            {
+              "id": "MARX-C06-LK-X01",
+              "items": [
+                "历史进步性",
+                "历史局限性",
+                "历史趋势"
+              ],
+              "reason": "三者是评价资本主义不同层次，不能用趋势判断否定其历史进步作用，也不能用适应性否定历史局限。"
+            }
+          ]
+        },
+        "precision_knowledge": {
+          "policy": "REFERENCE_MEMORY_SIDECAR",
+          "owner_path": "content/politics/learning/marxism/ch06.memory.json",
+          "candidate_ids": [
+            "POL27-MEM-MARX-C06-S01-M01",
+            "POL27-MEM-MARX-C06-S01-M02",
+            "POL27-MEM-MARX-C06-S01-M03",
+            "POL27-MEM-MARX-C06-S02-M01"
+          ],
+          "admission_state": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+          "deferred_domains": [
+            "经济全球化表现/动因完整列表",
+            "21世纪资本主义新特征完整列表"
+          ],
+          "rule": "Candidate-only Knowledge is materialized from Current P0/P1 recall needs plus historical handbook support; durable review debt remains admission-gated."
+        },
+        "analysis_output_hooks": [],
+        "analysis_output_status": "LOW_PRIMARY",
+        "first_round_effect": "NONE"
+      },
+      "memory_candidate_sidecar": {
+        "schema": "kianos.politics.memory_projection.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "chapter_id": "POL27-LEARN-MARX-C06",
+        "policy": "SOURCE_GROUNDED_SELECTIVE",
+        "principle": "Candidate existence is Knowledge; durable review debt requires later admission evidence.",
+        "preferred_memory_reference": {
+          "role": "DESIGNATED_MEMORY_HANDBOOK",
+          "label": "腿姐《冲刺背诵手册》",
+          "binding_status": "HISTORICAL_BASELINE_BOUND_CURRENT_YEAR_RECHECK_REQUIRED",
+          "historical_package": "content/politics/source/historical/leg26/manifest.json",
+          "historical_subject_source": "content/politics/source/historical/leg26/LEG26-MARX.md",
+          "rule": "Current canonical region/source must support the relation. LEG26 supplies historical retention priority; current-year source/WU/output evidence governs admission."
+        },
+        "admission_gate": {
+          "default": "NOT_ADMITTED",
+          "requires_source_grounding": true,
+          "admit_when_any": [
+            "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_CONFIRMS",
+            "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED",
+            "LATER_ANALYSIS_OUTPUT_REQUIRES_EXACT_FORMULATION"
+          ],
+          "do_not_admit_for": [
+            "historical handbook presence alone",
+            "chapter importance alone",
+            "one stable correct answer"
+          ]
+        },
+        "units": {
+          "POL27-CF-MARX-C06-S01": {
+            "title": "垄断资本主义的形成与发展",
+            "candidates": [
+              {
+                "id": "POL27-MEM-MARX-C06-S01-M01",
+                "form": "boundary",
+                "statement": "垄断并不能消灭竞争，只会使竞争在垄断组织之间、垄断与非垄断资本之间以更复杂形式继续存在。",
+                "source_refs": [
+                  "POL27-CF-MARX-C06-S01"
+                ],
+                "current_recall_basis": {
+                  "priority": "P0",
+                  "forms": [
+                    "boundary",
+                    "list"
+                  ]
+                },
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MARX-P061"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              },
+              {
+                "id": "POL27-MEM-MARX-C06-S01-M02",
+                "form": "source_boundary",
+                "statement": "垄断利润不是新的独立价值来源，归根到底仍来自劳动者创造的剩余价值；垄断价格改变分配实现方式，不意味着价值规律失效。",
+                "source_refs": [
+                  "POL27-CF-MARX-C06-S01"
+                ],
+                "current_recall_basis": {
+                  "priority": "P0",
+                  "forms": [
+                    "boundary",
+                    "list"
+                  ]
+                },
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MARX-P063"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              },
+              {
+                "id": "POL27-MEM-MARX-C06-S01-M03",
+                "form": "identity_boundary",
+                "statement": "国家垄断资本主义是国家力量与私人垄断资本相结合的资本主义形式，不等于社会主义，也没有从根本上消除资本主义基本矛盾。",
+                "source_refs": [
+                  "POL27-CF-MARX-C06-S01"
+                ],
+                "current_recall_basis": {
+                  "priority": "P0",
+                  "forms": [
+                    "boundary",
+                    "list"
+                  ]
+                },
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MARX-P064"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              }
+            ]
+          },
+          "POL27-CF-MARX-C06-S02": {
+            "title": "当代资本主义的新变化",
+            "candidates": [
+              {
+                "id": "POL27-MEM-MARX-C06-S02-M01",
+                "form": "essence_boundary",
+                "statement": "二战后和当代资本主义的新变化是真实的适应性调整，但主要发生在资本主义制度基本框架内，并没有消除资本主义基本矛盾或改变其制度本质。",
+                "source_refs": [
+                  "POL27-CF-MARX-C06-S02"
+                ],
+                "current_recall_basis": {
+                  "priority": "P0",
+                  "forms": [
+                    "boundary"
+                  ]
+                },
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MARX-P066"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              }
+            ]
+          }
+        },
+        "deferred_candidate_domains": [
+          {
+            "domain": "经济全球化表现/动因完整列表",
+            "reason": "Current region marks the area high-value, but exact list membership should wait for current-year designated-memory reconciliation."
+          },
+          {
+            "domain": "21世纪资本主义新特征完整列表",
+            "reason": "High annual-delta risk; preserve as historical candidate domain until current-year source arrives."
+          }
+        ]
+      }
+    },
+    {
+      "chapter_path": "content/politics/learning/marxism/ch07.json",
+      "chapter_id": "POL27-LEARN-MARX-C07",
+      "title": "第七章 社会主义的发展及其规律",
+      "later_stage_knowledge": {
+        "schema": "kianos.politics.later_stage_knowledge.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "phase_scope": [
+          "CONSOLIDATION",
+          "PRECISION"
+        ],
+        "compression_model": {
+          "cognition": "TIMELINE_PLUS_PRINCIPLE_BOUNDARY",
+          "purpose": "Separate how socialism historically developed from which scientific-socialist principles remain directionally stable.",
+          "reconstruction_prompt": "先恢复空想→科学→现实实践的历史推进，再单独恢复‘基本原则 vs 具体道路’边界，最后把两条线重新接起来。",
+          "reconstruction_targets": [
+            {
+              "id": "MARX-C07-LK-C01",
+              "claim": "空想社会主义有批判和理想贡献，但缺少科学解释、现实主体和实现道路。",
+              "owner_ids": [
+                "POL27-CF-MARX-C07-S01"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MARX-C07-LK-C02",
+              "claim": "唯物史观和剩余价值学说使社会主义获得科学基础，工人运动/革命把理论推进到现实实践。",
+              "owner_ids": [
+                "POL27-CF-MARX-C07-S01"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MARX-C07-LK-C03",
+              "claim": "现实社会主义实践会曲折发展，不能把某一具体模式成败等同于科学社会主义基本原理成败。",
+              "owner_ids": [
+                "POL27-CF-MARX-C07-S01"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MARX-C07-LK-C04",
+              "claim": "科学社会主义有方向性基本原则，但具体道路和制度形式必须结合国情和时代实践。",
+              "owner_ids": [
+                "POL27-CF-MARX-C07-S02"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            }
+          ],
+          "decisive_boundaries": [
+            {
+              "id": "MARX-C07-LK-B01",
+              "boundary": "空想社会主义贡献 ≠ 科学社会主义",
+              "owner_ids": [
+                "POL27-CF-MARX-C07-S01"
+              ]
+            },
+            {
+              "id": "MARX-C07-LK-B02",
+              "boundary": "某一实践模式成败 ≠ 科学社会主义基本原理成立/失效",
+              "owner_ids": [
+                "POL27-CF-MARX-C07-S01"
+              ]
+            },
+            {
+              "id": "MARX-C07-LK-B03",
+              "boundary": "坚持基本原则 ≠ 复制固定模式",
+              "owner_ids": [
+                "POL27-CF-MARX-C07-S02"
+              ]
+            },
+            {
+              "id": "MARX-C07-LK-B04",
+              "boundary": "道路多样性 ≠ 没有共同方向和基本原则",
+              "owner_ids": [
+                "POL27-CF-MARX-C07-S02"
+              ]
+            }
+          ],
+          "cross_unit_confusables": []
+        },
+        "precision_knowledge": {
+          "policy": "REFERENCE_MEMORY_SIDECAR",
+          "owner_path": "content/politics/learning/marxism/ch07.memory.json",
+          "candidate_ids": [
+            "POL27-MEM-MARX-C07-S01-M01",
+            "POL27-MEM-MARX-C07-S01-M02",
+            "POL27-MEM-MARX-C07-S02-M01"
+          ],
+          "admission_state": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+          "deferred_domains": [
+            "社会主义发展道路多样性的完整原因列表"
+          ],
+          "rule": "Candidate-only Knowledge is materialized from Current P0/P1 recall needs plus historical handbook support; durable review debt remains admission-gated."
+        },
+        "analysis_output_hooks": [],
+        "analysis_output_status": "LOW_PRIMARY",
+        "first_round_effect": "NONE"
+      },
+      "memory_candidate_sidecar": {
+        "schema": "kianos.politics.memory_projection.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "chapter_id": "POL27-LEARN-MARX-C07",
+        "policy": "SOURCE_GROUNDED_SELECTIVE",
+        "principle": "Candidate existence is Knowledge; durable review debt requires later admission evidence.",
+        "preferred_memory_reference": {
+          "role": "DESIGNATED_MEMORY_HANDBOOK",
+          "label": "腿姐《冲刺背诵手册》",
+          "binding_status": "HISTORICAL_BASELINE_BOUND_CURRENT_YEAR_RECHECK_REQUIRED",
+          "historical_package": "content/politics/source/historical/leg26/manifest.json",
+          "historical_subject_source": "content/politics/source/historical/leg26/LEG26-MARX.md",
+          "rule": "Current canonical region/source must support the relation. LEG26 supplies historical retention priority; current-year source/WU/output evidence governs admission."
+        },
+        "admission_gate": {
+          "default": "NOT_ADMITTED",
+          "requires_source_grounding": true,
+          "admit_when_any": [
+            "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_CONFIRMS",
+            "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED",
+            "LATER_ANALYSIS_OUTPUT_REQUIRES_EXACT_FORMULATION"
+          ],
+          "do_not_admit_for": [
+            "historical handbook presence alone",
+            "chapter importance alone",
+            "one stable correct answer"
+          ]
+        },
+        "units": {
+          "POL27-CF-MARX-C07-S01": {
+            "title": "社会主义五百年的历史进程",
+            "candidates": [
+              {
+                "id": "POL27-MEM-MARX-C07-S01-M01",
+                "form": "historical_boundary",
+                "statement": "空想社会主义是科学社会主义的重要思想来源并有历史贡献，但缺少对资本主义规律、现实主体和实现道路的科学说明，因此不等于科学社会主义。",
+                "source_refs": [
+                  "POL27-CF-MARX-C07-S01"
+                ],
+                "current_recall_basis": {
+                  "priority": "P0",
+                  "forms": [
+                    "timeline",
+                    "identity"
+                  ]
+                },
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MARX-P068"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              },
+              {
+                "id": "POL27-MEM-MARX-C07-S01-M02",
+                "form": "milestone_identity",
+                "statement": "巴黎公社是无产阶级夺取政权的第一次伟大尝试；十月革命实现社会主义从理想到现实的伟大飞跃。",
+                "source_refs": [
+                  "POL27-CF-MARX-C07-S01"
+                ],
+                "current_recall_basis": {
+                  "priority": "P0",
+                  "forms": [
+                    "timeline",
+                    "identity"
+                  ]
+                },
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MARX-P069"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              }
+            ]
+          },
+          "POL27-CF-MARX-C07-S02": {
+            "title": "科学社会主义基本原则",
+            "candidates": [
+              {
+                "id": "POL27-MEM-MARX-C07-S02-M01",
+                "form": "principle_boundary",
+                "statement": "坚持科学社会主义基本原则不等于复制固定模式；社会主义发展道路可以多样化，但道路多样性不等于没有共同方向和基本原则。",
+                "source_refs": [
+                  "POL27-CF-MARX-C07-S02"
+                ],
+                "current_recall_basis": {
+                  "priority": "P1",
+                  "forms": [
+                    "list",
+                    "hat"
+                  ]
+                },
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MARX-P070"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              }
+            ]
+          }
+        },
+        "deferred_candidate_domains": [
+          {
+            "domain": "社会主义发展道路多样性的完整原因列表",
+            "reason": "LEG26 historical list is clear, but exact current-year list membership should be reconciled before freezing."
+          }
+        ]
+      }
+    },
+    {
+      "chapter_path": "content/politics/learning/marxism/ch08.json",
+      "chapter_id": "POL27-LEARN-MARX-C08",
+      "title": "第八章 共产主义崇高理想及其最终实现",
+      "later_stage_knowledge": {
+        "schema": "kianos.politics.later_stage_knowledge.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "phase_scope": [
+          "CONSOLIDATION",
+          "PRECISION"
+        ],
+        "compression_model": {
+          "cognition": "IDEAL_FROM_REALITY_LOGIC",
+          "purpose": "Keep scientific prediction, ideal features, historical inevitability and long-term realization in one non-utopian model.",
+          "reconstruction_prompt": "解释为什么共产主义既有历史必然性，又必须长期实现；并说明科学预见为什么不能变成未来社会细节设计。",
+          "reconstruction_targets": [
+            {
+              "id": "MARX-C08-LK-C01",
+              "claim": "科学预见未来社会必须从现实社会矛盾和发展趋势出发，只概括基本方向特征而不任意设计细节。",
+              "owner_ids": [
+                "POL27-CF-MARX-C08"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MARX-C08-LK-C02",
+              "claim": "共产主义基本特征建立在高度发展的生产力和新的社会关系等现实前提上。",
+              "owner_ids": [
+                "POL27-CF-MARX-C08"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MARX-C08-LK-C03",
+              "claim": "历史必然性来自客观社会发展趋势，不等于自动实现；实现要通过人的实践和长期历史过程。",
+              "owner_ids": [
+                "POL27-CF-MARX-C08"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            },
+            {
+              "id": "MARX-C08-LK-C04",
+              "claim": "社会主义现实实践是通向远大理想的历史环节，远大理想与当前实践不是两套彼此割裂的目标。",
+              "owner_ids": [
+                "POL27-CF-MARX-C08"
+              ],
+              "source_basis": "CURRENT_CHAPTER_KNOWLEDGE"
+            }
+          ],
+          "decisive_boundaries": [
+            {
+              "id": "MARX-C08-LK-B01",
+              "boundary": "科学预见 ≠ 详细设计未来社会一切细节",
+              "owner_ids": [
+                "POL27-CF-MARX-C08"
+              ]
+            },
+            {
+              "id": "MARX-C08-LK-B02",
+              "boundary": "历史必然性 ≠ 自动实现",
+              "owner_ids": [
+                "POL27-CF-MARX-C08"
+              ]
+            },
+            {
+              "id": "MARX-C08-LK-B03",
+              "boundary": "实现长期性 ≠ 理想不可实现",
+              "owner_ids": [
+                "POL27-CF-MARX-C08"
+              ]
+            },
+            {
+              "id": "MARX-C08-LK-B04",
+              "boundary": "远大理想 ≠ 与现实实践割裂",
+              "owner_ids": [
+                "POL27-CF-MARX-C08"
+              ]
+            }
+          ],
+          "cross_unit_confusables": []
+        },
+        "precision_knowledge": {
+          "policy": "REFERENCE_MEMORY_SIDECAR",
+          "owner_path": "content/politics/learning/marxism/ch08.memory.json",
+          "candidate_ids": [
+            "POL27-MEM-MARX-C08-M01",
+            "POL27-MEM-MARX-C08-M02",
+            "POL27-MEM-MARX-C08-M03"
+          ],
+          "admission_state": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+          "deferred_domains": [
+            "远大理想与共同理想的时间/层次/范围三维关系"
+          ],
+          "rule": "Candidate-only Knowledge is materialized from Current P0/P1 recall needs plus historical handbook support; durable review debt remains admission-gated."
+        },
+        "analysis_output_hooks": [],
+        "analysis_output_status": "LOW_PRIMARY",
+        "first_round_effect": "NONE"
+      },
+      "memory_candidate_sidecar": {
+        "schema": "kianos.politics.memory_projection.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "chapter_id": "POL27-LEARN-MARX-C08",
+        "policy": "SOURCE_GROUNDED_SELECTIVE",
+        "principle": "Candidate existence is Knowledge; durable review debt requires later admission evidence.",
+        "preferred_memory_reference": {
+          "role": "DESIGNATED_MEMORY_HANDBOOK",
+          "label": "腿姐《冲刺背诵手册》",
+          "binding_status": "HISTORICAL_BASELINE_BOUND_CURRENT_YEAR_RECHECK_REQUIRED",
+          "historical_package": "content/politics/source/historical/leg26/manifest.json",
+          "historical_subject_source": "content/politics/source/historical/leg26/LEG26-MARX.md",
+          "rule": "Current canonical region/source must support the relation. LEG26 supplies historical retention priority; current-year source/WU/output evidence governs admission."
+        },
+        "admission_gate": {
+          "default": "NOT_ADMITTED",
+          "requires_source_grounding": true,
+          "admit_when_any": [
+            "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_CONFIRMS",
+            "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED",
+            "LATER_ANALYSIS_OUTPUT_REQUIRES_EXACT_FORMULATION"
+          ],
+          "do_not_admit_for": [
+            "historical handbook presence alone",
+            "chapter importance alone",
+            "one stable correct answer"
+          ]
+        },
+        "units": {
+          "POL27-CF-MARX-C08": {
+            "title": "共产主义崇高理想及其最终实现",
+            "candidates": [
+              {
+                "id": "POL27-MEM-MARX-C08-M01",
+                "form": "method_boundary",
+                "statement": "科学预见未来社会必须从现实社会矛盾和发展规律出发，概括基本方向和特征，而不是任意设计未来社会全部具体细节。",
+                "source_refs": [
+                  "POL27-CF-MARX-C08"
+                ],
+                "current_recall_basis": {
+                  "priority": "P1",
+                  "forms": [
+                    "list",
+                    "boundary"
+                  ]
+                },
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MARX-P070",
+                  "LEG26-UPPER-MARX-P071"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              },
+              {
+                "id": "POL27-MEM-MARX-C08-M02",
+                "form": "relation_boundary",
+                "statement": "共产主义实现具有历史必然性，同时又是长期复杂的历史过程；历史必然性不等于自动、短期实现。",
+                "source_refs": [
+                  "POL27-CF-MARX-C08"
+                ],
+                "current_recall_basis": {
+                  "priority": "P1",
+                  "forms": [
+                    "list",
+                    "boundary"
+                  ]
+                },
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MARX-P071"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              },
+              {
+                "id": "POL27-MEM-MARX-C08-M03",
+                "form": "ideal_practice_boundary",
+                "statement": "远大理想必须通过现实社会主义实践逐步推进；实现过程长期不等于理想不可实现，现实实践也不是对远大理想的替代。",
+                "source_refs": [
+                  "POL27-CF-MARX-C08"
+                ],
+                "current_recall_basis": {
+                  "priority": "P1",
+                  "forms": [
+                    "list",
+                    "boundary"
+                  ]
+                },
+                "historical_handbook_refs": [
+                  "LEG26-UPPER-MARX-P071"
+                ],
+                "admission": "CANDIDATE_ONLY",
+                "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND"
+              }
+            ]
+          }
+        },
+        "deferred_candidate_domains": [
+          {
+            "domain": "远大理想与共同理想的时间/层次/范围三维关系",
+            "reason": "LEG26 owns the historical three-dimension list; Current chapter Knowledge currently owns the broader ideal/practice relation. Exact three-dimension candidate waits for finer Current binding."
+          }
+        ]
+      }
+    }
+  ]
+}
