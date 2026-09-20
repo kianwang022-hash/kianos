@@ -1,0 +1,57 @@
+{
+  "schema": "kianos.lexical.final_standard_reconciliation.v1",
+  "candidate_id": "BF01",
+  "range": [
+    101,
+    200
+  ],
+  "status": "RECONCILED_READY_FOR_MERGE",
+  "candidate_branch": "work/lexical-continuous-bf01-20260920",
+  "candidate_pr": 618,
+  "audit_pack": "content/lexical/semantic-audit/O0101_O0200_FINAL_STANDARD_FRESH_AUDIT_PACK.md",
+  "audit_result_before_reconciliation": "HOLD_FOR_SOL",
+  "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
+  "main_refreeze_head": "92669332de57e550a69c63f2b52bf437a242bae1",
+  "pre_reconciliation_candidate_head": "edeafdbc5e94bafa93de21ab9c55e6672362b929",
+  "findings_reconciled": [
+    {
+      "target": "digital@o1378",
+      "action": "REUSE_EXISTING_STABLE",
+      "stable_sense_id": "sense:digital:6f6682405b4b522c",
+      "retired_replacement_sense_id": "sense:digital:e568a7d463e082ac",
+      "retired_status": "merged",
+      "merged_into": "sense:digital:6f6682405b4b522c"
+    },
+    {
+      "target": "deep:confusables:alter:ec2b2a5d2e1f3a7b",
+      "action": "CORRECT_METADATA",
+      "field": "fact_record.content.same_normalized_pronunciation",
+      "value": false
+    },
+    {
+      "target": "repair-blueprint:o0102:affiliate:v1",
+      "action": "NARROW_DIAGNOSTIC",
+      "target_kind": "construction",
+      "target_id": "construction:affiliate:baseline-v2-be-affiliated-with"
+    }
+  ],
+  "provisional_findings_cleared": [
+    {
+      "target": "o0111 again / then again",
+      "reason": "Final Learner Object already contains the fixed-pattern usage and repair locator."
+    },
+    {
+      "target": "o0164 alternate Form projection",
+      "reason": "Builder intentionally uses detailed variants when present and leaves the summary boundary empty."
+    }
+  ],
+  "closure": {
+    "production_broad_reopen_required": false,
+    "new_human_semantic_delta_required": false,
+    "final_learner_object_count": 7946,
+    "repair_blueprints_total": 25,
+    "blocked": 0,
+    "main_merge_authorized": true
+  },
+  "next_action": "Run normal PR checks from this connector-authored reconciliation commit; merge PR #618 if no BF01 regression is proven."
+}
