@@ -1,4 +1,7 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { englishSessionCatalog } from '../src/lib/englishSessionCatalog.mjs';
+import { buildPoliticsAnalysisRegistry } from '../src/lib/politicsAnalysisRegistry.mjs';
 import { syncPrivateControlRelayOnce } from './privateControlRelaySync.mjs';
 import {
   readPrivateControlCurrent,
@@ -21,6 +24,17 @@ const json=(res,status,value)=>{
   res.setHeader('cache-control','no-store');
   res.end(JSON.stringify(value));
 };
+function politicsAnalysisRegistry(){
+  const repoRoot=process.env.KIANOS_REPO_ROOT
+    ?path.resolve(process.env.KIANOS_REPO_ROOT)
+    :path.resolve(process.cwd(),'..');
+  const manifest=JSON.parse(fs.readFileSync(path.join(repoRoot,'content/politics/manifest.json'),'utf8'));
+  const legacyIndex=JSON.parse(fs.readFileSync(
+    path.join(repoRoot,'content/politics/derived/analysis/legacy26-drill-index.v1.json'),
+    'utf8'
+  ));
+  return buildPoliticsAnalysisRegistry({manifest,legacyIndex});
+}
 async function readBody(req){
   let size=0;const chunks=[];
   for await(const chunk of req){
@@ -71,6 +85,9 @@ export function privateControlBridge({privateDir=resolvePrivateControlDir()}={})
           }
           if(req.method==='GET'&&url.pathname===ROOT+'/english-session-catalog'){
             return json(res,200,{status:'ready',rows:englishSessionCatalog()});
+          }
+          if(req.method==='GET'&&url.pathname===ROOT+'/politics-analysis-context'){
+            return json(res,200,{status:'ready',...politicsAnalysisRegistry()});
           }
           if(req.method==='PUT'&&url.pathname===ROOT+'/receipt'){
             const receipt=writePrivateControlReceipt(await readBody(req),privateDir);
