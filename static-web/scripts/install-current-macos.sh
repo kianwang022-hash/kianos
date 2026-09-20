@@ -128,7 +128,20 @@ EOF
 launchctl bootstrap "$DOMAIN" "$PLIST"
 launchctl kickstart -k "$DOMAIN/$LABEL"
 
-sleep 2
+echo "Waiting for the prebuilt learner site to become ready..."
+READY=0
+for _ in $(seq 1 120); do
+  if "$NODE_BIN" -e "fetch('http://127.0.0.1:$PORT/').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))" >/dev/null 2>&1; then
+    READY=1
+    break
+  fi
+  sleep 1
+done
+if [[ "$READY" != "1" ]]; then
+  echo "KianOS static Current did not become reachable within 120s." >&2
+  exit 1
+fi
+
 DOCTOR="$MIRROR_DIR/static-web/scripts/kianos-current-doctor.mjs"
 if [[ -f "$DOCTOR" ]]; then
   "$NODE_BIN" "$DOCTOR"
@@ -139,7 +152,7 @@ cat <<EOF
 
 KianOS Current mirror installed.
 
-GitHub main → $MIRROR_DIR → Astro localhost:$PORT
+GitHub main → $MIRROR_DIR → prebuilt Astro static runtime localhost:$PORT
 Sync interval: $((INTERVAL_MS / 1000))s
 LaunchAgent: $PLIST
 Logs: $LOG_DIR/current.out.log
