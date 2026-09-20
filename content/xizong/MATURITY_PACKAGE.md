@@ -51,7 +51,7 @@ Until Current 2027 authority exists, the 25-point loss envelope may use historic
 | X3 Block/LG Reconstruction | accepted LG/Block structure | local reconstruction without rereading | Block/LG closure under recall | medical learner assets exist; D/E/F content closed | **UNKNOWN until real U** |
 | X4 System Reconstruction | System model + System Recall | rebuild whole System before broad application | pre/post-question System Recall | System owners exist A1–F | **UNKNOWN until real U** |
 | X5 Precision Stability | selective Precision assets + canonical exact facts | retrieval + delayed selective review | delayed precision stability | selective Memory/Precision path exists | **UNKNOWN until real U** |
-| X6 Official Application / Decisive Discrimination | official questions + reviewed explanation/relation where available | System sweep / question reuse / decisive-condition analysis | first attempt + later changed-condition evidence | exact System question scope accepted A1–E; **F unresolved** | **PARTIAL/UNKNOWN** |
+| X6 Official Application / Decisive Discrimination | official questions + reviewed explanation/relation where available | System sweep / question reuse / decisive-condition analysis | first attempt + later changed-condition evidence | exact System question scope accepted A1–F; **F = 70 qids / CLOSED** | **PARTIAL/UNKNOWN** |
 | X7 Causal Repair / Fresh Verification / Delayed Stability | Repair owner + canonical return + fresh probe/official reuse | discriminate cause → smallest repair → changed-context/delayed verify | fresh/delayed success after repair | Repair/evidence path exists; Forecast timing still calibrating | **UNKNOWN until real U** |
 | X8 Case / Cross-System Transfer | approved case assets / official reuse / bounded fresh probes | case integration + cross-System switching | dedicated case/cross-System transfer | evidence path exists; current-year case/狂背 material not fully reconciled | **UNKNOWN / material delta open** |
 | X9 Whole-Paper Execution | protected whole papers + later current-year mocks | 180-min execution, switching, uncertainty/timing control | sealed low-contamination whole-paper evidence | whole-paper runtime exists; 2027 geometry/current mocks not yet Current | **UNKNOWN until real U** |
@@ -313,7 +313,7 @@ Current interpretation:
 - humanism historical exposure = 16 points, far larger than its 1.33-point neutral-loss baseline;
 - therefore leaving humanism entirely unowned cannot support a defensible 275 working claim even if other medical Systems are green;
 - Biochemistry has a 36-point historical domain, but only the current-year **delta** is presently unpriced — do not convert 36 points into “36 points at risk”;
-- F routing gap cannot be translated into missing points until exact membership is reconstructed;
+- F routing scope is closed at 70 qids and is no longer a Stage-A loss unknown;
 - X8 case/cross-System and X9 execution losses are cross-cutting and may correlate across disciplines, so they must not be double-counted into discipline buckets.
 
 Current verdict:
@@ -383,14 +383,15 @@ The 26-cycle baseline now already owns:
 
 No further broad construction is needed now. Reopen only when 27-cycle material arrives or a concrete missing historical source is needed for a real decision.
 
-## P3 — reconcile the 25-point envelope
+## P3 — 25-point envelope — STRUCTURALLY CLOSED
 
-After P0/P1 and enough P2 pricing:
+Stage A closes the envelope structure, not a fake Kian-specific allocation:
 
-- allocate plausible loss sources;
-- identify correlated failure clusters;
-- identify the capability most capable of breaking 275;
-- mark unresolved future-source uncertainty explicitly.
+- total working loss cap remains 25 / 300;
+- no fixed discipline quotas are invented;
+- cross-cutting X8/X9 losses are not double-counted;
+- future-source uncertainty stays explicit;
+- asymmetric learner-specific loss allocation is deferred to Stage E and must come from Real Learner U.
 
 ---
 
@@ -432,3 +433,52 @@ Stage A verdict:
 > **CLOSED — move the maturity mainline to Stage B learner-capability use, with Stage E calibration beginning as soon as Real Learner U exists.**
 
 Do not reopen Stage A for unavailable 2027 Sources. Reopen only when a new authoritative Source arrives or a concrete Current scope/material defect is discovered.
+
+---
+
+# 11｜Stage B handoff — learner evidence becomes the main input
+
+Stage B current question is no longer “what else can the repository build?”
+
+It is:
+
+> **During real first-pass study, which score-relevant Xizong capability is actually binding, and what is the smallest action that can change that judgment?**
+
+Required evidence emphasis:
+
+- X1: real Source/model formation when Source contact is required;
+- X2: active Recall rather than familiarity;
+- X3/X4: Block/LG and System reconstruction;
+- X6: representative official-question application with exposure identity preserved;
+- X7 only when a real defect needs Repair/verification;
+- X5/X8/X9 open later when their evidence can change an actual decision.
+
+Operating constraints:
+
+1. Missing learner evidence stays `UNKNOWN`; do not fill it with CI, synthetic mastery or repository-completeness claims.
+2. Do not reopen Stage A unless a new authoritative Source or concrete scope/material defect appears.
+3. Do not reopen shared Website/Home/runtime merely to collect richer telemetry. Add a sensor only when the accepted path lacks a fact required for a real learning decision.
+4. Xizong may report binding capability, workload range and risk. It may not choose cross-subject allocation.
+5. Stable work must become cheaper. Reopen/heavier work requires newer contradictory learner evidence or a subject-native trigger.
+6. When remaining uncertainty is Real Learner U or Future Source, the correct action is **study / wait for Source**, not more maturity architecture.
+
+Stage B success therefore comes mainly from the loop:
+
+```text
+study
+→ evidence
+→ bounded diagnosis
+→ smallest repair
+→ stronger evidence
+→ cheaper stable work
+```
+
+not:
+
+```text
+model
+→ audit
+→ larger model
+→ larger audit
+```
+
