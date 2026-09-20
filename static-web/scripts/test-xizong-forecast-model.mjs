@@ -223,11 +223,15 @@ function baseProgress() {
   assert.equal(readiness.formal_score.status,'REFERENCE_ONLY_CONTAMINATION_UNKNOWN');
   assert.equal(readiness.formal_score.empirical_band,null);
   assert.equal(readiness.formal_score.latest_target_gap,-4);
+  assert.equal(readiness.formal_score.score_extrapolation_ready,false);
+  assert.equal(readiness.gate_readiness.result,'EVIDENCE_PRESENT_LOW_CONFIDENCE');
 }
 
 {
   const readiness=buildXizongScoreReadiness(baseProgress(),{targetScore:275});
   assert.equal(readiness.formal_score.status,'EMPIRICAL_BAND_CONTAMINATION_UNKNOWN');
+  assert.equal(readiness.formal_score.score_extrapolation_ready,false);
+  assert.equal(readiness.gate_readiness.result,'EVIDENCE_PRESENT_LOW_CONFIDENCE');
   assert.ok(readiness.formal_score.empirical_band.p20<=readiness.formal_score.empirical_band.p50);
   assert.ok(readiness.formal_score.empirical_band.p50<=readiness.formal_score.empirical_band.p80);
   assert.equal(readiness.capabilities.precision.evidence_status,'SELECTIVE_EVIDENCE_PRESENT');
@@ -241,6 +245,25 @@ function baseProgress() {
   });
   assert.equal(readiness.gate_readiness.coverage_ready,false);
   assert.equal(readiness.gate_readiness.result,'NOT_READY');
+}
+
+{
+  const contaminated=buildXizongScoreReadiness(baseProgress(),{
+    targetScore:275,
+    contaminationStatus:'KNOWN_PRIOR_EXPOSURE'
+  });
+  assert.equal(contaminated.formal_score.status,'EMPIRICAL_BAND_KNOWN_CONTAMINATION');
+  assert.equal(contaminated.formal_score.score_extrapolation_ready,false);
+  assert.equal(contaminated.formal_score.observed_score_is_not_fresh_prediction,true);
+  assert.equal(contaminated.gate_readiness.result,'EVIDENCE_PRESENT_LOW_CONFIDENCE');
+
+  const leastContaminated=buildXizongScoreReadiness(baseProgress(),{
+    targetScore:275,
+    contaminationStatus:'LEAST_CONTAMINATED'
+  });
+  assert.equal(leastContaminated.formal_score.status,'EMPIRICAL_BAND_LOW_CONTAMINATION');
+  assert.equal(leastContaminated.formal_score.score_extrapolation_ready,true);
+  assert.equal(leastContaminated.gate_readiness.result,'READY_FOR_DEFENSIBLE_ESTIMATE');
 }
 
 {
