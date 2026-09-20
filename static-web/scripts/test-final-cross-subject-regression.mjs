@@ -200,6 +200,16 @@ const chatPlan = {
   attention: null
 };
 
+const chatPlanFile = path.join(privateDir, 'kianos-chat-plan-day1.json');
+const staleChatPlanFile = path.join(privateDir, 'kianos-chat-plan-stale.json');
+
+fs.writeFileSync(chatPlanFile, JSON.stringify(chatPlan, null, 2));
+fs.writeFileSync(staleChatPlanFile, JSON.stringify({
+  ...chatPlan,
+  study_day: '2026-09-18',
+  generated_at: '2026-09-18T01:00:00.000Z'
+}, null, 2));
+
 const profile = {
   ...emptyExamProfile(),
   capacityByDay: { [DAY]: 570 },
@@ -348,7 +358,6 @@ try {
     }
   }, {
     [EXAM_PROFILE_KEY]: profile,
-    [EXAM_CHAT_PLAN_KEY]: chatPlan,
     [STUDY_TIMER_STATE_KEY]: timerState,
     [STUDY_TIMER_LEDGER_KEY]: timerLedger,
     'kianos-xizong-last-location-v1': xizongLastLocation,
@@ -362,12 +371,45 @@ try {
 
   await page.reload({ waitUntil: 'domcontentloaded' });
   await page.locator('[data-exam-home][data-ready="true"]').waitFor();
-  check(await page.locator('[data-exam-home]').getAttribute('data-chat-plan-status') === 'ready',
-    'Home consumes exact Chat Plan');
-  check((await page.locator('[data-exam-next]').innerText()).includes('西综'),
-    'Home next action follows Chat Plan');
+  check(await page.locator('[data-exam-home]').getAttribute('data-chat-plan-status') === 'missing',
+    'Seeded learner evidence does not manufacture a Chat Plan');
 
-  // 3. One-click Daily Learning Packet must carry all three subject-owned evidence payloads.
+  // 3. Import the exact Chat Plan through the real learner-facing Home control.
+  await page.locator('details.examAdvanced > summary').click();
+  await page.locator('[data-exam-import]').setInputFiles(chatPlanFile);
+  await page.locator('[data-exam-import-confirm]:visible').waitFor();
+  check((await page.locator('[data-exam-import-preview]').innerText()).includes(DAY),
+    'Home previews the exact Chat Plan day before import');
+  await page.locator('[data-exam-import-confirm]').click();
+  await page.waitForTimeout(100);
+  check(await page.locator('[data-exam-home]').getAttribute('data-chat-plan-status') === 'ready',
+    'Home accepts exact same-day Chat Plan through real import UI');
+  check((await page.locator('[data-exam-next]').innerText()).includes('西综'),
+    'Home next action follows imported Chat Plan');
+
+  const storedPlanAfterImport = await page.evaluate(
+    (key) => JSON.parse(localStorage.getItem(key) || 'null'),
+    EXAM_CHAT_PLAN_KEY
+  );
+  check(storedPlanAfterImport?.study_day === DAY && storedPlanAfterImport?.next_subject === 'xizong',
+    'Imported Chat Plan persists exact study day and next-subject identity');
+
+  // 4. A stale-day Chat Plan must fail closed and preserve the accepted current plan.
+  if (!(await page.locator('details.examAdvanced').getAttribute('open'))) {
+    await page.locator('details.examAdvanced > summary').click();
+  }
+  await page.locator('[data-exam-import]').setInputFiles(staleChatPlanFile);
+  await page.locator('[data-import-error]:visible').waitFor();
+  check((await page.locator('[data-import-error]').innerText()).includes('2026-09-18'),
+    'Home rejects stale-day Chat Plan before confirm');
+  const storedPlanAfterStale = await page.evaluate(
+    (key) => JSON.parse(localStorage.getItem(key) || 'null'),
+    EXAM_CHAT_PLAN_KEY
+  );
+  check(storedPlanAfterStale?.study_day === DAY && storedPlanAfterStale?.next_subject === 'xizong',
+    'Stale import cannot overwrite the current Chat Plan');
+
+  // 5. One-click Daily Learning Packet must carry all three subject-owned evidence payloads.
   await page.locator('[data-exam-copy-daily]').click();
   await page.waitForTimeout(100);
   const copies = await page.evaluate(() => window.__kianosCopies.slice());
