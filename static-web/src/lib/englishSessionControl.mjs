@@ -475,7 +475,7 @@ function taskPerformanceProfile(allRows, recentRows, task) {
     const summary = {
       attempts: rows.length,
       unreadable_attempts: rows.filter((row) => row.data_status === 'unreadable').length,
-      complete_attempts: rows.filter((row) => row.complete === true).length,
+      workflow_complete_attempts: rows.filter((row) => row.complete === true).length,
       independent_transfer_candidates: rows.filter(safeIndependentTransferCandidate).length,
       exposure: countValues(rows, (row) => row.prior_exposure || 'unknown', ['unseen', 'exposed', 'unknown']),
       assistance: countValues(rows, (row) => row.assistance || 'unknown', ['unassisted', 'assisted', 'unknown']),
@@ -539,7 +539,8 @@ export function buildEnglishPerformanceProfile(rows, {
       'EXPOSED_OR_ASSISTED_WORK_IS_NOT_INDEPENDENT_TRANSFER',
       'UNCALIBRATED_TIMING_IS_UNKNOWN_NOT_SLOW',
       'TRANSLATION_AND_WRITING_HAVE_NO_AUTO_SCORE',
-      'PROFILE_CREATES_NO_REVIEW_OR_TEST_DEBT'
+      'PROFILE_CREATES_NO_REVIEW_OR_TEST_DEBT',
+      'WORKFLOW_COMPLETE_IS_NOT_PERFORMANCE_SUCCESS'
     ]
   };
 }
