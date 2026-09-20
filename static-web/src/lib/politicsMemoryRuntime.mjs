@@ -491,7 +491,12 @@ export function buildPoliticsMemoryHistoryProfile(evidenceInput, catalog, {
 
   const unstableCap = Math.max(2, Math.min(200, Math.floor(Number(unstableLimit) || POLITICS_MEMORY_PROFILE_UNSTABLE_LIMIT)));
   const unstableRecentCap = Math.ceil(unstableCap / 2);
-  const unstableOldestCap = Math.floor(unstableCap / 2);
+  const unstableRecentSample = unstableRecent.slice(0, unstableRecentCap);
+  const unstableRecentIds = new Set(unstableRecentSample.map((row) => row.candidate_id));
+  const unstableOldestSample = unstableOldest
+    .filter((row) => !unstableRecentIds.has(row.candidate_id))
+    .slice(0, Math.max(0, unstableCap - unstableRecentSample.length));
+  const unstableIncluded = unstableRecentSample.length + unstableOldestSample.length;
   const stableCap = Math.max(1, Math.min(100, Math.floor(Number(stableLimit) || POLITICS_MEMORY_PROFILE_STABLE_LIMIT)));
 
   return {
@@ -508,10 +513,11 @@ export function buildPoliticsMemoryHistoryProfile(evidenceInput, catalog, {
       latest_fuzzy_candidates: states.filter((row) => row.latest_response === 'FUZZY').length,
       latest_stable_candidates: states.filter((row) => row.latest_response === 'STABLE').length
     },
-    unstable_recent: unstableRecent.slice(0, unstableRecentCap),
-    unstable_oldest: unstableOldest.slice(0, unstableOldestCap),
+    unstable_recent: unstableRecentSample,
+    unstable_oldest: unstableOldestSample,
     unstable_total: unstableRecent.length,
-    unstable_overflow: Math.max(0, unstableRecent.length - unstableCap),
+    unstable_included: unstableIncluded,
+    unstable_overflow: Math.max(0, unstableRecent.length - unstableIncluded),
     oldest_stable_sample: stable.slice(0, stableCap),
     oldest_stable_overflow: Math.max(0, stable.length - stableCap),
     recent_events: recentEvents,
