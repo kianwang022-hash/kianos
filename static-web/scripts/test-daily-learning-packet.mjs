@@ -12,8 +12,11 @@ import {
 
 class MemoryStorage {
   constructor(entries = {}) { this.map = new Map(Object.entries(entries)); }
+  get length() { return this.map.size; }
+  key(index) { return [...this.map.keys()][index] ?? null; }
   getItem(key) { return this.map.has(key) ? this.map.get(key) : null; }
   setItem(key, value) { this.map.set(key, String(value)); }
+  removeItem(key) { this.map.delete(String(key)); }
 }
 
 const t0 = Date.parse('2026-09-17T00:00:00Z'); // 08:00 Asia/Shanghai
@@ -98,6 +101,40 @@ assert.equal(packet.schedule.capacity.remainingMinutes, 510);
 assert.equal(packet.control.schema, CONTROL_RECEIPT_SCHEMA);
 assert.equal(packet.control.command_id, 'control-20260917-proof-001');
 assert.equal(packet.control.status, 'APPLIED');
+assert.equal(packet.learner_evidence_basis.schema, 'kianos.exam.chat-plan-basis.v1');
+assert.equal(packet.learner_evidence_basis.study_day, '2026-09-17');
+assert.match(packet.learner_evidence_basis.evidence_fingerprint, /^fnv1a64:/);
+
+const sameEvidenceLaterPacket = buildDailyLearningPacket({
+  storage,
+  day: '2026-09-17',
+  now: t0 + 3 * 60 * 60 * 1000,
+  plan,
+  subjectPackets: { politics: politicsEvidence }
+});
+assert.deepEqual(
+  sameEvidenceLaterPacket.learner_evidence_basis,
+  packet.learner_evidence_basis,
+  'basis identity must not drift merely because packet generated_at changed'
+);
+
+storage.setItem('kianos-politics-evidence-v1', JSON.stringify([{
+  event_id: 'daily-basis-politics-e1',
+  study_day: '2026-09-17',
+  observed_at: '2026-09-17T03:10:00.000Z'
+}]));
+const newerEvidencePacket = buildDailyLearningPacket({
+  storage,
+  day: '2026-09-17',
+  now: t0 + 4 * 60 * 60 * 1000,
+  plan,
+  subjectPackets: { politics: politicsEvidence }
+});
+assert.notEqual(
+  newerEvidencePacket.learner_evidence_basis.evidence_fingerprint,
+  packet.learner_evidence_basis.evidence_fingerprint,
+  'new learner evidence must change the Daily Packet basis identity'
+);
 
 const chatText = serializeDailyLearningPacketForChat(packet);
 assert.match(chatText, /^KIANOS_DAILY_LEARNING_HANDOFF_V1/m);
@@ -106,6 +143,9 @@ assert.match(chatText, /WHAT CHAT SHOULD DO/);
 assert.match(chatText, /LEARN state/);
 assert.match(chatText, /kianos\.exam\.chat-plan\.v1/);
 assert.match(chatText, /same study_day/);
+assert.match(chatText, /learner_evidence_basis/);
+assert.match(chatText, /unchanged/);
+assert.match(chatText, /fresh Daily Learning Packet/i);
 assert.match(chatText, /kianos-chat-plan-<study_day>\.json/);
 assert.match(chatText, /Home .* 安排说明 .* Chat Plan/s);
 assert.match(chatText, /CURRENT\.md/);
@@ -122,4 +162,4 @@ assert.equal(packet.subjects.xizong.evidence, null, 'attach must not mutate the 
 assert.throws(() => attachDailySubjectPacket(packet, 'lexical', {}), /Unsupported subject/);
 assert.throws(() => buildDailyLearningPacket({ storage, day: '2026-09-17', now: t0, plan: { ...plan, day: '2026-09-18' } }), /day mismatch/);
 
-console.log('PASS daily learning packet: time + plan + opaque subject evidence');
+console.log('PASS daily learning packet: time + plan + opaque subject evidence + stable learner-evidence basis');
