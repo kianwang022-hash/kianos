@@ -1,0 +1,21 @@
+name: Xizong Biochemistry Future Source Slot
+
+on:
+  pull_request:
+    paths:
+      - 'content/xizong/knowledge/learner/xizong-2027-biochemistry-delta-slot.json'
+      - 'content/xizong/MATURITY_PACKAGE.md'
+      - 'static-web/scripts/validate-xizong-biochemistry-future-source-slot.mjs'
+      - '.github/workflows/xizong-biochemistry-future-source-slot.yml'
+
+jobs:
+  future-source-slot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate 2027 biochemistry future-source slot
+        working-directory: static-web
+        run: node scripts/validate-xizong-biochemistry-future-source-slot.mjs

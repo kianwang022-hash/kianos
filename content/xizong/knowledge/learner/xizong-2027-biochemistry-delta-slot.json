@@ -1,0 +1,184 @@
+{
+  "schema": "kianos.xizong.future_source_slot.v1",
+  "status": "BLOCKED_UNTIL_27_SOURCE",
+  "slot_id": "xizong-2027-biochemistry-delta",
+  "source_cycle": "27考研",
+  "domain": "Biochemistry",
+  "capabilities": [
+    "X1_SOURCE_MODEL",
+    "X5_PRECISION",
+    "X6_OFFICIAL_APPLICATION",
+    "X7_REPAIR_VERIFICATION"
+  ],
+  "purpose": "Bind and assimilate only verified 27-cycle Biochemistry change, replacement, conflict or superior compression without rebuilding the accepted Current Biochemistry core.",
+  "current_owner_boundary": {
+    "slot_owner": "content/xizong/knowledge/learner/xizong-2027-biochemistry-delta-slot.json",
+    "canonical_medical_owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/system.json",
+    "canonical_blocks": [
+      "M1",
+      "M2",
+      "M3",
+      "M4",
+      "M5",
+      "M6",
+      "M7",
+      "M8",
+      "M9",
+      "M10"
+    ],
+    "rule": "This slot owns future-source identity, fidelity, delta and invalidation metadata only. Medical truth remains in the responsible Current M Block/KP owners; learner state, Forecast and scheduling remain separate owners."
+  },
+  "prior_baseline": {
+    "canonical_core": {
+      "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/system.json",
+      "blocks": [
+        {
+          "id": "M1",
+          "title": "蛋白质、酶与维生素",
+          "kp_count": 17
+        },
+        {
+          "id": "M2",
+          "title": "碳氧化、TCA、氧化磷酸化与ATP",
+          "kp_count": 15
+        },
+        {
+          "id": "M3",
+          "title": "成熟红细胞与磷酸戊糖途径",
+          "kp_count": 7
+        },
+        {
+          "id": "M4",
+          "title": "糖原与糖异生",
+          "kp_count": 10
+        },
+        {
+          "id": "M5",
+          "title": "血浆脂蛋白",
+          "kp_count": 10
+        },
+        {
+          "id": "M6",
+          "title": "胆固醇、磷脂与胆汁酸",
+          "kp_count": 11
+        },
+        {
+          "id": "M7",
+          "title": "三酰甘油、脂肪酸与酮体",
+          "kp_count": 16
+        },
+        {
+          "id": "M8",
+          "title": "氨基酸、氨、尿素与一碳单位",
+          "kp_count": 18
+        },
+        {
+          "id": "M9",
+          "title": "核苷酸代谢与抗代谢物",
+          "kp_count": 15
+        },
+        {
+          "id": "M10",
+          "title": "血红素、胆红素与生物转化",
+          "kp_count": 13
+        }
+      ],
+      "interpretation": "Accepted Current canonical Biochemistry medical core. It is the semantic baseline to compare against; do not replay it merely because a 27-cycle source arrives."
+    },
+    "historical_late_stage_reference": {
+      "owner": "content/xizong/knowledge/learner/xizong-26-late-stage-material-baseline.json",
+      "family_id": "26-FINAL-5H",
+      "cycle": "26考研",
+      "asset": "生化 5小时 天天师兄.pdf",
+      "pages": 3,
+      "role": "HISTORICAL_COMPRESSION_REFERENCE_ONLY",
+      "boundary": "Useful for prior-year compression shape and delta comparison only; teacher wording does not override Current canonical medical truth."
+    }
+  },
+  "arrival_contract": {
+    "required_identity": [
+      "source_cycle",
+      "visible_name_or_source_id",
+      "version_or_revision",
+      "content_hash_or_equivalent_stable_identity",
+      "received_at"
+    ],
+    "ingest": [
+      "preserve raw/current-year source identity before derivation",
+      "bind each claim/change to the smallest responsible M Block/KP or explicit cross-System owner",
+      "do not overwrite canonical Core before fidelity review"
+    ],
+    "fidelity_validation": [
+      "negation/exception wording",
+      "enzyme/pathway direction",
+      "substrate/product/cofactor relation",
+      "numeric/threshold/dose/timing if present",
+      "table row-column relation",
+      "image/figure relation if decision-relevant",
+      "answer/option identity if the source contains questions",
+      "cycle/version identity"
+    ],
+    "unverifiable_rule": "Decision-relevant unverifiable content stays UNKNOWN/BLOCKED and cannot enter exact recall or current Forecast as zero-risk."
+  },
+  "delta_contract": {
+    "classes": [
+      "PRESERVE",
+      "UPDATE",
+      "NEW",
+      "RETIRE",
+      "CONFLICT"
+    ],
+    "comparison_order": [
+      "compare against Current M1-M10 canonical owner",
+      "compare against accepted 26-cycle historical compression baseline when relevant",
+      "classify semantic delta before estimating workload",
+      "send verified medical changes to the responsible canonical owner",
+      "price learner work only after replacement/overlap is known"
+    ],
+    "workload_rule": "gross - replacement - true_overlap = net_new_effective_work",
+    "no_full_rebuild_without_evidence": true
+  },
+  "downstream_invalidation": {
+    "review_when_semantics_change": [
+      "Teaching/Guide cues",
+      "Precision Memory candidates",
+      "derived/synthetic transfer probes",
+      "question explanations or decision axes that depend on changed semantics",
+      "active Repair tasks",
+      "learner evidence interpretation",
+      "Chat plan / Resume if it authorizes stale content",
+      "Forecast workload / score-risk interpretation",
+      "Secure/Stabilize claim"
+    ],
+    "evidence_policy": [
+      "PRESERVE",
+      "MIGRATE",
+      "STALE",
+      "INVALID"
+    ],
+    "historical_observation_rule": "Historical observations may remain recorded but may not authorize Current decisions under superseded semantics."
+  },
+  "learner_use": {
+    "first_use": "Only verified net-new/update/conflict content enters bounded learner work.",
+    "unchanged_content": "PRESERVE content keeps the accepted Current learning path and does not become new debt.",
+    "verification": "Use changed-context or delayed evidence when the delta changes a score-relevant capability; same-item correction is insufficient."
+  },
+  "fallback": {
+    "late": "Continue with accepted Current M1-M10 baseline and preserve explicit 27-delta uncertainty.",
+    "partial": "Bind only verified received parts; missing parts remain UNKNOWN/BLOCKED.",
+    "second_version": "Treat v2 as semantic revision; run transitive invalidation before new Current authorization.",
+    "never_arrives": "Use accepted Current baseline; preserve missing-current-year uncertainty and stop waiting after the last useful assimilation window.",
+    "low_value": "Do not admit merely because it exists; compare net-new score/capability value against overlap, latency and remaining capacity."
+  },
+  "forecast_contract": {
+    "before_arrival": "No invented 27-cycle minutes or point-risk number. Keep the delta blocked/unpriced.",
+    "after_arrival": "Forecast consumes only verified net-new/replacement-adjusted learner workload.",
+    "authority": "Forecast does not decide whether the source is admitted and does not choose the next System."
+  },
+  "current_state": {
+    "source_present": false,
+    "current_year_delta_known": false,
+    "exact_workload_minutes": null,
+    "action_now": "WAIT_FOR_27_SOURCE_WHILE_USING_CURRENT_BASELINE"
+  }
+}
