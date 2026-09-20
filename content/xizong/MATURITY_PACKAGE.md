@@ -1,6 +1,6 @@
 # Xizong Maturity Package
 
-Status: **PENDING_FINAL_MOTHER_STANDARD_AUDIT · STAGE A CLOSED · STAGE B LEARNER-CAPABILITY MAINLINE · KIAN_SPECIFIC_CALIBRATED = NO**  
+Status: **SYSTEM_LOGIC_ACCEPTED · STAGE A CLOSED · STAGE B LEARNER-CAPABILITY MAINLINE · KIAN_SPECIFIC_CALIBRATED = NO**  
 Parent router: `content/xizong/CURRENT.md`  
 Provenance: adapted from the shared Exam Subject Highest-Bar Maturity Standard; this file is the self-contained Current Xizong subject-maturity owner.
 
@@ -1466,7 +1466,7 @@ No CI, browser journey or synthetic probe can manufacture this status.
 
 Current state:
 
-    SYSTEM_LOGIC_ACCEPTED = PENDING_FINAL_MOTHER_STANDARD_AUDIT
+    SYSTEM_LOGIC_ACCEPTED = YES
     KIAN_SPECIFIC_CALIBRATED = NO / REAL-U REQUIRED
 
 ---
@@ -1602,6 +1602,64 @@ Not:
 
 ## Stop
 
-> **SYSTEM_LOGIC_ACCEPTED = PENDING_FINAL_MOTHER_STANDARD_AUDIT. Stop broad Xizong maturity construction. Use the system to learn and reopen only on concrete learner evidence, a real execution blocker, or authoritative new Source.**
+> **SYSTEM_LOGIC_ACCEPTED = YES. Stop broad Xizong maturity construction. Use the system to learn and reopen only on concrete learner evidence, a real execution blocker, or authoritative new Source.**
 
 This does **not** claim 275 is secured and does **not** claim Kian is calibrated. Those claims require Real Learner U.
+
+
+---
+
+# 38｜Mother-standard final acceptance matrix
+
+Canonical proof:
+
+`static-web/scripts/audit-xizong-mother-standard-final-v3.mjs`
+(schema output: `kianos.xizong.mother-standard-final-audit.v4`)
+
+The original 29 mother-standard requirements are classified explicitly:
+
+| # | Requirement | System-logic status |
+| ---: | --- | --- |
+| 1 | Score closure | CLOSED |
+| 2 | Capability closure | CLOSED |
+| 3 | Material closure | CLOSED |
+| 4 | Source Fidelity | CLOSED |
+| 5 | Method closure | CLOSED |
+| 6 | Evidence closure | CLOSED |
+| 7 | Subjective/model-scoring validity | CLOSED |
+| 8 | Forecast closure | CLOSED |
+| 9 | Forecast falsifiability | CLOSED |
+| 10 | Dynamic Control | CLOSED |
+| 11 | Minimum Dose | CLOSED |
+| 12 | Elastic / ROI | CLOSED |
+| 13 | Causal Repair | CLOSED |
+| 14 | Future Source lifecycle | CLOSED |
+| 15 | Prior-year absorption | CLOSED |
+| 16 | Chat ↔ Website execution | CLOSED |
+| 17 | Learner Attention Cost | CLOSED |
+| 18 | Day-1 simulation | CLOSED |
+| 19 | Full lifecycle simulation | CLOSED |
+| 20 | Adversarial Stress | CLOSED |
+| 21 | False Secure / False Unstable | CLOSED |
+| 22 | Second-line Safety Guard | CLOSED |
+| 23 | Fresh Chat Attack | CLOSED |
+| 24 | No-Website Attack | CLOSED |
+| 25 | Evidence Revision / Identity | CLOSED |
+| 26 | Future Source Transitive Invalidation | CLOSED |
+| 27 | Authentic Modality | REAL_U_REQUIRED |
+| 28 | Real Learner U | REAL_U_REQUIRED |
+| 29 | Subject-native control | CLOSED |
+
+Current blocked Future Sources are **not** architecture defects:
+
+- 2027 Biochemistry delta → `BLOCKED_FUTURE_SOURCE`
+- 2027 humanities delta → `BLOCKED_FUTURE_SOURCE`
+- 2027 exam-format / scoring geometry → `BLOCKED_FUTURE_SOURCE`
+- 2027 late-stage Case/Cram / mocks / final-5h delta → `BLOCKED_FUTURE_SOURCE`
+
+A–I practical Maturity Package deliverables are all present.  
+`KIAN_SPECIFIC_CALIBRATED` remains **NO** until real learner throughput, W/U, Repair compression, retention, transfer, friction, whole-paper variance and authentic-modality evidence exist.
+
+Final control rule:
+
+> **No broad Xizong maturity construction after acceptance. Real Stage-B study is now the default next source of information. Reopen only on concrete learner evidence, a real execution blocker, or authoritative new Source.**
