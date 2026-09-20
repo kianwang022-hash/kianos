@@ -108,7 +108,10 @@ FINAL_FRESH_AUDIT #1 = FAIL
 BOUNDED_REPAIR_PROOF #1 = PASS @ 9e2302c93034ec0411cc885a08a4b1726e5b9d3f
 FINAL_FRESH_REAUDIT #2 = FAIL @ 924281d5d0c98921e54d048088b9bb798c68eafd
 BOUNDED_REPAIR_PROOF #2 = PASS @ 09ce24954e3bac689043520ab53c9a45742eef1b
-FINAL_FRESH_REAUDIT #3 = REQUIRED
+FINAL_FRESH_REAUDIT #3 = FAIL @ 8c1813837e8908f308e73564c5abaaa5471173d8
+BOUNDED_REPAIR_PROOF #3 = PASS @ 00b238e23c407c48749ad046b7f4ca6a1ddc7798
+FINAL_FRESH_REAUDIT #4 = REQUIRED
+SYSTEM_LOGIC_ACCEPTED = NOT YET
 KIAN_SPECIFIC_CALIBRATED = NO
 ```
 
@@ -176,9 +179,35 @@ Affected exact-head proof PASS on `09ce24954e3bac689043520ab53c9a45742eef1b`:
 - Final Cross-subject Regression → exact candidate build PASS;
 - Semantic Base Validity / Authority Consistency PASS.
 
-The long-diverged candidate still triggers unrelated repo-wide / other-subject CI debt. Those reds are not promoted into English defects when they fail before the affected owner and are already explained by candidate-vs-latest-main drift. This remains another reason not to merge PR #640 wholesale.
+Final Fresh re-audit #3 independently locked candidate head `8c1813837e8908f308e73564c5abaaa5471173d8` and performed the required novel all-green failure search before repair inspection. It returned:
 
-**Current head is a repaired candidate, not a Fresh PASS.** This audit context has now seen the Fresh #2 failures and repair implementation, so it is not eligible to issue Fresh #3.
+```text
+FAIL — material system-logic blind spots remain
+```
+
+Fresh #3 found one material Forecast evidence-identity blind spot:
+
+- productive score evidence was not bound to the productive-scoring standard revision that produced it;
+- an old Translation / Writing / Whole Paper score could therefore remain formally eligible after a material rubric revision if its range, evidence quality and PAPER/MIXED modality still looked valid;
+- that could preserve a false protected 85+ path or `INTEGRATED_HIGH` confidence under incompatible scoring semantics.
+
+Bounded repair stayed inside the Forecast owner and validator:
+
+- current productive scoring identity is `english.productive-scoring.v2`;
+- Translation / Small Writing / Big Writing current-score and formal eligibility require matching `scoring_standard_version`;
+- Whole Paper formal eligibility requires matching `productive_scoring_standard_version`;
+- stale or unbound productive scoring identity fails closed and appears as explicit Forecast uncertainty.
+
+Targeted repaired-code proof PASS on `00b238e23c407c48749ad046b7f4ca6a1ddc7798`:
+
+- current-v2 clean PAPER evidence still forms the expected formal local / integrated path;
+- stale-v1 Translation evidence removes the formal local band;
+- stale-v1 Whole Paper productive scoring identity makes the integrated score formally ineligible and removes `INTEGRATED_HIGH`;
+- the full Forecast system-logic validator passes with dedicated stale-revision local + integrated attacks.
+
+The long-diverged candidate still triggers unrelated repo-wide / other-subject CI debt. Those reds are not promoted into English defects when they fail outside the affected owner / impact cone. This remains another reason not to merge PR #640 wholesale.
+
+**Current head is a repaired candidate, not a Fresh PASS.** This audit context has now seen the Fresh #3 defect and repair implementation, so it is not eligible to issue Fresh #4.
 
 Next = run one genuinely new anti-anchored Fresh re-audit against the then-current candidate HEAD. Do not mark `SYSTEM_LOGIC_ACCEPTED` before that independent verdict.
 
