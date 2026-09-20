@@ -47,7 +47,7 @@ Accepted identity:
 ```text
 official B System question scope = 1072 exact qids
 year range                       = 2005–2026
-inventory SHA256                 = 2fb2cbb8287a4f5da73bc20afc344823c9022cba708fb99d5d04569a391c8ab8
+inventory SHA256                 = d7817ecc0c57346bb04ea3a6a5417d0c11f2daba0ca8178b3424fb82d256510f
 unresolved membership ambiguity  = 0
 ```
 
@@ -63,14 +63,19 @@ Current 3750 immutable Question Truth
 → exact B qid inventory
 ```
 
-Fresh Current boundary review found two stale historical-position candidates from general neural synapse physiology:
+Fresh provenance repair:
 
-- `xizong-official-2006-n020`;
-- `xizong-official-2006-n021`.
+The initial Current reconstruction matched the historical count 1072 but used an approximate scope/page join. Re-reading the original executable resolver showed a **13-out / 13-in inventory delta at constant count**. The canonical scope owner has been repaired to the exact `resolveSystemClosureFromSourceUnion` result.
 
-Current D23 owns calcium regulation / parathyroid / GH-IGF Primary and uses Neuro only as bounded Recall for low-calcium excitability. General reflex/IPSP physiology remains external Neuro truth, so those two IDs are excluded.
+```text
+exact qids          = 1072
+inventory SHA256    = d7817ecc0c57346bb04ea3a6a5417d0c11f2daba0ca8178b3424fb82d256510f
+count delta         = 0
+inventory swap      = 13 removed / 13 restored
+unresolved ambiguity= 0
+```
 
-This yields 1072 naturally. The historical 1072 count is only a sanity check and was not used as a target.
+The repair removes C-owned lymphoma questions that the approximate join had wrongly admitted. No K/L/P semantic state changed.
 
 S PASS remains System-level membership only:
 

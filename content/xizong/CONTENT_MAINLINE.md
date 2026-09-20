@@ -233,7 +233,7 @@ Receipt:
 ```text
 B exact official qids = 1072
 2005–2026
-inventory SHA256 = 2fb2cbb8287a4f5da73bc20afc344823c9022cba708fb99d5d04569a391c8ab8
+inventory SHA256 = d7817ecc0c57346bb04ea3a6a5417d0c11f2daba0ca8178b3424fb82d256510f
 System membership only; no inferred Question→Block/KP relation
 ```
 
