@@ -1,6 +1,6 @@
 # Politics Highest-Maturity Stage Plan
 
-Status: **ACTIVE POLITICS MATURITY OWNER · MOTHER-STANDARD CLOSURE ACTIVE**
+Status: **POLITICS MATURITY SYSTEM LOGIC ACCEPTED · REAL-U / SOURCE GATED**
 Parent acceptance bar: `EXAM_SUBJECT_MATURITY_STANDARD.md`
 Politics acceptance bar: `MATURITY_REQUIREMENTS.md`
 Active owner: PR #638 · `work/politics-later-readiness-20260920`
@@ -30,11 +30,11 @@ The single result package is `MATURITY_PACKAGE.md`.
 ```text
 M0 ownership correction                         DONE
 M1 maturity package                             DONE
-M2 stale-state reconciliation                   ACTIVE
-M3 Analysis-bank machine proof                  ACTIVE
-M4 Forecast adversarial / decision-flip proof   ACTIVE
-M5 lifecycle + Fresh Chat / No-Website proof    PENDING
-M6 SYSTEM_LOGIC_ACCEPTED                        PENDING
+M2 stale-state reconciliation                   DONE
+M3 Analysis-bank + evidence identity proof       DONE
+M4 Forecast adversarial / decision-flip proof   DONE
+M5 lifecycle + Fresh Chat / No-Website proof    DONE
+M6 SYSTEM_LOGIC_ACCEPTED                        YES
 M7 KIAN_SPECIFIC_CALIBRATED                     REAL-U GATED
 M8 current-year annual sources                  SOURCE GATED
 ```
@@ -116,8 +116,8 @@ Two lanes run in parallel without creating a second system:
 
 ```text
 engineering
-→ close M2–M5 proof gaps
-→ issue SYSTEM_LOGIC_ACCEPTED verdict
+→ STOP broad maturity construction
+→ reopen only on concrete defect / Real-U gap / real Source
 
 real study
 → NU / Xiao1000 / Review / Memory / Analysis evidence
