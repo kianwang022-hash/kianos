@@ -1,6 +1,6 @@
 # Politics Highest-Maturity Stage Plan
 
-Status: **POLITICS REPAIRED FREEZE CANDIDATE · NEW FRESH INDEPENDENT AUDIT REQUIRED · REAL-U / SOURCE GATED**
+Status: **POLITICS F-01 REPAIRED FREEZE CANDIDATE · FINAL AUTOMATIC FRESH AUDIT REQUIRED · REAL-U / SOURCE GATED**
 Parent acceptance bar: `EXAM_SUBJECT_MATURITY_STANDARD.md`
 Politics acceptance bar: `MATURITY_REQUIREMENTS.md`
 Active owner: PR #638 · `work/politics-later-readiness-20260920`
@@ -35,10 +35,12 @@ M3 Analysis-bank + evidence identity proof       DONE
 M4 Forecast adversarial / decision-flip proof   DONE
 M5 lifecycle + Fresh Chat / No-Website proof    DONE
 M6 v4 Source-fidelity finding repair             DONE · QA PASS
-M7 Fresh Independent / Anti-Anchored re-audit    OPEN — HARD FREEZE BLOCKER
-M8 SYSTEM_LOGIC_ACCEPTED                        BLOCKED ON M7
-M9 KIAN_SPECIFIC_CALIBRATED                     REAL-U GATED
-M10 current-year annual sources                 SOURCE GATED
+M7 v5 Fresh Independent audit                    FAIL · F-01 stale Chat Plan basis
+M8 F-01 shared stale-basis repair                DONE · bounded shared owner only
+M9 Final Fresh Independent / Anti-Anchored audit OPEN · LAST AUTOMATIC FREEZE AUDIT
+M10 SYSTEM_LOGIC_ACCEPTED                       BLOCKED ON M9
+M11 KIAN_SPECIFIC_CALIBRATED                    REAL-U GATED
+M12 current-year annual sources                 SOURCE GATED
 ```
 
 Earlier T1–T4 artifacts remain useful exact owners, but they no longer justify a broad STOP by themselves.
@@ -50,7 +52,25 @@ Fresh audit v4 is historical FAIL evidence only:
 - repair: Source-owned fidelity classification + Runtime/Practice fail-closed admission + dedicated regression;
 - proof: Static Web Politics QA run `35542360736` PASS, including source-fidelity regression and scoped-source parity.
 
-Because this was a material semantic repair, v4 cannot be promoted. The next audit launcher must bind a **new sealed candidate** and a separate audit-result ref.
+Fresh audit v5 is also historical FAIL evidence only:
+
+- sealed candidate: `audit/politics-maturity-freeze-20260921-v5@ca3e74be12fbe9e35e60ae35ce2db7426509189f`;
+- result commit: `95a6a22e344ceb7f0cd90daafdd66f769d1ce2f0`;
+- sole material finding F-01: Chat Plan lacked the learner-evidence basis identity needed to reject same-day stale planning after newer learner evidence;
+- repair owner: shared `examChatPlan.mjs` + `privateControlRuntime.mjs`, using the existing Daily Learning Packet rather than a second state/revision system;
+- shared repair landed via PR #668 / main `9dcc15b` and was replayed onto #638.
+
+Builder proof is sufficient to seal a new candidate, but does not self-certify the freeze verdict. The latest #638-only change after product proof is test-harness isolation from the live private-control relay; it is not counted as a product PASS.
+
+### Audit-loop boundary
+
+The next Fresh Independent audit is the **last automatically launched Fresh audit** in this closure cycle.
+
+- PASS → freeze broad Politics maturity engineering.
+- FAIL because F-01 is still incomplete → return only to the exact shared stale-basis owner; do not broaden scope.
+- FAIL on a new unrelated material blocker → stop the automatic repair→seal→audit loop and report to Kian before any further repair or audit.
+
+The launcher must bind a **new sealed candidate** and a separate audit-result ref.
 
 ### T1 — Objective reconciliation
 
@@ -168,7 +188,7 @@ main@HEAD
 → content/politics/MATURITY_STAGE_PLAN.md
 ```
 
-While M7 is open, the exact next owner is:
+While M9 is open, the exact next owner is:
 
 ```text
 content/politics/MATURITY_FRESH_INDEPENDENT_AUDIT_BRIEF.md
