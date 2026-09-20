@@ -69,13 +69,13 @@ Current inventory:
 
 | Role | Count | Current status | Can use now? |
 | --- | ---: | --- | --- |
-| Principle Retrieval | 20 | candidate; source-grounded stable structural topics | yes after revalidation |
-| Skeleton | 20 | candidate | yes after revalidation |
+| Principle Retrieval | 30 | candidate; source-grounded stable structural topics | yes after revalidation |
+| Skeleton | 30 | candidate | yes after revalidation |
 | Material Binding | 8 | candidate | yes after revalidation |
 | Complete Analysis | 8 | candidate | yes selectively after revalidation |
 | Stress / competing-principle | 8 | candidate repaired after builder self-attack | yes after revalidation |
 | Stable Formulation Retrieval | 8 | candidate | yes after revalidation |
-| **Material Segmentation** | **0** | **MISSING** | no |
+| Material Segmentation | 12 | candidate / multi-subject | yes after revalidation |
 
 Hard boundary:
 
@@ -83,11 +83,11 @@ Hard boundary:
 - generated success != precise real-exam score evidence;
 - same prompt after reveal = Repair only, never fresh Transfer.
 
-### Analysis material gap A — Material Segmentation
+### Analysis material gap A — Material Segmentation — CLOSED IN CANDIDATE
 
 The Politics-specific maturity standard requires material segmentation as a distinct capability.
 
-Current bank has no dedicated segmentation tasks.
+Dedicated segmentation coverage has now been added and revalidated at builder level.
 
 Required closure:
 
@@ -96,7 +96,7 @@ Required closure:
 - prompt must not leak the intended principle;
 - answer key should specify decisive material cues, not a full theory answer.
 
-### Analysis material gap B — Mao-specific output coverage
+### Analysis material gap B — Mao-specific output coverage — BOUNDED STRUCTURAL COVERAGE ADDED
 
 Historical later-stage audit deliberately created **no Mao dedicated output bank** because the source did not justify inventing one.
 
@@ -262,7 +262,7 @@ Do not consume old/exposed training assets as if they were fresh current-year sc
 | Capability | Material coverage |
 | --- | --- |
 | prompt interpretation | PARTIAL — present indirectly, needs explicit rubric/tasks |
-| material segmentation | **MISSING** |
+| material segmentation | CANDIDATE READY — 12 tasks |
 | principle retrieval | CANDIDATE READY |
 | skeleton | CANDIDATE READY |
 | material binding | CANDIDATE READY but narrow |
@@ -273,17 +273,17 @@ Do not consume old/exposed training assets as if they were fresh current-year sc
 | timed output | FUTURE/REAL-U |
 | whole-paper output | FUTURE/REAL-U |
 | scoring calibration | **MISSING** |
-| Mao-specific structural coverage | **UNKNOWN / GAP** |
+| Mao-specific structural coverage | CANDIDATE READY — bounded Current-knowledge structure only |
 
 ---
 
 ## 10. Material priority
 
 ### Must close before whole-subject maturity
-1. dedicated Material Segmentation bank;
-2. Politics Analysis scoring/rubric owner;
-3. resolve Mao Analysis structural coverage without inventing unsupported content;
-4. revalidate current 72-task bank against Politics-specific maturity requirements;
+1. Politics Analysis scoring/rubric owner — candidate created;
+2. revalidate current 104-task bank against Politics-specific maturity requirements — builder revalidation passed;
+3. Analysis evidence persistence/transport across days and fresh Chat;
+4. independent/fresh audit of generated bank + scoring semantics;
 5. current-year source content as it actually arrives;
 6. real timed/whole-paper material/evidence later.
 
