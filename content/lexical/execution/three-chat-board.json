@@ -279,7 +279,7 @@
           801,
           900
         ],
-        "state": "REVIEW_BUNDLE_EXPORTING",
+        "state": "WAITING_BOUNDED_HUMAN_DELTA_GATE",
         "review_head": "92f70d59e776db548dae118bd26fc15d8a133d12",
         "review_branch": "work/lexical-final-backfill-c-o0801-o0900",
         "review_request_commit": "3891762930c342adf2706739b67c74f340bb8419",
@@ -298,7 +298,46 @@
           "merge backfill candidate",
           "invent a newer semantic standard"
         ],
-        "next_action": "Wait for review bundle export, then perform o0801-o0900 Fresh Read + Self Attack."
+        "next_action": "Kian reviews only the six genuinely new material deltas in PR #585. On p, approve exactly those six plus the reported bounded corrections/Test changes, freeze BF08 backlog, and leave C ready for o0701-o0800.",
+        "review_workflow_run": 35481277128,
+        "review_artifact_id": 10595274445,
+        "review_artifact_digest": "sha256:aad818d2349caab76983f8c7467cc9309fea388f3c46a1c3c3e0a63cd5d136a0",
+        "review_bundle_coverage": "100/100",
+        "proposal_pr": 585,
+        "proposal_head": "4ab4daa02f3aa4909bd9192ed1755a1aa90b5614",
+        "proposal_path": "content/lexical/execution/manifests/o0801-o0900.final-semantic-sweep-c-proposal.md",
+        "module_matrix_path": "content/lexical/execution/manifests/o0801-o0900.final-semantic-sweep-c-module-matrix.tsv",
+        "fresh_read_coverage": "100/100",
+        "self_attack": "COMPLETE",
+        "content_affected_owners": 26,
+        "content_no_change": 74,
+        "blocked": 0,
+        "new_material_delta_owners": [
+          820,
+          821,
+          828,
+          856,
+          858,
+          891
+        ],
+        "old_test_blueprints": 29,
+        "stabilized_test_blueprints": 16,
+        "canonical_semantic_mutation": false,
+        "shared_write_set_if_approved": [
+          "cigaret↔cigarette spelling identity; shared word:cigarette@o5522",
+          "coalesced cite↔site↔sight homophone Relation; shared word:site@o4463, word:sight@o4430",
+          "claim↔allege↔assert reporting-stance Relation; shared word:allege@o0146, word:assert@o0300",
+          "civilisation↔civilization Form boundary",
+          "civilise↔civilize Form boundary",
+          "classic↔classical reciprocal Relation",
+          "cloth↔clothe confusable reciprocal Relation",
+          "clothe↔dress semantic contrast; shared word:dress@o1508",
+          "coach↔train semantic contrast; shared word:train@o5092",
+          "coarse↔course confusable; shared word:course@o1128",
+          "college↔colleague confusable reciprocal Relation",
+          "color↔colour Form boundary"
+        ],
+        "semantic_freshness_note": "Review froze from main 92f70d59. Pre-proposal drift check showed only live Lexical board plus Xizong/static-web changes; no o0801-o0900 Word/Relation/Form semantic owner or Lexical semantic contract changed. FINAL_SEMANTIC_FREEZE v1 remains current."
       },
       "scheduled_ranges": [
         [
@@ -1168,6 +1207,176 @@
       "state": "PROPOSED_SHARED_SEMANTIC",
       "write_lease_candidate": null,
       "semantic_scope": "canvas material/art surface vs canvass solicit/examine; reciprocal ownership cleanup"
+    },
+    {
+      "claim_key": "FORM:cigaret|cigarette:spelling_identity",
+      "kind": "FORM",
+      "participants": [
+        "word:cigaret",
+        "word:cigarette"
+      ],
+      "claimants": [
+        "BF08"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "standard modern cigarette vs less-common cigaret; migrate spelling truth from semantic Relation to Form/Identity"
+    },
+    {
+      "claim_key": "RELATION:cite|site|sight:homophone_cluster",
+      "kind": "RELATION",
+      "participants": [
+        "word:cite",
+        "word:site",
+        "word:sight"
+      ],
+      "claimants": [
+        "BF08"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "coalesce overlapping cite/site/sight owners into one reciprocal homophone decision relation"
+    },
+    {
+      "claim_key": "RELATION:claim|allege|assert:reporting_stance",
+      "kind": "RELATION",
+      "participants": [
+        "word:claim",
+        "word:allege",
+        "word:assert"
+      ],
+      "claimants": [
+        "BF08"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "existing evidential/register boundary made reciprocal without inventing a new contrast"
+    },
+    {
+      "claim_key": "FORM:civilisation|civilization:regional_spelling_identity",
+      "kind": "FORM",
+      "participants": [
+        "word:civilisation",
+        "surface:civilization"
+      ],
+      "claimants": [
+        "BF08"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "BrE/AmE spelling identity"
+    },
+    {
+      "claim_key": "FORM:civilise|civilize:regional_spelling_identity",
+      "kind": "FORM",
+      "participants": [
+        "word:civilise",
+        "surface:civilize"
+      ],
+      "claimants": [
+        "BF08"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "BrE -ise / AmE -ize spelling identity with British -ize compatibility"
+    },
+    {
+      "claim_key": "RELATION:classic|classical:usage_boundary",
+      "kind": "RELATION",
+      "participants": [
+        "word:classic",
+        "word:classical"
+      ],
+      "claimants": [
+        "BF08"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "existing classic/classical distinction made reciprocal"
+    },
+    {
+      "claim_key": "RELATION:cloth|clothe:confusable",
+      "kind": "RELATION",
+      "participants": [
+        "word:cloth",
+        "word:clothe"
+      ],
+      "claimants": [
+        "BF08"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "noun material vs verb dress/cover boundary made reciprocal"
+    },
+    {
+      "claim_key": "RELATION:clothe|dress:semantic_contrast",
+      "kind": "RELATION",
+      "participants": [
+        "word:clothe",
+        "word:dress"
+      ],
+      "claimants": [
+        "BF08"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "existing formal-covering vs broader dress-use boundary made reciprocal"
+    },
+    {
+      "claim_key": "RELATION:coach|train:semantic_contrast",
+      "kind": "RELATION",
+      "participants": [
+        "word:coach",
+        "word:train"
+      ],
+      "claimants": [
+        "BF08"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "existing targeted guidance/performance vs broader training boundary made reciprocal"
+    },
+    {
+      "claim_key": "RELATION:coarse|course:confusable",
+      "kind": "RELATION",
+      "participants": [
+        "word:coarse",
+        "word:course"
+      ],
+      "claimants": [
+        "BF08"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "existing homophone spelling/meaning boundary made reciprocal"
+    },
+    {
+      "claim_key": "RELATION:college|colleague:confusable",
+      "kind": "RELATION",
+      "participants": [
+        "word:college",
+        "word:colleague"
+      ],
+      "claimants": [
+        "BF08"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "existing near-form college/colleague boundary made reciprocal"
+    },
+    {
+      "claim_key": "FORM:color|colour:regional_spelling_identity",
+      "kind": "FORM",
+      "participants": [
+        "word:color",
+        "surface:colour"
+      ],
+      "claimants": [
+        "BF08"
+      ],
+      "state": "PROPOSED_SHARED_SEMANTIC",
+      "write_lease_candidate": null,
+      "semantic_scope": "migrate existing AmE/BrE spelling truth from Relation to Form/Identity"
     }
   ],
   "last_closed": {
