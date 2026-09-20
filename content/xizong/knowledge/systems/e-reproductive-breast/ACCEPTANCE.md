@@ -16,8 +16,8 @@ This file owns E-scoped readiness truth only. It does not own medical Core, lear
 | S2 — exact official E System question membership | **UNTESTED** | separate later Source sub-boundary; no membership inferred from Block/Outline placement |
 | K — Knowledge | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent K audit; one bounded System repair separated local invasion from metastatic competence / spread |
 | L — Learning Logic | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent anti-anchored audit; E10 visual closure repaired at the smallest L owner, then re-audited |
-| Content Realization / Optimization | **CANDIDATE READY FOR FRESH CLOSURE** | role realization + 7 wrapper repairs + 67/67 LG sufficiency audit complete; fresh independent whole-E Content closure required |
-| P — Projection | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
+| Content Realization / Optimization | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent Phase 4D closure; E8/E10 missed generic fixed-flow wrappers repaired at the smallest Content/wrapper owner; 67/67 release and Content closure re-audited |
+| P — Projection | **UNTESTED / NEXT ELIGIBLE** | Content accepted; Projection may now be entered separately |
 | R — Runtime | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
 | E — Evidence | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
 | U — Learner Use | **NO_CLAIM** | real Kian use only |
@@ -147,45 +147,71 @@ After re-audit:
 - E6 still separates local invasion from metastatic competence / spread;
 - S2 exact official-question membership remains UNTESTED, so Learning does not authorize a trusted E official-question sweep.
 
-## Content candidate — BUILT / NOT YET ACCEPTED
+## Content acceptance — PASS_AFTER_BOUNDED_REPAIR
 
-Content owner:
+Accepted Content owner:
 
 `content/xizong/knowledge/learner/e-reproductive-breast-content.json`
 
-Evidence:
+Builder provenance:
 
 - `content/xizong/knowledge/learner/E_PHASE4A_CONTENT_ROLE_REALIZATION.md`
 - `content/xizong/knowledge/learner/E_PHASE4B_NATURAL_SOURCE_WRAPPER_ALIGNMENT.md`
 - `content/xizong/knowledge/learner/E_PHASE4C_CONTENT_SUFFICIENCY_AUDIT.md`
 
-Builder-candidate accounting:
+Fresh independent acceptance evidence:
+
+`content/xizong/knowledge/learner/E_PHASE4D_FRESH_INDEPENDENT_CONTENT_CLOSURE.md`
+
+Verdict:
 
 ```text
-canonical Blocks              = 20
-canonical KP                  = 212
-accepted LG                   = 67
-Content Source-release        = 67 / 67
-natural-unit wrapper repairs  = 7 / 7
-LG sufficiency                = 67 / 67 PASS
-Recall-front repairs          = 18 LG / 37 KP surfaces
-medical Core rewrite          = 0
-KP/LG identity change         = 0
+FRESH_CONTENT_PASS_AFTER_BOUNDED_REPAIR
 ```
 
-The repair class was retrieval leakage, not missing medical truth.
+Fresh readback established:
+
+```text
+canonical Blocks                 = 20 / 20
+canonical KP                     = 212 / 212
+accepted LG                      = 67 / 67
+exact KP→LG membership           = 212 / 212
+Content Source-release           = 67 / 67
+release gap / duplicate          = 0 / 0
+frontmatter prerequisites        = 0
+frontmatter next_blocks          = 0
+natural-unit wrappers aligned    = 9 / 9
+medical Core rewrite             = 0
+KP/LG identity change            = 0
+```
+
+The fresh auditor found one bounded defect class missed by Phase 4B: E8 and E10 still carried literal generic first-pass wrappers that collapsed accepted two-unit Source contact into one whole-Lecture handoff. Only those two wrapper lines were repaired. Their medical Core, KP/LG identities and accepted Source topology were unchanged.
+
+Fresh Recall-front attack, visual truth, Page-disappearance, no-duplicate-medical-truth and boundary/version/owner attacks all passed after repair.
+
+Preserved negative space:
+
+- E7 Source Gap;
+- E9/E10/E11 visual Source gaps;
+- E13/E14 partial visual support;
+- Current-Study staging/treatment wording;
+- prostate/urinary, generic HPV/STI/infection and tumor-general external owners;
+- S2 exact official-question membership = UNTESTED.
 
 ## Downstream state
 
-K and L are accepted; Content is **candidate only** until fresh whole-E closure.
+E medical Content is now closed.
 
-Next required gate:
+```text
+S1 PASS
+→ K PASS_AFTER_BOUNDED_REPAIR
+→ L PASS_AFTER_BOUNDED_REPAIR
+→ Content PASS_AFTER_BOUNDED_REPAIR
+→ P UNTESTED / next eligible E gate
+→ R / E downstream-frozen
+→ U NO_CLAIM
+```
 
-`content/xizong/knowledge/learner/E_PHASE4D_FRESH_INDEPENDENT_CONTENT_CLOSURE_BRIEF.md`
+Projection may now be entered as a separate scoped gate. Runtime and Evidence remain frozen behind their upstream gates.
 
-Until Content closes:
-
-- Projection / Runtime / Evidence remain frozen;
-- S2 official-question membership remains UNTESTED and must not be inferred;
-- F remains paused per current one-System-at-a-time sequencing;
-- no learner progress is manufactured from repository acceptance.
+Per the current medical-content mainline, F becomes eligible to resume at fresh independent K acceptance after E closure lands. No F work was performed inside this acceptance.
