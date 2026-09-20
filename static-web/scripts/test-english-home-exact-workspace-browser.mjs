@@ -12,16 +12,26 @@ import {ENGLISH_SESSION_KEY, ENGLISH_SESSION_SCHEMA} from '../src/lib/englishSes
 import {EXAM_CHAT_PLAN_KEY, EXAM_CHAT_PLAN_SCHEMA} from '../src/lib/examChatPlan.mjs';
 import {EXAM_PROFILE_KEY, emptyExamProfile} from '../src/lib/examOrchestrator.mjs';
 
-const DAY='2026-09-20';
+const shanghaiDay=()=>{
+  const parts=new Intl.DateTimeFormat('en-US',{
+    timeZone:'Asia/Shanghai',
+    year:'numeric',
+    month:'2-digit',
+    day:'2-digit'
+  }).formatToParts(new Date());
+  const map=Object.fromEntries(parts.filter(part=>part.type!=='literal').map(part=>[part.type,part.value]));
+  return `${map.year}-${map.month}-${map.day}`;
+};
+const DAY=shanghaiDay();
 const temp=fs.mkdtempSync(path.join(os.tmpdir(),'english-home-integration-'));
 const generatedDir=path.join(temp,'generated');
 const sourceRoot=path.join(temp,'missing-source');
 const externalPrivate=path.join(temp,'external-private');
 const drill={
   schema:ENGLISH_GENERATED_DRILL_SCHEMA,
-  object_id:'external-chat-2026-09-20-home-001',
+  object_id:`external-chat-${DAY}-home-001`,
   study_day:DAY,
-  generated_at:'2026-09-20T02:00:00+08:00',
+  generated_at:DAY+'T02:00:00+08:00',
   origin:'CHAT_GENERATED_SYNTHETIC',
   completion_requirement:'QUESTIONS_SUBMITTED',
   training_target:{kind:'reading_transfer',note:'Home exact-workspace integration proof.'},
@@ -40,7 +50,7 @@ const englishSession={
   schema:ENGLISH_SESSION_SCHEMA,
   session_id:sessionId,
   study_day:DAY,
-  generated_at:'2026-09-20T02:05:00+08:00',
+  generated_at:DAY+'T02:05:00+08:00',
   current_step:0,
   steps:[{
     step_id:'generated-reading',
@@ -57,7 +67,7 @@ const profile={...emptyExamProfile(),capacityByDay:{[DAY]:480},defaultDailyMinut
 const plan=(sessionRef)=>({
   schema:EXAM_CHAT_PLAN_SCHEMA,
   study_day:DAY,
-  generated_at:'2026-09-20T02:06:00+08:00',
+  generated_at:DAY+'T02:06:00+08:00',
   subjects:{
     xizong:null,
     english:{target_minutes:60,role:'稳推进',note:'做这一组 Reading。',session_ref:sessionRef},
