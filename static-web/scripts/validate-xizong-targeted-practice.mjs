@@ -161,12 +161,14 @@ try {
 }
 assert(staleRejected, 'stale-ai-probe-source-hash-was-accepted');
 
+const missingOwnerStorage = new Storage();
+missingOwnerStorage.setItem(XIZONG_MEMORY_STORAGE_KEY, JSON.stringify(currentMemory));
 const missingOwnerInstruction = JSON.parse(JSON.stringify(instruction));
 missingOwnerInstruction.session_id = 'xz-targeted-practice-missing-owner';
 missingOwnerInstruction.steps[0].inline_questions[0].target_kp_ids = ['circulation-b99-kp99'];
 let missingOwnerRejected = false;
 try {
-  installAndActivateXizongSessionInstruction(storage, missingOwnerInstruction, {
+  installAndActivateXizongSessionInstruction(missingOwnerStorage, missingOwnerInstruction, {
     expectedDay: day,
     now: Date.parse('2026-09-20T01:02:00.000Z'),
     holdoutYears: []
