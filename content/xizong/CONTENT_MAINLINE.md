@@ -67,9 +67,9 @@ Fresh independent Content closure is recorded in:
 
 D is no longer the active Lane-A **content** construction task. The next D dependency is scoped Projection; do not reopen D Content without a concrete Source/Knowledge/Learning/Content defect.
 
-## E｜Reproductive / Breast — ACTIVE CONTENT PRIORITY
+## E｜Reproductive / Breast — CONTENT CLOSED / DOWNSTREAM HANDOFF
 
-E Source, Knowledge and Learning are now accepted through the L gate.
+E Source, Knowledge, Learning and Content are now accepted through the medical-content chain.
 
 Current exact owners:
 
@@ -77,6 +77,7 @@ Current exact owners:
 - `content/xizong/knowledge/systems/e-reproductive-breast/ACCEPTANCE.md`
 - `content/xizong/knowledge/systems/e-reproductive-breast/system.json`
 - `content/xizong/knowledge/learner/e-reproductive-breast-learning.json`
+- `content/xizong/knowledge/learner/e-reproductive-breast-content.json`
 
 Current state:
 
@@ -85,7 +86,8 @@ S1 Source boundary                     PASS
 S2 exact official-question membership  UNTESTED / separate later boundary
 K  Knowledge                           PASS_AFTER_BOUNDED_REPAIR
 L  Learning Logic                      PASS_AFTER_BOUNDED_REPAIR
-Content                                CANDIDATE / fresh independent closure active
+Content                                PASS_AFTER_BOUNDED_REPAIR
+P                                      UNTESTED / next eligible E gate
 ```
 
 Fresh identity remains **20 Blocks / 212 KP**.
@@ -104,27 +106,35 @@ The historical E System Guide remains reference-only; its old DAG is not accepte
 
 Learning is accepted at **20 Blocks / 212 KP → 67 LG** with 11 whole-Block and 9 natural-Source-unit contacts, 0 inside-E hard prerequisite edges and 3 non-gating PSRs. Fresh independent L audit found one bounded defect: E10 had a real visual Source gap but no LG-level visual closure requirement. E10-LG03 now preserves that gap fail-closed; no Block/KP/LG identity or Source-contact count changed.
 
-Content Realization is now built and internally audited:
+Content Realization is now independently accepted:
 
 ```text
 20 Blocks / 212 KP / 67 LG
 67 / 67 Content Source-release coverage
-7 natural-unit wrapper repairs
+9 / 9 natural-unit wrappers aligned
 67 / 67 LG sufficiency PASS
-18 LG / 37 KP Recall-front repairs
+18 LG / 37 KP prior Recall-front repairs
+Phase4D bounded wrapper repairs = E8 + E10
 medical Core rewrite = 0
+verdict = FRESH_CONTENT_PASS_AFTER_BOUNDED_REPAIR
 ```
+
+Fresh Phase 4D found that E8 and E10 still carried real generic whole-pass first-pass wrappers despite accepted two-unit Source semantics. Only those two wrapper lines were repaired; K/L, medical Core and identity stayed frozen.
+
+Fresh closure evidence:
+
+`content/xizong/knowledge/learner/E_PHASE4D_FRESH_INDEPENDENT_CONTENT_CLOSURE.md`
 
 Required sequence now:
 
 ```text
-fresh independent whole-E Content closure
-→ on PASS: E medical-content chain CLOSED
+E medical-content chain CLOSED
+→ F may resume at fresh independent K acceptance
 ```
 
 Do not copy D topology for symmetry. Do not infer official-question membership from accepted K.
 
-## F｜Remaining Clinical — K CANDIDATE / PAUSED UNTIL E CONTENT CLOSURE
+## F｜Remaining Clinical — K CANDIDATE / NEXT MEDICAL CONTENT PRIORITY
 
 F Current identity has now been reconciled to **9 Blocks / 121 KP**.
 
@@ -145,7 +155,7 @@ The old 12-Block transition Guide is not Current F identity; its first three phy
 
 Approved original/current Lecture sources were re-bound from the user's File Library by title/page locator. F6 postoperative timing and the F8 P270 matrix are now Source-verified. Narrow exact gaps remain in F1/F2/F3/F4/F9 and must stay fail-closed.
 
-F Knowledge reconstruction is complete at candidate level. The candidate uses a disturbance-control-recovery network plus a deliberately low-connectivity F9 tail. Independent K acceptance remains the next F gate, but **F is intentionally paused until E completes its full medical-content chain**. This restores one-System-at-a-time semantic focus after the E/F builder phase. Do not begin F Learning before both E content closure and F K PASS.
+F Knowledge reconstruction is complete at candidate level. The candidate uses a disturbance-control-recovery network plus a deliberately low-connectivity F9 tail. With E medical Content now closed, **fresh independent F K acceptance is the next medical-content task**. This Phase 4D closure does not start F work. Do not begin F Learning before F K PASS.
 
 ---
 
@@ -304,10 +314,9 @@ Do not reopen the generation standard unless fresh evidence shows the shared met
 
 ```text
 Medical:
-E fresh independent Content closure = sole active medical-content priority
-→ on PASS: E medical-content chain closes
-→ then resume F at fresh independent K acceptance
-D scoped Projection may proceed independently downstream only when it does not consume E/F semantic attention
+F fresh independent K acceptance = next medical-content priority
+E scoped Projection may proceed independently downstream only when it does not consume F semantic attention
+D scoped Projection may proceed independently downstream only when it does not consume F semantic attention
 
 Questions:
 Crosswalk C2 batches
@@ -362,20 +371,20 @@ MAIN MEDICAL CONTENT
 D Content PASS / CLOSED
 → D P / high-value Visual / Runtime downstream
 
-ACTIVE CONTENT PRIORITY
+E CONTENT CLOSED
 E S1 PASS
 → K PASS_AFTER_BOUNDED_REPAIR
 → L PASS_AFTER_BOUNDED_REPAIR: 67 LG / 11 whole + 9 natural Source contacts / 0 hard edges
-→ Content candidate built + 67/67 LG sufficiency PASS
-→ fresh independent Content closure ACTIVE
+→ Content PASS_AFTER_BOUNDED_REPAIR
+→ Phase4D fresh closure PASS after E8/E10 bounded wrapper repair
+→ E P UNTESTED / downstream eligible
 
-NEXT MEDICAL AFTER E CLOSURE
+NEXT MEDICAL CONTENT PRIORITY
 F 9 Blocks / 121 KP
 → S1 PASS after Source rebind
 → K candidate built
-→ PAUSED while E finishes
-→ then fresh independent K acceptance
-→ Learning
+→ fresh independent K acceptance NEXT
+→ Learning after K PASS
 → Content
 
 QUESTIONS
