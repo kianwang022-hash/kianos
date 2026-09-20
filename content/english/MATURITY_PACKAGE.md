@@ -1,6 +1,6 @@
 # English Maturity Package
 
-Status: **SYSTEM_LOGIC_CANDIDATE · FRESH #4 FAIL REPAIRED · FINAL FRESH RE-AUDIT #5 REQUIRED · KIAN_SPECIFIC_CALIBRATED = NO**  
+Status: **SYSTEM_LOGIC_CANDIDATE · FRESH #4 FAIL REPAIRED · FINAL CONVERGENCE SWEEP REQUIRED · KIAN_SPECIFIC_CALIBRATED = NO**  
 Parent router: `content/english/CURRENT.md`  
 Target: **English I 85+**
 
@@ -9,6 +9,20 @@ Purpose:
 > Keep one practical English-native maturity package that connects 85+ target, score channels, capability, material, method, evidence, Forecast, dynamic control, future Source handling and learner execution without turning Website or engineering completion into a strategy brain.
 
 This package is the compact subject-control owner for the highest-maturity candidate. It integrates accepted outputs from exact owners; it does not replace them.
+
+Final closure routing is owned by `content/english/CURRENT.md` + `ENGLISH_HIGHEST_MATURITY_FRESH_AUDIT_BRIEF.md`.
+
+The old one-defect-per-Fresh sequence is retired. Current closure uses:
+
+```text
+Final Convergence Sweep
+→ zero blockers: SYSTEM_LOGIC_ACCEPTED
+or
+→ consolidated blocker set
+→ one bounded repair batch
+→ Final Acceptance
+→ STOP broad maturity engineering
+```
 
 ---
 
