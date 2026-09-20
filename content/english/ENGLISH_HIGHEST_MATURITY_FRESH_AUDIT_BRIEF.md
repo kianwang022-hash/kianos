@@ -32,6 +32,35 @@ Do not inherit old Chat statements about what is already mature.
 
 ---
 
+## Re-audit hygiene after a prior FAIL
+
+This brief may be used after a prior final Fresh audit returned FAIL.
+
+Current-first may legitimately reveal that a previous audit found bounded defect categories. Knowing the **category names** does not invalidate the re-audit.
+
+However, the re-auditor must not treat the repaired owners as presumed PASS.
+
+Required order:
+
+1. lock current candidate HEAD;
+2. read `CURRENT.md`, `MATURITY_PACKAGE.md`, and the Highest Maturity Standard;
+3. perform a **novel all-green failure search first**, without reading the exact repaired implementation/validator details unless needed to test a package claim;
+4. only after that independent pass, explicitly re-attack the previously known defect families;
+5. then inspect the smallest exact repaired owner / validator and decide whether the repair really closes the failure;
+6. issue one overall verdict.
+
+A valid re-audit must therefore answer both:
+
+```text
+Did the known defects actually close?
+AND
+Did the repair introduce or leave any new material all-green failure?
+```
+
+Do not narrow the audit to the previous defect list.
+
+---
+
 ## 2｜Anti-anchoring rule
 
 Before the independent verdict, do **not** read:
