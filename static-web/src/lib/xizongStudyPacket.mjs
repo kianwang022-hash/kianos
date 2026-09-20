@@ -450,11 +450,33 @@ function summarizeXizongForecastPractice(storage, {
   };
 }
 
-function summarizeXizongForecastRepairs(storage) {
+function summarizeXizongForecastRepairs(storage, systemRows = []) {
   const memory = normalizeXizongMemoryState(readJson(storage, XIZONG_MEMORY_STORAGE_KEY, null));
   const allRepairs = Array.isArray(memory.repairTasks) ? memory.repairTasks : [];
   const activeRepairs = activeRepairTasks(memory);
   const sourceQuestionIds = new Set();
+  const canonicalBySystem = new Map();
+  for (const row of Array.isArray(systemRows) ? systemRows : []) {
+    const systemId = String(row?.system_id || '');
+    const canonicalId = String(row?.canonical_id || '');
+    if (systemId && canonicalId) canonicalBySystem.set(systemId, canonicalId);
+    if (canonicalId) canonicalBySystem.set(canonicalId, canonicalId);
+  }
+  const systemBuckets = new Map();
+  const systemBucket = (canonicalId) => {
+    const key = String(canonicalId || 'UNKNOWN');
+    if (!systemBuckets.has(key)) {
+      systemBuckets.set(key, {
+        canonical_id: key,
+        question_backed_clusters: 0,
+        active_question_backed_clusters: 0,
+        completed_question_backed_clusters: 0,
+        source_question_ids: new Set()
+      });
+    }
+    return systemBuckets.get(key);
+  };
+
   let questionBackedClusters = 0;
   let activeQuestionBackedClusters = 0;
   let completedClusters = 0;
@@ -466,17 +488,34 @@ function summarizeXizongForecastRepairs(storage) {
     const done = String(task?.status || '') === 'DONE';
     if (done) completedClusters += 1;
     if (!officialIds.length) continue;
+
+    const detailKey = repairDetailKey(task);
+    const routeSystemId = String(detailKey || '').split('/')[0] || '';
+    const taskSystemId = String(task?.systemId || routeSystemId || '');
+    const canonicalId = canonicalBySystem.get(taskSystemId) || taskSystemId || 'UNKNOWN';
+    const bucket = systemBucket(canonicalId);
+
     questionBackedClusters += 1;
-    if (done) completedQuestionBackedClusters += 1;
-    else activeQuestionBackedClusters += 1;
-    officialIds.forEach((id) => sourceQuestionIds.add(id));
+    bucket.question_backed_clusters += 1;
     if (done) {
-      const detailKey = repairDetailKey(task);
+      completedQuestionBackedClusters += 1;
+      bucket.completed_question_backed_clusters += 1;
+    } else {
+      activeQuestionBackedClusters += 1;
+      bucket.active_question_backed_clusters += 1;
+    }
+    officialIds.forEach((id) => {
+      sourceQuestionIds.add(id);
+      bucket.source_question_ids.add(id);
+    });
+
+    if (done) {
       const timerMinutes = detailKey && task?.createdAt && task?.completedAt
         ? timerMinutesForDetail(storage, detailKey, { startAt: task.createdAt, endAt: task.completedAt })
         : null;
       calibrationSamples.push({
         repair_id: String(task?.id || ''),
+        canonical_id: canonicalId,
         source_question_count: officialIds.length,
         detail_key: detailKey,
         created_at: String(task?.createdAt || '') || null,
@@ -487,6 +526,21 @@ function summarizeXizongForecastRepairs(storage) {
       });
     }
   }
+
+  const bySystem = [...systemBuckets.values()]
+    .map((row) => ({
+      canonical_id: row.canonical_id,
+      question_backed_clusters: row.question_backed_clusters,
+      active_question_backed_clusters: row.active_question_backed_clusters,
+      completed_question_backed_clusters: row.completed_question_backed_clusters,
+      unique_source_question_ids: row.source_question_ids.size,
+      observed_question_to_cluster_ratio:
+        row.question_backed_clusters > 0
+          ? Number((row.source_question_ids.size / row.question_backed_clusters).toFixed(3))
+          : null
+    }))
+    .sort((a, b) => String(a.canonical_id).localeCompare(String(b.canonical_id), undefined, { numeric: true }));
+
   return {
     schema: 'kianos.xizong.repair-forecast-evidence.v1',
     total_repair_clusters: allRepairs.length,
@@ -498,9 +552,10 @@ function summarizeXizongForecastRepairs(storage) {
     unique_source_question_ids: sourceQuestionIds.size,
     observed_question_to_cluster_ratio:
       questionBackedClusters > 0 ? Number((sourceQuestionIds.size / questionBackedClusters).toFixed(3)) : null,
+    by_system: bySystem,
     calibration_samples: calibrationSamples,
     evidence_boundary:
-      'Repair lifecycle is subject-owned. Official-question compression ratios use official question ids only; AI probes and non-official sources cannot reduce predicted official W/U workload. Several Wrong/Uncertain questions may share one root cause, and DONE still requires later fresh verification. Block-route timer observed across a Repair lifetime window is explicitly mixed timing and must not be treated as exclusive Repair duration.'
+      'Repair lifecycle is subject-owned. Official-question compression ratios use official question ids only; AI probes and non-official sources cannot reduce predicted official W/U workload. Compression is exposed by System so an easy/familiar System cannot silently price later-System Repair. DONE still requires later fresh verification. Block-route timer observed across a Repair lifetime window is explicitly mixed timing and must not be treated as exclusive Repair duration.'
   };
 }
 
@@ -867,7 +922,7 @@ export function buildXizongForecastProgress(storage, packetIndex = [], {
   }, 0);
   const holdoutYears = readJson(storage, 'kianos:xizong:full-paper-holdout-years:v1', []) || [];
   const practiceEvidence = summarizeXizongForecastPractice(storage, { holdoutYears, now, questionScope });
-  const repairEvidence = summarizeXizongForecastRepairs(storage);
+  const repairEvidence = summarizeXizongForecastRepairs(storage, systemRows);
   const memory = normalizeXizongMemoryState(readJson(storage, XIZONG_MEMORY_STORAGE_KEY, null));
   const memoryEvidence = {
     schema: 'kianos.xizong.memory-forecast-evidence.v1',
