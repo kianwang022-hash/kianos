@@ -14,10 +14,10 @@ import ReadingPassageHandoff from '../../components/ReadingPassageHandoff.astro'
 import ReadingSessionHandoff from '../../components/ReadingSessionHandoff.astro';
 import ReadingLastLocation from '../../components/ReadingLastLocation.astro';
 import EnglishExamTaskBridge from '../../components/EnglishExamTaskBridge.astro';
-import { listReadingSets, loadReadingById } from '../../lib/englishReadingSourceTruth.mjs';
+import { listExecutableReadingSets, loadReadingById } from '../../lib/englishReadingSourceTruth.mjs';
 
 export function getStaticPaths() {
-  return listReadingSets().map((item) => ({
+  return listExecutableReadingSets().map((item) => ({
     params: { id: item.id },
     props: { readingId: item.id }
   }));
