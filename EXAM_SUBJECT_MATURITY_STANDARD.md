@@ -81,6 +81,8 @@ Rules:
 - Existing high-value material must be prepared before learner demand appears.
 - If an ability lacks training material, generate or derive the missing asset when legitimate.
 - Synthetic material requires quality gates and cannot impersonate real exam score evidence without calibration.
+- Imported / extracted / converted material must preserve semantic fidelity to its owning source. Provenance, filename, identity and freshness are not enough when OCR, transcription, answer-key mapping, numeric thresholds, negation, option order, tables/images or other extraction fields can change a learning or scoring decision.
+- High-impact source transformations require risk-appropriate fidelity validation against the primary source or an independently authoritative corroboration. Suspected or unresolved corruption remains UNKNOWN / BLOCKED for the affected teaching, Repair, Calibration or Score role; a canonical ingested file may not become learner truth merely because it is canonical.
 - Future unpublished facts/content may not be fabricated.
 - Prior-year material should be absorbed now as baseline, task geometry, delta scaffold and training design where useful.
 - When current-year material arrives, the default is delta ingestion, not redesign.
@@ -669,6 +671,14 @@ Before freeze, one Fresh Independent Audit must:
 - lower confidence / keep UNKNOWN when disagreement cannot be resolved without new evidence.
 
 Builder self-attack and Fresh Independent Audit are complementary. They are not substitutes for one another.
+
+The independent verdict is revision-bound:
+
+- the audit must record the exact Candidate revision / head it evaluated;
+- a PASS certifies that audited revision, not an unspecified future descendant;
+- any material repair, semantic rewrite or requirement change after the independent verdict invalidates that PASS for freeze purposes and requires a new Fresh Independent / Anti-Anchored Audit of the repaired Candidate;
+- the repairer may run bounded self-tests and reconciliation, but may not self-upgrade a materially repaired Candidate to final PASS;
+- semantics-preserving editorial-only changes may inherit the prior verdict only when they are explicitly demonstrated not to change the governed requirement.
 
 For material claims, the audit result must make clear:
 
