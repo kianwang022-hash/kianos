@@ -16,6 +16,7 @@ import {
   EXAM_CHAT_PLAN_KEY,
   readExamChatPlan,
   validateExamChatPlan,
+  validateExamChatPlanAgainstStorage,
   writeExamChatPlan
 } from './examChatPlan.mjs';
 import { buildExamStudyTimeOverlay } from './examStudyTime.mjs';
@@ -67,10 +68,14 @@ export function initExamHome(root) {
   const politicsCatalog = JSON.parse($('[data-exam-daily-politics-catalog]')?.textContent || 'null');
   const politicsMemoryCatalog = JSON.parse($('[data-exam-politics-memory-catalog]')?.textContent || 'null');
   const xizongPacketIndex = JSON.parse($('[data-exam-daily-xizong-index]')?.textContent || '[]');
+  const xizongForecastQuestionScope = JSON.parse($('[data-exam-xizong-forecast-question-scope]')?.textContent || 'null');
+  const xizongForecastCanonicalScope = JSON.parse($('[data-exam-xizong-forecast-canonical-scope]')?.textContent || 'null');
   $('[data-exam-catalog]').remove();
   $('[data-exam-daily-politics-catalog]')?.remove();
   $('[data-exam-politics-memory-catalog]')?.remove();
   $('[data-exam-daily-xizong-index]')?.remove();
+  $('[data-exam-xizong-forecast-question-scope]')?.remove();
+  $('[data-exam-xizong-forecast-canonical-scope]')?.remove();
 
   let bytes = null;
   let profile = emptyExamProfile();
@@ -440,6 +445,8 @@ export function initExamHome(root) {
         now: Date.now(),
         plan: readModel,
         xizongPacketIndex,
+        xizongForecastQuestionScope,
+        xizongForecastCanonicalScope,
         politicsCatalog,
         politicsMemoryCatalog,
         base: catalog.base || '/'
@@ -565,7 +572,7 @@ export function initExamHome(root) {
       const preview = $('[data-exam-import-preview]');
 
       if (parsed?.schema === EXAM_CHAT_PLAN_SCHEMA) {
-        const value = validateExamChatPlan(parsed, day());
+        const value = validateExamChatPlanAgainstStorage(localStorage, parsed, day());
         pendingImport = { kind: 'chat-plan', value };
         preview.textContent = [
           `将载入 Chat 今日安排：${value.study_day}`,
