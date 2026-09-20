@@ -138,5 +138,9 @@ jobs:
         run: npm run validate:politics
       - name: Prove Politics forecast sensors and stress model
         run: node scripts/test-politics-forecast.mjs
+      - name: Prove Politics Analysis evidence lifecycle
+        run: node scripts/test-politics-analysis-evidence.mjs
+      - name: Prove Politics evidence reaches shared Daily Packet
+        run: node scripts/test-subject-daily-packets.mjs
       - name: Build Astro
         run: npm run build
