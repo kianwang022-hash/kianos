@@ -418,7 +418,7 @@ export function loadSyntheticTranslationById(id) {
     navigation: nav(rows, index),
     sourcePaths: {
       questions: SYNTHETIC_BASELINE_SOURCE.translation,
-      reference: SYNTHETIC_BASELINE_SOURCE.translationReference
+      referenceOwner: SYNTHETIC_BASELINE_SOURCE.translationReference
     },
     sourceHashes: {
       syntheticOwner: data.hashes.translation,
