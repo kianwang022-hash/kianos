@@ -1,6 +1,6 @@
 # Politics Maturity Package
 
-Status: **FREEZE CANDIDATE · BUILDER CLOSURE COMPLETE · FRESH INDEPENDENT AUDIT REQUIRED**
+Status: **F-01 REPAIRED FREEZE CANDIDATE · BUILDER CLOSURE COMPLETE · FINAL AUTOMATIC FRESH AUDIT REQUIRED**
 Owner: PR #638 / work/politics-later-readiness-20260920
 Upstream bar: EXAM_SUBJECT_MATURITY_STANDARD.md
 Subject adaptation: MATURITY_REQUIREMENTS.md
@@ -65,6 +65,53 @@ Builder proof after repair:
 - Marxism Runtime/Evidence, Current bindings and Astro build: **PASS**.
 
 This repair does **not** promote `SYSTEM_LOGIC_ACCEPTED`. The material change invalidates v4 for freeze purposes and requires a new Fresh Independent audit.
+
+## 0.2 Fresh audit v5 finding and bounded F-01 repair
+
+Fresh Independent v5 returned **FAIL**, not INVALID, with exactly one material freeze blocker:
+
+~~~text
+Daily Packet / learner evidence snapshot E0
+→ Chat creates same-day plan from E0
+→ learner performs more Politics work and durable evidence advances to E1
+→ old E0 plan could still import because it had no evidence-basis identity
+~~~
+
+That failure could create both:
+- false Secure: a newly exposed Protect-70 blocker at E1 while the E0 plan kept running;
+- false Unstable: newer stable/completed evidence at E1 while the E0 plan reopened Build / Repair / Memory.
+
+Smallest responsible owner:
+
+- shared Chat Plan schema/runtime: `static-web/src/lib/examChatPlan.mjs`;
+- import enforcement edge: `static-web/src/lib/privateControlRuntime.mjs`;
+- existing Daily Learning Packet reused as the evidence handoff; **no second learner-state/revision system was created**.
+
+Bounded repair:
+
+- Daily Learning Packet carries deterministic `learner_evidence_basis`;
+- Chat Plan returns that basis unchanged;
+- Home read/import and private-control import recompute current durable learner evidence + explicit planning facts and reject stale/missing basis;
+- navigation/control-only state is excluded so page movement does not create false staleness;
+- stale heavy plans are invalidated by newer stability evidence as well as by newer blocker evidence.
+
+Shared repair landed through PR #668 / main `9dcc15be4fa282e3c459ff8c0cccefb1a66fe4d7`.
+
+Proof boundary:
+
+- #668 shared product proof: Exam Orchestrator, Final Cross-subject, Mac Visual, Politics Functional, Authority/Semantic and Xizong Forecast all PASS on the repaired product code;
+- #638 reconcile proof: Static Web Politics QA, Exam Orchestrator, Politics Functional, Politics Final Fresh Execution and Mac Visual passed on the reconciled product code;
+- a later #638 Final Cross-subject failure was traced to the synthetic test consuming the live private-control relay, not to product semantics;
+- the latest #638 change isolates that synthetic harness from live control. Because GitHub did not schedule a new run for that test-only commit, it is **not** counted as an additional PASS.
+
+This builder repair **does not** promote `SYSTEM_LOGIC_ACCEPTED`. One new sealed candidate and one final Fresh Independent audit are still required.
+
+Audit-loop stop rule:
+
+- this is the **last automatically launched Fresh audit** for this closure cycle;
+- if it PASSes, broad Politics maturity engineering freezes;
+- if it FAILs only because F-01 is incomplete, return to that exact shared owner;
+- if it finds a new unrelated material blocker, stop automatic repair/reseal/re-audit and report to Kian for a decision.
 
 ## 1. Score → Ability → Material → Method → Evidence
 
