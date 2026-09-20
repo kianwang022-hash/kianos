@@ -11,7 +11,9 @@ on:
       - 'static-web/src/lib/xizongQuestions.mjs'
       - 'static-web/src/lib/xizongQuestionAttempts.mjs'
       - 'static-web/src/lib/xizongScoreAttribution.mjs'
+      - 'static-web/src/lib/xizongStudyPacket.mjs'
       - 'static-web/scripts/validate-xizong-score-attribution.mjs'
+      - 'static-web/scripts/validate-xizong-score-attribution-packet.mjs'
       - '.github/workflows/xizong-score-attribution.yml'
 
 permissions:
@@ -34,3 +36,5 @@ jobs:
         run: npm install --no-audit --no-fund
       - name: Validate observed official score attribution
         run: node scripts/validate-xizong-score-attribution.mjs
+      - name: Validate bounded score attribution in study packet
+        run: node scripts/validate-xizong-score-attribution-packet.mjs
