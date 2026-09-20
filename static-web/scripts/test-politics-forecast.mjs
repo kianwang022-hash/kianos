@@ -129,6 +129,65 @@ const readyLater = buildPoliticsForecast({
 });
 assert.equal(readyLater.score_path.total_score_confidence, 'PHASE_APPROPRIATE_REASSESSMENT_REQUIRED');
 
+const laterUnknown = buildPoliticsForecast({
+  evidence,
+  days_remaining: 30
+});
+assert.equal(laterUnknown.later_stage_workload.status, 'UNKNOWN');
+assert.equal(laterUnknown.later_stage_workload.total_minutes_range, null);
+assert.equal(laterUnknown.whole_cycle_workload.status, 'UNKNOWN');
+
+const laterExplicit = buildPoliticsForecast({
+  evidence,
+  days_remaining: 30,
+  capacity_minutes_per_day: [60, 120],
+  later_workload_assumptions: {
+    analysis_build: [300, 600],
+    future_source_assimilation: { min: 180, max: 360 },
+    mock_final_reserve: 240
+  }
+});
+assert.equal(laterExplicit.later_stage_workload.status, 'EXPLICIT_SCENARIO');
+assert.deepEqual(laterExplicit.later_stage_workload.total_minutes_range, { min: 720, max: 1200 });
+assert.equal(laterExplicit.whole_cycle_workload.status, 'EXPLICIT_SCENARIO');
+for (const row of laterExplicit.whole_cycle_workload.unit_cases) {
+  assert.equal(
+    row.whole_cycle_minutes_range.min,
+    row.first_round_minutes_range.min + 720
+  );
+  assert.equal(
+    row.whole_cycle_minutes_range.max,
+    row.first_round_minutes_range.max + 1200
+  );
+}
+
+const laterMoreExpensive = buildPoliticsForecast({
+  evidence,
+  days_remaining: 30,
+  later_workload_assumptions: {
+    analysis_build: [300, 600],
+    future_source_assimilation: { min: 400, max: 800 },
+    mock_final_reserve: 240
+  }
+});
+assert.ok(
+  laterMoreExpensive.later_stage_workload.total_minutes_range.min
+    > laterExplicit.later_stage_workload.total_minutes_range.min
+);
+assert.ok(
+  laterMoreExpensive.later_stage_workload.total_minutes_range.max
+    > laterExplicit.later_stage_workload.total_minutes_range.max
+);
+
+const laterPartial = buildPoliticsForecast({
+  evidence,
+  days_remaining: 30,
+  later_workload_assumptions: { analysis_build: [300, 600] }
+});
+assert.equal(laterPartial.later_stage_workload.status, 'PARTIAL_SCENARIO');
+assert.equal(laterPartial.later_stage_workload.total_minutes_range, null);
+assert.equal(laterPartial.whole_cycle_workload.status, 'UNKNOWN');
+
 assert.equal('next_action' in forecast, false);
 assert.equal('priority' in forecast, false);
 assert.equal('target_minutes' in forecast, false);
