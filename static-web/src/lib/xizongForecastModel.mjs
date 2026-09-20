@@ -897,6 +897,22 @@ export function buildXizongScoreReadiness(progress, {
   const firstPass = progress?.practice_evidence?.first_pass || {};
   const hardGaps = (Array.isArray(materialGaps) ? materialGaps : [])
     .filter((row) => String(row?.severity || '').toUpperCase() === 'HARD');
+  const transferByKind = transfer?.by_probe_kind_status || {};
+  const dedicatedCaseRows = Object.entries(transferByKind)
+    .filter(([kind]) => /CASE|CROSS_SYSTEM/i.test(String(kind || '')))
+    .map(([kind, row]) => ({
+      probe_kind: String(kind),
+      observed: Math.max(0, Number(row?.observed || 0)),
+      stable: Math.max(0, Number(row?.stable || 0)),
+      uncertain: Math.max(0, Number(row?.uncertain || 0)),
+      wrong: Math.max(0, Number(row?.wrong || 0))
+    }));
+  const dedicatedCaseTotals = dedicatedCaseRows.reduce((acc, row) => ({
+    observed: acc.observed + row.observed,
+    stable: acc.stable + row.stable,
+    uncertain: acc.uncertain + row.uncertain,
+    wrong: acc.wrong + row.wrong
+  }), { observed: 0, stable: 0, uncertain: 0, wrong: 0 });
 
   const capabilities = {
     source_model: {
@@ -952,9 +968,19 @@ export function buildXizongScoreReadiness(progress, {
       boundary: 'AI transfer probes are supplementary and never formal score truth.'
     },
     case_stability: {
-      evidence_status: formalPapers.length > 0 ? 'WHOLE_PAPER_PROXY_PRESENT' : 'UNKNOWN',
-      dedicated_case_evidence: false,
-      boundary: 'Whole-paper performance is only a proxy for case/cross-system stability until dedicated case evidence is exposed.'
+      evidence_status: dedicatedCaseTotals.observed > 0
+        ? 'DEDICATED_CASE_TRANSFER_OBSERVED'
+        : formalPapers.length > 0
+          ? 'WHOLE_PAPER_PROXY_PRESENT'
+          : 'UNKNOWN',
+      dedicated_case_evidence: dedicatedCaseTotals.observed > 0,
+      observed_probes: dedicatedCaseTotals.observed,
+      stable: dedicatedCaseTotals.stable,
+      uncertain: dedicatedCaseTotals.uncertain,
+      wrong: dedicatedCaseTotals.wrong,
+      probe_kinds: dedicatedCaseRows,
+      boundary:
+        'Whole-paper performance is only a proxy for case/cross-System stability. Dedicated case/cross-System transfer requires separately typed fresh-transfer probes and remains supplementary rather than formal score truth.'
     },
     whole_paper_execution: {
       evidence_status: formalPapers.length > 0 ? 'FORMAL_EVIDENCE_PRESENT' : 'MISSING',
