@@ -825,10 +825,31 @@ function englishForecastMaterialEvidence(storage, catalog) {
   const byTask = {};
   for (const task of ['reading_a','cloze','reading_b','translation','writing']) {
     const rows = examObjects.filter((row) => row?.task === task);
-    byTask[task] = {
+    const taskRow = {
       registered_objects: rows.length,
       exposure: countEnglishExposure(rows, ledger)
     };
+    if (['reading_a','cloze','reading_b'].includes(task)) {
+      taskRow.question_count = rows.reduce((sum, row) => sum + Number(row?.question_count || 0), 0);
+    }
+    if (task === 'translation') {
+      taskRow.prompt_count = rows.reduce((sum, row) => sum + Number(row?.prompt_count || 0), 0);
+    }
+    if (task === 'reading_b') {
+      const forms = [...new Set(rows.map((row) => String(row?.task_form || '')).filter(Boolean))].sort();
+      taskRow.by_task_form = Object.fromEntries(forms.map((form) => [
+        form,
+        rows.filter((row) => String(row?.task_form || '') === form).length
+      ]));
+    }
+    if (task === 'writing') {
+      const kinds = [...new Set(rows.map((row) => String(row?.writing_kind || '')).filter(Boolean))].sort();
+      taskRow.by_writing_kind = Object.fromEntries(kinds.map((kind) => [
+        kind,
+        rows.filter((row) => String(row?.writing_kind || '') === kind).length
+      ]));
+    }
+    byTask[task] = taskRow;
   }
 
   const wholePapers = (Array.isArray(catalog.whole_papers) ? catalog.whole_papers : []).map((paper) => {
