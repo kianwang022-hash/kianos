@@ -173,7 +173,8 @@ async function publishRootTree(config,{remote,newPacket,sealRaw=null,sealDay=nul
 export async function publishDailyLearningPacket(input,{
   env=process.env,
   home=os.homedir(),
-  gitBin='git'
+  gitBin='git',
+  trustedCheckpointReprojection=false
 }={}){
   const packet=validatePacket(input);
   const config=privatePacketRelayConfig({env,home});
@@ -186,7 +187,9 @@ export async function publishDailyLearningPacket(input,{
   if(current){
     const order=packetOrder(packet,current);
     if(order<0)throw new Error('KIANOS_PACKET_OLDER_THAN_REMOTE_CURRENT');
-    if(order===0&&!materiallyEqual(packet,current))throw new Error('KIANOS_PACKET_SAME_IDENTITY_CONFLICT');
+    if(order===0&&!materiallyEqual(packet,current)&&!trustedCheckpointReprojection){
+      throw new Error('KIANOS_PACKET_SAME_IDENTITY_CONFLICT');
+    }
     if(packet.study_day===current.study_day&&materiallyEqual(packet,current)){
       return{state:'ready',status:'idempotent',study_day:packet.study_day};
     }
@@ -240,5 +243,13 @@ export async function syncPrivateDailyLearningPacketOnce({
   if(!checkpoint)return{state:'missing',reason:'private-checkpoint-missing'};
   const { buildDailyLearningPacketFromPrivateCheckpoint } = await import('./privateDailyLearningPacket.mjs');
   const projection=buildDailyLearningPacketFromPrivateCheckpoint(checkpoint);
-  return publishDailyLearningPacket(projection.packet,{env,home,gitBin});
+  return publishDailyLearningPacket(projection.packet,{
+    env,
+    home,
+    gitBin,
+    // The private checkpoint is the trusted durable source for this projection.
+    // A newer runtime may deterministically materialize additional packet fields
+    // from the same checkpoint identity; ordinary callers remain fail-closed.
+    trustedCheckpointReprojection:true
+  });
 }
