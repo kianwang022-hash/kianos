@@ -1,0 +1,30 @@
+{
+  "schema": "kianos.xizong.source_visual_bundles.v1",
+  "status": "CURRENT",
+  "authority": "CHAT_APPROVED",
+  "system_id": "hematology-immunity-infection",
+  "canonical_id": "C",
+  "selection_policy": "SPARSE_HIGH_VALUE_NOT_EXHAUSTIVE",
+  "completeness": "PARTIAL_BY_DESIGN_EXTENSIBLE",
+  "notes": "First formal C/H11 Source Visual recovery. The exact original P461 page image from 03、内科学大合集.pdf is preserved for the lymphoma immunophenotype summary used by H11 LG08/KP31. RS variants, CHL subtype morphology and other H11 morphology visuals remain Source-gated rather than model-reconstructed.",
+  "bundles": [
+    {
+      "cue_id": "c-h11-lg08-visual",
+      "source_sha256": "e9c479f5018b0e474fc887d367fb9c85dfcf4a10fdc78537020fabf621cc45cb",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "internal-medicine-page:e9c479f5018b0e47:p461:full",
+          "source_page": 461,
+          "usage_role": "LYMPHOMA_IMMUNOPHENOTYPE_SUMMARY_VISUAL",
+          "usage_label": "P461 · 淋巴瘤免疫表型总表",
+          "alt": "内科学大合集 P461 特征免疫表型原页：CHL、NLPHL、浆细胞骨髓瘤、淋巴母/前体、CLL/SLL、套细胞、边缘区、DLBCL、滤泡、Burkitt、间变性大细胞、皮肤T与NK/T等标志组合总结",
+          "asset_path": "c-h11-lg08/h11-p461-immunophenotype-summary.png",
+          "width": 1158,
+          "height": 1638,
+          "derived_asset_sha256": "e9c479f5018b0e474fc887d367fb9c85dfcf4a10fdc78537020fabf621cc45cb"
+        }
+      ]
+    }
+  ]
+}

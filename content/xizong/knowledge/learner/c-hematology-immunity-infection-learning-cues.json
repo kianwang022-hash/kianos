@@ -1,0 +1,32 @@
+{
+  "schema": "kianos.xizong.learning_cues.v1",
+  "status": "CURRENT",
+  "authority": "CHAT_APPROVED",
+  "system_id": "hematology-immunity-infection",
+  "canonical_id": "C",
+  "system_owner": "content/xizong/knowledge/systems/c-hematology-immunity-infection/system.json",
+  "medical_core_owner": "content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/",
+  "learning_support": "content/xizong/knowledge/learner/c-hematology-immunity-infection-learning.json",
+  "role": "SELECTIVE_PRECISION_AND_VISUAL_TRIGGER_INDEX_ONLY",
+  "rules": {
+    "no_second_owner": "Cues identify sparse high-value visual learning moments only. They do not copy or replace canonical medical Core or the original Lecture.",
+    "precision_selection": "SELECTIVE_HIGH_VALUE_INDEX_NOT_EXHAUSTIVE",
+    "precision_absence": "Absence from this index does not downgrade any canonical KP or fact.",
+    "first_pass": "Visual cues are nonblocking support inside the accepted C Learning route; they do not create a second source-contact sequence.",
+    "visual_behavior": "At a high-value learning moment, show the reviewed original-source visual with one bounded micro-task; missing source imagery remains legal and fail-closed.",
+    "source_truth": "Exact medical meaning remains in canonical H Block/KP content and the referenced original Lecture."
+  },
+  "precision_index": [],
+  "visual_bindings": [
+    {
+      "id": "c-h11-lg08-visual",
+      "anchor": {
+        "block_id": "hematology-h11",
+        "logic_group_id": "c-h11-lg08"
+      },
+      "source_locator": "03、内科学大合集.pdf · P461｜特征免疫表型小结",
+      "task": "先按 B / T / NK / 浆 / RS 来源看组合，再用 CD23、CyclinD1/BCL1、CD10/BCL6 等区分近邻；这页只负责确认身份，不能替代淋巴结活检的组织结构。",
+      "answer_bearing": true
+    }
+  ]
+}
