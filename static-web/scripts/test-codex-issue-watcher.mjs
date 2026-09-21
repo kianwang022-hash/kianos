@@ -87,6 +87,14 @@ exit 0
   assert.equal(out.reason, 'no-actionable-issue');
   assert.equal(fs.existsSync(codexCalls), false, 'empty queue must not invoke Codex');
 
+  const lockDir = path.join(stateDir, 'lock');
+  fs.mkdirSync(lockDir, { recursive: true });
+  fs.writeFileSync(path.join(lockDir, 'owner.json'), JSON.stringify({ pid: process.pid }) + '\n');
+  out = JSON.parse(execFileSync(process.execPath, [watcher, '--json'], { cwd: repo, env: baseEnv, encoding: 'utf8' }));
+  assert.equal(out.status, 'quiet');
+  assert.equal(out.reason, 'already-running', 'live lock owner must suppress duplicate watcher execution');
+  fs.rmSync(lockDir, { recursive: true, force: true });
+
   fs.writeFileSync(issueFile, JSON.stringify([{
     number: 701,
     title: 'Codex execution: test watcher',
@@ -95,10 +103,19 @@ exit 0
     updatedAt: '2026-09-21T06:00:00Z'
   }]) + '\n');
 
+  fs.mkdirSync(lockDir, { recursive: true });
+  fs.writeFileSync(path.join(lockDir, 'owner.json'), JSON.stringify({ pid: 2147483647 }) + '\n');
   out = JSON.parse(execFileSync(process.execPath, [watcher, '--dry-run', '--json'], { cwd: repo, env: baseEnv, encoding: 'utf8' }));
   assert.equal(out.status, 'would-launch');
   assert.equal(out.issue, 701);
-  assert.equal(fs.existsSync(codexCalls), false, 'dry-run must not invoke Codex');
+  assert.equal(fs.existsSync(codexCalls), false, 'dead lock owner must be recovered without invoking Codex in dry-run');
+
+  fs.mkdirSync(lockDir, { recursive: true });
+  const old = new Date(Date.now() - 60 * 1000);
+  fs.utimesSync(lockDir, old, old);
+  out = JSON.parse(execFileSync(process.execPath, [watcher, '--dry-run', '--json'], { cwd: repo, env: baseEnv, encoding: 'utf8' }));
+  assert.equal(out.status, 'would-launch');
+  assert.equal(out.issue, 701, 'legacy ownerless stale lock must be recovered after the short race grace');
 
   out = JSON.parse(execFileSync(process.execPath, [watcher, '--json'], { cwd: repo, env: baseEnv, encoding: 'utf8' }));
   assert.equal(out.status, 'launched');
@@ -122,7 +139,7 @@ exit 0
   assert.equal(out.reason, 'active-or-cooling-only');
   assert.equal(fs.readFileSync(codexCalls, 'utf8'), before, 'open PR must suppress duplicate Codex run');
 
-  console.log('PASS Codex issue watcher: no-task zero-model, one-task one-run, cooldown and PR dedupe');
+  console.log('PASS Codex issue watcher: zero-model idle, owner-aware lock recovery, one-task one-run, cooldown and PR dedupe');
 } finally {
   fs.rmSync(temp, { recursive: true, force: true });
 }
