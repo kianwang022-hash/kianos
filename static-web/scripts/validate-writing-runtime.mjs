@@ -45,13 +45,15 @@ function forbiddenPaths(value, prefix = '') {
 const source = inspectWritingSyntheticTasks();
 const tasks = listWritingSyntheticTasks();
 check(source.status === 'ready', `SYNTHETIC_SOURCE:${source.status}`);
-check(tasks.length === 2, `SYNTHETIC_TASK_COUNT:${tasks.length}`);
-check(tasks.map((task) => task.kind).join('|') === 'small|big', `SYNTHETIC_KIND_ORDER:${tasks.map((task) => task.kind).join('|')}`);
+check(tasks.length === 10, `SYNTHETIC_TASK_COUNT:${tasks.length}`);
+check(tasks.filter((task) => task.kind === 'small').length === 4, `SYNTHETIC_SMALL_COUNT:${tasks.filter((task) => task.kind === 'small').length}`);
+check(tasks.filter((task) => task.kind === 'big').length === 6, `SYNTHETIC_BIG_COUNT:${tasks.filter((task) => task.kind === 'big').length}`);
+check(tasks.filter((task) => task.evidenceRole === 'CALIBRATION').length === 2, `SYNTHETIC_CALIBRATION_COUNT:${tasks.filter((task) => task.evidenceRole === 'CALIBRATION').length}`);
 check(tasks.every((task) => task.sourceKind === 'synthetic'), 'TRUE_EXAM_CONSUMPTION');
 check(tasks.every((task) => forbiddenPaths(task).length === 0), 'SYNTHETIC_LEARNER_LEAK');
 
-const small = tasks.find((task) => task.kind === 'small');
-const big = tasks.find((task) => task.kind === 'big');
+const small = tasks.find((task) => task.kind === 'small' && task.evidenceRole === 'CALIBRATION');
+const big = tasks.find((task) => task.kind === 'big' && task.evidenceRole === 'CALIBRATION');
 check(Boolean(small && big), 'SYNTHETIC_KIND_COVERAGE');
 
 const t0 = '2026-09-12T12:00:00.000Z';
