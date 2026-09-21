@@ -10,9 +10,9 @@
     "content_hash": "faa359d2c0633b803ae45376a89b3fd93db8abb5263acdbb8b804702d015b131",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "证明资格或授权的文件",
-      "core_meaning_en": "a document or proof that shows someone is qualified or authorized",
-      "mental_model_cn": "证明资格或授权的文件",
+      "core_meaning_cn": "证明资格、资历、身份或授权的凭据；也可指用于数字系统身份验证的认证信息",
+      "core_meaning_en": "proof of qualifications, experience, identity, or authority; also authentication information for digital access",
+      "mental_model_cn": "credentials 可指学历、经验、证书等“证明你够资格”的信息；computing credentials 则是用户名、密码、令牌、密钥等用于验证身份和授权访问的信息。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -20,7 +20,28 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [],
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "fact_id": "secondary:credential:bf11-authentication",
+        "module": "secondary_senses",
+        "direction": "R",
+        "meaning_cn": "（计算机）用于验证身份并允许访问的认证信息，如用户名/密码、令牌或密钥",
+        "definition_cn": "（计算机）用于验证身份并允许访问的认证信息",
+        "definition_en": "authentication information used to verify identity and permit access, such as a username/password, token, certificate, or key",
+        "boundary": "qualification/experience context → credentials of suitability or authority; computing/login context → authentication credentials",
+        "pattern": "login / authentication / access credentials",
+        "pos": "noun",
+        "level": "L1",
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "verification_status": "verified",
+        "writing_safe": true,
+        "task_tags": [
+          "reading",
+          "writing"
+        ]
+      }
+    ],
     "semantic_neighbors": [],
     "senses": [
       {
@@ -45,14 +66,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "凭据，证明书",
-        "definition_en": "a document attesting to the truth of certain stated facts; proof of identity or qualifications",
+        "definition_cn": "资历或资格证明；可包括学历、经验、证书、身份证明等能证明资格或授权的信息",
+        "definition_en": "proof of qualifications, experience, identity, or authority, including documents or other evidence",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:credential:d2b3376ec76f5053",
-        "sense_label_en": "a document attesting to the truth of certain stated facts; proof of iden",
+        "sense_label_en": "proof of qualifications, experience, identity, or authority, including documents or other evidence",
         "sort_order": 0,
         "transitivity": "nonverb"
       }

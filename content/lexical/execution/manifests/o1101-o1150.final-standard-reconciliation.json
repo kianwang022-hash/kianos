@@ -1,0 +1,90 @@
+{
+  "schema": "kianos.lexical.final_standard_reconciliation.v1",
+  "candidate_id": "BF11",
+  "range": [
+    1101,
+    1150
+  ],
+  "status": "RECONCILED_READY_FOR_MERGE",
+  "candidate_branch": "work/lexical-continuous-bf11-20260922",
+  "audit_pack": "content/lexical/semantic-audit/O1101_O1150_FINAL_STANDARD_FRESH_AUDIT_PACK.md",
+  "audit_result": "PASS_WITH_CORRECTIONS",
+  "independence_note": "BLIND_FIRST_NOT_ENFORCED; same Chat had read Production detail before B audit at Kian's explicit request. Valid for defect closure, not reviewer-independence evidence.",
+  "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
+  "semantic_owner_read_head": "046bcd9f823763996d9d297c7be7e28b38b22dc0",
+  "audit_pack_commit": "e4101c0a61283e4e35b1d062250890fc1f8aed68",
+  "audit_reconciliation_commit": "67827b21f3d08f923f260c01f0481beeeeda4512",
+  "post_reconciliation_materializer_commit": "43fd25630491713260d0f76704b18a709bb1794b",
+  "latest_main_drift_check_head": "16d9e04abc1bfad03d9e7a8be8698d1dd94def90",
+  "lexical_drift": [],
+  "production": {
+    "scope_owners": 50,
+    "content_affected_owners": 12,
+    "content_no_change": 38,
+    "approved_new_material_owners": 4,
+    "blocked": 0,
+    "repair_tests_before": 16,
+    "repair_tests_after": 9
+  },
+  "audit_coverage": {
+    "scope_owners": "50/50",
+    "production_affected_reverse_reviewed": "12/12",
+    "complex_owners": "44/44",
+    "complex_no_change": "32/32",
+    "simple_no_change": "6/6",
+    "simple_no_change_deep_sample": "6/6",
+    "simple_sample": [
+      1123,
+      1124,
+      1127,
+      1131,
+      1132,
+      1135
+    ],
+    "mandatory_form_identity": "2/2",
+    "mandatory_relation_confusable": "4/4",
+    "mandatory_secondary_expansion": "1/1",
+    "family_bearing_owners": "3/3",
+    "cross_range_dependencies": [
+      "cozy@o5739"
+    ],
+    "repair_test_targets_resolved": "9/9",
+    "blocked": 0
+  },
+  "audit_corrections": [
+    {
+      "target": "o1136 crab",
+      "action": "REMOVE_REFERENCE_ONLY_ROWING_BRANCH_TEXT_FROM_ACTIVE_CORE_CLUSTER_LABEL",
+      "result": "PASS"
+    }
+  ],
+  "current_noop_reconciliation": [
+    "crazy↔mad current truth already carries the approved informal/register/mental-health usage boundary",
+    "cosy↔cozy migrated to bilateral Form/Identity while preserving both stable Word owners",
+    "cover false intransitive surface-coverage branch retired; cover for sb added without permanent Test debt"
+  ],
+  "source_fidelity": {
+    "fabricated_provenance": "NONE",
+    "inherited_source_gaps": "NONE_MATERIAL_TO_BF11_CLOSURE"
+  },
+  "derived_readback": {
+    "final_learner_objects": 7946,
+    "final_shards": 125,
+    "repair_blueprints": 9,
+    "repair_targets_resolved": "9/9",
+    "corrected_finding_readback": "1/1",
+    "result": "PASS"
+  },
+  "closure": {
+    "unresolved_material_findings": 0,
+    "unresolved_identity_findings": 0,
+    "unresolved_owner_findings": 0,
+    "unresolved_source_fidelity_findings": 0,
+    "unresolved_findings": 0,
+    "blocked": 0,
+    "new_human_semantic_delta_required": false,
+    "broad_semantic_reopen_required": false,
+    "main_merge_authorized": true
+  },
+  "next_action": "Run final-head bounded checks on PR #753 and merge if no BF11-local regression is proven. This completes the frozen broad final-standard backfill o0001-o1150."
+}

@@ -6,7 +6,18 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:cover:bf11-for",
+        "pattern": "cover for sb",
+        "meaning_cn": "替缺席的人代班/承担其职责；也可替某人遮掩、找借口",
+        "definition_en": "do someone's duties while they are absent, or protect them by providing an excuse",
+        "boundary": "work/duty context → substitute for; excuse/protection context → shield or cover up for",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "final-standard-bf11"
+      }
+    ],
     "content_hash": "34aaa99b6ca7cee274d9153497e3bd0c4989c64a7ec971faf0359c8d819eeeba",
     "core_concept": {
       "core_clusters": [
@@ -16,8 +27,7 @@
           "pos": "verb",
           "sense_ids": [
             "sense:cover:302dcb4802705dc0",
-            "sense:cover:2a703868c08156c6",
-            "sense:cover:8fcb67decd045834"
+            "sense:cover:2a703868c08156c6"
           ]
         },
         {
@@ -30,9 +40,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "把某个范围“盖住/包住”：可物理覆盖，也可覆盖话题、费用或新闻事件",
+      "core_meaning_cn": "覆盖、遮盖或把某范围纳入：可覆盖表面、话题、费用、新闻事件，也可替人代班/掩护",
       "core_meaning_en": "put something over or include",
-      "mental_model_cn": "cover a table → 盖住表面；cover a topic → 涉及范围；cover costs → 足以支付；cover a story/event → 对事件进行新闻报道。核心都是“把某范围纳入覆盖”。",
+      "mental_model_cn": "cover a table → 盖住；cover a topic → 涉及；cover costs → 支付；cover a story → 报道；cover for sb → 代班或替人遮掩。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -161,20 +171,6 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "覆盖（不及物）",
-        "definition_en": "to spread over an area",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:cover:8fcb67decd045834",
-        "sense_label_en": "to spread over an area",
-        "sort_order": 4,
-        "transitivity": "vi"
-      },
-      {
         "collocations": [
           {
             "collocation_id": "collocation:35ae87b4c3fe374c8869",
@@ -277,7 +273,24 @@
     "word_id": "word:cover"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:cover:8fcb67decd045834",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "覆盖（不及物）",
+      "definition_en": "to spread over an area",
+      "semantic_key": null,
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-09-22T00:00:00Z",
+      "source_row": 3171,
+      "source_path": "content/lexical/canonical/senses/shards/o1121-1152.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -310,7 +323,7 @@
       },
       {
         "sense_id": "sense:cover:8fcb67decd045834",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 3171,
         "source_path": "content/lexical/canonical/senses/shards/o1121-1152.json"

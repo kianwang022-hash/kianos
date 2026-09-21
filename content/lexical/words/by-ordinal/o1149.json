@@ -6,7 +6,18 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:credit:bf11-attribution",
+        "pattern": "credit sb with sth / credit sth to sb",
+        "meaning_cn": "把某项成就、特质或原因归功于某人/某物",
+        "definition_en": "attribute an achievement, quality, cause, or result to someone or something",
+        "boundary": "credit sb with X = 认为某人拥有/做出X；credit X to sb = 把X归因或归功于某人",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "final-standard-bf11"
+      }
+    ],
     "content_hash": "5c4803e8e22019bc263fa221d8a884956aef58217a585f6675b9a6123a90c6cd",
     "core_concept": {
       "core_clusters": [
@@ -138,26 +149,7 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:cba30ae95aa577a09ecd",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:credit:e42be33d14c35ad7:collocation:0"
-            ],
-            "meaning_cn": "把某事归功于某人",
-            "phrase": "credit sb with sth"
-          },
-          {
-            "collocation_id": "collocation:a1653a49d844f8a42cf6",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:credit:e42be33d14c35ad7:collocation:1"
-            ],
-            "meaning_cn": "把某事归功于某人",
-            "phrase": "credit sth to sb"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "把…归功于",
         "definition_en": "to attribute an achievement or quality to someone or something",
@@ -213,10 +205,10 @@
     "word": "credit",
     "word_family": [
       {
-        "boundary": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
-        "codex_reviewed": false,
+        "boundary": "credit 涉及赊账/债权关系；creditor = 别人欠其钱的个人或机构，即债权人",
+        "codex_reviewed": true,
         "definition_cn": null,
-        "definition_en": null,
+        "definition_en": "a creditor is a person or organization to whom money is owed",
         "dimensions": {},
         "direction": "R+P",
         "evidence": [
@@ -234,7 +226,7 @@
         ],
         "label_en": null,
         "level": null,
-        "meaning_cn": null,
+        "meaning_cn": "credit（信用/赊账关系）→ creditor（债权人）",
         "module": "word_family",
         "pattern": null,
         "pos": null,
@@ -297,10 +289,8 @@
       "collocation:0a2fc9b7bd3464b5fbfb",
       "collocation:4fde5845bd046a42cf56",
       "collocation:88cf0677e291c38a13ca",
-      "collocation:a1653a49d844f8a42cf6",
       "collocation:b6659d33fee01c768dbd",
       "collocation:ba25b0ece6d36a579fbd",
-      "collocation:cba30ae95aa577a09ecd",
       "collocation:e15c208b92603241c637"
     ],
     "facts": [
