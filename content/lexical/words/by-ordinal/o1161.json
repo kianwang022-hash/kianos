@@ -97,58 +97,28 @@
       "runtime_model_calls": false
     },
     "word": "criticise",
-    "word_family": [
-      {
-        "boundary": "criticise vs critical: 批评 vs 关键的",
-        "codex_reviewed": false,
-        "definition_cn": null,
-        "definition_en": null,
-        "dimensions": {
-          "certainty": "高",
-          "collocation": "verb vs adjective",
-          "core_meaning": "批评与关键",
-          "exam_trap": "词性转换",
-          "register": "通用",
-          "semantic_prosody": "中性",
-          "strength": "中",
-          "syntax": "词性对比",
-          "writing_safety": "安全"
+    "word_family": [],
+    "word_id": "word:criticise",
+    "form_identity": {
+      "form_type": "regional_spelling_identity",
+      "spelling": "criticise",
+      "identity_rule": "same_lexeme_spelling_variant",
+      "boundary": "criticise is the usual British spelling; criticize is standard American and is also accepted in British -ize style.",
+      "boundaries": [
+        {
+          "surface": "criticise",
+          "condition": "usual British -ise spelling",
+          "note": "BrE"
         },
-        "direction": "R+P",
-        "evidence": [
-          {
-            "evidence_id": "evidence:family:criticise:critical",
-            "evidence_status": "source_checked",
-            "source_locator": "criticise|critical",
-            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/processed/word_families.csv",
-            "source_type": "learner_dictionary"
-          }
-        ],
-        "fact_id": "deep:word_family:criticise:9b155d7ca0b1f5b5",
-        "family_sources": [
-          "curated core-card derivative",
-          "local morphology candidate"
-        ],
-        "label_en": null,
-        "level": null,
-        "meaning_cn": null,
-        "module": "word_family",
-        "pattern": null,
-        "pos": null,
-        "priority": "A",
-        "publication_status": "publishable",
-        "shared_definition": null,
-        "source_sense_id": "sense:criticise:33867156b6d85045",
-        "target_sense_id": "sense:critical:fbd4f6e7b23351a0",
-        "target_word": "critical",
-        "task_tags": [
-          "reading"
-        ],
-        "verification_status": "verified",
-        "writing_safe": true
-      }
-    ],
-    "word_id": "word:criticise"
+        {
+          "surface": "criticize",
+          "condition": "standard American; also accepted British -ize spelling",
+          "note": "AmE / BrE -ize"
+        }
+      ],
+      "variants": [],
+      "authority": "F1151_1250 audit reconciliation"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
@@ -214,7 +184,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1161-1168.json",
     "source_content_hash": "989653c4c4ec474794f5117036a9cf564f81ba3dc577c34f39266fd0add55ef0",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

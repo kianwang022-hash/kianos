@@ -188,7 +188,7 @@
     "ordinal": 1155,
     "word": "cripple",
     "source_owner_path": "content/lexical/words/by-ordinal/o1155.json",
-    "source_fingerprint": "a29aee1a6c02430a8570ad45a08e0a421db2f1cc7f93a9b1fe5d11070751c6e3",
+    "source_fingerprint": "ba68688401c059e57de9bbe75ac06207002b25fc4a92892746727a528df21589",
     "sense_lineage": [
       {
         "word_id": "word:cripple",
@@ -205,13 +205,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "使严重受损或残疾，或指残疾人",
-      "decision_cn": "",
+      "summary_cn": "使人致残；使系统、经济或组织严重受损或瘫痪",
+      "decision_cn": "核心是“让原本能正常运作的人或系统失去功能”：可指身体致残，也可指经济、系统或组织被严重削弱。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "使严重受损或残疾，或指残疾人"
+        "target_label": "使人致残；使系统、经济或组织严重受损或瘫痪"
       }
     },
     "senses": [
@@ -287,7 +287,7 @@
     "ordinal": 1156,
     "word": "crisis",
     "source_owner_path": "content/lexical/words/by-ordinal/o1156.json",
-    "source_fingerprint": "05a7284cb44da8de2afa3abd86a5efa261cb55cb464a0a726a9133ca698e86b2",
+    "source_fingerprint": "5160dbb64e2da8cbcd7082fbec81cd172c9f5044a772f12a8c4d65232174a835",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -380,7 +380,43 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "crisis",
+            "condition": "singular",
+            "note": "单数 crisis。"
+          },
+          {
+            "surface": "crises",
+            "condition": "plural",
+            "note": "标准复数是 crises，拼写和词尾读音都会变化。"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "crisis (singular)",
+            "ipa": "/ˈkraɪ.sɪs/"
+          },
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "crises (plural)",
+            "ipa": "/ˈkraɪ.siːz/"
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -544,7 +580,7 @@
     "ordinal": 1158,
     "word": "criterion",
     "source_owner_path": "content/lexical/words/by-ordinal/o1158.json",
-    "source_fingerprint": "26d09858683ca73e47d05893840417ae12321c2622ed547c2c11bbb9455af158",
+    "source_fingerprint": "d3035c6a6cf935ac9941c71bba674c71aa26129c529f4bf7ab0f1daf2424a24e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -608,7 +644,43 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "criterion",
+            "condition": "singular",
+            "note": "标准书面英语中 criterion 是单数。"
+          },
+          {
+            "surface": "criteria",
+            "condition": "plural",
+            "note": "标准书面英语中 criteria 是复数；正式写作优先保持这一单复数区别。"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "criterion (singular)",
+            "ipa": ""
+          },
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "criteria (plural)",
+            "ipa": ""
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -618,7 +690,7 @@
     "ordinal": 1159,
     "word": "critic",
     "source_owner_path": "content/lexical/words/by-ordinal/o1159.json",
-    "source_fingerprint": "f282aa68bd4deae34c007f2e2e3a94e6794fa83355d47f05c96a4777a8ff75d5",
+    "source_fingerprint": "8853ca2c2e365d22c5af92d4f7cd6d6ea0187a8a0293dcb83262695a37131696",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -627,13 +699,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "批评家；评论家",
-      "decision_cn": "",
+      "summary_cn": "对作品作专业评论的人，或对人、事物表达批评/反对的人",
+      "decision_cn": "critic 不只是“评论家”：a critic of a policy/person 常指明确的批评者或反对者。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "批评家；评论家"
+        "target_label": "对作品作专业评论的人，或对人、事物表达批评/反对的人"
       }
     },
     "senses": [
@@ -676,16 +748,29 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "爱挑剔的人",
-        "definition_en": "someone who often finds fault",
+        "definition_cn": "批评者；反对者",
+        "definition_en": "a person who expresses disapproval of or opposition to someone or something",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:c512f059c000246e36ec",
+            "id": "collocation:critic:of:baseline-v2",
             "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "harsh critic",
-            "meaning_cn": "苛刻的批评者",
+            "phrase": "a critic of + sb/sth",
+            "meaning_cn": "……的批评者/反对者",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:critic:of:baseline-v2",
+              "target_locator": "record.senses[1].collocations[0]",
+              "target_label": "a critic of + sb/sth"
+            }
+          },
+          {
+            "id": "collocation:critic:harsh:baseline-v2",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "a harsh critic",
+            "meaning_cn": "严厉的批评者",
             "kind": "usage_example",
             "repair": null
           }
@@ -694,7 +779,7 @@
           "target_kind": "sense",
           "target_id": "sense:critic:bdf37b11b85257dd",
           "target_locator": "record.senses[1]",
-          "target_label": "爱挑剔的人"
+          "target_label": "批评者；反对者"
         }
       }
     ],
@@ -933,7 +1018,7 @@
     "ordinal": 1161,
     "word": "criticise",
     "source_owner_path": "content/lexical/words/by-ordinal/o1161.json",
-    "source_fingerprint": "6a4c7e1c6ae35a475d7477e09e05e4ba50c0481239bfdcda1936d032e1e554b8",
+    "source_fingerprint": "df84b5c5dc90fc28b8bfdb7f1e7f648c3ec8c463600c8ffcf28cb6c43ecb117f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1022,19 +1107,29 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
-      "family": [
-        {
-          "target_word": "critical",
-          "lines": [
-            {
-              "text": "criticise vs critical: 批评 vs 关键的",
-              "lang": "cn"
-            }
-          ],
-          "source_locator": "record.word_family[0]"
+      "form": {
+        "boundary": "criticise is the usual British spelling; criticize is standard American and is also accepted in British -ize style.",
+        "boundaries": [
+          {
+            "surface": "criticise",
+            "condition": "usual British -ise spelling",
+            "note": "BrE"
+          },
+          {
+            "surface": "criticize",
+            "condition": "standard American; also accepted British -ize spelling",
+            "note": "AmE / BrE -ize"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "criticise is the usual British spelling; criticize is standard American and is also accepted in British -ize style."
         }
-      ]
+      },
+      "family": []
     }
   },
   {
@@ -1143,7 +1238,7 @@
     "ordinal": 1163,
     "word": "crop",
     "source_owner_path": "content/lexical/words/by-ordinal/o1163.json",
-    "source_fingerprint": "fe0e51a6a9725426e306af0cad01e836bb86f68c8680361465a65bdf7f35e06b",
+    "source_fingerprint": "875a0c2d61855ba47d53feca76a5e047e830234ac2bf4ef29f5119de067e1607",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1153,13 +1248,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "农作物；收成",
-      "decision_cn": "",
+      "summary_cn": "农作物/收成；修剪；crop up 突然出现或发生",
+      "decision_cn": "名词围绕“长出来的一批东西”；动词常见高价值结构 crop up = 问题、情况突然出现。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "农作物；收成"
+        "target_label": "农作物/收成；修剪；crop up 突然出现或发生"
       }
     },
     "senses": [
@@ -1276,7 +1371,7 @@
         "id": "sense:crop:50859cd78e0e58b7",
         "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "crop up",
+        "governing_pattern": "vi. + up",
         "definition_cn": "突然或意外出现",
         "definition_en": "to appear unexpectedly or incidentally",
         "note": "",
@@ -2423,7 +2518,7 @@
     "ordinal": 1171,
     "word": "cruise",
     "source_owner_path": "content/lexical/words/by-ordinal/o1171.json",
-    "source_fingerprint": "88c2a0d0ce760196b4e382a943c2d94e51036252352ac65c0df0c9b27c6b5664",
+    "source_fingerprint": "1d0a0b4297f0bed812791efbab3a963e471ff7a3ea6a9fe398771f871c6995d9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2433,13 +2528,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "乘船游览或平稳行驶",
-      "decision_cn": "",
+      "summary_cn": "乘船游览；平稳巡航或行驶",
+      "decision_cn": "核心是“平稳地持续前进”：可指乘游轮旅行，也可指车辆以稳定速度行驶。低频成人语义保留在非默认分支。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "乘船游览或平稳行驶"
+        "target_label": "乘船游览；平稳巡航或行驶"
       }
     },
     "senses": [
@@ -3405,7 +3500,7 @@
     "ordinal": 1178,
     "word": "cue",
     "source_owner_path": "content/lexical/words/by-ordinal/o1178.json",
-    "source_fingerprint": "3a927775eb8860c8af057c6f283cfeea4ebaae9e62354e45c8e3ccbe4f96fd15",
+    "source_fingerprint": "a4dfea94c542e77941e371831225f077a4c4c1e5acce642be2f44619d930e685",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3516,7 +3611,33 @@
     "secondary_senses": [],
     "constructions": [],
     "reference": {
-      "confusables": [],
+      "confusables": [
+        {
+          "title": "cue ↔ queue",
+          "target_word": "queue",
+          "lines": [
+            {
+              "text": "cue /kjuː/ = 提示、信号（或台球杆）；queue /kjuː/ = 排队、队列。两词同音但拼写和词义不同。",
+              "lang": "cn"
+            },
+            {
+              "text": "cue /kjuː/ = a signal, prompt, or billiards stick; queue /kjuː/ = a line or ordered waiting list. They are homophones but different words.",
+              "lang": "en"
+            },
+            {
+              "text": "看到 /kjuː/ 不能只靠声音选拼写；由 signal/prompt 与 waiting line/list 的语境决定。",
+              "lang": "cn"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:baseline-v2:cue-queue:homophone_confusable",
+            "target_locator": "record.confusables[0]",
+            "target_label": "cue ↔ queue"
+          }
+        }
+      ],
       "relations": [],
       "form": null,
       "family": []
@@ -3988,7 +4109,7 @@
     "ordinal": 1184,
     "word": "cunning",
     "source_owner_path": "content/lexical/words/by-ordinal/o1184.json",
-    "source_fingerprint": "d77f52fba63a5f7e0a0c46fdb227147066fc56014b63bf7df500a217b1eb54a9",
+    "source_fingerprint": "ff1bb3d1d9b40ece9138e2f0a839953166b1bd5fc7baeb4a85ebfb5f38b5db1f",
     "sense_lineage": [
       {
         "word_id": "word:cunning",
@@ -4006,13 +4127,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "狡猾的；狡猾",
-      "decision_cn": "",
+      "summary_cn": "狡猾的；以欺骗或计谋达成目的",
+      "decision_cn": "核心是“用机巧、计谋达到目的”，默认不把低价值的地区性“可爱”义塞进主学习层。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "狡猾的；狡猾"
+        "target_label": "狡猾的；以欺骗或计谋达成目的"
       }
     },
     "senses": [
@@ -4102,7 +4223,7 @@
     "ordinal": 1185,
     "word": "cup",
     "source_owner_path": "content/lexical/words/by-ordinal/o1185.json",
-    "source_fingerprint": "000f1c7733013f2128c0cbe5fd81764c1f27fee448c9fb4f8664587436372483",
+    "source_fingerprint": "a05acb0b68df227ca0fbc1620c01543ebdbda27501d9aef98f1e6941bb6aee3d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4112,13 +4233,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "杯子或杯状物",
-      "decision_cn": "",
+      "summary_cn": "杯子；一杯的量或杯状物",
+      "decision_cn": "先抓最普通的“喝东西的杯子”，再扩展到一杯的量、杯状结构和容量单位。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "杯子或杯状物"
+        "target_label": "杯子；一杯的量或杯状物"
       }
     },
     "senses": [
@@ -4290,7 +4411,7 @@
     "ordinal": 1186,
     "word": "cupboard",
     "source_owner_path": "content/lexical/words/by-ordinal/o1186.json",
-    "source_fingerprint": "50247ab9eda2fd3fefd50bd53d277ed1cbfa726e7fe2fae6e8eca4df53725962",
+    "source_fingerprint": "02a774b0d3a5c1dfe6bfbc6f10080ae72d747e6f89af03dbaf91dcd3c0012c7f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4349,7 +4470,38 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "cupboard",
+            "condition": "ordinary noun",
+            "note": "拼写里有 p 和 board，但正常发音压缩，不按 cup + board 两部分逐字读。"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "cupboard (BrE)",
+            "ipa": "/ˈkʌb.əd/"
+          },
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "cupboard (AmE)",
+            "ipa": "/ˈkʌb.ɚd/"
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -4359,7 +4511,7 @@
     "ordinal": 1187,
     "word": "curb",
     "source_owner_path": "content/lexical/words/by-ordinal/o1187.json",
-    "source_fingerprint": "18118734fcff76ea19ab9c5370292f1ce9fbccfe186ef360ff453d8e75c4a494",
+    "source_fingerprint": "39294b68f3f7b2e3485269a99d7583126680a98bb395f832c7c5da49ce5c340e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4462,8 +4614,8 @@
       "confusables": [],
       "relations": [
         {
-          "title": "curb ↔ curb ≈ restrain/limit",
-          "target_word": "curb ≈ restrain/limit",
+          "title": "curb ↔ restrain / limit",
+          "target_word": "restrain / limit",
           "lines": [
             {
               "text": "curb as a verb = restrain/control/limit, especially something undesirable; sense-bound only.",
@@ -4475,11 +4627,32 @@
             "target_kind": "relation",
             "target_id": "relation:horizontal:c53b2b8403adc7017140",
             "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "curb ↔ curb ≈ restrain/limit"
+            "target_label": "curb ↔ restrain / limit"
           }
         }
       ],
-      "form": null,
+      "form": {
+        "boundary": "For the road-edge noun, curb is standard AmE and kerb is usual BrE. The verb curb = restrain/control remains curb in both varieties.",
+        "boundaries": [
+          {
+            "surface": "curb",
+            "condition": "road-edge noun in American English; all ordinary verb uses",
+            "note": "AmE noun; shared verb spelling"
+          },
+          {
+            "surface": "kerb",
+            "condition": "road-edge noun in British English",
+            "note": "BrE noun spelling only"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "For the road-edge noun, curb is standard AmE and kerb is usual BrE. The verb curb = restrain/control remains curb in both varieties."
+        }
+      },
       "family": []
     }
   },
@@ -4489,7 +4662,7 @@
     "ordinal": 1188,
     "word": "cure",
     "source_owner_path": "content/lexical/words/by-ordinal/o1188.json",
-    "source_fingerprint": "20cd23a9d8a771eaa97d8f9ee6a10bf3772bede533388757079266099e1e4c9a",
+    "source_fingerprint": "13a0e4b105dab46689e7f659f7774cf2e387167af7977ed4477a5fb4ed639f0b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4654,7 +4827,33 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [],
+      "relations": [
+        {
+          "title": "cure ↔ treat",
+          "target_word": "treat",
+          "lines": [
+            {
+              "text": "treat 强调给予治疗、处理病情；cure 强调把疾病治好、使病因/疾病消失。接受 treatment 不等于已经 cured。",
+              "lang": "cn"
+            },
+            {
+              "text": "treat = give medical care or manage a condition; cure = remove the disease/cause or restore health. Successful treatment does not necessarily mean a cure.",
+              "lang": "en"
+            },
+            {
+              "text": "医学英语中这是 outcome vs intervention 的关键边界：treat 是干预过程，cure 是治愈结果。",
+              "lang": "cn"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:baseline-v2:cure-treat:semantic_contrast",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "cure ↔ treat"
+          }
+        }
+      ],
       "form": null,
       "family": []
     }
@@ -5302,7 +5501,7 @@
     "ordinal": 1194,
     "word": "curriculum",
     "source_owner_path": "content/lexical/words/by-ordinal/o1194.json",
-    "source_fingerprint": "1f2b89f8b1bb56574e9ee2251ba70cf099637b7bf5825d91f9e4da583a281a7b",
+    "source_fingerprint": "cb2e893669d6c34bcbb080a53b521307b667baf1412e877574226da625561b2c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5369,7 +5568,55 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "curriculum",
+            "condition": "singular",
+            "note": "单数 curriculum。"
+          },
+          {
+            "surface": "curricula",
+            "condition": "plural",
+            "note": "常见拉丁式复数 curricula。"
+          },
+          {
+            "surface": "curriculums",
+            "condition": "plural",
+            "note": "规则化复数 curriculums 也被接受；正式阅读中 curricula 很常见。"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "curriculum (singular)",
+            "ipa": ""
+          },
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "curricula (plural)",
+            "ipa": ""
+          },
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "curriculums (plural)",
+            "ipa": ""
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -6136,7 +6383,7 @@
     "ordinal": 1200,
     "word": "custom",
     "source_owner_path": "content/lexical/words/by-ordinal/o1200.json",
-    "source_fingerprint": "d9ceef8fc4e7c47a77adf078eff8619110cb5fee597d822eb7d94da6ecee2aa2",
+    "source_fingerprint": "bed14fc84402d7d4499fa77e5b9d8494e408b94f08b149d68ae686a14e9729af",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6308,7 +6555,43 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "custom",
+            "condition": "a traditional practice",
+            "note": "custom 可指一种风俗；普通复数 customs 也可指多种风俗。"
+          },
+          {
+            "surface": "customs",
+            "condition": "border/government service",
+            "note": "customs 还可词汇化地指海关、海关检查或海关机构，不能只按“风俗的复数”理解。"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "custom",
+            "ipa": ""
+          },
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "customs (border service)",
+            "ipa": ""
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -6398,7 +6681,7 @@
     "ordinal": 1202,
     "word": "cut",
     "source_owner_path": "content/lexical/words/by-ordinal/o1202.json",
-    "source_fingerprint": "4f82aab539d4dd4059a6c7caa5d565c0f7b6fcf2fca8f03eacc6a380a3f72d93",
+    "source_fingerprint": "5e058582bf9522e56b508b00ddbd395f306c1c52b3cdfad4425978a35d3cc2c5",
     "sense_lineage": [
       {
         "word_id": "word:cut",
@@ -6411,18 +6694,18 @@
     "recall_map": {
       "parts": [
         "2V",
-        "4N"
+        "5N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "切割或削减",
-      "decision_cn": "",
+      "summary_cn": "切割；削减；切伤形成的伤口",
+      "decision_cn": "核心动作是“切开/切掉”：物理上可形成伤口，抽象上可表示削减成本、税收或数量。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "切割或削减"
+        "target_label": "切割；削减；切伤形成的伤口"
       }
     },
     "senses": [
@@ -6507,32 +6790,6 @@
               "target_id": "collocation:5808b680b183da621b13",
               "target_locator": "record.senses[1].collocations[2]",
               "target_label": "cut off"
-            }
-          },
-          {
-            "id": "collocation:592bdce01995a186dd52",
-            "source_locator": "record.senses[1].collocations[3]",
-            "phrase": "cut down on",
-            "meaning_cn": "减少某事物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:592bdce01995a186dd52",
-              "target_locator": "record.senses[1].collocations[3]",
-              "target_label": "cut down on"
-            }
-          },
-          {
-            "id": "collocation:e39aa5c911283d418f7a",
-            "source_locator": "record.senses[1].collocations[4]",
-            "phrase": "cut back (on)",
-            "meaning_cn": "削减或减少",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:e39aa5c911283d418f7a",
-              "target_locator": "record.senses[1].collocations[4]",
-              "target_label": "cut back (on)"
             }
           }
         ],
@@ -6627,6 +6884,32 @@
           "target_id": "sense:cut:399ffe5bd4cf50cb",
           "target_locator": "record.senses[5]",
           "target_label": "削减；减少；降幅"
+        }
+      },
+      {
+        "id": "sense:cut:db2411570d06e63f",
+        "source_locator": "record.senses[6]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "伤口；切口",
+        "definition_en": "an injury or opening in the skin caused by something sharp",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:cut:injury:baseline-v2",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "a cut on one's finger",
+            "meaning_cn": "手指上的一道伤口",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:cut:db2411570d06e63f",
+          "target_locator": "record.senses[6]",
+          "target_label": "伤口；切口"
         }
       }
     ],
@@ -7320,7 +7603,7 @@
     "ordinal": 1208,
     "word": "dam",
     "source_owner_path": "content/lexical/words/by-ordinal/o1208.json",
-    "source_fingerprint": "0e736888176cbd4bf62c260c7a5bf75183a652713c7262e7e290235028c5116b",
+    "source_fingerprint": "f0cbcfb5be300c5032885f913e1d4d7ccfecb5bb265287eddd8c0efde64d399c",
     "sense_lineage": [
       {
         "word_id": "word:dam",
@@ -7386,7 +7669,33 @@
     "secondary_senses": [],
     "constructions": [],
     "reference": {
-      "confusables": [],
+      "confusables": [
+        {
+          "title": "dam ↔ damn",
+          "target_word": "damn",
+          "lines": [
+            {
+              "text": "dam /dæm/ = 水坝；damn /dæm/ = 诅咒、谴责或带情绪的非正式表达。两词同音，词义和语域不同。",
+              "lang": "cn"
+            },
+            {
+              "text": "dam /dæm/ = a barrier that holds back water; damn /dæm/ = to curse/condemn or an informal emphatic exclamation. Same pronunciation, different spelling and register.",
+              "lang": "en"
+            },
+            {
+              "text": "水利/屏障语境选 dam；咒骂或情绪强调语境选 damn，后者有语域/冒犯风险。",
+              "lang": "cn"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:baseline-v2:dam-damn:homophone_confusable",
+            "target_locator": "record.confusables[0]",
+            "target_label": "dam ↔ damn"
+          }
+        }
+      ],
       "relations": [],
       "form": null,
       "family": []
@@ -7542,7 +7851,7 @@
     "ordinal": 1210,
     "word": "damn",
     "source_owner_path": "content/lexical/words/by-ordinal/o1210.json",
-    "source_fingerprint": "953a5cdecee5674558105957c6a96ea9632285ea6a6609cff8bfddbdd4e202c3",
+    "source_fingerprint": "8a7023cbb5f55e4a23a7170861eefb0577d50b047f5ede1adabb8c57c182ac14",
     "sense_lineage": [
       {
         "word_id": "word:damn",
@@ -7638,7 +7947,33 @@
     "secondary_senses": [],
     "constructions": [],
     "reference": {
-      "confusables": [],
+      "confusables": [
+        {
+          "title": "damn ↔ dam",
+          "target_word": "dam",
+          "lines": [
+            {
+              "text": "damn /dæm/ = 诅咒、谴责或带情绪的非正式表达；dam /dæm/ = 水坝。两词同音，词义和语域不同。",
+              "lang": "cn"
+            },
+            {
+              "text": "damn /dæm/ = to curse/condemn or an informal emphatic exclamation; dam /dæm/ = a barrier that holds back water. Same pronunciation, different spelling and register.",
+              "lang": "en"
+            },
+            {
+              "text": "咒骂/情绪强调语境选 damn；水利屏障语境选 dam。damn 不作为默认安全主动表达。",
+              "lang": "cn"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:baseline-v2:dam-damn:homophone_confusable",
+            "target_locator": "record.confusables[0]",
+            "target_label": "damn ↔ dam"
+          }
+        }
+      ],
       "relations": [],
       "form": null,
       "family": []

@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.final_standard_reconciliation.v1",
+  "candidate_id": "F1151_1250",
+  "range": [
+    1151,
+    1250
+  ],
+  "status": "RECONCILED_READY_FOR_MERGE",
+  "candidate_branch": "work/lexical-continuous-o1151-o1250",
+  "candidate_pr": 520,
+  "audit_pack": "content/lexical/semantic-audit/O1151_O1250_FRESH_INDEPENDENT_AUDIT_PACK.md",
+  "audit_result": "PASS_WITH_CORRECTIONS",
+  "independence_note": "BLIND_FIRST_NOT_ENFORCED for fresh-chat independence; Pass-A durable write preceded Production handoff read inside the audit.",
+  "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
+  "semantic_owner_read_head": "d3972636a131c3bd495c64bdcff26e3cfdef68b8",
+  "pass_a_commit": "b8d6d537fc13069606721922e1d0bc5a1cc1dd3f",
+  "audit_pack_blob": "645b65cdf522240af1f963b1b47ee6013f79aab2",
+  "latest_main_replay_base": "283a7aa9999cb336ecb219c8f900a1b93ac249db",
+  "latest_main_reconciliation_merge_commit": "2cc5d838f90d71397a531de896cf161a1b82d74f",
+  "post_reconciliation_materializer_commit": "b659a3d1dff65679689a8db57cf1591b80279cf7",
+  "lexical_drift": [],
+  "production": {
+    "scope_owners": 100,
+    "content_affected_owners": 24,
+    "content_no_change": 76,
+    "approved_relation_owners": 5,
+    "final_surviving_new_relation_owners": 3,
+    "blocked": 0,
+    "repair_tests": 8
+  },
+  "audit_coverage": {
+    "scope_owners": "100/100",
+    "production_upgrade_reverse_reviewed": "24/24",
+    "production_no_change": "76/76",
+    "complex_owners": "88/88",
+    "complex_no_change": "64/64",
+    "simple_no_change_fast_gate": "12/12",
+    "simple_no_change_deep_sample": "10/12",
+    "mandatory_form_identity": "7/7",
+    "mandatory_relation_confusable": "11/11",
+    "secondary_sense_owners": "1/1",
+    "family_bearing_owners": "8/8",
+    "cross_range_dependencies": [
+      "queue@o3905",
+      "treat@o5116"
+    ],
+    "repair_test_targets_resolved": "8/8",
+    "blocked": 0
+  },
+  "audit_corrections": [
+    {
+      "target": "o1161 criticise/criticize",
+      "action": "MIGRATE_REGIONAL_SPELLING_TO_FORM_IDENTITY_AND_REMOVE_MISLEADING_CRITICISE_TO_CRITICAL_FAMILY",
+      "result": "PASS"
+    },
+    {
+      "target": "o1187 curb/kerb",
+      "action": "MIGRATE_ROAD_EDGE_REGIONAL_SPELLING_TO_SENSE_SCOPED_FORM_IDENTITY",
+      "result": "PASS"
+    },
+    {
+      "target": "o1187 curb near-paraphrase",
+      "action": "RENDER_TARGET_AS_RESTRAIN_LIMIT_WITH_EXISTING_EVIDENCE",
+      "result": "PASS"
+    },
+    {
+      "target": "o1187 curb Core anchor",
+      "action": "ATTACH_ROAD_EDGE_AND_HORSE_BIT_ACTIVE_NOUN_SENSES_TO_NOUN_CORE_CLUSTER",
+      "result": "PASS"
+    },
+    {
+      "target": "o1178 cue↔queue",
+      "action": "ADD_QUEUE_SIDE_RECIPROCAL_VIEW_AND_WORD_REF",
+      "result": "PASS"
+    },
+    {
+      "target": "o1188 cure↔treat",
+      "action": "ADD_TREAT_SIDE_RECIPROCAL_VIEW_AND_WORD_REF",
+      "result": "PASS"
+    },
+    {
+      "target": "o1232 deal",
+      "action": "REMOVE_REDUNDANT_SECONDARY_A_GREAT_DEAL_PROJECTION",
+      "result": "PASS"
+    },
+    {
+      "target": "o1230 deadly",
+      "action": "REMOVE_DECORATIVE_DEADLY_TO_DEAD_FAMILY_ASSET",
+      "result": "PASS"
+    },
+    {
+      "target": "o1202 cut",
+      "action": "KEEP_REUSABLE_CUT_DOWN_BACK_ON_CONSTRUCTION_AND_RETIRE_DUPLICATE_FIXED_PATTERN_COLLOCATIONS",
+      "result": "PASS"
+    }
+  ],
+  "relation_closure": {
+    "relation_manifest_before": 435,
+    "relation_manifest_after": 438,
+    "surviving_new_relations": [
+      "relation:baseline-v2:cue-queue:homophone_confusable",
+      "relation:baseline-v2:dam-damn:homophone_confusable",
+      "relation:baseline-v2:cure-treat:semantic_contrast"
+    ],
+    "retired_relation_intents": [
+      "relation:baseline-v2:criticise-criticize:regional_spelling_variant",
+      "relation:baseline-v2:curb-kerb:regional_spelling_variant"
+    ]
+  },
+  "derived_readback": {
+    "final_learner_objects": 7946,
+    "final_shards": 125,
+    "repair_blueprints": 8,
+    "repair_targets_resolved": "8/8",
+    "corrected_finding_readback": "9 correction actions / all PASS",
+    "reciprocal_readback": [
+      "cue↔queue",
+      "dam↔damn",
+      "cure↔treat"
+    ],
+    "result": "PASS"
+  },
+  "source_fidelity": {
+    "cue_queue": "candidate evidence preserved",
+    "dam_damn": "candidate evidence preserved",
+    "cure_treat": "candidate evidence preserved",
+    "curb_near_paraphrase": "existing horizontal evidence preserved",
+    "fabricated_provenance": "NONE"
+  },
+  "closure": {
+    "unresolved_material_findings": 0,
+    "unresolved_identity_findings": 0,
+    "unresolved_owner_findings": 0,
+    "unresolved_source_fidelity_findings": 0,
+    "unresolved_findings": 0,
+    "blocked": 0,
+    "new_human_semantic_delta_required": false,
+    "broad_semantic_reopen_required": false,
+    "main_merge_authorized": true,
+    "broader_reopen_o1251_plus": false
+  },
+  "next_action": "Run final-head bounded checks on PR #520 and merge if no F1151_1250-local regression is proven. Then freeze lexical broad semantic expansion; do not advance into o1251+."
+}

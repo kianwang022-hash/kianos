@@ -34,7 +34,7 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": false,
+    "needs_delta_review": true,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [],
@@ -132,7 +132,14 @@
     "word_family": [],
     "word_id": "word:cue"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "relation:baseline-v2:cue-queue:homophone_confusable",
+      "owner_path": "content/lexical/relations/by-id/7b/7b028410dd89cb4307da41e4dea521ff2d995bcbe15898e0c71c7a6249a609ab.json",
+      "field": "confusables",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -213,7 +220,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1177-1184.json",
     "source_content_hash": "435d71ad810924eb84cbde9eb4df36e94d17b89d058c1f66d4d47b483dcf67a0",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

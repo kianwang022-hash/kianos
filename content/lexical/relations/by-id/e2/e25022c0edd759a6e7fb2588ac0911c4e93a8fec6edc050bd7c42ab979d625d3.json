@@ -1,0 +1,75 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "relation:baseline-v2:cure-treat:semantic_contrast",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:cure",
+      "source_ordinal": 1188,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "treat = give medical care or manage a condition; cure = remove the disease/cause or restore health. Successful treatment does not necessarily mean a cure."
+        ],
+        "boundary": "treat 强调给予治疗、处理病情；cure 强调把疾病治好、使病因/疾病消失。接受 treatment 不等于已经 cured。",
+        "direction": "C",
+        "learning_note": "医学英语中这是 outcome vs intervention 的关键边界：treat 是干预过程，cure 是治愈结果。",
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "relation_id": "relation:baseline-v2:cure-treat:semantic_contrast",
+        "relation_scope": "sense",
+        "relation_type": "semantic_contrast",
+        "source_sense_id": "sense:cure:3e7d1432372d5fcc",
+        "target_word": "treat",
+        "task_tags": [
+          "reading",
+          "translation",
+          "writing"
+        ],
+        "verification_status": "verified",
+        "writing_safe": true,
+        "source_expression": "cure",
+        "target_expression": "treat",
+        "target_sense_id": "sense:treat:f321b819a2e255a6"
+      }
+    },
+    {
+      "source_word_id": "word:treat",
+      "source_ordinal": 5116,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "treat = give medical care or manage a condition; cure = remove the disease/cause or restore health. Successful treatment does not necessarily mean a cure."
+        ],
+        "boundary": "treat 强调给予医疗处理、管理病情；cure 强调治愈疾病、恢复健康。接受 treatment 不等于已经 cured。",
+        "direction": "C",
+        "learning_note": "treat 是医疗干预过程；cure 是治愈结果。",
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "relation_id": "relation:baseline-v2:cure-treat:semantic_contrast",
+        "relation_scope": "sense",
+        "relation_type": "semantic_contrast",
+        "source_sense_id": "sense:treat:f321b819a2e255a6",
+        "target_word": "cure",
+        "task_tags": [
+          "reading",
+          "translation",
+          "writing"
+        ],
+        "verification_status": "verified",
+        "writing_safe": true,
+        "source_expression": "treat",
+        "target_expression": "cure",
+        "target_sense_id": "sense:cure:3e7d1432372d5fcc"
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "baseline_v2_o1151_o1250_human_gate",
+    "semantic_delta": 1,
+    "last_materialization": "F1151_1250 reciprocal closure"
+  }
+}

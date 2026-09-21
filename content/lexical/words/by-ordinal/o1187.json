@@ -23,7 +23,8 @@
           "label_en": "the raised edge of a street or sidewalk; a chain or strap attached to a horse's bit to control it",
           "pos": "noun",
           "sense_ids": [
-            "sense:curb:24a548d65e315b11"
+            "sense:curb:24a548d65e315b11",
+            "sense:curb:5de5882cd945508f"
           ]
         }
       ],
@@ -33,7 +34,7 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": false,
+    "needs_delta_review": true,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [],
@@ -126,7 +127,27 @@
     },
     "word": "curb",
     "word_family": [],
-    "word_id": "word:curb"
+    "word_id": "word:curb",
+    "form_identity": {
+      "form_type": "regional_spelling_identity",
+      "spelling": "curb",
+      "identity_rule": "sense_scoped_spelling_variant",
+      "boundary": "For the road-edge noun, curb is standard AmE and kerb is usual BrE. The verb curb = restrain/control remains curb in both varieties.",
+      "boundaries": [
+        {
+          "surface": "curb",
+          "condition": "road-edge noun in American English; all ordinary verb uses",
+          "note": "AmE noun; shared verb spelling"
+        },
+        {
+          "surface": "kerb",
+          "condition": "road-edge noun in British English",
+          "note": "BrE noun spelling only"
+        }
+      ],
+      "variants": [],
+      "authority": "F1151_1250 audit reconciliation"
+    }
   },
   "relation_refs": [
     {
@@ -215,7 +236,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1185-1192.json",
     "source_content_hash": "bb1863c80563d23b12fe4e8ff631d98cc6ea57f9f67ab1d3ea67c9df60ea99e8",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

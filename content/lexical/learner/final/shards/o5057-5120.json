@@ -8097,7 +8097,7 @@
     "ordinal": 5116,
     "word": "treat",
     "source_owner_path": "content/lexical/words/by-ordinal/o5116.json",
-    "source_fingerprint": "4da1e88995f4e9ae97c9ddba6c8fff25c3a1de44f280e171d9159a36ee784e46",
+    "source_fingerprint": "a8255893dbf689bc8fcf5dbb28a584ddbd0dc439b7cca35b8924f02adf2c662f",
     "sense_lineage": [
       {
         "word_id": "word:treat",
@@ -8232,6 +8232,31 @@
             "target_id": "relation:horizontal:7f4fc3c4c46b36319b9a",
             "target_locator": "record.semantic_neighbors[0]",
             "target_label": "treat ↔ consider/regard/view ↔ treat"
+          }
+        },
+        {
+          "title": "treat ↔ cure",
+          "target_word": "cure",
+          "lines": [
+            {
+              "text": "treat 强调给予医疗处理、管理病情；cure 强调治愈疾病、恢复健康。接受 treatment 不等于已经 cured。",
+              "lang": "cn"
+            },
+            {
+              "text": "treat = give medical care or manage a condition; cure = remove the disease/cause or restore health. Successful treatment does not necessarily mean a cure.",
+              "lang": "en"
+            },
+            {
+              "text": "treat 是医疗干预过程；cure 是治愈结果。",
+              "lang": "cn"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:baseline-v2:cure-treat:semantic_contrast",
+            "target_locator": "record.semantic_neighbors[1]",
+            "target_label": "treat ↔ cure"
           }
         }
       ],

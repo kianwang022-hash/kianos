@@ -1,0 +1,87 @@
+{
+  "schema": "kianos.lexical.repair_blueprint_shard.v1",
+  "range": {
+    "start_ordinal": 1151,
+    "end_ordinal": 1200
+  },
+  "authority": "content/lexical/LEARNING_CONTRACT.md + CONTENT_ASSET_CONTRACT.md + approved 100-owner Human Gate 2026-09-19",
+  "generation_rule": "Stable diagnostic intent only; concrete instances generated fresh.",
+  "entries": [
+    {
+      "blueprint_id": "repair-blueprint:o1168:crucial-important:v1",
+      "word_id": "word:crucial",
+      "ordinal": 1168,
+      "word": "crucial",
+      "target": {
+        "target_kind": "relation",
+        "target_id": "deep:semantic_contrast:crucial:220ccab9c4bfd532",
+        "target_locator": "record.semantic_neighbors[0]"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 crucial / important。",
+      "decision_boundary_cn": "crucial 强调会决定结果、成败或关键走向；important 只说明重要，不必具有决定性。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "concrete_instance_policy": "GENERATE_FRESH",
+      "minimum_repair_cn": "只修“决定性重要”与一般“重要”的强度/功能边界。",
+      "reconstruction_rule_cn": "换项目成败、实验变量、一般重要事项等新语境。"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o1168:crucial-essential:v1",
+      "word_id": "word:crucial",
+      "ordinal": 1168,
+      "word": "crucial",
+      "target": {
+        "target_kind": "relation",
+        "target_id": "deep:semantic_contrast:crucial:10163ed2f6b8d117",
+        "target_locator": "record.semantic_neighbors[1]"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 crucial / essential。",
+      "decision_boundary_cn": "crucial 强调决定性影响；essential 强调不可缺少、必要。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "concrete_instance_policy": "GENERATE_FRESH",
+      "minimum_repair_cn": "只修“决定性”与“必要性”的边界。",
+      "reconstruction_rule_cn": "换结果转折与必要条件语境。"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o1178:cue:v1",
+      "word_id": "word:cue",
+      "ordinal": 1178,
+      "word": "cue",
+      "target": {
+        "target_kind": "relation",
+        "target_id": "relation:baseline-v2:cue-queue:homophone_confusable",
+        "target_locator": "record.confusables[0]"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分同音 cue / queue。",
+      "decision_boundary_cn": "cue=提示、信号（或台球杆）；queue=排队、队列。发音相同，拼写由语义决定。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "concrete_instance_policy": "GENERATE_FRESH",
+      "minimum_repair_cn": "只修 cue / queue 同音拼写与语义边界。",
+      "reconstruction_rule_cn": "换舞台提示、行为线索、候诊排队、计算任务队列语境。"
+    },
+    {
+      "blueprint_id": "repair-blueprint:o1188:cure:v1",
+      "word_id": "word:cure",
+      "ordinal": 1188,
+      "word": "cure",
+      "target": {
+        "target_kind": "relation",
+        "target_id": "relation:baseline-v2:cure-treat:semantic_contrast",
+        "target_locator": "record.semantic_neighbors[0]"
+      },
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "区分 cure / treat。",
+      "decision_boundary_cn": "treat=给予治疗或管理病情；cure=疾病被治愈、病因/疾病消失。治疗不保证治愈。",
+      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
+      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
+      "concrete_instance_policy": "GENERATE_FRESH",
+      "minimum_repair_cn": "只修 intervention 与 outcome 的医学语义边界。",
+      "reconstruction_rule_cn": "换慢病管理、感染治愈、症状缓解和药物干预语境。"
+    }
+  ]
+}
