@@ -75,10 +75,83 @@
         "verification_status": "verified",
         "writing_safe": false
       }
+    },
+    {
+      "source_word_id": "word:compliment",
+      "source_ordinal": 955,
+      "field": "confusables",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "compliment = praise or courteous expression; complement = complete or go well with something."
+        ],
+        "codex_reviewed": false,
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "horizontal:horizontal:011",
+            "evidence_status": "source_checked",
+            "source_locator": "horizontal:011",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
+          }
+        ],
+        "fact_id": "confusable:horizontal:00989348a5e10e285de5",
+        "learning_note": "compliment = praise or courteous expression; complement = complete or go well with something.",
+        "members": [
+          {
+            "branch_id": null,
+            "branch_label": null,
+            "headword": "compliment",
+            "participant_role": "CANONICAL_MEMBER",
+            "relevant_sense_ids": [],
+            "word_id": "word:compliment"
+          }
+        ],
+        "priority": "S",
+        "publication_status": "publishable",
+        "relation_note": "compliment = praise or courteous expression; complement = complete or go well with something.",
+        "relation_scope": "lexeme",
+        "relation_type": "form_semantic_confusable",
+        "sense_ids": [],
+        "shared_meaning": "compliment = praise or courteous expression; complement = complete or go well with something.",
+        "source_evidence_objects": [
+          {
+            "canonical_members": [
+              {
+                "branch_id": null,
+                "branch_label": null,
+                "headword": "compliment",
+                "participant_role": "CANONICAL_MEMBER",
+                "relevant_sense_ids": [],
+                "word_id": "word:compliment"
+              }
+            ],
+            "learner_note": "complement = complete/go well with; compliment = praise or courteous expression.",
+            "relation_targets": [
+              "complement"
+            ],
+            "relation_type": "form_semantic_confusable"
+          }
+        ],
+        "source_expression": "compliment",
+        "source_sense_id": null,
+        "target_expression": "complement",
+        "target_sense_id": null,
+        "target_sense_ids": [],
+        "target_word": "complement",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 1,
+    "last_materialization": "BF09 complement↔compliment coalesce"
   }
 }

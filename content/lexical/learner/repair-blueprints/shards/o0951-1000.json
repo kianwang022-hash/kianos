@@ -8,25 +8,6 @@
   "generation_rule": "Stable diagnostic intent only; concrete instances generated fresh.",
   "entries": [
     {
-      "blueprint_id": "repair-blueprint:o0955:compliment:v1",
-      "word_id": "word:compliment",
-      "ordinal": 955,
-      "word": "compliment",
-      "target": {
-        "target_kind": "relation",
-        "target_id": "deep:confusables:compliment:a0f0628f2a2bdf21",
-        "target_locator": "record.confusables[0]"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分 compliment / complement。",
-      "decision_boundary_cn": "compliment=赞美；complement=补足、相配。",
-      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
-      "minimum_repair_cn": "只修两词拼写语义边界。",
-      "reconstruction_rule_cn": "换赞美服装与食物搭配语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
       "blueprint_id": "repair-blueprint:o0956:comply:v1",
       "word_id": "word:comply",
       "ordinal": 956,
@@ -65,25 +46,6 @@
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
-      "blueprint_id": "repair-blueprint:o0962:comprehend:v1",
-      "word_id": "word:comprehend",
-      "ordinal": 962,
-      "word": "comprehend",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "稳定把 comprehend 读作“理解/领会”，不被旧 include 义干扰。",
-      "decision_boundary_cn": "当前主学习义是 mental understanding；include 为历史参考。",
-      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
-      "minimum_repair_cn": "只修主干选义。",
-      "reconstruction_rule_cn": "换阅读理解和抽象概念语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
       "blueprint_id": "repair-blueprint:o0966:comprise:v1",
       "word_id": "word:comprise",
       "ordinal": 966,
@@ -108,74 +70,17 @@
       "ordinal": 973,
       "word": "concede",
       "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
+        "target_kind": "sense",
+        "target_id": "sense:concede:754405db530d5c91",
+        "target_locator": "record.senses[2]"
       },
       "demand": "discrimination",
-      "diagnostic_intent_cn": "区分 concede that、concede to、concede defeat、concede a goal。",
-      "decision_boundary_cn": "承认/让步/认输/失球由结构和比赛语境决定。",
+      "diagnostic_intent_cn": "稳定区分 concede defeat 与比赛中 concede a goal/point 的熟悉新义。",
+      "decision_boundary_cn": "argument/truth → 承认；competition/election → 认输；sport score context → 失球/丢分。",
       "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
       "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
-      "minimum_repair_cn": "只修 concede 高价值分支。",
+      "minimum_repair_cn": "只修 concede 的 sports/defeat 分支。",
       "reconstruction_rule_cn": "换辩论、谈判和足球语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0975:concentrate:v1",
-      "word_id": "word:concentrate",
-      "ordinal": 975,
-      "word": "concentrate",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分注意力集中与物质浓缩。",
-      "decision_boundary_cn": "mental resource vs physical solution/material。",
-      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
-      "minimum_repair_cn": "只修共享“集中”模型。",
-      "reconstruction_rule_cn": "换学习注意力与实验溶液语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0978:concern:v1",
-      "word_id": "word:concern",
-      "ordinal": 978,
-      "word": "concern",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分涉及、关切事项、担忧和企业义。",
-      "decision_boundary_cn": "syntax/object/domain 决定 be about / worry / matter / business。",
-      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
-      "minimum_repair_cn": "只修 concern 熟词多义。",
-      "reconstruction_rule_cn": "换论文主题、公共风险和企业语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0980:concession:v1",
-      "word_id": "word:concession",
-      "ordinal": 980,
-      "word": "concession",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分谈判让步、特许权和优惠价。",
-      "decision_boundary_cn": "make concession / grant concession / concession fare 三类搭配决定。",
-      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
-      "minimum_repair_cn": "只修 concession 分支。",
-      "reconstruction_rule_cn": "换谈判、经营权和学生票语境。",
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
@@ -195,44 +100,6 @@
       "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
       "minimum_repair_cn": "只修 conduct 重音-词义边界。",
       "reconstruction_rule_cn": "换行为准则、实验和导电语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0994:confidence:v1",
-      "word_id": "word:confidence",
-      "ordinal": 994,
-      "word": "confidence",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分信任、自信和 in confidence 私下保密。",
-      "decision_boundary_cn": "confidence in / self-confidence / in confidence 结构决定。",
-      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
-      "minimum_repair_cn": "只修 confidence 分支。",
-      "reconstruction_rule_cn": "换团队信任、自我能力和保密谈话语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0998:confine:v1",
-      "word_id": "word:confine",
-      "ordinal": 998,
-      "word": "confine",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "production",
-      "diagnostic_intent_cn": "稳定使用 confine sb/sth to sth，并识别低频接壤义。",
-      "decision_boundary_cn": "默认限制义；地理语境才是 border sense。",
-      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
-      "minimum_repair_cn": "只修 confine 主次和结构。",
-      "reconstruction_rule_cn": "换住院活动范围与地理边界语境。",
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {

@@ -20,23 +20,33 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [],
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "fact_id": "secondary:commonwealth:bf09-proper",
+        "module": "secondary_senses",
+        "direction": "R",
+        "meaning_cn": "英联邦；英联邦国家组织",
+        "definition_cn": "英联邦；由多个主权国家组成的国际组织/共同体",
+        "definition_en": "the Commonwealth of Nations, an association of sovereign member states",
+        "boundary": "capitalized proper-name use; distinct from generic lowercase commonwealth",
+        "pattern": "the Commonwealth / the Commonwealth of Nations",
+        "pos": "noun",
+        "level": "L1",
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "verification_status": "verified",
+        "writing_safe": true,
+        "task_tags": [
+          "reading"
+        ]
+      }
+    ],
     "semantic_neighbors": [],
     "senses": [
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:c6eb8675d9e3381e688e",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:commonwealth:e6405c69c607594b:collocation:0"
-            ],
-            "meaning_cn": "英联邦",
-            "phrase": "the Commonwealth of Nations"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
-        "definition_cn": "共和国；联邦",
+        "definition_cn": "政治共同体；国家（尤指共和国）",
         "definition_en": "a political community or state; a republic",
         "governing_pattern": "",
         "level": "L1",
@@ -96,7 +106,27 @@
     },
     "word": "commonwealth",
     "word_family": [],
-    "word_id": "word:commonwealth"
+    "word_id": "word:commonwealth",
+    "form_identity": {
+      "form_type": "proper_name_identity",
+      "spelling": "commonwealth",
+      "identity_rule": "capitalization_selects_named_organization",
+      "boundary": "lowercase commonwealth = a political community/state; the Commonwealth / Commonwealth of Nations = the proper-name association of member states.",
+      "boundaries": [
+        {
+          "surface": "commonwealth",
+          "condition": "generic political community/state",
+          "note": "lowercase common noun"
+        },
+        {
+          "surface": "the Commonwealth / Commonwealth of Nations",
+          "condition": "proper-name international association",
+          "note": "capitalized proper name"
+        }
+      ],
+      "variants": [],
+      "authority": "BF09 final-standard ownership correction"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
@@ -118,8 +148,7 @@
       }
     ],
     "active_collocations": [
-      "collocation:1c58ffeab02bdf846bac",
-      "collocation:c6eb8675d9e3381e688e"
+      "collocation:1c58ffeab02bdf846bac"
     ],
     "facts": [],
     "collocations": [
