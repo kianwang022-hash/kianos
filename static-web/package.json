@@ -55,7 +55,11 @@
     "test:external-source-hash-gate": "node scripts/test-external-reading-source-hash-gate.mjs",
     "codex:hygiene": "node scripts/codex-local-hygiene.mjs",
     "codex:hygiene:apply": "node scripts/codex-local-hygiene.mjs --apply",
-    "test:codex-hygiene": "node scripts/test-codex-local-hygiene.mjs"
+    "test:codex-hygiene": "node scripts/test-codex-local-hygiene.mjs",
+    "codex:watcher": "node scripts/codex-issue-watcher.mjs --json",
+    "codex:watcher:dry": "node scripts/codex-issue-watcher.mjs --dry-run --json",
+    "codex:watcher:install": "bash scripts/install-codex-issue-watcher-macos.sh",
+    "test:codex-watcher": "node scripts/test-codex-issue-watcher.mjs"
   },
   "dependencies": {
     "astro": "^5.0.0",

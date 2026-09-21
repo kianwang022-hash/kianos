@@ -8,6 +8,9 @@ on:
       - 'static-web/package.json'
       - 'static-web/scripts/codex-local-hygiene.mjs'
       - 'static-web/scripts/test-codex-local-hygiene.mjs'
+      - 'static-web/scripts/codex-issue-watcher.mjs'
+      - 'static-web/scripts/install-codex-issue-watcher-macos.sh'
+      - 'static-web/scripts/test-codex-issue-watcher.mjs'
       - '.github/workflows/branch-hygiene.yml'
       - '.github/workflows/codex-task-lifecycle.yml'
   push:
@@ -39,6 +42,12 @@ jobs:
         run: |
           node --check scripts/codex-local-hygiene.mjs
           node --check scripts/test-codex-local-hygiene.mjs
+          node --check scripts/codex-issue-watcher.mjs
+          node --check scripts/test-codex-issue-watcher.mjs
+          bash -n scripts/install-codex-issue-watcher-macos.sh
+      - name: Zero-model idle watcher proof
+        working-directory: static-web
+        run: npm run test:codex-watcher
       - name: Safe local cleanup proof
         working-directory: static-web
         run: npm run test:codex-hygiene

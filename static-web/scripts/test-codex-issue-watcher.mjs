@@ -1,0 +1,122 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { execFileSync, spawnSync } from 'node:child_process';
+
+const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-watcher-'));
+const repo = path.join(temp, 'repo');
+const bin = path.join(temp, 'bin');
+const stateDir = path.join(temp, 'state');
+const codexCalls = path.join(temp, 'codex-calls.log');
+const issueFile = path.join(temp, 'issues.json');
+const prFile = path.join(temp, 'prs.json');
+const watcher = path.resolve('scripts/codex-issue-watcher.mjs');
+
+function git(args) {
+  return execFileSync('git', args, { cwd: repo, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
+}
+
+try {
+  fs.mkdirSync(repo, { recursive: true });
+  execFileSync('git', ['init', '-b', 'main'], { cwd: repo });
+  git(['config', 'user.name', 'Watcher Test']);
+  git(['config', 'user.email', 'watcher@example.invalid']);
+  fs.writeFileSync(path.join(repo, 'README.md'), 'test\n');
+  git(['add', '.']); git(['commit', '-m', 'base']);
+  git(['remote', 'add', 'origin', 'https://github.com/kianwang022-hash/kianos.git']);
+
+  fs.mkdirSync(bin);
+  const fakeGh = path.join(bin, 'gh');
+  fs.writeFileSync(fakeGh, `#!/bin/sh
+set -eu
+if [ "$1" = "issue" ] && [ "$2" = "list" ]; then cat "$WATCHER_ISSUES"; exit 0; fi
+if [ "$1" = "pr" ] && [ "$2" = "list" ]; then cat "$WATCHER_PRS"; exit 0; fi
+if [ "$1" = "issue" ] && [ "$2" = "view" ]; then
+  printf '{"number":%s,"state":"OPEN","updatedAt":"2026-09-21T06:30:00Z"}\n' "$3"
+  exit 0
+fi
+exit 1
+`);
+  fs.chmodSync(fakeGh, 0o755);
+
+  const fakeGit = path.join(bin, 'git');
+  fs.writeFileSync(fakeGit, `#!/bin/sh
+set -eu
+case "$1 $2" in
+  "rev-parse --show-toplevel") printf '%s\n' "$WATCHER_REPO" ;;
+  "remote get-url") echo "https://github.com/kianwang022-hash/kianos.git" ;;
+  "ls-remote --heads") exit 0 ;;
+  *) exec /usr/bin/git "$@" ;;
+esac
+`);
+  fs.chmodSync(fakeGit, 0o755);
+
+  const fakeCodex = path.join(bin, 'codex');
+  fs.writeFileSync(fakeCodex, `#!/bin/sh
+set -eu
+printf '%s\n' "$*" >> "$WATCHER_CODEX_CALLS"
+exit 0
+`);
+  fs.chmodSync(fakeCodex, 0o755);
+
+  const baseEnv = {
+    ...process.env,
+    KIANOS_CODEX_PROJECT_DIR: repo,
+    KIANOS_CODEX_WATCHER_STATE_DIR: stateDir,
+    KIANOS_GH_BIN: fakeGh,
+    KIANOS_GIT_BIN: fakeGit,
+    KIANOS_CODEX_BIN: fakeCodex,
+    WATCHER_REPO: repo,
+    WATCHER_ISSUES: issueFile,
+    WATCHER_PRS: prFile,
+    WATCHER_CODEX_CALLS: codexCalls,
+    KIANOS_CODEX_WATCHER_RETRY_MS: '3600000'
+  };
+
+  fs.writeFileSync(issueFile, '[]\n');
+  fs.writeFileSync(prFile, '[]\n');
+  let out = JSON.parse(execFileSync(process.execPath, [watcher, '--json'], { cwd: repo, env: baseEnv, encoding: 'utf8' }));
+  assert.equal(out.status, 'quiet');
+  assert.equal(out.reason, 'no-actionable-issue');
+  assert.equal(fs.existsSync(codexCalls), false, 'empty queue must not invoke Codex');
+
+  fs.writeFileSync(issueFile, JSON.stringify([{
+    number: 701,
+    title: 'Codex execution: test watcher',
+    body: '<!-- kian-codex-task:v1 -->\n## Goal\nTest',
+    createdAt: '2026-09-21T06:00:00Z',
+    updatedAt: '2026-09-21T06:00:00Z'
+  }]) + '\n');
+
+  out = JSON.parse(execFileSync(process.execPath, [watcher, '--dry-run', '--json'], { cwd: repo, env: baseEnv, encoding: 'utf8' }));
+  assert.equal(out.status, 'would-launch');
+  assert.equal(out.issue, 701);
+  assert.equal(fs.existsSync(codexCalls), false, 'dry-run must not invoke Codex');
+
+  out = JSON.parse(execFileSync(process.execPath, [watcher, '--json'], { cwd: repo, env: baseEnv, encoding: 'utf8' }));
+  assert.equal(out.status, 'launched');
+  assert.equal(out.issue, 701);
+  const call = fs.readFileSync(codexCalls, 'utf8');
+  assert.match(call, /exec --ephemeral --sandbox workspace-write/);
+  assert.match(call, /--model gpt-5\.6-terra/);
+  assert.match(call, /model_reasoning_effort="medium"/);
+  assert.match(call, /Issue #701/);
+
+  const before = fs.readFileSync(codexCalls, 'utf8');
+  out = JSON.parse(execFileSync(process.execPath, [watcher, '--json'], { cwd: repo, env: baseEnv, encoding: 'utf8' }));
+  assert.equal(out.status, 'quiet');
+  assert.equal(out.reason, 'active-or-cooling-only');
+  assert.equal(fs.readFileSync(codexCalls, 'utf8'), before, 'cooldown must not burn another Codex run');
+
+  fs.rmSync(stateDir, { recursive: true, force: true });
+  fs.writeFileSync(prFile, JSON.stringify([{ number: 900, headRefName: 'codex/issue701-test' }]) + '\n');
+  out = JSON.parse(execFileSync(process.execPath, [watcher, '--json'], { cwd: repo, env: baseEnv, encoding: 'utf8' }));
+  assert.equal(out.status, 'quiet');
+  assert.equal(out.reason, 'active-or-cooling-only');
+  assert.equal(fs.readFileSync(codexCalls, 'utf8'), before, 'open PR must suppress duplicate Codex run');
+
+  console.log('PASS Codex issue watcher: no-task zero-model, one-task one-run, cooldown and PR dedupe');
+} finally {
+  fs.rmSync(temp, { recursive: true, force: true });
+}
