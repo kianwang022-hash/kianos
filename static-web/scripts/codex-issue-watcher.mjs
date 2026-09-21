@@ -140,9 +140,12 @@ try {
     if ([...openPrHeads].some((head) => head.startsWith(branchPrefix))) continue;
 
     const prior = state.issues[String(issue.number)];
-    const unchanged = prior?.issue_updated_at === issue.updatedAt;
     const cooling = Number(prior?.retry_after || 0) > Date.now();
-    if (!force && unchanged && cooling) continue;
+    const priorUpdated = Date.parse(String(prior?.issue_updated_at || ''));
+    const currentUpdated = Date.parse(String(issue.updatedAt || ''));
+    const materiallyNewer = Number.isFinite(currentUpdated) &&
+      (!Number.isFinite(priorUpdated) || currentUpdated > priorUpdated);
+    if (!force && cooling && !materiallyNewer) continue;
 
     const remote = run(git, ['ls-remote', '--heads', 'origin', 'refs/heads/' + branchPrefix + '*'], { allowFail: true });
     selectedBranches = remote.stdout
