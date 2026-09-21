@@ -1,0 +1,56 @@
+{
+  "schema": "kianos.lexical.final_standard_reconciliation.v1",
+  "candidate_id": "BF02",
+  "range": [
+    201,
+    300
+  ],
+  "status": "RECONCILED_READY_FOR_MERGE",
+  "candidate_branch": "work/lexical-continuous-bf02-20260921",
+  "production_source_pr": 528,
+  "audit_pack": "content/lexical/semantic-audit/O0201_O0300_FINAL_STANDARD_FRESH_AUDIT_PACK.md",
+  "audit_result": "PASS_WITH_CORRECTIONS",
+  "independence_note": "BLIND_FIRST_NOT_ENFORCED; same Chat performed batch landing and closure audit per Kian instruction.",
+  "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
+  "frontier_base_head": "d138873b4b38e3b70eba4d3a7c3460bc8b076fed",
+  "latest_main_refreeze_head": "04ddd71cfaaafbe442a7f303ea2c7b8f869f2749",
+  "lexical_drift_since_last_refreeze": [],
+  "production": {
+    "scope_owners": 100,
+    "content_upgrades": 24,
+    "content_no_change": 76,
+    "blocked": 0,
+    "new_material_delta": false,
+    "repair_tests_before": 44,
+    "repair_tests_after": 15
+  },
+  "audit_corrections": [
+    {
+      "target": "word:archeology@o0255",
+      "action": "FORM_PROJECTION_CORRECTION",
+      "result": "PASS"
+    },
+    {
+      "target": "relation:horizontal:643d786d27f9bc58c610",
+      "action": "RELATION_TITLE_NORMALIZATION",
+      "result": "PASS"
+    },
+    {
+      "target": "repair-blueprint:o0273:arrive:v1",
+      "action": "RETARGET_TO_FULL_DECISION_MODEL",
+      "result": "PASS"
+    }
+  ],
+  "closure": {
+    "final_learner_objects": 7946,
+    "final_shards": 125,
+    "repair_blueprints": 15,
+    "unresolved_material_findings": 0,
+    "unresolved_identity_findings": 0,
+    "blocked": 0,
+    "new_human_semantic_delta_required": false,
+    "broad_semantic_reopen_required": false,
+    "main_merge_authorized": true
+  },
+  "next_action": "Open BF02 integration PR against current main; run bounded checks; merge if no BF02 regression is proven."
+}
