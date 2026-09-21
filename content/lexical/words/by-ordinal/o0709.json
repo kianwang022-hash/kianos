@@ -20,7 +20,29 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [],
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "fact_id": "secondary:casualty:bf07-casualty-department",
+        "module": "secondary_senses",
+        "direction": "R",
+        "meaning_cn": "（英式英语）医院急诊部",
+        "definition_cn": "（英式英语）医院急诊部",
+        "definition_en": "British English: the hospital emergency department; also casualty department",
+        "boundary": "BrE hospital context: casualty / casualty department = emergency department; not an injured person.",
+        "pos": "noun",
+        "level": "L2",
+        "priority": "B",
+        "publication_status": "codex_reviewed",
+        "verification_status": "verified",
+        "register": "British English; hospital/professional",
+        "task_tags": [
+          "reading"
+        ],
+        "writing_safe": false,
+        "source_sense_id": null,
+        "target_word": null
+      }
+    ],
     "semantic_neighbors": [],
     "senses": [
       {
@@ -79,30 +101,6 @@
         "sense_label_en": "a person or thing that is harmed or destroyed as a result of an event",
         "sort_order": 1,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:e163f3d8c9126f08bf9d",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:casualty:0a3407bbdf8b590a:collocation:0"
-            ],
-            "meaning_cn": "伤亡数字",
-            "phrase": "casualty figures"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "军事人员或装备的损失",
-        "definition_en": "a decrease of military personnel or equipment",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:casualty:0a3407bbdf8b590a",
-        "sense_label_en": "a decrease of military personnel or equipment",
-        "sort_order": 2,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -125,7 +123,24 @@
     "word_id": "word:casualty"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:casualty:0a3407bbdf8b590a",
+      "status": "reference_only",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "军事人员或装备的损失",
+      "definition_en": "a decrease of military personnel or equipment",
+      "semantic_key": null,
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-09-22T00:00:00Z",
+      "source_row": 2016,
+      "source_path": "content/lexical/canonical/senses/shards/o0705-0736.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -137,7 +152,7 @@
       },
       {
         "sense_id": "sense:casualty:0a3407bbdf8b590a",
-        "status": "active",
+        "status": "reference_only",
         "merged_into_sense_id": null,
         "source_row": 2016,
         "source_path": "content/lexical/canonical/senses/shards/o0705-0736.json"
@@ -153,8 +168,7 @@
     "active_collocations": [
       "collocation:0aa579551bb664abef01",
       "collocation:5a6fd5e6aed14323dc88",
-      "collocation:94d180c411029740e8ef",
-      "collocation:e163f3d8c9126f08bf9d"
+      "collocation:94d180c411029740e8ef"
     ],
     "facts": [],
     "collocations": [
