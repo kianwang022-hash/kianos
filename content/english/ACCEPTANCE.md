@@ -38,6 +38,7 @@ Natural units remain source-native:
 | Whole paper | **PASS for tested session mechanics.** One absolute 180-minute session, nine task instances, autosave capture, irreversible Seal, objective release out of 60, and original productive outputs for Chat review. No fake subjective auto-score. |
 | Shared durability | **PASS for the tested English + Lexical private checkpoint boundary.** Unsafe remote read cannot write; subject payloads round-trip; conflicting local evidence wins; restore is atomic. |
 | Navigation | **PASS.** English hierarchy remains coherent after Objective / Translation / Writing / Vocabulary / External Reading integration. |
+| Dynamic practice + baseline synthetic material | **PASS.** Evidence-floor / Build→Verify→Maintain / Elastic-ROI control is bounded and task-local. Objective, Translation and Writing baseline banks are registered; Writing exposes the full 4 Small + 6 Big inventory while cold-start calibration remains one Small + one Big. No second scheduler, learner ledger or mastery scalar was introduced. |
 | External Reading | **PASS as an executable continuous Content lane for the implemented boundary.** TPO 56–65 is the primary growth pool and IELTS Academic 17–19 secondary. Public repo owns identity/inventory/compiler/runtime; copyrighted bytes stay in the private Mac source bundle. Compatible surfaces reuse the Reading-family architecture while preserving source-native cognition. This does **not** replace 考研 Reading A strategy. |
 | Mac presentation | **RELEASE HOLD REMOVED BY KIAN.** This records explicit promotion authorization, not a claim that CI or synthetic evidence performed a Human Gate on Kian's behalf. |
 | Learner U | **UNTESTED.** No synthetic fixture, recovered source, screenshot or CI run counts as Kian having learned or attempted the material. |
@@ -55,6 +56,7 @@ Natural units remain source-native:
 9. **Demand identity.** Exact Current target + demand + attempt identity is validated before evidence commit.
 10. **External Reading product boundary.** Inventory-only status was replaced by an executable continuous Content lane with manifest/schema, compiler, private-source bridge/store and synthetic browser/session proofs. No protected fresh learner material was consumed for engineering verification.
 11. **Shared durability.** English and Lexical private learner payloads now participate in one shared atomic checkpoint boundary rather than an English-only persistence fork.
+12. **Dynamic-practice baseline execution.** The Writing synthetic consumer and true-exam entry validator were reconciled to the expanded baseline bank: all 10 generated tasks are executable, evidence roles remain distinct, calibration remains a two-task subset, and protected true-exam material is not consumed by engineering proof.
 
 ## 4. External Reading — frozen interpretation
 
