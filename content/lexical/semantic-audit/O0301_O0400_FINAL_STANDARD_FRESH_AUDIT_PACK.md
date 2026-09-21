@@ -69,16 +69,16 @@ The reciprocal attack↔assault view inherited a source-specific `shared_definit
 
 **Readback:** PASS — assault now shows only the valid attack/assault distinction.
 
-### 3. assure/ensure runtime target compatibility
+### 3. assure/ensure runtime relation projection
 
 **Severity:** LOCAL  
 **Risk family:** runtime_projection_contract
 
-The consolidated three-way Relation initially projected combination targets (`ensure/insure`, `assure/insure`). Current runtime representative validation still expects the primary reciprocal target names `assure → ensure` and `ensure → assure`.
+The consolidated three-way Relation was semantically correct, but the first projection used combination targets and the `confusables` owner field. Current runtime representative hydration expects the assure↔ensure boundary under `reference.relations`, with primary reciprocal targets `assure → ensure` and `ensure → assure`.
 
-**Correction:** keep one three-view Relation and all three semantic boundaries, but expose the primary target as `ensure` from assure and `assure` from ensure; insure remains a third participant in the same Relation.
+**Correction:** keep one three-view assure/ensure/insure Relation and all three usage boundaries, but own it through `semantic_neighbors`; expose `ensure` as assure's primary target and `assure` as ensure's primary target. Insure remains a third participant in the same Relation.
 
-**Readback:** PASS — FLOB now exposes `assure ↔ ensure` / `ensure ↔ assure` while retaining insure structure and usage guidance in the same Relation.
+**Readback:** PASS — FLOB now exposes `assure ↔ ensure` / `ensure ↔ assure` under `reference.relations`, while retaining insure structure and guidance in the same Relation.
 
 ## Repair Test closure
 
