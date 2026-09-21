@@ -18,7 +18,7 @@ At the current manifest:
 - `next_unreviewed_question_id = null`;
 - unresolved / unsafe Question→Knowledge mappings remain legal and are handled separately.
 
-The old “20 approved / next N021” note is retired. Historical explanation objects are not mapping authority.
+Historical explanation objects are not mapping authority.
 
 ## Current explanation review process
 
