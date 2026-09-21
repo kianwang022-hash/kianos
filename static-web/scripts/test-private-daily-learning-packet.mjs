@@ -24,7 +24,9 @@ import {
 } from '../src/lib/privateLearnerCheckpoint.mjs';
 import {
   listProjectableXizongSystems,
-  loadXizongBlock
+  loadXizongBlock,
+  buildXizongForecastCanonicalScope,
+  listCurrentXizongSystemIdentities
 } from '../src/lib/xizong.mjs';
 import {
   politicsProductCatalog
@@ -38,6 +40,12 @@ import {
 import {
   buildDailyLearningPacketFromPrivateCheckpoint
 } from './privateDailyLearningPacket.mjs';
+
+import { buildHomeDailyLearningPacket } from '../src/lib/dailyLearningPacketRuntime.mjs';
+import { buildXizongForecastQuestionScope } from '../src/lib/xizongQuestions.mjs';
+import { buildXizongProductionBlock } from '../src/lib/xizongProductionProjection.mjs';
+import { LEXICAL_LEDGER_STORAGE_KEY, emptyLexicalLedger } from '../src/lib/lexicalEvidence.mjs';
+import { LEXICAL_INTAKE_STORAGE_KEY, LEXICAL_ROUTING_STORAGE_KEY } from '../src/lib/lexicalSettings.mjs';
 
 class MemoryStorage {
   constructor(entries = {}) { this.map = new Map(Object.entries(entries)); }
@@ -201,6 +209,11 @@ const storage=new MemoryStorage({
   }])
 });
 
+// All three existing Lexical evidence dependencies must survive reprojection.
+storage.setItem(LEXICAL_LEDGER_STORAGE_KEY,JSON.stringify(emptyLexicalLedger()));
+storage.setItem(LEXICAL_INTAKE_STORAGE_KEY,JSON.stringify({schema:'kianos.lexical.intake.v1',introduced:{}}));
+storage.setItem(LEXICAL_ROUTING_STORAGE_KEY,JSON.stringify({schema:'kianos.lexical.card-routing.v1',cards:{}}));
+
 chatPlan.learner_evidence_basis=buildExamChatPlanBasis(storage,day);
 storage.setItem(EXAM_CHAT_PLAN_KEY,JSON.stringify(chatPlan));
 
@@ -214,6 +227,49 @@ const checkpoint=buildPrivateLearnerCheckpoint({
   checkpointId:'daily-packet-proof'
 });
 
+// Same storage/day/time and native inputs as the browser Home producer.
+// The canonical scope is not restricted to currently projectable systems.
+const homePacketIndex = systems.flatMap((system) => system.blocks.map((blockRef) => {
+    const canonical = loadXizongBlock(system.systemId, blockRef.slug);
+    const production = buildXizongProductionBlock(canonical);
+    return {
+      systemId: system.systemId,
+      slug: blockRef.slug,
+      routeKey: `${system.systemId}/${blockRef.slug}`,
+      blockId: canonical.blockId,
+      blockLabel: canonical.label,
+      packetMeta: {
+        objectId: canonical.objectId,
+        systemId: system.systemId,
+        canonicalId: system.canonicalId,
+        blockId: canonical.blockId,
+        blockLabel: canonical.label,
+        blockTitle: canonical.title,
+        sourcePath: canonical.sourcePath,
+        sourceHash: canonical.sourceHash,
+        sourceContactMode: String(production?.sourceContact?.mode || ''),
+        sourcePerGroup: production?.sourceContact?.logicGroupIsAutomaticSourceChunk === true,
+        reserveItems: []
+      },
+      kpRows: production.kpRecords.map((kp) => ({
+        kpId: kp.kpId,
+        displayId: kp.displayId,
+        title: kp.title,
+        groupId: kp.groupId,
+        groupLabel: kp.groupLabel,
+        sourceLocator: kp.sourceLocator || '',
+        prompt: kp.prompt || ''
+      }))
+    };
+  }));
+const home=buildHomeDailyLearningPacket({
+  storage, day, now, base:'/',
+  xizongPacketIndex:homePacketIndex,
+  xizongForecastQuestionScope:buildXizongForecastQuestionScope(listCurrentXizongSystemIdentities()),
+  xizongForecastCanonicalScope:buildXizongForecastCanonicalScope(homePacketIndex),
+  politicsCatalog:politics,
+  politicsMemoryCatalog:politicsMemory
+});
 const result=buildDailyLearningPacketFromPrivateCheckpoint(checkpoint,{now});
 const packet=result.packet;
 
@@ -234,16 +290,19 @@ const xzForecast=packet.subjects.xizong.evidence.forecast_progress;
 assert.equal(xzForecast.schema,'kianos.xizong.forecast-progress.v1');
 assert.equal(xzForecast.forecast_role,'FACTUAL_SUBJECT_PROGRESS_SIGNAL_ONLY');
 assert.equal(xzForecast.gate_workload_authority,false);
-assert.equal(xzForecast.canonical_scope.systems,systems.length);
-assert.equal(
-  xzForecast.canonical_scope.blocks,
-  systems.reduce((sum,row)=>sum+row.blocks.length,0)
-);
-assert.equal(
-  xzForecast.canonical_scope.canonical_kp,
-  systems.reduce((sum,row)=>sum+row.blocks.reduce((s,b)=>s+Number(b.kpCount||0),0),0)
-);
-assert.equal(xzForecast.canonical_scope.block_weights.length,xzForecast.canonical_scope.blocks);
+assert.deepEqual(xzForecast.canonical_scope,
+  home.packet.subjects.xizong.evidence.forecast_progress.canonical_scope,
+  'private canonical scope must equal Home native scope, not projectable-only scope');
+assert.deepEqual(packet.learner_evidence_basis,home.packet.learner_evidence_basis);
+assert.deepEqual(packet.learner_evidence_basis,chatPlan.learner_evidence_basis,
+  'checkpoint round trip must preserve Lexical evidence basis');
+for (const subject of ['xizong','english','politics']) {
+  assert.deepEqual(packet.subjects[subject].evidence,home.packet.subjects[subject].evidence,
+    subject+' native evidence must match the browser Home producer on identical inputs');
+  assert.deepEqual(packet.subjects[subject].time,home.packet.subjects[subject].time);
+}
+assert.deepEqual(packet.control,home.packet.control);
+assert.equal(packet.total_minutes,home.packet.total_minutes);
 assert.ok(xzForecast.runtime_evidence.observed_blocks>=1);
 assert.match(xzForecast.evidence_boundary,/does not prove unstudied/i);
 assert.match(xzForecast.evidence_boundary,/exam\.subject-demand\.v1/);
@@ -294,7 +353,14 @@ assert.equal(isolated.packet.subjects.english.evidence.schema,'kianos.english.ev
 assert.equal(isolated.packet.subjects.politics.evidence,null,
   'bad Politics checkpoint must degrade Politics to unknown without blocking other subjects');
 assert.ok(isolated.warnings.some(row=>row.startsWith('checkpoint:politics:')));
-assert.ok(!isolated.warnings.some(row=>row.startsWith('checkpoint:lexical:')),
-  'Lexical is outside the exam packet and must not participate in reconstruction');
+assert.ok(isolated.warnings.some(row=>row.startsWith('checkpoint:lexical:')),
+  'Lexical is an English evidence dependency and must participate in reconstruction');
+for (const subject of ['politics','lexical']) {
+  assert.ok(isolated.packet.warnings.some(row=>row.startsWith('checkpoint:'+subject+':')),
+    'restore warnings must reach the actual relay packet');
+}
+assert.equal(isolated.packet.learner_evidence_basis,null);
+assert.equal(isolated.packet.schedule,null);
+for (const row of Object.values(isolated.packet.subjects)) assert.equal(row.plan,null);
 
-console.log('PASS private checkpoint -> one Daily Learning Packet: day-isolated time + subject-contained Resume/evidence');
+console.log('PASS private checkpoint -> same-input Home native Packet: canonical scopes + Lexical basis + day-isolated time + healthy evidence with corrupt siblings; Node producer proof, not browser/Mac acceptance');
