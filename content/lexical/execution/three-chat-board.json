@@ -32,30 +32,30 @@
     "p_behavior": "APPROVE_EXACT_SHOWN_DELTA__FREEZE_BACKLOG__IMMEDIATE_NEXT_PRODUCTION_BATCH"
   },
   "frontier": {
-    "accepted_main_head": "368f5d0b5d2dbfe0178edb79ad274fa6ce80a8bd",
-    "current_candidate_id": "BF10",
+    "accepted_main_head": "7bed160a71cadc1c5aa2c1a75fe16ecda9ba65c8",
+    "current_candidate_id": "BF11",
     "range": [
-      1001,
-      1100
+      1101,
+      1150
     ],
     "state": "MATERIALIZE_ALLOWED",
     "candidate_pr": null,
-    "candidate_branch": "work/lexical-continuous-bf10-20260922",
+    "candidate_branch": "work/lexical-continuous-bf11-20260922",
     "materialized_owner_read_head": null,
-    "note": "BF09 merged. BF10 Production C proposal is frozen and human-approved; refreeze latest main/dependencies, materialize approved scope, rebuild Final Learner Objects, then run same-Chat B audit."
+    "note": "BF10 merged. BF11 o1101-o1150 is the final broad-backfill batch; Production C is frozen and human-approved. Refreeze latest main/dependencies, materialize approved scope, rebuild Final Learner Objects, then run same-Chat B audit."
   },
   "audit_target": {
     "state": "WAITING_CANDIDATE_MATERIALIZATION",
-    "candidate_id": "BF10",
+    "candidate_id": "BF11",
     "range": [
-      1001,
-      1100
+      1101,
+      1150
     ],
     "candidate_pr": null,
-    "candidate_branch": "work/lexical-continuous-bf10-20260922",
+    "candidate_branch": "work/lexical-continuous-bf11-20260922",
     "candidate_owner_read_head": null,
     "brief": null,
-    "output": "content/lexical/semantic-audit/O1001_O1100_FINAL_STANDARD_FRESH_AUDIT_PACK.md"
+    "output": "content/lexical/semantic-audit/O1101_O1150_FINAL_STANDARD_FRESH_AUDIT_PACK.md"
   },
   "lanes": {
     "A": {
@@ -305,18 +305,18 @@
       "next_action": "Wait for BF02 materialization; then perform one fresh blind-first Audit Pack."
     },
     "C": {
-      "role": "FRONTIER_MATERIALIZATION_AND_RECONCILIATION",
+      "role": "FINAL_FRONTIER_MATERIALIZATION_AND_RECONCILIATION",
       "current_assignment": {
-        "candidate_id": "BF10",
+        "candidate_id": "BF11",
         "range": [
-          1001,
-          1100
+          1101,
+          1150
         ],
         "state": "MATERIALIZE_ALLOWED",
         "candidate_pr": null,
-        "frozen_proposal": "content/lexical/execution/manifests/o1001-o1100.final-standard-backfill-c-proposal.md",
-        "source_review_branch": "work/lexical-final-backfill-c-o1001-o1100",
-        "next_action": "Refreeze BF10 against latest main and semantic dependencies; apply only frozen approved scope; rebuild FLOBs; run same-Chat B audit."
+        "frozen_proposal": "content/lexical/execution/manifests/o1101-o1150.final-standard-backfill-c-proposal.md",
+        "source_review_branch": "work/lexical-final-backfill-c-o1101-o1150",
+        "next_action": "Refreeze BF11 against latest main and semantic dependencies; apply only frozen approved scope; rebuild FLOBs; run same-Chat B audit; if clean, close final o0001-o1150 broad backfill."
       },
       "scheduled_ranges": [
         [
@@ -1601,13 +1601,13 @@
     }
   ],
   "last_closed": {
-    "candidate_id": "BF09",
+    "candidate_id": "BF10",
     "range": [
-      901,
-      1000
+      1001,
+      1100
     ],
-    "pr": 747,
-    "merge_commit": "368f5d0b5d2dbfe0178edb79ad274fa6ce80a8bd",
+    "pr": 750,
+    "merge_commit": "7bed160a71cadc1c5aa2c1a75fe16ecda9ba65c8",
     "result": "SAME_CHAT_AUDIT_RECONCILED_AND_MERGED",
     "independence_note": "BLIND_FIRST_NOT_ENFORCED",
     "final_learner_objects": 7946
@@ -1741,19 +1741,19 @@
     "entered_at": "2026-09-20",
     "from": "PRODUCTION_SWEEP_COMPLETE__AWAITING_PHASE_TRANSITION",
     "to": "MATERIALIZATION_AND_AUDIT",
-    "rule": "One serialized canonical write frontier at a time. Current frontier BF10 o1001-o1100. No broad semantic reopening under FINAL_SEMANTIC_FREEZE v1."
+    "rule": "One serialized canonical write frontier at a time. Current and final broad-backfill frontier is BF11 o1101-o1150. No broad semantic reopening under FINAL_SEMANTIC_FREEZE v1."
   },
   "materialization_progress": {
-    "candidate_id": "BF10",
+    "candidate_id": "BF11",
     "status": "READY_TO_MATERIALIZE",
     "candidate_pr": null,
-    "latest_main_refreeze": "368f5d0b5d2dbfe0178edb79ad274fa6ce80a8bd",
-    "frozen_proposal": "content/lexical/execution/manifests/o1001-o1100.final-standard-backfill-c-proposal.md",
-    "review_branch": "work/lexical-final-backfill-c-o1001-o1100",
+    "latest_main_refreeze": "7bed160a71cadc1c5aa2c1a75fe16ecda9ba65c8",
+    "frozen_proposal": "content/lexical/execution/manifests/o1101-o1150.final-standard-backfill-c-proposal.md",
+    "review_branch": "work/lexical-final-backfill-c-o1101-o1150",
     "final_learner_objects": 7946,
     "repair_test_blueprints": {
-      "before": 25,
-      "after": 21
+      "before": 16,
+      "after": 9
     },
     "blocked": 0
   }
