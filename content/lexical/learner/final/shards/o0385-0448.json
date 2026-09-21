@@ -2148,7 +2148,7 @@
     "ordinal": 401,
     "word": "bar",
     "source_owner_path": "content/lexical/words/by-ordinal/o0401.json",
-    "source_fingerprint": "f0bb9d27b96401bf2d380fcfe1356e94522c6bd8f7806199ef1b119811faed05",
+    "source_fingerprint": "9e516f3cb4a40086ef8d44d559d72f3d97f09da7a4126acc88b5848e188e33b1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2158,13 +2158,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "条状物或阻挡",
-      "decision_cn": "",
+      "summary_cn": "条/棒状物、酒吧场所、障碍，以及动词“禁止/阻挡”",
+      "decision_cn": "形状/物体 → 条棒；场所 → 酒吧；抽象关系 → 障碍；bar sb from doing → 禁止/阻挡。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "条状物或阻挡"
+        "target_label": "条/棒状物、酒吧场所、障碍，以及动词“禁止/阻挡”"
       }
     },
     "senses": [
@@ -3321,12 +3321,19 @@
     "ordinal": 410,
     "word": "barren",
     "source_owner_path": "content/lexical/words/by-ordinal/o0410.json",
-    "source_fingerprint": "5dd534fd98226bb4bc4b62418964882228fe239ca2c37983922ded2a0f957b62",
-    "sense_lineage": [],
+    "source_fingerprint": "31fe804a4ecfc887f10040ec0d2f64ef3cd2bf675d254a3c2b2a8bfb64a4ca65",
+    "sense_lineage": [
+      {
+        "word_id": "word:barren",
+        "target_kind": "sense",
+        "from_target_id": "sense:barren:2031daafcecf51e7",
+        "status": "reference_only",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3A",
-        "1N"
+        "3A"
       ],
       "density": "rich"
     },
@@ -3438,32 +3445,6 @@
           "target_id": "sense:barren:ad3d2c7dd39150d0",
           "target_locator": "record.senses[2]",
           "target_label": "完全缺乏的，毫无…的"
-        }
-      },
-      {
-        "id": "sense:barren:2031daafcecf51e7",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "荒地，不毛之地",
-        "definition_en": "an area of barren land",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:3851f6c4b539c572c17d",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "the barren",
-            "meaning_cn": "荒地",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:barren:2031daafcecf51e7",
-          "target_locator": "record.senses[3]",
-          "target_label": "荒地，不毛之地"
         }
       }
     ],
@@ -3592,13 +3573,13 @@
     "ordinal": 412,
     "word": "base",
     "source_owner_path": "content/lexical/words/by-ordinal/o0412.json",
-    "source_fingerprint": "cf12a2b8ff9fc7cffcc2a06282619e5950e3abfce9c3e183818c09941aadbb8d",
+    "source_fingerprint": "e119b414da866f26672ee26ed36b327ca5f43dfa2c7a5b4096b2947e6cec42d1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
         "1A",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
@@ -3739,6 +3720,23 @@
           "target_locator": "record.senses[3]",
           "target_label": "卑鄙的"
         }
+      },
+      {
+        "id": "sense:base:5c150382022d70df",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "碱；碱性物质",
+        "definition_en": "a substance that reacts with acids and is alkaline in chemistry",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:base:5c150382022d70df",
+          "target_locator": "record.senses[4]",
+          "target_label": "碱；碱性物质"
+        }
       }
     ],
     "secondary_senses": [],
@@ -3843,7 +3841,7 @@
     "ordinal": 414,
     "word": "basement",
     "source_owner_path": "content/lexical/words/by-ordinal/o0414.json",
-    "source_fingerprint": "9e752420c18563ab65f13a2d834e2d0103fb81cafdb23ba2265f35ac524cf68d",
+    "source_fingerprint": "1b8a0273d0b67fe45f8c3d861a8573adb49555eca5346bbd15ef398d6f67cbae",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4243,7 +4241,7 @@
     "ordinal": 417,
     "word": "basis",
     "source_owner_path": "content/lexical/words/by-ordinal/o0417.json",
-    "source_fingerprint": "060f6f97e1719faac4c5aaa07ff09bedb7a4f8d27134ed319d6744e640ef4a74",
+    "source_fingerprint": "8c913cd11f9df568c969f6037dad4253c7036155f1a5fee88eaaf6d428aaa7f6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4351,7 +4349,43 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "basis",
+            "condition": "singular",
+            "note": "singular /ˈbeɪ.sɪs/"
+          },
+          {
+            "surface": "bases",
+            "condition": "plural",
+            "note": "plural /ˈbeɪ.siːz/"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "singular",
+            "ipa": "/ˈbeɪ.sɪs/"
+          },
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "plural",
+            "ipa": "/ˈbeɪ.siːz/"
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -6313,7 +6347,7 @@
     "ordinal": 432,
     "word": "bear",
     "source_owner_path": "content/lexical/words/by-ordinal/o0432.json",
-    "source_fingerprint": "4314c42123d5203f84b4af9a4d170120e58b63cc774e056fd2e2443e2b9b9c8c",
+    "source_fingerprint": "ed92b7eb0e02c056a9d43c8792433a13f7776ef217c8de3440cd5a9ca9f4cb64",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6601,7 +6635,38 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "bear → bore → borne/born; born is used in the passive birth expression be born, while borne is the ordinary past participle elsewhere.",
+        "boundaries": [
+          {
+            "surface": "bear",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "bore",
+            "condition": "past",
+            "note": "simple past"
+          },
+          {
+            "surface": "borne",
+            "condition": "past participle except passive birth expression",
+            "note": "ordinary past participle; also active birth uses such as has borne children"
+          },
+          {
+            "surface": "born",
+            "condition": "passive birth expression",
+            "note": "be born"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "bear → bore → borne/born; born is used in the passive birth expression be born, while borne is the ordinary past participle elsewhere."
+        }
+      },
       "family": []
     }
   },
@@ -6693,11 +6758,26 @@
     "ordinal": 434,
     "word": "bearing",
     "source_owner_path": "content/lexical/words/by-ordinal/o0434.json",
-    "source_fingerprint": "d09a557c79c98d5069ffb4793760c8e2dc34f81f23c135d817331142dec4d1a5",
-    "sense_lineage": [],
+    "source_fingerprint": "f3505352caa5db1ece8f77f376c11bf45a9ca8b07db0152a39b7abe3db7ee5c6",
+    "sense_lineage": [
+      {
+        "word_id": "word:bearing",
+        "target_kind": "sense",
+        "from_target_id": "sense:bearing:a1d57f1dc05d59c6",
+        "status": "reference_only",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:bearing",
+        "target_kind": "sense",
+        "from_target_id": "sense:bearing:ee17acf16e105f96",
+        "status": "reference_only",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "6N"
+        "4N"
       ],
       "density": "rich"
     },
@@ -6819,63 +6899,6 @@
           "target_id": "sense:bearing:9fb99e50cb2a5065",
           "target_locator": "record.senses[3]",
           "target_label": "轴承"
-        }
-      },
-      {
-        "id": "sense:bearing:a1d57f1dc05d59c6",
-        "source_locator": "record.senses[4]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "忍受",
-        "definition_en": "the act of enduring something",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:4af57fbccde998d34d37",
-            "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "beyond bearing",
-            "meaning_cn": "难以忍受",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:4af57fbccde998d34d37",
-              "target_locator": "record.senses[4].collocations[0]",
-              "target_label": "beyond bearing"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:bearing:a1d57f1dc05d59c6",
-          "target_locator": "record.senses[4]",
-          "target_label": "忍受"
-        }
-      },
-      {
-        "id": "sense:bearing:ee17acf16e105f96",
-        "source_locator": "record.senses[5]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "生育",
-        "definition_en": "the act of producing offspring",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:90ce233a4a00e05a38d8",
-            "source_locator": "record.senses[5].collocations[0]",
-            "phrase": "childbearing",
-            "meaning_cn": "分娩",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:bearing:ee17acf16e105f96",
-          "target_locator": "record.senses[5]",
-          "target_label": "生育"
         }
       }
     ],
@@ -7061,7 +7084,7 @@
     "ordinal": 436,
     "word": "beat",
     "source_owner_path": "content/lexical/words/by-ordinal/o0436.json",
-    "source_fingerprint": "9a36b9f0a0a6fa3539d830c9b855336821d437e18042b7376510bb420fcc634d",
+    "source_fingerprint": "7f9e5ca8e0870ebd2935cb11e7a299f69f22f26c60d0adee7999ddeafc52cb92",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7254,7 +7277,33 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "beat → beat → beaten.",
+        "boundaries": [
+          {
+            "surface": "beat",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "beat",
+            "condition": "past",
+            "note": "simple past"
+          },
+          {
+            "surface": "beaten",
+            "condition": "past participle",
+            "note": "past participle"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "beat → beat → beaten."
+        }
+      },
       "family": []
     }
   },
@@ -7533,7 +7582,7 @@
     "ordinal": 440,
     "word": "become",
     "source_owner_path": "content/lexical/words/by-ordinal/o0440.json",
-    "source_fingerprint": "a061afe7609bb553bdccd11ee6cb7678b01d53520d98c34ec2d3fd1376efe261",
+    "source_fingerprint": "1f7145985ef9ce9beb30ea0903a48698023fcdf0a5d91ed3474262933cf1cf71",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7649,7 +7698,33 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "become → became → become.",
+        "boundaries": [
+          {
+            "surface": "become",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "became",
+            "condition": "past",
+            "note": "simple past"
+          },
+          {
+            "surface": "become",
+            "condition": "past participle",
+            "note": "past participle"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "become → became → become."
+        }
+      },
       "family": []
     }
   },
@@ -7923,11 +7998,19 @@
     "ordinal": 443,
     "word": "beef",
     "source_owner_path": "content/lexical/words/by-ordinal/o0443.json",
-    "source_fingerprint": "58f372a245b46b2fdf2e579f7daef21b6caff513a23cef2c1e88d1b57321cee7",
-    "sense_lineage": [],
+    "source_fingerprint": "03a29778d18d85ef18d085ad4273b3089b2aa53815656c76d5805fed622b9990",
+    "sense_lineage": [
+      {
+        "word_id": "word:beef",
+        "target_kind": "sense",
+        "from_target_id": "sense:beef:e60451e6380b5cf3",
+        "status": "reference_only",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3V",
+        "2V",
         "2N"
       ],
       "density": "rich"
@@ -8026,34 +8109,8 @@
         }
       },
       {
-        "id": "sense:beef:e60451e6380b5cf3",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "养（牛）；宰（牛）",
-        "definition_en": "to raise or slaughter cattle for meat",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:5d727374cc5a26b588d5",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "beef cattle",
-            "meaning_cn": "肉牛",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:beef:e60451e6380b5cf3",
-          "target_locator": "record.senses[3]",
-          "target_label": "养（牛）；宰（牛）"
-        }
-      },
-      {
         "id": "sense:beef:4a291e995f66a319",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "beef up sth",
         "definition_cn": "加强；充实；改进",
@@ -8063,27 +8120,27 @@
         "usage": [
           {
             "id": "collocation:8996d582cbd78b0acc4a",
-            "source_locator": "record.senses[4].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "beef up",
             "meaning_cn": "加强；充实",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:8996d582cbd78b0acc4a",
-              "target_locator": "record.senses[4].collocations[0]",
+              "target_locator": "record.senses[3].collocations[0]",
               "target_label": "beef up"
             }
           },
           {
             "id": "collocation:3a34305483c714f27ea0",
-            "source_locator": "record.senses[4].collocations[1]",
+            "source_locator": "record.senses[3].collocations[1]",
             "phrase": "beef up sth",
             "meaning_cn": "加强、增加或改进某物",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:3a34305483c714f27ea0",
-              "target_locator": "record.senses[4].collocations[1]",
+              "target_locator": "record.senses[3].collocations[1]",
               "target_label": "beef up sth"
             }
           }
@@ -8091,7 +8148,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:beef:4a291e995f66a319",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[3]",
           "target_label": "加强；充实；改进"
         }
       }
@@ -8549,7 +8606,7 @@
     "ordinal": 447,
     "word": "begin",
     "source_owner_path": "content/lexical/words/by-ordinal/o0447.json",
-    "source_fingerprint": "6f7676e47b52fa4f76178bee637aa11f53fa59bd3d989eaae3c517754642d085",
+    "source_fingerprint": "10df09c7dce197adabdcf96f5fcb4e5eb279429775ad82435590375b2d06eb85",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8619,35 +8676,57 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "deep:constructions:begin:e33b7fe12ba7e2af",
+        "id": "construction:begin:final-standard-sth-to-do-doing",
         "source_locator": "record.constructions[0]",
-        "pattern": "vt. + object / vi. + to do or doing",
+        "pattern": "begin sth / begin to do sth / begin doing sth",
         "lines": [
           {
-            "text": "开始",
+            "text": "开始某事；开始做某事",
             "lang": "cn"
           },
           {
-            "text": "begin sth / begin to do sth / begin doing sth",
-            "lang": "en"
-          },
-          {
-            "text": "to start doing something or cause something to start",
+            "text": "start something or start doing something",
             "lang": "en"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "deep:constructions:begin:e33b7fe12ba7e2af",
+          "target_id": "construction:begin:final-standard-sth-to-do-doing",
           "target_locator": "record.constructions[0]",
-          "target_label": "vt. + object / vi. + to do or doing"
+          "target_label": "begin sth / begin to do sth / begin doing sth"
         }
       }
     ],
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "begin → began → begun.",
+        "boundaries": [
+          {
+            "surface": "begin",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "began",
+            "condition": "past",
+            "note": "simple past"
+          },
+          {
+            "surface": "begun",
+            "condition": "past participle",
+            "note": "past participle"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "begin → began → begun."
+        }
+      },
       "family": []
     }
   },
