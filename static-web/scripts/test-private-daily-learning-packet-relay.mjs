@@ -68,6 +68,26 @@ try{
   assert.equal(replay.status,'idempotent','timestamp-only refresh must not publish');
   assert.equal(execFileSync('git',['--git-dir',remote,'rev-parse',ref],{encoding:'utf8'}).trim(),sha1);
 
+  const reprojected={
+    ...d1a,
+    total_minutes:31,
+    subjects:{
+      ...d1a.subjects,
+      xizong:{...d1a.subjects.xizong,time:{minutes:31,details:[]}}
+    }
+  };
+  await assert.rejects(
+    ()=>publishDailyLearningPacket(reprojected,{env,home:temp}),
+    /SAME_IDENTITY_CONFLICT/,
+    'ordinary same-identity material conflicts must remain fail-closed'
+  );
+  const reprojection=await publishDailyLearningPacket(reprojected,{
+    env,
+    home:temp,
+    trustedCheckpointReprojection:true
+  });
+  assert.equal(reprojection.status,'published','trusted private-checkpoint reprojection must refresh Current');
+
   const d1b=packet('2026-09-20','2026-09-20T02:00:00.000Z',75,35,40,0);
   const changed=await publishDailyLearningPacket(d1b,{env,home:temp});
   assert.equal(changed.status,'published');
