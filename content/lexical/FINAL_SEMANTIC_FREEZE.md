@@ -211,3 +211,11 @@ Absent that explicit revocation:
 
 > **This is the final broad semantic standard.**
 
+
+## 10. Scope amendment — 2026-09-22
+
+The broad-review scope prohibition in §§4, 8 and 9 has been explicitly revoked by Kian for catalog continuation beyond o1250. The semantic ruler remains frozen and unchanged.
+
+Canonical amendment: `content/lexical/FINAL_SEMANTIC_FREEZE_SCOPE_AMENDMENT_20260922.md`.
+
+Effective continuation scope: `o1251–o7946`.
