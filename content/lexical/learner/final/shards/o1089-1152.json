@@ -1789,7 +1789,7 @@
     "ordinal": 1102,
     "word": "correspondence",
     "source_owner_path": "content/lexical/words/by-ordinal/o1102.json",
-    "source_fingerprint": "dd905a844ad7305f3edffda082c91b6f5bd1a0d54fc4e39d745c2727a86c0ee7",
+    "source_fingerprint": "07077fcda842738468fc33f0a80c33206b150008502f6992f47b0e40e9ae3b9e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1798,13 +1798,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "通信；信件往来",
-      "decision_cn": "",
+      "summary_cn": "通信、信件往来；也可指两者之间的相符、对应或一致",
+      "decision_cn": "letters/email exchange → 通信往来；correspondence between A and B → A与B之间的对应、相符关系。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "通信；信件往来"
+        "target_label": "通信、信件往来；也可指两者之间的相符、对应或一致"
       }
     },
     "senses": [
@@ -2662,7 +2662,7 @@
     "ordinal": 1109,
     "word": "costly",
     "source_owner_path": "content/lexical/words/by-ordinal/o1109.json",
-    "source_fingerprint": "adc41dc6aafcef498a32ffc2b6b4315d5593979a7eaab7d7fa5f19a340e6080f",
+    "source_fingerprint": "7593a8d8c897924a4a594dc9ea2fdf02a50b5f9fbb7ad353dc94e82afb28e905",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2692,16 +2692,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:232096e70caddd2404d6",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "costly mistake",
-            "meaning_cn": "代价高昂的错误",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
             "id": "collocation:c4426c5d4c29cd1d842b",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "costly equipment",
             "meaning_cn": "昂贵的设备",
             "kind": "usage_example",
@@ -2724,7 +2716,16 @@
         "definition_en": "causing or involving serious loss, damage, sacrifice, or other high consequences",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:232096e70caddd2404d6",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "costly mistake",
+            "meaning_cn": "代价高昂的错误",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:costly:2df5e51988cb57bc",
@@ -2835,7 +2836,7 @@
     "ordinal": 1111,
     "word": "cosy",
     "source_owner_path": "content/lexical/words/by-ordinal/o1111.json",
-    "source_fingerprint": "d0c4d25201d75c7ef5817b4aaccba04a63c72b20119bdce3c53371389ae2d05c",
+    "source_fingerprint": "777b491cb0d0dcb58f7a4a14f5108bdab580c01ea8eacb0553c7bd3b262c4adb",
     "sense_lineage": [
       {
         "word_id": "word:cosy",
@@ -2909,26 +2910,29 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "cosy ↔ cozy",
-          "target_word": "cozy",
-          "lines": [
-            {
-              "text": "cozy is usual AmE spelling; cosy is usual BrE spelling. Same ordinary adjective concept; preserve both stable Word owners.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:75204231b048cc569811",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "cosy ↔ cozy"
+      "relations": [],
+      "form": {
+        "boundary": "cosy is the usual British spelling; cozy is the usual American spelling. Same ordinary adjective concept.",
+        "boundaries": [
+          {
+            "surface": "cosy",
+            "condition": "usual British English",
+            "note": "BrE spelling"
+          },
+          {
+            "surface": "cozy",
+            "condition": "usual American English",
+            "note": "AmE spelling"
           }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "cosy is the usual British spelling; cozy is the usual American spelling. Same ordinary adjective concept."
         }
-      ],
-      "form": null,
+      },
       "family": []
     }
   },
@@ -2938,7 +2942,7 @@
     "ordinal": 1112,
     "word": "cottage",
     "source_owner_path": "content/lexical/words/by-ordinal/o1112.json",
-    "source_fingerprint": "efc4ece66713b3adfd593df1936b9a93ae2e2f6b36316ca0f328511f1fcd0ab8",
+    "source_fingerprint": "8d8326e2f449c84728b4a936327f222aa37ca26d21cc0c384b134c1893bcc086",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2974,19 +2978,6 @@
             "meaning_cn": "乡村小屋",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:3063533266da2c2cd5b5",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "cottage cheese",
-            "meaning_cn": "农家鲜干酪",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:3063533266da2c2cd5b5",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "cottage cheese"
-            }
           }
         ],
         "repair": {
@@ -2998,7 +2989,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:cottage:bf11-cheese",
+        "source_locator": "record.constructions[0]",
+        "pattern": "cottage cheese",
+        "lines": [
+          {
+            "text": "茅屋干酪；一种颗粒状的新鲜软干酪",
+            "lang": "cn"
+          },
+          {
+            "text": "lexicalized food name; not a compositional collocation of the small-house sense",
+            "lang": "en"
+          },
+          {
+            "text": "a soft fresh cheese made from curds, usually with small white lumps",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:cottage:bf11-cheese",
+          "target_locator": "record.constructions[0]",
+          "target_label": "cottage cheese"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -3400,7 +3417,7 @@
     "ordinal": 1116,
     "word": "could",
     "source_owner_path": "content/lexical/words/by-ordinal/o1116.json",
-    "source_fingerprint": "f7950d39e0c9c85cecc9bdc8135917953d337ac7971a3fd6363da5b0c98c90f9",
+    "source_fingerprint": "49f55e91d5951a048ba00909e09d15f9ecd71ee0bd277a794fad6311d8cd34fc",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3409,13 +3426,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "能，可以",
-      "decision_cn": "",
+      "summary_cn": "情态动词：过去一般能力/许可、现在或未来可能性、委婉请求/建议；could have + 过去分词还表达过去可能性、未实现选择或批评",
+      "decision_cn": "past general ability/permission → could；present/future possibility → could；polite request/suggestion → Could you…?/You could…；肯定句一次性过去成功通常用 was/were able to 或 managed to；could have + pp → 过去可能、未实现选择或带批评的本可做到。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "能，可以"
+        "target_label": "情态动词：过去一般能力/许可、现在或未来可能性、委婉请求/建议；could have + 过去分词还表达过去可能性、未实现选择或批评"
       }
     },
     "senses": [
@@ -3423,9 +3440,9 @@
         "id": "sense:could:1297977f8d1456f8",
         "source_locator": "record.senses[0]",
         "pos": "modal",
-        "governing_pattern": "",
-        "definition_cn": "能，可以（can的过去式；表示可能性或委婉请求）",
-        "definition_en": "used as the past tense of 'can', or to express possibility or polite request",
+        "governing_pattern": "modal + base verb",
+        "definition_cn": "表示过去一般能力/许可、现在或未来可能性，或委婉请求/建议",
+        "definition_en": "used for past general ability or permission, present/future possibility, and polite requests or suggestions",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3455,12 +3472,63 @@
           "target_kind": "sense",
           "target_id": "sense:could:1297977f8d1456f8",
           "target_locator": "record.senses[0]",
-          "target_label": "能，可以（can的过去式；表示可能性或委婉请求）"
+          "target_label": "表示过去一般能力/许可、现在或未来可能性，或委婉请求/建议"
         }
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:could:bf11-modal-decision",
+        "source_locator": "record.constructions[0]",
+        "pattern": "could + base verb",
+        "lines": [
+          {
+            "text": "依语境表示过去一般能力/许可、现在或未来可能性、委婉请求或建议",
+            "lang": "cn"
+          },
+          {
+            "text": "affirmative one-off past achievement normally prefers was/were able to or managed to, not plain could",
+            "lang": "en"
+          },
+          {
+            "text": "choose among past general ability/permission, present or future possibility, and polite request/suggestion by context",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:could:bf11-modal-decision",
+          "target_locator": "record.constructions[0]",
+          "target_label": "could + base verb"
+        }
+      },
+      {
+        "id": "construction:could:bf11-have-pp",
+        "source_locator": "record.constructions[1]",
+        "pattern": "could have + past participle",
+        "lines": [
+          {
+            "text": "表示过去可能发生、未实现的选择/能力，或对过去行为的批评（本可以……）",
+            "lang": "cn"
+          },
+          {
+            "text": "past possibility/unrealized alternative/criticism; distinguish from simple past general ability",
+            "lang": "en"
+          },
+          {
+            "text": "express past possibility, an unrealized option or ability, or criticism of what someone could have done",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:could:bf11-have-pp",
+          "target_locator": "record.constructions[1]",
+          "target_label": "could have + past participle"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5548,23 +5616,31 @@
     "ordinal": 1133,
     "word": "cover",
     "source_owner_path": "content/lexical/words/by-ordinal/o1133.json",
-    "source_fingerprint": "4f272596eca77ebea0d6b89a2c29ded8c751b8e0fcd5a20a2b4dfd91cab19bbe",
-    "sense_lineage": [],
+    "source_fingerprint": "eb0128e9287b703ed7086007c7abdc07c9b8a3a15e224c7be5c0004940d07611",
+    "sense_lineage": [
+      {
+        "word_id": "word:cover",
+        "target_kind": "sense",
+        "from_target_id": "sense:cover:8fcb67decd045834",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "5V",
+        "4V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "把某个范围“盖住/包住”：可物理覆盖，也可覆盖话题、费用或新闻事件",
-      "decision_cn": "cover a table → 盖住表面；cover a topic → 涉及范围；cover costs → 足以支付；cover a story/event → 对事件进行新闻报道。核心都是“把某范围纳入覆盖”。",
+      "summary_cn": "覆盖、遮盖或把某范围纳入：可覆盖表面、话题、费用、新闻事件，也可替人代班/掩护",
+      "decision_cn": "cover a table → 盖住；cover a topic → 涉及；cover costs → 支付；cover a story → 报道；cover for sb → 代班或替人遮掩。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "把某个范围“盖住/包住”：可物理覆盖，也可覆盖话题、费用或新闻事件"
+        "target_label": "覆盖、遮盖或把某范围纳入：可覆盖表面、话题、费用、新闻事件，也可替人代班/掩护"
       }
     },
     "senses": [
@@ -5704,25 +5780,8 @@
         }
       },
       {
-        "id": "sense:cover:8fcb67decd045834",
-        "source_locator": "record.senses[4]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "覆盖（不及物）",
-        "definition_en": "to spread over an area",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:cover:8fcb67decd045834",
-          "target_locator": "record.senses[4]",
-          "target_label": "覆盖（不及物）"
-        }
-      },
-      {
         "id": "sense:cover:d74606c9c4295d84",
-        "source_locator": "record.senses[5]",
+        "source_locator": "record.senses[4]",
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "足以支付；支付（费用）",
@@ -5732,14 +5791,14 @@
         "usage": [
           {
             "id": "collocation:35ae87b4c3fe374c8869",
-            "source_locator": "record.senses[5].collocations[0]",
+            "source_locator": "record.senses[4].collocations[0]",
             "phrase": "cover costs/expenses",
             "meaning_cn": "支付或足以支付成本/开支",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:35ae87b4c3fe374c8869",
-              "target_locator": "record.senses[5].collocations[0]",
+              "target_locator": "record.senses[4].collocations[0]",
               "target_label": "cover costs/expenses"
             }
           }
@@ -5747,13 +5806,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:cover:d74606c9c4295d84",
-          "target_locator": "record.senses[5]",
+          "target_locator": "record.senses[4]",
           "target_label": "足以支付；支付（费用）"
         }
       },
       {
         "id": "sense:cover:1e71351e510c51e8",
-        "source_locator": "record.senses[6]",
+        "source_locator": "record.senses[5]",
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "报道；采访",
@@ -5763,14 +5822,14 @@
         "usage": [
           {
             "id": "collocation:45b679e65816b1cef12a",
-            "source_locator": "record.senses[6].collocations[0]",
+            "source_locator": "record.senses[5].collocations[0]",
             "phrase": "cover a story/event",
             "meaning_cn": "报道故事或事件",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:45b679e65816b1cef12a",
-              "target_locator": "record.senses[6].collocations[0]",
+              "target_locator": "record.senses[5].collocations[0]",
               "target_label": "cover a story/event"
             }
           }
@@ -5778,13 +5837,39 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:cover:1e71351e510c51e8",
-          "target_locator": "record.senses[6]",
+          "target_locator": "record.senses[5]",
           "target_label": "报道；采访"
         }
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:cover:bf11-for",
+        "source_locator": "record.constructions[0]",
+        "pattern": "cover for sb",
+        "lines": [
+          {
+            "text": "替缺席的人代班/承担其职责；也可替某人遮掩、找借口",
+            "lang": "cn"
+          },
+          {
+            "text": "work/duty context → substitute for; excuse/protection context → shield or cover up for",
+            "lang": "en"
+          },
+          {
+            "text": "do someone's duties while they are absent, or protect them by providing an excuse",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:cover:bf11-for",
+          "target_locator": "record.constructions[0]",
+          "target_label": "cover for sb"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5998,7 +6083,7 @@
     "ordinal": 1136,
     "word": "crab",
     "source_owner_path": "content/lexical/words/by-ordinal/o1136.json",
-    "source_fingerprint": "4f579046e2da0995bef5d1af208e40a2ae06102ce28c36bf8e8ae191790f6ebd",
+    "source_fingerprint": "73cf5b3fb9d22108829622fb705cb454e9c3195f3e73aeac408fc001237555d4",
     "sense_lineage": [
       {
         "word_id": "word:crab",
@@ -6006,23 +6091,30 @@
         "from_target_id": "sense:crab:7cf80ba8dbcd5d34",
         "status": "deprecated",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:crab",
+        "target_kind": "sense",
+        "from_target_id": "sense:crab:e70a176ef79c5ddf",
+        "status": "reference_only",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
         "2V",
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "螃蟹等普通动物义为核心；抱怨、坏脾气等为低优先扩展",
-      "decision_cn": "",
+      "summary_cn": "螃蟹为核心；“脾气乖戾的人”、捕蟹和发牢骚为低优先扩展；专业划桨 catch a crab 仅保留 Reference",
+      "decision_cn": "螃蟹等普通动物义为核心；抱怨、坏脾气等为低优先扩展",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "螃蟹等普通动物义为核心；抱怨、坏脾气等为低优先扩展"
+        "target_label": "螃蟹为核心；“脾气乖戾的人”、捕蟹和发牢骚为低优先扩展；专业划桨 catch a crab 仅保留 Reference"
       }
     },
     "senses": [
@@ -6104,39 +6196,8 @@
         }
       },
       {
-        "id": "sense:crab:e70a176ef79c5ddf",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "划桨失误",
-        "definition_en": "a rowing stroke that misses the water or digs too deep",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:d0b2fb0a28760f9da877",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "catch a crab",
-            "meaning_cn": "划桨失误",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:d0b2fb0a28760f9da877",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "catch a crab"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:crab:e70a176ef79c5ddf",
-          "target_locator": "record.senses[3]",
-          "target_label": "划桨失误"
-        }
-      },
-      {
         "id": "sense:crab:dcc90fcb9ffd50d8",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "vi. + about",
         "definition_cn": "发牢骚",
@@ -6146,20 +6207,20 @@
         "usage": [
           {
             "id": "collocation:1cc5b96d0e7fc3393de6",
-            "source_locator": "record.senses[4].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "crab about + sth",
             "meaning_cn": "抱怨某事",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:1cc5b96d0e7fc3393de6",
-              "target_locator": "record.senses[4].collocations[0]",
+              "target_locator": "record.senses[3].collocations[0]",
               "target_label": "crab about + sth"
             }
           },
           {
             "id": "collocation:0cf510f7a5f29bb57e0e",
-            "source_locator": "record.senses[4].collocations[1]",
+            "source_locator": "record.senses[3].collocations[1]",
             "phrase": "crab about the weather",
             "meaning_cn": "抱怨天气",
             "kind": "usage_example",
@@ -6169,7 +6230,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:crab:dcc90fcb9ffd50d8",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[3]",
           "target_label": "发牢骚"
         }
       }
@@ -6189,7 +6250,7 @@
     "ordinal": 1137,
     "word": "crack",
     "source_owner_path": "content/lexical/words/by-ordinal/o1137.json",
-    "source_fingerprint": "450c52c00eaf9ea9009c8bba8a7db656647817d9548f854373b61d097a3350d3",
+    "source_fingerprint": "ffd9a29c87a8412be3ab3188ac5d3ac20c98f8df42f1ce9b4ea76251c29bf85b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6200,13 +6261,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "裂缝；破裂；爆裂声",
-      "decision_cn": "",
+      "summary_cn": "裂缝/破裂/爆裂声；也可破解代码、案件或难题，crack down on 表示严厉打击",
+      "decision_cn": "physical crack → 裂缝/破裂；crack a code/case/problem → 破解、解决；crack down on sth → 严厉打击/制裁。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "裂缝；破裂；爆裂声"
+        "target_label": "裂缝/破裂/爆裂声；也可破解代码、案件或难题，crack down on 表示严厉打击"
       }
     },
     "senses": [
@@ -7906,22 +7967,22 @@
     "ordinal": 1148,
     "word": "credential",
     "source_owner_path": "content/lexical/words/by-ordinal/o1148.json",
-    "source_fingerprint": "b147c849953f252a1399f454761f2818568220a3564c8aa4062004949267b9f5",
+    "source_fingerprint": "3904131ea70a998f9edb40c36df2d99b7093d3783a8fee54c64f8c9e1a77fdf9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1N"
+        "(1+1)N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "证明资格或授权的文件",
-      "decision_cn": "",
+      "summary_cn": "证明资格、资历、身份或授权的凭据；也可指用于数字系统身份验证的认证信息",
+      "decision_cn": "credentials 可指学历、经验、证书等“证明你够资格”的信息；computing credentials 则是用户名、密码、令牌、密钥等用于验证身份和授权访问的信息。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "证明资格或授权的文件"
+        "target_label": "证明资格、资历、身份或授权的凭据；也可指用于数字系统身份验证的认证信息"
       }
     },
     "senses": [
@@ -7930,8 +7991,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "凭据，证明书",
-        "definition_en": "a document attesting to the truth of certain stated facts; proof of identity or qualifications",
+        "definition_cn": "资历或资格证明；可包括学历、经验、证书、身份证明等能证明资格或授权的信息",
+        "definition_en": "proof of qualifications, experience, identity, or authority, including documents or other evidence",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7961,11 +8022,26 @@
           "target_kind": "sense",
           "target_id": "sense:credential:d2b3376ec76f5053",
           "target_locator": "record.senses[0]",
-          "target_label": "凭据，证明书"
+          "target_label": "资历或资格证明；可包括学历、经验、证书、身份证明等能证明资格或授权的信息"
         }
       }
     ],
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "id": "secondary:credential:bf11-authentication",
+        "source_locator": "record.secondary_senses[0]",
+        "pos": "noun",
+        "definition_cn": "（计算机）用于验证身份并允许访问的认证信息",
+        "definition_en": "authentication information used to verify identity and permit access, such as a username/password, token, certificate, or key",
+        "pattern": "login / authentication / access credentials",
+        "repair": {
+          "target_kind": "secondary_sense",
+          "target_id": "secondary:credential:bf11-authentication",
+          "target_locator": "record.secondary_senses[0]",
+          "target_label": "（计算机）用于验证身份并允许访问的认证信息"
+        }
+      }
+    ],
     "constructions": [],
     "reference": {
       "confusables": [],
@@ -7980,7 +8056,7 @@
     "ordinal": 1149,
     "word": "credit",
     "source_owner_path": "content/lexical/words/by-ordinal/o1149.json",
-    "source_fingerprint": "a8390584fc7923453ec314b542515dab7b4a5016c9000ad1070f88f9c03bcd1d",
+    "source_fingerprint": "996d047026047b5ba204572a89c8f8c387981e24f3d91930199afdabd1df59b3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8118,34 +8194,7 @@
         "definition_en": "to attribute an achievement or quality to someone or something",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:cba30ae95aa577a09ecd",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "credit sb with sth",
-            "meaning_cn": "把某事归功于某人",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:cba30ae95aa577a09ecd",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "credit sb with sth"
-            }
-          },
-          {
-            "id": "collocation:a1653a49d844f8a42cf6",
-            "source_locator": "record.senses[3].collocations[1]",
-            "phrase": "credit sth to sb",
-            "meaning_cn": "把某事归功于某人",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:a1653a49d844f8a42cf6",
-              "target_locator": "record.senses[3].collocations[1]",
-              "target_label": "credit sth to sb"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:credit:e42be33d14c35ad7",
@@ -8181,7 +8230,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:credit:bf11-attribution",
+        "source_locator": "record.constructions[0]",
+        "pattern": "credit sb with sth / credit sth to sb",
+        "lines": [
+          {
+            "text": "把某项成就、特质或原因归功于某人/某物",
+            "lang": "cn"
+          },
+          {
+            "text": "credit sb with X = 认为某人拥有/做出X；credit X to sb = 把X归因或归功于某人",
+            "lang": "cn"
+          },
+          {
+            "text": "attribute an achievement, quality, cause, or result to someone or something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:credit:bf11-attribution",
+          "target_locator": "record.constructions[0]",
+          "target_label": "credit sb with sth / credit sth to sb"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -8191,8 +8266,16 @@
           "target_word": "creditor",
           "lines": [
             {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
+              "text": "credit（信用/赊账关系）→ creditor（债权人）",
               "lang": "cn"
+            },
+            {
+              "text": "credit 涉及赊账/债权关系；creditor = 别人欠其钱的个人或机构，即债权人",
+              "lang": "cn"
+            },
+            {
+              "text": "a creditor is a person or organization to whom money is owed",
+              "lang": "en"
             }
           ],
           "source_locator": "record.word_family[0]"
@@ -8206,7 +8289,7 @@
     "ordinal": 1150,
     "word": "creep",
     "source_owner_path": "content/lexical/words/by-ordinal/o1150.json",
-    "source_fingerprint": "c8985e5794d609703287ff517808d016a4d37ead203f409d8dd2ddb3df2e52c7",
+    "source_fingerprint": "77febb74ff3d11f7136daf1cc553aa981d0663c0ec56ffbc7c7e75aba011051a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8336,7 +8419,33 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "creep → crept → crept.",
+        "boundaries": [
+          {
+            "surface": "creep",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "crept",
+            "condition": "past",
+            "note": "simple past"
+          },
+          {
+            "surface": "crept",
+            "condition": "past participle",
+            "note": "past participle"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "creep → crept → crept."
+        }
+      },
       "family": []
     }
   },

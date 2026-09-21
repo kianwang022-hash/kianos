@@ -2944,7 +2944,7 @@
     "ordinal": 5739,
     "word": "cozy",
     "source_owner_path": "content/lexical/words/by-ordinal/o5739.json",
-    "source_fingerprint": "130d4010b92b51704fd19f9d1a978bef7e59fab670436a454488a793c66041e4",
+    "source_fingerprint": "8442d414f1a16938a6dd7bf8a3584dc4e75b0cb1a683fe7cf9b30b1df505aa4c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3002,26 +3002,29 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "cozy ↔ cosy",
-          "target_word": "cosy",
-          "lines": [
-            {
-              "text": "cozy is usual AmE spelling; cosy is usual BrE spelling. Same ordinary adjective concept; preserve both stable Word owners.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:75204231b048cc569811",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "cozy ↔ cosy"
+      "relations": [],
+      "form": {
+        "boundary": "cozy is the usual American spelling; cosy is the usual British spelling. Same ordinary adjective concept.",
+        "boundaries": [
+          {
+            "surface": "cozy",
+            "condition": "usual American English",
+            "note": "AmE spelling"
+          },
+          {
+            "surface": "cosy",
+            "condition": "usual British English",
+            "note": "BrE spelling"
           }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "cozy is the usual American spelling; cosy is the usual British spelling. Same ordinary adjective concept."
         }
-      ],
-      "form": null,
+      },
       "family": []
     }
   },
