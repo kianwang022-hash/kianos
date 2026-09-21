@@ -200,6 +200,17 @@ The body must also contain the machine marker:
 
 `<!-- kian-codex-task:v1 -->`
 
+Optional execution markers are deliberately tiny:
+
+```text
+<!-- kian-codex-runtime:local -->          # only when the task must touch this Mac / localhost / LaunchAgent / private local state
+<!-- kian-codex-model:sol -->              # reasoning-heavy task; Terra is the default
+<!-- kian-codex-model:astra -->
+<!-- kian-codex-astra-approved-by-kian:v1 -->  # required together; Chat must obtain Kian approval first
+```
+
+Do not silently escalate to Astra. Terra / Sol may be chosen by Chat from task difficulty and expected ROI; Astra requires an explicit Kian-facing notice and approval before the Issue is made actionable.
+
 The body should contain only the execution-relevant context:
 
 ```text
@@ -261,27 +272,32 @@ It may delete only local branches matching `codex/issue<digits>-*` when the remo
 
 Do **not** wake a model merely to discover that the GitHub queue is empty.
 
-Normal local trigger:
+Normal trigger / executor routing:
 
 ```text
 lightweight LaunchAgent watcher (default every 5 minutes; no model)
 → query only open marked `Codex execution:` Issues + open PR heads
 → no actionable task = exit in seconds
-→ actionable task = invoke one `codex exec`
-→ Codex re-reads main@HEAD + AGENTS.md + exact owner
+→ actionable repo/GitHub task + configured Codex Cloud env = submit one visible Codex Cloud task
+→ Mac-local / localhost / LaunchAgent / private-local-state task = one local Codex executor run
+→ Cloud unavailable/unconfigured = local fallback rather than Kian becoming the relay
 → execute at most one Issue
 → PR / BLOCKED receipt
 → local hygiene after accepted close
 ```
 
-The watcher is only a trigger. It owns no semantic/task state and stores only local retry/dedupe metadata.
+The watcher is only a trigger/router. It owns no semantic/task state and stores only local retry/dedupe metadata.
 
-Cost / load defaults:
+Attention / model defaults:
 - empty-queue polling uses ordinary `gh` / `git`, **zero model invocation**;
-- watcher runs as a low-priority macOS background process;
-- only one watcher/Codex execution may run at a time;
-- after an attempted Issue, unchanged task state enters a one-hour retry cooldown so transient or BLOCKED work cannot burn a model every five minutes;
-- default Codex execution model is `gpt-5.6-terra` with medium reasoning; Chat may explicitly choose a stronger path for a genuinely harder task instead of making every background task expensive.
+- ordinary repository work prefers a visible Codex Cloud task once the KianOS Cloud environment is bound;
+- local execution is reserved for work that genuinely needs this Mac, or as a temporary Cloud fallback;
+- Terra / medium is the default local model;
+- Chat may select Sol / medium for reasoning-heavy work without asking Kian;
+- Astra is never automatic: the Issue must carry both the Astra request marker and Kian's explicit approval marker;
+- only one watcher/executor dispatch may run at a time;
+- after an attempted Issue, unchanged task state enters a one-hour retry cooldown so transient or BLOCKED work cannot burn model allowance every five minutes;
+- if automation debugging starts consuming more Kian attention than the automation is likely to save, degrade or bypass the automation instead of adding another control layer.
 
 The old hourly model-based queue poller is a deployment fallback only. Once the lightweight watcher has a real local end-to-end PASS, retire/disable the hourly poller so there is one normal trigger path.
 
