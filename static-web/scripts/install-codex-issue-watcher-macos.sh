@@ -36,8 +36,9 @@ STATE_DIR="$HOME/Library/Application Support/KianOS/codex-issue-watcher"
 LOG_DIR="$HOME/Library/Logs/KianOS"
 SCRIPT="$PROJECT_DIR/static-web/scripts/codex-issue-watcher.mjs"
 INTERVAL="${KIANOS_CODEX_WATCHER_INTERVAL_SECONDS:-300}"
-MODEL="${KIANOS_CODEX_WATCHER_MODEL:-gpt-5.6-terra}"
-EFFORT="${KIANOS_CODEX_WATCHER_EFFORT:-medium}"
+MODEL="${KIANOS_CODEX_EXEC_MODEL:-gpt-6-astra}"
+EFFORT="${KIANOS_CODEX_EXEC_EFFORT:-high}"
+EXEC_REPO="${KIANOS_CODEX_EXEC_REPO:-$HOME/Library/Application Support/KianOS/codex-executor/kianos}"
 PATH_VALUE="$(dirname "$NODE_BIN"):$(dirname "$GH_BIN"):$(dirname "$CODEX_BIN"):/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 if [[ ! -f "$SCRIPT" ]]; then
@@ -77,9 +78,11 @@ cat > "$PLIST" <<EOF
     <string>$PROJECT_DIR</string>
     <key>KIANOS_CODEX_WATCHER_STATE_DIR</key>
     <string>$STATE_DIR</string>
-    <key>KIANOS_CODEX_WATCHER_MODEL</key>
+    <key>KIANOS_CODEX_EXEC_REPO</key>
+    <string>$EXEC_REPO</string>
+    <key>KIANOS_CODEX_EXEC_MODEL</key>
     <string>$MODEL</string>
-    <key>KIANOS_CODEX_WATCHER_EFFORT</key>
+    <key>KIANOS_CODEX_EXEC_EFFORT</key>
     <string>$EFFORT</string>
     <key>KIANOS_CODEX_BIN</key>
     <string>$CODEX_BIN</string>
@@ -112,3 +115,4 @@ echo "interval_seconds=$INTERVAL"
 echo "model=$MODEL"
 echo "effort=$EFFORT"
 echo "project=$PROJECT_DIR"
+echo "executor_repo=$EXEC_REPO"
