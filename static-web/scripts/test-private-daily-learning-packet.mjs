@@ -45,7 +45,7 @@ import { buildHomeDailyLearningPacket } from '../src/lib/dailyLearningPacketRunt
 import { buildXizongForecastQuestionScope } from '../src/lib/xizongQuestions.mjs';
 import { buildXizongProductionBlock } from '../src/lib/xizongProductionProjection.mjs';
 import { LEXICAL_LEDGER_STORAGE_KEY, emptyLexicalLedger } from '../src/lib/lexicalEvidence.mjs';
-import { LEXICAL_INTAKE_STORAGE_KEY, LEXICAL_ROUTING_STORAGE_KEY } from '../src/lib/lexicalSettings.mjs';
+import { LEXICAL_INTAKE_STORAGE_KEY, LEXICAL_ROUTING_STORAGE_KEY, normalizeLexicalIntake, normalizeLexicalRouting } from '../src/lib/lexicalSettings.mjs';
 
 class MemoryStorage {
   constructor(entries = {}) { this.map = new Map(Object.entries(entries)); }
@@ -211,8 +211,8 @@ const storage=new MemoryStorage({
 
 // All three existing Lexical evidence dependencies must survive reprojection.
 storage.setItem(LEXICAL_LEDGER_STORAGE_KEY,JSON.stringify(emptyLexicalLedger()));
-storage.setItem(LEXICAL_INTAKE_STORAGE_KEY,JSON.stringify({schema:'kianos.lexical.intake.v1',introduced:{}}));
-storage.setItem(LEXICAL_ROUTING_STORAGE_KEY,JSON.stringify({schema:'kianos.lexical.card-routing.v1',cards:{}}));
+storage.setItem(LEXICAL_INTAKE_STORAGE_KEY,JSON.stringify(normalizeLexicalIntake(null)));
+storage.setItem(LEXICAL_ROUTING_STORAGE_KEY,JSON.stringify(normalizeLexicalRouting(null)));
 
 chatPlan.learner_evidence_basis=buildExamChatPlanBasis(storage,day);
 storage.setItem(EXAM_CHAT_PLAN_KEY,JSON.stringify(chatPlan));
