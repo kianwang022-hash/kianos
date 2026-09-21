@@ -9,6 +9,11 @@ import {
   writeEnglishSessionInstruction
 } from './englishSessionControl.mjs';
 import {
+  inspectEnglishExamSession,
+  applyEnglishExamProductiveScoreReturn,
+  writeEnglishExamSession
+} from './englishExamSession.mjs';
+import {
   EXAM_CHAT_PLAN_KEY,
   buildExamChatPlanBasis,
   validateExamChatPlanAgainstStorage,
@@ -174,6 +179,7 @@ export async function applyPrivateControlCommand(storage,input,{day=localDay(),n
   }
 
   const englishOp=command.operations.find(op=>op.kind==='english.session')||null;
+  const englishScoreOp=command.operations.find(op=>op.kind==='english.exam_score_return')||null;
   const xizongSessionOp=command.operations.find(op=>op.kind==='xizong.session')||null;
   const xizongReturnOp=command.operations.find(op=>op.kind==='xizong.chat_return')||null;
   const xizongSystemReturnOp=command.operations.find(op=>op.kind==='xizong.system_wu_return')||null;
@@ -210,6 +216,13 @@ export async function applyPrivateControlCommand(storage,input,{day=localDay(),n
   if(politicsMemoryOp){
     stagePoliticsMemoryPlan(shadow,politicsMemoryOp.payload,{expectedDay:day,now});
   }
+  if(englishScoreOp){
+    const exam=inspectEnglishExamSession(shadow);
+    if(exam.status!=='ready')throw new Error('KIANOS_CONTROL_ENGLISH_EXAM_STATE_REQUIRED:'+exam.status);
+    // The native owner alone admits a score for the exact sealed first outputs.
+    // Keep its write in this command's transaction; never persist a second score ledger.
+    writeEnglishExamSession(shadow,applyEnglishExamProductiveScoreReturn(exam.session,englishScoreOp.payload,now));
+  }
   if(planOp){
     const prior=readJson(shadow,EXAM_CHAT_PLAN_KEY);
     if(prior?.generated_at
@@ -240,10 +253,13 @@ export async function applyPrivateControlCommand(storage,input,{day=localDay(),n
   commitShadow(storage,shadow,keys);
   const receiptSaved=await saveReceipt(receipt);
 
-  if(englishOp)window.dispatchEvent(new CustomEvent('kianos:english-session-updated',{
-    detail:{schema:englishOp.payload?.schema||null,session_id:englishOp.payload?.session_id||null}
+  if(englishOp||englishScoreOp)window.dispatchEvent(new CustomEvent('kianos:english-session-updated',{
+    detail:{schema:(englishOp||englishScoreOp).payload?.schema||null,session_id:(englishOp||englishScoreOp).payload?.session_id||null}
   }));
-  for(const op of [xizongSessionOp,xizongReturnOp,xizongSystemReturnOp].filter(Boolean)){
+  if(englishScoreOp)window.dispatchEvent(new CustomEvent('kianos:english-exam-updated',{
+    detail:{paper_id:englishScoreOp.payload.paper_id,session_id:englishScoreOp.payload.session_id}
+  }));
+  for(const op of [xizongSessionOp,xizongReturnOp,xizongSystemReturnOp,englishScoreOp].filter(Boolean)){
     window.dispatchEvent(new CustomEvent('kianos:private-control-consumed',{
       detail:{fresh:true,status:'APPLIED',target:op.kind,command_id:command.command_id}
     }));

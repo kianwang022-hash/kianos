@@ -227,6 +227,7 @@ export function initPrivateCheckpointAutosave(storage, {
 
   globalThis.addEventListener?.('kianos:study-timer-change', schedule);
   globalThis.addEventListener?.('kianos:exam-plan-read-model', schedule);
+  globalThis.addEventListener?.('kianos:english-exam-updated', schedule);
   globalThis.addEventListener?.('storage', storageHandler);
   globalThis.addEventListener?.('focus', schedule);
   globalThis.addEventListener?.('blur', blurHandler);
@@ -244,6 +245,7 @@ export function initPrivateCheckpointAutosave(storage, {
       if (interval) clearInterval(interval);
       globalThis.removeEventListener?.('kianos:study-timer-change', schedule);
       globalThis.removeEventListener?.('kianos:exam-plan-read-model', schedule);
+      globalThis.removeEventListener?.('kianos:english-exam-updated', schedule);
       globalThis.removeEventListener?.('storage', storageHandler);
       globalThis.removeEventListener?.('focus', schedule);
       globalThis.removeEventListener?.('blur', blurHandler);

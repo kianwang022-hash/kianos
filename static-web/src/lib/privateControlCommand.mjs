@@ -6,6 +6,7 @@ export const CONTROL_LOCAL_RECEIPT_KEY='kianos-control-receipt-v1';
 export const CONTROL_OPERATION_KINDS=Object.freeze([
   'english.generated_drill',
   'english.session',
+  'english.exam_score_return',
   'xizong.session',
   'xizong.chat_return',
   'xizong.system_wu_return',
@@ -50,7 +51,7 @@ export function validateControlCommand(value){
     : [];
   if(!operations.length||operations.length>20)fail('OP_COUNT_INVALID',String(operations.length));
 
-  const singletonKinds=['english.session','xizong.session','xizong.chat_return','xizong.system_wu_return','politics.memory_plan','exam.chat_plan'];
+  const singletonKinds=['english.session','english.exam_score_return','xizong.session','xizong.chat_return','xizong.system_wu_return','politics.memory_plan','exam.chat_plan'];
   for(const kind of singletonKinds){
     if(operations.filter(op=>op.kind===kind).length>1)fail('OP_DUPLICATE',kind);
   }
@@ -138,7 +139,7 @@ export function validateBrowserControlCommand(value,expectedDay=null){
     ? value.operations.map((op,i)=>normalizeOperation(op,i,{browserOnly:true}))
     : [];
   if(!operations.length||operations.length>10)fail('BROWSER_OP_COUNT_INVALID',String(operations.length));
-  const singletonKinds=['english.session','xizong.session','xizong.chat_return','xizong.system_wu_return','politics.memory_plan','exam.chat_plan'];
+  const singletonKinds=['english.session','english.exam_score_return','xizong.session','xizong.chat_return','xizong.system_wu_return','politics.memory_plan','exam.chat_plan'];
   for(const kind of singletonKinds){
     if(operations.filter(op=>op.kind===kind).length>1)fail('OP_DUPLICATE',kind);
   }

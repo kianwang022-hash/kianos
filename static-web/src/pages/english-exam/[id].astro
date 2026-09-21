@@ -71,8 +71,13 @@ const serverTaskLabel = (step) => ({
     <section class="englishExamResult" data-exam-result hidden>
       <span>客观题结果</span>
       <strong data-exam-objective-score>— / 60</strong>
-      <p>翻译和写作保留你的原始作答，交给 Chat 结合原题继续复盘。</p>
+      <p data-exam-review-note>翻译和写作保留你的原始作答，交给 Chat 结合原题继续复盘。</p>
       <div data-exam-objective-breakdown></div>
+      <div data-exam-reviewed hidden>
+        <p><b>本次整卷参考区间</b> <span data-exam-score-range></span></p>
+        <p data-exam-productive-breakdown></p>
+        <p>基于本次键入作答的复盘估分，仅供参考，不代表正式考试成绩。</p>
+      </div>
     </section>
 
     <script type="application/json" data-exam-paper set:html={payload}></script>
@@ -114,6 +119,10 @@ const serverTaskLabel = (step) => ({
     const result = root.querySelector('[data-exam-result]');
     const score = root.querySelector('[data-exam-objective-score]');
     const breakdown = root.querySelector('[data-exam-objective-breakdown]');
+    const reviewNote = root.querySelector('[data-exam-review-note]');
+    const reviewed = root.querySelector('[data-exam-reviewed]');
+    const scoreRange = root.querySelector('[data-exam-score-range]');
+    const productiveBreakdown = root.querySelector('[data-exam-productive-breakdown]');
 
     const localDay = () => new Date().toLocaleDateString('en-CA');
     const setStatus = (message, bad = false) => {
@@ -187,7 +196,7 @@ const serverTaskLabel = (step) => ({
     };
 
     const renderResult = (state) => {
-      const released = state?.status === 'RELEASED' && state.release?.objective;
+      const released = ['RELEASED', 'SCORED'].includes(state?.status) && state.release?.objective;
       if (result instanceof HTMLElement) result.hidden = !released;
       if (!released) return;
       if (score) score.textContent = state.release.objective.points + ' / ' + state.release.objective.max_points;
@@ -199,13 +208,26 @@ const serverTaskLabel = (step) => ({
           breakdown.appendChild(p);
         }
       }
+      const scored = state.status === 'SCORED';
+      if (reviewed instanceof HTMLElement) reviewed.hidden = !scored;
+      if (reviewNote) reviewNote.textContent = scored
+        ? 'Chat 已结合封存的原始作答完成复盘。客观题结果保持不变。'
+        : '翻译和写作保留你的原始作答，交给 Chat 结合原题继续复盘。';
+      if (scored) {
+        const rangeText = (range, max) => Number.isFinite(range?.low) && Number.isFinite(range?.high) && Number.isFinite(max)
+          ? `${range.low}–${range.high} / ${max}` : '待评估';
+        if (scoreRange) scoreRange.textContent = rangeText(state.release.integrated?.score_range, 100);
+        if (productiveBreakdown) productiveBreakdown.textContent = Object.entries(state.release.productive.channels)
+          .map(([channel, row]) => `${({ translation: '翻译', writing_small: '小作文', writing_big: '大作文' })[channel] || channel} ${rangeText(row.score_range, state.steps.find(step => step.step_id === row.step_id)?.max_points)}`)
+          .join(' · ');
+      }
     };
 
     const render = () => {
       const state = currentSession();
       const active = state?.status === 'ACTIVE';
       const sealed = state?.status === 'SEALED';
-      const released = state?.status === 'RELEASED';
+      const released = ['RELEASED', 'SCORED'].includes(state?.status);
 
       if (startButton instanceof HTMLButtonElement) startButton.hidden = Boolean(state);
       if (continueButton instanceof HTMLButtonElement) continueButton.hidden = !active;
@@ -217,7 +239,8 @@ const serverTaskLabel = (step) => ({
         stateLabel.textContent = !state ? '尚未开始'
           : active ? '进行中 · ' + Object.keys(state.captures || {}).length + '/' + state.steps.length
           : sealed ? '已交卷 · 可查看客观题结果'
-          : '已出分 · 翻译和写作待复盘';
+          : state.status === 'SCORED' ? '已复盘 · 主观题为参考分'
+          : '客观题已出分 · 翻译和写作待复盘';
       }
 
       renderSteps(state);
@@ -277,7 +300,7 @@ const serverTaskLabel = (step) => ({
     });
     copyButton?.addEventListener('click', async () => {
       const state = currentSession();
-      if (!state || !['SEALED', 'RELEASED'].includes(state.status)) return;
+      if (!state || !['SEALED', 'RELEASED', 'SCORED'].includes(state.status)) return;
       const value = 'KIANOS_ENGLISH_EXAM_EVIDENCE_V1\n' + JSON.stringify(buildEnglishExamEvidencePacket(state), null, 2);
       try {
         await navigator.clipboard.writeText(value);
@@ -290,7 +313,7 @@ const serverTaskLabel = (step) => ({
     const tick = () => {
       const state = currentSession();
       if (!state || state.status !== 'ACTIVE') {
-        if (clock) clock.textContent = state?.status === 'SEALED' || state?.status === 'RELEASED' ? '00:00' : '180:00';
+        if (clock) clock.textContent = ['SEALED', 'RELEASED', 'SCORED'].includes(state?.status) ? '00:00' : '180:00';
         return;
       }
       const ms = englishExamRemainingMs(state);
@@ -309,6 +332,7 @@ const serverTaskLabel = (step) => ({
       if (event.key === ENGLISH_EXAM_SESSION_KEY || event.key === null) render();
     });
     window.addEventListener('focus', render);
+    window.addEventListener('kianos:english-exam-updated', render);
     render();
     tick();
     if (startButton instanceof HTMLButtonElement) startButton.disabled = false;
