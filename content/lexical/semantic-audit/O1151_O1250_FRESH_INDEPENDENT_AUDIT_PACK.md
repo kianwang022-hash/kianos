@@ -140,6 +140,16 @@ Its own source evidence identifies the intended relation targets as `restrain` a
 
 **Correction:** preserve the same evidence and sense scope but render the learner target as `restrain / limit`, removing the self-repeating `curb ↔ curb...` target expression.
 
+#### F2c — o1187 Core↔sense anchor
+
+**Audit verdict:** `REFINE_UPGRADE`  
+**Severity:** MATERIAL  
+**Risk:** `CORE_ACTIVE_MISMATCH / ANCHOR_OWNERSHIP`
+
+The noun Core cluster labels both road-edge `curb` and horse-bit `curb`, but its `sense_ids` currently contain only the horse-bit Sense. The active road-edge Sense that the spelling boundary is built around is missing from the Core anchor list.
+
+**Correction:** keep the existing noun cluster wording and attach both active noun Sense IDs, including `sense:curb:5de5882cd945508f`. Do not change semantic scope.
+
 ### F3 — o1178 `cue ↔ queue`: reciprocal owner closure
 
 **Production:** UPGRADE via new homophone Relation  
@@ -211,7 +221,7 @@ The reduce Sense owns fixed-pattern collocations `cut down on` and `cut back (on
 ## Batch verdict
 
 ```text
-MATERIAL findings: 5
+MATERIAL findings: 6
 LOCAL findings: 4
 IDENTITY findings: 0
 IDENTITY_RISK verdicts: 0
