@@ -81,6 +81,8 @@ cat > "$PLIST" <<EOF
     <string>$MODEL</string>
     <key>KIANOS_CODEX_WATCHER_EFFORT</key>
     <string>$EFFORT</string>
+    <key>KIANOS_CODEX_BIN</key>
+    <string>$CODEX_BIN</string>
   </dict>
   <key>StartInterval</key>
   <integer>$INTERVAL</integer>
