@@ -68,7 +68,7 @@
     ],
     "tier": "B",
     "validator_version": "deep_vocabulary_target_gate_2026-08-13_v1",
-    "verification_confidence": 1.0,
+    "verification_confidence": 1,
     "verification_decision": "codex_promote",
     "verification_status": "verified",
     "why": "",
@@ -125,10 +125,60 @@
         "verification_status": "verified",
         "writing_safe": false
       }
+    },
+    {
+      "source_word_id": "word:besides",
+      "source_ordinal": 470,
+      "field": "confusables",
+      "index": 0,
+      "payload": {
+        "boundary": "besides means 'in addition to / apart from' or adverbial 'furthermore'; beside means physically 'next to'.",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {},
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:ecdict-spelling:beside:besides",
+            "evidence_status": "source_checked",
+            "source_locator": "beside|besides",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/source_manifest.json",
+            "source_type": "learner_dictionary"
+          },
+          {
+            "evidence_id": "evidence:cambridge-confusable:beside:besides",
+            "evidence_status": "source_checked",
+            "source_locator": "beside|besides",
+            "source_path": "https://dictionary.cambridge.org/grammar/british-grammar/easily-confused-words",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:confusables:beside:25b35653c7a51bd2",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "confusables",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": null,
+        "source_sense_id": "sense:besides:5609683a545c5ee7",
+        "target_sense_id": "sense:beside:7425bd3aad5e591b",
+        "target_word": "beside",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 1,
+    "last_materialization": "BF04 reciprocal closure"
   }
 }

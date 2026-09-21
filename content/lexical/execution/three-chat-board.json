@@ -32,44 +32,43 @@
     "p_behavior": "APPROVE_EXACT_SHOWN_DELTA__FREEZE_BACKLOG__IMMEDIATE_NEXT_PRODUCTION_BATCH"
   },
   "frontier": {
-    "accepted_main_head": "949bda3ad8d88c7e91d34a84f1d9a470b058f832",
-    "current_candidate_id": "BF03",
+    "accepted_main_head": "8268f595387a855d2fe048bb3245f121a1754446",
+    "current_candidate_id": "BF04",
     "range": [
-      301,
-      400
+      401,
+      500
     ],
     "state": "MATERIALIZE_ALLOWED",
     "candidate_pr": null,
-    "candidate_branch": "work/lexical-continuous-bf03-20260921",
+    "candidate_branch": "work/lexical-continuous-bf04-20260921",
     "materialized_owner_read_head": null,
-    "note": "BF03 Production is frozen and human-approved. Latest main refreeze complete; materialization is authorized."
+    "note": "BF04 Production is frozen and human-approved. Latest main refreeze complete; materialization authorized."
   },
   "audit_target": {
     "state": "WAITING_CANDIDATE_MATERIALIZATION",
-    "candidate_id": "BF03",
+    "candidate_id": "BF04",
     "range": [
-      301,
-      400
+      401,
+      500
     ],
     "candidate_pr": null,
-    "candidate_branch": "work/lexical-continuous-bf03-20260921",
+    "candidate_branch": "work/lexical-continuous-bf04-20260921",
     "candidate_owner_read_head": null,
     "brief": null,
-    "output": "content/lexical/semantic-audit/O0301_O0400_FINAL_STANDARD_FRESH_AUDIT_PACK.md",
-    "note": "Materialize BF03 first, then perform closure audit."
+    "output": "content/lexical/semantic-audit/O0401_O0500_FINAL_STANDARD_FRESH_AUDIT_PACK.md"
   },
   "lanes": {
     "A": {
       "role": "FRONTIER_MATERIALIZATION_AND_RECONCILIATION",
       "current_assignment": {
-        "candidate_id": "BF03",
+        "candidate_id": "BF04",
         "range": [
-          301,
-          400
+          401,
+          500
         ],
         "state": "MATERIALIZE_ALLOWED",
         "candidate_pr": null,
-        "next_action": "Apply frozen BF03 proposal against latest main; rebuild Final Learner Objects; then closure-audit candidate."
+        "next_action": "Apply frozen BF04 proposal against latest main; rebuild Final Learner Objects; closure-audit candidate."
       },
       "bootstrap_integration": {
         "candidate_id": "BF00",
@@ -287,17 +286,17 @@
     "B": {
       "role": "FRESH_INDEPENDENT_AUDIT",
       "current_assignment": {
-        "candidate_id": "BF03",
+        "candidate_id": "BF04",
         "range": [
-          301,
-          400
+          401,
+          500
         ],
+        "state": "WAITING_CANDIDATE_MATERIALIZATION",
         "candidate_pr": null,
-        "candidate_branch": "work/lexical-continuous-bf03-20260921",
+        "candidate_branch": "work/lexical-continuous-bf04-20260921",
         "candidate_owner_read_head": null,
         "brief": null,
-        "output": "content/lexical/semantic-audit/O0301_O0400_FINAL_STANDARD_FRESH_AUDIT_PACK.md",
-        "state": "WAITING_CANDIDATE_MATERIALIZATION"
+        "output": "content/lexical/semantic-audit/O0401_O0500_FINAL_STANDARD_FRESH_AUDIT_PACK.md"
       },
       "state": "WAITING_CANDIDATE_MATERIALIZATION",
       "may_mutate_semantic_truth": false,
@@ -1591,13 +1590,13 @@
     }
   ],
   "last_closed": {
-    "candidate_id": "BF02",
+    "candidate_id": "BF03",
     "range": [
-      201,
-      300
+      301,
+      400
     ],
-    "pr": 670,
-    "merge_commit": "f411be97ab4c5904820c52062f75302b99121ecf",
+    "pr": 672,
+    "merge_commit": "8268f595387a855d2fe048bb3245f121a1754446",
     "result": "CLOSURE_AUDIT_RECONCILED_AND_MERGED",
     "final_learner_objects": 7946
   },

@@ -292,7 +292,7 @@
     "ordinal": 451,
     "word": "behavior",
     "source_owner_path": "content/lexical/words/by-ordinal/o0451.json",
-    "source_fingerprint": "5372eb4ab084346c22e317d152ba510862e10af16045a4d4f74de2b90c178468",
+    "source_fingerprint": "ab6217803cd58a7aad59738b44266a4490ea93aab06ed537ce9cf2a84b539c3a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -377,7 +377,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "behavior is the standard American spelling; behaviour is the standard British spelling.",
+        "boundaries": [
+          {
+            "surface": "behavior",
+            "condition": "American English",
+            "note": "standard AmE spelling"
+          },
+          {
+            "surface": "behaviour",
+            "condition": "British English",
+            "note": "standard BrE spelling"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "behavior is the standard American spelling; behaviour is the standard British spelling."
+        }
+      },
       "family": [
         {
           "target_word": "behave",
@@ -2020,7 +2041,7 @@
     "ordinal": 463,
     "word": "bend",
     "source_owner_path": "content/lexical/words/by-ordinal/o0463.json",
-    "source_fingerprint": "f80dae40b7bc6aeb153342bf08011b85af8a9325eaa0ca390bb6e6403a0dcc55",
+    "source_fingerprint": "5a1a14c0f1bf04a5b7813dc6f6af5196334a81469ce4c25cbf174fa241180a71",
     "sense_lineage": [
       {
         "word_id": "word:bend",
@@ -2145,7 +2166,33 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "bend → bent → bent.",
+        "boundaries": [
+          {
+            "surface": "bend",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "bent",
+            "condition": "past",
+            "note": "simple past"
+          },
+          {
+            "surface": "bent",
+            "condition": "past participle",
+            "note": "past participle"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "bend → bent → bent."
+        }
+      },
       "family": []
     }
   },
@@ -2287,7 +2334,7 @@
     "ordinal": 465,
     "word": "beneficial",
     "source_owner_path": "content/lexical/words/by-ordinal/o0465.json",
-    "source_fingerprint": "2e06c797beafe69ba28e0fda396ce15fea7c44a543b9b537b4a0b535130725c9",
+    "source_fingerprint": "63706a73352a9808bcf87dbf24873540041a92849c8c366c1f206e718a2b22a6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2873,7 +2920,7 @@
     "ordinal": 470,
     "word": "besides",
     "source_owner_path": "content/lexical/words/by-ordinal/o0470.json",
-    "source_fingerprint": "f99d28b27a528fc5d0c1c7d50d14f260ee7c027a335e1f129ac72927459ba1a8",
+    "source_fingerprint": "1327364dec081747f1405eca426f30d4b74fcd7b85f926e79e9bd5fbb05e68f9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2949,72 +2996,26 @@
     "secondary_senses": [],
     "constructions": [],
     "reference": {
-      "confusables": [],
-      "relations": [
+      "confusables": [
         {
-          "title": "besides ↔ also",
-          "target_word": "also",
+          "title": "besides ↔ beside",
+          "target_word": "beside",
           "lines": [
             {
-              "text": "besides作副词表“而且”时，与also可互换",
-              "lang": "cn"
-            },
-            {
-              "text": "in addition",
+              "text": "besides means 'in addition to / apart from' or adverbial 'furthermore'; beside means physically 'next to'.",
               "lang": "en"
             }
           ],
           "differences": [],
           "repair": {
             "target_kind": "relation",
-            "target_id": "deep:semantic_contrast:besides:b8422a8207a010b0",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "besides ↔ also"
-          }
-        },
-        {
-          "title": "besides ↔ too",
-          "target_word": "too",
-          "lines": [
-            {
-              "text": "besides作副词表“而且”时，与too可互换",
-              "lang": "cn"
-            },
-            {
-              "text": "in addition",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "deep:semantic_contrast:besides:0c5d0c12e59776d8",
-            "target_locator": "record.semantic_neighbors[1]",
-            "target_label": "besides ↔ too"
-          }
-        },
-        {
-          "title": "besides ↔ likewise",
-          "target_word": "likewise",
-          "lines": [
-            {
-              "text": "仅在补充信息时接近；likewise常表同样地，besides表此外",
-              "lang": "cn"
-            },
-            {
-              "text": "in addition",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "deep:semantic_contrast:likewise:522761c4983f4004",
-            "target_locator": "record.semantic_neighbors[2]",
-            "target_label": "besides ↔ likewise"
+            "target_id": "deep:confusables:beside:25b35653c7a51bd2",
+            "target_locator": "record.confusables[0]",
+            "target_label": "besides ↔ beside"
           }
         }
       ],
+      "relations": [],
       "form": null,
       "family": []
     }
@@ -3670,7 +3671,7 @@
     "ordinal": 475,
     "word": "between",
     "source_owner_path": "content/lexical/words/by-ordinal/o0475.json",
-    "source_fingerprint": "38c738394674b8c79dd74a6ffc3414a3d3a40df7544558e20b63ceae2ae5f150",
+    "source_fingerprint": "ce1f0b9cbbce503d830db90706d60bb0107543a492a1cd35ce697df8ed4db6ce",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3777,25 +3778,7 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:36b72250e6bcc5360e11",
-        "source_locator": "record.constructions[0]",
-        "pattern": "between distinct entities vs among a group",
-        "lines": [
-          {
-            "text": "between selects distinct individual relationships; among selects distributed group membership",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:36b72250e6bcc5360e11",
-          "target_locator": "record.constructions[0]",
-          "target_label": "between distinct entities vs among a group"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [
@@ -5058,7 +5041,7 @@
     "ordinal": 486,
     "word": "bill",
     "source_owner_path": "content/lexical/words/by-ordinal/o0486.json",
-    "source_fingerprint": "376a8b7d5d3b52f2eab39765abbbe862ccbf92c0616a4054b12f3d573839a443",
+    "source_fingerprint": "6afbb45f184fde10e312988b8612065e583120d6c0b02ac1e1d7ca304d25ddd9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5292,8 +5275,33 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "construction:bill:baseline-v2-as",
+        "id": "construction:bill:final-standard-for",
         "source_locator": "record.constructions[0]",
+        "pattern": "bill sb for sth",
+        "lines": [
+          {
+            "text": "因某项商品或服务向某人收费、开账单",
+            "lang": "cn"
+          },
+          {
+            "text": "bill sb for sth = charge/invoice; bill sb/sth as ... = advertise/describe/present as",
+            "lang": "en"
+          },
+          {
+            "text": "charge or invoice someone for goods or services",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:bill:final-standard-for",
+          "target_locator": "record.constructions[0]",
+          "target_label": "bill sb for sth"
+        }
+      },
+      {
+        "id": "construction:bill:baseline-v2-as",
+        "source_locator": "record.constructions[1]",
         "pattern": "bill sb/sth as ...",
         "lines": [
           {
@@ -5312,7 +5320,7 @@
         "repair": {
           "target_kind": "construction",
           "target_id": "construction:bill:baseline-v2-as",
-          "target_locator": "record.constructions[0]",
+          "target_locator": "record.constructions[1]",
           "target_label": "bill sb/sth as ..."
         }
       }
@@ -5543,7 +5551,7 @@
     "ordinal": 489,
     "word": "bind",
     "source_owner_path": "content/lexical/words/by-ordinal/o0489.json",
-    "source_fingerprint": "cc3d06c564d4998ab73798d19248cf7a03dfcf8e0f6c31fcdc1e2be8ceecd2b3",
+    "source_fingerprint": "954b391bb512c81aa1d5b7dcc8bdc364341efbd8e793494b9ff2cc1493f891b5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5768,27 +5776,57 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "construction:6b1f74cd65277d58c12e",
+        "id": "construction:bind:final-standard-bound-to-by",
         "source_locator": "record.constructions[0]",
-        "pattern": "be bound to do sth vs be bound by sth",
+        "pattern": "be bound to do sth / be bound by sth",
         "lines": [
           {
-            "text": "bound to do expresses likelihood or inevitability; bound by expresses constraint or obligation",
+            "text": "bound to do 可表很可能/必然，也可在法律或道德语境表义务；bound by 表受规则、协议或关系约束",
+            "lang": "cn"
+          },
+          {
+            "text": "be bound to do commonly marks likelihood or inevitability and can also express obligation in deontic contexts; be bound by marks constraint by a rule, agreement, or tie",
             "lang": "en"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "construction:6b1f74cd65277d58c12e",
+          "target_id": "construction:bind:final-standard-bound-to-by",
           "target_locator": "record.constructions[0]",
-          "target_label": "be bound to do sth vs be bound by sth"
+          "target_label": "be bound to do sth / be bound by sth"
         }
       }
     ],
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "bind → bound → bound.",
+        "boundaries": [
+          {
+            "surface": "bind",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "bound",
+            "condition": "past",
+            "note": "simple past"
+          },
+          {
+            "surface": "bound",
+            "condition": "past participle",
+            "note": "past participle"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "bind → bound → bound."
+        }
+      },
       "family": []
     }
   },
@@ -6545,7 +6583,7 @@
     "ordinal": 497,
     "word": "bite",
     "source_owner_path": "content/lexical/words/by-ordinal/o0497.json",
-    "source_fingerprint": "857714f63cdd80db44ae1676adef17ad0da33a786ea0f3d0452a9d37cfce61fb",
+    "source_fingerprint": "dea9b3234aad9ad26e1f4bd74c1f93662b347881bf55540edb7c908cc5eecb29",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6737,7 +6775,33 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "bite → bit → bitten; bit is the past tense, while bitten is the usual past participle.",
+        "boundaries": [
+          {
+            "surface": "bite",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "bit",
+            "condition": "past",
+            "note": "past tense; bit also has independent noun meanings"
+          },
+          {
+            "surface": "bitten",
+            "condition": "past participle",
+            "note": "usual past participle"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "bite → bit → bitten; bit is the past tense, while bitten is the usual past participle."
+        }
+      },
       "family": []
     }
   },

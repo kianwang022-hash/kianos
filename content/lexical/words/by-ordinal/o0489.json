@@ -8,11 +8,13 @@
     "confusables": [],
     "constructions": [
       {
-        "construction_id": "construction:6b1f74cd65277d58c12e",
-        "direction": "R+P",
-        "level": "L2",
-        "meaning_cn": "bound to do expresses likelihood or inevitability; bound by expresses constraint or obligation",
-        "pattern": "be bound to do sth vs be bound by sth"
+        "construction_id": "construction:bind:final-standard-bound-to-by",
+        "pattern": "be bound to do sth / be bound by sth",
+        "meaning_cn": "bound to do 可表很可能/必然，也可在法律或道德语境表义务；bound by 表受规则、协议或关系约束",
+        "definition_en": "be bound to do commonly marks likelihood or inevitability and can also express obligation in deontic contexts; be bound by marks constraint by a rule, agreement, or tie",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "final-standard-bf04"
       }
     ],
     "content_hash": "e3ec97897f0a59018848fa7826085000064709da27197ea2c39810118c6b2807",
@@ -211,7 +213,32 @@
     },
     "word": "bind",
     "word_family": [],
-    "word_id": "word:bind"
+    "word_id": "word:bind",
+    "form_identity": {
+      "form_type": "irregular_verb_inflection",
+      "spelling": "bind",
+      "identity_rule": "tense_selects_surface",
+      "boundary": "bind → bound → bound.",
+      "boundaries": [
+        {
+          "surface": "bind",
+          "condition": "base/present",
+          "note": "base form"
+        },
+        {
+          "surface": "bound",
+          "condition": "past",
+          "note": "simple past"
+        },
+        {
+          "surface": "bound",
+          "condition": "past participle",
+          "note": "past participle"
+        }
+      ],
+      "variants": [],
+      "authority": "BF04 final-standard approved Form expansion"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
