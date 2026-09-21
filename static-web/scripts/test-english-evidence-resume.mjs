@@ -11,6 +11,11 @@ class MemoryStorage {
 }
 
 const day='2026-09-20';
+// Synthetic Current owner identities: an empty catalogue cannot authorize Resume.
+const catalog=[
+  {task:'reading_a',object_id:'reading-done',source_hash:'hash-reading-done',semantic_source_hash:'synthetic-reading-v1'},
+  {task:'translation',object_id:'translation-next',source_hash:'hash-translation-next',semantic_source_hash:'synthetic-translation-v1'}
+];
 const storage=new MemoryStorage({
   'kianos-english-session-instruction-v1':JSON.stringify({
     schema:'kianos.english.session-instruction.v1',
@@ -39,7 +44,12 @@ const storage=new MemoryStorage({
     return_policy:{on_finish:'english_home'}
   }),
   'kianos-reading-attempt-v1:reading-done':JSON.stringify({
-    binding:{source_hash:'hash-reading-done'},
+    binding:{
+      task:'reading_a',object_id:'reading-done',attempt_id:'synthetic-reading-attempt',revision:1,
+      source_hash:'hash-reading-done',semantic_source_hash:'synthetic-reading-v1',
+      prior_exposure:'unknown',assistance:'unknown',source_kind:'synthetic',
+      source_snapshot:{paragraphs:['Synthetic Resume regression passage.'],questions:[]}
+    },
     submitted:true,
     results:{},
     uncertain:[],
@@ -56,8 +66,13 @@ const storage=new MemoryStorage({
 const packet=buildEnglishEvidencePacket(storage,{
   day,
   now:Date.parse('2026-09-20T00:30:00.000Z'),
-  catalog:[]
+  catalog
 });
+
+const unverified=buildEnglishEvidencePacket(storage,{day,catalog:[]});
+assert.equal(unverified.resume.status,'source_unverified');
+assert.equal(unverified.resume.executable,false);
+assert.equal(unverified.resume.href,null);
 
 assert.equal(packet.schema,'kianos.english.evidence.v1');
 assert.equal(packet.resume.status,'ready');

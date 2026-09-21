@@ -7,6 +7,7 @@ import {
   xizongChatSetSweepKey
 } from '../src/lib/xizongSessionInstruction.mjs';
 import { recordXizongQuestionAttempt } from '../src/lib/xizongQuestionAttempts.mjs';
+import { xizongQuestionSemanticRevision, xizongQuestionSemanticRevisions } from '../src/lib/xizongQuestions.mjs';
 import {
   XIZONG_MEMORY_STORAGE_KEY,
   createXizongMemoryState,
@@ -292,6 +293,7 @@ const officialQuestion = {
   sourceKind: 'OFFICIAL_EXAM',
   scoringRole: 'OFFICIAL_EVIDENCE'
 };
+officialQuestion.semanticRevision = xizongQuestionSemanticRevision(officialQuestion);
 const probeQuestion = set.inline_questions[0];
 const nearDerivativeQuestion = normalizeXizongInlinePracticeQuestions([{
   ...probeRaw,
@@ -355,7 +357,15 @@ assert(probeEvent.scoring_role === 'TRANSFER_ONLY', 'probe-attempt-score-role');
 assert(probeEvent.target_kp_ids[0] === 'circulation-b01-kp01', 'probe-attempt-target');
 
 const sweepKey = xizongChatSetSweepKey('xz-targeted-practice-fixture', 'weakness-upgrade');
-const retained = collectXizongRetainedEvidence([[sweepKey, JSON.stringify(sweep)]], { holdoutYears: [] });
+const entries = [[sweepKey, JSON.stringify(sweep)]];
+const questionSemanticRevisions = xizongQuestionSemanticRevisions([officialQuestion]);
+const retained = collectXizongRetainedEvidence(entries, { holdoutYears: [], questionSemanticRevisions });
+assert(collectXizongRetainedEvidence(entries, { holdoutYears: [] }).wrongUncertainIds.length === 0,
+  'unverified-official-revision-must-not-become-current-wu');
+const changedRevision = xizongQuestionSemanticRevisions([{ ...officialQuestion, stem: 'changed fixture source' }]);
+assert(collectXizongRetainedEvidence(entries, { holdoutYears: [], questionSemanticRevisions: changedRevision }).wrongUncertainIds.length === 0,
+  'stale-official-revision-must-not-become-current-wu');
+assert(sweep.attemptHistory.length === 3, 'revision-filtering-must-preserve-attempt-history');
 assert(retained.wrongUncertainIds.length === 1 && retained.wrongUncertainIds[0] === officialId,
   'ai-probe-polluted-official-wu');
 assert(retained.transferProbeEvents.length === 2, 'probe-evidence-missing');

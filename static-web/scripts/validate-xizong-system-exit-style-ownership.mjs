@@ -14,6 +14,7 @@ const practiceRoute = read('src/pages/xizong/practice/[system].astro');
 const exit = read('src/components/XizongSystemExitRuntime.astro');
 const practice = read('src/components/XizongPracticeWorkbench.astro');
 const repair = read('src/components/XizongSystemRepairReturn.astro');
+const repairRuntime = read('src/lib/xizongSystemWuReturn.mjs');
 const questions = read('src/lib/xizongQuestions.mjs');
 const exitOwner = read('src/styles/xizong-system-exit-workspace.css');
 const practiceOwner = read('src/styles/xizong-practice-workspace.css');
@@ -77,8 +78,13 @@ const dense = stripCssComments(denseCalmStyle);
 check(!/\.xzExit(?:\b|[A-Z])/.test(dense), 'dense_calm_cannot_own_recall_namespace');
 check(!/\.xzp(?:\b|[A-Z])/.test(dense), 'dense_calm_cannot_own_practice_namespace');
 
-check(repair.includes('allowed.has(row.questionId)'), 'repair_only_accepts_current_wu');
-check(repair.includes('!relation?.blockId || !relation?.primaryKpId'), 'repair_requires_reviewed_precise_relation');
+// The component delegates typed Return validation to its existing native owner.
+check(repair.includes('applyXizongSystemWuReturn')
+  && repairRuntime.includes('assertCurrentWuBinding(row, currentWu.get(row.question_id) || null)')
+  && repairRuntime.includes("if (!current) fail('QUESTION_NOT_CURRENT_WU', row.question_id)"),
+  'repair_only_accepts_current_wu');
+check(repairRuntime.includes('!relation?.blockId || !relation?.primaryKpId || !route'),
+  'repair_requires_reviewed_precise_relation');
 
 console.log(JSON.stringify({
   ok: true,
