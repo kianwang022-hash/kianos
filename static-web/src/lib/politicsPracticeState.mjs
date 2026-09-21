@@ -1,4 +1,5 @@
 import { findPoliticsFirstAttempt } from './politicsUnitReturn.mjs';
+import { buildPoliticsAnalysisEvidenceProfile } from './politicsAnalysisEvidence.mjs';
 // Existing Politics storage identities. Shared by the native Workbench and its
 // read-only Home/Review consumers; this module never writes learner state.
 export const PRACTICE_KEYS = Object.freeze({
@@ -277,6 +278,15 @@ function politicsForecastProgress(catalog, snapshot) {
   );
   const observedUnits = rows.filter((row) => row.first_attempt_questions > 0);
   const coverageComplete = rows.filter((row) => row.question_coverage_complete);
+  const countBySubject = (items) => {
+    const counts = {};
+    for (const row of items) {
+      const key = row.subject || 'unknown';
+      counts[key] = (counts[key] || 0) + 1;
+    }
+    return counts;
+  };
+  const structuralTail = currentIndex >= 0 ? rows.slice(currentIndex + 1) : [];
 
   return {
     schema: 'kianos.politics.forecast-progress.v1',
@@ -286,6 +296,10 @@ function politicsForecastProgress(catalog, snapshot) {
     catalog_units: rows.length,
     units_with_first_attempt_evidence: observedUnits.length,
     units_with_complete_question_coverage: coverageComplete.length,
+    units_with_first_attempt_evidence_by_subject: countBySubject(observedUnits),
+    units_without_first_attempt_evidence_by_subject: countBySubject(
+      rows.filter((row) => row.first_attempt_questions === 0)
+    ),
     complete_question_coverage_unit_keys: coverageComplete
       .map((row) => row.unit_key)
       .filter(Boolean),
@@ -293,7 +307,9 @@ function politicsForecastProgress(catalog, snapshot) {
       unit_id: lastUnitId || null,
       catalog_index: currentIndex >= 0 ? currentIndex : null,
       structural_units_after_current:
-        currentIndex >= 0 ? Math.max(0, rows.length - currentIndex - 1) : null
+        currentIndex >= 0 ? Math.max(0, rows.length - currentIndex - 1) : null,
+      structural_units_after_current_by_subject:
+        currentIndex >= 0 ? countBySubject(structuralTail) : null
     },
     evidence_boundary:
       'Question coverage is first-round factual progress only. It does not prove source-learning completion, long-term memory, analysis-output readiness or Gate workload; those require Politics-owned reconciliation into exam.subject-demand.v1.'
@@ -310,6 +326,7 @@ export function politicsDailyEvidencePacket(catalog, snapshot, {
   }
   if (snapshot?.errors?.length) throw new Error('POLITICS_DAILY_EVIDENCE_UNREADABLE');
 
+  const questionById = new Map((catalog?.questions || []).map((question) => [question.id, question]));
   const todayAttempts = [];
   for (const [unitKey, unit] of Object.entries(snapshot?.attempts?.units || {})) {
     for (const attempt of Object.values(unit?.attempts || {})) {
@@ -318,6 +335,7 @@ export function politicsDailyEvidencePacket(catalog, snapshot, {
       todayAttempts.push({
         question_id: attempt.question_id,
         unit_key: unitKey,
+        question_type: String(questionById.get(attempt.question_id)?.type || 'unknown'),
         outcome: currentOutcome,
         first_outcome: attempt.outcome,
         uncertain: attempt.uncertain === true,
@@ -332,7 +350,32 @@ export function politicsDailyEvidencePacket(catalog, snapshot, {
 
   const review = selectPoliticsReview(catalog, snapshot, { filter: 'all', subject: 'all' });
   const resume = resolvePoliticsContinue(catalog, snapshot, base);
+  const analysis = buildPoliticsAnalysisEvidenceProfile(snapshot?.events || []);
   const count = (outcome) => todayAttempts.filter((row) => row.outcome === outcome).length;
+
+  const cumulativeFirstAttempts = [];
+  for (const question of catalog?.questions || []) {
+    const observed = findPoliticsFirstAttempt(snapshot?.attempts || { units: {} }, question.id);
+    const attempt = observed?.attempt;
+    if (!attempt?.question_id) continue;
+    cumulativeFirstAttempts.push({
+      question_id: question.id,
+      question_type: String(question.type || 'unknown'),
+      outcome: attempt.outcome,
+      study_day: attempt.study_day || null,
+      observed_at: attempt.observed_at || null
+    });
+  }
+  const firstAttemptSummary = {};
+  for (const type of ['single', 'multiple', 'unknown']) {
+    const rows = cumulativeFirstAttempts.filter((row) => row.question_type === type);
+    firstAttemptSummary[type] = {
+      attempted: rows.length,
+      stable: rows.filter((row) => row.outcome === 'STABLE').length,
+      wrong: rows.filter((row) => row.outcome === 'WRONG').length,
+      uncertain: rows.filter((row) => row.outcome === 'UNCERTAIN').length
+    };
+  }
 
   return {
     schema: 'kianos.politics.study_packet.v1',
@@ -340,6 +383,10 @@ export function politicsDailyEvidencePacket(catalog, snapshot, {
     generated_at: new Date(now).toISOString(),
     catalog_revision: catalog?.revision || null,
     forecast_progress: politicsForecastProgress(catalog, snapshot),
+    cumulative_first_attempts: {
+      total: cumulativeFirstAttempts.length,
+      by_question_type: firstAttemptSummary
+    },
     resume: resume ? {
       href: resume.href,
       title: resume.title,
@@ -353,6 +400,7 @@ export function politicsDailyEvidencePacket(catalog, snapshot, {
       uncertain_count: count('UNCERTAIN'),
       attempts: todayAttempts
     },
+    analysis,
     review: {
       open_problem_count: review.problemIds.length,
       discussion_count: review.discussionIds.length,
