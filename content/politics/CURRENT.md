@@ -13,11 +13,12 @@ Shared-platform routing is inherited from `AUTHORITY_INHERITANCE_CONTRACT.md` an
 
 Politics whole-cycle maturity engineering is closed at the shared mother-standard `SYSTEM_LOGIC_ACCEPTED` boundary.
 
-Historical implementation owner:
+Durable maturity owners:
 
-- branch: `work/politics-later-readiness-20260920`;
-- PR: **#638**;
-- Politics acceptance bar: `MATURITY_REQUIREMENTS.md`.
+- package: `MATURITY_PACKAGE.md`;
+- final independent audit: `MATURITY_FRESH_INDEPENDENT_AUDIT.md`;
+- shared acceptance bar: root `EXAM_SUBJECT_MATURITY_STANDARD.md`;
+- historical implementation provenance: PR **#638** only; the branch is not a continuation owner.
 
 Final independent freeze result:
 

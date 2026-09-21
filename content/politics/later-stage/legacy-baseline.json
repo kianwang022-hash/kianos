@@ -1,0 +1,64 @@
+{
+  "schema": "kianos.politics.later-stage-legacy-baseline.v1",
+  "status": "METADATA_READY_FULL_SOURCE_NOT_PROMOTED_TO_CURRENT_MAIN",
+  "leg26": {
+    "package_id": "LEG26_BEISONG",
+    "year_label": "2026_exam_baseline",
+    "source_role": "HISTORICAL_MEMORY_OUTPUT_BASELINE",
+    "canonical_authority": false,
+    "learner_direct_use": false,
+    "current_year_corroboration_required": true,
+    "pdf_inputs": [
+      {
+        "volume": "upper",
+        "sha256": "dffd0bd2b1c2c752aad2389ba53e7bdded0f8a79a84d5ecb5a697afb18381c2e",
+        "pages": 237
+      },
+      {
+        "volume": "lower",
+        "sha256": "06c5d89fac40b5209c913af22b784b70a38637616f90493e0486600778cf83c8",
+        "pages": 86
+      }
+    ],
+    "historical_branch_ref": "work/politics-later-l-fastpath-20260918",
+    "file_library_source_family": "26腿姐《背诵手册》上/下册 + LEG26 source-faithful Markdown",
+    "intended_uses": [
+      "CURRENT_YEAR_DELTA_COMPARISON",
+      "MEMORY_ADMISSION_CANDIDATE_DISCOVERY",
+      "OBJECTIVE_COMPRESSION_BASELINE",
+      "ANALYSIS_OUTPUT_BASELINE",
+      "CURRENT_AFFAIRS_DELTA_BASELINE"
+    ],
+    "forbidden_uses": [
+      "DIRECT_2027_RECALL_AUTHORITY",
+      "DIRECT_2027_FIXED_WORDING_AUTHORITY",
+      "UI_LEARNER_CONTENT_WITHOUT_CURRENT_YEAR_ACCEPTANCE"
+    ]
+  },
+  "xiao8_2026": {
+    "status": "LEGACY_SOURCE_VERIFIED_IN_FILE_LIBRARY",
+    "source_family": "26肖秀荣《8套卷》+答案解析+刷题表",
+    "use": [
+      "MOCK_GEOMETRY_BASELINE",
+      "OBJECTIVE_PACING_BASELINE",
+      "REVIEW_WORKFLOW_PROTOTYPE",
+      "ANALYSIS_OUTPUT_TASK_GEOMETRY"
+    ],
+    "forbidden": [
+      "CURRENT_YEAR_SCORE_CALIBRATION",
+      "DIRECT_2027_MEMORY_AUTHORITY"
+    ]
+  },
+  "xiao4_2026": {
+    "status": "LEGACY_SOURCE_SLOT_RESERVED_VERIFY_EXACT_FILE_ON_USE",
+    "use": [
+      "FINAL_PAPER_GEOMETRY_BASELINE",
+      "FINAL_COMPRESSION_WORKFLOW_PROTOTYPE"
+    ],
+    "forbidden": [
+      "CURRENT_YEAR_SCORE_CALIBRATION",
+      "DIRECT_2027_MEMORY_AUTHORITY"
+    ]
+  },
+  "rule": "Legacy sources teach us what later-stage work looks like. Only 2027 designated sources can authorize 2027 exact wording/current-affairs/final-memory claims."
+}

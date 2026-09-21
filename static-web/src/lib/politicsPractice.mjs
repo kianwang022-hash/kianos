@@ -4,6 +4,7 @@ import { createHash } from 'node:crypto';
 import { gunzipSync } from 'node:zlib';
 
 import { listPoliticsSubjectsCurrent, loadPoliticsChapterCurrent } from './politicsCurrent.mjs';
+import { classifyPoliticsSourceNodeFidelity, loadPoliticsSourceFidelityOverrides } from './politicsSourceFidelity.mjs';
 
 const repoRoot = process.env.KIANOS_REPO_ROOT
   ? path.resolve(process.env.KIANOS_REPO_ROOT)
@@ -59,6 +60,11 @@ function sourceNodeShardPath(ownerId) {
 }
 
 const sourceNodeShardCache = new Map();
+let sourceFidelityOverridesCache;
+function sourceFidelityOverrides() {
+  if (!sourceFidelityOverridesCache) sourceFidelityOverridesCache = loadPoliticsSourceFidelityOverrides();
+  return sourceFidelityOverridesCache;
+}
 function sourceNodeRows(ownerId) {
   const relativePath = sourceNodeShardPath(ownerId);
   if (!relativePath || !exists(relativePath)) return [];
@@ -103,10 +109,12 @@ function exactChengfengLocator(rawQuestion, unit) {
     const ownerId = clean(source?.id);
     if (!ownerId || !ownerId.startsWith('POL27-CF-')) continue;
     for (const entry of sourceNodeRows(ownerId)) {
+      const fidelity = classifyPoliticsSourceNodeFidelity(entry.id, entry.row, sourceFidelityOverrides());
+      if (!fidelity.admitted) continue;
       const rowText = normalizedMatchText(entry.row?.original_text_span || entry.row?.title);
       if (!rowText || !rowText.includes(needle)) continue;
       const depth = Array.isArray(entry.row?.hierarchy_path) ? entry.row.hierarchy_path.length : entry.id.split('-').length;
-      candidates.push({ ...entry, ownerId, depth });
+      candidates.push({ ...entry, ownerId, depth, fidelity });
     }
   }
   if (!candidates.length) return null;
@@ -119,8 +127,13 @@ function exactChengfengLocator(rawQuestion, unit) {
   const shardPath = sourceNodeShardPath(match.ownerId);
   const shard = shardPath && exists(shardPath) ? readJson(shardPath) : {};
   const hierarchy = Array.isArray(match.row?.hierarchy_path) ? match.row.hierarchy_path : [];
-  const steps = hierarchy
-    .map((id) => locatorStep(id, shard?.[id] || (id === match.id ? match.row : null)))
+  const hierarchyRows = hierarchy.map((id) => ({ id, row: shard?.[id] || (id === match.id ? match.row : null) }));
+  if (hierarchyRows.some(({ id, row }) => row
+    && !classifyPoliticsSourceNodeFidelity(id, row, sourceFidelityOverrides()).admitted)) {
+    return null;
+  }
+  const steps = hierarchyRows
+    .map(({ id, row }) => locatorStep(id, row))
     .filter(Boolean);
   const page = Number(match.row?.book_page_start || match.row?.book_page_end || 0);
   if (!steps.length || !page) return null;
@@ -557,7 +570,9 @@ export function buildPoliticsPracticeCatalogCurrent(base = '/') {
       refinedExplanationExactStableIdOnly: true,
       learnerFacingOriginalExplanationExcluded: true,
       referenceOnlyDoesNotBecomeIndependentTeachingUnit: true,
-      originalQuestionFaceMetadataOnlyUntilBytesAreMaterialized: true
+      originalQuestionFaceMetadataOnlyUntilBytesAreMaterialized: true,
+      sourceTextRequiresFidelityAdmission: true,
+      blockedSourceTextCannotEnterReviewContext: true
     }
   };
 }

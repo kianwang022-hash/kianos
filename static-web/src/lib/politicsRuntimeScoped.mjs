@@ -1,6 +1,7 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
+import { loadPoliticsSourceFidelityOverrides, splitPoliticsSourceRowsByFidelity } from './politicsSourceFidelity.mjs';
 
 const repoRoot = process.env.KIANOS_REPO_ROOT
   ? path.resolve(process.env.KIANOS_REPO_ROOT)
@@ -243,17 +244,28 @@ function mergeSourceSpans(rows, title) {
   return spans.join('\n\n').trim();
 }
 
+let sourceFidelityOverridesCache;
+function sourceFidelityOverrides() {
+  if (!sourceFidelityOverridesCache) sourceFidelityOverridesCache = loadPoliticsSourceFidelityOverrides();
+  return sourceFidelityOverridesCache;
+}
+
 function sourceGroupView(ownerId) {
   const rows = descendantsFor(ownerId);
-  const exact = rows.find((entry) => entry.id === ownerId)?.row || null;
+  const { admitted, blocked } = splitPoliticsSourceRowsByFidelity(rows, sourceFidelityOverrides());
+  const exact = admitted.find((entry) => entry.id === ownerId)?.row || null;
   const rawTitle = nodeTitle(exact, ownerId);
-  const text = mergeSourceSpans(rows, rawTitle) || nodeText(exact);
+  const text = mergeSourceSpans(admitted, rawTitle) || nodeText(exact);
   const sameAsTitle = Boolean(text && compactSpace(text) === compactSpace(rawTitle));
+  const blockedStatuses = [...new Set(blocked.map((entry) => entry.fidelity?.effectiveStatus).filter(Boolean))];
   return {
     id: ownerId,
     title: sameAsTitle ? '' : rawTitle,
     text,
     resolved: Boolean(text),
+    fidelityStatus: blocked.length ? (text ? 'PARTIAL_SAFE' : 'BLOCKED_FIDELITY') : 'ADMITTED',
+    blockedNodeIds: blocked.map((entry) => entry.id),
+    blockedVerificationStatuses: blockedStatuses,
     descendantCount: Math.max(0, rows.length - 1),
     sourceShard: sourceNodeShardPath(ownerId)
   };
@@ -384,7 +396,16 @@ function hydrateUnits(raw) {
     const regionRows = representedNaturalUnitIds.map((id) => regions.get(id)).filter(Boolean);
     const rawSourceRefs = [...new Set(regionRows.flatMap((row) => row?.chengfeng_refs || []))];
     const ownerRefs = sourceOwnerRefs(rawSourceRefs);
-    const sourceNodes = ownerRefs.map(sourceGroupView).filter((row) => row.resolved);
+    const sourceViews = ownerRefs.map(sourceGroupView);
+    const sourceNodes = sourceViews.filter((row) => row.resolved);
+    const fidelityBlockedSourceRefs = sourceViews
+      .filter((row) => row.blockedNodeIds?.length)
+      .map((row) => ({
+        owner_id: row.id,
+        fidelity_status: row.fidelityStatus,
+        blocked_node_ids: row.blockedNodeIds,
+        blocked_verification_statuses: row.blockedVerificationStatuses
+      }));
     const linkedQuestionIds = [...new Set(regionRows.flatMap((row) => row?.xiao_question_refs || []))];
     return {
       unit,
@@ -393,7 +414,9 @@ function hydrateUnits(raw) {
       regionRows,
       rawSourceRefs,
       ownerRefs,
+      sourceViews,
       sourceNodes,
+      fidelityBlockedSourceRefs,
       linkedQuestionIds
     };
   });
@@ -416,7 +439,10 @@ function hydrateUnits(raw) {
       sourceNodes: draft.sourceNodes,
       sourceRefCount: draft.rawSourceRefs.length,
       sourceOwnerCount: draft.ownerRefs.length,
-      unresolvedSourceRefs: draft.ownerRefs.filter((id) => !sourceGroupView(id).resolved),
+      fidelityBlockedSourceRefs: draft.fidelityBlockedSourceRefs,
+      unresolvedSourceRefs: draft.sourceViews
+        .filter((row) => !row.resolved && !(row.blockedNodeIds?.length))
+        .map((row) => row.id),
       questions,
       questionRefCount: ownedQuestionIds.length,
       linkedQuestionRefCount: draft.linkedQuestionIds.length,
