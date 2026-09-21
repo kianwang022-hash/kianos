@@ -1,0 +1,69 @@
+{
+  "schema": "kianos.xizong.extension_assets.v1",
+  "status": "CURRENT",
+  "authority": "CHAT_APPROVED_SUBORDINATE",
+  "system_id": "digestive-metabolic-endocrine-tumor",
+  "canonical_id": "B",
+  "selection_policy": "SPARSE_HIGH_VALUE_NOT_EXHAUSTIVE",
+  "completeness": "PARTIAL_BY_DESIGN_EXTENSIBLE",
+  "assets": [
+    {
+      "slot_id": "b-d13-lg02-bleeding-vs-contamination",
+      "owner": {
+        "block_id": "D13",
+        "logic_group_id": "b-d13-lg02"
+      },
+      "asset_type": "STRUCTURED_TABLE",
+      "revision": 1,
+      "title": "腹部损伤：出血轴 vs 污染轴",
+      "task": "先判断当前病例的首要危险更像失血还是腹腔污染；不要被单个器官名带走。",
+      "caption": "由 Current D13 KP08 结构化压缩；保留肝、胰的重叠边界。",
+      "provenance": {
+        "kind": "CHAT_STRUCTURED_FROM_CURRENT",
+        "source_locator": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/消化系统_D13_腹膜感染与腹部损伤_学习阅读版_v1_最终执行版.md#KP08"
+      },
+      "display_policy": {
+        "timing": "LEARNING_MOMENT",
+        "default_state": "EXPANDED"
+      },
+      "payload": {
+        "columns": [
+          {
+            "key": "axis",
+            "label": "判断轴"
+          },
+          {
+            "key": "bleeding",
+            "label": "出血轴｜实质脏器为主"
+          },
+          {
+            "key": "contamination",
+            "label": "污染轴｜空腔脏器为主"
+          }
+        ],
+        "rows": [
+          {
+            "axis": "核心后果",
+            "bleeding": "血容量丢失 → 休克为主",
+            "contamination": "内容物外漏 → 腹膜炎为主"
+          },
+          {
+            "axis": "高价值线索",
+            "bleeding": "Hb↓、BP↓、早期休克、移动性浊音",
+            "contamination": "腹痛、压痛、反跳痛、肌紧张"
+          },
+          {
+            "axis": "典型器官",
+            "bleeding": "脾、肝、胰等实质脏器",
+            "contamination": "胃肠等空腔脏器"
+          },
+          {
+            "axis": "共享/边界",
+            "bleeding": "肠鸣音可减弱或消失；胰腺位于腹膜后，早期腹腔内血液可不多",
+            "contamination": "肠鸣音可减弱或消失；肝损伤可兼有胆汁刺激，胰液刺激也可很强"
+          }
+        ]
+      }
+    }
+  ]
+}
