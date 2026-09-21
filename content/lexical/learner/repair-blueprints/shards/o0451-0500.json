@@ -8,44 +8,6 @@
   "generation_rule": "Blueprints store stable diagnostic intent; concrete instances are generated fresh from latest canonical content + learner evidence.",
   "entries": [
     {
-      "blueprint_id": "repair-blueprint:o0451:behavior:v1",
-      "word_id": "word:behavior",
-      "ordinal": 451,
-      "word": "behavior",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分人的行为举止与机器、材料、化学或系统的运行性能/特性。",
-      "decision_boundary_cn": "person/animal 与 machine/material/chemical/system 主体决定 behavior 的中文分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 behavior 的主体领域分支。",
-      "reconstruction_rule_cn": "换一个人物行为和系统运行语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0452:behind:v1",
-      "word_id": "word:behind",
-      "ordinal": 452,
-      "word": "behind",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分空间在后、进度/时间落后、支持/幕后推动或原因。",
-      "decision_boundary_cn": "physical location、schedule/progress、support/cause 三类语境决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 behind 的空间/进度/支持因果边界。",
-      "reconstruction_rule_cn": "换一个位置、项目进度和幕后推动者语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
       "blueprint_id": "repair-blueprint:o0456:bell:v1",
       "word_id": "word:bell",
       "ordinal": 456,
@@ -62,25 +24,6 @@
       "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
       "minimum_repair_cn": "只修 ring a bell 的 literal vs idiomatic 边界。",
       "reconstruction_rule_cn": "换一个真实铃声场景和模糊记忆场景。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0468:benign:v1",
-      "word_id": "word:benign",
-      "ordinal": 468,
-      "word": "benign",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分医学良性、环境/影响温和无害、人物/神情慈祥。",
-      "decision_boundary_cn": "tumor/condition、climate/influence、person/smile 三类对象决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 benign 的领域分支。",
-      "reconstruction_rule_cn": "换一个肿瘤、气候或人物神情语境。",
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
@@ -103,71 +46,14 @@
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
-      "blueprint_id": "repair-blueprint:o0472:bet:v1",
-      "word_id": "word:bet",
-      "ordinal": 472,
-      "word": "bet",
-      "target": {
-        "target_kind": "construction",
-        "target_id": "construction:bet:baseline-v2-i-bet",
-        "target_locator": "record.constructions[0]"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分 literal wager 与 I bet (that)... 的确信/推测 stance 用法。",
-      "decision_boundary_cn": "money/outcome 与 proposition/expectation 两类语境决定是否为真实赌博。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 bet 的 literal vs stance 边界。",
-      "reconstruction_rule_cn": "换一个下注场景和强烈判断语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0473:betray:v1",
-      "word_id": "word:betray",
-      "ordinal": 473,
-      "word": "betray",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分背叛/出卖、泄露秘密或情绪、辜负信任。",
-      "decision_boundary_cn": "person/country、secret/feelings、trust/principles 三类对象决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 betray 的对象驱动分支。",
-      "reconstruction_rule_cn": "换一个忠诚、信息泄露和信任语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0481:bible:v1",
-      "word_id": "word:bible",
-      "ordinal": 481,
-      "word": "bible",
-      "target": {
-        "target_kind": "form_identity",
-        "target_id": null,
-        "target_locator": "record.form_identity"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分 Bible 基督教经典与 lowercase bible 某领域权威指南。",
-      "decision_boundary_cn": "capitalization + religious vs field-authority context 共同决定 lexeme。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 Bible/bible 的 case-conditioned identity。",
-      "reconstruction_rule_cn": "换一个宗教阅读和行业权威书籍语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
       "blueprint_id": "repair-blueprint:o0486:bill:v1",
       "word_id": "word:bill",
       "ordinal": 486,
       "word": "bill",
       "target": {
-        "target_kind": "construction",
-        "target_id": "construction:bill:baseline-v2-as",
-        "target_locator": "record.constructions[0]"
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
       },
       "demand": "discrimination",
       "diagnostic_intent_cn": "区分 bill sb for sth=开账单 与 bill sb/sth as...=宣传/描述为。",
@@ -184,13 +70,13 @@
       "ordinal": 480,
       "word": "bias",
       "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
+        "target_kind": "relation",
+        "target_id": "relation:horizontal:516998ebe73cc603b663",
+        "target_locator": "relation_refs[0]"
       },
       "demand": "discrimination",
-      "diagnostic_intent_cn": "区分偏见/偏向、使产生偏差，以及斜纹/偏斜的技术或物理义。",
-      "decision_boundary_cn": "judgment/data、causative verb、fabric/geometry context 决定分支。",
+      "diagnostic_intent_cn": "稳定区分 bias 的广义倾向/偏斜 与 prejudice 的预断、通常不公平/负面的态度。",
+      "decision_boundary_cn": "一般倾向/数据偏差 vs 对人或群体的预断负面态度。",
       "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
       "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
       "minimum_repair_cn": "只修 bias 的领域/词性分支。",
@@ -204,12 +90,12 @@
       "word": "bind",
       "target": {
         "target_kind": "construction",
-        "target_id": "construction:6b1f74cd65277d58c12e",
+        "target_id": "construction:bind:final-standard-bound-to-by",
         "target_locator": "record.constructions[0]"
       },
       "demand": "discrimination",
-      "diagnostic_intent_cn": "区分 be bound to do=很可能/注定 与 be bound by sth=受约束。",
-      "decision_boundary_cn": "to-infinitive 与 by + rule/contract 两类结构决定含义。",
+      "diagnostic_intent_cn": "区分 be bound to do 的可能/必然与特定义务用法，以及 be bound by sth 的规则/协议约束。",
+      "decision_boundary_cn": "to-infinitive 需结合语境判断 inevitability vs obligation；by + rule/agreement/tie 表受约束。",
       "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
       "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
       "minimum_repair_cn": "只修 bound to vs bound by 边界。",
@@ -222,9 +108,9 @@
       "ordinal": 475,
       "word": "between",
       "target": {
-        "target_kind": "construction",
-        "target_id": "construction:36b72250e6bcc5360e11",
-        "target_locator": "record.constructions[0]"
+        "target_kind": "relation",
+        "target_id": "relation:final-standard:among-between:selection_boundary",
+        "target_locator": "relation_refs[0]"
       },
       "demand": "discrimination",
       "diagnostic_intent_cn": "区分 between 的明确个体关系与 among 的群体分布关系，并避免“between只能两个”的伪规则。",
@@ -233,25 +119,6 @@
       "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
       "minimum_repair_cn": "只修 between/among 的结构语义边界。",
       "reconstruction_rule_cn": "换一个三方协议和群体分布语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0495:biscuit:v1",
-      "word_id": "word:biscuit",
-      "ordinal": 495,
-      "word": "biscuit",
-      "target": {
-        "target_kind": "form_identity",
-        "target_id": null,
-        "target_locator": "record.form_identity"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分 BrE biscuit=饼干/薄脆类 与 AmE biscuit=松软小面包。",
-      "decision_boundary_cn": "region + food description 决定同形词的默认 referent。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 biscuit 的 regional semantic identity。",
-      "reconstruction_rule_cn": "换一个英式茶点和美式早餐语境。",
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
@@ -271,44 +138,6 @@
       "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
       "minimum_repair_cn": "只修 bit 的 noun vs inflected-verb identity。",
       "reconstruction_rule_cn": "换一个少量、计算机或过去咬伤语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0498:bitter:v1",
-      "word_id": "word:bitter",
-      "ordinal": 498,
-      "word": "bitter",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分味觉苦、经历痛苦难接受、因怨恨而愤愤不平。",
-      "decision_boundary_cn": "taste/food、disappointment/truth/defeat、person/enemy 三类对象决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 bitter 的 taste vs painful vs resentful 边界。",
-      "reconstruction_rule_cn": "换一个味觉、失败和人际怨恨语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0500:black:v1",
-      "word_id": "word:black",
-      "ordinal": 500,
-      "word": "black",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分颜色 black 与 black market/economy 等复合词中的非法、秘密或被禁止义。",
-      "decision_boundary_cn": "plain color object 与 institutional/economic compound 决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 black 的 color vs compound familiar-new boundary。",
-      "reconstruction_rule_cn": "换一个颜色描述和非法经济活动语境。",
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
@@ -388,25 +217,6 @@
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
-      "blueprint_id": "repair-blueprint:o0477:beware:v1",
-      "word_id": "word:beware",
-      "ordinal": 477,
-      "word": "beware",
-      "target": {
-        "target_kind": "construction",
-        "target_id": "construction:beware:baseline-v2-of",
-        "target_locator": "record.constructions[0]"
-      },
-      "demand": "production",
-      "diagnostic_intent_cn": "稳定产出 beware of sb/sth。",
-      "decision_boundary_cn": "与 be aware of / be careful of 等近邻结构形成合理干扰。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 beware of 的结构。",
-      "reconstruction_rule_cn": "换一个骗局、危险动物或风险提示语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
       "blueprint_id": "repair-blueprint:o0484:bid:v1",
       "word_id": "word:bid",
       "ordinal": 484,
@@ -423,25 +233,6 @@
       "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
       "minimum_repair_cn": "只修 bid 的结构选择。",
       "reconstruction_rule_cn": "换一个拍卖、权力争取和正式命令语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0493:birth:v1",
-      "word_id": "word:birth",
-      "ordinal": 493,
-      "word": "birth",
-      "target": {
-        "target_kind": "construction",
-        "target_id": "construction:birth:baseline-v2-give-birth-to",
-        "target_locator": "record.constructions[0]"
-      },
-      "demand": "production",
-      "diagnostic_intent_cn": "稳定产出 give birth to sb/sth，兼顾 literal 生育与 figurative 产生/孕育。",
-      "decision_boundary_cn": "child/person 与 idea/institution/result 两类宾语决定 literal vs figurative。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 give birth to 的结构。",
-      "reconstruction_rule_cn": "换一个分娩和思想/制度诞生语境。",
       "concrete_instance_policy": "GENERATE_FRESH"
     }
   ]

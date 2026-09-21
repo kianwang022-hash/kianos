@@ -84,10 +84,93 @@
         "verification_status": "verified",
         "writing_safe": false
       }
+    },
+    {
+      "source_word_id": "word:prejudice",
+      "source_ordinal": 3741,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "bias = inclination/skew that may be conscious or unconscious and need not target a social group; prejudice = pre-judged, usually unfair/negative attitude, often toward a person/group. They overlap but are not exact synonyms."
+        ],
+        "codex_reviewed": false,
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "horizontal:horizontal:104",
+            "evidence_status": "source_checked",
+            "source_locator": "horizontal:104",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
+          }
+        ],
+        "learning_note": "bias = inclination/skew that may be conscious or unconscious and need not target a social group; prejudice = pre-judged, usually unfair/negative attitude, often toward a person/group. They overlap but are not exact synonyms.",
+        "members": [
+          {
+            "branch_id": null,
+            "branch_label": null,
+            "headword": "bias",
+            "participant_role": "CANONICAL_MEMBER",
+            "relevant_sense_ids": [
+              "sense:bias:648c335993925883",
+              "sense:bias:c4dbdfbc84d5530c"
+            ],
+            "word_id": "word:bias"
+          }
+        ],
+        "priority": "B",
+        "publication_status": "publishable",
+        "relation_id": "relation:horizontal:516998ebe73cc603b663",
+        "relation_note": "bias = inclination/skew that may be conscious or unconscious and need not target a social group; prejudice = pre-judged, usually unfair/negative attitude, often toward a person/group. They overlap but are not exact synonyms.",
+        "relation_scope": "lexeme",
+        "relation_type": "bias_prejudice_contrast",
+        "sense_ids": [
+          "sense:bias:648c335993925883",
+          "sense:bias:c4dbdfbc84d5530c"
+        ],
+        "shared_meaning": "bias = inclination/skew that may be conscious or unconscious and need not target a social group; prejudice = pre-judged, usually unfair/negative attitude, often toward a person/group. They overlap but are not exact synonyms.",
+        "source_evidence_objects": [
+          {
+            "canonical_members": [
+              {
+                "branch_id": null,
+                "branch_label": null,
+                "headword": "bias",
+                "participant_role": "CANONICAL_MEMBER",
+                "relevant_sense_ids": [
+                  "sense:bias:648c335993925883",
+                  "sense:bias:c4dbdfbc84d5530c"
+                ],
+                "word_id": "word:bias"
+              }
+            ],
+            "learner_note": "bias = inclination/skew that may be conscious or unconscious and need not target a social group; prejudice = pre-judged, usually unfair/negative attitude, often toward a person/group. They overlap but are not exact synonyms.",
+            "relation_targets": [
+              "prejudice"
+            ],
+            "relation_type": "bias_prejudice_contrast"
+          }
+        ],
+        "source_expression": "bias",
+        "source_sense_id": "sense:prejudice:89269912e0e15942",
+        "target_expression": "prejudice",
+        "target_sense_id": "sense:bias:648c335993925883",
+        "target_sense_ids": [],
+        "target_word": "bias",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false,
+        "boundary": "prejudice is a pre-judged, usually unfair or negative attitude, often toward a person or group; bias is the broader inclination or skew and can be conscious or unconscious."
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 1,
+    "last_materialization": "BF04 reciprocal closure"
   }
 }

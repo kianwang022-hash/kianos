@@ -89,7 +89,7 @@
     ],
     "tier": "A",
     "validator_version": "deep_vocabulary_target_gate_2026-08-13_v1",
-    "verification_confidence": 1.0,
+    "verification_confidence": 1,
     "verification_decision": "codex_promote",
     "verification_status": "verified",
     "why": "",
@@ -149,10 +149,63 @@
         "verification_status": "verified",
         "writing_safe": true
       }
+    },
+    {
+      "source_word_id": "word:think",
+      "source_ordinal": 4986,
+      "field": "semantic_neighbors",
+      "index": 1,
+      "payload": {
+        "boundary": "think can report an opinion or judgment with weaker commitment; believe more strongly presents something as accepted as true or held as belief.",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "believe较高",
+          "collocation": "believe claim/think likely",
+          "core_meaning": "认为/相信",
+          "exam_trap": "确信度扩大",
+          "register": "均通用",
+          "semantic_prosody": "中性",
+          "strength": "believe更强",
+          "syntax": "均可接that从句",
+          "writing_safety": "按承诺强度选"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:00691086-v",
+            "evidence_status": "source_checked",
+            "source_locator": "00691086-v",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:believe:6370fe95b6b45832",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": "judge or regard; look upon; judge",
+        "source_sense_id": "sense:think:5f219d551ca75ebb",
+        "target_sense_id": "sense:believe:a468afc35b53584a",
+        "target_word": "believe",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": true
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 1,
+    "last_materialization": "BF04 reciprocal closure"
   }
 }
