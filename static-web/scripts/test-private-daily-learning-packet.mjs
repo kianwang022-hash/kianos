@@ -262,7 +262,9 @@ const homePacketIndex = systems.flatMap((system) => system.blocks.map((blockRef)
       }))
     };
   }));
+const englishCatalog = englishSession.steps.map(({task, object_id, source_hash}) => ({task, object_id, source_hash}));
 const home=buildHomeDailyLearningPacket({
+  englishCatalog,
   storage, day, now, base:'/',
   xizongPacketIndex:homePacketIndex,
   xizongForecastQuestionScope:buildXizongForecastQuestionScope(listCurrentXizongSystemIdentities()),
@@ -270,7 +272,7 @@ const home=buildHomeDailyLearningPacket({
   politicsCatalog:politics,
   politicsMemoryCatalog:politicsMemory
 });
-const result=buildDailyLearningPacketFromPrivateCheckpoint(checkpoint,{now});
+const result=buildDailyLearningPacketFromPrivateCheckpoint(checkpoint,{now,englishCatalog});
 const packet=result.packet;
 
 assert.equal(packet.schema,'kianos.daily-learning-packet.v1');
@@ -347,9 +349,9 @@ isolatedCheckpoint.payload.subjects.politics={
   schema:'kianos.politics.private-payload.v1',
   entries:{'not-a-politics-key':JSON.stringify({bad:true})}
 };
-const isolated=buildDailyLearningPacketFromPrivateCheckpoint(isolatedCheckpoint,{now});
+const isolated=buildDailyLearningPacketFromPrivateCheckpoint(isolatedCheckpoint,{now,englishCatalog});
 assert.equal(isolated.packet.subjects.xizong.evidence.schema,'kianos.xizong.study_packet.v3');
-assert.equal(isolated.packet.subjects.english.evidence.schema,'kianos.english.evidence.v1');
+assert.equal(isolated.packet.subjects.english.evidence,null, 'corrupt coupled Lexical makes English unknown while Xizong remains usable');
 assert.equal(isolated.packet.subjects.politics.evidence,null,
   'bad Politics checkpoint must degrade Politics to unknown without blocking other subjects');
 assert.ok(isolated.warnings.some(row=>row.startsWith('checkpoint:politics:')));
@@ -364,3 +366,8 @@ assert.equal(isolated.packet.schedule,null);
 for (const row of Object.values(isolated.packet.subjects)) assert.equal(row.plan,null);
 
 console.log('PASS private checkpoint -> same-input Home native Packet: canonical scopes + Lexical basis + day-isolated time + healthy evidence with corrupt siblings; Node producer proof, not browser/Mac acceptance');
+
+// This is the existing CI entrypoint. Keep the workflow unchanged while running
+// the checkpoint and native HTTP regression alongside its packet proof.
+await import('./test-private-learner-checkpoint.mjs');
+await import('./test-system-maturity-regression.mjs');

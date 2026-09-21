@@ -1,3 +1,4 @@
+import { englishSessionCatalog } from '../src/lib/englishSessionCatalog.mjs';
 import { validatePrivateLearnerCheckpoint } from './privateLearnerStore.mjs';
 import { restoreSharedControlCheckpoint } from '../src/lib/sharedControlCheckpoint.mjs';
 import { restorePrivateSubjectCheckpoints } from '../src/lib/privateSubjectCheckpoints.mjs';
@@ -141,28 +142,26 @@ function buildPlanReadModel(storage, day, now) {
 
 export function buildDailyLearningPacketFromPrivateCheckpoint(input, {
   now = null,
-  base = '/'
+  base = '/',
+  englishCatalog = englishSessionCatalog()
 } = {}) {
   const checkpoint = validatePrivateLearnerCheckpoint(input);
   const timestamp = now == null ? Date.parse(checkpoint.generated_at) : Number(now);
   if (!Number.isFinite(timestamp)) throw new Error('DAILY_PACKET_PRIVATE_NOW_INVALID');
 
   const storage = new MemoryStorage();
-  const sharedRestore = restoreSharedControlCheckpoint(storage, checkpoint.payload.shared, {
-    expectedDay: checkpoint.study_day
-  });
-  const restoreWarnings = [...(sharedRestore.warnings || [])];
-  for (const subject of ['xizong', 'english', 'politics', 'lexical']) {
-    const payload = checkpoint.payload.subjects?.[subject];
-    if (payload == null) continue;
-    try {
-      restorePrivateSubjectCheckpoints(storage, { [subject]: payload }, {
-        onlyIfEmpty: true
-      });
-    } catch (error) {
-      restoreWarnings.push(
-        'checkpoint:' + subject + ':' + String(error?.message || error)
-      );
+  const restoreWarnings = [...(checkpoint.payload.shared.capture_warnings || [])];
+  try {
+    const sharedRestore = restoreSharedControlCheckpoint(storage, checkpoint.payload.shared, { expectedDay: checkpoint.study_day });
+    restoreWarnings.push(...(sharedRestore.warnings || []));
+  } catch (error) { restoreWarnings.push('checkpoint:shared:' + String(error.message || error)); }
+  const restored = restorePrivateSubjectCheckpoints(storage, checkpoint.payload.subjects || {}, { onlyIfEmpty: true });
+  const failedSubjects = restoreWarnings.filter(value => value.startsWith('checkpoint:'))
+    .flatMap(value => value.split(':')[1].split('+')).map(subject => subject === 'lexical' ? 'english' : subject);
+  for (const [subject, row] of Object.entries(restored)) {
+    if (row.status === 'blocked') {
+      failedSubjects.push(subject === 'lexical' ? 'english' : subject);
+      restoreWarnings.push('checkpoint:' + subject + ':' + (row.reason || 'native recovery ambiguous'));
     }
   }
 
@@ -173,6 +172,7 @@ export function buildDailyLearningPacketFromPrivateCheckpoint(input, {
     now: timestamp,
     plan,
     ...xizongPacketInputs(),
+    englishCatalog,
     politicsCatalog: politicsCatalog(),
     politicsMemoryCatalog: politicsMemoryCatalog(),
     base
@@ -190,6 +190,15 @@ export function buildDailyLearningPacketFromPrivateCheckpoint(input, {
     coverage: result.coverage,
     warnings: [...new Set([...(result.packet.warnings || []), ...restoreWarnings, ...result.warnings])]
   };
+  if (failedSubjects.includes('shared')) {
+    packet.total_minutes = null;
+    packet.timer = { running: null, active_subject: null, error: 'SHARED_CHECKPOINT_UNAVAILABLE' };
+    for (const row of Object.values(packet.subjects)) row.time = null;
+  }
+  for (const subject of failedSubjects) {
+    if (packet.subjects[subject]) packet.subjects[subject].evidence = null;
+    packet.coverage[subject] = 'unavailable';
+  }
   if (restoreWarnings.some(warning => warning.startsWith('checkpoint:'))) {
     // A failed subject reconstruction is UNKNOWN, not an empty evidence basis.
     packet.learner_evidence_basis = null;

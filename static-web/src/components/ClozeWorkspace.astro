@@ -10,7 +10,7 @@ function optionEntries(options) {
 }
 ---
 <section class="clozeRuntime" data-objective-root data-english-source-hash={item.sourceHashes?.renderedObject} data-objective-task="cloze" data-objective-object={item.objectId} data-objective-storage-key={storageKey} data-objective-answers-ready="false">
-  <script type="application/json" data-english-task-snapshot set:html={JSON.stringify({material:item.material,context:item.context,questions:item.questions.map(({id,ordinal,prompt,options})=>({id,ordinal,prompt,options}))}).replace(/</g, "\\u003c")}></script>
+  <script type="application/json" data-english-task-snapshot set:html={JSON.stringify({evidence:{source_kind:item.sourceKind||'official',evidence_role:item.context?.evidence_role||null,semantic_source_hash:item.sourceHashes?.semanticSource||item.sourceHashes?.renderedObject||null},material:item.material,context:item.context,questions:item.questions.map(({id,ordinal,prompt,options})=>({id,ordinal,prompt,options}))}).replace(/</g, "\\u003c")}></script>
   <header class="clozeRuntimeHeader">
     <div>
       <span>Cloze · Slot Constraint → Best Fit</span>

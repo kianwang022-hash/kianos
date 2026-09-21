@@ -60,6 +60,7 @@ function buildStep(task, row, index, maxPoints, extra = {}) {
   const ids=(object.questions||object.prompts||[]).map(q=>String(q.id||q.question_id));
   return {
     source_hash: object.sourceHash || object.sourceHashes?.renderedObject || null,
+    semantic_source_hash: object.semanticSourceHash || object.sourceHashes?.semanticSource || object.sourceHash || object.sourceHashes?.renderedObject || null,
     question_ids: ids,
     task_snapshot: snapshot,
     step_id: `${task}:${row.id}`,

@@ -42,10 +42,37 @@ function latestAttemptByQuestion(history, phase = null) {
   return latest;
 }
 
+function semanticRevisionsFromContext(context = {}) {
+  if (isObject(context.questionSemanticRevisions)) return { ...context.questionSemanticRevisions };
+  return Object.fromEntries((Array.isArray(context.questions) ? context.questions : [])
+    .filter((question) => question?.questionId && question?.semanticRevision)
+    .map((question) => [String(question.questionId), String(question.semanticRevision)]));
+}
+
+export function isXizongQuestionAttemptCurrent(event, revisions = {}) {
+  const id = questionIdOf(event);
+  if (!/^xizong-official-\d{4}-n\d{3}$/.test(id)) return true;
+  const current = String(revisions?.[id] || '');
+  return Boolean(current && String(event?.question_semantic_revision || '') === current
+    && event?.current_revision_valid !== false);
+}
+
+function currentAttemptHistory(state) {
+  const revisions = isObject(state?.questionSemanticRevisions) ? state.questionSemanticRevisions : {};
+  if (!Object.keys(revisions).length) return Array.isArray(state?.attemptHistory) ? state.attemptHistory : [];
+  return (Array.isArray(state?.attemptHistory) ? state.attemptHistory : []).filter((event) => {
+    const current = String(revisions[questionIdOf(event)] || '');
+    return current
+      && String(event?.question_semantic_revision || '') === current
+      && event?.current_revision_valid !== false;
+  });
+}
+
 export function deriveXizongSecondPassQuestionIds(input, questions, holdoutYears = []) {
   const state = isObject(input) ? input : {};
-  const firstPassLatest = latestAttemptByQuestion(state.attemptHistory, 'FIRST_PASS');
-  const latest = latestAttemptByQuestion(state.attemptHistory);
+  const history = currentAttemptHistory(state);
+  const firstPassLatest = latestAttemptByQuestion(history, 'FIRST_PASS');
+  const latest = latestAttemptByQuestion(history);
   return eligibleQuestions(questions, holdoutYears)
     .map((question) => String(question.questionId))
     .filter((questionId) => {
@@ -65,7 +92,7 @@ export function deriveXizongMarkedQuestionIds(input, questions, holdoutYears = [
 
 export function deriveXizongLateReviewQuestionIds(input, questions, holdoutYears = []) {
   const state = isObject(input) ? input : {};
-  const latest = latestAttemptByQuestion(state.attemptHistory);
+  const latest = latestAttemptByQuestion(currentAttemptHistory(state));
   return eligibleQuestions(questions, holdoutYears)
     .map((question) => String(question.questionId))
     .filter((questionId) => ['wrong', 'uncertain'].includes(String(latest.get(questionId)?.status || '')));
@@ -112,6 +139,7 @@ function attemptEvent({
   holdoutYears,
   history,
   evidenceOrigin,
+  bindSemanticRevision = true,
   submittedAt,
   makeId
 }) {
@@ -151,6 +179,8 @@ function attemptEvent({
     year: question?.year ?? null,
     number: question?.number ?? null,
     question_type: question?.questionType || '',
+    question_semantic_revision: bindSemanticRevision ? String(question?.semanticRevision || '') : '',
+    current_revision_valid: bindSemanticRevision ? Boolean(question?.semanticRevision) : false,
     result_visibility: ['immediate', 'hidden'].includes(String(context?.resultVisibility || ''))
       ? String(context.resultVisibility)
       : 'immediate',
@@ -168,6 +198,7 @@ export function ensureXizongQuestionSweepState(input, context = {}, runtime = {}
   const state = isObject(input) ? { ...input } : {};
   state.results = isObject(state.results) ? { ...state.results } : {};
   state.marks = isObject(state.marks) ? { ...state.marks } : {};
+  if (isObject(state.paperDraftAnswers)) state.paperDraftAnswers = { ...state.paperDraftAnswers };
   state.attemptHistory = Array.isArray(state.attemptHistory) ? [...state.attemptHistory] : [];
 
   const validRound = isObject(state.round)
@@ -217,6 +248,7 @@ export function ensureXizongQuestionSweepState(input, context = {}, runtime = {}
         holdoutYears: context.holdoutYears,
         history: state.attemptHistory,
         evidenceOrigin: 'BOOTSTRAP_EXISTING_RESULT',
+        bindSemanticRevision: false,
         submittedAt: String(result.updatedAt || now),
         makeId
       });
@@ -225,10 +257,53 @@ export function ensureXizongQuestionSweepState(input, context = {}, runtime = {}
         ...result,
         attemptId: event.attempt_id,
         roundId: state.round.id,
-        studyPhase: state.round.studyPhase
+        studyPhase: state.round.studyPhase,
+        questionSemanticRevision: ''
       };
     }
     state.attemptHistoryBootstrappedAt = now;
+  }
+
+  const currentRevisions = semanticRevisionsFromContext(context);
+  if (Object.keys(currentRevisions).length) {
+    const previousRevisions = isObject(state.questionSemanticRevisions) ? state.questionSemanticRevisions : {};
+    const invalidatedIds = Object.keys(currentRevisions).filter((questionId) => {
+      const result = state.results[questionId];
+      const draft = state.paperDraftAnswers?.[questionId];
+      const bound = String(result?.questionSemanticRevision || previousRevisions[questionId] || '');
+      return Boolean(result || draft) && (!bound || bound !== String(currentRevisions[questionId]));
+    });
+    const sealRevisions = state.paperSeal?.evidenceContext?.questionSemanticRevisions || {};
+    const sealStale = isObject(state.paperSeal) && Object.entries(currentRevisions).some(([id, revision]) => !sealRevisions[id] || sealRevisions[id] !== revision);
+    if (invalidatedIds.length || sealStale) {
+      state.questionRevisionArchive = Array.isArray(state.questionRevisionArchive)
+        ? [...state.questionRevisionArchive]
+        : [];
+      for (const questionId of invalidatedIds) {
+        state.questionRevisionArchive.push({
+          questionId,
+          invalidatedAt: now,
+          previousSemanticRevision: String(state.results?.[questionId]?.questionSemanticRevision || previousRevisions[questionId] || ''),
+          currentSemanticRevision: String(currentRevisions[questionId]),
+          result: isObject(state.results?.[questionId]) ? { ...state.results[questionId] } : null,
+          paperDraftAnswer: isObject(state.paperDraftAnswers?.[questionId]) ? { ...state.paperDraftAnswers[questionId] } : null
+        });
+        delete state.results[questionId];
+        if (isObject(state.paperDraftAnswers)) delete state.paperDraftAnswers[questionId];
+      }
+      if (isObject(state.paperSeal)) {
+        state.paperSealHistory = Array.isArray(state.paperSealHistory) ? [...state.paperSealHistory] : [];
+        state.paperSealHistory.push({
+          ...state.paperSeal,
+          currentRevisionValid: false,
+          invalidatedAt: now,
+          invalidatedQuestionIds: invalidatedIds
+        });
+        delete state.paperSeal;
+      }
+    }
+    state.questionSemanticRevisions = currentRevisions;
+    state.questionSemanticHash = String(context?.questionSemanticHash || '');
   }
 
   return state;
@@ -275,7 +350,8 @@ export function recordXizongQuestionAttempt(input, payload, runtime = {}) {
         ...result,
         attemptId: event.attempt_id,
         roundId: state.round.id,
-        studyPhase: state.round.studyPhase
+        studyPhase: state.round.studyPhase,
+        questionSemanticRevision: String(question?.semanticRevision || '')
       }
     },
     attemptHistory: [...state.attemptHistory, event]
@@ -287,6 +363,7 @@ export function setXizongQuestionMarked(input, questionId, marked = true) {
   if (!id) throw new Error('XIZONG_QUESTION_MARK_ID_MISSING');
   const state = isObject(input) ? { ...input } : {};
   state.marks = isObject(state.marks) ? { ...state.marks } : {};
+  if (isObject(state.paperDraftAnswers)) state.paperDraftAnswers = { ...state.paperDraftAnswers };
   if (marked) state.marks[id] = true;
   else delete state.marks[id];
   return state;

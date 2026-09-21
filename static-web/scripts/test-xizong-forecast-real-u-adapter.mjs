@@ -143,6 +143,7 @@ const official=sweep.questions[0];
 const officialEvent={
   type:'QUESTION_ATTEMPT',
   question_id:official.questionId,
+  question_semantic_revision:official.semanticRevision,
   question_source:'OFFICIAL_EXAM',
   scoring_role:'OFFICIAL_EVIDENCE',
   attempt_index:1,

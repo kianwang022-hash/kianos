@@ -10,6 +10,7 @@ import {
 } from './englishSessionControl.mjs';
 import {
   EXAM_CHAT_PLAN_KEY,
+  buildExamChatPlanBasis,
   validateExamChatPlanAgainstStorage,
   writeExamChatPlan
 } from './examChatPlan.mjs';
@@ -136,7 +137,7 @@ async function saveReceipt(receipt){
     const body=await response.json();
     const saved=validateControlReceipt(body?.receipt);
     return body?.status==='saved'
-      && ['schema','command_id','command_hash','status','observed_at','error']
+      && ['schema','command_id','command_hash','command_generated_at','status','observed_at','error']
         .every(key=>saved[key]===receipt[key]);
   }catch{return false;}
 }
@@ -147,7 +148,12 @@ function appliedReceipt(storage,command){
   let receipt;
   try{receipt=validateControlReceipt(JSON.parse(raw));}
   catch{throw new Error('KIANOS_CONTROL_LOCAL_RECEIPT_INVALID');}
-  if(receipt.command_id!==command.command_id)return null;
+  if(receipt.command_id!==command.command_id){
+    if(Date.parse(command.generated_at)<=Date.parse(receipt.command_generated_at || receipt.observed_at)){
+      throw new Error('KIANOS_CONTROL_OLDER_COMMAND');
+    }
+    return null;
+  }
   if(receipt.command_hash!==command.command_hash){
     throw new Error('KIANOS_CONTROL_COMMAND_ID_CONFLICT');
   }
@@ -207,13 +213,19 @@ export async function applyPrivateControlCommand(storage,input,{day=localDay(),n
       && Date.parse(prior.generated_at)>Date.parse(planOp.payload?.generated_at||0)){
       throw new Error('KIANOS_CONTROL_OLDER_EXAM_PLAN');
     }
-    writeExamChatPlan(shadow,planOp.payload,day);
+    // Validate the original basis before staging; then bind the installed plan
+    // to this command's own native writes. Later evidence still makes it stale.
+    writeExamChatPlan(shadow,{
+      ...planOp.payload,
+      learner_evidence_basis:buildExamChatPlanBasis(shadow,day)
+    },day);
   }
 
   const receipt={
     schema:CONTROL_RECEIPT_SCHEMA,
     command_id:command.command_id,
     command_hash:command.command_hash,
+    command_generated_at:command.generated_at,
     status:'APPLIED',
     observed_at:new Date(now).toISOString(),
     error:null

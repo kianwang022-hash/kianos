@@ -27,7 +27,7 @@ async function runtime({fetchImpl,writeSession,validatePlan}={}){
   const modules={
     './privateControlCommand.mjs':{CONTROL_LOCAL_RECEIPT_KEY:receiptKey,CONTROL_RECEIPT_SCHEMA:'kianos.control-receipt.v1',validateBrowserControlCommand:clone,validateControlReceipt:value=>{if(value?.schema!=='kianos.control-receipt.v1')throw new Error('INVALID_RECEIPT');return clone(value);}},
     './englishSessionControl.mjs':{ENGLISH_SESSION_KEY:sessionKey,writeEnglishSessionInstruction:(storage,value)=>{calls++;if(writeSession)writeSession(storage,value);else storage.setItem(sessionKey,JSON.stringify(value));}},
-    './examChatPlan.mjs':{EXAM_CHAT_PLAN_KEY:'kianos-exam-chat-plan-v1',validateExamChatPlanAgainstStorage:validatePlan||noop,writeExamChatPlan:noop},
+    './examChatPlan.mjs':{EXAM_CHAT_PLAN_KEY:'kianos-exam-chat-plan-v1',validateExamChatPlanAgainstStorage:validatePlan||noop,writeExamChatPlan:noop,buildExamChatPlanBasis:()=>({})},
     './xizongSessionInstruction.mjs':{installAndActivateXizongSessionInstruction:noop},
     './xizongPendingChatReturn.mjs':{stageXizongChatReturn:noop},
     './xizongSystemWuReturn.mjs':{stageXizongSystemWuReturn:noop},
@@ -124,7 +124,8 @@ console.log(JSON.stringify({status:'PASS',checks:count,proof:'shared orchestrati
   await native.evaluate();
   const emptyPayload=()=>({entries:{}});
   const doubles={
-    './englishLearnerEvidence.mjs':{englishCheckpointKeyAllowed:()=>false,exportEnglishCheckpoint:emptyPayload},
+    './lexicalEvidence.mjs':{LEXICAL_LEDGER_STORAGE_KEY:'kianos-lexical-evidence-ledger-v2',assertLexicalLedgerReadable:value=>value},
+    './englishLearnerEvidence.mjs':{englishCheckpointKeyAllowed:()=>false,exportEnglishCheckpoint:emptyPayload,inspectEnglishCheckpoint:()=>({status:'absent'}),restoreEnglishCheckpoint:()=>{}},
     './politicsChatReturn.mjs':{exportPoliticsCheckpoint:emptyPayload,politicsCheckpointKeyAllowed:()=>false,validatePoliticsPrivatePayload:()=>[]}
   };
   const shared=new vm.SourceTextModule(sharedSource,{context});
@@ -160,7 +161,7 @@ console.log(JSON.stringify({status:'PASS',checks:count,proof:'shared orchestrati
   const dependencies={
     './examOrchestrator.mjs':{EXAM_PROFILE_KEY:'fixture-profile',validateExamProfile:value=>value},
     './studyTimer.mjs':{readStudyTimerLedger:()=>({sessions:[]}),STUDY_TIMER_LEDGER_KEY:'fixture-timer-ledger',STUDY_TIMER_STATE_KEY:'fixture-timer-state',STUDY_TIMER_SCHEMA:'kianos.study-timer.v2'},
-    './lexicalEvidence.mjs':{LEXICAL_LEDGER_STORAGE_KEY:'fixture-lexical-ledger'},
+    './lexicalEvidence.mjs':{LEXICAL_LEDGER_STORAGE_KEY:'fixture-lexical-ledger',assertLexicalLedgerReadable:value=>value},
     './lexicalSettings.mjs':{LEXICAL_INTAKE_STORAGE_KEY:'fixture-lexical-intake',LEXICAL_ROUTING_STORAGE_KEY:'fixture-lexical-routing'},
     './englishLearnerEvidence.mjs':{englishCheckpointKeyAllowed:k=>k===key},
     './politicsChatReturn.mjs':{politicsCheckpointKeyAllowed:()=>false},

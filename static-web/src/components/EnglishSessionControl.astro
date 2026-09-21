@@ -75,12 +75,14 @@ const catalogPayload=JSON.stringify(englishSessionCatalog()).replace(/</g,"\\u00
     };
 
     const renderStatus = () => {
-      const state = readEnglishSessionInstruction(localStorage, localDay());
+      const state = readEnglishSessionInstruction(localStorage, localDay(), {catalog});
       if (state.status === 'ready' && state.instruction) {
         const step = state.instruction.steps[state.instruction.current_step];
         setStatus('已载入 · ' + (step.label || taskLabels[step.task] || '英语任务') + ' · ' + (state.instruction.current_step + 1) + '/' + state.instruction.steps.length);
       } else if (state.status === 'stale') {
         setStatus('昨天的学习安排已过期；今天不会自动沿用。', true);
+      } else if (['stale_source','source_unverified'].includes(state.status)) {
+        setStatus('材料版本需要重新确认；旧安排不会自动用于新版，原作答仍然保留。', true);
       } else if (state.status === 'invalid') {
         setStatus('这份学习安排无法读取；网页不会自行猜测下一步。', true);
       } else if (state.status === 'unavailable') {

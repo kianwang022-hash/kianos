@@ -276,38 +276,33 @@ Normal trigger / executor routing:
 
 ```text
 lightweight LaunchAgent watcher (default every 5 minutes; no model)
-→ query only open marked `Codex execution:` Issues + open PR heads
-→ no actionable task = exit in seconds
-→ actionable repo/GitHub task + configured Codex Cloud env = submit one visible Codex Cloud task
-→ Mac-local / localhost / LaunchAgent / private-local-state task = one local Codex executor run
-→ Cloud unavailable/unconfigured = local fallback rather than Kian becoming the relay
-→ execute at most one Issue
-→ PR / BLOCKED receipt
-→ local hygiene after accepted close
+→ read open marked `Codex execution:` Issues + open PR heads
+→ no new actionable task = quiet exit, zero model invocation
+→ persist and read back the bounded execution claim
+→ one local Codex attempt for one task body
+→ validate the bound PR_READY / BLOCKED result and exact GitHub readback
+→ stop; accepted merge/closure and safe hygiene remain owner-controlled
 ```
 
-The watcher is only a trigger/router. It owns no semantic/task state and stores only local retry/dedupe metadata.
+The watcher owns only execution claim/deduplication metadata. Chat owns which task exists, its scope and any decision to resume it. Automatic Cloud dispatch and Cloud-to-local fallback are disabled; a configured Cloud environment does not enable them.
 
 Attention / model defaults:
-- empty-queue polling uses ordinary `gh` / `git`, **zero model invocation**;
-- ordinary repository work prefers a visible Codex Cloud task once the KianOS Cloud environment is bound;
-- local execution is reserved for work that genuinely needs this Mac, or as a temporary Cloud fallback;
-- Terra / medium is the default local model;
-- Chat may select Sol / medium for reasoning-heavy work without asking Kian;
-- Astra is never automatic: the Issue must carry both the Astra request marker and Kian's explicit approval marker;
-- only one watcher/executor dispatch may run at a time;
-- after an attempted Issue, unchanged task state enters a one-hour retry cooldown so transient or BLOCKED work cannot burn model allowance every five minutes;
-- if automation debugging starts consuming more Kian attention than the automation is likely to save, degrade or bypass the automation instead of adding another control layer.
+- Terra / medium is the default local executor; Chat may choose Sol / medium for worthwhile reasoning-heavy work;
+- Astra requires both the request marker and Kian's explicit approval marker; an unapproved request is blocked once and must not starve ordinary tasks;
+- only one watcher/executor dispatch may run at a time; network commands and the owned executor process group have bounded deadlines;
+- an unchanged task body receives at most **one model attempt**, with no automatic retry, cooldown reawakening or model escalation; comments and timestamp changes do not reset the budget, and `--force` does not bypass it;
+- a changed task body may receive a new bounded attempt only after Chat has resolved the scope; mutation detected during execution and legacy attempted tasks require explicit reconciliation rather than silent retry;
+- persist the claim before any dispatch. An orphaned claim whose owned process group is confirmed gone becomes BLOCKED once; the same task is not retried and unrelated work may proceed;
+- a live process group or unknown dispatch remains protected. Chat/Engineering reconciles the existing state and receipts; Kian is not asked to operate locks, rearm markers or queue metadata;
+- accept only the structured result bound to this issue, run ID and task digest. PR_READY requires the exact open PR head; it is not DONE, accepted work or learner completion. Exit zero, an existing branch and an issue timestamp change are not results;
+- publish only bounded allowlisted result fields and exact proof links, never arbitrary stdout/stderr or credential material;
+- if upkeep or allowance exceeds the waiting/attention saved, use on-demand execution instead of adding another controller.
 
-The old hourly model-based queue poller is a deployment fallback only. Once the lightweight watcher has a real local end-to-end PASS, retire/disable the hourly poller so there is one normal trigger path.
+Keep the retired hourly model-based queue poller disabled. Do not re-enable it as a fallback or create a second trigger.
 
-If a STOP condition is hit before safe implementation:
-- add one compact `BLOCKED:` Issue comment with the exact missing decision/source/permission;
-- do not invent a substitute;
-- do not keep retrying broad work in the same run;
-- return control to Chat.
+On a STOP condition, return the bounded BLOCKED reason and existing proof pointers. The watcher persists/readbacks the result when possible; write failure remains unproven and must not trigger another model attempt. Do not invent a substitute, generate follow-up tasks or ask Kian to collect logs. Return control to Chat.
 
-The executor does not decide which engineering work should exist, does not rewrite priority, and does not turn repository backlog into automatic work.
+The executor does not decide which engineering work should exist, rewrite priority, auto-merge/deploy, mutate learner state or turn the backlog into automatic work.
 
 ### Task result / cursor atomicity
 

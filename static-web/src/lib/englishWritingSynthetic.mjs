@@ -1,4 +1,5 @@
 import crypto from 'node:crypto';
+import { englishSemanticSourceHash } from './englishSemanticSourceIdentity.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -94,7 +95,9 @@ function loadOwner() {
       planningPrompt: task.planning_prompt,
       draftPrompt: task.draft_prompt,
       sourcePath: WRITING_SYNTHETIC_SOURCE,
-      sourceHash: sha256(raw),
+      sourceHash: sha256(JSON.stringify(task)),
+      sourceOwnerHash: sha256(raw),
+      semanticSourceHash: englishSemanticSourceHash({kind:task.kind,targetWords:task.target_words,learnerTask:task.task}),
       position: index + 1,
       total: owner.tasks.length
     }));

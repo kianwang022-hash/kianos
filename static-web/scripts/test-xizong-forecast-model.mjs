@@ -739,18 +739,18 @@ function baseProgress() {
     }
   ];
   const forecast=buildXizongWorkloadForecast(hetero);
-  assert.equal(forecast.components.questions.calibration.source,'SYSTEM_STRATIFIED_CURRENT_EXACT_SCOPE');
+  assert.equal(forecast.components.questions.calibration.source,'OWNER_STRATIFIED_CURRENT_EXACT_SCOPE');
   assert.equal(forecast.components.questions.band_minutes.p50,260,
     'slow A2 remaining load must dominate instead of inheriting fast A1 speed');
   assert.equal(forecast.components.questions.calibration.system_speed_heterogeneity_ratio,3);
-  assert.ok(forecast.components.questions.risks.includes('QUESTION_SPEED_SYSTEM_HETEROGENEITY'));
-  assert.equal(forecast.components.repair.error_rate.source,'SYSTEM_STRATIFIED_CURRENT_EXACT_SCOPE');
+  assert.ok(forecast.components.questions.risks.includes('QUESTION_SPEED_OWNER_HETEROGENEITY'));
+  assert.equal(forecast.components.repair.error_rate.source,'OWNER_STRATIFIED_CURRENT_EXACT_SCOPE');
   assert.equal(forecast.components.repair.error_rate.forecast_weighted_value,0.33);
   assert.equal(forecast.components.repair.compression.predicted_future_wrong_uncertain_questions,33,
     'future W/U must weight each System rate by its own remaining question load');
   assert.equal(forecast.components.repair.compression.predicted_future_clusters,32.5,
     'Repair compression must use each System own observed questions-per-cluster ratio');
-  assert.ok(forecast.components.repair.risks.includes('WRONG_UNCERTAIN_SYSTEM_HETEROGENEITY'));
+  assert.ok(forecast.components.repair.risks.includes('WRONG_UNCERTAIN_OWNER_HETEROGENEITY'));
 }
 
 {
@@ -949,3 +949,70 @@ console.log('PASS Xizong forecast adversarial suite: target→capability→workl
 }
 
 console.log('PASS Xizong forecast falsifiability: sensitivity grid + flip surface + next information evidence');
+
+// D2: remaining-owner demand activates pricing even when no medical System remains.
+{
+  const p = baseProgress();
+  const days = Array.from({ length: 5 }, (_, i) => ({ day: `2026-09-${15+i}`, attempted: 80, practice_timer_minutes: 170, observed_minutes_per_attempt: 2.125 }));
+  const owner = (id, rate, speed, attempted) => ({ canonical_id: id, current_scope_unique_attempted: attempted, current_scope_wrong_or_uncertain_rate: rate, current_scope_speed_by_day: days.map(row => ({ ...row, observed_minutes_per_attempt: speed })) });
+  p.question_workload = { status: 'EXACT_COMPLETE', known_remaining_questions: 50, known_remaining_is_lower_bound: false, systems: [{ canonical_id: 'A1', status: 'EXACT', remaining_questions: 0 }], non_system_domains: [{ domain_id: 'clinical-humanities', canonical_id: 'HUMANITIES', status: 'EXACT', remaining_questions: 50 }], unknown_systems: [], unknown_domains: [] };
+  p.practice_evidence.first_pass = { attempted_questions: 400, wrong_or_uncertain_rate: 0, by_day: days, by_system: [owner('A1', .1, 1, 350)], by_domain: [owner('HUMANITIES', 1, 10, 50)] };
+  p.practice_evidence.latest.unresolved_wrong_uncertain_questions = 0;
+  p.repair_evidence.active_question_backed_clusters = 0;
+  p.repair_evidence.by_system = [{ canonical_id: 'A1', question_backed_clusters: 5, observed_question_to_cluster_ratio: 1 }];
+  p.repair_evidence.by_domain = [{ canonical_id: 'HUMANITIES', question_backed_clusters: 5, observed_question_to_cluster_ratio: 5 }];
+  let f = buildXizongWorkloadForecast(p);
+  assert.equal(f.components.questions.band_minutes.p50, 500);
+  assert.equal(f.components.repair.compression.predicted_future_wrong_uncertain_questions, 50);
+  assert.equal(f.components.repair.compression.predicted_future_clusters, 10);
+  assert.equal(f.components.verification.band_minutes.p50, 500);
+  assert.equal(f.components.verification.status, 'PROVISIONAL_REFERENCE');
+  assert.ok(f.components.verification.risks.includes('FRESH_VERIFICATION_TIMING_NOT_OBSERVED'));
+  const saved = structuredClone(p);
+  p.practice_evidence.first_pass.by_domain = [];
+  p.repair_evidence.by_domain = [];
+  f = buildXizongWorkloadForecast(p);
+  assert.equal(f.components.questions.band_minutes, null);
+  assert.equal(f.components.questions.status, 'UNPRICED_REQUIRED');
+  assert.equal(f.components.repair.status, 'UNPRICED_REQUIRED');
+  assert.equal(f.components.repair.compression.predicted_future_wrong_uncertain_questions, null);
+  assert.equal(f.components.verification.estimated_verification_questions, null);
+  assert.equal(f.components.verification.band_minutes, null);
+  assert.deepEqual(f.components.repair.error_rate.unpriced_domain_ids, ['HUMANITIES']);
+  p.practice_evidence.first_pass.by_domain = [owner('HUMANITIES', 0, 10, 50)];
+  f = buildXizongWorkloadForecast(p);
+  assert.equal(f.components.repair.compression.predicted_future_wrong_uncertain_questions, 0);
+  assert.equal(f.components.verification.band_minutes.p50, 0);
+  const mixed = structuredClone(saved);
+  mixed.question_workload.systems[0].remaining_questions = 50;
+  mixed.question_workload.known_remaining_questions = 100;
+  f = buildXizongWorkloadForecast(mixed);
+  assert.equal(f.components.questions.band_minutes.p50, 550);
+  assert.equal(f.components.repair.compression.predicted_future_wrong_uncertain_questions, 55);
+  assert.equal(f.components.repair.compression.predicted_future_clusters, 15);
+  assert.equal(f.components.verification.band_minutes.p50, 505);
+  assert.equal(f.components.verification.status, 'PROVISIONAL_REFERENCE');
+  const before = JSON.stringify(mixed);
+  buildXizongWorkloadForecast(mixed, { wrongUncertainRate: .5 });
+  assert.equal(JSON.stringify(mixed), before);
+  mixed.question_workload.non_system_domains[0].remaining_questions = 0;
+  mixed.question_workload.known_remaining_questions = 50;
+  mixed.practice_evidence.first_pass.by_domain = [];
+  assert.equal(buildXizongWorkloadForecast(mixed).components.questions.band_minutes.p50, 50);
+  mixed.question_workload.status = 'EXACT_PARTIAL';
+  mixed.question_workload.known_remaining_is_lower_bound = true;
+  mixed.question_workload.unknown_domains = ['HUMANITIES'];
+  assert.equal(buildXizongWorkloadForecast(mixed).first_round.full_band_minutes, null);
+}
+console.log('PASS D2 owner-only pricing, missing/zero, heterogeneous provisional verification, unknown scope and non-mutating scenarios');
+
+{
+  const revised = baseProgress();
+  revised.formal_score_evidence.sealed_papers = revised.formal_score_evidence.sealed_papers.map(row => ({ ...row, current_revision_valid: false }));
+  const score = buildXizongScoreEvidence(revised, { contaminationStatus: 'LOW', currentExamFormatSourceHash: 'historical-format-v1' });
+  assert.equal(score.formal_score.sample_count, 3, 'historical sealed scores remain observations');
+  assert.equal(score.formal_score.calibration_sample_count, 0, 'superseded semantics cannot calibrate Current');
+  assert.equal(score.formal_score.score_extrapolation_ready, false);
+  assert.equal(buildXizongWorkloadForecast(revised).components.formal_calibration.band_minutes, null);
+}
+console.log('PASS historical sealed scores preserved while Current calibration remains withheld');

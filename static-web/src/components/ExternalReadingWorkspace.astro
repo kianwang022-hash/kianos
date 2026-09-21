@@ -313,7 +313,15 @@ const base=import.meta.env.BASE_URL;
         task:'external_reading',
         object_id:active.object_id,
         source_hash:active.content_hash,
+        semantic_source_hash:active.semantic_source_hash||active.content_hash,
         snapshot:{
+          evidence:{
+            source_kind:'external',
+            evidence_role:active.question_origin==='CHAT_GENERATED'?(active.evidence_role||'TEACHING_REPAIR'):'GROWTH',
+            semantic_source_hash:active.semantic_source_hash||active.content_hash,
+            transfer_independence:active.question_origin==='CHAT_GENERATED'?(active.transfer_independence||null):null,
+            calibration_status:active.question_origin==='CHAT_GENERATED'?(active.calibration_status||'NOT_SCORE_EQUIVALENT'):null
+          },
           source_family:active.source_family,
           source_format:active.source_format,
           collection:active.collection,
@@ -326,7 +334,11 @@ const base=import.meta.env.BASE_URL;
           question_origin:active.question_origin||'SOURCE_NATIVE',
           drill_origin:active.drill_origin||null,
           completion_requirement:active.completion_requirement||'READ_ONLY_OK',
-          training_target:active.training_target||null
+          training_target:active.training_target||null,
+          evidence_role:active.evidence_role||null,
+          transfer_independence:active.transfer_independence||null,
+          calibration_status:active.calibration_status||null,
+          retire_dedupe_rule:active.retire_dedupe_rule||null
         }
       };
       storageKey=attemptKey(active.object_id);

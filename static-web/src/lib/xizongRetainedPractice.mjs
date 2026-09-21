@@ -1,3 +1,4 @@
+import { isXizongQuestionAttemptCurrent } from './xizongQuestionAttempts.mjs';
 export const XIZONG_RETAINED_SET_SCHEMA = 'kianos.xizong.retained_set.v1';
 export const XIZONG_RETAINED_SET_KEY = 'kianos:xizong:retained-set:v1';
 export const XIZONG_QUESTION_PREFERENCES_KEY = 'kianos:xizong:question-preferences:v1';
@@ -82,9 +83,10 @@ export function collectXizongRetainedEvidence(entries, options = {}) {
         continue;
       }
       if (!QID.test(questionId)) continue;
+      if (event?.marked === true) legacyMarks.add(questionId);
+      if (!isXizongQuestionAttemptCurrent(event, options.questionSemanticRevisions || {})) continue;
       const previous = latest.get(questionId);
       if (!previous || eventTime(event) >= eventTime(previous)) latest.set(questionId, event);
-      if (event?.marked === true) legacyMarks.add(questionId);
     }
   }
 

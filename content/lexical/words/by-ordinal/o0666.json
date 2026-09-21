@@ -38,17 +38,7 @@
         "transitivity": "vt"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:9116b7c087da222a0a32",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:cancel:9434cefdb06151bd:collocation:handoff-o0475-o0674"
-            ],
-            "meaning_cn": "抵消、中和",
-            "phrase": "cancel out"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "使某物无效、作废",
         "definition_en": "to make something no longer valid or effective",
@@ -60,6 +50,27 @@
         "sense_label_en": "to make something no longer valid or effective",
         "sort_order": 999,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:9116b7c087da222a0a32",
+            "exam_value": "fixed_pattern",
+            "meaning_cn": "抵消；中和",
+            "phrase": "cancel out"
+          }
+        ],
+        "confidence": "high",
+        "definition_cn": "抵消；中和；使效果相互抵消",
+        "definition_en": "to offset or neutralize an effect",
+        "governing_pattern": "vt./vi. + out",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:cancel:dd0685090c7d5e44",
+        "sense_label_en": "to offset or neutralize an effect",
+        "sort_order": 2,
+        "transitivity": "I/T"
       }
     ],
     "verification_summary": {
@@ -79,14 +90,34 @@
     },
     "word": "cancel",
     "word_family": [],
-    "word_id": "word:cancel"
+    "word_id": "word:cancel",
+    "form_identity": {
+      "form_type": "regional_inflection_spelling",
+      "spelling": "cancel",
+      "identity_rule": "regional_doubling_variant",
+      "boundary": "mainly UK: cancelling/cancelled; US usually: canceling/canceled.",
+      "boundaries": [
+        {
+          "surface": "cancelling / cancelled",
+          "condition": "mainly British English",
+          "note": "double l"
+        },
+        {
+          "surface": "canceling / canceled",
+          "condition": "usually American English",
+          "note": "single l"
+        }
+      ],
+      "variants": [],
+      "authority": "BF06 final-standard approved Form expansion"
+    }
   },
   "relation_refs": [],
   "reference_senses": [
     {
       "stable_sense_id": "sense:cancel:b2444d54139a5f5e",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
+      "status": "merged",
+      "merged_into_sense_id": "sense:cancel:dd0685090c7d5e44",
       "pos": "verb",
       "definition_cn": "相互抵消",
       "definition_en": "to have an equal and opposite effect",
@@ -132,31 +163,6 @@
       "source_row": 1884,
       "source_path": "content/lexical/canonical/senses/shards/o0641-0672.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:cancel:dd0685090c7d5e44",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "抵销；抵消",
-      "definition_en": "to balance or offset something",
-      "semantic_key": "cbd62ffd998d8da4d753bef96bae334c4d07a1063f8cbd345912527db1960fdd",
-      "semantic_key_history": [
-        "2edc9f0571e74e468d42375ed84797668b7a73d985e8e9b8b12a4c464ed91a1e"
-      ],
-      "legacy_aliases": [
-        "cancel:l2:4"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "cancel:l2:4",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 1885,
-      "source_path": "content/lexical/canonical/senses/shards/o0641-0672.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -177,8 +183,8 @@
       },
       {
         "sense_id": "sense:cancel:b2444d54139a5f5e",
-        "status": "deprecated",
-        "merged_into_sense_id": null,
+        "status": "merged",
+        "merged_into_sense_id": "sense:cancel:dd0685090c7d5e44",
         "source_row": 1883,
         "source_path": "content/lexical/canonical/senses/shards/o0641-0672.json"
       },
@@ -191,7 +197,7 @@
       },
       {
         "sense_id": "sense:cancel:dd0685090c7d5e44",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 1885,
         "source_path": "content/lexical/canonical/senses/shards/o0641-0672.json"

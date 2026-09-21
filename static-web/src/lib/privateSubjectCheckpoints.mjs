@@ -1,17 +1,23 @@
 import {
   captureXizongPrivateCheckpoint,
   validateXizongPrivateCheckpoint,
-  xizongDurableStorageIsEmpty
+  xizongDurableStorageIsEmpty,
+  isXizongDurableStorageKey,
+  prepareXizongPrivateCheckpointRestore
 } from './xizongPrivateCheckpoint.mjs';
 import {
   englishCheckpointKeyAllowed,
-  exportEnglishCheckpoint
+  exportEnglishCheckpoint,
+  inspectEnglishCheckpoint,
+  restoreEnglishCheckpoint
 } from './englishLearnerEvidence.mjs';
 import {
   exportPoliticsCheckpoint,
   politicsCheckpointKeyAllowed,
   validatePoliticsPrivatePayload
 } from './politicsChatReturn.mjs';
+
+import { LEXICAL_LEDGER_STORAGE_KEY, assertLexicalLedgerReadable } from './lexicalEvidence.mjs';
 
 export const LEXICAL_PRIVATE_PAYLOAD_SCHEMA = 'kianos.lexical.private-payload.v1';
 const ENGLISH_PRIVATE_PAYLOAD_SCHEMA = 'kianos.english.private-payload.v1';
@@ -71,35 +77,48 @@ const captureEnglishCheckpoint = (storage) => {
   return Object.keys(value.entries || {}).length ? value : null;
 };
 
-const validateEnglishCheckpoint = (value) =>
-  validateEntriesPayload(value, {
-    schema: ENGLISH_PRIVATE_PAYLOAD_SCHEMA,
-    allowed: englishCheckpointKeyAllowed,
-    label: 'ENGLISH'
+const validateEnglishCheckpoint = (value) => {
+  const integrity = inspectEnglishCheckpoint(value);
+  if (integrity.status === 'corrupt-retained') throw new Error('PRIVATE_CHECKPOINT_ENGLISH_CORRUPT_RETAINED');
+  return Object.entries(value.entries);
+};
+const validateLexicalCheckpoint = (value) => {
+  const entries = validateEntriesPayload(value, {
+    schema: LEXICAL_PRIVATE_PAYLOAD_SCHEMA, allowed: lexicalCheckpointKeyAllowed, label: 'LEXICAL'
   });
+  const ledger = value.entries[LEXICAL_LEDGER_STORAGE_KEY];
+  if (ledger != null) assertLexicalLedgerReadable(JSON.parse(ledger));
+  return entries;
+};
 
-const validateLexicalCheckpoint = (value) =>
-  validateEntriesPayload(value, {
-    schema: LEXICAL_PRIVATE_PAYLOAD_SCHEMA,
-    allowed: lexicalCheckpointKeyAllowed,
-    label: 'LEXICAL'
-  });
+// Disposable transaction storage only; never a second persistent learner store.
+class RestoreStorage {
+  constructor(storage) {
+    this.map = new Map(listStorageKeys(storage).filter(key =>
+      englishCheckpointKeyAllowed(key) || lexicalCheckpointKeyAllowed(key)
+      || politicsCheckpointKeyAllowed(key) || isXizongDurableStorageKey(key)
+    ).map(key => [key, storage.getItem(key)]));
+  }
+  get length() { return this.map.size; }
+  key(i) { return [...this.map.keys()][i] ?? null; }
+  getItem(key) { return this.map.get(key) ?? null; }
+  setItem(key, raw) { this.map.set(key, String(raw)); }
+  removeItem(key) { this.map.delete(key); }
+}
+const changesBetween = (before, after) => [...new Set([...before.map.keys(), ...after.map.keys()])]
+  .filter(key => before.getItem(key) !== after.getItem(key))
+  .map(key => [key, after.getItem(key)]);
+const applyChanges = (storage, changes) => changes.forEach(([key, raw]) =>
+  raw == null ? storage.removeItem(key) : storage.setItem(key, raw));
 
 const ADAPTERS = Object.freeze({
   xizong: Object.freeze({
     capture: captureXizongPrivateCheckpoint,
     validate: validateXizongPrivateCheckpoint,
     isEmpty: xizongDurableStorageIsEmpty,
-    prepare(storage, value, { onlyIfEmpty = true } = {}) {
-      const checkpoint = validateXizongPrivateCheckpoint(value);
-      // D1: a navigation key does not make a complete local checkpoint.
-      // Automatic recovery fills missing keys, preserving every existing value.
-      const changes = checkpoint.entries
-        .filter(({ key }) => !onlyIfEmpty || storage.getItem(key) == null)
-        .map(({ key, raw }) => [key, raw]);
-      return changes.length
-        ? { status: 'prepared', changes }
-        : { status: 'skipped', reason: 'xizong-local-state-present', changes: [] };
+    prepare(storage, value) {
+      const result = prepareXizongPrivateCheckpointRestore(storage, value);
+      return { ...result, changes: result.changes.map(({ key, raw }) => [key, raw]) };
     }
   }),
   english: Object.freeze({
@@ -107,16 +126,10 @@ const ADAPTERS = Object.freeze({
     validate: validateEnglishCheckpoint,
     isEmpty: (storage) => subjectStorageIsEmpty(storage, englishCheckpointKeyAllowed),
     prepare(storage, value) {
-      const entries = validateEnglishCheckpoint(value);
-      const changes = [];
-      for (const [key, raw] of entries) {
-        const existing = storage.getItem(key);
-        if (existing != null && existing !== raw) {
-          throw new Error('PRIVATE_CHECKPOINT_ENGLISH_CONFLICT_KEEP_LOCAL:' + key);
-        }
-        if (existing !== raw) changes.push([key, raw]);
-      }
-      return { status: 'prepared', changes };
+      validateEnglishCheckpoint(value);
+      const before = new RestoreStorage(storage), staged = new RestoreStorage(storage);
+      restoreEnglishCheckpoint(staged, value, { keepLocal: true });
+      return { status: 'prepared', changes: changesBetween(before, staged) };
     }
   }),
   politics: Object.freeze({
@@ -132,7 +145,7 @@ const ADAPTERS = Object.freeze({
       for (const [key, raw] of entries) {
         const existing = storage.getItem(key);
         if (existing != null && existing !== raw) {
-          throw new Error('PRIVATE_CHECKPOINT_POLITICS_CONFLICT_KEEP_LOCAL:' + key);
+          continue;
         }
         if (existing !== raw) changes.push([key, raw]);
       }
@@ -149,7 +162,7 @@ const ADAPTERS = Object.freeze({
       for (const [key, raw] of entries) {
         const existing = storage.getItem(key);
         if (existing != null && existing !== raw) {
-          throw new Error('PRIVATE_CHECKPOINT_LEXICAL_CONFLICT_KEEP_LOCAL:' + key);
+          continue;
         }
         if (existing !== raw) changes.push([key, raw]);
       }
@@ -158,14 +171,47 @@ const ADAPTERS = Object.freeze({
   })
 });
 
-export function capturePrivateSubjectCheckpoints(storage, existingSubjects = {}, { now = Date.now() } = {}) {
+const RESTORE_GROUPS = [['xizong'], ['english', 'lexical'], ['politics']];
+
+export const sameCheckpointRaw = (a, b) => {
+  if (a === b) return true;
+  const normalize = value => Array.isArray(value) ? value.map(normalize)
+    : value && typeof value === 'object' ? Object.fromEntries(Object.keys(value).sort().map(key => [key, normalize(value[key])])) : value;
+  try { return JSON.stringify(normalize(JSON.parse(a))) === JSON.stringify(normalize(JSON.parse(b))); }
+  catch { return false; }
+};
+export const subjectCheckpointEntries = value => Array.isArray(value?.entries)
+  ? value.entries.map(({key, raw}) => [key, raw]) : Object.entries(value?.entries || {});
+export const subjectCheckpointConflicts = (storage, value) => subjectCheckpointEntries(value)
+  .some(([key, raw]) => storage.getItem(key) != null && !sameCheckpointRaw(storage.getItem(key), raw));
+
+export function capturePrivateSubjectCheckpoints(storage, existingSubjects = {}, { now = Date.now(), warnings = [], allowLocalChanges = false } = {}) {
   if (!existingSubjects || typeof existingSubjects !== 'object' || Array.isArray(existingSubjects)) {
     throw new Error('PRIVATE_SUBJECT_CHECKPOINTS_INVALID');
   }
   const next = clone(existingSubjects) || {};
-  for (const [subject, adapter] of Object.entries(ADAPTERS)) {
-    const captured = adapter.capture(storage, { now });
-    if (captured) next[subject] = captured;
+  for (const group of RESTORE_GROUPS) {
+    try {
+      const staged = new RestoreStorage(storage);
+      for (const subject of group) {
+        const adapter = ADAPTERS[subject], current = adapter.capture(staged, { now });
+        if (current) adapter.validate(current);
+        const prior = existingSubjects[subject];
+        if (prior) {
+          if (!allowLocalChanges && subjectCheckpointConflicts(storage, prior)) {
+            throw new Error('PRIVATE_CHECKPOINT_LOCAL_BASE_CONFLICT');
+          }
+          const prepared = adapter.prepare(staged, prior, { onlyIfEmpty: true });
+          if (prepared.blocked?.length) throw new Error('PRIVATE_CHECKPOINT_NATIVE_RETIREMENT_AMBIGUOUS');
+          applyChanges(staged, prepared.changes || []);
+        }
+      }
+      const captured = Object.fromEntries(group.map(subject => [subject, ADAPTERS[subject].capture(staged, { now })]));
+      for (const [subject, value] of Object.entries(captured)) if (value) next[subject] = value;
+    } catch (error) {
+      // Preserve the last durable group and raw local bytes; healthy siblings save.
+      warnings.push('checkpoint:' + group.join('+') + ':' + String(error.message || error));
+    }
   }
   return next;
 }
@@ -174,26 +220,28 @@ export function preparePrivateSubjectCheckpointRestore(storage, subjects = {}, {
   if (!subjects || typeof subjects !== 'object' || Array.isArray(subjects)) {
     throw new Error('PRIVATE_SUBJECT_CHECKPOINTS_INVALID');
   }
-  const changes = [];
-  const results = {};
-  for (const [subject, adapter] of Object.entries(ADAPTERS)) {
-    const value = subjects[subject];
-    if (value == null) {
-      results[subject] = { status: 'missing', restored: 0 };
-      continue;
+  const changes = [], results = {};
+  for (const group of RESTORE_GROUPS) {
+    const pending = [], rows = {};
+    try {
+      for (const subject of group) {
+        const adapter = ADAPTERS[subject], value = subjects[subject];
+        const local = adapter.capture(storage);
+        if (local) adapter.validate(local);
+        if (value == null) { rows[subject] = { status: 'missing', restored: 0 }; continue; }
+        const prepared = adapter.prepare(storage, value, { onlyIfEmpty });
+        const subjectChanges = prepared.changes || [];
+        subjectChanges.forEach(([key, raw]) => pending.push([key, raw, subject]));
+        rows[subject] = {
+          status: prepared.blocked?.length ? (subjectChanges.length ? 'partial' : 'blocked') : subjectChanges.length ? 'prepared' : 'present',
+          restored: 0, pending: subjectChanges.length,
+          ...(prepared.blocked?.length ? { blocked: prepared.blocked } : {})
+        };
+      }
+      changes.push(...pending); Object.assign(results, rows);
+    } catch (error) {
+      for (const subject of group) results[subject] = { status: 'blocked', restored: 0, reason: String(error.message || error) };
     }
-    const prepared = adapter.prepare(storage, value, { onlyIfEmpty });
-    if (prepared.status === 'skipped') {
-      results[subject] = { status: 'skipped', reason: prepared.reason, restored: 0 };
-      continue;
-    }
-    const subjectChanges = prepared.changes || [];
-    subjectChanges.forEach(([key, raw]) => changes.push([key, raw, subject]));
-    results[subject] = {
-      status: subjectChanges.length ? 'prepared' : 'present',
-      restored: 0,
-      pending: subjectChanges.length
-    };
   }
   return { changes, results };
 }
@@ -203,11 +251,12 @@ export function applyPrivateSubjectCheckpointRestore(storage, prepared) {
   const results = clone(prepared?.results || {});
   const restoredBySubject = {};
   for (const [key, raw, subject] of changes) {
-    storage.setItem(key, raw);
+    if (raw == null) storage.removeItem(key);
+    else storage.setItem(key, raw);
     restoredBySubject[subject] = (restoredBySubject[subject] || 0) + 1;
   }
   for (const [subject, count] of Object.entries(restoredBySubject)) {
-    results[subject] = { status: 'restored', restored: count };
+    results[subject] = { ...results[subject], status: results[subject]?.blocked?.length ? 'partial' : 'restored', restored: count, pending: 0 };
   }
   for (const [subject, row] of Object.entries(results)) {
     if (row.status === 'present') results[subject] = { status: 'present', restored: 0 };

@@ -84,6 +84,35 @@ function inventoryHash(ids) {
   return sha256(`${[...ids].sort().join('\n')}\n`);
 }
 
+export function xizongQuestionSemanticRevision(question) {
+  const row = {
+    question_id: String(question?.questionId || ''),
+    question_type: String(question?.questionType || ''),
+    stem: String(question?.stem || ''),
+    options: (Array.isArray(question?.options) ? question.options : []).map((option) => ({
+      label: String(option?.label || ''),
+      text: String(option?.text || '')
+    })),
+    correct_answer: String(question?.correctAnswer || '')
+  };
+  return sha256(JSON.stringify(row));
+}
+
+export function xizongQuestionSemanticRevisions(questions = []) {
+  return Object.fromEntries((Array.isArray(questions) ? questions : [])
+    .filter((question) => question?.questionId)
+    .map((question) => [String(question.questionId), xizongQuestionSemanticRevision(question)]));
+}
+
+export function xizongQuestionSemanticHash(questions = []) {
+  const revisions = xizongQuestionSemanticRevisions(questions);
+  return sha256(JSON.stringify(Object.entries(revisions).sort(([a], [b]) => a.localeCompare(b))));
+}
+
+function attachQuestionSemanticRevision(question) {
+  return { ...question, semanticRevision: xizongQuestionSemanticRevision(question) };
+}
+
 function scopePath(system) {
   return `${LEARNER_ROOT}/${String(system.canonicalId || '').toLowerCase()}-${system.systemId}-question-scope.json`;
 }
@@ -196,7 +225,9 @@ export function loadXizongQuestionYear(year) {
     ids.push(...Object.keys(shard || {}));
   }
   ids.sort((a, b) => routeForQuestionId(a).number - routeForQuestionId(b).number);
-  return ids.map((questionId) => loadQuestionProjection(questionId, questionCache, explanationCache));
+  return ids.map((questionId) => attachQuestionSemanticRevision(
+    loadQuestionProjection(questionId, questionCache, explanationCache)
+  ));
 }
 
 export function loadXizongQuestionsByIds(questionIds) {
@@ -211,7 +242,9 @@ export function loadXizongQuestionsByIds(questionIds) {
   }
   const questionCache = new Map();
   const explanationCache = new Map();
-  return ids.map((questionId) => loadQuestionProjection(questionId, questionCache, explanationCache));
+  return ids.map((questionId) => attachQuestionSemanticRevision(
+    loadQuestionProjection(questionId, questionCache, explanationCache)
+  ));
 }
 
 function loadXizongExamFormatOwner() {
@@ -292,6 +325,8 @@ export function loadXizongWholePaper(year) {
     scopePath: EXAM_FORMAT_PATH,
     scopeHash: format.sourceHash,
     questionInventoryHash: inventoryHash(ids),
+    questionSemanticHash: xizongQuestionSemanticHash(questions),
+    questionSemanticRevisions: xizongQuestionSemanticRevisions(questions),
     questions,
     years: [normalizedYear],
     holdoutRequired: false,
@@ -310,6 +345,7 @@ export function buildXizongForecastQuestionScope(systems = []) {
   const rows = [];
   const nonSystemDomains = [];
   const union = new Set();
+  const questionSemanticRevisions = {};
   const unionYearCounts = {};
   let summedExactQuestions = 0;
 
@@ -336,6 +372,7 @@ export function buildXizongForecastQuestionScope(systems = []) {
       const questionId = String(question?.questionId || '');
       const year = Number(question?.year);
       if (!questionId) continue;
+      questionSemanticRevisions[questionId] = String(question?.semanticRevision || xizongQuestionSemanticRevision(question));
       summedExactQuestions += 1;
       if (Number.isInteger(year)) yearCounts[year] = (yearCounts[year] || 0) + 1;
       if (!union.has(questionId)) {
@@ -382,6 +419,7 @@ export function buildXizongForecastQuestionScope(systems = []) {
         throw new Error('CURRENT_XIZONG_HUMANITIES_QID_YEAR_MISMATCH:' + questionId);
       }
       const year = Number(question.year);
+      questionSemanticRevisions[questionId] = xizongQuestionSemanticRevision(question);
       yearCounts[year] = (yearCounts[year] || 0) + 1;
       summedExactQuestions += 1;
       if (!union.has(questionId)) {
@@ -417,6 +455,7 @@ export function buildXizongForecastQuestionScope(systems = []) {
     summed_exact_system_questions: summedExactQuestions,
     cross_system_duplicate_memberships: Math.max(0, summedExactQuestions - union.size),
     union_year_counts: unionYearCounts,
+    question_semantic_revisions: questionSemanticRevisions,
     unknown_systems: unknownSystems,
     unknown_domains: unknownDomains,
     scope_complete: unknownSystems.length === 0 && unknownDomains.length === 0,
@@ -459,7 +498,9 @@ export function loadXizongSystemQuestionSweep(system) {
 
   const questionCache = new Map();
   const explanationCache = new Map();
-  const questions = ids.map((questionId) => loadQuestionProjection(questionId, questionCache, explanationCache));
+  const questions = ids.map((questionId) => attachQuestionSemanticRevision(
+    loadQuestionProjection(questionId, questionCache, explanationCache)
+  ));
 
   return {
     systemId: system.systemId,
@@ -469,6 +510,8 @@ export function loadXizongSystemQuestionSweep(system) {
     scopePath: relativeScopePath,
     scopeHash: sha256(scopeText),
     questionInventoryHash: actualInventoryHash,
+    questionSemanticHash: xizongQuestionSemanticHash(questions),
+    questionSemanticRevisions: xizongQuestionSemanticRevisions(questions),
     questions,
     years: Object.keys(scope?.year_counts || {}).map(Number).sort((a, b) => a - b),
     holdoutRequired: true

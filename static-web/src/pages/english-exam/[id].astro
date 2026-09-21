@@ -130,15 +130,13 @@ const serverTaskLabel = (step) => ({
       writing: step.writing_kind === 'small' ? '小作文' : '大作文'
     })[step.task] || step.task;
 
-    const readTaskOrderFromChat = () => {
+    const readExamPlanFromChat = () => {
       const control = readEnglishSessionInstruction(localStorage, localDay());
       if (control.status !== 'ready' || !control.instruction) return null;
       const step = control.instruction.steps.slice(control.instruction.current_step).find(candidate => !englishStepIsComplete(localStorage, candidate));
       if (step?.task !== 'full_paper' || step?.object_id !== paperId) return null;
       if(step.source_hash!==paper.source_hash)throw new Error('ENGLISH_EXAM_INSTRUCTION_SOURCE_CHANGED');
-      return Array.isArray(step?.params?.task_order) && step.params.task_order.length
-        ? step.params.task_order
-        : null;
+      return {taskOrder: Array.isArray(step?.params?.task_order) && step.params.task_order.length ? step.params.task_order : null, assistanceContext: step?.params?.assistance_context || null};
     };
 
     const currentSession = () => {
@@ -232,8 +230,10 @@ const serverTaskLabel = (step) => ({
         if (!confirm('当前还有 ' + existing.paper_id + ' 的整卷 Session。开始新卷会替换它，继续？')) return;
       }
       try {
+        const chatPlan = readExamPlanFromChat();
         const state = startEnglishExamSession(paper, {
-          taskOrder: readTaskOrderFromChat()
+          taskOrder: chatPlan?.taskOrder || null,
+          assistanceContext: chatPlan?.assistanceContext || null
         });
         writeSession(state);
         setStatus('整卷已开始。交卷前不会显示答案和复盘。');

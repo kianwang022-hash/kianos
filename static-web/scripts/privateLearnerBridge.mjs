@@ -103,7 +103,14 @@ export function privateLearnerBridge({ privateDir = resolvePrivateLearnerDir(), 
 
           if (req.method === 'PUT') {
             const input = await readBody(req);
-            const checkpoint = writePrivateLearnerCheckpoint(input, privateDir);
+            if (typeof req.headers['if-match'] !== 'string') {
+              return json(res, 428, { status: 'error', error: 'PRIVATE_CHECKPOINT_PRECONDITION_REQUIRED' });
+            }
+            const expectedCheckpointId = JSON.parse(req.headers['if-match']);
+            if (expectedCheckpointId !== null && typeof expectedCheckpointId !== 'string') {
+              throw new Error('PRIVATE_CHECKPOINT_PRECONDITION_INVALID');
+            }
+            const checkpoint = writePrivateLearnerCheckpoint(input, privateDir, { expectedCheckpointId });
             syncPacket();
             return json(res, 200, {
               status: 'saved',
@@ -118,7 +125,8 @@ export function privateLearnerBridge({ privateDir = resolvePrivateLearnerDir(), 
           return json(res, 405, { status: 'method_not_allowed' });
         } catch (error) {
           const message = error instanceof Error ? error.message : String(error);
-          const status = /JSON|REQUIRED|INVALID|SCHEMA|TOO_LARGE/.test(message) ? 400 : 500;
+          const status = /CONFLICT|STALE_WRITE/.test(message) ? 409
+            : /JSON|REQUIRED|INVALID|SCHEMA|TOO_LARGE/.test(message) ? 400 : 500;
           return json(res, status, { status: 'error', error: message });
         }
       });

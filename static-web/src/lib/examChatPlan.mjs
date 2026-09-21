@@ -2,7 +2,7 @@ import { EXAM_PROFILE_KEY, validateExamProfile } from './examOrchestrator.mjs';
 import {
   readStudyTimerLedger, STUDY_TIMER_LEDGER_KEY, STUDY_TIMER_STATE_KEY, STUDY_TIMER_SCHEMA
 } from './studyTimer.mjs';
-import { LEXICAL_LEDGER_STORAGE_KEY } from './lexicalEvidence.mjs';
+import { LEXICAL_LEDGER_STORAGE_KEY, assertLexicalLedgerReadable } from './lexicalEvidence.mjs';
 import { LEXICAL_INTAKE_STORAGE_KEY, LEXICAL_ROUTING_STORAGE_KEY } from './lexicalSettings.mjs';
 import { englishCheckpointKeyAllowed } from './englishLearnerEvidence.mjs';
 import { politicsCheckpointKeyAllowed } from './politicsChatReturn.mjs';
@@ -192,6 +192,8 @@ export function buildExamChatPlanBasis(storage, studyDay) {
   if (!storage?.getItem) throw new Error('CHAT_PLAN_EVIDENCE_STORAGE_UNAVAILABLE');
   if (!validDay(studyDay)) throw new Error('CHAT_PLAN_EVIDENCE_BASIS_DAY_INVALID');
   const keys = storageKeys(storage);
+  const lexicalRaw = storage.getItem(LEXICAL_LEDGER_STORAGE_KEY);
+  if (lexicalRaw != null) assertLexicalLedgerReadable(JSON.parse(lexicalRaw));
   const subjects = Object.fromEntries(EXAM_CHAT_PLAN_SUBJECTS.map((subject) => [
     subject,
     subjectEvidenceFingerprint(storage, subject, keys)

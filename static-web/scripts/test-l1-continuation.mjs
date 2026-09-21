@@ -50,12 +50,24 @@ const receipt={
  }
 };
 let failSubjectApply=false;
+const sameCheckpointRaw=(a,b)=>{
+ if(a===b)return true;
+ const normalize=v=>Array.isArray(v)?v.map(normalize):v&&typeof v==='object'?Object.fromEntries(Object.keys(v).sort().map(k=>[k,normalize(v[k])])):v;
+ try{return JSON.stringify(normalize(JSON.parse(a)))===JSON.stringify(normalize(JSON.parse(b)));}catch{return false;}
+};
+const subjectCheckpointEntries=v=>Array.isArray(v?.entries)?v.entries.map(({key,raw})=>[key,raw]):Object.entries(v?.entries||{});
 const adapters={
+ sameCheckpointRaw,subjectCheckpointEntries,
+ subjectCheckpointConflicts:(s,v)=>subjectCheckpointEntries(v).some(([k,raw])=>s.getItem(k)!=null&&!sameCheckpointRaw(s.getItem(k),raw)),
  restorePrivateSubjectCheckpoints:(s,sub)=>{
-   for(const payload of Object.values(sub)){
-     if(payload?.broken)throw Error('BAD_SUBJECT');
-     for(const [k,v] of Object.entries(payload?.entries||{}))s.setItem(k,v);
+   const restored={};
+   for(const [subject,payload] of Object.entries(sub)){
+     if(payload?.broken){restored[subject]={status:'blocked',reason:'BAD_SUBJECT',restored:0};continue;}
+     let count=0;
+     for(const [k,v] of subjectCheckpointEntries(payload))if(s.getItem(k)==null){s.setItem(k,v);count++;}
+     restored[subject]={status:count?'restored':'present',restored:count};
    }
+   return restored;
  },
  preparePrivateSubjectCheckpointRestore:()=>({changes:[['healthy-native','{}','xizong']],results:{}}),
  applyPrivateSubjectCheckpointRestore:()=>{if(failSubjectApply)throw Error('SUBJECT_APPLY_FAILED');return {};},
@@ -63,7 +75,8 @@ const adapters={
 };
 const stubs={
  'examOrchestrator.mjs':profile,'studyTimer.mjs':timer,'privateControlCommand.mjs':receipt,
- 'lexicalEvidence.mjs':{LEXICAL_LEDGER_STORAGE_KEY:K.lexical},
+ 'englishSessionCatalog.mjs':{englishSessionCatalog:()=>[]},
+ 'lexicalEvidence.mjs':{LEXICAL_LEDGER_STORAGE_KEY:K.lexical,assertLexicalLedgerReadable:v=>{if(v?.schema!=='native')throw Error('LEXICAL_FIXTURE_UNREADABLE');return v;}},
  'lexicalSettings.mjs':{LEXICAL_INTAKE_STORAGE_KEY:K.intake,LEXICAL_ROUTING_STORAGE_KEY:K.routing},
  'englishLearnerEvidence.mjs':{englishCheckpointKeyAllowed:k=>/^kianos-(?:reading-(?:attempt|session|continuous|last-location)|cloze-(?:attempt|last-location)|reading-b-(?:attempt|last-location)|translation-(?:attempt|transfer|last-location)|writing-(?:runtime|evidence|last-location)|english-(?:exam|session|objective|material|attempt|external-reading))/.test(k)},
  'politicsChatReturn.mjs':{politicsCheckpointKeyAllowed:k=>k.startsWith('kianos-politics-')},
@@ -71,7 +84,7 @@ const stubs={
  'privateSubjectCheckpoints.mjs':adapters,
  'privateLearnerCheckpoint.mjs':{
    PRIVATE_CHECKPOINT_SCHEMA:'kianos.private-checkpoint.v1',
-   buildPrivateLearnerCheckpoint:o=>({schema:'kianos.private-checkpoint.v1',payload:{shared:o.shared,subjects:o.subjects}}),
+   buildPrivateLearnerCheckpoint:o=>({schema:'kianos.private-checkpoint.v1',checkpoint_id:'checkpoint-built-probe',payload:{shared:o.shared,subjects:o.subjects}}),
    readPrivateLearnerCheckpoint:async()=>({status:'missing'}),
    writePrivateLearnerCheckpoint:async()=>({status:'saved'})
  },
@@ -227,12 +240,13 @@ await test('outer restore carries corrupt receipt warning without blocking share
  assert.equal(result.status,'restored');assert(result.warnings.includes('SHARED_CHECKPOINT_RECEIPT_INVALID'));
  assert.equal(s.getItem(K.receipt),null);assert(s.getItem(K.ledger));
 });
-await test('shared writes while awaiting restore are not replaced',async()=>{
- const c=checkpoint();const s=new Storage();const live=JSON.stringify({...profile.emptyExamProfile(),defaultDailyMinutes:97});
+await test('shared writes while awaiting restore are preserved while missing history recovers',async()=>{
+ const ledger=JSON.stringify({schema:'kianos.study-timer.v2',sessions:[{subject:'english',startedAt:1,endedAt:10}]});
+ const c=checkpoint({},new Storage({[K.ledger]:ledger}));const s=new Storage();const live=JSON.stringify({...profile.emptyExamProfile(),defaultDailyMinutes:97});
  await outer.restoreSharedControlFromPrivate(s,{now:NOW,readCheckpoint:async()=>{
   s.setItem(K.profile,live);return {status:'ready',checkpoint:c};
  }});
- assert.equal(s.getItem(K.profile),live);assert.equal(s.getItem(K.ledger),null);
+ assert.equal(s.getItem(K.profile),live);assert.equal(s.getItem(K.ledger),ledger);
 });
 await test('save captures receipt and shared context after asynchronous read',async()=>{
  const s=new Storage();const raw=JSON.stringify(applied,null,2);let saved=null;

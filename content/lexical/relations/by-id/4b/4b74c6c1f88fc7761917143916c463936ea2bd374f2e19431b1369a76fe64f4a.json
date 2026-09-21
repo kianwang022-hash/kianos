@@ -88,7 +88,7 @@
     ],
     "tier": "A",
     "validator_version": "deep_vocabulary_target_gate_2026-08-13_v1",
-    "verification_confidence": 1.0,
+    "verification_confidence": 1,
     "verification_decision": "codex_promote",
     "verification_status": "verified",
     "why": "",
@@ -138,10 +138,62 @@
         "pos": null,
         "priority": "A",
         "publication_status": "codex_reviewed",
-        "shared_definition": "a series of actions advancing a principle or tending toward a particular end",
+        "shared_definition": null,
         "source_sense_id": "sense:campaign:180ff00d80a05a3d",
         "target_sense_id": "sense:effort:5567cc49d30558c6",
         "target_word": "effort",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    },
+    {
+      "source_word_id": "word:effort",
+      "source_ordinal": 1579,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "effort is the broader expenditure of work or energy; a campaign is an organized, sustained series of actions directed toward a goal.",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "均表实际行动",
+          "collocation": "launch campaign/make effort",
+          "core_meaning": "行动/努力",
+          "exam_trap": "组织性扩大",
+          "register": "campaign较正式",
+          "semantic_prosody": "中性",
+          "strength": "campaign更系统",
+          "syntax": "均为可数名词",
+          "writing_safety": "不可机械互换"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:00799906-n",
+            "evidence_status": "source_checked",
+            "source_locator": "00799906-n",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:campaign:8858cb47683d52df",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": null,
+        "source_sense_id": "sense:effort:5567cc49d30558c6",
+        "target_sense_id": "sense:campaign:180ff00d80a05a3d",
+        "target_word": "campaign",
         "task_tags": [
           "reading"
         ],
@@ -152,6 +204,7 @@
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 1,
+    "last_materialization": "BF06 reciprocal closure"
   }
 }

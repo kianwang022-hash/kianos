@@ -20,7 +20,7 @@ export function buildPrivateLearnerCheckpoint({
   const generatedAt = new Date(now).toISOString();
   return {
     schema: PRIVATE_CHECKPOINT_SCHEMA,
-    checkpoint_id: checkpointId || ('checkpoint-' + now),
+    checkpoint_id: checkpointId || ('checkpoint-' + now + '-' + (globalThis.crypto?.randomUUID?.() || Math.random().toString(36).slice(2))),
     study_day: studyDay,
     generated_at: generatedAt,
     payload: {
@@ -32,16 +32,23 @@ export function buildPrivateLearnerCheckpoint({
 
 export async function writePrivateLearnerCheckpoint(checkpoint, {
   fetchImpl = globalThis.fetch,
-  endpoint = PRIVATE_CHECKPOINT_ENDPOINT
+  endpoint = PRIVATE_CHECKPOINT_ENDPOINT,
+  expectedCheckpoint = undefined
 } = {}) {
   if (typeof fetchImpl !== 'function') throw new Error('PRIVATE_CHECKPOINT_FETCH_UNAVAILABLE');
   const response = await fetchImpl(endpoint, {
     method: 'PUT',
-    headers: { 'content-type': 'application/json' },
+    headers: {
+      'content-type': 'application/json',
+      ...(expectedCheckpoint !== undefined ? { 'if-match': JSON.stringify(expectedCheckpoint?.checkpoint_id || null) } : {})
+    },
     body: JSON.stringify(checkpoint)
   });
   const body = await response.json().catch(() => ({}));
   if (!response.ok) throw new Error(body?.error || ('PRIVATE_CHECKPOINT_WRITE_FAILED:' + response.status));
+  if (body.status !== 'saved' || body.checkpoint_id !== checkpoint.checkpoint_id) {
+    throw new Error('PRIVATE_CHECKPOINT_WRITE_READBACK_MISMATCH');
+  }
   return body;
 }
 

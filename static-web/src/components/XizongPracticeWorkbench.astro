@@ -21,6 +21,8 @@ const payload = JSON.stringify({
   scopePath: sweep.scopePath,
   scopeHash: sweep.scopeHash,
   questionInventoryHash: sweep.questionInventoryHash,
+  questionSemanticHash: sweep.questionSemanticHash || '',
+  questionSemanticRevisions: sweep.questionSemanticRevisions || {},
   holdoutRequired: sweep.holdoutRequired !== false,
   years: sweep.years,
   questions: sweep.questions,
@@ -544,6 +546,10 @@ const payload = JSON.stringify({
       canonicalId: data.canonicalId,
       scopeHash: data.scopeHash,
       questionInventoryHash: data.questionInventoryHash,
+      questionSemanticHash: data.questionSemanticHash || '',
+      questionSemanticRevisions: Object.fromEntries((data.questions || [])
+        .filter((question) => question?.questionId && question?.semanticRevision)
+        .map((question) => [String(question.questionId), String(question.semanticRevision)])),
       questions: data.questions,
       attemptContext: data.attemptContext || 'SYSTEM_SWEEP',
       resultVisibility: data.resultVisibility || 'immediate',
@@ -551,7 +557,7 @@ const payload = JSON.stringify({
       queueMode: data.queueMode || 'TARGETED'
     };
     sweepState = ensureXizongQuestionSweepState(sweepState, { ...attemptContext, holdoutYears });
-    writeJson(sweepKey, sweepState);
+    if (!writeJson(sweepKey, sweepState)) { root.inert = true; return; }
 
     const front = root.querySelector('[data-practice-front]');
     const back = root.querySelector('[data-practice-back]');
@@ -936,9 +942,21 @@ const payload = JSON.stringify({
           externalExposureStatus: 'UNKNOWN',
           scopeHash: data.scopeHash,
           questionInventoryHash: data.questionInventoryHash,
+          questionSemanticHash: data.questionSemanticHash || '',
           examFormatSourceHash: data.scopeHash,
           examFormat: data.paperFormat
         });
+        next = {
+          ...next,
+          paperSeal: {
+            ...next.paperSeal,
+            evidenceContext: {
+              ...next.paperSeal.evidenceContext,
+              questionSemanticHash: String(data.questionSemanticHash || ''),
+              questionSemanticRevisions: { ...attemptContext.questionSemanticRevisions }
+            }
+          }
+        };
         if (!writeJson(sweepKey, next)) return;
         sweepState = next;
         if (Number.isFinite(sealedYear) && Array.isArray(savedHoldout) && savedHoldout.map(Number).includes(sealedYear)) {
