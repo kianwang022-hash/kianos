@@ -32,30 +32,30 @@
     "p_behavior": "APPROVE_EXACT_SHOWN_DELTA__FREEZE_BACKLOG__IMMEDIATE_NEXT_PRODUCTION_BATCH"
   },
   "frontier": {
-    "accepted_main_head": "ee55a3d4c2e7ff2f5dd5268ab63074e989fc08eb",
-    "current_candidate_id": "BF08",
+    "accepted_main_head": "c91992a2f82d59541232abf85694c1226a141f9e",
+    "current_candidate_id": "BF09",
     "range": [
-      801,
-      900
+      901,
+      1000
     ],
     "state": "MATERIALIZE_ALLOWED",
     "candidate_pr": null,
-    "candidate_branch": "work/lexical-continuous-bf08-20260922",
+    "candidate_branch": "work/lexical-continuous-bf09-20260922",
     "materialized_owner_read_head": null,
-    "note": "BF07 merged. BF08 Production C proposal is frozen and human-approved; refreeze latest main/dependencies, materialize approved scope, rebuild Final Learner Objects, then run same-Chat B audit."
+    "note": "BF08 merged. BF09 Production C proposal is frozen and fully human-approved; refreeze latest main/dependencies, materialize approved scope, rebuild Final Learner Objects, then run same-Chat B audit."
   },
   "audit_target": {
     "state": "WAITING_CANDIDATE_MATERIALIZATION",
-    "candidate_id": "BF08",
+    "candidate_id": "BF09",
     "range": [
-      801,
-      900
+      901,
+      1000
     ],
     "candidate_pr": null,
-    "candidate_branch": "work/lexical-continuous-bf08-20260922",
+    "candidate_branch": "work/lexical-continuous-bf09-20260922",
     "candidate_owner_read_head": null,
     "brief": null,
-    "output": "content/lexical/semantic-audit/O0801_O0900_FINAL_STANDARD_FRESH_AUDIT_PACK.md"
+    "output": "content/lexical/semantic-audit/O0901_O1000_FINAL_STANDARD_FRESH_AUDIT_PACK.md"
   },
   "lanes": {
     "A": {
@@ -307,16 +307,16 @@
     "C": {
       "role": "FRONTIER_MATERIALIZATION_AND_RECONCILIATION",
       "current_assignment": {
-        "candidate_id": "BF08",
+        "candidate_id": "BF09",
         "range": [
-          801,
-          900
+          901,
+          1000
         ],
         "state": "MATERIALIZE_ALLOWED",
         "candidate_pr": null,
-        "frozen_proposal": "content/lexical/execution/manifests/o0801-o0900.final-semantic-sweep-c-proposal.md",
-        "source_review_branch": "work/lexical-final-backfill-c-o0801-o0900",
-        "next_action": "Refreeze BF08 against latest main and semantic dependencies; apply only frozen approved scope; rebuild FLOBs; run same-Chat B audit."
+        "frozen_proposal": "content/lexical/execution/manifests/o0901-o1000.final-semantic-sweep-c-proposal.md",
+        "source_review_branch": "work/lexical-final-backfill-c-o0901-o1000",
+        "next_action": "Refreeze BF09 against latest main and semantic dependencies; apply only frozen approved scope; rebuild FLOBs; run same-Chat B audit."
       },
       "scheduled_ranges": [
         [
@@ -1601,13 +1601,13 @@
     }
   ],
   "last_closed": {
-    "candidate_id": "BF07",
+    "candidate_id": "BF08",
     "range": [
-      701,
-      800
+      801,
+      900
     ],
-    "pr": 739,
-    "merge_commit": "ee55a3d4c2e7ff2f5dd5268ab63074e989fc08eb",
+    "pr": 741,
+    "merge_commit": "c91992a2f82d59541232abf85694c1226a141f9e",
     "result": "SAME_CHAT_AUDIT_RECONCILED_AND_MERGED",
     "independence_note": "BLIND_FIRST_NOT_ENFORCED",
     "final_learner_objects": 7946
@@ -1741,19 +1741,19 @@
     "entered_at": "2026-09-20",
     "from": "PRODUCTION_SWEEP_COMPLETE__AWAITING_PHASE_TRANSITION",
     "to": "MATERIALIZATION_AND_AUDIT",
-    "rule": "One serialized canonical write frontier at a time. Current frontier BF08 o0801-o0900. No broad semantic reopening under FINAL_SEMANTIC_FREEZE v1."
+    "rule": "One serialized canonical write frontier at a time. Current frontier BF09 o0901-o1000. No broad semantic reopening under FINAL_SEMANTIC_FREEZE v1."
   },
   "materialization_progress": {
-    "candidate_id": "BF08",
+    "candidate_id": "BF09",
     "status": "READY_TO_MATERIALIZE",
     "candidate_pr": null,
-    "latest_main_refreeze": "ee55a3d4c2e7ff2f5dd5268ab63074e989fc08eb",
-    "frozen_proposal": "content/lexical/execution/manifests/o0801-o0900.final-semantic-sweep-c-proposal.md",
-    "review_branch": "work/lexical-final-backfill-c-o0801-o0900",
+    "latest_main_refreeze": "c91992a2f82d59541232abf85694c1226a141f9e",
+    "frozen_proposal": "content/lexical/execution/manifests/o0901-o1000.final-semantic-sweep-c-proposal.md",
+    "review_branch": "work/lexical-final-backfill-c-o0901-o1000",
     "final_learner_objects": 7946,
     "repair_test_blueprints": {
-      "before": 29,
-      "after": 16
+      "before": 24,
+      "after": 15
     },
     "blocked": 0
   }
