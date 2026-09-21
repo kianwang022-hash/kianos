@@ -6,6 +6,7 @@ import {
   buildXizongStudyPacketFromStorage,
   xizongStudySourceRevisionStatus
 } from '../src/lib/xizongStudyPacket.mjs';
+import { xizongQuestionSemanticHash } from '../src/lib/xizongQuestions.mjs';
 
 class Storage {
   constructor(entries = {}) { this.map = new Map(Object.entries(entries)); }
@@ -113,6 +114,37 @@ const pendingState={...currentState,sourceRevisionPending:true,sourceRevisionFro
 const pending=xizongStudySourceRevisionStatus(pendingState,'source-v2');
 assert.equal(pending.status,'REVISION_PENDING');
 assert.equal(pending.blocked,true);
+
+// Question semantics must participate in evidence versioning independently of stable qid inventory.
+const questionV1={
+  questionId:'xizong-official-2026-n001',
+  questionType:'A',
+  stem:'请选择错误的说法',
+  options:[
+    {label:'A',text:'原始选项 A'},
+    {label:'B',text:'原始选项 B'}
+  ],
+  correctAnswer:'A'
+};
+const questionV2={
+  ...questionV1,
+  stem:'请选择正确的说法',
+  options:[
+    {label:'A',text:'修订后的正确选项 A'},
+    {label:'B',text:'修订后的错误选项 B'}
+  ],
+  correctAnswer:'A'
+};
+assert.notEqual(
+  xizongQuestionSemanticHash([questionV1]),
+  xizongQuestionSemanticHash([questionV2]),
+  'same qid + same answer letter must not preserve semantic evidence version when stem/options change'
+);
+
+const evidenceGuard=fs.readFileSync('static-web/src/components/XizongSystemEvidenceGuard.astro','utf8');
+assert.match(evidenceGuard,/sweep\?\.questionSemanticHash/);
+assert.match(evidenceGuard,/question\.stem/);
+assert.match(evidenceGuard,/question\.options/);
 
 // Browser owner must reopen completion and require current Source contact + Block Recall.
 const component=fs.readFileSync('static-web/src/components/XizongBlockV6.astro','utf8');
