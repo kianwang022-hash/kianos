@@ -47,8 +47,6 @@ try {
   context=await browser.newContext({viewport:{width:1440,height:900}});
   const page=activePage=await context.newPage();page.setDefaultTimeout(20000);
   page.on('pageerror',error=>errors.push(String(error.message)));
-  let currentCatalog=catalog;
-  await page.route('**/__kianos-private/control/english-session-catalog',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({rows:currentCatalog})}));
   await page.goto(base+'/english/',{waitUntil:'domcontentloaded'});
   await page.waitForFunction(()=>Boolean(document.querySelector('[data-english-session-status]')?.textContent));
   await page.evaluate(meta=>{
@@ -67,18 +65,41 @@ try {
   await page.locator('[data-essay-draft]').fill('This is a synthetic engineering draft. It is not learner evidence.');
   const key='kianos-writing-runtime-v1:'+task.id;
   await page.waitForFunction(key => JSON.parse(localStorage.getItem(key)||'null')?.draftEssay?.includes('synthetic engineering'),key);
-  const raw=await page.evaluate(key=>localStorage.getItem(key),key);
-  assert.equal(JSON.parse(raw).binding.source_hash,meta.source_hash);
-  currentCatalog=catalog.map(row=>row===meta?{...row,source_hash:'synthetic-source-revision-v2'}:row);
+  const currentRaw=await page.evaluate(key=>localStorage.getItem(key),key);
+  assert.equal(JSON.parse(currentRaw).binding.source_hash,meta.source_hash);
+  // Simulate a prior synthetic revision; keep the current production catalog and
+  // native page untouched so the click must actually enter the verified version.
+  const raw=await page.evaluate(({key,currentRaw})=>{
+    const prior=JSON.parse(currentRaw);prior.binding.source_hash='synthetic-old:'+prior.binding.source_hash;
+    const session=JSON.parse(localStorage.getItem('kianos-english-session-instruction-v1'));
+    session.steps[0].source_hash=prior.binding.source_hash;
+    localStorage.setItem('kianos-english-session-instruction-v1',JSON.stringify(session));
+    localStorage.setItem(key,JSON.stringify(prior));
+    return localStorage.getItem(key);
+  },{key,currentRaw});
   await page.goto(base+'/english/',{waitUntil:'domcontentloaded'});
-  await page.waitForFunction(id=>JSON.parse(document.querySelector('[data-english-resume-catalog]')?.textContent||'[]').find(row=>row.object_id===id)?.source_hash==='synthetic-source-revision-v2',task.id);
-  assert.equal(await page.locator('[data-english-resume]').isVisible(),false);
+  await page.locator('[data-source-continuation="available"]').waitFor({state:'visible'});
+  assert.equal(await page.evaluate(id=>JSON.parse(document.querySelector('[data-english-resume-catalog]')?.textContent||'[]').find(row=>row.object_id===id)?.source_hash,task.id),meta.source_hash);
+  assert.match(await page.locator('[data-english-resume-meta]').innerText(),/保留旧作答/);
   assert.equal(await page.evaluate(key=>localStorage.getItem(key),key),raw);
   await page.screenshot({path:path.join(output,'source-stale-preserves-draft.png'),fullPage:false});
+  await page.locator('[data-source-continuation="available"]').click();
+  await page.locator('[data-writing-runtime][data-english-initialized="true"]').waitFor({state:'visible'});
+  assert.equal(new URL(page.url()).pathname,'/writing/'+encodeURIComponent(task.id)+'/');
+  assert.equal(await page.locator('[data-essay-draft]').inputValue(),'');
+  await page.locator('[data-essay-draft]').fill('This is a new synthetic draft on the verified current source.');
+  await page.waitForFunction(({key,hash})=>JSON.parse(localStorage.getItem(key)||'null')?.binding?.source_hash===hash,{key,hash:meta.source_hash});
+  const fresh=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)),key);
+  assert.notEqual(fresh.binding.attempt_id,JSON.parse(raw).binding.attempt_id);
+  assert.notEqual(fresh.binding.prior_exposure,'unseen');
+  assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('kianos-english-session-instruction-v1')).steps[0].source_hash),meta.source_hash);
+  await page.screenshot({path:path.join(output,'source-new-version-native-workspace.png'),fullPage:false});
   const recovery=await page.evaluate(async ({key,raw})=>{
     const native=await import('/src/lib/englishLearnerEvidence.mjs');
     const value=JSON.parse(raw),archiveKey='kianos-english-attempt-archive-v1:'+value.binding.attempt_id;
-    native.archiveEnglishAttempt(localStorage,key);
+    // Retire only this disposable fresh test record before checking that an old
+    // checkpoint cannot revive the archived old source.
+    localStorage.removeItem(key);
     native.restoreEnglishCheckpoint(localStorage,{schema:'kianos.english.private-payload.v1',entries:{[key]:raw}},{keepLocal:true});
     const retiredNotResurrected=localStorage.getItem(key)===null;
     const archivedRaw=localStorage.getItem(archiveKey);
@@ -89,7 +110,7 @@ try {
   },{key,raw});
   assert.deepEqual(recovery,{retiredNotResurrected:true,archivePreserved:true,divergentDraftPreserved:true});
   assert.deepEqual(errors,[]);
-  const report={status:'PASS',scope:'Astro dev native English Resume -> existing synthetic Writing workspace -> source-stale readback; real browser storage + native archive/restore imports',checks:{existing_resume_opens_native_workspace:true,synthetic_draft_saved:true,stale_source_link_suppressed:true,old_output_preserved:true,...recovery},real_learner_data_used:false,protected_exam_consumption:false,new_source_continuation_ui_tested:false};
+  const report={status:'PASS',scope:'Astro dev native English Resume -> synthetic Writing -> old Source prompt -> one-click verified current native workspace; real browser storage + native archive/restore imports',checks:{existing_resume_opens_native_workspace:true,synthetic_draft_saved:true,source_update_prompt_visible:true,one_click_opens_verified_current_source:true,new_attempt_identity:true,no_invented_unseen:true,old_output_preserved:true,...recovery},real_learner_data_used:false,protected_exam_consumption:false,new_source_continuation_ui_tested:true};
   fs.writeFileSync(path.join(output,'report.json'),JSON.stringify(report,null,2));
   completed=true;
   console.log(JSON.stringify(report,null,2));

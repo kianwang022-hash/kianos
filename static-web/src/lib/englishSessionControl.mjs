@@ -1,5 +1,5 @@
 import {assertEnglishLexicalLedgerReadable} from './englishLexicalReturn.mjs';
-import {atomicEnglishWrites,readEnglishExposure,ENGLISH_MATERIAL_EXPOSURE_KEY} from './englishLearnerEvidence.mjs';
+import {advanceEnglishSourceRevision,atomicEnglishWrites,readEnglishExposure,ENGLISH_MATERIAL_EXPOSURE_KEY} from './englishLearnerEvidence.mjs';
 import {
   ENGLISH_EXAM_PRODUCTIVE_SCORING_STANDARD_VERSION,
   inspectEnglishExamSession,
@@ -279,7 +279,12 @@ export function readEnglishSessionInstruction(storage, expectedDay = null, {cata
     }
     const instruction=validateEnglishSessionInstruction(parsed, expectedDay);
     const drift=catalog===undefined?null:englishSessionSourceDrift(instruction,catalog,expectedDay);
-    if(drift)return {...drift,instruction,executable:false};
+    if(drift){
+      // Later revisions do not block today's next verified object. Preserve the
+      // pending hashes and ask for each revision only when the learner reaches it.
+      if(resolveEnglishSessionStep(storage,instruction,catalog))return {status:'ready',instruction,error:null,source_checked:true,executable:true,pending_source_changes:drift};
+      return {...drift,instruction,executable:false};
+    }
     return {status:'ready',instruction,error:null,source_checked:catalog!==undefined,executable:catalog!==undefined};
   } catch (error) {
     return {
@@ -392,13 +397,52 @@ export function englishStepIsComplete(storage, step) {
 
 export function resolveEnglishSessionStep(storage, instruction, catalog) {
   // Follow only Chat's explicit ordering; never rank unrelated tasks.
-  if(englishSessionSourceDrift(instruction,catalog,instruction.study_day))return null;
   for (let i=instruction.current_step;i<instruction.steps.length;i+=1) {
     const step=instruction.steps[i];
-    if (!catalog.some(row=>row.task===step.task && row.object_id===step.object_id && row.source_hash===step.source_hash)) return null;
-    if (!englishStepIsComplete(storage,step)) return {step,index:i};
+    if(englishStepIsComplete(storage,step))continue;
+    if(englishSessionSourceDrift({...instruction,current_step:0,steps:[step]},catalog,instruction.study_day))return null;
+    return {step,index:i};
   }
   return null;
+}
+
+// A learner may accept a verified revision of the next selected object. This
+// never chooses a replacement object, rewrites Chat's order or declares it unseen.
+export function inspectEnglishSessionSourceContinuation(storage, day, {catalog} = {}) {
+  const state=readEnglishSessionInstruction(storage,day,{catalog});
+  const blocked=error=>({status:'blocked',error});
+  if(state.status!=='stale_source'||!state.instruction)return blocked(state.error||'ENGLISH_SOURCE_CONTINUATION_NOT_REQUIRED');
+  const instruction=state.instruction;
+  const index=instruction.steps.findIndex((step,i)=>i>=instruction.current_step&&!englishStepIsComplete(storage,step));
+  const prior=instruction.steps[index];
+  if(!prior||prior.task==='full_paper'||!prior.source_hash)return blocked('ENGLISH_SOURCE_CONTINUATION_CHAT_REQUIRED');
+  const owners=catalog.filter(row=>row.task===prior.task&&row.object_id===prior.object_id);
+  if(owners.length!==1||!owners[0].source_hash||(owners[0].study_day&&owners[0].study_day!==day))return blocked('ENGLISH_CURRENT_SOURCE_UNVERIFIED');
+  if(owners[0].source_hash===prior.source_hash)return blocked('ENGLISH_SOURCE_CONTINUATION_CHAT_REQUIRED');
+  const next=clone(instruction),step=next.steps[index];
+  for(const selected of next.steps.slice(next.current_step)){
+    if(selected.task!==prior.task||selected.object_id!==prior.object_id)continue;
+    selected.source_hash=owners[0].source_hash;
+    delete selected.params.material_exposure;
+  }
+  const prefix={reading_a:'kianos-reading-attempt-v1:',cloze:'kianos-cloze-attempt-v1:',reading_b:'kianos-reading-b-attempt-v1:',external_reading:'kianos-english-external-reading-attempt-v1:',translation:'kianos-translation-attempt-v2:',writing:'kianos-writing-runtime-v1:'}[prior.task];
+  const expectedRaw=storage.getItem(prefix+prior.object_id);
+  if(expectedRaw!=null){
+    let binding;try{binding=JSON.parse(expectedRaw)?.binding;}catch{return blocked('ENGLISH_PRIVATE_DATA_UNREADABLE');}
+    if(!binding?.attempt_id||binding.task!==prior.task||binding.object_id!==prior.object_id||![prior.source_hash,step.source_hash].includes(binding.source_hash))return blocked('ENGLISH_LEGACY_SOURCE_UNVERIFIED_PRESERVE_RAW');
+  }
+  const exam=inspectEnglishExamSession(storage);
+  if(['invalid','unavailable'].includes(exam.status))return blocked('ENGLISH_EXAM_STATE_INVALID_RECOVERY_REQUIRED');
+  if(exam.session&&!['RELEASED','SCORED'].includes(exam.session.status)&&exam.session.steps.some(row=>row.object_id===step.object_id))return blocked('ENGLISH_ACTIVE_EXAM_USE_SESSION_WORKSPACE');
+  return {status:'available',instruction:next,step,index,expectedRaw,expectedInstructionRaw:storage.getItem(ENGLISH_SESSION_KEY)};
+}
+
+export function advanceEnglishSessionSourceRevision(storage, day, {catalog,expectedInstructionRaw,expectedRaw,expectedSourceHash,now=Date.now()} = {}) {
+  const next=inspectEnglishSessionSourceContinuation(storage,day,{catalog});
+  if(next.status!=='available')throw new Error(next.error);
+  if(expectedInstructionRaw!==next.expectedInstructionRaw||expectedRaw!==next.expectedRaw||expectedSourceHash!==next.step.source_hash)throw new Error('ENGLISH_SOURCE_CONTINUATION_STALE');
+  const result=advanceEnglishSourceRevision(storage,next.step,{catalog,expectedRaw,now,extraChanges:[[ENGLISH_SESSION_KEY,next.instruction]]});
+  return {...result,instruction:next.instruction,step:next.step};
 }
 
 export function clearEnglishSessionInstruction(storage) {
@@ -769,6 +813,7 @@ function englishResumeEvidence(storage, day, catalog) {
         task: step.task,
         object_id: step.object_id,
         source_hash: step.source_hash || null,
+        pending_source_changes: sessionState.pending_source_changes || null,
         label: step.label || null,
         note: step.note || null,
         href: englishSessionStepHref(step, '/')
@@ -821,13 +866,14 @@ function englishResumeEvidence(storage, day, catalog) {
 
 function englishForecastProgress(storage, day, catalog) {
   const state = readEnglishSessionInstruction(storage, day, {catalog});
-  if (state.status !== 'ready' || !state.instruction) {
+  const sourceState=state.pending_source_changes || state;
+  if (sourceState.status !== 'ready' || !state.instruction) {
     return {
       schema: 'kianos.english.forecast-progress.v1',
       forecast_role: 'FACTUAL_SUBJECT_PROGRESS_SIGNAL_ONLY',
       gate_workload_authority: false,
       scope: 'CURRENT_EXPLICIT_SESSION_ONLY',
-      status:['invalid','stale_source','source_unverified'].includes(state.status)?state.status:'no_active_session',
+      status:['invalid','stale_source','source_unverified'].includes(sourceState.status)?sourceState.status:'no_active_session',
       session_id: null,
       total_steps: state.status==='missing'?0:null,
       completed_steps: state.status==='missing'?0:null,
@@ -1108,4 +1154,3 @@ export function buildEnglishChatHandoffText(storage, { day, now = Date.now(), ca
     JSON.stringify(evidence, null, 2)
   ].join('\n');
 }
-

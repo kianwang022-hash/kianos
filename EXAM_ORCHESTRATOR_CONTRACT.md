@@ -102,6 +102,8 @@ Do not present empirical sample quantiles as a future confidence interval or sam
 
 Missing or unreliable Forecast must not block ordinary learning. Chat can propose a short, explicitly provisional next step from healthy evidence and available capacity, then revise after actual use. Do not consume fresh exam material, create extra tests for Kian, or ask for repeated manual reports merely to make the model look calibrated. A failed estimate does not authorize the Website to invent a replacement strategy.
 
+When an admitted material revision replaces the same native learning object, the Website may notify Kian and offer one-click entry into the current version while preserving old records. A source hash change alone does not require Chat approval or a new plan. Bring the change to Chat only when its substance affects learning strategy or the current arrangement; unavailable or ambiguous source identity still blocks that affected entry.
+
 ### Typed private cross-subject plan
 
 The current private control packet is:

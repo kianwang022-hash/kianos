@@ -214,17 +214,17 @@ export function saveEnglishAttempt(storage,key,value,meta,{sessionId='',now=Date
  }catch(error){throw preserveEnglishFailure(root,error);}
 }
 
-export function archiveEnglishAttempt(storage,key,now=Date.now()){
+export function archiveEnglishAttempt(storage,key,now=Date.now(),extraChanges=[]){
  const old=readEnglishJson(storage,key);if(!old)return;
  const id=old.binding?.attempt_id||`${key}:${now}`;
  // Existing raw archive is also the native proof that this current attempt was retired.
  const archiveKey=archivePrefix+id,existing=storage.getItem(archiveKey);
  if(existing!=null&&existing!==JSON.stringify(old))throw new Error('ENGLISH_ATTEMPT_ARCHIVE_CONFLICT');
- atomicEnglishWrites(storage,[[archiveKey,old],[key,null]]);
+ atomicEnglishWrites(storage,[[archiveKey,old],[key,null],...extraChanges]);
 }
 
 // Explicit user continuation after a Source change; no new attempt or plan is invented.
-export function advanceEnglishSourceRevision(storage,step,{catalog,expectedRaw,now=Date.now()}={}){
+export function advanceEnglishSourceRevision(storage,step,{catalog,expectedRaw,now=Date.now(),extraChanges=[]}={}){
  const prefix=ATTEMPT_PREFIXES[step?.task];
  const owners=Array.isArray(catalog)?catalog.filter(row=>row.task===step?.task&&row.object_id===step?.object_id):[];
  if(!prefix||owners.length!==1||!step.source_hash||owners[0].source_hash!==step.source_hash)throw new Error('ENGLISH_CURRENT_SOURCE_UNVERIFIED');
@@ -233,11 +233,11 @@ export function advanceEnglishSourceRevision(storage,step,{catalog,expectedRaw,n
  const examState=inspectEnglishExamSession(storage);
  if(['invalid','unavailable'].includes(examState.status))throw new Error('ENGLISH_EXAM_STATE_INVALID_RECOVERY_REQUIRED');
  if(examState.session&&!['RELEASED','SCORED'].includes(examState.session.status)&&examState.session.steps.some(row=>row.object_id===step.object_id))throw new Error('ENGLISH_ACTIVE_EXAM_USE_SESSION_WORKSPACE');
- if(expectedRaw==null)return {archived:false,current_key:key};
+ if(expectedRaw==null){atomicEnglishWrites(storage,extraChanges);return {archived:false,current_key:key};}
  const prior=readEnglishJson(storage,key),binding=prior?.binding;
  if(!binding||binding.task!==step.task||binding.object_id!==step.object_id||!binding.source_hash||!binding.attempt_id)throw new Error('ENGLISH_LEGACY_SOURCE_UNVERIFIED_PRESERVE_RAW');
- if(binding.source_hash===step.source_hash)return {archived:false,current_key:key};
- archiveEnglishAttempt(storage,key,now);
+ if(binding.source_hash===step.source_hash){atomicEnglishWrites(storage,extraChanges);return {archived:false,current_key:key};}
+ archiveEnglishAttempt(storage,key,now,extraChanges);
  return {archived:true,current_key:key,archive_key:archivePrefix+binding.attempt_id};
 }
 

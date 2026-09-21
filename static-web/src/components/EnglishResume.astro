@@ -20,9 +20,10 @@ const base = import.meta.env.BASE_URL;
     ENGLISH_SESSION_KEY,
     readEnglishSessionInstruction,
     resolveEnglishSessionStep,
-    englishSessionStepHref
+    englishSessionStepHref,
+    inspectEnglishSessionSourceContinuation,
+    advanceEnglishSessionSourceRevision
   } from '../lib/englishSessionControl.mjs';
-  import { WRITING_STATES } from '../lib/writingRuntimeModel.mjs';
 
   const root = document.querySelector('[data-english-resume-surface]');
   if (root instanceof HTMLElement) {
@@ -60,15 +61,8 @@ const base = import.meta.env.BASE_URL;
       writing: 'Writing'
     };
     const localDay = () => new Date().toLocaleDateString('en-CA');
-    const readJson = (key) => {
-      try { return JSON.parse(localStorage.getItem(key) || 'null'); }
-      catch { return null; }
-    };
-    const selectedStepIsComplete = (step) => {
-      if (step?.task !== 'writing' || !step?.object_id) return false;
-      const record = readJson(`kianos-writing-runtime-v1:${step.object_id}`);
-      return [WRITING_STATES.PASS_ACCEPTABLE, WRITING_STATES.REPAIR_COMPLETE].includes(record?.state);
-    };
+    let continuation = null;
+    let advancing = false;
     const publishContinue = (detail) => {
       window.dispatchEvent(new CustomEvent('kianos:subject-continue-updated', {
         detail: { subject: 'english', ...detail }
@@ -83,6 +77,32 @@ const base = import.meta.env.BASE_URL;
 
       await loadExternalCatalog();
       const state = readEnglishSessionInstruction(localStorage, localDay(), {catalog});
+      continuation = null;
+      link.hidden = false;
+      link.textContent = '进入 →';
+      link.removeAttribute('data-source-continuation');
+      if (['stale_source','source_unverified'].includes(state.status)) {
+        const candidate = inspectEnglishSessionSourceContinuation(localStorage, localDay(), {catalog});
+        resume.hidden = false;
+        title.textContent = '学习材料已有变化';
+        link.removeAttribute('data-session-ref');
+        link.removeAttribute('href');
+        link.hidden = candidate.status !== 'available';
+        if (candidate.status === 'available') {
+          continuation = candidate;
+          title.textContent = candidate.step.label || `${taskLabels[candidate.step.task] || candidate.step.task} · ${candidate.step.object_id}`;
+          meta.textContent = '来源已更新。开始新版会保留旧作答与记录，继续同一对象。';
+          link.href = '#';
+          link.textContent = '开始新版 →';
+          link.setAttribute('data-source-continuation','available');
+        } else {
+          meta.textContent = candidate.error === 'ENGLISH_SOURCE_CONTINUATION_CHAT_REQUIRED'
+            ? '旧记录已保留；当前任务需要调整或改换对象，请让 Chat 更新安排。'
+            : '当前来源或记录尚未确认，旧记录已保留，确认后再继续。';
+        }
+        publishContinue({href:null,title:null,session_ref:state.instruction?.session_id || null});
+        return;
+      }
       if (state.status !== 'ready' || !state.instruction) {
         resume.hidden = true;
         link.removeAttribute('data-session-ref');
@@ -105,6 +125,7 @@ const base = import.meta.env.BASE_URL;
       title.textContent = step.label || `${taskLabels[step.task] || step.task} · ${step.object_id}`;
       meta.textContent = step.note
         || `Session ${selected.index + 1} / ${instruction.steps.length} · Chat 已选择，本页不重新排序`;
+      if(state.pending_source_changes)meta.textContent += ' · 后续来源变化会在到达时提示确认';
       link.href = href;
       link.setAttribute('data-session-ref', instruction.session_id);
       publishContinue({
@@ -113,6 +134,26 @@ const base = import.meta.env.BASE_URL;
         session_ref: instruction.session_id
       });
     };
+
+    link?.addEventListener('click', async (event) => {
+      if (!continuation) return;
+      event.preventDefault();
+      if (advancing) return;
+      advancing = true;
+      const accepted = continuation;
+      try {
+        await loadExternalCatalog();
+        const result = advanceEnglishSessionSourceRevision(localStorage, localDay(), {
+          catalog, expectedInstructionRaw:accepted.expectedInstructionRaw,
+          expectedRaw:accepted.expectedRaw, expectedSourceHash:accepted.step.source_hash
+        });
+        window.dispatchEvent(new Event('kianos:english-session-updated'));
+        window.location.assign(englishSessionStepHref(result.step, base));
+      } catch {
+        await render();
+        if (meta instanceof HTMLElement) meta.textContent = '状态已变化，未覆盖旧记录。请检查当前来源后重试。';
+      } finally { advancing = false; }
+    });
 
     window.addEventListener('kianos:english-session-updated', () => void render());
     window.addEventListener('kianos:subject-continue-requested', (event) => {

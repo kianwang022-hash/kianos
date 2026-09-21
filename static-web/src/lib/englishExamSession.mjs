@@ -661,7 +661,7 @@ export function englishExamProductiveScoreReturnContract(state) {
       writing_small: channel('writing_small'),
       writing_big: channel('writing_big')
     },
-    boundary: 'Score only the preserved sealed first outputs. If an independent re-score is still required, do not mark it false merely to make the packet importable.'
+    boundary: 'Score only the preserved sealed first outputs. If an independent re-score is still required, do not mark it false merely to make the packet importable. Deliver the completed object as the payload of english.exam_score_return through the existing private control relay. An accepted return displays reference ranges directly, without another learner confirmation; it is not formal exam calibration.'
   };
 }
 
