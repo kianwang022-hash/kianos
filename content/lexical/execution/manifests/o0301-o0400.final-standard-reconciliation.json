@@ -33,6 +33,11 @@
       "target": "attack↔assault Relation",
       "action": "REMOVE_SOURCE_SPECIFIC_SHARED_DEFINITION",
       "result": "PASS"
+    },
+    {
+      "target": "assure/ensure/insure Relation runtime projection",
+      "action": "PRESERVE_PRIMARY_ASSURE_ENSURE_TARGETS_IN_THREE_WAY_RELATION",
+      "result": "PASS"
     }
   ],
   "closure": {
@@ -46,5 +51,5 @@
     "broad_semantic_reopen_required": false,
     "main_merge_authorized": true
   },
-  "next_action": "Open BF03 integration PR, run bounded checks, merge if no BF03 regression is proven."
+  "next_action": "Run updated PR checks on final BF03 head; merge if no BF03 regression is proven."
 }
