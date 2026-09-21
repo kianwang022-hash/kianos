@@ -22,14 +22,14 @@
           "cloze",
           "writing"
         ],
-        "target_expression": "ensure/insure",
         "boundary": "assure normally takes a person (assure sb that/of sth); ensure makes an outcome certain (ensure sth/that ...); insure provides insurance, typically insure sb/sth against/for risk.",
         "boundaries": [
           "assure sb (that) / assure sb of sth",
           "ensure sth / ensure that ...",
           "insure sb/sth against/for risk"
         ],
-        "learning_note": "三词有历史重叠，但不要机械套“人/事/保险”绝对规则；优先看论元结构和语境。"
+        "learning_note": "三词有历史重叠，但不要机械套“人/事/保险”绝对规则；优先看论元结构和语境。",
+        "target_word": "ensure"
       }
     },
     {
@@ -50,14 +50,14 @@
           "cloze",
           "writing"
         ],
-        "target_expression": "assure/insure",
         "boundary": "ensure makes an outcome certain; assure normally reassures/informs a person; insure primarily provides insurance, though older/general 'ensure' overlap exists.",
         "boundaries": [
           "ensure sth / ensure that ...",
           "assure sb (that) / assure sb of sth",
           "insure sb/sth against/for risk"
         ],
-        "learning_note": "写作中 ensure 最稳的是“确保结果/事情发生”。"
+        "learning_note": "写作中 ensure 最稳的是“确保结果/事情发生”。",
+        "target_word": "assure"
       }
     },
     {
@@ -78,19 +78,20 @@
           "cloze",
           "writing"
         ],
-        "target_expression": "assure/ensure",
         "boundary": "insure primarily means provide insurance; ensure means make certain; assure typically takes a person who is made confident or certain.",
         "boundaries": [
           "insure sb/sth against/for risk",
           "ensure sth / ensure that ...",
           "assure sb (that) / assure sb of sth"
         ],
-        "learning_note": "现代一般写作中，保险义优先 insure；确保结果优先 ensure。"
+        "learning_note": "现代一般写作中，保险义优先 insure；确保结果优先 ensure。",
+        "target_word": "ensure"
       }
     }
   ],
   "provenance": {
     "materialized_from": "BF03_final_standard_2026-09-21",
-    "semantic_delta": 1
+    "semantic_delta": 1,
+    "runtime_projection_compatibility": "assure↔ensure primary target preserved while three-way boundary remains in one relation"
   }
 }
