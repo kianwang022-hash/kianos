@@ -47,9 +47,10 @@ Protocol: `content/english/ENGLISH_HIGHEST_MATURITY_FRESH_AUDIT_BRIEF.md`
 ```text
 SYSTEM_LOGIC_CANDIDATE = YES
 HISTORICAL_FRESH_1_TO_4 = FAIL_WITH_BOUNDED_REPAIRS_PROVEN
+PRE_CONVERGENCE_HARDENING = PASS @ 633b2f7666231be035041a768e131fb2c592f3f0
 AUDIT_PROTOCOL = FINAL_CONVERGENCE_V2
-FINAL_CONVERGENCE_SWEEP = REQUIRED
-FINAL_ACCEPTANCE = PENDING_IF_SWEEP_REPAIRS
+FINAL_CONVERGENCE_SWEEP = REQUIRED_FRESH
+FINAL_ACCEPTANCE = ONLY_IF_FRESH_SWEEP_REPAIRS_BLOCKERS
 SYSTEM_LOGIC_ACCEPTED = NOT YET
 KIAN_SPECIFIC_CALIBRATED = NO
 ```
@@ -60,6 +61,26 @@ Fresh #1–#4 detail is historical provenance, not Current truth. Read it only a
 - exact repaired owners / validators.
 
 Current package already represents Material/Source, Productive Scoring, Evidence/Exposure, Dynamic Control, Forecast, Future Source, Chat↔Website, Whole Paper productive-score return, and lifecycle/adversarial boundaries.
+
+### Pre-convergence hardening — proven, non-verdict
+
+A non-fresh builder pass after Fresh #4 found and repaired four material all-green failure surfaces:
+
+1. same-day learner evidence could change while an older top-level Chat Plan remained executable;
+2. a Whole Paper already closed at `SCORED` could still block later ordinary study of constituent material;
+3. corrupt/unreadable Whole Paper durable state could collapse to `null` in English evidence and look like no paper evidence existed;
+4. Chat-generated drills were projected as `TRANSFER` without an explicit independence/lineage gate, allowing changed metadata or near-derivative generation to overstate transfer evidence.
+
+Bounded repair stayed inside existing owners. Exact-head proof:
+
+```text
+Private Chat Control #853
+SUCCESS @ 633b2f7666231be035041a768e131fb2c592f3f0
+```
+
+That proof runs the Chat Plan evidence-basis validator, Whole Paper validator, E4 evidence-fidelity validator, generated-drill unit/browser paths, private packet projection, site build, exact Home workspace and private-control browser acceptance.
+
+**Important:** this hardening pass is not the required Fresh Final Convergence Sweep because the executing Chat had already seen historical Fresh #4 defect/repair reasoning. It cannot set `SYSTEM_LOGIC_ACCEPTED`.
 
 ### Closure protocol
 The old one-defect-per-Fresh chain is retired.
@@ -127,8 +148,9 @@ A blocker in one child does not freeze siblings without a real shared dependency
 ## Next
 ```text
 learner request → normal English use / Real Learner U
-highest-maturity closure → FINAL_CONVERGENCE_SWEEP
-→ if repaired blockers exist: FINAL_ACCEPTANCE
+highest-maturity closure → fresh FINAL_CONVERGENCE_SWEEP
+→ zero blockers: SYSTEM_LOGIC_ACCEPTED
+→ blockers: consolidated repair → FINAL_ACCEPTANCE
 → STOP broad maturity engineering
 ```
 
