@@ -44,7 +44,9 @@ for (const required of [
   '/__kianos-private/external-reading/status',
   'waitForMirrorSha',
   'mode === 0o700',
-  'READY: KianOS Current is ready for learner use'
+  'READY: KianOS Current is ready for learner use',
+  "process.argv.includes('--json')",
+  'kianos.current-doctor.v1'
 ]) {
   assert.ok(doctor.includes(required), `doctor missing: ${required}`);
 }
