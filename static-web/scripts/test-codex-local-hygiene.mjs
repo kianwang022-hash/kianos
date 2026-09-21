@@ -36,6 +36,14 @@ try {
   git(['checkout', 'main']); git(['merge', '--no-ff', 'codex/issue101-done', '-m', 'merge done']); git(['push', 'origin', 'main']);
   git(['push', 'origin', '--delete', 'codex/issue101-done']);
 
+  // Historical Codex naming used "issue-<N>" instead of "issue<N>".
+  git(['checkout', '-b', 'codex/issue-106-legacy']);
+  fs.writeFileSync(path.join(repo, 'legacy.txt'), 'legacy\n');
+  git(['add', '.']); git(['commit', '-m', 'legacy']);
+  git(['push', '-u', 'origin', 'codex/issue-106-legacy']);
+  git(['checkout', 'main']); git(['merge', '--no-ff', 'codex/issue-106-legacy', '-m', 'merge legacy']); git(['push', 'origin', 'main']);
+  git(['push', 'origin', '--delete', 'codex/issue-106-legacy']);
+
   git(['checkout', '-b', 'codex/issue102-dirty']);
   fs.writeFileSync(path.join(repo, 'dirty.txt'), 'committed\n');
   git(['add', '.']); git(['commit', '-m', 'dirty branch']);
@@ -89,6 +97,7 @@ if [ "$1" = "pr" ] && [ "$2" = "list" ]; then
     codex/issue102-dirty) oid="$GH_FAKE_102_HEAD" ;;
     codex/issue104-squash) oid="$GH_FAKE_104_HEAD" ;;
     codex/issue105-open) oid="$GH_FAKE_105_HEAD" ;;
+    codex/issue-106-legacy) oid="$GH_FAKE_106_HEAD" ;;
     *) echo '[]'; exit 0 ;;
   esac
   printf '[{"number":900,"headRefName":"%s","headRefOid":"%s","mergedAt":"2026-09-21T00:00:00Z"}]\n' "$branch" "$oid"
@@ -104,12 +113,14 @@ exit 1
     GH_FAKE_101_HEAD: head('codex/issue101-done'),
     GH_FAKE_102_HEAD: head('codex/issue102-dirty'),
     GH_FAKE_104_HEAD: head('codex/issue104-squash'),
-    GH_FAKE_105_HEAD: head('codex/issue105-open')
+    GH_FAKE_105_HEAD: head('codex/issue105-open'),
+    GH_FAKE_106_HEAD: head('codex/issue-106-legacy')
   };
 
   const dry = JSON.parse(execFileSync(process.execPath, [script, '--json'], { cwd: repo, encoding: 'utf8', env }));
   assert.ok(dry.would_delete.includes('codex/issue101-done'));
   assert.ok(dry.would_delete.includes('codex/issue104-squash'));
+  assert.ok(dry.would_delete.includes('codex/issue-106-legacy'));
   assert.ok(dry.skipped.some((row) => row.branch === 'codex/issue102-dirty' && row.reason === 'dirty-worktree'));
   assert.ok(dry.skipped.some((row) => row.branch === 'codex/issue103-active' && row.reason === 'remote-still-active'));
   assert.ok(dry.skipped.some((row) => row.branch === 'codex/issue105-open' && row.reason === 'issue-not-completed'));
@@ -118,8 +129,10 @@ exit 1
   const applied = JSON.parse(execFileSync(process.execPath, [script, '--apply', '--json'], { cwd: repo, encoding: 'utf8', env }));
   assert.ok(applied.deleted.includes('codex/issue101-done'));
   assert.ok(applied.deleted.includes('codex/issue104-squash'));
+  assert.ok(applied.deleted.includes('codex/issue-106-legacy'));
   assert.equal(existsBranch('codex/issue101-done'), false);
   assert.equal(existsBranch('codex/issue104-squash'), false);
+  assert.equal(existsBranch('codex/issue-106-legacy'), false);
   assert.equal(existsBranch('codex/issue102-dirty'), true);
   assert.equal(fs.existsSync(dirtyWt), true);
   assert.equal(existsBranch('codex/issue103-active'), true);

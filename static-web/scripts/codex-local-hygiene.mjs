@@ -48,7 +48,7 @@ function ghJson(args) {
 
 const branchLines = git(['for-each-ref', '--format=%(refname:short)', 'refs/heads/'])
   .split('\n').filter(Boolean);
-const candidates = branchLines.filter((name) => /^codex\/issue\d+-[A-Za-z0-9._-]+$/.test(name));
+const candidates = branchLines.filter((name) => /^codex\/issue-?\d+-[A-Za-z0-9._-]+$/.test(name));
 
 const worktreeRaw = git(['worktree', 'list', '--porcelain']);
 const worktrees = new Map();
@@ -69,7 +69,7 @@ const resolvedRoot = fs.realpathSync(repoRoot);
 const rows = [];
 
 for (const branchName of candidates) {
-  const issueMatch = branchName.match(/^codex\/issue(\d+)-/);
+  const issueMatch = branchName.match(/^codex\/issue-?(\d+)-/);
   const issueNumber = Number(issueMatch?.[1] || 0);
   const row = { branch: branchName, issue: issueNumber || null, action: 'skip', reason: null, worktree: worktrees.get(branchName) || null };
 
