@@ -349,3 +349,119 @@ The mechanical executor is:
 It is deliberately fail-closed and never merges `main`.
 
 Therefore A/C should not spend normal semantic turns manually transporting many JSON files either after Human approval or after reconciliation. They emit one exact mutation package for each actually needed write stage; GitHub performs the mechanical landing. Direct Chat writes are a fallback for executor defects, not the normal path.
+
+## 10. Anti-stall lexical batch protocol — ACTIVE
+
+Marker: `LEXICAL_ANTI_STALL_BATCH_PROTOCOL_V1`
+
+This protocol is mandatory for final-standard materialization / B audit / reconciliation batches and overrides any older habit of per-owner tool chatter.
+
+### 10.1 Normal batch shape
+
+```text
+latest main + live board
+→ frozen proposal + module matrix
+→ compact read of affected owners/shared dependencies
+→ one staging branch
+→ bounded semantic writes in grouped commits
+→ Repair Test closure
+→ one scope/source-fidelity self-check
+→ one work/lexical-continuous-* candidate
+→ one Final Learner Object rebuild
+→ compact B audit from materialized learner surface
+→ one reconciliation commit if findings exist
+→ one rebuild after that real reconciliation
+→ targeted final gates
+→ merge
+```
+
+Do **not** restart Production A/C Fresh Read or Human Gate work when the batch is already frozen/approved.
+
+### 10.2 Read discipline
+
+- Do not serially fetch all 100 Word owners when Final Learner Object shards or a frozen module matrix can cover the same audit surface more compactly.
+- For 100-owner B coverage, prefer reading the few Final Learner Object shards spanning the ordinal range, then separately inspect only affected owners, mandatory Form/Relation/identity strata, shared dependencies and deterministic simple samples.
+- Large JSON must be compacted to the semantic fields required for judgment. Full raw owner payloads are for targeted debugging only.
+- A 100/100 coverage claim must still be real; compression changes transport, not audit density.
+
+### 10.3 Write discipline
+
+- Use a non-triggering staging branch for multi-owner semantic landing when practical.
+- Group already-decided owner mutations; do not fire Final Learner materialization after every few words.
+- Create/advance the `work/lexical-continuous-*` candidate only after the coherent batch write-set is ready.
+- Trigger **one** Final Learner Object rebuild for initial materialization.
+- If B finds real defects, reconcile them in one bounded commit/package when practical, then trigger **one** additional rebuild.
+- Documentation/Audit Pack/reconciliation-receipt-only commits must not cause semantic rebuilds.
+
+### 10.4 CI / workflow discipline
+
+Forbidden pattern:
+
+```text
+check workflow
+→ same state
+→ check again
+→ same state
+→ check again
+→ ...
+```
+
+Required pattern:
+
+- inspect the workflow after trigger;
+- if it is running normally, do not repeatedly poll identical state;
+- inspect a specific job/step only when diagnosing a failure or proving the final merge gate;
+- for final closure, read the consolidated run/check result once the relevant state has actually advanced;
+- stale/superseded known gates must be identified once and carried in the durable closure receipt rather than rediscovered on every poll.
+
+### 10.5 Chat-context protection
+
+Never use the Chat transcript as the durable execution log.
+
+Durable detail belongs in:
+
+- frozen proposal/module matrix;
+- candidate branch;
+- Audit Pack;
+- reconciliation receipt;
+- workflow/artifact evidence;
+- live board.
+
+Chat should retain only the compact working state:
+
+```text
+candidate
+range
+current head
+phase
+affected counts
+material findings
+blocking gate
+next exact action
+```
+
+If the Chat becomes large or slow, re-read those durable owners from current GitHub and continue. Do not compensate by replaying the whole batch history.
+
+### 10.6 Progress updates
+
+During a lexical batch, user-facing updates should occur only for:
+
+- a material semantic/identity/source-fidelity finding;
+- a true phase transition (materialized / audit complete / reconciled / merged);
+- a real blocker that changes the next action.
+
+Do not report every 5-owner write, every fetch, every CI queue state, or every unchanged poll.
+
+### 10.7 Failure recovery
+
+If a tool call hits payload/tool-count limits:
+
+```text
+reduce returned fields
+or
+split at a meaningful semantic boundary
+```
+
+Do not degrade into dozens of one-owner calls unless there is no smaller safe batch representation.
+
+If an automated materializer/executor works, use it. Manual derived-file transport is fallback-only.

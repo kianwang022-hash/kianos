@@ -489,3 +489,35 @@ understand Kian's intent
 ```
 
 KianOS succeeds when fresh Chats restart quickly and normal changes are cheap—not when workers can recite the repository's governance history.
+
+## Anti-stall batch execution discipline — ACTIVE
+
+Marker: `KIANOS_ANTI_STALL_BATCH_EXECUTION_V1`
+
+Long-running BUILD / CONTROL work must optimize for **few high-information repository operations**, not a diary of tiny reads/writes.
+
+Default execution shape:
+
+```text
+current-first narrow read
+→ compact batch extraction
+→ one staging/write bundle
+→ one derived rebuild / expensive CI trigger when possible
+→ one bounded readback
+→ final result
+```
+
+Hard rules:
+
+1. **Batch remote reads.** Prefer one compact owner/matrix/manifest extraction over dozens of serial per-file round trips. If many owners must be inspected, return only the fields needed for the decision; do not dump full large JSON objects into Chat unless the full object is itself the task.
+2. **Batch writes.** When a task changes many bounded files under one already-decided scope, stage the semantic decisions first and land them in as few commits/triggers as practical. Do not trigger an expensive derived build after each tiny edit.
+3. **Do not use Chat context as a log sink.** Large machine outputs, full catalog rows, long diffs and repeated workflow payloads should stay in GitHub/artifacts. Surface only compact counts, findings, changed owners and exact blockers.
+4. **No high-frequency CI polling.** After triggering a workflow, do not repeatedly request the same status while nothing has changed. Inspect the run once, then re-read only for a meaningful state transition, a specific failing job, or the final merge decision. Never create a tight status-poll loop.
+5. **Separate semantic work from mechanical transport.** Once the semantic/product decision is fixed, prefer the repository's existing mechanical executor/materializer for repetitive JSON transport/rebuilds. Chat should not manually walk every derived file unless the executor is defective.
+6. **One expensive derived rebuild per coherent batch by default.** Rebuild again only after a real reconciliation mutation, not after documentation/receipt-only commits.
+7. **Compact verification.** Verify the smallest decisive surface: changed owners + shared dependencies + derived manifest/count + targeted gates. Do not re-read unchanged frozen inputs merely because the Chat is long.
+8. **Long Chat is not permission to restart.** If context becomes heavy, re-ground from current GitHub truth and continue from the exact durable cursor. Do not repeat completed A/C review, accepted Human Gates, or previously closed batches just to reconstruct context.
+9. **If a tool call is too large, reduce payload—not correctness.** Split by meaningful batch boundary or extract only needed fields; do not fall back to one-file-at-a-time chatter.
+10. **User updates stay outcome-level.** Report real findings, phase transitions and blockers. Do not narrate every low-level fetch, commit, workflow status or retry.
+
+Exception: a safety-critical or identity-sensitive mutation may require smaller fail-closed steps. Even then, minimize repeated remote calls and keep durable receipts in GitHub.
