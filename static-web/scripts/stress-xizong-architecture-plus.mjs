@@ -24,6 +24,7 @@ import {
   startNextXizongQuestionRound
 } from '../src/lib/xizongQuestionAttempts.mjs';
 import { collectXizongRetainedEvidence } from '../src/lib/xizongRetainedPractice.mjs';
+import { xizongQuestionSemanticRevision, xizongQuestionSemanticRevisions } from '../src/lib/xizongQuestions.mjs';
 import { summarizeXizongScoreAttribution } from '../src/lib/xizongScoreAttribution.mjs';
 
 const DAY = 86400000;
@@ -321,6 +322,8 @@ const officialQuestion = {
   relation: reviewedRelation
 };
 
+officialQuestion.semanticRevision = xizongQuestionSemanticRevision(officialQuestion);
+const questionSemanticRevisions = xizongQuestionSemanticRevisions([officialQuestion]);
 const probeQuestion = probes[0];
 const context = {
   systemId: 'stress',
@@ -359,7 +362,7 @@ sweep = recordXizongQuestionAttempt(sweep, {
 
 let retained = collectXizongRetainedEvidence(
   [['kianos:xizong:chat-set-question-sweep:stress:v1', JSON.stringify(sweep)]],
-  { holdoutYears: [] }
+  { holdoutYears: [], questionSemanticRevisions }
 );
 assert.deepEqual(retained.wrongUncertainIds, [officialQuestion.questionId], 'ai-polluted-official-wu');
 assert.equal(retained.transferProbeEvents.length, 1, 'ai-transfer-evidence-missing');
@@ -380,7 +383,7 @@ sweep = recordXizongQuestionAttempt(sweep, {
 
 retained = collectXizongRetainedEvidence(
   [['kianos:xizong:chat-set-question-sweep:stress:v1', JSON.stringify(sweep)]],
-  { holdoutYears: [] }
+  { holdoutYears: [], questionSemanticRevisions }
 );
 assert.equal(retained.wrongUncertainIds.includes(officialQuestion.questionId), false, 'stable-reuse-did-not-clear-current-wu');
 assert.equal(

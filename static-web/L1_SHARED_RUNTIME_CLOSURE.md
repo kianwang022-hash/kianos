@@ -29,6 +29,7 @@ This is the receipt for PR #732, not a new control plane or final-system certifi
 - Xizong: seven targeted native module/guard checks passed, including fault rollback. No real exam attempts or canonical source material were produced.
 - Worker: 25 isolated subprocess/claim/retry/timeout scenarios passed. Installed Mac worker is not certified by these tests.
 - Real browser: existing synthetic English Writing Resume, source staleness and retained draft/archive recovery passed. A composed Home case proved same-command ready, same-page stale and real cross-tab storage-event stale while native Resume stayed usable. Disposable private directories and disabled relays were used.
+- Final CI-driven repair: the live External Reading owner replaces its cached DOM projection, preventing duplicate identities from rejecting a valid command. The full existing private-control browser test then passed Chat command → relay → browser → Home → exact English Workspace without increasing its timeout. Revision-aware test fixtures were updated without weakening unknown/stale-source isolation.
 - Full Astro build: 8,455 pages built successfully on the original runtime candidate. Reconciled-head full-site build is delegated to the existing PR CI; exact-head CI remains separately visible on the PR.
 
 ## Scope and operational readback

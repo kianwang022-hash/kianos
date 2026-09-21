@@ -97,7 +97,10 @@ async function loadEnglishCatalog(){
       }));
     }
   }catch{}
-  const rows=[...staticRows,...externalRows];
+  // English Resume may already project external rows into the DOM catalog.
+  // Replace that cached projection with this live owner read; duplicate or
+  // conflicting source identities must still fail native validation.
+  const rows=[...staticRows.filter(row=>row.task!=='external_reading'),...externalRows];
   if(!rows.length)throw new Error('KIANOS_CONTROL_ENGLISH_CATALOG_UNAVAILABLE');
   return rows;
 }
