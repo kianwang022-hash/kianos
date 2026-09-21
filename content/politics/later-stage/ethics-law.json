@@ -1,0 +1,607 @@
+{
+  "schema": "kianos.politics.later-stage-subject-bundle.v1",
+  "subject": "ethics-law",
+  "historical_audit_ref": "work/politics-later-l-fastpath-20260918",
+  "status": "AUDITED_CANDIDATE_BASELINE_CURRENT_YEAR_ADMISSION_PENDING",
+  "chapters": [
+    {
+      "chapter_path": "content/politics/learning/ethics-law/ch00.json",
+      "chapter_id": "POL27-LEARN-ETHICS-C00",
+      "title": "绪论｜为什么思想道德和法治素养要一起学",
+      "later_stage_knowledge": {
+        "schema": "kianos.politics.later_stage_knowledge.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "phase_scope": [
+          "CONSOLIDATION",
+          "PRECISION",
+          "ANALYSIS_OUTPUT"
+        ],
+        "compression_model": {
+          "cognition": "MORALITY_LAW_NORM_BOUNDARY",
+          "purpose": "Reuse Current concept/boundary Knowledge as the later reconstruction owner; later review should discriminate concepts and situations rather than replay the chapter.",
+          "reconstruction_source": "chapter_compression",
+          "chapter_compression": {
+            "reconstruction": "共同规范社会行为 → 思想道德偏价值引领/内在自觉，法律偏制度规范/强制保障 → 道德给法治价值基础，法治给道德制度保障 → 二者相互支撑但不能替代",
+            "review_prompt": "闭卷说清三件事：二者共同做什么？最大的调节方式差别是什么？为什么必须相互支撑而不能互相替代？"
+          },
+          "decisive_boundaries": [
+            {
+              "boundary": "思想道德 ≠ 法律；相互联系 ≠ 可以互相替代。调节范围、实现方式和直接目标都不同：思想道德的调节领域更广，法律更集中于外在行为规范；法律有国家强制力保障，但不等于每个法律实施过程都只能靠强制。",
+              "owner_ids": [
+                "POL27-CF-ETHICS-C00"
+              ]
+            }
+          ]
+        },
+        "precision_knowledge": {
+          "policy": "REFERENCE_MEMORY_SIDECAR",
+          "owner_path": "content/politics/learning/ethics-law/ch00.memory.json",
+          "candidate_ids": [
+            "POL27-MEM-ETHICS-C00-M01",
+            "POL27-MEM-ETHICS-C00-M02"
+          ],
+          "admission_state": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+          "deferred_domains": [],
+          "freshness_gate": "NORMAL",
+          "rule": "Current concept/boundary Knowledge plus inspected historical support creates candidate-only precision; durable Memory remains admission-gated."
+        },
+        "analysis_output_hooks": [
+          {
+            "id": "ETHICS-C00-OUT-MORALITY-LAW",
+            "title": "德治与法治 / 思想道德与法律",
+            "material_cues": [
+              "德治法治",
+              "道德法律",
+              "社会治理",
+              "规范"
+            ],
+            "retrieval_target": "先写共同调节社会行为，再区分价值引领/内在自觉与制度规则/强制保障，最后说明相互支撑。",
+            "answer_skeleton": [
+              "共同服务行为调节和社会秩序",
+              "道德提供价值基础/自觉引导",
+              "法治提供制度支撑/法律保障",
+              "二者相互促进但不能互相替代",
+              "回扣材料"
+            ],
+            "current_year_status": "CURRENT_SOURCE_CHECK_BEFORE_EXACT_USE"
+          }
+        ],
+        "output_source_role": "CROSS_TOPIC_CHAT_OUTPUT_SUPPORT",
+        "historical_output_value": [
+          "德治与法治关系"
+        ],
+        "first_round_effect": "NONE"
+      }
+    },
+    {
+      "chapter_path": "content/politics/learning/ethics-law/ch01.json",
+      "chapter_id": "POL27-LEARN-ETHICS-C01",
+      "title": "第一章｜人生观到底在判断什么：个人选择怎样放回社会关系中理解",
+      "later_stage_knowledge": {
+        "schema": "kianos.politics.later_stage_knowledge.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "phase_scope": [
+          "CONSOLIDATION",
+          "PRECISION",
+          "ANALYSIS_OUTPUT"
+        ],
+        "compression_model": {
+          "cognition": "LIFE_VALUE_SOCIAL_RELATION_JUDGMENT",
+          "purpose": "Reuse Current concept/boundary Knowledge as the later reconstruction owner; later review should discriminate concepts and situations rather than replay the chapter.",
+          "reconstruction_source": "chapter_compression",
+          "chapter_compression": {
+            "reconstruction": "人的本质具有社会性 → 个人与社会是基本坐标 → 人生目的/态度/价值形成总体人生观 → 人生价值要用社会历史实践尺度评价 → 现实人生矛盾必须辩证处理 → 拒绝拜金/享乐/极端个人主义",
+            "review_prompt": "闭卷回答：个人与社会为什么既不能割裂也不能把一方吞掉？人生价值的根本评价尺度是什么？再任选一组人生矛盾说明为什么不能单极化。"
+          },
+          "decisive_boundaries": [
+            {
+              "boundary": "人的自然属性存在，但人的现实本质不能被还原成生物本能；个人发展有正当空间，但不能把个人利益从社会共同利益中抽离出来。",
+              "owner_ids": [
+                "POL27-CF-ETHICS-C01-S01"
+              ]
+            },
+            {
+              "boundary": "人生目的、人生态度和人生价值彼此关联但不能互换；个人自我完善与社会贡献也不是非此即彼。",
+              "owner_ids": [
+                "POL27-CF-ETHICS-C01-K03"
+              ]
+            },
+            {
+              "boundary": "个人价值实现 ≠ 个人利益最大化；奉献社会 ≠ 否定个人正当发展。顺境 ≠ 只有积极作用，逆境 ≠ 必然产生进步；拜金主义、享乐主义、极端个人主义都把人生评价压缩到单一私利或即时享受。",
+              "owner_ids": [
+                "POL27-CF-ETHICS-C01-S02"
+              ]
+            }
+          ]
+        },
+        "precision_knowledge": {
+          "policy": "REFERENCE_MEMORY_SIDECAR",
+          "owner_path": "content/politics/learning/ethics-law/ch01.memory.json",
+          "candidate_ids": [
+            "POL27-MEM-ETHICS-C01-S01-M01",
+            "POL27-MEM-ETHICS-C01-K03-M01",
+            "POL27-MEM-ETHICS-C01-S02-M01"
+          ],
+          "admission_state": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+          "deferred_domains": [],
+          "freshness_gate": "NORMAL",
+          "rule": "Current concept/boundary Knowledge plus inspected historical support creates candidate-only precision; durable Memory remains admission-gated."
+        },
+        "analysis_output_hooks": [
+          {
+            "id": "ETHICS-C01-OUT-LIFE-VALUE",
+            "title": "人生观 / 青年奋斗 / 人生价值",
+            "material_cues": [
+              "人生价值",
+              "青年奋斗",
+              "个人社会",
+              "奉献"
+            ],
+            "retrieval_target": "把人生价值放回个人—社会关系和社会实践评价尺度，不写成个人成功学。",
+            "answer_skeleton": [
+              "人的现实本质具有社会性",
+              "个人与社会相互依存",
+              "人生价值评价看实践是否符合社会发展规律并促进历史进步",
+              "个人发展与社会贡献统一",
+              "回扣材料"
+            ],
+            "current_year_status": "STABLE_CONCEPTUAL"
+          }
+        ],
+        "output_source_role": "HIGH_VALUE_CHAT_FIRST_OUTPUT_BASELINE",
+        "historical_output_value": [
+          "人生观",
+          "奋斗/青年责任"
+        ],
+        "first_round_effect": "NONE"
+      }
+    },
+    {
+      "chapter_path": "content/politics/learning/ethics-law/ch02.json",
+      "chapter_id": "POL27-LEARN-ETHICS-C02",
+      "title": "第二章｜理想信念为什么不是空想，而是把长期方向和现实行动接起来",
+      "later_stage_knowledge": {
+        "schema": "kianos.politics.later_stage_knowledge.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "phase_scope": [
+          "CONSOLIDATION",
+          "PRECISION",
+          "ANALYSIS_OUTPUT"
+        ],
+        "compression_model": {
+          "cognition": "IDEAL_BELIEF_REALITY_RELATION",
+          "purpose": "Reuse Current concept/boundary Knowledge as the later reconstruction owner; later review should discriminate concepts and situations rather than replay the chapter.",
+          "reconstruction_source": "chapter_compression",
+          "chapter_compression": {
+            "reconstruction": "理想在实践中形成并指向可实现的未来 → 超越现实但不能脱离现实 → 信念把目标变成稳定行动 → 理想是信念对象、信念是理想保障 → 实现过程长期/艰巨/曲折 → 个人理想与共同理想在社会实践中协调",
+            "review_prompt": "闭卷回答：理想为什么既源于现实又超越现实？理想和信念各自解决什么问题？再说出两者相互依存的方向。"
+          },
+          "decisive_boundaries": [
+            {
+              "boundary": "理想 ≠ 幻想；信念 ≠ 没有根据的固执。理想源于现实但又超越现实，信念稳定但不是拒绝事实和规律。",
+              "owner_ids": [
+                "POL27-CF-ETHICS-C02-S01"
+              ]
+            },
+            {
+              "boundary": "坚定 ≠ 盲目。信仰是最高层次的信念，但信仰也有科学与盲目之分；科学信仰来自对客观规律的正确认识。",
+              "owner_ids": [
+                "POL27-CF-ETHICS-C02-S02"
+              ]
+            },
+            {
+              "boundary": "理想源于现实 ≠ 理想只是现实的复制；理想超越现实 ≠ 可以脱离现实条件。个人理想服从共同理想 ≠ 抹掉个人正当追求。",
+              "owner_ids": [
+                "POL27-CF-ETHICS-C02-S03"
+              ]
+            }
+          ]
+        },
+        "precision_knowledge": {
+          "policy": "REFERENCE_MEMORY_SIDECAR",
+          "owner_path": "content/politics/learning/ethics-law/ch02.memory.json",
+          "candidate_ids": [
+            "POL27-MEM-ETHICS-C02-S01-M01",
+            "POL27-MEM-ETHICS-C02-S03-M01"
+          ],
+          "admission_state": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+          "deferred_domains": [],
+          "freshness_gate": "NORMAL",
+          "rule": "Current concept/boundary Knowledge plus inspected historical support creates candidate-only precision; durable Memory remains admission-gated."
+        },
+        "analysis_output_hooks": [
+          {
+            "id": "ETHICS-C02-OUT-IDEALS",
+            "title": "理想信念",
+            "material_cues": [
+              "理想",
+              "信念",
+              "现实",
+              "奋斗"
+            ],
+            "retrieval_target": "用现实基础—超越目标—实践实现来解释理想，再把信念作为持续行动保障。",
+            "answer_skeleton": [
+              "理想源于现实又超越现实",
+              "理想必须具有实现可能性并通过实践推进",
+              "信念提供稳定精神支撑",
+              "实现具有长期艰巨曲折性",
+              "个人理想与共同理想在实践中结合"
+            ],
+            "current_year_status": "STABLE_CONCEPTUAL"
+          }
+        ],
+        "output_source_role": "HIGH_VALUE_CHAT_FIRST_OUTPUT_BASELINE",
+        "historical_output_value": [
+          "理想专题"
+        ],
+        "first_round_effect": "NONE"
+      }
+    },
+    {
+      "chapter_path": "content/politics/learning/ethics-law/ch03.json",
+      "chapter_id": "POL27-LEARN-ETHICS-C03",
+      "title": "第三章｜中国精神怎样把个人奋斗和国家民族共同体连接起来",
+      "later_stage_knowledge": {
+        "schema": "kianos.politics.later_stage_knowledge.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "phase_scope": [
+          "CONSOLIDATION",
+          "PRECISION",
+          "ANALYSIS_OUTPUT"
+        ],
+        "compression_model": {
+          "cognition": "CHINESE_SPIRIT_HAT_HIERARCHY",
+          "purpose": "Reuse Current concept/boundary Knowledge as the later reconstruction owner; later review should discriminate concepts and situations rather than replay the chapter.",
+          "reconstruction_source": "chapter_compression",
+          "chapter_compression": {
+            "reconstruction": "四个伟大概括中国精神丰富内涵 → 爱国主义是民族精神核心、改革创新是时代精神核心 → 民族精神 + 时代精神共同构成当代中国精神 → 爱国和爱党/爱社会主义高度统一 → 中国精神为复兴提供纽带、动力和支柱",
+            "review_prompt": "闭卷回答：四个伟大是哪四个？民族精神和时代精神各自的核心是什么？它们与中国精神是什么关系？"
+          },
+          "decisive_boundaries": [
+            {
+              "boundary": "中国精神 ≠ 只有民族精神；民族精神 ≠ 时代精神；‘四个伟大’ ≠ 四个互不相干的课程模块。",
+              "owner_ids": [
+                "POL27-CF-ETHICS-C03-S01"
+              ]
+            },
+            {
+              "boundary": "爱国主义 ≠ 狭隘民族主义；爱国 ≠ 排斥开放合作；爱国、爱党、爱社会主义在当代中国不能被人为割裂。",
+              "owner_ids": [
+                "POL27-CF-ETHICS-C03-S02"
+              ]
+            },
+            {
+              "boundary": "创新 ≠ 为新而新；改革创新 ≠ 无视规律或否定一切传统。真正的创新要服务现实问题解决和社会进步。",
+              "owner_ids": [
+                "POL27-CF-ETHICS-C03-S03"
+              ]
+            }
+          ]
+        },
+        "precision_knowledge": {
+          "policy": "REFERENCE_MEMORY_SIDECAR",
+          "owner_path": "content/politics/learning/ethics-law/ch03.memory.json",
+          "candidate_ids": [
+            "POL27-MEM-ETHICS-C03-S01-M01",
+            "POL27-MEM-ETHICS-C03-S02-M01"
+          ],
+          "admission_state": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+          "deferred_domains": [],
+          "freshness_gate": "NORMAL",
+          "rule": "Current concept/boundary Knowledge plus inspected historical support creates candidate-only precision; durable Memory remains admission-gated."
+        },
+        "analysis_output_hooks": [
+          {
+            "id": "ETHICS-C03-OUT-CHINESE-SPIRIT",
+            "title": "中国精神 / 爱国主义 / 改革创新",
+            "material_cues": [
+              "中国精神",
+              "爱国主义",
+              "改革创新",
+              "民族复兴"
+            ],
+            "retrieval_target": "先分民族精神与时代精神，再选材料命中的爱国主义或改革创新展开。",
+            "answer_skeleton": [
+              "民族精神与时代精神共同构成中国精神",
+              "爱国主义是民族精神核心",
+              "改革创新是时代精神核心",
+              "新时代爱国与爱党爱社会主义高度统一",
+              "回扣材料中的责任与创新实践"
+            ],
+            "current_year_status": "STABLE_WITH_CURRENT_YEAR_WORDING_CHECK"
+          }
+        ],
+        "output_source_role": "VERY_HIGH_VALUE_CHAT_FIRST_OUTPUT_BASELINE",
+        "historical_output_value": [
+          "中国精神与爱国主义",
+          "改革创新"
+        ],
+        "first_round_effect": "NONE"
+      }
+    },
+    {
+      "chapter_path": "content/politics/learning/ethics-law/ch04.json",
+      "chapter_id": "POL27-LEARN-ETHICS-C04",
+      "title": "第四章｜核心价值观为什么是共同价值尺度，而不是另一套道德清单",
+      "later_stage_knowledge": {
+        "schema": "kianos.politics.later_stage_knowledge.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "phase_scope": [
+          "CONSOLIDATION",
+          "PRECISION",
+          "ANALYSIS_OUTPUT"
+        ],
+        "compression_model": {
+          "cognition": "CORE_VALUES_THREE_LEVEL_STRUCTURE",
+          "purpose": "Reuse Current concept/boundary Knowledge as the later reconstruction owner; later review should discriminate concepts and situations rather than replay the chapter.",
+          "reconstruction_source": "chapter_compression",
+          "chapter_compression": {
+            "reconstruction": "核心价值观是共同价值尺度 → 国家：富强民主文明和谐 → 社会：自由平等公正法治 → 公民：爱国敬业诚信友善 → 三层共同回答国家/社会/公民三个不同问题 → 先进性/人民性/真实性说明其现实性质 → 践行把价值尺度转成行为",
+            "review_prompt": "闭卷按国家—社会—公民三层写出 12 个词，并各说一句它回答的是什么问题；再说明核心价值观为什么不等于核心价值体系全部内容。"
+          },
+          "decisive_boundaries": [
+            {
+              "boundary": "社会主义核心价值观 ≠ 社会主义核心价值体系全部内容；核心价值观在社会思想观念体系中具有主导作用，但不能偷换成‘在整个上层建筑中处于主导地位’。",
+              "owner_ids": [
+                "POL27-CF-ETHICS-C04-S01"
+              ]
+            },
+            {
+              "boundary": "价值先进性 ≠ 脱离现实；人民性 ≠ 只强调抽象多数；真实性 ≠ 现实中已经不存在任何矛盾。",
+              "owner_ids": [
+                "POL27-CF-ETHICS-C04-S02"
+              ]
+            },
+            {
+              "boundary": "践行价值观 ≠ 只会背固定表述；正确口号不能替代实际选择。",
+              "owner_ids": [
+                "POL27-CF-ETHICS-C04-S03"
+              ]
+            }
+          ]
+        },
+        "precision_knowledge": {
+          "policy": "REFERENCE_MEMORY_SIDECAR",
+          "owner_path": "content/politics/learning/ethics-law/ch04.memory.json",
+          "candidate_ids": [
+            "POL27-MEM-ETHICS-C04-S01-M01",
+            "POL27-MEM-ETHICS-C04-S01-M02",
+            "POL27-MEM-ETHICS-C04-S02-M01"
+          ],
+          "admission_state": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+          "deferred_domains": [],
+          "freshness_gate": "NORMAL",
+          "rule": "Candidate-only precision is grounded in Current concept/boundary Knowledge plus inspected historical support; durable Memory remains admission-gated."
+        },
+        "analysis_output_hooks": [
+          {
+            "id": "ETHICS-C04-OUT-CORE-VALUES",
+            "title": "社会主义核心价值观",
+            "material_cues": [
+              "核心价值观",
+              "价值追求",
+              "青年践行"
+            ],
+            "retrieval_target": "先按国家—社会—公民三层定位，再说明共同价值尺度如何转化为行为。",
+            "answer_skeleton": [
+              "核心价值观提供共同价值尺度",
+              "国家/社会/公民三层各有对应价值要求",
+              "先进性/人民性/真实性说明其性质",
+              "践行把价值认同转化为日常行动",
+              "回扣材料"
+            ],
+            "current_year_status": "STABLE_CONCEPTUAL"
+          }
+        ],
+        "output_source_role": "HIGH_VALUE_CHAT_FIRST_OUTPUT_BASELINE",
+        "historical_output_value": [
+          "社会主义核心价值观"
+        ],
+        "first_round_effect": "NONE"
+      }
+    },
+    {
+      "chapter_path": "content/politics/learning/ethics-law/ch05.json",
+      "chapter_id": "POL27-LEARN-ETHICS-C05",
+      "title": "第五章｜道德怎样从社会关系中的规范需要，落到社会主义道德原则和具体生活实践",
+      "later_stage_knowledge": {
+        "schema": "kianos.politics.later_stage_knowledge.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "phase_scope": [
+          "CONSOLIDATION",
+          "PRECISION",
+          "ANALYSIS_OUTPUT"
+        ],
+        "compression_model": {
+          "cognition": "MORALITY_CORE_PRINCIPLE_SITUATIONAL_MAP",
+          "purpose": "Reuse Current concept/boundary Knowledge as the later reconstruction owner; later review should discriminate concepts and situations rather than replay the chapter.",
+          "reconstruction_source": "chapter_compression",
+          "chapter_compression": {
+            "reconstruction": "劳动/社会关系/自我意识解释道德起源 → 道德反映经济关系并调节利益关系，存在功能层 → 社会主义道德形成先进属性 → 为人民服务是核心、集体主义是原则 → 吸收优秀道德资源 → 公共/职业/家庭/个人分场景实践 → 志愿服务和知行合一把价值认同转成行动",
+            "review_prompt": "闭卷回答四件事：道德起源三条件是什么？道德的本质是什么？社会主义道德的核心和原则分别是什么？志愿服务的精神/精髓/载体三个帽子是什么？"
+          },
+          "decisive_boundaries": [
+            {
+              "boundary": "核心 ≠ 原则；集体主义 ≠ 否定个人正当利益。社会主义道德也不是‘调节社会一切行为的唯一规范’，它与法律等其他规范共同作用。",
+              "owner_ids": [
+                "POL27-CF-ETHICS-C05-S01"
+              ]
+            },
+            {
+              "boundary": "继承传统 ≠ 全盘复古；弘扬革命道德 ≠ 把历史经验机械搬到所有情境；借鉴外来成果 ≠ 照搬外部价值体系。",
+              "owner_ids": [
+                "POL27-CF-ETHICS-C05-S02"
+              ]
+            },
+            {
+              "boundary": "场景不同 ≠ 道德原则互相冲突。尤其在公共生活中，遵纪守法既是全体公民必须遵循的基本行为准则，也是社会公德的最低要求；不要把它误当成只有法律意义而没有公德意义。",
+              "owner_ids": [
+                "POL27-CF-ETHICS-C05-S03"
+              ]
+            },
+            {
+              "boundary": "知道正确规范 ≠ 已经具备道德品质；志愿服务的‘精神、精髓、载体’是不同帽子，也不能把志愿服务夸大成衡量地区社会文明或治理水平的根本标准。",
+              "owner_ids": [
+                "POL27-CF-ETHICS-C05-S04"
+              ]
+            }
+          ]
+        },
+        "precision_knowledge": {
+          "policy": "REFERENCE_MEMORY_SIDECAR",
+          "owner_path": "content/politics/learning/ethics-law/ch05.memory.json",
+          "candidate_ids": [
+            "POL27-MEM-ETHICS-C05-S01-M01",
+            "POL27-MEM-ETHICS-C05-S01-M02",
+            "POL27-MEM-ETHICS-C05-S03-M01",
+            "POL27-MEM-ETHICS-C05-S04-M01"
+          ],
+          "admission_state": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_YEAR_DESIGNATED_MEMORY_SOURCE_NOT_YET_BOUND",
+          "deferred_domains": [
+            "古文诗句→道德主题配对"
+          ],
+          "freshness_gate": "NORMAL",
+          "rule": "Candidate-only precision is grounded in Current concept/boundary Knowledge plus inspected historical support; durable Memory remains admission-gated."
+        },
+        "analysis_output_hooks": [
+          {
+            "id": "ETHICS-C05-OUT-MORAL-PRACTICE",
+            "title": "社会主义道德与道德实践",
+            "material_cues": [
+              "道德建设",
+              "传统美德",
+              "革命道德",
+              "志愿服务",
+              "公德"
+            ],
+            "retrieval_target": "先判断材料属于核心/原则还是具体生活场景，再调用对应规范。",
+            "answer_skeleton": [
+              "社会主义道德以为人民服务为核心、集体主义为原则",
+              "吸收优秀传统/革命/文明道德成果",
+              "按公共/职业/家庭/个人场景匹配规范",
+              "知行合一和志愿服务把价值转成实践",
+              "回扣材料"
+            ],
+            "current_year_status": "STABLE_WITH_SOURCE_CHECK"
+          }
+        ],
+        "output_source_role": "VERY_HIGH_VALUE_CHAT_FIRST_OUTPUT_BASELINE",
+        "historical_output_value": [
+          "传统美德",
+          "革命道德",
+          "个人品德",
+          "社会公德",
+          "家庭美德",
+          "诚信",
+          "公共秩序"
+        ],
+        "first_round_effect": "NONE"
+      }
+    },
+    {
+      "chapter_path": "content/politics/learning/ethics-law/ch06.json",
+      "chapter_id": "POL27-LEARN-ETHICS-C06",
+      "title": "第六章｜法律怎样从规范本身，一路运行到依法治国、宪法和公民法治实践",
+      "later_stage_knowledge": {
+        "schema": "kianos.politics.later_stage_knowledge.v1",
+        "status": "CURRENT_K_REVIEWED",
+        "phase_scope": [
+          "CONSOLIDATION",
+          "PRECISION",
+          "ANALYSIS_OUTPUT"
+        ],
+        "compression_model": {
+          "cognition": "RULE_OF_LAW_HIERARCHY_AND_APPLICATION",
+          "purpose": "Reuse Current concept/boundary Knowledge as the later reconstruction owner; later review should discriminate concepts and situations rather than replay the chapter.",
+          "reconstruction_source": "chapter_compression",
+          "chapter_compression": {
+            "reconstruction": "法律国家创制/社会物质基础 → 立法执法司法守法运行 → 习近平法治思想作根本遵循和行动指南 → 中国特色社会主义法治道路定方向 → 法治体系作总抓手、法治中国作目标 → 共同推进/一体建设 + 科学立法严格执法公正司法全民守法 → 宪法提供根本规范 → 法治思维以法律至上/权力制约/公平正义/权利保障/程序正当处理权利义务",
+            "review_prompt": "闭卷按层级说清：根本遵循、道路、总抓手、宏伟目标、四环节格局分别是什么；再说出法治思维五项基本内容和权利义务关系。"
+          },
+          "decisive_boundaries": [
+            {
+              "boundary": "法律具有国家强制保障 ≠ 每一个实施过程都只能依靠强制；法律属于上层建筑 ≠ 可以脱离社会物质生活条件任意设计；守法主体不仅是普通公民，而是一切组织和个人。",
+              "owner_ids": [
+                "POL27-CF-ETHICS-C06-S01"
+              ]
+            },
+            {
+              "boundary": "依法治国 ≠ 单纯严格执法；法治道路 ≠ 法治体系；总抓手 ≠ 宏伟目标；科学立法/严格执法/公正司法/全民守法 ≠ 法治国家/政府/社会三者。",
+              "owner_ids": [
+                "POL27-CF-ETHICS-C06-S02"
+              ]
+            },
+            {
+              "boundary": "宪法最高地位 ≠ 宪法直接替代所有具体法律。依法治国首先要坚持依宪治国，依法执政首先要坚持依宪执政；维护宪法权威还需要宪法实施和监督，而不是只强调文本地位。",
+              "owner_ids": [
+                "POL27-CF-ETHICS-C06-S03"
+              ]
+            },
+            {
+              "boundary": "法律至上尤指宪法至上，但不等于法律调整社会生活的一切领域；权力 ≠ 权利；权利 ≠ 无限制自由；义务 ≠ 单方面服从；程序正当 ≠ 只要结果正确就可以忽略程序。",
+              "owner_ids": [
+                "POL27-CF-ETHICS-C06-S04"
+              ]
+            }
+          ]
+        },
+        "precision_knowledge": {
+          "policy": "REFERENCE_MEMORY_SIDECAR",
+          "owner_path": "content/politics/learning/ethics-law/ch06.memory.json",
+          "candidate_ids": [
+            "POL27-MEM-ETHICS-C06-S01-M01",
+            "POL27-MEM-ETHICS-C06-S02-M01",
+            "POL27-MEM-ETHICS-C06-S02-M02",
+            "POL27-MEM-ETHICS-C06-S03-M01",
+            "POL27-MEM-ETHICS-C06-S04-M01",
+            "POL27-MEM-ETHICS-C06-S04-M02"
+          ],
+          "admission_state": "CANDIDATE_ONLY",
+          "admission_blocker": "CURRENT_LEGAL_SOURCE_RECHECK_REQUIRED_BEFORE_ADMISSION",
+          "deferred_domains": [
+            "法治道路/法治体系详细原则与法律条文相关扩展"
+          ],
+          "freshness_gate": "HIGH_CURRENT_LEGAL_SOURCE_REQUIRED",
+          "rule": "Candidate-only precision is grounded in Current concept/boundary Knowledge plus inspected historical support; durable Memory remains admission-gated."
+        },
+        "analysis_output_hooks": [
+          {
+            "id": "ETHICS-C06-OUT-RULE-OF-LAW",
+            "title": "全面依法治国 / 权利义务 / 法治素养",
+            "material_cues": [
+              "全面依法治国",
+              "宪法",
+              "权利义务",
+              "法治思维",
+              "法治素养"
+            ],
+            "retrieval_target": "先定位思想依据/道路/体系/目标/工作格局，再根据材料进入宪法、权利义务或法治思维。",
+            "answer_skeleton": [
+              "全面依法治国是治理体系的重要制度路径",
+              "习近平法治思想/法治道路/法治体系/法治中国各归其位",
+              "宪法提供根本规范基础",
+              "权利义务统一、依法正确行使权利履行义务",
+              "法治思维要求法律至上/权力制约/公平正义/权利保障/程序正当",
+              "回扣材料"
+            ],
+            "current_year_status": "HIGH_FRESHNESS_CURRENT_SOURCE_REQUIRED"
+          }
+        ],
+        "output_source_role": "HIGH_VALUE_CHAT_FIRST_OUTPUT_BASELINE_WITH_FRESHNESS_GATE",
+        "historical_output_value": [
+          "全面依法治国",
+          "权利义务",
+          "法治素养",
+          "德治与法治"
+        ],
+        "first_round_effect": "NONE"
+      }
+    }
+  ]
+}
