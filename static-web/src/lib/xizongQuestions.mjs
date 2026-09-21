@@ -84,6 +84,24 @@ function inventoryHash(ids) {
   return sha256(`${[...ids].sort().join('\n')}\n`);
 }
 
+export function xizongQuestionSemanticHash(questions = []) {
+  const rows = (Array.isArray(questions) ? questions : [])
+    .map((question) => ({
+      question_id: String(question?.questionId || ''),
+      question_type: String(question?.questionType || ''),
+      stem: String(question?.stem || ''),
+      options: (Array.isArray(question?.options) ? question.options : [])
+        .map((option) => ({
+          label: String(option?.label || ''),
+          text: String(option?.text || '')
+        }))
+        .sort((a, b) => a.label.localeCompare(b.label)),
+      correct_answer: String(question?.correctAnswer || '')
+    }))
+    .sort((a, b) => a.question_id.localeCompare(b.question_id));
+  return sha256(JSON.stringify(rows));
+}
+
 function scopePath(system) {
   return `${LEARNER_ROOT}/${String(system.canonicalId || '').toLowerCase()}-${system.systemId}-question-scope.json`;
 }
@@ -292,6 +310,7 @@ export function loadXizongWholePaper(year) {
     scopePath: EXAM_FORMAT_PATH,
     scopeHash: format.sourceHash,
     questionInventoryHash: inventoryHash(ids),
+    questionSemanticHash: xizongQuestionSemanticHash(questions),
     questions,
     years: [normalizedYear],
     holdoutRequired: false,
@@ -469,6 +488,7 @@ export function loadXizongSystemQuestionSweep(system) {
     scopePath: relativeScopePath,
     scopeHash: sha256(scopeText),
     questionInventoryHash: actualInventoryHash,
+    questionSemanticHash: xizongQuestionSemanticHash(questions),
     questions,
     years: Object.keys(scope?.year_counts || {}).map(Number).sort((a, b) => a - b),
     holdoutRequired: true
