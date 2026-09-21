@@ -5117,7 +5117,7 @@
     "ordinal": 1953,
     "word": "flat",
     "source_owner_path": "content/lexical/words/by-ordinal/o1953.json",
-    "source_fingerprint": "8564815fe08f4dcea38ffe2bf656ea7c8c737ab7b0704af07c87afe13bf252d5",
+    "source_fingerprint": "fdd1035e5f9d8c78c68a4cf2bb56601a86e5e25e89d4cce59d7a0efb74bb3966",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5264,7 +5264,33 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [],
+      "relations": [
+        {
+          "title": "flat ↔ apartment",
+          "target_word": "apartment",
+          "lines": [
+            {
+              "text": "flat is the standard everyday term in British English; apartment is the standard everyday term in American English for the same kind of self-contained dwelling.",
+              "lang": "en"
+            },
+            {
+              "text": "BrE flat ↔ AmE apartment：同类自成一体的住宅单位，主要差别是地区用词。",
+              "lang": "cn"
+            },
+            {
+              "text": "英式英语通常用 flat；美式英语通常用 apartment。",
+              "lang": "cn"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:final-standard:apartment-flat:regional_choice",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "flat ↔ apartment"
+          }
+        }
+      ],
       "form": null,
       "family": []
     }

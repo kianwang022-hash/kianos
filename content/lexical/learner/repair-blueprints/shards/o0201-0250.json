@@ -8,44 +8,6 @@
   "generation_rule": "Blueprints store stable diagnostic intent; concrete instances are generated fresh from latest canonical content + learner evidence.",
   "entries": [
     {
-      "blueprint_id": "repair-blueprint:o0204:announce:v1",
-      "word_id": "word:announce",
-      "ordinal": 204,
-      "word": "announce",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分 announce 的公开宣布与由迹象/事件“预示某事到来”。",
-      "decision_boundary_cn": "person/organization + news 与 sign/event + change/arrival 两类主语决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 announce 的主语/场景分支。",
-      "reconstruction_rule_cn": "换一个官方发布与自然/社会信号预示场景。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0209:answer:v1",
-      "word_id": "word:answer",
-      "ordinal": 209,
-      "word": "answer",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分回答、对结果负责、满足需要/目的等 answer 分支。",
-      "decision_boundary_cn": "question/person/phone、answer for/to、need/purpose 三类补语决定含义。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 answer 的补语驱动分支。",
-      "reconstruction_rule_cn": "换一个问答、责任或需求语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
       "blueprint_id": "repair-blueprint:o0211:antenna:v1",
       "word_id": "word:antenna",
       "ordinal": 211,
@@ -62,25 +24,6 @@
       "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
       "minimum_repair_cn": "只修 antenna 的 sense-conditioned plural。",
       "reconstruction_rule_cn": "换一个通信设备或昆虫触角语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0212:anticipate:v1",
-      "word_id": "word:anticipate",
-      "ordinal": 212,
-      "word": "anticipate",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分预期并准备与抢先/提前行动。",
-      "decision_boundary_cn": "event/outcome 与 competitor/action 两类受事对象决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 anticipate 的预见 vs 抢先边界。",
-      "reconstruction_rule_cn": "换一个风险预期与竞争抢先语境。",
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
@@ -160,63 +103,6 @@
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
-      "blueprint_id": "repair-blueprint:o0221:anywhere:v1",
-      "word_id": "word:anywhere",
-      "ordinal": 221,
-      "word": "anywhere",
-      "target": {
-        "target_kind": "construction",
-        "target_id": "construction:anywhere:baseline-v2-anywhere-near",
-        "target_locator": "record.constructions[0]"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "识别 anywhere near 的“接近某水平/数量”并与 get anywhere=取得进展分开。",
-      "decision_boundary_cn": "near + standard/amount 与 get + progress context 两类结构同时自然。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 anywhere near 的整体义与相邻构式边界。",
-      "reconstruction_rule_cn": "换一个数值接近或能力水平语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0222:apart:v1",
-      "word_id": "word:apart",
-      "ordinal": 222,
-      "word": "apart",
-      "target": {
-        "target_kind": "construction",
-        "target_id": "construction:ec290fa5789f85e8a208",
-        "target_locator": "record.constructions[0]"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分 apart from 的“除外”与“除了…还”，并与 tell apart / fall apart 分开。",
-      "decision_boundary_cn": "exclusion/addition 与 distinction/breakdown 场景都自然。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 apart from 的双义和相邻构式边界。",
-      "reconstruction_rule_cn": "换一个排除或补充信息语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0229:apparent:v1",
-      "word_id": "word:apparent",
-      "ordinal": 229,
-      "word": "apparent",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分 apparent=明显可见/可理解 与 apparent=表面看似如此但未必真实。",
-      "decision_boundary_cn": "clear evidence 与 seeming contradiction/cause 两类语境决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 apparent 的 clear vs seeming 边界。",
-      "reconstruction_rule_cn": "换一个证据明显与表面现象语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
       "blueprint_id": "repair-blueprint:o0230:appeal:v1",
       "word_id": "word:appeal",
       "ordinal": 230,
@@ -233,101 +119,6 @@
       "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
       "minimum_repair_cn": "只修 appeal 的构式驱动多义分支。",
       "reconstruction_rule_cn": "换一个募援、审美、论证或法律语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0231:appear:v1",
-      "word_id": "word:appear",
-      "ordinal": 231,
-      "word": "appear",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分出现、似乎、出版/发表、出庭/登场。",
-      "decision_boundary_cn": "come into view、appear to be、appear in print、appear in court 等语境决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 appear 的场景分支。",
-      "reconstruction_rule_cn": "换一个视觉、判断、出版或正式出席语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0240:application:v1",
-      "word_id": "word:application",
-      "ordinal": 240,
-      "word": "application",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分应用、正式申请与应用程序三个 application 分支。",
-      "decision_boundary_cn": "method/rule、job/admission、software/mobile 三类对象决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 application 的领域分支。",
-      "reconstruction_rule_cn": "换一个方法应用、申请表或软件语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0243:appointment:v1",
-      "word_id": "word:appointment",
-      "ordinal": 243,
-      "word": "appointment",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分预约/约定、任命行为与被任命职位。",
-      "decision_boundary_cn": "doctor/meeting、appointment to position、hold an appointment 三类语境决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 appointment 的场景分支。",
-      "reconstruction_rule_cn": "换一个预约、任命或职位语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0245:appreciate:v1",
-      "word_id": "word:appreciate",
-      "ordinal": 245,
-      "word": "appreciate",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分理解重要性、欣赏重视、感激与升值。",
-      "decision_boundary_cn": "importance/art/help/assets 四类对象决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 appreciate 的对象驱动分支。",
-      "reconstruction_rule_cn": "换一个理解、审美、感谢或金融语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0246:approach:v1",
-      "word_id": "word:approach",
-      "ordinal": 246,
-      "word": "approach",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分方法、接近、处理问题、接洽某人和临近。",
-      "decision_boundary_cn": "approach to problem、approach city、approach problem、approach sb about、approach of winter 五类结构。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 approach 的词性/论元分支。",
-      "reconstruction_rule_cn": "换一个方法、距离、问题处理或接洽语境。",
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
@@ -388,44 +179,6 @@
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
-      "blueprint_id": "repair-blueprint:o0225:apologise:v1",
-      "word_id": "word:apologise",
-      "ordinal": 225,
-      "word": "apologise",
-      "target": {
-        "target_kind": "collocation",
-        "target_id": "collocation:3e7afd591a5902559d93",
-        "target_locator": "record.senses[0].collocations[0]"
-      },
-      "demand": "production",
-      "diagnostic_intent_cn": "稳定产出 apologise to sb for sth，并兼容 BrE apologise / AmE apologize。",
-      "decision_boundary_cn": "to + person 与 for + cause 两个槽位都必须正确，不能交换。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 apologise to sb for sth 的论元骨架。",
-      "reconstruction_rule_cn": "换一个新的道歉对象和原因。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0239:applicable:v1",
-      "word_id": "word:applicable",
-      "ordinal": 239,
-      "word": "applicable",
-      "target": {
-        "target_kind": "construction",
-        "target_id": "construction:applicable:baseline-v2-to",
-        "target_locator": "record.constructions[0]"
-      },
-      "demand": "production",
-      "diagnostic_intent_cn": "稳定产出 be applicable to sb/sth。",
-      "decision_boundary_cn": "用 *applicable for/to 的真实混淆，要求按“适用于”选择 to。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 applicable to 的补语骨架。",
-      "reconstruction_rule_cn": "换一个规则、法律或方法适用场景。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
       "blueprint_id": "repair-blueprint:o0241:apply:v1",
       "word_id": "word:apply",
       "ordinal": 241,
@@ -442,25 +195,6 @@
       "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
       "minimum_repair_cn": "只修 apply 的结构选择，不重学全部 Sense。",
       "reconstruction_rule_cn": "换一个求职、规则应用、药膏涂敷或学习投入语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0242:appoint:v1",
-      "word_id": "word:appoint",
-      "ordinal": 242,
-      "word": "appoint",
-      "target": {
-        "target_kind": "construction",
-        "target_id": "construction:appoint:baseline-v2-sb-as-to",
-        "target_locator": "record.constructions[0]"
-      },
-      "demand": "production",
-      "diagnostic_intent_cn": "稳定产出 appoint sb as sth / appoint sb to sth。",
-      "decision_boundary_cn": "角色名称与机构/职位目的地决定 as / to，避免 *appoint sb for manager。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 appoint 的任命骨架。",
-      "reconstruction_rule_cn": "换一个经理角色或委员会任命场景。",
       "concrete_instance_policy": "GENERATE_FRESH"
     }
   ]

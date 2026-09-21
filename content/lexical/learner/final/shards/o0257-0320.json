@@ -756,11 +756,19 @@
     "ordinal": 262,
     "word": "argument",
     "source_owner_path": "content/lexical/words/by-ordinal/o0262.json",
-    "source_fingerprint": "48b9dcac30e402097db1edb714cbbb1917109c3805f504562cd6fae308056c94",
-    "sense_lineage": [],
+    "source_fingerprint": "5013a33368d550b15acdce812fed0d985a9f1cd5edfe209f6e9bf4d8fbcb98f1",
+    "sense_lineage": [
+      {
+        "word_id": "word:argument",
+        "target_kind": "sense",
+        "from_target_id": "sense:argument:0c74cf35573e5b67",
+        "status": "reference_only",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "4N"
+        "3N"
       ],
       "density": "rich"
     },
@@ -854,34 +862,8 @@
         }
       },
       {
-        "id": "sense:argument:0c74cf35573e5b67",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "梗概，摘要",
-        "definition_en": "a summary of the subject or plot of a literary work or play",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:d1ab80f8d7cb12bda8c3",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "argument of a book",
-            "meaning_cn": "书的梗概",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:argument:0c74cf35573e5b67",
-          "target_locator": "record.senses[2]",
-          "target_label": "梗概，摘要"
-        }
-      },
-      {
         "id": "sense:argument:ff4bff78349e5cfb",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "参数，自变量",
@@ -891,14 +873,14 @@
         "usage": [
           {
             "id": "collocation:beadb92d5d7c9f570857",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "pass an argument to + a function",
             "meaning_cn": "向函数传递参数",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:beadb92d5d7c9f570857",
-              "target_locator": "record.senses[3].collocations[0]",
+              "target_locator": "record.senses[2].collocations[0]",
               "target_label": "pass an argument to + a function"
             }
           }
@@ -906,7 +888,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:argument:ff4bff78349e5cfb",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "参数，自变量"
         }
       }
@@ -1553,7 +1535,7 @@
     "ordinal": 268,
     "word": "arouse",
     "source_owner_path": "content/lexical/words/by-ordinal/o0268.json",
-    "source_fingerprint": "6e4aa3c5f8a6ef54d218d2f9e84eacf14f890b502363674b985936d3bf925724",
+    "source_fingerprint": "1a9e49b3e8300761ca22f694f86389ece2c8ad49e64a0aa1c7612d7fd11af92f",
     "sense_lineage": [
       {
         "word_id": "word:arouse",
@@ -1591,7 +1573,7 @@
         "id": "sense:arouse:0fd24cf9eccd57dd",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vt. + object",
         "definition_cn": "引起；唤起",
         "definition_en": "cause a feeling, reaction, interest, or suspicion",
         "note": "",
@@ -1673,11 +1655,19 @@
     "ordinal": 269,
     "word": "arrange",
     "source_owner_path": "content/lexical/words/by-ordinal/o0269.json",
-    "source_fingerprint": "405629ddec4d7f9f93db606b4146496bec5ed59511613fa5d7c563ae6c438912",
-    "sense_lineage": [],
+    "source_fingerprint": "7d0eff53817b0927bfc5388daa510edecf068b771f105e60158fdc1a8a09971a",
+    "sense_lineage": [
+      {
+        "word_id": "word:arrange",
+        "target_kind": "sense",
+        "from_target_id": "sense:arrange:2aeeec248ccd55d7",
+        "status": "merged",
+        "to_target_id": "sense:arrange:63d06070edd1558e"
+      }
+    ],
     "recall_map": {
       "parts": [
-        "4V"
+        "3V"
       ],
       "density": "rich"
     },
@@ -1709,6 +1699,19 @@
             "meaning_cn": "把书排列在书架上",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:49ce74a975da670e9878",
+            "source_locator": "record.senses[0].collocations[1]",
+            "phrase": "arrange thoughts/ideas",
+            "meaning_cn": "整理思路/想法",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:49ce74a975da670e9878",
+              "target_locator": "record.senses[0].collocations[1]",
+              "target_label": "arrange thoughts/ideas"
+            }
           }
         ],
         "repair": {
@@ -1782,50 +1785,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "改编（乐曲）"
         }
-      },
-      {
-        "id": "sense:arrange:2aeeec248ccd55d7",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "整理（思路）；安排（时间）",
-        "definition_en": "to organize thoughts or events in a sequence",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:49ce74a975da670e9878",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "arrange + thoughts/ideas/events",
-            "meaning_cn": "整理思路/想法；安排事件",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:49ce74a975da670e9878",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "arrange + thoughts/ideas/events"
-            }
-          },
-          {
-            "id": "collocation:785af8a87f55a7277df1",
-            "source_locator": "record.senses[3].collocations[1]",
-            "phrase": "arrange + thoughts",
-            "meaning_cn": "整理思路",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:785af8a87f55a7277df1",
-              "target_locator": "record.senses[3].collocations[1]",
-              "target_label": "arrange + thoughts"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:arrange:2aeeec248ccd55d7",
-          "target_locator": "record.senses[3]",
-          "target_label": "整理（思路）；安排（时间）"
-        }
       }
     ],
     "secondary_senses": [],
@@ -1865,7 +1824,7 @@
     "ordinal": 270,
     "word": "array",
     "source_owner_path": "content/lexical/words/by-ordinal/o0270.json",
-    "source_fingerprint": "b1fa19a1a0651972e3b4fa738475bbe0789dce03ac429f9931f18027267891b8",
+    "source_fingerprint": "a782b58805bdd50a2419cdc1620df0b8ea3c5ca0a43b0e4f928b6cd8372c9425",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1894,29 +1853,7 @@
         "definition_en": "an orderly arrangement, often of data or objects",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:d35dfbc7f06c40f357f2",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "an array of + sth",
-            "meaning_cn": "一系列；一排",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:d35dfbc7f06c40f357f2",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "an array of + sth"
-            }
-          },
-          {
-            "id": "collocation:f39185802e9133bc4bf3",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "an array of options",
-            "meaning_cn": "一系列选择",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:array:4405883537be5e7e",
@@ -1935,8 +1872,29 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:a88ed94f4baa65d5b0aa",
+            "id": "collocation:d35dfbc7f06c40f357f2",
             "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "an array of + sth",
+            "meaning_cn": "一系列；一排",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:d35dfbc7f06c40f357f2",
+              "target_locator": "record.senses[1].collocations[0]",
+              "target_label": "an array of + sth"
+            }
+          },
+          {
+            "id": "collocation:f39185802e9133bc4bf3",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "an array of options",
+            "meaning_cn": "一系列选择",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:a88ed94f4baa65d5b0aa",
+            "source_locator": "record.senses[1].collocations[2]",
             "phrase": "an array of facts",
             "meaning_cn": "大量事实",
             "kind": "usage_example",
@@ -1992,7 +1950,7 @@
     "ordinal": 271,
     "word": "arrest",
     "source_owner_path": "content/lexical/words/by-ordinal/o0271.json",
-    "source_fingerprint": "a8c6785d01cfe4c934dbb14c312a22ea5077842e0fc64c81c0a3733bed079e34",
+    "source_fingerprint": "844f5cca4776160fa57187a11983c9e9c637abee8604ef2153ab50198f788dfe",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2002,13 +1960,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "逮捕，阻止",
-      "decision_cn": "",
+      "summary_cn": "控制并使其停下：可指依法拘留、阻止进程或抓住注意力；名词指拘留行为",
+      "decision_cn": "根据宾语区分：人 → 依法拘留；过程/发展 → 阻止；attention → 抓住注意力。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "逮捕，阻止"
+        "target_label": "控制并使其停下：可指依法拘留、阻止进程或抓住注意力；名词指拘留行为"
       }
     },
     "senses": [
@@ -2263,7 +2221,7 @@
     "ordinal": 273,
     "word": "arrive",
     "source_owner_path": "content/lexical/words/by-ordinal/o0273.json",
-    "source_fingerprint": "0149f61e741bde80dbac2e7dca99b48dd68b244f1746228166ff4d447feba017",
+    "source_fingerprint": "4e5442ef5af7e2bfbead096606c4bda3703e6756d6859149ed601612191aa9f8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2317,14 +2275,6 @@
               "target_locator": "record.senses[0].collocations[1]",
               "target_label": "arrive in + place"
             }
-          },
-          {
-            "id": "collocation:a164ce62bca33c4ae474",
-            "source_locator": "record.senses[0].collocations[2]",
-            "phrase": "arrive at a conclusion",
-            "meaning_cn": "得出结论",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -3755,7 +3705,7 @@
     "ordinal": 285,
     "word": "ascend",
     "source_owner_path": "content/lexical/words/by-ordinal/o0285.json",
-    "source_fingerprint": "7e057b3b7ddc427dadcda7fe9c5ecb3c106adc5f8b49abc528a8e5a599f8145b",
+    "source_fingerprint": "28443149b245c2f92f1a62976071e816a13ae7094dd225b48b89c403e5676a79",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3828,14 +3778,6 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "ascend a mountain",
             "meaning_cn": "登山",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:7b2ddc79f0f50a169919",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "ascend the throne",
-            "meaning_cn": "登上王位",
             "kind": "usage_example",
             "repair": null
           }
@@ -4928,11 +4870,19 @@
     "ordinal": 294,
     "word": "aspect",
     "source_owner_path": "content/lexical/words/by-ordinal/o0294.json",
-    "source_fingerprint": "5ac75c07cea4c51533bcd8872254e17d167561a0d430ea3ce5edf7f08b592270",
-    "sense_lineage": [],
+    "source_fingerprint": "974f1ad16ad22a862bdb715ccdb97d0941c400c252b9bf23ad55f0415a78acf0",
+    "sense_lineage": [
+      {
+        "word_id": "word:aspect",
+        "target_kind": "sense",
+        "from_target_id": "sense:aspect:ad3dfefdbca65207",
+        "status": "merged",
+        "to_target_id": "sense:aspect:b813fa79c43159cd"
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
@@ -4977,6 +4927,14 @@
             "meaning_cn": "考虑所有方面",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:8dc1113cf799cb800971",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "positive aspect",
+            "meaning_cn": "积极方面",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -4987,34 +4945,8 @@
         }
       },
       {
-        "id": "sense:aspect:ad3dfefdbca65207",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "特征；特点",
-        "definition_en": "a characteristic to be considered",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:8dc1113cf799cb800971",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "positive aspect",
-            "meaning_cn": "积极方面",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:aspect:ad3dfefdbca65207",
-          "target_locator": "record.senses[1]",
-          "target_label": "特征；特点"
-        }
-      },
-      {
         "id": "sense:aspect:4d082f9139fd5529",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "（语法）体",
@@ -5024,7 +4956,7 @@
         "usage": [
           {
             "id": "collocation:1cddac51e388c1101d39",
-            "source_locator": "record.senses[2].collocations[0]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "perfective aspect",
             "meaning_cn": "完成体",
             "kind": "usage_example",
@@ -5034,7 +4966,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:aspect:4d082f9139fd5529",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[1]",
           "target_label": "（语法）体"
         }
       }
@@ -5155,7 +5087,7 @@
     "ordinal": 296,
     "word": "assassinate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0296.json",
-    "source_fingerprint": "5e02c80034c71e61f64ada8c1c62241971bce4fab11b29e13b2da703327ed8ac",
+    "source_fingerprint": "d0aaa944f10ff42ce9b88dc6aa56a738404e524a48e9917e01d4f87860eafadb",
     "sense_lineage": [
       {
         "word_id": "word:assassinate",
@@ -5176,7 +5108,7 @@
       "parts": [
         "1V"
       ],
-      "density": "rich"
+      "density": "light"
     },
     "word_feel": {
       "summary_cn": "暗杀重要或公众人物",
@@ -5193,7 +5125,7 @@
         "id": "sense:assassinate:3d5f697679e15f74",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vt. + object",
         "definition_cn": "暗杀",
         "definition_en": "murder a prominent or public person deliberately",
         "note": "",
@@ -5208,29 +5140,7 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:assassinate:handoff-01b2b3fd3ee47858",
-        "source_locator": "record.constructions[0]",
-        "pattern": "assassinate a prominent/public person",
-        "lines": [
-          {
-            "text": "暗杀重要、政治或公众人物",
-            "lang": "cn"
-          },
-          {
-            "text": "murder a prominent person deliberately, often for political reasons",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:assassinate:handoff-01b2b3fd3ee47858",
-          "target_locator": "record.constructions[0]",
-          "target_label": "assassinate a prominent/public person"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
