@@ -21,8 +21,11 @@ const execRepo = path.resolve(
   process.env.KIANOS_CODEX_EXEC_REPO ||
   path.join(os.homedir(), 'Library/Application Support/KianOS/codex-executor/kianos')
 );
-const execModel = process.env.KIANOS_CODEX_EXEC_MODEL || 'gpt-6-astra';
-const execEffort = process.env.KIANOS_CODEX_EXEC_EFFORT || 'high';
+const cloudEnvId = String(process.env.KIANOS_CODEX_CLOUD_ENV_ID || '').trim();
+const localRuntimeMarker = '<!-- kian-codex-runtime:local -->';
+const solModelMarker = '<!-- kian-codex-model:sol -->';
+const astraModelMarker = '<!-- kian-codex-model:astra -->';
+const astraApprovalMarker = '<!-- kian-codex-astra-approved-by-kian:v1 -->';
 const lockDir = path.join(stateDir, 'lock');
 const lockOwnerPath = path.join(lockDir, 'owner.json');
 const prefix = 'Codex execution:';
@@ -52,6 +55,19 @@ function resolveBin(envName, fallback) {
 
 function parseJson(raw, code) {
   try { return JSON.parse(raw); } catch { throw new Error(code); }
+}
+
+function resolveExecutionProfile(body) {
+  const lines = new Set(String(body || '').split(/\r?\n/).map((line) => line.trim()));
+  const localOnly = lines.has(localRuntimeMarker);
+  if (lines.has(astraModelMarker)) {
+    if (!lines.has(astraApprovalMarker)) throw new Error('ASTRA_REQUIRES_KIAN_APPROVAL');
+    return { model: 'gpt-6-astra', effort: 'high', localOnly, tier: 'astra-approved' };
+  }
+  if (lines.has(solModelMarker)) {
+    return { model: 'gpt-5.6-sol', effort: 'medium', localOnly, tier: 'sol' };
+  }
+  return { model: 'gpt-5.6-terra', effort: 'medium', localOnly, tier: 'terra' };
 }
 
 function ensureExecRepo(git, origin) {
@@ -237,7 +253,29 @@ try {
 
   if (!codex) throw new Error('CODEX_REQUIRED_FOR_ACTIONABLE_ISSUE');
 
-  ensureExecRepo(git, origin);
+  let profile;
+  try {
+    profile = resolveExecutionProfile(selected.body);
+  } catch (error) {
+    if (error?.message === 'ASTRA_REQUIRES_KIAN_APPROVAL') {
+      run(gh, [
+        'issue', 'comment', String(selected.number), '--repo', repoFullName,
+        '--body', [
+          'BLOCKED — ASTRA_REQUIRES_KIAN_APPROVAL',
+          '',
+          'This task requested GPT-6 Astra but does not carry the explicit Kian approval marker.',
+          'Use Terra or Sol automatically, or obtain Kian approval before retrying Astra.'
+        ].join('\n')
+      ], { allowFail: true });
+      emit({
+        schema: 'kianos.codex-issue-watcher.v1',
+        status: 'approval-required',
+        issue: selected.number,
+        reason: 'astra-requires-kian-approval'
+      }, 2);
+    }
+    throw error;
+  }
 
   const prompt = [
     'Execute this bounded KianOS engineering task.',
@@ -259,10 +297,52 @@ try {
     'Also print one compact final receipt to stdout matching the Issue Return receipt, so the watcher can persist it if the GitHub mutation path fails.'
   ].join('\n');
 
+  if (cloudEnvId && !profile.localOnly && profile.tier !== 'astra-approved') {
+    const cloud = run(codex, ['cloud', 'exec', '--env', cloudEnvId, prompt], { allowFail: true });
+    if (cloud.status === 0) {
+      const receipt = [
+        'CODEX CLOUD TASK DISPATCHED',
+        '',
+        String(cloud.stdout || '').trim().slice(-8000) || 'Task submitted to configured Codex Cloud environment.',
+        '',
+        'requested_tier: ' + profile.tier,
+        'execution_surface: cloud'
+      ].join('\n');
+      run(gh, [
+        'issue', 'comment', String(selected.number), '--repo', repoFullName,
+        '--body', receipt
+      ], { allowFail: true });
+      const refreshed = run(gh, [
+        'issue', 'view', String(selected.number), '--repo', repoFullName,
+        '--json', 'number,state,updatedAt'
+      ], { allowFail: true });
+      let updatedAt = selected.updatedAt;
+      if (refreshed.status === 0 && refreshed.stdout) {
+        try { updatedAt = parseJson(refreshed.stdout, 'ISSUE_REFRESH_INVALID').updatedAt || updatedAt; } catch {}
+      }
+      state.issues[String(selected.number)] = {
+        issue_updated_at: updatedAt,
+        last_attempt_at: new Date().toISOString(),
+        last_exit: 0,
+        retry_after: Date.now() + retryMs
+      };
+      saveState(state);
+      emit({
+        schema: 'kianos.codex-issue-watcher.v1',
+        status: 'cloud-dispatched',
+        issue: selected.number,
+        exit_code: 0,
+        model_tier: profile.tier
+      });
+    }
+  }
+
+  ensureExecRepo(git, origin);
+
   const codexArgs = [
     'exec', '--ephemeral', '--sandbox', 'workspace-write',
-    '--model', execModel,
-    '-c', 'model_reasoning_effort="' + execEffort + '"',
+    '--model', profile.model,
+    '-c', 'model_reasoning_effort="' + profile.effort + '"',
     '-c', 'sandbox_workspace_write.network_access=true',
     prompt
   ];
@@ -334,8 +414,8 @@ try {
       'No Issue update/close, codex branch, or PR was observed from the executor.',
       '',
       'exit_code: ' + execution.status,
-      'watcher_model: ' + (execModel),
-      'watcher_effort: ' + (execEffort),
+      'watcher_model: ' + profile.model,
+      'watcher_effort: ' + profile.effort,
       failureStdout ? '\n--- executor stdout (tail) ---\n' + failureStdout : '',
       failureStderr ? '\n--- executor stderr (tail) ---\n' + failureStderr : ''
     ].filter(Boolean).join('\n');
@@ -357,8 +437,8 @@ try {
           '',
           executorOutput,
           '',
-          'watcher_model: ' + (execModel),
-          'watcher_effort: ' + (execEffort)
+          'watcher_model: ' + profile.model,
+          'watcher_effort: ' + profile.effort
         ].join('\n')
       : [
           'BLOCKED — AUTO_EXECUTION_NO_DURABLE_RECEIPT',
@@ -367,8 +447,8 @@ try {
           'but no durable Issue update, codex/issue branch, PR, or stdout receipt was observed afterward.',
           'Task success is therefore not accepted. Re-run only after Chat/owner updates this Issue or after cooldown.',
           '',
-          'watcher_model: ' + (execModel),
-          'watcher_effort: ' + (execEffort)
+          'watcher_model: ' + profile.model,
+          'watcher_effort: ' + profile.effort
         ].join('\n');
     const fallback = run(gh, [
       'issue', 'comment', String(selected.number), '--repo', repoFullName,
@@ -400,8 +480,9 @@ try {
     status: finalStatus,
     issue: selected.number,
     exit_code: finalExit,
-    model: execModel,
-    effort: execEffort
+    model: profile.model,
+    effort: profile.effort,
+    execution_surface: cloudEnvId && !profile.localOnly ? 'local-fallback' : 'local'
   }, finalExit === 0 ? 0 : 2);
 } finally {
   release();
