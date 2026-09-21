@@ -71,8 +71,6 @@ function ensureExecRepo(git, origin) {
   if (!execOrigin.includes('kianwang022-hash/kianos')) throw new Error('EXEC_REPO_ORIGIN_INVALID');
   const dirty = run(git, ['status', '--porcelain'], { cwd: execRepo }).stdout;
   if (dirty) throw new Error('EXEC_REPO_DIRTY');
-  run(git, ['fetch', 'origin', 'main', '--prune'], { cwd: execRepo });
-  run(git, ['checkout', '-B', 'main', 'origin/main'], { cwd: execRepo });
 }
 
 function hasActiveMarker(body) {
