@@ -1,0 +1,72 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "relation:semantic_contrast:contagious-infectious",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:contagious",
+      "source_ordinal": 1043,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "relation_id": "relation:semantic_contrast:contagious-infectious",
+        "relation_type": "semantic_contrast",
+        "relation_scope": "sense",
+        "direction": "C",
+        "priority": "A",
+        "publication_status": "publishable",
+        "verification_status": "verified",
+        "writing_safe": true,
+        "source_expression": "contagious",
+        "target_expression": "infectious",
+        "target_word": "infectious",
+        "boundary": "contagious 强调疾病、行为或情绪在人/个体之间传播；infectious 更强调由感染性病原体造成或具有感染能力。疾病语境存在重叠，但两词关注点不同。",
+        "learning_note": "contagious = spread between people/individuals；infectious = capable of causing/spreading infection。",
+        "shared_meaning": "capable of spreading from one host/person to another",
+        "task_tags": [
+          "reading",
+          "translation",
+          "writing"
+        ],
+        "source_sense_id": "sense:contagious:1c775ea3695659df",
+        "target_sense_id": "sense:infectious:ab25a691393f548b"
+      }
+    },
+    {
+      "source_word_id": "word:infectious",
+      "source_ordinal": 2521,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "relation_id": "relation:semantic_contrast:contagious-infectious",
+        "relation_type": "semantic_contrast",
+        "relation_scope": "sense",
+        "direction": "C",
+        "priority": "A",
+        "publication_status": "publishable",
+        "verification_status": "verified",
+        "writing_safe": true,
+        "source_expression": "infectious",
+        "target_expression": "contagious",
+        "target_word": "contagious",
+        "boundary": "infectious 强调由感染性病原体造成或具有感染能力；contagious 更强调在人或个体之间传播。疾病语境存在重叠，但不是完全等价。",
+        "learning_note": "infectious = capable of causing/spreading infection；contagious = spread between people/individuals。",
+        "shared_meaning": "capable of spreading from one host/person to another",
+        "task_tags": [
+          "reading",
+          "translation",
+          "writing"
+        ],
+        "source_sense_id": "sense:infectious:ab25a691393f548b",
+        "target_sense_id": "sense:contagious:1c775ea3695659df"
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "baseline-v2-fresh-content-upgrade",
+    "semantic_delta": 1,
+    "physical_owner_migrated_from": "content/lexical/relations/by-id/2d/2df3fb0a31b5e6c5c9a4b8230d8c6d187e4e5fe0262c019d53f4bd2a8ed248e7.json",
+    "last_materialization": "BF10 canonical relation-path migration"
+  }
+}

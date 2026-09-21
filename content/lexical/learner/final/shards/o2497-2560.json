@@ -2584,7 +2584,7 @@
     "ordinal": 2521,
     "word": "infectious",
     "source_owner_path": "content/lexical/words/by-ordinal/o2521.json",
-    "source_fingerprint": "48d4ce02bfb7746f77700310008eb62db5a1c60f4a77791e0e38fea4eddb4ed7",
+    "source_fingerprint": "09fa5628119cf0991f484a485eb518983a4fb36eb2bb6f147566e919c226878f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2668,7 +2668,33 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [],
+      "relations": [
+        {
+          "title": "infectious ↔ contagious",
+          "target_word": "contagious",
+          "lines": [
+            {
+              "text": "infectious 强调由感染性病原体造成或具有感染能力；contagious 更强调在人或个体之间传播。疾病语境存在重叠，但不是完全等价。",
+              "lang": "cn"
+            },
+            {
+              "text": "infectious = capable of causing/spreading infection；contagious = spread between people/individuals。",
+              "lang": "en"
+            },
+            {
+              "text": "capable of spreading from one host/person to another",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:semantic_contrast:contagious-infectious",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "infectious ↔ contagious"
+          }
+        }
+      ],
       "form": null,
       "family": []
     }
