@@ -135,3 +135,48 @@ const exactCapacity = buildChatControlledExamReadModel({
 assert.equal(exactCapacity.control.planStatus,'ready');
 assert.equal(exactCapacity.control.capacityConflict,false);
 assert.equal(exactCapacity.next.subject,'xizong');
+
+// Fresh top-layer audit: a legal whole-day target must not reuse elapsed time.
+const subjectIds = ['xizong', 'english', 'politics'];
+const replan = (targets, actual, capacity, state = 'ready') => buildChatControlledExamReadModel({
+  day: '2026-09-21',
+  dayCapacity: capacity,
+  actualBySubject: Object.fromEntries(subjectIds.map((subject, index) => [subject, actual[index]])),
+  nativeContinue: Object.fromEntries(subjectIds.map((subject) => [subject, { href: `/${subject}/`, title: subject }])),
+  chatPlanState: {
+    status: state,
+    plan: state === 'ready' ? {
+      schema: 'kianos.exam.chat-plan.v1',
+      study_day: '2026-09-21',
+      generated_at: '2026-09-21T04:00:00.000Z',
+      subjects: Object.fromEntries(subjectIds.map((subject, index) => [subject, { target_minutes: targets[index] }])),
+      next_subject: 'english'
+    } : null
+  }
+});
+for (const [name, targets, actual, capacity, over] of [
+  ['overspent subject', [100, 120, 80], [180, 0, 0], 300, 80],
+  ['unbudgeted switch', [null, 120, 80], [180, 0, 0], 300, 80],
+  ['capacity loss', [240, 120, 60], [240, 30, 0], 330, 90]
+]) {
+  const result = replan(targets, actual, capacity);
+  assert.equal(result.control.planStatus, 'capacity_conflict', name);
+  assert.equal(result.capacity.overplannedMinutes, over, name);
+  assert.equal(result.next, null, name);
+  assert.equal(result.subjects.xizong.continue.href, '/xizong/', 'manual entry survives');
+}
+const midday = replan([240, 60, 0], [180, 0, 0], 300);
+assert.equal(midday.control.planStatus, 'ready');
+assert.equal(midday.subjects.xizong.remainingMinutes, 60, '180 done + 60 further = 240 whole-day target');
+assert.equal(midday.subjects.english.remainingMinutes, 60);
+const unknownTargets = replan([null, null, null], [180, 0, 0], 300);
+assert.equal(unknownTargets.subjects.xizong.remainingMinutes, null, 'unknown is not zero');
+assert.equal(unknownTargets.control.planStatus, 'ready', 'unknown targets do not invent a conflict');
+assert.equal(replan([240, 120, 60], [180, 0, 0], null).control.planStatus, 'ready', 'unknown capacity is not zero');
+assert.equal(replan([60, 0, 0], [180, 0, 0], 120).capacity.overplannedMinutes, 0, 'completed overrun is not future debt');
+for (const state of ['missing', 'stale', 'invalid', 'unavailable']) {
+  const result = replan([100, 100, 100], [0, 0, 0], 300, state);
+  assert.equal(result.control.planStatus, state);
+  assert.equal(result.next, null, 'no automatic fallback for rejected evidence/plan');
+}
+console.log('PASS exam plan remaining-capacity regression');

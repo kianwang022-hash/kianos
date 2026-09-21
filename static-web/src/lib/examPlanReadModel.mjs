@@ -119,20 +119,36 @@ export function buildChatControlledExamReadModel({
         return Number.isFinite(value) ? sum + Math.max(0, Math.round(value)) : sum;
       }, 0)
     : null;
+  const actualMinutesBySubject = Object.fromEntries(subjectIds.map((subject) => [
+    subject,
+    Number.isFinite(actualBySubject?.[subject])
+      ? Math.max(0, Math.round(actualBySubject[subject]))
+      : 0
+  ]));
+  const actualTotal = Object.values(actualMinutesBySubject).reduce((sum, value) => sum + value, 0);
+  const capacityRemaining = Number.isFinite(dayCapacity)
+    ? Math.max(0, Math.round(dayCapacity) - actualTotal)
+    : null;
+  // target_minutes is a whole-study-day total, not an additional duration.
+  // Already-spent time cannot fund another subject. Null targets stay unknown;
+  // this is only a feasibility check on known commitments, never an allocation.
+  const plannedRemainingMinutes = plan
+    ? subjectIds.reduce((sum, subject) => {
+        const target = plan?.subjects?.[subject]?.target_minutes;
+        return Number.isFinite(target)
+          ? sum + Math.max(0, Math.round(target) - actualMinutesBySubject[subject])
+          : sum;
+      }, 0)
+    : null;
   const capacityConflict = Boolean(
     plan
-    && Number.isFinite(dayCapacity)
-    && Number.isFinite(plannedTargetMinutes)
-    && plannedTargetMinutes > Math.max(0, Math.round(dayCapacity))
+    && Number.isFinite(capacityRemaining)
+    && plannedRemainingMinutes > capacityRemaining
   );
   const subjects = {};
-  let actualTotal = 0;
 
   for (const subject of subjectIds) {
-    const actualMinutes = Number.isFinite(actualBySubject?.[subject])
-      ? Math.max(0, Math.round(actualBySubject[subject]))
-      : 0;
-    actualTotal += actualMinutes;
+    const actualMinutes = actualMinutesBySubject[subject];
     const instruction = plan?.subjects?.[subject] || null;
     const targetMinutes = Number.isFinite(instruction?.target_minutes)
       ? Math.max(0, Math.round(instruction.target_minutes))
@@ -160,9 +176,6 @@ export function buildChatControlledExamReadModel({
     };
   }
 
-  const capacityRemaining = Number.isFinite(dayCapacity)
-    ? Math.max(0, Math.round(dayCapacity) - actualTotal)
-    : null;
   const nextInstruction = plan?.next_subject ? plan?.subjects?.[plan.next_subject] || null : null;
   const next = !capacityConflict && plan?.next_subject
     ? exactContinueForInstruction(nativeContinue?.[plan.next_subject], nextInstruction, plan.next_subject)
@@ -170,7 +183,7 @@ export function buildChatControlledExamReadModel({
   const attention = capacityConflict
     ? {
         type: 'chat_plan_capacity',
-        text: `Chat 安排总计 ${plannedTargetMinutes} 分钟，超过今日可用 ${Math.max(0, Math.round(dayCapacity))} 分钟；网页不会自动执行，返回 Chat 重排。`,
+        text: `Chat 剩余安排 ${plannedRemainingMinutes} 分钟，超过今日可用剩余 ${capacityRemaining} 分钟；网页不会自动执行，返回 Chat 重排。`,
         action: '返回 Chat 重排'
       }
     : plan?.attention?.text
@@ -201,7 +214,7 @@ export function buildChatControlledExamReadModel({
       unallocatedMinutes: null,
       plannedTargetMinutes,
       overplannedMinutes: capacityConflict
-        ? Math.max(0, Number(plannedTargetMinutes || 0) - Math.max(0, Math.round(dayCapacity)))
+        ? Math.max(0, plannedRemainingMinutes - capacityRemaining)
         : 0
     },
     subjects,
