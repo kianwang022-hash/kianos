@@ -257,25 +257,33 @@ Local cleanup command after accepted merge:
 
 It may delete only local branches matching `codex/issue<digits>-*` when the remote branch is already gone, the exact Issue is `CLOSED/COMPLETED`, an exact-head PR for that branch is merged, and any attached worktree is clean. The local tip must either already be contained in `origin/main` or exactly match the merged PR head (safe squash-merge case). Everything else is skipped fail-closed.
 
-#### One recurring Codex runner
+#### Low-cost local trigger + Codex executor
 
-A single local Codex automation may service these delegated Issues. Do not create one recurring automation per task.
+Do **not** wake a model merely to discover that the GitHub queue is empty.
 
-Each run:
+Normal local trigger:
 
 ```text
-read main@HEAD + AGENTS.md
-→ list open Issues whose title begins "Codex execution:" AND contains `<!-- kian-codex-task:v1 -->`
-→ ignore an Issue that already has an open PR or remote codex/issue<N>-* branch
-→ inspect the oldest remaining actionable Issue
-→ re-read current owner chain
+lightweight LaunchAgent watcher (default every 5 minutes; no model)
+→ query only open marked `Codex execution:` Issues + open PR heads
+→ no actionable task = exit in seconds
+→ actionable task = invoke one `codex exec`
+→ Codex re-reads main@HEAD + AGENTS.md + exact owner
 → execute at most one Issue
-→ close through PR "Closes #N" when accepted
-→ run local hygiene
-→ exit
+→ PR / BLOCKED receipt
+→ local hygiene after accepted close
 ```
 
-If no actionable Issue exists, run local hygiene and exit quietly.
+The watcher is only a trigger. It owns no semantic/task state and stores only local retry/dedupe metadata.
+
+Cost / load defaults:
+- empty-queue polling uses ordinary `gh` / `git`, **zero model invocation**;
+- watcher runs as a low-priority macOS background process;
+- only one watcher/Codex execution may run at a time;
+- after an attempted Issue, unchanged task state enters a one-hour retry cooldown so transient or BLOCKED work cannot burn a model every five minutes;
+- default Codex execution model is `gpt-5.6-terra` with medium reasoning; Chat may explicitly choose a stronger path for a genuinely harder task instead of making every background task expensive.
+
+The old hourly model-based queue poller is a deployment fallback only. Once the lightweight watcher has a real local end-to-end PASS, retire/disable the hourly poller so there is one normal trigger path.
 
 If a STOP condition is hit before safe implementation:
 - add one compact `BLOCKED:` Issue comment with the exact missing decision/source/permission;
@@ -283,7 +291,7 @@ If a STOP condition is hit before safe implementation:
 - do not keep retrying broad work in the same run;
 - return control to Chat.
 
-The recurring runner is an executor. It does not decide which engineering work should exist, does not rewrite priority, and does not turn repository backlog into automatic work.
+The executor does not decide which engineering work should exist, does not rewrite priority, and does not turn repository backlog into automatic work.
 
 ### Task result / cursor atomicity
 
