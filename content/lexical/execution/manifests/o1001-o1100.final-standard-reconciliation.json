@@ -1,0 +1,113 @@
+{
+  "schema": "kianos.lexical.final_standard_reconciliation.v1",
+  "candidate_id": "BF10",
+  "range": [
+    1001,
+    1100
+  ],
+  "status": "RECONCILED_READY_FOR_MERGE",
+  "candidate_branch": "work/lexical-continuous-bf10-20260922",
+  "audit_pack": "content/lexical/semantic-audit/O1001_O1100_FINAL_STANDARD_FRESH_AUDIT_PACK.md",
+  "audit_result": "PASS_WITH_CORRECTIONS",
+  "independence_note": "BLIND_FIRST_NOT_ENFORCED; same Chat had read Production detail before B audit at Kian's explicit request. Valid for defect closure, not reviewer-independence evidence.",
+  "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
+  "semantic_owner_read_head": "61fa8f00d7f3aebb3ebd653a85255d18ea6d8829",
+  "audit_pack_commit": "64dcd196d3c498be39f2877fe307a16bc35dd8f0",
+  "audit_reconciliation_commit": "54193ecbb371b61fb77f61392adfc549fb2d5303",
+  "post_reconciliation_materializer_commit": "db386e17c8bccc8d3019736a16c6651d94a39608",
+  "latest_main_drift_check_head": "1f75acebe693ec8205ee07eeca0610d646c9851a",
+  "lexical_drift": [],
+  "production": {
+    "scope_owners": 100,
+    "content_affected_owners": 18,
+    "content_no_change": 82,
+    "approved_new_material_owners": 3,
+    "blocked": 0,
+    "repair_tests_before": 25,
+    "repair_tests_after": 21
+  },
+  "audit_coverage": {
+    "scope_owners": "100/100",
+    "production_affected_reverse_reviewed": "18/18",
+    "complex_owners": "86/86",
+    "complex_no_change": "68/68",
+    "simple_no_change_fast_gate": "14/14",
+    "simple_no_change_deep_sample": "10/14",
+    "simple_sample": [
+      1006,
+      1016,
+      1025,
+      1030,
+      1045,
+      1067,
+      1073,
+      1074,
+      1096,
+      1097
+    ],
+    "mandatory_form_identity": "11/11",
+    "mandatory_relation_confusable": "9/9",
+    "mandatory_secondary_expansion": "2/2",
+    "family_bearing_owners": "8/8",
+    "cross_range_dependencies": [
+      "infectious@o2521"
+    ],
+    "repair_test_targets_resolved": "21/21",
+    "blocked": 0
+  },
+  "materialization_closure": {
+    "contagious_infectious": "canonical physical owner path + reciprocal views",
+    "contest": "same-word stress truth retired from Relation to Form/Identity",
+    "continual_continuous": "reciprocal shared Relation; redundant continue-family clutter removed",
+    "final_learner_objects": 7946,
+    "final_shards": 125
+  },
+  "audit_corrections": [
+    {
+      "target": "o1013/o1014/o1015 conscience-conscious-conscientious",
+      "action": "MAKE_THREE_WAY_SHARED_CONFUSABLE_WITH_SOURCE_SPECIFIC_TITLES_AND_WORD_REFS",
+      "result": "PASS"
+    },
+    {
+      "target": "o1062 contribute",
+      "action": "CORRECT_MAIN_GIVE_SENSE_TO_I_T_AND_EXPLICIT_ARGUMENT_PATTERN",
+      "result": "PASS"
+    },
+    {
+      "target": "o1058 contract",
+      "action": "REMOVE_DUPLICATE_VERB_COLLOCATION_FROM_NOUN_SENSE",
+      "result": "PASS"
+    },
+    {
+      "target": "o1076 convert",
+      "action": "ALIGN_I_T_RELIGION_BRANCH_WITH_TRANSITIVE_AND_INTRANSITIVE_PATTERNS",
+      "result": "PASS"
+    }
+  ],
+  "source_fidelity": {
+    "continual_continuous": "PRESERVED_EXTERNAL_HORIZONTAL_EVIDENCE",
+    "conscience_cluster": "PRESERVED_EXTERNAL_HORIZONTAL_EVIDENCE",
+    "contagious_infectious": "INHERITED_SOURCE_GAP_NONBLOCKING",
+    "fabricated_provenance": "NONE"
+  },
+  "derived_readback": {
+    "final_learner_objects": 7946,
+    "final_shards": 125,
+    "repair_blueprints": 21,
+    "repair_targets_resolved": "21/21",
+    "corrected_finding_readback": "4/4",
+    "result": "PASS"
+  },
+  "closure": {
+    "unresolved_material_findings": 0,
+    "unresolved_identity_findings": 0,
+    "unresolved_owner_findings": 0,
+    "unresolved_source_fidelity_findings": 0,
+    "unresolved_findings": 0,
+    "blocked": 0,
+    "new_human_semantic_delta_required": false,
+    "broad_semantic_reopen_required": false,
+    "main_merge_authorized": true
+  },
+  "next_action": "Run final-head bounded checks on PR #750, merge if no BF10-local regression is proven, then advance the serialized frontier to the final o1101-o1150 backfill batch."
+}
