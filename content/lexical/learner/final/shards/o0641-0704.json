@@ -5,7 +5,7 @@
     "ordinal": 641,
     "word": "buzz",
     "source_owner_path": "content/lexical/words/by-ordinal/o0641.json",
-    "source_fingerprint": "1957c663ddde35e3f71ed093e0279cf48086358397c51f419ecf22477a3fe51d",
+    "source_fingerprint": "557254568229415f2bd2de5c780bd74983c572d75d93ef2f7c9cf37776a9d2fe",
     "sense_lineage": [
       {
         "word_id": "word:buzz",
@@ -104,7 +104,7 @@
             "id": "collocation:415b2c5248ede2c79e29",
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "the buzz about the new movie",
-            "meaning_cn": "关于新电影的传闻",
+            "meaning_cn": "关于新电影的热议、关注或兴奋讨论",
             "kind": "usage_example",
             "repair": null
           }
@@ -980,23 +980,37 @@
     "ordinal": 648,
     "word": "cable",
     "source_owner_path": "content/lexical/words/by-ordinal/o0648.json",
-    "source_fingerprint": "18a773601a09b759ccf3aa005cd690dac9d3e374cb394fcf34f240e4df525eec",
-    "sense_lineage": [],
+    "source_fingerprint": "7589f1c30260b0fae51640a1e3641dd99d07fee4fd1a3dda2275415506d7c0b3",
+    "sense_lineage": [
+      {
+        "word_id": "word:cable",
+        "target_kind": "sense",
+        "from_target_id": "sense:cable:48f0f762a2065181",
+        "status": "reference_only",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:cable",
+        "target_kind": "sense",
+        "from_target_id": "sense:cable:5dfe06e301065db1",
+        "status": "reference_only",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "强韧的绳索或电线，或通过电缆发送的消息",
-      "decision_cn": "",
+      "summary_cn": "传输电力/数据/信号的电缆或结实的绳索；现代常见 cable TV",
+      "decision_cn": "electric/data/signal → 电缆；strong wire/rope → 粗绳索；cable TV → 有线电视；电报时代义仅保留 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "强韧的绳索或电线，或通过电缆发送的消息"
+        "target_label": "传输电力/数据/信号的电缆或结实的绳索；现代常见 cable TV"
       }
     },
     "senses": [
@@ -1027,73 +1041,8 @@
         }
       },
       {
-        "id": "sense:cable:48f0f762a2065181",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "通过电缆发送消息",
-        "definition_en": "to send a message by cable",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:00c84ee65cc1e3a39e76",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "cable + sth to + sb",
-            "meaning_cn": "用电报发送某物给某人",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:00c84ee65cc1e3a39e76",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "cable + sth to + sb"
-            }
-          },
-          {
-            "id": "collocation:1d5c542b6b636f144245",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "cable the news",
-            "meaning_cn": "用电报发送消息",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:cable:48f0f762a2065181",
-          "target_locator": "record.senses[1]",
-          "target_label": "通过电缆发送消息"
-        }
-      },
-      {
-        "id": "sense:cable:5dfe06e301065db1",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "发往国外的电报",
-        "definition_en": "a telegram sent abroad",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:96cdd4db240e6693cbd9",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "send a cable",
-            "meaning_cn": "发电报",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:cable:5dfe06e301065db1",
-          "target_locator": "record.senses[2]",
-          "target_label": "发往国外的电报"
-        }
-      },
-      {
         "id": "sense:cable:cbd3023b7f245b7f",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "结实的绳索或电缆",
@@ -1103,27 +1052,27 @@
         "usage": [
           {
             "id": "collocation:702992b7f5a4496db11e",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "cable TV/cable television",
             "meaning_cn": "有线电视",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:702992b7f5a4496db11e",
-              "target_locator": "record.senses[3].collocations[0]",
+              "target_locator": "record.senses[1].collocations[0]",
               "target_label": "cable TV/cable television"
             }
           },
           {
             "id": "collocation:d59619d2dcd1e7e47ad6",
-            "source_locator": "record.senses[3].collocations[1]",
+            "source_locator": "record.senses[1].collocations[1]",
             "phrase": "data/power cable",
             "meaning_cn": "数据线或电力电缆",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:d59619d2dcd1e7e47ad6",
-              "target_locator": "record.senses[3].collocations[1]",
+              "target_locator": "record.senses[1].collocations[1]",
               "target_label": "data/power cable"
             }
           }
@@ -1131,7 +1080,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:cable:cbd3023b7f245b7f",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[1]",
           "target_label": "结实的绳索或电缆"
         }
       }
@@ -1921,7 +1870,7 @@
     "ordinal": 656,
     "word": "call",
     "source_owner_path": "content/lexical/words/by-ordinal/o0656.json",
-    "source_fingerprint": "583b36f994f31a54c0557654366d79f4ae76d0391f70227289d11fa6e41accbc",
+    "source_fingerprint": "79dd007a8ffad25c3bc044bdd87b136624e73732b0621e74bbbe6fb7b04b9882",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2171,28 +2120,24 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "deep:constructions:call:f1eceee33cee1727",
+        "id": "construction:call:final-standard-for",
         "source_locator": "record.constructions[0]",
-        "pattern": "vi. + for",
+        "pattern": "call for sth",
         "lines": [
           {
-            "text": "要求；呼吁",
+            "text": "需要；要求；呼吁某事",
             "lang": "cn"
           },
           {
-            "text": "call for 要求，固定搭配",
-            "lang": "cn"
-          },
-          {
-            "text": "to demand or request something",
+            "text": "require, demand, or publicly ask for something",
             "lang": "en"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "deep:constructions:call:f1eceee33cee1727",
+          "target_id": "construction:call:final-standard-for",
           "target_locator": "record.constructions[0]",
-          "target_label": "vi. + for"
+          "target_label": "call for sth"
         }
       },
       {
@@ -2231,6 +2176,27 @@
           "target_id": "construction:call:baseline-v2-off",
           "target_locator": "record.constructions[2]",
           "target_label": "call off sth / call sth off"
+        }
+      },
+      {
+        "id": "construction:call:final-standard-question",
+        "source_locator": "record.constructions[3]",
+        "pattern": "call sth into question",
+        "lines": [
+          {
+            "text": "使某事的真实性、有效性、可靠性或正当性受到质疑",
+            "lang": "cn"
+          },
+          {
+            "text": "cause doubt about the truth, validity, reliability, or legitimacy of something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:call:final-standard-question",
+          "target_locator": "record.constructions[3]",
+          "target_label": "call sth into question"
         }
       }
     ],
@@ -2786,7 +2752,7 @@
     "ordinal": 662,
     "word": "campaign",
     "source_owner_path": "content/lexical/words/by-ordinal/o0662.json",
-    "source_fingerprint": "0eed08b33588c437542b56807fd4345b14e229b158ae723d09c8113b2db29ca7",
+    "source_fingerprint": "0bf12c3a523d32c45518033210de1a096f0c8cb1d9270272c000ec2b701929cc",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2962,10 +2928,6 @@
             {
               "text": "campaign 是有组织持续行动；effort 更泛",
               "lang": "cn"
-            },
-            {
-              "text": "a series of actions advancing a principle or tending toward a particular end",
-              "lang": "en"
             }
           ],
           "differences": [],
@@ -3313,14 +3275,14 @@
     "ordinal": 666,
     "word": "cancel",
     "source_owner_path": "content/lexical/words/by-ordinal/o0666.json",
-    "source_fingerprint": "3cbc68d0b2a3acd466fb30bc4f19ecc8e6534cedaecdff41b612a440d253b87a",
+    "source_fingerprint": "89aac8b39d891311e2ecef5711b2c535103bdb89eae3e0319377e6279d1fc61a",
     "sense_lineage": [
       {
         "word_id": "word:cancel",
         "target_kind": "sense",
         "from_target_id": "sense:cancel:b2444d54139a5f5e",
-        "status": "deprecated",
-        "to_target_id": null
+        "status": "merged",
+        "to_target_id": "sense:cancel:dd0685090c7d5e44"
       },
       {
         "word_id": "word:cancel",
@@ -3328,18 +3290,11 @@
         "from_target_id": "sense:cancel:b2d1889350ea5577",
         "status": "deprecated",
         "to_target_id": null
-      },
-      {
-        "word_id": "word:cancel",
-        "target_kind": "sense",
-        "from_target_id": "sense:cancel:dd0685090c7d5e44",
-        "status": "deprecated",
-        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "2V"
+        "3V"
       ],
       "density": "rich"
     },
@@ -3380,26 +3335,43 @@
         "definition_en": "to make something no longer valid or effective",
         "note": "",
         "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:cancel:9434cefdb06151bd",
+          "target_locator": "record.senses[1]",
+          "target_label": "使某物无效、作废"
+        }
+      },
+      {
+        "id": "sense:cancel:dd0685090c7d5e44",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "vt./vi. + out",
+        "definition_cn": "抵消；中和；使效果相互抵消",
+        "definition_en": "to offset or neutralize an effect",
+        "note": "",
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:9116b7c087da222a0a32",
-            "source_locator": "record.senses[1].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "cancel out",
-            "meaning_cn": "抵消、中和",
+            "meaning_cn": "抵消；中和",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:9116b7c087da222a0a32",
-              "target_locator": "record.senses[1].collocations[0]",
+              "target_locator": "record.senses[2].collocations[0]",
               "target_label": "cancel out"
             }
           }
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:cancel:9434cefdb06151bd",
-          "target_locator": "record.senses[1]",
-          "target_label": "使某物无效、作废"
+          "target_id": "sense:cancel:dd0685090c7d5e44",
+          "target_locator": "record.senses[2]",
+          "target_label": "抵消；中和；使效果相互抵消"
         }
       }
     ],
@@ -3408,7 +3380,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "mainly UK: cancelling/cancelled; US usually: canceling/canceled.",
+        "boundaries": [
+          {
+            "surface": "cancelling / cancelled",
+            "condition": "mainly British English",
+            "note": "double l"
+          },
+          {
+            "surface": "canceling / canceled",
+            "condition": "usually American English",
+            "note": "single l"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "mainly UK: cancelling/cancelled; US usually: canceling/canceled."
+        }
+      },
       "family": []
     }
   },
@@ -4818,11 +4811,11 @@
     "ordinal": 679,
     "word": "capital",
     "source_owner_path": "content/lexical/words/by-ordinal/o0679.json",
-    "source_fingerprint": "478cbdc86e815a745343a104ccaeadfcfa72604aa9fd188450754f34bc3329fd",
+    "source_fingerprint": "53a4c63d7853f414601cd12a28a3b03ad63e32d4272e2b8ebb35662a9575df4c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1A",
+        "2A",
         "3N"
       ],
       "density": "rich"
@@ -4957,10 +4950,70 @@
           "target_locator": "record.senses[3]",
           "target_label": "首都的"
         }
+      },
+      {
+        "id": "sense:capital:91acd0f4a37d5ac0",
+        "source_locator": "record.senses[4]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "可判死刑的；涉及死刑的",
+        "definition_en": "punishable by death or involving the death penalty",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:capital:91acd0f4a37d5ac0",
+          "target_locator": "record.senses[4]",
+          "target_label": "可判死刑的；涉及死刑的"
+        }
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:capital:final-standard-punishment",
+        "source_locator": "record.constructions[0]",
+        "pattern": "capital punishment",
+        "lines": [
+          {
+            "text": "死刑",
+            "lang": "cn"
+          },
+          {
+            "text": "the death penalty",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:capital:final-standard-punishment",
+          "target_locator": "record.constructions[0]",
+          "target_label": "capital punishment"
+        }
+      },
+      {
+        "id": "construction:capital:final-standard-offense",
+        "source_locator": "record.constructions[1]",
+        "pattern": "capital offense/crime",
+        "lines": [
+          {
+            "text": "可判死刑的罪行",
+            "lang": "cn"
+          },
+          {
+            "text": "a crime punishable by death",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:capital:final-standard-offense",
+          "target_locator": "record.constructions[1]",
+          "target_label": "capital offense/crime"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7443,7 +7496,7 @@
     "ordinal": 698,
     "word": "carry",
     "source_owner_path": "content/lexical/words/by-ordinal/o0698.json",
-    "source_fingerprint": "f78e8cf4ee7740b885f0483ddeb35f634a5c6e9cc42a91d49e1bc9ff41d14520",
+    "source_fingerprint": "9c356db721eef2a9057730c85fc619f8727406b6f384a92053c2d756dd090643",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7683,6 +7736,27 @@
           "target_id": "construction:carry:baseline-v2-over",
           "target_locator": "record.constructions[2]",
           "target_label": "carry over"
+        }
+      },
+      {
+        "id": "construction:carry:final-standard-weight",
+        "source_locator": "record.constructions[3]",
+        "pattern": "carry weight / carry little/no/much weight",
+        "lines": [
+          {
+            "text": "有影响力、重要性、可信度或说服力",
+            "lang": "cn"
+          },
+          {
+            "text": "have influence, importance, credibility, or persuasive force",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:carry:final-standard-weight",
+          "target_locator": "record.constructions[3]",
+          "target_label": "carry weight / carry little/no/much weight"
         }
       }
     ],

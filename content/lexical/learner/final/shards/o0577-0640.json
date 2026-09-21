@@ -4222,11 +4222,19 @@
     "ordinal": 607,
     "word": "bubble",
     "source_owner_path": "content/lexical/words/by-ordinal/o0607.json",
-    "source_fingerprint": "1477b88f5724e09692fcd8fa058a5501cf6edb473c3a0d2bb11d642d65525934",
-    "sense_lineage": [],
+    "source_fingerprint": "978e027b2bdf7d1a4856c1feee162462229507124a0557cd24471a3b32d4016c",
+    "sense_lineage": [
+      {
+        "word_id": "word:bubble",
+        "target_kind": "sense",
+        "from_target_id": "sense:bubble:554075f7e0685324",
+        "status": "reference_only",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "3N"
       ],
       "density": "rich"
@@ -4339,47 +4347,8 @@
         }
       },
       {
-        "id": "sense:bubble:554075f7e0685324",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使冒泡；滔滔不绝地说",
-        "definition_en": "to cause to bubble or speak rapidly",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:5e86583cbb5109ba6afc",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "bubble + sth",
-            "meaning_cn": "使某物冒泡",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:5e86583cbb5109ba6afc",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "bubble + sth"
-            }
-          },
-          {
-            "id": "collocation:3a88605b1d72c153c677",
-            "source_locator": "record.senses[3].collocations[1]",
-            "phrase": "bubble out words",
-            "meaning_cn": "滔滔不绝地说出",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:bubble:554075f7e0685324",
-          "target_locator": "record.senses[3]",
-          "target_label": "使冒泡；滔滔不绝地说"
-        }
-      },
-      {
         "id": "sense:bubble:d3b6d0baa70058ad",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[3]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "（经济/资产）泡沫；虚高繁荣",
@@ -4389,7 +4358,7 @@
         "usage": [
           {
             "id": "collocation:7066e6fc69f37afbd283",
-            "source_locator": "record.senses[4].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "bubble economy",
             "meaning_cn": "泡沫经济",
             "kind": "usage_example",
@@ -4399,7 +4368,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:bubble:d3b6d0baa70058ad",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[3]",
           "target_label": "（经济/资产）泡沫；虚高繁荣"
         }
       }
@@ -5425,7 +5394,7 @@
     "ordinal": 614,
     "word": "build",
     "source_owner_path": "content/lexical/words/by-ordinal/o0614.json",
-    "source_fingerprint": "a3c0e2d68340207277df9a8fc0f30629ea64a122560caca1ba836f5251ec1c6c",
+    "source_fingerprint": "41355893df2b90dee27d6c9cc8969a08a545a0e58f2b6cd5becd1dc743ebc156",
     "sense_lineage": [
       {
         "word_id": "word:build",
@@ -5530,12 +5499,59 @@
           "target_locator": "record.constructions[0]",
           "target_label": "build up sth / build sth up"
         }
+      },
+      {
+        "id": "construction:build:final-standard-on",
+        "source_locator": "record.constructions[1]",
+        "pattern": "build on/upon sth",
+        "lines": [
+          {
+            "text": "以已有结果、想法、成就或证据为基础进一步发展",
+            "lang": "cn"
+          },
+          {
+            "text": "use an existing result, idea, achievement, or evidence as a basis for further development",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:build:final-standard-on",
+          "target_locator": "record.constructions[1]",
+          "target_label": "build on/upon sth"
+        }
       }
     ],
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "build → built → built.",
+        "boundaries": [
+          {
+            "surface": "build",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "built",
+            "condition": "past",
+            "note": "simple past"
+          },
+          {
+            "surface": "built",
+            "condition": "past participle",
+            "note": "past participle"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "build → built → built."
+        }
+      },
       "family": []
     }
   },
@@ -7186,7 +7202,7 @@
     "ordinal": 628,
     "word": "burn",
     "source_owner_path": "content/lexical/words/by-ordinal/o0628.json",
-    "source_fingerprint": "47190daf39200179e133a6ce438ff4004410c051da089bd41fbc6857074d5d8a",
+    "source_fingerprint": "7c1a61e6a4d72e4219b2218839a9a353578a113f18e4423ee22034bd25a37ada",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7373,7 +7389,33 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "burn → burned/burnt → burned/burnt; both forms are accepted.",
+        "boundaries": [
+          {
+            "surface": "burn",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "burned",
+            "condition": "past/past participle",
+            "note": "common form, especially AmE"
+          },
+          {
+            "surface": "burnt",
+            "condition": "past/past participle",
+            "note": "accepted variant, especially common in BrE"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "burn → burned/burnt → burned/burnt; both forms are accepted."
+        }
+      },
       "family": []
     }
   },
@@ -7383,7 +7425,7 @@
     "ordinal": 629,
     "word": "burst",
     "source_owner_path": "content/lexical/words/by-ordinal/o0629.json",
-    "source_fingerprint": "70d945234e0c9f0d31c7a9a3acf9b1adfb73b10114d24f2a6b3824651458824f",
+    "source_fingerprint": "488f13383a6c862b0086107aeaca027c3de68b6dc32cbfc4f8fdb54fa38529f6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7561,7 +7603,33 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "burst → burst → burst.",
+        "boundaries": [
+          {
+            "surface": "burst",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "burst",
+            "condition": "past",
+            "note": "simple past"
+          },
+          {
+            "surface": "burst",
+            "condition": "past participle",
+            "note": "past participle"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "burst → burst → burst."
+        }
+      },
       "family": []
     }
   },
@@ -9161,7 +9229,7 @@
     "ordinal": 640,
     "word": "buy",
     "source_owner_path": "content/lexical/words/by-ordinal/o0640.json",
-    "source_fingerprint": "e6b3dcd42cb10cbbeafb396aa645d6c8785d75741fc04f967f6eb5206ad11bcf",
+    "source_fingerprint": "1deb801fabec0d50657a328abc9201e0082d97f98efe50fe8d3d9c1c0de05a34",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9372,9 +9440,53 @@
       }
     ],
     "reference": {
-      "confusables": [],
+      "confusables": [
+        {
+          "title": "buy ↔ by",
+          "target_word": "by",
+          "lines": [
+            {
+              "text": "buy is the verb/noun for purchasing or accepting; by is a preposition/adverb. They are exact homophones but different grammar and spelling.",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "deep:confusables:by:d469da244e63603c",
+            "target_locator": "record.confusables[0]",
+            "target_label": "buy ↔ by"
+          }
+        }
+      ],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "buy → bought → bought.",
+        "boundaries": [
+          {
+            "surface": "buy",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "bought",
+            "condition": "past",
+            "note": "simple past"
+          },
+          {
+            "surface": "bought",
+            "condition": "past participle",
+            "note": "past participle"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "buy → bought → bought."
+        }
+      },
       "family": []
     }
   }

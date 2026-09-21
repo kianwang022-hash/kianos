@@ -5251,7 +5251,7 @@
     "ordinal": 1579,
     "word": "effort",
     "source_owner_path": "content/lexical/words/by-ordinal/o1579.json",
-    "source_fingerprint": "1394d4a47e6620cc856334fade5dcecc5a639924f4d869ad8a2c3cc9762a1104",
+    "source_fingerprint": "c1b9af44c328ea4764dc0a2858272df4f47c850185c2744029425f4c877e3b29",
     "sense_lineage": [
       {
         "word_id": "word:effort",
@@ -5358,7 +5358,25 @@
     ],
     "reference": {
       "confusables": [],
-      "relations": [],
+      "relations": [
+        {
+          "title": "effort ↔ campaign",
+          "target_word": "campaign",
+          "lines": [
+            {
+              "text": "effort is the broader expenditure of work or energy; a campaign is an organized, sustained series of actions directed toward a goal.",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "deep:semantic_contrast:campaign:8858cb47683d52df",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "effort ↔ campaign"
+          }
+        }
+      ],
       "form": null,
       "family": []
     }
