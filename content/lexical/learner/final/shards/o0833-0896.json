@@ -441,7 +441,7 @@
     "ordinal": 838,
     "word": "clean",
     "source_owner_path": "content/lexical/words/by-ordinal/o0838.json",
-    "source_fingerprint": "442b2169cd7ba159fc6c1365cf83d3b255ed9382eba7abedbf8eeff9f5072bd5",
+    "source_fingerprint": "65c607cf4415ecabef7f6b6b8eec779c6aba933c2a673f86db135232b6525156",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -491,6 +491,19 @@
               "target_id": "collocation:7b24882f0359fc7ebaf3",
               "target_locator": "record.senses[0].collocations[1]",
               "target_label": "keep + sth + clean"
+            }
+          },
+          {
+            "id": "collocation:clean:bf08-energy",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "clean energy / clean technology / clean fuel",
+            "meaning_cn": "低污染、低碳或环境负担较小的能源、技术或燃料",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:clean:bf08-energy",
+              "target_locator": "record.senses[0].collocations[2]",
+              "target_label": "clean energy / clean technology / clean fuel"
             }
           }
         ],
@@ -642,29 +655,7 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:clean:baseline-v2-energy",
-        "source_locator": "record.constructions[0]",
-        "pattern": "clean energy / clean technology / clean fuel",
-        "lines": [
-          {
-            "text": "低污染、低碳或环境负担较小的能源、技术或燃料",
-            "lang": "cn"
-          },
-          {
-            "text": "clean energy, technology, or fuel designed to reduce pollution, carbon emissions, or environmental burden",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:clean:baseline-v2-energy",
-          "target_locator": "record.constructions[0]",
-          "target_label": "clean energy / clean technology / clean fuel"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -678,7 +669,7 @@
     "ordinal": 839,
     "word": "clear",
     "source_owner_path": "content/lexical/words/by-ordinal/o0839.json",
-    "source_fingerprint": "d4706fdae9dca8a3387b7f2d6a8f6de7c876be3e9da085329caa1bbe8e2030f2",
+    "source_fingerprint": "bdf3bb9a2bed8e134d4e904011ce789dcf5bb7addefd09f2d072a60d5b36509c",
     "sense_lineage": [
       {
         "word_id": "word:clear",
@@ -796,6 +787,32 @@
               "target_id": "collocation:793f324e9970763404f9",
               "target_locator": "record.senses[2].collocations[1]",
               "target_label": "clear up"
+            }
+          },
+          {
+            "id": "collocation:clear:bf08-throat",
+            "source_locator": "record.senses[2].collocations[2]",
+            "phrase": "clear one's throat",
+            "meaning_cn": "清嗓子",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:clear:bf08-throat",
+              "target_locator": "record.senses[2].collocations[2]",
+              "target_label": "clear one's throat"
+            }
+          },
+          {
+            "id": "collocation:clear:bf08-debt",
+            "source_locator": "record.senses[2].collocations[3]",
+            "phrase": "clear a debt / bill / balance",
+            "meaning_cn": "还清债务；结清账款",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:clear:bf08-debt",
+              "target_locator": "record.senses[2].collocations[3]",
+              "target_label": "clear a debt / bill / balance"
             }
           }
         ],
@@ -953,7 +970,21 @@
         "definition_en": "free from blame, suspicion, or guilt",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:clear:bf08-in-the-clear",
+            "source_locator": "record.senses[7].collocations[0]",
+            "phrase": "in the clear",
+            "meaning_cn": "无嫌疑；无责任；脱离麻烦",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:clear:bf08-in-the-clear",
+              "target_locator": "record.senses[7].collocations[0]",
+              "target_label": "in the clear"
+            }
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:clear:7f93fe745afe544e",
@@ -1014,71 +1045,7 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:dcf0611c2a4f78a3e083",
-        "source_locator": "record.constructions[0]",
-        "pattern": "clear one's throat",
-        "lines": [
-          {
-            "text": "清嗓子",
-            "lang": "cn"
-          },
-          {
-            "text": "to cough lightly so the throat or voice is ready",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:dcf0611c2a4f78a3e083",
-          "target_locator": "record.constructions[0]",
-          "target_label": "clear one's throat"
-        }
-      },
-      {
-        "id": "construction:d3dcf3177d1d6883b0d9",
-        "source_locator": "record.constructions[1]",
-        "pattern": "clear a debt / bill / balance",
-        "lines": [
-          {
-            "text": "还清债务；结清账款",
-            "lang": "cn"
-          },
-          {
-            "text": "to pay or settle money that is owed",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:d3dcf3177d1d6883b0d9",
-          "target_locator": "record.constructions[1]",
-          "target_label": "clear a debt / bill / balance"
-        }
-      },
-      {
-        "id": "construction:e26dc703dd6bbda27d5d",
-        "source_locator": "record.constructions[2]",
-        "pattern": "in the clear",
-        "lines": [
-          {
-            "text": "无嫌疑；无责任；脱离麻烦",
-            "lang": "cn"
-          },
-          {
-            "text": "free from suspicion, blame, or sometimes danger/difficulty",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:e26dc703dd6bbda27d5d",
-          "target_locator": "record.constructions[2]",
-          "target_label": "in the clear"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -3308,7 +3275,7 @@
     "ordinal": 858,
     "word": "cloth",
     "source_owner_path": "content/lexical/words/by-ordinal/o0858.json",
-    "source_fingerprint": "9f4dce497a2d1097ba35b0be27e54fe2aeac6b7ba306a060143f0a44fc2fba9c",
+    "source_fingerprint": "04de83a0bf16766c958da9c346761ed5b410e4dee108f415c4d786efeb48cb96",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3393,8 +3360,8 @@
       ],
       "relations": [
         {
-          "title": "cloth ↔ cloth ↔ clothes ↔ clothing",
-          "target_word": "cloth ↔ clothes ↔ clothing",
+          "title": "cloth ↔ clothes ↔ clothing",
+          "target_word": "clothes ↔ clothing",
           "lines": [
             {
               "text": "cloth = 布料；clothes = 穿在身上的具体衣物总称，语法上按复数；clothing = 不可数的服装集合概念。",
@@ -3410,7 +3377,7 @@
             "target_kind": "relation",
             "target_id": "relation:horizontal:cloth-clothes-clothing",
             "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "cloth ↔ cloth ↔ clothes ↔ clothing"
+            "target_label": "cloth ↔ clothes ↔ clothing"
           }
         }
       ],
@@ -3551,7 +3518,7 @@
     "ordinal": 860,
     "word": "clothes",
     "source_owner_path": "content/lexical/words/by-ordinal/o0860.json",
-    "source_fingerprint": "ae3f9fc605f129187e2a9f26726d750037e710713cf3bbee8c17d501f1044934",
+    "source_fingerprint": "c497a6d65ca7d6ecdd00ae08a2dde591c5d934e21351443cfd726c0637bcb141",
     "sense_lineage": [
       {
         "word_id": "word:clothes",
@@ -3631,8 +3598,8 @@
       "confusables": [],
       "relations": [
         {
-          "title": "clothes ↔ cloth ↔ clothes ↔ clothing",
-          "target_word": "cloth ↔ clothes ↔ clothing",
+          "title": "clothes ↔ cloth ↔ clothing",
+          "target_word": "cloth ↔ clothing",
           "lines": [
             {
               "text": "cloth = 布料；clothes = 穿在身上的具体衣物总称，语法上按复数；clothing = 不可数的服装集合概念。",
@@ -3648,7 +3615,7 @@
             "target_kind": "relation",
             "target_id": "relation:horizontal:cloth-clothes-clothing",
             "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "clothes ↔ cloth ↔ clothes ↔ clothing"
+            "target_label": "clothes ↔ cloth ↔ clothing"
           }
         }
       ],
@@ -3683,7 +3650,7 @@
     "ordinal": 861,
     "word": "clothing",
     "source_owner_path": "content/lexical/words/by-ordinal/o0861.json",
-    "source_fingerprint": "d105351f1e783b4800d0d9e0c2bdaccac234cb2cc80ec11296b29d84672ca019",
+    "source_fingerprint": "215d64685e877536a2dd2ab4dab85d48c0248a92480354af97c765ea2da4d24c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3761,8 +3728,8 @@
       "confusables": [],
       "relations": [
         {
-          "title": "clothing ↔ cloth ↔ clothes ↔ clothing",
-          "target_word": "cloth ↔ clothes ↔ clothing",
+          "title": "clothing ↔ cloth ↔ clothes",
+          "target_word": "cloth ↔ clothes",
           "lines": [
             {
               "text": "cloth = 布料；clothes = 穿在身上的具体衣物总称，语法上按复数；clothing = 不可数的服装集合概念。",
@@ -3778,7 +3745,7 @@
             "target_kind": "relation",
             "target_id": "relation:horizontal:cloth-clothes-clothing",
             "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "clothing ↔ cloth ↔ clothes ↔ clothing"
+            "target_label": "clothing ↔ cloth ↔ clothes"
           }
         }
       ],
