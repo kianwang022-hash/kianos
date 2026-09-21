@@ -7,6 +7,7 @@ import {
 import { syncPrivateDailyLearningPacketOnce } from './privateDailyLearningPacketRelay.mjs';
 
 const ROUTE = '/__kianos-private/checkpoint';
+const STATUS_ROUTE = ROUTE + '/status';
 const MAX_BYTES = 24 * 1024 * 1024;
 
 const isLoopback = (address) => {
@@ -41,14 +42,35 @@ export function privateLearnerBridge({ privateDir = resolvePrivateLearnerDir(), 
     configureServer(server) {
       let packetSyncBusy = false;
       let packetSyncQueued = false;
+      let packetRelay = { state: 'checking', checked_at: null };
       const syncPacket = () => {
         if (packetSyncBusy) {
           packetSyncQueued = true;
           return;
         }
         packetSyncBusy = true;
+        packetRelay = { ...packetRelay, state: 'checking' };
         void packetSync({ privateDir })
-          .catch(() => null)
+          .then((result) => {
+            packetRelay = {
+              state: result?.state || 'unknown',
+              status: result?.status || null,
+              study_day: result?.study_day || null,
+              reason: result?.reason || null,
+              checked_at: new Date().toISOString(),
+              error: null
+            };
+          })
+          .catch((error) => {
+            packetRelay = {
+              state: 'degraded',
+              status: null,
+              study_day: null,
+              reason: null,
+              checked_at: new Date().toISOString(),
+              error: error instanceof Error ? error.message : String(error)
+            };
+          })
           .finally(() => {
             packetSyncBusy = false;
             if (packetSyncQueued) {
@@ -62,14 +84,17 @@ export function privateLearnerBridge({ privateDir = resolvePrivateLearnerDir(), 
 
       server.middlewares.use(async (req, res, next) => {
         const pathname = new URL(req.url || '/', 'http://127.0.0.1').pathname;
-        if (pathname !== ROUTE) return next();
+        if (![ROUTE, STATUS_ROUTE].includes(pathname)) return next();
 
         if (!isLoopback(req.socket?.remoteAddress)) {
           return json(res, 403, { status: 'forbidden' });
         }
 
         try {
-          if (req.method === 'GET') {
+          if (req.method === 'GET' && pathname === STATUS_ROUTE) {
+            return json(res, 200, { status: 'ready', relay: packetRelay });
+          }
+          if (req.method === 'GET' && pathname === ROUTE) {
             const checkpoint = readPrivateLearnerCheckpoint(privateDir);
             return checkpoint
               ? json(res, 200, { status: 'ready', checkpoint })
