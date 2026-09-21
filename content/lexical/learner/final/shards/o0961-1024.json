@@ -404,7 +404,7 @@
     "ordinal": 964,
     "word": "comprehensive",
     "source_owner_path": "content/lexical/words/by-ordinal/o0964.json",
-    "source_fingerprint": "946d2b18cd97a878cc3a0bb8cda81fad14e183a8936d26ddcf3add576fc9f967",
+    "source_fingerprint": "b9777c17503b421461909709e4a174c41a56d322cc8dfe20ee6cb0237b32e798",
     "sense_lineage": [
       {
         "word_id": "word:comprehensive",
@@ -464,18 +464,7 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": [
-        {
-          "target_word": "comprehensively",
-          "lines": [
-            {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
-              "lang": "cn"
-            }
-          ],
-          "source_locator": "record.word_family[0]"
-        }
-      ]
+      "family": []
     }
   },
   {
@@ -1432,7 +1421,7 @@
     "ordinal": 974,
     "word": "conceive",
     "source_owner_path": "content/lexical/words/by-ordinal/o0974.json",
-    "source_fingerprint": "d409a6f67f0671ae39d1756c2ce4399b2394c65c8e0f77ee7c6bd58a116c6a69",
+    "source_fingerprint": "92f83c6321e0a8772b8ab412c811acf042496298ed2245619adc70fc56c10158",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1538,9 +1527,9 @@
         "id": "sense:conceive:112c36b3aa6c5156",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi.",
-        "definition_cn": "怀孕",
-        "definition_en": "to become pregnant",
+        "governing_pattern": "I/T + object",
+        "definition_cn": "怀孕；怀上孩子",
+        "definition_en": "to become pregnant or conceive a child",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1557,7 +1546,7 @@
           "target_kind": "sense",
           "target_id": "sense:conceive:112c36b3aa6c5156",
           "target_locator": "record.senses[2]",
-          "target_label": "怀孕"
+          "target_label": "怀孕；怀上孩子"
         }
       }
     ],
@@ -1906,7 +1895,7 @@
     "ordinal": 978,
     "word": "concern",
     "source_owner_path": "content/lexical/words/by-ordinal/o0978.json",
-    "source_fingerprint": "51426c49e2a04bba9bac3e909e5fd698af0a1f10b9847d850eace2903f620f4c",
+    "source_fingerprint": "82098603e26326eff7700390cf79490e5d9a70fe0a24f0bbe91dbe1ae621b377",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1930,26 +1919,17 @@
         "id": "sense:concern:163ff4302a0e546a",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "涉及；关于",
-        "definition_en": "to be about or directly connected with something",
+        "governing_pattern": "vt. + object",
+        "definition_cn": "涉及；关于；与…直接相关",
+        "definition_en": "to be about, involve, or directly relate to something",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:79bbd4a597ad9499be31",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "be concerned with",
-            "meaning_cn": "涉及；关于",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:concern:163ff4302a0e546a",
           "target_locator": "record.senses[0]",
-          "target_label": "涉及；关于"
+          "target_label": "涉及；关于；与…直接相关"
         }
       },
       {
@@ -2016,26 +1996,17 @@
         "id": "sense:concern:c8b6adff895f5a80",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "使担忧；担心",
-        "definition_en": "to cause worry, or to feel worried about something",
+        "governing_pattern": "vt. + object",
+        "definition_cn": "使某人担忧；使关切",
+        "definition_en": "to cause someone worry, anxiety, or concern",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:6770b9bcc93863f5fe20",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "concerned about",
-            "meaning_cn": "使担忧；担心",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:concern:c8b6adff895f5a80",
           "target_locator": "record.senses[3]",
-          "target_label": "使担忧；担心"
+          "target_label": "使某人担忧；使关切"
         }
       },
       {
@@ -2082,6 +2053,56 @@
           "target_id": "construction:7ccab96eaf2a53822cbe",
           "target_locator": "record.constructions[0]",
           "target_label": "as far as X is concerned"
+        }
+      },
+      {
+        "id": "construction:concern:bf09-with",
+        "source_locator": "record.constructions[1]",
+        "pattern": "be concerned with sth",
+        "lines": [
+          {
+            "text": "涉及；关于；与……有关",
+            "lang": "cn"
+          },
+          {
+            "text": "topic/relevance context → be concerned with",
+            "lang": "en"
+          },
+          {
+            "text": "be about, related to, or involved with something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:concern:bf09-with",
+          "target_locator": "record.constructions[1]",
+          "target_label": "be concerned with sth"
+        }
+      },
+      {
+        "id": "construction:concern:bf09-about",
+        "source_locator": "record.constructions[2]",
+        "pattern": "be concerned about sth",
+        "lines": [
+          {
+            "text": "担心；忧虑……",
+            "lang": "cn"
+          },
+          {
+            "text": "worry/anxiety context → be concerned about",
+            "lang": "en"
+          },
+          {
+            "text": "feel worried or anxious about something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:concern:bf09-about",
+          "target_locator": "record.constructions[2]",
+          "target_label": "be concerned about sth"
         }
       }
     ],
@@ -2416,7 +2437,7 @@
     "ordinal": 982,
     "word": "conclude",
     "source_owner_path": "content/lexical/words/by-ordinal/o0982.json",
-    "source_fingerprint": "5d8e0997d45b4976e006ae8eb0d4a3cf021f29cfae185b854f81a82f807b67ea",
+    "source_fingerprint": "d1f18cb591279d2032d13d61e04b4b5fe6ac4c681e6d740d0312f257165c8b0c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2525,33 +2546,7 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "deep:constructions:conclude:fc9b234ffa04e001",
-        "source_locator": "record.constructions[0]",
-        "pattern": "vt. + that-clause",
-        "lines": [
-          {
-            "text": "推断出；得出结论",
-            "lang": "cn"
-          },
-          {
-            "text": "conclude that + 从句",
-            "lang": "cn"
-          },
-          {
-            "text": "to decide or believe something as a result of reasoning",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "deep:constructions:conclude:fc9b234ffa04e001",
-          "target_locator": "record.constructions[0]",
-          "target_label": "vt. + that-clause"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -3167,7 +3162,7 @@
     "ordinal": 988,
     "word": "condition",
     "source_owner_path": "content/lexical/words/by-ordinal/o0988.json",
-    "source_fingerprint": "6b9d86d0ea29a7682ea0dbfee3f94c7a925fedac051db3ddef9119bad33924e8",
+    "source_fingerprint": "623853e55d3e579c5170cda33ef243be9461621f0e316967397dda7f82215afd",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3230,16 +3225,7 @@
         "definition_en": "a factor or requirement that must be met for something else to happen",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:a3036f9487dceab1166f",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "working conditions",
-            "meaning_cn": "工作条件",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:condition:c17837bb9d3554b4",
@@ -3262,6 +3248,14 @@
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "under difficult conditions",
             "meaning_cn": "在困难条件下",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:a3036f9487dceab1166f",
+            "source_locator": "record.senses[2].collocations[1]",
+            "phrase": "working conditions",
+            "meaning_cn": "工作条件",
             "kind": "usage_example",
             "repair": null
           }
@@ -3394,7 +3388,7 @@
     "ordinal": 989,
     "word": "conduct",
     "source_owner_path": "content/lexical/words/by-ordinal/o0989.json",
-    "source_fingerprint": "e75622af96ccfa4f4985422088ee930d80c369fccdd445cce86e2a73855c16bb",
+    "source_fingerprint": "9114857050afb387a76f4936f412642892e7344bb5cfd64b2ec7eac3999079c2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3520,9 +3514,9 @@
         "id": "sense:conduct:6474ebc310dd573b",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vi. + through",
+        "governing_pattern": "vt. + heat/electricity / vi. + through + medium",
         "definition_cn": "传导（热、电等）",
-        "definition_en": "to transmit (heat, electricity, etc.)",
+        "definition_en": "to transmit heat, electricity, or another form of energy, directly or through a medium",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3611,7 +3605,15 @@
           "target_word": "conductor",
           "lines": [
             {
-              "text": "conductor",
+              "text": "conduct（实施/指挥/传导）→ conductor（指挥者/售票员/导体等）",
+              "lang": "cn"
+            },
+            {
+              "text": "conduct = 实施/指挥/传导；conductor = 执行传导或指挥角色的人、器件或材料，具体义由领域决定",
+              "lang": "cn"
+            },
+            {
+              "text": "conductor is a person, device, or material that conducts, directs, or carries something depending on domain",
               "lang": "en"
             }
           ],
@@ -3621,8 +3623,16 @@
           "target_word": "conductive",
           "lines": [
             {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
+              "text": "conduct（传导）→ conductive（导电/导热的）",
               "lang": "cn"
+            },
+            {
+              "text": "conduct heat/electricity = 传导；conductive = 能传导热或电的",
+              "lang": "cn"
+            },
+            {
+              "text": "conductive means able to conduct heat, electricity, or another form of energy",
+              "lang": "en"
             }
           ],
           "source_locator": "record.word_family[1]"
@@ -4253,11 +4263,19 @@
     "ordinal": 995,
     "word": "confident",
     "source_owner_path": "content/lexical/words/by-ordinal/o0995.json",
-    "source_fingerprint": "5cef5f0a188cde4910664c0eec0eb5788f7595f9e85d9838a144f826bfd17184",
-    "sense_lineage": [],
+    "source_fingerprint": "bb0282996547ae992182d105b771dfca9b6e6ac36b3996161b4a12f86b4305ff",
+    "sense_lineage": [
+      {
+        "word_id": "word:confident",
+        "target_kind": "sense",
+        "from_target_id": "sense:confident:6bc920de32845696",
+        "status": "merged",
+        "to_target_id": "sense:confident:bb31ff57e798518d"
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2A"
+        "1A"
       ],
       "density": "rich"
     },
@@ -4315,6 +4333,19 @@
             "meaning_cn": "自信的微笑",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:5dbcd0dfa1ba94f921af",
+            "source_locator": "record.senses[0].collocations[3]",
+            "phrase": "be confident that + clause",
+            "meaning_cn": "确信……",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:5dbcd0dfa1ba94f921af",
+              "target_locator": "record.senses[0].collocations[3]",
+              "target_label": "be confident that + clause"
+            }
           }
         ],
         "repair": {
@@ -4322,37 +4353,6 @@
           "target_id": "sense:confident:bb31ff57e798518d",
           "target_locator": "record.senses[0]",
           "target_label": "对自己的能力、判断或某个命题感到有把握"
-        }
-      },
-      {
-        "id": "sense:confident:6bc920de32845696",
-        "source_locator": "record.senses[1]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "有把握的；确信的",
-        "definition_en": "not liable to error in judgment or action",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:5dbcd0dfa1ba94f921af",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "be confident that + clause",
-            "meaning_cn": "确信……",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:5dbcd0dfa1ba94f921af",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "be confident that + clause"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:confident:6bc920de32845696",
-          "target_locator": "record.senses[1]",
-          "target_label": "有把握的；确信的"
         }
       }
     ],
@@ -4634,7 +4634,7 @@
     "ordinal": 999,
     "word": "confirm",
     "source_owner_path": "content/lexical/words/by-ordinal/o0999.json",
-    "source_fingerprint": "dbd9bbba635036faecc204425e67475e3a6e91994a2ae5a4fa61e0221f530ece",
+    "source_fingerprint": "0897a7df972d7f5002c5b5ac5e8599370410070bd779f3d338ac306ef6cd2091",
     "sense_lineage": [
       {
         "word_id": "word:confirm",
@@ -4660,18 +4660,18 @@
     ],
     "recall_map": {
       "parts": [
-        "1V"
+        "(1+1)V"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "确认或证实某事的真实性或有效性",
-      "decision_cn": "",
+      "summary_cn": "确认、证实；也可把预订/订单/预约等安排变得确定",
+      "decision_cn": "evidence/claim → 证实真假；booking/reservation/order/appointment → 确认并使安排确定。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "确认或证实某事的真实性或有效性"
+        "target_label": "确认、证实；也可把预订/订单/预约等安排变得确定"
       }
     },
     "senses": [
@@ -4693,7 +4693,22 @@
         }
       }
     ],
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "id": "secondary:confirm:bf09-arrangement",
+        "source_locator": "record.secondary_senses[0]",
+        "pos": "verb",
+        "definition_cn": "确认并使预订、订单、预约或安排成为确定状态",
+        "definition_en": "to make a booking, reservation, order, appointment, or arrangement certain or definite",
+        "pattern": "confirm a booking / reservation / order / appointment",
+        "repair": {
+          "target_kind": "secondary_sense",
+          "target_id": "secondary:confirm:bf09-arrangement",
+          "target_locator": "record.secondary_senses[0]",
+          "target_label": "确认并使预订、订单、预约或安排成为确定状态"
+        }
+      }
+    ],
     "constructions": [],
     "reference": {
       "confusables": [
@@ -4722,8 +4737,16 @@
           "target_word": "confirmation",
           "lines": [
             {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
+              "text": "confirm（确认/证实）→ confirmation（确认、证实；确认信息/凭证）",
               "lang": "cn"
+            },
+            {
+              "text": "confirm = 证实/确认或使安排确定；confirmation = 确认、证实，或确认信息/凭证",
+              "lang": "cn"
+            },
+            {
+              "text": "confirmation is the act/result of confirming, or information/documentation that confirms something",
+              "lang": "en"
             }
           ],
           "source_locator": "record.word_family[0]"
@@ -4737,7 +4760,7 @@
     "ordinal": 1000,
     "word": "conflict",
     "source_owner_path": "content/lexical/words/by-ordinal/o1000.json",
-    "source_fingerprint": "ad10ecdfa97a8f44b0420b4c6e09f0462b5e2aad1f1c2ccf739566b62964ae5f",
+    "source_fingerprint": "e6602080405866257da6e7047248606d69a8d2df85f8639a11178c00e7484e67",
     "sense_lineage": [
       {
         "word_id": "word:conflict",
@@ -4798,6 +4821,19 @@
             "meaning_cn": "武装冲突",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:conflict:bf09-interest",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "conflict of interest",
+            "meaning_cn": "利益冲突；相互竞争的利益可能损害公正判断的情形",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:conflict:bf09-interest",
+              "target_locator": "record.senses[0].collocations[2]",
+              "target_label": "conflict of interest"
+            }
           }
         ],
         "repair": {
@@ -4811,7 +4847,7 @@
         "id": "sense:conflict:bbf6c432f6a65e2a",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "conflict with sth",
+        "governing_pattern": "vi. + with + sth",
         "definition_cn": "冲突、不一致",
         "definition_en": "to be incompatible, inconsistent, or in opposition",
         "note": "",
@@ -4884,7 +4920,7 @@
     "ordinal": 1001,
     "word": "conform",
     "source_owner_path": "content/lexical/words/by-ordinal/o1001.json",
-    "source_fingerprint": "a677348e59a8fec15d1a80e5975084f9345f0734f0f71469fd7a6d7d8edbfa79",
+    "source_fingerprint": "4af60244c204da976d25d2b6a605e74b9eb949b9e634f6da6c74e3fbf7ec896e",
     "sense_lineage": [
       {
         "word_id": "word:conform",
@@ -4950,7 +4986,25 @@
       }
     ],
     "reference": {
-      "confusables": [],
+      "confusables": [
+        {
+          "title": "conform ↔ confirm",
+          "target_word": "confirm",
+          "lines": [
+            {
+              "text": "conform 表符合或遵从；confirm 表确认或证实",
+              "lang": "cn"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "deep:confusables:confirm:2fe86792bb2bf1ff",
+            "target_locator": "record.confusables[0]",
+            "target_label": "conform ↔ confirm"
+          }
+        }
+      ],
       "relations": [],
       "form": null,
       "family": []
