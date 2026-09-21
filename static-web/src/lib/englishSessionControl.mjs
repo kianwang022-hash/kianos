@@ -1,8 +1,16 @@
+import {assertEnglishLexicalLedgerReadable} from './englishLexicalReturn.mjs';
 import {atomicEnglishWrites,readEnglishExposure,ENGLISH_MATERIAL_EXPOSURE_KEY} from './englishLearnerEvidence.mjs';
 import {
+  ENGLISH_EXAM_PRODUCTIVE_SCORING_STANDARD_VERSION,
+  inspectEnglishExamSession,
   readEnglishExamSession,
   summarizeEnglishExamSession
 } from './englishExamSession.mjs';
+import {
+  buildLexicalRetentionTransferSummary,
+  LEXICAL_LEDGER_SCHEMA,
+  LEXICAL_LEDGER_STORAGE_KEY
+} from './lexicalEvidence.mjs';
 
 export const ENGLISH_SESSION_SCHEMA = 'kianos.english.session-instruction.v1';
 export const ENGLISH_SESSION_KEY = 'kianos-english-session-instruction-v1';
@@ -44,6 +52,79 @@ const readJson = (storage, key) => {
   }
 };
 
+function lexicalRetentionTransferEvidence(storage) {
+  const raw = storage?.getItem?.(LEXICAL_LEDGER_STORAGE_KEY);
+  if (raw == null) {
+    return {
+      status: 'missing',
+      semantics: 'MISSING_PRIVATE_LEDGER_IS_UNKNOWN_NOT_ZERO',
+      summary: null
+    };
+  }
+  try {
+    const ledger = JSON.parse(raw);
+    if (!ledger || ledger.schema !== LEXICAL_LEDGER_SCHEMA) {
+      return {
+        status: 'invalid',
+        semantics: 'INVALID_PRIVATE_LEDGER_IS_UNKNOWN_NOT_ZERO',
+        summary: null
+      };
+    }
+    assertEnglishLexicalLedgerReadable(ledger);
+    return {
+      status: 'ready',
+      ...buildLexicalRetentionTransferSummary(ledger)
+    };
+  } catch {
+    return {
+      status: 'unreadable',
+      semantics: 'UNREADABLE_PRIVATE_LEDGER_IS_UNKNOWN_NOT_ZERO',
+      summary: null
+    };
+  }
+}
+
+function exposureKnowsSource(exposure, semanticSourceHash, exactSourceHash) {
+  if (!semanticSourceHash && !exactSourceHash) return false;
+  return Object.values(exposure?.materials || {}).some((material) => {
+    const eventMatch = Array.isArray(material?.events) && material.events.some((event) =>
+      (semanticSourceHash && event?.semantic_source_hash === semanticSourceHash)
+      || (exactSourceHash && event?.source_hash === exactSourceHash)
+    );
+    const declarationMatch = material?.declaration?.state === 'exposed' && (
+      (semanticSourceHash && material?.declaration?.semantic_source_hash === semanticSourceHash)
+      || (exactSourceHash && material?.declaration?.source_hash === exactSourceHash)
+    );
+    return eventMatch || declarationMatch;
+  });
+}
+
+const ENGLISH_ATTEMPT_PREFIXES=[
+  'kianos-reading-attempt-v1:',
+  'kianos-cloze-attempt-v1:',
+  'kianos-reading-b-attempt-v1:',
+  'kianos-english-external-reading-attempt-v1:',
+  'kianos-translation-attempt-v2:',
+  'kianos-writing-runtime-v1:'
+];
+
+function localAttemptKnowsSource(storage,objectId,semanticSourceHash,exactSourceHash){
+  for(const prefix of ENGLISH_ATTEMPT_PREFIXES){
+    const raw=storage.getItem(prefix+objectId);
+    if(raw==null)continue;
+    try{
+      const value=JSON.parse(raw);
+      const binding=value?.binding||{};
+      if(semanticSourceHash&&binding.semantic_source_hash===semanticSourceHash)return true;
+      if(exactSourceHash&&binding.source_hash===exactSourceHash)return true;
+      if(!binding.source_hash&&!binding.semantic_source_hash)return true; // legacy unreadable identity: fail closed.
+    }catch{
+      return true; // unreadable local history cannot authorize "unseen".
+    }
+  }
+  return false;
+}
+
 function normalizeStep(step, index) {
   if (!step || typeof step !== 'object' || Array.isArray(step)) {
     throw new Error('ENGLISH_SESSION_STEP_INVALID:' + index);
@@ -76,6 +157,19 @@ function normalizeStep(step, index) {
     const declaration=step.params.material_exposure;
     if(!['unseen','exposed','unknown'].includes(declaration.state)||declaration.basis!=='learner_statement'||!declaration.note||!Number.isFinite(Date.parse(declaration.observed_at)))throw new Error('ENGLISH_MATERIAL_DECLARATION_INVALID');
     params.material_exposure={state:declaration.state,basis:'learner_statement',note:clean(declaration.note,400),observed_at:new Date(declaration.observed_at).toISOString()};
+  }
+  if(step.params?.assistance_context != null){
+    const declaration=step.params.assistance_context;
+    if(!['assisted','unknown'].includes(declaration.state)
+      || !['chat_context','learner_statement'].includes(declaration.basis)
+      || !declaration.note
+      || !Number.isFinite(Date.parse(declaration.observed_at)))throw new Error('ENGLISH_ASSISTANCE_DECLARATION_INVALID');
+    params.assistance_context={
+      state:declaration.state,
+      basis:declaration.basis,
+      note:clean(declaration.note,400),
+      observed_at:new Date(declaration.observed_at).toISOString()
+    };
   }
   return {
     step_id: clean(step.step_id || step.stepId || ('step-' + (index + 1)), 80),
@@ -154,7 +248,21 @@ export function parseEnglishSessionInstruction(input, expectedDay = null) {
   throw new Error('ENGLISH_SESSION_IMPORT_INVALID');
 }
 
-export function readEnglishSessionInstruction(storage, expectedDay = null) {
+export function englishSessionSourceDrift(instruction,catalog,day=null){
+ if(!Array.isArray(catalog)||!catalog.length)return {status:'source_unverified',error:'ENGLISH_SESSION_CURRENT_CATALOG_REQUIRED'};
+ for(const step of instruction.steps.slice(instruction.current_step)){
+  const matches=catalog.filter(row=>row.task===step.task&&row.object_id===step.object_id);
+  const owner=matches[0];
+  if(matches.length!==1||!owner.source_hash||owner.source_hash!==step.source_hash||(owner.study_day&&day&&owner.study_day!==day))return {
+   status:'stale_source',error:(matches.length===0?'ENGLISH_SESSION_OBJECT_NOT_CURRENT':owner?.study_day&&day&&owner.study_day!==day?'ENGLISH_SESSION_OBJECT_STALE_DAY':'ENGLISH_SESSION_SOURCE_REVISION_MISMATCH')+':'+step.object_id,
+   task:step.task,object_id:step.object_id,source_hash:step.source_hash||null,
+   current_source_hash:matches.length===1?owner.source_hash||null:null
+  };
+ }
+ return null;
+}
+
+export function readEnglishSessionInstruction(storage, expectedDay = null, {catalog} = {}) {
   if (!storage?.getItem) {
     return { status: 'unavailable', instruction: null, error: 'Storage unavailable.' };
   }
@@ -169,11 +277,10 @@ export function readEnglishSessionInstruction(storage, expectedDay = null) {
         error: 'Session is for ' + parsed.study_day + ', not ' + expectedDay + '.'
       };
     }
-    return {
-      status: 'ready',
-      instruction: validateEnglishSessionInstruction(parsed, expectedDay),
-      error: null
-    };
+    const instruction=validateEnglishSessionInstruction(parsed, expectedDay);
+    const drift=catalog===undefined?null:englishSessionSourceDrift(instruction,catalog,expectedDay);
+    if(drift)return {...drift,instruction,executable:false};
+    return {status:'ready',instruction,error:null,source_checked:catalog!==undefined,executable:catalog!==undefined};
   } catch (error) {
     return {
       status: 'invalid',
@@ -187,12 +294,10 @@ export function writeEnglishSessionInstruction(storage, input, expectedDay = nul
   if (!storage?.setItem) throw new Error('ENGLISH_SESSION_STORAGE_UNAVAILABLE');
   const instruction = parseEnglishSessionInstruction(input, expectedDay);
   if (!Array.isArray(catalog)) throw new Error('ENGLISH_SESSION_CURRENT_CATALOG_REQUIRED');
+  const drift=englishSessionSourceDrift(instruction,catalog,expectedDay);
+  if(drift)throw new Error(drift.error);
   if (Date.parse(instruction.generated_at) > Number(now) + 60_000) throw new Error('ENGLISH_SESSION_FUTURE_INSTRUCTION');
   for (const step of instruction.steps) {
-    const owner = catalog.find(row => row.task === step.task && row.object_id === step.object_id);
-    if (!owner) throw new Error('ENGLISH_SESSION_OBJECT_NOT_CURRENT:' + step.object_id);
-    if (owner.study_day && expectedDay && owner.study_day !== expectedDay) throw new Error('ENGLISH_SESSION_OBJECT_STALE_DAY:' + step.object_id);
-    if (!step.source_hash || step.source_hash !== owner.source_hash) throw new Error('ENGLISH_SESSION_SOURCE_REVISION_MISMATCH:' + step.object_id);
     if (step.task === 'full_paper' && step.params.task_order) {
       const order = step.params.task_order;
       const expected = ['cloze','reading_a','reading_b','translation','writing'];
@@ -220,13 +325,38 @@ export function writeEnglishSessionInstruction(storage, input, expectedDay = nul
       const d=step.params.material_exposure;
       if(Date.parse(d.observed_at)>Date.parse(instruction.generated_at))throw new Error('ENGLISH_MATERIAL_DECLARATION_FUTURE');
       const owner=catalog.find(r=>r.task===step.task&&r.object_id===step.object_id);
-      const ids=step.task==='full_paper'?owner.material_ids:[step.object_id];
-      if(!ids?.length)throw new Error('ENGLISH_MATERIAL_DECLARATION_IDENTITIES_REQUIRED');
-      for(const id of ids){
+      const identities=step.task==='full_paper'
+        ? (Array.isArray(owner.materials)?owner.materials:[])
+        : [{
+            object_id:step.object_id,
+            source_hash:step.source_hash||owner.source_hash||null,
+            semantic_source_hash:owner.semantic_source_hash||owner.source_hash||step.source_hash||null
+          }];
+      if(!identities.length)throw new Error('ENGLISH_MATERIAL_DECLARATION_IDENTITIES_REQUIRED');
+      for(const identity of identities){
+        const id=identity.object_id;
+        if(!id)throw new Error('ENGLISH_MATERIAL_DECLARATION_IDENTITIES_REQUIRED');
+        const exactSourceHash=identity.source_hash||null;
+        const semanticSourceHash=identity.semantic_source_hash||exactSourceHash||null;
         const m=exposure.materials[id]||{object_id:id,events:[]};
-        if(d.state==='unseen'&&(m.events.length||m.declaration?.state==='exposed'||['kianos-reading-attempt-v1:','kianos-cloze-attempt-v1:','kianos-reading-b-attempt-v1:','kianos-english-external-reading-attempt-v1:','kianos-translation-attempt-v2:','kianos-writing-runtime-v1:'].some(prefix=>storage.getItem(prefix+id)!=null)))throw new Error('ENGLISH_MATERIAL_ALREADY_EXPOSED:'+id);
+        if(d.state==='unseen'&&(
+          exposureKnowsSource(exposure,semanticSourceHash,exactSourceHash)
+          || localAttemptKnowsSource(storage,id,semanticSourceHash,exactSourceHash)
+        ))throw new Error('ENGLISH_MATERIAL_ALREADY_EXPOSED:'+id);
         if(m.declaration&&Date.parse(d.observed_at)<Date.parse(m.declaration.observed_at))throw new Error('ENGLISH_MATERIAL_DECLARATION_STALE');
-        m.declaration={...d,session_instruction_id:instruction.session_id};exposure.materials[id]=m;
+        if(m.declaration?.state==='exposed'){
+          const previous=m.declaration;
+          const eventId='declaration:'+previous.session_instruction_id+':'+previous.source_hash;
+          if(!Array.isArray(m.events))throw new Error('ENGLISH_EXPOSURE_EVENTS_INVALID');
+          if(!m.events.some(event=>event.event_id===eventId))m.events.push({...previous,event_id:eventId,event:'declared_exposed'});
+        }
+        m.declaration={
+          ...d,
+          session_instruction_id:instruction.session_id,
+          source_hash:exactSourceHash,
+          semantic_source_hash:semanticSourceHash
+        };
+        exposure.materials[id]=m;
       }
     }
     changes.push([ENGLISH_MATERIAL_EXPOSURE_KEY,exposure]);
@@ -240,7 +370,12 @@ export function englishStepIsComplete(storage, step) {
   const prefixes = {reading_a:'kianos-reading-attempt-v1:',cloze:'kianos-cloze-attempt-v1:',reading_b:'kianos-reading-b-attempt-v1:',external_reading:'kianos-english-external-reading-attempt-v1:',translation:'kianos-translation-attempt-v2:',writing:'kianos-writing-runtime-v1:'};
   if (step?.task === 'full_paper') {
     const exam = readEnglishExamSession(storage);
-    return exam?.paper_id === step.object_id && Boolean(step.source_hash) && exam.source_hash === step.source_hash && exam.status === 'RELEASED';
+    return exam?.paper_id === step.object_id
+      && Boolean(step.source_hash)
+      && exam.source_hash === step.source_hash
+      && exam.status === 'SCORED'
+      && exam.release?.productive?.scoring_standard_version === ENGLISH_EXAM_PRODUCTIVE_SCORING_STANDARD_VERSION
+      && Boolean(exam.release?.integrated?.score_range);
   }
   const value = readJson(storage, (prefixes[step?.task] || '') + step?.object_id);
   if (!value) return false;
@@ -257,6 +392,7 @@ export function englishStepIsComplete(storage, step) {
 
 export function resolveEnglishSessionStep(storage, instruction, catalog) {
   // Follow only Chat's explicit ordering; never rank unrelated tasks.
+  if(englishSessionSourceDrift(instruction,catalog,instruction.study_day))return null;
   for (let i=instruction.current_step;i<instruction.steps.length;i+=1) {
     const step=instruction.steps[i];
     if (!catalog.some(row=>row.task===step.task && row.object_id===step.object_id && row.source_hash===step.source_hash)) return null;
@@ -320,6 +456,15 @@ function objectiveEvidence(storage, lastKey, attemptPrefix) {
         question_origin: 'CHAT_GENERATED',
         drill_origin: clean(attempt.binding.source_snapshot.drill_origin, 100) || null,
         completion_requirement: clean(attempt.binding.source_snapshot.completion_requirement, 80) || null,
+        ...(clean(attempt.binding.evidence_role, 80)
+          ? { evidence_role: clean(attempt.binding.evidence_role, 80) }
+          : {}),
+        ...(attempt.binding.generated_transfer_independence
+          ? { transfer_independence: clone(attempt.binding.generated_transfer_independence) }
+          : {}),
+        ...(clean(attempt.binding.calibration_status, 80)
+          ? { calibration_status: clean(attempt.binding.calibration_status, 80) }
+          : {}),
         training_target: attempt.binding.source_snapshot.training_target && typeof attempt.binding.source_snapshot.training_target === 'object'
           ? {
               kind: clean(attempt.binding.source_snapshot.training_target.kind, 120) || null,
@@ -360,7 +505,7 @@ function productiveEvidence(storage, task) {
 }
 
 
-export function englishAttemptInventory(storage) {
+export function englishAttemptInventory(storage, catalog = null) {
   const prefixes={reading_a:'kianos-reading-attempt-v1:',cloze:'kianos-cloze-attempt-v1:',reading_b:'kianos-reading-b-attempt-v1:',external_reading:'kianos-english-external-reading-attempt-v1:',translation:'kianos-translation-attempt-v2:',writing:'kianos-writing-runtime-v1:'};
   const rows=[];
   for(let i=0;i<Number(storage.length||0);i+=1){
@@ -368,10 +513,14 @@ export function englishAttemptInventory(storage) {
     for(const [task,prefix] of Object.entries(prefixes)){
       if(!key?.startsWith(prefix))continue;
       const value=readJson(storage,key);if(!value) {rows.push({task,object_id:key.slice(prefix.length),data_status:'unreadable'});continue;}
-      rows.push({task,object_id:key.slice(prefix.length),source_hash:value.sourceHash||value.binding?.source_hash||null,attempt_id:value.attemptId||value.binding?.attempt_id||null,submitted:value.submitted===true,stage:value.stage||value.state||null,problem_count:problemCount(value),started_at:value.startedAt||value.createdAt||null,submitted_at:value.firstSubmittedAt||value.submittedAt||null,updated_at:value.updatedAt||value.saved_at||null,prior_exposure:value.binding?.prior_exposure||'unknown',assistance:value.binding?.assistance||'unknown',complete:englishStepIsComplete(storage,{task,object_id:key.slice(prefix.length),source_hash:value.binding?.source_hash}),first_evidence:value.firstEvidenceMeta||null});
+      rows.push({task,object_id:key.slice(prefix.length),source_hash:value.sourceHash||value.binding?.source_hash||null,attempt_id:value.attemptId||value.binding?.attempt_id||null,submitted:value.submitted===true,stage:value.stage||value.state||null,problem_count:problemCount(value),started_at:value.startedAt||value.createdAt||null,submitted_at:value.firstSubmittedAt||value.submittedAt||null,updated_at:value.updatedAt||value.saved_at||null,prior_exposure:value.binding?.prior_exposure||'unknown',assistance:value.binding?.assistance||'unknown',task_form:task==='reading_b'?(clean(value?.binding?.source_snapshot?.context?.taskForm||value?.binding?.source_snapshot?.context?.task_form,80)||null):null,complete:englishStepIsComplete(storage,{task,object_id:key.slice(prefix.length),source_hash:value.binding?.source_hash}),first_evidence:value.firstEvidenceMeta||null});
     }
   }
-  return rows; // Facts, never a recommendation or a priority score.
+  return rows.map(row=>{
+    const owner=Array.isArray(catalog)?catalog.find(item=>item.task===row.task&&item.object_id===row.object_id):null;
+    return {...row,current_source_hash:owner?.source_hash||null,
+      source_current:Array.isArray(catalog)?Boolean(owner?.source_hash&&owner.source_hash===row.source_hash):null};
+  }); // Historical first evidence stays intact; Current eligibility is a read projection.
 }
 
 
@@ -395,6 +544,13 @@ const ENGLISH_PROFILE_TASK_ROLE = Object.freeze({
   translation: 'EXAM_PRODUCTIVE',
   writing: 'EXAM_PRODUCTIVE'
 });
+
+const READING_B_FORMS = Object.freeze([
+  'gap_match',
+  'ordering',
+  'heading_match',
+  'comment_match'
+]);
 
 function englishAttemptTimestamp(row) {
   for (const raw of [
@@ -439,12 +595,12 @@ function safeIndependentTransferCandidate(row) {
 
 function timingProfile(rows) {
   const metas = rows.map((row) => row?.first_evidence).filter((meta) => meta && typeof meta === 'object');
-  const elapsed = metas.map((meta) => Number(meta.elapsed_seconds)).filter(Number.isFinite);
+  const elapsed = metas.map((meta) => meta.elapsed_seconds).filter(value=>typeof value==='number'&&Number.isFinite(value)&&value>=0);
   const ratios = metas
     .map((meta) => {
-      const elapsedSeconds = Number(meta.elapsed_seconds);
-      const budgetSeconds = Number(meta.time_budget_seconds);
-      if (!Number.isFinite(elapsedSeconds) || !Number.isFinite(budgetSeconds) || budgetSeconds <= 0) return null;
+      const elapsedSeconds = meta.elapsed_seconds;
+      const budgetSeconds = meta.time_budget_seconds;
+      if (typeof elapsedSeconds!=='number'||typeof budgetSeconds!=='number'||!Number.isFinite(elapsedSeconds) || !Number.isFinite(budgetSeconds) || budgetSeconds <= 0) return null;
       return Number((elapsedSeconds / budgetSeconds).toFixed(3));
     })
     .filter(Number.isFinite);
@@ -490,6 +646,24 @@ function taskPerformanceProfile(allRows, recentRows, task) {
 
     if (objectiveLike) {
       summary.problem_bearing_attempts = rows.filter((row) => Number(row.problem_count || 0) > 0).length;
+    }
+
+    if (task === 'reading_b') {
+      const byForm = Object.fromEntries(READING_B_FORMS.map((form) => {
+        const formRows = rows.filter((row) => row.task_form === form);
+        return [form, {
+          attempts: formRows.length,
+          independent_transfer_candidates: formRows.filter(safeIndependentTransferCandidate).length,
+          problem_bearing_attempts: formRows.filter((row) => Number(row.problem_count || 0) > 0).length
+        }];
+      }));
+      summary.form_coverage = {
+        required_forms: [...READING_B_FORMS],
+        covered_forms: READING_B_FORMS.filter((form) => byForm[form].attempts > 0),
+        unknown_form_attempts: rows.filter((row) => !READING_B_FORMS.includes(String(row.task_form || ''))).length,
+        by_form: byForm,
+        semantics: 'FORM_LEVEL_FACTS_ONLY; AGGREGATE_READING_B_STABILITY_DOES_NOT_PROVE_EACH_FORM'
+      };
     }
 
     if (productive) {
@@ -548,7 +722,8 @@ export function buildEnglishPerformanceProfile(rows, {
       'UNCALIBRATED_TIMING_IS_UNKNOWN_NOT_SLOW',
       'TRANSLATION_AND_WRITING_HAVE_NO_AUTO_SCORE',
       'PROFILE_CREATES_NO_REVIEW_OR_TEST_DEBT',
-      'WORKFLOW_COMPLETE_IS_NOT_PERFORMANCE_SUCCESS'
+      'WORKFLOW_COMPLETE_IS_NOT_PERFORMANCE_SUCCESS',
+      'READING_B_AGGREGATE_DOES_NOT_PROVE_FORM_COVERAGE'
     ]
   };
 }
@@ -572,8 +747,14 @@ function englishInventoryPacketView(rows, perTaskLimit = ENGLISH_PACKET_RECENT_P
 }
 
 
-function englishResumeEvidence(storage, day) {
-  const sessionState = readEnglishSessionInstruction(storage, day);
+function englishResumeEvidence(storage, day, catalog) {
+  const sessionState = readEnglishSessionInstruction(storage, day, {catalog});
+  if(['stale_source','source_unverified'].includes(sessionState.status))return {
+    status:sessionState.status,session_id:sessionState.instruction?.session_id||null,
+    task:sessionState.task||null,object_id:sessionState.object_id||null,
+    source_hash:sessionState.source_hash||null,current_source_hash:sessionState.current_source_hash||null,
+    href:null,error:sessionState.error,executable:false
+  };
   if (sessionState.status === 'ready' && sessionState.instruction) {
     const instruction = sessionState.instruction;
     for (let index = instruction.current_step; index < instruction.steps.length; index += 1) {
@@ -623,29 +804,34 @@ function englishResumeEvidence(storage, day) {
     };
   }
 
+  const owner=Array.isArray(catalog)?catalog.find(row=>row.task===recent.task&&row.object_id===String(recent.value.id)):null;
+  const prefix={reading_a:'kianos-reading-attempt-v1:',cloze:'kianos-cloze-attempt-v1:',reading_b:'kianos-reading-b-attempt-v1:',external_reading:'kianos-english-external-reading-attempt-v1:',translation:'kianos-translation-attempt-v2:',writing:'kianos-writing-runtime-v1:'}[recent.task];
+  const saved=readJson(storage,prefix+recent.value.id);
+  const sourceCurrent=Boolean(owner?.source_hash&&(!saved||saved.binding?.source_hash===owner.source_hash));
   return {
-    status: 'recent_only',
+    status: sourceCurrent?'recent_only':owner?'stale_source':'source_unverified',
+    source_hash:saved?.binding?.source_hash||null,current_source_hash:owner?.source_hash||null,
     task: recent.task,
     object_id: String(recent.value.id),
     label: clean(recent.value.title, 180) || null,
-    href: clean(recent.value.href, 280) || null,
+    href: sourceCurrent?englishSessionStepHref({task:recent.task,object_id:String(recent.value.id)},'/'):null,
     updated_at: clean(recent.value.updatedAt || recent.value.updated_at, 80) || null
   };
 }
 
-function englishForecastProgress(storage, day) {
-  const state = readEnglishSessionInstruction(storage, day);
+function englishForecastProgress(storage, day, catalog) {
+  const state = readEnglishSessionInstruction(storage, day, {catalog});
   if (state.status !== 'ready' || !state.instruction) {
     return {
       schema: 'kianos.english.forecast-progress.v1',
       forecast_role: 'FACTUAL_SUBJECT_PROGRESS_SIGNAL_ONLY',
       gate_workload_authority: false,
       scope: 'CURRENT_EXPLICIT_SESSION_ONLY',
-      status: state.status === 'invalid' ? 'invalid' : 'no_active_session',
+      status:['invalid','stale_source','source_unverified'].includes(state.status)?state.status:'no_active_session',
       session_id: null,
-      total_steps: 0,
-      completed_steps: 0,
-      remaining_steps: 0,
+      total_steps: state.status==='missing'?0:null,
+      completed_steps: state.status==='missing'?0:null,
+      remaining_steps: state.status==='missing'?0:null,
       remaining_by_task: {},
       remaining: [],
       evidence_boundary:
@@ -690,11 +876,159 @@ function englishForecastProgress(storage, day) {
   };
 }
 
+const ENGLISH_OBJECTIVE_TRANSFER_KEY='kianos-english-objective-transfer-claims-v1';
+const ENGLISH_TRANSLATION_TRANSFER_KEY='kianos-translation-transfer-v1';
+const ENGLISH_WRITING_EVIDENCE_KEY='kianos-writing-evidence-v1';
+
+function readOptionalLedger(storage,key,rowsKey){
+  const raw=storage?.getItem?.(key);
+  if(raw==null)return {status:'missing',rows:[]};
+  try{
+    const value=JSON.parse(raw);
+    if(!value||typeof value!=='object'||Array.isArray(value)||!Array.isArray(value[rowsKey]))return {status:'invalid',rows:[]};
+    return {status:'ready',rows:value[rowsKey]};
+  }catch{
+    return {status:'unreadable',rows:[]};
+  }
+}
+
+function recurrenceTimestamp(row){
+  for(const value of [
+    row?.updated_at,row?.updatedAt,
+    row?.reopened_at,row?.reopenedAt,
+    row?.closed_at,row?.closedAt,
+    row?.created_at,row?.createdAt,
+    row?.admitted_at,row?.admittedAt
+  ]){
+    const ms=Date.parse(String(value||''));
+    if(Number.isFinite(ms))return ms;
+  }
+  return Number.NEGATIVE_INFINITY;
+}
+
+function boundedRecurrenceFamily(rows,{limit=12,mapRow}={}){
+  const normalized=(Array.isArray(rows)?rows:[]).map(mapRow).filter(Boolean);
+  const sorted=normalized.sort((a,b)=>{
+    const ap=a.status==='pending'?1:0, bp=b.status==='pending'?1:0;
+    if(ap!==bp)return bp-ap;
+    return recurrenceTimestamp(b)-recurrenceTimestamp(a);
+  });
+  const take=Math.max(1,Math.min(24,Math.floor(Number(limit)||12)));
+  const selected=sorted.slice(0,take);
+  return {
+    total:sorted.length,
+    pending:sorted.filter(row=>row.status==='pending').length,
+    closed:sorted.filter(row=>row.status==='closed').length,
+    included:selected.length,
+    truncated:selected.length<sorted.length,
+    targets:selected
+  };
+}
+
+export function buildEnglishLongHorizonRecurrenceDigest(storage,{recentExactTruncated=false,limitPerFamily=12}={}){
+  const objective=readOptionalLedger(storage,ENGLISH_OBJECTIVE_TRANSFER_KEY,'claims');
+  const translation=readOptionalLedger(storage,ENGLISH_TRANSLATION_TRANSFER_KEY,'targets');
+  const writing=readOptionalLedger(storage,ENGLISH_WRITING_EVIDENCE_KEY,'targets');
+
+  const digest={
+    schema:'kianos.english.long-horizon-recurrence.v1',
+    semantics:'DURABLE_TASK_LOCAL_REPAIR_TRANSFER_PROJECTION; NOT_MASTERY; NOT_PRIORITY',
+    recent_exact_window_truncated:recentExactTruncated===true,
+    guardrails:[
+      'RECENT_EXACT_ABSENCE_IS_NOT_LONG_HORIZON_ABSENCE',
+      'PENDING_TARGET_IS_NOT_AUTOMATIC_REVIEW_DEBT',
+      'CLOSED_TARGET_CAN_REOPEN_ONLY_WITH_RELEVANT_FRESH_CONTRADICTION',
+      'RAW_PRIVATE_HISTORY_REMAINS_LOCAL'
+    ],
+    objective:{
+      status:objective.status,
+      ...boundedRecurrenceFamily(objective.rows,{
+        limit:limitPerFamily,
+        mapRow:(row)=>{
+          const id=clean(row?.claimId,240); if(!id)return null;
+          const status=String(row?.status||'').toUpperCase()==='CLOSED'?'closed':'pending';
+          return {
+            target_id:id,
+            task:clean(row?.task,40)||null,
+            label:clean(row?.statement,500)||null,
+            status,
+            source_object_id:clean(row?.sourceObjectId,240)||null,
+            history_events:Array.isArray(row?.history)?row.history.length:0,
+            updated_at:clean(row?.updatedAt,80)||clean(row?.createdAt,80)||null
+          };
+        }
+      })
+    },
+    translation:{
+      status:translation.status,
+      ...boundedRecurrenceFamily(translation.rows,{
+        limit:limitPerFamily,
+        mapRow:(row)=>{
+          const id=clean(row?.id,240); if(!id)return null;
+          return {
+            target_id:id,
+            task:'translation',
+            label:clean(row?.label,300)||null,
+            mechanism:[clean(row?.layer,120),clean(row?.skill,180)].filter(Boolean).join(' · ')||null,
+            underlying_demand:clean(row?.underlyingDemand,600)||null,
+            status:String(row?.status||'').toLowerCase()==='closed'?'closed':'pending',
+            source_task:clean(row?.sourceTask,240)||null,
+            last_source_task:clean(row?.lastSourceTask,240)||null,
+            evidence_events:Array.isArray(row?.evidence)?row.evidence.length:0,
+            updated_at:clean(row?.closedAt,80)||clean(row?.createdAt,80)||null
+          };
+        }
+      })
+    },
+    writing:{
+      status:writing.status,
+      ...boundedRecurrenceFamily(writing.rows,{
+        limit:limitPerFamily,
+        mapRow:(row)=>{
+          const id=clean(row?.targetId,240); if(!id)return null;
+          return {
+            target_id:id,
+            task:'writing',
+            label:clean(row?.label,300)||null,
+            underlying_demand:clean(row?.underlyingDemand,600)||null,
+            status:String(row?.status||'').toLowerCase()==='closed'?'closed':'pending',
+            origin_task_id:clean(row?.originTaskId,240)||null,
+            evidence_events:Array.isArray(row?.events)?row.events.length:0,
+            updated_at:clean(row?.updatedAt,80)||clean(row?.reopenedAt,80)||clean(row?.closedAt,80)||clean(row?.admittedAt,80)||null
+          };
+        }
+      })
+    }
+  };
+  digest.requires_deeper_review_if_decision_depends_on_missing_history=
+    digest.recent_exact_window_truncated
+    || digest.objective.truncated
+    || digest.translation.truncated
+    || digest.writing.truncated
+    || ['invalid','unreadable'].includes(digest.objective.status)
+    || ['invalid','unreadable'].includes(digest.translation.status)
+    || ['invalid','unreadable'].includes(digest.writing.status);
+  return digest;
+}
+
+function englishExamEvidenceProjection(storage) {
+  const state=inspectEnglishExamSession(storage);
+  if(state.status==='ready')return summarizeEnglishExamSession(state.session);
+  if(state.status==='missing')return null;
+  return {
+    schema:'kianos.english.exam-state.v1',
+    status:state.status,
+    error:state.error||null,
+    evidence_boundary:'INVALID_OR_UNAVAILABLE_WHOLE_PAPER_STATE_IS_UNKNOWN_NOT_ZERO; RECOVER_OR_EXPORT_BEFORE_REPLACING'
+  };
+}
+
 export function buildEnglishEvidencePacket(storage, { day, now = Date.now(), catalog = [] } = {}) {
   if (!storage?.getItem) throw new Error('ENGLISH_EVIDENCE_STORAGE_UNAVAILABLE');
   if (!validDay(day)) throw new Error('ENGLISH_EVIDENCE_DAY_INVALID');
 
-  const rawInventory = englishAttemptInventory(storage);
+  const currentCatalog=Array.isArray(catalog)&&catalog.length?catalog:null;
+  const rawInventory = englishAttemptInventory(storage,currentCatalog);
   const packetInventory = englishInventoryPacketView(rawInventory);
 
   return {
@@ -703,9 +1037,11 @@ export function buildEnglishEvidencePacket(storage, { day, now = Date.now(), cat
     generated_at: new Date(now).toISOString(),
     inventory: packetInventory.inventory,
     inventory_meta: packetInventory.inventory_meta,
-    performance_profile: buildEnglishPerformanceProfile(rawInventory),
-    forecast_progress: englishForecastProgress(storage, day),
-    resume: englishResumeEvidence(storage, day),
+    performance_profile: {...buildEnglishPerformanceProfile(rawInventory.filter(row=>row.source_current!==false)),source_revision_checked:currentCatalog!==null,source_stale_attempt_count:rawInventory.filter(row=>row.source_current===false).length},
+    long_horizon_recurrence: buildEnglishLongHorizonRecurrenceDigest(storage,{recentExactTruncated:packetInventory.inventory_meta.truncated}),
+    lexical: lexicalRetentionTransferEvidence(storage),
+    forecast_progress: englishForecastProgress(storage, day, catalog),
+    resume: englishResumeEvidence(storage, day, catalog),
     tasks: clone({
       reading_a: objectiveEvidence(storage, LAST_LOCATION_KEYS.reading_a, 'kianos-reading-attempt-v1:'),
       cloze: objectiveEvidence(storage, LAST_LOCATION_KEYS.cloze, 'kianos-cloze-attempt-v1:'),
@@ -714,7 +1050,7 @@ export function buildEnglishEvidencePacket(storage, { day, now = Date.now(), cat
       translation: productiveEvidence(storage, 'translation'),
       writing: productiveEvidence(storage, 'writing')
     }),
-    exam_session: summarizeEnglishExamSession(readEnglishExamSession(storage)),
+    exam_session: englishExamEvidenceProjection(storage),
     available_external_reading: (Array.isArray(catalog) ? catalog : [])
       .filter(row => row?.task === 'external_reading')
       .map(row => ({
@@ -755,6 +1091,10 @@ export function buildEnglishChatHandoffText(storage, { day, now = Date.now(), ca
     '- Apply the current English Learning Contract: stable work stays cheap; real problems get the smallest useful repair; Chat owns cross-task next-step selection; the website only executes the selected task.',
     '- Missing evidence means unknown, not failed. Finished work must not be turned back into Resume debt.',
     '- Optional params.material_exposure={state:unseen|exposed|unknown,basis:learner_statement,observed_at:ISO,note:actual learner statement} may be supplied ONLY from real learner testimony before an attempt. Never infer unseen from missing storage or Content defaults.',
+    '- If prior Chat discussion or learner testimony materially cues the assigned task, params.assistance_context={state:assisted|unknown,basis:chat_context|learner_statement,observed_at:ISO,note:brief factual reason} may downgrade the next first-evidence claim. Do not declare unassisted; that remains the default only when no contrary evidence exists.',
+    '- performance_profile is task-level bounded telemetry. For Part B, form_coverage must be read before any aggregate stability claim. long_horizon_recurrence projects durable Objective/Translation/Writing Repair/Transfer targets. If recent exact attempts are truncated, absence from the recent window is not proof that a mechanism never existed.',
+    '- lexical projects bounded delayed-retention and clean real-English-context evidence from the existing private Lexical ledger. It is not mastery or a schedule. If lexical status is missing/invalid/unreadable, lexical retention stays UNKNOWN rather than zero.',
+    '- If any long_horizon_recurrence family reports invalid/unreadable, treat that recurrence history as UNKNOWN and request targeted recovery/deeper review if the decision depends on it; never interpret it as zero historical problems.',
     '',
     'WHAT CHAT SHOULD DO',
     '- Explain the current English situation in normal language and choose a next action only when that is useful.',

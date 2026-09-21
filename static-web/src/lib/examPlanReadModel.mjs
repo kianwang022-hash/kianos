@@ -80,7 +80,7 @@ const neutralAttention = (status, error = '') => {
   if (status === 'ready') return null;
   if (status === 'stale') return {
     type: 'chat_plan',
-    text: '现有 Chat 安排不是今天的；网页不会自动沿用，也不会自行补算。',
+    text: '安排依据已变化，请让 Chat 更新安排。',
     action: '查看依据'
   };
   if (status === 'invalid') return {

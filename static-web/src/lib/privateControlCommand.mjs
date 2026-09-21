@@ -194,11 +194,14 @@ export function validateControlReceipt(value){
   if(!['APPLIED','IDEMPOTENT','REJECTED','ERROR'].includes(status))fail('RECEIPT_STATUS_INVALID',status);
   const observedAt=clean(value.observed_at,80);
   if(!observedAt||Number.isNaN(Date.parse(observedAt)))fail('RECEIPT_TIME_INVALID');
+  const commandGeneratedAt=value.command_generated_at;
+  if(commandGeneratedAt!=null&&Number.isNaN(Date.parse(commandGeneratedAt)))fail('RECEIPT_COMMAND_TIME_INVALID');
   return{
     schema:CONTROL_RECEIPT_SCHEMA,
     command_id:commandId,
     command_hash:clean(value.command_hash,128)||null,
     status,
+    ...(commandGeneratedAt!=null?{command_generated_at:new Date(commandGeneratedAt).toISOString()}:{}),
     observed_at:new Date(observedAt).toISOString(),
     error:clean(value.error,1200)||null
   };

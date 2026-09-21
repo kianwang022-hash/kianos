@@ -23,7 +23,9 @@ Shared Visual / Shell landed
 → launch / broad engineering freeze
 ```
 
-Architecture-level website blocker: **none**.
+Current bounded repair: **PR #732 — native evidence, durable recovery and one-attempt worker integration**. This reuses the shared-runtime candidate under Kian's 2026-09-22 whole-system authorization; it does not reopen broad UI or content construction. Local native/module/browser proof is complete; exact-head CI and promotion are recorded in the PR. Continue from `L1_SHARED_RUNTIME_CLOSURE.md` for this repair only.
+
+Vocabulary upgrades, Xizong explanations and Visual production remain in their existing Chat-owned content lanes. No canonical content is changed by this repair. Remaining material interaction choices (source-update continuation and subjective-score return) require a concrete product decision; they are not silently admitted as complete.
 
 ---
 

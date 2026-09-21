@@ -1,4 +1,5 @@
 import crypto from 'node:crypto';
+import { englishSemanticSourceHash } from './englishSemanticSourceIdentity.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -197,13 +198,22 @@ function withSourceIdentity(object, unit) {
       finalSourceFileHash: identity.finalSourceFileHash
     }
   };
-  projected.sourceHashes.renderedObject = sha256(stableJson({
-    objectId: projected.objectId || projected.id,
-    sourceTruthUnit: identity.unitHash,
-    material: projected.material || projected.paragraphs || null,
-    prompts: projected.prompts || projected.questions || projected.officialEvidence?.prompt || null
-  }));
-  return projected;
+  return rebindRenderedEnglishSourceIdentity(projected);
+}
+
+export function rebindRenderedEnglishSourceIdentity(projected){
+ const sourceHashes={...(projected.sourceHashes||{})};
+ sourceHashes.renderedObject=sha256(stableJson({
+  objectId:projected.objectId||projected.id,
+  sourceTruthUnit:sourceHashes.sourceTruthUnit||null,
+  task:projected.task||null,kind:projected.kind||null,targetWords:projected.targetWords??null,
+  material:projected.material??null,paragraphs:projected.paragraphs??null,
+  questions:projected.questions??null,prompts:projected.prompts??null,
+  context:projected.context??null,candidates:projected.candidates??null,
+  learnerTask:projected.learnerTask??projected.officialEvidence?.prompt??null
+ }));
+ sourceHashes.semanticSource=englishSemanticSourceHash(projected);
+ return {...projected,sourceHashes};
 }
 
 function optionEntries(options) {
@@ -366,6 +376,7 @@ export function projectWritingRuntimeSourceTruth(task) {
   return {
     ...projected,
     sourcePath: ENGLISH_SOURCE_TRUTH.global,
-    sourceHash: projected.sourceHashes.renderedObject
+    sourceHash: projected.sourceHashes.renderedObject,
+    semanticSourceHash: projected.sourceHashes.semanticSource
   };
 }

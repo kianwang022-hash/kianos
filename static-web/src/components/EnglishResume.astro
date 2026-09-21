@@ -27,27 +27,24 @@ const base = import.meta.env.BASE_URL;
   const root = document.querySelector('[data-english-resume-surface]');
   if (root instanceof HTMLElement) {
     let catalog = JSON.parse(document.querySelector('[data-english-resume-catalog]')?.textContent || '[]');
-    let externalCatalogPromise = null;
+    let catalogPromise = null;
     const loadExternalCatalog = () => {
-      if (externalCatalogPromise) return externalCatalogPromise;
-      externalCatalogPromise = (async () => {
-        try {
-          const response = await fetch('/__kianos-private/external-reading/catalog', { cache: 'no-store' });
-          if (!response.ok) return catalog;
-          const data = await response.json();
-          const rows = (data.collections || []).flatMap(group => group.passages || []).map(row => ({
-            task: 'external_reading',
-            object_id: row.object_id,
-            source_hash: row.content_hash,
-            label: row.title || row.object_id,
-            study_day: row.study_day || null,
-            origin: row.origin || null
-          }));
-          catalog = [...catalog, ...rows];
-        } catch {}
+      if (catalogPromise) return catalogPromise;
+      catalogPromise = (async () => {
+        const [native, external] = await Promise.allSettled([
+          fetch('/__kianos-private/control/english-session-catalog', {cache:'no-store'}).then(async response => response.ok ? (await response.json()).rows : null),
+          fetch('/__kianos-private/external-reading/catalog', {cache:'no-store'}).then(async response => response.ok ? (await response.json()).collections : null)
+        ]);
+        const nativeRows = native.status === 'fulfilled' && Array.isArray(native.value) ? native.value : null;
+        const externalRows = external.status === 'fulfilled' && Array.isArray(external.value)
+          ? external.value.flatMap(group => group.passages || []).map(row => ({task:'external_reading',object_id:row.object_id,source_hash:row.content_hash,label:row.title||row.object_id,study_day:row.study_day||null,origin:row.origin||null})) : [];
+        if (nativeRows) catalog = [...nativeRows, ...externalRows];
+        else if (externalRows.length) catalog = [...catalog.filter(row => row.task !== 'external_reading'), ...externalRows];
+        const node=document.querySelector('[data-english-resume-catalog]');
+        if(node)node.textContent=JSON.stringify(catalog);
         return catalog;
-      })();
-      return externalCatalogPromise;
+      })().finally(() => {catalogPromise = null;});
+      return catalogPromise;
     };
     const base = root.getAttribute('data-base') || '/';
     const resume = root.querySelector('[data-english-resume]');
@@ -85,7 +82,7 @@ const base = import.meta.env.BASE_URL;
         || !(link instanceof HTMLAnchorElement)) return;
 
       await loadExternalCatalog();
-      const state = readEnglishSessionInstruction(localStorage, localDay());
+      const state = readEnglishSessionInstruction(localStorage, localDay(), {catalog});
       if (state.status !== 'ready' || !state.instruction) {
         resume.hidden = true;
         link.removeAttribute('data-session-ref');

@@ -251,6 +251,7 @@ export function initExamHome(root) {
   }
 
   function render() {
+    chatPlanState = readExamChatPlan(localStorage, day());
     const xizongNative = nativeLink(
       '[data-xizong-continue]',
       '[data-xizong-continue-title]',
@@ -444,6 +445,7 @@ export function initExamHome(root) {
         day: day(),
         now: Date.now(),
         plan: readModel,
+        englishCatalog: JSON.parse(document.querySelector('[data-english-resume-catalog]')?.textContent || '[]'),
         xizongPacketIndex,
         xizongForecastQuestionScope,
         xizongForecastCanonicalScope,
@@ -647,7 +649,7 @@ export function initExamHome(root) {
     if (!$$('dialog').some((dialog) => dialog.open)) render();
   });
   window.addEventListener('storage', (event) => {
-    if (![EXAM_PROFILE_KEY, EXAM_CHAT_PLAN_KEY, null].includes(event.key)) return;
+    if (event.key != null && !String(event.key).startsWith('kianos')) return;
     if ($$('dialog').some((dialog) => dialog.open)) {
       error('另一页面的本机学习上下文已改变；当前编辑未覆盖它。关闭窗口并刷新后再改。');
       return;

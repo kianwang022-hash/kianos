@@ -1,5 +1,9 @@
-import { EXAM_PROFILE_KEY } from './examOrchestrator.mjs';
-import { readStudyTimerLedger } from './studyTimer.mjs';
+import { EXAM_PROFILE_KEY, validateExamProfile } from './examOrchestrator.mjs';
+import {
+  readStudyTimerLedger, STUDY_TIMER_LEDGER_KEY, STUDY_TIMER_STATE_KEY, STUDY_TIMER_SCHEMA
+} from './studyTimer.mjs';
+import { LEXICAL_LEDGER_STORAGE_KEY, assertLexicalLedgerReadable } from './lexicalEvidence.mjs';
+import { LEXICAL_INTAKE_STORAGE_KEY, LEXICAL_ROUTING_STORAGE_KEY } from './lexicalSettings.mjs';
 import { englishCheckpointKeyAllowed } from './englishLearnerEvidence.mjs';
 import { politicsCheckpointKeyAllowed } from './politicsChatReturn.mjs';
 import { isXizongDurableStorageKey } from './xizongPrivateCheckpoint.mjs';
@@ -50,11 +54,15 @@ const finiteMinutes = (value, field) => {
 };
 
 const storageKeys = (storage) => {
-  if (!storage?.getItem || typeof storage.key !== 'function' || !Number.isFinite(Number(storage.length))) return [];
+  if (!storage?.getItem || typeof storage.key !== 'function'
+      || !Number.isInteger(storage.length) || storage.length < 0) {
+    throw new Error('CHAT_PLAN_EVIDENCE_STORAGE_UNAVAILABLE');
+  }
   const keys = [];
   for (let index = 0; index < Number(storage.length); index += 1) {
     const key = storage.key(index);
-    if (typeof key === 'string') keys.push(key);
+    if (typeof key !== 'string') throw new Error('CHAT_PLAN_EVIDENCE_STORAGE_UNREADABLE');
+    keys.push(key);
   }
   return [...new Set(keys)].sort();
 };
@@ -63,7 +71,7 @@ const canonicalJson = (raw) => {
   if (raw == null) return 'null';
   let value;
   try { value = JSON.parse(String(raw)); }
-  catch { return 'raw:' + String(raw); }
+  catch { throw new Error('CHAT_PLAN_EVIDENCE_UNREADABLE'); }
   const normalize = (input) => {
     if (Array.isArray(input)) return input.map(normalize);
     if (!record(input)) return input;
@@ -74,17 +82,29 @@ const canonicalJson = (raw) => {
 
 const fingerprint = (value) => {
   const source = String(value ?? '');
-  let hash = 0xcbf29ce484222325n;
+  // Same FNV-1a64 over UTF-16 code units, without allocating BigInts per
+  // character. Two 32-bit limbs preserve every existing basis fingerprint.
+  let high = 0xcbf29ce4;
+  let low = 0x84222325;
   for (let index = 0; index < source.length; index += 1) {
-    hash ^= BigInt(source.charCodeAt(index));
-    hash = BigInt.asUintN(64, hash * 0x100000001b3n);
+    low = (low ^ source.charCodeAt(index)) >>> 0;
+    const product = low * 0x1b3; // exact integer: below 2^53
+    const carry = (product / 0x100000000) >>> 0;
+    high = (high * 0x1b3 + carry + (low << 8)) >>> 0;
+    low = product >>> 0;
   }
-  return `fnv1a64:${hash.toString(16).padStart(16, '0')}:${source.length}`;
+  return `fnv1a64:${high.toString(16).padStart(8, '0')}${low.toString(16).padStart(8, '0')}:${source.length}`;
 };
 
 const fingerprintRows = (rows) => fingerprint(rows
   .map(([key, raw]) => `${key}\u0000${canonicalJson(raw)}`)
   .join('\u0001'));
+
+// Reuse the native evidence keys. Pronunciation, navigation, cursor and other
+// control/UI settings are deliberately not evidence or plan dependencies.
+const LEXICAL_EVIDENCE_KEYS = new Set([
+  LEXICAL_LEDGER_STORAGE_KEY, LEXICAL_INTAKE_STORAGE_KEY, LEXICAL_ROUTING_STORAGE_KEY
+]);
 
 const subjectEvidenceKeyAllowed = (subject, key) => {
   if (subject === 'xizong') {
@@ -92,8 +112,9 @@ const subjectEvidenceKeyAllowed = (subject, key) => {
       && !XIZONG_CONTROL_PATTERNS.some((pattern) => pattern.test(key));
   }
   if (subject === 'english') {
-    return englishCheckpointKeyAllowed(key)
-      && !ENGLISH_CONTROL_PATTERNS.some((pattern) => pattern.test(key));
+    return LEXICAL_EVIDENCE_KEYS.has(key)
+      || (englishCheckpointKeyAllowed(key)
+        && !ENGLISH_CONTROL_PATTERNS.some((pattern) => pattern.test(key)));
   }
   if (subject === 'politics') {
     return politicsCheckpointKeyAllowed(key) && POLITICS_EVIDENCE_KEYS.has(key);
@@ -101,18 +122,17 @@ const subjectEvidenceKeyAllowed = (subject, key) => {
   return false;
 };
 
-const subjectEvidenceFingerprint = (storage, subject) => fingerprintRows(
-  storageKeys(storage)
+const subjectEvidenceFingerprint = (storage, subject, keys) => fingerprintRows(
+  keys
     .filter((key) => subjectEvidenceKeyAllowed(subject, key))
     .map((key) => [key, storage.getItem(key)])
 );
 
-const planningProfileBasis = (storage) => {
+const planningProfileBasis = (storage, studyDay) => {
   const raw = storage?.getItem?.(EXAM_PROFILE_KEY);
   if (raw == null) return null;
   try {
-    const value = JSON.parse(raw);
-    if (!record(value)) return value;
+    const value = validateExamProfile(JSON.parse(raw), studyDay);
     return {
       schema: value.schema || null,
       defaultDailyMinutes: value.defaultDailyMinutes ?? null,
@@ -124,14 +144,43 @@ const planningProfileBasis = (storage) => {
       gateReports: Array.isArray(value.gateReports) ? value.gateReports : []
     };
   } catch {
-    return { unreadable_raw: String(raw) };
+    throw new Error('CHAT_PLAN_PROFILE_INVALID');
   }
 };
 
-const sharedContextFingerprint = (storage) => fingerprint(JSON.stringify({
-  exam_profile: planningProfileBasis(storage),
-  study_timer_ledger: readStudyTimerLedger(storage)
-}));
+// Normalizing a corrupt timer into an empty ledger is not valid planning
+// evidence. This is a readability guard, not a second time/learner ledger.
+export function assertExamChatPlanTimeReadable(storage) {
+  for (const key of [STUDY_TIMER_STATE_KEY, STUDY_TIMER_LEDGER_KEY]) {
+    const raw = storage.getItem(key);
+    if (raw == null) continue;
+    let value;
+    try { value = JSON.parse(raw); }
+    catch { throw new Error('CHAT_PLAN_TIMER_UNREADABLE'); }
+    if (!record(value) || value.schema !== STUDY_TIMER_SCHEMA) {
+      throw new Error('CHAT_PLAN_TIMER_SCHEMA_INVALID');
+    }
+    if (key === STUDY_TIMER_LEDGER_KEY) {
+      if (!Array.isArray(value.sessions)
+        || readStudyTimerLedger(storage).sessions.length !== value.sessions.length) {
+        throw new Error('CHAT_PLAN_TIMER_LEDGER_INVALID');
+      }
+    } else if (typeof value.running !== 'boolean'
+      || (value.running && (!EXAM_CHAT_PLAN_SUBJECTS.includes(value.subject)
+        || !Number.isFinite(value.segmentStartedAt)
+        || !Number.isFinite(value.lastSeenAt)))) {
+      throw new Error('CHAT_PLAN_TIMER_STATE_INVALID');
+    }
+  }
+}
+
+const sharedContextFingerprint = (storage, studyDay) => {
+  assertExamChatPlanTimeReadable(storage);
+  return fingerprint(JSON.stringify({
+    exam_profile: planningProfileBasis(storage, studyDay),
+    study_timer_ledger: readStudyTimerLedger(storage)
+  }));
+};
 
 const basisCore = (studyDay, sharedContext, subjects) => JSON.stringify({
   study_day: studyDay,
@@ -142,11 +191,14 @@ const basisCore = (studyDay, sharedContext, subjects) => JSON.stringify({
 export function buildExamChatPlanBasis(storage, studyDay) {
   if (!storage?.getItem) throw new Error('CHAT_PLAN_EVIDENCE_STORAGE_UNAVAILABLE');
   if (!validDay(studyDay)) throw new Error('CHAT_PLAN_EVIDENCE_BASIS_DAY_INVALID');
+  const keys = storageKeys(storage);
+  const lexicalRaw = storage.getItem(LEXICAL_LEDGER_STORAGE_KEY);
+  if (lexicalRaw != null) assertLexicalLedgerReadable(JSON.parse(lexicalRaw));
   const subjects = Object.fromEntries(EXAM_CHAT_PLAN_SUBJECTS.map((subject) => [
     subject,
-    subjectEvidenceFingerprint(storage, subject)
+    subjectEvidenceFingerprint(storage, subject, keys)
   ]));
-  const sharedContext = sharedContextFingerprint(storage);
+  const sharedContext = sharedContextFingerprint(storage, studyDay);
   return {
     schema: EXAM_CHAT_PLAN_BASIS_SCHEMA,
     study_day: studyDay,
@@ -282,7 +334,9 @@ export function readExamChatPlan(storage, expectedDay) {
   if (!storage?.getItem) {
     return { status: 'unavailable', plan: null, error: 'Storage is unavailable.' };
   }
-  const raw = storage.getItem(EXAM_CHAT_PLAN_KEY);
+  let raw;
+  try { raw = storage.getItem(EXAM_CHAT_PLAN_KEY); }
+  catch { return { status: 'unavailable', plan: null, error: 'Storage is unreadable.' }; }
   if (raw == null) return { status: 'missing', plan: null, error: null };
   try {
     const parsed = JSON.parse(raw);

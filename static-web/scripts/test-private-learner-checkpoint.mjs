@@ -160,7 +160,9 @@ const skippedRuntime = await restoreSharedControlFromPrivate(present, {
   now,
   readCheckpoint: async () => ({ status: 'ready', checkpoint })
 });
-assert.equal(skippedRuntime.status, 'skipped');
+assert.equal(skippedRuntime.status, 'restored');
+assert.equal(present.getItem(STUDY_TIMER_STATE_KEY), JSON.stringify(timerState), 'existing timer state is retained');
+assert.equal(JSON.parse(present.getItem(STUDY_TIMER_LEDGER_KEY)).sessions.length, 1, 'missing history is restored even when the timer key exists');
 
 const yesterdayCheckpoint = buildPrivateLearnerCheckpoint({
   studyDay: '2026-09-18',
@@ -236,8 +238,24 @@ const noOverwrite = await restoreSharedControlFromPrivate(existingXizong, {
   readCheckpoint: async () => ({ status: 'ready', checkpoint: xizongSaved })
 });
 assert.notEqual(JSON.parse(existingXizong.getItem(xizongStudyKey)).ratings['circulation-b01-kp01'], 'fuzzy',
-  'automatic restore must not overwrite existing Xizong learner state');
-assert.equal(noOverwrite.subjects?.xizong?.status || 'skipped', 'skipped');
+  'automatic restore must never overwrite existing Xizong learner state');
+assert.equal(noOverwrite.subjects?.xizong?.status, 'restored',
+  'partial local Xizong state must fill missing durable keys from the complete remote checkpoint');
+assert.equal(JSON.parse(existingXizong.getItem(xizongEvidenceKey)).evidenceHistory.length, 1,
+  'missing Xizong evidence must be restored even when another local Xizong key exists');
+assert.equal(JSON.parse(existingXizong.getItem(xizongLastKey)).href, '/xizong/circulation/b01/',
+  'missing Xizong navigation state must be restored alongside evidence');
+
+let partialRoundTrip = null;
+await saveSharedControlToPrivate(existingXizong, {
+  now,
+  readCheckpoint: async () => ({ status: 'ready', checkpoint: xizongSaved }),
+  writeCheckpoint: async (value) => { partialRoundTrip = value; return { status: 'saved' }; }
+});
+assert.equal(partialRoundTrip.payload.subjects.xizong.entry_count, 3,
+  'restore → save must not shrink a complete remote Xizong checkpoint when local state started partial');
+assert.ok(partialRoundTrip.payload.subjects.xizong.entries.some((row) => row.key === xizongEvidenceKey));
+assert.ok(partialRoundTrip.payload.subjects.xizong.entries.some((row) => row.key === xizongLastKey));
 
 let failedReadWrites = 0;
 await assert.rejects(
@@ -254,15 +272,16 @@ const corruptXizong = new MemoryStorage({
   [xizongStudyKey]: '{not-json'
 });
 let corruptWrites = 0;
-await assert.rejects(
-  () => saveSharedControlToPrivate(corruptXizong, {
-    now,
-    readCheckpoint: async () => ({ status: 'missing', checkpoint: null }),
-    writeCheckpoint: async () => { corruptWrites += 1; }
-  }),
-  /XIZONG_CHECKPOINT_ENTRY_JSON_INVALID/
-);
-assert.equal(corruptWrites, 0, 'corrupt Xizong source state must not produce a partial checkpoint');
+const corruptResult = await saveSharedControlToPrivate(corruptXizong, {
+  now,
+  readCheckpoint: async () => ({ status: 'missing', checkpoint: null }),
+  writeCheckpoint: async (value) => { corruptWrites += 1; assert.equal(value.payload.subjects.xizong, undefined); }
+});
+assert.equal(corruptResult.status, 'partial');
+assert.match(corruptResult.warnings.join(' '), /XIZONG_CHECKPOINT_ENTRY_JSON_INVALID/);
+assert.equal(corruptWrites, 1, 'healthy shared state may save while corrupt subject remains excluded');
+assert.equal(corruptXizong.getItem(xizongStudyKey), '{not-json', 'raw corrupt local bytes are retained');
+
 
 
 const englishExposureKey = 'kianos-english-material-exposure-v1';
@@ -383,22 +402,14 @@ const englishConflict = new MemoryStorage({
     materials: { local: { object_id: 'local', events: [] } }
   })
 });
-await assert.rejects(
-  () => restoreSharedControlFromPrivate(englishConflict, {
-    now,
-    readCheckpoint: async () => ({ status: 'ready', checkpoint: combinedSaved })
-  }),
-  /PRIVATE_CHECKPOINT_ENGLISH_CONFLICT_KEEP_LOCAL/
-);
+const englishKept = await restoreSharedControlFromPrivate(englishConflict, {
+  now, readCheckpoint: async () => ({ status: 'ready', checkpoint: combinedSaved })
+});
 assert.deepEqual(JSON.parse(englishConflict.getItem(englishExposureKey)).materials, {
   local: { object_id: 'local', events: [] }
-}, 'English conflict must keep local truth');
-assert.equal(englishConflict.getItem(EXAM_CHAT_PLAN_KEY), null,
-  'English conflict must reject before shared control is restored');
-assert.equal(englishConflict.getItem(xizongStudyKey), null,
-  'English conflict must reject before Xizong is partially restored');
-assert.equal(englishConflict.getItem(lexicalLedgerKey), null,
-  'English conflict must reject before Lexical is partially restored');
+}, 'English local truth wins');
+assert.equal(englishKept.subjects.xizong.status, 'restored', 'healthy sibling restores');
+assert.equal(englishKept.subjects.lexical.status, 'restored', 'valid coupled state restores without replacing local English');
 
 const politicsConflict = new MemoryStorage({
   [PRACTICE_KEYS.attempts]: JSON.stringify({
@@ -420,19 +431,11 @@ const politicsConflict = new MemoryStorage({
     }
   })
 });
-await assert.rejects(
-  () => restoreSharedControlFromPrivate(politicsConflict, {
-    now,
-    readCheckpoint: async () => ({ status: 'ready', checkpoint: combinedSaved })
-  }),
-  /PRIVATE_CHECKPOINT_POLITICS_CONFLICT_KEEP_LOCAL/
-);
-assert.equal(JSON.parse(politicsConflict.getItem(PRACTICE_KEYS.attempts)).units['marxism/c01/u01'].attempts.P1.outcome, 'STABLE',
-  'Politics conflict must keep local truth');
-assert.equal(politicsConflict.getItem(EXAM_CHAT_PLAN_KEY), null,
-  'Politics conflict must reject before shared control is restored');
-assert.equal(politicsConflict.getItem(xizongStudyKey), null,
-  'Politics conflict must reject before Xizong is partially restored');
+const politicsKept = await restoreSharedControlFromPrivate(politicsConflict, {
+  now, readCheckpoint: async () => ({ status: 'ready', checkpoint: combinedSaved })
+});
+assert.equal(JSON.parse(politicsConflict.getItem(PRACTICE_KEYS.attempts)).units['marxism/c01/u01'].attempts.P1.outcome, 'STABLE');
+assert.equal(politicsKept.subjects.xizong.status, 'restored');
 
 const lexicalConflict = new MemoryStorage({
   [lexicalLedgerKey]: JSON.stringify({
@@ -442,17 +445,16 @@ const lexicalConflict = new MemoryStorage({
     identity_lineage: {}
   })
 });
-await assert.rejects(
-  () => restoreSharedControlFromPrivate(lexicalConflict, {
-    now,
-    readCheckpoint: async () => ({ status: 'ready', checkpoint: combinedSaved })
-  }),
-  /PRIVATE_CHECKPOINT_LEXICAL_CONFLICT_KEEP_LOCAL/
-);
-assert.equal(lexicalConflict.getItem(EXAM_CHAT_PLAN_KEY), null,
-  'Lexical conflict must reject before shared control is restored');
-assert.equal(lexicalConflict.getItem(xizongStudyKey), null,
-  'Lexical conflict must reject before Xizong is partially restored');
+const corruptLexicalRaw = lexicalConflict.getItem(lexicalLedgerKey);
+const lexicalBlocked = await restoreSharedControlFromPrivate(lexicalConflict, {
+  now, readCheckpoint: async () => ({ status: 'ready', checkpoint: combinedSaved })
+});
+assert.equal(lexicalBlocked.subjects.lexical.status, 'blocked');
+assert.equal(lexicalBlocked.subjects.english.status, 'blocked', 'coupled English/Lexical remains atomic');
+assert.equal(lexicalBlocked.subjects.xizong.status, 'restored');
+assert.equal(lexicalBlocked.subjects.politics.status, 'restored');
+assert.equal(lexicalConflict.getItem(lexicalLedgerKey), corruptLexicalRaw);
+assert.equal(lexicalConflict.getItem(externalAttemptKey), null);
 
 
 const originalFetch = globalThis.fetch;
@@ -515,4 +517,3 @@ try {
 }
 
 console.log('PASS private learner checkpoint foundation: Xizong + English + Politics + Lexical atomic capture/restore + safe conflicts');
-

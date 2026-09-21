@@ -19,16 +19,16 @@ const held = 'xizong-official-2025-n005';
 const stateA = {
   marks: { [q3]: true },
   attemptHistory: [
-    { type:'QUESTION_ATTEMPT', question_id:q1, status:'wrong', submitted_at:'2026-09-18T01:00:00.000Z' },
-    { type:'QUESTION_ATTEMPT', question_id:q2, status:'uncertain', submitted_at:'2026-09-18T02:00:00.000Z' },
-    { type:'QUESTION_ATTEMPT', question_id:held, status:'wrong', submitted_at:'2026-09-18T03:00:00.000Z' }
+    { type:'QUESTION_ATTEMPT', question_id:q1, question_semantic_revision:'fixture-v1', status:'wrong', submitted_at:'2026-09-18T01:00:00.000Z' },
+    { type:'QUESTION_ATTEMPT', question_id:q2, question_semantic_revision:'fixture-v1', status:'uncertain', submitted_at:'2026-09-18T02:00:00.000Z' },
+    { type:'QUESTION_ATTEMPT', question_id:held, question_semantic_revision:'fixture-v1', status:'wrong', submitted_at:'2026-09-18T03:00:00.000Z' }
   ]
 };
 const stateB = {
   marks: {},
   attemptHistory: [
-    { type:'QUESTION_ATTEMPT', question_id:q1, status:'stable', submitted_at:'2026-09-18T04:00:00.000Z' },
-    { type:'QUESTION_ATTEMPT', question_id:q4, status:'wrong', submitted_at:'2026-09-18T05:00:00.000Z' }
+    { type:'QUESTION_ATTEMPT', question_id:q1, question_semantic_revision:'fixture-v1', status:'stable', submitted_at:'2026-09-18T04:00:00.000Z' },
+    { type:'QUESTION_ATTEMPT', question_id:q4, question_semantic_revision:'fixture-v1', status:'wrong', submitted_at:'2026-09-18T05:00:00.000Z' }
   ]
 };
 
@@ -41,9 +41,10 @@ const preferences = setXizongGlobalQuestionMark(
 const evidence = collectXizongRetainedEvidence([
   ['kianos:xizong:system-question-sweep:circulation:v1', JSON.stringify(stateA)],
   ['kianos:xizong:chat-set-question-sweep:chat-set:demo:v1', JSON.stringify(stateB)],
-  ['some:unrelated:key', JSON.stringify({ attemptHistory:[{ question_id:q2, status:'wrong' }] })]
+  ['some:unrelated:key', JSON.stringify({ attemptHistory:[{ question_id:q2, question_semantic_revision:'fixture-v1', status:'wrong' }] })]
 ], {
   holdoutYears:[2025],
+  questionSemanticRevisions:Object.fromEntries([q1,q2,q3,q4,held].map(id=>[id,'fixture-v1'])),
   markOverrides: preferences.questionMarks
 });
 

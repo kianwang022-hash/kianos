@@ -68,11 +68,24 @@ export function readPrivateLearnerCheckpoint(privateDir = resolvePrivateLearnerD
   }
 }
 
-export function writePrivateLearnerCheckpoint(value, privateDir = resolvePrivateLearnerDir()) {
+export function writePrivateLearnerCheckpoint(value, privateDir = resolvePrivateLearnerDir(), {
+  expectedCheckpointId = undefined, allowOlder = false
+} = {}) {
   const checkpoint = validatePrivateLearnerCheckpoint(value);
   fs.mkdirSync(privateDir, { recursive: true, mode: 0o700 });
   try { fs.chmodSync(privateDir, 0o700); } catch {}
   const file = privateCheckpointPath(privateDir);
+  // One synchronous read/compare/rename section serializes this server's writes.
+  // A pre-read backup from a different tab must never overwrite newer disk data.
+  const existing = readPrivateLearnerCheckpoint(privateDir);
+  if (existing && JSON.stringify(existing) === JSON.stringify(checkpoint)) return existing;
+  if (expectedCheckpointId !== undefined && (existing?.checkpoint_id || null) !== expectedCheckpointId) {
+    throw new Error('PRIVATE_CHECKPOINT_CONFLICT');
+  }
+  if (existing?.checkpoint_id === checkpoint.checkpoint_id) throw new Error('PRIVATE_CHECKPOINT_ID_CONFLICT');
+  if (existing && !allowOlder && Date.parse(checkpoint.generated_at) <= Date.parse(existing.generated_at)) {
+    throw new Error('PRIVATE_CHECKPOINT_STALE_WRITE');
+  }
   const temp = file + '.tmp-' + process.pid + '-' + Date.now();
   const bytes = JSON.stringify(checkpoint, null, 2) + '\n';
   fs.writeFileSync(temp, bytes, { encoding: 'utf8', mode: 0o600 });

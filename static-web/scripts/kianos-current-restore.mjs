@@ -52,7 +52,7 @@ if (fs.existsSync(destination)) {
   try { fs.chmodSync(safetyCopy, 0o600); } catch {}
 }
 
-const restored = writePrivateLearnerCheckpoint(checkpoint, privateDir);
+const restored = writePrivateLearnerCheckpoint(checkpoint, privateDir, { allowOlder: true });
 
 console.log('KianOS learner checkpoint restored to the private recovery store.');
 console.log(`Source: ${source}`);

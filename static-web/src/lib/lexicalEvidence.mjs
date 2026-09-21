@@ -32,6 +32,16 @@ export function emptyLexicalLedger() {
   return { schema: LEXICAL_LEDGER_SCHEMA, events: [], conflicts: [], identity_lineage: {} };
 }
 
+export function assertLexicalLedgerReadable(ledger) {
+  const record = value => value !== null && typeof value === 'object' && !Array.isArray(value);
+  if (!record(ledger) || ledger.schema !== LEXICAL_LEDGER_SCHEMA || !Array.isArray(ledger.events)
+    || !Array.isArray(ledger.conflicts) || !record(ledger.identity_lineage)
+    || ledger.events.some(event => !record(event) || !event.event_id || !event.word_id || !event.source || !event.outcome || !Number.isFinite(Date.parse(event.observed_at)))) {
+    throw new Error('LEXICAL_LEDGER_UNREADABLE_PRESERVE_DATA');
+  }
+  return ledger;
+}
+
 export function normalizeLexicalLedger(value) {
   if (!value || typeof value !== 'object' || value.schema !== LEXICAL_LEDGER_SCHEMA) return emptyLexicalLedger();
   return {
@@ -425,6 +435,86 @@ export function exportReturnEvents(ledgerInput, studyDay, toLocalDay = (iso) => 
     .filter((event) => !String(event.event_id || '').startsWith('migration:'))
     .filter((event) => allowed.has(event.outcome) && toLocalDay(event.observed_at) === studyDay)
     .map((event) => clone(event));
+}
+
+export const LEXICAL_RETENTION_TRANSFER_SUMMARY_SCHEMA = 'kianos.lexical.retention-transfer-summary.v1';
+
+function compactRetentionTransferEvent(ledger, event) {
+  const identity = resolvedTargetIdentity(ledger, event);
+  if (!identity || identity.frozen) return null;
+  return {
+    event_id: event.event_id || null,
+    word_id: identity.word_id || event.word_id || null,
+    ordinal: Number(event.ordinal || 0) || null,
+    word: event.word || null,
+    target_kind: identity.target_kind || event.target_kind || null,
+    target_id: identity.target_id || null,
+    target_locator: identity.target_locator || null,
+    target_revision: identity.target_revision || null,
+    demand: event.demand || null,
+    source: event.source || null,
+    observed_at: event.observed_at || null,
+    context_id: event.context_id || null,
+    context_novelty: event.context_novelty || null,
+    delayed: event.delayed === true,
+    assistance: event.assistance || null
+  };
+}
+
+function distinctIsoDays(rows) {
+  return new Set(rows.map(({ event }) => String(event?.observed_at || '').slice(0, 10)).filter(Boolean)).size;
+}
+
+export function buildLexicalRetentionTransferSummary(ledgerInput, { limit = 16 } = {}) {
+  const ledger = normalizeLexicalLedger(ledgerInput);
+  const take = Math.max(1, Math.min(40, Math.floor(Number(limit) || 16)));
+  const effective = sortedEffectiveEvents(ledger)
+    .filter((event) => !String(event?.event_id || '').startsWith('migration:'))
+    .map((event) => ({ event, identity: resolvedTargetIdentity(ledger, event) }))
+    .filter((row) => row.identity && !row.identity.frozen);
+
+  const qualifiedDelayed = effective.filter(({ event }) =>
+    qualifiesForDormancy(event, event?.demand || null)
+  );
+  const cleanEnglishTransfer = effective.filter(({ event }) =>
+    englishSources.has(event?.source)
+    && event?.attribution === 'lexical'
+    && event?.outcome === 'CORRECT'
+    && event?.assistance === 'unassisted'
+    && ['unseen', 'fresh'].includes(String(event?.context_novelty || ''))
+  );
+  const repairStates = Object.values(deriveRepairStates(ledger));
+  const recent = (rows) => rows
+    .slice()
+    .sort((a, b) => millis(b.event?.observed_at) - millis(a.event?.observed_at))
+    .slice(0, take)
+    .map(({ event }) => compactRetentionTransferEvent(ledger, event))
+    .filter(Boolean);
+
+  return {
+    schema: LEXICAL_RETENTION_TRANSFER_SUMMARY_SCHEMA,
+    semantics: 'BOUNDED_EFFECTIVE_EVIDENCE_PROJECTION; NOT_MASTERY; NOT_PRIORITY; MISSING_EVIDENCE_STAYS_UNKNOWN',
+    effective_target_event_count: effective.length,
+    active_target_count: repairStates.filter((row) => row.state === 'ACTIVE').length,
+    dormant_target_count: repairStates.filter((row) => row.state === 'DORMANT').length,
+    qualified_delayed_success_count: qualifiedDelayed.length,
+    qualified_delayed_distinct_days: distinctIsoDays(qualifiedDelayed),
+    clean_english_transfer_success_count: cleanEnglishTransfer.length,
+    clean_english_transfer_distinct_days: distinctIsoDays(cleanEnglishTransfer),
+    recent_qualified_delayed_successes: recent(qualifiedDelayed),
+    recent_clean_english_transfer_successes: recent(cleanEnglishTransfer),
+    truncated: {
+      qualified_delayed_successes: Math.max(0, qualifiedDelayed.length - take),
+      clean_english_transfer_successes: Math.max(0, cleanEnglishTransfer.length - take)
+    },
+    guardrails: [
+      'DELAYED_SUCCESS_IS_EVIDENCE_NOT_MASTERY',
+      'REAL_ENGLISH_CONTEXT_SUCCESS_IS_TARGET_LOCAL_NOT_BLANKET_LEXICAL_MASTERY',
+      'ACTIVE_OR_DORMANT_STATE_IS_NOT_A_DAILY_PRIORITY',
+      'NO_CALENDAR_DUE_LIST_IS_CREATED',
+      'RAW_PRIVATE_HISTORY_REMAINS_LOCAL'
+    ]
+  };
 }
 
 export function serializeLexicalReturnPacketForChat(packet) {

@@ -51,6 +51,7 @@ const checkpoint={
 const req=Readable.from([Buffer.from(JSON.stringify(checkpoint))]);
 req.url='/__kianos-private/checkpoint';
 req.method='PUT';
+req.headers={'if-match':'null'};
 req.socket={remoteAddress:'127.0.0.1'};
 
 let body='';

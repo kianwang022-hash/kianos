@@ -73,6 +73,7 @@ export function buildHomeDailyLearningPacket({
   xizongPacketIndex = [],
   xizongForecastQuestionScope = null,
   xizongForecastCanonicalScope = null,
+  englishCatalog = [],
   politicsCatalog = null,
   politicsMemoryCatalog = null,
   base = '/'
@@ -98,6 +99,7 @@ export function buildHomeDailyLearningPacket({
   if (xizongIndex) {
     try {
       const xizong = buildXizongStudyPacketFromStorage({
+        questionSemanticRevisions: xizongForecastQuestionScope?.question_semantic_revisions || {},
         storage,
         packetMeta: xizongIndex.packetMeta,
         kpRows: xizongIndex.kpRows,
@@ -121,7 +123,7 @@ export function buildHomeDailyLearningPacket({
   }
 
   try {
-    const english = buildEnglishEvidencePacket(storage, { day, now, catalog: [] });
+    const english = buildEnglishEvidencePacket(storage, { day, now, catalog: englishCatalog });
     if (englishEvidencePresent(english)) {
       packet = attachDailySubjectPacket(packet, 'english', english);
       coverage.english = 'attached';

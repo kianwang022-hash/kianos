@@ -1,6 +1,8 @@
 ---
+import { loadXizongSystemQuestionSweep } from '../lib/xizongQuestions.mjs';
 const { block } = Astro.props;
 const kps = block?.kpRecords || [];
+const questionSemanticRevisions = loadXizongSystemQuestionSweep({ systemId: block?.systemId, canonicalId: block?.systemCanonicalId })?.questionSemanticRevisions || {};
 const reserveItems = (block?.pathways?.outgoing || [])
   .filter((row) => row?.reserveLearning === true)
   .map((row) => ({
@@ -21,7 +23,8 @@ const packetMeta = {
   sourceHash: block?.sourceHash || '',
   sourceContactMode: String(block?.sourceContact?.mode || ''),
   sourcePerGroup: block?.sourceContact?.logicGroupIsAutomaticSourceChunk === true,
-  reserveItems
+  reserveItems,
+  questionSemanticRevisions
 };
 ---
 <section class="xv6PersonalDock" data-xizong-study-dock data-study-object={block.objectId}>
@@ -129,6 +132,7 @@ const packetMeta = {
     const buildStudyPacket = () => buildXizongStudyPacketFromStorage({
       storage: localStorage,
       packetMeta: { ...packetMeta, objectId },
+      questionSemanticRevisions: packetMeta.questionSemanticRevisions || {},
       kpRows,
       currentStage: currentStage(),
       currentIndex: currentIndex(),

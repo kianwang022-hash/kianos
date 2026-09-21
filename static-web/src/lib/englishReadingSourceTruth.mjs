@@ -4,7 +4,7 @@ import {
   loadReadingAnswersById,
   loadReadingReviewById
 } from './englishReading.mjs';
-import { projectReadingSourceTruth } from './englishSourceTruth.mjs';
+import { projectReadingSourceTruth, rebindRenderedEnglishSourceIdentity } from './englishSourceTruth.mjs';
 
 export const listReadingSets = baseListReadingSets;
 export { loadReadingAnswersById, loadReadingReviewById };
@@ -16,10 +16,10 @@ export function loadReadingById(id) {
   // Reading A already has paragraph-level structure in reading_corpus.v1.json.
   // Source Truth corrects learner-facing prompt/options, but must not flatten the
   // verified paragraph geometry back into one source_text block.
-  return {
+  return rebindRenderedEnglishSourceIdentity({
     ...projected,
     paragraphs: base.paragraphs
-  };
+  });
 }
 
 export function loadDefaultReading() {

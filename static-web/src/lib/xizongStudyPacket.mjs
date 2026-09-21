@@ -1,3 +1,4 @@
+import { isXizongQuestionAttemptCurrent } from './xizongQuestionAttempts.mjs';
 import {
   XIZONG_QUESTION_PREFERENCES_KEY,
   collectXizongRetainedEvidence,
@@ -48,7 +49,7 @@ function listStorageKeys(storage) {
   return [...new Set(keys)];
 }
 
-function scoreAttemptHistoryFromStorageEntries(entries) {
+function scoreAttemptHistoryFromStorageEntries(entries, { questionSemanticRevisions = {}, currentOnly = false } = {}) {
   const events = [];
   for (const [, raw] of Array.isArray(entries) ? entries : []) {
     let state = null;
@@ -58,7 +59,9 @@ function scoreAttemptHistoryFromStorageEntries(entries) {
     const hiddenSealed = Boolean(state?.paperSeal?.sealedAt);
     for (const event of history) {
       if (event?.type && event.type !== 'QUESTION_ATTEMPT') continue;
-      if (String(event?.result_visibility || '') === 'hidden' && !hiddenSealed) continue;
+      const historicallySealed = (state.paperSealHistory || []).some((seal) => Date.parse(event?.submitted_at) <= Date.parse(seal?.sealedAt));
+      if (String(event?.result_visibility || '') === 'hidden' && !hiddenSealed && !historicallySealed) continue;
+      if (currentOnly && !isXizongQuestionAttemptCurrent(event, questionSemanticRevisions)) continue;
       events.push(event);
     }
   }
@@ -165,7 +168,8 @@ function summarizeXizongForecastPractice(storage, {
   const storageEntries = listStorageKeys(storage)
     .filter((key) => /^kianos:xizong:(?:system|chat-set|retained|paper)-question-sweep:.*:v1$/.test(key))
     .map((key) => [key, storage.getItem(key)]);
-  const allEvents = scoreAttemptHistoryFromStorageEntries(storageEntries);
+  const rawEvents = scoreAttemptHistoryFromStorageEntries(storageEntries);
+  const allEvents = rawEvents.filter((event) => isXizongQuestionAttemptCurrent(event, questionScope?.question_semantic_revisions || {}));
   const events = allEvents
     .filter((event) => /^xizong-official-\d{4}-n\d{3}$/.test(String(event?.question_id || '')));
   const transferLatest = new Map();
@@ -494,6 +498,8 @@ function summarizeXizongForecastPractice(storage, {
   return {
     schema: 'kianos.xizong.practice-forecast-evidence.v1',
     official_attempt_events: events.length,
+    raw_historical_official_attempt_events: rawEvents.filter((event) => /^xizong-official-\d{4}-n\d{3}$/.test(String(event?.question_id || ''))).length,
+    semantic_revision_withheld_events: rawEvents.length - allEvents.length,
     first_pass: {
       attempted_questions: firstPass.size,
       stable: firstPassCounts.stable,
@@ -703,13 +709,13 @@ function summarizeXizongSystemRecallForecast(storage, systemRows = []) {
   });
 }
 
-function summarizeXizongFormalScoreEvidence(storage) {
+function summarizeXizongFormalScoreEvidence(storage, questionSemanticRevisions = {}) {
   const rows = [];
   for (const key of listStorageKeys(storage)) {
     if (!/^kianos:xizong:paper-question-sweep:paper-\d{4}:v1$/.test(key)) continue;
     const state = readJson(storage, key, null);
-    const seal = state?.paperSeal;
-    if (!record(seal) || !seal.sealedAt || !record(seal.summary)) continue;
+    const seals = [...(Array.isArray(state?.paperSealHistory) ? state.paperSealHistory : []), state?.paperSeal].filter((seal) => record(seal) && seal.sealedAt && record(seal.summary));
+    for (const seal of seals) {
     const match = key.match(/paper-(\d{4})/);
     const year = match ? Number(match[1]) : null;
     let disciplineBreakdown = null;
@@ -718,7 +724,7 @@ function summarizeXizongFormalScoreEvidence(storage) {
       for (const event of Array.isArray(state?.attemptHistory) ? state.attemptHistory : []) {
         if (event?.type && event.type !== 'QUESTION_ATTEMPT') continue;
         const questionId = String(event?.question_id || '');
-        if (!questionId || Number(event?.year) !== year) continue;
+        if (!questionId || Number(event?.year) !== year || Date.parse(event?.submitted_at) > Date.parse(seal.sealedAt)) continue;
         if (!byQuestion.has(questionId) || laterAttempt(event, byQuestion.get(questionId))) {
           byQuestion.set(questionId, event);
         }
@@ -766,6 +772,9 @@ function summarizeXizongFormalScoreEvidence(storage) {
     }
     rows.push({
       year,
+      current_revision_valid: seal.currentRevisionValid !== false
+        && Object.keys(seal?.evidenceContext?.questionSemanticRevisions || {}).length > 0
+        && Object.entries(seal.evidenceContext.questionSemanticRevisions).every(([id, revision]) => revision && questionSemanticRevisions[id] === revision),
       sealed_at: String(seal.sealedAt || ''),
       review_unlocked_at: String(seal.reviewUnlockedAt || '') || null,
       answered_count: Number(seal.summary.answeredCount || 0),
@@ -783,6 +792,7 @@ function summarizeXizongFormalScoreEvidence(storage) {
       exam_format: clone(seal?.evidenceContext?.examFormat || null),
       discipline_breakdown: disciplineBreakdown
     });
+    }
   }
   rows.sort((a, b) => String(a.sealed_at).localeCompare(String(b.sealed_at)));
   return {
@@ -1170,7 +1180,7 @@ export function buildXizongForecastProgress(storage, packetIndex = [], {
   };
   const questionWorkload = reconcileForecastQuestionScope(questionScope, practiceEvidence, holdoutYears);
   const systemRecallEvidence = summarizeXizongSystemRecallForecast(storage, systemRows);
-  const formalScoreEvidence = summarizeXizongFormalScoreEvidence(storage);
+  const formalScoreEvidence = summarizeXizongFormalScoreEvidence(storage, questionScope?.question_semantic_revisions || {});
 
   const progress = {
     schema: 'kianos.xizong.forecast-progress.v1',
@@ -1221,6 +1231,7 @@ export function buildXizongForecastProgress(storage, packetIndex = [], {
 export function buildXizongStudyPacketFromStorage({
   storage,
   packetMeta,
+  questionSemanticRevisions = {},
   kpRows,
   currentStage = '',
   currentIndex = null,
@@ -1338,10 +1349,11 @@ export function buildXizongStudyPacketFromStorage({
 
   const retained = collectXizongRetainedEvidence(storageEntries, {
     holdoutYears,
-    markOverrides: xizongQuestionMarkOverrides(preferences)
+    markOverrides: xizongQuestionMarkOverrides(preferences),
+    questionSemanticRevisions
   });
   const scoreAttribution = boundedScoreAttribution(
-    summarizeXizongScoreAttribution(scoreAttemptHistoryFromStorageEntries(storageEntries))
+    summarizeXizongScoreAttribution(scoreAttemptHistoryFromStorageEntries(storageEntries, { questionSemanticRevisions, currentOnly: true }))
   );
   const latestAttempt = retained.latestAttemptByQuestion || {};
   const attemptSummary = (questionId) => {

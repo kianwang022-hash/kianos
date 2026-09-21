@@ -113,6 +113,96 @@ export function captureXizongPrivateCheckpoint(storage, { now = Date.now() } = {
   });
 }
 
+// Native fill-only preparation. Archive/meta ownership stays here; callers may
+// apply changes transactionally or to a shadow store before capturing a backup.
+export function prepareXizongPrivateCheckpointRestore(storage, input) {
+  const checkpoint = validateXizongPrivateCheckpoint(input);
+  const local = new Map(listStorageKeys(storage).filter(isXizongDurableStorageKey)
+    .map((key) => [key, validateRawJson(key, storage.getItem(key))]));
+  const incoming = new Map(checkpoint.entries.map(({ key, raw }) => [key, raw]));
+  const merged = new Map([...incoming, ...local]);
+  const parse = (map, key) => map.has(key) ? JSON.parse(map.get(key)) : null;
+  const retired = new Map();
+  const archiveVersions = new Map();
+  const add = (key, value, metaKey, version) => {
+    if (value == null) return;
+    const rows = retired.get(key) || [];
+    rows.push({ value, metaKey, version: String(version || '') });
+    retired.set(key, rows);
+  };
+  const rememberVersion = (meta, archive, key) => {
+    const at = Date.parse(archive?.archived_at) || Number(key.match(/:(\d+)$/)?.[1]) || 0;
+    if (!archiveVersions.has(meta) || at >= archiveVersions.get(meta).at) archiveVersions.set(meta, { version: String(archive?.current_version || ''), at });
+  };
+  for (const [key, raw] of merged) {
+    const archive = JSON.parse(raw);
+    let match = key.match(/^kianos-xizong-stale-system-evidence:(.+):\d+$/);
+    if (match) {
+      const id = match[1];
+      const meta = `kianos:xizong:system-evidence-meta:${id}:v1`;
+      rememberVersion(meta, archive, key);
+      for (const [kind, field] of [['system-recall','recall'],['system-question-sweep','sweep'],['system-repair-return','repair'],['system-evidence','ledger']]) {
+        add(`kianos:xizong:${kind}:${id}:v1`, archive?.[field], meta, archive?.current_version);
+      }
+      for (const [block, value] of Object.entries(archive?.stale_block_repair_inboxes || {})) {
+        add(`kianos-xizong-repair-inbox-v1:xizong:${block}`, value, meta, archive?.current_version);
+      }
+    }
+    match = key.match(/^kianos-xizong-stale-evidence-v1:(xizong:.+):\d+$/);
+    if (match) {
+      const id = match[1];
+      const meta = `kianos-xizong-evidence-meta-v1:${id}`;
+      rememberVersion(meta, archive, key);
+      for (const [prefix, field] of [['kianos-xizong-astro-v2','study'],['kianos-xizong-memory-review-v2','extension'],['kianos-xizong-repair-inbox-v1','repair_inbox']]) {
+        add(`${prefix}:${id}`, archive?.[field], meta, archive?.current_version);
+      }
+    }
+  }
+  const canonical = (value) => value && typeof value === 'object'
+    ? (Array.isArray(value) ? value.map(canonical) : Object.fromEntries(Object.keys(value).sort().map((key) => [key, canonical(value[key])])))
+    : value;
+  const changes = [], skipped = [], blocked = [];
+  for (const entry of checkpoint.entries) {
+    if (local.has(entry.key)) { skipped.push({ key: entry.key, reason: 'LOCAL_VALUE_PRESENT' }); continue; }
+    const evidence = retired.get(entry.key) || [];
+    let reason = '';
+    for (const row of evidence) {
+      const localVersion = String(parse(local, row.metaKey)?.version || archiveVersions.get(row.metaKey)?.version || '');
+      const incomingVersion = String(parse(incoming, row.metaKey)?.version || '');
+      if (localVersion && incomingVersion) {
+        if (localVersion !== incomingVersion) { reason = 'NATIVE_REVISION_CHANGED'; break; }
+        continue; // Same canonical version may legitimately repeat the same value.
+      }
+      if (JSON.stringify(canonical(JSON.parse(entry.raw))) === JSON.stringify(canonical(row.value))) {
+        reason = 'NATIVE_ARCHIVE_RETIRED_VALUE'; break;
+      }
+      reason = 'NATIVE_RETIREMENT_AMBIGUOUS';
+    }
+    // Metadata alone also establishes that an older revision cannot be filled.
+    const system = entry.key.match(/^kianos:xizong:(?:system-recall|system-question-sweep|system-repair-return|system-evidence):([^:]+):v1$/);
+    const block = entry.key.match(/^kianos-xizong-(?:astro-v2|memory-review-v2|repair-inbox-v1):(xizong:.+)$/);
+    const metaKey = system ? `kianos:xizong:system-evidence-meta:${system[1]}:v1`
+      : block ? `kianos-xizong-evidence-meta-v1:${block[1]}` : null;
+    if (!reason && archiveVersions.has(entry.key)) {
+      const expected = archiveVersions.get(entry.key).version;
+      const incomingVersion = String(JSON.parse(entry.raw)?.version || '');
+      if (expected && expected !== incomingVersion) reason = 'NATIVE_REVISION_CHANGED';
+    }
+    if (!reason && metaKey && local.has(metaKey)) {
+      const current = String(parse(local, metaKey)?.version || '');
+      const previous = String(parse(incoming, metaKey)?.version || '');
+      if (current && previous && current !== previous) reason = 'NATIVE_REVISION_CHANGED';
+      else if (current && !previous) reason = 'NATIVE_RETIREMENT_AMBIGUOUS';
+    }
+    if (reason) {
+      const row = { key: entry.key, reason };
+      skipped.push(row);
+      if (reason === 'NATIVE_RETIREMENT_AMBIGUOUS') blocked.push(row);
+    } else changes.push(entry);
+  }
+  return { status: blocked.length ? 'blocked' : changes.length ? 'prepared' : 'skipped', changes, skipped, blocked };
+}
+
 export function restoreXizongPrivateCheckpoint(storage, input, { onlyIfEmpty = true } = {}) {
   if (!storage?.getItem || !storage?.setItem) throw new Error('XIZONG_CHECKPOINT_STORAGE_UNAVAILABLE');
   const checkpoint = validateXizongPrivateCheckpoint(input);

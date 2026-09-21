@@ -25,7 +25,6 @@ for (let index = 0; index < blockEvidenceRows.length; index += 1) {
 
 const evidenceRows = (sweep?.questions || []).map((question) => [
   question.questionId,
-  question.correctAnswer,
   question.relation?.blockId || '',
   question.relation?.primaryKpId || '',
   ...(question.relation?.supportingKpIds || []),
@@ -48,6 +47,7 @@ const evidenceVersion = [
   blockEvidenceHash.toString(16),
   sweep?.scopeHash || '',
   sweep?.questionInventoryHash || '',
+  sweep?.questionSemanticHash || '',
   questionEvidenceHash.toString(16)
 ].join(':');
 const blockIds = (system?.blocks || []).map((block) => block.blockId).filter(Boolean);
@@ -87,15 +87,18 @@ const evidenceQuestions = (sweep?.questions || []).map((question) => ({
     const previousMeta = readJson(metaKey, null);
     if (previousMeta?.version && previousMeta.version !== version) {
       const cleanup = [];
+      const retirementKeys = new Set([recallKey, sweepKey, repairKey, ledgerKey, metaKey, XIZONG_MEMORY_STORAGE_KEY]);
       const staleBlockQuestionPlans = {};
       const staleBlockRepairInboxes = {};
       blockIds.forEach((blockId) => {
         const inboxKey = `kianos-xizong-repair-inbox-v1:xizong:${blockId}`;
         const inbox = readJson(inboxKey, null);
         if (inbox) staleBlockRepairInboxes[blockId] = inbox;
-        cleanup.push(() => { try { localStorage.removeItem(inboxKey); } catch {} });
+        retirementKeys.add(inboxKey);
+        cleanup.push(() => { localStorage.removeItem(inboxKey); return true; });
 
         const key = `kianos-xizong-memory-review-v2:xizong:${blockId}`;
+        retirementKeys.add(key);
         const ext = readJson(key, null);
         if (!ext || !Array.isArray(ext.reviewPlan)) return;
         const stale = ext.reviewPlan.filter((row) => Array.isArray(row?.sourceQuestionIds) && row.sourceQuestionIds.length > 0);
@@ -142,16 +145,36 @@ const evidenceQuestions = (sweep?.questions || []).map((question) => ({
         notice.textContent = '旧系统学习记录未能安全归档，原记录未删除，本页暂停。请先备份或释放存储，再重新打开；不要清除浏览器数据。';
         root.before(notice);
       } else {
-      cleanup.forEach((apply) => apply());
-      try {
-        localStorage.removeItem(recallKey);
-        localStorage.removeItem(sweepKey);
-        localStorage.removeItem(repairKey);
-        localStorage.removeItem(ledgerKey);
-      } catch {}
-      writeJson(metaKey, { version, observed_at: new Date().toISOString() });
-      try { sessionStorage.setItem(`kianos-xizong-system-evidence-reset:${systemId}`, '1'); } catch {}
-      window.location.reload();
+        let before = null;
+        try {
+          before = new Map([...retirementKeys].map((key) => [key, localStorage.getItem(key)]));
+          const oldSweep = readJson(sweepKey, null);
+          if (oldSweep && !writeJson(sweepKey, {
+            ...oldSweep,
+            results: {},
+            attemptHistory: (Array.isArray(oldSweep.attemptHistory) ? oldSweep.attemptHistory : [])
+              .map((event) => ({ ...event, current_revision_valid: false }))
+          })) throw new Error('SYSTEM_HISTORY_PRESERVATION_FAILED');
+          for (const apply of cleanup) if (apply() === false) throw new Error('SYSTEM_RETIREMENT_WRITE_FAILED');
+          localStorage.removeItem(recallKey);
+          localStorage.removeItem(repairKey);
+          localStorage.removeItem(ledgerKey);
+          if (!writeJson(metaKey, { version, observed_at: new Date().toISOString() })) {
+            throw new Error('SYSTEM_RETIREMENT_META_WRITE_FAILED');
+          }
+          try { sessionStorage.setItem(`kianos-xizong-system-evidence-reset:${systemId}`, '1'); } catch {}
+          window.location.reload();
+        } catch {
+          for (const [key, raw] of before || []) {
+            try { if (raw == null) localStorage.removeItem(key); else localStorage.setItem(key, raw); } catch {}
+          }
+          root.inert = true;
+          document.querySelectorAll('[data-xizong-repair-return]').forEach((node) => { node.inert = true; });
+          const notice = document.createElement('p');
+          notice.setAttribute('role', 'alert');
+          notice.textContent = '当前内容版本更新未能安全完成，本页暂停。请先备份记录，再重新打开；不要清除浏览器数据。';
+          root.before(notice);
+        }
       }
     } else {
       if (!previousMeta?.version) writeJson(metaKey, { version, observed_at: new Date().toISOString() });

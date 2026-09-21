@@ -3,487 +3,349 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import process from 'node:process';
-import { spawnSync } from 'node:child_process';
+import { spawn } from 'node:child_process';
+import { createHash, randomUUID } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 
 const dryRun = process.argv.includes('--dry-run');
 const json = process.argv.includes('--json');
-const force = process.argv.includes('--force');
 const repoFullName = process.env.KIANOS_CODEX_REPO || 'kianwang022-hash/kianos';
-const scriptProjectDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
-const projectDir = path.resolve(process.env.KIANOS_CODEX_PROJECT_DIR || scriptProjectDir);
-const stateDir = path.resolve(
-  process.env.KIANOS_CODEX_WATCHER_STATE_DIR ||
-  path.join(os.homedir(), 'Library/Application Support/KianOS/codex-issue-watcher')
-);
+const projectDir = fs.realpathSync(process.env.KIANOS_CODEX_PROJECT_DIR || path.join(path.dirname(fileURLToPath(import.meta.url)), '../..'));
+const stateDir = path.resolve(process.env.KIANOS_CODEX_WATCHER_STATE_DIR || path.join(os.homedir(), 'Library/Application Support/KianOS/codex-issue-watcher'));
+const execRepo = path.resolve(process.env.KIANOS_CODEX_EXEC_REPO || path.join(os.homedir(), 'Library/Application Support/KianOS/codex-executor/kianos'));
 const statePath = path.join(stateDir, 'state.json');
-const execRepo = path.resolve(
-  process.env.KIANOS_CODEX_EXEC_REPO ||
-  path.join(os.homedir(), 'Library/Application Support/KianOS/codex-executor/kianos')
-);
-const cloudEnvId = String(process.env.KIANOS_CODEX_CLOUD_ENV_ID || '').trim();
-const localRuntimeMarker = '<!-- kian-codex-runtime:local -->';
-const solModelMarker = '<!-- kian-codex-model:sol -->';
-const astraModelMarker = '<!-- kian-codex-model:astra -->';
-const astraApprovalMarker = '<!-- kian-codex-astra-approved-by-kian:v1 -->';
 const lockDir = path.join(stateDir, 'lock');
-const lockOwnerPath = path.join(lockDir, 'owner.json');
-const prefix = 'Codex execution:';
+const ownerPath = path.join(lockDir, 'owner.json');
 const marker = '<!-- kian-codex-task:v1 -->';
-const retryMs = Number(process.env.KIANOS_CODEX_WATCHER_RETRY_MS || 60 * 60 * 1000);
-
-function run(file, args, { cwd = projectDir, allowFail = false, env = process.env, stdio = 'pipe' } = {}) {
-  const result = spawnSync(file, args, { cwd, encoding: 'utf8', env, stdio });
-  if (!allowFail && result.status !== 0) {
-    const error = new Error('COMMAND_FAILED:' + path.basename(file));
-    error.status = result.status;
-    throw error;
-  }
-  return {
-    status: result.status ?? 1,
-    stdout: typeof result.stdout === 'string' ? result.stdout.trim() : '',
-    stderr: typeof result.stderr === 'string' ? result.stderr.trim() : ''
-  };
-}
-
-function resolveBin(envName, fallback) {
-  const override = process.env[envName];
-  if (override) return override;
-  const probe = run('/usr/bin/env', ['which', fallback], { allowFail: true });
-  return probe.status === 0 ? probe.stdout : null;
-}
-
-function parseJson(raw, code) {
-  try { return JSON.parse(raw); } catch { throw new Error(code); }
-}
-
-function resolveExecutionProfile(body) {
-  const lines = new Set(String(body || '').split(/\r?\n/).map((line) => line.trim()));
-  const localOnly = lines.has(localRuntimeMarker);
-  if (lines.has(astraModelMarker)) {
-    if (!lines.has(astraApprovalMarker)) throw new Error('ASTRA_REQUIRES_KIAN_APPROVAL');
-    return { model: 'gpt-6-astra', effort: 'high', localOnly, tier: 'astra-approved' };
-  }
-  if (lines.has(solModelMarker)) {
-    return { model: 'gpt-5.6-sol', effort: 'medium', localOnly, tier: 'sol' };
-  }
-  return { model: 'gpt-5.6-terra', effort: 'medium', localOnly, tier: 'terra' };
-}
-
-function ensureExecRepo(git, origin) {
-  if (path.resolve(execRepo) === projectDir) return;
-  const gitDir = path.join(execRepo, '.git');
-  if (!fs.existsSync(gitDir)) {
-    fs.mkdirSync(path.dirname(execRepo), { recursive: true, mode: 0o700 });
-    const cloned = run(git, ['clone', '--no-tags', origin, execRepo], {
-      cwd: path.dirname(execRepo),
-      allowFail: true
-    });
-    if (cloned.status !== 0) throw new Error('EXEC_REPO_CLONE_FAILED');
-  }
-  const root = run(git, ['rev-parse', '--show-toplevel'], { cwd: execRepo }).stdout;
-  if (path.resolve(root) !== execRepo) throw new Error('EXEC_REPO_ROOT_INVALID');
-  const execOrigin = run(git, ['remote', 'get-url', 'origin'], { cwd: execRepo }).stdout;
-  if (!execOrigin.includes('kianwang022-hash/kianos')) throw new Error('EXEC_REPO_ORIGIN_INVALID');
-  const dirty = run(git, ['status', '--porcelain'], { cwd: execRepo }).stdout;
-  if (dirty) throw new Error('EXEC_REPO_DIRTY');
-}
-
-function hasActiveMarker(body) {
-  return String(body || '').split(/\r?\n/).some((line) => line.trim() === marker);
-}
-
-function loadState() {
-  try {
-    const value = parseJson(fs.readFileSync(statePath, 'utf8'), 'STATE_JSON_INVALID');
-    return value && value.schema === 'kianos.codex-issue-watcher.state.v1' ? value : { schema: 'kianos.codex-issue-watcher.state.v1', issues: {} };
-  } catch (error) {
-    if (error?.code === 'ENOENT') return { schema: 'kianos.codex-issue-watcher.state.v1', issues: {} };
-    throw error;
-  }
-}
-
-function saveState(state) {
-  const tmp = statePath + '.tmp';
-  fs.writeFileSync(tmp, JSON.stringify(state, null, 2) + '\n', { mode: 0o600 });
-  fs.renameSync(tmp, statePath);
-}
-
-function emit(report, code = 0) {
-  if (json) process.stdout.write(JSON.stringify(report) + '\n');
-  else {
-    console.log('Codex Issue Watcher:', report.status);
-    if (report.issue) console.log('issue:', '#' + report.issue);
-    if (report.reason) console.log('reason:', report.reason);
-  }
-  process.exit(code);
-}
-
-fs.mkdirSync(stateDir, { recursive: true, mode: 0o700 });
-try { fs.chmodSync(stateDir, 0o700); } catch {}
-
-function processIsAlive(pid) {
-  if (!Number.isInteger(pid) || pid <= 0) return false;
-  try {
-    process.kill(pid, 0);
-    return true;
-  } catch (error) {
-    if (error?.code === 'EPERM') return true;
-    if (error?.code === 'ESRCH') return false;
-    return true;
-  }
-}
-
-function writeLockOwner() {
-  fs.writeFileSync(lockOwnerPath, JSON.stringify({
-    pid: process.pid,
-    started_at: new Date().toISOString()
-  }) + '\n', { mode: 0o600 });
-}
-
-function lockIsActive() {
-  try {
-    const owner = parseJson(fs.readFileSync(lockOwnerPath, 'utf8'), 'LOCK_OWNER_INVALID');
-    const pid = Number(owner?.pid);
-    if (Number.isInteger(pid) && pid > 0) return processIsAlive(pid);
-  } catch (error) {
-    if (error?.code !== 'ENOENT' && error?.message !== 'LOCK_OWNER_INVALID') return true;
-  }
-
-  try {
-    return Date.now() - fs.statSync(lockDir).mtimeMs < 30 * 1000;
-  } catch {
-    return false;
-  }
-}
-
+const statusMarkers = /^\s*<!-- kian-codex-task(?:-running|-paused)?:v1 -->\s*$/gm;
+const stateSchema = 'kianos.codex-issue-watcher.state.v2';
+const resultSchema = 'kianos.codex-execution-result.v1';
+const reasons = ['NONE', 'AUTHORIZATION_REQUIRED', 'SOURCE_UNAVAILABLE', 'QUOTA_EXHAUSTED', 'TASK_CONFLICT', 'PROOF_FAILED', 'PLATFORM_LIMITATION', 'REVIEW_REQUIRED'];
+const terminalStates = new Set(['BLOCKED', 'PR_READY', 'NEEDS_RECONCILIATION']);
+let commandMs;
+let executorMs;
 let lockHeld = false;
-try {
-  fs.mkdirSync(lockDir);
-  writeLockOwner();
-  lockHeld = true;
-} catch (error) {
-  if (error?.code !== 'EEXIST') throw error;
-  if (lockIsActive()) {
-    emit({ schema: 'kianos.codex-issue-watcher.v1', status: 'quiet', reason: 'already-running' });
+let activeChild = null;
+let ownedClaim = null;
+let state;
+let gh;
+const temporaryFiles = new Set();
+
+function fail(code) { throw new Error(code); }
+function parse(raw, code) { try { return JSON.parse(raw); } catch { fail(code); } }
+function positiveConfig(name, fallback, min, max) {
+  const raw = process.env[name];
+  if (raw === undefined) return fallback;
+  if (!/^\d+$/.test(raw) || !Number.isSafeInteger(Number(raw)) || Number(raw) < min || Number(raw) > max) fail('CONFIG_INVALID');
+  return Number(raw);
+}
+function report(value, exitCode = 0) {
+  const result = { schema: 'kianos.codex-issue-watcher.v1', ...value };
+  process.stdout.write(json ? JSON.stringify(result) + '\n' : 'Codex Issue Watcher: ' + result.status + (result.reason ? ' (' + result.reason + ')' : '') + '\n');
+  process.exitCode = exitCode;
+}
+function alive(pid) {
+  if (!Number.isInteger(pid) || pid <= 0) return false;
+  try { process.kill(pid, 0); return true; } catch (error) { return error.code !== 'ESRCH'; }
+}
+function groupAlive(pid) {
+  if (!Number.isInteger(pid) || pid <= 0) return null;
+  try { process.kill(-pid, 0); return true; } catch (error) { return error.code !== 'ESRCH'; }
+}
+function killGroup(pid, signal) {
+  if (!pid) return;
+  try { process.kill(-pid, signal); } catch (error) { if (error.code !== 'ESRCH') throw error; }
+}
+function release() {
+  if (!lockHeld) return;
+  try {
+    const owner = parse(fs.readFileSync(ownerPath, 'utf8'), 'LOCK_INVALID');
+    if (owner.pid === process.pid) fs.rmSync(lockDir, { recursive: true });
+  } catch {}
+  lockHeld = false;
+}
+function acquire() {
+  // Serialize recovery too: a second stale-lock reclaimer must not remove a new owner.
+  const gate = path.join(stateDir, 'lock-acquire');
+  try { fs.mkdirSync(gate); } catch (error) { if (error.code === 'EEXIST') fail('LOCK_RECOVERY_UNRESOLVED'); throw error; }
+  try { return acquireUnderGate(); } finally { fs.rmdirSync(gate); }
+}
+function acquireUnderGate() {
+  try { fs.mkdirSync(lockDir); }
+  catch (error) {
+    if (error.code !== 'EEXIST') throw error;
+    let owner;
+    try { owner = JSON.parse(fs.readFileSync(ownerPath, 'utf8')); }
+    catch (readError) {
+      // Only an old, truly ownerless lock can be recovered. Corrupt ownership is ambiguous.
+      if (readError.code !== 'ENOENT') fail('LOCK_INVALID');
+      if (Date.now() - fs.statSync(lockDir).mtimeMs < 30000) return false;
+    }
+    if (owner && (!Number.isInteger(owner.pid) || owner.pid <= 0)) fail('LOCK_INVALID');
+    if (owner && alive(owner.pid)) return false;
+    fs.rmSync(lockDir, { recursive: true });
+    try { fs.mkdirSync(lockDir); } catch (race) { if (race.code === 'EEXIST') return false; throw race; }
   }
-  fs.rmSync(lockDir, { recursive: true, force: true });
-  fs.mkdirSync(lockDir);
-  writeLockOwner();
   lockHeld = true;
+  fs.writeFileSync(ownerPath, JSON.stringify({ pid: process.pid, started_at: new Date().toISOString() }), { mode: 0o600 });
+  return true;
 }
 
-const release = () => {
-  if (!lockHeld) return;
-  try { fs.rmSync(lockDir, { recursive: true, force: true }); } catch {}
-  lockHeld = false;
-};
-process.on('exit', release);
-process.on('SIGINT', () => { release(); process.exit(130); });
-process.on('SIGTERM', () => { release(); process.exit(143); });
-
-try {
-  const git = resolveBin('KIANOS_GIT_BIN', 'git');
-  const gh = resolveBin('KIANOS_GH_BIN', 'gh');
-  const codex = resolveBin('KIANOS_CODEX_BIN', 'codex');
-  if (!git || !gh) throw new Error('GIT_OR_GH_REQUIRED');
-
-  const root = run(git, ['rev-parse', '--show-toplevel']).stdout;
-  if (path.resolve(root) !== projectDir) throw new Error('PROJECT_DIR_MUST_BE_REPO_ROOT');
-
-  const origin = run(git, ['remote', 'get-url', 'origin']).stdout;
-  if (!origin.includes('kianwang022-hash/kianos')) throw new Error('KIANOS_ORIGIN_REQUIRED');
-
-  const issuesResult = run(gh, [
-    'issue', 'list', '--repo', repoFullName, '--state', 'open', '--limit', '100',
-    '--json', 'number,title,body,createdAt,updatedAt'
-  ]);
-  const issues = parseJson(issuesResult.stdout || '[]', 'ISSUE_LIST_INVALID')
-    .filter((issue) => issue?.title?.startsWith(prefix) && hasActiveMarker(issue?.body))
-    .sort((a, b) => String(a.createdAt).localeCompare(String(b.createdAt)));
-
-  if (issues.length === 0) {
-    emit({ schema: 'kianos.codex-issue-watcher.v1', status: 'quiet', reason: 'no-actionable-issue' });
+// Every child gets a private process group. A deadline also kills descendants that
+// retain pipes after their immediate parent exits; no unrelated process is signalled.
+async function run(file, args, { cwd = projectDir, timeout = commandMs, discard = false, onSpawn } = {}) {
+  return new Promise((resolve) => {
+    let stdout = '', stderr = '', reason = null, finished = false;
+    const child = spawn(file, args, { cwd, env: process.env, detached: true, stdio: ['ignore', discard ? 'ignore' : 'pipe', discard ? 'ignore' : 'pipe'] });
+    activeChild = child;
+    let killer;
+    const stop = (code) => {
+      if (reason) return;
+      reason = code;
+      try { killGroup(child.pid, 'SIGTERM'); } catch {}
+      killer = setTimeout(() => { try { killGroup(child.pid, 'SIGKILL'); } catch {} }, 150);
+    };
+    const deadline = setTimeout(() => stop('TIMEOUT'), timeout);
+    const finish = (status) => {
+      if (finished) return;
+      finished = true;
+      clearTimeout(deadline);
+      clearTimeout(killer);
+      // A child can exit before its descendants: terminate that owned group as well.
+      try { killGroup(child.pid, 'SIGKILL'); } catch {}
+      if (activeChild === child) activeChild = null;
+      resolve({ status: status ?? 1, stdout: stdout.trim(), stderr: stderr.trim(), reason });
+    };
+    child.on('error', () => { reason = 'SPAWN_FAILED'; finish(1); });
+    child.on('close', finish);
+    child.stdout?.on('data', (chunk) => { if (reason) return; stdout += chunk; if (Buffer.byteLength(stdout) > 1048576) stop('OUTPUT_LIMIT'); });
+    child.stderr?.on('data', (chunk) => { if (reason) return; stderr += chunk; if (Buffer.byteLength(stderr) > 1048576) stop('OUTPUT_LIMIT'); });
+    if (child.pid && onSpawn) {
+      try { onSpawn(child.pid); } catch { stop('CLAIM_WRITE_FAILED'); }
+    }
+  });
+}
+async function checked(file, args, options) {
+  const result = await run(file, args, options);
+  if (result.reason) fail(result.reason);
+  if (result.status !== 0) fail('COMMAND_FAILED');
+  return result.stdout;
+}
+async function resolveBin(envName, fallback) {
+  if (process.env[envName]) return process.env[envName];
+  const result = await run('/usr/bin/env', ['which', fallback]);
+  return result.status === 0 ? result.stdout : null;
+}
+function loadState() {
+  let value;
+  try { value = parse(fs.readFileSync(statePath, 'utf8'), 'STATE_JSON_INVALID'); }
+  catch (error) { if (error.code === 'ENOENT') return { schema: stateSchema, issues: {} }; throw error; }
+  if (!value || !value.issues || Array.isArray(value.issues) || typeof value.issues !== 'object') fail('STATE_INVALID');
+  if (value.schema === 'kianos.codex-issue-watcher.state.v1') {
+    // Old timestamps cannot prove an unattempted task. Preserve every attempted ID.
+    return { schema: stateSchema, issues: Object.fromEntries(Object.keys(value.issues).map((id) => [id, { status: 'NEEDS_RECONCILIATION', task_digest: null }])) };
   }
-
-  const prsResult = run(gh, [
-    'pr', 'list', '--repo', repoFullName, '--state', 'open', '--limit', '100',
-    '--json', 'number,headRefName'
-  ]);
-  const openPrHeads = new Set(
-    parseJson(prsResult.stdout || '[]', 'PR_LIST_INVALID').map((pr) => String(pr?.headRefName || ''))
-  );
-
-  const state = loadState();
-  let selected = null;
-  let selectedBranches = [];
-
-  for (const issue of issues) {
-    const branchPrefix = 'codex/issue' + issue.number + '-';
-    if ([...openPrHeads].some((head) => head.startsWith(branchPrefix))) continue;
-
-    const prior = state.issues[String(issue.number)];
-    const cooling = Number(prior?.retry_after || 0) > Date.now();
-    const priorUpdated = Date.parse(String(prior?.issue_updated_at || ''));
-    const currentUpdated = Date.parse(String(issue.updatedAt || ''));
-    const materiallyNewer = Number.isFinite(currentUpdated) &&
-      (!Number.isFinite(priorUpdated) || currentUpdated > priorUpdated);
-    if (!force && cooling && !materiallyNewer) continue;
-
-    const remote = run(git, ['ls-remote', '--heads', 'origin', 'refs/heads/' + branchPrefix + '*'], { allowFail: true });
-    selectedBranches = remote.stdout
-      ? remote.stdout.split('\n').map((line) => line.trim().split(/\s+/)[1]).filter(Boolean)
-      : [];
-    selected = issue;
-    break;
+  if (value.schema !== stateSchema) fail('STATE_SCHEMA_UNSUPPORTED');
+  for (const [id, entry] of Object.entries(value.issues)) {
+    if (!/^\d+$/.test(id) || !entry || (!terminalStates.has(entry.status) && entry.status !== 'CLAIMED')) fail('STATE_INVALID');
+    if (entry.status !== 'NEEDS_RECONCILIATION' && (!/^[a-f0-9]{64}$/.test(entry.task_digest) || !/^([a-f0-9]{8}-)([a-f0-9]{4}-){3}[a-f0-9]{12}$/.test(entry.run_id))) fail('STATE_INVALID');
   }
-
-  if (!selected) {
-    emit({ schema: 'kianos.codex-issue-watcher.v1', status: 'quiet', reason: 'active-or-cooling-only' });
+  return value;
+}
+function saveState() {
+  const encoded = JSON.stringify(state, null, 2) + '\n';
+  const tmp = statePath + '.' + process.pid + '.tmp';
+  temporaryFiles.add(tmp);
+  const fd = fs.openSync(tmp, 'wx', 0o600);
+  try { fs.writeFileSync(fd, encoded); fs.fsyncSync(fd); } finally { fs.closeSync(fd); }
+  fs.renameSync(tmp, statePath);
+  temporaryFiles.delete(tmp);
+  const dir = fs.openSync(stateDir, 'r');
+  try { fs.fsyncSync(dir); } finally { fs.closeSync(dir); }
+  if (fs.readFileSync(statePath, 'utf8') !== encoded) fail('STATE_READBACK_MISMATCH');
+}
+function taskDigest(issue) {
+  return createHash('sha256').update(String(issue.title) + '\n' + String(issue.body).replace(statusMarkers, '').trim()).digest('hex');
+}
+function rearmToken(body) { return String(body).match(/^<!-- kian-codex-rearm:([A-Za-z0-9-]{8,64}) -->$/m)?.[1] || null; }
+function actionable(issue) {
+  return Number.isInteger(issue.number) && String(issue.title).startsWith('Codex execution:') && String(issue.body).split(/\r?\n/).some((line) => line.trim() === marker);
+}
+function profileFor(body) {
+  const lines = new Set(String(body).split(/\r?\n/).map((line) => line.trim()));
+  if (lines.has('<!-- kian-codex-model:astra -->')) {
+    if (!lines.has('<!-- kian-codex-astra-approved-by-kian:v1 -->')) fail('ASTRA_REQUIRES_KIAN_APPROVAL');
+    return { model: 'gpt-6-astra', effort: 'high' };
   }
-
-  if (dryRun) {
-    emit({
-      schema: 'kianos.codex-issue-watcher.v1',
-      status: 'would-launch',
-      issue: selected.number,
-      remote_branches: selectedBranches.length
-    });
-  }
-
-  if (!codex) throw new Error('CODEX_REQUIRED_FOR_ACTIONABLE_ISSUE');
-
-  let profile;
+  return { model: lines.has('<!-- kian-codex-model:sol -->') ? 'gpt-5.6-sol' : 'gpt-5.6-terra', effort: 'medium' };
+}
+async function issueNow(number) {
+  return parse(await checked(gh, ['issue', 'view', String(number), '--repo', repoFullName, '--json', 'number,title,body,state']), 'ISSUE_READBACK_INVALID');
+}
+async function postAndVerify(number, body) {
+  const file = path.join(stateDir, 'comment-' + randomUUID() + '.json');
+  temporaryFiles.add(file);
+  fs.writeFileSync(file, JSON.stringify({ body }), { mode: 0o600 });
   try {
-    profile = resolveExecutionProfile(selected.body);
-  } catch (error) {
-    if (error?.message === 'ASTRA_REQUIRES_KIAN_APPROVAL') {
-      run(gh, [
-        'issue', 'comment', String(selected.number), '--repo', repoFullName,
-        '--body', [
-          'BLOCKED — ASTRA_REQUIRES_KIAN_APPROVAL',
-          '',
-          'This task requested GPT-6 Astra but does not carry the explicit Kian approval marker.',
-          'Use Terra or Sol automatically, or obtain Kian approval before retrying Astra.'
-        ].join('\n')
-      ], { allowFail: true });
-      emit({
-        schema: 'kianos.codex-issue-watcher.v1',
-        status: 'approval-required',
-        issue: selected.number,
-        reason: 'astra-requires-kian-approval'
-      }, 2);
-    }
-    throw error;
+    const posted = parse(await checked(gh, ['api', '--method', 'POST', 'repos/' + repoFullName + '/issues/' + number + '/comments', '--input', file]), 'RECEIPT_INVALID');
+    if (!Number.isSafeInteger(posted.id)) fail('RECEIPT_INVALID');
+    const saved = parse(await checked(gh, ['api', 'repos/' + repoFullName + '/issues/comments/' + posted.id]), 'RECEIPT_INVALID');
+    if (saved.body !== body) fail('RECEIPT_READBACK_MISMATCH');
+  } finally { fs.rmSync(file, { force: true }); temporaryFiles.delete(file); }
+}
+async function ensureExecRepo(git, origin) {
+  if (fs.existsSync(execRepo) && fs.realpathSync(execRepo) === projectDir) return;
+  if (!fs.existsSync(path.join(execRepo, '.git'))) {
+    fs.mkdirSync(path.dirname(execRepo), { recursive: true, mode: 0o700 });
+    await checked(git, ['clone', '--no-tags', origin, execRepo], { cwd: path.dirname(execRepo) });
   }
+  if (fs.realpathSync(await checked(git, ['rev-parse', '--show-toplevel'], { cwd: execRepo })) !== fs.realpathSync(execRepo)) fail('EXEC_REPO_INVALID');
+  const remote = await checked(git, ['remote', 'get-url', 'origin'], { cwd: execRepo });
+  if (!remote.includes(repoFullName)) fail('EXEC_REPO_INVALID');
+  if (await checked(git, ['status', '--porcelain'], { cwd: execRepo })) fail('EXEC_REPO_DIRTY');
+}
+function safeProofUrl(value) {
+  if (typeof value !== 'string' || value.length > 400) return false;
+  try {
+    const u = new URL(value);
+    const prefix = '/' + repoFullName + '/';
+    return u.origin === 'https://github.com' && !u.username && !u.password && !u.search && u.pathname.startsWith(prefix) && /^(?:pull\/\d+|issues\/\d+|commit\/[a-f0-9]{40}|blob\/[a-f0-9]{40}\/[A-Za-z0-9_./-]+)$/.test(u.pathname.slice(prefix.length)) && (!u.hash || /^#issuecomment-\d+$/.test(u.hash));
+  } catch { return false; }
+}
+async function validateResult(raw, issue, claim) {
+  const result = parse(raw, 'RESULT_INVALID');
+  const keys = ['schema', 'issue', 'run_id', 'task_digest', 'status', 'reason', 'pr_url', 'head_sha', 'proof_urls'];
+  if (!result || Object.keys(result).sort().join() !== keys.sort().join() || result.schema !== resultSchema || result.issue !== issue.number || result.run_id !== claim.run_id || result.task_digest !== claim.task_digest || !['PR_READY', 'BLOCKED'].includes(result.status) || !reasons.includes(result.reason) || !Array.isArray(result.proof_urls) || result.proof_urls.length > 5 || !result.proof_urls.every(safeProofUrl)) fail('RESULT_INVALID');
+  if (result.status === 'PR_READY') {
+    if (result.reason !== 'NONE' || !safeProofUrl(result.pr_url) || !result.pr_url.startsWith('https://github.com/' + repoFullName + '/pull/') || !/^[a-f0-9]{40}$/.test(result.head_sha)) fail('RESULT_INVALID');
+    const pr = parse(await checked(gh, ['pr', 'view', result.pr_url, '--repo', repoFullName, '--json', 'state,headRefName,headRefOid,baseRefName']), 'PR_READBACK_INVALID');
+    if (pr.state !== 'OPEN' || !String(pr.headRefName).startsWith('codex/issue' + issue.number + '-') || pr.headRefOid !== result.head_sha || pr.baseRefName !== 'main') fail('PR_READBACK_MISMATCH');
+  } else if (result.reason === 'NONE' || result.pr_url !== null || result.head_sha !== null) fail('RESULT_INVALID');
+  return result;
+}
 
-  const prompt = [
-    'Execute this bounded KianOS engineering task.',
-    'Repository: ' + repoFullName + '.',
-    'GitHub Issue #' + selected.number + ': ' + selected.title,
-    '',
-    '--- ISSUE BODY (authoritative execution envelope, already fetched by the watcher) ---',
-    String(selected.body || ''),
-    '--- END ISSUE BODY ---',
-    '',
-    'You are running in a dedicated writable KianOS executor checkout, not the disposable/read-only Current mirror.',
-    'Current-first: fetch origin/main if needed, read AGENTS.md, static-web/CURRENT.md, then the exact owner named by the Issue.',
-    'Do not depend on GitHub CLI merely to discover the task; the full Issue body is embedded above.',
-    'Follow the existing Chat → GitHub → Codex execution envelope exactly.',
-    'If a codex/issue' + selected.number + '-* branch already exists, inspect and resume only the branch belonging to this Issue; do not create a duplicate.',
-    'Do at most this one Issue. Respect its STOP/Human-Gate boundaries.',
-    'Use GitHub as the durable receipt. Do not rely on this launcher prompt as semantic authority.',
-    'Before exit, leave the Issue/PR state truthful: accepted work through PR/merge when allowed, otherwise one compact BLOCKED comment.',
-    'Also print one compact final receipt to stdout matching the Issue Return receipt, so the watcher can persist it if the GitHub mutation path fails.'
-  ].join('\n');
-
-  if (cloudEnvId && !profile.localOnly && profile.tier !== 'astra-approved') {
-    const cloud = run(codex, ['cloud', 'exec', '--env', cloudEnvId, prompt], { allowFail: true });
-    if (cloud.status === 0) {
-      const receipt = [
-        'CODEX CLOUD TASK DISPATCHED',
-        '',
-        String(cloud.stdout || '').trim().slice(-8000) || 'Task submitted to configured Codex Cloud environment.',
-        '',
-        'requested_tier: ' + profile.tier,
-        'execution_surface: cloud'
-      ].join('\n');
-      run(gh, [
-        'issue', 'comment', String(selected.number), '--repo', repoFullName,
-        '--body', receipt
-      ], { allowFail: true });
-      const refreshed = run(gh, [
-        'issue', 'view', String(selected.number), '--repo', repoFullName,
-        '--json', 'number,state,updatedAt'
-      ], { allowFail: true });
-      let updatedAt = selected.updatedAt;
-      if (refreshed.status === 0 && refreshed.stdout) {
-        try { updatedAt = parseJson(refreshed.stdout, 'ISSUE_REFRESH_INVALID').updatedAt || updatedAt; } catch {}
+async function main() {
+  commandMs = positiveConfig('KIANOS_CODEX_WATCHER_COMMAND_TIMEOUT_MS', 30000, 100, 300000);
+  executorMs = positiveConfig('KIANOS_CODEX_WATCHER_EXECUTOR_TIMEOUT_MS', 1800000, 100, 21600000);
+  // Legacy configuration is validated, but there is deliberately no automatic retry.
+  positiveConfig('KIANOS_CODEX_WATCHER_RETRY_MS', 3600000, 1, 86400000);
+  if (process.argv.includes('--force')) fail('FORCE_REARM_NOT_SUPPORTED');
+  if (!/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(repoFullName) || process.platform === 'win32') fail('CONFIG_INVALID');
+  fs.mkdirSync(stateDir, { recursive: true, mode: 0o700 });
+  fs.chmodSync(stateDir, 0o700);
+  if (!acquire()) return report({ status: 'quiet', reason: 'already-running' });
+  state = loadState();
+  const git = await resolveBin('KIANOS_GIT_BIN', 'git');
+  gh = await resolveBin('KIANOS_GH_BIN', 'gh');
+  if (!git || !gh) fail('GIT_OR_GH_REQUIRED');
+  if (fs.realpathSync(await checked(git, ['rev-parse', '--show-toplevel'])) !== projectDir) fail('PROJECT_DIR_INVALID');
+  const origin = await checked(git, ['remote', 'get-url', 'origin']);
+  if (!origin.includes(repoFullName)) fail('PROJECT_ORIGIN_INVALID');
+  for (const [number, claim] of Object.entries(state.issues)) {
+    if (claim.status !== 'CLAIMED') continue;
+    const group = groupAlive(claim.executor_pid);
+    if (group === true) return report({ status: 'quiet', reason: 'executor-still-running', issue: Number(number) });
+    if (group === null) return report({ status: 'blocked', reason: 'CLAIM_REQUIRES_CHAT_RECONCILIATION', issue: Number(number) }, 2);
+    // The owned process group is gone. A missing observed exit does not prove a
+    // failed side effect; terminalize once, never retry, and unblock other tasks.
+    Object.assign(claim, { status: 'BLOCKED', reason: 'EXECUTOR_EXIT_UNOBSERVED', executor_pid: null, finished_at: new Date().toISOString() });
+    saveState();
+    await postAndVerify(Number(number), '<!-- kian-codex-watcher-result:v1 -->\n' + JSON.stringify({ issue: Number(number), run_id: claim.run_id, task_digest: claim.task_digest, status: 'BLOCKED', reason: claim.reason }));
+  }
+  const issues = parse(await checked(gh, ['issue', 'list', '--repo', repoFullName, '--state', 'open', '--limit', '100', '--json', 'number,title,body,createdAt,updatedAt']), 'ISSUE_LIST_INVALID');
+  if (!Array.isArray(issues)) fail('ISSUE_LIST_INVALID');
+  const queue = issues.filter(actionable).sort((a, b) => String(a.createdAt).localeCompare(String(b.createdAt)));
+  if (!queue.length) return report({ status: 'quiet', reason: 'no-actionable-issue' });
+  const prs = parse(await checked(gh, ['pr', 'list', '--repo', repoFullName, '--state', 'open', '--limit', '100', '--json', 'number,headRefName']), 'PR_LIST_INVALID');
+  if (!Array.isArray(prs)) fail('PR_LIST_INVALID');
+  for (const issue of queue) {
+    const digest = taskDigest(issue);
+    const prior = state.issues[String(issue.number)];
+    if (prior && (prior.task_digest === digest || (prior.status === 'NEEDS_RECONCILIATION' && (!rearmToken(issue.body) || rearmToken(issue.body) === prior.rearm_token)))) continue;
+    if (prs.some((pr) => String(pr.headRefName).startsWith('codex/issue' + issue.number + '-'))) continue;
+    let profile;
+    try { profile = profileFor(issue.body); }
+    catch (error) {
+      if (error.message !== 'ASTRA_REQUIRES_KIAN_APPROVAL') throw error;
+      if (!dryRun) {
+        const blocked = { status: 'BLOCKED', task_digest: digest, run_id: randomUUID(), reason: error.message };
+        state.issues[String(issue.number)] = blocked;
+        saveState();
+        await postAndVerify(issue.number, '<!-- kian-codex-watcher-result:v1 -->\n' + JSON.stringify({ issue: issue.number, ...blocked }));
       }
-      state.issues[String(selected.number)] = {
-        issue_updated_at: updatedAt,
-        last_attempt_at: new Date().toISOString(),
-        last_exit: 0,
-        retry_after: Date.now() + retryMs
-      };
-      saveState(state);
-      emit({
-        schema: 'kianos.codex-issue-watcher.v1',
-        status: 'cloud-dispatched',
-        issue: selected.number,
-        exit_code: 0,
-        model_tier: profile.tier
-      });
+      continue; // An unapproved expensive job must not starve ordinary work.
     }
-  }
-
-  ensureExecRepo(git, origin);
-
-  const codexArgs = [
-    'exec', '--ephemeral', '--sandbox', 'workspace-write',
-    '--model', profile.model,
-    '-c', 'model_reasoning_effort="' + profile.effort + '"',
-    '-c', 'sandbox_workspace_write.network_access=true',
-    prompt
-  ];
-
-  const ghToken = run(gh, ['auth', 'token'], { allowFail: true }).stdout;
-  const executionEnv = ghToken
-    ? { ...process.env, GH_TOKEN: ghToken, GITHUB_TOKEN: ghToken }
-    : process.env;
-  if (ghToken) {
-    run(git, ['config', '--local', '--unset-all', 'credential.https://github.com.helper'], {
-      cwd: execRepo,
-      allowFail: true
+    if (dryRun) return report({ status: 'would-launch', issue: issue.number, execution_surface: 'local' });
+    const codex = await resolveBin('KIANOS_CODEX_BIN', 'codex');
+    if (!codex) fail('CODEX_REQUIRED');
+    const claim = { status: 'CLAIMED', task_digest: digest, rearm_token: rearmToken(issue.body), run_id: randomUUID(), started_at: new Date().toISOString(), executor_pid: null };
+    state.issues[String(issue.number)] = claim;
+    saveState(); // durable before clone, remote claim or model dispatch; ambiguity never retries
+    ownedClaim = { issue: issue.number, claim };
+    await postAndVerify(issue.number, '<!-- kian-codex-watcher-claim:v1 -->\n' + JSON.stringify({ issue: issue.number, ...claim }));
+    const fresh = await issueNow(issue.number);
+    if (!actionable(fresh) || String(fresh.state).toUpperCase() !== 'OPEN' || taskDigest(fresh) !== digest) fail('TASK_CHANGED');
+    await ensureExecRepo(git, origin);
+    const resultPath = path.join(stateDir, 'result-' + claim.run_id + '.json');
+    const schemaPath = path.join(stateDir, 'schema-' + claim.run_id + '.json');
+    temporaryFiles.add(resultPath); temporaryFiles.add(schemaPath);
+    const schema = { type: 'object', additionalProperties: false, required: ['schema', 'issue', 'run_id', 'task_digest', 'status', 'reason', 'pr_url', 'head_sha', 'proof_urls'], properties: {
+      schema: { type: 'string', const: resultSchema }, issue: { type: 'integer', const: issue.number }, run_id: { type: 'string', const: claim.run_id }, task_digest: { type: 'string', const: digest }, status: { type: 'string', enum: ['PR_READY', 'BLOCKED'] }, reason: { type: 'string', enum: reasons }, pr_url: { type: ['string', 'null'] }, head_sha: { type: ['string', 'null'] }, proof_urls: { type: 'array', items: { type: 'string' }, maxItems: 5 }
+    } };
+    fs.writeFileSync(schemaPath, JSON.stringify(schema), { mode: 0o600 });
+    const prompt = [
+      'Execute only this already-decided bounded KianOS task; create no new task, subagent, model call or automation.',
+      'Repository: ' + repoFullName + '. Issue #' + issue.number + ': ' + issue.title,
+      '--- ISSUE BODY ---', issue.body, '--- END ISSUE BODY ---',
+      'This is the dedicated executor checkout. Re-read current main, AGENTS.md, static-web/CURRENT.md and the exact issue owner before writes; do not overwrite concurrent work.',
+      'Use an isolated codex/issue' + issue.number + '-* task worktree. Preserve any existing unique work. Respect STOP and Human-Gate boundaries.',
+      'Do not auto-merge, deploy, mutate learner state, rearm a task or escalate models. At most this one task; stop on quota, source, permission, timeout or conflict.',
+      'Return PR_READY only for your exact open PR head against main; this is not accepted completion. Otherwise return BLOCKED with an allowed reason.',
+      'Final response must match the supplied JSON schema: schema=' + resultSchema + ', issue=' + issue.number + ', run_id=' + claim.run_id + ', task_digest=' + digest + '.',
+      'Use only exact same-repository GitHub proof URLs (maximum five), never raw stdout, logs, credentials, local paths or private source contents.',
+      'The launcher publishes and reads back this bounded result. Do not treat exit 0, any branch or timestamp change as success.'
+    ].join('\n');
+    const execution = await run(codex, ['exec', '--ephemeral', '--sandbox', 'workspace-write', '--model', profile.model, '-c', 'model_reasoning_effort="' + profile.effort + '"', '-c', 'sandbox_workspace_write.network_access=true', '--output-schema', schemaPath, '--output-last-message', resultPath, prompt], {
+      cwd: execRepo, timeout: executorMs, discard: true,
+      onSpawn(pid) { claim.executor_pid = pid; saveState(); }
     });
-    run(git, ['config', '--local', '--add', 'credential.https://github.com.helper', '!' + gh + ' auth git-credential'], {
-      cwd: execRepo,
-      allowFail: true
-    });
+    if (execution.reason) fail(execution.reason);
+    if (execution.status !== 0) fail('EXECUTION_FAILED');
+    const finalIssue = await issueNow(issue.number);
+    if (String(finalIssue.state).toUpperCase() !== 'OPEN' || taskDigest(finalIssue) !== digest) fail('TASK_CHANGED');
+    if (!fs.existsSync(resultPath) || fs.statSync(resultPath).size > 8192) fail('RESULT_MISSING_OR_OVERSIZED');
+    const result = await validateResult(fs.readFileSync(resultPath, 'utf8'), issue, claim);
+    await postAndVerify(issue.number, '<!-- kian-codex-watcher-result:v1 -->\n' + JSON.stringify(result));
+    Object.assign(claim, { status: result.status, reason: result.reason, executor_pid: null, finished_at: new Date().toISOString() });
+    saveState();
+    ownedClaim = null;
+    return report({ status: result.status === 'PR_READY' ? 'pr-ready' : 'blocked', issue: issue.number, reason: result.reason, execution_surface: 'local' }, result.status === 'PR_READY' ? 0 : 2);
   }
-  const execution = run(codex, codexArgs, { allowFail: true, cwd: execRepo, env: executionEnv });
+  report({ status: 'quiet', reason: 'already-attempted-or-awaiting-review' });
+}
 
-  let finalIssue = selected;
-  const refreshIssue = () => {
-    const result = run(gh, [
-      'issue', 'view', String(selected.number), '--repo', repoFullName,
-      '--json', 'number,state,updatedAt'
-    ], { allowFail: true });
-    if (result.status === 0 && result.stdout) {
-      try { return { ...selected, ...parseJson(result.stdout, 'ISSUE_REFRESH_INVALID') }; } catch {}
-    }
-    return selected;
-  };
-  finalIssue = refreshIssue();
-
-  const postRemote = run(git, [
-    'ls-remote', '--heads', 'origin', 'refs/heads/' + 'codex/issue' + selected.number + '-*'
-  ], { allowFail: true });
-  const postBranches = postRemote.stdout
-    ? postRemote.stdout.split('\n').map((line) => line.trim().split(/\s+/)[1]).filter(Boolean)
-    : [];
-  const postPrResult = run(gh, [
-    'pr', 'list', '--repo', repoFullName, '--state', 'open', '--limit', '100',
-    '--json', 'number,headRefName'
-  ], { allowFail: true });
-  let postPrHeads = [];
-  if (postPrResult.status === 0 && postPrResult.stdout) {
+for (const signal of ['SIGINT', 'SIGTERM']) process.on(signal, () => {
+  try { if (activeChild) killGroup(activeChild.pid, 'SIGKILL'); } catch {}
+  // Leave a claimed run unresolved; a supervisor interruption cannot prove no side effect.
+  release();
+  process.exit(signal === 'SIGINT' ? 130 : 143);
+});
+process.on('exit', release);
+try { await main(); }
+catch (error) {
+  const safeCodes = new Set(['CONFIG_INVALID', 'FORCE_REARM_NOT_SUPPORTED', 'LOCK_RECOVERY_UNRESOLVED', 'LOCK_INVALID', 'STATE_JSON_INVALID', 'STATE_INVALID', 'STATE_SCHEMA_UNSUPPORTED', 'STATE_READBACK_MISMATCH', 'TIMEOUT', 'OUTPUT_LIMIT', 'SPAWN_FAILED', 'CLAIM_WRITE_FAILED', 'COMMAND_FAILED', 'GIT_OR_GH_REQUIRED', 'PROJECT_DIR_INVALID', 'PROJECT_ORIGIN_INVALID', 'ISSUE_LIST_INVALID', 'PR_LIST_INVALID', 'CODEX_REQUIRED', 'RECEIPT_INVALID', 'RECEIPT_READBACK_MISMATCH', 'ISSUE_READBACK_INVALID', 'TASK_CHANGED', 'EXEC_REPO_INVALID', 'EXEC_REPO_DIRTY', 'EXECUTION_FAILED', 'RESULT_INVALID', 'RESULT_MISSING_OR_OVERSIZED', 'PR_READBACK_INVALID', 'PR_READBACK_MISMATCH']);
+  const reason = safeCodes.has(error.message) ? error.message : 'LOCAL_IO_FAILED';
+  if (ownedClaim) {
+    const { issue, claim } = ownedClaim;
     try {
-      postPrHeads = parseJson(postPrResult.stdout, 'POST_PR_LIST_INVALID')
-        .map((pr) => String(pr?.headRefName || ''));
+      Object.assign(claim, { status: reason === 'TASK_CHANGED' ? 'NEEDS_RECONCILIATION' : 'BLOCKED', reason, executor_pid: null, finished_at: new Date().toISOString() });
+      saveState();
+      // No automatic retry of a failed write: local terminal state preserves ambiguity.
+      await postAndVerify(issue, '<!-- kian-codex-watcher-result:v1 -->\n' + JSON.stringify({ issue, run_id: claim.run_id, task_digest: claim.task_digest, status: 'BLOCKED', reason }));
     } catch {}
   }
-
-  const selectedUpdated = Date.parse(String(selected.updatedAt || ''));
-  const finalUpdated = Date.parse(String(finalIssue.updatedAt || ''));
-  const issueChanged = Number.isFinite(finalUpdated) &&
-    (!Number.isFinite(selectedUpdated) || finalUpdated > selectedUpdated);
-  const issueClosed = String(finalIssue.state || '').toUpperCase() === 'CLOSED';
-  const branchExists = postBranches.length > 0;
-  const prExists = postPrHeads.some((head) => head.startsWith('codex/issue' + selected.number + '-'));
-  let durableReceipt = issueChanged || issueClosed || branchExists || prExists;
-  let receiptFallback = false;
-
-  if (execution.status !== 0 && !durableReceipt) {
-    const failureStdout = String(execution.stdout || '').trim().slice(-8000);
-    const failureStderr = String(execution.stderr || '').trim().slice(-8000);
-    const failureBody = [
-      'BLOCKED — AUTO_EXECUTION_FAILED',
-      '',
-      'The local zero-model watcher automatically selected this Issue, but Codex exited non-zero.',
-      'No Issue update/close, codex branch, or PR was observed from the executor.',
-      '',
-      'exit_code: ' + execution.status,
-      'watcher_model: ' + profile.model,
-      'watcher_effort: ' + profile.effort,
-      failureStdout ? '\n--- executor stdout (tail) ---\n' + failureStdout : '',
-      failureStderr ? '\n--- executor stderr (tail) ---\n' + failureStderr : ''
-    ].filter(Boolean).join('\n');
-    const failureReceipt = run(gh, [
-      'issue', 'comment', String(selected.number), '--repo', repoFullName,
-      '--body', failureBody
-    ], { allowFail: true });
-    if (failureReceipt.status === 0) {
-      durableReceipt = true;
-      finalIssue = refreshIssue();
-    }
-  }
-
-  if (execution.status === 0 && !durableReceipt) {
-    const executorOutput = String(execution.stdout || '').trim().slice(-12000);
-    const fallbackBody = executorOutput
-      ? [
-          'AUTO EXECUTOR RECEIPT — persisted by watcher',
-          '',
-          executorOutput,
-          '',
-          'watcher_model: ' + profile.model,
-          'watcher_effort: ' + profile.effort
-        ].join('\n')
-      : [
-          'BLOCKED — AUTO_EXECUTION_NO_DURABLE_RECEIPT',
-          '',
-          'The local zero-model watcher automatically selected this Issue and the Codex executor exited 0,',
-          'but no durable Issue update, codex/issue branch, PR, or stdout receipt was observed afterward.',
-          'Task success is therefore not accepted. Re-run only after Chat/owner updates this Issue or after cooldown.',
-          '',
-          'watcher_model: ' + profile.model,
-          'watcher_effort: ' + profile.effort
-        ].join('\n');
-    const fallback = run(gh, [
-      'issue', 'comment', String(selected.number), '--repo', repoFullName,
-      '--body', fallbackBody
-    ], { allowFail: true });
-    receiptFallback = fallback.status === 0;
-    durableReceipt = receiptFallback;
-    if (receiptFallback) finalIssue = refreshIssue();
-  }
-
-  const finalExit = execution.status !== 0 ? execution.status : (receiptFallback ? 3 : (durableReceipt ? 0 : 4));
-  state.issues[String(selected.number)] = {
-    issue_updated_at: finalIssue.updatedAt || selected.updatedAt,
-    last_attempt_at: new Date().toISOString(),
-    last_exit: finalExit,
-    retry_after: Date.now() + retryMs
-  };
-  saveState(state);
-
-  const finalStatus = execution.status !== 0
-    ? 'launch-failed'
-    : receiptFallback
-      ? 'receipt-missing'
-      : durableReceipt
-        ? 'launched'
-        : 'receipt-write-failed';
-  emit({
-    schema: 'kianos.codex-issue-watcher.v1',
-    status: finalStatus,
-    issue: selected.number,
-    exit_code: finalExit,
-    model: profile.model,
-    effort: profile.effort,
-    execution_surface: cloudEnvId && !profile.localOnly ? 'local-fallback' : 'local'
-  }, finalExit === 0 ? 0 : 2);
+  report({ status: 'blocked', reason, ...(ownedClaim ? { issue: ownedClaim.issue } : {}) }, 2);
 } finally {
+  for (const file of temporaryFiles) { try { fs.rmSync(file, { force: true }); } catch {} }
   release();
 }

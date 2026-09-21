@@ -396,7 +396,7 @@ function questionForecast(progress) {
   const backtest = rollingRateBacktest(
     daySamples.map((row) => ({ ...row, observed_minutes_per_attempt: row.forecast_minutes_per_attempt }))
   );
-  const fallbackBand = remaining !== null && rates.length >= 3
+  const fallbackBand = remaining === 0 ? { p20: 0, p50: 0, p80: 0 } : remaining !== null && rates.length >= 3
     ? {
         p20: round(quantile(rates, 0.2) * remaining),
         p50: round(quantile(rates, 0.5) * remaining),
@@ -424,9 +424,6 @@ function questionForecast(progress) {
       : [])
       .map((row) => [String(row?.canonical_id || row?.domain_id || ''), row])
   );
-  const broaderRates = broaderSamples
-    .map((row) => positive(row?.forecast_minutes_per_attempt))
-    .filter((value) => value !== null);
   const systemRows = workloadSystems.map((workload) => {
     const canonicalId = String(workload?.canonical_id || '');
     const practice = practiceBySystem.get(canonicalId) || {};
@@ -460,16 +457,10 @@ function questionForecast(progress) {
       : [])
       .map((row) => positive(row?.observed_minutes_per_attempt))
       .filter((value) => value !== null);
-    const speedRates = domainSpecificRates.length >= 3
-      ? domainSpecificRates
-      : broaderRates.length >= 3
-        ? broaderRates
-        : [];
+    const speedRates = domainSpecificRates;
     const speedSource = domainSpecificRates.length >= 3
       ? 'NON_SYSTEM_DOMAIN_CURRENT_EXACT_SCOPE'
-      : broaderRates.length >= 3
-        ? 'BROADER_OFFICIAL_PRACTICE_FALLBACK'
-        : 'UNPRICED';
+      : 'UNPRICED';
     const remainingQuestions = Math.max(0, Number(workload?.remaining_questions || 0));
     const domainBand = speedRates.length >= 3
       ? {
@@ -492,16 +483,15 @@ function questionForecast(progress) {
     };
   });
 
-  const stratifiedObserved = systemRows.some((row) => row.speed_samples > 0);
-  const unpricedSystemIds = stratifiedObserved
+  const ownerRows = [...systemRows, ...domainRows];
+  const ownerPricingMode = ownerRows.length > 0;
+  const unpricedSystemIds = ownerPricingMode
     ? systemRows.filter((row) => !row.band_minutes).map((row) => row.canonical_id)
     : [];
-  const unpricedDomainIds = stratifiedObserved
+  const unpricedDomainIds = ownerPricingMode
     ? domainRows.filter((row) => !row.band_minutes).map((row) => row.canonical_id)
     : [];
-  const ownerRows = [...systemRows, ...domainRows];
-  const stratifiedBand = stratifiedObserved
-    && systemRows.length > 0
+  const stratifiedBand = ownerPricingMode
     && unpricedSystemIds.length === 0
     && unpricedDomainIds.length === 0
     ? {
@@ -516,20 +506,17 @@ function questionForecast(progress) {
   const speedHeterogeneityRatio = ownerReferenceRates.length >= 2
     ? round(Math.max(...ownerReferenceRates) / Math.min(...ownerReferenceRates), 3)
     : null;
-  const band = stratifiedObserved ? stratifiedBand : fallbackBand;
-  const calibrationSource = stratifiedObserved
-    ? 'SYSTEM_STRATIFIED_CURRENT_EXACT_SCOPE'
+  const band = ownerPricingMode ? stratifiedBand : fallbackBand;
+  const calibrationSource = ownerPricingMode
+    ? 'OWNER_STRATIFIED_CURRENT_EXACT_SCOPE'
     : fallbackSource;
 
   const risks = [];
   if (remaining === null) risks.push('KNOWN_REMAINING_QUESTION_COUNT_AMBIGUOUS');
-  if (!stratifiedObserved && rates.length < 3) risks.push('INSUFFICIENT_PRACTICE_TIMER_SAMPLES');
-  if (stratifiedObserved && unpricedSystemIds.length) risks.push('SYSTEM_QUESTION_SPEED_UNCALIBRATED');
-  if (stratifiedObserved && unpricedDomainIds.length) risks.push('NON_SYSTEM_DOMAIN_SPEED_UNCALIBRATED');
-  if (stratifiedObserved && domainRows.some((row) => row.speed_source === 'BROADER_OFFICIAL_PRACTICE_FALLBACK')) {
-    risks.push('NON_SYSTEM_DOMAIN_SPEED_FALLBACK');
-  }
-  if (speedHeterogeneityRatio !== null && speedHeterogeneityRatio >= 1.5) risks.push('QUESTION_SPEED_SYSTEM_HETEROGENEITY');
+  if (!ownerPricingMode && rates.length < 3) risks.push('INSUFFICIENT_PRACTICE_TIMER_SAMPLES');
+  if (ownerPricingMode && unpricedSystemIds.length) risks.push('SYSTEM_QUESTION_SPEED_UNCALIBRATED');
+  if (ownerPricingMode && unpricedDomainIds.length) risks.push('NON_SYSTEM_DOMAIN_SPEED_UNCALIBRATED');
+  if (speedHeterogeneityRatio !== null && speedHeterogeneityRatio >= 1.5) risks.push('QUESTION_SPEED_OWNER_HETEROGENEITY');
   if (progress?.question_workload?.known_remaining_is_lower_bound) risks.push('UNPRICED_SYSTEM_QUESTION_SCOPE');
   if (Number(progress?.question_workload?.cross_owner_duplicate_memberships
     ?? progress?.question_workload?.cross_system_duplicate_memberships
@@ -547,7 +534,7 @@ function questionForecast(progress) {
     component: 'FIRST_PASS_OFFICIAL_SWEEP',
     required: true,
     status: band
-      ? (stratifiedObserved
+      ? (ownerPricingMode
           ? (
               systemRows.every((row) => row.speed_samples >= 5)
               && domainRows.every((row) => row.speed_source === 'NON_SYSTEM_DOMAIN_CURRENT_EXACT_SCOPE' && row.speed_samples >= 5)
@@ -555,7 +542,7 @@ function questionForecast(progress) {
                 : 'PROVISIONAL'
             )
           : (rates.length >= 5 ? 'CALIBRATED' : 'PROVISIONAL'))
-      : state,
+      : (ownerPricingMode ? 'UNPRICED_REQUIRED' : state),
     known_remaining_questions: remaining,
     known_remaining_is_lower_bound: Boolean(progress?.question_workload?.known_remaining_is_lower_bound),
     unknown_systems: [...(progress?.question_workload?.unknown_systems || [])],
@@ -582,7 +569,7 @@ function questionForecast(progress) {
     band_minutes: band,
     risks,
     evidence_boundary:
-      'Question throughput uses System-stratified Current exact-sweep timing when that evidence exists, weighting each System by its own remaining question load. Independent non-System domains remain separate owners. When a non-System domain lacks domain-specific timing, actual broader official-practice speed may be used only as an explicit provisional fallback and is surfaced as risk; if even that real learner evidence is absent, the full band is withheld. Website routing never turns humanities into a medical System.'
+      'Question throughput uses owner-stratified Current exact-scope timing, weighting each medical System or independent non-System exam domain by its own remaining demand. A remaining owner without its own observations stays unpriced; pooled activity from a completed or different owner cannot price it. Website routing never turns humanities into a medical System.'
   };
 }
 
@@ -646,6 +633,14 @@ function repairForecast(progress, { wrongUncertainRate = null } = {}) {
     (Array.isArray(firstPass?.by_system) ? firstPass.by_system : [])
       .map((row) => [String(row?.canonical_id || ''), row])
   );
+  const workloadDomains = (Array.isArray(progress?.question_workload?.non_system_domains)
+    ? progress.question_workload.non_system_domains
+    : [])
+    .filter((row) => row?.status === 'EXACT' && Number(row?.remaining_questions || 0) > 0);
+  const practiceByDomain = new Map(
+    (Array.isArray(firstPass?.by_domain) ? firstPass.by_domain : [])
+      .map((row) => [String(row?.canonical_id || row?.domain_id || ''), row])
+  );
   const systemErrorRows = workloadSystems.map((workload) => {
     const canonicalId = String(workload?.canonical_id || '');
     const practice = practiceBySystem.get(canonicalId) || {};
@@ -660,10 +655,31 @@ function repairForecast(progress, { wrongUncertainRate = null } = {}) {
       predicted_future_wrong_uncertain_questions: rate === null ? null : round(remaining * rate)
     };
   });
-  const stratifiedObserved = scenarioRate === null
-    && systemErrorRows.some((row) => row.observed_attempts > 0 || row.wrong_uncertain_rate !== null);
-  const unpricedSystemIds = stratifiedObserved
+  const domainErrorRows = workloadDomains.map((workload) => {
+    const canonicalId = String(workload?.canonical_id || workload?.domain_id || '');
+    const practice = practiceByDomain.get(canonicalId) || {};
+    const rate = finite(practice?.current_scope_wrong_or_uncertain_rate);
+    const remaining = Math.max(0, Number(workload?.remaining_questions || 0));
+    return {
+      owner_kind: 'NON_SYSTEM_EXAM_DOMAIN',
+      domain_id: String(workload?.domain_id || ''),
+      canonical_id: canonicalId,
+      remaining_questions: remaining,
+      observed_attempts: Math.max(0, Number(practice?.current_scope_unique_attempted || 0)),
+      wrong_uncertain_rate: rate,
+      predicted_future_wrong_uncertain_questions: rate === null ? null : round(remaining * rate)
+    };
+  });
+  const ownerErrorRows = [
+    ...systemErrorRows.map((row) => ({ owner_kind: 'MEDICAL_SYSTEM', domain_id: null, ...row })),
+    ...domainErrorRows
+  ];
+  const ownerPricingMode = scenarioRate === null && ownerErrorRows.length > 0;
+  const unpricedSystemIds = ownerPricingMode
     ? systemErrorRows.filter((row) => row.wrong_uncertain_rate === null).map((row) => row.canonical_id)
+    : [];
+  const unpricedDomainIds = ownerPricingMode
+    ? domainErrorRows.filter((row) => row.wrong_uncertain_rate === null).map((row) => row.canonical_id)
     : [];
 
   let futureWu = null;
@@ -673,25 +689,27 @@ function repairForecast(progress, { wrongUncertainRate = null } = {}) {
     futureWu = remainingQuestions !== null ? remainingQuestions * scenarioRate : null;
     forecastRate = scenarioRate;
     forecastRateSource = 'SCENARIO_OVERRIDE';
-  } else if (stratifiedObserved) {
-    if (unpricedSystemIds.length === 0 && remainingQuestions !== null) {
-      futureWu = systemErrorRows.reduce(
+  } else if (ownerPricingMode) {
+    if (unpricedSystemIds.length === 0 && unpricedDomainIds.length === 0 && remainingQuestions !== null) {
+      futureWu = ownerErrorRows.reduce(
         (sum, row) => sum + Number(row.remaining_questions || 0) * Number(row.wrong_uncertain_rate || 0),
         0
       );
       forecastRate = remainingQuestions > 0 ? futureWu / remainingQuestions : 0;
     }
-    forecastRateSource = 'SYSTEM_STRATIFIED_CURRENT_EXACT_SCOPE';
+    forecastRateSource = 'OWNER_STRATIFIED_CURRENT_EXACT_SCOPE';
   } else {
     forecastRate = observedRate;
     futureWu = observedRate !== null && remainingQuestions !== null ? remainingQuestions * observedRate : null;
   }
 
-  const observedSystemRates = systemErrorRows
+  if (remainingQuestions === 0) futureWu = 0;
+
+  const observedOwnerRates = ownerErrorRows
     .map((row) => finite(row.wrong_uncertain_rate))
     .filter((value) => value !== null);
-  const rateSpread = observedSystemRates.length >= 2
-    ? round(Math.max(...observedSystemRates) - Math.min(...observedSystemRates), 4)
+  const rateSpread = observedOwnerRates.length >= 2
+    ? round(Math.max(...observedOwnerRates) - Math.min(...observedOwnerRates), 4)
     : null;
 
   const questionsPerCluster = positive(progress?.repair_evidence?.observed_question_to_cluster_ratio);
@@ -705,25 +723,34 @@ function repairForecast(progress, { wrongUncertainRate = null } = {}) {
     (Array.isArray(progress?.repair_evidence?.by_system) ? progress.repair_evidence.by_system : [])
       .map((row) => [String(row?.canonical_id || ''), row])
   );
-  const futureWuBySystem = workloadSystems.map((workload) => {
-    const errorRow = systemErrorRows.find((row) => row.canonical_id === String(workload?.canonical_id || '')) || {};
+  const compressionByDomain = new Map(
+    (Array.isArray(progress?.repair_evidence?.by_domain) ? progress.repair_evidence.by_domain : [])
+      .map((row) => [String(row?.canonical_id || row?.domain_id || ''), row])
+  );
+  const futureWuByOwner = ownerErrorRows.map((errorRow) => {
     const rate = scenarioRate !== null
       ? scenarioRate
-      : stratifiedObserved
+      : ownerPricingMode
         ? finite(errorRow?.wrong_uncertain_rate)
         : forecastRate;
     return {
-      canonical_id: String(workload?.canonical_id || ''),
+      owner_kind: errorRow.owner_kind,
+      domain_id: errorRow.domain_id,
+      canonical_id: errorRow.canonical_id,
       future_wrong_uncertain_questions:
-        rate === null ? null : Number(workload?.remaining_questions || 0) * rate
+        rate === null ? null : Number(errorRow.remaining_questions || 0) * rate
     };
   });
-  const compressionRows = futureWuBySystem.map((row) => {
-    const observed = compressionBySystem.get(row.canonical_id) || {};
+  const compressionRows = futureWuByOwner.map((row) => {
+    const observed = row.owner_kind === 'NON_SYSTEM_EXAM_DOMAIN'
+      ? (compressionByDomain.get(row.canonical_id) || {})
+      : (compressionBySystem.get(row.canonical_id) || {});
     const clusterSamples = Math.max(0, Number(observed?.question_backed_clusters || 0));
     const ratio = positive(observed?.observed_question_to_cluster_ratio);
     const usableRatio = ratio !== null && clusterSamples >= 3 ? ratio : null;
     return {
+      owner_kind: row.owner_kind,
+      domain_id: row.domain_id,
       canonical_id: row.canonical_id,
       future_wrong_uncertain_questions:
         row.future_wrong_uncertain_questions === null ? null : round(row.future_wrong_uncertain_questions),
@@ -736,17 +763,26 @@ function repairForecast(progress, { wrongUncertainRate = null } = {}) {
           : null
     };
   });
-  const systemCompressionMode = workloadSystems.length > 0;
-  const unpricedCompressionSystemIds = systemCompressionMode
+  const ownerCompressionMode = ownerErrorRows.length > 0;
+  const unpricedCompressionSystemIds = ownerCompressionMode
     ? compressionRows
-        .filter((row) => Number(row.future_wrong_uncertain_questions || 0) > 0 && row.pricing_questions_per_cluster === null)
+        .filter((row) => row.owner_kind === 'MEDICAL_SYSTEM'
+          && Number(row.future_wrong_uncertain_questions || 0) > 0
+          && row.pricing_questions_per_cluster === null)
         .map((row) => row.canonical_id)
     : [];
-  const futureClusters = systemCompressionMode
-    ? (futureWu !== null && unpricedCompressionSystemIds.length === 0
+  const unpricedCompressionDomainIds = ownerCompressionMode
+    ? compressionRows
+        .filter((row) => row.owner_kind === 'NON_SYSTEM_EXAM_DOMAIN'
+          && Number(row.future_wrong_uncertain_questions || 0) > 0
+          && row.pricing_questions_per_cluster === null)
+        .map((row) => row.canonical_id)
+    : [];
+  const futureClusters = ownerCompressionMode
+    ? (futureWu !== null && unpricedCompressionSystemIds.length === 0 && unpricedCompressionDomainIds.length === 0
         ? compressionRows.reduce((sum, row) => sum + Number(row.predicted_future_clusters || 0), 0)
         : null)
-    : (futureWu !== null && questionsPerCluster !== null ? futureWu / questionsPerCluster : null);
+    : (futureWu === 0 ? 0 : futureWu !== null && questionsPerCluster !== null ? futureWu / questionsPerCluster : null);
   const totalClusters = futureClusters !== null ? activeClusters + futureClusters : null;
   const repairCalibrationRows = progress?.repair_evidence?.calibration_samples || [];
   const samples = repairCalibrationRows
@@ -756,7 +792,7 @@ function repairForecast(progress, { wrongUncertainRate = null } = {}) {
     .map((row) => positive(row?.timer_minutes_in_repair_window))
     .filter((value) => value !== null);
   const state = sampleState(samples.length);
-  const band = totalClusters !== null && samples.length >= 3
+  const band = totalClusters === 0 ? { p20: 0, p50: 0, p80: 0 } : totalClusters !== null && samples.length >= 3
     ? {
         p20: round(quantile(samples, 0.2) * totalClusters),
         p50: round(quantile(samples, 0.5) * totalClusters),
@@ -765,38 +801,47 @@ function repairForecast(progress, { wrongUncertainRate = null } = {}) {
     : null;
   const risks = [];
   if (forecastRate === null) risks.push('WRONG_UNCERTAIN_RATE_UNOBSERVED');
-  if (!stratifiedObserved && attempted > 0 && attempted < 30 && scenarioRate === null) risks.push('WRONG_UNCERTAIN_RATE_LOW_SAMPLE');
-  if (stratifiedObserved && unpricedSystemIds.length) risks.push('SYSTEM_WRONG_UNCERTAIN_RATE_UNOBSERVED');
-  if (stratifiedObserved && systemErrorRows.some((row) => row.observed_attempts > 0 && row.observed_attempts < 30)) {
+  if (!ownerPricingMode && attempted > 0 && attempted < 30 && scenarioRate === null) risks.push('WRONG_UNCERTAIN_RATE_LOW_SAMPLE');
+  if (ownerPricingMode && unpricedSystemIds.length) risks.push('SYSTEM_WRONG_UNCERTAIN_RATE_UNOBSERVED');
+  if (ownerPricingMode && unpricedDomainIds.length) risks.push('NON_SYSTEM_DOMAIN_WRONG_UNCERTAIN_RATE_UNOBSERVED');
+  if (ownerPricingMode && systemErrorRows.some((row) => row.observed_attempts > 0 && row.observed_attempts < 30)) {
     risks.push('SYSTEM_WRONG_UNCERTAIN_RATE_LOW_SAMPLE');
   }
-  if (rateSpread !== null && rateSpread >= 0.15) risks.push('WRONG_UNCERTAIN_SYSTEM_HETEROGENEITY');
-  if (!systemCompressionMode && questionsPerCluster === null) risks.push('REPAIR_COMPRESSION_UNOBSERVED');
-  if (systemCompressionMode && unpricedCompressionSystemIds.length) risks.push('SYSTEM_REPAIR_COMPRESSION_UNCALIBRATED');
-  if (systemCompressionMode && compressionRows.some((row) =>
+  if (ownerPricingMode && domainErrorRows.some((row) => row.observed_attempts > 0 && row.observed_attempts < 30)) {
+    risks.push('NON_SYSTEM_DOMAIN_WRONG_UNCERTAIN_RATE_LOW_SAMPLE');
+  }
+  if (rateSpread !== null && rateSpread >= 0.15) risks.push('WRONG_UNCERTAIN_OWNER_HETEROGENEITY');
+  if (!ownerCompressionMode && questionsPerCluster === null) risks.push('REPAIR_COMPRESSION_UNOBSERVED');
+  if (ownerCompressionMode && unpricedCompressionSystemIds.length) risks.push('SYSTEM_REPAIR_COMPRESSION_UNCALIBRATED');
+  if (ownerCompressionMode && unpricedCompressionDomainIds.length) risks.push('NON_SYSTEM_DOMAIN_REPAIR_COMPRESSION_UNCALIBRATED');
+  if (ownerCompressionMode && compressionRows.some((row) =>
     row.observed_question_backed_clusters > 0 && row.observed_question_backed_clusters < 3
-  )) risks.push('SYSTEM_REPAIR_COMPRESSION_LOW_SAMPLE');
+  )) risks.push('OWNER_REPAIR_COMPRESSION_LOW_SAMPLE');
   if (mixedWindowSamples.length > 0 && samples.length < 3) risks.push('REPAIR_TIMER_CONTAMINATED_MIXED_WINDOW');
   if (samples.length < 3 && totalClusters !== null && totalClusters > 0) risks.push('REPAIR_TIME_UNCALIBRATED');
   return {
     component: 'WRONG_UNCERTAIN_REPAIR',
     required: true,
-    status: band ? (samples.length >= 5 ? 'CALIBRATED' : 'PROVISIONAL') : state,
+    status: band ? (samples.length >= 5 ? 'CALIBRATED' : 'PROVISIONAL') : 'UNPRICED_REQUIRED',
     error_rate: {
       source: forecastRateSource,
-      value: scenarioRate !== null ? scenarioRate : observedRate,
+      value: forecastRate === null ? null : round(forecastRate, 4),
       forecast_weighted_value: forecastRate === null ? null : round(forecastRate, 4),
       observed_attempts: attempted,
       current_scope_attempts: currentScopeAttempted,
       broader_first_pass_attempts: broaderAttempted,
       system_rows: systemErrorRows,
+      non_system_domain_rows: domainErrorRows,
       unpriced_system_ids: unpricedSystemIds,
-      system_rate_spread: rateSpread
+      unpriced_domain_ids: unpricedDomainIds,
+      owner_rate_spread: rateSpread
     },
     compression: {
       observed_questions_per_cluster: questionsPerCluster,
-      system_rows: compressionRows,
+      system_rows: compressionRows.filter((row) => row.owner_kind === 'MEDICAL_SYSTEM'),
+      non_system_domain_rows: compressionRows.filter((row) => row.owner_kind === 'NON_SYSTEM_EXAM_DOMAIN'),
       unpriced_system_ids: unpricedCompressionSystemIds,
+      unpriced_domain_ids: unpricedCompressionDomainIds,
       active_clusters: activeClusters,
       predicted_future_wrong_uncertain_questions: futureWu === null ? null : round(futureWu),
       predicted_future_clusters: futureClusters === null ? null : round(futureClusters, 2),
@@ -816,34 +861,82 @@ function repairForecast(progress, { wrongUncertainRate = null } = {}) {
     band_minutes: band,
     risks,
     evidence_boundary:
-      'Future Repair pressure uses System-stratified Current exact-scope first-attempt W/U when available, weighted by each System own remaining question load. Repair compression is also System-stratified when exact System workload exists; an A1 compression ratio may not price another System without enough observed clusters. Scenario overrides intentionally apply one explicit W/U rate across the remaining known scope. Repair workload minutes require exclusive Repair timing; mixed Block-route lifetime windows are reference-only and may not be added as causal Repair time.'
+      'Future Repair pressure uses owner-stratified Current exact-scope first-attempt W/U across medical Systems and independent non-System exam domains. A remaining owner without its own W/U or compression evidence stays unpriced rather than inheriting zero or another owner rate. Scenario overrides intentionally apply one explicit W/U rate across the remaining known scope. Repair workload minutes require exclusive Repair timing; mixed Block-route lifetime windows are reference-only.'
   };
 }
 
 function verificationForecast(progress, questionsComponent, repairComponent) {
-  const rates = (questionsComponent?.calibration?.sample_rows || [])
-    .map((row) => positive(row?.minutes_per_attempt))
-    .filter((value) => value !== null);
   const currentUnresolved = Math.max(0, Number(progress?.practice_evidence?.latest?.unresolved_wrong_uncertain_questions || 0));
   const futureWu = finite(repairComponent?.compression?.predicted_future_wrong_uncertain_questions);
   const questions = futureWu === null ? null : currentUnresolved + futureWu;
-  const band = questions !== null && rates.length >= 3
+  const speedRows = [
+    ...(questionsComponent?.calibration?.system_rows || []).map((row) => ({ owner_kind: 'MEDICAL_SYSTEM', ...row })),
+    ...(questionsComponent?.calibration?.non_system_domain_rows || [])
+  ];
+  const speedByOwner = new Map(speedRows.map((row) => [
+    `${row.owner_kind || 'MEDICAL_SYSTEM'}:${row.canonical_id || ''}`,
+    row
+  ]));
+  const pressureRows = [
+    ...(repairComponent?.compression?.system_rows || []),
+    ...(repairComponent?.compression?.non_system_domain_rows || [])
+  ];
+  const pricedRows = pressureRows.map((row) => {
+    const speed = speedByOwner.get(`${row.owner_kind || 'MEDICAL_SYSTEM'}:${row.canonical_id || ''}`) || {};
+    const rates = (Array.isArray(speed.speed_rates) ? speed.speed_rates : [])
+      .map(positive)
+      .filter((value) => value !== null);
+    const demand = finite(row?.future_wrong_uncertain_questions);
+    return {
+      owner_kind: row.owner_kind || 'MEDICAL_SYSTEM',
+      canonical_id: String(row?.canonical_id || ''),
+      verification_questions: demand,
+      timing_samples: rates.length,
+      band_minutes: demand !== null && demand <= 0
+        ? { p20: 0, p50: 0, p80: 0 }
+        : demand !== null && rates.length >= 3
+          ? {
+              p20: round(quantile(rates, 0.2) * demand),
+              p50: round(quantile(rates, 0.5) * demand),
+              p80: round(quantile(rates, 0.8) * demand)
+            }
+          : null
+    };
+  });
+  const ownerDemandUnpriced = pricedRows.some((row) => Number(row.verification_questions || 0) > 0 && !row.band_minutes);
+  const ownerReferenceBand = questions !== null
+    && currentUnresolved === 0
+    && !ownerDemandUnpriced
+    && pricedRows.length > 0
     ? {
-        p20: round(quantile(rates, 0.2) * questions),
-        p50: round(quantile(rates, 0.5) * questions),
-        p80: round(quantile(rates, 0.8) * questions)
+        p20: round(pricedRows.reduce((sum, row) => sum + Number(row.band_minutes?.p20 || 0), 0)),
+        p50: round(pricedRows.reduce((sum, row) => sum + Number(row.band_minutes?.p50 || 0), 0)),
+        p80: round(pricedRows.reduce((sum, row) => sum + Number(row.band_minutes?.p80 || 0), 0))
       }
     : null;
+  const pooledRates = (questionsComponent?.calibration?.sample_rows || [])
+    .map((row) => positive(row.minutes_per_attempt)).filter((value) => value !== null);
+  const legacyReference = pressureRows.length === 0 && questions !== null && pooledRates.length >= 3
+    ? Object.fromEntries([['p20', 0.2], ['p50', 0.5], ['p80', 0.8]].map(([key, q]) => [key, round(quantile(pooledRates, q) * questions)]))
+    : null;
+  const referenceBand = questions === 0 ? { p20: 0, p50: 0, p80: 0 } : ownerReferenceBand || legacyReference;
+  const risks = [];
+  if (questions === null) risks.push('VERIFICATION_VOLUME_UNPRICED');
+  if (currentUnresolved > 0 && pressureRows.length > 0) risks.push('CURRENT_UNRESOLVED_OWNER_DISTRIBUTION_UNPRICED');
+  if (ownerDemandUnpriced) risks.push('VERIFICATION_OWNER_SPEED_UNCALIBRATED');
+  if (referenceBand && questions > 0) risks.push('FRESH_VERIFICATION_TIMING_NOT_OBSERVED');
   return {
     component: 'SECOND_PASS_FRESH_VERIFICATION',
     required_for_first_round: false,
     required_for_score_formation: true,
-    status: band ? (rates.length >= 5 ? 'CALIBRATED' : 'PROVISIONAL') : sampleState(rates.length),
+    status: questions === 0 ? 'NO_REMAINING_DEMAND' : referenceBand ? 'PROVISIONAL_REFERENCE' : 'UNPRICED_REQUIRED',
     estimated_verification_questions: questions === null ? null : round(questions),
-    band_minutes: band,
-    risks: questions === null ? ['VERIFICATION_VOLUME_UNPRICED'] : rates.length < 3 ? ['VERIFICATION_SPEED_UNCALIBRATED'] : [],
+    timing_basis: questions === 0 ? 'NO_REMAINING_DEMAND' : ownerReferenceBand ? 'OWNER_FIRST_PASS_TIMING_REFERENCE' : legacyReference ? 'POOLED_FIRST_PASS_REFERENCE_ONLY' : 'UNPRICED',
+    owner_rows: pricedRows,
+    band_minutes: referenceBand,
+    risks,
     evidence_boundary:
-      'Repair completion is not fresh verification. Default second-pass verification demand follows unresolved/future Wrong-Uncertain question evidence.'
+      'Repair completion is not fresh verification. Verification demand follows unresolved/future Wrong-Uncertain evidence. Owner-specific first-pass timing may provide a clearly provisional workload reference, but it is not claimed as observed fresh-verification duration; pooled timing may not erase owner heterogeneity.'
   };
 }
 
@@ -851,7 +944,7 @@ function formalCalibrationForecast(progress) {
   const papers = Array.isArray(progress?.formal_score_evidence?.sealed_papers)
     ? progress.formal_score_evidence.sealed_papers
     : [];
-  const comparable = papers.filter((row) => Number(row?.max_score) === 300);
+  const comparable = papers.filter((row) => Number(row?.max_score) === 300 && row?.current_revision_valid !== false);
   const internallyProtected = comparable.filter((row) => row?.internal_holdout_protected_before_seal === true);
   return {
     component: 'FORMAL_SCORE_CALIBRATION',
@@ -970,7 +1063,8 @@ export function buildXizongScoreEvidence(progress, {
     .filter((row) => Number(row?.max_score) === 300);
   const latest = formalPapers.at(-1) || null;
   const formatIdentifiedPapers = formalPapers.filter((row) =>
-    String(row?.exam_format_source_hash || '').trim()
+    row?.current_revision_valid !== false
+    &&     String(row?.exam_format_source_hash || '').trim()
     && String(row?.question_inventory_hash || '').trim()
     && Number(row?.exam_format?.max_score || row?.max_score || 0) === 300
     && Number(row?.exam_format?.question_count || 0) > 0

@@ -4,6 +4,7 @@ import {
 } from './examOrchestrator.mjs';
 import {
   EXAM_CHAT_PLAN_KEY,
+  assertExamChatPlanTimeReadable,
   validateExamChatPlan
 } from './examChatPlan.mjs';
 import {
@@ -13,6 +14,8 @@ import {
   readStudyTimerState,
   readStudyTimerLedger
 } from './studyTimer.mjs';
+
+import { CONTROL_LOCAL_RECEIPT_KEY, validateControlReceipt } from './privateControlCommand.mjs';
 
 export const SHARED_CONTROL_CHECKPOINT_SCHEMA = 'kianos.shared-control-checkpoint.v1';
 
@@ -35,12 +38,18 @@ export function captureSharedControlCheckpoint(storage, {
     ? null
     : validateExamChatPlan(chatRaw, studyDay);
 
+  // Keep the original bytes for recovery; validation is not allowed to make
+  // corrupt transport metadata prevent healthy learner evidence backup.
+  const receiptRaw = storage.getItem(CONTROL_LOCAL_RECEIPT_KEY);
+  assertExamChatPlanTimeReadable(storage);
+
   return {
     schema: SHARED_CONTROL_CHECKPOINT_SCHEMA,
     study_day: studyDay,
     captured_at: new Date(now).toISOString(),
     exam_profile: profile,
     chat_plan: chatPlan,
+    control_receipt_raw: receiptRaw,
     study_timer_state: readStudyTimerState(storage),
     study_timer_ledger: readStudyTimerLedger(storage)
   };
@@ -69,12 +78,24 @@ export function restoreSharedControlCheckpoint(storage, checkpoint, {
     [STUDY_TIMER_STATE_KEY, timerState],
     [STUDY_TIMER_LEDGER_KEY, timerLedger]
   ];
+  const warnings = [];
+  // Optional for old v1 checkpoints. Do not replace existing local proof or
+  // promote corrupt bytes. Their raw form stays in the durable checkpoint.
+  if (checkpoint.control_receipt_raw != null && storage.getItem(CONTROL_LOCAL_RECEIPT_KEY) == null) {
+    try {
+      if (typeof checkpoint.control_receipt_raw !== 'string') throw new Error('RECEIPT_RAW_INVALID');
+      validateControlReceipt(JSON.parse(checkpoint.control_receipt_raw));
+      writes.push([CONTROL_LOCAL_RECEIPT_KEY, checkpoint.control_receipt_raw]);
+    } catch {
+      warnings.push('SHARED_CHECKPOINT_RECEIPT_INVALID');
+    }
+  }
   const before = new Map(writes.map(([key]) => [key, storage.getItem(key)]));
 
   try {
     for (const [key, value] of writes) {
       if (value == null) storage.removeItem?.(key);
-      else storage.setItem(key, JSON.stringify(value));
+      else storage.setItem(key, key === CONTROL_LOCAL_RECEIPT_KEY ? value : JSON.stringify(value));
     }
   } catch (error) {
     for (const [key, raw] of before.entries()) {
@@ -89,6 +110,7 @@ export function restoreSharedControlCheckpoint(storage, checkpoint, {
   return {
     schema: SHARED_CONTROL_CHECKPOINT_SCHEMA,
     restored: true,
-    study_day: expectedDay
+    study_day: expectedDay,
+    warnings
   };
 }

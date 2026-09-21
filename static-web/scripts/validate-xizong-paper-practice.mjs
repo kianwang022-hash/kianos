@@ -1,6 +1,7 @@
 import {
   listXizongPaperSummaries,
-  loadXizongWholePaper
+  loadXizongWholePaper,
+  xizongQuestionSemanticRevisions
 } from '../src/lib/xizongQuestions.mjs';
 import {
   xizongPaperRuleTotal,
@@ -57,10 +58,13 @@ const paper2006 = loadXizongWholePaper(2006);
 check(xizongPaperPointsForNumber(paper2006.paperFormat, 150) === 1, 'score_2006_weight');
 
 const hiddenQid = q1.questionId;
+const questionSemanticRevisions = xizongQuestionSemanticRevisions([q1]);
 const hiddenState = {
   attemptHistory: [{
     type:'QUESTION_ATTEMPT',
     question_id:hiddenQid,
+    question_semantic_revision:q1.semanticRevision,
+    current_revision_valid:true,
     status:'wrong',
     result_visibility:'hidden',
     submitted_at:'2026-09-18T01:00:00.000Z'
@@ -68,7 +72,7 @@ const hiddenState = {
 };
 const beforeSeal = collectXizongRetainedEvidence([
   ['kianos:xizong:paper-question-sweep:paper-2026:v1', JSON.stringify(hiddenState)]
-]);
+], { questionSemanticRevisions });
 check(!beforeSeal.wrongUncertainIds.includes(hiddenQid), 'unsealed_hidden_attempt_excluded_from_retained');
 
 const sealedState = sealXizongPaperState(hiddenState, {
@@ -100,7 +104,10 @@ check(sealedState.paperSeal.evidenceContext.examFormat.question_count === 165, '
 
 const afterSeal = collectXizongRetainedEvidence([
   ['kianos:xizong:paper-question-sweep:paper-2026:v1', JSON.stringify(sealedState)]
-]);
+], { questionSemanticRevisions });
 check(afterSeal.wrongUncertainIds.includes(hiddenQid), 'sealed_hidden_attempt_enters_retained');
+check(!collectXizongRetainedEvidence([
+  ['kianos:xizong:paper-question-sweep:paper-2026:v1', JSON.stringify(sealedState)]
+]).wrongUncertainIds.includes(hiddenQid), 'sealed_unknown_revision_excluded_from_current_retained');
 
 console.log('XIZONG_PAPER_PRACTICE_PASS');
