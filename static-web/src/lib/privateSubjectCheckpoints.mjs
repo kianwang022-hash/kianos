@@ -92,12 +92,39 @@ const ADAPTERS = Object.freeze({
     isEmpty: xizongDurableStorageIsEmpty,
     prepare(storage, value, { onlyIfEmpty = true } = {}) {
       const checkpoint = validateXizongPrivateCheckpoint(value);
-      if (onlyIfEmpty && !xizongDurableStorageIsEmpty(storage)) {
-        return { status: 'skipped', reason: 'xizong-local-state-present', changes: [] };
+      if (!onlyIfEmpty) {
+        return {
+          status: 'prepared',
+          changes: checkpoint.entries.map(({ key, raw }) => [key, raw]),
+          preserved_local_keys: []
+        };
+      }
+
+      const changes = [];
+      const preservedLocalKeys = [];
+      for (const { key, raw } of checkpoint.entries) {
+        const existing = storage.getItem(key);
+        if (existing == null) {
+          changes.push([key, raw]);
+          continue;
+        }
+        if (existing !== raw) preservedLocalKeys.push(key);
+      }
+
+      if (!changes.length) {
+        return {
+          status: 'skipped',
+          reason: preservedLocalKeys.length
+            ? 'xizong-local-state-preserved'
+            : 'xizong-local-state-complete',
+          changes: [],
+          preserved_local_keys: preservedLocalKeys
+        };
       }
       return {
         status: 'prepared',
-        changes: checkpoint.entries.map(({ key, raw }) => [key, raw])
+        changes,
+        preserved_local_keys: preservedLocalKeys
       };
     }
   }),
@@ -183,7 +210,12 @@ export function preparePrivateSubjectCheckpointRestore(storage, subjects = {}, {
     }
     const prepared = adapter.prepare(storage, value, { onlyIfEmpty });
     if (prepared.status === 'skipped') {
-      results[subject] = { status: 'skipped', reason: prepared.reason, restored: 0 };
+      results[subject] = {
+        status: 'skipped',
+        reason: prepared.reason,
+        restored: 0,
+        preserved_local_keys: [...(prepared.preserved_local_keys || [])]
+      };
       continue;
     }
     const subjectChanges = prepared.changes || [];
@@ -191,7 +223,8 @@ export function preparePrivateSubjectCheckpointRestore(storage, subjects = {}, {
     results[subject] = {
       status: subjectChanges.length ? 'prepared' : 'present',
       restored: 0,
-      pending: subjectChanges.length
+      pending: subjectChanges.length,
+      preserved_local_keys: [...(prepared.preserved_local_keys || [])]
     };
   }
   return { changes, results };
