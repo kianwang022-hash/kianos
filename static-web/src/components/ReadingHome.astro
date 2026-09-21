@@ -45,6 +45,9 @@ const readingTitle = (item) => item?.year
 </section>
 
 <script>
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   const root = document.querySelector('[data-reading-home]');
   if (root instanceof HTMLElement) {
     const base = root.getAttribute('data-base') || '/';
@@ -99,6 +102,8 @@ const readingTitle = (item) => item?.year
     root.querySelector('[data-reading-search]')?.addEventListener('input', (event) => render(event.currentTarget.value || ''));
     render();
   }
+
+  });
 </script>
 
 <style>

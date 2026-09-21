@@ -669,6 +669,38 @@ export function applyEnglishExamProductiveScoreReturn(state, input, now = Date.n
   return updated;
 }
 
+// Native proof for replay/recovery. Transport never grades or invents a
+// success ledger: it asks this owner whether the accepted channels are present.
+export function englishExamProductiveScoreMatches(state, input) {
+  try {
+    const current=validateEnglishExamSession(state);
+    if(current.status!=='SCORED')return false;
+    const normalized=validateEnglishExamProductiveScoreReturn(input,{...current,status:'RELEASED'});
+    return same(current.release.productive.channels,normalized.channels)
+      && current.release.productive.scoring_standard_version===normalized.scoring_standard_version
+      && current.release.productive.review_of===normalized.review_of;
+  } catch { return false; }
+}
+
+// Only one proven native edge may enrich a kept local record during recovery.
+// A timestamp/revision alone is not ancestry. Rebuild from the *local* sealed
+// outputs through the normal score validator and require exact semantic equality.
+export function englishExamScoreIsSuccessor(previous, incoming) {
+  try {
+    const before=validateEnglishExamSession(previous),after=validateEnglishExamSession(incoming);
+    if(before.status!=='RELEASED'||after.status!=='SCORED')return false;
+    const expected=applyEnglishExamProductiveScoreReturn(before,{
+      schema:ENGLISH_EXAM_PRODUCTIVE_SCORE_RETURN_SCHEMA,
+      session_id:after.session_id,paper_id:after.paper_id,paper_source_hash:after.source_hash,
+      scoring_standard_version:after.release.productive.scoring_standard_version,
+      review_of:after.release.productive.review_of,channels:after.release.productive.channels
+    },Date.parse(after.scored_at));
+    const canonical=value=>Array.isArray(value)?value.map(canonical)
+      :record(value)?Object.fromEntries(Object.keys(value).sort().map(key=>[key,canonical(value[key])])):value;
+    return same(canonical(expected),canonical(after));
+  } catch { return false; }
+}
+
 export function englishExamProductiveScoreReturnContract(state) {
   const current = validateEnglishExamSession(state);
   if (current.status !== 'RELEASED') return null;

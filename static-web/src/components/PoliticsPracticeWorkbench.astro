@@ -167,7 +167,12 @@ const serializedCatalog = JSON.stringify(publicPracticeCatalog(catalog)).replace
 
 <script>
   import { initPoliticsPractice } from '../lib/politicsPracticeClient.mjs';
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   initPoliticsPractice(document.querySelector('[data-politics-practice]'));
+
+  });
 </script>
 
 <style is:global>

@@ -56,6 +56,9 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
     validateWritingTransferReturn,
     applyWritingTransferReturn
   } from '../lib/writingEvidenceModel.mjs';
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
 
   const evidenceRoot = document.querySelector('[data-writing-evidence-panel]');
   if (evidenceRoot instanceof HTMLElement && !new URLSearchParams(location.search).has('exam_session')) {
@@ -204,6 +207,8 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
     window.addEventListener('focus', render);
     render();
   }
+
+  });
 </script>
 
 <style>

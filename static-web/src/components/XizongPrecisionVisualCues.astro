@@ -32,6 +32,9 @@ const payload = {
 <script type="application/json" data-learning-cue-payload set:html={JSON.stringify(payload)}></script>
 
 <script>
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   const studyRoot = document.querySelector('[data-xizong-v6-block]');
   const visualRoot = document.querySelector('[data-xizong-group-visuals]');
   const precisionRoot = document.querySelector('[data-xizong-group-precision]');
@@ -155,6 +158,8 @@ const payload = {
     if (counter) new MutationObserver(render).observe(counter, { childList: true, subtree: true, characterData: true });
     render();
   }
+
+  });
 </script>
 
 <style is:global>

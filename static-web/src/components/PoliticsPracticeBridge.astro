@@ -9,7 +9,12 @@ const configs = buildPoliticsUnitReturnConfigs(chapter);
 <script type="application/json" data-practice-bridge-config set:html={JSON.stringify({ configs, base }).replace(/</g, '\u003c')} />
 <script>
   import { installPoliticsPracticeBridge } from '../lib/politicsPracticeBridge.mjs';
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   installPoliticsPracticeBridge();
+
+  });
 </script>
 <style>
   .practiceReturn{padding:12px 16px;margin-bottom:12px;border:1px solid #dce7e1;background:#f3f7f4;border-radius:9px;font-size:15px}

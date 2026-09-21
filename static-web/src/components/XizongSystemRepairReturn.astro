@@ -42,6 +42,9 @@ const routePayload = JSON.stringify(routes).replace(/</g, '\u003c');
     readXizongSystemWuPendingState
   } from '../lib/xizongSystemWuReturn.mjs';
   import { studyDayAt } from '../lib/studyTimer.mjs';
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
 
   const root = document.querySelector('[data-xizong-repair-return]');
   if (root instanceof HTMLElement) {
@@ -247,4 +250,6 @@ const routePayload = JSON.stringify(routes).replace(/</g, '\u003c');
     // the guard reloads first and this callback never applies the old W/U Return.
     window.setTimeout(consumePending, 0);
   }
+
+  });
 </script>

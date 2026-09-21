@@ -10,6 +10,9 @@ const requirements = block ? [] : loadXizongSystemCompletionRequirements(system)
 <script type="application/json" data-xizong-completion-input set:html={JSON.stringify({ blockId, blockIds, requirements }).replace(/</g, String.fromCharCode(92) + 'u003c')}></script>
 <script>
   import { inspectXizongSystemCompletion } from '../lib/xizongMemoryAutoRelease.mjs';
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   const { blockId, blockIds, requirements } = JSON.parse(document.querySelector('[data-xizong-completion-input]')?.textContent || '{}');
   const readBlockState = (id) => {
     if (!id) return {};
@@ -164,4 +167,6 @@ const requirements = block ? [] : loadXizongSystemCompletionRequirements(system)
       }
     }, true);
   }
+
+  });
 </script>

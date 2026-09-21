@@ -1,5 +1,5 @@
 import {assertEnglishLexicalLedgerReadable} from './englishLexicalReturn.mjs';
-import {advanceEnglishSourceRevision,atomicEnglishWrites,readEnglishExposure,ENGLISH_MATERIAL_EXPOSURE_KEY} from './englishLearnerEvidence.mjs';
+import {advanceEnglishSourceRevision,atomicEnglishWrites,readEnglishExposure,ENGLISH_MATERIAL_EXPOSURE_KEY,inspectEnglishObjectiveResults} from './englishLearnerEvidence.mjs';
 import {
   ENGLISH_EXAM_PRODUCTIVE_SCORING_STANDARD_VERSION,
   inspectEnglishExamSession,
@@ -385,7 +385,11 @@ export function englishStepIsComplete(storage, step) {
   const value = readJson(storage, (prefixes[step?.task] || '') + step?.object_id);
   if (!value) return false;
   if (!value.binding || value.binding.source_hash !== step.source_hash) return false;
-  if (['reading_a','cloze','reading_b'].includes(step.task)) return value.submitted === true && (problemCount(value) === 0 || value.reviewResolved === true);
+  if (['reading_a','cloze','reading_b'].includes(step.task)) {
+    const results=inspectEnglishObjectiveResults(value);
+    return value.submitted===true && results.valid
+      && (results.problem_count===0 || value.reviewResolved===true);
+  }
   if (step.task === 'external_reading') {
     const requirement = value?.binding?.source_snapshot?.completion_requirement || 'READ_ONLY_OK';
     if (requirement === 'QUESTIONS_SUBMITTED') return value.submitted === true;
@@ -468,10 +472,7 @@ export function englishSessionStepHref(step, base = '/') {
 }
 
 function problemCount(attempt = {}) {
-  const uncertain = new Set(Array.isArray(attempt?.uncertain) ? attempt.uncertain.map(String) : []);
-  return Object.keys(attempt?.results || {}).filter((id) =>
-    ['wrong', 'unanswered'].includes(attempt?.results?.[id]) || uncertain.has(String(id))
-  ).length;
+  return inspectEnglishObjectiveResults(attempt).problem_count;
 }
 
 function objectiveEvidence(storage, lastKey, attemptPrefix) {

@@ -56,7 +56,8 @@ export function captureSharedControlCheckpoint(storage, {
 }
 
 export function restoreSharedControlCheckpoint(storage, checkpoint, {
-  expectedDay = checkpoint?.study_day || null
+  expectedDay = checkpoint?.study_day || null,
+  restoreReceipt = false
 } = {}) {
   if (!storage?.getItem || !storage?.setItem) throw new Error('SHARED_CHECKPOINT_STORAGE_UNAVAILABLE');
   if (!checkpoint || checkpoint.schema !== SHARED_CONTROL_CHECKPOINT_SCHEMA) {
@@ -79,9 +80,11 @@ export function restoreSharedControlCheckpoint(storage, checkpoint, {
     [STUDY_TIMER_LEDGER_KEY, timerLedger]
   ];
   const warnings = [];
-  // Optional for old v1 checkpoints. Do not replace existing local proof or
-  // promote corrupt bytes. Their raw form stays in the durable checkpoint.
-  if (checkpoint.control_receipt_raw != null && storage.getItem(CONTROL_LOCAL_RECEIPT_KEY) == null) {
+  // A shared-only restore cannot prove a subject operation survived. The full
+  // recovery coordinator opts in only in its disposable projection, then admits
+  // the receipt after the matching native checkpoint is actually present.
+  // Raw receipt bytes always remain in the durable checkpoint.
+  if (restoreReceipt && checkpoint.control_receipt_raw != null && storage.getItem(CONTROL_LOCAL_RECEIPT_KEY) == null) {
     try {
       if (typeof checkpoint.control_receipt_raw !== 'string') throw new Error('RECEIPT_RAW_INVALID');
       validateControlReceipt(JSON.parse(checkpoint.control_receipt_raw));

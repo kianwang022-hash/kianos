@@ -4,6 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 import process from 'node:process';
 import { spawn } from 'node:child_process';
+import { createServer } from 'node:net';
 import { createHash, randomUUID } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 
@@ -25,6 +26,7 @@ const terminalStates = new Set(['BLOCKED', 'PR_READY', 'NEEDS_RECONCILIATION']);
 let commandMs;
 let executorMs;
 let lockHeld = false;
+let processGate = null;
 let activeChild = null;
 let ownedClaim = null;
 let state;
@@ -57,19 +59,43 @@ function killGroup(pid, signal) {
   try { process.kill(-pid, signal); } catch (error) { if (error.code !== 'ESRCH') throw error; }
 }
 function release() {
-  if (!lockHeld) return;
+  // The process-lifetime gate is kernel-owned: SIGKILL cannot orphan it.
+  // Keep it until the main lock has been released, including failure cleanup.
+  if (!lockHeld) { processGate?.close(); processGate=null; return; }
   try {
     const owner = parse(fs.readFileSync(ownerPath, 'utf8'), 'LOCK_INVALID');
     if (owner.pid === process.pid) fs.rmSync(lockDir, { recursive: true });
   } catch {}
   lockHeld = false;
+  processGate?.close(); processGate=null;
 }
-function acquire() {
-  // Serialize recovery too: a second stale-lock reclaimer must not remove a new owner.
-  const gate = path.join(stateDir, 'lock-acquire');
-  try { fs.mkdirSync(gate); } catch (error) { if (error.code === 'EEXIST') fail('LOCK_RECOVERY_UNRESOLVED'); throw error; }
-  try { return acquireUnderGate(); } finally { fs.rmdirSync(gate); }
+async function acquire() {
+  // Serialize the existing owner-file recovery using an OS-owned exclusive
+  // loopback bind, not a second mkdir with its own unrecoverable crash window.
+  // A collision/permission denial stops before dispatch; no forced lock stealing.
+  // The port is local-only, has no protocol and exposes no data. No daemon,
+  // dependency, persistent queue or additional model runner is introduced.
+  const identity=fs.realpathSync(stateDir);
+  const port=20000+(createHash('sha256').update(identity).digest().readUInt32BE(0)%30000);
+  processGate=createServer(socket=>socket.destroy());
+  const acquired=await new Promise((resolve,reject)=>{
+    processGate.once('error',error=>{
+      if(error.code==='EADDRINUSE')resolve(false);
+      else reject(new Error('LOCK_GUARD_UNAVAILABLE'));
+    });
+    processGate.listen({host:'127.0.0.1',port,exclusive:true},()=>resolve(true));
+  });
+  if(!acquired){
+    processGate.close();processGate=null;
+    // Only call this another running watcher when the existing owner agrees.
+    // A foreign service/initial-acquisition race is unavailable, never proof.
+    try { if(alive(JSON.parse(fs.readFileSync(ownerPath,'utf8')).pid))return false; } catch {}
+    fail('LOCK_GUARD_UNAVAILABLE');
+  }
+  processGate.unref();
+  return acquireUnderGate();
 }
+
 function acquireUnderGate() {
   try { fs.mkdirSync(lockDir); }
   catch (error) {
@@ -233,7 +259,7 @@ async function main() {
   if (!/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(repoFullName) || process.platform === 'win32') fail('CONFIG_INVALID');
   fs.mkdirSync(stateDir, { recursive: true, mode: 0o700 });
   fs.chmodSync(stateDir, 0o700);
-  if (!acquire()) return report({ status: 'quiet', reason: 'already-running' });
+  if (!await acquire()) return report({ status: 'quiet', reason: 'already-running' });
   state = loadState();
   const git = await resolveBin('KIANOS_GIT_BIN', 'git');
   gh = await resolveBin('KIANOS_GH_BIN', 'gh');
@@ -333,7 +359,7 @@ for (const signal of ['SIGINT', 'SIGTERM']) process.on(signal, () => {
 process.on('exit', release);
 try { await main(); }
 catch (error) {
-  const safeCodes = new Set(['CONFIG_INVALID', 'FORCE_REARM_NOT_SUPPORTED', 'LOCK_RECOVERY_UNRESOLVED', 'LOCK_INVALID', 'STATE_JSON_INVALID', 'STATE_INVALID', 'STATE_SCHEMA_UNSUPPORTED', 'STATE_READBACK_MISMATCH', 'TIMEOUT', 'OUTPUT_LIMIT', 'SPAWN_FAILED', 'CLAIM_WRITE_FAILED', 'COMMAND_FAILED', 'GIT_OR_GH_REQUIRED', 'PROJECT_DIR_INVALID', 'PROJECT_ORIGIN_INVALID', 'ISSUE_LIST_INVALID', 'PR_LIST_INVALID', 'CODEX_REQUIRED', 'RECEIPT_INVALID', 'RECEIPT_READBACK_MISMATCH', 'ISSUE_READBACK_INVALID', 'TASK_CHANGED', 'EXEC_REPO_INVALID', 'EXEC_REPO_DIRTY', 'EXECUTION_FAILED', 'RESULT_INVALID', 'RESULT_MISSING_OR_OVERSIZED', 'PR_READBACK_INVALID', 'PR_READBACK_MISMATCH']);
+  const safeCodes = new Set(['CONFIG_INVALID', 'FORCE_REARM_NOT_SUPPORTED', 'LOCK_RECOVERY_UNRESOLVED', 'LOCK_GUARD_UNAVAILABLE', 'LOCK_INVALID', 'STATE_JSON_INVALID', 'STATE_INVALID', 'STATE_SCHEMA_UNSUPPORTED', 'STATE_READBACK_MISMATCH', 'TIMEOUT', 'OUTPUT_LIMIT', 'SPAWN_FAILED', 'CLAIM_WRITE_FAILED', 'COMMAND_FAILED', 'GIT_OR_GH_REQUIRED', 'PROJECT_DIR_INVALID', 'PROJECT_ORIGIN_INVALID', 'ISSUE_LIST_INVALID', 'PR_LIST_INVALID', 'CODEX_REQUIRED', 'RECEIPT_INVALID', 'RECEIPT_READBACK_MISMATCH', 'ISSUE_READBACK_INVALID', 'TASK_CHANGED', 'EXEC_REPO_INVALID', 'EXEC_REPO_DIRTY', 'EXECUTION_FAILED', 'RESULT_INVALID', 'RESULT_MISSING_OR_OVERSIZED', 'PR_READBACK_INVALID', 'PR_READBACK_MISMATCH']);
   const reason = safeCodes.has(error.message) ? error.message : 'LOCAL_IO_FAILED';
   if (ownedClaim) {
     const { issue, claim } = ownedClaim;

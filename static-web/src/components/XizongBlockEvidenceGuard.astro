@@ -5,6 +5,9 @@ const evidenceVersion = [block?.sourceHash || '', block?.systemSourceHash || '',
 <span data-xizong-block-evidence-guard data-object-id={block.objectId} data-evidence-version={evidenceVersion} hidden></span>
 
 <script>
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   const marker = document.querySelector('[data-xizong-block-evidence-guard]');
   const root = document.querySelector('[data-xizong-v6-block]');
   if (marker instanceof HTMLElement && root instanceof HTMLElement) {
@@ -70,4 +73,6 @@ const evidenceVersion = [block?.sourceHash || '', block?.systemSourceHash || '',
       } catch {}
     }
   }
+
+  });
 </script>

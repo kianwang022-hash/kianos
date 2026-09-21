@@ -48,6 +48,8 @@ const rows = compiled instanceof Map
 ))}
 
 <script is:inline>
+window.__kianosLearnerWriterReady.then(() => {
+
   (() => {
     const workspace = document.querySelector('[data-politics-cognitive-workspace]');
     if (!workspace) return;
@@ -127,6 +129,8 @@ const rows = compiled instanceof Map
       }
     });
   })();
+
+});
 </script>
 
 <style is:global>

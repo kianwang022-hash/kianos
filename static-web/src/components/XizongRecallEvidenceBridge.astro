@@ -11,6 +11,9 @@ const kps = block?.kpRecords || [];
 <script type="application/json" data-xizong-recall-evidence-kps set:html={JSON.stringify(kps.map((kp) => kp.kpId))}></script>
 
 <script>
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   const root = document.querySelector('[data-xizong-v6-block]');
   const bridge = document.querySelector('[data-xizong-recall-evidence-bridge]');
   const kpPayload = document.querySelector('[data-xizong-recall-evidence-kps]');
@@ -101,4 +104,6 @@ const kps = block?.kpRecords || [];
     }, true);
    })();
   }
+
+  });
 </script>

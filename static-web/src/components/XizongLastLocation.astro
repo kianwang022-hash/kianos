@@ -36,6 +36,9 @@ const requiredBlocks = (requiredBlockIds?.length || requiredSystemRecall) ? load
 
 <script>
   import { inspectXizongSystemCompletion, hasXizongSystemRecall } from '../lib/xizongMemoryAutoRelease.mjs';
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   const node = document.querySelector('[data-xizong-last-location]');
   if (node instanceof HTMLElement) {
     const readJson = (key, fallback = null) => {
@@ -69,4 +72,6 @@ const requiredBlocks = (requiredBlockIds?.length || requiredSystemRecall) ? load
       try { localStorage.setItem('kianos-xizong-last-location-v1', JSON.stringify(value)); } catch {}
     }
   }
+
+  });
 </script>

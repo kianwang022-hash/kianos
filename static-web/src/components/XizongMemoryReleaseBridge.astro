@@ -9,6 +9,9 @@ const { objectId = '', sourceHash = '' } = Astro.props;
     releaseCompletedBlockToMemory,
     xizongStudyStorageKey
   } from '../lib/xizongMemoryAutoRelease.mjs';
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
 
   const root = document.querySelector('[data-xizong-v6-block]');
   const payloadNode = document.querySelector('[data-xizong-learner-object-payload]');
@@ -61,5 +64,7 @@ const { objectId = '', sourceHash = '' } = Astro.props;
     const target = event.target instanceof Element ? event.target : null;
     if (!target?.closest('[data-block-complete]')) return;
     queueMicrotask(attemptRelease);
+  });
+
   });
 </script>

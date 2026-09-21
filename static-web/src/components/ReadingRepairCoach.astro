@@ -4,6 +4,9 @@ const base = import.meta.env.BASE_URL;
 <span data-reading-repair-coach-root data-review-base={base} hidden></span>
 
 <script>
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   const readingRoot = document.querySelector('[data-local-port="reading"]');
   const coachHost = document.querySelector('[data-reading-repair-coach-root]');
 
@@ -680,4 +683,6 @@ const base = import.meta.env.BASE_URL;
     document.addEventListener('keydown', () => window.setTimeout(renderAll, 0));
     renderAll();
   }
+
+  });
 </script>

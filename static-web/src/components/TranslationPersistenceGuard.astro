@@ -4,6 +4,9 @@
 </aside>
 
 <script>
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   const root = document.querySelector('[data-translation-runtime]');
   const warning = document.querySelector('[data-translation-persistence-warning]');
 
@@ -29,4 +32,6 @@
       root.dataset.persistenceAvailable = 'true';
     }
   }
+
+  });
 </script>

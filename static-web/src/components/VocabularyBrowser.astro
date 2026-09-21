@@ -38,6 +38,9 @@ const previewRows = rows.map((row) => ({
 </section>
 
 <script>
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   const browser = document.querySelector('[data-vocab-browser]');
   if (browser) {
     let rows = [];
@@ -107,4 +110,6 @@ const previewRows = rows.map((row) => ({
     renderRows();
     renderReview();
   }
+
+  });
 </script>

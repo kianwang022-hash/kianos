@@ -89,6 +89,9 @@ const storage = new MemoryStorage({
     submitted: true,
     uncertain: ['q2'],
     results: { q1: 'correct', q2: 'wrong', q3: 'correct' },
+    answers: { q1: 'A', q2: 'B', q3: 'C' },
+    binding: {task:'reading_a', object_id:'english1-2016-reading-a-p1', source_hash:'fixture-source', attempt_id:'fixture-attempt',
+      source_snapshot:{questions:[{id:'q1'},{id:'q2'},{id:'q3'}]}},
     startedAt: '2026-09-18T08:00:00.000Z',
     submittedAt: '2026-09-18T08:20:00.000Z'
   },

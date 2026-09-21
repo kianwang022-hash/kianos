@@ -408,6 +408,9 @@ const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.ident
 <script>
   import { LEXICAL_LEDGER_STORAGE_KEY, appendEvidenceEvent, compileRepairTargets, emptyLexicalLedger, legacyEventId, normalizeLexicalLedger } from '../lib/lexicalEvidence.mjs';
   import { DEFAULT_PRONUNCIATION, LEXICAL_SETTINGS_STORAGE_KEY, normalizeLexicalSettings } from '../lib/lexicalSettings.mjs';
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
 
   const initializeVocabularyRoot = (root) => {
     if (!(root instanceof HTMLElement) || root.dataset.vocabInitialized === 'true') return;
@@ -648,4 +651,6 @@ const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.ident
   };
 
   document.querySelectorAll('[data-local-port="vocabulary"]').forEach(initializeVocabularyRoot);
+
+  });
 </script>

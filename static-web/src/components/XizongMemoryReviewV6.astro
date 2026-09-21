@@ -130,6 +130,9 @@ const packetMeta = {
 </section>
 
 <script>
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   const extension = document.querySelector('.xv6MemoryReview[data-study-extension]');
   if (extension) {
     const objectId = extension.getAttribute('data-study-object') || 'xizong:unknown';
@@ -434,6 +437,8 @@ const packetMeta = {
     renderMemory();
     renderReview();
   }
+
+  });
 </script>
 
 <style>

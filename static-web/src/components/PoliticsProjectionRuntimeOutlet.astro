@@ -63,6 +63,8 @@ const h2Groups = (row) => {
 )}
 
 <script is:inline>
+window.__kianosLearnerWriterReady.then(() => {
+
   (() => {
     const registry = document.querySelector('[data-politics-projection-runtime-registry]');
     if (!registry) return;
@@ -183,6 +185,8 @@ const h2Groups = (row) => {
       }
     });
   })();
+
+});
 </script>
 
 <style is:global>

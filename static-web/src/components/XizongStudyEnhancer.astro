@@ -74,6 +74,9 @@ const packetMeta = {
     consumePendingXizongChatReturnForObject
   } from '../lib/xizongPendingChatReturn.mjs';
   import { studyDayAt } from '../lib/studyTimer.mjs';
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
 
   const dock = document.querySelector('[data-xizong-study-dock]');
   const root = document.querySelector('[data-xizong-v6-block]');
@@ -307,6 +310,8 @@ const packetMeta = {
 
     renderDock();
   }
+
+  });
 </script>
 
 <style>

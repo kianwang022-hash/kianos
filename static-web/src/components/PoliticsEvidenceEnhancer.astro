@@ -11,6 +11,9 @@ const configs = (chapter?.units || []).map((unit) => ({
 ))}
 
 <script>
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   const evidenceKey = 'kianos-politics-evidence-v1';
   const runtime = document.querySelector('[data-politics-runtime]');
   const sourceConfigs = [...document.querySelectorAll('[data-politics-evidence-source-config]')]
@@ -67,5 +70,7 @@ const configs = (chapter?.units || []).map((unit) => ({
       if (!(repair instanceof HTMLElement) || repair.hidden) return;
       enrichLatestRepairEvidence(card);
     }));
+  });
+
   });
 </script>

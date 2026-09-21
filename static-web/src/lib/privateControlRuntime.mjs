@@ -1,3 +1,4 @@
+import { assertLearnerStorageWritable, commitLearnerStorageChanges } from './browserLearnerWriter.mjs';
 import {
   CONTROL_LOCAL_RECEIPT_KEY,
   CONTROL_RECEIPT_SCHEMA,
@@ -10,6 +11,7 @@ import {
 } from './englishSessionControl.mjs';
 import {
   inspectEnglishExamSession,
+  englishExamProductiveScoreMatches,
   applyEnglishExamProductiveScoreReturn,
   writeEnglishExamSession
 } from './englishExamSession.mjs';
@@ -112,25 +114,7 @@ async function loadEnglishCatalog(){
 
 function commitShadow(real,shadow,keys){
   shadow.assertCurrent();
-  const before=new Map(keys.map(key=>[key,real.getItem(key)]));
-  try{
-    for(const key of keys){
-      const value=shadow.getItem(key);
-      if(value==null)real.removeItem(key);
-      else real.setItem(key,value);
-    }
-  }catch(error){
-    let rollbackFailed=false;
-    for(const [key,value] of before){
-      try{
-        if(real.getItem(key)!==value){
-          value==null?real.removeItem(key):real.setItem(key,value);
-        }
-      }catch{rollbackFailed=true;}
-    }
-    if(rollbackFailed)throw new Error('KIANOS_CONTROL_ROLLBACK_FAILED_RECOVERY_REQUIRED');
-    throw error;
-  }
+  commitLearnerStorageChanges(real, keys.map(key=>[key,shadow.getItem(key)]), shadow.before);
 }
 
 async function saveReceipt(receipt){
@@ -168,12 +152,19 @@ function appliedReceipt(storage,command){
   return ['APPLIED','IDEMPOTENT'].includes(receipt.status)?receipt:null;
 }
 
+function receiptNativeEffectPresent(storage,command){
+  const score=command.operations.find(op=>op.kind==='english.exam_score_return');
+  if(!score)return true;
+  const native=inspectEnglishExamSession(storage);
+  return native.status==='ready' && englishExamProductiveScoreMatches(native.session,score.payload);
+}
+
 export async function applyPrivateControlCommand(storage,input,{day=localDay(),now=Date.now()}={}){
   const command=validateBrowserControlCommand(input,day);
   if(Date.parse(command.generated_at)>Number(now)+60_000)throw new Error('KIANOS_CONTROL_FUTURE_COMMAND');
 
   const localReceipt=appliedReceipt(storage,command);
-  if(localReceipt){
+  if(localReceipt && receiptNativeEffectPresent(storage,command)){
     const receiptSaved=await saveReceipt(localReceipt);
     return{status:'idempotent',command,receipt_saved:receiptSaved};
   }
@@ -191,11 +182,12 @@ export async function applyPrivateControlCommand(storage,input,{day=localDay(),n
   const englishCatalog=englishOp?await loadEnglishCatalog():null;
   validateBrowserControlCommand(command,day);
   const completedWhileLoading=appliedReceipt(storage,command);
-  if(completedWhileLoading){
+  if(completedWhileLoading && receiptNativeEffectPresent(storage,command)){
     const receiptSaved=await saveReceipt(completedWhileLoading);
     return{status:'idempotent',command,receipt_saved:receiptSaved};
   }
   const shadow=new ShadowStorage(storage);
+  assertLearnerStorageWritable(storage);
   if(planOp)validateExamChatPlanAgainstStorage(shadow,planOp.payload,day);
 
   if(englishOp){
@@ -221,7 +213,10 @@ export async function applyPrivateControlCommand(storage,input,{day=localDay(),n
     if(exam.status!=='ready')throw new Error('KIANOS_CONTROL_ENGLISH_EXAM_STATE_REQUIRED:'+exam.status);
     // The native owner alone admits a score for the exact sealed first outputs.
     // Keep its write in this command's transaction; never persist a second score ledger.
-    writeEnglishExamSession(shadow,applyEnglishExamProductiveScoreReturn(exam.session,englishScoreOp.payload,now));
+    if(shadow.getItem(CONTROL_LOCAL_RECEIPT_KEY)!=null
+      || !englishExamProductiveScoreMatches(exam.session,englishScoreOp.payload)) {
+      writeEnglishExamSession(shadow,applyEnglishExamProductiveScoreReturn(exam.session,englishScoreOp.payload,now));
+    }
   }
   if(planOp){
     const prior=readJson(shadow,EXAM_CHAT_PLAN_KEY);
@@ -296,7 +291,8 @@ export function initPrivateControlRuntime(storage=window.localStorage,{
       if(sameServerReceipt&&String(data.receipt.status||'').toUpperCase()==='APPLIED'
         && localReceipt?.command_id===data.command.command_id
         && (!data.command.command_hash||localReceipt.command_hash===data.command.command_hash)
-        && ['APPLIED','IDEMPOTENT'].includes(String(localReceipt.status||'').toUpperCase()))return;
+        && ['APPLIED','IDEMPOTENT'].includes(String(localReceipt.status||'').toUpperCase())
+        && receiptNativeEffectPresent(storage,data.command))return;
       try{
         await applyPrivateControlCommand(storage,data.command);
       }catch(error){

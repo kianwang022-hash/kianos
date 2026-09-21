@@ -48,6 +48,9 @@ const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
 
 <script>
   import { readPoliticsSnapshot, selectPoliticsReview, resolvePoliticsContinue } from '../lib/politicsPracticeState.mjs';
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   const root = document.querySelector('[data-politics-home-tools]');
   if (root instanceof HTMLElement) {
     const catalogNode = root.querySelector('[data-politics-home-catalog]');
@@ -174,4 +177,6 @@ const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
     addEventListener('storage', update);
     addEventListener('focus', update);
   }
+
+  });
 </script>

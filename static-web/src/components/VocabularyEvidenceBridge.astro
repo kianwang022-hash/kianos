@@ -19,6 +19,9 @@ const { nextHref = '/vocabulary/' } = Astro.props;
     normalizeLexicalSettings,
     registerLexicalIntroduction
   } from '../lib/lexicalSettings.mjs';
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   const bridge=document.querySelector('[data-vocab-evidence-bridge]');
   const root=document.querySelector('[data-local-port="vocabulary"]');
   if(bridge instanceof HTMLElement&&root instanceof HTMLElement){
@@ -159,4 +162,6 @@ const { nextHref = '/vocabulary/' } = Astro.props;
       if(route){event.preventDefault();submitRoute(route);}
     });
   }
+
+  });
 </script>

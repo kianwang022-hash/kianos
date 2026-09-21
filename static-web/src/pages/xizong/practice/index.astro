@@ -129,6 +129,9 @@ const questionSemanticRevisions = buildXizongForecastQuestionScope(listCurrentXi
     buildXizongRetainedSet,
     xizongQuestionMarkOverrides
   } from '../../../lib/xizongRetainedPractice.mjs';
+  import { learnerWriterReady } from '../../../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
 
   document.querySelectorAll('[data-retained-entry]').forEach((root) => {
     const status = root.querySelector('[data-retained-status]');
@@ -222,5 +225,7 @@ const questionSemanticRevisions = buildXizongForecastQuestionScope(listCurrentXi
         if (status) status.textContent = '无法导入：请让 Chat 重新生成标准专项训练；真题与 AI 变式都只支持即时反馈。';
       }
     });
+  });
+
   });
 </script>

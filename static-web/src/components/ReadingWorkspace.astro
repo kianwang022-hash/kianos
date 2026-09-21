@@ -139,6 +139,9 @@ const questionId = (question, index) => String(question.id || question.question_
 
 <script>
   import {inspectEnglishAttempt, saveEnglishAttempt, archiveEnglishAttempt, taskMetadata, preserveEnglishFailure} from "../lib/englishLearnerEvidence.mjs";
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   const root = document.querySelector('[data-local-port="reading"]');
   if (root) {
     const readingKey = root.getAttribute('data-reading-object') || 'reading';
@@ -776,4 +779,6 @@ const questionId = (question, index) => String(question.id || question.question_
 
     render();
   }
+
+  });
 </script>

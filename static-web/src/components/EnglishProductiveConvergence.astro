@@ -5,6 +5,9 @@
     saveManualWritingRevision,
     passWritingManualReview
   } from '../lib/englishProductiveConvergenceModel.mjs';
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
 
   const onReady = (callback) => {
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', callback, { once: true });
@@ -332,6 +335,8 @@
 
   onReady(() => { enhanceTranslation(); enhanceWriting(); });
   window.addEventListener('kianos:writing-task-opened', enhanceWriting);
+
+  });
 </script>
 
 <style>

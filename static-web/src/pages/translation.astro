@@ -75,6 +75,9 @@ const payload = JSON.stringify(sets).replace(/</g, '\u003c');
 </Base>
 
 <script>
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   const root = document.querySelector('[data-translation-home]');
   if (root instanceof HTMLElement) {
     const base = root.getAttribute('data-base') || '/';
@@ -141,6 +144,8 @@ const payload = JSON.stringify(sets).replace(/</g, '\u003c');
     root.querySelector('[data-translation-search]')?.addEventListener('input', (event) => render(event.currentTarget.value || ''));
     render();
   }
+
+  });
 </script>
 
 <style>

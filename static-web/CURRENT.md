@@ -12,11 +12,11 @@ Content production remains independent: vocabulary upgrades, Xizong explanations
 
 ### Active bounded Freeze repair
 
-Kian authorized repair of the seven Final Freeze findings on 2026-09-22. This branch contains the F0-02 whole-paper output-integrity candidate in the existing [native exam session](src/lib/englishExamSession.mjs), with [its focused regression](scripts/test-english-exam-seal-integrity.mjs). Present-but-incomplete autosaves/captures must not become empty answers; explicit blank work remains legal. No real learner state is migrated or rewritten.
+The existing [PR #754](https://github.com/kianwang022-hash/kianos/pull/754) contains the bounded repair candidate for the seven Final Freeze findings authorized by Kian. Normal handoff uses the existing private control owner; explicit blank work remains legal; malformed English outputs/results stay unknown; Xizong invalid counts/bands cannot prove completion; native score recovery and receipts stay coupled. Existing native storage is unchanged: browser write ownership only excludes competing page transactions, and the watcher uses a process-owned guard for crash-safe lock recovery.
 
-Local isolated proof: 13 focused regression groups and the original 31 stage-2A assertions pass. The original audit runner's unguarded exploitation transcript was replaced only for reporting because the repaired seal now rejects that input; its test assertions were unchanged. This is not full repository, browser, relay or installed-Mac proof. F0-02 remains an unmerged candidate, not final closure; F0-01/03/04/05/06 and F1-01 remain unmodified by this batch.
+Run the existing affected workflows plus `scripts/test-freeze-integrity.mjs`, `scripts/test-freeze-browser.mjs` and the extended watcher regression. Complete native regressions and isolated process checks have been executed; real-page corruption and cross-page ownership require the candidate browser run before promotion. The main-branch snapshot, a green CI badge and this cursor never prove installed-Mac health. No learner migration, data reset, real-record mutation or deployment is authorized by this candidate.
 
-Next: verify this candidate against the affected existing whole-paper consumers/tests and an isolated browser before promotion, then continue the remaining six bounded repairs. Do not restart broad audits, clear learner data or claim Freeze readiness.
+Next: validate this complete candidate and reconcile only actual overlapping changes. Keep the PR unmerged until affected-interface proof is sufficient. Do not restart broad audits, introduce another durable learner store or claim Final Freeze readiness from local tests.
 
 ## Start from the reported symptom
 
@@ -26,7 +26,7 @@ Next: verify this candidate against the affected existing whole-paper consumers/
 | Chat cannot see current learner facts | [private Packet builder](scripts/privateDailyLearningPacket.mjs) | [Packet relay](scripts/privateDailyLearningPacketRelay.mjs), then the affected subject adapter |
 | Plan seems unrealistic / a prediction is unclear | [Chat planning boundary, section 0](../EXAM_ORCHESTRATOR_CONTRACT.md) | Actual subject Packet first; [Xizong workload owner](src/lib/xizongForecastModel.mjs) or [English estimate utility](src/lib/englishForecastModel.mjs) only when the disputed output actually uses it |
 | Chat instruction did not apply / receipt differs | [control runtime](src/lib/privateControlRuntime.mjs) | [control relay](scripts/privateControlRelaySync.mjs), then the exact command/native operation |
-| Yesterday's state did not recover / one subject is corrupt | [checkpoint runtime](src/lib/privateCheckpointRuntime.mjs) | [subject checkpoint adapters](src/lib/privateSubjectCheckpoints.mjs), then only the affected native owner |
+| Yesterday's state did not recover / one subject is corrupt | [checkpoint runtime](src/lib/privateCheckpointRuntime.mjs) | [subject checkpoint adapters](src/lib/privateSubjectCheckpoints.mjs), [browser write ownership](src/lib/browserLearnerWriter.mjs), then only the affected native owner |
 | English source changed / Resume differs | [English session owner](src/lib/englishSessionControl.mjs) | [source identity owner](src/lib/englishSourceTruth.mjs) and [Resume surface](src/components/EnglishResume.astro) |
 | English whole-paper score or progress | [native exam session](src/lib/englishExamSession.mjs) | [exam surface](src/pages/english-exam/[id].astro) |
 | Xizong past attempts became stale | [native question evidence](src/lib/xizongQuestionAttempts.mjs) | [semantic source revisions](src/lib/xizongQuestions.mjs), then the affected native consumer |

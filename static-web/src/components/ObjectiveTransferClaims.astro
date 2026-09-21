@@ -6,6 +6,9 @@ const { task = '' } = Astro.props;
 <script>
   import {prepareEnglishLexicalReturn} from "../lib/englishLexicalReturn.mjs";
   import {atomicEnglishWrites} from "../lib/englishLearnerEvidence.mjs";
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   const STORE_KEY = 'kianos-english-objective-transfer-claims-v1';
   const RETURN_SCHEMA = 'kianos.english.objective_review_return.v1';
   const RETURN_MARKER = 'KIANOS_OBJECTIVE_RETURN_V1';
@@ -409,6 +412,8 @@ const { task = '' } = Astro.props;
       if (event.key === STORE_KEY || event.key === reviewKey || event.key === handoffKey) render();
     });
     render();
+  });
+
   });
 </script>
 

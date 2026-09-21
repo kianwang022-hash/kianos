@@ -79,6 +79,8 @@ const handoffJson = JSON.stringify(handoffMap).replace(/</g, '\\u003c');
 {repairs.length > 0 && <script type="application/json" id="politics-repair-handoff-map" set:html={handoffJson}></script>}
 
 <script is:inline>
+window.__kianosLearnerWriterReady.then(() => {
+
   (() => {
     const registry = document.querySelector('[data-politics-explicit-repair-registry]');
 
@@ -151,6 +153,8 @@ const handoffJson = JSON.stringify(handoffMap).replace(/</g, '\\u003c');
       } catch {}
     }, 0));
   });
+
+});
 </script>
 
 <style>

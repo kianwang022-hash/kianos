@@ -121,6 +121,8 @@ const firstRoundExactRows = (chapter?.units || []).map((unit) => ({
 </style>
 
 <script is:inline>
+window.__kianosLearnerWriterReady.then(() => {
+
   const workspace = document.querySelector('[data-politics-cognitive-workspace]');
 
   const setWorkspaceState = (unit, state) => {
@@ -340,4 +342,6 @@ const firstRoundExactRows = (chapter?.units || []).map((unit) => ({
       requestAnimationFrame(() => target?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }));
     });
   }
+
+});
 </script>

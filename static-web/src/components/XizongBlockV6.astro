@@ -294,6 +294,8 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
   groupPayload: groups.map((group) => ({ groupId: group.groupId, label: group.label, start: group.start, end: group.end, kpIds: group.kpIds, goal: group.goal || '', closure: group.closure || '', membershipMode: group.membershipMode || '' })),
   kpPayload: kps.map((kp) => ({ kpId: kp.kpId, displayId: kp.displayId, title: kp.title, groupId: kp.groupId, sourceLocator: kp.sourceLocator || '' }))
 }}>
+window.__kianosLearnerWriterReady.then(() => {
+
   const root = document.querySelector('[data-xizong-v6-block]');
   if (root) {
    (() => {
@@ -942,9 +944,14 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
     setKpIndex(state.kpIndex || 0); setStage(state.stage || 'block_learn'); syncState();
    })();
   }
+
+});
 </script>
 
 <script>
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   (() => {
     const root = document.querySelector('[data-xizong-v6-block]');
     if (!(root instanceof HTMLElement)) return;
@@ -978,6 +985,8 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
       if (event.target === dialog) dialog.close();
     });
   })();
+
+  });
 </script>
 
 <style>
@@ -991,6 +1000,9 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
     validateXizongSessionInstruction
   } from '../lib/xizongSessionInstruction.mjs';
   import { studyDayAt } from '../lib/studyTimer.mjs';
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
 
   (() => {
     const root = document.querySelector('[data-xizong-v6-block]');
@@ -1033,4 +1045,6 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
       }));
     } catch {}
   })();
+
+  });
 </script>

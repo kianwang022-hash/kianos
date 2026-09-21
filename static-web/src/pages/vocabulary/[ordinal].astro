@@ -14,6 +14,9 @@ const { ordinal }=Astro.props;const answer=loadLexicalWordByOrdinal(Number(ordin
   <nav class="lexicalStudyNav lexicalStudyNavBottom"><a href={`${base}vocabulary/`}>Back to Vocabulary</a><div>{previousOrdinal&&<a href={`${base}vocabulary/${previousOrdinal}/`}>← Prev</a>}{nextOrdinal?<a class="next" href={`${base}vocabulary/${nextOrdinal}/`}>Next →</a>:<a class="next" href={`${base}vocabulary/`}>Finish</a>}</div></nav>
 </Base>
 <script>
+  import { learnerWriterReady } from '../../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   const nav=document.querySelector('[data-lexical-study-nav]');
   const root=document.querySelector('[data-local-port="vocabulary"]');
   const requestedMode=new URLSearchParams(location.search).get('mode');
@@ -29,4 +32,6 @@ const { ordinal }=Astro.props;const answer=loadLexicalWordByOrdinal(Number(ordin
     }
   }
   document.body.dataset.lexicalMode=mode;
+
+  });
 </script>

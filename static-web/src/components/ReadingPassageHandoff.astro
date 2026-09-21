@@ -1,6 +1,9 @@
 <span data-reading-passage-handoff-root hidden></span>
 
 <script>
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   const TRANSFER_STORE_KEY = 'kianos-english-objective-transfer-claims-v1';
   const TASK = 'reading_a';
   const readingRoot = document.querySelector('[data-local-port="reading"]');
@@ -218,4 +221,6 @@
     });
     sync();
   }
+
+  });
 </script>

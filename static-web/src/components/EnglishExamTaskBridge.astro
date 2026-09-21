@@ -32,6 +32,9 @@ const base = import.meta.env.BASE_URL;
     englishExamTaskHref,
     englishExamPayload
   } from '../lib/englishExamSession.mjs';
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
 
   const bridge = document.querySelector('[data-english-exam-task-bridge]');
   if (bridge instanceof HTMLElement) {
@@ -86,6 +89,22 @@ const base = import.meta.env.BASE_URL;
       };
 
       let completing = false;
+      let sealFailed = false;
+      const reportFailure = (wholePaper = false) => {
+        if(wholePaper)sealFailed = true;
+        bridge.dataset.sealError = wholePaper ? 'true' : 'false';
+        if(progress) {
+          progress.setAttribute('role','alert');
+          progress.textContent = wholePaper
+            ? '交卷未成功。原始作答已保留，尚未生成成绩；记录恢复后可重试。'
+            : '本部分未交付。原始作答已保留，请在记录恢复后重试。';
+        }
+        const button=bridge.querySelector('[data-exam-complete]');
+        if(button instanceof HTMLButtonElement) {
+          button.disabled=false;
+          button.textContent=wholePaper ? '重试交卷' : '重试交付本部分';
+        }
+      };
       const completeStep = () => {
         if (completing) return;
         completing = true;
@@ -93,8 +112,9 @@ const base = import.meta.env.BASE_URL;
           state=readEnglishExamSession(localStorage);
           if(!state || state.session_id!==querySession || state.status!=='ACTIVE') throw new Error('ENGLISH_EXAM_CONTEXT_INVALID_OR_SEALED');
           if (englishExamRemainingMs(state) <= 0) {
-            state = sealEnglishExamSession(state,Date.now(),{storage:localStorage});
-            writeEnglishExamSession(localStorage, state);
+            const sealed = sealEnglishExamSession(state,Date.now(),{storage:localStorage});
+            writeEnglishExamSession(localStorage, sealed);
+            state = sealed;
             location.href = `${base}english-exam/${encodeURIComponent(state.paper_id)}/`;
             return;
           }
@@ -108,11 +128,7 @@ const base = import.meta.env.BASE_URL;
           routeNext();
         } catch (error) {
           completing = false;
-          const button = bridge.querySelector('[data-exam-complete]');
-          if (button instanceof HTMLButtonElement) {
-            button.disabled = false;
-            button.textContent = error instanceof Error ? error.message : '无法封存本部分';
-          }
+          reportFailure(Boolean(state && englishExamRemainingMs(state)<=0));
         }
       };
 
@@ -137,16 +153,22 @@ const base = import.meta.env.BASE_URL;
 
       const renderTime = () => {
         state=readEnglishExamSession(localStorage);
-        if(!state || state.session_id!==querySession || state.status!=='ACTIVE') { location.href=`${base}english-exam/${encodeURIComponent(state?.paper_id||'')}/`;return; }
+        if(!state) { reportFailure(true); return; }
+        if(state.session_id!==querySession || state.status!=='ACTIVE') { location.href=`${base}english-exam/${encodeURIComponent(state.paper_id)}/`;return; }
         const ms = englishExamRemainingMs(state);
         const totalSeconds = Math.max(0, Math.ceil(ms / 1000));
         const minutes = Math.floor(totalSeconds / 60);
         const seconds = totalSeconds % 60;
         if (remaining) remaining.textContent = `${String(minutes).padStart(3, '0')}:${String(seconds).padStart(2, '0')}`;
-        if (ms <= 0 && state.status === 'ACTIVE') {
-          state = sealEnglishExamSession(state,Date.now(),{storage:localStorage});
-          writeEnglishExamSession(localStorage, state);
-          location.href = `${base}english-exam/${encodeURIComponent(state.paper_id)}/`;
+        if (ms <= 0) {
+          document.querySelectorAll('[data-local-port=reading],[data-objective-root],[data-translation-runtime],[data-writing-runtime]').forEach(node=>{node.inert=true;});
+          if(sealFailed)return;
+          try {
+            const sealed=sealEnglishExamSession(state,Date.now(),{storage:localStorage});
+            writeEnglishExamSession(localStorage,sealed);
+            state=sealed;
+            location.href = `${base}english-exam/${encodeURIComponent(state.paper_id)}/`;
+          } catch { reportFailure(true); }
         }
       };
       renderTime();
@@ -160,6 +182,8 @@ const base = import.meta.env.BASE_URL;
       bridge.querySelector('[data-exam-return]').setAttribute('href', `${base}english-exam/${encodeURIComponent(state?.paper_id||'')}/`);
     }
   }
+
+  });
 </script>
 
 <style>

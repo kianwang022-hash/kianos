@@ -313,6 +313,8 @@ const workbenchHref = (unit) => `${base}politics/practice/?unit=${encodeURICompo
 </section>
 
 <script is:inline>
+window.__kianosLearnerWriterReady.then(() => {
+
   const runtime = document.querySelector('[data-politics-cognitive-workspace]');
   const politicsLastKey = 'kianos-politics-last-location-v1';
   const cursorKey = runtime ? `kianos-politics-workspace-v1:${runtime.dataset.subject || ''}:${runtime.dataset.chapter || ''}` : '';
@@ -420,6 +422,8 @@ const workbenchHref = (unit) => `${base}politics/practice/?unit=${encodeURICompo
   }, true);
 
   setActiveUnit(Number(cursor?.activeUnit || 0));
+
+});
 </script>
 
 <style>

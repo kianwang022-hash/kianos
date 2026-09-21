@@ -8,6 +8,9 @@
     normalizeXizongMemoryState,
     setPersonalPrompt
   } from '../lib/xizongMemoryModel.mjs';
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
 
   const root = document.querySelector('[data-xizong-v6-block]');
   const payloadNode = document.querySelector('[data-xizong-learner-object-payload]');
@@ -580,4 +583,6 @@
       refreshUnifiedSurface();
     }
   }
+
+  });
 </script>

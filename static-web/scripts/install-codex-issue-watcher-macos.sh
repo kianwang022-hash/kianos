@@ -61,8 +61,10 @@ if (( COMMAND_TIMEOUT_MS > 300000 )); then
   exit 2
 fi
 # Reinstallation must never kill a running executor or clear its durable claim.
+# The obsolete lock-acquire directory carries no ownership in the repaired
+# watcher. Preserve it for diagnosis; it must not permanently prevent recovery.
 SERVICE_STATE="$(launchctl print "gui/$(id -u)/$LABEL" 2>/dev/null || true)"
-if [[ "$SERVICE_STATE" == *"state = running"* ]] || [[ -d "$STATE_DIR/lock" ]] || [[ -d "$STATE_DIR/lock-acquire" ]]; then
+if [[ "$SERVICE_STATE" == *"state = running"* ]] || [[ -d "$STATE_DIR/lock" ]]; then
   echo "Watcher ownership is active or unresolved; finish/reconcile it before reinstalling." >&2
   exit 2
 fi
@@ -126,7 +128,7 @@ EOF
 
 plutil -lint "$PLIST_TMP" >/dev/null
 SERVICE_STATE="$(launchctl print "$DOMAIN/$LABEL" 2>/dev/null || true)"
-if [[ "$SERVICE_STATE" == *"state = running"* ]] || [[ -d "$STATE_DIR/lock" ]] || [[ -d "$STATE_DIR/lock-acquire" ]]; then
+if [[ "$SERVICE_STATE" == *"state = running"* ]] || [[ -d "$STATE_DIR/lock" ]]; then
   echo "Watcher became active; installation deferred without stopping it." >&2
   exit 2
 fi

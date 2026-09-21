@@ -34,6 +34,9 @@ const {
     markedFragments,
     activeRepairTasks
   } from '../lib/xizongMemoryModel.mjs';
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
 
   const root = document.querySelector('[data-xizong-home-tools]');
   if (root instanceof HTMLElement) {
@@ -150,4 +153,6 @@ const {
       }
     }
   }
+
+  });
 </script>

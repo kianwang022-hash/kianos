@@ -1,5 +1,6 @@
+import { commitLearnerStorageChanges } from './browserLearnerWriter.mjs';
 // English-owned evidence semantics over existing private storage; not a persistence service.
-import {assertEnglishExamTaskAccess,inspectEnglishExamSession,validateEnglishExamSession} from './englishExamSession.mjs';
+import {assertEnglishExamTaskAccess,inspectEnglishExamSession,validateEnglishExamSession,englishExamScoreIsSuccessor} from './englishExamSession.mjs';
 export const ENGLISH_MATERIAL_EXPOSURE_KEY='kianos-english-material-exposure-v1';
 export const ENGLISH_EXPOSURE_SCHEMA='kianos.english.material-exposure.v1';
 const clone=value=>value==null?value:JSON.parse(JSON.stringify(value));
@@ -12,10 +13,8 @@ export function readEnglishJson(storage,key,fallback=null){
 }
 
 export function atomicEnglishWrites(storage,changes){
- const previous=new Map(changes.map(([key])=>[key,storage.getItem(key)]));
- try{for(const [key,value] of changes){if(value==null)storage.removeItem(key);else storage.setItem(key,typeof value==='string'?value:JSON.stringify(value));}}
- catch(error){let rollbackError=null;for(const [key,value] of previous){try{if(value==null)storage.removeItem(key);else storage.setItem(key,value);}catch(e){rollbackError=e;}}
-  if(rollbackError)throw new Error('ENGLISH_STORAGE_ROLLBACK_FAILED_RESTORE_CHECKPOINT');throw error;}
+ commitLearnerStorageChanges(storage,changes.map(([key,value])=>[key,
+  value==null?null:typeof value==='string'?value:JSON.stringify(value)]));
 }
 
 export function readEnglishExposure(storage){
@@ -261,6 +260,27 @@ function legacyEnglishCheckpointValue(key,value){
  if(key.startsWith(ATTEMPT_PREFIXES.writing))return value.version===1&&value.schema==='kianos.english.writing.runtime.v1'&&value.taskId===key.slice(ATTEMPT_PREFIXES.writing.length)&&typeof value.state==='string'&&typeof value.draftEssay==='string'&&Array.isArray(value.history)&&Array.isArray(value.repairHistory);
  return false;
 }
+// Submitted objective work is complete only against its retained exact question set.
+// An absent/partial result map is unknown, never zero errors. This is workflow
+// integrity, not grading or mastery; native workspaces still own the results.
+export function inspectEnglishObjectiveResults(value) {
+ const unknown={valid:false,problem_count:null};
+ if(!record(value)||!record(value.answers)||!record(value.results))return unknown;
+ const questions=value.binding?.source_snapshot?.questions;
+ if(!Array.isArray(questions)||!questions.length)return unknown;
+ const ids=questions.map(row=>typeof row?.id==='string'?row.id:'');
+ if(ids.some(id=>!id)||new Set(ids).size!==ids.length)return unknown;
+ const expected=new Set(ids),results=Object.keys(value.results);
+ if(results.length!==ids.length||results.some(id=>!expected.has(id))
+   ||ids.some(id=>!['correct','wrong','unanswered'].includes(value.results[id])))return unknown;
+ if(Object.keys(value.answers).some(id=>!expected.has(id)||typeof value.answers[id]!=='string')
+   ||ids.some(id=>value.results[id]!=='unanswered'&&!String(value.answers[id]||'').trim()))return unknown;
+ if(value.uncertain!=null&&(!Array.isArray(value.uncertain)
+   ||value.uncertain.some(id=>!expected.has(String(id)))))return unknown;
+ const uncertain=new Set((value.uncertain||[]).map(String));
+ return {valid:true,problem_count:ids.filter(id=>value.results[id]!=='correct'||uncertain.has(id)).length};
+}
+
 function nativeCheckpointValue(key,raw){
  const value=JSON.parse(raw);
  if(key===ENGLISH_MATERIAL_EXPOSURE_KEY)readEnglishExposure({getItem:()=>raw});
@@ -269,6 +289,8 @@ function nativeCheckpointValue(key,raw){
  if(key==='kianos-english-exam-session-v1'||key.startsWith('kianos-english-exam-archive-v1:'))return validateEnglishExamSession(value);
  if(Object.values(ATTEMPT_PREFIXES).some(prefix=>key.startsWith(prefix))||key.startsWith(archivePrefix)){
   if(!legacyEnglishCheckpointValue(key,value)&&(!record(value)||!record(value.binding)||!value.binding.attempt_id||!value.binding.source_hash))throw new Error('ENGLISH_ATTEMPT_IDENTITY_UNVERIFIED');
+  if(value?.submitted===true&&['reading_a','cloze','reading_b'].includes(value.binding?.task)
+    &&!inspectEnglishObjectiveResults(value).valid)throw new Error('ENGLISH_OBJECTIVE_RESULTS_UNREADABLE');
  }
  return value;
 }
@@ -347,8 +369,12 @@ export function restoreEnglishCheckpoint(storage,payload,{keepLocal=false}={}){
   if(retiredCurrent(key,raw,combined,retired))continue;
   const existing=storage.getItem(key);
   if(existing!=null&&existing!==raw){
-   if(keepLocal)continue;
-   throw new Error('ENGLISH_CHECKPOINT_CONFLICT_KEEP_LOCAL:'+key);
+   const safeScore=key==='kianos-english-exam-session-v1'
+     && englishExamScoreIsSuccessor(JSON.parse(existing),JSON.parse(raw));
+   if(!safeScore){
+    if(keepLocal)continue;
+    throw new Error('ENGLISH_CHECKPOINT_CONFLICT_KEEP_LOCAL:'+key);
+   }
   }
   changes.push([key,raw]);
  }

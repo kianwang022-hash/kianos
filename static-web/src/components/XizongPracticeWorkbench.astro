@@ -276,6 +276,9 @@ const payload = JSON.stringify({
     sealXizongPaperState,
     unlockXizongPaperReview
   } from '../lib/xizongPaperScoring.mjs';
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
 
   document.querySelectorAll('[data-xizong-practice]').forEach(async (root) => {
     const initialSystemId = root.getAttribute('data-xizong-practice') || '';
@@ -1319,5 +1322,7 @@ const payload = JSON.stringify({
     });
 
     renderQuestion();
+  });
+
   });
 </script>

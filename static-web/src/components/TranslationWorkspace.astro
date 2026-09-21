@@ -248,6 +248,9 @@ const nextHref = translation.navigation?.nextId
     saveReconstruction,
     archiveTranslationAttempt
   } from '../lib/translationRuntimeModel.mjs';
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
 
   const root = document.querySelector('[data-translation-runtime]');
   if (root instanceof HTMLElement) {
@@ -680,6 +683,8 @@ const nextHref = translation.navigation?.nextId
 
     render();
   }
+
+  });
 </script>
 
 <style>

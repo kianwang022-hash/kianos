@@ -37,6 +37,9 @@ const catalogPayload=JSON.stringify(englishSessionCatalog()).replace(/</g,"\\u00
     readEnglishSessionInstruction,
     writeEnglishSessionInstruction
   } from '../lib/englishSessionControl.mjs';
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
 
   const root = document.querySelector('[data-english-session-control]');
   if (root instanceof HTMLDetailsElement) {
@@ -164,6 +167,8 @@ const catalogPayload=JSON.stringify(englishSessionCatalog()).replace(/</g,"\\u00
     window.addEventListener('focus', renderStatus);
     renderStatus();
   }
+
+  });
 </script>
 
 <style>
