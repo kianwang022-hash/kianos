@@ -1,6 +1,6 @@
 {
   "schema": "kianos.lexical.three_chat_board.v1",
-  "status": "FROZEN_FINAL_STANDARD",
+  "status": "REOPENED_FULL_CATALOG_FINAL_STANDARD",
   "updated_at": "2026-09-22",
   "orchestration": "content/lexical/THREE_CHAT_RUNTIME.md",
   "trigger_aliases": {
@@ -24,38 +24,51 @@
     "c_no_new_delta_behavior": "AUTO_FREEZE_AND_CONTINUE",
     "b_audit_scheduler": "NEXT_READY_MATERIALIZED_CANDIDATE",
     "b_may_audit_non_frontier_candidate": true,
-    "final_semantic_standard": "FROZEN_V1",
-    "broad_reopen_requires_explicit_kian_revocation": true,
+    "final_semantic_standard": "FROZEN_V1_RULER__SCOPE_REOPENED_TO_FULL_CATALOG",
+    "broad_reopen_requires_explicit_kian_revocation": false,
     "production_first": true,
     "b_audit_paused_until_production_sweep_complete": true,
     "materialization_paused_until_production_sweep_complete": true,
     "p_behavior": "APPROVE_EXACT_SHOWN_DELTA__FREEZE_BACKLOG__IMMEDIATE_NEXT_PRODUCTION_BATCH"
   },
   "frontier": {
-    "accepted_main_head": "c4e4dc6f7988b9016ca57975e3cdd5e366e0ab70",
-    "current_candidate_id": null,
-    "range": null,
-    "state": "FINAL_SEMANTIC_FREEZE_COMPLETE",
+    "accepted_main_head": "0aeb2fffa3cfdbfc225e5fb59da802a9d4836349",
+    "current_candidate_id": "BF12",
+    "range": [
+      1251,
+      1350
+    ],
+    "state": "PRODUCTION_REVIEW_ALLOWED",
     "candidate_pr": null,
-    "candidate_branch": null,
+    "candidate_branch": "work/lexical-fullcatalog-bf12-20260922",
     "materialized_owner_read_head": null,
-    "note": "Broad final-standard review o0001-o1150 is complete and merged. The sole pre-freeze exception o1151-o1250 has also been audited, reconciled and merged. Do not advance into o1251+ or reopen broad semantics without explicit Kian revocation of FINAL_SEMANTIC_FREEZE v1."
+    "note": "Explicit Kian scope revocation received. Final semantic ruler remains frozen; broad continuation resumes at o1251 and proceeds through o7946."
   },
   "audit_target": {
-    "state": "NONE__FINAL_SEMANTIC_FREEZE_COMPLETE",
-    "candidate_id": null,
-    "range": null,
+    "state": "WAITING_PRODUCTION_AND_MATERIALIZATION",
+    "candidate_id": "BF12",
+    "range": [
+      1251,
+      1350
+    ],
     "candidate_pr": null,
-    "candidate_branch": null,
+    "candidate_branch": "work/lexical-fullcatalog-bf12-20260922",
     "candidate_owner_read_head": null,
     "brief": null,
-    "output": null,
-    "note": "No scheduled broad B audit remains. Future work is evidence-triggered local repair only."
+    "output": "content/lexical/semantic-audit/O1251_O1350_FINAL_STANDARD_FRESH_AUDIT_PACK.md"
   },
   "lanes": {
     "A": {
-      "role": "POST_FREEZE_LOCAL_REPAIR_ONLY",
-      "current_assignment": null,
+      "role": "FULL_CATALOG_PRODUCTION_REVIEW",
+      "current_assignment": {
+        "candidate_id": "BF12",
+        "range": [
+          1251,
+          1350
+        ],
+        "state": "REVIEW_BUNDLE_REQUIRED",
+        "next_action": "Export latest-main review bundles, Fresh Read + Self Attack, freeze smallest proposal."
+      },
       "bootstrap_integration": {
         "candidate_id": "BF00",
         "pr": 525,
@@ -265,21 +278,21 @@
         }
       ],
       "next_new_review_range": null,
-      "state": "FROZEN_NO_BROAD_CONVEYOR",
+      "state": "ACTIVE",
       "completed_through_ordinal": 700,
-      "next_action": "No broad Production/Audit work. Preserve by default; only bounded evidence-triggered local repair is allowed under FINAL_SEMANTIC_FREEZE v1."
+      "next_action": "Continue forward in serialized 100-owner batches after each merged frontier."
     },
     "B": {
-      "role": "POST_FREEZE_LOCAL_REPAIR_ONLY",
+      "role": "FULL_CATALOG_BATCH_AUDIT",
       "current_assignment": null,
-      "state": "FROZEN_NO_BROAD_CONVEYOR",
+      "state": "WAITING_PRODUCTION_AND_MATERIALIZATION",
       "may_mutate_semantic_truth": false,
       "must_stop_after_one_audit_pack": true,
       "scheduler": "NEXT_READY_MATERIALIZED_CANDIDATE",
-      "next_action": "No broad Production/Audit work. Preserve by default; only bounded evidence-triggered local repair is allowed under FINAL_SEMANTIC_FREEZE v1."
+      "next_action": "Audit each materialized continuation batch after Production and materialization."
     },
     "C": {
-      "role": "POST_FREEZE_LOCAL_REPAIR_ONLY",
+      "role": "FULL_CATALOG_PRODUCTION_REVIEW",
       "current_assignment": null,
       "scheduled_ranges": [
         [
@@ -733,9 +746,9 @@
           "no remaining C batch"
         ]
       },
-      "state": "FROZEN_NO_BROAD_CONVEYOR",
+      "state": "ACTIVE",
       "completed_through_ordinal": 1150,
-      "next_action": "No broad Production/Audit work. Preserve by default; only bounded evidence-triggered local repair is allowed under FINAL_SEMANTIC_FREEZE v1."
+      "next_action": "Support forward continuation without changing the frozen semantic ruler."
     }
   },
   "preserved_candidates": [
@@ -1576,140 +1589,48 @@
     "final_learner_objects": 7946
   },
   "audit_queue": [],
-  "campaign_phase": "FINAL_SEMANTIC_FREEZE",
+  "campaign_phase": "FULL_CATALOG_FINAL_STANDARD_CONTINUATION",
   "semantic_freeze": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
   "final_broad_review_scope": [
     1,
-    1150
+    7946
   ],
   "production_sweep": {
     "scope": [
-      1,
-      1150
+      1251,
+      7946
     ],
-    "mode": "A_LOW_TO_HIGH__C_HIGH_TO_LOW",
-    "status": "COMPLETE",
-    "broad_semantic_reopen_after_closure": "FORBIDDEN_WITHOUT_EXPLICIT_KIAN_REVOCATION",
-    "completed_or_frozen": [
-      {
-        "range": [
-          1,
-          100
-        ],
-        "state": "PRODUCTION_CLOSED_AND_MERGED"
-      },
-      {
-        "range": [
-          101,
-          200
-        ],
-        "state": "PRODUCTION_DELTA_APPROVED_FROZEN_BACKLOG"
-      },
-      {
-        "range": [
-          201,
-          300
-        ],
-        "state": "PRODUCTION_FROZEN_BACKLOG_NO_NEW_DELTA"
-      },
-      {
-        "range": [
-          1101,
-          1150
-        ],
-        "state": "PRODUCTION_DELTA_APPROVED_FROZEN_BACKLOG"
-      },
-      {
-        "range": [
-          1001,
-          1100
-        ],
-        "state": "PRODUCTION_DELTA_APPROVED_FROZEN_BACKLOG"
-      },
-      {
-        "range": [
-          301,
-          400
-        ],
-        "state": "PRODUCTION_DELTA_APPROVED_FROZEN_BACKLOG"
-      },
-      {
-        "range": [
-          401,
-          500
-        ],
-        "state": "PRODUCTION_DELTA_APPROVED_FROZEN_BACKLOG"
-      },
-      {
-        "range": [
-          501,
-          600
-        ],
-        "state": "PRODUCTION_DELTA_APPROVED_FROZEN_BACKLOG"
-      },
-      {
-        "range": [
-          601,
-          700
-        ],
-        "state": "PRODUCTION_DELTA_APPROVED_FROZEN_BACKLOG"
-      },
-      {
-        "range": [
-          901,
-          1000
-        ],
-        "state": "PRODUCTION_DELTA_APPROVED_FROZEN_BACKLOG"
-      },
-      {
-        "range": [
-          801,
-          900
-        ],
-        "state": "PRODUCTION_DELTA_APPROVED_FROZEN_BACKLOG"
-      },
-      {
-        "range": [
-          701,
-          800
-        ],
-        "state": "PRODUCTION_DELTA_APPROVED_FROZEN_BACKLOG"
-      }
+    "mode": "SERIAL_100_OWNER_BATCHES__SAME_FINAL_RULER",
+    "status": "ACTIVE",
+    "broad_semantic_reopen_after_closure": "AUTHORIZED_BY_EXPLICIT_KIAN_2026_09_22",
+    "completed_or_frozen": [],
+    "next_range": [
+      1251,
+      1350
     ],
-    "A_remaining": [],
-    "C_remaining": [],
-    "completion_condition": "All A_remaining and C_remaining batches have stabilized frozen proposals; no unresolved Human Gate or semantic/source/identity blocker.",
-    "A_status": "COMPLETE",
-    "C_status": "COMPLETE",
-    "completed_at": "2026-09-20",
-    "completion_note": "A and C final semantic Production sweep for o0001-o1150 is complete. All remaining semantic proposals are frozen backlog under FINAL_SEMANTIC_FREEZE v1. No unresolved Human Gate or semantic/source/identity blocker remains."
+    "completion_condition": "All owners o1251-o7946 receive final-standard Fresh Read/Self Attack judgment and all accepted batch mutations are materialized, B-audited, reconciled and merged.",
+    "A_status": "REOPENED_FULL_CATALOG_CONTINUATION",
+    "C_status": "REOPENED_FULL_CATALOG_CONTINUATION",
+    "completion_note": "Original o0001-o1250 closure is preserved. Continuation starts at o1251 under unchanged FINAL_SEMANTIC_FREEZE v1 ruler."
   },
   "phase_transition": {
     "entered_at": "2026-09-22",
-    "from": "BROAD_BACKFILL_COMPLETE__PRE_FREEZE_EXCEPTION_AUDIT",
-    "to": "FINAL_SEMANTIC_FREEZE_COMPLETE",
-    "rule": "o0001-o1150 broad review is complete; the sole pre-freeze o1151-o1250 exception is also complete. No o1251+ broad review/materialization/audit may start without explicit Kian revocation of FINAL_SEMANTIC_FREEZE v1."
+    "from": "FINAL_SEMANTIC_FREEZE_COMPLETE",
+    "to": "FULL_CATALOG_FINAL_STANDARD_CONTINUATION",
+    "rule": "Kian explicitly revoked the o1251+ broad-review prohibition while preserving the frozen semantic ruler. Continue serialized 100-owner batches through o7946."
   },
   "materialization_progress": {
-    "candidate_id": "F1151_1250",
-    "status": "MERGED_COMPLETE__FINAL_FREEZE",
-    "candidate_pr": 520,
-    "merge_commit": "c4e4dc6f7988b9016ca57975e3cdd5e366e0ab70",
-    "latest_main_refreeze": "c4e4dc6f7988b9016ca57975e3cdd5e366e0ab70",
+    "candidate_id": "BF12",
+    "status": "WAITING_PRODUCTION_REVIEW",
+    "candidate_pr": null,
+    "latest_main_refreeze": "0aeb2fffa3cfdbfc225e5fb59da802a9d4836349",
+    "review_range": [
+      1251,
+      1350
+    ],
     "final_learner_objects": 7946,
     "final_learner_shards": 125,
-    "repair_test_blueprints": 8,
-    "blocked": 0,
-    "broad_backfill_range": [
-      1,
-      1150
-    ],
-    "broad_backfill_status": "COMPLETE",
-    "pre_freeze_exception_range": [
-      1151,
-      1250
-    ],
-    "pre_freeze_exception_status": "COMPLETE",
-    "o1251_plus": "FROZEN_NOT_AUTHORIZED_FOR_BROAD_REOPEN"
-  }
+    "blocked": 0
+  },
+  "semantic_freeze_scope_amendment": "content/lexical/FINAL_SEMANTIC_FREEZE_SCOPE_AMENDMENT_20260922.md"
 }
