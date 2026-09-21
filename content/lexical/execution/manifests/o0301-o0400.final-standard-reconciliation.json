@@ -36,7 +36,7 @@
     },
     {
       "target": "assure/ensure/insure Relation runtime projection",
-      "action": "PRESERVE_PRIMARY_ASSURE_ENSURE_TARGETS_IN_THREE_WAY_RELATION",
+      "action": "MOVE_TO_SEMANTIC_NEIGHBORS_AND_PRESERVE_PRIMARY_ASSURE_ENSURE_TARGETS",
       "result": "PASS"
     }
   ],
@@ -51,5 +51,6 @@
     "broad_semantic_reopen_required": false,
     "main_merge_authorized": true
   },
-  "next_action": "Run updated PR checks on final BF03 head; merge if no BF03 regression is proven."
+  "next_action": "Run normal PR checks from this connector-authored final receipt commit; merge PR #672 if no BF03 regression is proven.",
+  "materialized_final_head": "dd7cb2b729438c788665f77930904ee84f1dd8d2"
 }
