@@ -6,13 +6,25 @@ Final independent audit: `MATURITY_FRESH_INDEPENDENT_AUDIT.md`
 
 This is the practical Politics whole-cycle maturity package. It summarizes accepted subject truth and points to exact owners; it is not a second Source, learner-state, scheduler or Website strategy owner.
 
-## Truth boundary
+## Truth boundary — Layer A Ultra-Maturity final split
 
 ```text
 SYSTEM_LOGIC_ACCEPTED = YES
 KIAN_SPECIFIC_CALIBRATED = NO / REAL-U GATED
 CURRENT_YEAR_SOURCE_READY = PARTIAL / SOURCE GATED
+AUTHENTIC_MODALITY_READY = PARTIAL / REAL-U-or-MOCK GATED
+REMAINING_CONCRETE_DEFECTS = none
 ```
+
+This five-field split is the compact Layer-A acceptance surface required by the current shared `EXAM_SUBJECT_MATURITY_STANDARD.md`.
+
+Evidence reuse is valid here because the sealed v6 Fresh Independent / Anti-Anchored audit already tested the current Politics maturity system rather than merely a local integration slice. It explicitly attacked Source fidelity, stale Chat Plan basis, false Secure/Unstable, reused Analysis material, Future Source supersession, transport replay/conflict, Fresh Chat, no-Website operation, attention-cost closure and the stop rule. The later Ultra standard adds no unproven Politics-specific system-logic requirement that changes the current decision boundary.
+
+Remaining unknowns are therefore gates, not hidden defects:
+- Kian-specific throughput / retention / transfer / score calibration → Real-U;
+- current-year exact wording / current affairs / Xiao8/Xiao4 → authoritative Source arrival + fidelity admission;
+- final timed physical/paper execution → authentic-modality / Mock evidence.
+
 
 The final anti-anchored v6 audit passed the sealed candidate. Broad Politics maturity engineering stops unless a new decision-changing defect appears.
 
@@ -111,3 +123,24 @@ Only:
 ## Stop rule
 
 Do not restart broad Politics maturity architecture. A real defect reopens only its smallest responsible owner.
+
+
+## Layer A Ultra-Maturity evidence map
+
+| Ultra gate | Current evidence | Status |
+| --- | --- | --- |
+| need / score / capability truth | this package score path + Objective/Analysis split | CLOSED |
+| material / Source / fidelity | current Source owners + learner-admission fidelity gate | CLOSED at current-source boundary |
+| method / evidence / causal Repair | first-attempt vs repaired vs fresh/changed-context semantics + smallest discriminator rule | CLOSED |
+| Forecast authority | `FORECAST_MODEL.md` workload/risk only; no scheduler/strategy takeover | CLOSED |
+| Future Source / transitive invalidation | `later-stage/` + v2/correction invalidation paths | CLOSED / future bytes SOURCE GATED |
+| lifecycle / degraded / recovery | typed packet/plan/return/checkpoint conflict/replay + no-Website/Fresh Chat | CLOSED |
+| attention / maintenance / stop | stable work becomes cheaper; no learner lifecycle ledger; explicit stop/reopen rule | CLOSED |
+| final Fresh Independent | `MATURITY_FRESH_INDEPENDENT_AUDIT.md` v6, sealed and anti-anchored | PASS |
+| Kian-specific calibration | genuine learner evidence | REAL-U GATED |
+| authentic modality | final timed/paper execution | REAL-U-or-MOCK GATED |
+
+### Layer A verdict
+
+> **POLITICS_LAYER_A_ULTRA_MATURE = YES at SYSTEM_LOGIC level.**  
+> Do not reopen broad Politics maturity engineering. Only Real-U, authoritative current-year Source, authentic-modality evidence, or a concrete decision-changing defect may reopen the smallest responsible owner.
