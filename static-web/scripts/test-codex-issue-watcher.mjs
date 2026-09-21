@@ -68,8 +68,8 @@ esac
 set -eu
 printf '%s\n' "$*" >> "$WATCHER_CODEX_CALLS"
 if [ -f "$WATCHER_CODEX_STDOUT_FILE" ]; then cat "$WATCHER_CODEX_STDOUT_FILE"; fi
-if [ -n "${WATCHER_CODEX_STDERR_FILE:-}" ] && [ -f "$WATCHER_CODEX_STDERR_FILE" ]; then cat "$WATCHER_CODEX_STDERR_FILE" >&2; fi
-exit "${WATCHER_CODEX_EXIT_CODE:-0}"
+if [ -n "\${WATCHER_CODEX_STDERR_FILE:-}" ] && [ -f "$WATCHER_CODEX_STDERR_FILE" ]; then cat "$WATCHER_CODEX_STDERR_FILE" >&2; fi
+exit "\${WATCHER_CODEX_EXIT_CODE:-0}"
 `);
   fs.chmodSync(fakeCodex, 0o755);
 
