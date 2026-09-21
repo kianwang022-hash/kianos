@@ -18,6 +18,7 @@ const stateDir = path.resolve(
 );
 const statePath = path.join(stateDir, 'state.json');
 const lockDir = path.join(stateDir, 'lock');
+const lockOwnerPath = path.join(lockDir, 'owner.json');
 const prefix = 'Codex execution:';
 const marker = '<!-- kian-codex-task:v1 -->';
 const retryMs = Number(process.env.KIANOS_CODEX_WATCHER_RETRY_MS || 60 * 60 * 1000);
@@ -80,19 +81,54 @@ function emit(report, code = 0) {
 fs.mkdirSync(stateDir, { recursive: true, mode: 0o700 });
 try { fs.chmodSync(stateDir, 0o700); } catch {}
 
+function processIsAlive(pid) {
+  if (!Number.isInteger(pid) || pid <= 0) return false;
+  try {
+    process.kill(pid, 0);
+    return true;
+  } catch (error) {
+    if (error?.code === 'EPERM') return true;
+    if (error?.code === 'ESRCH') return false;
+    return true;
+  }
+}
+
+function writeLockOwner() {
+  fs.writeFileSync(lockOwnerPath, JSON.stringify({
+    pid: process.pid,
+    started_at: new Date().toISOString()
+  }) + '\n', { mode: 0o600 });
+}
+
+function lockIsActive() {
+  try {
+    const owner = parseJson(fs.readFileSync(lockOwnerPath, 'utf8'), 'LOCK_OWNER_INVALID');
+    const pid = Number(owner?.pid);
+    if (Number.isInteger(pid) && pid > 0) return processIsAlive(pid);
+  } catch (error) {
+    if (error?.code !== 'ENOENT' && error?.message !== 'LOCK_OWNER_INVALID') return true;
+  }
+
+  try {
+    return Date.now() - fs.statSync(lockDir).mtimeMs < 30 * 1000;
+  } catch {
+    return false;
+  }
+}
+
 let lockHeld = false;
 try {
   fs.mkdirSync(lockDir);
+  writeLockOwner();
   lockHeld = true;
 } catch (error) {
   if (error?.code !== 'EEXIST') throw error;
-  let stale = false;
-  try {
-    stale = Date.now() - fs.statSync(lockDir).mtimeMs > 6 * 60 * 60 * 1000;
-  } catch {}
-  if (!stale) emit({ schema: 'kianos.codex-issue-watcher.v1', status: 'quiet', reason: 'already-running' });
+  if (lockIsActive()) {
+    emit({ schema: 'kianos.codex-issue-watcher.v1', status: 'quiet', reason: 'already-running' });
+  }
   fs.rmSync(lockDir, { recursive: true, force: true });
   fs.mkdirSync(lockDir);
+  writeLockOwner();
   lockHeld = true;
 }
 
