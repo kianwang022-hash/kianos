@@ -2,6 +2,7 @@ import {atomicEnglishWrites,readEnglishExposure,ENGLISH_MATERIAL_EXPOSURE_KEY} f
 import {
   ENGLISH_EXAM_PRODUCTIVE_SCORING_STANDARD_VERSION,
   inspectEnglishExamSession,
+  readEnglishExamSession,
   summarizeEnglishExamSession
 } from './englishExamSession.mjs';
 import {
