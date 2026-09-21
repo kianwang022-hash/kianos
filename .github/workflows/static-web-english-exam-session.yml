@@ -30,6 +30,7 @@ on:
       - 'static-web/src/pages/reading-b/**'
       - 'static-web/src/pages/translation/**'
       - 'static-web/scripts/validate-english-exam-session.mjs'
+      - 'static-web/scripts/test-english-exam-seal-integrity.mjs'
       - 'static-web/scripts/test-english-exam-session-browser.mjs'
       - '.github/workflows/static-web-english-exam-session.yml'
   push:
@@ -45,6 +46,7 @@ on:
       - 'static-web/src/pages/english-exam-answer/**'
       - 'static-web/src/pages/english-exam-writing/**'
       - 'static-web/scripts/validate-english-exam-session.mjs'
+      - 'static-web/scripts/test-english-exam-seal-integrity.mjs'
       - 'static-web/scripts/test-english-exam-session-browser.mjs'
       - '.github/workflows/static-web-english-exam-session.yml'
   workflow_dispatch:
@@ -70,7 +72,9 @@ jobs:
         run: npm install --no-audit --no-fund
       - name: Validate full-paper semantics
         working-directory: static-web
-        run: node scripts/validate-english-exam-session.mjs
+        run: |
+          node scripts/validate-english-exam-session.mjs
+          node --test scripts/test-english-exam-seal-integrity.mjs
       - name: Build learner site
         working-directory: static-web
         run: npm run build
