@@ -17,6 +17,12 @@ const stateDir = path.resolve(
   path.join(os.homedir(), 'Library/Application Support/KianOS/codex-issue-watcher')
 );
 const statePath = path.join(stateDir, 'state.json');
+const execRepo = path.resolve(
+  process.env.KIANOS_CODEX_EXEC_REPO ||
+  path.join(os.homedir(), 'Library/Application Support/KianOS/codex-executor/kianos')
+);
+const execModel = process.env.KIANOS_CODEX_EXEC_MODEL || 'gpt-6-astra';
+const execEffort = process.env.KIANOS_CODEX_EXEC_EFFORT || 'high';
 const lockDir = path.join(stateDir, 'lock');
 const lockOwnerPath = path.join(lockDir, 'owner.json');
 const prefix = 'Codex execution:';
@@ -46,6 +52,27 @@ function resolveBin(envName, fallback) {
 
 function parseJson(raw, code) {
   try { return JSON.parse(raw); } catch { throw new Error(code); }
+}
+
+function ensureExecRepo(git, origin) {
+  if (path.resolve(execRepo) === projectDir) return;
+  const gitDir = path.join(execRepo, '.git');
+  if (!fs.existsSync(gitDir)) {
+    fs.mkdirSync(path.dirname(execRepo), { recursive: true, mode: 0o700 });
+    const cloned = run(git, ['clone', '--no-tags', origin, execRepo], {
+      cwd: path.dirname(execRepo),
+      allowFail: true
+    });
+    if (cloned.status !== 0) throw new Error('EXEC_REPO_CLONE_FAILED');
+  }
+  const root = run(git, ['rev-parse', '--show-toplevel'], { cwd: execRepo }).stdout;
+  if (path.resolve(root) !== execRepo) throw new Error('EXEC_REPO_ROOT_INVALID');
+  const execOrigin = run(git, ['remote', 'get-url', 'origin'], { cwd: execRepo }).stdout;
+  if (!execOrigin.includes('kianwang022-hash/kianos')) throw new Error('EXEC_REPO_ORIGIN_INVALID');
+  const dirty = run(git, ['status', '--porcelain'], { cwd: execRepo }).stdout;
+  if (dirty) throw new Error('EXEC_REPO_DIRTY');
+  run(git, ['fetch', 'origin', 'main', '--prune'], { cwd: execRepo });
+  run(git, ['checkout', '-B', 'main', 'origin/main'], { cwd: execRepo });
 }
 
 function hasActiveMarker(body) {
@@ -212,9 +239,20 @@ try {
 
   if (!codex) throw new Error('CODEX_REQUIRED_FOR_ACTIONABLE_ISSUE');
 
+  ensureExecRepo(git, origin);
+
   const prompt = [
-    'Execute GitHub Issue #' + selected.number + ' in ' + repoFullName + '.',
-    'Current-first: fetch origin/main, read AGENTS.md, static-web/CURRENT.md, then the Issue and exact owner.',
+    'Execute this bounded KianOS engineering task.',
+    'Repository: ' + repoFullName + '.',
+    'GitHub Issue #' + selected.number + ': ' + selected.title,
+    '',
+    '--- ISSUE BODY (authoritative execution envelope, already fetched by the watcher) ---',
+    String(selected.body || ''),
+    '--- END ISSUE BODY ---',
+    '',
+    'You are running in a dedicated writable KianOS executor checkout, not the disposable/read-only Current mirror.',
+    'Current-first: fetch origin/main if needed, read AGENTS.md, static-web/CURRENT.md, then the exact owner named by the Issue.',
+    'Do not depend on GitHub CLI merely to discover the task; the full Issue body is embedded above.',
     'Follow the existing Chat → GitHub → Codex execution envelope exactly.',
     'If a codex/issue' + selected.number + '-* branch already exists, inspect and resume only the branch belonging to this Issue; do not create a duplicate.',
     'Do at most this one Issue. Respect its STOP/Human-Gate boundaries.',
@@ -225,13 +263,27 @@ try {
 
   const codexArgs = [
     'exec', '--ephemeral', '--sandbox', 'workspace-write',
-    '--model', process.env.KIANOS_CODEX_WATCHER_MODEL || 'gpt-5.6-terra',
-    '-c', 'model_reasoning_effort="' + (process.env.KIANOS_CODEX_WATCHER_EFFORT || 'medium') + '"',
+    '--model', execModel,
+    '-c', 'model_reasoning_effort="' + execEffort + '"',
     '-c', 'sandbox_workspace_write.network_access=true',
     prompt
   ];
 
-  const execution = run(codex, codexArgs, { allowFail: true });
+  const ghToken = run(gh, ['auth', 'token'], { allowFail: true }).stdout;
+  const executionEnv = ghToken
+    ? { ...process.env, GH_TOKEN: ghToken, GITHUB_TOKEN: ghToken }
+    : process.env;
+  if (ghToken) {
+    run(git, ['config', '--local', '--unset-all', 'credential.https://github.com.helper'], {
+      cwd: execRepo,
+      allowFail: true
+    });
+    run(git, ['config', '--local', '--add', 'credential.https://github.com.helper', '!' + gh + ' auth git-credential'], {
+      cwd: execRepo,
+      allowFail: true
+    });
+  }
+  const execution = run(codex, codexArgs, { allowFail: true, cwd: execRepo, env: executionEnv });
 
   let finalIssue = selected;
   const refreshIssue = () => {
@@ -284,8 +336,8 @@ try {
       'No Issue update/close, codex branch, or PR was observed from the executor.',
       '',
       'exit_code: ' + execution.status,
-      'watcher_model: ' + (process.env.KIANOS_CODEX_WATCHER_MODEL || 'gpt-5.6-terra'),
-      'watcher_effort: ' + (process.env.KIANOS_CODEX_WATCHER_EFFORT || 'medium'),
+      'watcher_model: ' + (execModel),
+      'watcher_effort: ' + (execEffort),
       failureStdout ? '\n--- executor stdout (tail) ---\n' + failureStdout : '',
       failureStderr ? '\n--- executor stderr (tail) ---\n' + failureStderr : ''
     ].filter(Boolean).join('\n');
@@ -307,8 +359,8 @@ try {
           '',
           executorOutput,
           '',
-          'watcher_model: ' + (process.env.KIANOS_CODEX_WATCHER_MODEL || 'gpt-5.6-terra'),
-          'watcher_effort: ' + (process.env.KIANOS_CODEX_WATCHER_EFFORT || 'medium')
+          'watcher_model: ' + (execModel),
+          'watcher_effort: ' + (execEffort)
         ].join('\n')
       : [
           'BLOCKED — AUTO_EXECUTION_NO_DURABLE_RECEIPT',
@@ -317,8 +369,8 @@ try {
           'but no durable Issue update, codex/issue branch, PR, or stdout receipt was observed afterward.',
           'Task success is therefore not accepted. Re-run only after Chat/owner updates this Issue or after cooldown.',
           '',
-          'watcher_model: ' + (process.env.KIANOS_CODEX_WATCHER_MODEL || 'gpt-5.6-terra'),
-          'watcher_effort: ' + (process.env.KIANOS_CODEX_WATCHER_EFFORT || 'medium')
+          'watcher_model: ' + (execModel),
+          'watcher_effort: ' + (execEffort)
         ].join('\n');
     const fallback = run(gh, [
       'issue', 'comment', String(selected.number), '--repo', repoFullName,
@@ -350,8 +402,8 @@ try {
     status: finalStatus,
     issue: selected.number,
     exit_code: finalExit,
-    model: process.env.KIANOS_CODEX_WATCHER_MODEL || 'gpt-5.6-terra',
-    effort: process.env.KIANOS_CODEX_WATCHER_EFFORT || 'medium'
+    model: execModel,
+    effort: execEffort
   }, finalExit === 0 ? 0 : 2);
 } finally {
   release();
