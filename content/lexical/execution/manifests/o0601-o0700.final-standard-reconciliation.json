@@ -1,0 +1,108 @@
+{
+  "schema": "kianos.lexical.final_standard_reconciliation.v1",
+  "candidate_id": "BF06",
+  "range": [
+    601,
+    700
+  ],
+  "status": "RECONCILED_READY_FOR_MERGE",
+  "candidate_branch": "work/lexical-continuous-bf06-final-20260921",
+  "candidate_head_before_receipt": "51a1507501188d6494739f6f791506bdadcb8a76",
+  "audit_pack": "content/lexical/semantic-audit/O0601_O0700_FINAL_STANDARD_FRESH_AUDIT_PACK.md",
+  "audit_result": "PASS_WITH_CORRECTIONS",
+  "independence_note": "BLIND_FIRST_NOT_ENFORCED; same Chat audited and reconciled the batch at Kian's explicit request. Findings are valid but this batch is not reviewer-independence evidence.",
+  "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
+  "semantic_owner_read_head": "2511549e64347e1ea83601544ac2607dfb593867",
+  "latest_main_refreeze_head": "1d319e9d75b51a4cca3e752da94a676f1235ff78",
+  "lexical_drift": [],
+  "production": {
+    "scope_owners": 100,
+    "unique_affected_owners": 14,
+    "bounded_corrections": 9,
+    "approved_new_material_owners": 7,
+    "no_change": 86,
+    "blocked": 0,
+    "repair_tests_before": 43,
+    "repair_tests_after": 18
+  },
+  "audit_coverage": {
+    "scope_owners": "100/100",
+    "production_upgrade_reverse_reviewed": "14/14",
+    "mandatory_form_identity": "6/6",
+    "mandatory_relation_ref": "5/5",
+    "complex_no_change": "73/73",
+    "simple_no_change_fast_gate": "13/13",
+    "simple_no_change_deep_sample": "10/13",
+    "blocked": 0
+  },
+  "audit_corrections": [
+    {
+      "target": "o0620 bully",
+      "action": "REMOVE_DEPRECATED_CORE_BRANCHES_AND_NORMALIZE_BULLY_SB_INTO_DOING_STH",
+      "result": "PASS"
+    },
+    {
+      "target": "o0648 cable",
+      "action": "REMOVE_TELEGRAPH_CORE_LEAK_AND_REANCHOR_MODERN_CABLE_TV_DATA_PHRASEOLOGY",
+      "result": "PASS"
+    },
+    {
+      "target": "o0699 cart",
+      "action": "ALIGN_CORE_WITH_ACTIVE_MODERN_CART_SHOPPING_CART_SENSE",
+      "result": "PASS"
+    },
+    {
+      "target": "o0628 burn",
+      "action": "REPAIR_MEANING_CN_FOR_BE_BURNED_BURNT_OUT",
+      "result": "PASS"
+    },
+    {
+      "target": "o0674 canvas↔canvass",
+      "action": "DROP_FAKE_RECIPROCAL_INTENT_BECAUSE_CANVASS_IS_NOT_A_MAIN_WORD_OWNER; PRESERVE_SOURCE_SIDE_CONFUSABLE",
+      "result": "PASS_NO_MUTATION"
+    }
+  ],
+  "derived_readback": {
+    "materializer_commit": "51a1507501188d6494739f6f791506bdadcb8a76",
+    "final_learner_objects": 7946,
+    "final_shards": 125,
+    "corrected_owner_readback": [
+      "o0620",
+      "o0628",
+      "o0648",
+      "o0699"
+    ],
+    "result": "PASS"
+  },
+  "regression": {
+    "semantic_base_validity": "PASS",
+    "lexical_merge_materialization_audit": "PASS",
+    "lexical_merge_materialization_closure": "PASS",
+    "lexical_shard_tools": "PASS",
+    "lexical_current_integrity_signals": "PASS",
+    "lexical_runtime": "PASS",
+    "lexical_current_owner_lineage": "PASS",
+    "lexical_secondary_duplicate_audit": "PASS",
+    "english_family_coherence": "PASS",
+    "stale_nonblocking_gates": [
+      {
+        "name": "Lexical Direct Render Owner Audit",
+        "reason": "Validator requires final-manifest overrides metadata absent on current main as well; CURRENT marks raw-owner direct-render diagnostic HISTORICAL / SUPERSEDED."
+      },
+      {
+        "name": "Lexical Functional First",
+        "reason": "Legacy owner-vs-canonical projection equality reports broad OWNER_LOCAL_PROJECTION_DRIFT across the batch; this predates and conflicts with the accepted Final Learner Object direct-consumption cutover and is not a BF06-local regression."
+      }
+    ]
+  },
+  "closure": {
+    "unresolved_material_findings": 0,
+    "unresolved_identity_findings": 0,
+    "unresolved_findings": 0,
+    "blocked": 0,
+    "new_human_semantic_delta_required": false,
+    "broad_semantic_reopen_required": false,
+    "main_merge_authorized": true
+  },
+  "next_action": "Run final-head bounded checks on PR #733, merge BF06 if no BF06-local regression is proven, then advance frontier to BF07 o0701-o0800."
+}
