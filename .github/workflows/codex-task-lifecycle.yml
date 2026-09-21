@@ -1,0 +1,44 @@
+name: Codex Task Lifecycle
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'AGENTS.md'
+      - 'static-web/package.json'
+      - 'static-web/scripts/codex-local-hygiene.mjs'
+      - 'static-web/scripts/test-codex-local-hygiene.mjs'
+      - '.github/workflows/branch-hygiene.yml'
+      - '.github/workflows/codex-task-lifecycle.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'AGENTS.md'
+      - 'static-web/package.json'
+      - 'static-web/scripts/codex-local-hygiene.mjs'
+      - 'static-web/scripts/test-codex-local-hygiene.mjs'
+      - '.github/workflows/branch-hygiene.yml'
+      - '.github/workflows/codex-task-lifecycle.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  lifecycle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax
+        working-directory: static-web
+        run: |
+          node --check scripts/codex-local-hygiene.mjs
+          node --check scripts/test-codex-local-hygiene.mjs
+      - name: Safe local cleanup proof
+        working-directory: static-web
+        run: npm run test:codex-hygiene
