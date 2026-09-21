@@ -10,10 +10,10 @@
     "content_hash": "218f51fbd776ae5d9755feb77ac994f641e9a014d577fb56fe90e3f63c441dbb",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "确认或证实某事的真实性或有效性",
+      "core_meaning_cn": "确认、证实；也可把预订/订单/预约等安排变得确定",
       "core_meaning_en": "to make sure or establish the truth or validity of something",
-      "mental_model_cn": "确认或证实某事的真实性或有效性",
-      "mental_model_en": ""
+      "mental_model_cn": "evidence/claim → 证实真假；booking/reservation/order/appointment → 确认并使安排确定。",
+      "mental_model_en": "Evidence/claims select verification; bookings and arrangements select making them definite."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -24,7 +24,28 @@
       "deep:deep:word_family:confirm:a9e1d9a3ad554d55",
       "relation:deep:word_family:confirm:a9e1d9a3ad554d55"
     ],
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "fact_id": "secondary:confirm:bf09-arrangement",
+        "module": "secondary_senses",
+        "direction": "R",
+        "meaning_cn": "确认并使预订、订单、预约或安排成为确定状态",
+        "definition_cn": "确认并使预订、订单、预约或安排成为确定状态",
+        "definition_en": "to make a booking, reservation, order, appointment, or arrangement certain or definite",
+        "boundary": "evidence/claim context → verify truth; booking/arrangement context → make definite",
+        "pattern": "confirm a booking / reservation / order / appointment",
+        "pos": "verb",
+        "level": "L1",
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "verification_status": "verified",
+        "writing_safe": true,
+        "task_tags": [
+          "reading",
+          "writing"
+        ]
+      }
+    ],
     "semantic_neighbors": [],
     "senses": [
       {
@@ -60,10 +81,10 @@
     "word": "confirm",
     "word_family": [
       {
-        "boundary": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
+        "boundary": "confirm = 证实/确认或使安排确定；confirmation = 确认、证实，或确认信息/凭证",
         "codex_reviewed": false,
         "definition_cn": null,
-        "definition_en": null,
+        "definition_en": "confirmation is the act/result of confirming, or information/documentation that confirms something",
         "dimensions": {},
         "direction": "R+P",
         "evidence": [
@@ -81,7 +102,7 @@
         ],
         "label_en": null,
         "level": null,
-        "meaning_cn": null,
+        "meaning_cn": "confirm（确认/证实）→ confirmation（确认、证实；确认信息/凭证）",
         "module": "word_family",
         "pattern": null,
         "pos": null,
