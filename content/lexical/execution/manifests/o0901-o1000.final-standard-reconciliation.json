@@ -1,0 +1,113 @@
+{
+  "schema": "kianos.lexical.final_standard_reconciliation.v1",
+  "candidate_id": "BF09",
+  "range": [
+    901,
+    1000
+  ],
+  "status": "RECONCILED_READY_FOR_MERGE",
+  "candidate_branch": "work/lexical-continuous-bf09-20260922",
+  "audit_pack": "content/lexical/semantic-audit/O0901_O1000_FINAL_STANDARD_FRESH_AUDIT_PACK.md",
+  "audit_result": "PASS_WITH_CORRECTIONS",
+  "independence_note": "BLIND_FIRST_NOT_ENFORCED; same Chat had read Production detail before B audit at Kian's explicit request. Valid for defect closure, not reviewer-independence evidence.",
+  "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
+  "semantic_owner_read_head": "25ab3892ccee0db87042c930a2b44100da3847a4",
+  "audit_pack_commit": "b364d7770c65495876fab1d39057c47163e5fa2f",
+  "audit_reconciliation_commit": "fb1221b027150b42d863a07329055cc3cf2ade31",
+  "post_reconciliation_materializer_commit": "9f1ce6ab6ee5d8047f5d7318d302a6b99f83c6ef",
+  "latest_main_drift_check_head": "ff7a7024aec67c6a3a492004b4dd62ba56bfb962",
+  "lexical_drift": [],
+  "production": {
+    "scope_owners": 100,
+    "content_affected_owners": 28,
+    "content_no_change": 72,
+    "approved_new_material_owners": 5,
+    "blocked": 0,
+    "repair_tests_before": 24,
+    "repair_tests_after": 15
+  },
+  "audit_coverage": {
+    "scope_owners": "100/100",
+    "production_affected_reverse_reviewed": "28/28",
+    "complex_owners": "86/86",
+    "complex_no_change": "58/58",
+    "simple_no_change_fast_gate": "14/14",
+    "simple_no_change_deep_sample": "10/14",
+    "simple_sample": [
+      908,
+      912,
+      927,
+      937,
+      954,
+      968,
+      970,
+      972,
+      981,
+      997
+    ],
+    "mandatory_form_identity": "4/4",
+    "mandatory_relation_confusable": "6/6",
+    "mandatory_secondary_expansion": "2/2",
+    "family_bearing_owners": "15/15",
+    "cross_range_dependencies": [
+      "oblige@o3298",
+      "conform@o1001",
+      "commencement@o7737"
+    ],
+    "repair_test_targets_resolved": "15/15",
+    "blocked": 0
+  },
+  "audit_corrections": [
+    {
+      "target": "o0953 complicate",
+      "action": "REMOVE_MALFORMED_LEARNER_FAMILY_PROJECTION",
+      "result": "PASS"
+    },
+    {
+      "target": "o0958 compose",
+      "action": "KEEP_BE_COMPOSED_OF_CONSTRUCTION_AND_RETIRE_DUPLICATE_SENSE_COLLOCATION",
+      "result": "PASS"
+    },
+    {
+      "target": "o0974 conceive",
+      "action": "NORMALIZE_PREGNANCY_PATTERN_TO_VI_OR_VT_CHILD",
+      "result": "PASS"
+    },
+    {
+      "target": "o0924 commonwealth",
+      "action": "ALIGN_GENERIC_CHINESE_DEFINITION_TO_POLITICAL_COMMUNITY_STATE_REPUBLIC_SOURCE",
+      "result": "PASS"
+    },
+    {
+      "target": "o1001 conform",
+      "action": "CORRECT_TRANSITIVITY_TO_VI_AND_PATTERN_TO_TO_WITH",
+      "result": "PASS"
+    }
+  ],
+  "current_noop_reconciliation": [
+    "compel↔oblige already reciprocal on current truth",
+    "complement↔compliment already coalesced into one reciprocal survivor; duplicate owner has zero learner views",
+    "confirm↔conform already reciprocal with Word refs",
+    "o0953 was not accepted as current-repaired because FLOB proved the learner projection was still broken"
+  ],
+  "derived_readback": {
+    "final_learner_objects": 7946,
+    "final_shards": 125,
+    "repair_blueprints": 15,
+    "repair_targets_resolved": "15/15",
+    "corrected_finding_readback": "5/5",
+    "result": "PASS"
+  },
+  "closure": {
+    "unresolved_material_findings": 0,
+    "unresolved_identity_findings": 0,
+    "unresolved_owner_findings": 0,
+    "unresolved_source_fidelity_findings": 0,
+    "unresolved_findings": 0,
+    "blocked": 0,
+    "new_human_semantic_delta_required": false,
+    "broad_semantic_reopen_required": false,
+    "main_merge_authorized": true
+  },
+  "next_action": "Run final-head bounded checks on PR #747, merge if no BF09-local regression is proven, then advance serialized frontier to BF10 o1001-o1100."
+}
