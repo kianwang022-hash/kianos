@@ -85,7 +85,7 @@ const base=import.meta.env.BASE_URL;
 <script>
   import {inspectEnglishAttempt,saveEnglishAttempt,preserveEnglishFailure} from '../lib/englishLearnerEvidence.mjs';
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
-  void learnerWriterReady.then(() => {
+  void learnerWriterReady.then(async () => {
 
 
   const root=document.querySelector('[data-external-reading-runtime]');
