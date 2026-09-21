@@ -10,33 +10,36 @@ Shared-platform routing is inherited from `AUTHORITY_INHERITANCE_CONTRACT.md` an
 
 ---
 
-## Final semantic freeze — ACTIVE 2026-09-19
+## Full-catalog final-standard continuation — ACTIVE 2026-09-22
 
-Canonical broad semantic freeze:
-`content/lexical/FINAL_SEMANTIC_FREEZE.md`
+Kian explicitly reopened the remaining catalog for one second broad pass while preserving the existing final semantic ruler.
 
-Current campaign phase:
+Authority:
+- `content/lexical/FINAL_SEMANTIC_FREEZE.md` — semantic ruler remains frozen;
+- `content/lexical/FINAL_SEMANTIC_FREEZE_SCOPE_AMENDMENT_20260922.md` — scope amendment;
+- `content/lexical/execution/three-chat-board.json` — active batch cursor.
 
-```text
-PRODUCTION_SWEEP_ONLY
-A + C finish o0001–o1150 final-standard Production first
-B audit paused
-materialization paused
-merge paused
-```
-
-This is the **last broad semantic backfill**.
-
-The final broad-review scope is exactly `o0001–o1150`. The already accepted full catalog `o1151–o7946` is not broadly reopened by this campaign.
-
-After final closure, default policy becomes:
+Current continuation scope:
 
 ```text
-PRESERVE
-+ evidence-triggered local repair only
+o0001–o1250
+= already closed / merged; preserve
+
+o1251–o7946
+= Fresh Read + Self Attack under the SAME final ruler
+= PRESERVE when already good
+= mutate only for a real correctness / decision / structure / phraseology / ownership / register-form / productive-value / testability / redundancy gap
 ```
 
-No future Chat may launch another broad lexical semantic re-review merely because a newer style, taxonomy, or audit method seems preferable. Broad reopening requires explicit Kian revocation of the freeze.
+This is **not** enrichment-by-default and not permission to make every card equally rich. Simple words may remain simple.
+
+Current batch:
+
+```text
+BF12
+o1251–o1350
+Production review active
+```
 
 ## Current state
 
