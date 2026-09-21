@@ -92,7 +92,7 @@
       "index": 0,
       "payload": {
         "boundaries": [
-          "bias = inclination/skew that may be conscious or unconscious and need not target a social group; prejudice = pre-judged, usually unfair/negative attitude, often toward a person/group. They overlap but are not exact synonyms."
+          "prejudice is a pre-judged, usually unfair or negative attitude, often toward a person or group; bias is the broader inclination or skew and can be conscious or unconscious."
         ],
         "codex_reviewed": false,
         "direction": "C",
@@ -106,49 +106,46 @@
             "source_type": "external_horizontal_audit"
           }
         ],
-        "learning_note": "bias = inclination/skew that may be conscious or unconscious and need not target a social group; prejudice = pre-judged, usually unfair/negative attitude, often toward a person/group. They overlap but are not exact synonyms.",
+        "learning_note": "prejudice is a pre-judged, usually unfair or negative attitude, often toward a person or group; bias is the broader inclination or skew and can be conscious or unconscious.",
         "members": [
           {
             "branch_id": null,
             "branch_label": null,
-            "headword": "bias",
+            "headword": "prejudice",
             "participant_role": "CANONICAL_MEMBER",
             "relevant_sense_ids": [
-              "sense:bias:648c335993925883",
-              "sense:bias:c4dbdfbc84d5530c"
+              "sense:prejudice:89269912e0e15942"
             ],
-            "word_id": "word:bias"
+            "word_id": "word:prejudice"
           }
         ],
         "priority": "B",
         "publication_status": "publishable",
         "relation_id": "relation:horizontal:516998ebe73cc603b663",
-        "relation_note": "bias = inclination/skew that may be conscious or unconscious and need not target a social group; prejudice = pre-judged, usually unfair/negative attitude, often toward a person/group. They overlap but are not exact synonyms.",
+        "relation_note": "prejudice is a pre-judged, usually unfair or negative attitude, often toward a person or group; bias is the broader inclination or skew and can be conscious or unconscious.",
         "relation_scope": "lexeme",
         "relation_type": "bias_prejudice_contrast",
         "sense_ids": [
-          "sense:bias:648c335993925883",
-          "sense:bias:c4dbdfbc84d5530c"
+          "sense:prejudice:89269912e0e15942"
         ],
-        "shared_meaning": "bias = inclination/skew that may be conscious or unconscious and need not target a social group; prejudice = pre-judged, usually unfair/negative attitude, often toward a person/group. They overlap but are not exact synonyms.",
+        "shared_meaning": "prejudice is a pre-judged, usually unfair or negative attitude, often toward a person or group; bias is the broader inclination or skew and can be conscious or unconscious.",
         "source_evidence_objects": [
           {
             "canonical_members": [
               {
                 "branch_id": null,
                 "branch_label": null,
-                "headword": "bias",
+                "headword": "prejudice",
                 "participant_role": "CANONICAL_MEMBER",
                 "relevant_sense_ids": [
-                  "sense:bias:648c335993925883",
-                  "sense:bias:c4dbdfbc84d5530c"
+                  "sense:prejudice:89269912e0e15942"
                 ],
-                "word_id": "word:bias"
+                "word_id": "word:prejudice"
               }
             ],
-            "learner_note": "bias = inclination/skew that may be conscious or unconscious and need not target a social group; prejudice = pre-judged, usually unfair/negative attitude, often toward a person/group. They overlap but are not exact synonyms.",
+            "learner_note": "prejudice is a pre-judged, usually unfair or negative attitude, often toward a person or group; bias is the broader inclination or skew and can be conscious or unconscious.",
             "relation_targets": [
-              "prejudice"
+              "bias"
             ],
             "relation_type": "bias_prejudice_contrast"
           }
@@ -171,6 +168,8 @@
   "provenance": {
     "materialized_from": "embedded_current_word_view",
     "semantic_delta": 1,
-    "last_materialization": "BF04 reciprocal closure"
+    "last_materialization": "BF04 reciprocal closure",
+    "final_projection_cleanup": "BF04 closure audit",
+    "final_reciprocal_projection_cleanup": "BF04"
   }
 }

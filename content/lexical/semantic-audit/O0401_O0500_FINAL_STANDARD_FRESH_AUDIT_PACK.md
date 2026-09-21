@@ -2,9 +2,9 @@
 
 - **Candidate:** BF04
 - **Scope:** `o0401–o0500`
-- **Candidate readback head:** `f7e9ec38ddbb77167978d887600533e32338e58e`
+- **Candidate readback head:** `13418c7c121dc6a340f7c1aac40d74c52066fcb6`
 - **Frontier base:** `8268f595387a855d2fe048bb3245f121a1754446`
-- **Latest main drift-check head:** `2cbd7b54af4e576b2186dc71641260644cc6aeeb`
+- **Latest main drift-check head:** `ebc3aa4f32e814c5250635b5983b62a6beafb146`
 - **Production proposal:** `content/lexical/execution/manifests/o0401-o0500.final-sweep-a-proposal.md`
 - **Audit mode:** STRICT
 - **Blind-first:** BLIND_FIRST_NOT_ENFORCED
@@ -70,6 +70,28 @@ The two low-leverage bearing branches were correctly moved to Reference, but Cor
 
 **Readback:** PASS — Final Learner Object contains only the four active default Study branches and matching Core wording.
 
+### 3. believe standing Test target
+
+**Severity:** LOCAL  
+**Risk family:** testability_targeting
+
+The retained believe blueprint diagnoses a three-way structure decision — `believe in`, `believe (that)`, and `believe sb/sth to be` — but still targeted only the first Construction.
+
+**Correction:** retarget the standing blueprint to the whole-word decision model at `record.core_concept`, while preserving the exact three-structure diagnostic intent.
+
+**Readback:** PASS — the 22-Test standing set is unchanged and believe now points to the full decision it actually tests.
+
+### 4. reciprocal Relation learner-line overprojection
+
+**Severity:** LOCAL  
+**Risk family:** relation_projection
+
+The reciprocal bathroom↔toilet, believe↔think, and bias↔prejudice views inherited source-direction shared text. In the prejudice view this produced two near-duplicate learner lines.
+
+**Correction:** keep the same reciprocal Relation truth, remove stale shared-definition text from the reciprocal projections, and align reciprocal learner-note/evidence metadata to the source direction.
+
+**Readback:** PASS — bathroom↔toilet and believe↔think each render one compact boundary; prejudice↔bias renders exactly one learner line.
+
 ## Repair Test closure
 
 Final standing set: **22**.
@@ -91,14 +113,18 @@ Key retargets:
 
 ## Drift closure
 
-Between BF04 frontier base and current main, no `content/lexical/**` file changed.
+PR #676 merged BF04 at head `d6e571cd9225e44835020238c174e644edae7b9f`.
 
-No candidate semantic refreeze is required.
+After that merge, closure readback found Findings 3–4. The finalized post-merge materialized head is:
+
+`13418c7c121dc6a340f7c1aac40d74c52066fcb6`
+
+A follow-up branch was cut from current main `ebc3aa4f32e814c5250635b5983b62a6beafb146` and carries only the 10 post-merge closure files plus the updated audit/reconciliation receipts. No new semantic scope or broad refreeze is introduced.
 
 ## Final result
 
 ```text
-LOCAL findings: 2
+LOCAL findings: 4
 MATERIAL findings: 0
 IDENTITY findings: 0
 unresolved findings: 0
@@ -110,4 +136,4 @@ Repair Test closure: 22
 
 **Final batch result: PASS_WITH_CORRECTIONS**
 
-Both local corrections are already materialized and read back. BF04 is ready for bounded reconciliation and merge.
+All four local corrections are materialized and read back. PR #676 merged the original BF04 closure at head `d6e571cd9225e44835020238c174e644edae7b9f`; the post-merge follow-up carries only the remaining 10 closure files plus this final receipt, with no new semantic scope.

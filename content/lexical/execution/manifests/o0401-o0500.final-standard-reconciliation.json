@@ -5,14 +5,14 @@
     401,
     500
   ],
-  "status": "RECONCILED_READY_FOR_MERGE",
+  "status": "POST_MERGE_CLOSURE_READY",
   "candidate_branch": "work/lexical-continuous-bf04-20260921",
   "audit_pack": "content/lexical/semantic-audit/O0401_O0500_FINAL_STANDARD_FRESH_AUDIT_PACK.md",
   "audit_result": "PASS_WITH_CORRECTIONS",
   "independence_note": "BLIND_FIRST_NOT_ENFORCED; same Chat landed and closure-audited batch per Kian instruction.",
   "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
   "frontier_base_head": "8268f595387a855d2fe048bb3245f121a1754446",
-  "latest_main_refreeze_head": "2cbd7b54af4e576b2186dc71641260644cc6aeeb",
+  "latest_main_refreeze_head": "ebc3aa4f32e814c5250635b5983b62a6beafb146",
   "lexical_drift": [],
   "production": {
     "scope_owners": 100,
@@ -33,6 +33,16 @@
       "target": "bearing Core after Reference demotion",
       "action": "ALIGN_CORE_WITH_ACTIVE_STUDY_BRANCHES",
       "result": "PASS"
+    },
+    {
+      "target": "repair-blueprint:o0455:believe:v1",
+      "action": "RETARGET_COMBINED_STRUCTURE_DIAGNOSTIC_TO_FULL_DECISION_MODEL",
+      "result": "PASS"
+    },
+    {
+      "target": "bathroom↔toilet / believe↔think / bias↔prejudice reciprocal learner projection",
+      "action": "REMOVE_STALE_SHARED_TEXT_AND_ALIGN_RECIPROCAL_LEARNER_PAYLOAD",
+      "result": "PASS"
     }
   ],
   "closure": {
@@ -44,7 +54,13 @@
     "blocked": 0,
     "new_human_semantic_delta_required": false,
     "broad_semantic_reopen_required": false,
-    "main_merge_authorized": true
+    "main_merge_authorized": true,
+    "post_merge_followup_required": true,
+    "post_merge_followup_file_count": 10,
+    "unresolved_findings": 0
   },
-  "next_action": "Open BF04 integration PR, run bounded checks, merge if no BF04 regression is proven."
+  "next_action": "Open and merge the BF04 post-merge closure follow-up PR from current main; then advance the Lexical frontier to BF05.",
+  "original_merge_pr": 676,
+  "original_merged_head": "d6e571cd9225e44835020238c174e644edae7b9f",
+  "post_merge_materialized_head": "13418c7c121dc6a340f7c1aac40d74c52066fcb6"
 }
