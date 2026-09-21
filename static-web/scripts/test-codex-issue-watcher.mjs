@@ -11,6 +11,7 @@ const stateDir = path.join(temp, 'state');
 const codexCalls = path.join(temp, 'codex-calls.log');
 const issueFile = path.join(temp, 'issues.json');
 const prFile = path.join(temp, 'prs.json');
+const commentFile = path.join(temp, 'comments.log');
 const watcher = path.resolve('scripts/codex-issue-watcher.mjs');
 
 function git(args) {
@@ -33,7 +34,15 @@ set -eu
 if [ "$1" = "issue" ] && [ "$2" = "list" ]; then cat "$WATCHER_ISSUES"; exit 0; fi
 if [ "$1" = "pr" ] && [ "$2" = "list" ]; then cat "$WATCHER_PRS"; exit 0; fi
 if [ "$1" = "issue" ] && [ "$2" = "view" ]; then
-  printf '{"number":%s,"state":"OPEN","updatedAt":"2026-09-21T06:30:00Z"}\n' "$3"
+  if [ "$3" = "702" ]; then
+    printf '{"number":%s,"state":"OPEN","updatedAt":"2026-09-21T06:00:00Z"}\n' "$3"
+  else
+    printf '{"number":%s,"state":"OPEN","updatedAt":"2026-09-21T06:30:00Z"}\n' "$3"
+  fi
+  exit 0
+fi
+if [ "$1" = "issue" ] && [ "$2" = "comment" ]; then
+  printf '%s\n' "$*" >> "$WATCHER_COMMENTS"
   exit 0
 fi
 exit 1
@@ -71,6 +80,7 @@ exit 0
     WATCHER_ISSUES: issueFile,
     WATCHER_PRS: prFile,
     WATCHER_CODEX_CALLS: codexCalls,
+    WATCHER_COMMENTS: commentFile,
     KIANOS_CODEX_WATCHER_RETRY_MS: '3600000'
   };
 
@@ -139,7 +149,28 @@ exit 0
   assert.equal(out.reason, 'active-or-cooling-only');
   assert.equal(fs.readFileSync(codexCalls, 'utf8'), before, 'open PR must suppress duplicate Codex run');
 
-  console.log('PASS Codex issue watcher: zero-model idle, owner-aware lock recovery, one-task one-run, cooldown and PR dedupe');
+  fs.rmSync(stateDir, { recursive: true, force: true });
+  fs.writeFileSync(prFile, '[]\n');
+  fs.writeFileSync(issueFile, JSON.stringify([{
+    number: 702,
+    title: 'Codex execution: missing durable receipt',
+    body: '<!-- kian-codex-task:v1 -->\n## Goal\nExit without GitHub mutation',
+    createdAt: '2026-09-21T06:00:00Z',
+    updatedAt: '2026-09-21T06:00:00Z'
+  }]) + '\n');
+  const missingReceipt = spawnSync(process.execPath, [watcher, '--json'], {
+    cwd: repo,
+    env: baseEnv,
+    encoding: 'utf8'
+  });
+  assert.equal(missingReceipt.status, 2, 'missing durable receipt must make the watcher run non-successful');
+  out = JSON.parse(missingReceipt.stdout);
+  assert.equal(out.status, 'receipt-missing');
+  assert.equal(out.issue, 702);
+  assert.equal(out.exit_code, 3);
+  assert.match(fs.readFileSync(commentFile, 'utf8'), /AUTO_EXECUTION_NO_DURABLE_RECEIPT/);
+
+  console.log('PASS Codex issue watcher: zero-model idle, owner-aware lock recovery, durable-receipt enforcement, one-task one-run, cooldown and PR dedupe');
 } finally {
   fs.rmSync(temp, { recursive: true, force: true });
 }
