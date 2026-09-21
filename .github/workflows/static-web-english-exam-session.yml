@@ -64,6 +64,12 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+      - name: Capture bounded repair source inputs
+        run: |
+          mkdir -p english-exam-audit
+          git rev-parse HEAD > english-exam-audit/source-commit.txt
+          git ls-tree -r HEAD -- AGENTS.md CURRENT.md EXAM_ORCHESTRATOR_CONTRACT.md EXAM_ORCHESTRATOR_CURRENT.json static-web/CURRENT.md static-web/package.json static-web/src/lib static-web/src/components static-web/src/layouts static-web/src/pages static-web/scripts .github/workflows > english-exam-audit/source-blobs.txt
+          git archive HEAD AGENTS.md CURRENT.md EXAM_ORCHESTRATOR_CONTRACT.md EXAM_ORCHESTRATOR_CURRENT.json static-web/CURRENT.md static-web/package.json static-web/src/lib static-web/src/components static-web/src/layouts static-web/src/pages static-web/scripts .github/workflows | gzip > english-exam-audit/repair-source-inputs.tar.gz
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
