@@ -195,7 +195,42 @@
     },
     "word": "custom",
     "word_family": [],
-    "word_id": "word:custom"
+    "word_id": "word:custom",
+    "form_identity": {
+      "variants": [
+        {
+          "variant_id": "form:custom:ordinary",
+          "canonical_form": "custom",
+          "learner_key": "custom",
+          "pos": [
+            "noun"
+          ],
+          "ipa": ""
+        },
+        {
+          "variant_id": "form:custom:customs-border",
+          "canonical_form": "customs",
+          "learner_key": "customs (border service)",
+          "pos": [
+            "noun"
+          ],
+          "ipa": ""
+        }
+      ],
+      "boundaries": [
+        {
+          "surface": "custom",
+          "condition": "a traditional practice",
+          "note": "custom 可指一种风俗；普通复数 customs 也可指多种风俗。"
+        },
+        {
+          "surface": "customs",
+          "condition": "border/government service",
+          "note": "customs 还可词汇化地指海关、海关检查或海关机构，不能只按“风俗的复数”理解。"
+        }
+      ],
+      "boundary": "customs 既可能是 custom 的普通复数，也可能是词汇化的“海关”义；靠语境区分。"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
@@ -320,7 +355,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1193-1200.json",
     "source_content_hash": "131342d103cb9f64e3246d44d4247cb9cd282329004b4a81a62ee9fca7f3eca0",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

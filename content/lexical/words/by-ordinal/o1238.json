@@ -4,7 +4,7 @@
   "word_id": "word:debt",
   "word": "debt",
   "record": {
-    "card_version": "v4",
+    "card_version": "v2",
     "confusables": [],
     "constructions": [],
     "content_hash": "39232b8fa0d872d0e63bd4de1c1810c7da3b7490f4646915632e3a369317fce5",
@@ -16,7 +16,7 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": false,
+    "needs_delta_review": true,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [],
@@ -65,7 +65,28 @@
     },
     "word": "debt",
     "word_family": [],
-    "word_id": "word:debt"
+    "word_id": "word:debt",
+    "form_identity": {
+      "variants": [
+        {
+          "variant_id": "form:debt:ordinary",
+          "canonical_form": "debt",
+          "learner_key": "debt",
+          "pos": [
+            "noun"
+          ],
+          "ipa": "/det/"
+        }
+      ],
+      "boundaries": [
+        {
+          "surface": "debt",
+          "condition": "all ordinary uses",
+          "note": "b 不发音；不要按拼写读出 /b/。"
+        }
+      ],
+      "boundary": "debt 的 b 是 silent letter，读音核心是 /det/。"
+    }
   },
   "relation_refs": [],
   "reference_senses": [
@@ -165,7 +186,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1233-1240.json",
     "source_content_hash": "39232b8fa0d872d0e63bd4de1c1810c7da3b7490f4646915632e3a369317fce5",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

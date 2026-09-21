@@ -19,8 +19,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "切，割；削减，减少",
-          "label_en": "to divide something with a sharp tool; to reduce the amount or size of something",
+          "label_cn": "切、割；削减、减少",
+          "label_en": "to divide with a sharp tool; to reduce an amount or level",
           "pos": "verb",
           "sense_ids": [
             "sense:cut:b3d075dac536508c",
@@ -28,23 +28,22 @@
           ]
         },
         {
-          "label_cn": "份额；剪辑切换；沟渠；刻度",
-          "label_en": "a share of profits; an immediate transition from one shot to the next in film; a trench made by erosion or excavation; a step on some scale",
+          "label_cn": "伤口、切口；削减、降幅",
+          "label_en": "an injury caused by something sharp; a reduction in amount or level",
           "pos": "noun",
           "sense_ids": [
-            "sense:cut:e7be219df256529b",
-            "sense:cut:be2cfad837a35bbc",
-            "sense:cut:96837e201ebd561a"
+            "sense:cut:db2411570d06e63f",
+            "sense:cut:399ffe5bd4cf50cb"
           ]
         }
       ],
-      "core_meaning_cn": "切割或削减",
-      "core_meaning_en": "to divide or reduce with a sharp tool or by reducing amount",
-      "mental_model_cn": "切割或削减",
+      "core_meaning_cn": "切割；削减；切伤形成的伤口",
+      "core_meaning_en": "to cut or reduce; a cut can also be an injury caused by something sharp",
+      "mental_model_cn": "核心动作是“切开/切掉”：物理上可形成伤口，抽象上可表示削减成本、税收或数量。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": false,
+    "needs_delta_review": true,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
@@ -236,6 +235,28 @@
             "verification_status": "auditor_verified"
           }
         ]
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:cut:injury:baseline-v2",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [],
+            "meaning_cn": "手指上的一道伤口",
+            "phrase": "a cut on one's finger"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "伤口；切口",
+        "definition_en": "an injury or opening in the skin caused by something sharp",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:cut:db2411570d06e63f",
+        "sense_label_en": "an injury or opening in the skin caused by something sharp",
+        "sort_order": 6,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -335,6 +356,13 @@
         "merged_into_sense_id": null,
         "source_row": 3389,
         "source_path": "content/lexical/canonical/senses/shards/o1185-1216.json"
+      },
+      {
+        "sense_id": "sense:cut:db2411570d06e63f",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1202.json"
       }
     ],
     "active_collocations": [
@@ -423,7 +451,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1201-1208.json",
     "source_content_hash": "cb598a88b4843f102059c625c0eead3dcfc5f0e96aff940fe2146eeac913e8a6",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }
