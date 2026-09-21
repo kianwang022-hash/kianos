@@ -4,6 +4,8 @@ on:
   push:
     paths:
       - "static-web/src/lib/privateControl*.mjs"
+      - "static-web/src/lib/privateSubjectCheckpoints.mjs"
+      - "static-web/src/lib/xizongPrivateCheckpoint.mjs"
       - "static-web/scripts/privateControl*.mjs"
       - "static-web/scripts/privateEnglish*.mjs"
       - "static-web/scripts/privateDaily*.mjs"
@@ -39,6 +41,8 @@ on:
     branches: [main]
     paths:
       - "static-web/src/lib/privateControl*.mjs"
+      - "static-web/src/lib/privateSubjectCheckpoints.mjs"
+      - "static-web/src/lib/xizongPrivateCheckpoint.mjs"
       - "static-web/scripts/privateControl*.mjs"
       - "static-web/scripts/privateEnglish*.mjs"
       - "static-web/scripts/privateDaily*.mjs"
@@ -93,6 +97,7 @@ jobs:
           node scripts/test-private-daily-learning-packet-relay.mjs
           node scripts/test-private-daily-learning-packet-bridge.mjs
           node scripts/test-private-checkpoint-blur-flush.mjs
+          node scripts/test-private-learner-checkpoint.mjs
           node scripts/test-english-generated-daily-packet.mjs
           node scripts/test-english-evidence-resume.mjs
           node scripts/test-english-generated-drill-store.mjs
