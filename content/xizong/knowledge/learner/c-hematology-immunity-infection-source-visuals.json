@@ -6,23 +6,24 @@
   "canonical_id": "C",
   "selection_policy": "SPARSE_HIGH_VALUE_NOT_EXHAUSTIVE",
   "completeness": "PARTIAL_BY_DESIGN_EXTENSIBLE",
-  "notes": "First formal C/H11 Source Visual recovery. The exact original P461 page image from 03、内科学大合集.pdf is preserved for the lymphoma immunophenotype summary used by H11 LG08/KP31. RS variants, CHL subtype morphology and other H11 morphology visuals remain Source-gated rather than model-reconstructed.",
+  "notes": "Formal C/H11 Source Visual bound to the Project canonical 27内科精编版合集【带导图】.pdf: printed P224 / physical PDF P272. It preserves the Source chromosome + immunophenotype summary used by H11 LG08/KP30–31. RS variants, CHL subtype morphology and other unrecovered H11 morphology visuals remain Source-gated rather than model-reconstructed.",
   "bundles": [
     {
       "cue_id": "c-h11-lg08-visual",
-      "source_sha256": "e9c479f5018b0e474fc887d367fb9c85dfcf4a10fdc78537020fabf621cc45cb",
+      "source_sha256": "4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939",
       "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
       "assets": [
         {
-          "source_object_id": "internal-medicine-page:e9c479f5018b0e47:p461:full",
-          "source_page": 461,
-          "usage_role": "LYMPHOMA_IMMUNOPHENOTYPE_SUMMARY_VISUAL",
-          "usage_label": "P461 · 淋巴瘤免疫表型总表",
-          "alt": "内科学大合集 P461 特征免疫表型原页：CHL、NLPHL、浆细胞骨髓瘤、淋巴母/前体、CLL/SLL、套细胞、边缘区、DLBCL、滤泡、Burkitt、间变性大细胞、皮肤T与NK/T等标志组合总结",
-          "asset_path": "c-h11-lg08/h11-p461-immunophenotype-summary.png",
-          "width": 1158,
-          "height": 1638,
-          "derived_asset_sha256": "e9c479f5018b0e474fc887d367fb9c85dfcf4a10fdc78537020fabf621cc45cb"
+          "source_object_id": "xizong-lecture-internal-medicine-pdf-v2:4ebf1bf62eea5eb1:pdf272:printed224:chromosome-immunophenotype",
+          "source_page": 272,
+          "usage_role": "LYMPHOMA_CHROMOSOME_IMMUNOPHENOTYPE_SUMMARY_VISUAL",
+          "usage_label": "内科 P224｜PDF P272 · 特征染色体与免疫表型总表",
+          "alt": "27内科精编版合集【带导图】印刷 P224 / PDF P272：淋巴瘤及相关血液肿瘤特征染色体与免疫表型原页，包括 CHL、NLPHL、CLL/SLL、套细胞、滤泡、Burkitt、T/NK、浆细胞及部分 AML 标志组合",
+          "asset_path": "c-h11-lg08/h11-p224-chromosome-immunophenotype.webp",
+          "width": 1200,
+          "height": 853,
+          "source_crop_sha256": "5c3840d2f5bb01164c215ac2ec640d2f27294ddfacf68fef9cc97530e1a90593",
+          "derived_asset_sha256": "9b79cf9f50250f6164a7a25011f3fcbbd6191174d4ed7a8bfae8cfef5028ec42"
         }
       ]
     }
