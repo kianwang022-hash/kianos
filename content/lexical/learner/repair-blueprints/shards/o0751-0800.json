@@ -8,25 +8,6 @@
   "generation_rule": "Stable diagnostic intent only; concrete instances generated fresh.",
   "entries": [
     {
-      "blueprint_id": "repair-blueprint:o0752:chance:v1",
-      "word_id": "word:chance",
-      "ordinal": 752,
-      "word": "chance",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分机会、概率、碰巧与冒险。",
-      "decision_boundary_cn": "have a chance to / chance of / chance to / chance it 决定分支。",
-      "distractor_policy_cn": "只用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度或生僻度排除。",
-      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
-      "minimum_repair_cn": "只修结构选义。",
-      "reconstruction_rule_cn": "换机会、概率、偶遇和冒险语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
       "blueprint_id": "repair-blueprint:o0755:channel:v1",
       "word_id": "word:channel",
       "ordinal": 755,
@@ -43,25 +24,6 @@
       "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
       "minimum_repair_cn": "只修 channel sth into sth。",
       "reconstruction_rule_cn": "换科研资金或精力分配语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0758:character:v1",
-      "word_id": "word:character",
-      "ordinal": 758,
-      "word": "character",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分性格、角色、字符、人物与名誉。",
-      "decision_boundary_cn": "领域对象是主要 selector。",
-      "distractor_policy_cn": "只用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度或生僻度排除。",
-      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
-      "minimum_repair_cn": "只修领域分支。",
-      "reconstruction_rule_cn": "换文学、计算机与人格语境。",
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
@@ -103,44 +65,6 @@
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
-      "blueprint_id": "repair-blueprint:o0761:charge:v1",
-      "word_id": "word:charge",
-      "ordinal": 761,
-      "word": "charge",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分收费、指控、充电、负责、电荷与猛冲。",
-      "decision_boundary_cn": "money/with/battery/in charge/at 等结构决定分支。",
-      "distractor_policy_cn": "只用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度或生僻度排除。",
-      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
-      "minimum_repair_cn": "只修论元结构。",
-      "reconstruction_rule_cn": "换支付、刑事、设备、管理和物理语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0768:cheap:v1",
-      "word_id": "word:cheap",
-      "ordinal": 768,
-      "word": "cheap",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分便宜、劣质、小气、卑劣并避免 cheap price。",
-      "decision_boundary_cn": "对象与评价色彩决定分支。",
-      "distractor_policy_cn": "只用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度或生僻度排除。",
-      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
-      "minimum_repair_cn": "只修搭配与负面义。",
-      "reconstruction_rule_cn": "换商品、价格、花钱习惯与手段语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
       "blueprint_id": "repair-blueprint:o0769:cheat:v1",
       "word_id": "word:cheat",
       "ordinal": 769,
@@ -151,31 +75,12 @@
         "target_locator": "record.core_concept"
       },
       "demand": "discrimination",
-      "diagnostic_intent_cn": "区分考试作弊、伴侣不忠和骗取。",
-      "decision_boundary_cn": "cheat on 的对象与 out of 结构决定分支。",
+      "diagnostic_intent_cn": "稳定区分 cheat on an exam / cheat on sb / cheat sb out of sth。",
+      "decision_boundary_cn": "考试/规则语境 → 作弊；伴侣对象 → 不忠；sb out of sth → 骗取。",
       "distractor_policy_cn": "只用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度或生僻度排除。",
       "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
-      "minimum_repair_cn": "只修结构边界。",
+      "minimum_repair_cn": "只修 cheat on 与 cheat sb out of 的结构选择。",
       "reconstruction_rule_cn": "换考试、伴侣和骗局语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0770:check:v1",
-      "word_id": "word:check",
-      "ordinal": 770,
-      "word": "check",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分核对、check in/out/on/out、制止以及支票/账单。",
-      "decision_boundary_cn": "particle、对象和地区拼写决定分支。",
-      "distractor_policy_cn": "只用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度或生僻度排除。",
-      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
-      "minimum_repair_cn": "只修核心结构。",
-      "reconstruction_rule_cn": "换酒店、核查、调查、支票和餐厅语境。",
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
@@ -189,11 +94,11 @@
         "target_locator": "record.core_concept"
       },
       "demand": "discrimination",
-      "diagnostic_intent_cn": "区分化学家与 BrE 药剂师/药房用法。",
-      "decision_boundary_cn": "science vs BrE pharmacy context。",
+      "diagnostic_intent_cn": "稳定区分 chemist=化学家 与 BrE chemist/chemist's=药剂师/药房。",
+      "decision_boundary_cn": "science/research context → 化学家；BrE pharmacy/medicine context → 药剂师或药房。",
       "distractor_policy_cn": "只用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度或生僻度排除。",
       "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
-      "minimum_repair_cn": "只修地区用法。",
+      "minimum_repair_cn": "只修 chemist 的 science vs BrE pharmacy 边界。",
       "reconstruction_rule_cn": "换实验室与英国药房语境。",
       "concrete_instance_policy": "GENERATE_FRESH"
     },
@@ -208,11 +113,11 @@
         "target_locator": "record.core_concept"
       },
       "demand": "discrimination",
-      "diagnostic_intent_cn": "区分学科/物质化学与人际默契。",
-      "decision_boundary_cn": "substance vs people/team context。",
+      "diagnostic_intent_cn": "稳定区分 chemistry 的化学学科/物质性质与人际默契。",
+      "decision_boundary_cn": "substance/science context → 化学；people/team/relationship context → 默契、来电。",
       "distractor_policy_cn": "只用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度或生僻度排除。",
       "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
-      "minimum_repair_cn": "只修 literal vs interpersonal。",
+      "minimum_repair_cn": "只修 literal chemistry vs interpersonal chemistry。",
       "reconstruction_rule_cn": "换土壤化学和团队默契语境。",
       "concrete_instance_policy": "GENERATE_FRESH"
     },
@@ -312,44 +217,6 @@
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
-      "blueprint_id": "repair-blueprint:o0792:chip:v1",
-      "word_id": "word:chip",
-      "ordinal": 792,
-      "word": "chip",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分碎片、芯片、筹码和 potato chips 的美英差异。",
-      "decision_boundary_cn": "领域与地区决定分支。",
-      "distractor_policy_cn": "只用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度或生僻度排除。",
-      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
-      "minimum_repair_cn": "只修领域和地区 selector。",
-      "reconstruction_rule_cn": "换电子、赌博、美式零食和英式餐馆语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0794:choice:v1",
-      "word_id": "word:choice",
-      "ordinal": 794,
-      "word": "choice",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分 choice 名词与 adjective choice=精选上等。",
-      "decision_boundary_cn": "词性和修饰位置决定分支。",
-      "distractor_policy_cn": "只用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度或生僻度排除。",
-      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
-      "minimum_repair_cn": "只修词性边界。",
-      "reconstruction_rule_cn": "换选择与高品质食材语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
       "blueprint_id": "repair-blueprint:o0796:choke:v1",
       "word_id": "word:choke",
       "ordinal": 796,
@@ -360,11 +227,11 @@
         "target_locator": "record.core_concept"
       },
       "demand": "discrimination",
-      "diagnostic_intent_cn": "区分 choke on、choke sb、堵塞和 choke back emotion。",
-      "decision_boundary_cn": "论元与 particle 决定分支。",
+      "diagnostic_intent_cn": "稳定区分 choke on sth 与 choke back emotion，并保留直接使人窒息/堵塞分支。",
+      "decision_boundary_cn": "异物卡喉 → choke on；强忍情绪 → choke back；直接宾语可表示使窒息或堵塞。",
       "distractor_policy_cn": "只用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度或生僻度排除。",
       "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
-      "minimum_repair_cn": "只修结构边界。",
+      "minimum_repair_cn": "只修 choke on / choke back 的高价值结构。",
       "reconstruction_rule_cn": "换进食、排水和强忍泪水语境。",
       "concrete_instance_policy": "GENERATE_FRESH"
     }
