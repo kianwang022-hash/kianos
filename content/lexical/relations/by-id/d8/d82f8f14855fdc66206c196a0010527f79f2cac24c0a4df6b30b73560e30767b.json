@@ -3,36 +3,12 @@
   "relation_id": "relation:spelling_variant:color-colour",
   "canonical_record": null,
   "fact_record": null,
-  "word_views": [
-    {
-      "source_word_id": "word:color",
-      "source_ordinal": 900,
-      "field": "semantic_neighbors",
-      "index": 0,
-      "payload": {
-        "relation_id": "relation:spelling_variant:color-colour",
-        "relation_type": "spelling_variant",
-        "relation_scope": "lexeme",
-        "direction": "C",
-        "priority": "A",
-        "publication_status": "publishable",
-        "verification_status": "verified",
-        "writing_safe": true,
-        "source_expression": "color",
-        "target_expression": "colour",
-        "target_word": "colour",
-        "boundary": "color 是美式标准拼写；colour 是英式标准拼写。词义相同，正式写作中应保持同一英语变体的一致性。",
-        "learning_note": "AmE color ↔ BrE colour。",
-        "shared_meaning": "the visual property of things; color/colour",
-        "task_tags": [
-          "reading",
-          "writing"
-        ]
-      }
-    }
-  ],
+  "word_views": [],
   "provenance": {
     "materialized_from": "baseline-v2-fresh-content-upgrade",
-    "semantic_delta": 1
+    "semantic_delta": 1,
+    "retired": true,
+    "retired_to": "Form/Identity",
+    "retired_reason": "BF08 spelling-identity ownership migration"
   }
 }
