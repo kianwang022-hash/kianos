@@ -110,12 +110,14 @@ try{
   const context=await browser.newContext({viewport:{width:1512,height:982},locale:'zh-CN',timezoneId:'Asia/Shanghai'});
   const page=await context.newPage();
   await page.goto(BASE,{waitUntil:'domcontentloaded'});
-  await page.evaluate(({profile,englishSession,plan,keys})=>{
+  await page.evaluate(async ({profile,englishSession,plan,keys,day})=>{
     localStorage.setItem(keys.profile,JSON.stringify(profile));
     localStorage.setItem(keys.english,JSON.stringify(englishSession));
+    const mod=await import('/src/lib/examChatPlan.mjs');
+    plan.learner_evidence_basis=mod.buildExamChatPlanBasis(localStorage,day);
     localStorage.setItem(keys.plan,JSON.stringify(plan));
   },{
-    profile,englishSession,plan:plan(sessionId),
+    profile,englishSession,plan:plan(sessionId),day:DAY,
     keys:{profile:EXAM_PROFILE_KEY,english:ENGLISH_SESSION_KEY,plan:EXAM_CHAT_PLAN_KEY}
   });
   await page.reload({waitUntil:'domcontentloaded'});
@@ -134,10 +136,12 @@ try{
   assert.equal(await page.locator('[data-english-resume-link]').getAttribute('href'),expected);
 
   // Now force a global/session mismatch. The old English exact task must not remain global Next.
-  await page.evaluate(({key,value})=>{
+  await page.evaluate(async ({key,value,day})=>{
+    const mod=await import('/src/lib/examChatPlan.mjs');
+    value.learner_evidence_basis=mod.buildExamChatPlanBasis(localStorage,day);
     localStorage.setItem(key,JSON.stringify(value));
     window.dispatchEvent(new StorageEvent('storage',{key}));
-  },{key:EXAM_CHAT_PLAN_KEY,value:plan('english-different-session')});
+  },{key:EXAM_CHAT_PLAN_KEY,value:plan('english-different-session'),day:DAY});
 
   await page.waitForFunction(()=>{
     const link=document.querySelector('[data-exam-next]');
