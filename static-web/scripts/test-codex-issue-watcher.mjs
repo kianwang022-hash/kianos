@@ -76,6 +76,9 @@ exit "\${WATCHER_CODEX_EXIT_CODE:-0}"
   const baseEnv = {
     ...process.env,
     KIANOS_CODEX_PROJECT_DIR: repo,
+    KIANOS_CODEX_EXEC_REPO: repo,
+    KIANOS_CODEX_EXEC_MODEL: 'gpt-6-astra',
+    KIANOS_CODEX_EXEC_EFFORT: 'high',
     KIANOS_CODEX_WATCHER_STATE_DIR: stateDir,
     KIANOS_GH_BIN: fakeGh,
     KIANOS_GIT_BIN: fakeGit,
@@ -138,8 +141,9 @@ exit "\${WATCHER_CODEX_EXIT_CODE:-0}"
   assert.equal(out.issue, 701);
   const call = fs.readFileSync(codexCalls, 'utf8');
   assert.match(call, /exec --ephemeral --sandbox workspace-write/);
-  assert.match(call, /--model gpt-5\.6-terra/);
-  assert.match(call, /model_reasoning_effort="medium"/);
+  assert.match(call, /--model gpt-6-astra/);
+  assert.match(call, /model_reasoning_effort="high"/);
+  assert.match(call, /ISSUE BODY/);
   assert.match(call, /Issue #701/);
 
   const before = fs.readFileSync(codexCalls, 'utf8');
