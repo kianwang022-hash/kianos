@@ -334,6 +334,19 @@ restart/reinstall the installed Current LaunchAgent once
 → close this defect
 ```
 
+## Local GitHub Codex execution runner — **DEPLOYED · SCHEDULED RUN PASS**
+
+One local recurring automation now services `Codex execution:` Issues for this repository:
+
+- automation: `KianOS GitHub Codex Issue Runner` (`kianos-github-codex-issue-runner`);
+- target: the existing local KianOS project, hourly, ACTIVE;
+- authority: every run fetches current `origin/main` and re-reads the `AGENTS.md` Codex execution envelope; the automation prompt is not a second contract;
+- first scheduled queue read correctly skipped Issue #700 after detecting its active remote task branch, then ran current-main local hygiene;
+- hygiene test PASS; dry-run and apply both deleted 0 and preserved the 4 guarded local Issue branches;
+- no learner state, subject semantics, Current relay, LaunchAgent or existing activity automation was replaced.
+
+Future task state remains in the exact Current/Mainline owner plus its bounded GitHub Issue. This runner is execution infrastructure only.
+
 ## Website boundary
 
 ```text
