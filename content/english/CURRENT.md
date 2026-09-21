@@ -32,7 +32,7 @@ The attempted semantic-hash normalization is **not included**: an old-history to
 
 1. Latest independent Final Convergence result is **UNBOUND**. PR #640 comments, reviews, inline comments, Current and exact audit owner were checked. The named audit file is Fresh #4 against `7e83a256...`, not the later result described by Kian. User-provided seeds are reported seeds, not an independent audit receipt.
 2. Semantic exposure must survive ordinal/whitespace aliases **and existing persisted history**, without a second exposure ledger. Final rendered Source / exact identity consistency still needs targeted validation.
-3. Compiled native browser and full affected-consumer regression are not proven here. The isolated Chromium attempt was blocked before page load by `net::ERR_BLOCKED_BY_ADMINISTRATOR`; no browser/deployed PASS is claimed.
+3. Full affected-consumer regression remains blocked. Remote English Exam Session run `35620252173` passed semantics, site build and browser journey on repair code `4ac753348532dda48bfe9d86edbe25bd3895ecde`. English Family Coherence run `35620252136` failed at E4: its one-question/10-point fake Whole Paper fixture violates the new durable geometry invariant. That fixture regression is not repaired in this batch; later family steps were skipped. The local Chromium attempt was separately blocked by administrator policy. Neither result is deployed/Mac proof.
 4. Shared recovery and Lexical-to-Chat-Plan freshness remain L1 #728 handoffs. L2 does not patch their orchestration.
 
 These are engineering/provenance/interface blockers, not Real-U gates.

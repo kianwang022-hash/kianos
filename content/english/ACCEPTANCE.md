@@ -42,9 +42,20 @@ node static-web/scripts/validate-english-native-closure.mjs
 node static-web/scripts/validate-english-forecast-model.mjs
 ```
 
-Local intended write-set: **37 native assertions + 25 Forecast assertions**. The native test says bounded repair only, not closure. Existing full Astro/native-consumer regression was not run here.
+Local intended write-set: **37 native assertions + 25 Forecast assertions**. The native test says bounded repair only, not closure. All seven changed files were read back at `4ac753348532dda48bfe9d86edbe25bd3895ecde` and their Git blob identities matched the locally executed files. Subsequent receipt-only documentation does not change those runtime/test blobs.
 
-An attempted isolated Chromium/loopback test was blocked by administrator policy before the page ran (`net::ERR_BLOCKED_BY_ADMINISTRATOR`). No bypass was attempted. There is **no browser, real Mac, deployed Website or independent acceptance proof** from this run.
+An attempted local isolated Chromium/loopback test was blocked by administrator policy before the page ran (`net::ERR_BLOCKED_BY_ADMINISTRATOR`). No bypass was attempted. This local attempt supplies no browser proof.
+
+### Later remote CI receipt — same repair code, partial proof only
+
+GitHub Actions was read after PR #731 opened, associated with repair head `4ac753348532dda48bfe9d86edbe25bd3895ecde` (PR test merge `ab93e46d12dbce0a0e7e67d39de8927448c1ed0f`, into the unchanged #640 base).
+
+- **English Exam Session**, run `35620252173`, job `106401222697`: SUCCESS. Full-paper semantics, learner-site build, browser installation, full-paper browser journey and proof upload all succeeded. This is hosted CI browser proof, not a claim about Kian's Mac/deployed Website or real study.
+- **English Family Coherence**, run `35620252136`, job `106401222567`: FAILURE at `validate-english-evidence-fidelity-e4.mjs:424`, with `ENGLISH_EXAM_DURABLE_GEOMETRY_INVALID`. External source-boundary, external Resume and bounded performance-profile steps passed before it; subsequent Forecast, control, baseline, productive scoring, Lexical handoff and family browser steps were skipped, not passed.
+- Exact inspection of E4 lines 390–450 shows its old fixture is a one-question, one-step, 10-point object pretending to be a complete 180-minute paper. The new invariant deliberately requires the native nine-step/100-point paper. **The fixture regression is not repaired in this batch.** Correct the fixture to valid synthetic native geometry and retain contamination assertions; do not relax runtime validation to restore green. This remains an explicit affected-test integration blocker.
+- Static Web Writing QA, Semantic Base Validity and Authority Consistency reported SUCCESS. Governance Anti-Entropy reported FAILURE and is not used as authority to broaden this native repair.
+
+There is still **no full English family PASS, real Mac/deployed Website proof, or independent acceptance verdict**. The new remote evidence narrows the missing-proof claim; it does not close the remaining Source, audit-provenance or shared-interface gates.
 
 ## Explicitly withheld Source change
 
