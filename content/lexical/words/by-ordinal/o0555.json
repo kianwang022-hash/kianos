@@ -25,6 +25,15 @@
         "level": "L1",
         "pos": "phrase",
         "source": "baseline-v2-2026-09-19"
+      },
+      {
+        "construction_id": "construction:bound:final-standard-by",
+        "pattern": "be bound by sth",
+        "meaning_cn": "受规则、协议、义务或关系约束",
+        "definition_en": "be constrained or obliged by a rule, agreement, duty, or tie",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "final-standard-bf05"
       }
     ],
     "content_hash": "ab6a833e4310d68fd394adf5d7984aedd120c2d07ff53b853418cb98d0f4509a",
@@ -210,7 +219,27 @@
     },
     "word": "bound",
     "word_family": [],
-    "word_id": "word:bound"
+    "word_id": "word:bound",
+    "form_identity": {
+      "form_type": "surface_homograph_lexeme_vs_inflection",
+      "spelling": "bound",
+      "identity_rule": "syntax_and_lemma_select_identity",
+      "boundary": "bound is an independent lexical word and also the past/past participle of bind: bind → bound → bound.",
+      "boundaries": [
+        {
+          "surface": "bound",
+          "condition": "independent lexical adjective/noun/verb",
+          "note": "likely/certain, destination, limit, leap, etc."
+        },
+        {
+          "surface": "bound",
+          "condition": "past/past-participle form of bind",
+          "note": "bind → bound → bound"
+        }
+      ],
+      "variants": [],
+      "authority": "BF04 bind Form + BF05 shared Form ownership repair"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],

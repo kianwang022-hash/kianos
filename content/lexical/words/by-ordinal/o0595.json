@@ -11,12 +11,13 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "广播；播送；撒播（种子）",
-          "label_en": "to transmit a program or information by radio or television; to scatter seeds over a wide area",
+          "label_cn": "广播；播送；广泛传播信息；撒播（种子）",
+          "label_en": "to transmit by radio/television, spread information widely, or scatter seeds over a wide area",
           "pos": "verb",
           "sense_ids": [
             "sense:broadcast:c5c1db335f515522",
-            "sense:broadcast:44aaa6f137f95014"
+            "sense:broadcast:44aaa6f137f95014",
+            "sense:broadcast:10eb316ee4173e24"
           ]
         },
         {
@@ -121,6 +122,20 @@
         "sense_label_en": "to scatter seeds over a wide area",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "high",
+        "definition_cn": "广泛传播、公开散布（信息、消息、观点等）",
+        "definition_en": "to spread or tell information, news, or ideas widely, not limited to radio or television",
+        "governing_pattern": "vt. + information/news/message",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:broadcast:10eb316ee4173e24",
+        "sense_label_en": "to spread information, news, or ideas widely",
+        "sort_order": 3,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -140,7 +155,32 @@
     },
     "word": "broadcast",
     "word_family": [],
-    "word_id": "word:broadcast"
+    "word_id": "word:broadcast",
+    "form_identity": {
+      "form_type": "variant_past_participle_identity",
+      "spelling": "broadcast",
+      "identity_rule": "past_and_participle_allow_unchanged_or_ed_form",
+      "boundary": "broadcast has past/past participle broadcast or broadcasted; unchanged broadcast is the common form.",
+      "boundaries": [
+        {
+          "surface": "broadcast",
+          "condition": "base/present",
+          "note": "base form"
+        },
+        {
+          "surface": "broadcast",
+          "condition": "common past/past participle",
+          "note": "common unchanged form"
+        },
+        {
+          "surface": "broadcasted",
+          "condition": "accepted past/past participle variant",
+          "note": "accepted -ed variant"
+        }
+      ],
+      "variants": [],
+      "authority": "BF05 final-standard approved Form expansion"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
@@ -165,6 +205,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 1653,
+        "source_path": "content/lexical/canonical/senses/shards/o0577-0608.json"
+      },
+      {
+        "sense_id": "sense:broadcast:10eb316ee4173e24",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 1697,
         "source_path": "content/lexical/canonical/senses/shards/o0577-0608.json"
       }
     ],

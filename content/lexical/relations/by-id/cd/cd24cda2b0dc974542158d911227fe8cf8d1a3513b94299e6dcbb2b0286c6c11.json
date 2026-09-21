@@ -60,7 +60,7 @@
     ],
     "tier": "B",
     "validator_version": "deep_vocabulary_target_gate_2026-08-13_v1",
-    "verification_confidence": 1.0,
+    "verification_confidence": 1,
     "verification_decision": "codex_promote",
     "verification_status": "verified",
     "why": "",
@@ -110,10 +110,53 @@
         "verification_status": "verified",
         "writing_safe": false
       }
+    },
+    {
+      "source_word_id": "word:breathe",
+      "source_ordinal": 580,
+      "field": "confusables",
+      "index": 0,
+      "payload": {
+        "boundary": "breathe is the verb '呼吸'; breath is the noun '呼吸/气息'. The final -e also changes pronunciation.",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {},
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:ecdict-spelling:breath:breathe",
+            "evidence_status": "source_checked",
+            "source_locator": "breath|breathe",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/source_manifest.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:confusables:breath:8febf079ed8c2d08",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "confusables",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": null,
+        "source_sense_id": "sense:breathe:fead5490fb3a556a",
+        "target_sense_id": "sense:breath:f209a60ecb63586e",
+        "target_word": "breath",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 1,
+    "last_materialization": "BF05 reciprocal closure"
   }
 }

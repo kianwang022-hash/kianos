@@ -3,89 +3,11 @@
   "relation_id": "relation:horizontal:c8ea0e1e535356c0f946",
   "canonical_record": null,
   "fact_record": null,
-  "word_views": [
-    {
-      "source_word_id": "word:bolster",
-      "source_ordinal": 533,
-      "field": "semantic_neighbors",
-      "index": 0,
-      "payload": {
-        "boundaries": [
-          "bolster in its abstract verb sense = support/strengthen, especially confidence, arguments, systems, positions, or prospects."
-        ],
-        "codex_reviewed": false,
-        "direction": "C",
-        "evidence": [
-          {
-            "evidence_id": "horizontal:horizontal:056",
-            "evidence_status": "source_checked",
-            "source_locator": "horizontal:056",
-            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
-            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
-            "source_type": "external_horizontal_audit"
-          }
-        ],
-        "learning_note": "bolster in its abstract verb sense = support/strengthen, especially confidence, arguments, systems, positions, or prospects.",
-        "members": [
-          {
-            "branch_id": null,
-            "branch_label": null,
-            "headword": "bolster",
-            "participant_role": "CANONICAL_MEMBER",
-            "relevant_sense_ids": [
-              "sense:bolster:9c0a409c48905949"
-            ],
-            "word_id": "word:bolster"
-          }
-        ],
-        "priority": "B",
-        "publication_status": "publishable",
-        "relation_id": "relation:horizontal:c8ea0e1e535356c0f946",
-        "relation_note": "bolster in its abstract verb sense = support/strengthen, especially confidence, arguments, systems, positions, or prospects.",
-        "relation_scope": "lexeme",
-        "relation_type": "near_paraphrase",
-        "sense_ids": [
-          "sense:bolster:9c0a409c48905949"
-        ],
-        "shared_meaning": "bolster in its abstract verb sense = support/strengthen, especially confidence, arguments, systems, positions, or prospects.",
-        "source_evidence_objects": [
-          {
-            "canonical_members": [
-              {
-                "branch_id": null,
-                "branch_label": null,
-                "headword": "bolster",
-                "participant_role": "CANONICAL_MEMBER",
-                "relevant_sense_ids": [
-                  "sense:bolster:9c0a409c48905949"
-                ],
-                "word_id": "word:bolster"
-              }
-            ],
-            "learner_note": "bolster in its abstract verb sense = support/strengthen, especially confidence, arguments, systems, positions, or prospects.",
-            "relation_targets": [
-              "strengthen",
-              "support"
-            ],
-            "relation_type": "near_paraphrase"
-          }
-        ],
-        "source_expression": "bolster",
-        "source_sense_id": "sense:bolster:9c0a409c48905949",
-        "target_expression": "bolster ≈ strengthen/support",
-        "target_sense_id": null,
-        "target_sense_ids": [],
-        "target_word": null,
-        "task_tags": [
-          "reading"
-        ],
-        "verification_status": "verified",
-        "writing_safe": false
-      }
-    }
-  ],
+  "word_views": [],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 1,
+    "retired_by": "BF05",
+    "retired_reason": "one-member pseudo-relation merely restated Word-owned bolster=support/strengthen truth"
   }
 }

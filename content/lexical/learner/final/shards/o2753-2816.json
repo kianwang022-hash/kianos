@@ -6977,7 +6977,7 @@
     "ordinal": 2802,
     "word": "lend",
     "source_owner_path": "content/lexical/words/by-ordinal/o2802.json",
-    "source_fingerprint": "851323d50e2d920566f9e777c01ff54aed08e78715f56c088afa49f08dcc4391",
+    "source_fingerprint": "cafe97e69c1877bead70ddf099b3165970d441dd5cff31da916e0c2b8c63731a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7122,7 +7122,33 @@
     ],
     "reference": {
       "confusables": [],
-      "relations": [],
+      "relations": [
+        {
+          "title": "lend ↔ borrow",
+          "target_word": "borrow",
+          "lines": [
+            {
+              "text": "lend means give something temporarily; borrow means receive or take something temporarily. Use lend sth to sb vs borrow sth from sb/sth.",
+              "lang": "en"
+            },
+            {
+              "text": "lend sth to sb ↔ borrow sth from sb/sth",
+              "lang": "en"
+            },
+            {
+              "text": "lend = 借出/给出去暂用；borrow = 借入/拿来暂用。",
+              "lang": "cn"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:final-standard:borrow-lend:direction_boundary",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "lend ↔ borrow"
+          }
+        }
+      ],
       "form": null,
       "family": []
     }

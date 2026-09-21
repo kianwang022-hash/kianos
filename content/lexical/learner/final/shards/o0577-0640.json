@@ -427,7 +427,7 @@
     "ordinal": 580,
     "word": "breathe",
     "source_owner_path": "content/lexical/words/by-ordinal/o0580.json",
-    "source_fingerprint": "11a4277aef18e8e2899670992b7bcc6f53316b4e88124ce0e7c1d71e2562af34",
+    "source_fingerprint": "b2495bd29697ca72afb69acd0827980748bbe1889dc9bb9555171dd1fd338cb0",
     "sense_lineage": [
       {
         "word_id": "word:breathe",
@@ -575,7 +575,25 @@
       }
     ],
     "reference": {
-      "confusables": [],
+      "confusables": [
+        {
+          "title": "breathe ↔ breath",
+          "target_word": "breath",
+          "lines": [
+            {
+              "text": "breathe is the verb '呼吸'; breath is the noun '呼吸/气息'. The final -e also changes pronunciation.",
+              "lang": "cn"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "deep:confusables:breath:8febf079ed8c2d08",
+            "target_locator": "record.confusables[0]",
+            "target_label": "breathe ↔ breath"
+          }
+        }
+      ],
       "relations": [],
       "form": null,
       "family": []
@@ -587,7 +605,7 @@
     "ordinal": 581,
     "word": "breed",
     "source_owner_path": "content/lexical/words/by-ordinal/o0581.json",
-    "source_fingerprint": "03194265bffaeb93bb1a70f786baf6673b941a40af99ae2d7fc2be06e3a39543",
+    "source_fingerprint": "41095fc91656394c1cfda669a94a457a53e8cbf33949a0930e5d4595baba4b78",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -774,7 +792,33 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "breed → bred → bred.",
+        "boundaries": [
+          {
+            "surface": "breed",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "bred",
+            "condition": "past",
+            "note": "simple past"
+          },
+          {
+            "surface": "bred",
+            "condition": "past participle",
+            "note": "past participle"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "breed → bred → bred."
+        }
+      },
       "family": []
     }
   },
@@ -1732,7 +1776,7 @@
     "ordinal": 590,
     "word": "bright",
     "source_owner_path": "content/lexical/words/by-ordinal/o0590.json",
-    "source_fingerprint": "e1f7891cec748c65be822c56510ddd9b5eef031b46bf9ffac41c58893d55c6af",
+    "source_fingerprint": "44c800bf7e2560479eb773967b96fe8d2311939b32307937395d73dd78d8ac43",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1906,11 +1950,7 @@
           "target_word": "smart",
           "lines": [
             {
-              "text": "bright侧重理解学习快；smart更口语且可指机敏",
-              "lang": "cn"
-            },
-            {
-              "text": "characterized by quickness and ease in learning",
+              "text": "bright emphasizes quick understanding/learning; smart is broader and more conversational, often emphasizing cleverness or mental resourcefulness.",
               "lang": "en"
             }
           ],
@@ -2028,7 +2068,7 @@
     "ordinal": 592,
     "word": "bring",
     "source_owner_path": "content/lexical/words/by-ordinal/o0592.json",
-    "source_fingerprint": "9e3881cdf1c0a883c75a04b504f436d1c0130ce23633780be793fb3c528c9f04",
+    "source_fingerprint": "2c1e6c8cde3eae62044dfa0042aef43ee7501fdce3e616f27b247cd4fbae4041",
     "sense_lineage": [
       {
         "word_id": "word:bring",
@@ -2326,7 +2366,33 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "bring → brought → brought.",
+        "boundaries": [
+          {
+            "surface": "bring",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "brought",
+            "condition": "past",
+            "note": "simple past"
+          },
+          {
+            "surface": "brought",
+            "condition": "past participle",
+            "note": "past participle"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "bring → brought → brought."
+        }
+      },
       "family": []
     }
   },
@@ -2576,11 +2642,11 @@
     "ordinal": 595,
     "word": "broadcast",
     "source_owner_path": "content/lexical/words/by-ordinal/o0595.json",
-    "source_fingerprint": "ade2fec26a156aeb2a7d8571c910bcabcb64caad0d1cb4fd60a47769f9c0de19",
+    "source_fingerprint": "6efea19f3023b7f7a58a82288b75c400bcaaba9d8e0be57d056f1b87073a4bd6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V",
+        "3V",
         "1N"
       ],
       "density": "rich"
@@ -2681,6 +2747,23 @@
           "target_locator": "record.senses[2]",
           "target_label": "撒播（种子）"
         }
+      },
+      {
+        "id": "sense:broadcast:10eb316ee4173e24",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "vt. + information/news/message",
+        "definition_cn": "广泛传播、公开散布（信息、消息、观点等）",
+        "definition_en": "to spread or tell information, news, or ideas widely, not limited to radio or television",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:broadcast:10eb316ee4173e24",
+          "target_locator": "record.senses[3]",
+          "target_label": "广泛传播、公开散布（信息、消息、观点等）"
+        }
       }
     ],
     "secondary_senses": [],
@@ -2688,7 +2771,33 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "broadcast has past/past participle broadcast or broadcasted; unchanged broadcast is the common form.",
+        "boundaries": [
+          {
+            "surface": "broadcast",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "broadcast",
+            "condition": "common past/past participle",
+            "note": "common unchanged form"
+          },
+          {
+            "surface": "broadcasted",
+            "condition": "accepted past/past participle variant",
+            "note": "accepted -ed variant"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "broadcast has past/past participle broadcast or broadcasted; unchanged broadcast is the common form."
+        }
+      },
       "family": []
     }
   },
@@ -3018,7 +3127,7 @@
     "ordinal": 599,
     "word": "broom",
     "source_owner_path": "content/lexical/words/by-ordinal/o0599.json",
-    "source_fingerprint": "b11bd17092195ec6fcd2363094d187c85b1a1956e64b3cf67453d394c008ca65",
+    "source_fingerprint": "de98e69151b6696a7332e18240225f23dbdcc1b892e2e4361dc4aa3d31b0b11e",
     "sense_lineage": [
       {
         "word_id": "word:broom",
@@ -3037,18 +3146,18 @@
     ],
     "recall_map": {
       "parts": [
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "扫帚；低频也可指金雀花类黄花灌木",
-      "decision_cn": "household/tool → 扫帚；botany/plant context → 金雀花类灌木。",
+      "summary_cn": "扫帚",
+      "decision_cn": "household/tool → 扫帚；植物义仅保留在 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "扫帚；低频也可指金雀花类黄花灌木"
+        "target_label": "扫帚"
       }
     },
     "senses": [
@@ -3076,23 +3185,6 @@
           "target_id": "sense:broom:54e0301836115690",
           "target_locator": "record.senses[0]",
           "target_label": "扫帚"
-        }
-      },
-      {
-        "id": "sense:broom:908e88f61be15b32",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "金雀花；一种开黄色花的灌木",
-        "definition_en": "a shrub with long slender branches and typically yellow flowers, especially broom plants of Cytisus/Genista/Spartium",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:broom:908e88f61be15b32",
-          "target_locator": "record.senses[1]",
-          "target_label": "金雀花；一种开黄色花的灌木"
         }
       }
     ],

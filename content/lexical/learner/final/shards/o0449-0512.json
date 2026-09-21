@@ -7223,8 +7223,15 @@
     "ordinal": 502,
     "word": "blade",
     "source_owner_path": "content/lexical/words/by-ordinal/o0502.json",
-    "source_fingerprint": "eb1f3f015beecb9b32b33a16bba0dd626bcff74a1daa6e9f1cdc6a8448412706",
+    "source_fingerprint": "b6e166754cff6eb5ef41e2b106c08d205eb362d449132e83661e115d69a84ed3",
     "sense_lineage": [
+      {
+        "word_id": "word:blade",
+        "target_kind": "sense",
+        "from_target_id": "sense:blade:a1110ff9f6585d31",
+        "status": "reference_only",
+        "to_target_id": null
+      },
       {
         "word_id": "word:blade",
         "target_kind": "sense",
@@ -7235,7 +7242,7 @@
     ],
     "recall_map": {
       "parts": [
-        "4N"
+        "3N"
       ],
       "density": "rich"
     },
@@ -7326,32 +7333,6 @@
           "target_id": "sense:blade:81fc684642e35778",
           "target_locator": "record.senses[2]",
           "target_label": "细长如叶片的东西"
-        }
-      },
-      {
-        "id": "sense:blade:a1110ff9f6585d31",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "牛肩胛肉",
-        "definition_en": "a cut of beef from the shoulder blade",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:fcbfb08a7ee426fbb83b",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "blade steak",
-            "meaning_cn": "牛肩胛肉排",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:blade:a1110ff9f6585d31",
-          "target_locator": "record.senses[3]",
-          "target_label": "牛肩胛肉"
         }
       }
     ],
@@ -8415,7 +8396,7 @@
     "ordinal": 509,
     "word": "bleed",
     "source_owner_path": "content/lexical/words/by-ordinal/o0509.json",
-    "source_fingerprint": "eeacfa4d91188bc5680444d3bafdfeaa27f576756eadfef323e470938cd4e222",
+    "source_fingerprint": "646536b7a5b07cc30176512fdb1d7aaf8d2d307b1323f94f3cc338d805e7e04a",
     "sense_lineage": [
       {
         "word_id": "word:bleed",
@@ -8427,7 +8408,7 @@
     ],
     "recall_map": {
       "parts": [
-        "3V"
+        "4V"
       ],
       "density": "rich"
     },
@@ -8545,6 +8526,23 @@
           "target_locator": "record.senses[2]",
           "target_label": "渗出，流出"
         }
+      },
+      {
+        "id": "sense:bleed:9858456513dbd3fa",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "vt. + money/resources/jobs",
+        "definition_cn": "持续大量流失或消耗（金钱、资源、工作岗位等）",
+        "definition_en": "to lose or drain money, resources, jobs, or similar assets continuously or seriously",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:bleed:9858456513dbd3fa",
+          "target_locator": "record.senses[3]",
+          "target_label": "持续大量流失或消耗（金钱、资源、工作岗位等）"
+        }
       }
     ],
     "secondary_senses": [],
@@ -8552,7 +8550,33 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "bleed → bled → bled.",
+        "boundaries": [
+          {
+            "surface": "bleed",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "bled",
+            "condition": "past",
+            "note": "simple past"
+          },
+          {
+            "surface": "bled",
+            "condition": "past participle",
+            "note": "past participle"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "bleed → bled → bled."
+        }
+      },
       "family": []
     }
   },
