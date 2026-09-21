@@ -626,7 +626,7 @@
     "ordinal": 325,
     "word": "attempt",
     "source_owner_path": "content/lexical/words/by-ordinal/o0325.json",
-    "source_fingerprint": "6710b24a9788c67323fdb788da4ddf85445ff9adcab1835dfd4f2e5532e30342",
+    "source_fingerprint": "e58184b6c843644c3ead6d5e55cdd686428d40120b4136c68e56fcd02a450e22",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -718,28 +718,24 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "deep:constructions:attempt:35fb547b86b3c31d",
+        "id": "construction:attempt:final-standard-to-do-or-object",
         "source_locator": "record.constructions[0]",
-        "pattern": "vt. + to do / vt. + object",
+        "pattern": "attempt to do sth / attempt sth",
         "lines": [
           {
-            "text": "尝试；企图",
+            "text": "尝试做某事；尝试某项任务",
             "lang": "cn"
           },
           {
-            "text": "attempt to do sth 或 attempt sth，表示尝试做某事",
-            "lang": "cn"
-          },
-          {
-            "text": "to make an effort to do something",
+            "text": "make an effort to do something, either with a to-infinitive or a direct object",
             "lang": "en"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "deep:constructions:attempt:35fb547b86b3c31d",
+          "target_id": "construction:attempt:final-standard-to-do-or-object",
           "target_locator": "record.constructions[0]",
-          "target_label": "vt. + to do / vt. + object"
+          "target_label": "attempt to do sth / attempt sth"
         }
       }
     ],
@@ -1713,7 +1709,7 @@
     "ordinal": 333,
     "word": "attribute",
     "source_owner_path": "content/lexical/words/by-ordinal/o0333.json",
-    "source_fingerprint": "a979d95f83926140eb2765c0036f25f10a1d11bad59c422fef1fe332849f5b11",
+    "source_fingerprint": "25efd01a051f1623cf1c32031d14e26d547729ee2cb7f53b2dc94f8cbcd2b985",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1934,6 +1930,24 @@
             }
           ],
           "source_locator": "record.word_family[0]"
+        },
+        {
+          "target_word": "attribution",
+          "lines": [
+            {
+              "text": "归因；归属；归功/归责",
+              "lang": "cn"
+            },
+            {
+              "text": "attribute A to B（动词：把A归因/归属于B）→ attribution（名词：归因、归属、归功/归责）",
+              "lang": "cn"
+            },
+            {
+              "text": "the act of assigning something to a cause, source, person, or quality",
+              "lang": "en"
+            }
+          ],
+          "source_locator": "record.word_family[1]"
         }
       ]
     }
@@ -2260,15 +2274,15 @@
         "word_id": "word:audit",
         "target_kind": "sense",
         "from_target_id": "sense:audit:6aa4c57342675de9",
-        "status": "merged",
-        "to_target_id": "sense:audit:ad323e028fbe556e"
+        "status": "reference_only",
+        "to_target_id": null
       },
       {
         "word_id": "word:audit",
         "target_kind": "sense",
         "from_target_id": "sense:audit:7178c296a4385f58",
         "status": "merged",
-        "to_target_id": "sense:audit:ad323e028fbe556e"
+        "to_target_id": "sense:audit:5013afcab94a592a"
       }
     ],
     "recall_map": {
@@ -2373,7 +2387,7 @@
     "ordinal": 338,
     "word": "auditorium",
     "source_owner_path": "content/lexical/words/by-ordinal/o0338.json",
-    "source_fingerprint": "bbed6973df91e9cc41791b9a84ef0d7c1153eec136dc38cebe0a1866d532ba4d",
+    "source_fingerprint": "97aa94ad071d1e8838319f16d22c0769a9cd0eca422e68aa895693a75540c2c9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2397,8 +2411,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "剧院或音乐厅中观众就座的区域",
-        "definition_en": "the area of a theater or concert hall where the audience sits",
+        "definition_cn": "礼堂；观众厅；供观众参加演出、讲座或会议的大型厅室",
+        "definition_en": "a large room or hall designed for an audience, performances, lectures, or meetings",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2415,7 +2429,7 @@
           "target_kind": "sense",
           "target_id": "sense:auditorium:26cd7de9e2ab5fd0",
           "target_locator": "record.senses[0]",
-          "target_label": "剧院或音乐厅中观众就座的区域"
+          "target_label": "礼堂；观众厅；供观众参加演出、讲座或会议的大型厅室"
         }
       }
     ],
@@ -2872,7 +2886,7 @@
     "ordinal": 343,
     "word": "authentic",
     "source_owner_path": "content/lexical/words/by-ordinal/o0343.json",
-    "source_fingerprint": "d79b3cb96a6db7b30da02bd69989f4033c64ee8954a27520125ce1492fac65f4",
+    "source_fingerprint": "7902718d9c6c5ba8442dc4a303623935141570da396a49016dde5d6bf9a8964f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2950,7 +2964,26 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [
+        {
+          "target_word": "authenticity",
+          "lines": [
+            {
+              "text": "真实性；真伪；正宗性",
+              "lang": "cn"
+            },
+            {
+              "text": "authentic（真实/正宗的）→ authenticity（真实性、真伪、正宗性）",
+              "lang": "cn"
+            },
+            {
+              "text": "the quality of being genuine, real, or true to an original or source",
+              "lang": "en"
+            }
+          ],
+          "source_locator": "record.word_family[0]"
+        }
+      ]
     }
   },
   {
@@ -3517,7 +3550,7 @@
     "ordinal": 349,
     "word": "autonomy",
     "source_owner_path": "content/lexical/words/by-ordinal/o0349.json",
-    "source_fingerprint": "27b8c8618720fd5cc04d5d48327f7a7e1dcc2bf841eb2b80e142f3a4895427ed",
+    "source_fingerprint": "a659be357bd840f38de6a3a7a1368a86e458f49c286419d17f5435875471e3dc",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3608,7 +3641,26 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [
+        {
+          "target_word": "autonomous",
+          "lines": [
+            {
+              "text": "自治的；自主的；能独立运行的",
+              "lang": "cn"
+            },
+            {
+              "text": "autonomy（自主/自治状态或权利）→ autonomous（自治的、自主的、可独立运行的）",
+              "lang": "cn"
+            },
+            {
+              "text": "self-governing, independent, or able to operate without direct external control",
+              "lang": "en"
+            }
+          ],
+          "source_locator": "record.word_family[0]"
+        }
+      ]
     }
   },
   {
@@ -3617,7 +3669,7 @@
     "ordinal": 350,
     "word": "autumn",
     "source_owner_path": "content/lexical/words/by-ordinal/o0350.json",
-    "source_fingerprint": "e800fd69aaffe994e28f51832a74bf27d0e94cbc400cfc3525dc0bbbbfb771b7",
+    "source_fingerprint": "b29f3fdfa5b69497b674288d7e175dacee96432445be35f26c821180ef9dc0e5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3641,8 +3693,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "树叶从树上落下的季节",
-        "definition_en": "the season when the leaves fall from the trees",
+        "definition_cn": "秋季；夏季与冬季之间的季节",
+        "definition_en": "the season between summer and winter",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3659,7 +3711,7 @@
           "target_kind": "sense",
           "target_id": "sense:autumn:4596ce79f31255f9",
           "target_locator": "record.senses[0]",
-          "target_label": "树叶从树上落下的季节"
+          "target_label": "秋季；夏季与冬季之间的季节"
         }
       }
     ],
@@ -5452,11 +5504,19 @@
     "ordinal": 365,
     "word": "awful",
     "source_owner_path": "content/lexical/words/by-ordinal/o0365.json",
-    "source_fingerprint": "ef8d9481b18e5054f617c3dfa01713fae0a4b713b0ae59e801ce8da5a8c34ae4",
-    "sense_lineage": [],
+    "source_fingerprint": "ba1acc6c93724d28fb5eb734585d9b06b60e0d62e5b2821212a50ebd87d8ac6d",
+    "sense_lineage": [
+      {
+        "word_id": "word:awful",
+        "target_kind": "sense",
+        "from_target_id": "sense:awful:033657bd172f5ac8",
+        "status": "reference_only",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3A"
+        "2A"
       ],
       "density": "rich"
     },
@@ -5498,34 +5558,8 @@
         }
       },
       {
-        "id": "sense:awful:033657bd172f5ac8",
-        "source_locator": "record.senses[1]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "庄严的，令人敬畏的",
-        "definition_en": "inspiring awe; solemn or reverential",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:943e2abd9b5314562973",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "awful majesty",
-            "meaning_cn": "庄严的威严",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:awful:033657bd172f5ac8",
-          "target_locator": "record.senses[1]",
-          "target_label": "庄严的，令人敬畏的"
-        }
-      },
-      {
         "id": "sense:awful:e43db2f4fbea5dd1",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "非常糟糕的；令人不快的",
@@ -5536,7 +5570,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:awful:e43db2f4fbea5dd1",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[1]",
           "target_label": "非常糟糕的；令人不快的"
         }
       }
@@ -5669,7 +5703,7 @@
     "ordinal": 367,
     "word": "ax",
     "source_owner_path": "content/lexical/words/by-ordinal/o0367.json",
-    "source_fingerprint": "eaf8007daa6187892f411aac2549cba26aabea845c2c4c3f78a944cd88b1b6fd",
+    "source_fingerprint": "2675908d7f2be60153a574b36c19dfb3436f435115af4d514441ffd7bdf97ccd",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5785,7 +5819,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "ax is the usual American spelling; axe is the usual British spelling and is also widely used generally.",
+        "boundaries": [
+          {
+            "surface": "ax",
+            "condition": "usual American spelling",
+            "note": "common AmE spelling"
+          },
+          {
+            "surface": "axe",
+            "condition": "usual British spelling",
+            "note": "common BrE spelling; also widely seen elsewhere"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "ax is the usual American spelling; axe is the usual British spelling and is also widely used generally."
+        }
+      },
       "family": []
     }
   },
@@ -5795,7 +5850,7 @@
     "ordinal": 368,
     "word": "axis",
     "source_owner_path": "content/lexical/words/by-ordinal/o0368.json",
-    "source_fingerprint": "bc9a6de17780a7a5c649561a98139f4b63c9f29b961cf259e5035d15774b91f7",
+    "source_fingerprint": "b5996959f3f3ad33a213dd27138ce8fc07d6b553abab5b37731ca90795b5e51a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5914,7 +5969,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "axis has the irregular plural axes.",
+        "boundaries": [
+          {
+            "surface": "axis",
+            "condition": "singular",
+            "note": "one axis"
+          },
+          {
+            "surface": "axes",
+            "condition": "plural",
+            "note": "plural of axis"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "axis has the irregular plural axes."
+        }
+      },
       "family": []
     }
   },
@@ -6898,7 +6974,7 @@
     "ordinal": 375,
     "word": "bacteria",
     "source_owner_path": "content/lexical/words/by-ordinal/o0375.json",
-    "source_fingerprint": "5ce334c95e08f1fd82ee1669b05d1ed807e29be1eb95176e73a4d9ed5c5cde13",
+    "source_fingerprint": "17c7a4f254f4e1cb41315ef31d1eeca23c4f9bf9c1e713b61e108538ec976a7d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6965,23 +7041,29 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
-      "family": [
-        {
-          "target_word": "bacterium",
-          "lines": [
-            {
-              "text": "bacterium（单数）→ bacteria（复数）",
-              "lang": "cn"
-            },
-            {
-              "text": "bacterium is singular; bacteria is plural",
-              "lang": "en"
-            }
-          ],
-          "source_locator": "record.word_family[0]"
+      "form": {
+        "boundary": "bacterium is singular; bacteria is plural.",
+        "boundaries": [
+          {
+            "surface": "bacterium",
+            "condition": "singular",
+            "note": "one bacterium"
+          },
+          {
+            "surface": "bacteria",
+            "condition": "plural",
+            "note": "plural of bacterium"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "bacterium is singular; bacteria is plural."
         }
-      ]
+      },
+      "family": []
     }
   },
   {
@@ -7948,7 +8030,7 @@
     "ordinal": 383,
     "word": "bait",
     "source_owner_path": "content/lexical/words/by-ordinal/o0383.json",
-    "source_fingerprint": "2a03b3400722570e037d9ae59638feaaa696686a66d722d04311a4d94c7e98e5",
+    "source_fingerprint": "df410d8292a8e925ac0d3f02ea4352fc98c5544a2bd1d0993a8dcce75b070c90",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8086,30 +8168,22 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "deep:constructions:bait:ce9aeb710686ce20",
+        "id": "construction:bait:final-standard-into-doing",
         "source_locator": "record.constructions[0]",
         "pattern": "bait sb into doing sth",
         "lines": [
           {
-            "text": "引诱某人做某事",
+            "text": "引诱/诱使某人做某事",
             "lang": "cn"
           },
           {
-            "text": "用饵引诱",
-            "lang": "cn"
-          },
-          {
-            "text": "bait sb into doing 引诱某人做",
-            "lang": "cn"
-          },
-          {
-            "text": "lure, entice, or entrap with bait",
+            "text": "lure or provoke someone into doing something",
             "lang": "en"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "deep:constructions:bait:ce9aeb710686ce20",
+          "target_id": "construction:bait:final-standard-into-doing",
           "target_locator": "record.constructions[0]",
           "target_label": "bait sb into doing sth"
         }
@@ -8128,7 +8202,7 @@
     "ordinal": 384,
     "word": "bake",
     "source_owner_path": "content/lexical/words/by-ordinal/o0384.json",
-    "source_fingerprint": "101fcf69b84fd70548103a5d886229c6b10e5534074ba67207d041b6bce49dcc",
+    "source_fingerprint": "064c6260fd637de605a71c01b2f00b24d02bb9d53b8dd584d48e94b2129e11fd",
     "sense_lineage": [
       {
         "word_id": "word:bake",
@@ -8141,8 +8215,8 @@
         "word_id": "word:bake",
         "target_kind": "sense",
         "from_target_id": "sense:bake:fc8821136f315536",
-        "status": "merged",
-        "to_target_id": "sense:bake:f4e38c686eae5d1c"
+        "status": "reference_only",
+        "to_target_id": null
       }
     ],
     "recall_map": {
