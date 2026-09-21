@@ -158,8 +158,10 @@ console.log(JSON.stringify({status:'PASS',checks:count,proof:'shared orchestrati
   const key='kianos-reading-attempt-v1:fixture';
   const context=vm.createContext({console});
   const dependencies={
-    './examOrchestrator.mjs':{EXAM_PROFILE_KEY:'fixture-profile'},
-    './studyTimer.mjs':{readStudyTimerLedger:()=>({sessions:[]})},
+    './examOrchestrator.mjs':{EXAM_PROFILE_KEY:'fixture-profile',validateExamProfile:value=>value},
+    './studyTimer.mjs':{readStudyTimerLedger:()=>({sessions:[]}),STUDY_TIMER_LEDGER_KEY:'fixture-timer-ledger',STUDY_TIMER_STATE_KEY:'fixture-timer-state',STUDY_TIMER_SCHEMA:'kianos.study-timer.v2'},
+    './lexicalEvidence.mjs':{LEXICAL_LEDGER_STORAGE_KEY:'fixture-lexical-ledger'},
+    './lexicalSettings.mjs':{LEXICAL_INTAKE_STORAGE_KEY:'fixture-lexical-intake',LEXICAL_ROUTING_STORAGE_KEY:'fixture-lexical-routing'},
     './englishLearnerEvidence.mjs':{englishCheckpointKeyAllowed:k=>k===key},
     './politicsChatReturn.mjs':{politicsCheckpointKeyAllowed:()=>false},
     './xizongPrivateCheckpoint.mjs':{isXizongDurableStorageKey:()=>false}

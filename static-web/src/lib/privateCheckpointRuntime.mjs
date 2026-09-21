@@ -26,6 +26,8 @@ import {
   preparePrivateSubjectCheckpointRestore
 } from './privateSubjectCheckpoints.mjs';
 
+import { CONTROL_LOCAL_RECEIPT_KEY } from './privateControlCommand.mjs';
+
 export const PRIVATE_CHECKPOINT_RUNTIME_SCHEMA = 'kianos.private-checkpoint-runtime.v1';
 
 const SHARED_STORAGE_KEYS = Object.freeze([
@@ -35,13 +37,13 @@ const SHARED_STORAGE_KEYS = Object.freeze([
   STUDY_TIMER_LEDGER_KEY
 ]);
 
-const safeGet = (storage, key) => {
-  try { return storage?.getItem?.(key) ?? null; }
-  catch { return null; }
+const readRaw = (storage, key) => {
+  if (!storage?.getItem) throw new Error('PRIVATE_CHECKPOINT_STORAGE_UNAVAILABLE');
+  return storage.getItem(key);
 };
 
 export function sharedControlStorageIsEmpty(storage) {
-  return SHARED_STORAGE_KEYS.every((key) => safeGet(storage, key) == null);
+  return SHARED_STORAGE_KEYS.every((key) => readRaw(storage, key) == null);
 }
 
 function sharedForCurrentDay(shared, currentDay) {
@@ -60,9 +62,10 @@ export async function restoreSharedControlFromPrivate(storage, {
   readCheckpoint = readPrivateLearnerCheckpoint
 } = {}) {
   const studyDay = studyDayAt(now);
-  const sharedEmpty = sharedControlStorageIsEmpty(storage);
-
   const remote = await readCheckpoint();
+  // Local facts may change while the checkpoint is being read. Never use a
+  // pre-await emptiness decision to authorize replacement writes.
+  const sharedEmpty = sharedControlStorageIsEmpty(storage);
   if (remote?.status !== 'ready' || remote?.checkpoint?.schema !== PRIVATE_CHECKPOINT_SCHEMA) {
     if (!sharedEmpty) {
       return {
@@ -100,14 +103,18 @@ export async function restoreSharedControlFromPrivate(storage, {
   }
 
   const touched = new Set(preparedSubjects.changes.map(([key]) => key));
-  if (sharedEmpty) SHARED_STORAGE_KEYS.forEach((key) => touched.add(key));
-  const before = new Map([...touched].map((key) => [key, safeGet(storage, key)]));
+  if (sharedEmpty) [...SHARED_STORAGE_KEYS, CONTROL_LOCAL_RECEIPT_KEY].forEach((key) => touched.add(key));
+  const before = new Map([...touched].map((key) => [key, readRaw(storage, key)]));
 
+  const warnings = [];
   let sharedStatus = 'skipped';
   let subjectResults = preparedSubjects.results;
   try {
     if (sharedEmpty) {
-      restoreSharedControlCheckpoint(storage, sharedForCurrentDay(shared, studyDay), { expectedDay: studyDay });
+      const currentShared = sharedForCurrentDay(shared, studyDay);
+      if (storage.getItem(CONTROL_LOCAL_RECEIPT_KEY) != null) delete currentShared.control_receipt_raw;
+      const restored = restoreSharedControlCheckpoint(storage, currentShared, { expectedDay: studyDay });
+      warnings.push(...(restored.warnings || []));
       sharedStatus = 'restored';
     }
     subjectResults = applyPrivateSubjectCheckpointRestore(storage, preparedSubjects);
@@ -128,6 +135,7 @@ export async function restoreSharedControlFromPrivate(storage, {
     checkpoint_id: remote.checkpoint.checkpoint_id,
     source_day: remote.checkpoint.study_day,
     shared: sharedStatus,
+    warnings,
     subjects: subjectResults
   };
 }
@@ -138,8 +146,6 @@ export async function saveSharedControlToPrivate(storage, {
   writeCheckpoint = writePrivateLearnerCheckpoint
 } = {}) {
   const studyDay = studyDayAt(now);
-  const shared = captureSharedControlCheckpoint(storage, { studyDay, now });
-
   const existing = await readCheckpoint();
   let existingSubjects = {};
   if (existing?.status === 'ready') {
@@ -155,6 +161,8 @@ export async function saveSharedControlToPrivate(storage, {
     throw new Error('PRIVATE_CHECKPOINT_EXISTING_READ_UNSAFE:' + (existing?.status || 'unknown'));
   }
 
+  // Capture shared and native facts in the same synchronous post-read slice.
+  const shared = captureSharedControlCheckpoint(storage, { studyDay, now });
   const subjects = capturePrivateSubjectCheckpoints(storage, existingSubjects, { now });
 
   const checkpoint = buildPrivateLearnerCheckpoint({

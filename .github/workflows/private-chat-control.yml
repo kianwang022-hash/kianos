@@ -6,6 +6,9 @@ on:
       - "static-web/src/lib/examChatPlan.mjs"
       - "static-web/src/lib/privateSubjectCheckpoints.mjs"
       - "static-web/scripts/test-l1-control-transactions.mjs"
+      - "static-web/scripts/test-l1-continuation.mjs"
+      - "static-web/src/lib/sharedControlCheckpoint.mjs"
+      - "static-web/src/lib/privateCheckpointRuntime.mjs"
       - "static-web/src/lib/privateControl*.mjs"
       - "static-web/scripts/privateControl*.mjs"
       - "static-web/scripts/privateEnglish*.mjs"
@@ -44,6 +47,9 @@ on:
       - "static-web/src/lib/examChatPlan.mjs"
       - "static-web/src/lib/privateSubjectCheckpoints.mjs"
       - "static-web/scripts/test-l1-control-transactions.mjs"
+      - "static-web/scripts/test-l1-continuation.mjs"
+      - "static-web/src/lib/sharedControlCheckpoint.mjs"
+      - "static-web/src/lib/privateCheckpointRuntime.mjs"
       - "static-web/src/lib/privateControl*.mjs"
       - "static-web/scripts/privateControl*.mjs"
       - "static-web/scripts/privateEnglish*.mjs"
@@ -94,6 +100,7 @@ jobs:
       - name: Unit and transport proof
         working-directory: static-web
         run: |
+          node --experimental-vm-modules scripts/test-l1-continuation.mjs ..
           node --experimental-vm-modules scripts/test-l1-control-transactions.mjs
           node scripts/test-private-control-relay.mjs
           node scripts/test-daily-learning-packet.mjs

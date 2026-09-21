@@ -13,7 +13,11 @@ import {
   validateExamProfile
 } from '../src/lib/examOrchestrator.mjs';
 import { buildChatControlledExamReadModel } from '../src/lib/examPlanReadModel.mjs';
-import { listProjectableXizongSystems, loadXizongBlock } from '../src/lib/xizong.mjs';
+import {
+  listProjectableXizongSystems, loadXizongBlock,
+  buildXizongForecastCanonicalScope, listCurrentXizongSystemIdentities
+} from '../src/lib/xizong.mjs';
+import { buildXizongForecastQuestionScope } from '../src/lib/xizongQuestions.mjs';
 import { buildXizongProductionBlock } from '../src/lib/xizongProductionProjection.mjs';
 import { politicsProductCatalog } from '../src/lib/productCatalog.mjs';
 import { buildPoliticsMemoryCandidateCatalogCurrent } from '../src/lib/politicsMemoryCandidates.mjs';
@@ -28,6 +32,7 @@ class MemoryStorage {
 }
 
 let cachedXizongPacketIndex = null;
+let cachedXizongPacketInputs = null;
 let cachedPoliticsCatalog = null;
 let cachedPoliticsMemoryCatalog = null;
 
@@ -40,6 +45,7 @@ function xizongPacketIndex() {
     return {
       systemId: system.systemId,
       slug: blockRef.slug,
+      routeKey: `${system.systemId}/${blockRef.slug}`,
       blockId: canonical.blockId,
       blockLabel: canonical.label,
       packetMeta: {
@@ -67,6 +73,20 @@ function xizongPacketIndex() {
     };
   }));
   return cachedXizongPacketIndex;
+}
+
+// Assemble native producer inputs once. This uses exactly the native scope
+// builders used by Home; it does not copy their learning or Forecast semantics.
+function xizongPacketInputs() {
+  if (!cachedXizongPacketInputs) {
+    const index = xizongPacketIndex();
+    cachedXizongPacketInputs = {
+      xizongPacketIndex: index,
+      xizongForecastQuestionScope: buildXizongForecastQuestionScope(listCurrentXizongSystemIdentities()),
+      xizongForecastCanonicalScope: buildXizongForecastCanonicalScope(index)
+    };
+  }
+  return cachedXizongPacketInputs;
 }
 
 function politicsCatalog() {
@@ -128,11 +148,11 @@ export function buildDailyLearningPacketFromPrivateCheckpoint(input, {
   if (!Number.isFinite(timestamp)) throw new Error('DAILY_PACKET_PRIVATE_NOW_INVALID');
 
   const storage = new MemoryStorage();
-  restoreSharedControlCheckpoint(storage, checkpoint.payload.shared, {
+  const sharedRestore = restoreSharedControlCheckpoint(storage, checkpoint.payload.shared, {
     expectedDay: checkpoint.study_day
   });
-  const restoreWarnings = [];
-  for (const subject of ['xizong', 'english', 'politics']) {
+  const restoreWarnings = [...(sharedRestore.warnings || [])];
+  for (const subject of ['xizong', 'english', 'politics', 'lexical']) {
     const payload = checkpoint.payload.subjects?.[subject];
     if (payload == null) continue;
     try {
@@ -152,7 +172,7 @@ export function buildDailyLearningPacketFromPrivateCheckpoint(input, {
     day: checkpoint.study_day,
     now: timestamp,
     plan,
-    xizongPacketIndex: xizongPacketIndex(),
+    ...xizongPacketInputs(),
     politicsCatalog: politicsCatalog(),
     politicsMemoryCatalog: politicsMemoryCatalog(),
     base
@@ -165,8 +185,19 @@ export function buildDailyLearningPacketFromPrivateCheckpoint(input, {
     throw new Error('DAILY_PACKET_PRIVATE_DAY_MISMATCH');
   }
 
+  const packet = {
+    ...result.packet,
+    coverage: result.coverage,
+    warnings: [...new Set([...(result.packet.warnings || []), ...restoreWarnings, ...result.warnings])]
+  };
+  if (restoreWarnings.some(warning => warning.startsWith('checkpoint:'))) {
+    // A failed subject reconstruction is UNKNOWN, not an empty evidence basis.
+    packet.learner_evidence_basis = null;
+    packet.schedule = null;
+    for (const row of Object.values(packet.subjects)) row.plan = null;
+  }
   return {
-    packet: result.packet,
+    packet,
     coverage: result.coverage,
     warnings: [...restoreWarnings, ...result.warnings],
     source_checkpoint_id: checkpoint.checkpoint_id,

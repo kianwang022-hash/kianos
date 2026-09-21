@@ -13,6 +13,80 @@ MATERIAL_BLOCKERS = B1, B2, B3, B4, B5
 This is one bounded lane result, not a registry, new architecture, subject audit,
 or whole-system verdict. `CURRENT.md` remains the work cursor.
 
+## Exact-base continuation on the same PR #732
+
+Continuation input: uploaded `KianOS_L1_PR732_Continuation_Patch.zip`.
+The fresh PR head was `1f37c2ec425079c6159e4352c4c86c7fe80aa950`; all five
+baseline Git blobs and all five uploaded candidate blobs were verified before
+application. No transplant from another branch, new PR or new Issue was used.
+
+Candidate delta, not acceptance:
+
+- B3: English plan basis includes the existing Lexical evidence ledger, intake
+  records and card-routing evidence. Pronunciation preferences/navigation/UI-only
+  keys remain excluded. One storage-key enumeration is reused across subjects.
+  Bad evidence JSON, profile or timer cannot mint an empty valid basis. Packet
+  time is null with warning when unreadable, not fabricated zero minutes.
+- B2: private reprojection invokes the existing Lexical adapter and the same
+  Xizong question/canonical scope builders and block input fields as Home.
+  Restore warnings and coverage now reach `projection.packet`, the uploaded
+  object. Failed subject reconstruction clears executable basis/plan while
+  preserving healthy subject exports. Native differential parity remains open.
+- B1/B4: raw receipt bytes enter the existing shared checkpoint; valid restore
+  preserves those exact bytes, newer local receipt wins, corrupt receipt yields
+  warning without becoming APPLIED. Receipt participates in outer rollback.
+  Local emptiness and shared capture are evaluated after asynchronous checkpoint
+  reads; denied reads do not authorize recovery writes. Corrupt timer data cannot
+  be saved as a normalized empty checkpoint. File-store CAS remains open.
+
+Proof actually rerun in the Linux Node v22.16.0 sandbox:
+
+```text
+original 33 cases on verified PR head: 11 PASS / 22 FAIL
+original 33 cases after continuation:  33 PASS / 0 FAIL
+original 33 + 8 bounded edge cases:    41 PASS / 0 FAIL
+existing control transaction cases:   10 PASS (native/transport doubles)
+existing actual Xizong D1 adapter:    PASS
+existing fingerprint vectors:        1004 PASS
+```
+
+The new regression is `scripts/test-l1-continuation.mjs`; all original 33
+scenarios are retained. The eight additions cover raw-byte receipt recovery,
+outer warnings, post-await recovery/capture, denied/inconsistent storage reads,
+and corrupt timer capture. Existing control-test changes only extend dependency
+doubles for the new imports; the ten assertions, native D1 and 1004 vectors remain.
+The existing Private Chat Control workflow includes this test before its native,
+build and browser checks. Wiring is not proof that a workflow ran or passed.
+Sandbox clone/build provisioning was unavailable (GitHub DNS failure); complete
+native/browser/build, real Mac and remote receipt/readback are NOT ACCEPTED here.
+
+Remaining continuation work (same B1–B5, no new framework):
+
+- B1 OPEN: partial/corrupt/coupled subject capture/restore, legitimate deletion
+  and native archive/reset distinction, file-store stale-write/CAS proof.
+- B2 OPEN: same-input production browser/private packet comparison and healthy
+  subject behavior with damaged native sibling payloads, beyond isolated doubles.
+- B3 OPEN: M5 live Home still caches ready state on render-only callbacks;
+  Source-version propagation and native Resume preservation need real proof.
+- B3/B4 OPEN (M3): plan validation currently precedes native staging, but the
+  final `writeExamChatPlan` validates against the changed shadow. An English
+  learner declaration can therefore self-stale a plan in the same command.
+  The plan must bind the pre-command evidence snapshot, then apply the explicit
+  native operations atomically without exempting unrelated later evidence.
+  This continuation does not claim that ordering defect fixed.
+- B4 OPEN: actual receipt local -> checkpoint -> relay/readback, restart replay,
+  older/stale-late commands and receipt failure against native/real endpoints.
+- B5 OPEN: full candidate browser/build plus actual Mac/restart/hot-path proof;
+  no learner deployment, Mac acceptance, or remote receipt acceptance claimed.
+
+Only the directly useful repeated per-subject basis enumeration was collapsed.
+Retired deterministic planner, Home unused large catalog, broader duplicate
+subject enumeration, legacy recovery helpers and Website Current history remain
+`DEFER_UNTIL_LANE_STABLE`. No native/Personal/watcher semantics were modified.
+
+The original findings and proof below are retained as baseline evidence; the
+continuation delta above supersedes only their explicitly repaired statements.
+
 ## Production shape / simplification
 
 ```
@@ -199,10 +273,13 @@ in `src/layouts/BaseFrame.astro`; shared Timer/context persistence; existing Cur
 sync/static server; and their smallest affected tests/workflows. Native subject
 files, Personal decision owners and background architecture are excluded.
 
-Current candidate implementation write-set is ONLY:
-`privateControlRuntime.mjs`, `privateSubjectCheckpoints.mjs`, `examChatPlan.mjs`,
-one shared regression script wired into the existing Private Chat Control
-workflow, this bounded result, and the active Current entry.
+Candidate implementation retains the original `privateControlRuntime.mjs`,
+`privateSubjectCheckpoints.mjs` and `examChatPlan.mjs` changes. The continuation
+adds only `dailyLearningPacket.mjs`, `sharedControlCheckpoint.mjs`,
+`privateCheckpointRuntime.mjs`, `scripts/privateDailyLearningPacket.mjs`, the
+bounded regression/dependency-double changes, existing workflow wiring, this
+result and the active Current entry. Other copied native files used for isolated
+tests are unchanged, not part of the continuation write-set.
 
 After B1–B5 are closed on the same accepted candidate: record the requested ten
 exit fields, slim Current without deleting acceptance evidence, and stop broad

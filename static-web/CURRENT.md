@@ -7,7 +7,7 @@ Rule: current website work only. Long-lived Visual rules live in Presentation/St
 
 ## Active L1 shared runtime closure — NOT ACCEPTED
 
-Current candidate: `work/l1-shared-runtime-closure-20260921`.
+Current candidate: PR **#732**, `work/l1-shared-runtime-closure-20260921`.
 Execution envelope for actual Mac/browser work: Issue #728. Read the latest
 candidate head and Issue receipt before continuing; dispatch is not execution.
 
@@ -20,8 +20,14 @@ shared owners. #727 contributes D1 only; D2/D3 remain Xizong. #640 is never merg
 wholesale. Native learning/Source/scoring/Forecast and Personal judgment stay out
 of L1. The accepted Visual remains unchanged.
 
-Candidate currently repairs command-scoped atomic apply/receipt retry and D1,
-and reduces basis-computation cost without changing fingerprint identities.
+Candidate retains command-scoped atomic apply/receipt retry, D1 and the faster
+fingerprint primitive. The exact-base continuation adds Lexical evidence
+freshness, unreadable-basis/time guards, native private Packet inputs and raw
+receipt recovery in the existing checkpoint transaction. Targeted proof: original
+33/33 plus 8 continuation cases, existing 10 control checks, native D1 and 1004
+fingerprint vectors. These isolated results are not browser/Mac/remote acceptance.
+Continue only B1–B5 in `L1_SHARED_RUNTIME_CLOSURE.md`; M3 transaction ordering and
+M5 live Home invalidation remain B3/B4, not a second audit or implementation.
 This does not close the remaining parity, failure-isolation, freshness, durable
 receipt/recovery or real Mac proof obligations. Prior Gate 5 protects the accepted
 Visual, not these newly reproduced shared defects. Historical receipts below
