@@ -84,10 +84,92 @@
         "verification_status": "verified",
         "writing_safe": false
       }
+    },
+    {
+      "source_word_id": "word:sure",
+      "source_ordinal": 4828,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "sure 与 certain 在“确信/确定”义重叠；sure 更常关联人的主观把握及其固定结构，certain 还常作定语表示“某个/确定存在但不点名”，也常用于较客观正式的确定性表达。不要教成简单的正式/非正式二分。"
+        ],
+        "codex_reviewed": true,
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "horizontal:horizontal:106",
+            "evidence_status": "source_checked",
+            "source_locator": "horizontal:106",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
+          }
+        ],
+        "learning_note": "sure 与 certain 在“确信/确定”义重叠；sure 更常关联人的主观把握及其固定结构，certain 还常作定语表示“某个/确定存在但不点名”，也常用于较客观正式的确定性表达。不要教成简单的正式/非正式二分。",
+        "members": [
+          {
+            "branch_id": null,
+            "branch_label": null,
+            "headword": "sure",
+            "participant_role": "CANONICAL_MEMBER",
+            "relevant_sense_ids": [
+              "sense:sure:ad5b98a35ee25926"
+            ],
+            "word_id": "word:sure"
+          }
+        ],
+        "priority": "B",
+        "publication_status": "publishable",
+        "relation_id": "relation:horizontal:b9700cdbd3cd15b79077",
+        "relation_note": "sure 与 certain 在“确信/确定”义重叠；sure 更常关联人的主观把握及其固定结构，certain 还常作定语表示“某个/确定存在但不点名”，也常用于较客观正式的确定性表达。不要教成简单的正式/非正式二分。",
+        "relation_scope": "lexeme",
+        "relation_type": "certainty_adjective_contrast",
+        "sense_ids": [
+          "sense:sure:ad5b98a35ee25926"
+        ],
+        "shared_meaning": "sure 与 certain 在“确信/确定”义重叠；sure 更常关联人的主观把握及其固定结构，certain 还常作定语表示“某个/确定存在但不点名”，也常用于较客观正式的确定性表达。不要教成简单的正式/非正式二分。",
+        "source_evidence_objects": [
+          {
+            "canonical_members": [
+              {
+                "branch_id": null,
+                "branch_label": null,
+                "headword": "sure",
+                "participant_role": "CANONICAL_MEMBER",
+                "relevant_sense_ids": [
+                  "sense:sure:ad5b98a35ee25926"
+                ],
+                "word_id": "word:sure"
+              }
+            ],
+            "learner_note": "sure 与 certain 在“确信/确定”义重叠；sure 更常关联人的主观把握及其固定结构，certain 还常作定语表示“某个/确定存在但不点名”，也常用于较客观正式的确定性表达。不要教成简单的正式/非正式二分。",
+            "relation_targets": [
+              "certain"
+            ],
+            "relation_type": "certainty_adjective_contrast"
+          }
+        ],
+        "source_expression": "sure",
+        "source_sense_id": "sense:sure:ad5b98a35ee25926",
+        "target_expression": "certain",
+        "target_sense_id": "sense:certain:780a2ee3d0b15570",
+        "target_sense_ids": [
+          "sense:certain:780a2ee3d0b15570",
+          "sense:certain:ef871e46c4db56c3"
+        ],
+        "target_word": "certain",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 1,
+    "last_materialization": "BF07 reciprocal closure"
   }
 }
