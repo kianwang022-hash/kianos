@@ -303,7 +303,7 @@ function retiredCurrent(key,raw,entries,retired){
   if(row.current_key!==key||row.attempt_id!==binding.attempt_id||row.source_hash!==binding.source_hash)return false;
   const archived=JSON.parse(entries[row.archive_key]);
   if(JSON.stringify(archived)===JSON.stringify(value))return true;
-  if(!Number.isInteger(binding.revision)||row.archived_revision===null||binding.revision>row.archived_revision)return false;
+  if(!Number.isInteger(binding.revision)||row.archived_revision===null||binding.revision>=row.archived_revision)return false;
   return ['firstDraft','firstAttempts','firstSubmittedAt','submittedAt','firstEvidenceMeta'].every(field=>JSON.stringify(archived[field])===JSON.stringify(value[field]));
  });
 }

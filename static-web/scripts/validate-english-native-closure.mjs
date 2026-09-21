@@ -345,6 +345,13 @@ test('native first Source snapshot cannot be rewritten under the same revision',
  const {storage,meta,value}=installedV1();const changed=clone(value);changed.binding.source_snapshot={material:'invented'};
  assert.throws(()=>evidence.saveEnglishAttempt(storage,currentKey(meta.object_id),changed,meta,{now}),/BINDING_IMMUTABLE/);
 });
+test('equal-revision divergent local draft is not retired by a backup archive',()=>{
+ const key='kianos-reading-attempt-v1:fork',archiveKey='kianos-english-attempt-archive-v1:fork-attempt';
+ const archived={answers:{q1:'A'},binding:{task:'reading_a',object_id:'fork',source_hash:'h',attempt_id:'fork-attempt',revision:4}};
+ const local=clone(archived);local.answers.q1='B';const raw=JSON.stringify(local),storage=new MemoryStorage({[key]:raw});
+ evidence.restoreEnglishCheckpoint(storage,{schema:'kianos.english.private-payload.v1',entries:{[archiveKey]:JSON.stringify(archived)}});
+ assert.equal(storage.getItem(key),raw);
+});
 const report={basis:'bounded L2 candidate repair; base 418c8a24607d5708c6fbd5dac1f7828e199c61b7',
   execution:'Node isolated in-memory synthetic fixtures; no real learner data, protected source consumption, browser or deployed claim',
   status:'PASS_BOUNDED_REPAIR_ONLY',native_closure_ready:false,tests:tests.length,checks:tests};
