@@ -56,7 +56,7 @@ The new assure/ensure/insure Relation was correct, but `ensure.record.semantic_n
 
 **Correction:** clear stale embedded semantic neighbor and retain only the new reciprocal Relation via `relation_refs`.
 
-**Readback:** PASS — ensure now shows exactly one `ensure ↔ assure/insure` Relation.
+**Readback:** PASS — ensure now shows exactly one consolidated assure/ensure/insure Relation.
 
 ### 2. assault reciprocal payload
 
@@ -68,6 +68,17 @@ The reciprocal attack↔assault view inherited a source-specific `shared_definit
 **Correction:** remove the stale shared-definition field from both Relation views while preserving the accepted boundary.
 
 **Readback:** PASS — assault now shows only the valid attack/assault distinction.
+
+### 3. assure/ensure runtime target compatibility
+
+**Severity:** LOCAL  
+**Risk family:** runtime_projection_contract
+
+The consolidated three-way Relation initially projected combination targets (`ensure/insure`, `assure/insure`). Current runtime representative validation still expects the primary reciprocal target names `assure → ensure` and `ensure → assure`.
+
+**Correction:** keep one three-view Relation and all three semantic boundaries, but expose the primary target as `ensure` from assure and `assure` from ensure; insure remains a third participant in the same Relation.
+
+**Readback:** PASS — FLOB now exposes `assure ↔ ensure` / `ensure ↔ assure` while retaining insure structure and usage guidance in the same Relation.
 
 ## Repair Test closure
 
@@ -95,7 +106,7 @@ No Lexical drift exists.
 ## Final result
 
 ```text
-LOCAL findings: 2
+LOCAL findings: 3
 MATERIAL findings: 0
 IDENTITY findings: 0
 unresolved findings: 0
@@ -107,4 +118,4 @@ Repair Test closure: 10
 
 **Final batch result: PASS_WITH_CORRECTIONS**
 
-Both local corrections are already materialized and read back. BF03 is ready for bounded reconciliation and merge.
+All three local corrections are already materialized and read back. BF03 is ready for bounded reconciliation and merge.
