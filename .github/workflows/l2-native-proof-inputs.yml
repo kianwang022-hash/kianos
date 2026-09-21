@@ -1,0 +1,36 @@
+name: L2 Native Proof Inputs
+on:
+  push:
+    branches: [work/l2-english-native-closure-20260921]
+    paths: [.github/workflows/l2-native-proof-inputs.yml]
+permissions:
+  contents: read
+jobs:
+  exact-inputs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - name: Record immutable input identities
+        run: |
+          git rev-parse HEAD > l2-input-head.txt
+          git ls-files -s static-web/src/lib/english* static-web/src/lib/lexicalEvidence.mjs static-web/src/lib/lexicalEnglishEvidence.mjs static-web/scripts/validate-english* static-web/scripts/test-english* > l2-input-blobs.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: l2-native-inputs-${{ github.sha }}
+          retention-days: 1
+          path: |
+            l2-input-head.txt
+            l2-input-blobs.txt
+            static-web/src/lib/english*.mjs
+            static-web/src/lib/lexicalEvidence.mjs
+            static-web/src/lib/lexicalEnglishEvidence.mjs
+            static-web/scripts/validate-english*.mjs
+            static-web/scripts/test-english*.mjs
+            static-web/scripts/validate-lexical-english-handoff.mjs
+            static-web/src/components/English*.astro
+            static-web/src/components/VocabularyEnglishEvidenceBridge.astro
+            static-web/src/pages/english-exam/[id].astro
+            static-web/src/pages/english.astro
+            static-web/src/pages/english-session-catalog.json.js
+            .github/workflows/static-web-english-family-coherence.yml

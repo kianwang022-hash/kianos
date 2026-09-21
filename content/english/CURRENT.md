@@ -2,54 +2,29 @@
 
 Role: English engineering cursor and narrow owner router. A bare learner continuation remains LEARN.
 
-## Current state
+## Active bounded continuation
 
-The released English baseline remains available. This branch is an **unaccepted L2 native repair candidate**, not a new English system or a whole-system acceptance.
+PR #731 / `work/l2-english-native-closure-20260921`, stacked on #640 at `418c8a24607d5708c6fbd5dac1f7828e199c61b7`. Main re-read at `7cfbd9d643d0bae59fb5237986d5c21b66e15c8e`. The released baseline remains available; this candidate is not accepted or deployed.
 
-Active ref: `work/l2-english-native-closure-20260921`  
-Repair base: PR #640 at `418c8a24607d5708c6fbd5dac1f7828e199c61b7`  
-Main rechecked: `7cfbd9d643d0bae59fb5237986d5c21b66e15c8e`  
-Current result and proof limits: `content/english/ACCEPTANCE.md`
+Kian requested only: exposure alias/history, E4 fixture, latest audit binding, Astra M4 Source-version Resume and M3 native interface regression. Exact prior result: `ACCEPTANCE.md` at `b7156e23d5d59c0e5f4331cb5ed47ac8223709b7`. This continuation is in progress; no new closure verdict is earned.
 
-```text
-L2_ENGLISH_NATIVE_CLOSURE_READY = NO
-SYSTEM_LOGIC_ACCEPTED = NOT YET
-KIAN_SPECIFIC_CALIBRATED = NO
-```
+L1's exact native interface request is #731 comment 5763246833: distinguish absent, valid, corrupt-retained and intentionally retired current attempts using existing native evidence; blind backup union must not resurrect an archived attempt. Native export/restore owns that distinction. Shared composition/transport/atomic apply stays with #728/#732.
 
-## What changed in this candidate
+## Preserved repairs and remaining proof
 
-- Numeric score inputs are strict; missing/corrupt values cannot become zero. Genuine zero remains valid.
-- A released/scored label requires the corresponding durable score evidence; productive nonzero scores require preserved output.
-- Old async Whole Paper results cannot replace a newer session; sealed evidence and session/source identity remain immutable.
-- Invalid/unavailable Whole Paper data remains visible and protected, including an empty stored string.
-- Whole Paper export projects its actual score evidence into the existing Forecast input, preserving session/source/revision.
-- Forecast keeps calculations, raw timing samples, source-bound score ranges and unique observation diagnostics. It no longer emits `full_scope_priced`, `BACKTESTED` status, derived confidence/readiness labels or a next-evidence ranking.
+- Strict numeric scores, objective/productive/integrated consistency, immutable sealed output and old-session write protection are the existing candidate repair.
+- Forecast is calculations/inputs/unique observations, not full_scope_priced/BACKTESTED/readiness/confidence/next-evidence certification.
+- Alias normalization was previously withheld because old history regained unseen eligibility.
+- E4's one-step/10-point fake paper must be replaced by native nine-step/100-point synthetic geometry; never relax Runtime for that fixture.
+- Source-version Resume and native recovery interfaces need direct positive/negative regression.
+- Latest independent English Final Convergence result and the full Astra M3/M4 audit artifact remain unbound in the checked exact PR/Current route. Kian's requested scenarios are authoritative work scope, not a replacement independent receipt.
 
-The attempted semantic-hash normalization is **not included**: an old-history to new-alias fixture still regained unseen/transfer eligibility. Do not ship a metadata-only hash repair as legacy-safe.
+## Boundaries
 
-## Remaining engineering blockers
+Existing Learning Contract and exact native Source/evidence/scoring/Forecast owners remain authoritative. No second learner ledger, SRS, scheduler, Forecast, Home or strategy engine. L1 exclusively lands shared Packet/checkpoint orchestration/Chat Plan/relay/Home/transport. No Lexical learning-policy change.
 
-1. Latest independent Final Convergence result is **UNBOUND**. PR #640 comments, reviews, inline comments, Current and exact audit owner were checked. The named audit file is Fresh #4 against `7e83a256...`, not the later result described by Kian. User-provided seeds are reported seeds, not an independent audit receipt.
-2. Semantic exposure must survive ordinal/whitespace aliases **and existing persisted history**, without a second exposure ledger. Final rendered Source / exact identity consistency still needs targeted validation.
-3. Full affected-consumer regression remains blocked. Remote English Exam Session run `35620252173` passed semantics, site build and browser journey on repair code `4ac753348532dda48bfe9d86edbe25bd3895ecde`. English Family Coherence run `35620252136` failed at E4: its one-question/10-point fake Whole Paper fixture violates the new durable geometry invariant. That fixture regression is not repaired in this batch; later family steps were skipped. The local Chromium attempt was separately blocked by administrator policy. Neither result is deployed/Mac proof.
-4. Shared recovery and Lexical-to-Chat-Plan freshness remain L1 #728 handoffs. L2 does not patch their orchestration.
+Temporary exact native-source CI inputs are for this bounded verification only and must be removed from the final write-set. No protected exam source or learner storage is included in that artifact.
 
-These are engineering/provenance/interface blockers, not Real-U gates.
+## Exit
 
-## Owners
-
-- Learning interpretation: `LEARNING_CONTRACT.md`.
-- Source and native task semantics: existing Objective / Translation / Writing / External Reading owners; `englishSemanticSourceIdentity.mjs` remains unchanged by this batch.
-- Native evidence/session: `static-web/src/lib/englishLearnerEvidence.mjs`, `englishExamSession.mjs`, `englishSessionControl.mjs`.
-- Native Forecast: `static-web/src/lib/englishForecastModel.mjs`; no scheduler or strategy brain.
-- Exact English-Lexical return: `static-web/src/lib/englishLexicalReturn.mjs`; lexical semantics remain with Lexical.
-- Shared Packet/checkpoint/Chat Plan/relay/Home: L1 #728 exclusively.
-
-## Next and stop boundary
-
-Resolve only the listed blockers, re-run the affected native/consumer proof and bind the real independent result. Do not merge #640 or this long-diverged ancestry wholesale: later landing must selectively reconcile the accepted native write-set onto fresh main.
-
-Normal study does not wait for another broad maturity programme. Real attempts, transfer, productive scoring and authentic modality remain learner evidence, not engineering completion. No second learner ledger, scheduler, SRS, mastery score, Forecast or Home is authorized.
-
-Earlier maturity-package statuses and Fresh #1-#4 are historical provenance, not this candidate's current acceptance. Full prior cursor is preserved at the repair-base commit.
+Update implementation, affected regressions and this cursor/result atomically. Reconcile only accepted native changes onto fresh main; never merge long-diverged #640/#731 wholesale. Real learner, Source-access and authentic-modality gates cannot disguise missing engineering or audit proof.
