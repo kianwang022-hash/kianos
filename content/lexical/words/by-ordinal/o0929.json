@@ -15,8 +15,7 @@
           "label_en": "to travel regularly by bus, train, car, etc. between one's home and place of work; to exchange one thing for another, especially a payment or obligation; to change a punishment to a less severe one",
           "pos": "verb",
           "sense_ids": [
-            "sense:commute:4eb1001fb93a5777",
-            "sense:commute:013a0561af8d5a7c"
+            "sense:commute:4eb1001fb93a5777"
           ]
         },
         {
@@ -28,9 +27,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "在两个状态/地点之间规律转换：最常见是通勤；法律语境可把刑罚改轻，旧义还可指交换/折偿",
-      "core_meaning_en": "to travel regularly between home and work, or to exchange or reduce something",
-      "mental_model_cn": "home ↔ work → 通勤；commute a sentence → 把刑罚改为较轻处罚；exchange/折偿义低频，只需识别。",
+      "core_meaning_cn": "通勤；法律语境中也可指减刑",
+      "core_meaning_en": "to travel regularly between home and work; in law, to reduce a sentence",
+      "mental_model_cn": "home ↔ work → 通勤；commute a sentence → 将刑罚改为较轻处罚。交换/折偿旧义仅保留 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -136,40 +135,6 @@
         "sense_label_en": "to reduce a punishment or sentence to a less severe one",
         "sort_order": 2,
         "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:bd23fe0d7daac754feff",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:commute:013a0561af8d5a7c:collocation:0"
-            ],
-            "meaning_cn": "用某物交换某物",
-            "phrase": "commute + sth + for + sth"
-          },
-          {
-            "collocation_id": "collocation:fff9625cfe54374b2af6",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:commute:013a0561af8d5a7c:collocation:1"
-            ],
-            "meaning_cn": "折偿付款",
-            "phrase": "commute a payment"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "交换；折偿",
-        "definition_en": "to exchange one thing for another, especially a payment or obligation",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:commute:013a0561af8d5a7c",
-        "sense_label_en": "to exchange one thing for another, especially a payment or obligation",
-        "sort_order": 3,
-        "transitivity": "vt",
-        "usage_note": "低频正式旧义：交换、折偿；当前阶段识别即可。"
       }
     ],
     "verification_summary": {
@@ -192,12 +157,30 @@
     "word_id": "word:commute"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:commute:013a0561af8d5a7c",
+      "status": "reference_only",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "交换；折偿",
+      "definition_en": "to exchange one thing for another, especially a payment or obligation",
+      "semantic_key": null,
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-09-22T00:00:00Z",
+      "source_row": 2646,
+      "source_path": "content/lexical/canonical/senses/shards/o0929-0960.json",
+      "reference_only": true,
+      "register": "rare/formal"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:commute:013a0561af8d5a7c",
-        "status": "active",
+        "status": "reference_only",
         "merged_into_sense_id": null,
         "source_row": 2646,
         "source_path": "content/lexical/canonical/senses/shards/o0929-0960.json"
@@ -228,10 +211,8 @@
       "collocation:7018e6a58db029ae766b",
       "collocation:84208002e4f2a050baeb",
       "collocation:8e20a3a847cdd785869a",
-      "collocation:bd23fe0d7daac754feff",
       "collocation:c9b7b0ba472fb6f81248",
-      "collocation:fadd7a56b0e54438c1ae",
-      "collocation:fff9625cfe54374b2af6"
+      "collocation:fadd7a56b0e54438c1ae"
     ],
     "facts": [],
     "collocations": [
