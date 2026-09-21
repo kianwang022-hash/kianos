@@ -39,8 +39,10 @@ function forbiddenPaths(value, prefix = '') {
 }
 
 const synthetic = listWritingSyntheticTasks();
-assert.equal(synthetic.length, 2, 'cold-start calibration currently owns one synthetic Small and one synthetic Big task');
-assert.deepEqual(new Set(synthetic.map((task) => task.kind)), new Set(['small', 'big']));
+const calibration = synthetic.filter((task) => task.evidenceRole === 'CALIBRATION');
+assert.equal(synthetic.length, 10, 'registered Writing baseline inventory must expose all 10 synthetic tasks');
+assert.equal(calibration.length, 2, 'cold-start calibration owns one synthetic Small and one synthetic Big task');
+assert.deepEqual(new Set(calibration.map((task) => task.kind)), new Set(['small', 'big']));
 
 const currentExamCatalog = listWritingTasks();
 const expectedFirst = currentExamCatalog.find((task) => task.sourceReady);
@@ -52,7 +54,7 @@ assert.equal(entry.policy.schema, WRITING_TRUE_EXAM_ENTRY_POLICY.schema);
 assert.equal(entry.policy.protectedCatalogVisibleBeforeGate, true);
 assert.equal(entry.policy.protectedPromptVisibleBeforeOpen, false);
 assert.equal(entry.policy.engineeringAttemptConsumesTrueExam, false);
-assert.deepEqual(entry.syntheticGateIds, synthetic.map((task) => task.id));
+assert.deepEqual(entry.syntheticGateIds, calibration.map((task) => task.id));
 assert.equal(entry.firstExam.id, expectedFirst.id, 'entry selection must use canonical source order, not a UI-specific hard-code');
 
 const examTask = getFirstProtectedTrueExamTask();

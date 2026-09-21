@@ -168,11 +168,14 @@ export function getFirstProtectedTrueExamTask() {
 
 export function inspectWritingTrueExamEntry() {
   const synthetic = listWritingSyntheticTasks();
+  const calibration = synthetic.filter((task) => task.evidenceRole === 'CALIBRATION');
   const exam = getFirstProtectedTrueExamTask();
   return {
-    status: synthetic.length === 2 && exam?.sourceKind === 'exam' ? 'ready' : 'invalid',
+    status: calibration.length === 2
+      && new Set(calibration.map((task) => task.kind)).size === 2
+      && exam?.sourceKind === 'exam' ? 'ready' : 'invalid',
     policy: WRITING_TRUE_EXAM_ENTRY_POLICY,
-    syntheticGateIds: synthetic.map((task) => task.id),
+    syntheticGateIds: calibration.map((task) => task.id),
     firstExam: {
       id: exam.id,
       kind: exam.kind,

@@ -38,57 +38,30 @@ There is **no remaining English release hold**. Kian explicitly authorized #498 
 
 ## Architecture+ closure — CLOSED 2026-09-20
 
-Architecture+ is closed on `main` via PR #592.
+Architecture+ is closed on `main` via PR #592. The accepted addition is one bounded task-local performance profile derived from existing private attempt history; raw history remains learner truth, timing/exposure/assistance stay task-local, and workflow completion is not performance success or mastery.
 
-Accepted addition:
+Rejected permanently unless a concrete learner-use defect appears: a generic English Remember engine, cross-task mastery score/ranker, automatic Review debt, fake Translation/Writing auto-score, a second learner ledger, or a subject-local recovery controller.
 
-- one bounded `kianos.english.performance-profile.v1` derived from existing private attempt history;
-- raw learner history remains the only learner truth;
-- packet keeps at most 8 recent exact attempts per task family (48 across Reading A / Cloze / Part B / External / Translation / Writing) plus fixed-size task-local summaries;
-- 7,200-attempt stress proved full Evidence Packet generation stays under the permanent 500 ms regression gate;
-- timing / exposure / assistance / independent-transfer eligibility stay task-local;
-- workflow completion is explicitly **not** performance success or mastery.
-
-Architecture+ explicitly rejected:
-
-- a generic English Remember / spaced-repetition engine;
-- a cross-task mastery score or ranker;
-- automatic Review debt from Wrong / Uncertain / pending backend claims;
-- fake Translation / Writing auto-score;
-- a second learner ledger / aggregate truth store;
-- a subject-local recovery controller competing with top-level Campaign / Steward.
-
-Existing accepted capabilities remain authoritative:
+Frozen operating chain:
 
 ```text
-task-first performance
-→ cheap stable exit
-→ bounded repair only when evidence earns it
-→ fresh / generated transfer only when it can change a real decision
-→ exact Lexical handoff when lexical
-→ whole-paper 180-minute execution for formal score evidence
+task-first performance → cheap stable exit → bounded evidence-earned repair
+→ meaningful fresh/generated transfer only when decision-relevant
+→ exact Lexical handoff when lexical → 180-minute whole-paper evidence
 → Chat owns cross-task strategy
 ```
 
-Do not reopen Architecture+ because a new scalar, taxonomy, memory cadence or ranking scheme appears theoretically attractive. Reopen only for a concrete learner-use defect or a failed invariant above.
-
-Do not reopen passed engineering paths merely because unrelated broad CI remains red.
+Do not reopen passed engineering paths because unrelated broad CI is red.
 
 ---
 
-## Dynamic practice + baseline material preparation — CONTENT READY 2026-09-20
+## Dynamic practice + baseline material preparation — CLOSED 2026-09-21
 
-A bounded Content-only upgrade is prepared on this ref for normal learner use:
+The bounded upgrade is integrated and accepted: dynamic evidence-floor / Build→Verify→Maintain / Elastic-ROI rules plus registered Objective, Translation and Writing baseline synthetic inventories. Evidence roles remain explicit and non-interchangeable; targeted generation stays with the exact task owner.
 
-- dynamic evidence-floor / Build→Verify→Maintain / Elastic marginal-ROI rules live in the English Learning Contract;
-- module-level mode cannot hide open mechanism-level risk;
-- Whole Paper is treated as the integrated constraint validator and may absorb later maintenance probes;
-- baseline synthetic inventories now exist for Objective, Translation and Writing with explicit evidence-role downgrade rules;
-- targeted post-failure generation stays at the exact task owner and does not create a second scheduler, ledger or runtime.
+The final Writing consumer drift is repaired: the registered 4 Small + 6 Big inventory is executable, while cold-start calibration remains exactly one Small + one Big and is still skippable. Writing Runtime, English Family Coherence and the whole-paper session pass on the closure candidate; the English Current slice also passes the ownership-size boundary.
 
-No learner state, website state machine, Home scheduling logic, UI, or shared Runtime has been changed. Protected true-exam material was not consumed.
-
-Structural/self-attack review is complete on this ref (19/19 targeted checks). This bounded content lane is ready for integration; learner U still requires real study use.
+No learner state, scheduler, second ledger, mastery score, protected true-exam exposure, or shared Runtime semantics were added. Learner U still requires genuine study use.
 
 ---
 
