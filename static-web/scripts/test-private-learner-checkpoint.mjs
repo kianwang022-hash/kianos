@@ -236,8 +236,24 @@ const noOverwrite = await restoreSharedControlFromPrivate(existingXizong, {
   readCheckpoint: async () => ({ status: 'ready', checkpoint: xizongSaved })
 });
 assert.notEqual(JSON.parse(existingXizong.getItem(xizongStudyKey)).ratings['circulation-b01-kp01'], 'fuzzy',
-  'automatic restore must not overwrite existing Xizong learner state');
-assert.equal(noOverwrite.subjects?.xizong?.status || 'skipped', 'skipped');
+  'automatic restore must never overwrite existing Xizong learner state');
+assert.equal(noOverwrite.subjects?.xizong?.status, 'restored',
+  'partial local Xizong state must fill missing durable keys from the complete remote checkpoint');
+assert.equal(JSON.parse(existingXizong.getItem(xizongEvidenceKey)).evidenceHistory.length, 1,
+  'missing Xizong evidence must be restored even when another local Xizong key exists');
+assert.equal(JSON.parse(existingXizong.getItem(xizongLastKey)).href, '/xizong/circulation/b01/',
+  'missing Xizong navigation state must be restored alongside evidence');
+
+let partialRoundTrip = null;
+await saveSharedControlToPrivate(existingXizong, {
+  now,
+  readCheckpoint: async () => ({ status: 'ready', checkpoint: xizongSaved }),
+  writeCheckpoint: async (value) => { partialRoundTrip = value; return { status: 'saved' }; }
+});
+assert.equal(partialRoundTrip.payload.subjects.xizong.entry_count, 3,
+  'restore → save must not shrink a complete remote Xizong checkpoint when local state started partial');
+assert.ok(partialRoundTrip.payload.subjects.xizong.entries.some((row) => row.key === xizongEvidenceKey));
+assert.ok(partialRoundTrip.payload.subjects.xizong.entries.some((row) => row.key === xizongLastKey));
 
 let failedReadWrites = 0;
 await assert.rejects(
