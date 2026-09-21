@@ -12,6 +12,8 @@ import {
   loadReadingBById,
   loadReadingBAnswersById
 } from '../src/lib/englishObjective.mjs';
+import { loadReadingById as loadCurrentReadingById } from '../src/lib/englishReadingSourceTruth.mjs';
+import { loadReadingBById as loadCurrentReadingBById } from '../src/lib/englishObjectiveSourceTruth.mjs';
 
 const BASE = 'http://127.0.0.1:4321';
 const auditDir = path.resolve(process.cwd(), '../objective-audit');
@@ -78,8 +80,11 @@ async function claimsFor(page, task) {
   }, task);
 }
 
-async function declareSyntheticUnseen(page, objectId) {
-  await page.evaluate((id) => {
+async function declareSyntheticUnseen(page, objectId, sourceHashes) {
+  const sourceHash = sourceHashes?.renderedObject;
+  if (!sourceHash) throw new Error('SYNTHETIC_UNSEEN_SOURCE_MISSING:' + objectId);
+  const semanticSourceHash = sourceHashes.semanticSource || sourceHash;
+  await page.evaluate(({ id, sourceHash, semanticSourceHash }) => {
     const key = 'kianos-english-material-exposure-v1';
     const ledger = JSON.parse(localStorage.getItem(key) || '{"schema":"kianos.english.material-exposure.v1","materials":{}}');
     if (ledger?.materials?.[id]?.events?.length) throw new Error('SYNTHETIC_UNSEEN_ALREADY_EXPOSED:' + id);
@@ -90,13 +95,15 @@ async function declareSyntheticUnseen(page, objectId) {
       events: [],
       declaration: {
         state: 'unseen',
+        source_hash: sourceHash,
+        semantic_source_hash: semanticSourceHash,
         basis: 'learner_statement',
         observed_at: new Date().toISOString(),
         note: 'SYNTHETIC TEST testimony only; not Kian learner evidence.'
       }
     };
     localStorage.setItem(key, JSON.stringify(ledger));
-  }, objectId);
+  }, { id: objectId, sourceHash, semanticSourceHash });
 }
 
 async function openImporter(page) {
@@ -242,7 +249,7 @@ async function readingAEvidence(browser) {
     check(claims[0]?.status === 'TRANSFER_PENDING', 'reading_a_clean_carry_does_not_auto_close_claim');
 
     const close = loadReadingById(closeId);
-    await declareSyntheticUnseen(page, closeId);
+    await declareSyntheticUnseen(page, closeId, loadCurrentReadingById(closeId).sourceHashes);
     await page.goto(`${BASE}/reading/${encodeURIComponent(closeId)}/`, { waitUntil: 'domcontentloaded' });
     await answerReadingA(page, close, loadReadingAnswersById(closeId), { wrongIndices: [0] });
     const closeAttempt = await page.evaluate((id) =>
@@ -267,7 +274,7 @@ async function readingAEvidence(browser) {
     check(claims[0]?.status === 'CLOSED', 'reading_a_relevant_fresh_evidence_closes_claim');
 
     const reopen = loadReadingById(reopenId);
-    await declareSyntheticUnseen(page, reopenId);
+    await declareSyntheticUnseen(page, reopenId, loadCurrentReadingById(reopenId).sourceHashes);
     await page.goto(`${BASE}/reading/${encodeURIComponent(reopenId)}/`, { waitUntil: 'domcontentloaded' });
     await answerReadingA(page, reopen, loadReadingAnswersById(reopenId), { wrongIndices: [0] });
     const reopenAttempt = await page.evaluate((id) =>
@@ -376,7 +383,7 @@ async function readingBEvidence(browser) {
     claims = await claimsFor(page, 'reading_b');
     check(claims[0]?.status === 'TRANSFER_PENDING', 'reading_b_clean_carry_does_not_auto_close_claim');
 
-    await declareSyntheticUnseen(page, closeItem.objectId);
+    await declareSyntheticUnseen(page, closeItem.objectId, loadCurrentReadingBById(closeItem.objectId).sourceHashes);
     await page.goto(`${BASE}/reading-b/${encodeURIComponent(closeItem.objectId)}/`, { waitUntil: 'domcontentloaded' });
     await page.locator('[data-objective-root]').waitFor({ state: 'visible' });
     await answerReadingB(page, closeItem, loadReadingBAnswersById(closeItem.objectId), { swapFirstPair: true });
@@ -401,7 +408,7 @@ async function readingBEvidence(browser) {
     claims = await claimsFor(page, 'reading_b');
     check(claims[0]?.status === 'CLOSED', 'reading_b_relevant_fresh_evidence_closes_claim');
 
-    await declareSyntheticUnseen(page, reopenItem.objectId);
+    await declareSyntheticUnseen(page, reopenItem.objectId, loadCurrentReadingBById(reopenItem.objectId).sourceHashes);
     await page.goto(`${BASE}/reading-b/${encodeURIComponent(reopenItem.objectId)}/`, { waitUntil: 'domcontentloaded' });
     await page.locator('[data-objective-root]').waitFor({ state: 'visible' });
     await answerReadingB(page, reopenItem, loadReadingBAnswersById(reopenItem.objectId), { swapFirstPair: true });
