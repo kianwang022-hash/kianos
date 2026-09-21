@@ -1730,7 +1730,7 @@
     "ordinal": 2130,
     "word": "get",
     "source_owner_path": "content/lexical/words/by-ordinal/o2130.json",
-    "source_fingerprint": "4be8fbc62e75cfaa60806185ceec084f0e27a838b7dde58323617041cf1c6d92",
+    "source_fingerprint": "5f7df78e54265bafe8812a8f4186758087f8ac9b861aac58da087c366383fc01",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1974,7 +1974,29 @@
     ],
     "reference": {
       "confusables": [],
-      "relations": [],
+      "relations": [
+        {
+          "title": "get ↔ cause",
+          "target_word": "cause",
+          "lines": [
+            {
+              "text": "get sb to do 常表示促成/说服某人去做；cause sb to do 更正式、更直接强调因果使役",
+              "lang": "cn"
+            },
+            {
+              "text": "cause someone or something to do something; compare direct causation with getting someone to act",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "deep:semantic_contrast:cause:beb25bda8c32ba47",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "get ↔ cause"
+          }
+        }
+      ],
       "form": null,
       "family": []
     }

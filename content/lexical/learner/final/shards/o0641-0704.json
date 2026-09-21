@@ -8533,60 +8533,36 @@
     "ordinal": 704,
     "word": "cashier",
     "source_owner_path": "content/lexical/words/by-ordinal/o0704.json",
-    "source_fingerprint": "401ada2e6d7c4c1614e336019e04571aa13826bbbb78a12cb71b48c532e171d9",
-    "sense_lineage": [],
+    "source_fingerprint": "24512e2a4a7932e01c11cc484647ef4ac30624111818da93136f72c832129b93",
+    "sense_lineage": [
+      {
+        "word_id": "word:cashier",
+        "target_kind": "sense",
+        "from_target_id": "sense:cashier:a69e87d874df55b8",
+        "status": "reference_only",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "1N"
       ],
-      "density": "rich"
+      "density": "light"
     },
     "word_feel": {
-      "summary_cn": "负责收付款的人；免职",
-      "decision_cn": "",
+      "summary_cn": "收款员；出纳员",
+      "decision_cn": "商店/银行收付款的人。罕见动词 cashier（革职）仅保留 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "负责收付款的人；免职"
+        "target_label": "收款员；出纳员"
       }
     },
     "senses": [
       {
-        "id": "sense:cashier:a69e87d874df55b8",
-        "source_locator": "record.senses[0]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "革职；开除",
-        "definition_en": "to dismiss someone from a position, especially in the military, with dishonor",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:3baf7d9c0b2080089f61",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "cashier sb from the army",
-            "meaning_cn": "开除某人军职",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:3baf7d9c0b2080089f61",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "cashier sb from the army"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:cashier:a69e87d874df55b8",
-          "target_locator": "record.senses[0]",
-          "target_label": "革职；开除"
-        }
-      },
-      {
         "id": "sense:cashier:035e6c08debc5ac8",
-        "source_locator": "record.senses[1]",
+        "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "收款员，尤指商店或银行中收款的人",
@@ -8597,7 +8573,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:cashier:035e6c08debc5ac8",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[0]",
           "target_label": "收款员，尤指商店或银行中收款的人"
         }
       }
