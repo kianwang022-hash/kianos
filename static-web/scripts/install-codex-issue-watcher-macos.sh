@@ -36,9 +36,8 @@ STATE_DIR="$HOME/Library/Application Support/KianOS/codex-issue-watcher"
 LOG_DIR="$HOME/Library/Logs/KianOS"
 SCRIPT="$PROJECT_DIR/static-web/scripts/codex-issue-watcher.mjs"
 INTERVAL="${KIANOS_CODEX_WATCHER_INTERVAL_SECONDS:-300}"
-MODEL="${KIANOS_CODEX_EXEC_MODEL:-gpt-6-astra}"
-EFFORT="${KIANOS_CODEX_EXEC_EFFORT:-high}"
 EXEC_REPO="${KIANOS_CODEX_EXEC_REPO:-$HOME/Library/Application Support/KianOS/codex-executor/kianos}"
+CLOUD_ENV_ID="${KIANOS_CODEX_CLOUD_ENV_ID:-}"
 PATH_VALUE="$(dirname "$NODE_BIN"):$(dirname "$GH_BIN"):$(dirname "$CODEX_BIN"):/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 if [[ ! -f "$SCRIPT" ]]; then
@@ -80,10 +79,8 @@ cat > "$PLIST" <<EOF
     <string>$STATE_DIR</string>
     <key>KIANOS_CODEX_EXEC_REPO</key>
     <string>$EXEC_REPO</string>
-    <key>KIANOS_CODEX_EXEC_MODEL</key>
-    <string>$MODEL</string>
-    <key>KIANOS_CODEX_EXEC_EFFORT</key>
-    <string>$EFFORT</string>
+    <key>KIANOS_CODEX_CLOUD_ENV_ID</key>
+    <string>$CLOUD_ENV_ID</string>
     <key>KIANOS_CODEX_BIN</key>
     <string>$CODEX_BIN</string>
   </dict>
@@ -112,7 +109,10 @@ launchctl bootstrap "$DOMAIN" "$PLIST"
 
 echo "Installed $LABEL"
 echo "interval_seconds=$INTERVAL"
-echo "model=$MODEL"
-echo "effort=$EFFORT"
+if [[ -n "$CLOUD_ENV_ID" ]]; then
+  echo "cloud=preferred ($CLOUD_ENV_ID)"
+else
+  echo "cloud=not-configured; repo tasks fall back to local Terra/Sol"
+fi
 echo "project=$PROJECT_DIR"
 echo "executor_repo=$EXEC_REPO"
