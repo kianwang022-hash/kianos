@@ -92,13 +92,14 @@ const ADAPTERS = Object.freeze({
     isEmpty: xizongDurableStorageIsEmpty,
     prepare(storage, value, { onlyIfEmpty = true } = {}) {
       const checkpoint = validateXizongPrivateCheckpoint(value);
-      if (onlyIfEmpty && !xizongDurableStorageIsEmpty(storage)) {
-        return { status: 'skipped', reason: 'xizong-local-state-present', changes: [] };
-      }
-      return {
-        status: 'prepared',
-        changes: checkpoint.entries.map(({ key, raw }) => [key, raw])
-      };
+      // D1: a navigation key does not make a complete local checkpoint.
+      // Automatic recovery fills missing keys, preserving every existing value.
+      const changes = checkpoint.entries
+        .filter(({ key }) => !onlyIfEmpty || storage.getItem(key) == null)
+        .map(({ key, raw }) => [key, raw]);
+      return changes.length
+        ? { status: 'prepared', changes }
+        : { status: 'skipped', reason: 'xizong-local-state-present', changes: [] };
     }
   }),
   english: Object.freeze({

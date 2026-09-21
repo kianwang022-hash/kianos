@@ -5,6 +5,30 @@ Rule: current website work only. Long-lived Visual rules live in Presentation/St
 
 ---
 
+## Active L1 shared runtime closure — NOT ACCEPTED
+
+Current candidate: `work/l1-shared-runtime-closure-20260921`.
+Execution envelope for actual Mac/browser work: Issue #728. Read the latest
+candidate head and Issue receipt before continuing; dispatch is not execution.
+
+L1 alone lands shared checkpoint/restore, Daily Packet composition, Chat Plan
+basis, private control/receipt, Home projection, Current delivery and shared
+Timer/Exam persistence. Exact implementations live under `src/lib/` and
+`scripts/`; bounded proof and outstanding work: `L1_SHARED_RUNTIME_CLOSURE.md`.
+Other lanes submit interface requirements; they do not independently land these
+shared owners. #727 contributes D1 only; D2/D3 remain Xizong. #640 is never merged
+wholesale. Native learning/Source/scoring/Forecast and Personal judgment stay out
+of L1. The accepted Visual remains unchanged.
+
+Candidate currently repairs command-scoped atomic apply/receipt retry and D1,
+and reduces basis-computation cost without changing fingerprint identities.
+This does not close the remaining parity, failure-isolation, freshness, durable
+receipt/recovery or real Mac proof obligations. Prior Gate 5 protects the accepted
+Visual, not these newly reproduced shared defects. Historical receipts below
+remain evidence, not a current L1 PASS. Defer Current slimming until L1 is stable.
+
+---
+
 ## Current stage
 
 ```text

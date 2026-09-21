@@ -74,12 +74,18 @@ const canonicalJson = (raw) => {
 
 const fingerprint = (value) => {
   const source = String(value ?? '');
-  let hash = 0xcbf29ce484222325n;
+  // Same FNV-1a64 over UTF-16 code units, without allocating BigInts per
+  // character. Two 32-bit limbs preserve every existing basis fingerprint.
+  let high = 0xcbf29ce4;
+  let low = 0x84222325;
   for (let index = 0; index < source.length; index += 1) {
-    hash ^= BigInt(source.charCodeAt(index));
-    hash = BigInt.asUintN(64, hash * 0x100000001b3n);
+    low = (low ^ source.charCodeAt(index)) >>> 0;
+    const product = low * 0x1b3; // exact integer: below 2^53
+    const carry = (product / 0x100000000) >>> 0;
+    high = (high * 0x1b3 + carry + (low << 8)) >>> 0;
+    low = product >>> 0;
   }
-  return `fnv1a64:${hash.toString(16).padStart(16, '0')}:${source.length}`;
+  return `fnv1a64:${high.toString(16).padStart(8, '0')}${low.toString(16).padStart(8, '0')}:${source.length}`;
 };
 
 const fingerprintRows = (rows) => fingerprint(rows

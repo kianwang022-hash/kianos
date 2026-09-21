@@ -3,6 +3,9 @@ name: Private Chat Control
 on:
   push:
     paths:
+      - "static-web/src/lib/examChatPlan.mjs"
+      - "static-web/src/lib/privateSubjectCheckpoints.mjs"
+      - "static-web/scripts/test-l1-control-transactions.mjs"
       - "static-web/src/lib/privateControl*.mjs"
       - "static-web/scripts/privateControl*.mjs"
       - "static-web/scripts/privateEnglish*.mjs"
@@ -38,6 +41,9 @@ on:
   pull_request:
     branches: [main]
     paths:
+      - "static-web/src/lib/examChatPlan.mjs"
+      - "static-web/src/lib/privateSubjectCheckpoints.mjs"
+      - "static-web/scripts/test-l1-control-transactions.mjs"
       - "static-web/src/lib/privateControl*.mjs"
       - "static-web/scripts/privateControl*.mjs"
       - "static-web/scripts/privateEnglish*.mjs"
@@ -88,6 +94,7 @@ jobs:
       - name: Unit and transport proof
         working-directory: static-web
         run: |
+          node --experimental-vm-modules scripts/test-l1-control-transactions.mjs
           node scripts/test-private-control-relay.mjs
           node scripts/test-daily-learning-packet.mjs
           node scripts/test-private-daily-learning-packet-relay.mjs

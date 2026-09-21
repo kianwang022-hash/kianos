@@ -1,6 +1,7 @@
 import {
   CONTROL_LOCAL_RECEIPT_KEY,
   CONTROL_RECEIPT_SCHEMA,
+  validateControlReceipt,
   validateBrowserControlCommand
 } from './privateControlCommand.mjs';
 import {
@@ -19,19 +20,46 @@ import { stagePoliticsMemoryPlan } from './politicsMemoryRuntime.mjs';
 
 const ENDPOINT='/__kianos-private/control';
 
+// Stage only writes made by this command. Reading a catalog must never turn
+// unrelated learner keys into transaction writes or copy the whole ledger.
 class ShadowStorage{
   constructor(storage){
+    this.storage=storage;
     this.map=new Map();
-    for(let i=0;i<Number(storage?.length||0);i+=1){
-      const key=storage.key(i);
-      if(key!=null)this.map.set(key,storage.getItem(key));
+    this.before=new Map();
+    this.keyCache=null;
+  }
+  keys(){
+    if(this.keyCache)return this.keyCache;
+    const keys=new Set();
+    for(let i=0;i<Number(this.storage.length||0);i+=1){
+      const key=this.storage.key(i);
+      if(key!=null)keys.add(key);
+    }
+    for(const [key,value] of this.map){
+      if(value==null)keys.delete(key);
+      else keys.add(key);
+    }
+    this.keyCache=[...keys];
+    return this.keyCache;
+  }
+  get length(){return this.keys().length;}
+  key(i){return this.keys()[i]??null;}
+  getItem(key){
+    if(this.map.has(key))return this.map.get(key);
+    if(!this.before.has(key))this.before.set(key,this.storage.getItem(key));
+    return this.before.get(key);
+  }
+  setItem(key,value){this.getItem(key);this.map.set(key,String(value));this.keyCache=null;}
+  removeItem(key){this.getItem(key);this.map.set(key,null);this.keyCache=null;}
+  changedKeys(){
+    return [...this.map.keys()].filter(key=>this.before.get(key)!==this.map.get(key));
+  }
+  assertCurrent(){
+    for(const [key,raw] of this.before){
+      if(this.storage.getItem(key)!==raw)throw new Error('KIANOS_CONTROL_STALE_STORAGE');
     }
   }
-  get length(){return this.map.size;}
-  key(i){return [...this.map.keys()][i]??null;}
-  getItem(key){return this.map.has(key)?this.map.get(key):null;}
-  setItem(key,value){this.map.set(key,String(value));}
-  removeItem(key){this.map.delete(key);}
 }
 
 const localDay=()=>new Date().toLocaleDateString('en-CA');
@@ -73,14 +101,8 @@ async function loadEnglishCatalog(){
   return rows;
 }
 
-function changesBetween(real,shadow){
-  const keys=new Set();
-  for(let i=0;i<Number(real.length||0);i+=1){const k=real.key(i);if(k!=null)keys.add(k);}
-  for(let i=0;i<Number(shadow.length||0);i+=1){const k=shadow.key(i);if(k!=null)keys.add(k);}
-  return[...keys].filter(key=>real.getItem(key)!==shadow.getItem(key));
-}
-
 function commitShadow(real,shadow,keys){
+  shadow.assertCurrent();
   const before=new Map(keys.map(key=>[key,real.getItem(key)]));
   try{
     for(const key of keys){
@@ -89,36 +111,59 @@ function commitShadow(real,shadow,keys){
       else real.setItem(key,value);
     }
   }catch(error){
+    let rollbackFailed=false;
     for(const [key,value] of before){
-      try{value==null?real.removeItem(key):real.setItem(key,value);}catch{}
+      try{
+        if(real.getItem(key)!==value){
+          value==null?real.removeItem(key):real.setItem(key,value);
+        }
+      }catch{rollbackFailed=true;}
     }
+    if(rollbackFailed)throw new Error('KIANOS_CONTROL_ROLLBACK_FAILED_RECOVERY_REQUIRED');
     throw error;
   }
 }
 
 async function saveReceipt(receipt){
   try{
-    await fetch(ENDPOINT+'/receipt',{
+    const response=await fetch(ENDPOINT+'/receipt',{
       method:'PUT',
       headers:{'content-type':'application/json'},
       body:JSON.stringify(receipt),
       cache:'no-store'
     });
-  }catch{}
+    if(!response.ok)return false;
+    const body=await response.json();
+    const saved=validateControlReceipt(body?.receipt);
+    return body?.status==='saved'
+      && ['schema','command_id','command_hash','status','observed_at','error']
+        .every(key=>saved[key]===receipt[key]);
+  }catch{return false;}
+}
+
+function appliedReceipt(storage,command){
+  const raw=storage.getItem(CONTROL_LOCAL_RECEIPT_KEY);
+  if(raw==null)return null;
+  let receipt;
+  try{receipt=validateControlReceipt(JSON.parse(raw));}
+  catch{throw new Error('KIANOS_CONTROL_LOCAL_RECEIPT_INVALID');}
+  if(receipt.command_id!==command.command_id)return null;
+  if(receipt.command_hash!==command.command_hash){
+    throw new Error('KIANOS_CONTROL_COMMAND_ID_CONFLICT');
+  }
+  return ['APPLIED','IDEMPOTENT'].includes(receipt.status)?receipt:null;
 }
 
 export async function applyPrivateControlCommand(storage,input,{day=localDay(),now=Date.now()}={}){
   const command=validateBrowserControlCommand(input,day);
   if(Date.parse(command.generated_at)>Number(now)+60_000)throw new Error('KIANOS_CONTROL_FUTURE_COMMAND');
 
-  const localReceipt=readJson(storage,CONTROL_LOCAL_RECEIPT_KEY);
-  if(localReceipt?.command_id===command.command_id
-    && (!command.command_hash||localReceipt.command_hash===command.command_hash)
-    && ['APPLIED','IDEMPOTENT'].includes(localReceipt.status)){
-    return{status:'idempotent',command};
+  const localReceipt=appliedReceipt(storage,command);
+  if(localReceipt){
+    const receiptSaved=await saveReceipt(localReceipt);
+    return{status:'idempotent',command,receipt_saved:receiptSaved};
   }
 
-  const shadow=new ShadowStorage(storage);
   const englishOp=command.operations.find(op=>op.kind==='english.session')||null;
   const xizongSessionOp=command.operations.find(op=>op.kind==='xizong.session')||null;
   const xizongReturnOp=command.operations.find(op=>op.kind==='xizong.chat_return')||null;
@@ -126,13 +171,20 @@ export async function applyPrivateControlCommand(storage,input,{day=localDay(),n
   const politicsMemoryOp=command.operations.find(op=>op.kind==='politics.memory_plan')||null;
   const planOp=command.operations.find(op=>op.kind==='exam.chat_plan')||null;
 
-  // Bind the plan to the real learner evidence that existed before any other
-  // operations in the same command can stage control-only state in shadow storage.
-  if(planOp)validateExamChatPlanAgainstStorage(storage,planOp.payload,day);
+  // Finish asynchronous input reads before staging. Re-check expiry and a
+  // competing completion afterwards, then perform the transaction synchronously.
+  const englishCatalog=englishOp?await loadEnglishCatalog():null;
+  validateBrowserControlCommand(command,day);
+  const completedWhileLoading=appliedReceipt(storage,command);
+  if(completedWhileLoading){
+    const receiptSaved=await saveReceipt(completedWhileLoading);
+    return{status:'idempotent',command,receipt_saved:receiptSaved};
+  }
+  const shadow=new ShadowStorage(storage);
+  if(planOp)validateExamChatPlanAgainstStorage(shadow,planOp.payload,day);
 
   if(englishOp){
-    const catalog=await loadEnglishCatalog();
-    writeEnglishSessionInstruction(shadow,englishOp.payload,day,{catalog,now});
+    writeEnglishSessionInstruction(shadow,englishOp.payload,day,{catalog:englishCatalog,now});
   }
   if(xizongSessionOp){
     const holdoutYears=readJson(shadow,'kianos:xizong:full-paper-holdout-years:v1')||[];
@@ -158,9 +210,6 @@ export async function applyPrivateControlCommand(storage,input,{day=localDay(),n
     writeExamChatPlan(shadow,planOp.payload,day);
   }
 
-  const keys=changesBetween(storage,shadow);
-  commitShadow(storage,shadow,keys);
-
   const receipt={
     schema:CONTROL_RECEIPT_SCHEMA,
     command_id:command.command_id,
@@ -169,8 +218,12 @@ export async function applyPrivateControlCommand(storage,input,{day=localDay(),n
     observed_at:new Date(now).toISOString(),
     error:null
   };
-  try{storage.setItem(CONTROL_LOCAL_RECEIPT_KEY,JSON.stringify(receipt));}catch{}
-  await saveReceipt(receipt);
+  // The durable local apply receipt is part of the same write-set as the
+  // native operations. A failed receipt write rolls back those operations.
+  shadow.setItem(CONTROL_LOCAL_RECEIPT_KEY,JSON.stringify(receipt));
+  const keys=shadow.changedKeys();
+  commitShadow(storage,shadow,keys);
+  const receiptSaved=await saveReceipt(receipt);
 
   if(englishOp)window.dispatchEvent(new CustomEvent('kianos:english-session-updated',{
     detail:{schema:englishOp.payload?.schema||null,session_id:englishOp.payload?.session_id||null}
@@ -186,7 +239,7 @@ export async function applyPrivateControlCommand(storage,input,{day=localDay(),n
   if(planOp)window.dispatchEvent(new CustomEvent('kianos:control-command-applied',{
     detail:{command_id:command.command_id,kind:'exam.chat_plan',operations:command.operations.map(op=>op.kind)}
   }));
-  return{status:'applied',command,changed_keys:keys};
+  return{status:'applied',command,changed_keys:keys,receipt_saved:receiptSaved};
 }
 
 export function initPrivateControlRuntime(storage=window.localStorage,{
@@ -226,7 +279,7 @@ export function initPrivateControlRuntime(storage=window.localStorage,{
           observed_at:new Date().toISOString(),
           error:error instanceof Error?error.message:String(error)
         };
-        try{storage.setItem(CONTROL_LOCAL_RECEIPT_KEY,JSON.stringify(receipt));}catch{}
+        // Failure is transport status, not a replacement for durable apply proof.
         await saveReceipt(receipt);
       }
     }catch{}
