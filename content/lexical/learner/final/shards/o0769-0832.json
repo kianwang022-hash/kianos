@@ -4903,7 +4903,7 @@
     "ordinal": 807,
     "word": "cigaret",
     "source_owner_path": "content/lexical/words/by-ordinal/o0807.json",
-    "source_fingerprint": "6c6e67ab049ead38c904c08c4e78cdb608416197a81f74b98f0e578823d5bf22",
+    "source_fingerprint": "68b98ff29c9e3fcf00012560aaddd4116b9e6f5796364b83b5eb9be5435c7d1f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4961,30 +4961,29 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "cigaret ↔ cigarette",
-          "target_word": "cigarette",
-          "lines": [
-            {
-              "text": "cigarette is the standard modern spelling; cigaret is a less-common spelling variant of the same tobacco-roll noun.",
-              "lang": "en"
-            },
-            {
-              "text": "a cigarette / tobacco roll for smoking",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:3efbf19864d9d6a28a62",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "cigaret ↔ cigarette"
+      "relations": [],
+      "form": {
+        "boundary": "cigarette is the standard modern spelling; cigaret is a much less common spelling variant.",
+        "boundaries": [
+          {
+            "surface": "cigarette",
+            "condition": "standard modern spelling",
+            "note": "preferred current spelling"
+          },
+          {
+            "surface": "cigaret",
+            "condition": "much less common variant",
+            "note": "same lexeme"
           }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "cigarette is the standard modern spelling; cigaret is a much less common spelling variant."
         }
-      ],
-      "form": null,
+      },
       "family": []
     }
   },
@@ -5833,7 +5832,7 @@
     "ordinal": 815,
     "word": "cite",
     "source_owner_path": "content/lexical/words/by-ordinal/o0815.json",
-    "source_fingerprint": "6252abf9bfa7fda117e9de4e758fca52cdb4b1fc3e2599349d808af592665665",
+    "source_fingerprint": "c908c399ac64a53c5f2ef3d64c899a351df717465d55d9a0037ea0fae799d240",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5954,26 +5953,13 @@
     "reference": {
       "confusables": [
         {
-          "title": "cite ↔ site",
-          "target_word": "site",
-          "lines": [
-            {
-              "text": "cite 是引用；site 是地点、场所",
-              "lang": "cn"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "deep:confusables:cite:23d181424b20f99a",
-            "target_locator": "record.confusables[0]",
-            "target_label": "cite ↔ site"
-          }
-        },
-        {
           "title": "cite ↔ cite ↔ sight ↔ site",
           "target_word": "cite ↔ sight ↔ site",
           "lines": [
+            {
+              "text": "cite = quote/refer to as authority; sight = vision/view; site = place/location. All three are homophones; spelling and semantic domain select the word.",
+              "lang": "en"
+            },
             {
               "text": "cite = quote/refer to as authority; sight = vision/view; site = place/location.",
               "lang": "en"
@@ -5983,7 +5969,7 @@
           "repair": {
             "target_kind": "relation",
             "target_id": "confusable:horizontal:6dd351cfcf6dd14f4bca",
-            "target_locator": "record.confusables[1]",
+            "target_locator": "record.confusables[0]",
             "target_label": "cite ↔ cite ↔ sight ↔ site"
           }
         }
@@ -5995,8 +5981,16 @@
           "target_word": "citation",
           "lines": [
             {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
+              "text": "cite（引用/正式提及）→ citation（引文、引用信息；特定领域的正式记录）",
               "lang": "cn"
+            },
+            {
+              "text": "cite = 引用/正式提及；citation = 引文/引用信息、出处标注，或特定领域中的正式嘉奖/传票记录",
+              "lang": "cn"
+            },
+            {
+              "text": "citation is a quotation/reference attribution or a formal citation depending on domain",
+              "lang": "en"
             }
           ],
           "source_locator": "record.word_family[0]"
@@ -6461,7 +6455,7 @@
     "ordinal": 820,
     "word": "civilisation",
     "source_owner_path": "content/lexical/words/by-ordinal/o0820.json",
-    "source_fingerprint": "7350bab77a911bb87e350d0e1ffd5224499d1fd173d307702fb6e796baad8d02",
+    "source_fingerprint": "f011f4971b2acbcff97958a4687a8f2e489c9290915ae6b5cf104deaeb88ed1b",
     "sense_lineage": [
       {
         "word_id": "word:civilisation",
@@ -6554,7 +6548,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "civilisation is standard BrE; civilization is standard AmE and also occurs in British/Oxford -ize style.",
+        "boundaries": [
+          {
+            "surface": "civilisation",
+            "condition": "standard British -ise spelling",
+            "note": "BrE"
+          },
+          {
+            "surface": "civilization",
+            "condition": "standard American; also British/Oxford -ize style",
+            "note": "AmE and accepted BrE -ize"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "civilisation is standard BrE; civilization is standard AmE and also occurs in British/Oxford -ize style."
+        }
+      },
       "family": []
     }
   },
@@ -6564,7 +6579,7 @@
     "ordinal": 821,
     "word": "civilise",
     "source_owner_path": "content/lexical/words/by-ordinal/o0821.json",
-    "source_fingerprint": "125b9105f72b38a019f9873fb5be3bd84ff21e77a1a4746a277ea54fb8c8b142",
+    "source_fingerprint": "454cf246e96f7854a28bfc2f707972f5207b1c5f749e076833aaaea76554e660",
     "sense_lineage": [
       {
         "word_id": "word:civilise",
@@ -6644,7 +6659,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "civilise is a common BrE -ise form; civilize is standard AmE and is also accepted in British -ize style.",
+        "boundaries": [
+          {
+            "surface": "civilise",
+            "condition": "common British -ise spelling",
+            "note": "BrE"
+          },
+          {
+            "surface": "civilize",
+            "condition": "standard American; also accepted British -ize style",
+            "note": "AmE / BrE -ize"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "civilise is a common BrE -ise form; civilize is standard AmE and is also accepted in British -ize style."
+        }
+      },
       "family": []
     }
   },
@@ -6654,7 +6690,7 @@
     "ordinal": 822,
     "word": "claim",
     "source_owner_path": "content/lexical/words/by-ordinal/o0822.json",
-    "source_fingerprint": "8af0eac3523b7fb21ce8831e9ff24b6165d675e448afd1d14e078774b44463c2",
+    "source_fingerprint": "70a25e1a819f74ce539f33f096401ef9af1015e39e73759add1020f0681574e1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6678,7 +6714,7 @@
         "id": "sense:claim:a6b75064b07c5826",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vt. + that-clause / vt. + object",
         "definition_cn": "声称；主张",
         "definition_en": "to say that something is true, often before it is fully proved",
         "note": "",
@@ -6704,7 +6740,7 @@
         "id": "sense:claim:a46e7c86eb62524d",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vt. + right/compensation/object",
         "definition_cn": "要求；索取；权利主张",
         "definition_en": "to ask for something believed to be owed or owned",
         "note": "",
@@ -6738,7 +6774,7 @@
         "id": "sense:claim:6bddeb9b176352fc",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vt. + lives",
         "definition_cn": "夺去生命",
         "definition_en": "to cause someone's death",
         "note": "",
@@ -6854,8 +6890,15 @@
     "ordinal": 823,
     "word": "clap",
     "source_owner_path": "content/lexical/words/by-ordinal/o0823.json",
-    "source_fingerprint": "63314a1ae3697e7da4a5fb86a84982e56429a13d19a4f337ee25c9f1cbe92543",
+    "source_fingerprint": "116f51af5e33a654edfbaeeb21042a1a4f6321e7799a6836298da75233a00a1c",
     "sense_lineage": [
+      {
+        "word_id": "word:clap",
+        "target_kind": "sense",
+        "from_target_id": "sense:clap:73893c16e45b590b",
+        "status": "reference_only",
+        "to_target_id": null
+      },
       {
         "word_id": "word:clap",
         "target_kind": "sense",
@@ -6866,19 +6909,19 @@
     ],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "快速拍击并发出短促声音：最常见是鼓掌，也可指翅膀拍打；clap sth on/into 则是迅速、用力地放上/塞入",
-      "decision_cn": "hands → 鼓掌；thunder → 一声霹雳；wings → 拍打；clap sth on/into → 快速用力放置。",
+      "summary_cn": "拍手；鼓掌；拍手声或短促锐响；也可表示迅速用力放置",
+      "decision_cn": "hands → 鼓掌；thunder → 一声霹雳；clap sth on/into → 快速用力放置。低频文学 wings clap 仅保留 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "快速拍击并发出短促声音：最常见是鼓掌，也可指翅膀拍打；clap sth on/into 则是迅速、用力地放上/塞入"
+        "target_label": "拍手；鼓掌；拍手声或短促锐响；也可表示迅速用力放置"
       }
     },
     "senses": [
@@ -6946,32 +6989,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "拍手声，霹雳声"
         }
-      },
-      {
-        "id": "sense:clap:73893c16e45b590b",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vi.",
-        "definition_cn": "（翅膀）拍打",
-        "definition_en": "strike the air in flight (of wings)",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:22a8581854c9d0c52de2",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "wings clap",
-            "meaning_cn": "翅膀拍打",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:clap:73893c16e45b590b",
-          "target_locator": "record.senses[2]",
-          "target_label": "（翅膀）拍打"
-        }
       }
     ],
     "secondary_senses": [],
@@ -7007,22 +7024,30 @@
     "ordinal": 824,
     "word": "clarify",
     "source_owner_path": "content/lexical/words/by-ordinal/o0824.json",
-    "source_fingerprint": "9b937db1b14a23fbca3ab9da81474fc3df67c9d206005818c3f4c2233501686c",
-    "sense_lineage": [],
+    "source_fingerprint": "42c270d65d812c13d89b7952f631008162641defeab0fe81dce629aa89950527",
+    "sense_lineage": [
+      {
+        "word_id": "word:clarify",
+        "target_kind": "sense",
+        "from_target_id": "sense:clarify:bac3f29ea14159d4",
+        "status": "reference_only",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V"
+        "1V"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "把原本浑浊或不清楚的东西变清楚：可指阐明意思，也可指使液体澄清",
-      "decision_cn": "issue/meaning → 让概念更清楚；butter/liquid → 去除杂质使液体清澈。两义共享“去掉使它不清楚的东西”。",
+      "summary_cn": "阐明；澄清，使意思或情况更清楚",
+      "decision_cn": "issue/meaning/statement → 阐明、澄清；专业烹饪 clarify butter 仅保留 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "把原本浑浊或不清楚的东西变清楚：可指阐明意思，也可指使液体澄清"
+        "target_label": "阐明；澄清，使意思或情况更清楚"
       }
     },
     "senses": [
@@ -7050,32 +7075,6 @@
           "target_id": "sense:clarify:c5280cb179eb5c70",
           "target_locator": "record.senses[0]",
           "target_label": "阐明；澄清"
-        }
-      },
-      {
-        "id": "sense:clarify:bac3f29ea14159d4",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使液体澄清",
-        "definition_en": "to remove impurities from a liquid, making it clear",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:215ab771345b6f27667f",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "clarify butter",
-            "meaning_cn": "澄清黄油",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:clarify:bac3f29ea14159d4",
-          "target_locator": "record.senses[1]",
-          "target_label": "使液体澄清"
         }
       }
     ],
@@ -7453,30 +7452,23 @@
     "ordinal": 828,
     "word": "class",
     "source_owner_path": "content/lexical/words/by-ordinal/o0828.json",
-    "source_fingerprint": "0c511ae734d01a54c542ebb83b70ad0b190d3778f6765bfb14629ef8e307f7bb",
-    "sense_lineage": [
-      {
-        "word_id": "word:class",
-        "target_kind": "sense",
-        "from_target_id": "sense:class:4ea026d4bd7f5153",
-        "status": "deprecated",
-        "to_target_id": null
-      }
-    ],
+    "source_fingerprint": "7d4f05e5d0c6a03e8351cd2f19d22793ca16f21ea5677401c2b47546e427e9ba",
+    "sense_lineage": [],
     "recall_map": {
       "parts": [
+        "1V",
         "5N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "按共同特征组成或划出的一个群体/类别：可落到班级、社会阶层、类别、课程或等级",
-      "decision_cn": "students → 班级；social/economic → 阶层；objects/types → 类别；attend class → 课程；first class → 等级。classify 属于词族关系，不是 class 的句法构式。",
+      "summary_cn": "班级、阶层、类别、课程或等级；作动词可表示分类、归类",
+      "decision_cn": "students → 班级；social/economic → 阶层；objects/types → 类别；attend class → 课程；class A as B → 把 A 归为 B 类。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "按共同特征组成或划出的一个群体/类别：可落到班级、社会阶层、类别、课程或等级"
+        "target_label": "班级、阶层、类别、课程或等级；作动词可表示分类、归类"
       }
     },
     "senses": [
@@ -7609,10 +7601,49 @@
           "target_locator": "record.senses[4]",
           "target_label": "等级，级别"
         }
+      },
+      {
+        "id": "sense:class:4ea026d4bd7f5153",
+        "source_locator": "record.senses[5]",
+        "pos": "verb",
+        "governing_pattern": "vt. + object + as + category",
+        "definition_cn": "分类；把人或事物归入某一类别",
+        "definition_en": "to put someone or something into a category",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:class:4ea026d4bd7f5153",
+          "target_locator": "record.senses[5]",
+          "target_label": "分类；把人或事物归入某一类别"
+        }
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:class:bf08-as",
+        "source_locator": "record.constructions[0]",
+        "pattern": "class sb/sth as sth",
+        "lines": [
+          {
+            "text": "把某人/某物归入某一类别",
+            "lang": "cn"
+          },
+          {
+            "text": "put someone or something into a category",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:class:bf08-as",
+          "target_locator": "record.constructions[0]",
+          "target_label": "class sb/sth as sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7643,15 +7674,15 @@
         "word_id": "word:classic",
         "target_kind": "sense",
         "from_target_id": "sense:classic:1550437ab51a5532",
-        "status": "deprecated",
-        "to_target_id": null
+        "status": "merged",
+        "to_target_id": "sense:classic:af3830baf20b5a78"
       },
       {
         "word_id": "word:classic",
         "target_kind": "sense",
         "from_target_id": "sense:classic:644921afc0b9503f",
-        "status": "deprecated",
-        "to_target_id": null
+        "status": "merged",
+        "to_target_id": "sense:classic:aa832e15a17055e0"
       }
     ],
     "recall_map": {
@@ -7779,7 +7810,7 @@
     "ordinal": 830,
     "word": "classical",
     "source_owner_path": "content/lexical/words/by-ordinal/o0830.json",
-    "source_fingerprint": "0c23cf3456d300d6c8faf5c61d6b7bdffb6ebeaea87ee3207d85931d9062ec93",
+    "source_fingerprint": "92f15c53d68d7d5c12486b24f4fd6229380759ced5bc8e5cb82b6d457b9d5608",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7906,7 +7937,25 @@
     "secondary_senses": [],
     "constructions": [],
     "reference": {
-      "confusables": [],
+      "confusables": [
+        {
+          "title": "classical ↔ classic",
+          "target_word": "classic",
+          "lines": [
+            {
+              "text": "classic 指经典作品或典型；classical 指古典传统或经典风格",
+              "lang": "cn"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "deep:confusables:classic:47db061f6e515f1a",
+            "target_locator": "record.confusables[0]",
+            "target_label": "classical ↔ classic"
+          }
+        }
+      ],
       "relations": [],
       "form": null,
       "family": []

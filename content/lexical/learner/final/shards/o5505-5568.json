@@ -1132,7 +1132,7 @@
     "ordinal": 5522,
     "word": "cigarette",
     "source_owner_path": "content/lexical/words/by-ordinal/o5522.json",
-    "source_fingerprint": "f70ad5d53983afb7da0c4ad6fa9bdb9736a616318ceb589a2fa50a3139bffb05",
+    "source_fingerprint": "431419809bf3135d1beb40e9503d828f0ed656583cdb0d3eeee4767f2fa3b7dc",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1181,30 +1181,29 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "cigarette ↔ cigaret",
-          "target_word": "cigaret",
-          "lines": [
-            {
-              "text": "cigarette is the standard modern spelling; cigaret is a less-common spelling variant of the same tobacco-roll noun.",
-              "lang": "en"
-            },
-            {
-              "text": "a cigarette / tobacco roll for smoking",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:3efbf19864d9d6a28a62",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "cigarette ↔ cigaret"
+      "relations": [],
+      "form": {
+        "boundary": "cigarette is the standard modern spelling; cigaret is a much less common spelling variant.",
+        "boundaries": [
+          {
+            "surface": "cigarette",
+            "condition": "standard modern spelling",
+            "note": "preferred current spelling"
+          },
+          {
+            "surface": "cigaret",
+            "condition": "much less common variant",
+            "note": "same lexeme"
           }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "cigarette is the standard modern spelling; cigaret is a much less common spelling variant."
         }
-      ],
-      "form": null,
+      },
       "family": []
     }
   },

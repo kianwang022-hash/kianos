@@ -441,7 +441,7 @@
     "ordinal": 838,
     "word": "clean",
     "source_owner_path": "content/lexical/words/by-ordinal/o0838.json",
-    "source_fingerprint": "bc52f930898b3529cc00b27189a9d76f60f0d82a32be917560d372af374f5558",
+    "source_fingerprint": "442b2169cd7ba159fc6c1365cf83d3b255ed9382eba7abedbf8eeff9f5072bd5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -651,6 +651,10 @@
           {
             "text": "低污染、低碳或环境负担较小的能源、技术或燃料",
             "lang": "cn"
+          },
+          {
+            "text": "clean energy, technology, or fuel designed to reduce pollution, carbon emissions, or environmental burden",
+            "lang": "en"
           }
         ],
         "repair": {
@@ -674,7 +678,7 @@
     "ordinal": 839,
     "word": "clear",
     "source_owner_path": "content/lexical/words/by-ordinal/o0839.json",
-    "source_fingerprint": "522e471108879c498070f60ab2dc665ef08f7ceacadc2cdd537e082c6547769b",
+    "source_fingerprint": "d4706fdae9dca8a3387b7f2d6a8f6de7c876be3e9da085329caa1bbe8e2030f2",
     "sense_lineage": [
       {
         "word_id": "word:clear",
@@ -961,7 +965,7 @@
         "id": "sense:clear:c891404cb6985045",
         "source_locator": "record.senses[8]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vt. + object / vt. + sb/sth for sth",
         "definition_cn": "批准；许可；放行",
         "definition_en": "to give official permission, authorization, or approval",
         "note": "",
@@ -978,7 +982,7 @@
         "id": "sense:clear:e3ddda6029965583",
         "source_locator": "record.senses[9]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vt. + sb + of + suspicion/charge/blame",
         "definition_cn": "宣告无罪；洗清嫌疑",
         "definition_en": "to officially decide that someone is not guilty of a criminal charge",
         "note": "",
@@ -995,7 +999,7 @@
         "id": "sense:clear:a5f415898c61540e",
         "source_locator": "record.senses[10]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vt. + obstacle/check/required point",
         "definition_cn": "越过；通过（障碍、检查等）",
         "definition_en": "to pass over, by, through, or beyond an obstacle, check, or required point successfully",
         "note": "",
@@ -1888,11 +1892,11 @@
     "ordinal": 848,
     "word": "climb",
     "source_owner_path": "content/lexical/words/by-ordinal/o0848.json",
-    "source_fingerprint": "269d30cc2383b7ec62dd3eb47417e396dedb426adf30f17ec2c2a384149e08d7",
+    "source_fingerprint": "13a2f0f390ab3f374cb52d05d88add8fcf146a6596b61bb68ba9482c347e87eb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V",
+        "(2+1)V",
         "2N"
       ],
       "density": "rich"
@@ -1912,7 +1916,7 @@
         "id": "sense:climb:ff4f38a03b615c36",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + up/along/over",
+        "governing_pattern": "I/T + object/up/along/over",
         "definition_cn": "向上移动，攀登",
         "definition_en": "to climb up, down, over, or onto something; to ascend a mountain, tree, or stairs",
         "note": "",
@@ -2039,7 +2043,22 @@
         }
       }
     ],
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "id": "secondary:climb:bf08-abstract-rise",
+        "source_locator": "record.secondary_senses[0]",
+        "pos": "verb",
+        "definition_cn": "（价格、温度、数量等）上升；增长",
+        "definition_en": "for prices, temperatures, numbers, or levels to rise or increase",
+        "pattern": "prices/temperature/numbers climb",
+        "repair": {
+          "target_kind": "secondary_sense",
+          "target_id": "secondary:climb:bf08-abstract-rise",
+          "target_locator": "record.secondary_senses[0]",
+          "target_label": "（价格、温度、数量等）上升；增长"
+        }
+      }
+    ],
     "constructions": [],
     "reference": {
       "confusables": [],
@@ -2309,23 +2328,31 @@
     "ordinal": 851,
     "word": "clip",
     "source_owner_path": "content/lexical/words/by-ordinal/o0851.json",
-    "source_fingerprint": "cd8c3852faa6c858e001432bdbd99e53f9a16a9edd27d30ced1f7ceea62be467",
-    "sense_lineage": [],
+    "source_fingerprint": "de4893e5cd66feb8de29483fb5a222b54e9c120a29fb13641452b2f281fae8c0",
+    "sense_lineage": [
+      {
+        "word_id": "word:clip",
+        "target_kind": "sense",
+        "from_target_id": "sense:clip:fa3df12664e851bc",
+        "status": "reference_only",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
-        "(2+1)N"
+        "(1+1)N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "把东西夹住、剪下一小段，或指被剪取出来的一小段内容",
-      "decision_cn": "paper/hair clip → 夹子；clip hedge → 修剪；video/news/audio clip → 从较长内容中截出的短片段；a clip on the ear → 猛的一击。",
+      "summary_cn": "夹子；修剪/夹住；也可指短视频、音频或新闻片段",
+      "decision_cn": "paper/hair clip → 夹子；clip hedge → 修剪；video/news/audio clip → 从较长内容中截出的短片段。旧式 a clip on the ear 仅保留 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "把东西夹住、剪下一小段，或指被剪取出来的一小段内容"
+        "target_label": "夹子；修剪/夹住；也可指短视频、音频或新闻片段"
       }
     },
     "senses": [
@@ -2436,32 +2463,6 @@
           "target_id": "sense:clip:686c93033de752c0",
           "target_locator": "record.senses[2]",
           "target_label": "夹住"
-        }
-      },
-      {
-        "id": "sense:clip:fa3df12664e851bc",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "痛打，猛击",
-        "definition_en": "a sharp blow or punch",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:4cfd6170d1cdc683078c",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "a clip on the ear",
-            "meaning_cn": "一记耳光",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:clip:fa3df12664e851bc",
-          "target_locator": "record.senses[3]",
-          "target_label": "痛打，猛击"
         }
       }
     ],
@@ -2938,7 +2939,7 @@
     "ordinal": 856,
     "word": "close",
     "source_owner_path": "content/lexical/words/by-ordinal/o0856.json",
-    "source_fingerprint": "54871f5360d77439af986e1f39189d8f7f3f12449a62933df47fd642f61c4d33",
+    "source_fingerprint": "38d8bdb38a40ab651b710dde96cad7c4295b0a0b9cf9095cd95e0d578540d880",
     "sense_lineage": [
       {
         "word_id": "word:close",
@@ -3140,7 +3141,29 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:close:bf08-close-call",
+        "source_locator": "record.constructions[0]",
+        "pattern": "a close call",
+        "lines": [
+          {
+            "text": "险些出事；侥幸脱险；差一点失败",
+            "lang": "cn"
+          },
+          {
+            "text": "a situation in which danger, failure, or an unwanted outcome was only narrowly avoided",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:close:bf08-close-call",
+          "target_locator": "record.constructions[0]",
+          "target_label": "a close call"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -3285,17 +3308,17 @@
     "ordinal": 858,
     "word": "cloth",
     "source_owner_path": "content/lexical/words/by-ordinal/o0858.json",
-    "source_fingerprint": "3be1afca300e982d19b8d2b0212cf7e8424abf9f3c3d18c92cf704fe13b7639e",
+    "source_fingerprint": "9f4dce497a2d1097ba35b0be27e54fe2aeac6b7ba306a060143f0a44fc2fba9c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1N"
+        "(1+1)N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "布料",
-      "decision_cn": "cloth 是“布料/织物”本身，不是衣服；clothes 是穿在身上的具体衣物总称；clothing 是不可数的集合概念。",
+      "decision_cn": "uncountable cloth → 布料/织物；countable a cloth → 一块布、抹布；clothes → 衣服总称；clothing → 不可数集合概念。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -3331,7 +3354,22 @@
         }
       }
     ],
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "id": "secondary:cloth:bf08-countable-piece",
+        "source_locator": "record.secondary_senses[0]",
+        "pos": "noun",
+        "definition_cn": "一块布；尤指用于擦拭、清洁或覆盖的一块布",
+        "definition_en": "a piece of cloth, especially one used for wiping, cleaning, or covering",
+        "pattern": "a cloth / a cleaning cloth",
+        "repair": {
+          "target_kind": "secondary_sense",
+          "target_id": "secondary:cloth:bf08-countable-piece",
+          "target_locator": "record.secondary_senses[0]",
+          "target_label": "一块布；尤指用于擦拭、清洁或覆盖的一块布"
+        }
+      }
+    ],
     "constructions": [],
     "reference": {
       "confusables": [
@@ -3513,7 +3551,7 @@
     "ordinal": 860,
     "word": "clothes",
     "source_owner_path": "content/lexical/words/by-ordinal/o0860.json",
-    "source_fingerprint": "7ce8586cb98aa7257f1b5e639daee054fb5a1311c79cb26ba42a172039fe44bb",
+    "source_fingerprint": "ae3f9fc605f129187e2a9f26726d750037e710713cf3bbee8c17d501f1044934",
     "sense_lineage": [
       {
         "word_id": "word:clothes",
@@ -3588,25 +3626,7 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:b34de6364af39737d410",
-        "source_locator": "record.constructions[0]",
-        "pattern": "clothes are plural",
-        "lines": [
-          {
-            "text": "use clothes for garments; for one item use a piece/article/item of clothing",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:b34de6364af39737d410",
-          "target_locator": "record.constructions[0]",
-          "target_label": "clothes are plural"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [
@@ -3632,7 +3652,28 @@
           }
         }
       ],
-      "form": null,
+      "form": {
+        "boundary": "clothes is plural-only; use clothes are. For one item, say an item/piece/article of clothing, not a clothes.",
+        "boundaries": [
+          {
+            "surface": "clothes",
+            "condition": "plural-only garment collective",
+            "note": "use clothes are"
+          },
+          {
+            "surface": "an item/piece/article of clothing",
+            "condition": "one garment/item",
+            "note": "do not say a clothes"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "clothes is plural-only; use clothes are. For one item, say an item/piece/article of clothing, not a clothes."
+        }
+      },
       "family": []
     }
   },
@@ -4771,23 +4812,31 @@
     "ordinal": 869,
     "word": "coach",
     "source_owner_path": "content/lexical/words/by-ordinal/o0869.json",
-    "source_fingerprint": "2da6ed61357cb37399fe535f694693b285bfac7331270fb7863e718311e91f67",
-    "sense_lineage": [],
+    "source_fingerprint": "97ebd4556830b25369bad2f7e790ad972873cab319cca2c553c6343ebf1ebd95",
+    "sense_lineage": [
+      {
+        "word_id": "word:coach",
+        "target_kind": "sense",
+        "from_target_id": "sense:coach:3e5c846d0f655e00",
+        "status": "reference_only",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
-        "(3+1)N"
+        "(2+1)N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "带着人从当前位置到目标的人或载具：可指教练/辅导者，也可指长途客车；旧义还可指马车",
-      "decision_cn": "sports/skills → 教练、指导者；travel → 长途客车/大巴；historical → 四轮马车；verb coach → 训练、指导。",
+      "summary_cn": "教练、辅导者；作动词表示训练指导；旅行语境可指长途客车",
+      "decision_cn": "sports/skills → 教练、指导者；travel → 长途客车/大巴；verb coach → 训练、指导。历史马车义仅保留 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "带着人从当前位置到目标的人或载具：可指教练/辅导者，也可指长途客车；旧义还可指马车"
+        "target_label": "教练、辅导者；作动词表示训练指导；旅行语境可指长途客车"
       }
     },
     "senses": [
@@ -4857,34 +4906,8 @@
         }
       },
       {
-        "id": "sense:coach:3e5c846d0f655e00",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "四轮大马车",
-        "definition_en": "a large carriage pulled by horses",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:4e863fb1c33b77cc3d56",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "stagecoach",
-            "meaning_cn": "驿站马车",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:coach:3e5c846d0f655e00",
-          "target_locator": "record.senses[2]",
-          "target_label": "四轮大马车"
-        }
-      },
-      {
         "id": "sense:coach:841e48dcb191502b",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "训练运动员或队伍的人；教练",
@@ -4895,7 +4918,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:coach:841e48dcb191502b",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "训练运动员或队伍的人；教练"
         }
       }
@@ -5609,8 +5632,15 @@
     "ordinal": 876,
     "word": "cock",
     "source_owner_path": "content/lexical/words/by-ordinal/o0876.json",
-    "source_fingerprint": "cc998ac70b3603f5e58a01eba23b29894008e4d1f0f017f2f056c4d9658dc305",
+    "source_fingerprint": "b0d5481e522292ea2d237538d02b61c35c9b65ae749e13dd83cc36df541b61e9",
     "sense_lineage": [
+      {
+        "word_id": "word:cock",
+        "target_kind": "sense",
+        "from_target_id": "sense:cock:86cda14bd4335c71",
+        "status": "reference_only",
+        "to_target_id": null
+      },
       {
         "word_id": "word:cock",
         "target_kind": "sense",
@@ -5622,18 +5652,18 @@
     "recall_map": {
       "parts": [
         "1V",
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "雄禽；使竖起或倾斜",
-      "decision_cn": "",
+      "summary_cn": "公鸡或雄禽；作动词可表示歪头、竖耳",
+      "decision_cn": "bird → 公鸡/雄禽；cock one's head/ear → 歪头或竖耳。粗俗解剖义仅保留 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "雄禽；使竖起或倾斜"
+        "target_label": "公鸡或雄禽；作动词可表示歪头、竖耳"
       }
     },
     "senses": [
@@ -5681,25 +5711,8 @@
         }
       },
       {
-        "id": "sense:cock:86cda14bd4335c71",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "阴茎（粗俗语）",
-        "definition_en": "obscene terms for penis",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:cock:86cda14bd4335c71",
-          "target_locator": "record.senses[2]",
-          "target_label": "阴茎（粗俗语）"
-        }
-      },
-      {
         "id": "sense:cock:e21d2be2bf68509e",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "cock one's head/ear",
         "definition_cn": "（鸟等）倾斜或竖起；注意地偏向一侧",
@@ -5709,14 +5722,14 @@
         "usage": [
           {
             "id": "collocation:145e3e6aba728b4a4501",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "cock one's head/ear",
             "meaning_cn": "歪头或竖起耳朵以集中注意",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:145e3e6aba728b4a4501",
-              "target_locator": "record.senses[3].collocations[0]",
+              "target_locator": "record.senses[2].collocations[0]",
               "target_label": "cock one's head/ear"
             }
           }
@@ -5724,7 +5737,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:cock:e21d2be2bf68509e",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "（鸟等）倾斜或竖起；注意地偏向一侧"
         }
       }
@@ -7123,7 +7136,7 @@
     "ordinal": 888,
     "word": "collapse",
     "source_owner_path": "content/lexical/words/by-ordinal/o0888.json",
-    "source_fingerprint": "a2c88f92ef306425a3d3f480bc7f087f9d3d7d87e6a1f7aaed043151544e705b",
+    "source_fingerprint": "6427d53f2ec41a2e5690c9083d956e694dd8deaa493a57044990249ff43a99a6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7285,8 +7298,16 @@
           "target_word": "collapsible",
           "lines": [
             {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
+              "text": "collapse（倒塌/折叠）→ collapsible（可折叠/可收起/可塌缩的）",
               "lang": "cn"
+            },
+            {
+              "text": "collapse = 倒塌/折叠；collapsible = 设计成可以折叠、收起或塌缩的",
+              "lang": "cn"
+            },
+            {
+              "text": "collapsible means designed or able to collapse or fold down",
+              "lang": "en"
             }
           ],
           "source_locator": "record.word_family[0]"
@@ -7484,7 +7505,7 @@
     "ordinal": 890,
     "word": "colleague",
     "source_owner_path": "content/lexical/words/by-ordinal/o0890.json",
-    "source_fingerprint": "0c8ad1bd6a379723fdb1becb6c0953014318e5721549261b8d7092d0ffa37376",
+    "source_fingerprint": "0a593a1b2368b8f321971e460c05055b8a7248612aa3b53531f83770deabc1b6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7541,7 +7562,25 @@
     "secondary_senses": [],
     "constructions": [],
     "reference": {
-      "confusables": [],
+      "confusables": [
+        {
+          "title": "colleague ↔ college",
+          "target_word": "college",
+          "lines": [
+            {
+              "text": "college 是学院；colleague 是同事",
+              "lang": "cn"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "deep:confusables:college:a3ae01ac2f4973d4",
+            "target_locator": "record.confusables[0]",
+            "target_label": "colleague ↔ college"
+          }
+        }
+      ],
       "relations": [],
       "form": null,
       "family": []
@@ -7553,7 +7592,7 @@
     "ordinal": 891,
     "word": "collect",
     "source_owner_path": "content/lexical/words/by-ordinal/o0891.json",
-    "source_fingerprint": "2f9284a2fc80a6108d077cd95b7808670e9eca0faf09a4031bbba294cebd3332",
+    "source_fingerprint": "43caf587e8e670ca9a9b5023f2d13a15c0a81c59222fa5b561ec843e600eaa17",
     "sense_lineage": [
       {
         "word_id": "word:collect",
@@ -7623,7 +7662,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:collect:bf08-oneself",
+        "source_locator": "record.constructions[0]",
+        "pattern": "collect oneself / collect one's thoughts",
+        "lines": [
+          {
+            "text": "镇定下来；整理思绪后再行动或说话",
+            "lang": "cn"
+          },
+          {
+            "text": "collect oneself → regain composure; collect one's thoughts → organize thoughts",
+            "lang": "en"
+          },
+          {
+            "text": "regain composure or organize one's thoughts before acting or speaking",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:collect:bf08-oneself",
+          "target_locator": "record.constructions[0]",
+          "target_label": "collect oneself / collect one's thoughts"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7763,7 +7828,7 @@
     "ordinal": 893,
     "word": "collective",
     "source_owner_path": "content/lexical/words/by-ordinal/o0893.json",
-    "source_fingerprint": "7841e7b72841ed7ef1ed809353c0e0fc526161d7b60f44ee7a6843140612cfee",
+    "source_fingerprint": "cb61df05172f6f3ddea245f50fb6accba50a94d0128ac5a455bb98333df62b12",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7876,18 +7941,7 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": [
-        {
-          "target_word": "collect",
-          "lines": [
-            {
-              "text": "collect 收集",
-              "lang": "cn"
-            }
-          ],
-          "source_locator": "record.word_family[0]"
-        }
-      ]
+      "family": []
     }
   },
   {

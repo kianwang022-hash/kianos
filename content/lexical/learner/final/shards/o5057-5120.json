@@ -4921,7 +4921,7 @@
     "ordinal": 5092,
     "word": "train",
     "source_owner_path": "content/lexical/words/by-ordinal/o5092.json",
-    "source_fingerprint": "5a90a5f087bcd843f4054e0c903afa61cbf864d9e4cdff92d8f1fe9da4c997d0",
+    "source_fingerprint": "96d4331af6c7b2b4a25096c9ddada53df2b99450b872d396e32d1288e7fb3c2f",
     "sense_lineage": [
       {
         "word_id": "word:train",
@@ -5050,7 +5050,29 @@
     ],
     "reference": {
       "confusables": [],
-      "relations": [],
+      "relations": [
+        {
+          "title": "train ↔ coach",
+          "target_word": "coach",
+          "lines": [
+            {
+              "text": "Both can mean train/teach someone; coach often emphasizes targeted guidance or performance, while train is broader skill/behavior development.",
+              "lang": "en"
+            },
+            {
+              "text": "teach and supervise (someone); act as a trainer or coach (to), as in sports",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "deep:semantic_contrast:coach:2e2faf9359797f17",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "train ↔ coach"
+          }
+        }
+      ],
       "form": null,
       "family": []
     }
