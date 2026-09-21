@@ -23,7 +23,8 @@
           "label_en": "the raised edge of a street or sidewalk; a chain or strap attached to a horse's bit to control it",
           "pos": "noun",
           "sense_ids": [
-            "sense:curb:24a548d65e315b11"
+            "sense:curb:24a548d65e315b11",
+            "sense:curb:5de5882cd945508f"
           ]
         }
       ],
@@ -126,7 +127,27 @@
     },
     "word": "curb",
     "word_family": [],
-    "word_id": "word:curb"
+    "word_id": "word:curb",
+    "form_identity": {
+      "form_type": "regional_spelling_identity",
+      "spelling": "curb",
+      "identity_rule": "sense_scoped_spelling_variant",
+      "boundary": "For the road-edge noun, curb is standard AmE and kerb is usual BrE. The verb curb = restrain/control remains curb in both varieties.",
+      "boundaries": [
+        {
+          "surface": "curb",
+          "condition": "road-edge noun in American English; all ordinary verb uses",
+          "note": "AmE noun; shared verb spelling"
+        },
+        {
+          "surface": "kerb",
+          "condition": "road-edge noun in British English",
+          "note": "BrE noun spelling only"
+        }
+      ],
+      "variants": [],
+      "authority": "F1151_1250 audit reconciliation"
+    }
   },
   "relation_refs": [
     {
@@ -134,12 +155,6 @@
       "owner_path": "content/lexical/relations/by-id/77/77b440871136eee268a35dbb2f375b6b2336adef914e3fdd6287aaae70d158bc.json",
       "field": "semantic_neighbors",
       "index": 0
-    },
-    {
-      "relation_id": "relation:baseline-v2:curb-kerb:regional_spelling_variant",
-      "owner_path": "content/lexical/relations/by-id/8d/8d783717599ab70ea8a42218e6a88ff76a0b1839c9ef390a906ccd82402ae38e.json",
-      "field": "semantic_neighbors",
-      "index": 1
     }
   ],
   "reference_senses": [],
