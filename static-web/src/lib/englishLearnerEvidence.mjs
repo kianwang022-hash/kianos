@@ -75,7 +75,7 @@ export function inspectEnglishAttempt(storage,key,meta,{sessionId='',now=Date.no
   if(sessionId)assertEnglishExamTaskAccess(storage,{sessionId,task:meta.task,objectId:meta.object_id,sourceHash:meta.source_hash,now});
   else {
     const examState=inspectEnglishExamSession(storage);
-    if(examState.status==='invalid')throw new Error('ENGLISH_EXAM_STATE_INVALID_RECOVERY_REQUIRED');
+    if(['invalid','unavailable'].includes(examState.status))throw new Error('ENGLISH_EXAM_STATE_INVALID_RECOVERY_REQUIRED');
     const exam=examState.session;
     if(exam&&!['RELEASED','SCORED'].includes(exam.status)&&exam.steps.some(s=>s.object_id===meta.object_id))throw new Error('ENGLISH_ACTIVE_EXAM_USE_SESSION_WORKSPACE');
   }

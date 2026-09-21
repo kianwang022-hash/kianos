@@ -1,761 +1,270 @@
-export const ENGLISH_FORECAST_INPUT_SCHEMA='kianos.english.forecast-input.v1';
-export const ENGLISH_FORECAST_MODEL_SCHEMA='kianos.english.workload-forecast.v1';
-export const ENGLISH_PRODUCTIVE_SCORING_STANDARD_VERSION='english.productive-scoring.v2';
-
-export const ENGLISH_SCORE_CHANNELS=Object.freeze({
-  objective:Object.freeze({label:'Objective',max_points:60}),
-  translation:Object.freeze({label:'Translation',max_points:10}),
-  writing_small:Object.freeze({label:'Small Writing',max_points:10}),
-  writing_big:Object.freeze({label:'Big Writing',max_points:20})
+export const ENGLISH_FORECAST_INPUT_SCHEMA = 'kianos.english.forecast-input.v1';
+export const ENGLISH_FORECAST_MODEL_SCHEMA = 'kianos.english.workload-forecast.v1';
+export const ENGLISH_PRODUCTIVE_SCORING_STANDARD_VERSION = 'english.productive-scoring.v2';
+export const ENGLISH_SCORE_CHANNELS = Object.freeze({
+  objective: Object.freeze({label: 'Objective', max_points: 60}),
+  translation: Object.freeze({label: 'Translation', max_points: 10}),
+  writing_small: Object.freeze({label: 'Small Writing', max_points: 10}),
+  writing_big: Object.freeze({label: 'Big Writing', max_points: 20})
 });
-
-export const ENGLISH_FORECAST_FAMILIES=Object.freeze([
-  'reading_a',
-  'cloze',
-  'reading_b',
-  'translation',
-  'writing_small',
-  'writing_big',
-  'lexical',
-  'whole_paper'
+export const ENGLISH_FORECAST_FAMILIES = Object.freeze([
+  'reading_a', 'cloze', 'reading_b', 'translation', 'writing_small', 'writing_big', 'lexical', 'whole_paper'
 ]);
 
-const finite=(value)=>{
-  if(value===null||value===undefined||value==='')return null;
-  const n=Number(value);
-  return Number.isFinite(n)?n:null;
+const record = (v) => v !== null && typeof v === 'object' && !Array.isArray(v);
+const finite = (v) => typeof v === 'number' && Number.isFinite(v) ? v : null;
+const nonNegative = (v) => finite(v) !== null && v >= 0 ? v : null;
+const positive = (v) => finite(v) !== null && v > 0 ? v : null;
+const round = (v, digits = 1) => finite(v) === null ? null : Number(v.toFixed(digits));
+const copy = (v) => v == null ? null : JSON.parse(JSON.stringify(v));
+const bandKeys = ['p20', 'p50', 'p80'];
+const zeroBand = () => ({p20: 0, p50: 0, p80: 0});
+const sumBands = (rows) => Object.fromEntries(bandKeys.map((k) => [k,
+  round(rows.reduce((sum, row) => sum + row.band_minutes[k], 0))]));
+const quantile = (rows, p) => {
+  const values = [...rows].sort((a, b) => a - b);
+  if (!values.length) return null;
+  const index = (values.length - 1) * p, low = Math.floor(index), high = Math.ceil(index);
+  return values[low] + (values[high] - values[low]) * (index - low);
 };
-const positive=(value)=>{
-  const n=finite(value);
-  return n!==null&&n>0?n:null;
-};
-const nonNegative=(value)=>{
-  const n=finite(value);
-  return n!==null&&n>=0?n:null;
-};
-const round=(value,digits=1)=>{
-  const n=finite(value);
-  if(n===null)return null;
-  const factor=10**digits;
-  return Math.round(n*factor)/factor;
-};
-const clone=(value)=>value==null?value:JSON.parse(JSON.stringify(value));
+const scoreRange = (value, max) => record(value) && nonNegative(value.low) !== null
+  && nonNegative(value.high) !== null && value.low <= value.high && value.high <= max
+  ? {low: value.low, high: value.high} : null;
 
-function quantile(values,p){
-  const rows=(Array.isArray(values)?values:[]).map(Number).filter(Number.isFinite).sort((a,b)=>a-b);
-  if(!rows.length)return null;
-  if(rows.length===1)return rows[0];
-  const pos=(rows.length-1)*Math.max(0,Math.min(1,Number(p)));
-  const low=Math.floor(pos),high=Math.ceil(pos);
-  if(low===high)return rows[low];
-  const w=pos-low;
-  return rows[low]*(1-w)+rows[high]*w;
-}
-
-function median(values){return quantile(values,0.5);}
-
-function sampleState(count){
-  if(count<=0)return 'NO_SAMPLES';
-  if(count<3)return 'REFERENCE_ONLY';
-  if(count<5)return 'PROVISIONAL';
-  return 'EMPIRICAL';
-}
-
-function validPriorRange(value){
-  if(!value||typeof value!=='object'||Array.isArray(value))return null;
-  const low=positive(value.low),high=positive(value.high);
-  if(low===null||high===null||low>high)return null;
-  const central=positive(value.central);
-  return {
-    low,
-    central:central!==null&&central>=low&&central<=high?central:(low+high)/2,
-    high
-  };
-}
-
-function bucketForecast(bucket,familyId){
-  const id=String(bucket?.id||'').trim();
-  if(!id)throw new Error('ENGLISH_FORECAST_BUCKET_ID_REQUIRED:'+familyId);
-  const required=bucket?.required!==false;
-  const units=nonNegative(bucket?.remaining_units);
-  const samples=(Array.isArray(bucket?.minutes_per_unit_samples)?bucket.minutes_per_unit_samples:[])
-    .map(positive).filter((v)=>v!==null);
-  const prior=validPriorRange(bucket?.minutes_per_unit_prior);
-
-  const result={
-    id,
-    family_id:familyId,
-    required,
-    unit_label:String(bucket?.unit_label||'unit'),
-    remaining_units:units,
-    sample_count:samples.length,
-    sample_state:sampleState(samples.length),
-    pricing_source:'UNPRICED',
-    reference_minutes_per_unit:samples.length?round(median(samples),3):(prior?round(prior.central,3):null),
-    band_minutes:null,
-    risks:[]
-  };
-
-  if(units===0){
-    result.pricing_source='ZERO_REMAINING';
-    result.band_minutes={p20:0,p50:0,p80:0};
-    return result;
-  }
-
-  if(units===null){
-    result.risks.push('REMAINING_UNITS_UNKNOWN');
-    return result;
-  }
-
-  if(samples.length>=3){
-    result.pricing_source='EMPIRICAL';
-    result.band_minutes={
-      p20:round(quantile(samples,0.2)*units),
-      p50:round(quantile(samples,0.5)*units),
-      p80:round(quantile(samples,0.8)*units)
-    };
-    return result;
-  }
-
-  if(prior){
-    result.pricing_source='PRIOR_ONLY';
-    result.band_minutes={
-      p20:round(prior.low*units),
-      p50:round(prior.central*units),
-      p80:round(prior.high*units)
-    };
-    result.risks.push('PRIOR_ONLY_PRICING');
-    if(samples.length>0)result.risks.push('EMPIRICAL_SAMPLE_TOO_THIN');
-    return result;
-  }
-
-  result.risks.push(samples.length?'EMPIRICAL_SAMPLE_TOO_THIN':'RATE_UNKNOWN');
-  return result;
-}
-
-function sumBands(rows){
-  if(!rows.length)return {p20:0,p50:0,p80:0};
-  return {
-    p20:round(rows.reduce((sum,row)=>sum+Number(row.band_minutes?.p20||0),0)),
-    p50:round(rows.reduce((sum,row)=>sum+Number(row.band_minutes?.p50||0),0)),
-    p80:round(rows.reduce((sum,row)=>sum+Number(row.band_minutes?.p80||0),0))
-  };
-}
-
-function workloadForecast(input){
-  const source=input?.task_families&&typeof input.task_families==='object'&&!Array.isArray(input.task_families)
-    ? input.task_families
-    : {};
-  const families=[];
-  const missingFamilyIds=[];
-
-  for(const familyId of ENGLISH_FORECAST_FAMILIES){
-    const family=source[familyId];
-    if(!family||typeof family!=='object'||Array.isArray(family)){
-      missingFamilyIds.push(familyId);
-      families.push({
-        id:familyId,
-        label:familyId,
-        operating_mode:'UNKNOWN',
-        open_mechanisms:[],
-        buckets:[],
-        required_bucket_count:0,
-        unpriced_bucket_ids:['SCOPE_UNDECLARED'],
-        known_priced_band_minutes:{p20:0,p50:0,p80:0},
-        full_band_minutes:null,
-        confidence:'UNKNOWN',
-        scope_complete:false
-      });
-      continue;
+function bucketEvidence(bucket, familyId) {
+  const id = typeof bucket?.id === 'string' ? bucket.id.trim() : '';
+  if (!id) throw new Error('ENGLISH_FORECAST_BUCKET_ID_REQUIRED:' + familyId);
+  const units = nonNegative(bucket.remaining_units);
+  const suppliedSamples = bucket.minutes_per_unit_samples;
+  const samples = Array.isArray(suppliedSamples) ? suppliedSamples.filter((v) => positive(v) !== null) : [];
+  const invalidSampleCount = Array.isArray(suppliedSamples)
+    ? suppliedSamples.length - samples.length : suppliedSamples == null ? 0 : 1;
+  const suppliedPrior = bucket.minutes_per_unit_prior;
+  let prior = null;
+  if (record(suppliedPrior) && positive(suppliedPrior.low) !== null && positive(suppliedPrior.high) !== null
+      && suppliedPrior.low <= suppliedPrior.high) {
+    const central = suppliedPrior.central === undefined ? (suppliedPrior.low + suppliedPrior.high) / 2 : suppliedPrior.central;
+    if (positive(central) !== null && central >= suppliedPrior.low && central <= suppliedPrior.high) {
+      prior = {low: suppliedPrior.low, central, high: suppliedPrior.high};
     }
-
-    const buckets=(Array.isArray(family?.work_buckets)?family.work_buckets:[])
-      .map((bucket)=>bucketForecast(bucket,familyId));
-    const requiredBuckets=buckets.filter((row)=>row.required);
-    const pricedRequired=requiredBuckets.filter((row)=>row.band_minutes);
-    const unpricedRequired=requiredBuckets.filter((row)=>!row.band_minutes);
-    const priorOnly=requiredBuckets.filter((row)=>row.pricing_source==='PRIOR_ONLY');
-    const empirical=requiredBuckets.filter((row)=>row.pricing_source==='EMPIRICAL');
-    const provisionalEmpirical=empirical.filter((row)=>row.sample_state==='PROVISIONAL');
-    const scopeComplete=family.scope_complete===true;
-    const operatingMode=String(family?.operating_mode||'UNKNOWN').toUpperCase();
-    const openMechanisms=Array.isArray(family?.open_mechanisms)?family.open_mechanisms.map(String).filter(Boolean):[];
-    const missingRequiredWork=requiredBuckets.length===0
-      && (openMechanisms.length>0 || !['MAINTAIN','ELASTIC'].includes(operatingMode));
-    const knownBand=sumBands(pricedRequired);
-    const scopeUnknown=!scopeComplete;
-    const fullBand=(unpricedRequired.length||scopeUnknown||missingRequiredWork)?null:knownBand;
-    const unpricedIds=[
-      ...unpricedRequired.map((row)=>row.id),
-      ...(scopeUnknown?['SCOPE_UNDECLARED']:[]),
-      ...(missingRequiredWork?['OPEN_DEMAND_WITHOUT_REQUIRED_WORK']:[])
-    ];
-    families.push({
-      id:familyId,
-      label:String(family?.label||familyId),
-      operating_mode:operatingMode,
-      open_mechanisms:openMechanisms,
-      buckets,
-      required_bucket_count:requiredBuckets.length,
-      unpriced_bucket_ids:unpricedIds,
-      known_priced_band_minutes:knownBand,
-      full_band_minutes:fullBand,
-      confidence:(unpricedRequired.length||scopeUnknown||missingRequiredWork)?'PARTIAL'
-        : priorOnly.length?'PRIOR_HEAVY'
-        : provisionalEmpirical.length?'PROVISIONAL'
-        : empirical.length===requiredBuckets.length&&requiredBuckets.length?'EMPIRICAL'
-        :'MIXED',
-      scope_complete:scopeComplete,
-      demand_unpriced:missingRequiredWork
-    });
   }
-
-  const requiredRows=families.flatMap((family)=>family.buckets.filter((row)=>row.required));
-  const pricedRows=requiredRows.filter((row)=>row.band_minutes);
-  const unpricedRows=requiredRows.filter((row)=>!row.band_minutes);
-  const incompleteFamilies=families.filter((family)=>!family.scope_complete);
-  const demandUnpricedFamilies=families.filter((family)=>family.demand_unpriced===true);
-  const knownBand=sumBands(pricedRows);
-  const fullBand=(unpricedRows.length||incompleteFamilies.length||demandUnpricedFamilies.length)?null:knownBand;
-  const priorCount=requiredRows.filter((row)=>row.pricing_source==='PRIOR_ONLY').length;
-  const empiricalCount=requiredRows.filter((row)=>row.pricing_source==='EMPIRICAL').length;
-  const provisionalEmpiricalCount=requiredRows.filter((row)=>row.pricing_source==='EMPIRICAL'&&row.sample_state==='PROVISIONAL').length;
-
+  const risks = [];
+  if (units === null) risks.push('REMAINING_UNITS_UNKNOWN');
+  if (invalidSampleCount) risks.push('TIMING_SAMPLE_INVALID');
+  if (suppliedPrior != null && !prior) risks.push('TIMING_PRIOR_INVALID');
+  const sampleQuantiles = samples.length ? {
+    p20: quantile(samples, .2), p50: quantile(samples, .5), p80: quantile(samples, .8)
+  } : null;
+  // These are conditional calculations, not claims of representative sampling or confidence.
+  const rate = prior ? {p20: prior.low, p50: prior.central, p80: prior.high} : sampleQuantiles;
+  let band = null;
+  if (!risks.length && units === 0) band = zeroBand();
+  else if (!risks.length && rate) band = Object.fromEntries(bandKeys.map((k) => [k, round(rate[k] * units)]));
+  else if (units !== null && units > 0 && !rate) risks.push('RATE_UNKNOWN');
   return {
-    families,
-    known_priced_band_minutes:knownBand,
-    full_band_minutes:fullBand,
-    full_scope_priced:unpricedRows.length===0&&incompleteFamilies.length===0&&demandUnpricedFamilies.length===0,
-    missing_family_ids:missingFamilyIds,
-    incomplete_family_ids:incompleteFamilies.map((row)=>row.id),
-    demand_unpriced_family_ids:demandUnpricedFamilies.map((row)=>row.id),
-    unpriced_bucket_ids:[
-      ...unpricedRows.map((row)=>familyBucketId(row)),
-      ...incompleteFamilies.map((row)=>row.id+':SCOPE_UNDECLARED'),
-      ...demandUnpricedFamilies.map((row)=>row.id+':OPEN_DEMAND_WITHOUT_REQUIRED_WORK')
-    ],
-    workload_confidence:(unpricedRows.length||incompleteFamilies.length||demandUnpricedFamilies.length)?'PARTIAL'
-      : priorCount?'PRIOR_HEAVY'
-      : provisionalEmpiricalCount?'PROVISIONAL'
-      : empiricalCount===requiredRows.length&&requiredRows.length?'EMPIRICAL'
-      :'MIXED',
-    required_bucket_count:requiredRows.length,
-    empirical_bucket_count:empiricalCount,
-    provisional_empirical_bucket_count:provisionalEmpiricalCount,
-    prior_only_bucket_count:priorCount
+    id, family_id: familyId, required: bucket.required !== false,
+    unit_label: String(bucket.unit_label || 'unit'), remaining_units: units,
+    minutes_per_unit_samples: [...samples], sample_count: samples.length,
+    invalid_sample_count: invalidSampleCount, minutes_per_unit_prior: prior,
+    sample_rate_quantiles: sampleQuantiles, band_minutes: band, risks
   };
 }
 
-function familyBucketId(row){return row.family_id+':'+row.id;}
-
-function normalizeScoreRange(value,maxPoints){
-  if(!value||typeof value!=='object'||Array.isArray(value))return null;
-  const low=nonNegative(value.low),high=nonNegative(value.high);
-  if(low===null||high===null||low>high||high>maxPoints)return null;
-  return {low:round(low,1),high:round(high,1)};
-}
-
-function scoreEvidenceQualityEligible(value){
-  return ['CLEAN','LOW_CONTAMINATION','INDEPENDENT'].includes(String(value||'').toUpperCase());
-}
-
-function scoreModalityEligible(id,value){
-  const modality=String(value||'UNKNOWN').toUpperCase();
-  if(id==='objective')return ['PAPER','BROWSER','MIXED'].includes(modality);
-  return ['PAPER','MIXED'].includes(modality);
-}
-
-function scoreChannelRow(id,input){
-  const meta=ENGLISH_SCORE_CHANNELS[id];
-  const row=input?.score_channels?.[id]||{};
-  const range=normalizeScoreRange(row.range,meta.max_points);
-  const declaredScoreEligible=row.score_eligible===true;
-  const evidenceQuality=String(row.evidence_quality||'UNKNOWN').toUpperCase();
-  const modality=String(row.modality||'UNKNOWN').toUpperCase();
-  const qualityEligible=scoreEvidenceQualityEligible(evidenceQuality);
-  const modalityEligible=scoreModalityEligible(id,modality);
-  const scoringStandardVersion=id==='objective'
-    ? null
-    : String(row.scoring_standard_version||'UNKNOWN');
-  const scoringStandardCurrent=id==='objective'
-    || scoringStandardVersion===ENGLISH_PRODUCTIVE_SCORING_STANDARD_VERSION;
-  const scoreInterpretationEligible=declaredScoreEligible&&range!==null&&scoringStandardCurrent;
-  const formalScoreEligible=scoreInterpretationEligible&&qualityEligible&&modalityEligible;
-  const risks=[];
-  if(!range)risks.push('SCORE_RANGE_UNKNOWN');
-  if(!declaredScoreEligible)risks.push('NOT_FORMAL_SCORE_ELIGIBLE');
-  if(!scoringStandardCurrent)risks.push('PRODUCTIVE_SCORING_STANDARD_STALE_OR_UNBOUND');
-  if(!qualityEligible)risks.push('EVIDENCE_QUALITY_FORMAL_INELIGIBLE');
-  if(!modalityEligible)risks.push('EXAM_MODE_MODALITY_FORMAL_INELIGIBLE');
-  if(declaredScoreEligible&&!formalScoreEligible)risks.push('DECLARED_SCORE_ELIGIBLE_CONTRADICTS_EVIDENCE');
-  return {
-    id,
-    label:meta.label,
-    max_points:meta.max_points,
-    range,
-    declared_score_eligible:declaredScoreEligible,
-    score_interpretation_eligible:scoreInterpretationEligible,
-    score_eligible:formalScoreEligible,
-    formal_score_eligible:formalScoreEligible,
-    scoring_standard_version:scoringStandardVersion,
-    scoring_standard_current:scoringStandardCurrent,
-    evidence_quality:evidenceQuality,
-    modality,
-    risks
-  };
-}
-
-function scoreForecast(input,targetScore){
-  const channels=Object.keys(ENGLISH_SCORE_CHANNELS).map((id)=>scoreChannelRow(id,input));
-  const diagnosticRows=channels.filter((row)=>row.score_interpretation_eligible&&row.range);
-  const diagnosticComplete=diagnosticRows.length===channels.length;
-  const diagnosticBand=diagnosticComplete?{
-    low:round(diagnosticRows.reduce((sum,row)=>sum+row.range.low,0),1),
-    high:round(diagnosticRows.reduce((sum,row)=>sum+row.range.high,0),1)
-  }:null;
-
-  const formalRows=channels.filter((row)=>row.formal_score_eligible&&row.range);
-  const formalComplete=formalRows.length===channels.length;
-  const formalBand=formalComplete?{
-    low:round(formalRows.reduce((sum,row)=>sum+row.range.low,0),1),
-    high:round(formalRows.reduce((sum,row)=>sum+row.range.high,0),1)
-  }:null;
-
-  const integrated=input?.whole_paper||{};
-  const integratedRange=normalizeScoreRange(integrated.score_range,100);
-  const integratedDeclaredEligible=integrated.score_eligible===true;
-  const integratedEvidenceQuality=String(integrated.evidence_quality||'UNKNOWN').toUpperCase();
-  const integratedModality=String(integrated.modality||'UNKNOWN').toUpperCase();
-  const integratedScoringStandardVersion=String(integrated.productive_scoring_standard_version||'UNKNOWN');
-  const integratedScoringStandardCurrent=
-    integratedScoringStandardVersion===ENGLISH_PRODUCTIVE_SCORING_STANDARD_VERSION;
-  const integratedQualityEligible=scoreEvidenceQualityEligible(integratedEvidenceQuality);
-  const integratedModalityEligible=['PAPER','MIXED'].includes(integratedModality);
-  const integratedEligible=integratedDeclaredEligible
-    && integratedRange!==null
-    && integratedScoringStandardCurrent
-    && integratedQualityEligible
-    && integratedModalityEligible;
-
-  let localStatus='FORMAL_LOCAL_PATH_INCOMPLETE';
-  if(formalBand){
-    if(formalBand.high<targetScore)localStatus='TARGET_ABOVE_FORMAL_LOCAL_RANGE';
-    else if(formalBand.low>=targetScore)localStatus='TARGET_WITHIN_PROTECTED_FORMAL_LOCAL_RANGE';
-    else localStatus='TARGET_CROSSES_FORMAL_LOCAL_RANGE';
-  }
-
-  let integratedStatus='FORMAL_INELIGIBLE';
-  if(integratedEligible){
-    if(integratedRange.high<targetScore)integratedStatus='TARGET_ABOVE_INTEGRATED_RANGE';
-    else if(integratedRange.low>=targetScore)integratedStatus='TARGET_WITHIN_PROTECTED_INTEGRATED_RANGE';
-    else integratedStatus='TARGET_CROSSES_INTEGRATED_RANGE';
-  }
-
-  const confidence=integratedEligible
-    ? 'INTEGRATED_HIGH'
-    : formalBand?'FORMAL_LOCAL_ONLY'
-    : diagnosticBand?'LOCAL_EVIDENCE_ONLY':'PARTIAL';
-
-  const integratedRisks=[];
-  if(!integratedRange)integratedRisks.push('WHOLE_PAPER_SCORE_RANGE_UNKNOWN');
-  if(!integratedDeclaredEligible)integratedRisks.push('WHOLE_PAPER_NOT_DECLARED_SCORE_ELIGIBLE');
-  if(!integratedScoringStandardCurrent)integratedRisks.push('WHOLE_PAPER_PRODUCTIVE_SCORING_STANDARD_STALE_OR_UNBOUND');
-  if(!integratedQualityEligible)integratedRisks.push('WHOLE_PAPER_EVIDENCE_QUALITY_FORMAL_INELIGIBLE');
-  if(!integratedModalityEligible)integratedRisks.push('WHOLE_PAPER_MODALITY_FORMAL_INELIGIBLE');
-  if(integratedDeclaredEligible&&!integratedEligible)integratedRisks.push('DECLARED_SCORE_ELIGIBLE_CONTRADICTS_WHOLE_PAPER_EVIDENCE');
-
-  return {
-    target_score:targetScore,
-    channels,
-    local_channel_band:diagnosticBand,
-    formal_local_channel_band:formalBand,
-    local_status:localStatus,
-    integrated_whole_paper:{
-      range:integratedRange,
-      declared_score_eligible:integratedDeclaredEligible,
-      score_eligible:integratedEligible,
-      productive_scoring_standard_version:integratedScoringStandardVersion,
-      productive_scoring_standard_current:integratedScoringStandardCurrent,
-      evidence_quality:integratedEvidenceQuality,
-      modality:integratedModality,
-      status:integratedStatus,
-      risks:integratedRisks
-    },
-    score_path_confidence:confidence,
-    dependency_warning:
-      'Diagnostic local channel ranges may include typed or otherwise non-formal evidence. Protected exam-total status requires formally eligible evidence and cannot be inferred from independent local ranges alone.',
-    flip_points:formalBand?{
-      points_needed_above_formal_local_low_to_target:round(Math.max(0,targetScore-formalBand.low),1),
-      formal_local_upper_slack_above_target:round(formalBand.high-targetScore,1)
-    }:null
-  };
-}
-
-export function buildEnglishHighScoreRequirement({targetScore=85}={}){
-  const target=finite(targetScore);
-  if(target===null||target<=0||target>100)throw new Error('ENGLISH_TARGET_SCORE_INVALID');
-  return {
-    schema:'kianos.english.high-score-requirement.v1',
-    target_score:target,
-    max_score:100,
-    total_loss_budget:round(100-target,1),
-    channels:Object.entries(ENGLISH_SCORE_CHANNELS).map(([id,row])=>({
-      id,label:row.label,max_points:row.max_points
-    })),
-    objective_capability_target:60,
-    boundary:
-      'Objective 60/60 is a capability-building target: no known recurring predictable Objective loss mechanism is accepted as permanent. It is not a claim that every mock must literally score 60.'
-  };
-}
-
-export function buildEnglishWorkloadForecast(input,{targetScore=85}={}){
-  if(!input||input.schema!==ENGLISH_FORECAST_INPUT_SCHEMA)throw new Error('ENGLISH_FORECAST_INPUT_REQUIRED');
-  const target=buildEnglishHighScoreRequirement({targetScore});
-  const workload=workloadForecast(input);
-  const score=scoreForecast(input,target.target_score);
-  const uncertainty=[];
-  if(!workload.full_scope_priced)uncertainty.push('WORKLOAD_SCOPE_PARTIALLY_UNPRICED');
-  if(workload.prior_only_bucket_count)uncertainty.push('WORKLOAD_HAS_PRIOR_ONLY_PRICING');
-  if(score.formal_local_channel_band==null)uncertainty.push('FORMAL_SCORE_CHANNELS_INCOMPLETE');
-  if(score.channels.some((row)=>row.id!=='objective'&&!row.scoring_standard_current))uncertainty.push('PRODUCTIVE_SCORING_STANDARD_UNBOUND_OR_STALE');
-  if(!score.integrated_whole_paper.productive_scoring_standard_current)uncertainty.push('WHOLE_PAPER_PRODUCTIVE_SCORING_STANDARD_UNBOUND_OR_STALE');
-  if(!score.integrated_whole_paper.score_eligible)uncertainty.push('WHOLE_PAPER_SCORE_CALIBRATION_MISSING');
-  if(score.integrated_whole_paper.modality==='UNKNOWN'||score.integrated_whole_paper.modality==='TYPED')uncertainty.push('PAPER_MODALITY_UNCALIBRATED');
-
-  const state=!workload.full_scope_priced&&score.formal_local_channel_band==null&&!score.integrated_whole_paper.score_eligible?'UNKNOWN'
-    : workload.full_scope_priced&&(score.formal_local_channel_band!==null||score.integrated_whole_paper.score_eligible)?'SYSTEM_LOGIC_READY_WITH_INPUTS'
-    :'PARTIAL';
-
-  return {
-    schema:ENGLISH_FORECAST_MODEL_SCHEMA,
-    target,
-    workload,
-    score,
-    uncertainty:[...new Set(uncertainty)],
-    forecast_state:state,
-    subject_stage_decision:'OUT_OF_SCOPE',
-    daily_task_prescription:'OUT_OF_SCOPE',
-    cross_subject_allocation:'OUT_OF_SCOPE',
-    boundary:
-      'This model estimates English workload/score uncertainty only. It does not choose today’s task count, subject order, cross-subject time allocation, Secure state, or learner action.'
-  };
-}
-
-function addDays(day,offset){
-  const m=String(day||'').match(/^(\d{4})-(\d{2})-(\d{2})$/);
-  if(!m)return null;
-  const d=new Date(Date.UTC(Number(m[1]),Number(m[2])-1,Number(m[3])));
-  d.setUTCDate(d.getUTCDate()+Number(offset||0));
-  return d.toISOString().slice(0,10);
-}
-
-function daySpanInclusive(startDay,endDay){
-  const start=Date.parse(String(startDay||'')+'T00:00:00Z');
-  const end=Date.parse(String(endDay||'')+'T00:00:00Z');
-  if(!Number.isFinite(start)||!Number.isFinite(end)||end<start)return null;
-  return Math.floor((end-start)/86400000)+1;
-}
-
-function capacityThroughDeadline({startDay,deadlineDay,dailyMinutes=null,capacityMinutesByDay=null}={}){
-  const days=daySpanInclusive(startDay,deadlineDay);
-  if(days===null)return null;
-  const fallback=nonNegative(dailyMinutes);
-  let total=0;
-  for(let i=0;i<days;i++){
-    const day=addDays(startDay,i);
-    const specific=capacityMinutesByDay&&typeof capacityMinutesByDay==='object'&&!Array.isArray(capacityMinutesByDay)
-      ? nonNegative(capacityMinutesByDay[day])
-      : null;
-    const capacity=specific===null?fallback:specific;
-    if(capacity===null)return null;
-    total+=capacity;
-  }
-  return {days,minutes:round(total,1)};
-}
-
-export function assessEnglishDeadlineFeasibility(forecast,{
-  startDay,
-  deadlineDay,
-  dailyMinutes=null,
-  capacityMinutesByDay=null
-}={}){
-  if(!forecast||forecast.schema!==ENGLISH_FORECAST_MODEL_SCHEMA)throw new Error('ENGLISH_FORECAST_MODEL_REQUIRED');
-  const capacity=capacityThroughDeadline({startDay,deadlineDay,dailyMinutes,capacityMinutesByDay});
-  const full=forecast.workload.full_band_minutes;
-  const known=forecast.workload.known_priced_band_minutes;
-  const band=full||known;
-  if(!capacity||!band){
+function workloadEvidence(input) {
+  const source = record(input.task_families) ? input.task_families : {};
+  const families = ENGLISH_FORECAST_FAMILIES.map((id) => {
+    const family = record(source[id]) ? source[id] : {};
+    const buckets = (Array.isArray(family.work_buckets) ? family.work_buckets : []).map((b) => bucketEvidence(b, id));
+    if (new Set(buckets.map((b) => b.id)).size !== buckets.length) throw new Error('ENGLISH_FORECAST_BUCKET_DUPLICATE:' + id);
+    const required = buckets.filter((b) => b.required);
+    const mode = typeof family.operating_mode === 'string' ? family.operating_mode.toUpperCase() : 'UNKNOWN';
+    const mechanisms = Array.isArray(family.open_mechanisms) ? family.open_mechanisms.map(String).filter(Boolean) : [];
+    const scopeComplete = family.scope_complete === true;
+    const openDemand = mechanisms.length > 0 || !['MAINTAIN', 'ELASTIC'].includes(mode);
+    // A zero placeholder is not work for an unresolved demand. Optional work cannot close it either.
+    const demandUnpriced = openDemand && !required.some((b) => b.remaining_units === null || b.remaining_units > 0);
+    const unpriced = required.filter((b) => b.band_minutes === null).map((b) => b.id);
+    if (!scopeComplete) unpriced.push('SCOPE_UNDECLARED');
+    if (demandUnpriced) unpriced.push('OPEN_DEMAND_WITHOUT_REQUIRED_WORK');
+    if (family.open_mechanisms != null && !Array.isArray(family.open_mechanisms)) unpriced.push('MECHANISM_EVIDENCE_INVALID');
+    if (family.work_buckets != null && !Array.isArray(family.work_buckets)) unpriced.push('WORK_BUCKETS_INVALID');
+    const known = sumBands(required.filter((b) => b.band_minutes !== null));
     return {
-      schema:'kianos.english.deadline-feasibility.v1',
-      status:'UNPRICED',
-      full_scope:false,
-      capacity,
-      band_minutes:band,
-      fit:null,
-      known_lower_bound_fit:null
-    };
-  }
-  const fit=Object.fromEntries(['p20','p50','p80'].map((key)=>[key,Number(band[key]||0)<=capacity.minutes]));
-  if(!full){
-    return {
-      schema:'kianos.english.deadline-feasibility.v1',
-      status:'UNPRICED',
-      full_scope:false,
-      capacity,
-      band_minutes:band,
-      fit:null,
-      known_lower_bound_fit:fit,
-      required_average_minutes_per_day:null,
-      boundary:
-        'Known priced work can be compared with capacity, but unresolved required workload forbids whole-scope completion claims.'
-    };
-  }
-  const requiredAverage=Object.fromEntries(['p20','p50','p80'].map((key)=>[
-    key,capacity.days?round(Number(full[key]||0)/capacity.days,1):null
-  ]));
-  let status='P80_FITS';
-  if(!fit.p20)status='EVEN_P20_DOES_NOT_FIT';
-  else if(!fit.p50)status='P20_ONLY_FITS';
-  else if(!fit.p80)status='P50_FITS_P80_DOES_NOT';
-  return {
-    schema:'kianos.english.deadline-feasibility.v1',
-    status,
-    full_scope:true,
-    capacity,
-    band_minutes:full,
-    fit,
-    known_lower_bound_fit:null,
-    required_average_minutes_per_day:requiredAverage,
-    boundary:
-      'Feasibility is a capacity diagnostic, not a daily schedule. The model never deletes required work to make a deadline look feasible.'
-  };
-}
-
-function scaleBand(band,multiplier){
-  if(!band)return null;
-  return {
-    p20:round(Number(band.p20||0)*multiplier,1),
-    p50:round(Number(band.p50||0)*multiplier,1),
-    p80:round(Number(band.p80||0)*multiplier,1)
-  };
-}
-
-function evidenceCandidates(input,forecast){
-  const rows=[];
-  const priorityLabel=(rank)=>rank>=90?'HIGHEST':rank>=75?'HIGH':rank>=50?'MEDIUM':'LOW';
-  const add=(id,rank,reason,evidence,cost='BOUNDED')=>{
-    if(rows.some((row)=>row.id===id))return;
-    rows.push({
-      id,
-      _sort_rank:rank,
-      information_priority:priorityLabel(rank),
-      reason,
-      evidence_to_collect:evidence,
-      learner_cost_class:cost
-    });
-  };
-
-  for(const family of forecast.workload.families){
-    for(const bucket of family.buckets.filter((row)=>row.required)){
-      if(!bucket.band_minutes){
-        add(
-          'PRICE:'+family.id+':'+bucket.id,
-          100,
-          'A required workload bucket is unpriced.',
-          'Collect the missing remaining-unit identity or enough representative task-time evidence for '+family.label+' / '+bucket.id+'. Do not guess a rate.'
-        );
-      }else if(bucket.pricing_source==='PRIOR_ONLY'){
-        add(
-          'CALIBRATE:'+family.id+':'+bucket.id,
-          80,
-          'A required workload bucket is priced only from a prior range.',
-          'Collect representative real learner timing for '+family.label+' / '+bucket.id+' when it naturally occurs; do not manufacture practice solely for measurement.'
-        );
-      }
-    }
-  }
-
-  for(const channel of forecast.score.channels){
-    if(!channel.score_eligible||!channel.range){
-      add(
-        'SCORE:'+channel.id,
-        75,
-        channel.label+' lacks score-eligible evidence.',
-        'Obtain a clean/appropriately qualified first-output or formal score range for '+channel.label+' using existing task/scoring owners.',
-        channel.id==='objective'?'SCARCE':'BOUNDED'
-      );
-    }
-  }
-
-  if(!forecast.score.integrated_whole_paper.score_eligible){
-    add(
-      'WHOLE_PAPER_CALIBRATION',
-      50,
-      'Local score channels do not prove integrated 180-minute exam execution.',
-      'Preserve an appropriate low-contamination Whole Paper execution for later calibration; do not consume scarce formal material merely to improve the Forecast.',
-      'SCARCE'
-    );
-  }
-
-  const lexical=input?.learner_parameters?.lexical_delayed_retention;
-  if(lexical==null){
-    add(
-      'LEXICAL_DELAYED_RETENTION',
-      70,
-      'Lexical reactivation speed alone cannot price maintenance/relapse risk.',
-      'Observe delayed lexical retention through normal study and downstream English task performance.',
-      'NATURAL_OBSERVATION'
-    );
-  }
-
-  rows.sort((a,b)=>b._sort_rank-a._sort_rank||a.id.localeCompare(b.id));
-  return rows.map(({_sort_rank,...row})=>row);
-}
-
-export function buildEnglishForecastFalsifiability(input,{
-  targetScore=85,
-  startDay=null,
-  deadlineDay=null,
-  dailyMinutesGrid=[60,90,120],
-  workloadMultiplierGrid=[0.8,1,1.25]
-}={}){
-  const base=buildEnglishWorkloadForecast(input,{targetScore});
-  const capacities=[...new Set((Array.isArray(dailyMinutesGrid)?dailyMinutesGrid:[]).map(Number).filter((v)=>Number.isFinite(v)&&v>=0))].sort((a,b)=>a-b);
-  const multipliers=[...new Set((Array.isArray(workloadMultiplierGrid)?workloadMultiplierGrid:[]).map(Number).filter((v)=>Number.isFinite(v)&&v>0))].sort((a,b)=>a-b);
-  const baseBand=base.workload.full_band_minutes||base.workload.known_priced_band_minutes;
-  const grid=[];
-
-  if(startDay&&deadlineDay&&baseBand){
-    for(const multiplier of multipliers){
-      const stressed=clone(base);
-      const scaled=scaleBand(baseBand,multiplier);
-      if(base.workload.full_band_minutes)stressed.workload.full_band_minutes=scaled;
-      else stressed.workload.known_priced_band_minutes=scaled;
-      for(const dailyMinutes of capacities){
-        const feasibility=assessEnglishDeadlineFeasibility(stressed,{startDay,deadlineDay,dailyMinutes});
-        grid.push({
-          workload_multiplier:round(multiplier,3),
-          daily_minutes:dailyMinutes,
-          status:feasibility.status,
-          full_scope:feasibility.full_scope,
-          p20_fit:feasibility.fit?.p20??feasibility.known_lower_bound_fit?.p20??null,
-          p50_fit:feasibility.fit?.p50??feasibility.known_lower_bound_fit?.p50??null,
-          p80_fit:feasibility.fit?.p80??feasibility.known_lower_bound_fit?.p80??null
-        });
-      }
-    }
-  }
-
-  const p50FlipSurface=capacities.map((dailyMinutes)=>{
-    const rows=grid.filter((row)=>row.daily_minutes===dailyMinutes&&row.p50_fit!==null);
-    const lastFit=[...rows].reverse().find((row)=>row.p50_fit===true);
-    const firstFail=rows.find((row)=>row.p50_fit===false);
-    return {
-      daily_minutes:dailyMinutes,
-      largest_tested_workload_multiplier_with_p50_fit:lastFit?.workload_multiplier??null,
-      smallest_tested_workload_multiplier_without_p50_fit:firstFail?.workload_multiplier??null
+      id, label: String(family.label || id), operating_mode: mode, open_mechanisms: mechanisms,
+      scope_complete: scopeComplete, buckets, required_bucket_count: required.length,
+      known_priced_band_minutes: known, full_band_minutes: unpriced.length ? null : known,
+      unpriced_bucket_ids: unpriced
     };
   });
-
-  const candidates=evidenceCandidates(input,base);
+  const priced = families.flatMap((f) => f.buckets.filter((b) => b.required && b.band_minutes !== null));
+  const unpriced = families.flatMap((f) => f.unpriced_bucket_ids.map((id) => f.id + ':' + id));
+  const known = sumBands(priced);
   return {
-    schema:'kianos.english.forecast-falsifiability.v1',
-    assumptions:{
-      target_score:targetScore,
-      start_day:startDay,
-      deadline_day:deadlineDay,
-      tested_daily_minutes:capacities,
-      tested_workload_multipliers:multipliers
-    },
-    base_forecast_state:base.forecast_state,
-    workload_grid:grid,
-    p50_flip_surface:p50FlipSurface,
-    score_flip_points:base.score.flip_points,
-    next_high_value_evidence:candidates[0]||null,
-    evidence_candidates:candidates,
-    subject_stage_decision:'OUT_OF_SCOPE',
-    boundary:
-      'Sensitivity surfaces expose when a capacity conclusion flips. They do not choose the learner action, daily task count, or cross-subject allocation. Evidence candidates are information candidates only.'
+    families, known_priced_band_minutes: known, full_band_minutes: unpriced.length ? null : known,
+    unpriced_bucket_ids: unpriced, required_bucket_count: families.reduce((n, f) => n + f.required_bucket_count, 0)
   };
 }
 
-
-function ratioOrNull(numerator,denominator){
-  const a=finite(numerator),b=positive(denominator);
-  return a===null||b===null?null:a/b;
+function scoreEvidence(input) {
+  const clean = (quality) => ['CLEAN', 'LOW_CONTAMINATION', 'INDEPENDENT'].includes(quality);
+  const channels = Object.entries(ENGLISH_SCORE_CHANNELS).map(([id, meta]) => {
+    const row = record(input.score_channels?.[id]) ? input.score_channels[id] : {};
+    const range = scoreRange(row.range, meta.max_points);
+    const standard = id === 'objective' || row.scoring_standard_version === ENGLISH_PRODUCTIVE_SCORING_STANDARD_VERSION;
+    const modality = String(row.modality || 'UNKNOWN').toUpperCase();
+    const quality = String(row.evidence_quality || 'UNKNOWN').toUpperCase();
+    const modalityEligible = (id === 'objective' ? ['BROWSER', 'PAPER', 'MIXED'] : ['PAPER', 'MIXED']).includes(modality);
+    return {
+      id, ...meta, range, evidence_quality: quality, modality,
+      scoring_standard_version: id === 'objective' ? null : row.scoring_standard_version || null,
+      formal_score_eligible: row.score_eligible === true && range !== null && standard && clean(quality) && modalityEligible,
+      evidence_basis: copy(row.evidence_basis)
+    };
+  });
+  const sumRanges = (rows) => rows.length === channels.length ? {
+    low: round(rows.reduce((n, r) => n + r.range.low, 0)), high: round(rows.reduce((n, r) => n + r.range.high, 0))
+  } : null;
+  const whole = record(input.whole_paper) ? input.whole_paper : {};
+  const range = scoreRange(whole.score_range, 100);
+  const modality = String(whole.modality || 'UNKNOWN').toUpperCase();
+  const quality = String(whole.evidence_quality || 'UNKNOWN').toUpperCase();
+  return {
+    channels, local_channel_band: sumRanges(channels.filter((r) => r.range)),
+    formal_local_channel_band: sumRanges(channels.filter((r) => r.formal_score_eligible)),
+    integrated_whole_paper: {
+      range, evidence_quality: quality, modality,
+      productive_scoring_standard_version: whole.productive_scoring_standard_version || null,
+      score_eligible: whole.score_eligible === true && range !== null && clean(quality)
+        && ['PAPER', 'MIXED'].includes(modality)
+        && whole.productive_scoring_standard_version === ENGLISH_PRODUCTIVE_SCORING_STANDARD_VERSION,
+      evidence_basis: copy(whole.evidence_basis)
+    }
+  };
 }
 
-export function backtestEnglishForecastHistory(rows=[]){
-  const source=Array.isArray(rows)?rows:[];
-  const workloadRows=[];
-  const scoreRows=[];
-
-  for(const row of source){
-    const id=String(row?.id||row?.day||row?.observed_at||'').trim()||null;
-    const actualMinutes=nonNegative(row?.actual_workload_minutes);
-    const band=row?.predicted_workload_band;
-    const p20=nonNegative(band?.p20),p50=nonNegative(band?.p50),p80=nonNegative(band?.p80);
-    if(actualMinutes!==null&&p20!==null&&p50!==null&&p80!==null&&p20<=p50&&p50<=p80){
-      const ratio=ratioOrNull(p50,actualMinutes);
-      const absError=actualMinutes>0?Math.abs(p50-actualMinutes)/actualMinutes:null;
-      workloadRows.push({
-        id,
-        actual_minutes:round(actualMinutes,1),
-        predicted:{p20:round(p20,1),p50:round(p50,1),p80:round(p80,1)},
-        p20_covers:actualMinutes<=p20,
-        p50_covers:actualMinutes<=p50,
-        p80_covers:actualMinutes<=p80,
-        p50_actual_ratio:ratio===null?null:round(ratio,4),
-        p50_absolute_percent_error:absError===null?null:round(absError,4)
-      });
-    }
-
-    const actualScore=nonNegative(row?.actual_score);
-    const scoreRange=row?.predicted_score_range;
-    const low=nonNegative(scoreRange?.low),high=nonNegative(scoreRange?.high);
-    if(actualScore!==null&&low!==null&&high!==null&&low<=high&&high<=100){
-      scoreRows.push({
-        id,
-        actual_score:round(actualScore,1),
-        predicted:{low:round(low,1),high:round(high,1)},
-        covered:actualScore>=low&&actualScore<=high,
-        miss_direction:actualScore<low?'OVER_OPTIMISTIC_LOW_BOUND':actualScore>high?'UNDER_PREDICTED_UPSIDE':null,
-        band_width:round(high-low,1)
-      });
-    }
-  }
-
-  const coverage=(items,key)=>items.length
-    ? round(items.filter((row)=>row[key]===true).length/items.length,4)
-    : null;
-  const ratios=workloadRows.map((row)=>row.p50_actual_ratio).filter((v)=>v!==null);
-  const errors=workloadRows.map((row)=>row.p50_absolute_percent_error).filter((v)=>v!==null);
-  const widths=scoreRows.map((row)=>row.band_width).filter((v)=>v!==null);
-
+export function buildEnglishHighScoreRequirement({targetScore = 85} = {}) {
+  if (positive(targetScore) === null || targetScore > 100) throw new Error('ENGLISH_TARGET_SCORE_INVALID');
   return {
-    schema:'kianos.english.forecast-backtest.v1',
-    workload:{
-      status:workloadRows.length>=3?'BACKTESTED':'INSUFFICIENT_BACKTEST',
-      sample_count:workloadRows.length,
-      p20_coverage:coverage(workloadRows,'p20_covers'),
-      p50_coverage:coverage(workloadRows,'p50_covers'),
-      p80_coverage:coverage(workloadRows,'p80_covers'),
-      median_p50_actual_ratio:ratios.length?round(median(ratios),4):null,
-      median_p50_absolute_percent_error:errors.length?round(median(errors),4):null,
-      rows:workloadRows.slice(-20)
-    },
-    score:{
-      status:scoreRows.length>=3?'BACKTESTED':'INSUFFICIENT_BACKTEST',
-      sample_count:scoreRows.length,
-      band_coverage:coverage(scoreRows,'covered'),
-      median_band_width:widths.length?round(median(widths),1):null,
-      misses:scoreRows.filter((row)=>!row.covered).slice(-20),
-      rows:scoreRows.slice(-20)
-    },
-    recalibration_required:
-      'CHAT_INTERPRETATION_REQUIRED',
-    subject_stage_decision:'OUT_OF_SCOPE',
-    boundary:
-      'Backtest diagnostics expose calibration error after real outcomes exist. They do not auto-change workload, widen/narrow score bands, assign daily tasks, or claim Kian-specific calibration without sufficient real samples.'
+    schema: 'kianos.english.high-score-requirement.v1', target_score: targetScore, max_score: 100,
+    total_loss_budget: round(100 - targetScore), objective_capability_target: 60,
+    channels: Object.entries(ENGLISH_SCORE_CHANNELS).map(([id, row]) => ({id, ...row})),
+    boundary: 'A capability target is not an achieved learner score.'
+  };
+}
+
+export function buildEnglishWorkloadForecast(input, {targetScore = 85} = {}) {
+  if (!record(input) || input.schema !== ENGLISH_FORECAST_INPUT_SCHEMA) throw new Error('ENGLISH_FORECAST_INPUT_REQUIRED');
+  const workload = workloadEvidence(input), score = scoreEvidence(input);
+  return {
+    schema: ENGLISH_FORECAST_MODEL_SCHEMA, target: buildEnglishHighScoreRequirement({targetScore}),
+    evidence_basis: copy(input.evidence_basis), workload, score,
+    uncertainty: [...workload.unpriced_bucket_ids,
+      ...score.channels.filter((r) => !r.formal_score_eligible).map((r) => 'FORMAL_SCORE_UNRESOLVED:' + r.id),
+      ...(!score.integrated_whole_paper.score_eligible ? ['WHOLE_PAPER_FORMAL_CALIBRATION_UNRESOLVED'] : [])],
+    subject_stage_decision: 'OUT_OF_SCOPE', daily_task_prescription: 'OUT_OF_SCOPE', cross_subject_allocation: 'OUT_OF_SCOPE',
+    boundary: 'Rates, ranges and counts are conditional input calculations, not confidence, Secure, calibrated probabilities or a task ranking. Chat interprets relevance, representativeness and allocation. Native evidence keeps its source/session binding.'
+  };
+}
+
+const dayTime = (day) => {
+  if (typeof day !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(day)) return null;
+  const time = Date.parse(day + 'T00:00:00Z');
+  return Number.isFinite(time) && new Date(time).toISOString().slice(0, 10) === day ? time : null;
+};
+export function assessEnglishDeadlineFeasibility(forecast, {startDay, deadlineDay, dailyMinutes = null, capacityMinutesByDay = null} = {}) {
+  if (forecast?.schema !== ENGLISH_FORECAST_MODEL_SCHEMA) throw new Error('ENGLISH_FORECAST_MODEL_REQUIRED');
+  const start = dayTime(startDay), end = dayTime(deadlineDay);
+  let capacity = null;
+  if (start !== null && end !== null && end >= start && end - start <= 3660 * 86400000) {
+    const days = (end - start) / 86400000 + 1;
+    let minutes = 0;
+    for (let i = 0; i < days; i++) {
+      const day = new Date(start + i * 86400000).toISOString().slice(0, 10);
+      const value = record(capacityMinutesByDay) && Object.hasOwn(capacityMinutesByDay, day)
+        ? capacityMinutesByDay[day] : dailyMinutes;
+      const amount = nonNegative(value);
+      if (amount === null) { minutes = null; break; }
+      minutes += amount;
+    }
+    if (minutes !== null) capacity = {days, minutes: round(minutes)};
+  }
+  const full = forecast.workload.full_band_minutes, band = full || forecast.workload.known_priced_band_minutes;
+  const fit = capacity && band ? Object.fromEntries(bandKeys.map((k) => [k, band[k] <= capacity.minutes])) : null;
+  return {
+    schema: 'kianos.english.deadline-feasibility.v1', capacity, full_scope: full !== null,
+    band_minutes: band, fit: full ? fit : null, known_lower_bound_fit: full ? null : fit,
+    required_average_minutes_per_day: full && capacity
+      ? Object.fromEntries(bandKeys.map((k) => [k, round(full[k] / capacity.days)])) : null
+  };
+}
+
+export function buildEnglishForecastFalsifiability(input, {
+  targetScore = 85, startDay = null, deadlineDay = null,
+  dailyMinutesGrid = [60, 90, 120], workloadMultiplierGrid = [.8, 1, 1.25]
+} = {}) {
+  const base = buildEnglishWorkloadForecast(input, {targetScore}), grid = [];
+  const capacities = [...new Set(dailyMinutesGrid.filter((v) => nonNegative(v) !== null))].sort((a, b) => a - b);
+  const multipliers = [...new Set(workloadMultiplierGrid.filter((v) => positive(v) !== null))].sort((a, b) => a - b);
+  for (const multiplier of multipliers) for (const minutes of capacities) {
+    const stressed = copy(base);
+    for (const key of ['full_band_minutes', 'known_priced_band_minutes']) {
+      if (stressed.workload[key]) for (const k of bandKeys) stressed.workload[key][k] = round(stressed.workload[key][k] * multiplier);
+    }
+    const result = assessEnglishDeadlineFeasibility(stressed, {startDay, deadlineDay, dailyMinutes: minutes});
+    grid.push({workload_multiplier: multiplier, daily_minutes: minutes, full_scope: result.full_scope,
+      fit: result.fit, known_lower_bound_fit: result.known_lower_bound_fit});
+  }
+  return {
+    schema: 'kianos.english.forecast-falsifiability.v1', workload_grid: grid, unresolved_inputs: [...base.uncertainty],
+    boundary: 'Sensitivity only. No selected next evidence, information-value ranking, confidence threshold or daily prescription.'
+  };
+}
+
+export function backtestEnglishForecastHistory(rows = []) {
+  const groups = new Map(), workload = [], score = [], unusableWorkload = [], unusableScore = [];
+  let missingIdentity = 0, duplicates = 0;
+  const conflicts = [];
+  for (const row of Array.isArray(rows) ? rows : []) {
+    const id = typeof (row?.observation_id ?? row?.id) === 'string' ? (row.observation_id ?? row.id).trim() : '';
+    if (!id) { missingIdentity++; continue; }
+    // Compare the measurement, not display metadata or aliases. Conflicts are excluded, never first-wins.
+    const measurement = {actual_workload_minutes: row.actual_workload_minutes, predicted_workload_band: row.predicted_workload_band,
+      actual_score: row.actual_score, predicted_score_range: row.predicted_score_range};
+    const stable = (value) => Array.isArray(value) ? value.map(stable) : record(value)
+      ? Object.fromEntries(Object.keys(value).sort().map((k) => [k, stable(value[k])])) : value;
+    const fingerprint = JSON.stringify(stable(measurement));
+    const prior = groups.get(id);
+    if (!prior) groups.set(id, {row, fingerprint, conflict: false});
+    else if (prior.fingerprint === fingerprint) duplicates++;
+    else { prior.conflict = true; if (!conflicts.includes(id)) conflicts.push(id); }
+  }
+  for (const [id, {row, conflict}] of groups) {
+    if (conflict) continue;
+    const actual = nonNegative(row.actual_workload_minutes), band = row.predicted_workload_band;
+    if (actual !== null && record(band) && bandKeys.every((k) => nonNegative(band[k]) !== null)
+        && band.p20 <= band.p50 && band.p50 <= band.p80) {
+      workload.push({id, actual_minutes: actual, predicted: copy(band),
+        p20_covers: actual <= band.p20, p50_covers: actual <= band.p50, p80_covers: actual <= band.p80,
+        p50_actual_ratio: actual > 0 ? round(band.p50 / actual, 4) : null,
+        p50_absolute_percent_error: actual > 0 ? round(Math.abs(band.p50 - actual) / actual, 4) : null});
+    }
+    if (!workload.some((item) => item.id === id) && (Object.hasOwn(row, 'actual_workload_minutes') || Object.hasOwn(row, 'predicted_workload_band'))) unusableWorkload.push(id);
+    const actualScore = nonNegative(row.actual_score), range = scoreRange(row.predicted_score_range, 100);
+    if (actualScore !== null && actualScore <= 100 && range) score.push({id, actual_score: actualScore, predicted: range,
+      covered: actualScore >= range.low && actualScore <= range.high, band_width: range.high - range.low});
+    if (!score.some((item) => item.id === id) && (Object.hasOwn(row, 'actual_score') || Object.hasOwn(row, 'predicted_score_range'))) unusableScore.push(id);
+  }
+  const coverage = (values, key) => values.length ? round(values.filter((r) => r[key]).length / values.length, 4) : null;
+  const median = (values) => values.length ? round(quantile(values, .5), 4) : null;
+  return {
+    schema: 'kianos.english.forecast-backtest.v1', duplicate_row_count: duplicates,
+    missing_identity_row_count: missingIdentity, conflicting_observation_ids: conflicts,
+    workload: {unusable_observation_ids: unusableWorkload, sample_count: workload.length, p20_coverage: coverage(workload, 'p20_covers'),
+      p50_coverage: coverage(workload, 'p50_covers'), p80_coverage: coverage(workload, 'p80_covers'),
+      median_p50_actual_ratio: median(workload.map((r) => r.p50_actual_ratio).filter((v) => v !== null)),
+      median_p50_absolute_percent_error: median(workload.map((r) => r.p50_absolute_percent_error).filter((v) => v !== null)), rows: workload.slice(-20)},
+    score: {unusable_observation_ids: unusableScore, sample_count: score.length, band_coverage: coverage(score, 'covered'),
+      median_band_width: median(score.map((r) => r.band_width)), misses: score.filter((r) => !r.covered).slice(-20), rows: score.slice(-20)},
+    boundary: 'Unique observation identities and errors are facts, not independence, adequate sample size, BACKTESTED certification or calibrated confidence. Chat interprets them.'
   };
 }

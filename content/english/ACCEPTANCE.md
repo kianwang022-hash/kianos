@@ -1,149 +1,90 @@
-# English Final Learner Acceptance — Current Integration Result
-
-Status: **RELEASED TO MAIN — engineering acceptance passed; Kian explicitly removed the final Mac-presentation release hold; learner U is UNTESTED**  
-Integration PR: **#498** — merged to `main` as `216165c05140e90c2ac0afbbf3cace1b956898d8`  
-Final integration head: `68749bf689fd130c385edc804121548994697b88`  
-Standard: `LEARNING_ACCEPTANCE.md`; execution brief: `FINAL_LEARNER_ACCEPTANCE_BRIEF.md`.
-
-This file records the English-wide Current integration result after fresh independent audit, repair, targeted proof, bounded regression and reconciliation. Child Acceptance owners still own local module claims. CI and synthetic fixtures are engineering evidence only; they never manufacture learner history.
-
-## 1. Final learning-design judgment
-
-**Learning Logic: PASS.**
-
-Retain task-first learning with targeted, skippable First Learning. A learner who can already execute a task does not need compulsory Guide completion; a learner who cannot execute it receives the smallest effective continuous learning model for that capability.
-
-Natural units remain source-native:
-
-- Reading A: one passage + its full question set;
-- Cloze: one passage + all blanks;
-- Part B: one complete source-native mapping task;
-- Translation: one complete set;
-- Writing: one complete essay task.
-
-`current question` is a focus cursor, not permission to hide the rest of a Reading A question set. Wrong / Uncertain is evidence, not automatic diagnosis, repair debt or a mandatory Chat session. Chat owns cross-task strategy; the website may execute validated explicit instructions but must not invent priorities.
-
-## 2. English-wide path verdicts
-
-| Path / claim | Current verdict |
-| --- | --- |
-| Reading A | **PASS.** Full question set remains visible; one current question is only keyboard / attention focus. Exact attempt + source identity is required for return paths. |
-| Cloze | **PASS.** Continuous passage context and all blanks remain one task; strengthened return identity does not convert a new material into an assumed fresh attempt. |
-| Part B | **PASS.** Gap / heading / ordering / comment forms retain distinct cognition, fixed-given rules and source-native candidate policy. |
-| Objective Runtime / Evidence | **PASS.** Old test assumptions were reconciled to Current rules: exact attempt/source identity, no automatic fresh-on-material-change, and rejected stale/invalid return is correctly treated as rejection. Latest Objective Learner Journey is green. |
-| Translation | **PASS for tested runtime/evidence paths.** Five-segment first attempt, whole-source context, reference gate, immutable first output, exact typed return and learner reconstruction remain intact. |
-| Writing | **Engineering PASS; release hold removed by Kian.** Direct mode does not invent a plan; Planned mode preserves the learner's real plan; first draft/regeneration/return identity persist; no automatic ghostwriting. Kian explicitly authorized #498 for promotion without a separate final material-visual hold. |
-| English ↔ Lexical | **PASS for the tested handoff boundary.** Exact Current target / ordinal / revision / demand is preserved; lookup stays state-neutral; replay is idempotent; Recognition cannot close Production; return is exact and all-or-nothing. |
-| Chat Resume | **PASS.** Current catalog validation, stale/future/duplicate/conflict rejection, atomic import, idempotent replay, explicit ordering and free navigation are preserved. |
-| Whole paper | **PASS for tested session mechanics.** One absolute 180-minute session, nine task instances, autosave capture, irreversible Seal, objective release out of 60, and original productive outputs for Chat review. No fake subjective auto-score. |
-| Shared durability | **PASS for the tested English + Lexical private checkpoint boundary.** Unsafe remote read cannot write; subject payloads round-trip; conflicting local evidence wins; restore is atomic. |
-| Navigation | **PASS.** English hierarchy remains coherent after Objective / Translation / Writing / Vocabulary / External Reading integration. |
-| External Reading | **PASS as an executable continuous Content lane for the implemented boundary.** TPO 56–65 is the primary growth pool and IELTS Academic 17–19 secondary. Public repo owns identity/inventory/compiler/runtime; copyrighted bytes stay in the private Mac source bundle. Compatible surfaces reuse the Reading-family architecture while preserving source-native cognition. This does **not** replace 考研 Reading A strategy. |
-| Mac presentation | **RELEASE HOLD REMOVED BY KIAN.** This records explicit promotion authorization, not a claim that CI or synthetic evidence performed a Human Gate on Kian's behalf. |
-| Learner U | **UNTESTED.** No synthetic fixture, recovered source, screenshot or CI run counts as Kian having learned or attempted the material. |
-
-## 3. What was actually repaired
-
-1. **Objective return identity and old-test drift.** Runtime correctly requires exact attempt/source identity. Historical depth tests were updated so they no longer assume identity-less return, automatic freshness after changing material, or successful import of a return that Current runtime deliberately rejects.
-2. **Writing source deliverability.** Source truth renders verified source assets and fails closed on hash mismatch. Where the historical local original bytes were unavailable (2011 / 2026), independently corroborated public true-paper images were recovered as explicit `CHAT_APPROVED_SOURCE_EQUIVALENT_URL_FETCH` artifacts with new SHA/byte identities rather than pretending to be the lost PNG bytes. Engineering prose is not appended to learner prompts.
-3. **Writing entry / calibration.** Calibration is targeted and skippable rather than a permanent unlock gate.
-4. **First evidence safety.** Immutable first attempt/output, consumed source revision, stale-write rejection and exact return identity prevent later state from rewriting history.
-5. **Chat-controlled session import.** Invented IDs, duplicate steps, conflicting replay and stale instructions are rejected atomically.
-6. **Whole-paper state boundaries.** Duration/deadline, late capture, stale-tab reopen, release replay and unfinished autosave at Seal were repaired.
-7. **Exposure truth.** Ordinary study and mock share material identity; unknown is not unseen; later lookup cannot rewrite first-attempt conditions.
-8. **Lexical lookup side effects.** English lookup mode no longer mutates coverage / ledger / lineage merely by inspecting a target.
-9. **Demand identity.** Exact Current target + demand + attempt identity is validated before evidence commit.
-10. **External Reading product boundary.** Inventory-only status was replaced by an executable continuous Content lane with manifest/schema, compiler, private-source bridge/store and synthetic browser/session proofs. No protected fresh learner material was consumed for engineering verification.
-11. **Shared durability.** English and Lexical private learner payloads now participate in one shared atomic checkpoint boundary rather than an English-only persistence fork.
-
-## 4. External Reading — frozen interpretation
-
-External Reading exists to add authoritative reading volume beyond the finite 考研真题 pool and to support later TOEFL preparation.
-
-Current pool policy:
-
-- **TOEFL TPO 56–65:** primary;
-- **IELTS Academic 17–19:** secondary.
-
-The architecture is deliberately boring:
+# English Acceptance — L2 native bounded repair, not closure
 
 ```text
-source package
-→ normalized manifest / object identity
-→ private source bytes on Mac
-→ Reading-family learner surface
-→ source-native answer / evidence
-→ same English private checkpoint boundary
+L2_ENGLISH_NATIVE_CLOSURE_READY = NO
+SYSTEM_LOGIC_ACCEPTED = NOT YET
 ```
 
-It is a continuously updatable Content layer, analogous to Vocabulary being a continuing content stream. It does not rewrite the canonical cognition of 考研 Reading A. TOEFL / IELTS material keeps its own task semantics while sharing compatible shell/runtime infrastructure.
+## Basis and provenance
 
-## 5. Source availability
+Repository: `kianwang022-hash/kianos`. Main was re-read at `7cfbd9d643d0bae59fb5237986d5c21b66e15c8e`; #640 remained open/draft at `418c8a24607d5708c6fbd5dac1f7828e199c61b7`. This native repair is based on that exact candidate; it is not a wholesale landing to main.
 
-Writing Source recovery is **CLOSED** for the Current candidate:
+The latest independent audit result could not be bound in the checked Current/PR/acceptance route. `ENGLISH_HIGHEST_MATURITY_FRESH_AUDIT.md` is explicitly Fresh #4 against `7e83a256ea15e6617d44268c9958a52e3a7b25bb`. It is NOT substituted for the newer independent result in Kian's instructions. The present work is a seeded, non-independent reproduction/repair pass.
 
-- **22 Small Writing tasks**
-- **27 Big Writing tasks**
-- **49 total source-ready true-exam Writing tasks**
+The previously released #498 acceptance and later accepted baseline work are not revoked. Their full historical English acceptance is preserved in this same path at `418c8a24607d5708c6fbd5dac1f7828e199c61b7`; it must not be relabeled as L2 closure.
 
-The two previously blocked visuals are now executable Source assets:
+## Reproduced on the exact candidate
 
-| Object | Current asset | SHA-256 | Provenance |
-| --- | --- | --- | --- |
-| `english1-2011-writing-b-main` | `2011-writing-b.jpg` | `004c1c817d8b80c51c9f5d19e4a48c721c1d8dc052b89f5813ce15c2ea32abf8` | `CHAT_APPROVED_SOURCE_EQUIVALENT_URL_FETCH` |
-| `english1-2026-writing-b-main` | `2026-writing-b.jpg` | `76a66298118f8493aab0174556a82db89d33fae3b8b7b8eb63e958b03b4a5c44` | `CHAT_APPROVED_SOURCE_EQUIVALENT_URL_FETCH` |
+Exact local source blobs matched GitHub:
 
-The old missing local PNG hashes remain historical provenance only; they were **not** rewritten to make different bytes look exact. The recovered web artifacts were separately corroborated against true-paper sources, assigned their own identities, and stored in the same public Writing source-asset family already used by the other recovered years.
+- `englishExamSession.mjs`: `6098ede16f9448bb53ba862e6c76b218548e4cc7`
+- `englishLearnerEvidence.mjs`: `9511c5a59ecb21ff40472638e0f7f41c6ab52b41`
+- `englishSemanticSourceIdentity.mjs`: `81d0c28bb812cd85c3ed3041a951ea8ab0d3eabd`
 
-Whole-paper source completeness remains governed by the Current Exam validator; Source recovery itself no longer withholds 2011 or 2026 Writing B.
+Node synthetic/in-memory execution reproduced null/empty/boolean/array scores becoming zero, corrupt Objective points becoming zero, old sealed-session release replacing a newer session, ordinal/whitespace identity bypass, and corrupt Whole Paper export/restore/new-attempt deadlock. It also reproduced `SCORED` without productive evidence and corrupt exposure/assistance becoming LOW_CONTAMINATION. First-answer immutability, old-attempt Source mismatch rejection and unknown exposure staying non-transfer held in the control fixtures.
 
-## 6. Latest exact-head proof
+Forecast zero-unit demand masking and duplicate-count certification were identified in current source. The replacement model is tested directly; this statement does not pretend a full original-Forecast module execution or an old CI PASS was newly run.
 
-Latest product-proof head: `d6323cb318e653f53197e3ea09eeb15a7d122e4d`.
+## Bounded repairs in this write-set
 
-Relevant GitHub Actions on that head:
+Strict score/data checks retain legitimate zero; corrupt answers do not become blank. Durable Whole Paper validation requires objective arithmetic, productive constituents and integrated arithmetic to agree. Nonzero productive scoring requires actual sealed output. Session/source facts and frozen captures cannot be rewritten, and a returning old session cannot replace a newer active slot.
 
-| Workflow | Result |
-| --- | --- |
-| Objective Learner Journey — run `35417707345` | **PASS** |
-| English Family Coherence — run `35417707351` | **PASS** |
-| English Exam Session — run `35417707326` | **PASS** |
-| Static Web Writing QA — run `35417707329` | **PASS** |
-| Static Web Translation QA — run `35417707355` | **PASS** |
-| English Navigation Hierarchy — run `35417707359` | **PASS** |
-| LexicalOS Current Runtime — run `35417707350` | **PASS** |
-| Semantic Base Validity — run `35417707344` | **PASS** |
+Native Whole Paper evidence export now includes the existing Forecast-input shape projected from actual scored state, with exact session/source/revision. Typed browser evidence remains diagnostic; this produces neither formal paper calibration nor missing workload.
 
-The Objective pass is the important closure: the main browser journey and the deep Runtime/Evidence assumptions now agree with Current contract semantics.
+Forecast was collapsed to input calculations: no `full_scope_priced`, `BACKTESTED` status, sample-count confidence/readiness certification, hard-coded information priorities or selected next evidence. Required zero placeholders do not resolve BUILD/open demand. Duplicate canonical observations count once; conflicts and unusable observations remain visible. Capacity shocks and incomplete scope cannot be hidden by zero.
 
-## 7. Broad-CI isolation
+## Executed proof and limits
 
-Broad red jobs were inspected rather than used as a reason to expand scope.
+Commands (no protected source or real learner storage required):
 
-- **Lexical Functional First** fails in full-catalog intrinsic/projection integrity with owner-local projection drift and registry/lifecycle drift before it reaches the English↔Lexical bridge steps. It is not evidence that the English handoff regressed.
-- **Authority Consistency** reports lane-wide shared-route declarations across English / Xizong / Politics / Lexical. English now routes explicitly through `AUTHORITY_INHERITANCE_CONTRACT.md` and `AUTHORITY_OWNERSHIP.json`; remaining other-lane debt is not an English acceptance blocker.
-- **Governance Anti-Entropy** reported English Current at 183 lines plus pre-existing Xizong / Lexical size debt. English Current is compressed by this closure; other-lane debt remains outside scope.
-- **Politics QA / Lexical Visual Convergence** are unrelated to English learner acceptance.
+```sh
+node static-web/scripts/validate-english-native-closure.mjs
+node static-web/scripts/validate-english-forecast-model.mjs
+```
 
-No learner rule was weakened merely to make a broad CI job green.
+Local intended write-set: **37 native assertions + 25 Forecast assertions**. The native test says bounded repair only, not closure. Existing full Astro/native-consumer regression was not run here.
 
-## 8. Reconciliation against Current main and prior evidence
+An attempted isolated Chromium/loopback test was blocked by administrator policy before the page ran (`net::ERR_BLOCKED_BY_ADMINISTRATOR`). No bypass was attempted. There is **no browser, real Mac, deployed Website or independent acceptance proof** from this run.
 
-PR #498 was explicitly released by Kian and merged to `main` as `216165c05140e90c2ac0afbbf3cace1b956898d8`. The merge preserved concurrent main work; the shared private-checkpoint overlap was reconciled rather than overwritten.
+## Explicitly withheld Source change
 
-Earlier child Acceptance remains useful only inside its proven local boundary. The final English-wide answer comes from this integration evidence, not from historical child PASS, old PR #493 status, or a static validator count.
+Dropping display ordinals and normalizing whitespace made forward-only semantic fixtures pass, but the cross-version fixture failed:
 
-Historical conclusions narrowed by the fresh audit:
+```text
+old semantic hash: 942a49de64145123227ced877bc58ece581d2ce7fa117b70b1223904357de997
+new normalized alias hash: 229c2f451a7b50913912d167a827d0004771eb0ba3503ed53d419804e3fbe794
+observed after old exposure + new alias declaration: unseen; transfer eligible = true
+required: prior recorded exposure remains binding
+```
 
-- local module PASS does not imply whole-paper / cross-owner / disaster-recovery PASS;
-- identity-less stale return fixtures are obsolete, not evidence against exact Current return guards;
-- source inventory alone is not deliverability;
-- lookup success is not learner evidence;
-- correctness with unknown exposure/timing is not automatically stable transfer;
-- engineering PASS is not learner U.
+Therefore `englishSemanticSourceIdentity.mjs` is unchanged in this repair batch. Neither forward-only tests nor a new status/version registry closes legacy evidence. Source/rendered-identity consistency and this alias/history case remain native engineering blockers.
 
-## 9. Final allowed conclusion
+## L1_HANDOFF — corrupt-state recovery
 
-> **English Learning Logic and the named Current engineering paths have passed the fresh independent acceptance and integration proof, including Objective depth, Translation, Writing Runtime/Evidence, English↔Lexical, Chat Resume, the 180-minute whole paper, shared durability, navigation, and the executable External Reading Content lane. Writing Source recovery is closed, including 2011 and 2026 through explicitly rebound verified source-equivalent web artifacts. Kian explicitly removed the final Mac-presentation release hold and authorized #498 for promotion. Learner U remains UNTESTED until genuine study.**
+reproduction: store `{bad-json` under `kianos-english-exam-session-v1`; native normal writes protect it, native checkpoint export parses and fails, restore conflicts with existing local bytes, and ordinary English attempt admission remains blocked.
 
-No broader Lexical / Politics / Xizong debt should be pulled into this conclusion without a real dependency.
+required invariant: preserve/export raw corrupt evidence without promoting it to valid learner evidence; perform explicit recoverable replacement with current-state protection; healthy independent data must not be lost. A rejection must leave a usable existing recovery path.
+
+affected shared owner: `privateSubjectCheckpoints.mjs`, `privateCheckpointRuntime.mjs`, `privateLearnerCheckpoint.mjs` and their existing recovery/export consumer, via L1 #728. Native adapter functions in `englishLearnerEvidence.mjs` are unchanged by this batch.
+
+native English expectation: invalid remains invalid/UNKNOWN, never absence; local newer facts and English-Lexical coupling survive recovery; normal study resumes through the existing recovery mechanism.
+
+## L1_HANDOFF — Lexical evidence freshness and packet projection
+
+reproduction: #640 `examChatPlan.mjs` English evidence basis uses `englishCheckpointKeyAllowed`; native Lexical ledger/coverage keys are outside that pattern, although English consumes their retention/transfer evidence. This is a source-level producer-gap finding, not a newly executed full Chat Plan browser test.
+
+required invariant: a material Lexical evidence change stales any dependent plan; control/navigation-only changes do not; stale cross-subject plans do not block valid native Resume.
+
+affected shared owner: `examChatPlan.mjs`, `dailyLearningPacket*`, private packet/control producer in L1 #728.
+
+native English expectation: use existing native Lexical evidence identity, no second ledger. Preserve raw session/source/score constituents in packet projection. Confirm no shared consumer still depends on the deleted Forecast judgement labels before selective landing.
+
+## Lexical and legitimate learner gates
+
+No Lexical semantic write or new lexical engine is included. Exact English-Lexical return remains with its existing owner; full bridge regression is still required, not inferred from old PASS.
+
+Legitimate learner gates remain genuine first attempts, delayed/fresh transfer, productive scoring calibration, real 180-minute execution, handwriting/answer-sheet/fatigue and Source access/fidelity where unavailable. They do not excuse the engineering/provenance/browser blockers above.
+
+## Acceptance and promotion
+
+Accepted main write-set from this run: **none**. This is an unmerged repair candidate. No deployment or Website application is claimed. Final native acceptance requires the listed engineering blockers and affected native/shared-interface proof; it never authorizes a whole-system PASS.
