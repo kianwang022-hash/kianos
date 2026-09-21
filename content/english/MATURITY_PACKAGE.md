@@ -1,6 +1,6 @@
 # English Maturity Package
 
-Status: **SYSTEM_LOGIC_CANDIDATE · FRESH #4 FAIL REPAIRED · FINAL CONVERGENCE SWEEP REQUIRED · KIAN_SPECIFIC_CALIBRATED = NO**  
+Status: **SYSTEM_LOGIC_CANDIDATE · PRE-CONVERGENCE HARDENING PROVEN · FINAL CONVERGENCE SWEEP REQUIRED FRESH · KIAN_SPECIFIC_CALIBRATED = NO**  
 Parent router: `content/english/CURRENT.md`  
 Target: **English I 85+**
 
@@ -890,6 +890,64 @@ Next mandatory gate:
 That sweep must finish the entire defined search surface before any repair and must not stop at the first blocker.
 
 `SYSTEM_LOGIC_ACCEPTED` remains unset.
+
+---
+
+# 14D｜Pre-convergence hardening — non-fresh, non-verdict
+
+After the Final Convergence v2 protocol was installed, a builder Chat that had already been exposed to Fresh #4 history performed a complete A–J/lifecycle hardening pass. Because anti-anchoring was already contaminated, this work is **not** acceptance evidence and does not satisfy the mandatory Fresh Final Convergence Sweep.
+
+It nevertheless found four concrete system-logic failure surfaces worth repairing before the valid fresh gate:
+
+1. **Same-day Chat Plan staleness**
+   - old `kianos.exam.chat-plan.v1` was bound only to `study_day`;
+   - newer learner evidence on the same day could make the old plan wrong while Home still accepted it;
+   - repair binds the plan to deterministic `learner_evidence_basis` and rejects stale re-import/execution.
+
+2. **Whole Paper terminal-state leakage**
+   - after productive score return, `SCORED` was a completed paper but ordinary English attempt guards still treated every status except `RELEASED` as an active-paper lock;
+   - repair treats `RELEASED` and `SCORED` as terminal for ordinary-study access while preserving `ACTIVE/SEALED` protection.
+
+3. **Corrupt Whole Paper evidence collapsed to absence**
+   - unreadable/invalid durable exam state could become `null` through `readEnglishExamSession`, making Fresh Chat unable to distinguish “no paper” from “paper evidence unreadable”;
+   - repair adds explicit inspection state, projects invalid/unavailable paper state as UNKNOWN/recovery-required, and blocks overwrite-prone ordinary attempt writes until recovery.
+
+4. **Generated-drill transfer laundering**
+   - Chat-generated questions were projected as `TRANSFER` by default and lacked a durable independence/lineage gate;
+   - repair defaults generated work to `TEACHING_REPAIR`, keeps calibration `NOT_SCORE_EQUIVALENT`, and requires explicit `TRANSFER + CHAT_SELF_ATTACK + parent semantic identity + changed-context dimensions` before independent-transfer eligibility;
+   - learner-semantic identity is derived from learner-visible passage/questions, so changing evidence-role metadata cannot manufacture freshness.
+
+Bounded repair proof:
+
+```text
+Private Chat Control #853
+SUCCESS @ 633b2f7666231be035041a768e131fb2c592f3f0
+```
+
+The exact-head proof includes:
+
+- same-day evidence-basis invalidation and stale-plan rejection;
+- current-basis private-control application;
+- Whole Paper `SEALED` lock vs `SCORED` release;
+- invalid Whole Paper = UNKNOWN-not-zero + overwrite guard;
+- generated Repair not independent Transfer;
+- generated Transfer independence gate + semantic identity anti-laundering;
+- private Daily Packet projection;
+- learner-site build;
+- generated-drill browser path;
+- stale generated import;
+- exact Home workspace;
+- private-control browser acceptance.
+
+Current consequence:
+
+```text
+PRE_CONVERGENCE_HARDENING = PROVEN
+FINAL_CONVERGENCE_SWEEP = STILL REQUIRED FROM A GENUINELY FRESH ANTI-ANCHORED CHAT
+SYSTEM_LOGIC_ACCEPTED = NOT YET
+```
+
+Do not reopen these four families without a new failing counterexample. Do not treat their repair proof as a substitute for the required fresh whole-surface verdict.
 
 ---
 
