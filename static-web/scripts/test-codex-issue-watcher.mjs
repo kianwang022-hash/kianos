@@ -36,7 +36,7 @@ set -eu
 if [ "$1" = "issue" ] && [ "$2" = "list" ]; then cat "$WATCHER_ISSUES"; exit 0; fi
 if [ "$1" = "pr" ] && [ "$2" = "list" ]; then cat "$WATCHER_PRS"; exit 0; fi
 if [ "$1" = "issue" ] && [ "$2" = "view" ]; then
-  if [ "$3" = "702" ]; then
+  if [ "$3" = "702" ] || [ "$3" = "703" ]; then
     printf '{"number":%s,"state":"OPEN","updatedAt":"2026-09-21T06:00:00Z"}\n' "$3"
   else
     printf '{"number":%s,"state":"OPEN","updatedAt":"2026-09-21T06:30:00Z"}\n' "$3"
