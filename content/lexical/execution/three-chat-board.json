@@ -32,44 +32,44 @@
     "p_behavior": "APPROVE_EXACT_SHOWN_DELTA__FREEZE_BACKLOG__IMMEDIATE_NEXT_PRODUCTION_BATCH"
   },
   "frontier": {
-    "accepted_main_head": "d138873b4b38e3b70eba4d3a7c3460bc8b076fed",
-    "current_candidate_id": "BF02",
+    "accepted_main_head": "949bda3ad8d88c7e91d34a84f1d9a470b058f832",
+    "current_candidate_id": "BF03",
     "range": [
-      201,
-      300
+      301,
+      400
     ],
     "state": "MATERIALIZE_ALLOWED",
     "candidate_pr": null,
-    "candidate_branch": "work/lexical-continuous-bf02-20260921",
+    "candidate_branch": "work/lexical-continuous-bf03-20260921",
     "materialized_owner_read_head": null,
-    "note": "BF02 Production is frozen and has no new material delta. Latest main/dependencies refrozen; materialization is authorized."
+    "note": "BF03 Production is frozen and human-approved. Latest main refreeze complete; materialization is authorized."
   },
   "audit_target": {
     "state": "WAITING_CANDIDATE_MATERIALIZATION",
-    "candidate_id": "BF02",
+    "candidate_id": "BF03",
     "range": [
-      201,
-      300
+      301,
+      400
     ],
     "candidate_pr": null,
-    "candidate_branch": "work/lexical-continuous-bf02-20260921",
+    "candidate_branch": "work/lexical-continuous-bf03-20260921",
     "candidate_owner_read_head": null,
     "brief": null,
-    "output": "content/lexical/semantic-audit/O0201_O0300_FINAL_STANDARD_FRESH_AUDIT_PACK.md",
-    "note": "Materialize BF02 first, then create fresh blind-first audit brief."
+    "output": "content/lexical/semantic-audit/O0301_O0400_FINAL_STANDARD_FRESH_AUDIT_PACK.md",
+    "note": "Materialize BF03 first, then perform closure audit."
   },
   "lanes": {
     "A": {
       "role": "FRONTIER_MATERIALIZATION_AND_RECONCILIATION",
       "current_assignment": {
-        "candidate_id": "BF01",
+        "candidate_id": "BF03",
         "range": [
-          101,
-          200
+          301,
+          400
         ],
-        "state": "WAITING_FRESH_B_AUDIT",
-        "candidate_pr": 618,
-        "next_action": "Do nothing until B commits the BF01 fresh Audit Pack. Then reconcile findings against latest main; do not reopen broad semantics."
+        "state": "MATERIALIZE_ALLOWED",
+        "candidate_pr": null,
+        "next_action": "Apply frozen BF03 proposal against latest main; rebuild Final Learner Objects; then closure-audit candidate."
       },
       "bootstrap_integration": {
         "candidate_id": "BF00",
@@ -280,23 +280,23 @@
         }
       ],
       "next_new_review_range": null,
-      "state": "WAITING_BF01_FRESH_AUDIT",
+      "state": "MATERIALIZE_ALLOWED",
       "completed_through_ordinal": 700,
       "next_action": "Do nothing until B commits the BF01 fresh Audit Pack. Then reconcile findings against latest main; do not reopen broad semantics."
     },
     "B": {
       "role": "FRESH_INDEPENDENT_AUDIT",
       "current_assignment": {
-        "candidate_id": "BF02",
+        "candidate_id": "BF03",
         "range": [
-          201,
-          300
+          301,
+          400
         ],
         "candidate_pr": null,
-        "candidate_branch": "work/lexical-continuous-bf02-20260921",
+        "candidate_branch": "work/lexical-continuous-bf03-20260921",
         "candidate_owner_read_head": null,
         "brief": null,
-        "output": "content/lexical/semantic-audit/O0201_O0300_FINAL_STANDARD_FRESH_AUDIT_PACK.md",
+        "output": "content/lexical/semantic-audit/O0301_O0400_FINAL_STANDARD_FRESH_AUDIT_PACK.md",
         "state": "WAITING_CANDIDATE_MATERIALIZATION"
       },
       "state": "WAITING_CANDIDATE_MATERIALIZATION",
@@ -1591,14 +1591,14 @@
     }
   ],
   "last_closed": {
-    "candidate_id": "BF01",
+    "candidate_id": "BF02",
     "range": [
-      101,
-      200
+      201,
+      300
     ],
-    "pr": 618,
-    "merge_commit": "d138873b4b38e3b70eba4d3a7c3460bc8b076fed",
-    "result": "FRESH_AUDIT_RECONCILED_AND_MERGED",
+    "pr": 670,
+    "merge_commit": "f411be97ab4c5904820c52062f75302b99121ecf",
+    "result": "CLOSURE_AUDIT_RECONCILED_AND_MERGED",
     "final_learner_objects": 7946
   },
   "audit_queue": [
