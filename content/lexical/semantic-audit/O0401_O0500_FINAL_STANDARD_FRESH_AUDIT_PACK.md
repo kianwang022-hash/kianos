@@ -2,9 +2,9 @@
 
 - **Candidate:** BF04
 - **Scope:** `o0401–o0500`
-- **Candidate readback head:** `f7e9ec38ddbb77167978d887600533e32338e58e`
+- **Candidate readback head:** `5398f4cd7bc46582bd556199e6d1564d8acbd90b`
 - **Frontier base:** `8268f595387a855d2fe048bb3245f121a1754446`
-- **Latest main drift-check head:** `2cbd7b54af4e576b2186dc71641260644cc6aeeb`
+- **Latest main drift-check head:** `cf59a2268bbf4c2542764242913a753c391e2996`
 - **Production proposal:** `content/lexical/execution/manifests/o0401-o0500.final-sweep-a-proposal.md`
 - **Audit mode:** STRICT
 - **Blind-first:** BLIND_FIRST_NOT_ENFORCED
@@ -70,6 +70,32 @@ The two low-leverage bearing branches were correctly moved to Reference, but Cor
 
 **Readback:** PASS — Final Learner Object contains only the four active default Study branches and matching Core wording.
 
+### 3. believe Repair blueprint target
+
+**Severity:** LOCAL  
+**Risk family:** testability_targeting
+
+The standing `believe` blueprint diagnoses one combined decision across `believe in`, `believe (that)`, and `believe sb/sth to be`, but still targeted only the first Construction.
+
+**Correction:** retarget the blueprint to `record.core_concept`, preserving the same one-question decision model across the three already-owned structures.
+
+**Readback:** PASS — the blueprint now maps to the complete decision model it actually tests.
+
+### 4. reciprocal Relation learner-line cleanup
+
+**Severity:** LOCAL  
+**Risk family:** relation_projection
+
+Reciprocal views for `bathroom↔toilet`, `believe↔think`, and `bias↔prejudice` inherited generic/shared source text. On the reverse side this could render a second, redundant or directionally stale learner line.
+
+**Correction:** keep the accepted Relation boundaries unchanged, but normalize view-local learner metadata; for `prejudice↔bias`, align the reciprocal member/evidence/note metadata to the prejudice source direction.
+
+**Readback:** PASS — each affected Final Learner Object now renders one precise learner line.
+
+### Post-merge sequencing note
+
+Integration PR **#676** merged the main BF04 batch before findings 3–4 were added. Those two local corrections are therefore carried by the bounded post-merge follow-up branch `work/lexical-continuous-bf04-postmerge-20260921`; they do not reopen BF04 Production or alter its semantic scope.
+
 ## Repair Test closure
 
 Final standing set: **22**.
@@ -98,7 +124,7 @@ No candidate semantic refreeze is required.
 ## Final result
 
 ```text
-LOCAL findings: 2
+LOCAL findings: 4
 MATERIAL findings: 0
 IDENTITY findings: 0
 unresolved findings: 0
@@ -110,4 +136,4 @@ Repair Test closure: 22
 
 **Final batch result: PASS_WITH_CORRECTIONS**
 
-Both local corrections are already materialized and read back. BF04 is ready for bounded reconciliation and merge.
+All four local corrections are materialized and read back; findings 3–4 are carried by the bounded post-merge follow-up. BF04 is ready for bounded reconciliation and merge.
