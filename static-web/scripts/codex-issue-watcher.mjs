@@ -219,7 +219,8 @@ try {
     'If a codex/issue' + selected.number + '-* branch already exists, inspect and resume only the branch belonging to this Issue; do not create a duplicate.',
     'Do at most this one Issue. Respect its STOP/Human-Gate boundaries.',
     'Use GitHub as the durable receipt. Do not rely on this launcher prompt as semantic authority.',
-    'Before exit, leave the Issue/PR state truthful: accepted work through PR/merge when allowed, otherwise one compact BLOCKED comment.'
+    'Before exit, leave the Issue/PR state truthful: accepted work through PR/merge when allowed, otherwise one compact BLOCKED comment.',
+    'Also print one compact final receipt to stdout matching the Issue Return receipt, so the watcher can persist it if the GitHub mutation path fails.'
   ].join('\n');
 
   const codexArgs = [
@@ -230,7 +231,7 @@ try {
     prompt
   ];
 
-  const execution = run(codex, codexArgs, { allowFail: true, stdio: 'ignore' });
+  const execution = run(codex, codexArgs, { allowFail: true });
 
   let finalIssue = selected;
   const refreshIssue = () => {
@@ -274,16 +275,26 @@ try {
   let receiptFallback = false;
 
   if (execution.status === 0 && !durableReceipt) {
-    const fallbackBody = [
-      'BLOCKED — AUTO_EXECUTION_NO_DURABLE_RECEIPT',
-      '',
-      'The local zero-model watcher automatically selected this Issue and the Codex executor exited 0,',
-      'but no durable Issue update, codex/issue branch, or PR was observed afterward.',
-      'Task success is therefore not accepted. Re-run only after Chat/owner updates this Issue or after cooldown.',
-      '',
-      'watcher_model: ' + (process.env.KIANOS_CODEX_WATCHER_MODEL || 'gpt-5.6-terra'),
-      'watcher_effort: ' + (process.env.KIANOS_CODEX_WATCHER_EFFORT || 'medium')
-    ].join('\n');
+    const executorOutput = String(execution.stdout || '').trim().slice(-12000);
+    const fallbackBody = executorOutput
+      ? [
+          'AUTO EXECUTOR RECEIPT — persisted by watcher',
+          '',
+          executorOutput,
+          '',
+          'watcher_model: ' + (process.env.KIANOS_CODEX_WATCHER_MODEL || 'gpt-5.6-terra'),
+          'watcher_effort: ' + (process.env.KIANOS_CODEX_WATCHER_EFFORT || 'medium')
+        ].join('\n')
+      : [
+          'BLOCKED — AUTO_EXECUTION_NO_DURABLE_RECEIPT',
+          '',
+          'The local zero-model watcher automatically selected this Issue and the Codex executor exited 0,',
+          'but no durable Issue update, codex/issue branch, PR, or stdout receipt was observed afterward.',
+          'Task success is therefore not accepted. Re-run only after Chat/owner updates this Issue or after cooldown.',
+          '',
+          'watcher_model: ' + (process.env.KIANOS_CODEX_WATCHER_MODEL || 'gpt-5.6-terra'),
+          'watcher_effort: ' + (process.env.KIANOS_CODEX_WATCHER_EFFORT || 'medium')
+        ].join('\n');
     const fallback = run(gh, [
       'issue', 'comment', String(selected.number), '--repo', repoFullName,
       '--body', fallbackBody
