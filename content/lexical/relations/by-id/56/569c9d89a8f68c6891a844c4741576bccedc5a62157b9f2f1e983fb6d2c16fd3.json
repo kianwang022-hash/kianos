@@ -85,10 +85,127 @@
         "verification_status": "verified",
         "writing_safe": false
       }
+    },
+    {
+      "source_word_id": "word:allege",
+      "source_ordinal": 146,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "allege = formally report/claim something (often wrongdoing) without proof; assert = state firmly/confidently; claim = say something is true, often potentially disputed. They overlap but differ in evidential stance and register."
+        ],
+        "codex_reviewed": true,
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "horizontal:horizontal:096",
+            "evidence_status": "source_checked",
+            "source_locator": "horizontal:096",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
+          }
+        ],
+        "learning_note": "allege = formally report/claim something (often wrongdoing) without proof; assert = state firmly/confidently; claim = say something is true, often potentially disputed. They overlap but differ in evidential stance and register.",
+        "members": [
+          {
+            "branch_id": null,
+            "branch_label": null,
+            "headword": "allege",
+            "participant_role": "CANONICAL_MEMBER",
+            "relevant_sense_ids": [
+              "sense:allege:3e3f40d4fe4a5943"
+            ],
+            "word_id": "word:allege"
+          }
+        ],
+        "priority": "A",
+        "publication_status": "publishable",
+        "relation_id": "relation:horizontal:bc2bb918a6633da87a33",
+        "relation_note": "allege = formally report/claim something (often wrongdoing) without proof; assert = state firmly/confidently; claim = say something is true, often potentially disputed. They overlap but differ in evidential stance and register.",
+        "relation_scope": "lexeme",
+        "relation_type": "reporting_epistemic_contrast",
+        "sense_ids": [
+          "sense:allege:3e3f40d4fe4a5943"
+        ],
+        "shared_meaning": "allege = formally report/claim something (often wrongdoing) without proof; assert = state firmly/confidently; claim = say something is true, often potentially disputed. They overlap but differ in evidential stance and register.",
+        "source_evidence_objects": [],
+        "source_expression": "allege",
+        "source_sense_id": "sense:allege:3e3f40d4fe4a5943",
+        "target_expression": "allege ↔ assert ↔ claim",
+        "target_sense_id": null,
+        "target_sense_ids": [],
+        "target_word": null,
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    },
+    {
+      "source_word_id": "word:assert",
+      "source_ordinal": 300,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "allege = formally report/claim something (often wrongdoing) without proof; assert = state firmly/confidently; claim = say something is true, often potentially disputed. They overlap but differ in evidential stance and register."
+        ],
+        "codex_reviewed": true,
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "horizontal:horizontal:096",
+            "evidence_status": "source_checked",
+            "source_locator": "horizontal:096",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
+          }
+        ],
+        "learning_note": "allege = formally report/claim something (often wrongdoing) without proof; assert = state firmly/confidently; claim = say something is true, often potentially disputed. They overlap but differ in evidential stance and register.",
+        "members": [
+          {
+            "branch_id": null,
+            "branch_label": null,
+            "headword": "assert",
+            "participant_role": "CANONICAL_MEMBER",
+            "relevant_sense_ids": [
+              "sense:assert:da7d085d2e6b57c2"
+            ],
+            "word_id": "word:assert"
+          }
+        ],
+        "priority": "A",
+        "publication_status": "publishable",
+        "relation_id": "relation:horizontal:bc2bb918a6633da87a33",
+        "relation_note": "allege = formally report/claim something (often wrongdoing) without proof; assert = state firmly/confidently; claim = say something is true, often potentially disputed. They overlap but differ in evidential stance and register.",
+        "relation_scope": "lexeme",
+        "relation_type": "reporting_epistemic_contrast",
+        "sense_ids": [
+          "sense:assert:da7d085d2e6b57c2"
+        ],
+        "shared_meaning": "allege = formally report/claim something (often wrongdoing) without proof; assert = state firmly/confidently; claim = say something is true, often potentially disputed. They overlap but differ in evidential stance and register.",
+        "source_evidence_objects": [],
+        "source_expression": "assert",
+        "source_sense_id": "sense:assert:da7d085d2e6b57c2",
+        "target_expression": "allege ↔ assert ↔ claim",
+        "target_sense_id": null,
+        "target_sense_ids": [],
+        "target_word": null,
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 1,
+    "last_materialization": "BF08 claim/allege/assert closure"
   }
 }
