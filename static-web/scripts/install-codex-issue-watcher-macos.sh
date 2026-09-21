@@ -7,7 +7,7 @@ if [[ "$(uname -s)" != "Darwin" ]]; then
 fi
 
 PROJECT_DIR="${KIANOS_CODEX_PROJECT_DIR:-$(git rev-parse --show-toplevel 2>/dev/null || true)}"
-if [[ -z "$PROJECT_DIR" || ! -d "$PROJECT_DIR/.git" ]]; then
+if [[ -z "$PROJECT_DIR" ]] || ! PROJECT_DIR="$(git -C "$PROJECT_DIR" rev-parse --show-toplevel 2>/dev/null)"; then
   echo "Run from the real KianOS local project or set KIANOS_CODEX_PROJECT_DIR." >&2
   exit 2
 fi
@@ -104,7 +104,6 @@ EOF
 
 plutil -lint "$PLIST" >/dev/null
 launchctl bootstrap "$DOMAIN" "$PLIST"
-launchctl kickstart -k "$DOMAIN/$LABEL"
 
 echo "Installed $LABEL"
 echo "interval_seconds=$INTERVAL"

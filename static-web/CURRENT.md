@@ -334,18 +334,19 @@ restart/reinstall the installed Current LaunchAgent once
 → close this defect
 ```
 
-## Local GitHub Codex execution runner — **DEPLOYED · SCHEDULED RUN PASS**
+## Local GitHub Codex execution watcher — **DEPLOYED · EMPTY-QUEUE PASS**
 
-One local recurring automation now services `Codex execution:` Issues for this repository:
+One low-cost local watcher now services `Codex execution:` Issues for this repository:
 
-- automation: `KianOS GitHub Codex Issue Runner` (`kianos-github-codex-issue-runner`);
-- target: the existing local KianOS project, hourly, ACTIVE;
-- authority: every run fetches current `origin/main` and re-reads the `AGENTS.md` Codex execution envelope; the automation prompt is not a second contract;
-- first scheduled queue read correctly skipped Issue #700 after detecting its active remote task branch, then ran current-main local hygiene;
-- hygiene test PASS; dry-run and apply both deleted 0 and preserved the 4 guarded local Issue branches;
-- no learner state, subject semantics, Current relay, LaunchAgent or existing activity automation was replaced.
+- LaunchAgent: `com.kianos.codex-issue-watcher`, every 300 seconds, background process, nice 10 and low-priority I/O;
+- target: the durable local Current checkout at `/Users/ben/KianOS-current`;
+- empty/no-action queue: real RunAtLoad exit 0, no resident process afterward, no retry-state write and empty error log;
+- actionable execution only: one ephemeral `codex exec`, `gpt-5.6-terra`, medium reasoning, with a one-hour per-Issue cooldown plus process lock and open-PR/remote-branch dedupe;
+- lock probe returned `already-running`; unit coverage passed for zero-model empty/dry runs, one-task/one-run, cooldown and PR dedupe;
+- the old hourly `KianOS GitHub Codex Issue Runner` is PAUSED after the watcher health proof, leaving one normal trigger;
+- no learner state, subject semantics, Current relay or existing activity collection/upload task was replaced.
 
-Future task state remains in the exact Current/Mainline owner plus its bounded GitHub Issue. This runner is execution infrastructure only.
+Task truth remains in the exact Current/Mainline owner plus its bounded GitHub Issue. The watcher stores only local retry metadata and is not a semantic control plane.
 
 ## Website boundary
 

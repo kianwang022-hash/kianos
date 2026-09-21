@@ -74,7 +74,13 @@ exit 0
     KIANOS_CODEX_WATCHER_RETRY_MS: '3600000'
   };
 
-  fs.writeFileSync(issueFile, '[]\n');
+  fs.writeFileSync(issueFile, JSON.stringify([{
+    number: 700,
+    title: 'Codex execution: running watcher migration',
+    body: '<!-- kian-codex-task-running:v1 -->\nReplace `<!-- kian-codex-task:v1 -->` only after proof.',
+    createdAt: '2026-09-21T05:00:00Z',
+    updatedAt: '2026-09-21T05:00:00Z'
+  }]) + '\n');
   fs.writeFileSync(prFile, '[]\n');
   let out = JSON.parse(execFileSync(process.execPath, [watcher, '--json'], { cwd: repo, env: baseEnv, encoding: 'utf8' }));
   assert.equal(out.status, 'quiet');

@@ -4,12 +4,14 @@ import os from 'node:os';
 import path from 'node:path';
 import process from 'node:process';
 import { spawnSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 
 const dryRun = process.argv.includes('--dry-run');
 const json = process.argv.includes('--json');
 const force = process.argv.includes('--force');
 const repoFullName = process.env.KIANOS_CODEX_REPO || 'kianwang022-hash/kianos';
-const projectDir = path.resolve(process.env.KIANOS_CODEX_PROJECT_DIR || process.cwd());
+const scriptProjectDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
+const projectDir = path.resolve(process.env.KIANOS_CODEX_PROJECT_DIR || scriptProjectDir);
 const stateDir = path.resolve(
   process.env.KIANOS_CODEX_WATCHER_STATE_DIR ||
   path.join(os.homedir(), 'Library/Application Support/KianOS/codex-issue-watcher')
@@ -43,6 +45,10 @@ function resolveBin(envName, fallback) {
 
 function parseJson(raw, code) {
   try { return JSON.parse(raw); } catch { throw new Error(code); }
+}
+
+function hasActiveMarker(body) {
+  return String(body || '').split(/\r?\n/).some((line) => line.trim() === marker);
 }
 
 function loadState() {
@@ -116,7 +122,7 @@ try {
     '--json', 'number,title,body,createdAt,updatedAt'
   ]);
   const issues = parseJson(issuesResult.stdout || '[]', 'ISSUE_LIST_INVALID')
-    .filter((issue) => issue?.title?.startsWith(prefix) && String(issue?.body || '').includes(marker))
+    .filter((issue) => issue?.title?.startsWith(prefix) && hasActiveMarker(issue?.body))
     .sort((a, b) => String(a.createdAt).localeCompare(String(b.createdAt)));
 
   if (issues.length === 0) {
