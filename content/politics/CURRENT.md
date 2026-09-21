@@ -9,16 +9,24 @@ Shared-platform routing is inherited from `AUTHORITY_INHERITANCE_CONTRACT.md` an
 
 ## Current state / actual restart point
 
-### Whole-cycle maturity continuation — ACTIVE OWNER #638
+### Whole-cycle maturity closure — CLOSED
 
-Politics whole-cycle maturity has one implementation owner:
+Politics whole-cycle maturity engineering is closed at the shared mother-standard `SYSTEM_LOGIC_ACCEPTED` boundary.
 
-- active branch: `work/politics-later-readiness-20260920`;
-- active PR: **#638**;
-- restart cursor: `MATURITY_STAGE_PLAN.md`;
+Historical implementation owner:
+
+- branch: `work/politics-later-readiness-20260920`;
+- PR: **#638**;
 - Politics acceptance bar: `MATURITY_REQUIREMENTS.md`.
 
-The shared Exam Subject Maturity Standard / PR #644 is an upstream acceptance bar only. It is not a Politics continuation cursor and does not own Politics Forecast, Analysis, Future Source or execution state.
+Final independent freeze result:
+
+- audit: `content/politics/MATURITY_FRESH_INDEPENDENT_AUDIT.md`;
+- verdict: **PASS**;
+- sealed candidate: `audit/politics-maturity-freeze-20260921-v6`;
+- candidate SHA: `2e5545ca018a50c5049c75b754f757421dcbb6fe`;
+- shared standard SHA: `31ae8ee54857b896de7dab341f493d884f4b591b`;
+- result branch commit: `323acc617ce3752407d64af909b09f7cf0403b82`.
 
 Current mother-standard execution state:
 
@@ -29,14 +37,16 @@ M2 Reconcile stale Analysis/material status     DONE
 M3 Analysis-bank + evidence identity proof       DONE
 M4 Forecast decision-flip/adversarial closure   DONE
 M5 Full lifecycle + Fresh Chat/No-Website       DONE
-M6 SYSTEM_LOGIC_ACCEPTED verdict                YES
-M7 KIAN_SPECIFIC_CALIBRATED                     REAL-U GATED
-M8 current-year annual sources                  SOURCE GATED
+M6 Final Fresh Independent Audit v6              PASS
+M7 SYSTEM_LOGIC_ACCEPTED                         YES · sealed candidate only
+M8 KIAN_SPECIFIC_CALIBRATED                     NO · REAL-U GATED
+M9 current-year annual sources                  SOURCE GATED
+M10 authentic final modality                    REAL-U / MOCK GATED
 ```
 
-Canonical maturity package: `MATURITY_PACKAGE.md`.
+The shared Exam Subject Maturity Standard remains the upstream acceptance bar only; it does not become a Politics continuation cursor.
 
-Mother-standard system logic is now accepted. Broad engineering stops here; real study supplies Kian-specific calibration, and real annual Source reopens only the affected owner.
+Broad Politics maturity engineering stops here. Normal continuation is real study, real annual Source ingestion, authentic-modality calibration, or the smallest exact owner reopened by a concrete decision-changing defect.
 
 
 **Politics Final Learner Acceptance — CLOSED for audited first-round paths**
@@ -176,6 +186,6 @@ Content work: exact subject/Natural Unit -> canonical Content owner -> only requ
 Visual work: shared `static-web/PRESENTATION_CONTRACT.md` -> exact accepted Politics surface -> material Human Gate only when changed.
 Runtime work: `SYSTEM_CONTRACT.md` -> exact runtime/evidence owner -> targeted proof.
 
-Fresh Chats should read this cursor and the narrow result/owner required to continue, not old Chat summaries or broad CI history. For this active branch, read the branch result rather than silently substituting main.
+Fresh Chats should read this cursor plus the narrow result/owner required for the current learner or defect question, not old Chat summaries or broad CI history. There is no active Politics maturity-construction branch after the v6 PASS.
 
-After the defined promotion boundaries close, return to real study and concrete-defect maintenance. More possible architecture or richer source detail is not by itself a reason to expand engineering.
+Normal continuation is real study and concrete-defect maintenance. More possible architecture or richer source detail is not by itself a reason to expand engineering.
