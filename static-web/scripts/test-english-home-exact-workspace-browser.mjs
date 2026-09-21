@@ -9,7 +9,7 @@ import {
   writeEnglishGeneratedDrill
 } from './privateEnglishGeneratedDrillStore.mjs';
 import {ENGLISH_SESSION_KEY, ENGLISH_SESSION_SCHEMA} from '../src/lib/englishSessionControl.mjs';
-import {EXAM_CHAT_PLAN_KEY, EXAM_CHAT_PLAN_SCHEMA} from '../src/lib/examChatPlan.mjs';
+import {EXAM_CHAT_PLAN_KEY, EXAM_CHAT_PLAN_SCHEMA, buildExamChatPlanBasis} from '../src/lib/examChatPlan.mjs';
 import {EXAM_PROFILE_KEY, emptyExamProfile} from '../src/lib/examOrchestrator.mjs';
 
 const DAY='2026-09-20';
@@ -54,10 +54,22 @@ const englishSession={
   return_policy:{on_finish:'english_home'}
 };
 const profile={...emptyExamProfile(),capacityByDay:{[DAY]:480},defaultDailyMinutes:480};
+class MemoryStorage{
+  constructor(entries={}){this.map=new Map(Object.entries(entries));}
+  get length(){return this.map.size;}
+  key(i){return [...this.map.keys()][i]??null;}
+  getItem(key){return this.map.has(key)?this.map.get(key):null;}
+  setItem(key,value){this.map.set(String(key),String(value));}
+  removeItem(key){this.map.delete(String(key));}
+}
+const planBasis=buildExamChatPlanBasis(new MemoryStorage({
+  [EXAM_PROFILE_KEY]:JSON.stringify(profile)
+}),DAY);
 const plan=(sessionRef)=>({
   schema:EXAM_CHAT_PLAN_SCHEMA,
   study_day:DAY,
   generated_at:'2026-09-20T02:06:00+08:00',
+  learner_evidence_basis:planBasis,
   subjects:{
     xizong:null,
     english:{target_minutes:60,role:'稳推进',note:'做这一组 Reading。',session_ref:sessionRef},
@@ -98,6 +110,15 @@ try{
   await waitReady();
   browser=await chromium.launch({headless:true});
   const context=await browser.newContext({viewport:{width:1512,height:982},locale:'zh-CN',timezoneId:'Asia/Shanghai'});
+  await context.addInitScript(({fixtureNow})=>{
+    const NativeDate=Date;
+    const offset=fixtureNow-NativeDate.now();
+    class FixtureDate extends NativeDate{
+      constructor(...args){super(...(args.length?args:[NativeDate.now()+offset]));}
+      static now(){return NativeDate.now()+offset;}
+    }
+    window.Date=FixtureDate;
+  },{fixtureNow:Date.parse('2026-09-20T03:00:00+08:00')});
   const page=await context.newPage();
   await page.goto(BASE,{waitUntil:'domcontentloaded'});
   await page.evaluate(({profile,englishSession,plan,keys})=>{
