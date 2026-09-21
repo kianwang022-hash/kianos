@@ -8,6 +8,16 @@ import {
   ENGLISH_GENERATED_DRILL_SCHEMA,
   validateEnglishGeneratedDrill
 } from './privateEnglishGeneratedDrillStore.mjs';
+import { buildExamChatPlanBasis } from '../src/lib/examChatPlan.mjs';
+
+class MemoryStorage{
+  constructor(){this.map=new Map();}
+  get length(){return this.map.size;}
+  key(i){return [...this.map.keys()][i]??null;}
+  getItem(key){return this.map.has(key)?this.map.get(key):null;}
+  setItem(key,value){this.map.set(String(key),String(value));}
+  removeItem(key){this.map.delete(String(key));}
+}
 
 const shanghaiDay=()=>{
   const parts=new Intl.DateTimeFormat('en-US',{
