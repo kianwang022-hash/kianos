@@ -11,7 +11,7 @@
       "index": 0,
       "payload": {
         "boundaries": [
-          "continual ↔ continuous"
+          "continual 通常表示反复、频繁发生，常可有间断；continuous 强调在时间或空间上不中断地连续。两者有一定重叠，不应机械理解为绝对二分。"
         ],
         "codex_reviewed": false,
         "direction": "C",
@@ -25,7 +25,7 @@
             "source_type": "external_horizontal_audit"
           }
         ],
-        "learning_note": "continual ↔ continuous",
+        "learning_note": "continual 通常表示反复、频繁发生，常可有间断；continuous 强调在时间或空间上不中断地连续。两者有一定重叠，不应机械理解为绝对二分。",
         "members": [
           {
             "word_id": "word:continual"
@@ -34,11 +34,11 @@
         "priority": "S",
         "publication_status": "publishable",
         "relation_id": "relation:horizontal:34e9c7f7bb2ed7e1a52a",
-        "relation_note": "continual ↔ continuous",
+        "relation_note": "continual 通常表示反复、频繁发生，常可有间断；continuous 强调在时间或空间上不中断地连续。两者有一定重叠，不应机械理解为绝对二分。",
         "relation_scope": "lexeme",
         "relation_type": "semantic_contrast",
         "sense_ids": [],
-        "shared_meaning": "continual ↔ continuous",
+        "shared_meaning": "continuation over time, with a useful recurrence-vs-uninterrupted contrast",
         "source_evidence_objects": [
           {
             "canonical_members": [
@@ -65,11 +65,84 @@
           }
         ],
         "source_expression": "continual",
-        "source_sense_id": null,
-        "target_expression": "continual ↔ continuous",
-        "target_sense_id": null,
+        "source_sense_id": "sense:continual:460dc201885e5975",
+        "target_expression": "continuous",
+        "target_sense_id": "sense:continuous:b343edb5a2405dec",
         "target_sense_ids": [],
-        "target_word": null,
+        "target_word": "continuous",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    },
+    {
+      "source_word_id": "word:continuous",
+      "source_ordinal": 1057,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "continual 通常表示反复、频繁发生，常可有间断；continuous 强调在时间或空间上不中断地连续。两者有一定重叠，不应机械理解为绝对二分。"
+        ],
+        "codex_reviewed": false,
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "horizontal:horizontal:110",
+            "evidence_status": "source_checked",
+            "source_locator": "horizontal:110",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
+          }
+        ],
+        "learning_note": "continual 通常表示反复、频繁发生，常可有间断；continuous 强调在时间或空间上不中断地连续。两者有一定重叠，不应机械理解为绝对二分。",
+        "members": [
+          {
+            "word_id": "word:continual"
+          }
+        ],
+        "priority": "S",
+        "publication_status": "publishable",
+        "relation_id": "relation:horizontal:34e9c7f7bb2ed7e1a52a",
+        "relation_note": "continual 通常表示反复、频繁发生，常可有间断；continuous 强调在时间或空间上不中断地连续。两者有一定重叠，不应机械理解为绝对二分。",
+        "relation_scope": "lexeme",
+        "relation_type": "semantic_contrast",
+        "sense_ids": [],
+        "shared_meaning": "continuation over time, with a useful recurrence-vs-uninterrupted contrast",
+        "source_evidence_objects": [
+          {
+            "canonical_members": [
+              {
+                "word_id": "word:continual"
+              }
+            ],
+            "difference_axes": {
+              "categorical": false,
+              "prosody": "continual often occurs with repeated problems/interruptions but not obligatorily negative",
+              "typical_pattern": "continual = recurring repeatedly, often with breaks; continuous = uninterrupted"
+            },
+            "relation_type": "semantic_contrast",
+            "shared_core": "continuation over time / repeated persistence",
+            "source": {
+              "sense_id": "sense:continual:460dc201885e5975",
+              "word_id": "word:continual"
+            },
+            "target": {
+              "sense_id": "sense:continuous:b343edb5a2405dec",
+              "word_id": "word:continuous"
+            },
+            "unsafe_swap": "Do not infer that continual always contains breaks or that the words never overlap."
+          }
+        ],
+        "source_expression": "continuous",
+        "source_sense_id": "sense:continuous:b343edb5a2405dec",
+        "target_expression": "continual",
+        "target_sense_id": "sense:continual:460dc201885e5975",
+        "target_sense_ids": [],
+        "target_word": "continual",
         "task_tags": [
           "reading"
         ],
@@ -80,6 +153,7 @@
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 1,
+    "last_materialization": "BF10 reciprocal continual-continuous closure"
   }
 }

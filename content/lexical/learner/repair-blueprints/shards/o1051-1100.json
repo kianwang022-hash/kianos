@@ -89,16 +89,16 @@
       "ordinal": 1062,
       "word": "contribute",
       "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
+        "target_kind": "construction",
+        "target_id": "construction:e47bf7caafbd19ed7d8d",
+        "target_locator": "record.constructions[0]"
       },
       "demand": "discrimination",
-      "diagnostic_intent_cn": "区分贡献、促成/导致与投稿。",
-      "decision_boundary_cn": "contribute sth to / contribute to result / contribute to publication。",
+      "diagnostic_intent_cn": "稳定区分 contribute sth to sth 与 contribute to sth 的结构和分支。",
+      "decision_boundary_cn": "有明确贡献物作宾语 → contribute sth to X；无直接宾语而表示促成、贡献或投稿语境 → contribute to X。",
       "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
       "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
-      "minimum_repair_cn": "只修 contribute 三分支。",
+      "minimum_repair_cn": "只修 contribute 的宾语 + to 结构选择。",
       "reconstruction_rule_cn": "换慈善、因果和杂志投稿语境。",
       "concrete_instance_policy": "GENERATE_FRESH"
     },
@@ -179,25 +179,6 @@
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
-      "blueprint_id": "repair-blueprint:o1082:cool:v1",
-      "word_id": "word:cool",
-      "ordinal": 1082,
-      "word": "cool",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分温度、情绪冷静、冷淡与 informal cool。",
-      "decision_boundary_cn": "temperature/emotion/social attitude/evaluation 决定分支。",
-      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
-      "minimum_repair_cn": "只修 cool 的高价值多义。",
-      "reconstruction_rule_cn": "换天气、压力、接待和口语评价语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
       "blueprint_id": "repair-blueprint:o1085:coordinate:v1",
       "word_id": "word:coordinate",
       "ordinal": 1085,
@@ -233,25 +214,6 @@
       "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
       "minimum_repair_cn": "只修 cope with 主线。",
       "reconstruction_rule_cn": "换压力、疾病和工作负荷语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o1094:corn:v1",
-      "word_id": "word:corn",
-      "ordinal": 1094,
-      "word": "corn",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "理解 corn 的美英地区差异。",
-      "decision_boundary_cn": "AmE 通常=maize；BrE/较旧一般用法可泛指 cereal grain。",
-      "distractor_policy_cn": "只使用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
-      "minimum_repair_cn": "只修地区词义边界。",
-      "reconstruction_rule_cn": "换美国超市与英国农业文本语境。",
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
