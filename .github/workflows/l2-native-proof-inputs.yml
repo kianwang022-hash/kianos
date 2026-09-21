@@ -1,36 +1,144 @@
-name: L2 Native Proof Inputs
+name: L2 Bounded Native Proof
 on:
   push:
     branches: [work/l2-english-native-closure-20260921]
     paths: [.github/workflows/l2-native-proof-inputs.yml]
 permissions:
-  contents: read
+  contents: write
 jobs:
-  exact-inputs:
+  native-continuation:
     runs-on: ubuntu-latest
-    timeout-minutes: 3
+    timeout-minutes: 18
     steps:
       - uses: actions/checkout@v4
-      - name: Record immutable input identities
-        run: |
-          git rev-parse HEAD > l2-input-head.txt
-          git ls-files -s static-web/src/lib/english* static-web/src/lib/lexicalEvidence.mjs static-web/src/lib/lexicalEnglishEvidence.mjs static-web/scripts/validate-english* static-web/scripts/test-english* > l2-input-blobs.txt
-      - uses: actions/upload-artifact@v4
         with:
-          name: l2-native-inputs-${{ github.sha }}
-          retention-days: 1
+          fetch-depth: 2
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Apply exact tested native patch without updating any ref
+        id: apply
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,lzma,pathlib,subprocess,shutil
+          run=lambda *args,**kw: subprocess.check_output(args,**kw).decode().strip()
+          expected_parent='7a0bf0c4590698d9d9dd6a9e6f1125c1889da1fa'
+          assert run('git','rev-parse','HEAD^')==expected_parent
+          raw=b''.join(pathlib.Path(f'.github/l2-native-payload/{i}.part').read_bytes() for i in range(9))
+          assert hashlib.sha256(raw).hexdigest()=='13d1dce7bca3fde95ea2f5c723c67a4bbaf530de525a7d27af0db919287a98c6'
+          payload=json.loads(lzma.decompress(raw));assert payload['base']==expected_parent
+          allowed=set('''static-web/src/lib/englishLearnerEvidence.mjs
+          static-web/src/lib/englishSemanticSourceIdentity.mjs
+          static-web/src/lib/englishSourceTruth.mjs
+          static-web/src/lib/englishReadingSourceTruth.mjs
+          static-web/src/lib/englishSessionControl.mjs
+          static-web/src/lib/englishLexicalReturn.mjs
+          static-web/src/components/EnglishResume.astro
+          static-web/src/components/EnglishSessionControl.astro
+          static-web/scripts/validate-english-evidence-fidelity-e4.mjs
+          static-web/scripts/validate-english-native-closure.mjs
+          static-web/scripts/test-english-native-source-resume-browser.mjs
+          .github/workflows/static-web-english-family-coherence.yml
+          content/english/CURRENT.md
+          content/english/ACCEPTANCE.md'''.splitlines())
+          assert {e['path'] for e in payload['expected']}==allowed
+          patch=payload['patch'].encode();subprocess.run(['git','apply','--check'],input=patch,check=True)
+          subprocess.run(['git','apply'],input=patch,check=True)
+          assert set(payload['documents'])=={'content/english/CURRENT.md','content/english/ACCEPTANCE.md'}
+          for name,text in payload['documents'].items():pathlib.Path(name).write_text(text)
+          changed=set(run('git','diff','--name-only').splitlines())|set(run('git','ls-files','--others','--exclude-standard').splitlines())
+          assert changed==allowed,(changed-allowed,allowed-changed)
+          out=pathlib.Path('l2-continuation-proof');out.mkdir()
+          for entry in payload['expected']:
+              assert run('git','hash-object',entry['path'])==entry['blob'],entry['path']
+              dest=out/'sources'/entry['path'];dest.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(entry['path'],dest)
+          (out/'expected-blobs.json').write_text(json.dumps(payload['expected'],indent=2))
+          (out/'proof-input.json').write_text(json.dumps({'staging_head':run('git','rev-parse','HEAD'),'patch_base':expected_parent,'payload_sha256':hashlib.sha256(raw).hexdigest(),'branch_mutated':False},indent=2))
+          print('Exact patch and all 14 source blob identities verified; no ref update.')
+          PY
+      - name: Publish verified native blob objects for connector-side atomic commit
+        if: steps.apply.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json,base64,os,pathlib,urllib.request
+          root=pathlib.Path('l2-continuation-proof');rows=json.loads((root/'expected-blobs.json').read_text())
+          for row in rows:
+              raw=pathlib.Path(row['path']).read_bytes()
+              data=json.dumps({'content':base64.b64encode(raw).decode(),'encoding':'base64'}).encode()
+              request=urllib.request.Request('https://api.github.com/repos/kianwang022-hash/kianos/git/blobs',data=data,method='POST',headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json','Content-Type':'application/json'})
+              with urllib.request.urlopen(request,timeout=30) as response:result=json.load(response)
+              assert result['sha']==row['blob'],row['path']
+              print(row['path']+' '+result['sha'])
+          (root/'published-blobs.json').write_text(json.dumps(rows,indent=2))
+          PY
+      - name: Install native runtime dependencies
+        id: install
+        working-directory: static-web
+        run: npm install --no-audit --no-fund
+      - name: Run all affected native contracts without first-failure masking
+        id: native
+        continue-on-error: true
+        working-directory: static-web
+        run: |
+          set +e
+          status=0
+          for script in validate-english-native-closure validate-english-evidence-fidelity-e4 validate-english-forecast-model validate-english-performance-profile validate-english-chat-control validate-english-synthetic-baseline validate-english-productive-scoring validate-lexical-english-handoff validate-english-exam-session test-external-reading-content test-external-reading-session-control; do
+            node scripts/$script.mjs > ../l2-continuation-proof/$script.log 2>&1
+            code=$?
+            echo "$script=$code" | tee -a ../l2-continuation-proof/native-status.txt
+            if [ "$code" -ne 0 ]; then tail -60 ../l2-continuation-proof/$script.log; status=1; fi
+          done
+          exit $status
+      - name: Build actual learner site
+        id: build
+        continue-on-error: true
+        working-directory: static-web
+        run: npm run build > ../l2-continuation-proof/build.log 2>&1
+      - name: Install isolated Chromium
+        id: browser_install
+        if: steps.build.outcome == 'success'
+        working-directory: static-web
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Execute affected compiled native browser journeys
+        id: browser
+        if: steps.build.outcome == 'success' && steps.browser_install.outcome == 'success'
+        continue-on-error: true
+        working-directory: static-web
+        run: |
+          set +e
+          status=0
+          for script in test-english-native-source-resume-browser test-english-exam-session-browser test-english-synthetic-baseline-browser test-english-family-coherence test-external-reading-browser; do
+            timeout 180 node scripts/$script.mjs > ../l2-continuation-proof/$script.log 2>&1
+            code=$?
+            echo "$script=$code" | tee -a ../l2-continuation-proof/browser-status.txt
+            if [ "$code" -ne 0 ]; then tail -60 ../l2-continuation-proof/$script.log; status=1; fi
+          done
+          exit $status
+      - name: Preserve bounded proof and exact native source bytes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: l2-native-continuation-${{ github.sha }}
+          retention-days: 7
+          include-hidden-files: true
           path: |
-            l2-input-head.txt
-            l2-input-blobs.txt
-            static-web/src/lib/english*.mjs
-            static-web/src/lib/lexicalEvidence.mjs
-            static-web/src/lib/lexicalEnglishEvidence.mjs
-            static-web/scripts/validate-english*.mjs
-            static-web/scripts/test-english*.mjs
-            static-web/scripts/validate-lexical-english-handoff.mjs
-            static-web/src/components/English*.astro
-            static-web/src/components/VocabularyEnglishEvidenceBridge.astro
-            static-web/src/pages/english-exam/[id].astro
-            static-web/src/pages/english.astro
-            static-web/src/pages/english-session-catalog.json.js
-            .github/workflows/static-web-english-family-coherence.yml
+            l2-continuation-proof/
+            english-native-interface-audit/
+            english-family-audit/
+            english-synthetic-audit/
+            english-exam-audit/
+      - name: Report combined bounded result
+        if: always()
+        env:
+          APPLY: ${{ steps.apply.outcome }}
+          NATIVE: ${{ steps.native.outcome }}
+          BUILD: ${{ steps.build.outcome }}
+          BROWSER: ${{ steps.browser.outcome }}
+        run: |
+          echo "apply=$APPLY native=$NATIVE build=$BUILD browser=$BROWSER"
+          test "$APPLY" = success && test "$NATIVE" = success && test "$BUILD" = success && test "$BROWSER" = success
