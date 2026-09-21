@@ -869,6 +869,46 @@ function baseProgress() {
 }
 
 {
+  const humanitiesMissing=baseProgress();
+  humanitiesMissing.question_workload.known_remaining_questions=100;
+  humanitiesMissing.question_workload.systems=[
+    {canonical_id:'A1',system_id:'a1',status:'EXACT',remaining_questions:50}
+  ];
+  humanitiesMissing.question_workload.non_system_domains=[
+    {domain_id:'clinical-humanities',canonical_id:'HUMANITIES',status:'EXACT',remaining_questions:50}
+  ];
+  humanitiesMissing.practice_evidence.first_pass.by_system=[
+    {canonical_id:'A1',current_scope_unique_attempted:50,current_scope_wrong_or_uncertain_rate:0.10}
+  ];
+  humanitiesMissing.practice_evidence.first_pass.by_domain=[];
+  humanitiesMissing.repair_evidence.by_system=[
+    {canonical_id:'A1',question_backed_clusters:5,unique_source_question_ids:5,observed_question_to_cluster_ratio:1}
+  ];
+  humanitiesMissing.repair_evidence.by_domain=[];
+  humanitiesMissing.practice_evidence.latest.unresolved_wrong_uncertain_questions=0;
+  const missingForecast=buildXizongWorkloadForecast(humanitiesMissing);
+  assert.equal(missingForecast.components.repair.band_minutes,null,
+    'unobserved humanities W/U must keep Repair workload unpriced rather than silently inheriting System pricing');
+  assert.deepEqual(missingForecast.components.repair.error_rate.unpriced_domain_ids,['HUMANITIES']);
+  assert.ok(missingForecast.components.repair.risks.includes('NON_SYSTEM_DOMAIN_WRONG_UNCERTAIN_RATE_UNOBSERVED'));
+
+  const humanitiesObserved=structuredClone(humanitiesMissing);
+  humanitiesObserved.practice_evidence.first_pass.by_domain=[
+    {domain_id:'clinical-humanities',canonical_id:'HUMANITIES',current_scope_unique_attempted:50,current_scope_wrong_or_uncertain_rate:1.0}
+  ];
+  humanitiesObserved.repair_evidence.by_domain=[
+    {domain_id:'clinical-humanities',canonical_id:'HUMANITIES',question_backed_clusters:50,unique_source_question_ids:50,observed_question_to_cluster_ratio:1}
+  ];
+  const observedForecast=buildXizongWorkloadForecast(humanitiesObserved);
+  assert.equal(observedForecast.components.repair.error_rate.source,'OWNER_STRATIFIED_CURRENT_EXACT_SCOPE');
+  assert.equal(observedForecast.components.repair.compression.predicted_future_wrong_uncertain_questions,55,
+    '50 System questions at 10% plus 50 humanities questions at 100% must price 55 future W/U questions');
+  assert.equal(observedForecast.components.verification.estimated_verification_questions,55,
+    'fresh verification volume must inherit humanities Repair pressure instead of only the medical-System subset');
+  assert.equal(observedForecast.components.repair.error_rate.non_system_domain_rows[0].canonical_id,'HUMANITIES');
+}
+
+{
   const mixedOnly=baseProgress();
   mixedOnly.repair_evidence.calibration_samples=mixedOnly.repair_evidence.calibration_samples.map((row)=>({
     timer_minutes_in_repair_window:row.timer_minutes_in_repair_window,
