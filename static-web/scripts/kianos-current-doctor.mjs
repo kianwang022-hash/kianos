@@ -67,6 +67,17 @@ async function fetchJson(route) {
   }
 }
 
+async function waitForRelayStatus(route) {
+  let last = null;
+  for (let i = 0; i < 30; i += 1) {
+    last = await fetchJson(route);
+    const state = last?.value?.relay?.state;
+    if (last.status === 200 && state && state !== 'checking') return last;
+    await new Promise((resolve) => setTimeout(resolve, 350));
+  }
+  return last;
+}
+
 async function waitForMirrorSha(gitBin, targetSha) {
   let current = '';
   for (let i = 0; i < 20; i += 1) {
@@ -174,20 +185,38 @@ if (siteOk) {
     record('FAIL', 'Private checkpoint bridge', checkpoint.error || `HTTP ${checkpoint.status} · ${checkpoint.value?.status || 'unexpected response'}`);
   }
 
-  const control = await fetchJson('/__kianos-private/control/status');
+  const packetRelay = await waitForRelayStatus('/__kianos-private/checkpoint/status');
+  if (packetRelay.status === 200 && packetRelay.value?.status === 'ready') {
+    const relay = packetRelay.value?.relay || {};
+    if (relay.state === 'ready') {
+      record('PASS', 'Daily Learning Packet relay', [relay.status, relay.study_day].filter(Boolean).join(' · ') || 'ready');
+    } else if (relay.state === 'missing' && relay.reason === 'private-checkpoint-missing') {
+      record('WARN', 'Daily Learning Packet relay', 'not exercised · no local learner checkpoint yet');
+    } else if (relay.state === 'disabled') {
+      record('FAIL', 'Daily Learning Packet relay', 'disabled');
+    } else if (relay.state === 'degraded') {
+      record('FAIL', 'Daily Learning Packet relay', relay.error || 'runtime packet relay unavailable');
+    } else {
+      record('FAIL', 'Daily Learning Packet relay', relay.state || 'not initialized');
+    }
+  } else {
+    record('FAIL', 'Daily Learning Packet relay', packetRelay.error || `HTTP ${packetRelay.status}`);
+  }
+
+  const control = await waitForRelayStatus('/__kianos-private/control/status');
   if (control.status === 200 && control.value?.status === 'ready') {
     const relay = control.value?.relay || {};
     if (relay.state === 'ready') {
       record('PASS', 'Private Chat control relay', relay.command_status || 'ready');
     } else if (relay.state === 'disabled') {
-      record('WARN', 'Private Chat control relay', 'disabled');
+      record('FAIL', 'Private Chat control relay', 'disabled');
     } else if (relay.state === 'degraded') {
-      record('WARN', 'Private Chat control relay', relay.error || 'private repo unavailable');
+      record('FAIL', 'Private Chat control relay', relay.error || 'private repo unavailable');
     } else {
-      record('WARN', 'Private Chat control relay', relay.state || 'not initialized');
+      record('FAIL', 'Private Chat control relay', relay.state || 'not initialized');
     }
   } else {
-    record('WARN', 'Private Chat control relay', control.error || `HTTP ${control.status}`);
+    record('FAIL', 'Private Chat control relay', control.error || `HTTP ${control.status}`);
   }
 
   const external = await fetchJson('/__kianos-private/external-reading/status');
