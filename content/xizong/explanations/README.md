@@ -2,23 +2,81 @@
 
 Owner path: `content/xizong/explanations/`
 
-This store is the single Current Chat-reviewed additive explanation layer keyed by stable `question_id`. It does not redefine Question Truth, stems, options, official answers, or canonical Question identity.
+This store is the single Current Chat-reviewed additive explanation layer keyed by stable `question_id`. It does not redefine Question Truth, stems, options, official answers, Question identity, canonical medical Knowledge, or reviewed Question→Knowledge relations.
 
-Current Question Truth owner: `content/xizong/questions/`.
-Current reviewed Question→Knowledge relation owner: `content/xizong/question-relations/`.
+Current Question Truth owner: `content/xizong/questions/`.  
+Current reviewed Question→Knowledge relation owner: `content/xizong/question-relations/`.  
 Retired alias/tombstone only: `content/xizong/question_explanations/`.
 
-## Current cycle
+## Current truth
 
-The prior 19 explanation objects are non-current Git-history-only material and are not inherited into the present cycle.
+Coverage and routing are owned by `manifest.json`; do not maintain a second hand-written cursor here.
 
-Current reviewed coverage:
-- 20 approved explanation objects;
-- current range: `xizong-official-2005-n001` through `xizong-official-2005-n020`;
-- next unreviewed stable ID: `xizong-official-2005-n021`;
-- 12 explicit reviewed Question→Knowledge relations have been written separately;
-- unresolved or unsafe mappings are not inferred.
+At the current manifest:
+- Question Truth inventory = 3750;
+- approved explanation inventory = 3750;
+- `next_unreviewed_question_id = null`;
+- unresolved / unsafe Question→Knowledge mappings remain legal and are handled separately.
 
-No Question→Knowledge relation is inferred from an explanation. Reviewed relations, when Chat explicitly approves them and stable canonical identifiers are safely resolved, belong only in `content/xizong/question-relations/`.
+Historical explanation objects are not mapping authority.
 
-Process rules are governed by `learning/xizong/question-explanation-process.md` and the shared Current governance. Normal study remains 0 GitHub reads by default; exact Question Truth review uses the bounded current owner read required by this lane.
+## Current explanation review process
+
+A worker should normally be able to start after reading this owner plus the exact Question Truth shard.
+
+For any new or reopened explanation:
+
+```text
+Question Truth
+→ independently solve the question
+→ identify the tested concept / smallest decision axis
+→ verify the official answer when the truth/source is materially uncertain
+→ write the shortest explanation that preserves the decisive reasoning
+→ include only useful distractor boundaries / common trap / transfer rule
+→ keep any mapping candidate separate
+→ validate against Question Truth
+→ materialize
+```
+
+A mature explanation should answer, as compactly as the question allows:
+
+- what is actually being tested;
+- what single clue / distinction decides it;
+- why the official answer follows;
+- why an important distractor fails, when that boundary matters;
+- what reusable recognition rule is worth keeping.
+
+Simple questions should stay short. Do not turn explanations into mini-textbooks.
+
+## Truth boundary
+
+Explanations must not mutate:
+
+- stem;
+- options;
+- official answer;
+- stable question identity.
+
+If explanation work exposes a suspected Question Truth defect:
+
+```text
+STOP explanation mutation
+→ inspect the exact Question Source / provenance
+→ route the defect to content/xizong/questions/
+```
+
+Do not “repair” Question Truth inside explanation prose.
+
+## Relation boundary
+
+No Question→Knowledge relation is inferred from an explanation.
+
+A relation is written only after the separate anti-anchored review path independently solves Question Truth, inspects the exact Current Knowledge owner, finds the smallest safe owner, self-attacks the match, and explicitly approves a `REVIEWED` row under `content/xizong/question-relations/`.
+
+Missing mapping remains legal.
+
+## Source boundary
+
+When an explanation depends on a detail not safely supported by Current Question Truth / Current medical Knowledge / verified Source, fail closed rather than inventing certainty.
+
+Use `SOURCE_GATED` for the affected claim and route any real Source defect to its exact owner. Unrelated healthy explanations should continue.
