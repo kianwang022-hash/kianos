@@ -6,26 +6,36 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:blood:final-standard-bad-blood",
+        "pattern": "bad blood",
+        "meaning_cn": "敌意；嫌隙；宿怨",
+        "definition_en": "hostility or ill feeling between people or groups",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "final-standard-bf05"
+      },
+      {
+        "construction_id": "construction:blood:final-standard-in-cold-blood",
+        "pattern": "in cold blood",
+        "meaning_cn": "故意且冷酷无情地",
+        "definition_en": "deliberately and without emotion or mercy",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "final-standard-bf05"
+      }
+    ],
     "content_hash": "d7a82964b791e127d00bec5ffc9a3d279bfab7487d452f83b78951899f096a06",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "血；血液；血统；家族；气质；脾气",
-          "label_en": "the red liquid that circulates in the arteries and veins of animals; family background or lineage; temperament or disposition",
+          "label_cn": "血；血液；血统；家族",
+          "label_en": "blood; family background or lineage",
           "pos": "noun",
           "sense_ids": [
             "sense:blood:4169a2894ed15c94",
-            "sense:blood:337d798a6d7f5b91",
-            "sense:blood:10c24950e9085c0a"
-          ]
-        },
-        {
-          "label_cn": "用血涂；使出血",
-          "label_en": "to smear with blood, as in a hunting rite",
-          "pos": "verb",
-          "sense_ids": [
-            "sense:blood:4c31cbd6799356b2"
+            "sense:blood:337d798a6d7f5b91"
           ]
         }
       ],
@@ -61,24 +71,6 @@
             ],
             "meaning_cn": "验血",
             "phrase": "blood test"
-          },
-          {
-            "collocation_id": "collocation:694aa2e8f3c0892d7471",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:blood:4169a2894ed15c94:collocation:handoff-o0475-o0674"
-            ],
-            "meaning_cn": "敌意或嫌隙",
-            "phrase": "bad blood"
-          },
-          {
-            "collocation_id": "collocation:e19f1e10a672ed406284",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:blood:4169a2894ed15c94:collocation:handoff-o0475-o0674"
-            ],
-            "meaning_cn": "故意且冷酷无情地",
-            "phrase": "in cold blood"
           }
         ],
         "confidence": "medium",
@@ -116,54 +108,6 @@
         "sense_label_en": "family background or lineage",
         "sort_order": 1,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:acd79b43127c13a64b62",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:blood:10c24950e9085c0a:collocation:0"
-            ],
-            "meaning_cn": "热血；冲动",
-            "phrase": "hot blood"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "气质；脾气",
-        "definition_en": "temperament or disposition",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:blood:10c24950e9085c0a",
-        "sense_label_en": "temperament or disposition",
-        "sort_order": 2,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:3b7793fafb781f8f73e4",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:blood:4c31cbd6799356b2:collocation:0"
-            ],
-            "meaning_cn": "让猎狗尝血",
-            "phrase": "blood the hounds"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "用血涂；使出血",
-        "definition_en": "to smear with blood, as in a hunting rite",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:blood:4c31cbd6799356b2",
-        "sense_label_en": "to smear with blood, as in a hunting rite",
-        "sort_order": 3,
-        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -186,12 +130,45 @@
     "word_id": "word:blood"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:blood:10c24950e9085c0a",
+      "status": "reference_only",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "气质；脾气",
+      "definition_en": "temperament or disposition",
+      "semantic_key": null,
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-09-21T00:00:00Z",
+      "source_row": 1370,
+      "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json",
+      "reference_only": true
+    },
+    {
+      "stable_sense_id": "sense:blood:4c31cbd6799356b2",
+      "status": "reference_only",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "用血涂；使出血",
+      "definition_en": "to smear with blood, as in a hunting rite",
+      "semantic_key": null,
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-09-21T00:00:00Z",
+      "source_row": 1373,
+      "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:blood:10c24950e9085c0a",
-        "status": "active",
+        "status": "reference_only",
         "merged_into_sense_id": null,
         "source_row": 1370,
         "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json"
@@ -212,7 +189,7 @@
       },
       {
         "sense_id": "sense:blood:4c31cbd6799356b2",
-        "status": "active",
+        "status": "reference_only",
         "merged_into_sense_id": null,
         "source_row": 1373,
         "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json"
@@ -221,11 +198,9 @@
     "active_collocations": [
       "collocation:3b7793fafb781f8f73e4",
       "collocation:41205c7dd23e9d5aa55f",
-      "collocation:694aa2e8f3c0892d7471",
       "collocation:acd79b43127c13a64b62",
       "collocation:be55644e4ecc70fb28ef",
-      "collocation:c911ac3104f331c35943",
-      "collocation:e19f1e10a672ed406284"
+      "collocation:c911ac3104f331c35943"
     ],
     "facts": [],
     "collocations": [

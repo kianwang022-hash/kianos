@@ -14,8 +14,8 @@
       "shared_synset": "01338411-s",
       "source_definition": "characterized by quickness and ease in learning",
       "source_sense_id": "sense:bright:a4bfb93fd2c35ce7",
-      "target_definition": "quick and brisk",
-      "target_sense_id": "sense:smart:bd65ea520c205d28",
+      "target_definition": "showing mental alertness and calculation and resourcefulness",
+      "target_sense_id": "sense:smart:cfed592e737451a3",
       "target_word": "smart"
     },
     "dimensions": {
@@ -64,8 +64,8 @@
       "relation_class": "partial_overlap",
       "source_definition": "characterized by quickness and ease in learning",
       "source_sense_id": "sense:bright:a4bfb93fd2c35ce7",
-      "target_definition": "quick and brisk",
-      "target_sense_id": "sense:smart:bd65ea520c205d28"
+      "target_definition": "showing mental alertness and calculation and resourcefulness",
+      "target_sense_id": "sense:smart:cfed592e737451a3"
     },
     "semantic_stage_b": {
       "dimensions_complete": true,
@@ -76,7 +76,7 @@
     },
     "source_grounded": true,
     "source_sense_id": "sense:bright:a4bfb93fd2c35ce7",
-    "target_sense_id": "sense:smart:bd65ea520c205d28",
+    "target_sense_id": "sense:smart:cfed592e737451a3",
     "target_word": "smart",
     "task_tags": [
       "reading"
@@ -98,7 +98,7 @@
       "field": "semantic_neighbors",
       "index": 0,
       "payload": {
-        "boundary": "bright侧重理解学习快；smart更口语且可指机敏",
+        "boundary": "bright emphasizes quick understanding/learning; smart is broader and more conversational, often emphasizing cleverness or mental resourcefulness.",
         "codex_reviewed": true,
         "definition_cn": null,
         "definition_en": null,
@@ -133,10 +133,62 @@
         "pos": null,
         "priority": "A",
         "publication_status": "codex_reviewed",
-        "shared_definition": "characterized by quickness and ease in learning",
+        "shared_definition": null,
         "source_sense_id": "sense:bright:a4bfb93fd2c35ce7",
-        "target_sense_id": "sense:smart:bd65ea520c205d28",
+        "target_sense_id": "sense:smart:cfed592e737451a3",
         "target_word": "smart",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    },
+    {
+      "source_word_id": "word:smart",
+      "source_ordinal": 4507,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "smart is a broader, conversational intelligence/cleverness word; bright especially suggests quick understanding or learning.",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "高",
+          "collocation": "bright student/idea",
+          "core_meaning": "聪明机灵",
+          "exam_trap": "bright 多义易混",
+          "register": "中性",
+          "semantic_prosody": "褒义",
+          "strength": "中",
+          "syntax": "形容词",
+          "writing_safety": "安全"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:01338411-s",
+            "evidence_status": "source_checked",
+            "source_locator": "01338411-s",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:bright:4e4c8abb24c36d0b",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": null,
+        "source_sense_id": "sense:smart:cfed592e737451a3",
+        "target_sense_id": "sense:bright:a4bfb93fd2c35ce7",
+        "target_word": "bright",
         "task_tags": [
           "reading"
         ],
@@ -147,6 +199,7 @@
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 1,
+    "last_materialization": "BF05 reciprocal closure and target-sense repair"
   }
 }

@@ -6,15 +6,7 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [
-      {
-        "construction_id": "construction:38c792ff21200c68955c",
-        "direction": "R+P",
-        "level": "L2",
-        "meaning_cn": "born is chiefly used for birth; borne is used for other past-participle senses of bear",
-        "pattern": "born vs borne"
-      }
-    ],
+    "constructions": [],
     "content_hash": "4b2bd0a026bd6e7eac0340342a7a3532e571a05b4fe543f61f8f313e70017680",
     "core_concept": {
       "core_clusters": [
@@ -24,14 +16,6 @@
           "pos": "adjective",
           "sense_ids": [
             "sense:born:e69fb5c983db5af2"
-          ]
-        },
-        {
-          "label_cn": "bear的过去分词（用于被动结构）",
-          "label_en": "past participle of bear (in passive constructions)",
-          "pos": "verb",
-          "sense_ids": [
-            "sense:born:b73cd5d340575169"
           ]
         }
       ],
@@ -88,30 +72,6 @@
         "sense_label_en": "brought into existence; having a natural ability or tendency",
         "sort_order": 0,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:50b6132af68efdf314bf",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:born:b73cd5d340575169:collocation:0"
-            ],
-            "meaning_cn": "出生",
-            "phrase": "was born"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "bear的过去分词（用于被动结构）",
-        "definition_en": "past participle of bear (in passive constructions)",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:born:b73cd5d340575169",
-        "sense_label_en": "past participle of bear (in passive constructions)",
-        "sort_order": 1,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -131,15 +91,52 @@
     },
     "word": "born",
     "word_family": [],
-    "word_id": "word:born"
+    "word_id": "word:born",
+    "form_identity": {
+      "form_type": "crossword_irregular_participle_identity",
+      "spelling": "born",
+      "identity_rule": "birth_context_selects_born_from_bear_paradigm",
+      "boundary": "bear → bore → borne/born; born is used in the passive birth expression be born, while borne is the ordinary past participle elsewhere.",
+      "boundaries": [
+        {
+          "surface": "born",
+          "condition": "passive birth expression",
+          "note": "be born"
+        },
+        {
+          "surface": "borne",
+          "condition": "ordinary past participle elsewhere",
+          "note": "including active birth uses such as has borne children"
+        }
+      ],
+      "variants": [],
+      "authority": "BF04 bear Form + BF05 surface-owner repair"
+    }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:born:b73cd5d340575169",
+      "status": "reference_only",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "bear的过去分词（用于被动结构）",
+      "definition_en": "past participle of bear (in passive constructions)",
+      "semantic_key": null,
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-09-21T00:00:00Z",
+      "source_row": 1487,
+      "source_path": "content/lexical/canonical/senses/shards/o0545-0576.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:born:b73cd5d340575169",
-        "status": "active",
+        "status": "reference_only",
         "merged_into_sense_id": null,
         "source_row": 1487,
         "source_path": "content/lexical/canonical/senses/shards/o0545-0576.json"
@@ -153,7 +150,6 @@
       }
     ],
     "active_collocations": [
-      "collocation:50b6132af68efdf314bf",
       "collocation:6deedd110afa77dfd034",
       "collocation:8b92d47ab3a3b78943b0"
     ],

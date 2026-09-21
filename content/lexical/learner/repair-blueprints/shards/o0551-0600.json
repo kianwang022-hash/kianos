@@ -32,13 +32,13 @@
       "ordinal": 555,
       "word": "bound",
       "target": {
-        "target_kind": "construction",
-        "target_id": "construction:bound:baseline-v2-to-do",
-        "target_locator": "record.constructions[0]"
+        "target_kind": "core",
+        "target_id": null,
+        "target_locator": "record.core_concept"
       },
       "demand": "production",
-      "diagnostic_intent_cn": "按意图稳定产出 be bound to do 与 be bound for + place。",
-      "decision_boundary_cn": "likely/certain action 用 bound to do；目的地/去向用 bound for。",
+      "diagnostic_intent_cn": "按意图稳定选择 be bound to do / be bound for + place / be bound by sth。",
+      "decision_boundary_cn": "likelihood/obligation + infinitive → bound to；destination → bound for；rule/agreement/constraint → bound by。",
       "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
       "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
       "minimum_repair_cn": "只修 bound 的两个高价值结构。",
@@ -89,13 +89,13 @@
       "ordinal": 579,
       "word": "breath",
       "target": {
-        "target_kind": "construction",
-        "target_id": "construction:breath:baseline-v2-out-of",
-        "target_locator": "record.constructions[0]"
+        "target_kind": "confusable",
+        "target_id": "deep:confusables:breath:8febf079ed8c2d08",
+        "target_locator": "relation_refs[0]"
       },
-      "demand": "production",
-      "diagnostic_intent_cn": "稳定产出 out of breath 与 take/hold one's breath。",
-      "decision_boundary_cn": "气喘吁吁、吸气、屏息三类意图要求不同固定结构。",
+      "demand": "discrimination",
+      "diagnostic_intent_cn": "稳定区分 breath=名词“呼吸/气息” 与 breathe=动词“呼吸”。",
+      "decision_boundary_cn": "noun slot /breθ/ → breath；verb slot /briːð/ → breathe。",
       "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
       "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
       "minimum_repair_cn": "只修 breath 的高频生产结构。",
@@ -160,25 +160,6 @@
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
-      "blueprint_id": "repair-blueprint:o0592:bring:production:v1",
-      "word_id": "word:bring",
-      "ordinal": 592,
-      "word": "bring",
-      "target": {
-        "target_kind": "construction",
-        "target_id": "construction:bring:baseline-v2-up",
-        "target_locator": "record.constructions[1]"
-      },
-      "demand": "production",
-      "diagnostic_intent_cn": "按意图稳定产出 bring up / bring out / bring back / bring in。",
-      "decision_boundary_cn": "提出/抚养、显现/推出、带回/恢复、引入/创收四类任务要求正确 particle。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 bring 的四个高价值 phrasal branches。",
-      "reconstruction_rule_cn": "换一个会议话题、产品发布、记忆恢复和创收语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
       "blueprint_id": "repair-blueprint:o0551:bother:discrimination:v1",
       "word_id": "word:bother",
       "ordinal": 551,
@@ -214,215 +195,6 @@
       "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
       "minimum_repair_cn": "只修 bow 的 sense-conditioned pronunciation。",
       "reconstruction_rule_cn": "换一个礼仪、船舶、射箭和音乐语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0560:bowling:discrimination:v1",
-      "word_id": "word:bowling",
-      "ordinal": 560,
-      "word": "bowling",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分保龄球运动与板球中的投球。",
-      "decision_boundary_cn": "bowling alley/pins 与 cricket/bowler context 决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 bowling 的运动领域边界。",
-      "reconstruction_rule_cn": "换一个保龄球馆和板球比赛语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0565:bracket:discrimination:v1",
-      "word_id": "word:bracket",
-      "ordinal": 565,
-      "word": "bracket",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分收入/年龄等等级段、括号、托架以及动词归类。",
-      "decision_boundary_cn": "range/category、punctuation、physical support、grouping verb context 决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 bracket 的领域/词性分支。",
-      "reconstruction_rule_cn": "换一个税档、数学括号和分类语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0567:brake:discrimination:v1",
-      "word_id": "word:brake",
-      "ordinal": 567,
-      "word": "brake",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分车辆刹车与 a brake on sth=制约进程。",
-      "decision_boundary_cn": "vehicle/mechanical 与 growth/progress/policy context 决定 literal vs figurative。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 brake 的 literal vs restraint boundary。",
-      "reconstruction_rule_cn": "换一个驾驶和经济增长受限语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0573:breach:discrimination:v1",
-      "word_id": "word:breach",
-      "ordinal": 573,
-      "word": "breach",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分违约/安全泄露、物理缺口、攻破防御与鲸豚跃出水面。",
-      "decision_boundary_cn": "contract/security、wall/defense、marine-animal context 决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 breach 的领域分支。",
-      "reconstruction_rule_cn": "换一个合同、数据安全、城墙和海洋动物语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0575:break:discrimination:v1",
-      "word_id": "word:break",
-      "ordinal": 575,
-      "word": "break",
-      "target": {
-        "target_kind": "construction",
-        "target_id": "construction:break:baseline-v2-down",
-        "target_locator": "record.constructions[0]"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分 break down / through / up / into 的高频 phrasal branches。",
-      "decision_boundary_cn": "故障/崩溃、突破、分开/结束、强行进入四类语境决定 particle。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 break 的四个 phrasal branches。",
-      "reconstruction_rule_cn": "换一个机器故障、科研突破、关系结束和非法闯入语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0576:breakdown:discrimination:v1",
-      "word_id": "word:breakdown",
-      "ordinal": 576,
-      "word": "breakdown",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分身体/精神崩溃、机器/系统故障与分类明细分析。",
-      "decision_boundary_cn": "health、machine/system、data/category context 决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 breakdown 的领域分支。",
-      "reconstruction_rule_cn": "换一个心理健康、设备故障和费用明细语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0581:breed:discrimination:v1",
-      "word_id": "word:breed",
-      "ordinal": 581,
-      "word": "breed",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分品种、繁殖/培育、养育培养与“引起导致”。",
-      "decision_boundary_cn": "animal/plant reproduction、type noun、raise/train、cause-result context 决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 breed 的领域/因果分支。",
-      "reconstruction_rule_cn": "换一个动物品种、育种和问题滋生语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0590:bright:discrimination:v1",
-      "word_id": "word:bright",
-      "ordinal": 590,
-      "word": "bright",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分明亮/鲜艳、聪明与 bright future/prospects=有希望。",
-      "decision_boundary_cn": "light/color、person/student、future/prospects context 决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 bright 的 literal/intelligence/promising boundary。",
-      "reconstruction_rule_cn": "换一个房间、学生和职业前景语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0595:broadcast:discrimination:v1",
-      "word_id": "word:broadcast",
-      "ordinal": 595,
-      "word": "broadcast",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分广播播送、广播节目名词义与撒播种子。",
-      "decision_boundary_cn": "media transmission、program noun、agriculture context 决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 broadcast 的领域/词性分支。",
-      "reconstruction_rule_cn": "换一个直播、新闻节目和农业播种语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0598:bronze:discrimination:v1",
-      "word_id": "word:bronze",
-      "ordinal": 598,
-      "word": "bronze",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分青铜材料/颜色与竞赛铜牌/第三名。",
-      "decision_boundary_cn": "material/art/color 与 competition/medal context 决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 bronze 的 material vs ranking boundary。",
-      "reconstruction_rule_cn": "换一个雕像和赛事排名语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0592:bring:discrimination:v1",
-      "word_id": "word:bring",
-      "ordinal": 592,
-      "word": "bring",
-      "target": {
-        "target_kind": "construction",
-        "target_id": "construction:bring:baseline-v2-out",
-        "target_locator": "record.constructions[2]"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分 bring up / out / back / in 以及 bring about 的意义边界。",
-      "decision_boundary_cn": "topic/raising、reveal/release、return/restore、introduce/income、cause-result 五类语境决定 particle。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 bring phrasal branch discrimination。",
-      "reconstruction_rule_cn": "换一个话题、产品、记忆、收入和因果结果语境。",
       "concrete_instance_policy": "GENERATE_FRESH"
     }
   ]

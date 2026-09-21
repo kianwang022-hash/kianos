@@ -19,13 +19,12 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "吹，刮；吹动；开花",
-          "label_en": "exhale hard; to cause to move by means of air; to produce flowers",
+          "label_cn": "吹，刮；吹动",
+          "label_en": "exhale hard; to cause to move by means of air",
           "pos": "verb",
           "sense_ids": [
             "sense:blow:affeda2460db5a8b",
-            "sense:blow:2228c34cc7ad50a8",
-            "sense:blow:f92d6932ac845999"
+            "sense:blow:2228c34cc7ad50a8"
           ]
         }
       ],
@@ -102,30 +101,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:25917e951ae8989b7d38",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:blow:f92d6932ac845999:collocation:0"
-            ],
-            "meaning_cn": "开花",
-            "phrase": "bloom and blow"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "开花",
-        "definition_en": "to produce flowers",
-        "governing_pattern": "vi. + (flower)",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:blow:f92d6932ac845999",
-        "sense_label_en": "to produce flowers",
-        "sort_order": 2,
-        "transitivity": "vi"
-      },
-      {
-        "collocations": [
-          {
             "collocation_id": "collocation:1d5e0561ccd77e33b67a",
             "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
@@ -165,7 +140,32 @@
     },
     "word": "blow",
     "word_family": [],
-    "word_id": "word:blow"
+    "word_id": "word:blow",
+    "form_identity": {
+      "form_type": "irregular_verb_inflection",
+      "spelling": "blow",
+      "identity_rule": "tense_selects_surface",
+      "boundary": "blow → blew → blown.",
+      "boundaries": [
+        {
+          "surface": "blow",
+          "condition": "base/present",
+          "note": "base form"
+        },
+        {
+          "surface": "blew",
+          "condition": "past",
+          "note": "simple past"
+        },
+        {
+          "surface": "blown",
+          "condition": "past participle",
+          "note": "past participle"
+        }
+      ],
+      "variants": [],
+      "authority": "BF05 final-standard approved Form expansion"
+    }
   },
   "relation_refs": [],
   "reference_senses": [
@@ -218,6 +218,22 @@
       "source_row": 1389,
       "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json",
       "reference_only": true
+    },
+    {
+      "stable_sense_id": "sense:blow:f92d6932ac845999",
+      "status": "reference_only",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "开花",
+      "definition_en": "to produce flowers",
+      "semantic_key": null,
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-09-21T00:00:00Z",
+      "source_row": 1390,
+      "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json",
+      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -259,7 +275,7 @@
       },
       {
         "sense_id": "sense:blow:f92d6932ac845999",
-        "status": "active",
+        "status": "reference_only",
         "merged_into_sense_id": null,
         "source_row": 1390,
         "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json"
@@ -268,7 +284,6 @@
     "active_collocations": [
       "collocation:1d5e0561ccd77e33b67a",
       "collocation:23a80d9e68d0e9ecb899",
-      "collocation:25917e951ae8989b7d38",
       "collocation:379839bbdb4994ebdf38",
       "collocation:dc260877435b7867b4e5"
     ],

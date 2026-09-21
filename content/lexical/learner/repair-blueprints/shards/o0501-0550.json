@@ -65,79 +65,22 @@
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
-      "blueprint_id": "repair-blueprint:o0537:bone:v1",
-      "word_id": "word:bone",
-      "ordinal": 537,
-      "word": "bone",
-      "target": {
-        "target_kind": "construction",
-        "target_id": "construction:bone:baseline-v2-bone-up-on",
-        "target_locator": "record.constructions[0]"
-      },
-      "demand": "production",
-      "diagnostic_intent_cn": "稳定产出 bone up on sth，并避免把“用功学习”当作 standalone bone。",
-      "decision_boundary_cn": "study/review 语义必须通过 bone up (on)；literal bone 仍是名词/剔骨动词。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 bone up on。",
-      "reconstruction_rule_cn": "换一个考试、面试或专业知识复习语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
       "blueprint_id": "repair-blueprint:o0547:borrow:v1",
       "word_id": "word:borrow",
       "ordinal": 547,
       "word": "borrow",
       "target": {
-        "target_kind": "collocation",
-        "target_id": "collocation:901602bb0aa5f167f269",
-        "target_locator": "record.senses[0].collocations[0]"
+        "target_kind": "relation",
+        "target_id": "relation:final-standard:borrow-lend:direction_boundary",
+        "target_locator": "relation_refs[0]"
       },
       "demand": "production",
-      "diagnostic_intent_cn": "稳定产出 borrow sth from sb/sth，并与 lend 的给予方向区分。",
-      "decision_boundary_cn": "borrow=拿来暂用；lend=给出去暂用。介词 from 与 recipient direction 是关键。",
+      "diagnostic_intent_cn": "稳定区分并产出 borrow sth from sb/sth 与 lend sth to sb。",
+      "decision_boundary_cn": "borrow=借入/拿来暂用，方向从来源到自己；lend=借出/给出去暂用，方向从自己到接收者。",
       "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
       "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
       "minimum_repair_cn": "只修 borrow 的方向和结构。",
       "reconstruction_rule_cn": "换一个借书、借钱或借用想法语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0550:both:v1",
-      "word_id": "word:both",
-      "ordinal": 550,
-      "word": "both",
-      "target": {
-        "target_kind": "construction",
-        "target_id": "construction:both:baseline-v2-a-and-b",
-        "target_locator": "record.constructions[0]"
-      },
-      "demand": "production",
-      "diagnostic_intent_cn": "稳定产出 both A and B，并保持并列成分平行。",
-      "decision_boundary_cn": "A/B 必须语法同类，不能与 either/neither 逻辑混淆。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 both A and B。",
-      "reconstruction_rule_cn": "换一个人物、性质或动作并列语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0504:blank:v1",
-      "word_id": "word:blank",
-      "ordinal": 504,
-      "word": "blank",
-      "target": {
-        "target_kind": "construction",
-        "target_id": "construction:blank:baseline-v2-draw-a-blank",
-        "target_locator": "record.constructions[0]"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分 draw a blank=想不起/没结果 与 go blank=脑中突然空白。",
-      "decision_boundary_cn": "search/recall attempt 的结果 vs momentary mental state 决定构式。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修两个 blank idiom 的边界。",
-      "reconstruction_rule_cn": "换一个回忆答案和临场脑袋空白语境。",
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
@@ -198,63 +141,6 @@
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
-      "blueprint_id": "repair-blueprint:o0516:bloody:v1",
-      "word_id": "word:bloody",
-      "ordinal": 516,
-      "word": "bloody",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分血迹/血腥 adjective 与 BrE 非正式 intensifier bloody=非常。",
-      "decision_boundary_cn": "blood/injury/battle 与 informal emphasis context 决定词性和语体。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 bloody 的 literal vs intensifier boundary。",
-      "reconstruction_rule_cn": "换一个受伤/战斗与英式口语强调语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0517:bloom:v1",
-      "word_id": "word:bloom",
-      "ordinal": 517,
-      "word": "bloom",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分植物开花/青春红润与生态学 algal bloom 等短期大量增长。",
-      "decision_boundary_cn": "plant/youth 与 ecology/science context 决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 bloom 的 ordinary vs scientific branch。",
-      "reconstruction_rule_cn": "换一个春季开花和水体藻华语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0521:blue:v1",
-      "word_id": "word:blue",
-      "ordinal": 521,
-      "word": "blue",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分颜色、feel blue=忧郁、blue joke=下流，以及 out of the blue=出乎意料。",
-      "decision_boundary_cn": "color/emotion/obscene-material/idiom 四类语境决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 blue 的熟词新义和 idiom boundary。",
-      "reconstruction_rule_cn": "换一个颜色、情绪和意外事件语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
       "blueprint_id": "repair-blueprint:o0523:blunder:v1",
       "word_id": "word:blunder",
       "ordinal": 523,
@@ -293,25 +179,6 @@
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
-      "blueprint_id": "repair-blueprint:o0530:body:v1",
-      "word_id": "word:body",
-      "ordinal": 530,
-      "word": "body",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分身体/尸体、机构、主体部分和 a body of evidence/knowledge 大量成套资料。",
-      "decision_boundary_cn": "organism/death/organization/text/evidence context 决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 body 的领域 selector。",
-      "reconstruction_rule_cn": "换一个医学、机构和证据集合语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
       "blueprint_id": "repair-blueprint:o0531:boil:v1",
       "word_id": "word:boil",
       "ordinal": 531,
@@ -328,63 +195,6 @@
       "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
       "minimum_repair_cn": "只修 boil down to。",
       "reconstruction_rule_cn": "换一个复杂问题归因和烹饪语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0535:bomb:v1",
-      "word_id": "word:bomb",
-      "ordinal": 535,
-      "word": "bomb",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分炸弹/轰炸与 informal bomb=彻底失败、惨败。",
-      "decision_boundary_cn": "explosive/attack 与 show/movie/test/performance outcome 决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 bomb 的 literal vs failure boundary。",
-      "reconstruction_rule_cn": "换一个爆炸事件和票房/演出失败语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0536:bond:v1",
-      "word_id": "word:bond",
-      "ordinal": 536,
-      "word": "bond",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分债券、社会纽带、建立联系、黏合和化学键。",
-      "decision_boundary_cn": "finance/relationship/material/chemistry context 决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 bond 的领域 selector。",
-      "reconstruction_rule_cn": "换一个金融、亲子关系、材料和化学语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0542:boot:v1",
-      "word_id": "word:boot",
-      "ordinal": 542,
-      "word": "boot",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分靴子、BrE 汽车后备箱、踢/赶走、启动计算机。",
-      "decision_boundary_cn": "footwear/car/people/system context 决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 boot 的 regional/domain selector。",
-      "reconstruction_rule_cn": "换一个穿靴子、装行李、逐出和开机语境。",
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
@@ -407,37 +217,18 @@
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
-      "blueprint_id": "repair-blueprint:o0545:bore:v1",
-      "word_id": "word:bore",
-      "ordinal": 545,
-      "word": "bore",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分使厌烦、钻孔、乏味的人和内径/枪膛。",
-      "decision_boundary_cn": "person/interest、drilling、person noun、technical diameter context 决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 bore 的词性/领域分支。",
-      "reconstruction_rule_cn": "换一个无聊讲座、机械加工和技术规格语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
       "blueprint_id": "repair-blueprint:o0546:born:v1",
       "word_id": "word:born",
       "ordinal": 546,
       "word": "born",
       "target": {
-        "target_kind": "construction",
-        "target_id": "construction:38c792ff21200c68955c",
-        "target_locator": "record.constructions[0]"
+        "target_kind": "form_identity",
+        "target_id": null,
+        "target_locator": "record.form_identity"
       },
       "demand": "discrimination",
-      "diagnostic_intent_cn": "区分 born（出生相关）与 borne（bear 其他过去分词用法）。",
-      "decision_boundary_cn": "birth context vs carry/transmit/endure context 决定 form。",
+      "diagnostic_intent_cn": "稳定区分 bear → bore → borne/born，尤其出生被动中的 born 与普通过去分词 borne。",
+      "decision_boundary_cn": "be born 使用 born；其他普通过去分词通常用 borne；simple past 用 bore。",
       "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
       "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
       "minimum_repair_cn": "只修 born vs borne boundary。",
