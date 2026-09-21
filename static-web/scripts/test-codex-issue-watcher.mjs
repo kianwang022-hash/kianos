@@ -13,6 +13,7 @@ const issueFile = path.join(temp, 'issues.json');
 const prFile = path.join(temp, 'prs.json');
 const commentFile = path.join(temp, 'comments.log');
 const codexStdoutFile = path.join(temp, 'codex-stdout.txt');
+const codexStderrFile = path.join(temp, 'codex-stderr.txt');
 const watcher = path.resolve('scripts/codex-issue-watcher.mjs');
 
 function git(args) {
@@ -67,7 +68,8 @@ esac
 set -eu
 printf '%s\n' "$*" >> "$WATCHER_CODEX_CALLS"
 if [ -f "$WATCHER_CODEX_STDOUT_FILE" ]; then cat "$WATCHER_CODEX_STDOUT_FILE"; fi
-exit 0
+if [ -n "${WATCHER_CODEX_STDERR_FILE:-}" ] && [ -f "$WATCHER_CODEX_STDERR_FILE" ]; then cat "$WATCHER_CODEX_STDERR_FILE" >&2; fi
+exit "${WATCHER_CODEX_EXIT_CODE:-0}"
 `);
   fs.chmodSync(fakeCodex, 0o755);
 
@@ -84,6 +86,7 @@ exit 0
     WATCHER_CODEX_CALLS: codexCalls,
     WATCHER_COMMENTS: commentFile,
     WATCHER_CODEX_STDOUT_FILE: codexStdoutFile,
+    WATCHER_CODEX_STDERR_FILE: codexStderrFile,
     KIANOS_CODEX_WATCHER_RETRY_MS: '3600000'
   };
 
@@ -176,7 +179,34 @@ exit 0
   assert.match(persistedReceipt, /AUTO EXECUTOR RECEIPT/);
   assert.match(persistedReceipt, /root_cause: synthetic relay failure/);
 
-  console.log('PASS Codex issue watcher: zero-model idle, owner-aware lock recovery, durable stdout receipt persistence, one-task one-run, cooldown and PR dedupe');
+  fs.rmSync(stateDir, { recursive: true, force: true });
+  fs.rmSync(commentFile, { force: true });
+  fs.rmSync(codexStdoutFile, { force: true });
+  fs.writeFileSync(codexStderrFile, 'synthetic codex failure: permission denied\n');
+  fs.writeFileSync(issueFile, JSON.stringify([{
+    number: 703,
+    title: 'Codex execution: failed executor',
+    body: '<!-- kian-codex-task:v1 -->\n## Goal\nFail and preserve error',
+    createdAt: '2026-09-21T06:00:00Z',
+    updatedAt: '2026-09-21T06:00:00Z'
+  }]) + '\n');
+  const failedEnv = { ...baseEnv, WATCHER_CODEX_EXIT_CODE: '1' };
+  const failedExecution = spawnSync(process.execPath, [watcher, '--json'], {
+    cwd: repo,
+    env: failedEnv,
+    encoding: 'utf8'
+  });
+  assert.equal(failedExecution.status, 2, 'non-zero Codex exit must keep watcher run non-successful');
+  out = JSON.parse(failedExecution.stdout);
+  assert.equal(out.status, 'launch-failed');
+  assert.equal(out.issue, 703);
+  assert.equal(out.exit_code, 1);
+  const failedReceipt = fs.readFileSync(commentFile, 'utf8');
+  assert.match(failedReceipt, /AUTO_EXECUTION_FAILED/);
+  assert.match(failedReceipt, /exit_code: 1/);
+  assert.match(failedReceipt, /synthetic codex failure: permission denied/);
+
+  console.log('PASS Codex issue watcher: zero-model idle, owner-aware lock recovery, durable success/failure receipts, one-task one-run, cooldown and PR dedupe');
 } finally {
   fs.rmSync(temp, { recursive: true, force: true });
 }
