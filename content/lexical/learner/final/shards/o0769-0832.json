@@ -171,7 +171,7 @@
     "ordinal": 770,
     "word": "check",
     "source_owner_path": "content/lexical/words/by-ordinal/o0770.json",
-    "source_fingerprint": "3be118ccace686d18d27f00fd2180bf42bfaf853f6c761457232abbbf82bfb47",
+    "source_fingerprint": "25755ad1c72a3d293d3ca5d7cbc72cbc55926fd9f602c87368174512044f7b0b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -182,7 +182,7 @@
     },
     "word_feel": {
       "summary_cn": "先确认、核实或控制状态：可检查、制止、登记/寄存；名词还可指检查、支票或餐厅账单",
-      "decision_cn": "check facts → 核对；check for → 查有没有；check on → 查看状态；check in/out → 登记进入/离开；check out sth → 调查/检查；check spread → 抑制。",
+      "decision_cn": "check facts → 核对；restaurant check（AmE）→ 餐厅账单；check baggage → 寄存/托运行李；bank check（AmE）/ cheque（BrE）→ 支票；check spread → 抑制。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -354,7 +354,7 @@
         "id": "sense:check:abbb7e4b2a085792",
         "source_locator": "record.senses[5]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vt. + baggage/item",
         "definition_cn": "寄存；托运",
         "definition_en": "leave something in the temporary care of someone",
         "note": "",
@@ -461,23 +461,30 @@
     "ordinal": 771,
     "word": "cheek",
     "source_owner_path": "content/lexical/words/by-ordinal/o0771.json",
-    "source_fingerprint": "e20c5e776255fd993060e3e37c8d2fca7a90cdcdcaf078c4936111125877661e",
-    "sense_lineage": [],
+    "source_fingerprint": "ffc52bbd8d8bb207d11456d8de1eb2998bea963003c5a2592c8fa3b7fed685be",
+    "sense_lineage": [
+      {
+        "word_id": "word:cheek",
+        "target_kind": "sense",
+        "from_target_id": "sense:cheek:273a5eb5abb35f03",
+        "status": "reference_only",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "脸颊或厚颜",
-      "decision_cn": "",
+      "summary_cn": "脸颊；厚颜；无礼",
+      "decision_cn": "脸颊或厚颜",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "脸颊或厚颜"
+        "target_label": "脸颊；厚颜；无礼"
       }
     },
     "senses": [
@@ -537,37 +544,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "厚颜；无礼"
         }
-      },
-      {
-        "id": "sense:cheek:273a5eb5abb35f03",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "对…无礼地说话",
-        "definition_en": "to speak impudently to someone",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:3e252e15123fff0e644f",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "cheek + sb",
-            "meaning_cn": "对某人无礼",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:3e252e15123fff0e644f",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "cheek + sb"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:cheek:273a5eb5abb35f03",
-          "target_locator": "record.senses[2]",
-          "target_label": "对…无礼地说话"
-        }
       }
     ],
     "secondary_senses": [],
@@ -585,7 +561,7 @@
     "ordinal": 772,
     "word": "cheer",
     "source_owner_path": "content/lexical/words/by-ordinal/o0772.json",
-    "source_fingerprint": "a1010608e514303e4af62533342e6f47e0267e3fbf285f747796efc4c031c5e6",
+    "source_fingerprint": "77f0731acaabe9d6921f896e08c340845b7d580f88ae955e2a60f2fdf98a46ec",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -750,7 +726,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:cheer:bf07-cheers",
+        "source_locator": "record.constructions[0]",
+        "pattern": "Cheers!",
+        "lines": [
+          {
+            "text": "干杯！；（英式非正式）谢谢！/再见！",
+            "lang": "cn"
+          },
+          {
+            "text": "toast context → 干杯；informal BrE interaction → 谢谢/再见",
+            "lang": "cn"
+          },
+          {
+            "text": "a toast; in informal British English, also thank you or goodbye",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:cheer:bf07-cheers",
+          "target_locator": "record.constructions[0]",
+          "target_label": "Cheers!"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -764,8 +766,15 @@
     "ordinal": 773,
     "word": "cheese",
     "source_owner_path": "content/lexical/words/by-ordinal/o0773.json",
-    "source_fingerprint": "a56a15616e93eb63eb1ca62b0e675889137c46977485ccc42376f8e36fa9b63b",
+    "source_fingerprint": "47c95643cdeb9657701e3601dc16dd2ab9c34373cd61ef4a0e6922422c0d0555",
     "sense_lineage": [
+      {
+        "word_id": "word:cheese",
+        "target_kind": "sense",
+        "from_target_id": "sense:cheese:1d829a8934315270",
+        "status": "reference_only",
+        "to_target_id": null
+      },
       {
         "word_id": "word:cheese",
         "target_kind": "sense",
@@ -776,7 +785,6 @@
     ],
     "recall_map": {
       "parts": [
-        "1V",
         "1N"
       ],
       "density": "rich"
@@ -825,23 +833,6 @@
           "target_locator": "record.senses[0]",
           "target_label": "乳酪；干酪"
         }
-      },
-      {
-        "id": "sense:cheese:1d829a8934315270",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "把…绕在卷轴上",
-        "definition_en": "wind onto a cheese (a spool or reel)",
-        "note": "低频纺织专业义：指把纱线等绕到 cheese 形卷装上；当前阶段仅需识别，不作为默认生产目标。",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:cheese:1d829a8934315270",
-          "target_locator": "record.senses[1]",
-          "target_label": "把…绕在卷轴上"
-        }
       }
     ],
     "secondary_senses": [],
@@ -859,7 +850,7 @@
     "ordinal": 774,
     "word": "chef",
     "source_owner_path": "content/lexical/words/by-ordinal/o0774.json",
-    "source_fingerprint": "16dd3e9a26b31eabd7c9c73580d12c571874e7036b511fa3d6a49454dd5663da",
+    "source_fingerprint": "09a8e1341dd522c7970f029a572b0c20059cad96f534c2cacf6bdaf6758c2de2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -936,7 +927,31 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "chef",
+            "condition": "all ordinary uses",
+            "note": "/ʃef/; ch- = /ʃ/"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "chef /ʃef/",
+            "ipa": "/ʃef/"
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -1752,23 +1767,30 @@
     "ordinal": 783,
     "word": "chew",
     "source_owner_path": "content/lexical/words/by-ordinal/o0783.json",
-    "source_fingerprint": "c6de6b26d6ab8246ede1a89c1b1a83ef3d72f0fee261c38788ecd9a992942e0e",
-    "sense_lineage": [],
+    "source_fingerprint": "534bda859f4cc338742c8ccb0664ee4f68994dedadd89bb76950eaebc2220aaf",
+    "sense_lineage": [
+      {
+        "word_id": "word:chew",
+        "target_kind": "sense",
+        "from_target_id": "sense:chew:5cca2ed2ef3959e5",
+        "status": "reference_only",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
-        "1N"
+        "2V"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "反复咬碎；由“反复咀嚼”引申为把一个想法在脑中反复琢磨",
+      "summary_cn": "咀嚼；反复琢磨、细想",
       "decision_cn": "food/gum → 真正咀嚼；chew on/over an idea/problem → 反复考虑、琢磨。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "反复咬碎；由“反复咀嚼”引申为把一个想法在脑中反复琢磨"
+        "target_label": "咀嚼；反复琢磨、细想"
       }
     },
     "senses": [
@@ -1826,32 +1848,6 @@
           "target_id": "sense:chew:a879cd051fde5965",
           "target_locator": "record.senses[1]",
           "target_label": "细想，深思"
-        }
-      },
-      {
-        "id": "sense:chew:5cca2ed2ef3959e5",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "咀嚼",
-        "definition_en": "the act of chewing",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:60d703bc8ae71e569fee",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "have a chew",
-            "meaning_cn": "嚼一嚼",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:chew:5cca2ed2ef3959e5",
-          "target_locator": "record.senses[2]",
-          "target_label": "咀嚼"
         }
       }
     ],
@@ -2181,7 +2177,7 @@
     "ordinal": 786,
     "word": "child",
     "source_owner_path": "content/lexical/words/by-ordinal/o0786.json",
-    "source_fingerprint": "1ed93a0ad1ec222e611d5f867d089a7ca1f356109cc60c8474b995d2538a0442",
+    "source_fingerprint": "deb1524eddf7caa07195861d962252ace758790f55cdf8421dbd7fe989eb1678",
     "sense_lineage": [
       {
         "word_id": "word:child",
@@ -2308,14 +2304,43 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "child → children.",
+        "boundaries": [
+          {
+            "surface": "child",
+            "condition": "singular",
+            "note": "one child"
+          },
+          {
+            "surface": "children",
+            "condition": "plural",
+            "note": "plural of child"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "child → children."
+        }
+      },
       "family": [
         {
           "target_word": "childhood",
           "lines": [
             {
-              "text": "child 名词，childhood 名词",
+              "text": "child（孩子）→ childhood（童年；儿童时期）",
               "lang": "cn"
+            },
+            {
+              "text": "child = 孩子/子女；childhood = 童年、儿童时期（being a child 的时期/状态）",
+              "lang": "cn"
+            },
+            {
+              "text": "childhood is the period or state of being a child",
+              "lang": "en"
             }
           ],
           "source_locator": "record.word_family[0]"
@@ -2329,7 +2354,7 @@
     "ordinal": 787,
     "word": "childhood",
     "source_owner_path": "content/lexical/words/by-ordinal/o0787.json",
-    "source_fingerprint": "32cb65bfc63875f76016ddb896b5bf426b15b238938806deaf5292d54586097f",
+    "source_fingerprint": "7b9a214ed02f544d33d2cd67d8a12ba481063f20b1aaa88c0b4a6ec9bcb6d60d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2399,8 +2424,16 @@
           "target_word": "child",
           "lines": [
             {
-              "text": "child（名词）",
+              "text": "childhood（童年）↔ child（孩子）",
               "lang": "cn"
+            },
+            {
+              "text": "childhood = 童年/儿童时期，即 being a child 的时期或状态；对应基础词 child = 孩子/子女",
+              "lang": "cn"
+            },
+            {
+              "text": "childhood is the period or state of being a child; child is the person/offspring",
+              "lang": "en"
             }
           ],
           "source_locator": "record.word_family[0]"
@@ -2742,11 +2775,18 @@
     "ordinal": 791,
     "word": "china",
     "source_owner_path": "content/lexical/words/by-ordinal/o0791.json",
-    "source_fingerprint": "593e5383bac95d55d4a5414a0878718d781617f295155f190f9c27e2bebd3882",
-    "sense_lineage": [],
+    "source_fingerprint": "1bb8b526d533b2d362f04059b6375bb1332aab84cae85309df0e6614fdae7820",
+    "sense_lineage": [
+      {
+        "word_id": "word:china",
+        "target_kind": "sense",
+        "from_target_id": "sense:china:1f235c2a5c4e50fe",
+        "status": "reference_only",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1A",
         "2N"
       ],
       "density": "rich"
@@ -2795,6 +2835,14 @@
             "meaning_cn": "中国是一个幅员辽阔的国家。",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:7dd9c5a976b910b8f6d1",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "China policy",
+            "meaning_cn": "对华政策",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -2837,32 +2885,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "瓷器"
         }
-      },
-      {
-        "id": "sense:china:1f235c2a5c4e50fe",
-        "source_locator": "record.senses[2]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "中国的",
-        "definition_en": "of or relating to China",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:7dd9c5a976b910b8f6d1",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "China policy",
-            "meaning_cn": "对华政策",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:china:1f235c2a5c4e50fe",
-          "target_locator": "record.senses[2]",
-          "target_label": "中国的"
-        }
       }
     ],
     "secondary_senses": [],
@@ -2887,8 +2909,7 @@
         "variants": [
           {
             "pos": [
-              "noun",
-              "adjective"
+              "noun"
             ],
             "reading": "China",
             "ipa": ""
@@ -2917,7 +2938,7 @@
     "ordinal": 792,
     "word": "chip",
     "source_owner_path": "content/lexical/words/by-ordinal/o0792.json",
-    "source_fingerprint": "6d90c7429a085852c01a3dc1657d8cd169a17c1b340c29286c055000ae1b1e42",
+    "source_fingerprint": "8343c55eb64e2bc6a132003a8ffbab0bf57152f9cfbf4b232788b1f308931d70",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3145,7 +3166,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:chip:bf07-in",
+        "source_locator": "record.constructions[0]",
+        "pattern": "chip in",
+        "lines": [
+          {
+            "text": "出钱/出力分担；插话、补充意见",
+            "lang": "cn"
+          },
+          {
+            "text": "money/resources context → contribute; conversation context → add a comment/interject",
+            "lang": "en"
+          },
+          {
+            "text": "contribute money or resources; also add a comment or interject in a conversation",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:chip:bf07-in",
+          "target_locator": "record.constructions[0]",
+          "target_label": "chip in"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -3296,7 +3343,7 @@
     "ordinal": 794,
     "word": "choice",
     "source_owner_path": "content/lexical/words/by-ordinal/o0794.json",
-    "source_fingerprint": "591f923b7bde5fbcc0a9934e05289c87b81e72b6d27af6cdee5f9a1f7d4398a6",
+    "source_fingerprint": "83755dfc310dd117440487c4761a4d78f2e3f1bf25ed6c506e3da34c303612aa",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3393,18 +3440,9 @@
         "governing_pattern": "",
         "definition_cn": "精选的；上等的",
         "definition_en": "of high quality",
-        "note": "",
+        "note": "常见于 choice cuts / choice ingredients 等，表示精选、优质。",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:361f93a5b3d3c351ece6",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "choice words",
-            "meaning_cn": "精辟的言辞",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:choice:08feaabcc4c95ec7",
@@ -3428,7 +3466,7 @@
     "ordinal": 795,
     "word": "choir",
     "source_owner_path": "content/lexical/words/by-ordinal/o0795.json",
-    "source_fingerprint": "4b422808e8b3d3020db84c098d2784a5d1b4e0a3d8ea3615935ad2d9bbff612a",
+    "source_fingerprint": "53d3c7d821f890e893640e412ce436e09a9a8a8b4d483bdfec7de3eadf931e70",
     "sense_lineage": [
       {
         "word_id": "word:choir",
@@ -3492,7 +3530,31 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "choir",
+            "condition": "ordinary noun use",
+            "note": "/ˈkwaɪə(r)/"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "choir /ˈkwaɪə(r)/",
+            "ipa": "/ˈkwaɪə(r)/"
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -3708,7 +3770,7 @@
     "ordinal": 797,
     "word": "choose",
     "source_owner_path": "content/lexical/words/by-ordinal/o0797.json",
-    "source_fingerprint": "d5d862863aa7df60d4f4752cfb54e11453884c38660be8509dda4867cda7a2c0",
+    "source_fingerprint": "6e1b9b6ae6bf63e75582a353eef78cc6fb13e2437f7ebc45030924658aaf34c2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3858,7 +3920,33 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "choose → chose → chosen.",
+        "boundaries": [
+          {
+            "surface": "choose",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "chose",
+            "condition": "past",
+            "note": "simple past"
+          },
+          {
+            "surface": "chosen",
+            "condition": "past participle",
+            "note": "past participle"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "choose → chose → chosen."
+        }
+      },
       "family": []
     }
   },
@@ -4029,7 +4117,7 @@
     "ordinal": 799,
     "word": "chorus",
     "source_owner_path": "content/lexical/words/by-ordinal/o0799.json",
-    "source_fingerprint": "48728aa3362d966606a467c01dae1cb796f5c67a899e0d43c02cc92f2545fbf0",
+    "source_fingerprint": "415e74d32a1a4149112e75f56abc23111ea261ab780324fd452999dc3f9035db",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4136,26 +4224,17 @@
         "id": "sense:chorus:0e6caa74c590546c",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "齐声说；合唱",
-        "definition_en": "to say or sing something all together",
-        "note": "",
+        "governing_pattern": "vt. + words/answer/quotation",
+        "definition_cn": "齐声说出或唱出同样的话",
+        "definition_en": "to say or sing the same words together",
+        "note": "常接 answer、words 或直接引语，表示多人齐声说出或唱出同样的话。",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:8a4e79ada76fb4ad00d8",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "chorus a song",
-            "meaning_cn": "合唱一首歌",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:chorus:0e6caa74c590546c",
           "target_locator": "record.senses[3]",
-          "target_label": "齐声说；合唱"
+          "target_label": "齐声说出或唱出同样的话"
         }
       }
     ],

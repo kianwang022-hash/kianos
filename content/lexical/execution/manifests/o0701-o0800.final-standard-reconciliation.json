@@ -1,0 +1,91 @@
+{
+  "schema": "kianos.lexical.final_standard_reconciliation.v1",
+  "candidate_id": "BF07",
+  "range": [
+    701,
+    800
+  ],
+  "status": "RECONCILED_READY_FOR_MERGE",
+  "candidate_branch": "work/lexical-continuous-bf07-20260922",
+  "audit_pack": "content/lexical/semantic-audit/O0701_O0800_FINAL_STANDARD_FRESH_AUDIT_PACK.md",
+  "audit_result": "PASS_WITH_CORRECTIONS",
+  "independence_note": "BLIND_FIRST_NOT_ENFORCED; same Chat had read Production detail before B audit at Kian's explicit request. Valid for defect closure, not reviewer-independence evidence.",
+  "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
+  "semantic_owner_read_head": "103a5dfad94a1555f2305d4980ae23ba5c0f76de",
+  "audit_reconciliation_commit": "abd1aea77786570bb67bae8180c0a2a5d6de643f",
+  "post_reconciliation_materializer_commit": "932aaf45fa801644029753cdf0467a3714e89bdf",
+  "latest_main_drift_check_head": "fafba84b22dbd7c5438b24336de7612ade8d9e1e",
+  "lexical_drift": [],
+  "production": {
+    "scope_owners": 100,
+    "content_affected_owners": 34,
+    "content_no_change": 66,
+    "approved_new_material_owners": 11,
+    "approved_new_material_assets": 12,
+    "blocked": 0,
+    "repair_tests_before": 37,
+    "repair_tests_after": 22
+  },
+  "audit_coverage": {
+    "scope_owners": "100/100",
+    "production_upgrade_reverse_reviewed": "34/34",
+    "mandatory_form_identity": "10/10",
+    "mandatory_relation_confusable": "5/5",
+    "complex_no_change": "58/58",
+    "simple_no_change_fast_gate": "8/8",
+    "simple_no_change_deep_sample": "8/8",
+    "unique_mandatory_owners": "92/92",
+    "repair_test_targets_resolved": "22/22",
+    "blocked": 0
+  },
+  "shared_relation_closure": [
+    "cause↔get",
+    "cause↔reason",
+    "cent↔scent",
+    "certain↔sure"
+  ],
+  "audit_corrections": [
+    {
+      "target": "o0787 childhood→child",
+      "action": "REPLACE_TAUTOLOGICAL_FAMILY_NOTE_WITH_RECIPROCAL_USEFUL_BOUNDARY",
+      "result": "PASS"
+    },
+    {
+      "target": "o0729 cement A to B",
+      "action": "RETIRE_OLD_MALFORMED_ACTIVE_COLLOCATION_ID_AND_USE_WORD_OWNED_CONSTRUCTION",
+      "result": "PASS"
+    },
+    {
+      "target": "o0794 choice",
+      "action": "RETIRE_OLD_CHOICE_WORDS_COLLOCATION_ID; KEEP_TRUE_HIGH_QUALITY_USAGE_AS_NON_IDENTITY_NOTE",
+      "result": "PASS"
+    },
+    {
+      "target": "o0799 chorus",
+      "action": "RETIRE_OLD_CHORUS_A_SONG_EXAMPLE_ID; KEEP_NATURAL_OBJECT_GUIDANCE_AS_USAGE_NOTE",
+      "result": "PASS"
+    }
+  ],
+  "derived_readback": {
+    "final_learner_objects": 7946,
+    "final_shards": 125,
+    "corrected_owner_readback": [
+      "o0729",
+      "o0787",
+      "o0794",
+      "o0799"
+    ],
+    "repair_blueprints": 22,
+    "result": "PASS"
+  },
+  "closure": {
+    "unresolved_material_findings": 0,
+    "unresolved_identity_findings": 0,
+    "unresolved_findings": 0,
+    "blocked": 0,
+    "new_human_semantic_delta_required": false,
+    "broad_semantic_reopen_required": false,
+    "main_merge_authorized": true
+  },
+  "next_action": "Run final-head bounded checks on PR #739, merge if no BF07-local regression is proven, then advance serialized frontier to BF08 o0801-o0900."
+}

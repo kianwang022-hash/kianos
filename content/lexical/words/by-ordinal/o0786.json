@@ -135,10 +135,10 @@
     "word": "child",
     "word_family": [
       {
-        "boundary": "child 名词，childhood 名词",
+        "boundary": "child = 孩子/子女；childhood = 童年、儿童时期（being a child 的时期/状态）",
         "codex_reviewed": true,
         "definition_cn": null,
-        "definition_en": null,
+        "definition_en": "childhood is the period or state of being a child",
         "dimensions": {
           "certainty": "中",
           "collocation": "in childhood",
@@ -150,7 +150,7 @@
           "syntax": "词性转换",
           "writing_safety": "安全"
         },
-        "direction": "R",
+        "direction": "R+P",
         "evidence": [
           {
             "evidence_id": "evidence:family:child:childhood",
@@ -166,7 +166,7 @@
         ],
         "label_en": null,
         "level": null,
-        "meaning_cn": null,
+        "meaning_cn": "child（孩子）→ childhood（童年；儿童时期）",
         "module": "word_family",
         "pattern": null,
         "pos": null,
@@ -180,10 +180,30 @@
           "reading"
         ],
         "verification_status": "verified",
-        "writing_safe": false
+        "writing_safe": true
       }
     ],
-    "word_id": "word:child"
+    "word_id": "word:child",
+    "form_identity": {
+      "form_type": "irregular_number_identity",
+      "spelling": "child",
+      "identity_rule": "singular_plural_surface_change",
+      "boundary": "child → children.",
+      "boundaries": [
+        {
+          "surface": "child",
+          "condition": "singular",
+          "note": "one child"
+        },
+        {
+          "surface": "children",
+          "condition": "plural",
+          "note": "plural of child"
+        }
+      ],
+      "variants": [],
+      "authority": "BF07 final-standard approved Form expansion"
+    }
   },
   "relation_refs": [],
   "reference_senses": [

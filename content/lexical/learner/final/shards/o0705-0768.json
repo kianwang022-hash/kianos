@@ -74,7 +74,7 @@
     "ordinal": 706,
     "word": "cast",
     "source_owner_path": "content/lexical/words/by-ordinal/o0706.json",
-    "source_fingerprint": "b52b6d36d1c787a8f5ecd11a8b92d7319349151e0d0e2c4aeafabf3b70859de0",
+    "source_fingerprint": "64fb00ccfa8625bd83db03ca1ba230554353a3045d478676a328764fb72051aa",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -374,7 +374,33 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "cast → cast → cast.",
+        "boundaries": [
+          {
+            "surface": "cast",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "cast",
+            "condition": "past",
+            "note": "simple past"
+          },
+          {
+            "surface": "cast",
+            "condition": "past participle",
+            "note": "past participle"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "cast → cast → cast."
+        }
+      },
       "family": []
     }
   },
@@ -642,11 +668,19 @@
     "ordinal": 709,
     "word": "casualty",
     "source_owner_path": "content/lexical/words/by-ordinal/o0709.json",
-    "source_fingerprint": "93396754b4b62bb714b49b0894b0f23a1e253575d541a39023e2d72b92d0ed8a",
-    "sense_lineage": [],
+    "source_fingerprint": "07f5e8542a6ee693e7ab0bef7480d7518f7dbc85eb394ec414f75d0c5f12eea9",
+    "sense_lineage": [
+      {
+        "word_id": "word:casualty",
+        "target_kind": "sense",
+        "from_target_id": "sense:casualty:0a3407bbdf8b590a",
+        "status": "reference_only",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3N"
+        "(2+1)N"
       ],
       "density": "rich"
     },
@@ -725,35 +759,24 @@
           "target_locator": "record.senses[1]",
           "target_label": "受害者；牺牲品"
         }
-      },
+      }
+    ],
+    "secondary_senses": [
       {
-        "id": "sense:casualty:0a3407bbdf8b590a",
-        "source_locator": "record.senses[2]",
+        "id": "secondary:casualty:bf07-casualty-department",
+        "source_locator": "record.secondary_senses[0]",
         "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "军事人员或装备的损失",
-        "definition_en": "a decrease of military personnel or equipment",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:e163f3d8c9126f08bf9d",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "casualty figures",
-            "meaning_cn": "伤亡数字",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "definition_cn": "（英式英语）医院急诊部",
+        "definition_en": "British English: the hospital emergency department; also casualty department",
+        "pattern": "BrE hospital context: casualty / casualty department = emergency department; not an injured person.",
         "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:casualty:0a3407bbdf8b590a",
-          "target_locator": "record.senses[2]",
-          "target_label": "军事人员或装备的损失"
+          "target_kind": "secondary_sense",
+          "target_id": "secondary:casualty:bf07-casualty-department",
+          "target_locator": "record.secondary_senses[0]",
+          "target_label": "（英式英语）医院急诊部"
         }
       }
     ],
-    "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
@@ -859,7 +882,7 @@
     "ordinal": 711,
     "word": "catalog",
     "source_owner_path": "content/lexical/words/by-ordinal/o0711.json",
-    "source_fingerprint": "6c8acf952191d97098fdf8e0b7d88e088940e32b1c9f385e34f7e81e50324692",
+    "source_fingerprint": "3a4968b5b1879f9df58f88ea73750195acb17ed0a8e7f767c5a5b89963e92ee2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -970,30 +993,29 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "catalog ↔ catalogue",
-          "target_word": "catalogue",
-          "lines": [
-            {
-              "text": "catalog 与 catalogue 词义相同；catalog 主要是美式拼写，catalogue 主要是英式拼写。不要把它当成两个义项或一个构式。",
-              "lang": "cn"
-            },
-            {
-              "text": "同一词的地区拼写变体：AmE catalog / BrE catalogue。",
-              "lang": "cn"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:spelling_variant:catalog:catalogue",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "catalog ↔ catalogue"
+      "relations": [],
+      "form": {
+        "boundary": "catalog is the usual American spelling; catalogue is the usual British/international spelling.",
+        "boundaries": [
+          {
+            "surface": "catalog",
+            "condition": "usual American English",
+            "note": "AmE spelling"
+          },
+          {
+            "surface": "catalogue",
+            "condition": "usual British/international English",
+            "note": "BrE spelling"
           }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "catalog is the usual American spelling; catalogue is the usual British/international spelling."
         }
-      ],
-      "form": null,
+      },
       "family": []
     }
   },
@@ -1072,11 +1094,19 @@
     "ordinal": 713,
     "word": "catch",
     "source_owner_path": "content/lexical/words/by-ordinal/o0713.json",
-    "source_fingerprint": "d89819fba034fab89dd8f820d83e2f80f2aff5ce850511f7cc8e170035fc5630",
-    "sense_lineage": [],
+    "source_fingerprint": "b390475f4e884512114b8fc49ec32269a6e580eea28a09f48ad29c03cc3c852d",
+    "sense_lineage": [
+      {
+        "word_id": "word:catch",
+        "target_kind": "sense",
+        "from_target_id": "sense:catch:be147c402eb55f43",
+        "status": "reference_only",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "5V",
+        "4V",
         "1N"
       ],
       "density": "rich"
@@ -1226,45 +1256,6 @@
           "target_locator": "record.senses[4]",
           "target_label": "陷阱；蹊跷"
         }
-      },
-      {
-        "id": "sense:catch:be147c402eb55f43",
-        "source_locator": "record.senses[5]",
-        "pos": "verb",
-        "governing_pattern": "vi. + at",
-        "definition_cn": "试图抓住",
-        "definition_en": "to try to seize something",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:11f17cd20d9464a080d5",
-            "source_locator": "record.senses[5].collocations[0]",
-            "phrase": "catch at + sth",
-            "meaning_cn": "试图抓住某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:11f17cd20d9464a080d5",
-              "target_locator": "record.senses[5].collocations[0]",
-              "target_label": "catch at + sth"
-            }
-          },
-          {
-            "id": "collocation:c3fc34fb191bb278bca2",
-            "source_locator": "record.senses[5].collocations[1]",
-            "phrase": "catch at a rope",
-            "meaning_cn": "试图抓住绳子",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:catch:be147c402eb55f43",
-          "target_locator": "record.senses[5]",
-          "target_label": "试图抓住"
-        }
       }
     ],
     "secondary_senses": [],
@@ -1319,12 +1310,59 @@
           "target_locator": "record.constructions[2]",
           "target_label": "catch on (to sth)"
         }
+      },
+      {
+        "id": "construction:catch:bf07-catch-sb-doing",
+        "source_locator": "record.constructions[3]",
+        "pattern": "catch sb doing sth",
+        "lines": [
+          {
+            "text": "撞见/发现某人正在做某事（常指不当或出乎意料的事）",
+            "lang": "cn"
+          },
+          {
+            "text": "discover or see someone in the act of doing something, especially something wrong or unexpected",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:catch:bf07-catch-sb-doing",
+          "target_locator": "record.constructions[3]",
+          "target_label": "catch sb doing sth"
+        }
       }
     ],
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "catch → caught → caught.",
+        "boundaries": [
+          {
+            "surface": "catch",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "caught",
+            "condition": "past",
+            "note": "simple past"
+          },
+          {
+            "surface": "caught",
+            "condition": "past participle",
+            "note": "past participle"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "catch → caught → caught."
+        }
+      },
       "family": []
     }
   },
@@ -1334,7 +1372,7 @@
     "ordinal": 714,
     "word": "category",
     "source_owner_path": "content/lexical/words/by-ordinal/o0714.json",
-    "source_fingerprint": "aa8ff223764d9b4c83aa362e17907756f5d837947929ca92086c5aba6426b865",
+    "source_fingerprint": "f934e9f6fe402ff216357f937cebe2f4b802678bb03c9686ccfebd7ab6c54dcf",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1404,8 +1442,16 @@
           "target_word": "categorise",
           "lines": [
             {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
+              "text": "category（类别）→ categorise（分类；归类）",
               "lang": "cn"
+            },
+            {
+              "text": "category = 类别/范畴；categorise = 将人或事物归入某一类别",
+              "lang": "cn"
+            },
+            {
+              "text": "category is a class/group; categorise means to put something into a category",
+              "lang": "en"
             }
           ],
           "source_locator": "record.word_family[0]"
@@ -1795,7 +1841,7 @@
     "ordinal": 718,
     "word": "cattle",
     "source_owner_path": "content/lexical/words/by-ordinal/o0718.json",
-    "source_fingerprint": "91d7375109690b75c7c1372d323c637ff4f1d3cb2e8490c901ca2e47de634cdc",
+    "source_fingerprint": "13b4f0de904b245b4b94caf19dc40895b64f8d12b26f930836fc83b723157e38",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1804,13 +1850,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "牛，家畜",
-      "decision_cn": "",
+      "summary_cn": "牛；牛群",
+      "decision_cn": "cattle 是牛类家畜的集合复数名词；通常说 cattle are，不说 a cattle。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "牛，家畜"
+        "target_label": "牛；牛群"
       }
     },
     "senses": [
@@ -1819,7 +1865,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "牛，家畜",
+        "definition_cn": "牛；牛群（作为农场饲养的牛类家畜）",
         "definition_en": "cows and bulls kept on a farm for their milk or meat",
         "note": "",
         "identity_overlay": {
@@ -1858,7 +1904,7 @@
           "target_kind": "sense",
           "target_id": "sense:cattle:d7a84b347b4e5eae",
           "target_locator": "record.senses[0]",
-          "target_label": "牛，家畜"
+          "target_label": "牛；牛群（作为农场饲养的牛类家畜）"
         }
       }
     ],
@@ -2484,7 +2530,7 @@
     "ordinal": 723,
     "word": "cease",
     "source_owner_path": "content/lexical/words/by-ordinal/o0723.json",
-    "source_fingerprint": "a6d93133687685d7cfa8dd862334f56e1459e5ede04fc415cc33536bd008976a",
+    "source_fingerprint": "0aa4f295b2c8f361b4e0ca7a0b193d8581d44a0b7da856664e0d29d1cb161fc2",
     "sense_lineage": [
       {
         "word_id": "word:cease",
@@ -2515,8 +2561,8 @@
         "id": "sense:cease:a4a517ed73e853c2",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "cease doing sth / cease to do sth",
-        "definition_cn": "停止、终止",
+        "governing_pattern": "vi.; vt. + doing/to do",
+        "definition_cn": "停止；终止；不再继续",
         "definition_en": "to stop or end",
         "note": "",
         "identity_overlay": null,
@@ -2525,7 +2571,7 @@
           "target_kind": "sense",
           "target_id": "sense:cease:a4a517ed73e853c2",
           "target_locator": "record.senses[0]",
-          "target_label": "停止、终止"
+          "target_label": "停止；终止；不再继续"
         }
       }
     ],
@@ -2568,8 +2614,8 @@
         "word_id": "word:ceiling",
         "target_kind": "sense",
         "from_target_id": "sense:ceiling:870e46ebb56556ac",
-        "status": "deprecated",
-        "to_target_id": null
+        "status": "merged",
+        "to_target_id": "sense:ceiling:fe8e2eb3a68c5d0b"
       }
     ],
     "recall_map": {
@@ -2857,11 +2903,11 @@
     "ordinal": 727,
     "word": "cell",
     "source_owner_path": "content/lexical/words/by-ordinal/o0727.json",
-    "source_fingerprint": "721782dc6c8185073056b2e22c1aefc2a2b8a48c1a41c7778f3e467357684383",
+    "source_fingerprint": "86f112509ab113ba6711cdc13b51a4421be4a723ea431aa215ecb4e4f4e316ed",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "4N"
+        "(4+1)N"
       ],
       "density": "rich"
     },
@@ -2997,7 +3043,22 @@
         }
       }
     ],
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "id": "secondary:cell:bf07-phone",
+        "source_locator": "record.secondary_senses[0]",
+        "pos": "noun",
+        "definition_cn": "（美式非正式）手机；cell phone",
+        "definition_en": "informal American English: a cell phone / mobile phone",
+        "pattern": "AmE informal communication/device context: cell = cell phone; keep separate from biological cell, prison cell, battery cell, and organizational cell.",
+        "repair": {
+          "target_kind": "secondary_sense",
+          "target_id": "secondary:cell:bf07-phone",
+          "target_locator": "record.secondary_senses[0]",
+          "target_label": "（美式非正式）手机；cell phone"
+        }
+      }
+    ],
     "constructions": [],
     "reference": {
       "confusables": [],
@@ -3104,7 +3165,7 @@
     "ordinal": 729,
     "word": "cement",
     "source_owner_path": "content/lexical/words/by-ordinal/o0729.json",
-    "source_fingerprint": "d905780132dc4a2ec547736ad64f290f328d17723c9549f2a1d58dea4b947af4",
+    "source_fingerprint": "e7a1f05b2b02cfa16772b0fcffe3a22c2f08d200bd50782bcd1c60071043d1b1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3214,36 +3275,44 @@
         "id": "sense:cement:d1a3a9c296485923",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vi. + to",
-        "definition_cn": "黏牢",
-        "definition_en": "become firmly stuck or united",
+        "governing_pattern": "vt. + A + to + B",
+        "definition_cn": "用水泥或粘合剂把 A 粘到 B 上；使二者牢固结合",
+        "definition_en": "fasten or join A to B with cement or another adhesive",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:4b2621a6bdd9fb7aaae8",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "cement to + sth",
-            "meaning_cn": "粘到…上",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:4b2621a6bdd9fb7aaae8",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "cement to + sth"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:cement:d1a3a9c296485923",
           "target_locator": "record.senses[3]",
-          "target_label": "黏牢"
+          "target_label": "用水泥或粘合剂把 A 粘到 B 上；使二者牢固结合"
         }
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:cement:bf07-a-to-b",
+        "source_locator": "record.constructions[0]",
+        "pattern": "cement A to B",
+        "lines": [
+          {
+            "text": "用水泥或粘合剂把 A 牢固粘到 B 上",
+            "lang": "cn"
+          },
+          {
+            "text": "fasten or join A firmly to B with cement or another adhesive",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:cement:bf07-a-to-b",
+          "target_locator": "record.constructions[0]",
+          "target_label": "cement A to B"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -3395,55 +3464,36 @@
     "ordinal": 732,
     "word": "census",
     "source_owner_path": "content/lexical/words/by-ordinal/o0732.json",
-    "source_fingerprint": "6b7f5ac524a52c9df0da1424770d41d2442bf2030059f8768c576cff5841c4b6",
-    "sense_lineage": [],
+    "source_fingerprint": "21239c4257f0f9da9b59308d830a4282414864470c255aea6ab6e65c33aff187",
+    "sense_lineage": [
+      {
+        "word_id": "word:census",
+        "target_kind": "sense",
+        "from_target_id": "sense:census:b3f5870829f85f01",
+        "status": "reference_only",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "1N"
       ],
-      "density": "rich"
+      "density": "light"
     },
     "word_feel": {
-      "summary_cn": "官方人口统计",
-      "decision_cn": "",
+      "summary_cn": "人口普查；官方人口统计",
+      "decision_cn": "默认是名词：官方人口普查/统计；低频动词 census 仅保留 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "官方人口统计"
+        "target_label": "人口普查；官方人口统计"
       }
     },
     "senses": [
       {
-        "id": "sense:census:b3f5870829f85f01",
-        "source_locator": "record.senses[0]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "对…进行人口普查",
-        "definition_en": "to conduct a census of (a population)",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:a2de0b3a6319443f49da",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "census the population",
-            "meaning_cn": "对人口进行普查",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:census:b3f5870829f85f01",
-          "target_locator": "record.senses[0]",
-          "target_label": "对…进行人口普查"
-        }
-      },
-      {
         "id": "sense:census:325cfdb1e5675f44",
-        "source_locator": "record.senses[1]",
+        "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "人口普查；对人口的正式统计或调查",
@@ -3454,7 +3504,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:census:325cfdb1e5675f44",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[0]",
           "target_label": "人口普查；对人口的正式统计或调查"
         }
       }
@@ -4396,55 +4446,36 @@
     "ordinal": 742,
     "word": "certificate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0742.json",
-    "source_fingerprint": "a95c64f8a31ce2a269157bb60f1fb8247e86f9762b9bd10f525bb08255478066",
-    "sense_lineage": [],
+    "source_fingerprint": "de5afd331c8bcd1d26ad561c7815d3f838a58a1ddb33b2ee85ca00c8d46ac959",
+    "sense_lineage": [
+      {
+        "word_id": "word:certificate",
+        "target_kind": "sense",
+        "from_target_id": "sense:certificate:36b3a3aea8f955ba",
+        "status": "reference_only",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "1N"
       ],
-      "density": "rich"
+      "density": "light"
     },
     "word_feel": {
-      "summary_cn": "官方证明文件",
-      "decision_cn": "",
+      "summary_cn": "证书；官方证明文件",
+      "decision_cn": "qualification/completion/fact → 证书、证明文件；罕见动词 certificate 仅保留 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "官方证明文件"
+        "target_label": "证书；官方证明文件"
       }
     },
     "senses": [
       {
-        "id": "sense:certificate:36b3a3aea8f955ba",
-        "source_locator": "record.senses[0]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "发给证明书；用证书批准",
-        "definition_en": "to give someone a certificate or authorize by certificate",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:ab75b015b91b574e83b3",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "certificate a teacher",
-            "meaning_cn": "给教师颁发证书",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:certificate:36b3a3aea8f955ba",
-          "target_locator": "record.senses[0]",
-          "target_label": "发给证明书；用证书批准"
-        }
-      },
-      {
         "id": "sense:certificate:43b11cf1dc9950cf",
-        "source_locator": "record.senses[1]",
+        "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "证明事实、资格或完成情况的正式文件",
@@ -4455,7 +4486,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:certificate:43b11cf1dc9950cf",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[0]",
           "target_label": "证明事实、资格或完成情况的正式文件"
         }
       }
@@ -4763,7 +4794,7 @@
     "ordinal": 745,
     "word": "chair",
     "source_owner_path": "content/lexical/words/by-ordinal/o0745.json",
-    "source_fingerprint": "a39866613a3be419de8c730eab47635bf0367a064e45758e9e2533124056b6ab",
+    "source_fingerprint": "8291a93f9ab6db4ad5f6adb572951225c4e1034176f3ff8b5126bcb6bf55417b",
     "sense_lineage": [
       {
         "word_id": "word:chair",
@@ -4829,7 +4860,7 @@
         "id": "sense:chair:3ae6a52c658f5529",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vt. + meeting/committee/session",
         "definition_cn": "主持会议或机构",
         "definition_en": "to preside over a meeting or organization",
         "note": "",
@@ -5247,7 +5278,7 @@
     "ordinal": 749,
     "word": "chamber",
     "source_owner_path": "content/lexical/words/by-ordinal/o0749.json",
-    "source_fingerprint": "c96f3f5ad1e3338ae04d8181411c7a30dad69029b50bebf487ae81517609cd76",
+    "source_fingerprint": "09db2080e6e1af5a5be0752d21487b3707c8b5aa70e828f3ffaf74fdd2230c7e",
     "sense_lineage": [
       {
         "word_id": "word:chamber",
@@ -5402,6 +5433,10 @@
           {
             "text": "商会（商业组织，不是“房间”这一字面义）",
             "lang": "cn"
+          },
+          {
+            "text": "a business association representing local or regional commercial interests",
+            "lang": "en"
           }
         ],
         "repair": {
@@ -6032,7 +6067,7 @@
     "ordinal": 754,
     "word": "change",
     "source_owner_path": "content/lexical/words/by-ordinal/o0754.json",
-    "source_fingerprint": "9c554e9c1de7f9ae66f7d951cdbc74ce5cfccd3c9519bdce4ac05f362b75edf0",
+    "source_fingerprint": "c49b8664f29e9515c055d03f93e6213a5541108421b253fe8b905b79932975fb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6042,13 +6077,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "变化；改变",
-      "decision_cn": "",
+      "summary_cn": "改变、变化；也可指零钱/找头",
+      "decision_cn": "alteration/transition → 改变、变化；money returned/small coins → 零钱、找头。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "变化；改变"
+        "target_label": "改变、变化；也可指零钱/找头"
       }
     },
     "senses": [
@@ -6532,8 +6567,8 @@
         "word_id": "word:chapter",
         "target_kind": "sense",
         "from_target_id": "sense:chapter:f39e8add6d2a50fa",
-        "status": "deprecated",
-        "to_target_id": null
+        "status": "merged",
+        "to_target_id": "sense:chapter:b0b34c2d27e25de7"
       }
     ],
     "recall_map": {
@@ -7060,7 +7095,7 @@
     "ordinal": 761,
     "word": "charge",
     "source_owner_path": "content/lexical/words/by-ordinal/o0761.json",
-    "source_fingerprint": "5ec89ccb5d7784973e88babb16ea49ab3e9eef19b2ddde20364bfa54a137f3f9",
+    "source_fingerprint": "86425b21e698fb068615e12e78be285d83fe51043e5ec38924bb6bc305608a79",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7071,7 +7106,7 @@
     },
     "word_feel": {
       "summary_cn": "把某种“负担/力量/责任”加到对象上：可收费、指控、充电、负责；也可表示向前猛冲",
-      "decision_cn": "charge sb money → 收费；charge sb with X → 指控；charge a battery → 充电；be/take in charge of → 负责；charge at/into → 猛冲；noun charge 还可指费用、指控、电荷。",
+      "decision_cn": "charge sb money → 收费；charge sb with wrongdoing → 指控；charge sb with a task/duty → 责成、委托；charge a battery → 充电；be/take in charge of → 负责；charge at/into → 猛冲。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7375,6 +7410,31 @@
           "target_id": "construction:1f260d2473cb1c2f4d89",
           "target_locator": "record.constructions[1]",
           "target_label": "take charge of sth"
+        }
+      },
+      {
+        "id": "construction:charge:bf07-responsibility",
+        "source_locator": "record.constructions[2]",
+        "pattern": "charge sb with sth / charge sb with doing sth",
+        "lines": [
+          {
+            "text": "正式委托/责成某人承担某项责任、任务或职责",
+            "lang": "cn"
+          },
+          {
+            "text": "crime/wrongdoing context → accuse; responsibility/task context → entrust or assign",
+            "lang": "en"
+          },
+          {
+            "text": "formally entrust or assign someone with a responsibility, task, or duty",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:charge:bf07-responsibility",
+          "target_locator": "record.constructions[2]",
+          "target_label": "charge sb with sth / charge sb with doing sth"
         }
       }
     ],
