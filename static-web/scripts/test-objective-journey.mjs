@@ -10,6 +10,7 @@ import {
   loadReadingBById,
   loadReadingBAnswersById
 } from '../src/lib/englishObjective.mjs';
+import { loadClozeById as loadCurrentClozeById } from '../src/lib/englishObjectiveSourceTruth.mjs';
 import {
   listReadingSets,
   loadReadingById,
@@ -69,7 +70,12 @@ async function storeClaims(page, task) {
 }
 
 async function declareSyntheticUnseen(page, objectId) {
-  await page.evaluate((id) => {
+  // Bind this synthetic testimony to the same source revision delivered by the Cloze page.
+  const sourceHashes = loadCurrentClozeById(objectId).sourceHashes;
+  const sourceHash = sourceHashes?.renderedObject;
+  if (!sourceHash) throw new Error('SYNTHETIC_UNSEEN_SOURCE_MISSING:' + objectId);
+  const semanticSourceHash = sourceHashes.semanticSource || sourceHash;
+  await page.evaluate(({ id, sourceHash, semanticSourceHash }) => {
     const key = 'kianos-english-material-exposure-v1';
     const ledger = JSON.parse(localStorage.getItem(key) || '{"schema":"kianos.english.material-exposure.v1","materials":{}}');
     if (ledger?.materials?.[id]?.events?.length) throw new Error('SYNTHETIC_UNSEEN_ALREADY_EXPOSED:' + id);
@@ -80,13 +86,15 @@ async function declareSyntheticUnseen(page, objectId) {
       events: [],
       declaration: {
         state: 'unseen',
+        source_hash: sourceHash,
+        semantic_source_hash: semanticSourceHash,
         basis: 'learner_statement',
         observed_at: new Date().toISOString(),
         note: 'SYNTHETIC TEST testimony only; not Kian learner evidence.'
       }
     };
     localStorage.setItem(key, JSON.stringify(ledger));
-  }, objectId);
+  }, { id: objectId, sourceHash, semanticSourceHash });
 }
 
 async function openImporter(page) {
