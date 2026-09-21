@@ -55,13 +55,13 @@ Do not reopen passed engineering paths because unrelated broad CI is red.
 
 ---
 
-## Dynamic practice + baseline material preparation — FINAL VALIDATION 2026-09-21
+## Dynamic practice + baseline material preparation — CLOSED 2026-09-21
 
-The bounded upgrade is on `main`: dynamic evidence-floor / Build→Verify→Maintain / Elastic-ROI rules plus registered Objective, Translation and Writing baseline synthetic inventories. Evidence roles remain explicit and non-interchangeable; targeted generation stays with the exact task owner.
+The bounded upgrade is integrated and accepted: dynamic evidence-floor / Build→Verify→Maintain / Elastic-ROI rules plus registered Objective, Translation and Writing baseline synthetic inventories. Evidence roles remain explicit and non-interchangeable; targeted generation stays with the exact task owner.
 
-This closure branch repairs the Writing synthetic consumer so the registered 4 Small + 6 Big inventory is executable instead of being rejected by the old two-task fixture assumption. No learner state, scheduler, second ledger, mastery score, protected true-exam exposure, or shared Runtime semantics are added.
+The final Writing consumer drift is repaired: the registered 4 Small + 6 Big inventory is executable, while cold-start calibration remains exactly one Small + one Big and is still skippable. Writing Runtime, English Family Coherence and the whole-paper session pass on the closure candidate; the English Current slice also passes the ownership-size boundary.
 
-Final closure requires the affected Writing runtime/browser proof and the English slice of Current ownership to pass; learner U still requires genuine study use.
+No learner state, scheduler, second ledger, mastery score, protected true-exam exposure, or shared Runtime semantics were added. Learner U still requires genuine study use.
 
 ---
 
