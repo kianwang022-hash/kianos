@@ -1,138 +1,35 @@
-# KianOS Root Current
+# KianOS Current
 
-Role: **Control Tower + root Work Cursor/router**  
-Rule: current routing/status only. No semantic Truth, Acceptance ledger, learner progress, or duplicated child-task cursor.
+Role: the single root routing entry for engineering/status requests. Normal learning starts from the relevant Project/subject owner, not this engineering index. This file stores no learner state, subject cursor or duplicate acceptance ledger.
 
----
+## Choose the current owner
 
-## Active programs
+| Request | Read next |
+| --- | --- |
+| Website, local delivery, shared Runtime, recovery or bounded engineering closure | [Website Current](static-web/CURRENT.md) |
+| Xizong content production | [Xizong mainline](content/xizong/CONTENT_MAINLINE.md), then its exact declared current owner/continuation authority |
+| English content or source boundary | [English Current](content/english/CURRENT.md) |
+| Politics content or source boundary | [Politics Current](content/politics/CURRENT.md) |
+| Vocabulary content production | [Lexical Current](content/lexical/CURRENT.md), then its exact declared continuation authority |
+| Operating permissions, task dispatch and executor boundary | [AGENTS](AGENTS.md) |
+| Ownership/inheritance conflict | [Authority contract](AUTHORITY_INHERITANCE_CONTRACT.md); [machine topology](AUTHORITY_OWNERSHIP.json) only when needed |
 
-| Program | State | Continue from |
-| --- | --- | --- |
-| Website / UI launch | **STEADY — final CSS ownership closure complete; Gate 5 engineering freeze** | `static-web/CURRENT.md` |
-| Xizong Content | **ACTIVE** | `content/xizong/CONTENT_MAINLINE.md` |
-| English Content | **STEADY** — no broad rebuild | `content/english/CURRENT.md` |
-| Politics Content | **STEADY** — reopen only concrete defects | `content/politics/CURRENT.md` |
-| Lexical backend Content | **ACTIVE — bounded Baseline-v2 re-validation; broad architecture rebuild remains closed** | `content/lexical/CURRENT.md` |
+For a known symptom, take the matching route directly. Read the latest exact owner/ref before reporting status or writing; do not infer completion from a historical PASS, a branch name or an old conversation.
 
-Website launch and Content improvement are independent unless an exact dependency says otherwise.
+## Architecture boundary
 
----
+Chat interprets, diagnoses and plans. GitHub preserves canonical content and durable rules. The website is the learner execution surface. Subject-native Runtime owns evidence semantics; private Runtime preserves learner facts and transports instructions/receipts. Codex executes a bounded approved task; background preparation stays quiet when it has no useful work.
 
-## Unified entrypoint
+Content production and website engineering are separate. Continuing vocabulary, Xizong explanations or Visual assets does not reopen the platform architecture. Broad subject/UI rebuilding remains closed unless a concrete defect or explicit new need justifies the smallest owner change.
 
-Natural language is enough:
+The website's accepted implementation, remaining interaction decisions and operational readback routes live only in [Website Current](static-web/CURRENT.md). Personal Project prompts, natural archive and cross-chat interpretation remain in Personal OS; do not mirror their state here.
 
-```text
-看看整个主线
-看看西综主线
-看看政治 UI
-英语现在做到哪
-```
+## Continuation and stop
 
-Control routes through the relevant owner chain and reads the latest exact cursor before reporting.
+A content route must lead to its one live continuation authority; historical Issues, PR comments and chat summaries are not fallback progress stores. Do not copy child status, remaining counts or next cursors into this root file.
 
-Typical Xizong Content path:
+Known-scope work should reach the responsible owner in two or three precise reads. Evidence collection can require further bounded reads; a routine request must not trigger repository archaeology or a full-system audit.
 
-```text
-root CURRENT
-→ content/xizong/CURRENT.md
-→ content/xizong/CONTENT_MAINLINE.md
-→ exact active CURRENT / continuation cursor
-```
+After a local repair, verify the affected interface and stop. Reopen for a real defect, new Source, platform change or explicit user need. Material visual/product decisions remain Kian's; live hosting and real learner-state mutation are separately authorized.
 
-Typical website path:
-
-```text
-root CURRENT
-→ static-web/CURRENT.md
-→ exact subject / surface owner
-```
-
-Task creation, persistence, active-ref freshness and artifact+cursor atomicity are operating rules owned by `AGENTS.md`; they are not duplicated here.
-
-Shared authority routing:
-- durable ownership / inheritance → `AUTHORITY_INHERITANCE_CONTRACT.md`;
-- machine owner topology → `AUTHORITY_OWNERSHIP.json`.
-
----
-
-## Cross-program status
-
-### Website / UI
-- English UI vertical: landed.
-- Lexical / Vocabulary learner surfaces: landed.
-- Xizong material learner UI: landed through whole-paper Hidden/Seal/Review.
-- Politics learner UI: landed through final Practice Human Gate (#470).
-- All material subject learner UI is landed; the final non-redesign UI/CSS ownership consolidation is complete.
-- Chat-owned Home, subject-owned durable evidence/typed Return reconciliation and the private checkpoint layer are landed. Post-CSS-closure Final Cross-subject Regression and Mac Visual Gate passed; broad website engineering is frozen.
-- Material Visual changes still require real-browser screenshot + Kian Human Gate before merge.
-
-Exact branch / PR / screenshot state belongs to `static-web/CURRENT.md` or the exact UI owner.
-
-### Content
-- Xizong is the only broad active Content program; its exact tasks/progress live in `content/xizong/CONTENT_MAINLINE.md` and child cursors.
-- English and Politics have no broad semantic rebuild active.
-- Lexical broad architecture rebuild/audit remains closed. A bounded **Baseline-v2 lexical content re-validation** is active under frozen module rules; after that, Lexical returns to evidence-triggered maintenance rather than periodic full-catalog rewriting.
-
-Do not copy System counts, batch counts, phase numbers, Crosswalk totals, or exact next actions into Root. Read them from their canonical cursor on demand.
-
----
-
-## Launch closure mainline
-
-Website launch now follows one fixed closure sequence:
-
-```text
-Gate 1  Subject Final Acceptance
-        Xizong / English / Politics fresh audits converge on truthful Current claims
-
-Gate 2  Shared Learner Data / Chat Handoff
-        Chat owns cross-subject strategy; typed plans/returns and private durable checkpoints close
-
-Gate 3  Home integration
-        Home consumes Chat plan + subject-owned Resume/evidence without inventing strategy
-
-Gate 4  Cross-subject final regression
-        Timer / Resume / sync / restart / handoff / three-subject switching prove one coherent runtime
-
-Gate 5  Launch / engineering freeze
-        broad website construction stops; reopen only concrete learner-visible defects
-```
-
-**Current state: Gates 1–5 are closed; Gate 5 engineering freeze is active.** Broad website construction stops here. Reopen only the smallest responsible owner for a concrete learner-visible or durability defect.
-
-This is a routing sequence, not a second progress dashboard. Exact subject findings stay in subject Current / Acceptance owners.
-
----
-
-## Control output
-
-For a whole-project status request, report only:
-
-```text
-Active programs
-Current stage
-Next durable action
-Real blocker
-Human Gate when relevant
-```
-
-Then drill down only when Kian selects a program/task.
-
----
-
-## Stop rule
-
-Root Control must remain small.
-
-Do not add:
-- domain learning rules;
-- Visual style rules;
-- engineering implementation rules;
-- product trees already owned elsewhere;
-- child progress snapshots;
-- exact task queues;
-- history / CI logs / branch archaeology.
-
-If Root needs those details to answer a request, route to the real owner and read them live.
+Keep this entry short. Git history and owner-local receipts retain old closures; do not add phase ladders, historical PASS narratives or a second global task registry.
