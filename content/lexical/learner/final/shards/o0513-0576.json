@@ -5,7 +5,7 @@
     "ordinal": 513,
     "word": "block",
     "source_owner_path": "content/lexical/words/by-ordinal/o0513.json",
-    "source_fingerprint": "10ec63bc707ff6248692aa632e84a5cc53fe410040107621b3b0c99c79b8bf2b",
+    "source_fingerprint": "ad4b7302442c8b07c9e0b673dd38cc513faa8d4d3fa65b948c0d64f5f37f44d8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -168,7 +168,29 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:block:final-standard-from-doing",
+        "source_locator": "record.constructions[0]",
+        "pattern": "block sb/sth from doing sth",
+        "lines": [
+          {
+            "text": "阻止某人/某物做某事",
+            "lang": "cn"
+          },
+          {
+            "text": "prevent someone or something from doing something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:block:final-standard-from-doing",
+          "target_locator": "record.constructions[0]",
+          "target_label": "block sb/sth from doing sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -275,12 +297,26 @@
     "ordinal": 515,
     "word": "blood",
     "source_owner_path": "content/lexical/words/by-ordinal/o0515.json",
-    "source_fingerprint": "8de4a830086d1c69e84d0967cef5b458f921a64d5486695aa0a4bca2f9011ed0",
-    "sense_lineage": [],
+    "source_fingerprint": "706897817fea3566f516230b57c4fc84b86a2c8d48db097a2f82bb61e1cd2c59",
+    "sense_lineage": [
+      {
+        "word_id": "word:blood",
+        "target_kind": "sense",
+        "from_target_id": "sense:blood:10c24950e9085c0a",
+        "status": "reference_only",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:blood",
+        "target_kind": "sense",
+        "from_target_id": "sense:blood:4c31cbd6799356b2",
+        "status": "reference_only",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
@@ -320,32 +356,6 @@
             "meaning_cn": "验血",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:694aa2e8f3c0892d7471",
-            "source_locator": "record.senses[0].collocations[2]",
-            "phrase": "bad blood",
-            "meaning_cn": "敌意或嫌隙",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:694aa2e8f3c0892d7471",
-              "target_locator": "record.senses[0].collocations[2]",
-              "target_label": "bad blood"
-            }
-          },
-          {
-            "id": "collocation:e19f1e10a672ed406284",
-            "source_locator": "record.senses[0].collocations[3]",
-            "phrase": "in cold blood",
-            "meaning_cn": "故意且冷酷无情地",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:e19f1e10a672ed406284",
-              "target_locator": "record.senses[0].collocations[3]",
-              "target_label": "in cold blood"
-            }
           }
         ],
         "repair": {
@@ -380,62 +390,53 @@
           "target_locator": "record.senses[1]",
           "target_label": "血统；家族"
         }
-      },
-      {
-        "id": "sense:blood:10c24950e9085c0a",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "气质；脾气",
-        "definition_en": "temperament or disposition",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:acd79b43127c13a64b62",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "hot blood",
-            "meaning_cn": "热血；冲动",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:blood:10c24950e9085c0a",
-          "target_locator": "record.senses[2]",
-          "target_label": "气质；脾气"
-        }
-      },
-      {
-        "id": "sense:blood:4c31cbd6799356b2",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "用血涂；使出血",
-        "definition_en": "to smear with blood, as in a hunting rite",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:3b7793fafb781f8f73e4",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "blood the hounds",
-            "meaning_cn": "让猎狗尝血",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:blood:4c31cbd6799356b2",
-          "target_locator": "record.senses[3]",
-          "target_label": "用血涂；使出血"
-        }
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:blood:final-standard-bad-blood",
+        "source_locator": "record.constructions[0]",
+        "pattern": "bad blood",
+        "lines": [
+          {
+            "text": "敌意；嫌隙；宿怨",
+            "lang": "cn"
+          },
+          {
+            "text": "hostility or ill feeling between people or groups",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:blood:final-standard-bad-blood",
+          "target_locator": "record.constructions[0]",
+          "target_label": "bad blood"
+        }
+      },
+      {
+        "id": "construction:blood:final-standard-in-cold-blood",
+        "source_locator": "record.constructions[1]",
+        "pattern": "in cold blood",
+        "lines": [
+          {
+            "text": "故意且冷酷无情地",
+            "lang": "cn"
+          },
+          {
+            "text": "deliberately and without emotion or mercy",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:blood:final-standard-in-cold-blood",
+          "target_locator": "record.constructions[1]",
+          "target_label": "in cold blood"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -571,11 +572,19 @@
     "ordinal": 517,
     "word": "bloom",
     "source_owner_path": "content/lexical/words/by-ordinal/o0517.json",
-    "source_fingerprint": "fba584616cdd66a9556da64713b9db2f7ad70f13a856520e60aa30ecba436507",
-    "sense_lineage": [],
+    "source_fingerprint": "4255eadceb97b8de13b63a23a17e46de16cdc06284a1859376c23b1d96bff833",
+    "sense_lineage": [
+      {
+        "word_id": "word:bloom",
+        "target_kind": "sense",
+        "from_target_id": "sense:bloom:8becddc5a8d35aff",
+        "status": "reference_only",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "3N"
       ],
       "density": "rich"
@@ -680,25 +689,8 @@
         }
       },
       {
-        "id": "sense:bloom:8becddc5a8d35aff",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使茂盛",
-        "definition_en": "to cause to bloom or flourish",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:bloom:8becddc5a8d35aff",
-          "target_locator": "record.senses[3]",
-          "target_label": "使茂盛"
-        }
-      },
-      {
         "id": "sense:bloom:59f4a8888835099d",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[3]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "（科学、生态）大量快速生长，尤指藻华",
@@ -708,7 +700,7 @@
         "usage": [
           {
             "id": "collocation:15f686ef0b13013cbcd7",
-            "source_locator": "record.senses[4].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "algal bloom",
             "meaning_cn": "藻华",
             "kind": "usage_example",
@@ -718,7 +710,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:bloom:59f4a8888835099d",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[3]",
           "target_label": "（科学、生态）大量快速生长，尤指藻华"
         }
       }
@@ -913,7 +905,7 @@
     "ordinal": 520,
     "word": "blow",
     "source_owner_path": "content/lexical/words/by-ordinal/o0520.json",
-    "source_fingerprint": "e832a1b67cea21a7e019e61c7b9842e4130fb2f89fe98f4988912fa1dbc59d2c",
+    "source_fingerprint": "2c18bc5036cb974e27b09ecb04ccf3f34bf42ce968cf7848aa0174870a3d1531",
     "sense_lineage": [
       {
         "word_id": "word:blow",
@@ -928,11 +920,18 @@
         "from_target_id": "sense:blow:e9612b994f165af0",
         "status": "merged",
         "to_target_id": "sense:blow:35cde6267fa6535f"
+      },
+      {
+        "word_id": "word:blow",
+        "target_kind": "sense",
+        "from_target_id": "sense:blow:f92d6932ac845999",
+        "status": "reference_only",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "3V",
+        "2V",
         "1N"
       ],
       "density": "rich"
@@ -1014,34 +1013,8 @@
         }
       },
       {
-        "id": "sense:blow:f92d6932ac845999",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vi. + (flower)",
-        "definition_cn": "开花",
-        "definition_en": "to produce flowers",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:25917e951ae8989b7d38",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "bloom and blow",
-            "meaning_cn": "开花",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:blow:f92d6932ac845999",
-          "target_locator": "record.senses[2]",
-          "target_label": "开花"
-        }
-      },
-      {
         "id": "sense:blow:35cde6267fa6535f",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "重击；打击、挫折或震惊",
@@ -1051,14 +1024,14 @@
         "usage": [
           {
             "id": "collocation:1d5e0561ccd77e33b67a",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "a blow to ...",
             "meaning_cn": "对…的打击",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:1d5e0561ccd77e33b67a",
-              "target_locator": "record.senses[3].collocations[0]",
+              "target_locator": "record.senses[2].collocations[0]",
               "target_label": "a blow to ..."
             }
           }
@@ -1066,7 +1039,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:blow:35cde6267fa6535f",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "重击；打击、挫折或震惊"
         }
       }
@@ -1094,7 +1067,33 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "blow → blew → blown.",
+        "boundaries": [
+          {
+            "surface": "blow",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "blew",
+            "condition": "past",
+            "note": "simple past"
+          },
+          {
+            "surface": "blown",
+            "condition": "past participle",
+            "note": "past participle"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "blow → blew → blown."
+        }
+      },
       "family": []
     }
   },
@@ -1748,7 +1747,7 @@
     "ordinal": 525,
     "word": "blur",
     "source_owner_path": "content/lexical/words/by-ordinal/o0525.json",
-    "source_fingerprint": "500debcbaf9e489d36e8ebb2f1aa1a4a27dd0f5173ace03954cf5afaba8a7805",
+    "source_fingerprint": "3fa974ddafe1b21dce32676ed362a8baefdd2f11fa9817d0b3fca8aa528553c7",
     "sense_lineage": [
       {
         "word_id": "word:blur",
@@ -1851,7 +1850,29 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:blur:final-standard-line-distinction",
+        "source_locator": "record.constructions[0]",
+        "pattern": "blur the line/distinction between A and B",
+        "lines": [
+          {
+            "text": "模糊 A 与 B 之间的界限/区别",
+            "lang": "cn"
+          },
+          {
+            "text": "make the boundary or distinction between two things less clear",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:blur:final-standard-line-distinction",
+          "target_locator": "record.constructions[0]",
+          "target_label": "blur the line/distinction between A and B"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -3017,7 +3038,7 @@
     "ordinal": 533,
     "word": "bolster",
     "source_owner_path": "content/lexical/words/by-ordinal/o0533.json",
-    "source_fingerprint": "080c3584dba24cbee4dfd67f7d4af5fd11fcf8a6346d304345c701ce4474706e",
+    "source_fingerprint": "c555f922b3f4c141474ba208c4892764005db30edee9bef44ffa31ab7c98fe9f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3124,25 +3145,7 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "bolster ↔ bolster ≈ strengthen/support",
-          "target_word": "bolster ≈ strengthen/support",
-          "lines": [
-            {
-              "text": "bolster in its abstract verb sense = support/strengthen, especially confidence, arguments, systems, positions, or prospects.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:c8ea0e1e535356c0f946",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "bolster ↔ bolster ≈ strengthen/support"
-          }
-        }
-      ],
+      "relations": [],
       "form": null,
       "family": []
     }
@@ -4795,7 +4798,7 @@
     "ordinal": 545,
     "word": "bore",
     "source_owner_path": "content/lexical/words/by-ordinal/o0545.json",
-    "source_fingerprint": "365fd1c6a4cd27ca911c70fc9ac610f82f9b5ab9ba13395206f746c0e438508c",
+    "source_fingerprint": "977f1adb9c4ead1a0124a2e5614343b4530c4ac6094e7b3219646457bd631d29",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4974,7 +4977,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "bore is both an independent lexeme (bore/drill) and the simple past of bear; bear's ordinary past participle is borne, while born is reserved for the passive birth expression.",
+        "boundaries": [
+          {
+            "surface": "bore",
+            "condition": "independent lexical noun/verb",
+            "note": "make someone bored; drill; technical noun"
+          },
+          {
+            "surface": "bore",
+            "condition": "past-tense form of bear",
+            "note": "bear → bore → borne/born"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "bore is both an independent lexeme (bore/drill) and the simple past of bear; bear's ordinary past participle is borne, while born is reserved for the passive birth expression."
+        }
+      },
       "family": []
     }
   },
@@ -4984,11 +5008,18 @@
     "ordinal": 546,
     "word": "born",
     "source_owner_path": "content/lexical/words/by-ordinal/o0546.json",
-    "source_fingerprint": "de3d65ac1c040f036ac7854901cc1b75d13d37bed760e38aaf387519f7140a86",
-    "sense_lineage": [],
+    "source_fingerprint": "620175e699697b2cb849b0711c87944577db666799cd67133d43d07f31f72194",
+    "sense_lineage": [
+      {
+        "word_id": "word:born",
+        "target_kind": "sense",
+        "from_target_id": "sense:born:b73cd5d340575169",
+        "status": "reference_only",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "1A"
       ],
       "density": "rich"
@@ -5050,63 +5081,35 @@
           "target_locator": "record.senses[0]",
           "target_label": "出生的；天生的"
         }
-      },
-      {
-        "id": "sense:born:b73cd5d340575169",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "bear的过去分词（用于被动结构）",
-        "definition_en": "past participle of bear (in passive constructions)",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:50b6132af68efdf314bf",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "was born",
-            "meaning_cn": "出生",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:50b6132af68efdf314bf",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "was born"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:born:b73cd5d340575169",
-          "target_locator": "record.senses[1]",
-          "target_label": "bear的过去分词（用于被动结构）"
-        }
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:38c792ff21200c68955c",
-        "source_locator": "record.constructions[0]",
-        "pattern": "born vs borne",
-        "lines": [
-          {
-            "text": "born is chiefly used for birth; borne is used for other past-participle senses of bear",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:38c792ff21200c68955c",
-          "target_locator": "record.constructions[0]",
-          "target_label": "born vs borne"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "bear → bore → borne/born; born is used in the passive birth expression be born, while borne is the ordinary past participle elsewhere.",
+        "boundaries": [
+          {
+            "surface": "born",
+            "condition": "passive birth expression",
+            "note": "be born"
+          },
+          {
+            "surface": "borne",
+            "condition": "ordinary past participle elsewhere",
+            "note": "including active birth uses such as has borne children"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "bear → bore → borne/born; born is used in the passive birth expression be born, while borne is the ordinary past participle elsewhere."
+        }
+      },
       "family": []
     }
   },
@@ -5116,7 +5119,7 @@
     "ordinal": 547,
     "word": "borrow",
     "source_owner_path": "content/lexical/words/by-ordinal/o0547.json",
-    "source_fingerprint": "5acbb417a6b6ed260df67526fd473ce73530463b6feec46d991d3614506c41f8",
+    "source_fingerprint": "a48fffa79c5a0ff83becd0830e63656e93de882bbfaa9ead784251738e8e4be2",
     "sense_lineage": [
       {
         "word_id": "word:borrow",
@@ -5197,28 +5200,36 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:2a07eb4db7d7bcd2669f",
-        "source_locator": "record.constructions[0]",
-        "pattern": "borrow vs lend",
-        "lines": [
-          {
-            "text": "borrow receives temporarily; lend gives temporarily",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:2a07eb4db7d7bcd2669f",
-          "target_locator": "record.constructions[0]",
-          "target_label": "borrow vs lend"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [],
+      "relations": [
+        {
+          "title": "borrow ↔ lend",
+          "target_word": "lend",
+          "lines": [
+            {
+              "text": "borrow means receive or take something temporarily; lend means give something temporarily. Use borrow sth from sb/sth vs lend sth to sb.",
+              "lang": "en"
+            },
+            {
+              "text": "borrow sth from sb/sth ↔ lend sth to sb",
+              "lang": "en"
+            },
+            {
+              "text": "borrow = 借入/拿来暂用；lend = 借出/给出去暂用。",
+              "lang": "cn"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:final-standard:borrow-lend:direction_boundary",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "borrow ↔ lend"
+          }
+        }
+      ],
       "form": null,
       "family": []
     }
@@ -5944,7 +5955,7 @@
     "ordinal": 553,
     "word": "bottom",
     "source_owner_path": "content/lexical/words/by-ordinal/o0553.json",
-    "source_fingerprint": "16a9922bcd204d4f60cc286a17d8c095d8bf1ee458fd628c37b9739accc38700",
+    "source_fingerprint": "43c848104f87792a7aeaf30db88455fe39d14f998d526aad4e1bb218f1281290",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5995,45 +6006,6 @@
             "meaning_cn": "海底",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:77e10b44a1808dd6b2af",
-            "source_locator": "record.senses[0].collocations[2]",
-            "phrase": "the bottom line",
-            "meaning_cn": "最重要的一点或最终结果；商业上的盈亏",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:77e10b44a1808dd6b2af",
-              "target_locator": "record.senses[0].collocations[2]",
-              "target_label": "the bottom line"
-            }
-          },
-          {
-            "id": "collocation:9a2e900274abec0655f7",
-            "source_locator": "record.senses[0].collocations[3]",
-            "phrase": "get to the bottom of sth",
-            "meaning_cn": "查明某事的真相",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:9a2e900274abec0655f7",
-              "target_locator": "record.senses[0].collocations[3]",
-              "target_label": "get to the bottom of sth"
-            }
-          },
-          {
-            "id": "collocation:67f927c03113d5ce43e3",
-            "source_locator": "record.senses[0].collocations[4]",
-            "phrase": "bottom out",
-            "meaning_cn": "降至最低点",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:67f927c03113d5ce43e3",
-              "target_locator": "record.senses[0].collocations[4]",
-              "target_label": "bottom out"
-            }
           }
         ],
         "repair": {
@@ -6136,7 +6108,71 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:bottom:final-standard-bottom-line",
+        "source_locator": "record.constructions[0]",
+        "pattern": "the bottom line",
+        "lines": [
+          {
+            "text": "最重要的一点；最终结果；商业上的盈亏",
+            "lang": "cn"
+          },
+          {
+            "text": "the most important point or final result, including a business profit/loss result",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:bottom:final-standard-bottom-line",
+          "target_locator": "record.constructions[0]",
+          "target_label": "the bottom line"
+        }
+      },
+      {
+        "id": "construction:bottom:final-standard-get-to-bottom",
+        "source_locator": "record.constructions[1]",
+        "pattern": "get to the bottom of sth",
+        "lines": [
+          {
+            "text": "查明某事真相/根本原因",
+            "lang": "cn"
+          },
+          {
+            "text": "discover the truth or underlying cause of something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:bottom:final-standard-get-to-bottom",
+          "target_locator": "record.constructions[1]",
+          "target_label": "get to the bottom of sth"
+        }
+      },
+      {
+        "id": "construction:bottom:final-standard-bottom-out",
+        "source_locator": "record.constructions[2]",
+        "pattern": "bottom out",
+        "lines": [
+          {
+            "text": "降至最低点后停止下降",
+            "lang": "cn"
+          },
+          {
+            "text": "reach the lowest point and stop falling",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:bottom:final-standard-bottom-out",
+          "target_locator": "record.constructions[2]",
+          "target_label": "bottom out"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6322,7 +6358,7 @@
     "ordinal": 555,
     "word": "bound",
     "source_owner_path": "content/lexical/words/by-ordinal/o0555.json",
-    "source_fingerprint": "5c3b00f43660b9efdbc73b5a666c10d546b800ced45cd00e3768338c6423c3d9",
+    "source_fingerprint": "05661b0d55e408a97dc41b02d41fc7d7564fe6b859a37a9a01ec84b73b905d0b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6549,12 +6585,54 @@
           "target_locator": "record.constructions[1]",
           "target_label": "be bound for + place"
         }
+      },
+      {
+        "id": "construction:bound:final-standard-by",
+        "source_locator": "record.constructions[2]",
+        "pattern": "be bound by sth",
+        "lines": [
+          {
+            "text": "受规则、协议、义务或关系约束",
+            "lang": "cn"
+          },
+          {
+            "text": "be constrained or obliged by a rule, agreement, duty, or tie",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:bound:final-standard-by",
+          "target_locator": "record.constructions[2]",
+          "target_label": "be bound by sth"
+        }
       }
     ],
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "bound is an independent lexical word and also the past/past participle of bind: bind → bound → bound.",
+        "boundaries": [
+          {
+            "surface": "bound",
+            "condition": "independent lexical adjective/noun/verb",
+            "note": "likely/certain, destination, limit, leap, etc."
+          },
+          {
+            "surface": "bound",
+            "condition": "past/past-participle form of bind",
+            "note": "bind → bound → bound"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "bound is an independent lexical word and also the past/past participle of bind: bind → bound → bound."
+        }
+      },
       "family": []
     }
   },
@@ -8571,7 +8649,7 @@
     "ordinal": 571,
     "word": "brass",
     "source_owner_path": "content/lexical/words/by-ordinal/o0571.json",
-    "source_fingerprint": "83618c86d88c5cc3ce029ec7e1bbda118dc9f46f8438f3d1fb98add0f297050e",
+    "source_fingerprint": "2928d2dfe99440ca18bdea31849f3608658332fa96585b37af76834c11e8f189",
     "sense_lineage": [
       {
         "word_id": "word:brass",
@@ -8616,19 +8694,6 @@
             "meaning_cn": "一尊黄铜雕像",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:b0db62fa547596131c8b",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "the top brass",
-            "meaning_cn": "高级官员或领导，尤指军队或大型组织",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:b0db62fa547596131c8b",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "the top brass"
-            }
           }
         ],
         "repair": {
@@ -8744,7 +8809,29 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:brass:final-standard-top-brass",
+        "source_locator": "record.constructions[0]",
+        "pattern": "top brass",
+        "lines": [
+          {
+            "text": "高级领导；最高层权威人士",
+            "lang": "cn"
+          },
+          {
+            "text": "senior leaders or people in the highest positions of authority",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:brass:final-standard-top-brass",
+          "target_locator": "record.constructions[0]",
+          "target_label": "top brass"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -8864,11 +8951,11 @@
     "ordinal": 573,
     "word": "breach",
     "source_owner_path": "content/lexical/words/by-ordinal/o0573.json",
-    "source_fingerprint": "1c86544b2aba751be782ebd8c3598645422b4e426bdb94df3c6028ec4847d206",
+    "source_fingerprint": "5fccd27334c825f3302d09e92a5aa95f432d69a9a5b71f6e5d88c668d3906b46",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V",
+        "3V",
         "2N"
       ],
       "density": "rich"
@@ -9013,10 +9100,49 @@
           "target_locator": "record.senses[3]",
           "target_label": "（鲸或海豚）跳出水面"
         }
+      },
+      {
+        "id": "sense:breach:4e80499186953496",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "vt. + law/rule/agreement/contract/security",
+        "definition_cn": "违反、违背（法律、规则、协议、合同或安全要求）",
+        "definition_en": "to violate or break a law, rule, agreement, contract, or security requirement",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:breach:4e80499186953496",
+          "target_locator": "record.senses[4]",
+          "target_label": "违反、违背（法律、规则、协议、合同或安全要求）"
+        }
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:breach:final-standard-in-breach-of",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be in breach of sth",
+        "lines": [
+          {
+            "text": "违反；违背（合同、规则、义务等）",
+            "lang": "cn"
+          },
+          {
+            "text": "be violating or failing to comply with a contract, rule, duty, or requirement",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:breach:final-standard-in-breach-of",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be in breach of sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -9175,7 +9301,7 @@
     "ordinal": 575,
     "word": "break",
     "source_owner_path": "content/lexical/words/by-ordinal/o0575.json",
-    "source_fingerprint": "fb5c0ab13553910db2f139ff84681b119af8c5df31463ce0f4fa1340d76a7f4c",
+    "source_fingerprint": "65d69ba3be9441d9fa2adace97c149fff0ff14253f5ac406544d18792f24dd6a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9502,7 +9628,33 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "break → broke → broken.",
+        "boundaries": [
+          {
+            "surface": "break",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "broke",
+            "condition": "past",
+            "note": "simple past"
+          },
+          {
+            "surface": "broken",
+            "condition": "past participle",
+            "note": "past participle"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "break → broke → broken."
+        }
+      },
       "family": []
     }
   },
