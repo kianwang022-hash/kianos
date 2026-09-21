@@ -1,7 +1,7 @@
 {
   "schema": "kianos.lexical.three_chat_board.v1",
   "status": "ACTIVE",
-  "updated_at": "2026-09-20",
+  "updated_at": "2026-09-22",
   "orchestration": "content/lexical/THREE_CHAT_RUNTIME.md",
   "trigger_aliases": {
     "词义A": "content/lexical/chat-roles/SEMANTIC_A.md",
@@ -32,43 +32,43 @@
     "p_behavior": "APPROVE_EXACT_SHOWN_DELTA__FREEZE_BACKLOG__IMMEDIATE_NEXT_PRODUCTION_BATCH"
   },
   "frontier": {
-    "accepted_main_head": "8268f595387a855d2fe048bb3245f121a1754446",
-    "current_candidate_id": "BF04",
+    "accepted_main_head": "7cfbd9d643d0bae59fb5237986d5c21b66e15c8e",
+    "current_candidate_id": "BF06",
     "range": [
-      401,
-      500
+      601,
+      700
     ],
-    "state": "MATERIALIZE_ALLOWED",
-    "candidate_pr": null,
-    "candidate_branch": "work/lexical-continuous-bf04-20260921",
-    "materialized_owner_read_head": null,
-    "note": "BF04 Production is frozen and human-approved. Latest main refreeze complete; materialization authorized."
+    "state": "MATERIALIZED_READY_FOR_FRESH_B",
+    "candidate_pr": 733,
+    "candidate_branch": "work/lexical-continuous-bf06-final-20260921",
+    "materialized_owner_read_head": "2511549e64347e1ea83601544ac2607dfb593867",
+    "note": "BF06 frozen Production has been materialized and refrozen on latest main. Fresh Independent B audit is the next semantic action; do not merge before B + reconciliation."
   },
   "audit_target": {
-    "state": "WAITING_CANDIDATE_MATERIALIZATION",
-    "candidate_id": "BF04",
+    "state": "READY_FOR_FRESH_B",
+    "candidate_id": "BF06",
     "range": [
-      401,
-      500
+      601,
+      700
     ],
-    "candidate_pr": null,
-    "candidate_branch": "work/lexical-continuous-bf04-20260921",
-    "candidate_owner_read_head": null,
-    "brief": null,
-    "output": "content/lexical/semantic-audit/O0401_O0500_FINAL_STANDARD_FRESH_AUDIT_PACK.md"
+    "candidate_pr": 733,
+    "candidate_branch": "work/lexical-continuous-bf06-final-20260921",
+    "candidate_owner_read_head": "2511549e64347e1ea83601544ac2607dfb593867",
+    "brief": "content/lexical/semantic-audit/O0601_O0700_FINAL_STANDARD_FRESH_AUDIT_BRIEF.md",
+    "output": "content/lexical/semantic-audit/O0601_O0700_FINAL_STANDARD_FRESH_AUDIT_PACK.md"
   },
   "lanes": {
     "A": {
-      "role": "FRONTIER_MATERIALIZATION_AND_RECONCILIATION",
+      "role": "FRONTIER_RECONCILIATION_AFTER_FRESH_B",
       "current_assignment": {
-        "candidate_id": "BF04",
+        "candidate_id": "BF06",
         "range": [
-          401,
-          500
+          601,
+          700
         ],
-        "state": "MATERIALIZE_ALLOWED",
-        "candidate_pr": null,
-        "next_action": "Apply frozen BF04 proposal against latest main; rebuild Final Learner Objects; closure-audit candidate."
+        "state": "WAITING_FRESH_B",
+        "candidate_pr": 733,
+        "next_action": "Fresh B audits PR #733. A must not self-audit; after Audit Pack, reconcile only bounded findings against latest main."
       },
       "bootstrap_integration": {
         "candidate_id": "BF00",
@@ -1590,17 +1590,31 @@
     }
   ],
   "last_closed": {
-    "candidate_id": "BF03",
+    "candidate_id": "BF05",
     "range": [
-      301,
-      400
+      501,
+      600
     ],
-    "pr": 672,
-    "merge_commit": "8268f595387a855d2fe048bb3245f121a1754446",
+    "pr": 688,
+    "merge_commit": "dd24ba9dad39bb6026d67860aec4e76228603c84",
     "result": "CLOSURE_AUDIT_RECONCILED_AND_MERGED",
     "final_learner_objects": 7946
   },
   "audit_queue": [
+    {
+      "candidate_id": "BF06",
+      "range": [
+        601,
+        700
+      ],
+      "candidate_pr": 733,
+      "candidate_branch": "work/lexical-continuous-bf06-final-20260921",
+      "candidate_head": "2511549e64347e1ea83601544ac2607dfb593867",
+      "brief": "content/lexical/semantic-audit/O0601_O0700_FINAL_STANDARD_FRESH_AUDIT_BRIEF.md",
+      "state": "READY_FOR_FRESH_B",
+      "priority": 1,
+      "note": "Fresh B audit is the only active lexical semantic review. Audit exactly one batch; stop after Audit Pack."
+    },
     {
       "candidate_id": "F1151_1250",
       "range": [
@@ -1611,39 +1625,10 @@
       "candidate_branch": "work/lexical-continuous-o1151-o1250",
       "candidate_head": "d3972636a131c3bd495c64bdcff26e3cfdef68b8",
       "brief": "content/lexical/semantic-audit/O1151_O1250_FRESH_INDEPENDENT_AUDIT_BRIEF.md",
-      "state": "DEFERRED_UNTIL_BF01_AUDIT_CLOSES",
+      "state": "DEFERRED_UNTIL_FINAL_BACKFILL_FRONTIER_ADVANCES",
       "priority": 99,
-      "note": "Intentionally deferred per current simple sequential route. Do not audit before BF01 materialization/audit starts.",
+      "note": "Preserved pre-freeze candidate. Do not preempt BF06 or remaining o0001-o1150 serialized final-backfill landings.",
       "previous_state": "READY_FOR_FRESH_B"
-    },
-    {
-      "candidate_id": "BF01",
-      "range": [
-        101,
-        200
-      ],
-      "candidate_pr": 618,
-      "candidate_branch": "work/lexical-continuous-bf01-20260920",
-      "brief": "content/lexical/semantic-audit/O0101_O0200_FINAL_STANDARD_FRESH_AUDIT_BRIEF.md",
-      "state": "READY_FOR_FRESH_B",
-      "priority": 1,
-      "note": "Materialized and ready. Fresh B audit is now the only active lexical semantic task.",
-      "previous_state": "WAITING_CANDIDATE_MATERIALIZATION",
-      "candidate_head": "2652aa1ae8172a7904d315d45f74ce6a90e20dee"
-    },
-    {
-      "candidate_id": "BF02",
-      "range": [
-        201,
-        300
-      ],
-      "candidate_pr": 528,
-      "candidate_branch": "work/lexical-final-backfill-c-o0201-o0300",
-      "brief": null,
-      "state": "PAUSED_DURING_PRODUCTION_SWEEP",
-      "priority": 3,
-      "note": "Production proposal exists but canonical candidate is not yet materialized.",
-      "previous_state": "WAITING_FRONTIER_MATERIALIZATION"
     }
   ],
   "campaign_phase": "MATERIALIZATION_AND_AUDIT",
@@ -1758,23 +1743,19 @@
     "entered_at": "2026-09-20",
     "from": "PRODUCTION_SWEEP_COMPLETE__AWAITING_PHASE_TRANSITION",
     "to": "MATERIALIZATION_AND_AUDIT",
-    "rule": "One serialized canonical write frontier at a time. Current frontier BF01 o0101-o0200. No broad semantic reopening under FINAL_SEMANTIC_FREEZE v1."
+    "rule": "One serialized canonical write frontier at a time. Current frontier BF06 o0601-o0700. Fresh B audit PR #733 next; no broad semantic reopening under FINAL_SEMANTIC_FREEZE v1."
   },
   "materialization_progress": {
-    "candidate_id": "BF01",
+    "candidate_id": "BF06",
     "status": "MATERIALIZED_READY_FOR_FRESH_B",
-    "candidate_pr": 618,
-    "receipts": [
-      "BF01-MAT-REL-20260920",
-      "BF01-MAT-WORDA-20260920",
-      "BF01-MAT-WORDB-20260920",
-      "BF01-MAT-TEST-20260920"
-    ],
+    "candidate_pr": 733,
+    "semantic_candidate_head": "2511549e64347e1ea83601544ac2607dfb593867",
+    "latest_main_refreeze": "7cfbd9d643d0bae59fb5237986d5c21b66e15c8e",
     "final_learner_objects": 7946,
     "final_shards": 125,
     "repair_test_blueprints": {
-      "before": 48,
-      "after": 25
+      "before": 43,
+      "after": 18
     },
     "blocked": 0
   }
