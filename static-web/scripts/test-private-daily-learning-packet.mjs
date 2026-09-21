@@ -1,4 +1,6 @@
 import assert from 'node:assert/strict';
+import {inspectEnglishCheckpoint,restoreEnglishCheckpoint,inspectEnglishAttempt} from '../src/lib/englishLearnerEvidence.mjs';
+import {englishAttemptInventory} from '../src/lib/englishSessionControl.mjs';
 import {
   EXAM_PROFILE_KEY,
   emptyExamProfile
@@ -342,6 +344,41 @@ assert.equal(packet.schedule.phase.id,'A');
 assert.equal(packet.subjects.xizong.plan.role,'主推');
 assert.equal(result.source_checkpoint_id,'daily-packet-proof');
 
+
+// Known pre-binding data remains byte-preserved but cannot become current evidence.
+const legacyEntries={
+ 'kianos-reading-attempt-v1:legacy-reading':JSON.stringify({version:3,answers:{},results:{},history:[],submitted:false,sourceHash:'current-looking'}),
+ 'kianos-cloze-attempt-v1:legacy-cloze':JSON.stringify({schema:'kianos.english.cloze_attempt.v1',objectId:'legacy-cloze',answers:{},results:{},submitted:false}),
+ 'kianos-translation-attempt-v2:legacy-translation':JSON.stringify({version:2,stage:'attempt',drafts:{},firstAttempts:{},history:[],reconstructions:[]}),
+ 'kianos-writing-runtime-v1:legacy-writing':JSON.stringify({version:1,schema:'kianos.english.writing.runtime.v1',taskId:'legacy-writing',state:'ATTEMPT',draftEssay:'preserve this draft',history:[],repairHistory:[]})
+};
+const legacyPayload={schema:'kianos.english.private-payload.v1',entries:legacyEntries};
+assert.equal(inspectEnglishCheckpoint(legacyPayload).status,'legacy-unverified');
+assert.equal(inspectEnglishCheckpoint(legacyPayload).unverified_keys.length,4);
+const legacyStorage=new MemoryStorage();
+restoreEnglishCheckpoint(legacyStorage,legacyPayload);
+for(const [key,raw] of Object.entries(legacyEntries))assert.equal(legacyStorage.getItem(key),raw);
+const inventory=englishAttemptInventory(legacyStorage,[{task:'reading_a',object_id:'legacy-reading',source_hash:'current-looking'}]);
+assert.ok(inventory.every(row=>row.data_status==='legacy_unverified'&&row.source_current===false&&!row.complete));
+assert.ok(englishAttemptInventory(legacyStorage).every(row=>row.source_current===false));
+assert.throws(()=>inspectEnglishAttempt(legacyStorage,Object.keys(legacyEntries)[0],{task:'reading_a',object_id:'legacy-reading',source_hash:'current-looking'}),/LEGACY_SOURCE_UNVERIFIED/);
+const legacyCheckpoint=structuredClone(checkpoint);
+Object.assign(legacyCheckpoint.payload.subjects.english.entries,legacyEntries);
+const legacyPacket=buildDailyLearningPacketFromPrivateCheckpoint(legacyCheckpoint,{now,englishCatalog});
+assert.ok(legacyPacket.packet.learner_evidence_basis);
+assert.equal(legacyPacket.packet.subjects.english.evidence.resume.object_id,'reading-current-001');
+assert.equal(legacyPacket.warnings.some(row=>row.startsWith('checkpoint:')),false);
+const conflictedLegacyCheckpoint=structuredClone(legacyCheckpoint);
+conflictedLegacyCheckpoint.payload.shared.capture_warnings=['checkpoint:shared:PRIVATE_CHECKPOINT_LOCAL_BASE_CONFLICT'];
+const conflictedLegacyPacket=buildDailyLearningPacketFromPrivateCheckpoint(conflictedLegacyCheckpoint,{now,englishCatalog});
+assert.equal(conflictedLegacyPacket.packet.learner_evidence_basis,null,'transport compatibility must not erase an unresolved browser/durable conflict');
+for(const bad of ['{','null','{}',JSON.stringify({...JSON.parse(legacyEntries[Object.keys(legacyEntries)[0]]),binding:{}})]){
+ assert.equal(inspectEnglishCheckpoint({...legacyPayload,entries:{[Object.keys(legacyEntries)[0]]:bad}}).status,'corrupt-retained');
+}
+assert.equal(inspectEnglishCheckpoint({...legacyPayload,entries:{'kianos-english-attempt-archive-v1:unknown':Object.values(legacyEntries)[0]}}).status,'corrupt-retained');
+const divergent=new MemoryStorage({...legacyEntries,[Object.keys(legacyEntries)[0]]:'local unique raw'});
+restoreEnglishCheckpoint(divergent,legacyPayload,{keepLocal:true});
+assert.equal(divergent.getItem(Object.keys(legacyEntries)[0]),'local unique raw');
 
 const isolatedCheckpoint=structuredClone(checkpoint);
 isolatedCheckpoint.payload.subjects.lexical={schema:'broken.lexical',entries:{bad:'{'}};

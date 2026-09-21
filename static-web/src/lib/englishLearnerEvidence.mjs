@@ -252,6 +252,15 @@ export function markEnglishAssistance(storage,task,objectId,now=Date.now()){
 
 const ENGLISH_KEYS=/^kianos-(?:reading-(?:attempt|session|continuous|last-location)|cloze-(?:attempt|last-location)|reading-b-(?:attempt|last-location)|translation-(?:attempt|transfer|last-location)|writing-(?:runtime|evidence|last-location)|english-(?:exam|session|objective|material|attempt|external-reading))/;
 export function englishCheckpointKeyAllowed(key){return ENGLISH_KEYS.test(String(key||''));}
+// Pre-binding records are transportable historical evidence, never verified Source facts.
+function legacyEnglishCheckpointValue(key,value){
+ if(!record(value)||Object.hasOwn(value,'binding'))return false;
+ if(key.startsWith(ATTEMPT_PREFIXES.reading_a))return value.version===3&&record(value.answers)&&record(value.results)&&Array.isArray(value.history)&&typeof value.submitted==='boolean';
+ if(key.startsWith(ATTEMPT_PREFIXES.cloze))return value.schema==='kianos.english.cloze_attempt.v1'&&value.objectId===key.slice(ATTEMPT_PREFIXES.cloze.length)&&record(value.answers)&&record(value.results)&&typeof value.submitted==='boolean';
+ if(key.startsWith(ATTEMPT_PREFIXES.translation))return value.version===2&&typeof value.stage==='string'&&record(value.drafts)&&record(value.firstAttempts)&&Array.isArray(value.history)&&Array.isArray(value.reconstructions);
+ if(key.startsWith(ATTEMPT_PREFIXES.writing))return value.version===1&&value.schema==='kianos.english.writing.runtime.v1'&&value.taskId===key.slice(ATTEMPT_PREFIXES.writing.length)&&typeof value.state==='string'&&typeof value.draftEssay==='string'&&Array.isArray(value.history)&&Array.isArray(value.repairHistory);
+ return false;
+}
 function nativeCheckpointValue(key,raw){
  const value=JSON.parse(raw);
  if(key===ENGLISH_MATERIAL_EXPOSURE_KEY)readEnglishExposure({getItem:()=>raw});
@@ -259,7 +268,7 @@ function nativeCheckpointValue(key,raw){
  if(rowsKey&&(!record(value)||!Array.isArray(value[rowsKey])))throw new Error('ENGLISH_NATIVE_LEDGER_UNREADABLE');
  if(key==='kianos-english-exam-session-v1'||key.startsWith('kianos-english-exam-archive-v1:'))return validateEnglishExamSession(value);
  if(Object.values(ATTEMPT_PREFIXES).some(prefix=>key.startsWith(prefix))||key.startsWith(archivePrefix)){
-  if(!record(value)||!record(value.binding)||!value.binding.attempt_id||!value.binding.source_hash)throw new Error('ENGLISH_ATTEMPT_IDENTITY_UNVERIFIED');
+  if(!legacyEnglishCheckpointValue(key,value)&&(!record(value)||!record(value.binding)||!value.binding.attempt_id||!value.binding.source_hash))throw new Error('ENGLISH_ATTEMPT_IDENTITY_UNVERIFIED');
  }
  return value;
 }
@@ -271,9 +280,10 @@ function checkpointEntries(payload){
  return payload.entries;
 }
 export function inspectEnglishCheckpoint(payload){
- const entries=checkpointEntries(payload),corruptKeys=[],retired=[];
+ const entries=checkpointEntries(payload),corruptKeys=[],unverifiedKeys=[],retired=[];
  for(const [key,raw] of Object.entries(entries)){
   let value;try{value=nativeCheckpointValue(key,raw);}catch{corruptKeys.push(key);continue;}
+  if(legacyEnglishCheckpointValue(key,value))unverifiedKeys.push(key);
   if(key.startsWith(examArchivePrefix)&&key===examArchivePrefix+value.session_id)retired.push({
    current_key:'kianos-english-exam-session-v1',session_id:value.session_id,source_hash:value.source_hash,
    archived_revision:value.revision,archive_key:key
@@ -287,8 +297,8 @@ export function inspectEnglishCheckpoint(payload){
   }
  }
  return {
-  status:corruptKeys.length?'corrupt-retained':Object.keys(entries).length?'valid':'absent',
-  corrupt_keys:corruptKeys,retired_current:retired,absence_is_deletion:false
+  status:corruptKeys.length?'corrupt-retained':unverifiedKeys.length?'legacy-unverified':Object.keys(entries).length?'valid':'absent',
+  corrupt_keys:corruptKeys,unverified_keys:unverifiedKeys,retired_current:retired,absence_is_deletion:false
  };
 }
 export function exportEnglishCheckpoint(storage){

@@ -557,13 +557,13 @@ export function englishAttemptInventory(storage, catalog = null) {
     for(const [task,prefix] of Object.entries(prefixes)){
       if(!key?.startsWith(prefix))continue;
       const value=readJson(storage,key);if(!value) {rows.push({task,object_id:key.slice(prefix.length),data_status:'unreadable'});continue;}
-      rows.push({task,object_id:key.slice(prefix.length),source_hash:value.sourceHash||value.binding?.source_hash||null,attempt_id:value.attemptId||value.binding?.attempt_id||null,submitted:value.submitted===true,stage:value.stage||value.state||null,problem_count:problemCount(value),started_at:value.startedAt||value.createdAt||null,submitted_at:value.firstSubmittedAt||value.submittedAt||null,updated_at:value.updatedAt||value.saved_at||null,prior_exposure:value.binding?.prior_exposure||'unknown',assistance:value.binding?.assistance||'unknown',task_form:task==='reading_b'?(clean(value?.binding?.source_snapshot?.context?.taskForm||value?.binding?.source_snapshot?.context?.task_form,80)||null):null,complete:englishStepIsComplete(storage,{task,object_id:key.slice(prefix.length),source_hash:value.binding?.source_hash}),first_evidence:value.firstEvidenceMeta||null});
+      rows.push({task,data_status:value.binding?.attempt_id&&value.binding?.source_hash?'bound':'legacy_unverified',object_id:key.slice(prefix.length),source_hash:value.sourceHash||value.binding?.source_hash||null,attempt_id:value.attemptId||value.binding?.attempt_id||null,submitted:value.submitted===true,stage:value.stage||value.state||null,problem_count:problemCount(value),started_at:value.startedAt||value.createdAt||null,submitted_at:value.firstSubmittedAt||value.submittedAt||null,updated_at:value.updatedAt||value.saved_at||null,prior_exposure:value.binding?.prior_exposure||'unknown',assistance:value.binding?.assistance||'unknown',task_form:task==='reading_b'?(clean(value?.binding?.source_snapshot?.context?.taskForm||value?.binding?.source_snapshot?.context?.task_form,80)||null):null,complete:englishStepIsComplete(storage,{task,object_id:key.slice(prefix.length),source_hash:value.binding?.source_hash}),first_evidence:value.firstEvidenceMeta||null});
     }
   }
   return rows.map(row=>{
     const owner=Array.isArray(catalog)?catalog.find(item=>item.task===row.task&&item.object_id===row.object_id):null;
     return {...row,current_source_hash:owner?.source_hash||null,
-      source_current:Array.isArray(catalog)?Boolean(owner?.source_hash&&owner.source_hash===row.source_hash):null};
+      source_current:row.data_status!=='bound'?false:Array.isArray(catalog)?Boolean(owner?.source_hash&&owner.source_hash===row.source_hash):null};
   }); // Historical first evidence stays intact; Current eligibility is a read projection.
 }
 
