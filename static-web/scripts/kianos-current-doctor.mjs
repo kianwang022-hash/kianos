@@ -18,6 +18,8 @@ const mainRemoteRef = ['refs', 'heads', 'main'].join('/');
 
 const rows = [];
 let failed = false;
+const jsonOutput = process.argv.includes('--json');
+const startedAt = new Date().toISOString();
 
 const record = (level, labelText, detail = '') => {
   rows.push({ level, label: labelText, detail });
@@ -90,8 +92,10 @@ async function waitForMirrorSha(gitBin, targetSha) {
   return current;
 }
 
-console.log('KianOS Current Doctor');
-console.log('=====================');
+if (!jsonOutput) {
+  console.log('KianOS Current Doctor');
+  console.log('=====================');
+}
 
 if (process.platform !== 'darwin') {
   record('FAIL', 'macOS runtime', `detected ${process.platform}`);
@@ -239,6 +243,24 @@ if (siteOk) {
   } else {
     record('WARN', 'External Reading private source', external.error || `HTTP ${external.status} · ${external.value?.status || external.value?.error || 'not ready'}`);
   }
+}
+
+const report = {
+  schema: 'kianos.current-doctor.v1',
+  generated_at: new Date().toISOString(),
+  started_at: startedAt,
+  ready: !failed,
+  base_url: base + '/',
+  mirror_dir: mirrorDir,
+  private_dir: privateDir,
+  local_sha: localSha || null,
+  remote_sha: remoteSha || null,
+  rows
+};
+
+if (jsonOutput) {
+  console.log(JSON.stringify(report));
+  process.exit(failed ? 1 : 0);
 }
 
 console.log('');

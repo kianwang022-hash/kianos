@@ -12,6 +12,7 @@ on:
       - 'static-web/scripts/kianos-current-backup.mjs'
       - 'static-web/scripts/kianos-current-restore.mjs'
       - 'static-web/scripts/test-current-real-use-readiness.mjs'
+      - 'static-web/scripts/test-current-doctor-json.mjs'
       - 'static-web/scripts/test-current-backup.mjs'
       - 'static-web/scripts/test-current-restore.mjs'
       - '.github/workflows/current-real-use-readiness.yml'
@@ -55,5 +56,6 @@ jobs:
       - name: Verify real-use startup contract
         run: |
           node scripts/test-current-real-use-readiness.mjs
+          node scripts/test-current-doctor-json.mjs
           node scripts/test-current-backup.mjs
           node scripts/test-current-restore.mjs
