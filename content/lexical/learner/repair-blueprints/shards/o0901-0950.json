@@ -27,25 +27,6 @@
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
-      "blueprint_id": "repair-blueprint:o0906:come:v1",
-      "word_id": "word:come",
-      "ordinal": 906,
-      "word": "come",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分 come up with / across / about / into effect / into being。",
-      "decision_boundary_cn": "particle 和抽象终点决定分支。",
-      "distractor_policy_cn": "只使用真实邻近义项、构式、形式或跨词边界作干扰；选项自然，不靠长度或生僻度排除。",
-      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
-      "minimum_repair_cn": "只修高价值 come constructions。",
-      "reconstruction_rule_cn": "换想法、偶遇、政策生效和组织成立语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
       "blueprint_id": "repair-blueprint:o0911:command:v1",
       "word_id": "word:command",
       "ordinal": 911,
@@ -62,25 +43,6 @@
       "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
       "minimum_repair_cn": "只修 command 的结构分支。",
       "reconstruction_rule_cn": "换军令、语言掌握和演讲语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0918:commission:v1",
-      "word_id": "word:commission",
-      "ordinal": 918,
-      "word": "commission",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分佣金、委员会、正式委托与 in/out of commission。",
-      "decision_boundary_cn": "商业费用、组织、授权和设备状态决定。",
-      "distractor_policy_cn": "只使用真实邻近义项、构式、形式或跨词边界作干扰；选项自然，不靠长度或生僻度排除。",
-      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
-      "minimum_repair_cn": "只修 commission 多义。",
-      "reconstruction_rule_cn": "换销售、艺术委托和设备故障语境。",
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
@@ -108,16 +70,16 @@
       "ordinal": 929,
       "word": "commute",
       "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
+        "target_kind": "collocation",
+        "target_id": "collocation:commute:baseline-v2-sentence",
+        "target_locator": "record.senses[2].collocations[0]"
       },
       "demand": "discrimination",
-      "diagnostic_intent_cn": "区分通勤与法律上的 commute a sentence。",
-      "decision_boundary_cn": "home-work travel vs legal sentence context。",
+      "diagnostic_intent_cn": "稳定识别法律语境 commute a sentence = 减轻刑罚。",
+      "decision_boundary_cn": "home-work travel → 通勤；legal sentence context → 减刑。",
       "distractor_policy_cn": "只使用真实邻近义项、构式、形式或跨词边界作干扰；选项自然，不靠长度或生僻度排除。",
       "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
-      "minimum_repair_cn": "只修熟词生义。",
+      "minimum_repair_cn": "只修 commute a sentence 法律分支。",
       "reconstruction_rule_cn": "换每日通勤与减刑语境。",
       "concrete_instance_policy": "GENERATE_FRESH"
     },
