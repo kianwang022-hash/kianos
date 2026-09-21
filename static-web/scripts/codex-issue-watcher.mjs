@@ -274,6 +274,31 @@ try {
   let durableReceipt = issueChanged || issueClosed || branchExists || prExists;
   let receiptFallback = false;
 
+  if (execution.status !== 0 && !durableReceipt) {
+    const failureStdout = String(execution.stdout || '').trim().slice(-8000);
+    const failureStderr = String(execution.stderr || '').trim().slice(-8000);
+    const failureBody = [
+      'BLOCKED — AUTO_EXECUTION_FAILED',
+      '',
+      'The local zero-model watcher automatically selected this Issue, but Codex exited non-zero.',
+      'No Issue update/close, codex branch, or PR was observed from the executor.',
+      '',
+      'exit_code: ' + execution.status,
+      'watcher_model: ' + (process.env.KIANOS_CODEX_WATCHER_MODEL || 'gpt-5.6-terra'),
+      'watcher_effort: ' + (process.env.KIANOS_CODEX_WATCHER_EFFORT || 'medium'),
+      failureStdout ? '\n--- executor stdout (tail) ---\n' + failureStdout : '',
+      failureStderr ? '\n--- executor stderr (tail) ---\n' + failureStderr : ''
+    ].filter(Boolean).join('\n');
+    const failureReceipt = run(gh, [
+      'issue', 'comment', String(selected.number), '--repo', repoFullName,
+      '--body', failureBody
+    ], { allowFail: true });
+    if (failureReceipt.status === 0) {
+      durableReceipt = true;
+      finalIssue = refreshIssue();
+    }
+  }
+
   if (execution.status === 0 && !durableReceipt) {
     const executorOutput = String(execution.stdout || '').trim().slice(-12000);
     const fallbackBody = executorOutput
