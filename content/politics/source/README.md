@@ -24,6 +24,36 @@ Canonical recovery input remains `source_node_registry.v2.jsonl` during migratio
 
 Stable source-node identity determines the smallest practical source partition. Exact Chengfeng owners such as `POL27-CF-MARX-C02-K03` therefore resolve to one chapter-scoped shard instead of requiring a 21 MB registry scan.
 
+### Source-node fidelity admission
+
+Raw Source bytes / OCR truth and learner admission are deliberately separate:
+
+```text
+raw monolith + lossless shard
+→ raw verification_status
+→ Source-owned fidelity classification
+→ learner-admission gate
+→ Runtime / Practice / Review
+```
+
+Current classification override owner:
+
+`nodes/fidelity-overrides.v1.json`
+
+Its role is **classification only**. It may downgrade a known misclassified node without rewriting raw OCR text or breaking monolith↔shard parity.
+
+Rules:
+
+- `source_bound_ocr_needs_review` is never learner-admissible merely because text exists.
+- known misclassified rows may be downgraded by exact stable node ID through the override owner;
+- missing / pending / unknown / invalid fidelity status fails closed;
+- blocked source text may not enter Runtime source prose, Practice exact locator matching, first-attempt `source_context`, Review, Repair or Memory grounding;
+- safe siblings may remain usable when one descendant is blocked;
+- source ID / Natural Unit / original-iPad locator fallback may remain available even when OCR text is blocked;
+- Runtime must never infer “verified” from `Boolean(text)`.
+
+Shard parity proves faithful projection of raw Source Truth. It does **not** prove that every OCR row is safe learner truth.
+
 ## Migration contract
 
 `content/politics/tools/build-source-shards.mjs` is the only generator for these projections.
