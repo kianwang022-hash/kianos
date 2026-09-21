@@ -1,101 +1,74 @@
-# English Acceptance — L2 native bounded repair, not closure
+# English Acceptance — L2 native continuation
 
-```text
-L2_ENGLISH_NATIVE_CLOSURE_READY = NO
-SYSTEM_LOGIC_ACCEPTED = NOT YET
-```
+Status: unaccepted repair candidate; not main acceptance or a whole-system verdict.
 
-## Basis and provenance
+## Immutable basis
 
-Repository: `kianwang022-hash/kianos`. Main was re-read at `7cfbd9d643d0bae59fb5237986d5c21b66e15c8e`; #640 remained open/draft at `418c8a24607d5708c6fbd5dac1f7828e199c61b7`. This native repair is based on that exact candidate; it is not a wholesale landing to main.
+Continuation starts at #731 `b7156e23d5d59c0e5f4331cb5ed47ac8223709b7`; runtime repair was `4ac753348532dda48bfe9d86edbe25bd3895ecde`. #640 base remains `418c8a24607d5708c6fbd5dac1f7828e199c61b7`; main re-read `7cfbd9d643d0bae59fb5237986d5c21b66e15c8e`. Prior accepted #498/baseline boundaries are not revoked. Previous complete receipt remains in this path at the continuation base.
 
-The latest independent audit result could not be bound in the checked Current/PR/acceptance route. `ENGLISH_HIGHEST_MATURITY_FRESH_AUDIT.md` is explicitly Fresh #4 against `7e83a256ea15e6617d44268c9958a52e3a7b25bb`. It is NOT substituted for the newer independent result in Kian's instructions. The present work is a seeded, non-independent reproduction/repair pass.
+Kian explicitly continued exposure alias/history, E4, latest audit binding, Astra M4 Source-version Resume and M3 native interface regression. This is a seeded builder repair, not independent acceptance.
 
-The previously released #498 acceptance and later accepted baseline work are not revoked. Their full historical English acceptance is preserved in this same path at `418c8a24607d5708c6fbd5dac1f7828e199c61b7`; it must not be relabeled as L2 closure.
+## Latest independent audit binding
 
-## Reproduced on the exact candidate
+UNBOUND. Re-read #640/#731 full PR discussion, #731 Current/Acceptance, L1 #728/#732 handoff and Personal Current/final Charter route. No newer independent English Final Convergence result or full Astra M3/M4 audit artifact was returned. The known `ENGLISH_HIGHEST_MATURITY_FRESH_AUDIT.md` at #640 is Fresh #4 against `7e83a256ea15e6617d44268c9958a52e3a7b25bb`, not the latest reported result. Do not replace that missing receipt with this test suite or user-reported seeds.
 
-Exact local source blobs matched GitHub:
+A separate real native interface requirement IS bound: #731 comment 5763246833 from L1. It requests absent/valid/corrupt-retained/intentional-retirement distinctions at the existing English native boundary. That comment is an interface handoff, not the missing independent audit.
 
-- `englishExamSession.mjs`: `6098ede16f9448bb53ba862e6c76b218548e4cc7`
-- `englishLearnerEvidence.mjs`: `9511c5a59ecb21ff40472638e0f7f41c6ab52b41`
-- `englishSemanticSourceIdentity.mjs`: `81d0c28bb812cd85c3ed3041a951ea8ab0d3eabd`
+## What was simplified and repaired
 
-Node synthetic/in-memory execution reproduced null/empty/boolean/array scores becoming zero, corrupt Objective points becoming zero, old sealed-session release replacing a newer session, ordinal/whitespace identity bypass, and corrupt Whole Paper export/restore/new-attempt deadlock. It also reproduced `SCORED` without productive evidence and corrupt exposure/assistance becoming LOW_CONTAMINATION. First-answer immutability, old-attempt Source mismatch rejection and unknown exposure staying non-transfer held in the control fixtures.
+Exposure uses one browser-safe normalized primary-content recipe, reused by the existing server SHA function. New identities carry `e2:` in the existing hash field; no schema registry or migration ledger exists. Existing stored first-output snapshots/archives bridge old hashes. Display ordinals, whitespace and role metadata do not mint unseen material. Incomplete legacy snapshots or declaration-only exposure without reconstructible identity stay UNKNOWN; ordinary practice still works and cannot claim clean transfer. Prior exposed statements remain events in the existing exposure owner when their current declaration is superseded. First snapshots and attempt identity cannot be rewritten.
 
-Forecast zero-unit demand masking and duplicate-count certification were identified in current source. The replacement model is tested directly; this statement does not pretend a full original-Forecast module execution or an old CI PASS was newly run.
+Reading previously replaced the projected paragraphs AFTER hashing. It now rebinds identity after the final learner-visible projection. Delivered context/candidates are included in exact revision identity; semantic/exposure identity remains separate. No canonical exam source text was changed.
 
-## Bounded repairs in this write-set
+Native Resume checks Current source identity, not just study day. The packet preserves historical source hashes, marks outdated source evidence explicitly and excludes it from current-revision performance telemetry. Missing catalogue is not proof of current/executable Source. The existing Resume surface offers an explicit current-source continuation, refreshing the existing catalogue endpoint and comparing exact local bytes before archiving old output. It does not manufacture a learner attempt, score, new ordering or shared plan. The new workspace establishes its own new attempt; old tabs cannot resurrect a retired attempt.
 
-Strict score/data checks retain legitimate zero; corrupt answers do not become blank. Durable Whole Paper validation requires objective arithmetic, productive constituents and integrated arithmetic to agree. Nonzero productive scoring requires actual sealed output. Session/source facts and frozen captures cannot be rewritten, and a returning old session cannot replace a newer active slot.
+E4's one-step/10-point pretend paper is replaced with a real synthetic nine-step/100-point/180-minute paper built through native start/capture/seal functions. Its contamination and parent/constituent assertions remain. Runtime geometry is unchanged.
 
-Native Whole Paper evidence export now includes the existing Forecast-input shape projected from actual scored state, with exact session/source/revision. Typed browser evidence remains diagnostic; this produces neither formal paper calibration nor missing workload.
+Native checkpoint export now retains raw corrupt bytes with derived integrity information. Intentional retirement is inferred only from the actual existing archive with matching attempt/source/revision, never from absence. Restore suppresses the retired old current attempt, preserves a different/newer local attempt, rejects conflicting archive authority and rolls back a failed partial write. This is the native adapter boundary, not shared recovery orchestration or a second backup system.
 
-Forecast was collapsed to input calculations: no `full_scope_priced`, `BACKTESTED` status, sample-count confidence/readiness certification, hard-coded information priorities or selected next evidence. Required zero placeholders do not resolve BUILD/open demand. Duplicate canonical observations count once; conflicts and unusable observations remain visible. Capacity shocks and incomplete scope cannot be hidden by zero.
+English's Lexical bridge checks native ledger shape before the permissive Lexical reducer can normalize malformed events to an empty ledger. Missing remains missing; corrupt remains UNKNOWN. Existing Current-target resolver, exact demand, replay and atomic-return guards remain; Recognition cannot discharge Production. No Lexical learning-policy file was modified.
 
-## Executed proof and limits
+## Executed local proof
 
-Commands (no protected source or real learner storage required):
+Exact native inputs were exported by read-only CI from `7a0bf0c4590698d9d9dd6a9e6f1125c1889da1fa`; 47 input source blobs were verified against Git's immutable blob identities before local execution. The temporary input workflow is removed by this repair; it is not a permanent worker.
 
 ```sh
 node static-web/scripts/validate-english-native-closure.mjs
+# 69 PASS; bounded repair only, native_closure_ready=false
+node static-web/scripts/validate-english-evidence-fidelity-e4.mjs
+# PASS; 21 original boundary assertions retained
 node static-web/scripts/validate-english-forecast-model.mjs
+# 25 PASS
+node static-web/scripts/validate-english-performance-profile.mjs
+# PASS; 7,200 synthetic historical attempts, bounded packet
 ```
 
-Local intended write-set: **37 native assertions + 25 Forecast assertions**. The native test says bounded repair only, not closure. All seven changed files were read back at `4ac753348532dda48bfe9d86edbe25bd3895ecde` and their Git blob identities matched the locally executed files. Subsequent receipt-only documentation does not change those runtime/test blobs.
+The new native cases execute actual Source/exposure/archive/session/Forecast/Lexical bridge functions with synthetic in-memory storage. They cover legacy current/archive aliases, missing exposure summary, incomplete legacy history, distinct new material, preserved exposed declarations, cross-tab submit contamination, image-byte identity, Source-v2 Resume/progress, concurrent continuation, stale old-tab resurrection, backup retirement, corruption export, conflicting archives, quota rollback and native Lexical replay/demand/CAS.
 
-An attempted local isolated Chromium/loopback test was blocked by administrator policy before the page ran (`net::ERR_BLOCKED_BY_ADMINISTRATOR`). No bypass was attempted. This local attempt supplies no browser proof.
+Hosted whole-family/build/browser proof must be read from the run executing this exact code. A compiled native Source-version Resume -> current synthetic Reading workspace journey is included. Prior hosted Whole Paper PASS cannot substitute for this changed candidate; no actual-Mac/deployment/Real-U proof is claimed.
 
-### Later remote CI receipt — same repair code, partial proof only
+## L1_HANDOFF — native recovery interface
 
-GitHub Actions was read after PR #731 opened, associated with repair head `4ac753348532dda48bfe9d86edbe25bd3895ecde` (PR test merge `ab93e46d12dbce0a0e7e67d39de8927448c1ed0f`, into the unchanged #640 base).
+reproduction: an archived current attempt is absent locally but still present in an older backup; blind union resurrects it. A corrupt Whole Paper previously made export fail before recovery could preserve its bytes.
 
-- **English Exam Session**, run `35620252173`, job `106401222697`: SUCCESS. Full-paper semantics, learner-site build, browser installation, full-paper browser journey and proof upload all succeeded. This is hosted CI browser proof, not a claim about Kian's Mac/deployed Website or real study.
-- **English Family Coherence**, run `35620252136`, job `106401222567`: FAILURE at `validate-english-evidence-fidelity-e4.mjs:424`, with `ENGLISH_EXAM_DURABLE_GEOMETRY_INVALID`. External source-boundary, external Resume and bounded performance-profile steps passed before it; subsequent Forecast, control, baseline, productive scoring, Lexical handoff and family browser steps were skipped, not passed.
-- Exact inspection of E4 lines 390–450 shows its old fixture is a one-question, one-step, 10-point object pretending to be a complete 180-minute paper. The new invariant deliberately requires the native nine-step/100-point paper. **The fixture regression is not repaired in this batch.** Correct the fixture to valid synthetic native geometry and retain contamination assertions; do not relax runtime validation to restore green. This remains an explicit affected-test integration blocker.
-- Static Web Writing QA, Semantic Base Validity and Authority Consistency reported SUCCESS. Governance Anti-Entropy reported FAILURE and is not used as authority to broaden this native repair.
+required invariant: retain raw corruption without treating it as valid evidence; preserve intentional retirement and newer local facts; shared recovery remains a usable recoverable transaction, not best-effort overwriting or a second ledger.
 
-There is still **no full English family PASS, real Mac/deployed Website proof, or independent acceptance verdict**. The new remote evidence narrows the missing-proof claim; it does not close the remaining Source, audit-provenance or shared-interface gates.
+affected shared owner: L1 #728/#732 existing shared checkpoint capture/restore and recovery consumers; no shared file is modified here.
 
-## Explicitly withheld Source change
+native English expectation: call `inspectEnglishCheckpoint(payload)` on actual entries, not a trusted cached `native_integrity`. Export returns the existing payload schema plus this derived projection. `corrupt_keys` identifies raw retained invalid data. `retired_current` derives from actual archived attempts. `absence_is_deletion=false` always. Native `restoreEnglishCheckpoint` applies the same retirement rule and keeps conflicts fail-closed; it does NOT authorize replacing corrupt/newer local bytes. L1 must stage recovery and preserve English-Lexical coupling, handle explicit replacement and return interface proof. Metadata alone is not completeness or evidence validity.
 
-Dropping display ordinals and normalizing whitespace made forward-only semantic fixtures pass, but the cross-version fixture failed:
+## L1_HANDOFF — Source-version Resume / native packet
 
-```text
-old semantic hash: 942a49de64145123227ced877bc58ece581d2ce7fa117b70b1223904357de997
-new normalized alias hash: 229c2f451a7b50913912d167a827d0004771eb0ba3503ed53d419804e3fbe794
-observed after old exposure + new alias declaration: unseen; transfer eligible = true
-required: prior recorded exposure remains binding
-```
+reproduction: same-day v1 instruction remains structurally valid after catalogue moves to v2. Without Current source comparison, packet/Resume can show the old source as executable and its evidence as current.
 
-Therefore `englishSemanticSourceIdentity.mjs` is unchanged in this repair batch. Neither forward-only tests nor a new status/version registry closes legacy evidence. Source/rendered-identity consistency and this alias/history case remain native engineering blockers.
+required invariant: current native catalogue is supplied to executable Resume/evidence paths; source mismatch yields no executable stale link and retains old evidence; stale cross-subject plan must not block valid native continuation.
 
-## L1_HANDOFF — corrupt-state recovery
+affected shared owner: L1 packet/private producer and shared consumer of native Resume; no shared transport or Chat Plan write here.
 
-reproduction: store `{bad-json` under `kianos-english-exam-session-v1`; native normal writes protect it, native checkpoint export parses and fails, restore conflicts with existing local bytes, and ordinary English attempt admission remains blocked.
+native English expectation: `readEnglishSessionInstruction(storage,day,{catalog})` checks source; calls without catalog are structural only (`source_checked=false`, `executable=false`). `buildEnglishEvidencePacket(...,{catalog})` projects source drift, historic/source-current inventory and qualified telemetry. Consume native status and facts; do not reconstruct Forecast judgment fields or infer zero remaining work from unavailable source. Native Forecast input remains transient and score-constituent-bound.
 
-required invariant: preserve/export raw corrupt evidence without promoting it to valid learner evidence; perform explicit recoverable replacement with current-state protection; healthy independent data must not be lost. A rejection must leave a usable existing recovery path.
+## Legitimate gates and promotion
 
-affected shared owner: `privateSubjectCheckpoints.mjs`, `privateCheckpointRuntime.mjs`, `privateLearnerCheckpoint.mjs` and their existing recovery/export consumer, via L1 #728. Native adapter functions in `englishLearnerEvidence.mjs` are unchanged by this batch.
+Real first attempts, delayed/fresh transfer, productive-score calibration, 180-minute fatigue, handwriting and answer-sheet cost remain learner/authentic-modality inputs. Missing source access/fidelity remains Source-gated only where actually unavailable. Audit-provenance and unproven shared recovery/native-consumer composition are engineering gates, not Real-U.
 
-native English expectation: invalid remains invalid/UNKNOWN, never absence; local newer facts and English-Lexical coupling survive recovery; normal study resumes through the existing recovery mechanism.
-
-## L1_HANDOFF — Lexical evidence freshness and packet projection
-
-reproduction: #640 `examChatPlan.mjs` English evidence basis uses `englishCheckpointKeyAllowed`; native Lexical ledger/coverage keys are outside that pattern, although English consumes their retention/transfer evidence. This is a source-level producer-gap finding, not a newly executed full Chat Plan browser test.
-
-required invariant: a material Lexical evidence change stales any dependent plan; control/navigation-only changes do not; stale cross-subject plans do not block valid native Resume.
-
-affected shared owner: `examChatPlan.mjs`, `dailyLearningPacket*`, private packet/control producer in L1 #728.
-
-native English expectation: use existing native Lexical evidence identity, no second ledger. Preserve raw session/source/score constituents in packet projection. Confirm no shared consumer still depends on the deleted Forecast judgement labels before selective landing.
-
-## Lexical and legitimate learner gates
-
-No Lexical semantic write or new lexical engine is included. Exact English-Lexical return remains with its existing owner; full bridge regression is still required, not inferred from old PASS.
-
-Legitimate learner gates remain genuine first attempts, delayed/fresh transfer, productive scoring calibration, real 180-minute execution, handwriting/answer-sheet/fatigue and Source access/fidelity where unavailable. They do not excuse the engineering/provenance/browser blockers above.
-
-## Acceptance and promotion
-
-Accepted main write-set from this run: **none**. This is an unmerged repair candidate. No deployment or Website application is claimed. Final native acceptance requires the listed engineering blockers and affected native/shared-interface proof; it never authorizes a whole-system PASS.
+Accepted main write-set: none. Keep #731 draft; never merge the long-diverged ancestry wholesale. Exact native/test/result changes alone may be selectively reconciled after current proof and review. No Website application is claimed.

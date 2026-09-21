@@ -127,6 +127,9 @@ jobs:
       - name: Validate English evidence fidelity E4
         working-directory: static-web
         run: node scripts/validate-english-evidence-fidelity-e4.mjs
+      - name: Validate English native alias history and Source-version interfaces
+        working-directory: static-web
+        run: node scripts/validate-english-native-closure.mjs
       - name: Validate English Forecast system logic
         working-directory: static-web
         run: node scripts/validate-english-forecast-model.mjs
@@ -162,6 +165,9 @@ jobs:
       - name: Execute English synthetic baseline browser journey
         working-directory: static-web
         run: node scripts/test-english-synthetic-baseline-browser.mjs
+      - name: Execute native Source-version Resume browser journey
+        working-directory: static-web
+        run: node scripts/test-english-native-source-resume-browser.mjs
       - name: Execute English full-paper browser journey
         working-directory: static-web
         run: node scripts/test-english-exam-session-browser.mjs
@@ -181,4 +187,5 @@ jobs:
             english-synthetic-audit/
             english-language-audit/
             english-exam-audit/
+            english-native-interface-audit/
           retention-days: 14

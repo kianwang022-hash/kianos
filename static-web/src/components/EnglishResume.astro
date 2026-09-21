@@ -10,6 +10,7 @@ const base = import.meta.env.BASE_URL;
       <strong data-english-resume-title></strong>
       <small data-english-resume-meta></small>
     </div>
+    <button type="button" class="primaryLink" data-english-source-continue hidden>保留旧作答，进入当前材料 →</button>
     <a class="primaryLink" data-english-resume-link href={`${base}english/`}>进入 →</a>
   </section>
 </div>
@@ -22,38 +23,38 @@ const base = import.meta.env.BASE_URL;
     resolveEnglishSessionStep,
     englishSessionStepHref
   } from '../lib/englishSessionControl.mjs';
-  import { WRITING_STATES } from '../lib/writingRuntimeModel.mjs';
+
+  import {advanceEnglishSourceRevision} from '../lib/englishLearnerEvidence.mjs';
 
   const root = document.querySelector('[data-english-resume-surface]');
   if (root instanceof HTMLElement) {
     let catalog = JSON.parse(document.querySelector('[data-english-resume-catalog]')?.textContent || '[]');
-    let externalCatalogPromise = null;
-    const loadExternalCatalog = () => {
-      if (externalCatalogPromise) return externalCatalogPromise;
-      externalCatalogPromise = (async () => {
-        try {
-          const response = await fetch('/__kianos-private/external-reading/catalog', { cache: 'no-store' });
-          if (!response.ok) return catalog;
-          const data = await response.json();
-          const rows = (data.collections || []).flatMap(group => group.passages || []).map(row => ({
-            task: 'external_reading',
-            object_id: row.object_id,
-            source_hash: row.content_hash,
-            label: row.title || row.object_id,
-            study_day: row.study_day || null,
-            origin: row.origin || null
-          }));
-          catalog = [...catalog, ...rows];
-        } catch {}
-        return catalog;
-      })();
-      return externalCatalogPromise;
+    let catalogPromise=null;
+    // Refresh on entry/focus, dedupe concurrent renders; do not poll or persist a second catalog.
+    const loadCurrentCatalog=()=>{
+      if(catalogPromise)return catalogPromise;
+      catalogPromise=(async()=>{
+        const [native,external]=await Promise.allSettled([
+          fetch('/__kianos-private/control/english-session-catalog',{cache:'no-store'}).then(async response=>response.ok?(await response.json()).rows:null),
+          fetch('/__kianos-private/external-reading/catalog',{cache:'no-store'}).then(async response=>response.ok?(await response.json()).collections:null)
+        ]);
+        const nativeRows=native.status==='fulfilled'&&Array.isArray(native.value)?native.value:null;
+        const externalRows=external.status==='fulfilled'&&Array.isArray(external.value)?external.value.flatMap(group=>group.passages||[]).map(row=>({task:'external_reading',object_id:row.object_id,source_hash:row.content_hash,label:row.title||row.object_id,study_day:row.study_day||null})):[];
+        // A static page remains a usable snapshot, not proof of a live source-version refresh.
+        if(nativeRows)catalog=[...nativeRows,...externalRows];
+        else if(externalRows.length)catalog=[...catalog.filter(row=>row.task!=='external_reading'),...externalRows];
+        return {rows:catalog,live:Boolean(nativeRows)};
+      })().finally(()=>{catalogPromise=null;});
+      return catalogPromise;
     };
     const base = root.getAttribute('data-base') || '/';
     const resume = root.querySelector('[data-english-resume]');
     const title = root.querySelector('[data-english-resume-title]');
     const meta = root.querySelector('[data-english-resume-meta]');
     const link = root.querySelector('[data-english-resume-link]');
+    const sourceContinue=root.querySelector('[data-english-source-continue]');
+    let recovery=null,renderSequence=0;
+    const keyFor=step=>({reading_a:'kianos-reading-attempt-v1:',cloze:'kianos-cloze-attempt-v1:',reading_b:'kianos-reading-b-attempt-v1:',translation:'kianos-translation-attempt-v2:',writing:'kianos-writing-runtime-v1:',external_reading:'kianos-english-external-reading-attempt-v1:'}[step?.task]||'')+step?.object_id;
     const taskLabels = {
       reading_a: 'Reading A',
       cloze: 'Cloze',
@@ -63,15 +64,6 @@ const base = import.meta.env.BASE_URL;
       writing: 'Writing'
     };
     const localDay = () => new Date().toLocaleDateString('en-CA');
-    const readJson = (key) => {
-      try { return JSON.parse(localStorage.getItem(key) || 'null'); }
-      catch { return null; }
-    };
-    const selectedStepIsComplete = (step) => {
-      if (step?.task !== 'writing' || !step?.object_id) return false;
-      const record = readJson(`kianos-writing-runtime-v1:${step.object_id}`);
-      return [WRITING_STATES.PASS_ACCEPTABLE, WRITING_STATES.REPAIR_COMPLETE].includes(record?.state);
-    };
     const publishContinue = (detail) => {
       window.dispatchEvent(new CustomEvent('kianos:subject-continue-updated', {
         detail: { subject: 'english', ...detail }
@@ -84,10 +76,22 @@ const base = import.meta.env.BASE_URL;
         || !(meta instanceof HTMLElement)
         || !(link instanceof HTMLAnchorElement)) return;
 
-      await loadExternalCatalog();
-      const state = readEnglishSessionInstruction(localStorage, localDay());
+      const sequence=++renderSequence;
+      const current=await loadCurrentCatalog();
+      if(sequence!==renderSequence)return;
+      recovery=null;
+      if(sourceContinue instanceof HTMLButtonElement)sourceContinue.hidden=true;
+      const state = readEnglishSessionInstruction(localStorage, localDay(), {catalog});
       if (state.status !== 'ready' || !state.instruction) {
-        resume.hidden = true;
+        resume.hidden = !['stale_source','source_unverified'].includes(state.status);
+        title.textContent = '材料版本需要重新确认';
+        meta.textContent = '原作答仍然保留；旧安排不会套用到新版材料。可以直接选择当前任务，或把当前记录交给 Chat。';
+        link.hidden = true;
+        const step=catalog.find(row=>row.task===state.task&&row.object_id===state.object_id);
+        if(state.status==='stale_source'&&current.live&&step&&step.task!=='full_paper'&&sourceContinue instanceof HTMLButtonElement){
+          recovery={step,expectedRaw:localStorage.getItem(keyFor(step)),instructionRaw:localStorage.getItem(ENGLISH_SESSION_KEY)};
+          sourceContinue.hidden=false;
+        }
         link.removeAttribute('data-session-ref');
         publishContinue({ href: null, title: null, session_ref: null });
         return;
@@ -105,6 +109,7 @@ const base = import.meta.env.BASE_URL;
       }
 
       resume.hidden = false;
+      link.hidden = false;
       title.textContent = step.label || `${taskLabels[step.task] || step.task} · ${step.object_id}`;
       meta.textContent = step.note
         || `Session ${selected.index + 1} / ${instruction.steps.length} · Chat 已选择，本页不重新排序`;
@@ -116,6 +121,20 @@ const base = import.meta.env.BASE_URL;
         session_ref: instruction.session_id
       });
     };
+
+    sourceContinue?.addEventListener('click',async()=>{
+      const selected=recovery;
+      if(!selected||!(sourceContinue instanceof HTMLButtonElement))return;
+      sourceContinue.disabled=true;
+      try{
+        const current=await loadCurrentCatalog();
+        if(!current.live||localStorage.getItem(ENGLISH_SESSION_KEY)!==selected.instructionRaw)throw new Error('材料或安排已变化，请重新确认当前入口。');
+        advanceEnglishSourceRevision(localStorage,selected.step,{catalog:current.rows,expectedRaw:selected.expectedRaw});
+        const href=englishSessionStepHref(selected.step,base);
+        if(href)location.href=href;
+      }catch(error){if(meta)meta.textContent=error instanceof Error?error.message:String(error);}
+      finally{sourceContinue.disabled=false;}
+    });
 
     window.addEventListener('kianos:english-session-updated', () => void render());
     window.addEventListener('kianos:subject-continue-requested', (event) => {

@@ -1,10 +1,17 @@
 import {LEXICAL_LEDGER_STORAGE_KEY,appendEvidenceEvent,emptyLexicalLedger,repairStateForEvent} from './lexicalEvidence.mjs';
 import {lexicalEventFromObjectiveThread,resolveCurrentLexicalTarget} from './lexicalEnglishEvidence.mjs';
 import {readEnglishJson} from './englishLearnerEvidence.mjs';
+const record=value=>value!==null&&typeof value==='object'&&!Array.isArray(value);
+export function assertEnglishLexicalLedgerReadable(ledger){
+ if(!record(ledger)||ledger.schema!==emptyLexicalLedger().schema||!Array.isArray(ledger.events)
+  ||!Array.isArray(ledger.conflicts)||!record(ledger.identity_lineage)
+  ||ledger.events.some(event=>!record(event)||!event.event_id||!event.word_id||!event.source||!event.outcome||!Number.isFinite(Date.parse(event.observed_at))))throw new Error('LEXICAL_LEDGER_UNREADABLE_PRESERVE_DATA');
+ return ledger;
+}
 export async function prepareEnglishLexicalReturn(storage,{task,objectId,attemptSubmittedAt,attemptBinding=null,threads=[],base='/',resolve=resolveCurrentLexicalTarget}={}){
  const initial=storage.getItem(LEXICAL_LEDGER_STORAGE_KEY);
  let ledger=readEnglishJson(storage,LEXICAL_LEDGER_STORAGE_KEY,emptyLexicalLedger());
- if(ledger.schema!==emptyLexicalLedger().schema)throw new Error('LEXICAL_LEDGER_SCHEMA_MISMATCH_PRESERVE_DATA');
+ assertEnglishLexicalLedgerReadable(ledger);
  const events=[];
  for(let i=0;i<threads.length;i++){
   if(threads[i].route!=='lexical')continue;

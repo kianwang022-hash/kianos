@@ -18,12 +18,10 @@ import {
   summarizeEnglishExamSession,
   releaseEnglishExamObjective,
   startEnglishExamSession,
-  buildEnglishExamEvidencePacket
+  buildEnglishExamEvidencePacket,
+  captureEnglishExamStep,
+  sealEnglishExamSession
 } from '../src/lib/englishExamSession.mjs';
-import {
-  listEnglishExamPapers,
-  loadEnglishExamPaper
-} from '../src/lib/englishExamPaper.mjs';
 
 class MemoryStorage {
   constructor(entries={}){this.map=new Map(Object.entries(entries));}
@@ -387,42 +385,26 @@ assert.equal(payload.semantic_source_hash,'paper-semantic-hash');
 assert.equal(payload.independent_transfer_candidate,false);
 
 const started=Date.parse('2026-09-21T01:00:00.000Z');
-const session={
-  schema:ENGLISH_EXAM_SESSION_SCHEMA,
-  session_id:'e4-paper',
-  paper_id:'paper-e4',
-  source_hash:'paper-hash',
-  year:2026,
-  status:'SEALED',
-  revision:1,
-  started_at:new Date(started).toISOString(),
-  deadline_at:new Date(started+180*60_000).toISOString(),
-  sealed_at:new Date(started+170*60_000).toISOString(),
-  released_at:null,
-  duration_minutes:180,
-  total_points:10,
-  objective_max_points:10,
-  productive_max_points:0,
-  task_order:['reading_a'],
-  current_step:1,
-  steps:[{
-    step_id:'s1',
-    task:'reading_a',
-    object_id:'paper-reading',
-    label:'Reading A',
-    source_hash:'paper-step-hash',
-    max_points:10,
-    question_ids:['q1']
-  }],
-  captures:{
-    s1:{step_id:'s1',task:'reading_a',object_id:'paper-reading',completed_at:new Date(started+1000).toISOString(),payload}
-  },
-  release:null,
-  updated_at:new Date(started+170*60_000).toISOString()
+const kinds=['reading_a','cloze','reading_a','reading_a','reading_a','reading_b','translation','writing','writing'];
+const paper={
+ schema:'kianos.english.exam-paper.v1',paper_id:'paper-e4',source_hash:'paper-hash',year:2099,
+ duration_minutes:180,total_points:100,objective_max_points:60,productive_max_points:40,
+ default_task_order:['reading_a','cloze','reading_b','translation','writing'],
+ steps:kinds.map((task,index)=>({
+  step_id:'s'+(index+1),task,object_id:index===0?'paper-reading':'e4-object-'+index,
+  source_hash:index===0?'paper-step-hash':'e4-source-'+index,max_points:index===8?20:10,
+  ...(task==='writing'?{writing_kind:index===7?'small':'big'}:{}),
+  question_ids:Array.from({length:task==='cloze'?20:5},(_,q)=>'q'+(q+1))
+ }))
 };
+let session=startEnglishExamSession(paper,{now:started,sessionId:'e4-paper'});
+session=captureEnglishExamStep(session,{
+ stepId:'s1',task:'reading_a',objectId:'paper-reading',payload,now:started+1000
+});
+session=sealEnglishExamSession(session,started+170*60_000);
 
 const summary=summarizeEnglishExamSession(session);
-assert.equal(summary.step_evidence.length,1);
+assert.equal(summary.step_evidence.length,9);
 assert.equal(summary.step_evidence[0].evidence.prior_exposure,'exposed');
 assert.equal(summary.step_evidence[0].evidence.assistance,'assisted');
 assert.equal(summary.step_evidence[0].evidence.semantic_source_hash,'paper-semantic-hash');
@@ -438,11 +420,12 @@ const released=releaseEnglishExamObjective({
 },{
   schema:ENGLISH_EXAM_ANSWER_SCHEMA,
   paper_id:'paper-e4',
-  steps:{
-    s1:{task:'reading_a',object_id:'paper-reading',source_hash:'paper-step-hash',answers:{q1:'A'}}
-  }
+  steps:Object.fromEntries(paper.steps.filter(step=>['reading_a','cloze','reading_b'].includes(step.task)).map(step=>[step.step_id,{
+    task:step.task,object_id:step.object_id,source_hash:step.source_hash,
+    answers:Object.fromEntries(step.question_ids.map(id=>[id,'A']))
+  }]))
 },started+181*60_000);
-assert.equal(released.release.objective.points,10);
+assert.equal(released.release.objective.points,2);
 assert.equal(released.release.paper_assistance_context?.state,'assisted');
 assert.equal(released.release.objective.steps[0].evidence.prior_exposure,'exposed');
 assert.equal(released.release.objective.steps[0].evidence.assistance,'assisted');
@@ -450,9 +433,6 @@ assert.equal(released.release.objective.steps[0].evidence.semantic_source_hash,'
 assert.equal(released.release.objective.steps[0].evidence.independent_transfer_candidate,false);
 
 // 5) Full-paper parent Chat assistance must remain visible without flattening constituent section facts.
-const paperMeta=listEnglishExamPapers()[0];
-assert.ok(paperMeta?.paperId,'current whole-paper fixture missing');
-const paper=loadEnglishExamPaper(paperMeta.paperId);
 const assistedPaper=startEnglishExamSession(paper,{
   now:Date.parse('2026-09-21T02:00:00.000Z'),
   assistanceContext:{

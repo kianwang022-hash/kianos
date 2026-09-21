@@ -1,30 +1,34 @@
 # English Current
 
-Role: English engineering cursor and narrow owner router. A bare learner continuation remains LEARN.
+Role: English engineering cursor and narrow owner router. Bare learner continuation remains LEARN.
 
-## Active bounded continuation
+## Current candidate
 
-PR #731 / `work/l2-english-native-closure-20260921`, stacked on #640 at `418c8a24607d5708c6fbd5dac1f7828e199c61b7`. Main re-read at `7cfbd9d643d0bae59fb5237986d5c21b66e15c8e`. The released baseline remains available; this candidate is not accepted or deployed.
+PR #731 / `work/l2-english-native-closure-20260921`, stacked on #640 at `418c8a24607d5708c6fbd5dac1f7828e199c61b7`. Main re-read at `7cfbd9d643d0bae59fb5237986d5c21b66e15c8e`. Released baseline remains available; this branch is not accepted, merged or deployed. Exact result: `ACCEPTANCE.md`.
 
-Kian requested only: exposure alias/history, E4 fixture, latest audit binding, Astra M4 Source-version Resume and M3 native interface regression. Exact prior result: `ACCEPTANCE.md` at `b7156e23d5d59c0e5f4331cb5ed47ac8223709b7`. This continuation is in progress; no new closure verdict is earned.
+Kian's bounded continuation: exposure alias/history, E4 fixture, latest independent audit binding, Astra M4 Source-version Resume and M3 native interface regression. No new maturity programme.
 
-L1's exact native interface request is #731 comment 5763246833: distinguish absent, valid, corrupt-retained and intentionally retired current attempts using existing native evidence; blind backup union must not resurrect an archived attempt. Native export/restore owns that distinction. Shared composition/transport/atomic apply stays with #728/#732.
+## Native changes
 
-## Preserved repairs and remaining proof
+- One exposure payload recipe is reused for current hashes and historical first-output snapshots. Ordinal/whitespace/route/role changes cannot reset exposure. Existing attempts/archives remain primary history; incomplete legacy identity stays UNKNOWN without blocking ordinary practice. No migration registry or second exposure ledger.
+- Source identity is rebound after the final Reading renderer projection. Exact identity includes delivered context/candidates; old first-output evidence is retained, not silently rebound to a new Source.
+- Native Resume checks the supplied Current catalogue; stale Source gets no executable old link. Explicit current-version continuation refreshes the existing catalogue, guards concurrent writes, archives the old output and enters the current native workspace without generating an attempt or Chat Plan. A retired old tab cannot resurrect that attempt.
+- E4 now uses a native nine-step/100-point synthetic paper, retaining its contamination assertions. Runtime validation was not weakened.
+- Native checkpoint inspection/export preserves corrupt raw bytes and derives intentional current-attempt retirement from existing archives. Missing keys are not deletion authority. Shared recovery must consume this interface rather than blindly union keys.
+- English's Lexical interface rejects malformed ledgers before normalization can erase evidence; exact target validation, replay and atomic-return guards remain native.
 
-- Strict numeric scores, objective/productive/integrated consistency, immutable sealed output and old-session write protection are the existing candidate repair.
-- Forecast is calculations/inputs/unique observations, not full_scope_priced/BACKTESTED/readiness/confidence/next-evidence certification.
-- Alias normalization was previously withheld because old history regained unseen eligibility.
-- E4's one-step/10-point fake paper must be replaced by native nine-step/100-point synthetic geometry; never relax Runtime for that fixture.
-- Source-version Resume and native recovery interfaces need direct positive/negative regression.
-- Latest independent English Final Convergence result and the full Astra M3/M4 audit artifact remain unbound in the checked exact PR/Current route. Kian's requested scenarios are authoritative work scope, not a replacement independent receipt.
+Previously repaired numeric/Whole-Paper evidence invariants and simplified Forecast remain. No full_scope_priced/BACKTESTED/next-evidence ranker was restored.
 
-## Boundaries
+## Proof and remaining boundary
 
-Existing Learning Contract and exact native Source/evidence/scoring/Forecast owners remain authoritative. No second learner ledger, SRS, scheduler, Forecast, Home or strategy engine. L1 exclusively lands shared Packet/checkpoint orchestration/Chat Plan/relay/Home/transport. No Lexical learning-policy change.
+Local candidate: 69 native assertions, E4 and 25 Forecast assertions passed; bounded performance-profile regression also passed. Hosted compilation/browser/full affected-family regression must be read from this candidate's actual run; no result is inferred from the prior head.
 
-Temporary exact native-source CI inputs are for this bounded verification only and must be removed from the final write-set. No protected exam source or learner storage is included in that artifact.
+Latest independent English Final Convergence result remains UNBOUND in the checked exact PR/Current/Acceptance route. Available old Fresh #4 is not the newer result. The full Astra M3/M4 audit artifact is likewise not bound: Kian's named scenarios are authorized work scope, not an independent receipt.
 
-## Exit
+L1 #728/#732 owns shared Packet/checkpoint orchestration/Chat Plan/relay/Home/transport. Native interface request #731 comment 5763246833 is bound and addressed here; actual shared consumption and recovery remain L1 proof. Source/catalogue unavailability, corruption and native retirement must not be interpreted by shared code as clean/empty learner state.
 
-Update implementation, affected regressions and this cursor/result atomically. Reconcile only accepted native changes onto fresh main; never merge long-diverged #640/#731 wholesale. Real learner, Source-access and authentic-modality gates cannot disguise missing engineering or audit proof.
+## Owners and stop
+
+Learning interpretation: `LEARNING_CONTRACT.md`. Native implementation: exact English Source/evidence/session/Forecast owners. English-Lexical interface: `englishLexicalReturn.mjs`; Lexical learning semantics remain with Lexical.
+
+Finish only affected regressions and bind the real independent result; selectively reconcile accepted native changes onto fresh main. Never merge long-diverged #640/#731 wholesale. No second ledger, SRS, scheduler, Forecast, Home or broad Guide rewrite. Genuine learner calibration, Source access and authentic modality are not substitutes for missing engineering proof.

@@ -4,7 +4,7 @@ import {
   loadReadingAnswersById as baseLoadReadingAnswersById,
   loadReadingReviewById as baseLoadReadingReviewById
 } from './englishReading.mjs';
-import { projectReadingSourceTruth } from './englishSourceTruth.mjs';
+import { projectReadingSourceTruth, rebindRenderedEnglishSourceIdentity } from './englishSourceTruth.mjs';
 import {
   listSyntheticReadingSets,
   loadSyntheticReadingById,
@@ -20,10 +20,10 @@ export function loadReadingById(id) {
   if (listSyntheticReadingSets().some((row) => row.id === id)) return loadSyntheticReadingById(id);
   const base = baseLoadReadingById(id);
   const projected = projectReadingSourceTruth(base);
-  return {
+  return rebindRenderedEnglishSourceIdentity({
     ...projected,
     paragraphs: base.paragraphs
-  };
+  });
 }
 
 export function loadReadingAnswersById(id) {

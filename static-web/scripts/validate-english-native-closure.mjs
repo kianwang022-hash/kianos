@@ -3,6 +3,12 @@ import * as exam from '../src/lib/englishExamSession.mjs';
 import * as evidence from '../src/lib/englishLearnerEvidence.mjs';
 import {englishSemanticSourceHash as hash} from '../src/lib/englishSemanticSourceIdentity.mjs';
 import * as forecast from '../src/lib/englishForecastModel.mjs';
+import * as session from '../src/lib/englishSessionControl.mjs';
+import * as lexicalBridge from '../src/lib/englishLexicalReturn.mjs';
+import * as lexical from '../src/lib/lexicalEvidence.mjs';
+import {validateCurrentLexicalTarget} from '../src/lib/lexicalEnglishEvidence.mjs';
+import {rebindRenderedEnglishSourceIdentity} from '../src/lib/englishSourceTruth.mjs';
+
 class MemoryStorage {
   constructor(entries={}) { this.data = new Map(Object.entries(entries)); }
   get length() { return this.data.size; }
@@ -156,6 +162,188 @@ test('real native score evidence reaches Forecast, without workload or formal-sc
   assert.equal(model.score.formal_local_channel_band,null);
   assert.equal(model.score.integrated_whole_paper.score_eligible,false);
   assert.equal(model.workload.full_band_minutes,null);
+});
+
+// L2 continuation: primary history and real native interfaces, never a second learner ledger.
+const day=new Date(now).toLocaleDateString('en-CA');
+const currentKey=id=>'kianos-reading-attempt-v1:'+id;
+const metaFor=(id,snapshot=source)=>({task:'reading_a',object_id:id,source_hash:'exact:'+id,semantic_source_hash:hash(snapshot),snapshot});
+function declareUnseen(storage,meta){
+ const ledger=evidence.readEnglishExposure(storage);
+ ledger.materials[meta.object_id]={events:[],declaration:{state:'unseen',source_hash:meta.source_hash,semantic_source_hash:meta.semantic_source_hash}};
+ storage.setItem(evidence.ENGLISH_MATERIAL_EXPOSURE_KEY,JSON.stringify(ledger));
+}
+function historicalAttempt(storage,{archive=false,partial=false,event=true}={}){
+ const value={answers:{q1:'A'},submitted:true,firstEvidenceMeta:{prior_exposure:'unseen',independent_transfer_candidate:true},
+  binding:{task:'reading_a',object_id:'legacy',attempt_id:'legacy-attempt',source_hash:'legacy-exact',semantic_source_hash:'942a49de64145123227ced877bc58ece581d2ce7fa117b70b1223904357de997',revision:3,prior_exposure:'unseen',assistance:'unassisted',source_snapshot:partial?{questions:source.questions}:clone(source)}};
+ storage.setItem(archive?'kianos-english-attempt-archive-v1:legacy-attempt':currentKey('legacy'),JSON.stringify(value));
+ if(event)storage.setItem(evidence.ENGLISH_MATERIAL_EXPOSURE_KEY,JSON.stringify({schema:evidence.ENGLISH_EXPOSURE_SCHEMA,materials:{legacy:{events:[{event_id:'legacy-attempt:opened',attempt_id:'legacy-attempt',source_hash:'legacy-exact',semantic_source_hash:value.binding.semantic_source_hash}]}}}));
+ return value;
+}
+const alias=clone(source);alias.objectId='alias';alias.paragraphs[0].ordinal=91;alias.paragraphs[0].id='other';alias.paragraphs[0].text='  A synthetic\n passage.  More\ttext. ';alias.questions[0].ordinal=27;alias.questions[0].id='q99';alias.context={source_kind:'synthetic',evidence_role:'TRANSFER'};
+test('ordinal/whitespace/role aliases share one exposure identity',()=>assert.equal(hash(source),hash(alias)));
+test('punctuation and candidate ordering remain meaningful',()=>{
+ const changed=clone(source);changed.paragraphs[0].text+=' Not.';assert.notEqual(hash(source),hash(changed));
+ assert.notEqual(hash({material:[{text:'One'},{text:'Two'}]}),hash({material:[{text:'Two'},{text:'One'}]}));
+});
+for(const archive of [false,true])test('old '+(archive?'archived':'current')+' snapshot binds new alias without rewriting first evidence',()=>{
+ const storage=new MemoryStorage();historicalAttempt(storage,{archive});
+ const key=archive?'kianos-english-attempt-archive-v1:legacy-attempt':currentKey('legacy'),raw=storage.getItem(key);
+ const meta=metaFor('alias',alias);declareUnseen(storage,meta);
+ const value={answers:{q1:'A'},submitted:true};evidence.saveEnglishAttempt(storage,currentKey('alias'),value,meta,{now:now+5000});
+ assert.equal(value.binding.prior_exposure,'exposed');assert.equal(value.firstEvidenceMeta.independent_transfer_candidate,false);assert.equal(storage.getItem(key),raw);
+});
+test('archive alone is primary exposure evidence even when exposure summary is absent',()=>{
+ const storage=new MemoryStorage();historicalAttempt(storage,{archive:true,event:false});
+ const meta=metaFor('alias',alias);declareUnseen(storage,meta);
+ assert.equal(evidence.inspectEnglishExposureHistory(storage,meta).exposed,true);
+});
+test('incomplete legacy snapshot remains UNKNOWN but ordinary practice is usable',()=>{
+ const storage=new MemoryStorage();historicalAttempt(storage,{partial:true});const meta=metaFor('unknown-alias',alias);declareUnseen(storage,meta);
+ const value={answers:{q1:'B'},submitted:true};evidence.saveEnglishAttempt(storage,currentKey(meta.object_id),value,meta,{now});
+ assert.equal(value.binding.prior_exposure,'unknown');assert.equal(value.firstEvidenceMeta.independent_transfer_candidate,false);assert.equal(value.answers.q1,'B');
+});
+test('different reconstructible material may still carry an explicit unseen declaration',()=>{
+ const storage=new MemoryStorage();historicalAttempt(storage);const changed=clone(source);changed.paragraphs[0].text='A genuinely different passage with a distinct demand.';
+ const meta=metaFor('new-material',changed);declareUnseen(storage,meta);const value={answers:{q1:'A'},submitted:true};
+ evidence.saveEnglishAttempt(storage,currentKey(meta.object_id),value,meta,{now});assert.equal(value.binding.prior_exposure,'unseen');assert.equal(value.firstEvidenceMeta.independent_transfer_candidate,true);
+});
+test('new-version write preserves an old exposed declaration as existing exposure evidence',()=>{
+ const storage=new MemoryStorage(),meta=metaFor('declaration-only');
+ storage.setItem(evidence.ENGLISH_MATERIAL_EXPOSURE_KEY,JSON.stringify({schema:evidence.ENGLISH_EXPOSURE_SCHEMA,materials:{'declaration-only':{events:[],declaration:{state:'exposed',source_hash:'old-exact',semantic_source_hash:'old-legacy',observed_at:new Date(now-5000).toISOString(),session_instruction_id:'old'}}}}));
+ const instruction={schema:session.ENGLISH_SESSION_SCHEMA,session_id:'new-declaration',study_day:day,generated_at:new Date(now).toISOString(),steps:[{step_id:'s1',task:meta.task,object_id:meta.object_id,source_hash:meta.source_hash,params:{material_exposure:{state:'unseen',basis:'learner_statement',observed_at:new Date(now-1000).toISOString(),note:'New source statement'}}}]};
+ session.writeEnglishSessionInstruction(storage,instruction,day,{catalog:[meta],now});
+ const value={answers:{q1:'A'},submitted:true};evidence.saveEnglishAttempt(storage,currentKey(meta.object_id),value,meta,{now});
+ assert.equal(value.binding.prior_exposure,'unknown');assert.equal(evidence.readEnglishExposure(storage).materials[meta.object_id].events[0].state,'exposed');
+});
+test('cross-tab alias exposure before first submit downgrades the pending attempt',()=>{
+ const storage=new MemoryStorage(),a=metaFor('tab-a'),b=metaFor('tab-b',alias);declareUnseen(storage,a);
+ const first={answers:{},submitted:false};evidence.saveEnglishAttempt(storage,currentKey('tab-a'),first,a,{now});
+ evidence.saveEnglishAttempt(storage,currentKey('tab-b'),{answers:{},submitted:false},b,{now:now+100});
+ first.submitted=true;evidence.saveEnglishAttempt(storage,currentKey('tab-a'),first,a,{now:now+1000});assert.equal(first.firstEvidenceMeta.prior_exposure,'exposed');
+});
+test('malformed exposure ledger never becomes an empty history',()=>{
+ const storage=new MemoryStorage({[evidence.ENGLISH_MATERIAL_EXPOSURE_KEY]:JSON.stringify({schema:evidence.ENGLISH_EXPOSURE_SCHEMA,materials:{bad:{events:'broken'}}})});
+ const raw=storage.getItem(evidence.ENGLISH_MATERIAL_EXPOSURE_KEY);
+ assert.throws(()=>evidence.saveEnglishAttempt(storage,currentKey('blocked'),{submitted:true},metaFor('blocked'),{now}),/EXPOSURE_DATA_UNREADABLE/);assert.equal(storage.getItem(evidence.ENGLISH_MATERIAL_EXPOSURE_KEY),raw);
+});
+test('final-rendered Source identity includes the delivered passage, context and candidates',()=>{
+ const original={objectId:'rendered',paragraphs:source.paragraphs,questions:source.questions,context:{directions:'Choose one'},candidates:['A','B'],sourceHashes:{sourceTruthUnit:'u'}};
+ const bound=rebindRenderedEnglishSourceIdentity(original);
+ const final=rebindRenderedEnglishSourceIdentity({...bound,paragraphs:[{id:'p1',text:'Actually rendered content'}]});
+ assert.notEqual(final.sourceHashes.renderedObject,bound.sourceHashes.renderedObject);assert.equal(final.sourceHashes.semanticSource,hash(final));
+ assert.notEqual(rebindRenderedEnglishSourceIdentity({...original,candidates:['B','A']}).sourceHashes.renderedObject,bound.sourceHashes.renderedObject);
+ assert.notEqual(rebindRenderedEnglishSourceIdentity({...original,context:{directions:'Choose two'}}).sourceHashes.renderedObject,bound.sourceHashes.renderedObject);
+});
+test('Writing snapshot and server learner task use the same recipe; image bytes remain significant',()=>{
+ const learnerTask={directions:'Describe the picture',images:[{asset_path:'a.png',asset_sha256:'bytes-a',alt:'Scene'}]};
+ assert.equal(hash({learnerTask}),hash({task:learnerTask,evidence:{source_kind:'official'}}));
+ assert.notEqual(hash({learnerTask}),hash({learnerTask:{...learnerTask,images:[{asset_path:'a.png',asset_sha256:'bytes-b',alt:'Scene'}]}}));
+});
+function installedV1(){
+ const storage=new MemoryStorage(),meta=metaFor('source-v2');
+ const value={answers:{q1:'A'},submitted:true,results:{q1:'correct'}};evidence.saveEnglishAttempt(storage,currentKey(meta.object_id),value,meta,{now});
+ const instruction={schema:session.ENGLISH_SESSION_SCHEMA,session_id:'m4',study_day:day,generated_at:new Date(now).toISOString(),steps:[{step_id:'s1',task:meta.task,object_id:meta.object_id,source_hash:meta.source_hash}]};
+ session.writeEnglishSessionInstruction(storage,instruction,day,{catalog:[meta],now});
+ return {storage,meta,value,instruction,v2:{...meta,source_hash:'current-v2'}};
+}
+test('same-day Source v2 invalidates native Resume and progress, retaining historical first evidence',()=>{
+ const {storage,meta,value,v2}=installedV1();const raw=storage.getItem(currentKey(meta.object_id));
+ assert.equal(session.readEnglishSessionInstruction(storage,day,{catalog:[meta]}).executable,true);
+ assert.equal(session.readEnglishSessionInstruction(storage,day,{catalog:[v2]}).status,'stale_source');
+ const packet=session.buildEnglishEvidencePacket(storage,{day,now,catalog:[v2]});
+ assert.equal(packet.resume.status,'stale_source');assert.equal(packet.resume.href,null);assert.equal(packet.forecast_progress.remaining_steps,null);
+ assert.equal(packet.inventory[0].source_current,false);assert.equal(packet.performance_profile.source_stale_attempt_count,1);assert.equal(storage.getItem(currentKey(meta.object_id)),raw);
+ assert.equal(value.binding.source_hash,meta.source_hash);
+});
+test('missing catalogue is not executable current Source proof',()=>{
+ const {storage}=installedV1();assert.equal(session.readEnglishSessionInstruction(storage,day).executable,false);
+ const state=session.readEnglishSessionInstruction(storage,day,{catalog:[]});assert.equal(state.status,'source_unverified');assert.equal(state.executable,false);
+});
+test('explicit current-version continuation archives old output and starts no invented attempt',()=>{
+ const {storage,meta,v2,value}=installedV1();const raw=storage.getItem(currentKey(meta.object_id));
+ const result=evidence.advanceEnglishSourceRevision(storage,v2,{catalog:[v2],expectedRaw:raw,now});
+ assert.equal(result.archived,true);assert.equal(storage.getItem(currentKey(meta.object_id)),null);assert.equal(storage.getItem(result.archive_key),raw);
+ const next={answers:{},submitted:false};evidence.saveEnglishAttempt(storage,currentKey(meta.object_id),next,v2,{now:now+1000});
+ assert.notEqual(next.binding.attempt_id,value.binding.attempt_id);assert.equal(next.binding.source_hash,v2.source_hash);assert.equal(next.binding.prior_exposure,'exposed');
+});
+test('old tab cannot resurrect a retired attempt in the gap before the new attempt opens',()=>{
+ const {storage,meta,v2,value}=installedV1();evidence.advanceEnglishSourceRevision(storage,v2,{catalog:[v2],expectedRaw:storage.getItem(currentKey(meta.object_id)),now});
+ assert.throws(()=>evidence.saveEnglishAttempt(storage,currentKey(meta.object_id),value,meta,{now}),/RETIRED/);assert.equal(storage.getItem(currentKey(meta.object_id)),null);
+});
+test('Source-version continuation rejects concurrent evidence and a moving catalogue',()=>{
+ const {storage,meta,v2}=installedV1();const raw=storage.getItem(currentKey(meta.object_id));
+ assert.throws(()=>evidence.advanceEnglishSourceRevision(storage,v2,{catalog:[{...v2,source_hash:'v3'}],expectedRaw:raw,now}),/UNVERIFIED/);
+ const changed=JSON.parse(raw);changed.binding.revision++;storage.setItem(currentKey(meta.object_id),JSON.stringify(changed));
+ assert.throws(()=>evidence.advanceEnglishSourceRevision(storage,v2,{catalog:[v2],expectedRaw:raw,now}),/STALE/);assert.equal(JSON.parse(storage.getItem(currentKey(meta.object_id))).binding.revision,changed.binding.revision);
+});
+test('fresh native instruction can continue without a cross-subject Chat Plan',()=>{
+ const {storage,meta}=installedV1();assert.equal(storage.getItem('kianos-exam-chat-plan-v1'),null);
+ const state=session.readEnglishSessionInstruction(storage,day,{catalog:[meta]});assert.equal(state.status,'ready');assert.equal(state.executable,true);
+});
+test('native archive retirement suppresses restored old current without deleting a newer attempt',()=>{
+ const {storage,meta,v2}=installedV1(),old=evidence.exportEnglishCheckpoint(storage);
+ evidence.advanceEnglishSourceRevision(storage,v2,{catalog:[v2],expectedRaw:storage.getItem(currentKey(meta.object_id)),now});
+ const archived=evidence.exportEnglishCheckpoint(storage);assert.equal(archived.native_integrity.retired_current.length,1);assert.equal(archived.native_integrity.absence_is_deletion,false);
+ evidence.restoreEnglishCheckpoint(storage,old);assert.equal(storage.getItem(currentKey(meta.object_id)),null);
+ const next={answers:{},submitted:false};evidence.saveEnglishAttempt(storage,currentKey(meta.object_id),next,v2,{now:now+1000});
+ const newer=storage.getItem(currentKey(meta.object_id));const oldCurrentOnly={schema:old.schema,entries:{[currentKey(meta.object_id)]:old.entries[currentKey(meta.object_id)]}};
+ evidence.restoreEnglishCheckpoint(storage,oldCurrentOnly);assert.equal(storage.getItem(currentKey(meta.object_id)),newer);
+});
+test('fresh browser restore respects native archive evidence even if a backup contains both keys',()=>{
+ const sourceStorage=new MemoryStorage();const old=historicalAttempt(sourceStorage),raw=sourceStorage.getItem(currentKey('legacy'));
+ evidence.archiveEnglishAttempt(sourceStorage,currentKey('legacy'),now);
+ const payload=evidence.exportEnglishCheckpoint(sourceStorage);payload.entries[currentKey('legacy')]=raw;
+ const target=new MemoryStorage();evidence.restoreEnglishCheckpoint(target,payload);assert.equal(target.getItem(currentKey('legacy')),null);assert.equal(JSON.parse(target.getItem('kianos-english-attempt-archive-v1:'+old.binding.attempt_id)).binding.attempt_id,old.binding.attempt_id);
+});
+for(const raw of ['', '{bad-json', 'null', '{"schema":"kianos.english.exam-session.v1"}'])test('raw corrupt Whole Paper is exportable, retained and never a valid session: '+raw,()=>{
+ const storage=new MemoryStorage({[exam.ENGLISH_EXAM_SESSION_KEY]:raw});const payload=evidence.exportEnglishCheckpoint(storage);
+ assert.equal(payload.entries[exam.ENGLISH_EXAM_SESSION_KEY],raw);assert.equal(payload.native_integrity.status,'corrupt-retained');
+ const target=new MemoryStorage();evidence.restoreEnglishCheckpoint(target,payload);assert.equal(target.getItem(exam.ENGLISH_EXAM_SESSION_KEY),raw);assert.equal(exam.inspectEnglishExamSession(target).status,'invalid');
+});
+test('restore cannot consume conflicting archive evidence as retirement authority',()=>{
+ const storage=new MemoryStorage();historicalAttempt(storage,{archive:true});const local=storage.getItem('kianos-english-attempt-archive-v1:legacy-attempt');
+ const changed=JSON.parse(local);changed.answers.q1='B';const payload={schema:'kianos.english.private-payload.v1',entries:{'kianos-english-attempt-archive-v1:legacy-attempt':JSON.stringify(changed)}};
+ assert.throws(()=>evidence.restoreEnglishCheckpoint(storage,payload),/CONFLICT_KEEP_LOCAL/);assert.equal(storage.getItem('kianos-english-attempt-archive-v1:legacy-attempt'),local);
+});
+test('native checkpoint restore rolls back partial writes on quota failure',()=>{
+ const storage=new MemoryStorage(),set=storage.setItem.bind(storage);let once=true;
+ storage.setItem=(key,value)=>{if(key==='kianos-reading-last-location-v1'&&once){once=false;throw new Error('quota');}set(key,value);};
+ assert.throws(()=>evidence.restoreEnglishCheckpoint(storage,{schema:'kianos.english.private-payload.v1',entries:{'kianos-cloze-last-location-v1':'{}','kianos-reading-last-location-v1':'{}'}}),/quota/);assert.equal(storage.length,0);
+});
+test('malformed Lexical evidence stays UNKNOWN in the English producer',()=>{
+ const broken={...lexical.emptyLexicalLedger(),events:'not-an-array'},storage=new MemoryStorage({[lexical.LEXICAL_LEDGER_STORAGE_KEY]:JSON.stringify(broken)});
+ const packet=session.buildEnglishEvidencePacket(storage,{day,now,catalog:[]});assert.equal(packet.lexical.status,'unreadable');assert.equal(packet.lexical.summary,null);assert.equal(JSON.parse(storage.getItem(lexical.LEXICAL_LEDGER_STORAGE_KEY)).events,broken.events);
+});
+const asyncTest=async(name,fn)=>{await fn();tests.push(name);};
+const lexicalThread={threadId:'m3-return',route:'lexical',summary:'Synthetic exact native bridge',lexicalEvidence:{word_id:'word:abide',word:'abide',ordinal:4,target_kind:'sense',target_id:'sense:abide:main',outcome:'WRONG',demand:'production'}};
+const resolver=event=>validateCurrentLexicalTarget(event,{word_id:'word:abide',ordinal:4,source_hash:'lex-source',targets:[{target_kind:'sense',target_id:'sense:abide:main'}]});
+const returnArgs={task:'writing',objectId:'writing-m3',attemptSubmittedAt:new Date(now).toISOString(),attemptBinding:{prior_exposure:'unseen',assistance:'unassisted'},threads:[lexicalThread],resolve:resolver};
+await asyncTest('real English-Lexical prepare and atomic commit are replay-idempotent',async()=>{
+ const storage=new MemoryStorage();const first=await lexicalBridge.prepareEnglishLexicalReturn(storage,returnArgs);
+ evidence.atomicEnglishWrites(storage,first.changes);const second=await lexicalBridge.prepareEnglishLexicalReturn(storage,returnArgs);evidence.atomicEnglishWrites(storage,second.changes);
+ assert.equal(JSON.parse(storage.getItem(lexical.LEXICAL_LEDGER_STORAGE_KEY)).events.length,1);
+ assert.equal(storage.getItem('kianos-vocabulary-coverage-v1'),null);
+ const success=clone(lexicalThread);success.lexicalEvidence={...success.lexicalEvidence,outcome:'CORRECT',demand:'recognition',context_novelty:'unseen',delayed:true};
+ const prepared=await lexicalBridge.prepareEnglishLexicalReturn(storage,{...returnArgs,task:'reading_a',objectId:'reading-fresh',attemptSubmittedAt:new Date(now+86400000).toISOString(),threads:[success]});evidence.atomicEnglishWrites(storage,prepared.changes);
+ assert.equal(Object.keys(JSON.parse(storage.getItem('kianos-vocabulary-astro-v2:word:abide')).repairTargets).length,1,'recognition cannot discharge the existing production demand');
+});
+await asyncTest('malformed native Lexical ledger is rejected before any bridge write',async()=>{
+ const storage=new MemoryStorage({[lexical.LEXICAL_LEDGER_STORAGE_KEY]:JSON.stringify({...lexical.emptyLexicalLedger(),events:null})}),before=[...storage.data];
+ await assert.rejects(lexicalBridge.prepareEnglishLexicalReturn(storage,returnArgs),/UNREADABLE/);assert.deepEqual([...storage.data],before);
+});
+await asyncTest('real bridge guard catches evidence changed during lexical target resolution',async()=>{
+ const storage=new MemoryStorage();const prepared=await lexicalBridge.prepareEnglishLexicalReturn(storage,{...returnArgs,resolve:async event=>{storage.setItem(lexical.LEXICAL_LEDGER_STORAGE_KEY,JSON.stringify(lexical.emptyLexicalLedger()));return resolver(event);}});
+ const before=[...storage.data];const meta=metaFor('guarded-return');
+ assert.throws(()=>evidence.saveEnglishAttempt(storage,currentKey(meta.object_id),{answers:{},submitted:false},meta,{now,guards:prepared.guards,extraChanges:prepared.changes}),/RETURN_STALE/);assert.deepEqual([...storage.data],before);
+});
+await asyncTest('stale Lexical source identity rejects without creating an English or Lexical write',async()=>{
+ const storage=new MemoryStorage(),thread=clone(lexicalThread);thread.lexicalEvidence.source_hash='stale';
+ await assert.rejects(lexicalBridge.prepareEnglishLexicalReturn(storage,{...returnArgs,threads:[thread]}),/CURRENT_SOURCE_CHANGED/);assert.equal(storage.length,0);
+});
+test('native first Source snapshot cannot be rewritten under the same revision',()=>{
+ const {storage,meta,value}=installedV1();const changed=clone(value);changed.binding.source_snapshot={material:'invented'};
+ assert.throws(()=>evidence.saveEnglishAttempt(storage,currentKey(meta.object_id),changed,meta,{now}),/BINDING_IMMUTABLE/);
 });
 const report={basis:'bounded L2 candidate repair; base 418c8a24607d5708c6fbd5dac1f7828e199c61b7',
   execution:'Node isolated in-memory synthetic fixtures; no real learner data, protected source consumption, browser or deployed claim',
