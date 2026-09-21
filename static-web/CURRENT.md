@@ -10,6 +10,14 @@ Current closure work is limited to usable context routing, proven-safe cleanup a
 
 Content production remains independent: vocabulary upgrades, Xizong explanations, Visual assets and reviewed relations continue with their Chat-owned content owners. This engineering closure does not declare those frontiers complete.
 
+### Active bounded Freeze repair
+
+Kian authorized repair of the seven Final Freeze findings on 2026-09-22. This branch contains the F0-02 whole-paper output-integrity candidate in the existing [native exam session](src/lib/englishExamSession.mjs), with [its focused regression](scripts/test-english-exam-seal-integrity.mjs). Present-but-incomplete autosaves/captures must not become empty answers; explicit blank work remains legal. No real learner state is migrated or rewritten.
+
+Local isolated proof: 13 focused regression groups and the original 31 stage-2A assertions pass. The original audit runner's unguarded exploitation transcript was replaced only for reporting because the repaired seal now rejects that input; its test assertions were unchanged. This is not full repository, browser, relay or installed-Mac proof. F0-02 remains an unmerged candidate, not final closure; F0-01/03/04/05/06 and F1-01 remain unmodified by this batch.
+
+Next: verify this candidate against the affected existing whole-paper consumers/tests and an isolated browser before promotion, then continue the remaining six bounded repairs. Do not restart broad audits, clear learner data or claim Freeze readiness.
+
 ## Start from the reported symptom
 
 | Need | Exact first owner | Read further only if needed |
