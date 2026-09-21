@@ -70,7 +70,13 @@ assert(systemGuard.includes('stale_visible_memory_repairs'), 'stale-visible-memo
 assert(systemGuard.includes('XIZONG_MEMORY_STORAGE_KEY'), 'system-version-guard-misses-visible-memory-repair');
 assert(systemGuard.includes("String(task?.origin || '') === 'SYSTEM_WU_CHAT_RETURN'"), 'system-version-guard-does-not-scope-question-derived-repair');
 assert(systemGuard.includes('localStorage.removeItem(recallKey)'), 'stale-system-recall-not-invalidated');
-assert(systemGuard.includes('localStorage.removeItem(sweepKey)'), 'stale-system-sweep-not-invalidated');
+assert(systemGuard.includes('if (oldSweep && !writeJson(sweepKey, {')
+  && systemGuard.includes('...oldSweep,')
+  && systemGuard.includes('results: {},')
+  && systemGuard.includes('attemptHistory: (Array.isArray(oldSweep.attemptHistory) ? oldSweep.attemptHistory : [])')
+  && systemGuard.includes('.map((event) => ({ ...event, current_revision_valid: false }))')
+  && !systemGuard.includes('localStorage.removeItem(sweepKey)'),
+  'stale-system-current-results-must-clear-while-history-is-retained');
 assert(systemGuard.includes("phase = answered === 0 ? 'PRE_QUESTION'"), 'system-recall-pre-phase-missing');
 assert(systemGuard.includes("'MID_SWEEP'"), 'system-recall-mid-phase-missing');
 assert(systemGuard.includes("'POST_QUESTION'"), 'system-recall-post-phase-missing');

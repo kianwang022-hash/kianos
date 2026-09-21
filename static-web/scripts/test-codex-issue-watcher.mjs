@@ -50,12 +50,24 @@ const a = process.argv.slice(2);
 const schema = JSON.parse(fs.readFileSync(a[a.indexOf('--output-schema') + 1]));
 const p = schema.properties;
 const state = JSON.parse(fs.readFileSync(process.env.TEST_STATE));
-if (state.issues[String(p.issue.const)].status !== 'CLAIMED' || !state.issues[String(p.issue.const)].executor_pid) process.exit(88);
+// CLAIMED and the task identity are durable before spawn. The child may run
+// before the parent records its PID; requiring that later write here is a race.
+const claim = state.issues[String(p.issue.const)];
+if (claim.status !== 'CLAIMED' || claim.run_id !== p.run_id.const || claim.task_digest !== p.task_digest.const) process.exit(88);
 const calls = JSON.parse(fs.readFileSync(process.env.TEST_CALLS)); calls.push(a); fs.writeFileSync(process.env.TEST_CALLS,JSON.stringify(calls));
 const mode = process.env.TEST_EXEC_MODE;
 process.stdout.write('synthetic-secret-token-private-path'); process.stderr.write('synthetic-secret-token-private-path');
 if (mode === 'fail') process.exit(1);
-if (mode === 'crash') { process.kill(process.ppid, 'SIGKILL'); process.exit(0); }
+if (mode === 'crash') {
+  // This scenario targets recovery of a known PID, not unknown dispatch. Wait
+  // for the parent's PID handoff before deliberately killing that parent.
+  const deadline = Date.now() + 2000;
+  while (JSON.parse(fs.readFileSync(process.env.TEST_STATE)).issues[String(p.issue.const)].executor_pid !== process.pid) {
+    if (Date.now() >= deadline) process.exit(89);
+    Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 5);
+  }
+  process.kill(process.ppid, 'SIGKILL'); process.exit(0);
+}
 if (mode === 'hang') {
   const child = cp.spawn(process.execPath, ['-e', 'process.on("SIGTERM",()=>{});setInterval(()=>{},1000)'], {stdio:'ignore'});
   fs.writeFileSync(process.env.TEST_PID,JSON.stringify({parent:process.pid,child:child.pid}));

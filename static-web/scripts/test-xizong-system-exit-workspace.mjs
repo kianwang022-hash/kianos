@@ -3,7 +3,7 @@ import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { chromium } from 'playwright';
 import { loadXizongSystem, loadXizongBlock } from '../src/lib/xizong.mjs';
-import { loadXizongSystemQuestionSweep, loadXizongWholePaper } from '../src/lib/xizongQuestions.mjs';
+import { loadXizongSystemQuestionSweep, loadXizongWholePaper, xizongQuestionSemanticRevisions } from '../src/lib/xizongQuestions.mjs';
 import {
   ensureXizongQuestionSweepState,
   recordXizongQuestionAttempt,
@@ -371,7 +371,8 @@ try {
   const expectedRetained=collectXizongRetainedEvidence([
     [sweepKey,currentCirculationState],
     ['kianos:xizong:system-question-sweep:respiratory:v1',respiratoryState]
-  ],{holdoutYears:[holdoutYear],markOverrides:retainedMarkOverrides});
+  ],{holdoutYears:[holdoutYear],markOverrides:retainedMarkOverrides,
+    questionSemanticRevisions:xizongQuestionSemanticRevisions([...sweep.questions,...respiratorySweep.questions])});
   check(expectedRetained.wrongUncertainIds.length>=2,'fixture_retained_wu_cross_scope',String(expectedRetained.wrongUncertainIds.length));
   check(expectedRetained.markedIds.includes(markedFixture.questionId),'fixture_retained_marked_scope',markedFixture.questionId);
 
