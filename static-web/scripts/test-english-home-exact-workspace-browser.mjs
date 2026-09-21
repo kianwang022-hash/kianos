@@ -9,7 +9,7 @@ import {
   writeEnglishGeneratedDrill
 } from './privateEnglishGeneratedDrillStore.mjs';
 import {ENGLISH_SESSION_KEY, ENGLISH_SESSION_SCHEMA} from '../src/lib/englishSessionControl.mjs';
-import {EXAM_CHAT_PLAN_KEY, EXAM_CHAT_PLAN_SCHEMA} from '../src/lib/examChatPlan.mjs';
+import {EXAM_CHAT_PLAN_KEY, EXAM_CHAT_PLAN_SCHEMA, buildExamChatPlanBasis} from '../src/lib/examChatPlan.mjs';
 import {EXAM_PROFILE_KEY, emptyExamProfile} from '../src/lib/examOrchestrator.mjs';
 
 const DAY='2026-09-20';
@@ -54,10 +54,19 @@ const englishSession={
   return_policy:{on_finish:'english_home'}
 };
 const profile={...emptyExamProfile(),capacityByDay:{[DAY]:480},defaultDailyMinutes:480};
-const plan=(sessionRef)=>({
+class MemoryStorage{
+  constructor(entries={}){this.map=new Map(Object.entries(entries));}
+  get length(){return this.map.size;}
+  key(i){return [...this.map.keys()][i]??null;}
+  getItem(key){return this.map.has(key)?this.map.get(key):null;}
+  setItem(key,value){this.map.set(String(key),String(value));}
+  removeItem(key){this.map.delete(String(key));}
+}
+const plan=(sessionRef,learnerEvidenceBasis)=>({
   schema:EXAM_CHAT_PLAN_SCHEMA,
   study_day:DAY,
   generated_at:'2026-09-20T02:06:00+08:00',
+  learner_evidence_basis:learnerEvidenceBasis,
   subjects:{
     xizong:null,
     english:{target_minutes:60,role:'稳推进',note:'做这一组 Reading。',session_ref:sessionRef},
@@ -98,16 +107,34 @@ try{
   await waitReady();
   browser=await chromium.launch({headless:true});
   const context=await browser.newContext({viewport:{width:1512,height:982},locale:'zh-CN',timezoneId:'Asia/Shanghai'});
+  await context.addInitScript(({fixtureNow})=>{
+    const NativeDate=Date;
+    const offset=fixtureNow-NativeDate.now();
+    class FixtureDate extends NativeDate{
+      constructor(...args){super(...(args.length?args:[NativeDate.now()+offset]));}
+      static now(){return NativeDate.now()+offset;}
+    }
+    window.Date=FixtureDate;
+  },{fixtureNow:Date.parse('2026-09-20T03:00:00+08:00')});
   const page=await context.newPage();
   await page.goto(BASE,{waitUntil:'domcontentloaded'});
-  await page.evaluate(({profile,englishSession,plan,keys})=>{
+  await page.evaluate(({profile,englishSession,keys})=>{
     localStorage.setItem(keys.profile,JSON.stringify(profile));
     localStorage.setItem(keys.english,JSON.stringify(englishSession));
-    localStorage.setItem(keys.plan,JSON.stringify(plan));
   },{
-    profile,englishSession,plan:plan(sessionId),
-    keys:{profile:EXAM_PROFILE_KEY,english:ENGLISH_SESSION_KEY,plan:EXAM_CHAT_PLAN_KEY}
+    profile,englishSession,
+    keys:{profile:EXAM_PROFILE_KEY,english:ENGLISH_SESSION_KEY}
   });
+  const evidenceSnapshot=await page.evaluate(()=>Object.fromEntries(
+    Array.from({length:localStorage.length},(_,index)=>{
+      const key=localStorage.key(index);
+      return [key,localStorage.getItem(key)];
+    }).filter(([key])=>key!=null)
+  ));
+  const liveBasis=buildExamChatPlanBasis(new MemoryStorage(evidenceSnapshot),DAY);
+  await page.evaluate(({key,value})=>{
+    localStorage.setItem(key,JSON.stringify(value));
+  },{key:EXAM_CHAT_PLAN_KEY,value:plan(sessionId,liveBasis)});
   await page.reload({waitUntil:'domcontentloaded'});
   await page.locator('[data-exam-home][data-ready="true"]').waitFor();
 
@@ -127,7 +154,7 @@ try{
   await page.evaluate(({key,value})=>{
     localStorage.setItem(key,JSON.stringify(value));
     window.dispatchEvent(new StorageEvent('storage',{key}));
-  },{key:EXAM_CHAT_PLAN_KEY,value:plan('english-different-session')});
+  },{key:EXAM_CHAT_PLAN_KEY,value:plan('english-different-session',liveBasis)});
 
   await page.waitForFunction(()=>{
     const link=document.querySelector('[data-exam-next]');

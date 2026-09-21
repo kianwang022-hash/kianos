@@ -22,6 +22,7 @@ class MemoryStorage {
 }
 
 const day = '2026-09-19';
+const fixedNow = Date.parse('2026-09-19T02:10:00.000Z');
 const catalog = {
   revision: 'politics-test-rev-1',
   questions: [
@@ -149,7 +150,7 @@ assert.equal(readPoliticsChatReturn(storage, outbound.batch_id).applied_at, '202
 await assert.rejects(async () => applyPoliticsChatReturn(storage, catalog, {
   ...validReturn,
   follow_ups: [{ ...validReturn.follow_ups[0], reason: '冲突的第二个解释' }]
-}), /POLITICS_CHAT_RETURN_CONFLICT_KEEP_FIRST/);
+}, { now: fixedNow }), /POLITICS_CHAT_RETURN_CONFLICT_KEEP_FIRST/);
 
 const invalidQuestionStorage = source();
 assert.throws(() => applyPoliticsChatReturn(invalidQuestionStorage, catalog, {
@@ -161,19 +162,19 @@ assert.throws(() => applyPoliticsChatReturn(invalidQuestionStorage, catalog, {
     reason: '不应通过。',
     instruction: '不应执行。'
   }]
-}), /POLITICS_CHAT_RETURN_QUESTION_OUT_OF_SCOPE/);
+}, { now: fixedNow }), /POLITICS_CHAT_RETURN_QUESTION_OUT_OF_SCOPE/);
 
 const staleStorage = source();
 const staleMeta = { ...meta, latestOutcome: { Q1: 'STABLE' }, discussion: { Q1: false } };
 staleStorage.setItem(PRACTICE_KEYS.meta, JSON.stringify(staleMeta));
-assert.throws(() => applyPoliticsChatReturn(staleStorage, catalog, validReturn), /POLITICS_CHAT_RETURN_STALE_BATCH/);
+assert.throws(() => applyPoliticsChatReturn(staleStorage, catalog, validReturn, { now: fixedNow }), /POLITICS_CHAT_RETURN_STALE_BATCH/);
 
 const provenanceChangedStorage = source();
 const provenanceChangedAttempts = structuredClone(attempts);
 provenanceChangedAttempts.units['marxism/c01/u01'].attempts.Q1.source_context.task_revision = 'q1-task-rev-2';
 provenanceChangedStorage.setItem(PRACTICE_KEYS.attempts, JSON.stringify(provenanceChangedAttempts));
 assert.throws(
-  () => applyPoliticsChatReturn(provenanceChangedStorage, catalog, validReturn),
+  () => applyPoliticsChatReturn(provenanceChangedStorage, catalog, validReturn, { now: fixedNow }),
   /POLITICS_CHAT_RETURN_STALE_BATCH/,
   'attempt provenance changes must invalidate an older Chat return'
 );
@@ -190,7 +191,7 @@ const noAction = applyPoliticsChatReturn(noActionStorage, catalog, {
   verdict: 'NO_ACTION',
   diagnosis_summary: '本批次不需要额外修补，继续主线。',
   follow_ups: []
-});
+}, { now: fixedNow });
 assert.equal(noAction.value.verdict, 'NO_ACTION');
 
 const checkpoint = exportPoliticsCheckpoint(storage);

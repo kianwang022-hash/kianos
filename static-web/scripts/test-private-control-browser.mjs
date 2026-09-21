@@ -131,6 +131,15 @@ try{
   const serverControl=await controlReady();
   assert.equal(serverControl.command.command_id,command.command_id);
   const context=await browser.newContext({viewport:{width:1512,height:982},locale:'zh-CN',timezoneId:'Asia/Shanghai'});
+  await context.addInitScript(({fixtureNow})=>{
+    const NativeDate=Date;
+    const offset=fixtureNow-NativeDate.now();
+    class FixtureDate extends NativeDate{
+      constructor(...args){super(...(args.length?args:[NativeDate.now()+offset]));}
+      static now(){return NativeDate.now()+offset;}
+    }
+    window.Date=FixtureDate;
+  },{fixtureNow:Date.parse('2026-09-20T03:00:00+08:00')});
   const page=await context.newPage();
   const pageErrors=[];
   page.on('pageerror',error=>pageErrors.push(error.message));
