@@ -143,10 +143,63 @@
         "verification_status": "verified",
         "writing_safe": false
       }
+    },
+    {
+      "source_word_id": "word:get",
+      "source_ordinal": 2130,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "get sb to do 常表示促成/说服某人去做；cause sb to do 更正式、更直接强调因果使役",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "高",
+          "collocation": "get sb to do / cause sb to do",
+          "core_meaning": "使役动词",
+          "exam_trap": "get 使役更口语",
+          "register": "get 更口语/促成；cause 更正式/直接",
+          "semantic_prosody": "中性",
+          "strength": "强",
+          "syntax": "get + 宾语 + to do；cause + 宾语 + to do",
+          "writing_safety": "安全"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:00772482-v",
+            "evidence_status": "source_checked",
+            "source_locator": "00772482-v",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:cause:beb25bda8c32ba47",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": "cause someone or something to do something; compare direct causation with getting someone to act",
+        "source_sense_id": "sense:get:af37ab5b13fc5589",
+        "target_sense_id": "sense:cause:3e1fd33f209f5aff",
+        "target_word": "cause",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 1,
+    "last_materialization": "BF07 reciprocal closure"
   }
 }
