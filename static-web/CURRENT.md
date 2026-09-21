@@ -16,6 +16,7 @@ Content production remains independent: vocabulary upgrades, Xizong explanations
 | --- | --- | --- |
 | Website did not update / will not open | [Current doctor](scripts/kianos-current-doctor.mjs), read-only `--json` | [sync/build owner](scripts/kianos-current-sync.mjs), then [static server](scripts/kianos-static-server.mjs) |
 | Chat cannot see current learner facts | [private Packet builder](scripts/privateDailyLearningPacket.mjs) | [Packet relay](scripts/privateDailyLearningPacketRelay.mjs), then the affected subject adapter |
+| Plan seems unrealistic / a prediction is unclear | [Chat planning boundary, section 0](../EXAM_ORCHESTRATOR_CONTRACT.md) | Actual subject Packet first; [Xizong workload owner](src/lib/xizongForecastModel.mjs) or [English estimate utility](src/lib/englishForecastModel.mjs) only when the disputed output actually uses it |
 | Chat instruction did not apply / receipt differs | [control runtime](src/lib/privateControlRuntime.mjs) | [control relay](scripts/privateControlRelaySync.mjs), then the exact command/native operation |
 | Yesterday's state did not recover / one subject is corrupt | [checkpoint runtime](src/lib/privateCheckpointRuntime.mjs) | [subject checkpoint adapters](src/lib/privateSubjectCheckpoints.mjs), then only the affected native owner |
 | English source changed / Resume differs | [English session owner](src/lib/englishSessionControl.mjs) | [source identity owner](src/lib/englishSourceTruth.mjs) and [Resume surface](src/components/EnglishResume.astro) |

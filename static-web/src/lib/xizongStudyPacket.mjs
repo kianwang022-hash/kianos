@@ -1,3 +1,5 @@
+import { inspectXizongBlockCompletion } from './xizongMemoryAutoRelease.mjs';
+import { XIZONG_LEARNER_OBJECT_SCHEMA } from './xizongMemoryRelease.mjs';
 import { isXizongQuestionAttemptCurrent } from './xizongQuestionAttempts.mjs';
 import {
   XIZONG_QUESTION_PREFERENCES_KEY,
@@ -12,6 +14,7 @@ import {
 } from './xizongForecastModel.mjs';
 import {
   aggregateStudyTime,
+  STUDY_TIMER_LEDGER_KEY,
   readStudyTimerLedger,
   studyDayAt
 } from './studyTimer.mjs';
@@ -78,6 +81,27 @@ function eventYear(event) {
   if (Number.isInteger(direct)) return direct;
   const match = String(event?.question_id || '').match(/^xizong-official-(\d{4})-n\d{3}$/);
   return match ? Number(match[1]) : null;
+}
+
+// Project exact duplicated timer observations once; conflicting identities cannot price work.
+function forecastTimerStorage(storage) {
+  const ledger = readStudyTimerLedger(storage);
+  const sessions = new Map();
+  const otherSubjects = [];
+  for (const session of ledger.sessions) {
+    if (session.subject !== 'xizong') { otherSubjects.push(session); continue; }
+    const previous = sessions.get(session.id);
+    if (previous && JSON.stringify(previous) !== JSON.stringify(session)) {
+      throw new Error('XIZONG_FORECAST_TIMER_DUPLICATE_CONFLICT:' + session.id);
+    }
+    sessions.set(session.id, session);
+  }
+  const timerRaw = JSON.stringify({ ...ledger, sessions: [...otherSubjects, ...sessions.values()] });
+  return {
+    getItem: (key) => key === STUDY_TIMER_LEDGER_KEY ? timerRaw : storage.getItem(key),
+    key: (index) => storage.key?.(index) ?? null,
+    get length() { return storage.length; }
+  };
 }
 
 function timerMinutesForDetail(storage, detailKey, { startAt = null, endAt = null } = {}) {
@@ -782,7 +806,8 @@ function summarizeXizongFormalScoreEvidence(storage, questionSemanticRevisions =
       wrong_count: Number(seal.summary.wrongCount || 0),
       unanswered_count: Number(seal.summary.unansweredCount || 0),
       question_count: Number(seal.summary.questionCount || 0),
-      earned_score: Number(seal.summary.earnedScore || 0),
+      earned_score: typeof seal.summary.earnedScore === 'number' && Number.isFinite(seal.summary.earnedScore)
+        && seal.summary.earnedScore >= 0 && seal.summary.earnedScore <= 300 ? seal.summary.earnedScore : null,
       max_score: Number(seal.summary.maxScore || 0),
       internal_holdout_protected_before_seal: seal?.evidenceContext?.internalHoldoutProtectedBeforeSeal === true,
       external_exposure_status: String(seal?.evidenceContext?.externalExposureStatus || 'UNKNOWN'),
@@ -996,6 +1021,7 @@ export function buildXizongForecastProgress(storage, packetIndex = [], {
     throw new Error('XIZONG_FORECAST_PROGRESS_PACKET_INDEX_REQUIRED');
   }
 
+  storage = forecastTimerStorage(storage);
   const systems = new Map();
   const completedBlockIds = [];
   const completedBlockRows = [];
@@ -1075,7 +1101,13 @@ export function buildXizongForecastProgress(storage, packetIndex = [], {
     system.runtime_recall_known += recallCounts.known;
     system.runtime_recall_mastered += recallCounts.mastered;
 
-    if (state.completed === true) {
+    const completion = inspectXizongBlockCompletion({
+      schema: XIZONG_LEARNER_OBJECT_SCHEMA,
+      objectType: 'BLOCK',
+      identity: { blockId },
+      kps: kpRows.map((kp) => ({ identity: { kpId: kp.kpId } }))
+    }, state);
+    if (completion.complete) {
       completedBlockIds.push(blockId);
       completedBlockRows.push({
         system_id: systemId,

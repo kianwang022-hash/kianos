@@ -1,3 +1,5 @@
+import { buildXizongForecastProgress } from '../src/lib/xizongStudyPacket.mjs';
+import { STUDY_TIMER_SCHEMA, STUDY_TIMER_LEDGER_KEY } from '../src/lib/studyTimer.mjs';
 import assert from 'node:assert/strict';
 import {
   XIZONG_FORECAST_MODEL_SCHEMA,
@@ -292,8 +294,9 @@ function baseProgress() {
   assert.equal(matchedCurrentFormat.formal_score.calibration_sample_count,3);
   assert.ok(matchedCurrentFormat.formal_score.calibration_band);
   assert.equal(matchedCurrentFormat.formal_score.current_format_compatibility,'MATCHED');
-  assert.equal(matchedCurrentFormat.formal_score.score_extrapolation_ready,true);
-  assert.equal(matchedCurrentFormat.evidence_readiness.result,'SCORE_ESTIMATE_EVIDENCE_USABLE');
+  assert.equal(matchedCurrentFormat.formal_score.score_extrapolation_ready,false, 'matched historical quantiles do not validate future score prediction');
+  assert.equal(matchedCurrentFormat.formal_score.observed_score_is_not_fresh_prediction,true);
+  assert.equal(matchedCurrentFormat.evidence_readiness.result,'SCORE_EVIDENCE_PRESENT_LOW_CONFIDENCE');
 }
 
 {
@@ -1016,3 +1019,111 @@ console.log('PASS D2 owner-only pricing, missing/zero, heterogeneous provisional
   assert.equal(buildXizongWorkloadForecast(revised).components.formal_calibration.band_minutes, null);
 }
 console.log('PASS historical sealed scores preserved while Current calibration remains withheld');
+
+
+// Production adapter regression: native completion, observation identity, and unknown numeric values.
+{
+  const storage = (entries) => {
+    const map = new Map(Object.entries(entries));
+    return { getItem: (key) => map.get(key) ?? null, key: (i) => [...map.keys()][i], get length() { return map.size; } };
+  };
+  const index = [{ systemId: 'circulation', blockId: 'circulation-b01', routeKey: 'circulation/b01',
+    packetMeta: { objectId: 'xizong:circulation-b01', canonicalId: 'A1', sourceHash: 'current-source' },
+    kpRows: [{ kpId: 'kp1', groupId: 'lg1' }] }];
+  const key = 'kianos-xizong-astro-v2:xizong:circulation-b01';
+  const incomplete = { sourceHash: 'current-source', completed: true, completedAt: '2026-09-20T02:00:00Z' };
+  const valid = { ...incomplete, blockRecallDone: true, learned: { kp1: true }, ratings: { kp1: 'fuzzy' } };
+  const progress = (entries) => buildXizongForecastProgress(storage(entries), index, { now: Date.parse('2026-09-21T00:00:00Z') });
+  const blocked = progress({ [key]: JSON.stringify(incomplete) });
+  assert.equal(blocked.runtime_evidence.completed_blocks, 0);
+  assert.equal(blocked.workload_forecast.components.knowledge.remaining.blocks, 1);
+  assert.equal(progress({ [key]: JSON.stringify(valid) }).runtime_evidence.completed_blocks, 1);
+  assert.equal(progress({ [key]: JSON.stringify({ ...valid, sourceHash: 'old-source' }) }).runtime_evidence.completed_blocks, 0);
+  const session = { id: 'one-hour', subject: 'xizong', context: { subject: 'xizong', detailKey: 'circulation/b01' },
+    startedAt: Date.parse('2026-09-20T01:00:00Z'), endedAt: Date.parse('2026-09-20T02:00:00Z') };
+  const timerEntries = { [key]: JSON.stringify(valid), [STUDY_TIMER_LEDGER_KEY]: JSON.stringify({ schema: STUDY_TIMER_SCHEMA, sessions: [session, session] }) };
+  const before = JSON.stringify(timerEntries);
+  assert.equal(progress(timerEntries).runtime_evidence.completed_blocks_detail[0].timer_minutes_to_completion, 60);
+  assert.equal(JSON.stringify(timerEntries), before, 'Forecast must not rewrite timer evidence');
+  assert.throws(() => progress({ ...timerEntries, [STUDY_TIMER_LEDGER_KEY]: JSON.stringify({ schema: STUDY_TIMER_SCHEMA, sessions: [session, { ...session, endedAt: session.endedAt + 60000 }] }) }), /TIMER_DUPLICATE_CONFLICT/);
+  const seal = { sealedAt: '2026-09-20T02:00:00Z', summary: { maxScore: 300, questionCount: 165, earnedScore: null },
+    evidenceContext: { questionSemanticRevisions: { q1: 'revision-1' }, questionInventoryHash: 'paper-2026', examFormatSourceHash: 'format-v1', examFormat: { max_score: 300, question_count: 165 }, internalHoldoutProtectedBeforeSeal: true } };
+  const paperProgress = buildXizongForecastProgress(storage({ 'kianos:xizong:paper-question-sweep:paper-2026:v1': JSON.stringify({ paperSeal: seal }) }), index,
+    { questionScope: { schema: 'kianos.xizong.forecast-question-scope.v1', systems: [], question_semantic_revisions: { q1: 'revision-1' } } });
+  assert.equal(paperProgress.formal_score_evidence.sealed_papers[0].earned_score, null);
+  const unknown = buildXizongScoreEvidence(paperProgress, { contaminationStatus: 'LOW', currentExamFormatSourceHash: 'format-v1' });
+  assert.equal(unknown.formal_score.latest_score, null);
+  assert.equal(unknown.formal_score.latest_target_gap, null);
+  assert.equal(unknown.formal_score.calibration_sample_count, 0);
+  assert.equal(unknown.formal_score.sample_count, 0);
+  assert.equal(unknown.evidence_readiness.formal_score_evidence_ready, false);
+  for (const earnedScore of [null, false, [], '', '0', '280', {}, -1, 301]) {
+    const row = buildXizongForecastProgress(storage({ 'kianos:xizong:paper-question-sweep:paper-2026:v1': JSON.stringify({ paperSeal: { ...seal, summary: { ...seal.summary, earnedScore } } }) }), index);
+    assert.equal(row.formal_score_evidence.sealed_papers[0].earned_score, null);
+    const direct = { ...paperProgress, formal_score_evidence: { sealed_papers: [{ ...paperProgress.formal_score_evidence.sealed_papers[0], earned_score: earnedScore }] } };
+    assert.equal(buildXizongScoreEvidence(direct).formal_score.latest_score, null);
+  }
+  const realZero = { ...paperProgress, formal_score_evidence: { sealed_papers: [{ ...paperProgress.formal_score_evidence.sealed_papers[0], earned_score: 0 }] } };
+  assert.equal(buildXizongScoreEvidence(realZero).formal_score.latest_score, 0);
+  assert.equal(buildXizongScoreEvidence(realZero).formal_score.latest_target_gap, 275);
+  const paper = { ...paperProgress.formal_score_evidence.sealed_papers[0], earned_score: 280 };
+  paperProgress.formal_score_evidence.sealed_papers = [paper, structuredClone(paper), structuredClone(paper)];
+  const duplicated = buildXizongScoreEvidence(paperProgress, { contaminationStatus: 'LOW', currentExamFormatSourceHash: 'format-v1' });
+  assert.equal(duplicated.formal_score.raw_observation_count, 3);
+  assert.equal(duplicated.formal_score.sample_count, 1);
+  assert.equal(duplicated.formal_score.calibration_sample_count, 1);
+  assert.equal(duplicated.formal_score.calibration_band, null);
+  const original = JSON.stringify(paperProgress);
+  buildXizongScoreEvidence(paperProgress);
+  assert.equal(JSON.stringify(paperProgress), original);
+  paperProgress.formal_score_evidence.sealed_papers = [paper, { ...paper, earned_score: 290 }];
+  const conflict = buildXizongScoreEvidence(paperProgress);
+  assert.equal(conflict.formal_score.sample_count, 0);
+  assert.equal(conflict.formal_score.raw_observation_count, 2);
+  assert.deepEqual(conflict.formal_score.conflicting_paper_ids, ['2026']);
+  assert.equal(buildXizongScoreEvidence(paperProgress, { contaminationStatus: 'LOW', currentExamFormatSourceHash: 'format-v1' }).formal_score.calibration_sample_count, 0);
+  paperProgress.formal_score_evidence.sealed_papers = [paper, { ...paper, sealed_at: '2026-09-21T02:00:00Z', earned_score: 290 }, { ...paper, sealed_at: '2026-09-22T02:00:00Z', earned_score: 300 }];
+  assert.equal(buildXizongScoreEvidence(paperProgress, { contaminationStatus: 'LOW', currentExamFormatSourceHash: 'format-v1' }).formal_score.calibration_sample_count, 1);
+  paperProgress.formal_score_evidence.sealed_papers = [{ ...paper, external_exposure_status: 'KNOWN_PRIOR_EXPOSURE' }];
+  const exposed = buildXizongScoreEvidence(paperProgress, { contaminationStatus: 'FRESH_EQUIVALENT', currentExamFormatSourceHash: 'format-v1' });
+  assert.equal(exposed.formal_score.sample_count, 1, 'historical exposed score is retained');
+  assert.equal(exposed.formal_score.latest_score, 280);
+  assert.equal(exposed.formal_score.calibration_sample_count, 0, 'a global label cannot erase known paper exposure');
+  assert.equal(buildXizongWorkloadForecast(paperProgress).components.formal_calibration.band_minutes, null);
+}
+{
+  const initial = buildXizongWorkloadForecast(baseProgress());
+  for (const owner of ['knowledge', 'questions', 'system_recall', 'repair']) assert.equal(initial.components[owner].status, 'PROVISIONAL');
+  const progress = baseProgress();
+  const rates = [1, 1, 1, 10, 100, 1000];
+  progress.runtime_evidence.completed_blocks_detail = rates.map((minutes, i) => ({ canonical_id: i % 2 ? 'A1' : 'A2', block_id: 'done-' + i,
+    kp_count: 10, logic_group_count: 2, timer_minutes_to_completion: minutes, completed_at: `2026-09-${10 + i}T00:00:00Z` }));
+  progress.practice_evidence.first_pass.by_day = rates.map((rate, i) => ({ day: `2026-09-${10 + i}`, attempted: 10, practice_timer_minutes: rate * 10, observed_minutes_per_attempt: rate }));
+  progress.current_exam_format = { source_hash: 'historical-format-v1' };
+  const loop = buildXizongForecastLoop(progress, { contaminationStatus: 'LOW' });
+  assert.equal(loop.workload.components.knowledge.calibration.rolling_backtest.median_absolute_percent_error, 0.99);
+  assert.equal(loop.workload.components.questions.calibration.rolling_backtest.median_absolute_percent_error, 0.99);
+  assert.equal(loop.workload.components.knowledge.status, 'PROVISIONAL');
+  assert.equal(loop.workload.components.questions.status, 'PROVISIONAL');
+  assert.equal(loop.empirical_calibration_ready, false);
+  assert.equal(loop.forecast_state, 'CALIBRATING');
+  const forecast = buildXizongWorkloadForecast(baseProgress());
+  for (const capacityMinutesByDay of [[], false, 'unknown', { '2026-09-21': null }, { '2026-09-21': 'unknown' }]) {
+    const options = { startDay: '2026-09-21', deadlineDay: '2026-09-21', dailyMinutes: 10000, capacityMinutesByDay };
+    const result = assessXizongDeadlineFeasibility(forecast, options);
+    assert.equal(result.capacity, null);
+    assert.equal(result.fit, null);
+    assert.equal(result.status, 'UNPRICED');
+    assert.equal(applyXizongForecastScenario(forecast, options).first_round.band_dates.p50.date, null);
+  }
+  const zero = assessXizongDeadlineFeasibility(forecast, { startDay: '2026-09-21', deadlineDay: '2026-09-21', dailyMinutes: 0 });
+  assert.equal(zero.capacity.minutes, 0);
+  assert.equal(zero.fit.p20, false);
+  for (const [startDay, deadlineDay] of [['2026-02-31', '2026-03-03'], ['2026-02-28', '2026-02-31'], ['2026-09-22', '2026-09-21']]) {
+    const invalidDate = assessXizongDeadlineFeasibility(forecast, { startDay, deadlineDay, dailyMinutes: 10000 });
+    assert.equal(invalidDate.capacity, null);
+    assert.equal(invalidDate.fit, null);
+  }
+  assert.equal(applyXizongForecastScenario(forecast, { startDay: '2026-02-31', dailyMinutes: 10000 }).first_round.band_dates.p50.date, null);
+}
+console.log('PASS Forecast native closure, unique observations, known exposure, unknown score/capacity, and failed-calibration regression');

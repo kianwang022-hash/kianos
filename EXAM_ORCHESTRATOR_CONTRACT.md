@@ -87,6 +87,21 @@ The Website must not:
 - create review debt or repair priority;
 - infer a plan because no Chat plan exists.
 
+### Explain estimates when they affect a decision
+
+Observed study time, attempts and source identities are facts. Remaining workload, future capacity, retention and future scores are estimates or assumptions; their presence in a Packet does not turn them into facts. A target is an intention, not a predicted outcome.
+
+When Kian asks whether the plan is realistic or why it changed, Chat should explain briefly in natural language:
+
+- which current observations support the answer, and their subject/task/source scope;
+- the conditional range and the assumptions about usable time or pace;
+- what is still unknown or unpriced, including material outside the estimate;
+- which plausible change would alter the decision, and the next useful bounded action.
+
+Do not present empirical sample quantiles as a future confidence interval or sample count as proof of calibration. Never pool unrelated subjects/tasks, count repeated observations as independent evidence, infer current capability from stale source identities, or add subject ranges into a calibrated total-score probability. Preserve native UNKNOWN / PROVISIONAL / UNPRICED boundaries. Historical scores describe those attempts; fresh score prediction needs appropriate independent current evidence.
+
+Missing or unreliable Forecast must not block ordinary learning. Chat can propose a short, explicitly provisional next step from healthy evidence and available capacity, then revise after actual use. Do not consume fresh exam material, create extra tests for Kian, or ask for repeated manual reports merely to make the model look calibrated. A failed estimate does not authorize the Website to invent a replacement strategy.
+
 ### Typed private cross-subject plan
 
 The current private control packet is:

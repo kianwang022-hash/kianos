@@ -46,6 +46,13 @@ test('explicit unknown capacity is not replaced by fallback',()=>{
  const result=f.assessEnglishDeadlineFeasibility(f.buildEnglishWorkloadForecast(workload()),{startDay:'2026-09-21',deadlineDay:'2026-09-21',dailyMinutes:120,capacityMinutesByDay:{'2026-09-21':null}});
  assert.equal(result.capacity,null);assert.equal(result.fit,null);
 });
+test('malformed explicit capacity maps cannot silently use the daily fallback',()=>{
+ const model=f.buildEnglishWorkloadForecast(workload());
+ for(const capacityMinutesByDay of [[],[{'2026-09-21':null}],'unknown',false,0,120]){
+  const result=f.assessEnglishDeadlineFeasibility(model,{startDay:'2026-09-21',deadlineDay:'2026-09-21',dailyMinutes:120,capacityMinutesByDay});
+  assert.equal(result.capacity,null);assert.equal(result.fit,null);assert.equal(result.required_average_minutes_per_day,null);
+ }
+});
 test('incomplete scope cannot make a full deadline-fit claim',()=>{
  const input=workload();input.task_families.lexical.scope_complete=false;
  const result=f.assessEnglishDeadlineFeasibility(f.buildEnglishWorkloadForecast(input),{startDay:'2026-09-21',deadlineDay:'2026-09-30',dailyMinutes:120});

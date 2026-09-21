@@ -349,7 +349,7 @@ check('score_evidence_fail_closed',()=>{
     currentExamFormatSourceHash:'historical-format-v1'
   });
   assert.ok(matched.formal_score.calibration_band);
-  assert.equal(matched.formal_score.score_extrapolation_ready,true);
+  assert.equal(matched.formal_score.score_extrapolation_ready,false, 'historical empirical bands are not prospective score validation');
   return {historical_observation_preserved:true,current_format_required:true,whole_paper_cannot_fake_x8:true};
 });
 

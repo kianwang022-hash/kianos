@@ -76,6 +76,7 @@ const finite = (value) => {
   const number = Number(value);
   return Number.isFinite(number) ? number : null;
 };
+const scoreNumber = (value) => typeof value === 'number' && Number.isFinite(value) && value >= 0 && value <= 300 ? value : null;
 const positive = (value) => {
   const n = finite(value);
   return n !== null && n > 0 ? n : null;
@@ -168,6 +169,46 @@ function combineModelFormBands(estimators = []) {
       ? round(Math.max(...p50s) / Math.min(...p50s), 3)
       : 1
   };
+}
+
+function failedCalibrationRisks(risks = []) {
+  return risks.some((risk) => [
+    'KNOWLEDGE_FORECAST_BACKTEST_ERROR_HIGH', 'KNOWLEDGE_FORECAST_SYSTEMATIC_OPTIMISM',
+    'RECENT_KNOWLEDGE_PACE_SLOWDOWN', 'QUESTION_SPEED_BACKTEST_ERROR_HIGH',
+    'QUESTION_SPEED_SYSTEMATIC_OPTIMISM'
+  ].includes(risk));
+}
+
+// Historical scores stay in progress. Only independent, unambiguous observations can calibrate.
+function formalScoreObservations(progress) {
+  const raw = (progress?.formal_score_evidence?.sealed_papers || []).filter((row) => Number(row?.max_score) === 300);
+  const observations = [], seen = new Map(), conflicts = new Set();
+  const paperKey = (row) => String(row?.year || '') || String(row?.question_inventory_hash || '');
+  const stable = (value) => JSON.stringify(value, (key, item) => item && typeof item === 'object' && !Array.isArray(item)
+    ? Object.fromEntries(Object.entries(item).sort(([a], [b]) => a.localeCompare(b))) : item);
+  for (const row of raw) {
+    const paper = paperKey(row);
+    const identity = paper + ':' + String(row?.sealed_at || 'UNBOUND');
+    const signature = stable(row);
+    if (seen.has(identity)) {
+      if (seen.get(identity) !== signature) conflicts.add(paper);
+      if (seen.get(identity) === signature) continue;
+    } else seen.set(identity, signature);
+    observations.push(row);
+  }
+  const selected = new Map();
+  for (const row of observations.slice().sort((a, b) => String(a?.sealed_at || '').localeCompare(String(b?.sealed_at || '')))) {
+    const key = paperKey(row);
+    if (!key || selected.has(key)) continue;
+    // The first exposure owns eligibility; later attempts on the same paper are not fresh samples.
+    selected.set(key, row);
+  }
+  const candidates = [...selected.entries()].filter(([key, row]) =>
+    !conflicts.has(key) && row?.current_revision_valid !== false
+    && scoreNumber(row?.earned_score) !== null
+    && !['KNOWN_PRIOR_EXPOSURE', 'HIGH', 'CONTAMINATED'].includes(String(row?.external_exposure_status || '').toUpperCase())
+  ).map(([, row]) => row);
+  return { observations: observations.filter((row) => !conflicts.has(paperKey(row))), candidates, raw_count: raw.length, conflicting_paper_ids: [...conflicts] };
 }
 
 function relativeError(predicted, actual) {
@@ -347,7 +388,7 @@ function knowledgeForecast(progress) {
   return {
     component: 'FIRST_PASS_KNOWLEDGE_CLOSURE',
     required: true,
-    status: band ? (samples.length >= 5 && sampleSystems.size >= 2 ? 'CALIBRATED' : 'PROVISIONAL') : sampleState(samples.length),
+    status: band ? (samples.length >= 5 && sampleSystems.size >= 2 && backtest.status === 'BACKTESTED' && !failedCalibrationRisks(risks) ? 'CALIBRATED' : 'PROVISIONAL') : sampleState(samples.length),
     remaining: {
       blocks: remainingBlocks,
       kp: remainingKp,
@@ -534,7 +575,7 @@ function questionForecast(progress) {
     component: 'FIRST_PASS_OFFICIAL_SWEEP',
     required: true,
     status: band
-      ? (ownerPricingMode
+      ? (backtest.status !== 'BACKTESTED' || failedCalibrationRisks(risks) ? 'PROVISIONAL' : ownerPricingMode
           ? (
               systemRows.every((row) => row.speed_samples >= 5)
               && domainRows.every((row) => row.speed_source === 'NON_SYSTEM_DOMAIN_CURRENT_EXACT_SCOPE' && row.speed_samples >= 5)
@@ -596,7 +637,7 @@ function recallForecast(progress) {
   return {
     component: 'SYSTEM_RECALL_CLOSURE',
     required: true,
-    status: band ? (samples.length >= 5 ? 'CALIBRATED' : 'PROVISIONAL') : state,
+    status: band ? 'PROVISIONAL' : state,
     remaining_recall_events: remainingEvents,
     calibration: {
       recall_timer_samples: samples.length,
@@ -822,7 +863,7 @@ function repairForecast(progress, { wrongUncertainRate = null } = {}) {
   return {
     component: 'WRONG_UNCERTAIN_REPAIR',
     required: true,
-    status: band ? (samples.length >= 5 ? 'CALIBRATED' : 'PROVISIONAL') : 'UNPRICED_REQUIRED',
+    status: band ? 'PROVISIONAL' : 'UNPRICED_REQUIRED',
     error_rate: {
       source: forecastRateSource,
       value: forecastRate === null ? null : round(forecastRate, 4),
@@ -941,10 +982,7 @@ function verificationForecast(progress, questionsComponent, repairComponent) {
 }
 
 function formalCalibrationForecast(progress) {
-  const papers = Array.isArray(progress?.formal_score_evidence?.sealed_papers)
-    ? progress.formal_score_evidence.sealed_papers
-    : [];
-  const comparable = papers.filter((row) => Number(row?.max_score) === 300 && row?.current_revision_valid !== false);
+  const comparable = formalScoreObservations(progress).candidates;
   const internallyProtected = comparable.filter((row) => row?.internal_holdout_protected_before_seal === true);
   return {
     component: 'FORMAL_SCORE_CALIBRATION',
@@ -1059,10 +1097,10 @@ export function buildXizongScoreEvidence(progress, {
     throw new Error('XIZONG_FORECAST_PROGRESS_REQUIRED');
   }
   const requirement = buildXizongHighScoreRequirement({ targetScore });
-  const formalPapers = (progress?.formal_score_evidence?.sealed_papers || [])
-    .filter((row) => Number(row?.max_score) === 300);
+  const observations = formalScoreObservations(progress);
+  const formalPapers = observations.observations;
   const latest = formalPapers.at(-1) || null;
-  const formatIdentifiedPapers = formalPapers.filter((row) =>
+  const formatIdentifiedPapers = observations.candidates.filter((row) =>
     row?.current_revision_valid !== false
     &&     String(row?.exam_format_source_hash || '').trim()
     && String(row?.question_inventory_hash || '').trim()
@@ -1196,14 +1234,14 @@ export function buildXizongScoreEvidence(progress, {
       )
     : [];
   const observedScores = formalPapers
-    .map((row) => Number(row?.earned_score))
-    .filter(Number.isFinite);
+    .map((row) => scoreNumber(row?.earned_score))
+    .filter((value) => value !== null);
   const historicalCalibrationScores = historicalCalibrationPapers
-    .map((row) => Number(row?.earned_score))
-    .filter(Number.isFinite);
+    .map((row) => scoreNumber(row?.earned_score))
+    .filter((value) => value !== null);
   const calibrationScores = calibrationPapers
-    .map((row) => Number(row?.earned_score))
-    .filter(Number.isFinite);
+    .map((row) => scoreNumber(row?.earned_score))
+    .filter((value) => value !== null);
   const observedBand = observedScores.length >= 3 ? {
     p20: round(quantile(observedScores, 0.2)),
     p50: round(quantile(observedScores, 0.5)),
@@ -1221,9 +1259,9 @@ export function buildXizongScoreEvidence(progress, {
   } : null;
 
   let scoreEstimateStatus = 'NOT_READY';
-  if (formalPapers.length === 1) scoreEstimateStatus = 'REFERENCE_ONLY';
-  else if (formalPapers.length === 2) scoreEstimateStatus = 'MULTI_REFERENCE_NO_EMPIRICAL_BAND';
-  else if (formalPapers.length >= 3) scoreEstimateStatus = 'EMPIRICAL_BAND';
+  if (observedScores.length === 1) scoreEstimateStatus = 'REFERENCE_ONLY';
+  else if (observedScores.length === 2) scoreEstimateStatus = 'MULTI_REFERENCE_NO_EMPIRICAL_BAND';
+  else if (observedScores.length >= 3) scoreEstimateStatus = 'EMPIRICAL_BAND';
   if (formalPapers.length && contamination === 'UNKNOWN') scoreEstimateStatus += '_CONTAMINATION_UNKNOWN';
   else if (formalPapers.length && knownContamination) scoreEstimateStatus += '_KNOWN_CONTAMINATION';
   else if (formalPapers.length && lowContamination && historicalCalibrationPapers.length === 0) {
@@ -1236,8 +1274,9 @@ export function buildXizongScoreEvidence(progress, {
     scoreEstimateStatus += '_LOW_CONTAMINATION_CURRENT_FORMAT';
   }
 
-  const scoreExtrapolationReady = Boolean(calibrationBand) && lowContamination && Boolean(currentFormatHash);
-  const evidenceResult = hardGaps.length > 0 || formalPapers.length === 0
+  // No prospective score-calibration owner exists: empirical quantiles remain historical evidence.
+  const scoreExtrapolationReady = false;
+  const evidenceResult = hardGaps.length > 0 || observedScores.length === 0
     ? 'INSUFFICIENT_SCORE_EVIDENCE'
     : scoreExtrapolationReady
       ? 'SCORE_ESTIMATE_EVIDENCE_USABLE'
@@ -1248,13 +1287,15 @@ export function buildXizongScoreEvidence(progress, {
     requirement,
     formal_score: {
       status: scoreEstimateStatus,
-      sample_count: formalPapers.length,
+      sample_count: observedScores.length,
+      raw_observation_count: observations.raw_count,
+      conflicting_paper_ids: observations.conflicting_paper_ids,
       calibration_sample_count: calibrationPapers.length,
       historical_calibration_sample_count: historicalCalibrationPapers.length,
       format_identified_sample_count: formatIdentifiedPapers.length,
       internally_holdout_protected_sample_count: internallyProtectedPapers.length,
-      latest_score: latest ? Number(latest.earned_score) : null,
-      latest_target_gap: latest ? round(requirement.target_score - Number(latest.earned_score || 0)) : null,
+      latest_score: latest ? scoreNumber(latest.earned_score) : null,
+      latest_target_gap: latest && scoreNumber(latest.earned_score) !== null ? round(requirement.target_score - scoreNumber(latest.earned_score)) : null,
       empirical_band: observedBand,
       historical_calibration_band: historicalCalibrationBand,
       calibration_band: calibrationBand,
@@ -1266,6 +1307,7 @@ export function buildXizongScoreEvidence(progress, {
           ? 'MATCHED'
           : 'NO_MATCHING_CALIBRATION',
       score_extrapolation_ready: scoreExtrapolationReady,
+      prediction_status: 'UNVALIDATED_FUTURE_SCORE',
       observed_score_is_not_fresh_prediction: formalPapers.length > 0 && !scoreExtrapolationReady,
       discipline_breakdown: latest?.discipline_breakdown || null
     },
@@ -1274,7 +1316,7 @@ export function buildXizongScoreEvidence(progress, {
     hard_material_gaps: hardGaps,
     evidence_readiness: {
       coverage_ready: hardGaps.length === 0,
-      formal_score_evidence_ready: formalPapers.length > 0,
+      formal_score_evidence_ready: observedScores.length > 0,
       observed_empirical_band_ready: Boolean(observedBand),
       historical_calibration_band_ready: Boolean(historicalCalibrationBand),
       calibration_band_ready: Boolean(calibrationBand),
@@ -1284,7 +1326,7 @@ export function buildXizongScoreEvidence(progress, {
     },
     subject_maturity_claim: 'OUT_OF_SCOPE',
     boundary:
-      'Work completion and capability evidence do not manufacture predicted score. Formal scores remain observed evidence even when contaminated, so empirical_band is descriptive only. Historical low-contamination papers may form historical_calibration_band, but current calibration_band additionally requires format identity matching the Current exam-format Source hash. If the Current-year geometry/format Source is unavailable, score extrapolation remains low-confidence instead of treating historical geometry as Current truth. Internal Holdout never proves external non-exposure; no arbitrary contamination point penalty is invented. This object reports score-evidence usability only and never declares Xizong subject maturity or Stage closure.'
+      'Work completion and capability evidence do not manufacture predicted score. Formal scores remain observed evidence even when contaminated, so empirical_band is descriptive only. Historical low-contamination papers may form historical_calibration_band, but current calibration_band additionally requires format identity matching the Current exam-format Source hash. Even matched low-contamination empirical bands are descriptive historical evidence: sample count does not validate future-score prediction, so score_extrapolation_ready remains false without an existing prospective calibration authority. If the Current-year geometry/format Source is unavailable, score extrapolation remains low-confidence instead of treating historical geometry as Current truth. Internal Holdout never proves external non-exposure; no arbitrary contamination point penalty is invented. This object reports score-evidence usability only and never declares Xizong subject maturity or Stage closure.'
   };
 }
 
@@ -1437,7 +1479,8 @@ export function buildXizongForecastLoop(progress, {
     calibration.knowledge_backtest === 'BACKTESTED'
     && calibration.question_backtest === 'BACKTESTED'
     && calibration.repair_time_samples >= 3
-    && calibration.knowledge_sample_systems >= 2;
+    && calibration.knowledge_sample_systems >= 2
+    && !failedCalibrationRisks(workload.risks);
   if (!empiricalCalibrationReady) uncertainty.push('EMPIRICAL_FORECAST_CALIBRATION_INCOMPLETE');
 
   let forecastState = 'DEFENSIBLE_FORECAST';
@@ -1500,8 +1543,18 @@ function addDays(day, offset) {
   const match = String(day || '').match(/^(\d{4})-(\d{2})-(\d{2})$/);
   if (!match) return null;
   const date = new Date(Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3])));
+  if (date.toISOString().slice(0, 10) !== day) return null;
   date.setUTCDate(date.getUTCDate() + Number(offset || 0));
   return date.toISOString().slice(0, 10);
+}
+
+function capacityForDay(day, dailyMinutes, capacityMinutesByDay) {
+  if (capacityMinutesByDay != null && !recordLike(capacityMinutesByDay)) return null;
+  if (recordLike(capacityMinutesByDay) && Object.hasOwn(capacityMinutesByDay, day)) {
+    const value = capacityMinutesByDay[day];
+    return typeof value === 'number' && Number.isFinite(value) && value >= 0 ? value : null;
+  }
+  return dailyMinutes === 0 ? 0 : positive(dailyMinutes);
 }
 
 function projectMinutesAcrossCapacity(minutes, {
@@ -1513,11 +1566,11 @@ function projectMinutesAcrossCapacity(minutes, {
   const need = Math.max(0, Number(minutes || 0));
   const fallback = positive(dailyMinutes);
   if (!startDay) return { days: fallback ? Math.ceil(need / fallback) : null, date: null, remaining_minutes: null };
+  if (addDays(startDay, 0) === null) return { days: null, date: null, remaining_minutes: need };
   let remaining = need;
   for (let index = 0; index < maxDays; index += 1) {
     const day = addDays(startDay, index);
-    const specific = recordLike(capacityMinutesByDay) ? finite(capacityMinutesByDay[day]) : null;
-    const capacity = specific === null ? fallback : Math.max(0, specific);
+    const capacity = capacityForDay(day, dailyMinutes, capacityMinutesByDay);
     if (capacity === null) return { days: null, date: null, remaining_minutes: remaining };
     remaining -= capacity;
     if (remaining <= 0) return { days: index + 1, date: day, remaining_minutes: 0 };
@@ -1530,6 +1583,7 @@ function recordLike(value) {
 }
 
 function daySpanInclusive(startDay, endDay) {
+  if (addDays(startDay, 0) === null || addDays(endDay, 0) === null) return null;
   const start = Date.parse(String(startDay || '') + 'T00:00:00Z');
   const end = Date.parse(String(endDay || '') + 'T00:00:00Z');
   if (!Number.isFinite(start) || !Number.isFinite(end) || end < start) return null;
@@ -1544,12 +1598,10 @@ function capacityThroughDeadline({
 } = {}) {
   const days = daySpanInclusive(startDay, deadlineDay);
   if (days === null) return null;
-  const fallback = positive(dailyMinutes);
   let total = 0;
   for (let index = 0; index < days; index += 1) {
     const day = addDays(startDay, index);
-    const specific = recordLike(capacityMinutesByDay) ? finite(capacityMinutesByDay[day]) : null;
-    const capacity = specific === null ? fallback : Math.max(0, specific);
+    const capacity = capacityForDay(day, dailyMinutes, capacityMinutesByDay);
     if (capacity === null) return null;
     total += capacity;
   }

@@ -175,7 +175,9 @@ export function assessEnglishDeadlineFeasibility(forecast, {startDay, deadlineDa
   if (forecast?.schema !== ENGLISH_FORECAST_MODEL_SCHEMA) throw new Error('ENGLISH_FORECAST_MODEL_REQUIRED');
   const start = dayTime(startDay), end = dayTime(deadlineDay);
   let capacity = null;
-  if (start !== null && end !== null && end >= start && end - start <= 3660 * 86400000) {
+  // An explicitly malformed override is unknown capacity, not an absent map.
+  const capacityMapValid = capacityMinutesByDay == null || record(capacityMinutesByDay);
+  if (capacityMapValid && start !== null && end !== null && end >= start && end - start <= 3660 * 86400000) {
     const days = (end - start) / 86400000 + 1;
     let minutes = 0;
     for (let i = 0; i < days; i++) {
