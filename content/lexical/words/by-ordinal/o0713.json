@@ -27,6 +27,15 @@
         "level": "L2",
         "meaning_cn": "理解、领会；也可指开始流行",
         "pattern": "catch on (to sth)"
+      },
+      {
+        "construction_id": "construction:catch:bf07-catch-sb-doing",
+        "pattern": "catch sb doing sth",
+        "meaning_cn": "撞见/发现某人正在做某事（常指不当或出乎意料的事）",
+        "definition_en": "discover or see someone in the act of doing something, especially something wrong or unexpected",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "final-standard-bf07"
       }
     ],
     "content_hash": "f266ee8eeca53e1f4d34575b64cbc40152fe722e9caeeab303b85d1d48b2602b",
@@ -185,39 +194,6 @@
         "sense_label_en": "a hidden problem or disadvantage",
         "sort_order": 4,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:11f17cd20d9464a080d5",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:catch:be147c402eb55f43:collocation:0"
-            ],
-            "meaning_cn": "试图抓住某物",
-            "phrase": "catch at + sth"
-          },
-          {
-            "collocation_id": "collocation:c3fc34fb191bb278bca2",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:catch:be147c402eb55f43:collocation:1"
-            ],
-            "meaning_cn": "试图抓住绳子",
-            "phrase": "catch at a rope"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "试图抓住",
-        "definition_en": "to try to seize something",
-        "governing_pattern": "vi. + at",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:catch:be147c402eb55f43",
-        "sense_label_en": "to try to seize something",
-        "sort_order": 5,
-        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -237,10 +213,52 @@
     },
     "word": "catch",
     "word_family": [],
-    "word_id": "word:catch"
+    "word_id": "word:catch",
+    "form_identity": {
+      "form_type": "irregular_verb_inflection",
+      "spelling": "catch",
+      "identity_rule": "tense_selects_surface",
+      "boundary": "catch → caught → caught.",
+      "boundaries": [
+        {
+          "surface": "catch",
+          "condition": "base/present",
+          "note": "base form"
+        },
+        {
+          "surface": "caught",
+          "condition": "past",
+          "note": "simple past"
+        },
+        {
+          "surface": "caught",
+          "condition": "past participle",
+          "note": "past participle"
+        }
+      ],
+      "variants": [],
+      "authority": "BF07 final-standard approved Form expansion"
+    }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:catch:be147c402eb55f43",
+      "status": "reference_only",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "试图抓住",
+      "definition_en": "to try to seize something",
+      "semantic_key": null,
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-09-22T00:00:00Z",
+      "source_row": 2030,
+      "source_path": "content/lexical/canonical/senses/shards/o0705-0736.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -273,7 +291,7 @@
       },
       {
         "sense_id": "sense:catch:be147c402eb55f43",
-        "status": "active",
+        "status": "reference_only",
         "merged_into_sense_id": null,
         "source_row": 2030,
         "source_path": "content/lexical/canonical/senses/shards/o0705-0736.json"
@@ -287,7 +305,6 @@
       }
     ],
     "active_collocations": [
-      "collocation:11f17cd20d9464a080d5",
       "collocation:37a2a2c9afb1a7f65bab",
       "collocation:3c14a0a9e984b4e7aeb2",
       "collocation:460a7ce02901f43dbe0a",
@@ -295,7 +312,6 @@
       "collocation:addd591ae31e74387ad5",
       "collocation:b3de4e0cb388867b0510",
       "collocation:ba378a8b2be623a59266",
-      "collocation:c3fc34fb191bb278bca2",
       "collocation:e30d52e6a80fceed8908"
     ],
     "facts": [],
