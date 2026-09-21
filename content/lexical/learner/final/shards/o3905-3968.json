@@ -5,7 +5,7 @@
     "ordinal": 3905,
     "word": "queue",
     "source_owner_path": "content/lexical/words/by-ordinal/o3905.json",
-    "source_fingerprint": "097ea117503ffc3e5bdfa0c3d3c8341add21e5c3c6d3bef219fc742d3c1b706f",
+    "source_fingerprint": "10315802e58274cdf0ae7e876aad48af032d092d4c24ce19988845a66ccb2eb8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -151,7 +151,33 @@
     "secondary_senses": [],
     "constructions": [],
     "reference": {
-      "confusables": [],
+      "confusables": [
+        {
+          "title": "queue ↔ cue",
+          "target_word": "cue",
+          "lines": [
+            {
+              "text": "queue /kjuː/ = 排队、队列；cue /kjuː/ = 提示、信号（或台球杆）。两词同音但拼写和词义不同。",
+              "lang": "cn"
+            },
+            {
+              "text": "cue /kjuː/ = a signal, prompt, or billiards stick; queue /kjuː/ = a line or ordered waiting list. They are homophones but different words.",
+              "lang": "en"
+            },
+            {
+              "text": "waiting line/list 语境选 queue；signal/prompt 语境选 cue。",
+              "lang": "cn"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:baseline-v2:cue-queue:homophone_confusable",
+            "target_locator": "record.confusables[0]",
+            "target_label": "queue ↔ cue"
+          }
+        }
+      ],
       "relations": [],
       "form": null,
       "family": []
