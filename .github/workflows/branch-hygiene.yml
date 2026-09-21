@@ -8,6 +8,8 @@ on:
 
 permissions:
   contents: write
+  issues: read
+  pull-requests: read
 
 concurrency:
   group: branch-hygiene-${{ github.ref }}
@@ -16,6 +18,8 @@ concurrency:
 jobs:
   cleanup:
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
     steps:
       - name: Checkout Current
         uses: actions/checkout@v4
@@ -53,6 +57,24 @@ jobs:
             [[ "$branch" == "main" || "$branch" == "HEAD" ]] && continue
             if git merge-base --is-ancestor "origin/$branch" origin/main; then
               delete_branch "$branch"
+            fi
+          done < <(git for-each-ref --format='%(refname:short)' refs/remotes/origin/)
+
+          # Squash-merged Codex task branches are not ancestors of main.
+          # Retire them only when the exact Issue is completed and an exact-head PR is merged.
+          git fetch --prune origin '+refs/heads/*:refs/remotes/origin/*'
+          while IFS= read -r remote_ref; do
+            branch="${remote_ref#origin/}"
+            if [[ "$branch" =~ ^codex/issue([0-9]+)-[A-Za-z0-9._-]+$ ]]; then
+              issue="${BASH_REMATCH[1]}"
+              state="$(gh issue view "$issue" --repo "$GITHUB_REPOSITORY" --json state,stateReason --jq '.state + ":" + (.stateReason // "")' 2>/dev/null || true)"
+              [[ "$state" == "CLOSED:COMPLETED" ]] || continue
+              merged_count="$(gh pr list --repo "$GITHUB_REPOSITORY" --head "$branch" --state merged --json number --jq 'length' 2>/dev/null || echo 0)"
+              [[ "$merged_count" =~ ^[0-9]+$ ]] || merged_count=0
+              if (( merged_count > 0 )); then
+                echo "Retiring completed Codex task branch: $branch (Issue #$issue)"
+                delete_branch "$branch"
+              fi
             fi
           done < <(git for-each-ref --format='%(refname:short)' refs/remotes/origin/)
 

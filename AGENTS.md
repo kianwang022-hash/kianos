@@ -180,6 +180,111 @@ Do not create a GitHub Issue by default just because something is called a task.
 
 If persistence fails, say the task was **not created**. Never claim a durable task from Chat memory alone.
 
+### Chat → GitHub → Codex execution envelope
+
+Use a GitHub Issue **only when an external Codex/local executor is genuinely useful** after Chat has already resolved the semantic/product decision. The Issue is an execution envelope, not a second task registry and not a new semantic owner.
+
+Good uses:
+- local/browser/binary work Chat cannot directly execute;
+- a bounded implementation whose decisions are already fixed;
+- repetitive mechanical repository work;
+- one task that should continue without keeping the originating Chat alive.
+
+Do not create an Issue merely because work exists. If Chat itself can complete the bounded repository change safely in the active turn, use the normal exact owner.
+
+When delegating, Chat creates one Issue titled:
+
+`Codex execution: <bounded task>`
+
+The body must also contain the machine marker:
+
+`<!-- kian-codex-task:v1 -->`
+
+The body should contain only the execution-relevant context:
+
+```text
+Goal
+Current start point / exact owner
+Decisions already made by Chat
+Write-set
+Must preserve / must not change
+Proof required
+STOP / return-to-Chat conditions
+Merge / Human-Gate boundary
+Return receipt
+```
+
+The canonical semantic/task state still lives in the existing Current/Mainline owner. If creating the delegated task materially changes that owner's active/next task set, update that owner in the same Chat-side dispatch. The Issue does not replace it.
+
+Codex execution lifecycle:
+
+```text
+GitHub Issue
+→ re-read main@HEAD + AGENTS.md + static-web/CURRENT.md + exact owner
+→ create temporary codex/issue<N>-<slug> branch/worktree
+→ execute only the bounded write-set
+→ update result + exact cursor atomically when durable state changes
+→ open PR with machine/browser proof and "Closes #N"
+→ merge only when current owner / Human Gate permits
+→ verify accepted result on fresh main@HEAD
+→ remote Branch Hygiene retires merged branch
+→ local hygiene retires safe local codex branch/worktree
+→ compact receipt
+```
+
+Codex must not:
+- treat the Issue text as authority over newer Current truth;
+- broaden scope because another defect is nearby;
+- force-push over concurrent work;
+- keep a completed temporary branch/worktree merely as history;
+- delete a dirty/unmerged/local-only worktree to make cleanup look green.
+
+Compact completion receipt:
+
+```text
+DONE / BLOCKED
+final main state
+PR
+proof
+deviation / remaining blocker (only if any)
+```
+
+No long implementation diary is required.
+
+Local cleanup command after accepted merge:
+
+`npm --prefix static-web run codex:hygiene:apply`
+
+It may delete only local branches matching `codex/issue<digits>-*` when the remote branch is already gone, the exact Issue is `CLOSED/COMPLETED`, an exact-head PR for that branch is merged, and any attached worktree is clean. The local tip must either already be contained in `origin/main` or exactly match the merged PR head (safe squash-merge case). Everything else is skipped fail-closed.
+
+#### One recurring Codex runner
+
+A single local Codex automation may service these delegated Issues. Do not create one recurring automation per task.
+
+Each run:
+
+```text
+read main@HEAD + AGENTS.md
+→ list open Issues whose title begins "Codex execution:" AND contains `<!-- kian-codex-task:v1 -->`
+→ ignore an Issue that already has an open PR or remote codex/issue<N>-* branch
+→ inspect the oldest remaining actionable Issue
+→ re-read current owner chain
+→ execute at most one Issue
+→ close through PR "Closes #N" when accepted
+→ run local hygiene
+→ exit
+```
+
+If no actionable Issue exists, run local hygiene and exit quietly.
+
+If a STOP condition is hit before safe implementation:
+- add one compact `BLOCKED:` Issue comment with the exact missing decision/source/permission;
+- do not invent a substitute;
+- do not keep retrying broad work in the same run;
+- return control to Chat.
+
+The recurring runner is an executor. It does not decide which engineering work should exist, does not rewrite priority, and does not turn repository backlog into automatic work.
+
 ### Task result / cursor atomicity
 
 When work advances:
