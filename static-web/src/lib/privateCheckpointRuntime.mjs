@@ -133,7 +133,11 @@ export async function restoreSharedControlFromPrivate(storage, {
     removeItem:key=>pending.set(key,null)
   };
   const subjects=applyPrivateSubjectCheckpointRestore(staged,prepared);
-  const nativePresent=!warnings.length && localContainsCheckpoint(staged,checkpoint,studyDay,{includeReceipt:false});
+  let nativePresent=false;
+  if(!warnings.length){
+    try { nativePresent=localContainsCheckpoint(staged,checkpoint,studyDay,{includeReceipt:false}); }
+    catch(error){warnings.push('checkpoint:shared:'+String(error.message||error));}
+  }
   if(deferredReceipt!=null && storage.getItem(CONTROL_LOCAL_RECEIPT_KEY)==null){
     if(nativePresent)pending.set(CONTROL_LOCAL_RECEIPT_KEY,deferredReceipt);
     else warnings.push('checkpoint:shared:RECEIPT_WITHHELD_NATIVE_CONFLICT');

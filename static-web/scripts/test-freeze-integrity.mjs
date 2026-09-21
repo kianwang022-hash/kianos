@@ -180,3 +180,16 @@ test('exact restored score without a receipt is acknowledged without rescoring',
   assert.equal(result.status,'applied');assert.equal(target.getItem(E.ENGLISH_EXAM_SESSION_KEY),raw);
   assert.equal(JSON.parse(target.getItem(C.CONTROL_LOCAL_RECEIPT_KEY)).command_id,command.command_id);
 });
+
+
+test('unreadable shared timer does not prevent healthy native recovery or authorize a receipt',async()=>{
+  const {source,checkpoint}=await scoredCheckpoint();
+  const key='kianos-study-timer-ledger-v2',bad='{truncated';
+  const target=new Storage({[key]:bad});
+  const result=await restoreSharedControlFromPrivate(target,{now:now+140000,readCheckpoint:async()=>({status:'ready',checkpoint})});
+  assert.equal(target.getItem(key),bad);
+  assert.equal(target.getItem(E.ENGLISH_EXAM_SESSION_KEY),source.getItem(E.ENGLISH_EXAM_SESSION_KEY));
+  assert.equal(target.getItem(C.CONTROL_LOCAL_RECEIPT_KEY),null);
+  assert.equal(target.getItem(PRIVATE_CHECKPOINT_BASE_KEY),null);
+  assert.ok(result.warnings.length>0);
+});
