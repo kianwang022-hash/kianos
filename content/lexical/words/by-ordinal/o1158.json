@@ -16,7 +16,7 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": false,
+    "needs_delta_review": true,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [],
@@ -72,7 +72,42 @@
     },
     "word": "criterion",
     "word_family": [],
-    "word_id": "word:criterion"
+    "word_id": "word:criterion",
+    "form_identity": {
+      "variants": [
+        {
+          "variant_id": "form:criterion:singular",
+          "canonical_form": "criterion",
+          "learner_key": "criterion (singular)",
+          "pos": [
+            "noun"
+          ],
+          "ipa": ""
+        },
+        {
+          "variant_id": "form:criterion:plural",
+          "canonical_form": "criteria",
+          "learner_key": "criteria (plural)",
+          "pos": [
+            "noun"
+          ],
+          "ipa": ""
+        }
+      ],
+      "boundaries": [
+        {
+          "surface": "criterion",
+          "condition": "singular",
+          "note": "标准书面英语中 criterion 是单数。"
+        },
+        {
+          "surface": "criteria",
+          "condition": "plural",
+          "note": "标准书面英语中 criteria 是复数；正式写作优先保持这一单复数区别。"
+        }
+      ],
+      "boundary": "criterion ↔ criteria：标准单数/复数形式。"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
@@ -139,7 +174,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1153-1160.json",
     "source_content_hash": "f12d3b4bf052df3150c91b2a9a7794a03d238d614c3fc1ba2ca883a8befbe3c0",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }
