@@ -32,43 +32,45 @@
     "p_behavior": "APPROVE_EXACT_SHOWN_DELTA__FREEZE_BACKLOG__IMMEDIATE_NEXT_PRODUCTION_BATCH"
   },
   "frontier": {
-    "accepted_main_head": "7bed160a71cadc1c5aa2c1a75fe16ecda9ba65c8",
-    "current_candidate_id": "BF11",
+    "accepted_main_head": "3644668af2f609ff8b0ec9ff1b6cd54af4511107",
+    "current_candidate_id": "F1151_1250",
     "range": [
-      1101,
-      1150
+      1151,
+      1250
     ],
-    "state": "MATERIALIZE_ALLOWED",
-    "candidate_pr": null,
-    "candidate_branch": "work/lexical-continuous-bf11-20260922",
-    "materialized_owner_read_head": null,
-    "note": "BF10 merged. BF11 o1101-o1150 is the final broad-backfill batch; Production C is frozen and human-approved. Refreeze latest main/dependencies, materialize approved scope, rebuild Final Learner Objects, then run same-Chat B audit."
+    "state": "PRE_FREEZE_EXCEPTION_READY_FOR_SAME_CHAT_B",
+    "candidate_pr": 520,
+    "candidate_branch": "work/lexical-continuous-o1151-o1250",
+    "materialized_owner_read_head": "d3972636a131c3bd495c64bdcff26e3cfdef68b8",
+    "note": "Frozen broad final-standard backfill o0001-o1150 is complete. Only the pre-existing o1151-o1250 candidate is allowed its already-scheduled audit under FINAL_SEMANTIC_FREEZE v1; this does not reopen o1251+ or any broader semantic sweep."
   },
   "audit_target": {
-    "state": "WAITING_CANDIDATE_MATERIALIZATION",
-    "candidate_id": "BF11",
+    "state": "READY_FOR_SAME_CHAT_B",
+    "candidate_id": "F1151_1250",
     "range": [
-      1101,
-      1150
+      1151,
+      1250
     ],
-    "candidate_pr": null,
-    "candidate_branch": "work/lexical-continuous-bf11-20260922",
-    "candidate_owner_read_head": null,
-    "brief": null,
-    "output": "content/lexical/semantic-audit/O1101_O1150_FINAL_STANDARD_FRESH_AUDIT_PACK.md"
+    "candidate_pr": 520,
+    "candidate_branch": "work/lexical-continuous-o1151-o1250",
+    "candidate_owner_read_head": "d3972636a131c3bd495c64bdcff26e3cfdef68b8",
+    "brief": "content/lexical/semantic-audit/O1151_O1250_FRESH_INDEPENDENT_AUDIT_BRIEF.md",
+    "output": "content/lexical/semantic-audit/O1151_O1250_FRESH_INDEPENDENT_AUDIT_PACK.md",
+    "note": "Same-Chat execution at Kian's request must disclose BLIND_FIRST_NOT_ENFORCED; no broader reopening."
   },
   "lanes": {
     "A": {
-      "role": "FRONTIER_RECONCILIATION_AFTER_FRESH_B",
+      "role": "PRE_FREEZE_EXCEPTION_AUDIT_RECONCILIATION",
       "current_assignment": {
-        "candidate_id": "BF06",
+        "candidate_id": "F1151_1250",
         "range": [
-          601,
-          700
+          1151,
+          1250
         ],
-        "state": "WAITING_FRESH_B",
-        "candidate_pr": 733,
-        "next_action": "Fresh B audits PR #733. A must not self-audit; after Audit Pack, reconcile only bounded findings against latest main."
+        "state": "READY_FOR_SAME_CHAT_B",
+        "candidate_pr": 520,
+        "candidate_branch": "work/lexical-continuous-o1151-o1250",
+        "next_action": "Run the already-scheduled audit only. If corrections are bounded within the candidate's frozen learner intent, reconcile minimally; otherwise HOLD. Do not expand beyond o1151-o1250."
       },
       "bootstrap_integration": {
         "candidate_id": "BF00",
@@ -1601,13 +1603,13 @@
     }
   ],
   "last_closed": {
-    "candidate_id": "BF10",
+    "candidate_id": "BF11",
     "range": [
-      1001,
-      1100
+      1101,
+      1150
     ],
-    "pr": 750,
-    "merge_commit": "7bed160a71cadc1c5aa2c1a75fe16ecda9ba65c8",
+    "pr": 753,
+    "merge_commit": "3644668af2f609ff8b0ec9ff1b6cd54af4511107",
     "result": "SAME_CHAT_AUDIT_RECONCILED_AND_MERGED",
     "independence_note": "BLIND_FIRST_NOT_ENFORCED",
     "final_learner_objects": 7946
@@ -1623,9 +1625,9 @@
       "candidate_branch": "work/lexical-continuous-o1151-o1250",
       "candidate_head": "d3972636a131c3bd495c64bdcff26e3cfdef68b8",
       "brief": "content/lexical/semantic-audit/O1151_O1250_FRESH_INDEPENDENT_AUDIT_BRIEF.md",
-      "state": "DEFERRED_UNTIL_FINAL_BACKFILL_FRONTIER_ADVANCES",
-      "priority": 99,
-      "note": "Preserved pre-freeze candidate. Do not preempt BF06 or remaining o0001-o1150 serialized final-backfill landings.",
+      "state": "READY_FOR_SAME_CHAT_B",
+      "priority": 1,
+      "note": "Pre-freeze exception only. Broad backfill o0001-o1150 is complete; audit this existing candidate without reopening later ranges.",
       "previous_state": "READY_FOR_FRESH_B"
     }
   ],
@@ -1739,22 +1741,26 @@
   },
   "phase_transition": {
     "entered_at": "2026-09-20",
-    "from": "PRODUCTION_SWEEP_COMPLETE__AWAITING_PHASE_TRANSITION",
-    "to": "MATERIALIZATION_AND_AUDIT",
-    "rule": "One serialized canonical write frontier at a time. Current and final broad-backfill frontier is BF11 o1101-o1150. No broad semantic reopening under FINAL_SEMANTIC_FREEZE v1."
+    "from": "MATERIALIZATION_AND_AUDIT",
+    "to": "BROAD_BACKFILL_COMPLETE__PRE_FREEZE_EXCEPTION_AUDIT",
+    "rule": "o0001-o1150 broad final-standard backfill is closed. Only the pre-existing o1151-o1250 candidate may receive its already-scheduled audit. No broad reopening under FINAL_SEMANTIC_FREEZE v1."
   },
   "materialization_progress": {
     "candidate_id": "BF11",
-    "status": "READY_TO_MATERIALIZE",
-    "candidate_pr": null,
-    "latest_main_refreeze": "7bed160a71cadc1c5aa2c1a75fe16ecda9ba65c8",
-    "frozen_proposal": "content/lexical/execution/manifests/o1101-o1150.final-standard-backfill-c-proposal.md",
-    "review_branch": "work/lexical-final-backfill-c-o1101-o1150",
+    "status": "MERGED_COMPLETE",
+    "candidate_pr": 753,
+    "merge_commit": "3644668af2f609ff8b0ec9ff1b6cd54af4511107",
+    "latest_main_refreeze": "3644668af2f609ff8b0ec9ff1b6cd54af4511107",
     "final_learner_objects": 7946,
     "repair_test_blueprints": {
       "before": 16,
       "after": 9
     },
-    "blocked": 0
+    "blocked": 0,
+    "broad_backfill_range": [
+      1,
+      1150
+    ],
+    "broad_backfill_status": "COMPLETE"
   }
 }
