@@ -91,19 +91,28 @@
       "runtime_model_calls": false
     },
     "word": "bacteria",
-    "word_family": [
-      {
-        "boundary": "bacterium（单数）→ bacteria（复数）",
-        "module": "word_family",
-        "pattern": "bacterium → bacteria",
-        "pos": "noun",
-        "source_sense_id": "sense:bacteria:622dc9a258bf5748",
-        "target_word": "bacterium",
-        "target_sense_id": "sense:bacterium:a722ba645eb454cf",
-        "definition_en": "bacterium is singular; bacteria is plural"
-      }
-    ],
-    "word_id": "word:bacteria"
+    "word_family": [],
+    "word_id": "word:bacteria",
+    "form_identity": {
+      "form_type": "irregular_number_identity",
+      "spelling": "bacteria",
+      "identity_rule": "singular_plural_lexical_identity",
+      "boundary": "bacterium is singular; bacteria is plural.",
+      "boundaries": [
+        {
+          "surface": "bacterium",
+          "condition": "singular",
+          "note": "one bacterium"
+        },
+        {
+          "surface": "bacteria",
+          "condition": "plural",
+          "note": "plural of bacterium"
+        }
+      ],
+      "variants": [],
+      "authority": "BF03 final-standard ownership correction"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],

@@ -86,7 +86,7 @@
     ],
     "tier": "A",
     "validator_version": "deep_vocabulary_target_gate_2026-08-13_v1",
-    "verification_confidence": 1.0,
+    "verification_confidence": 1,
     "verification_decision": "codex_promote",
     "verification_status": "verified",
     "why": "",
@@ -136,10 +136,62 @@
         "pos": null,
         "priority": "A",
         "publication_status": "codex_reviewed",
-        "shared_definition": "attack in speech or writing",
+        "shared_definition": null,
         "source_sense_id": "sense:attack:b2f86d36ea7556c5",
         "target_sense_id": "sense:assault:0a5899f9365b5f73",
         "target_word": "assault",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    },
+    {
+      "source_word_id": "word:assault",
+      "source_ordinal": 297,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "assault usually implies a violent or legal-register attack on a person; attack is broader and also covers non-physical targets and criticism.",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "均表已施加动作",
+          "collocation": "attack policy/assault person",
+          "core_meaning": "攻击",
+          "exam_trap": "暴力范围扩大",
+          "register": "assault偏法律",
+          "semantic_prosody": "负面",
+          "strength": "assault更强",
+          "syntax": "均可作及物动词",
+          "writing_safety": "非暴力语境勿换"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:00864347-v",
+            "evidence_status": "source_checked",
+            "source_locator": "00864347-v",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:attack:5fcb8f2cb2e55dd1",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": null,
+        "source_sense_id": "sense:assault:0a5899f9365b5f73",
+        "target_sense_id": "sense:attack:b2f86d36ea7556c5",
+        "target_word": "attack",
         "task_tags": [
           "reading"
         ],
@@ -150,6 +202,7 @@
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 1,
+    "last_materialization": "BF03 reciprocal closure"
   }
 }

@@ -3922,7 +3922,7 @@
     "ordinal": 287,
     "word": "ascribe",
     "source_owner_path": "content/lexical/words/by-ordinal/o0287.json",
-    "source_fingerprint": "9340b50f7884c7729718dee64636eeddd0b41713d0d6f3c8eb931491f15dfba6",
+    "source_fingerprint": "7e444680e6965fcdcafd736d3f25b62fa9b676dbeae11efee00c3a23cdb1910b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3981,7 +3981,29 @@
     ],
     "reference": {
       "confusables": [],
-      "relations": [],
+      "relations": [
+        {
+          "title": "ascribe ↔ attribute",
+          "target_word": "attribute",
+          "lines": [
+            {
+              "text": "ascribe and attribute both assign cause/source/authorship; ascribe is generally more formal, while attribute is more broadly common in academic explanation.",
+              "lang": "en"
+            },
+            {
+              "text": "attribute or credit to",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "deep:semantic_contrast:attribute:3d20a99fb2761260",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "ascribe ↔ attribute"
+          }
+        }
+      ],
       "form": null,
       "family": []
     }
@@ -5154,7 +5176,7 @@
     "ordinal": 297,
     "word": "assault",
     "source_owner_path": "content/lexical/words/by-ordinal/o0297.json",
-    "source_fingerprint": "d318f631d828b73cab991612d5e1b39cc15f8076f62053262ec26c14a45a5b01",
+    "source_fingerprint": "2487b2e900b881381141e8d3fda004b8eb373a6f5967c48ca1f7c25fb93eef0f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5236,7 +5258,25 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [],
+      "relations": [
+        {
+          "title": "assault ↔ attack",
+          "target_word": "attack",
+          "lines": [
+            {
+              "text": "assault usually implies a violent or legal-register attack on a person; attack is broader and also covers non-physical targets and criticism.",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "deep:semantic_contrast:attack:5fcb8f2cb2e55dd1",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "assault ↔ attack"
+          }
+        }
+      ],
       "form": null,
       "family": []
     }
@@ -6192,7 +6232,7 @@
     "ordinal": 305,
     "word": "assimilate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0305.json",
-    "source_fingerprint": "90de066459a5b29f72981eb0fad7a4c7f4fc40ee0f9923dd8815a88dd99e42c7",
+    "source_fingerprint": "1d7fe72a33a9483bcbb89579dfa8d145865751c826c23a164a4bf91c0bd78d8e",
     "sense_lineage": [
       {
         "word_id": "word:assimilate",
@@ -6315,25 +6355,16 @@
         "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "吸收（气体、光或热）到溶液中",
-        "definition_en": "to take (gas, light or heat) into a solution",
+        "definition_cn": "吸收并同化（食物、营养或其他物质）到生物体/组织中",
+        "definition_en": "to absorb and incorporate food, nutrients, or other substances into a living body or tissue",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:1b5959d24befb34d5984",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "assimilate heat",
-            "meaning_cn": "吸收热量",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:assimilate:9a33fd2585ea5e20",
           "target_locator": "record.senses[2]",
-          "target_label": "吸收（气体、光或热）到溶液中"
+          "target_label": "吸收并同化（食物、营养或其他物质）到生物体/组织中"
         }
       },
       {
@@ -6711,7 +6742,7 @@
     "ordinal": 309,
     "word": "associate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0309.json",
-    "source_fingerprint": "c68ffa58fa0697ba9ad82267f9d11c216578fcc53c8a4737451261c4d08b5f33",
+    "source_fingerprint": "9229af5c7e2520ef2eaa432d3402ced3748bdbb8d9c4909b8c03bb97751dd70d",
     "sense_lineage": [
       {
         "word_id": "word:associate",
@@ -6852,25 +6883,7 @@
     ],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "associate ↔ associate ↔ connect/link/relate",
-          "target_word": "associate ↔ connect/link/relate",
-          "lines": [
-            {
-              "text": "associate A with B, connect/link A with/to B, and relate A to B overlap in linking concepts. associate often encodes mental/statistical association; connect/link are broader connection; relate commonly expresses relationship/relevance. Preserve governed prepositions.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:c5d6346edbe2bf61ba02",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "associate ↔ associate ↔ connect/link/relate"
-          }
-        }
-      ],
+      "relations": [],
       "form": {
         "boundary": "",
         "boundaries": [
@@ -7549,7 +7562,7 @@
     "ordinal": 314,
     "word": "assure",
     "source_owner_path": "content/lexical/words/by-ordinal/o0314.json",
-    "source_fingerprint": "3580d794645d25e838154a3d89383d4013b793e23d0b5abe975b9b9621f5f641",
+    "source_fingerprint": "4275460a2e19e4d832c2b6929bdac7b39b57b9d68ba88f21f00e14674e67bc71",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7685,81 +7698,37 @@
       }
     ],
     "reference": {
-      "confusables": [
-        {
-          "title": "assure ↔ insure",
-          "target_word": "insure",
-          "lines": [
-            {
-              "text": "assure 使人确信；insure 通常指投保",
-              "lang": "cn"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "deep:confusables:assure:918b8e3067805ce6",
-            "target_locator": "record.confusables[0]",
-            "target_label": "assure ↔ insure"
-          }
-        },
-        {
-          "title": "assure ↔ ensure",
-          "target_word": "ensure",
-          "lines": [
-            {
-              "text": "assure 后常接人；ensure 后接结果或 that 从句",
-              "lang": "cn"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "deep:confusables:assure:d48250f744f44148",
-            "target_locator": "record.confusables[1]",
-            "target_label": "assure ↔ ensure"
-          }
-        },
-        {
-          "title": "assure ↔ assure ↔ ensure ↔ insure",
-          "target_word": "assure ↔ ensure ↔ insure",
-          "lines": [
-            {
-              "text": "{\"default_distinction\":\"assure usually addresses someone's confidence; ensure makes an outcome certain; insure primarily concerns insurance\",\"important_overlap\":\"assure can also mean make certain; in American English insure can also mean ensure\",\"syntax\":[\"assure sb (that...) / assure sb of sth\",\"ensure sth / ensure that...\",\"insure sb/sth against... / insure sb/sth for...\"],\"unsafe_rule\":\"Do not teach an absolute person=assure, thing=ensure, insurance=insure slogan.\"}",
-              "lang": "en"
-            },
-            {
-              "text": "{'default_distinction': \"assure usually addresses someone's confidence; ensure makes an outcome certain; insure primarily concerns insurance\", 'important_overlap': 'assure can also mean make certain; in American English insure can also mean ensure', 'syntax': ['assure sb (that...) / assure sb of sth', 'ensure sth / ensure that...', 'insure sb/sth against... / insure sb/sth for...'], 'unsafe_rule': 'Do not teach an absolute person=assure, thing=ensure, insurance=insure slogan.'}",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "confusable:horizontal:313503e352b456bf0654",
-            "target_locator": "record.confusables[2]",
-            "target_label": "assure ↔ assure ↔ ensure ↔ insure"
-          }
-        }
-      ],
+      "confusables": [],
       "relations": [
         {
           "title": "assure ↔ ensure",
           "target_word": "ensure",
           "lines": [
             {
-              "text": "assure 常接人；ensure 强调确保结果",
-              "lang": "cn"
+              "text": "assure normally takes a person (assure sb that/of sth); ensure makes an outcome certain (ensure sth/that ...); insure provides insurance, typically insure sb/sth against/for risk.",
+              "lang": "en"
             },
             {
-              "text": "be careful or certain to do something; make certain of something",
+              "text": "assure sb (that) / assure sb of sth",
               "lang": "en"
+            },
+            {
+              "text": "ensure sth / ensure that ...",
+              "lang": "en"
+            },
+            {
+              "text": "insure sb/sth against/for risk",
+              "lang": "en"
+            },
+            {
+              "text": "三词有历史重叠，但不要机械套“人/事/保险”绝对规则；优先看论元结构和语境。",
+              "lang": "cn"
             }
           ],
           "differences": [],
           "repair": {
             "target_kind": "relation",
-            "target_id": "deep:semantic_contrast:assure:13a7b0a90e80dae6",
+            "target_id": "relation:final-standard:assure-ensure-insure:usage_boundary",
             "target_locator": "record.semantic_neighbors[0]",
             "target_label": "assure ↔ ensure"
           }

@@ -8,25 +8,6 @@
   "generation_rule": "Blueprints store stable diagnostic intent; concrete instances are generated fresh from latest canonical content + learner evidence.",
   "entries": [
     {
-      "blueprint_id": "repair-blueprint:o0301:assess:v1",
-      "word_id": "word:assess",
-      "ordinal": 301,
-      "word": "assess",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分一般评估、税务估价与征收税款/罚款。",
-      "decision_boundary_cn": "impact/ability、property valuation for tax、assess a tax/fine on sb 三类对象与场景决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 assess 的对象/税务语境 selector。",
-      "reconstruction_rule_cn": "换一个能力评估、房产估价或税费征收语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
       "blueprint_id": "repair-blueprint:o0303:assign:v1",
       "word_id": "word:assign",
       "ordinal": 303,
@@ -37,31 +18,12 @@
         "target_locator": "record.core_concept"
       },
       "demand": "production",
-      "diagnostic_intent_cn": "按意图稳定产出 assign sth to sb/sth、assign sb to sth/to do，并识别 value/category/rights 分支。",
-      "decision_boundary_cn": "任务/物品、人员角色、变量值/类别、权利转让四类目标要求正确论元结构。",
+      "diagnostic_intent_cn": "稳定区分 assign sth to sb/sth 与 assign sb to sth/to do，并按任务/人员角色选择正确论元结构。",
+      "decision_boundary_cn": "thing/task/value/right → assign sth to ...；person/role/action → assign sb to ... / to do。",
       "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
       "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
       "minimum_repair_cn": "只修 assign 的结构选择和对象分支。",
       "reconstruction_rule_cn": "换一个作业分配、人员指派、变量赋值或权利转让场景。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0305:assimilate:v1",
-      "word_id": "word:assimilate",
-      "ordinal": 305,
-      "word": "assimilate",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分吸收理解信息、社会同化、物理/化学吸收与语音同化。",
-      "decision_boundary_cn": "information/ideas、group/culture、gas/light/heat、speech sounds 四类领域线索决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 assimilate 的领域分支。",
-      "reconstruction_rule_cn": "换一个学习、社会文化、物理吸收或语音学语境。",
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
@@ -84,71 +46,14 @@
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
-      "blueprint_id": "repair-blueprint:o0311:assume:v1",
-      "word_id": "word:assume",
-      "ordinal": 311,
-      "word": "assume",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分假定、承担/担任、呈现形式与装出姿态。",
-      "decision_boundary_cn": "that-clause/premise、responsibility/office、form/importance、air/manner 四类补语决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 assume 的对象/构式分支。",
-      "reconstruction_rule_cn": "换一个推理、职责、形态或姿态语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0312:assumption:v1",
-      "word_id": "word:assumption",
-      "ordinal": 312,
-      "word": "assumption",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分假设、承担权力/责任与假装/装出。",
-      "decision_boundary_cn": "assumption that/of belief、assumption of power/responsibility、assumption of manner 三类结构决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 assumption 的补语分支。",
-      "reconstruction_rule_cn": "换一个理论假设、就任或装腔作势语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0313:assurance:v1",
-      "word_id": "word:assurance",
-      "ordinal": 313,
-      "word": "assurance",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分自信、保证/承诺与英式保险义。",
-      "decision_boundary_cn": "with assurance、give an assurance that、life assurance 三类搭配决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 assurance 的领域分支。",
-      "reconstruction_rule_cn": "换一个自信表现、承诺或保险语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
       "blueprint_id": "repair-blueprint:o0314:assure:v1",
       "word_id": "word:assure",
       "ordinal": 314,
       "word": "assure",
       "target": {
-        "target_kind": "construction",
-        "target_id": "construction:assure:baseline-v2-sb-that",
-        "target_locator": "record.constructions[0]"
+        "target_kind": "relation",
+        "target_id": "relation:final-standard:assure-ensure-insure:usage_boundary",
+        "target_locator": "relation_refs[0]"
       },
       "demand": "production",
       "diagnostic_intent_cn": "稳定产出 assure sb (that)... / assure sb of sth，并与 ensure/insure 的典型结构分开。",
@@ -179,32 +84,13 @@
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
-      "blueprint_id": "repair-blueprint:o0323:attack:v1",
-      "word_id": "word:attack",
-      "ordinal": 323,
-      "word": "attack",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分物理攻击、猛烈批评与疾病突然发作。",
-      "decision_boundary_cn": "enemy/person、policy/argument、asthma/illness 三类对象决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 attack 的对象/领域分支。",
-      "reconstruction_rule_cn": "换一个战斗、舆论批评或疾病发作语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
       "blueprint_id": "repair-blueprint:o0325:attempt:v1",
       "word_id": "word:attempt",
       "ordinal": 325,
       "word": "attempt",
       "target": {
         "target_kind": "construction",
-        "target_id": "deep:constructions:attempt:35fb547b86b3c31d",
+        "target_id": "construction:attempt:final-standard-to-do-or-object",
         "target_locator": "record.constructions[0]"
       },
       "demand": "production",
@@ -222,36 +108,17 @@
       "ordinal": 326,
       "word": "attend",
       "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
+        "target_kind": "construction",
+        "target_id": "construction:ac93a78539d82a0451ab",
+        "target_locator": "record.constructions[0]"
       },
       "demand": "discrimination",
-      "diagnostic_intent_cn": "区分出席、attend to=处理/专心、照料病人以及“伴随发生”。",
-      "decision_boundary_cn": "meeting/school、attend to details/person、patient、risk/result 四类对象决定分支。",
+      "diagnostic_intent_cn": "稳定产出 attend to sb/sth，表达处理、照料或专心注意。",
+      "decision_boundary_cn": "attend + event/school（出席）与 attend to + person/details/problem（处理/照料/专心）形成真实结构选择。",
       "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
       "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
       "minimum_repair_cn": "只修 attend 的结构/对象分支。",
       "reconstruction_rule_cn": "换一个会议、事务处理、照护或伴随风险语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0327:attendant:v1",
-      "word_id": "word:attendant",
-      "ordinal": 327,
-      "word": "attendant",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分服务人员/出席者与形容词“在场的/伴随的”。",
-      "decision_boundary_cn": "job/person noun、event attendee、attendant risks/costs adjective 三类句法位置决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 attendant 的词性和伴随义。",
-      "reconstruction_rule_cn": "换一个服务岗位、会议出席或伴随成本语境。",
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
@@ -271,25 +138,6 @@
       "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
       "minimum_repair_cn": "只修 draw/call attention to 的生产骨架。",
       "reconstruction_rule_cn": "换一个报告、风险或证据提醒语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0329:attitude:v1",
-      "word_id": "word:attitude",
-      "ordinal": 329,
-      "word": "attitude",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分心理态度、身体/戏剧姿势和航空器姿态。",
-      "decision_boundary_cn": "toward issue/person、pose/body、aircraft/spacecraft 三类参照系决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 attitude 的参照系 selector。",
-      "reconstruction_rule_cn": "换一个观点、表演姿势或飞行控制语境。",
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
@@ -347,44 +195,6 @@
       "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
       "minimum_repair_cn": "只修 aural/oral 近形近音边界。",
       "reconstruction_rule_cn": "换一个听力测试与口头考试/口腔语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0345:authority:v1",
-      "word_id": "word:authority",
-      "ordinal": 345,
-      "word": "authority",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分权力/职权、当局、专家权威与正式许可/授权。",
-      "decision_boundary_cn": "have authority、the authorities、an authority on、with/by authority 四类搭配决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 authority 的语法角色/搭配分支。",
-      "reconstruction_rule_cn": "换一个管理权、官方机构、专家引用或授权语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0349:autonomy:v1",
-      "word_id": "word:autonomy",
-      "ordinal": 349,
-      "word": "autonomy",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分政治/地区自治权与个人自主性。",
-      "decision_boundary_cn": "region/state/governance 与 patient/person/decision-making 两类领域线索决定分支。",
-      "distractor_policy_cn": "只使用该词真实邻近义项、构式、形式边界或合理混淆作为干扰；选项必须自然，不能靠长度、标签或生僻度排除。",
-      "context_constraints_cn": "使用全新、自然、无答案泄漏的短语境；不得复用学习卡原句；不得消耗未作答真题、TPO、IELTS 或其他保留材料。",
-      "minimum_repair_cn": "只修 autonomy 的政治 vs 个人分支。",
-      "reconstruction_rule_cn": "换一个地方自治与个人选择语境。",
       "concrete_instance_policy": "GENERATE_FRESH"
     }
   ]

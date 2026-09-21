@@ -1,0 +1,56 @@
+{
+  "schema": "kianos.lexical.final_standard_reconciliation.v1",
+  "candidate_id": "BF03",
+  "range": [
+    301,
+    400
+  ],
+  "status": "RECONCILED_READY_FOR_MERGE",
+  "candidate_branch": "work/lexical-continuous-bf03-20260921",
+  "audit_pack": "content/lexical/semantic-audit/O0301_O0400_FINAL_STANDARD_FRESH_AUDIT_PACK.md",
+  "audit_result": "PASS_WITH_CORRECTIONS",
+  "independence_note": "BLIND_FIRST_NOT_ENFORCED; same Chat landed and closure-audited batch per Kian instruction.",
+  "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
+  "frontier_base_head": "949bda3ad8d88c7e91d34a84f1d9a470b058f832",
+  "latest_main_refreeze_head": "949bda3ad8d88c7e91d34a84f1d9a470b058f832",
+  "lexical_drift": [],
+  "production": {
+    "scope_owners": 100,
+    "bounded_corrections": 16,
+    "approved_expansion_assets": 6,
+    "no_change": 78,
+    "blocked": 0,
+    "repair_tests_before": 20,
+    "repair_tests_after": 10
+  },
+  "audit_corrections": [
+    {
+      "target": "word:ensure@o1670",
+      "action": "REMOVE_STALE_EMBEDDED_RELATION",
+      "result": "PASS"
+    },
+    {
+      "target": "attack↔assault Relation",
+      "action": "REMOVE_SOURCE_SPECIFIC_SHARED_DEFINITION",
+      "result": "PASS"
+    },
+    {
+      "target": "assure/ensure/insure Relation runtime projection",
+      "action": "MOVE_TO_SEMANTIC_NEIGHBORS_AND_PRESERVE_PRIMARY_ASSURE_ENSURE_TARGETS",
+      "result": "PASS"
+    }
+  ],
+  "closure": {
+    "final_learner_objects": 7946,
+    "final_shards": 125,
+    "repair_blueprints": 10,
+    "unresolved_material_findings": 0,
+    "unresolved_identity_findings": 0,
+    "blocked": 0,
+    "new_human_semantic_delta_required": false,
+    "broad_semantic_reopen_required": false,
+    "main_merge_authorized": true
+  },
+  "next_action": "Run normal PR checks from this connector-authored final receipt commit; merge PR #672 if no BF03 regression is proven.",
+  "materialized_final_head": "dd7cb2b729438c788665f77930904ee84f1dd8d2"
+}

@@ -956,7 +956,7 @@
     "ordinal": 2185,
     "word": "grant",
     "source_owner_path": "content/lexical/words/by-ordinal/o2185.json",
-    "source_fingerprint": "5c8c8c3db508e5d8d5b91a884df64797a1f423226ed00f60d53190b6331e1ebf",
+    "source_fingerprint": "444034aed23e164b6bc4ca7ffa916b6d37908c0fd14f71366b2d439ddad4398a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1137,7 +1137,29 @@
     ],
     "reference": {
       "confusables": [],
-      "relations": [],
+      "relations": [
+        {
+          "title": "grant ↔ award",
+          "target_word": "award",
+          "lines": [
+            {
+              "text": "grant means formally or legally give; award means confer a prize, honor, payment, or legal amount based on merit or judgment.",
+              "lang": "en"
+            },
+            {
+              "text": "give as judged due or on the basis of merit",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "deep:semantic_contrast:award:a0df6b6433a206a6",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "grant ↔ award"
+          }
+        }
+      ],
       "form": null,
       "family": []
     }

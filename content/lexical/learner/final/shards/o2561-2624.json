@@ -2424,7 +2424,7 @@
     "ordinal": 2582,
     "word": "insure",
     "source_owner_path": "content/lexical/words/by-ordinal/o2582.json",
-    "source_fingerprint": "9a620e4580cf1603efce735d46ae33ac68bc227776b522726e9545da338d908f",
+    "source_fingerprint": "8bf8c6da2fa7a4e350d5d9e30c3cc2a4558d168d8e20db6afa6fd1e22118cba0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2516,14 +2516,30 @@
           "target_word": "ensure",
           "lines": [
             {
-              "text": "insure primarily means protect against financial/insurance risk; ensure means make certain. Insure can mean ensure in a lower variant use, but ensure is the default learner choice for “make certain”.",
+              "text": "insure primarily means provide insurance; ensure means make certain; assure typically takes a person who is made confident or certain.",
               "lang": "en"
+            },
+            {
+              "text": "insure sb/sth against/for risk",
+              "lang": "en"
+            },
+            {
+              "text": "ensure sth / ensure that ...",
+              "lang": "en"
+            },
+            {
+              "text": "assure sb (that) / assure sb of sth",
+              "lang": "en"
+            },
+            {
+              "text": "现代一般写作中，保险义优先 insure；确保结果优先 ensure。",
+              "lang": "cn"
             }
           ],
           "differences": [],
           "repair": {
             "target_kind": "relation",
-            "target_id": "relation:horizontal:a530ea8453a43aad6bfc",
+            "target_id": "relation:final-standard:assure-ensure-insure:usage_boundary",
             "target_locator": "record.semantic_neighbors[0]",
             "target_label": "insure ↔ ensure"
           }
