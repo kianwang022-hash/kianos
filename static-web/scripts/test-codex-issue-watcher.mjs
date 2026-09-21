@@ -12,6 +12,7 @@ const codexCalls = path.join(temp, 'codex-calls.log');
 const issueFile = path.join(temp, 'issues.json');
 const prFile = path.join(temp, 'prs.json');
 const commentFile = path.join(temp, 'comments.log');
+const codexStdoutFile = path.join(temp, 'codex-stdout.txt');
 const watcher = path.resolve('scripts/codex-issue-watcher.mjs');
 
 function git(args) {
@@ -65,6 +66,7 @@ esac
   fs.writeFileSync(fakeCodex, `#!/bin/sh
 set -eu
 printf '%s\n' "$*" >> "$WATCHER_CODEX_CALLS"
+if [ -f "$WATCHER_CODEX_STDOUT_FILE" ]; then cat "$WATCHER_CODEX_STDOUT_FILE"; fi
 exit 0
 `);
   fs.chmodSync(fakeCodex, 0o755);
@@ -81,6 +83,7 @@ exit 0
     WATCHER_PRS: prFile,
     WATCHER_CODEX_CALLS: codexCalls,
     WATCHER_COMMENTS: commentFile,
+    WATCHER_CODEX_STDOUT_FILE: codexStdoutFile,
     KIANOS_CODEX_WATCHER_RETRY_MS: '3600000'
   };
 
@@ -151,6 +154,7 @@ exit 0
 
   fs.rmSync(stateDir, { recursive: true, force: true });
   fs.writeFileSync(prFile, '[]\n');
+  fs.writeFileSync(codexStdoutFile, 'DIAGNOSED\nroot_cause: synthetic relay failure\nlearner_state_safe: yes\nrepair_owner: exact owner\nauto_repairable: yes\nneeds_kian: none\n');
   fs.writeFileSync(issueFile, JSON.stringify([{
     number: 702,
     title: 'Codex execution: missing durable receipt',
@@ -168,9 +172,11 @@ exit 0
   assert.equal(out.status, 'receipt-missing');
   assert.equal(out.issue, 702);
   assert.equal(out.exit_code, 3);
-  assert.match(fs.readFileSync(commentFile, 'utf8'), /AUTO_EXECUTION_NO_DURABLE_RECEIPT/);
+  const persistedReceipt = fs.readFileSync(commentFile, 'utf8');
+  assert.match(persistedReceipt, /AUTO EXECUTOR RECEIPT/);
+  assert.match(persistedReceipt, /root_cause: synthetic relay failure/);
 
-  console.log('PASS Codex issue watcher: zero-model idle, owner-aware lock recovery, durable-receipt enforcement, one-task one-run, cooldown and PR dedupe');
+  console.log('PASS Codex issue watcher: zero-model idle, owner-aware lock recovery, durable stdout receipt persistence, one-task one-run, cooldown and PR dedupe');
 } finally {
   fs.rmSync(temp, { recursive: true, force: true });
 }
