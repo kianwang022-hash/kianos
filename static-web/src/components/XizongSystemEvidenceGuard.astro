@@ -25,6 +25,9 @@ for (let index = 0; index < blockEvidenceRows.length; index += 1) {
 
 const evidenceRows = (sweep?.questions || []).map((question) => [
   question.questionId,
+  question.questionType || '',
+  question.stem || '',
+  ...(question.options || []).flatMap((option) => [option?.label || '', option?.text || '']),
   question.correctAnswer,
   question.relation?.blockId || '',
   question.relation?.primaryKpId || '',
@@ -48,6 +51,7 @@ const evidenceVersion = [
   blockEvidenceHash.toString(16),
   sweep?.scopeHash || '',
   sweep?.questionInventoryHash || '',
+  sweep?.questionSemanticHash || '',
   questionEvidenceHash.toString(16)
 ].join(':');
 const blockIds = (system?.blocks || []).map((block) => block.blockId).filter(Boolean);
