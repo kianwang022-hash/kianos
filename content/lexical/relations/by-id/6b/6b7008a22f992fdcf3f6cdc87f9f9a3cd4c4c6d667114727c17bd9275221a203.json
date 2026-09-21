@@ -60,7 +60,7 @@
     ],
     "tier": "B",
     "validator_version": "deep_vocabulary_target_gate_2026-08-13_v1",
-    "verification_confidence": 1.0,
+    "verification_confidence": 1,
     "verification_decision": "codex_promote",
     "verification_status": "verified",
     "why": "",
@@ -68,52 +68,11 @@
     "word_id": "word:compliment",
     "writing_safe": false
   },
-  "word_views": [
-    {
-      "source_word_id": "word:compliment",
-      "source_ordinal": 955,
-      "field": "confusables",
-      "index": 0,
-      "payload": {
-        "boundary": "compliment 是称赞；complement 是补足",
-        "codex_reviewed": true,
-        "definition_cn": null,
-        "definition_en": null,
-        "dimensions": {},
-        "direction": "C",
-        "evidence": [
-          {
-            "evidence_id": "evidence:ecdict-spelling:compliment:complement",
-            "evidence_status": "source_checked",
-            "source_locator": "compliment|complement",
-            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/source_manifest.json",
-            "source_type": "learner_dictionary"
-          }
-        ],
-        "fact_id": "deep:confusables:compliment:a0f0628f2a2bdf21",
-        "family_sources": [],
-        "label_en": null,
-        "level": null,
-        "meaning_cn": null,
-        "module": "confusables",
-        "pattern": null,
-        "pos": null,
-        "priority": "A",
-        "publication_status": "codex_reviewed",
-        "shared_definition": null,
-        "source_sense_id": "sense:compliment:05efbc42592e59d4",
-        "target_sense_id": "sense:complement:a79de49b04795fe8",
-        "target_word": "complement",
-        "task_tags": [
-          "reading"
-        ],
-        "verification_status": "verified",
-        "writing_safe": false
-      }
-    }
-  ],
+  "word_views": [],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 0,
+    "retired_into": "confusable:horizontal:00989348a5e10e285de5",
+    "retired_reason": "BF09 duplicate complement/compliment relation coalesced into shared survivor"
   }
 }
