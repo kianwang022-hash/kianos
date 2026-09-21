@@ -51,15 +51,23 @@ function loadOwner() {
     if (owner?.rules?.learner_unit !== 'one complete essay') issues.push('LEARNER_UNIT');
     if (owner?.rules?.model_answer_present !== false) issues.push('MODEL_ANSWER_POLICY');
     if (owner?.rules?.true_exam_consumption !== false) issues.push('TRUE_EXAM_POLICY');
-    if (!Array.isArray(owner?.tasks) || owner.tasks.length !== 2) issues.push(`TASK_COUNT:${owner?.tasks?.length || 0}`);
+    if (!Array.isArray(owner?.tasks) || owner.tasks.length !== 10) issues.push(`TASK_COUNT:${owner?.tasks?.length || 0}`);
 
     const ids = new Set();
     const kinds = new Set();
+    const kindCounts = { small: 0, big: 0 };
+    const roleCounts = { CALIBRATION: 0, TRANSFER: 0, MAINTENANCE: 0, STRESS_EDGE: 0 };
     for (const task of owner?.tasks || []) {
       if (!task?.id || ids.has(task.id)) issues.push(`TASK_ID:${task?.id || 'missing'}`);
       ids.add(task?.id);
       if (!['small', 'big'].includes(task?.kind)) issues.push(`TASK_KIND:${task?.id || 'missing'}:${task?.kind || 'missing'}`);
       kinds.add(task?.kind);
+      if (task?.kind === 'small' || task?.kind === 'big') kindCounts[task.kind] += 1;
+      if (!['CALIBRATION', 'TRANSFER', 'MAINTENANCE', 'STRESS_EDGE'].includes(task?.evidence_role)) {
+        issues.push(`TASK_EVIDENCE_ROLE:${task?.id || 'missing'}:${task?.evidence_role || 'missing'}`);
+      } else {
+        roleCounts[task.evidence_role] += 1;
+      }
       if (task?.source_kind !== 'synthetic') issues.push(`TASK_SOURCE_KIND:${task?.id || 'missing'}`);
       if (!task?.task?.directions) issues.push(`TASK_DIRECTIONS:${task?.id || 'missing'}`);
       if (!task?.planning_prompt) issues.push(`PLANNING_PROMPT:${task?.id || 'missing'}`);
@@ -68,11 +76,18 @@ function loadOwner() {
       if (forbidden.length) issues.push(`LEARNER_LEAK:${task?.id || 'missing'}:${forbidden.join('|')}`);
     }
     if (!kinds.has('small') || !kinds.has('big')) issues.push(`KIND_COVERAGE:${[...kinds].join('|')}`);
+    if (kindCounts.small !== 4 || kindCounts.big !== 6) {
+      issues.push(`KIND_INVENTORY:small=${kindCounts.small}:big=${kindCounts.big}`);
+    }
+    if (roleCounts.CALIBRATION !== 2 || roleCounts.TRANSFER !== 3 || roleCounts.MAINTENANCE !== 3 || roleCounts.STRESS_EDGE !== 2) {
+      issues.push(`ROLE_INVENTORY:calibration=${roleCounts.CALIBRATION}:transfer=${roleCounts.TRANSFER}:maintenance=${roleCounts.MAINTENANCE}:stress=${roleCounts.STRESS_EDGE}`);
+    }
 
     const tasks = issues.length ? [] : owner.tasks.map((task, index) => ({
       id: task.id,
       kind: task.kind,
       sourceKind: task.source_kind,
+      evidenceRole: task.evidence_role,
       title: task.title,
       targetWords: task.target_words,
       learnerTask: task.task,
