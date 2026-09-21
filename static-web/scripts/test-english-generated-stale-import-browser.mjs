@@ -60,6 +60,15 @@ try{
   await ready();
   browser=await chromium.launch({headless:true});
   const context=await browser.newContext({timezoneId:'Asia/Shanghai',locale:'zh-CN'});
+  await context.addInitScript(({fixtureNow})=>{
+    const NativeDate=Date;
+    const offset=fixtureNow-NativeDate.now();
+    class FixtureDate extends NativeDate{
+      constructor(...args){super(...(args.length?args:[NativeDate.now()+offset]));}
+      static now(){return NativeDate.now()+offset;}
+    }
+    window.Date=FixtureDate;
+  },{fixtureNow:Date.parse('2026-09-20T03:00:00+08:00')});
   const page=await context.newPage();
   await page.goto(BASE+'/english/',{waitUntil:'domcontentloaded'});
 
