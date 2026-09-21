@@ -11,6 +11,99 @@
 学科自己的认知、材料、证据和学习方法优先。
 共享标准规定的是**必须回答的问题**，不是强迫三科使用同一种学习模型。
 
+## 0. Ultra-Maturity admission discipline
+
+本标准现在同时受 Personal OS `SYSTEM_ULTRA_MATURITY_STANDARD.md` 的 whole-system maturity ladder 约束。
+
+旧的“内容完整 / integration 绿 / 一次 Fresh audit PASS”都只能作为证据，不能自动等于最终单科成熟。
+
+每科必须把现有证据重新映射到适用的 U0–U13 gate，并遵守：
+
+```text
+need / score truth
+→ owner / boundary truth
+→ minimal subject-native design
+→ implementation
+→ deterministic proof
+→ semantic / builder attack
+→ adversarial stress
+→ Fresh Independent anti-anchored audit
+→ cross-layer integration
+→ synthetic / browser / runtime lifecycle proof
+→ degraded / recovery proof
+→ maintenance / repair-burden proof
+→ compact subject maturity package
+→ subject pre-use engineering stop
+→ genuine Real-U calibration only
+```
+
+### 0.1 Evidence-reuse rule
+
+已有有效证据优先复用。
+
+升级验收不等于把三科重新建设一遍。Fresh worker 先做 evidence map：
+
+```text
+new required gate
+→ existing exact evidence exists and still matches Current
+   → inherit
+→ evidence stale / narrower / missing
+   → run only that missing proof
+```
+
+不得为了“标准升级”重开已经封闭的学习架构、第二套 learner state、第二套 Forecast、第二套 Website/runtime。
+
+### 0.2 Final acceptance independence
+
+Builder 可以发现并修复 blocker，但不能自修后自 PASS。
+
+最终 `SYSTEM_LOGIC_ACCEPTED = YES` 必须来自：
+- fresh context；
+- exact candidate lock；
+- prior builder defect/repair detail last；
+- no broad redesign；
+- zero material systematic blocker。
+
+如果 Fresh audit FAIL，只修最小 responsible owner，然后最多做 bounded repair re-audit；禁止无限 Fresh 循环。
+
+### 0.3 Required compact final split
+
+每科最终必须在一个 compact Maturity Package 中明确：
+
+```text
+SYSTEM_LOGIC_ACCEPTED = YES | NO
+KIAN_SPECIFIC_CALIBRATED = YES | NO / REAL-U GATED
+CURRENT_YEAR_SOURCE_READY = YES | PARTIAL / SOURCE GATED | NO
+AUTHENTIC_MODALITY_READY = YES | PARTIAL / REAL-U-or-MOCK GATED | NO
+REMAINING_CONCRETE_DEFECTS = none | bounded exact list
+```
+
+并同时记录：
+- target / floor / elastic upside；
+- score-channel closure；
+- current binding capability model；
+- evidence semantics；
+- Forecast authority boundary；
+- Future Source invalidation path；
+- lifecycle/degraded/maintenance proof；
+- final Fresh Independent receipt。
+
+### 0.4 What does NOT earn Ultra-Mature
+
+以下任何单项都不能独立封层：
+- CI 全绿；
+- Source inventory 完整；
+- 一次 learner-facing Human Gate；
+- 一次 synthetic day；
+- 一次 Fresh audit；
+- integration PASS；
+- real learner 做过一次题；
+- Forecast 能输出数字；
+- 某个 Current 写着 CLOSED。
+
+必须是**适用 gate 的组合证据 + compact package + final independent acceptance**。
+
+
 ---
 
 ## 1. 分数闭环
@@ -955,3 +1048,56 @@ KIAN_SPECIFIC_CALIBRATED?
 如果都能回答，而且继续增加系统不会改变学习行为或决策质量：
 
 > **停止建设，去学习。**
+
+---
+
+# 31. Ultra-Maturity final subject acceptance package
+
+当本标准全部适用 gate 已满足时，单科最终验收必须回答以下五类问题，而且必须在同一个 compact package 中可被 fresh worker 一次定位：
+
+## A. Score / capability truth
+- 目标分数、floor、elastic upside 是否有明确证据边界？
+- 每个得分通道的能力、失分机制、训练和证据是否闭环？
+- learner-specific 精度不足时是否保持 UNKNOWN 而非假精确？
+
+## B. Material / method / evidence truth
+- 每项关键能力是否有可执行材料？
+- Current Source fidelity 是否 fail-closed？
+- Method 是否能 Build → Verify → Maintain，而不是永久 Repair？
+- same-item / assisted / exposed / synthetic evidence 是否不会冒充 fresh/authentic performance？
+
+## C. Control truth
+- Forecast 是否只做 workload/risk/sensitivity，而不接管策略？
+- Future Source arrival 是否会 transitive invalidate 下游陈旧结论？
+- Chat Plan / subject continuation 是否绑定 current evidence snapshot？
+- stale / missing / conflict 是否安全退化？
+
+## D. Lifecycle / degraded / maintenance truth
+必须至少覆盖：
+- normal sequence；
+- low-capacity / interruption；
+- cross-day continuation；
+- fresh Chat / fresh worker；
+- runtime/browser restart；
+- missing Source / missing transport；
+- stale or conflicting Return；
+- no-Website / degraded path where applicable；
+- repeated cycles without growing Kian repair burden。
+
+## E. Final labels
+最终只允许以下精确状态：
+
+```text
+SYSTEM_LOGIC_ACCEPTED
++ KIAN_SPECIFIC_CALIBRATED = NO / REAL-U GATED  (若仍依赖真实学习)
++ CURRENT_YEAR_SOURCE_READY = PARTIAL / SOURCE GATED (若新年度 Source 未发布)
++ AUTHENTIC_MODALITY_READY = PARTIAL / REAL-U-or-MOCK GATED (若真实整卷/正式模考未发生)
++ REMAINING_CONCRETE_DEFECTS = none | exact bounded list
+```
+
+这仍然可以是“最高级 pre-use engineering maturity”，而不是伪造 Kian 已经学会。
+
+单科封层后：
+- 停止 broad maturity engineering；
+- 正常学习产生 Real-U；
+- 只有 concrete decision-changing defect / authoritative Source delta / authentic modality evidence 才重开最小 owner。
