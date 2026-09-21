@@ -1,0 +1,66 @@
+{
+  "schema": "kianos.lexical.final_standard_reconciliation.v1",
+  "candidate_id": "BF05",
+  "range": [
+    501,
+    600
+  ],
+  "status": "RECONCILED_READY_FOR_MERGE",
+  "candidate_branch": "work/lexical-continuous-bf05-final-20260921",
+  "audit_pack": "content/lexical/semantic-audit/O0501_O0600_FINAL_STANDARD_FRESH_AUDIT_PACK.md",
+  "audit_result": "PASS_WITH_CORRECTIONS",
+  "independence_note": "BLIND_FIRST_NOT_ENFORCED; same Chat landed and closure-audited batch per Kian instruction.",
+  "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
+  "frontier_base_head": "14dea5a3a58d0e0a45a8defb1b055ea7df96b9cf",
+  "latest_main_refreeze_head": "c044ab2a39026caf9000b638f1888e94f563fd68",
+  "lexical_drift": [],
+  "production": {
+    "scope_owners": 100,
+    "bounded_corrections": 17,
+    "approved_new_material_owners": 7,
+    "unique_affected_owners": 23,
+    "no_change": 77,
+    "blocked": 0,
+    "repair_tests_before": 45,
+    "repair_tests_after": 22
+  },
+  "pre_materialization_dependency_repairs": [
+    {
+      "target": "bright↔smart Relation",
+      "action": "REANCHOR_SMART_TARGET_TO_INTELLIGENCE_SENSE_AND_ADD_RECIPROCAL_VIEW",
+      "from_target_sense_id": "sense:smart:bd65ea520c205d28",
+      "to_target_sense_id": "sense:smart:cfed592e737451a3",
+      "result": "PASS"
+    }
+  ],
+  "audit_corrections": [
+    {
+      "target": "block sb/sth from doing sth",
+      "action": "REMOVE_RAW_COLLOCATION_AFTER_CONSTRUCTION_PROMOTION",
+      "result": "PASS"
+    },
+    {
+      "target": "blur the line/distinction between A and B",
+      "action": "REMOVE_RAW_COLLOCATIONS_AFTER_CONSTRUCTION_PROMOTION",
+      "result": "PASS"
+    },
+    {
+      "target": "the bottom line",
+      "action": "REMOVE_DUPLICATE_RAW_IDIOM_AFTER_CONSTRUCTION_PROMOTION",
+      "result": "PASS"
+    }
+  ],
+  "closure": {
+    "final_learner_objects": 7946,
+    "final_shards": 125,
+    "repair_blueprints": 22,
+    "unresolved_material_findings": 0,
+    "unresolved_identity_findings": 0,
+    "unresolved_findings": 0,
+    "blocked": 0,
+    "new_human_semantic_delta_required": false,
+    "broad_semantic_reopen_required": false,
+    "main_merge_authorized": true
+  },
+  "next_action": "Open BF05 integration PR from the final materialized candidate; run bounded checks; merge if no BF05 regression is proven."
+}
