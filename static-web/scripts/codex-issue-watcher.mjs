@@ -233,30 +233,90 @@ try {
   const execution = run(codex, codexArgs, { allowFail: true, stdio: 'ignore' });
 
   let finalIssue = selected;
-  const refresh = run(gh, [
-    'issue', 'view', String(selected.number), '--repo', repoFullName,
-    '--json', 'number,state,updatedAt'
+  const refreshIssue = () => {
+    const result = run(gh, [
+      'issue', 'view', String(selected.number), '--repo', repoFullName,
+      '--json', 'number,state,updatedAt'
+    ], { allowFail: true });
+    if (result.status === 0 && result.stdout) {
+      try { return { ...selected, ...parseJson(result.stdout, 'ISSUE_REFRESH_INVALID') }; } catch {}
+    }
+    return selected;
+  };
+  finalIssue = refreshIssue();
+
+  const postRemote = run(git, [
+    'ls-remote', '--heads', 'origin', 'refs/heads/' + 'codex/issue' + selected.number + '-*'
   ], { allowFail: true });
-  if (refresh.status === 0 && refresh.stdout) {
-    try { finalIssue = { ...selected, ...parseJson(refresh.stdout, 'ISSUE_REFRESH_INVALID') }; } catch {}
+  const postBranches = postRemote.stdout
+    ? postRemote.stdout.split('\n').map((line) => line.trim().split(/\s+/)[1]).filter(Boolean)
+    : [];
+  const postPrResult = run(gh, [
+    'pr', 'list', '--repo', repoFullName, '--state', 'open', '--limit', '100',
+    '--json', 'number,headRefName'
+  ], { allowFail: true });
+  let postPrHeads = [];
+  if (postPrResult.status === 0 && postPrResult.stdout) {
+    try {
+      postPrHeads = parseJson(postPrResult.stdout, 'POST_PR_LIST_INVALID')
+        .map((pr) => String(pr?.headRefName || ''));
+    } catch {}
   }
 
+  const selectedUpdated = Date.parse(String(selected.updatedAt || ''));
+  const finalUpdated = Date.parse(String(finalIssue.updatedAt || ''));
+  const issueChanged = Number.isFinite(finalUpdated) &&
+    (!Number.isFinite(selectedUpdated) || finalUpdated > selectedUpdated);
+  const issueClosed = String(finalIssue.state || '').toUpperCase() === 'CLOSED';
+  const branchExists = postBranches.length > 0;
+  const prExists = postPrHeads.some((head) => head.startsWith('codex/issue' + selected.number + '-'));
+  let durableReceipt = issueChanged || issueClosed || branchExists || prExists;
+  let receiptFallback = false;
+
+  if (execution.status === 0 && !durableReceipt) {
+    const fallbackBody = [
+      'BLOCKED — AUTO_EXECUTION_NO_DURABLE_RECEIPT',
+      '',
+      'The local zero-model watcher automatically selected this Issue and the Codex executor exited 0,',
+      'but no durable Issue update, codex/issue branch, or PR was observed afterward.',
+      'Task success is therefore not accepted. Re-run only after Chat/owner updates this Issue or after cooldown.',
+      '',
+      'watcher_model: ' + (process.env.KIANOS_CODEX_WATCHER_MODEL || 'gpt-5.6-terra'),
+      'watcher_effort: ' + (process.env.KIANOS_CODEX_WATCHER_EFFORT || 'medium')
+    ].join('\n');
+    const fallback = run(gh, [
+      'issue', 'comment', String(selected.number), '--repo', repoFullName,
+      '--body', fallbackBody
+    ], { allowFail: true });
+    receiptFallback = fallback.status === 0;
+    durableReceipt = receiptFallback;
+    if (receiptFallback) finalIssue = refreshIssue();
+  }
+
+  const finalExit = execution.status !== 0 ? execution.status : (receiptFallback ? 3 : (durableReceipt ? 0 : 4));
   state.issues[String(selected.number)] = {
     issue_updated_at: finalIssue.updatedAt || selected.updatedAt,
     last_attempt_at: new Date().toISOString(),
-    last_exit: execution.status,
+    last_exit: finalExit,
     retry_after: Date.now() + retryMs
   };
   saveState(state);
 
+  const finalStatus = execution.status !== 0
+    ? 'launch-failed'
+    : receiptFallback
+      ? 'receipt-missing'
+      : durableReceipt
+        ? 'launched'
+        : 'receipt-write-failed';
   emit({
     schema: 'kianos.codex-issue-watcher.v1',
-    status: execution.status === 0 ? 'launched' : 'launch-failed',
+    status: finalStatus,
     issue: selected.number,
-    exit_code: execution.status,
+    exit_code: finalExit,
     model: process.env.KIANOS_CODEX_WATCHER_MODEL || 'gpt-5.6-terra',
     effort: process.env.KIANOS_CODEX_WATCHER_EFFORT || 'medium'
-  }, execution.status === 0 ? 0 : 2);
+  }, finalExit === 0 ? 0 : 2);
 } finally {
   release();
 }
