@@ -59,7 +59,7 @@
     ],
     "tier": "B",
     "validator_version": "deep_vocabulary_target_gate_2026-08-13_v1",
-    "verification_confidence": 1.0,
+    "verification_confidence": 1,
     "verification_decision": "authoritative_source_import",
     "verification_status": "verified",
     "why": "Authoritative learner-dictionary common-confusables import.",
@@ -111,10 +111,55 @@
         "verification_status": "verified",
         "writing_safe": false
       }
+    },
+    {
+      "source_word_id": "word:classical",
+      "source_ordinal": 830,
+      "field": "confusables",
+      "index": 0,
+      "payload": {
+        "boundary": "classic 指经典作品或典型；classical 指古典传统或经典风格",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {},
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:cambridge-confusable:classic:classical",
+            "evidence_status": "source_checked",
+            "source_locator": "classic|classical",
+            "source_path": "https://dictionary.cambridge.org/grammar/british-grammar/easily-confused-words",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:confusables:classic:47db061f6e515f1a",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "confusables",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": null,
+        "source_sense_id": "sense:classical:55b09c2a3b6a56aa",
+        "target_sense_id": "sense:classic:aa832e15a17055e0",
+        "target_word": "classic",
+        "task_tags": [
+          "reading",
+          "cloze",
+          "writing"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 1,
+    "last_materialization": "BF08 reciprocal closure"
   }
 }

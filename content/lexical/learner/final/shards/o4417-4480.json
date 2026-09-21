@@ -1733,7 +1733,7 @@
     "ordinal": 4430,
     "word": "sight",
     "source_owner_path": "content/lexical/words/by-ordinal/o4430.json",
-    "source_fingerprint": "e205b3ee291b580c51a9c5e5b7fac4bef2e73fd32cefbad7d50eb4de3445334a",
+    "source_fingerprint": "344f3e0939bf85f3ca095712d70626d2696b354c308836c54e363d96effbbb38",
     "sense_lineage": [
       {
         "word_id": "word:sight",
@@ -1824,20 +1824,24 @@
     "reference": {
       "confusables": [
         {
-          "title": "sight ↔ site",
-          "target_word": "site",
+          "title": "sight ↔ cite ↔ site",
+          "target_word": "cite ↔ site",
           "lines": [
             {
-              "text": "sight concerns seeing/what is seen; site means a place/location",
+              "text": "cite = quote/refer to as authority; sight = vision/view; site = place/location. All three are homophones; spelling and semantic domain select the word.",
+              "lang": "en"
+            },
+            {
+              "text": "cite = quote/refer to as authority; sight = vision/view; site = place/location.",
               "lang": "en"
             }
           ],
           "differences": [],
           "repair": {
             "target_kind": "relation",
-            "target_id": "relation:horizontal:39d430f2433071dacd3b",
+            "target_id": "confusable:horizontal:6dd351cfcf6dd14f4bca",
             "target_locator": "record.confusables[0]",
-            "target_label": "sight ↔ site"
+            "target_label": "sight ↔ cite ↔ site"
           }
         }
       ],
@@ -5864,7 +5868,7 @@
     "ordinal": 4463,
     "word": "site",
     "source_owner_path": "content/lexical/words/by-ordinal/o4463.json",
-    "source_fingerprint": "618edbaf9f523a8144a437b5548d4430bcf77c6299f6c0f1abe6b69979fe3862",
+    "source_fingerprint": "1a754fe10c73b03833e29a4c5634e412a02265cae05d0bc17a21204223bda250",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6005,7 +6009,29 @@
     "secondary_senses": [],
     "constructions": [],
     "reference": {
-      "confusables": [],
+      "confusables": [
+        {
+          "title": "site ↔ cite ↔ sight",
+          "target_word": "cite ↔ sight",
+          "lines": [
+            {
+              "text": "cite = quote/refer to as authority; sight = vision/view; site = place/location. All three are homophones; spelling and semantic domain select the word.",
+              "lang": "en"
+            },
+            {
+              "text": "cite = quote/refer to as authority; sight = vision/view; site = place/location.",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "confusable:horizontal:6dd351cfcf6dd14f4bca",
+            "target_locator": "record.confusables[0]",
+            "target_label": "site ↔ cite ↔ sight"
+          }
+        }
+      ],
       "relations": [],
       "form": null,
       "family": []

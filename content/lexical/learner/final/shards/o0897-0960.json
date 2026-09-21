@@ -336,7 +336,7 @@
     "ordinal": 900,
     "word": "color",
     "source_owner_path": "content/lexical/words/by-ordinal/o0900.json",
-    "source_fingerprint": "29da7b6fa21ae1b87631c64281a9b0603738a001ebf5304626c9766dc4d1801b",
+    "source_fingerprint": "beeabd50ee2671c385ca5731d9acd22735d9c1cfd64232d2cc2f8c029421f6b8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -464,34 +464,29 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "color ↔ colour",
-          "target_word": "colour",
-          "lines": [
-            {
-              "text": "color 是美式标准拼写；colour 是英式标准拼写。词义相同，正式写作中应保持同一英语变体的一致性。",
-              "lang": "cn"
-            },
-            {
-              "text": "AmE color ↔ BrE colour。",
-              "lang": "en"
-            },
-            {
-              "text": "the visual property of things; color/colour",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:spelling_variant:color-colour",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "color ↔ colour"
+      "relations": [],
+      "form": {
+        "boundary": "color is standard AmE; colour is standard BrE/international spelling.",
+        "boundaries": [
+          {
+            "surface": "color",
+            "condition": "standard American English",
+            "note": "AmE"
+          },
+          {
+            "surface": "colour",
+            "condition": "standard British/international English",
+            "note": "BrE"
           }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "color is standard AmE; colour is standard BrE/international spelling."
         }
-      ],
-      "form": null,
+      },
       "family": []
     }
   },

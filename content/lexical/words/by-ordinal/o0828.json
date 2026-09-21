@@ -6,7 +6,17 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:class:bf08-as",
+        "pattern": "class sb/sth as sth",
+        "meaning_cn": "把某人/某物归入某一类别",
+        "definition_en": "put someone or something into a category",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "final-standard-bf08"
+      }
+    ],
     "content_hash": "d765baf002ef3f6bed44feb25b0a6b9b9a0d94e969078d8b7edf237ea639f400",
     "core_concept": {
       "core_clusters": [
@@ -23,9 +33,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "按共同特征组成或划出的一个群体/类别：可落到班级、社会阶层、类别、课程或等级",
+      "core_meaning_cn": "班级、阶层、类别、课程或等级；作动词可表示分类、归类",
       "core_meaning_en": "a group of people or things with shared characteristics",
-      "mental_model_cn": "students → 班级；social/economic → 阶层；objects/types → 类别；attend class → 课程；first class → 等级。classify 属于词族关系，不是 class 的句法构式。",
+      "mental_model_cn": "students → 班级；social/economic → 阶层；objects/types → 类别；attend class → 课程；class A as B → 把 A 归为 B 类。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -158,6 +168,20 @@
         "sense_label_en": "a league ranked by quality",
         "sort_order": 4,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "分类；把人或事物归入某一类别",
+        "definition_en": "to put someone or something into a category",
+        "governing_pattern": "vt. + object + as + category",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:class:4ea026d4bd7f5153",
+        "sense_label_en": "to put someone or something into a category",
+        "sort_order": 5,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -220,33 +244,7 @@
     "word_id": "word:class"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:class:4ea026d4bd7f5153",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "分类",
-      "definition_en": "to arrange into a category",
-      "semantic_key": "18bdc5f24118ad95237bfd4f7e4adfc09b630f5f0816b4ab7dc5291d84a69ec3",
-      "semantic_key_history": [
-        "a97a48ad2e67c9371cfcceea9eebab794b5e2f09890f52eb827a252648c41387"
-      ],
-      "legacy_aliases": [
-        "class:l2:6"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "class:l2:6",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 2355,
-      "source_path": "content/lexical/canonical/senses/shards/o0801-0832.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -258,7 +256,7 @@
       },
       {
         "sense_id": "sense:class:4ea026d4bd7f5153",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 2355,
         "source_path": "content/lexical/canonical/senses/shards/o0801-0832.json"

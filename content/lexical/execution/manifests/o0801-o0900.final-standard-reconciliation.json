@@ -1,0 +1,122 @@
+{
+  "schema": "kianos.lexical.final_standard_reconciliation.v1",
+  "candidate_id": "BF08",
+  "range": [
+    801,
+    900
+  ],
+  "status": "RECONCILED_READY_FOR_MERGE",
+  "candidate_branch": "work/lexical-continuous-bf08-20260922",
+  "audit_pack": "content/lexical/semantic-audit/O0801_O0900_FINAL_STANDARD_FRESH_AUDIT_PACK.md",
+  "audit_result": "PASS_WITH_CORRECTIONS",
+  "independence_note": "BLIND_FIRST_NOT_ENFORCED; same Chat had read Production detail before B audit at Kian's explicit request. Valid for defect closure, not reviewer-independence evidence.",
+  "semantic_standard": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
+  "semantic_owner_read_head": "2051577bd87be290724eb63262a870d2fd499b03",
+  "audit_findings_commit": "36313b06f256168cf7aa0d5d389a9882f0584d97",
+  "audit_reconciliation_commits": [
+    "e3b6a9f807bda803fb91fb082a25033ad3d6ade1",
+    "b60e6ed42ae01d30a490601617e45c6adea73534"
+  ],
+  "post_reconciliation_materializer_commit": "f4551792eee5821b56660bc939e1b6073187e80c",
+  "latest_main_drift_check_head": "0c5ec5b083daca36595a6de13e34f8d1db35b49a",
+  "lexical_drift": [],
+  "production": {
+    "scope_owners": 100,
+    "content_affected_owners": 26,
+    "content_no_change": 74,
+    "approved_new_material_owners": 6,
+    "blocked": 0,
+    "repair_tests_before": 29,
+    "repair_tests_after": 16
+  },
+  "audit_coverage": {
+    "scope_owners": "100/100",
+    "production_affected_reverse_reviewed": "26/26",
+    "mandatory_form_identity": "9/9",
+    "mandatory_relation_confusable": "14/14",
+    "mandatory_secondary_expansion": "4/4",
+    "complex_owners": "88/88",
+    "complex_no_change": "62/62",
+    "simple_no_change_fast_gate": "12/12",
+    "simple_no_change_deep_sample": "10/12",
+    "cross_range_targets_read": [
+      "allege@o0146",
+      "assert@o0300",
+      "course@o1128",
+      "dress@o1508",
+      "sight@o4430",
+      "site@o4463",
+      "train@o5092",
+      "cigarette@o5522"
+    ],
+    "repair_test_targets_resolved": "16/16",
+    "blocked": 0
+  },
+  "audit_corrections": [
+    {
+      "finding": "F1 cite/site/sight coalesced Relation",
+      "action": "SOURCE_SPECIFIC_TARGET_TITLES_AND_RETIRE_PAIRWISE_OWNERS",
+      "result": "PASS"
+    },
+    {
+      "finding": "F2 claim/allege/assert shared Relation",
+      "action": "SOURCE_SPECIFIC_TARGET_TITLES_AND_PRESERVE_RECIPROCAL_SOURCE_EVIDENCE_OBJECTS",
+      "result": "PASS"
+    },
+    {
+      "finding": "F3 cigaret/cigarette and color/colour ownership",
+      "action": "RETIRE_LEARNER_SEMANTIC_RELATION_VIEWS_TO_FORM_IDENTITY; DO_NOT_INVENT_COLOUR_OWNER",
+      "result": "PASS"
+    },
+    {
+      "finding": "F4 cloth/clothes/clothing title",
+      "action": "SOURCE_SPECIFIC_TARGET_TITLES; PRESERVE_INHERITED_SOURCE_GAP_WITHOUT_FABRICATION",
+      "result": "PASS"
+    },
+    {
+      "finding": "F5 clean phraseology migration",
+      "action": "MOVE_CLEAN_ENERGY_TECHNOLOGY_FUEL_FROM_CONSTRUCTION_TO_COLLOCATION",
+      "result": "PASS"
+    },
+    {
+      "finding": "F6 clear phraseology migration",
+      "action": "MOVE_CLEAR_THROAT_DEBT_IN_THE_CLEAR_FROM_CONSTRUCTION_TO_COLLOCATIONS",
+      "result": "PASS"
+    }
+  ],
+  "source_fidelity": {
+    "cite_site_sight": "PRESERVED",
+    "claim_allege_assert": "PRESERVED",
+    "cloth_clothes_clothing": "INHERITED_SOURCE_GAP_NONBLOCKING",
+    "fabricated_provenance": "NONE"
+  },
+  "derived_readback": {
+    "final_learner_objects": 7946,
+    "final_shards": 125,
+    "repair_blueprints": 16,
+    "repair_targets_resolved": "16/16",
+    "corrected_finding_readback": "6/6",
+    "result": "PASS"
+  },
+  "regression_evidence": {
+    "semantic_base_validity_on_reconciliation_head": "PASS",
+    "lexical_merge_materialization_audit_on_reconciliation_head": "PASS",
+    "lexical_merge_materialization_closure_on_reconciliation_head": "PASS",
+    "lexical_current_owner_lineage_on_reconciliation_head": "PASS",
+    "lexical_secondary_duplicate_audit_on_reconciliation_head": "PASS",
+    "lexical_shard_tools_on_reconciliation_head": "PASS",
+    "note": "Automated FLOB-only commit f4551792 triggered action_required for workflows because of GitHub Actions actor/permission handling; semantic acceptance is based on the immediately preceding reconciliation head plus direct FLOB readback. Final user-authored receipt commit will rerun current gates."
+  },
+  "closure": {
+    "unresolved_material_findings": 0,
+    "unresolved_identity_findings": 0,
+    "unresolved_owner_findings": 0,
+    "unresolved_source_fidelity_findings": 0,
+    "unresolved_findings": 0,
+    "blocked": 0,
+    "new_human_semantic_delta_required": false,
+    "broad_semantic_reopen_required": false,
+    "main_merge_authorized": true
+  },
+  "next_action": "Run final-head bounded checks on PR #741, merge if no BF08-local regression is proven, then advance serialized frontier to BF09 o0901-o1000."
+}

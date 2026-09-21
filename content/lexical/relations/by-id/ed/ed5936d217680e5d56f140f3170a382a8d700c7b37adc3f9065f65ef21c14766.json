@@ -44,7 +44,7 @@
     "generation_checked": true,
     "high_risk_flags": [],
     "independent_verification_checked": true,
-    "learning_value_score": 9.0,
+    "learning_value_score": 9,
     "learning_value_status": "selected",
     "machine_checked": true,
     "module": "semantic_contrast",
@@ -143,11 +143,64 @@
         "verification_status": "verified",
         "writing_safe": false
       }
+    },
+    {
+      "source_word_id": "word:train",
+      "source_ordinal": 5092,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "Both can mean train/teach someone; coach often emphasizes targeted guidance or performance, while train is broader skill/behavior development.",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "高",
+          "collocation": "coach sb",
+          "core_meaning": "训练，指导",
+          "exam_trap": "train多义",
+          "register": "中性",
+          "semantic_prosody": "中性",
+          "strength": "强",
+          "syntax": "及物动词",
+          "writing_safety": "安全"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:00835381-v",
+            "evidence_status": "source_checked",
+            "source_locator": "00835381-v",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:coach:2e2faf9359797f17",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": "teach and supervise (someone); act as a trainer or coach (to), as in sports",
+        "source_sense_id": "sense:train:5457a182d3a955d7",
+        "target_sense_id": "sense:coach:624256fd61275b94",
+        "target_word": "coach",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0,
-    "last_semantic_authority": "content/lexical/semantic-reconciliation/o0825-o1024.md"
+    "semantic_delta": 1,
+    "last_semantic_authority": "content/lexical/semantic-reconciliation/o0825-o1024.md",
+    "last_materialization": "BF08 reciprocal closure"
   }
 }

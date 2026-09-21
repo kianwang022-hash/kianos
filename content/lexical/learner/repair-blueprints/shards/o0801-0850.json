@@ -34,34 +34,15 @@
       "target": {
         "target_kind": "relation",
         "target_id": "confusable:horizontal:6dd351cfcf6dd14f4bca",
-        "target_locator": "record.confusables[1]"
+        "target_locator": "record.confusables[0]"
       },
       "demand": "discrimination",
-      "diagnostic_intent_cn": "区分 cite/site/sight，并在 cite 内区分引用、表彰、传唤。",
-      "decision_boundary_cn": "拼写与对象域共同决定。",
+      "diagnostic_intent_cn": "稳定区分同音词 cite / site / sight。",
+      "decision_boundary_cn": "cite=引用/正式提及；site=地点/场所；sight=视力/景象。",
       "distractor_policy_cn": "只用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度或生僻度排除。",
       "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
-      "minimum_repair_cn": "只修同音拼写与 cite 分支。",
+      "minimum_repair_cn": "只修 cite/site/sight 的拼写—语义选择。",
       "reconstruction_rule_cn": "换论文、地点、视觉和法律语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0818:civil:v1",
-      "word_id": "word:civil",
-      "ordinal": 818,
-      "word": "civil",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分公民/国内、民事、民用非军事和礼貌义。",
-      "decision_boundary_cn": "law/military/behavior 等领域决定分支。",
-      "distractor_policy_cn": "只用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度或生僻度排除。",
-      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
-      "minimum_repair_cn": "只修 civil 的领域 selector。",
-      "reconstruction_rule_cn": "换权利、诉讼、航空与礼貌互动语境。",
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
@@ -70,36 +51,17 @@
       "ordinal": 822,
       "word": "claim",
       "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
+        "target_kind": "collocation",
+        "target_id": "collocation:5803fc66a450ec9b384c",
+        "target_locator": "record.senses[2].collocations[0]"
       },
       "demand": "discrimination",
-      "diagnostic_intent_cn": "区分声称、权利主张、索赔和 claim lives。",
-      "decision_boundary_cn": "that/right/compensation/lives 等对象结构决定。",
+      "diagnostic_intent_cn": "稳定识别 claim lives = 夺去生命。",
+      "decision_boundary_cn": "灾难或事故作主语并搭配 lives 时，claim 表示造成死亡。",
       "distractor_policy_cn": "只用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度或生僻度排除。",
       "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
-      "minimum_repair_cn": "只修 claim 分支。",
+      "minimum_repair_cn": "只修 claim lives 这一分支。",
       "reconstruction_rule_cn": "换研究断言、保险、产权和灾难语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0828:class:v1",
-      "word_id": "word:class",
-      "ordinal": 828,
-      "word": "class",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分班级、课程、阶层、类别和等级。",
-      "decision_boundary_cn": "教育/社会/分类/等级语境决定。",
-      "distractor_policy_cn": "只用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度或生僻度排除。",
-      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
-      "minimum_repair_cn": "只修 class 的领域分支。",
-      "reconstruction_rule_cn": "换学校、社会阶层、分类和舱位语境。",
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
@@ -122,98 +84,22 @@
       "concrete_instance_policy": "GENERATE_FRESH"
     },
     {
-      "blueprint_id": "repair-blueprint:o0838:clean:v1",
-      "word_id": "word:clean",
-      "ordinal": 838,
-      "word": "clean",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分物理干净、清白、简洁与 clean energy 环境义。",
-      "decision_boundary_cn": "对象域决定“无哪一种污染/污点”。",
-      "distractor_policy_cn": "只用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度或生僻度排除。",
-      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
-      "minimum_repair_cn": "只修 clean 的语义扩展。",
-      "reconstruction_rule_cn": "换水、记录、设计和能源语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0839:clear:v1",
-      "word_id": "word:clear",
-      "ordinal": 839,
-      "word": "clear",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分清楚、透明、畅通、清除、批准、洗清嫌疑和通过。",
-      "decision_boundary_cn": "对象和语法角色决定分支。",
-      "distractor_policy_cn": "只用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度或生僻度排除。",
-      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
-      "minimum_repair_cn": "只修 clear 的核心 selector。",
-      "reconstruction_rule_cn": "换解释、玻璃、道路、审批和嫌疑语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
       "blueprint_id": "repair-blueprint:o0843:click:v1",
       "word_id": "word:click",
       "ordinal": 843,
       "word": "click",
       "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
+        "target_kind": "construction",
+        "target_id": "construction:click:baseline-v2-with",
+        "target_locator": "record.constructions[0]"
       },
       "demand": "discrimination",
-      "diagnostic_intent_cn": "区分咔哒声、鼠标点击、突然明白和与人合拍。",
-      "decision_boundary_cn": "mechanism/computer/cognition/social context 决定分支。",
+      "diagnostic_intent_cn": "稳定使用 click with sb 表示与某人很快合得来、产生默契。",
+      "decision_boundary_cn": "社交语境加 with 选择 click with sb；不要与鼠标点击或咔哒声混淆。",
       "distractor_policy_cn": "只用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度或生僻度排除。",
       "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
-      "minimum_repair_cn": "只修 click 的分支。",
+      "minimum_repair_cn": "只修 click with sb 构式。",
       "reconstruction_rule_cn": "换设备、网页、理解和社交语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0846:climate:v1",
-      "word_id": "word:climate",
-      "ordinal": 846,
-      "word": "climate",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分气象 climate 与 political/economic climate。",
-      "decision_boundary_cn": "weather vs social-condition context。",
-      "distractor_policy_cn": "只用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度或生僻度排除。",
-      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
-      "minimum_repair_cn": "只修 literal vs figurative。",
-      "reconstruction_rule_cn": "换长期天气与政治经济环境语境。",
-      "concrete_instance_policy": "GENERATE_FRESH"
-    },
-    {
-      "blueprint_id": "repair-blueprint:o0848:climb:v1",
-      "word_id": "word:climb",
-      "ordinal": 848,
-      "word": "climb",
-      "target": {
-        "target_kind": "core",
-        "target_id": null,
-        "target_locator": "record.core_concept"
-      },
-      "demand": "discrimination",
-      "diagnostic_intent_cn": "区分物理攀登与价格/温度/数量上升。",
-      "decision_boundary_cn": "physical object vs measurable level 决定分支。",
-      "distractor_policy_cn": "只用真实邻近义项、构式、形式边界或合理混淆作干扰；选项自然，不靠长度或生僻度排除。",
-      "context_constraints_cn": "使用全新自然短语境，不复用学习卡原句，不消耗未作答真题/TPO/IELTS。",
-      "minimum_repair_cn": "只修 climb 的 physical vs abstract rise。",
-      "reconstruction_rule_cn": "换山路与价格上涨语境。",
       "concrete_instance_policy": "GENERATE_FRESH"
     }
   ]

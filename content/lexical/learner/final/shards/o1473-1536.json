@@ -4669,7 +4669,7 @@
     "ordinal": 1508,
     "word": "dress",
     "source_owner_path": "content/lexical/words/by-ordinal/o1508.json",
-    "source_fingerprint": "ea8d0f7c3718cf449d7d54fefce0051a648c89c1beb50c55384dc095c5f9c1d9",
+    "source_fingerprint": "80e87fbc6c6975d242a337eddb8d06061484cb9230c0724d6f2846c407f7ae1d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4806,7 +4806,29 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [],
+      "relations": [
+        {
+          "title": "dress ↔ clothe",
+          "target_word": "clothe",
+          "lines": [
+            {
+              "text": "clothe 较正式，可指给人穿衣，也可比喻“给某物披上/覆盖”；dress 用法更广，常指穿衣、打扮或服饰状态。",
+              "lang": "cn"
+            },
+            {
+              "text": "provide with clothes or put clothes on",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "deep:semantic_contrast:clothe:87255301ceeaf150",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "dress ↔ clothe"
+          }
+        }
+      ],
       "form": null,
       "family": []
     }

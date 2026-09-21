@@ -143,10 +143,63 @@
         "verification_status": "verified",
         "writing_safe": false
       }
+    },
+    {
+      "source_word_id": "word:dress",
+      "source_ordinal": 1508,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "clothe 较正式，可指给人穿衣，也可比喻“给某物披上/覆盖”；dress 用法更广，常指穿衣、打扮或服饰状态。",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "高",
+          "collocation": "clothe someone",
+          "core_meaning": "clothe=较正式地穿衣/覆盖；dress=更广的穿衣/打扮",
+          "exam_trap": "dress可作名词",
+          "register": "中性",
+          "semantic_prosody": "中性",
+          "strength": "中",
+          "syntax": "动词",
+          "writing_safety": "安全"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:00047662-v",
+            "evidence_status": "source_checked",
+            "source_locator": "00047662-v",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:clothe:87255301ceeaf150",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": "provide with clothes or put clothes on",
+        "source_sense_id": "sense:dress:249144971fee5953",
+        "target_sense_id": "sense:clothe:2e7168c189a9523d",
+        "target_word": "clothe",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
     }
   ],
   "provenance": {
     "materialized_from": "baseline-v2-fresh-content-upgrade",
-    "semantic_delta": 1
+    "semantic_delta": 1,
+    "last_materialization": "BF08 reciprocal closure"
   }
 }

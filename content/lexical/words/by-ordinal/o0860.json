@@ -6,15 +6,7 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [
-      {
-        "construction_id": "construction:b34de6364af39737d410",
-        "direction": "R+P",
-        "level": "L2",
-        "meaning_cn": "use clothes for garments; for one item use a piece/article/item of clothing",
-        "pattern": "clothes are plural"
-      }
-    ],
+    "constructions": [],
     "content_hash": "650c05cb7c7536debbeaad5e078f92db2cce13827dacaa9da030c21f96e89113",
     "core_concept": {
       "core_clusters": [
@@ -91,7 +83,27 @@
     },
     "word": "clothes",
     "word_family": [],
-    "word_id": "word:clothes"
+    "word_id": "word:clothes",
+    "form_identity": {
+      "form_type": "plural_only_usage_identity",
+      "spelling": "clothes",
+      "identity_rule": "plural_only_lexical_usage",
+      "boundary": "clothes is plural-only; use clothes are. For one item, say an item/piece/article of clothing, not a clothes.",
+      "boundaries": [
+        {
+          "surface": "clothes",
+          "condition": "plural-only garment collective",
+          "note": "use clothes are"
+        },
+        {
+          "surface": "an item/piece/article of clothing",
+          "condition": "one garment/item",
+          "note": "do not say a clothes"
+        }
+      ],
+      "variants": [],
+      "authority": "BF08 final-standard ownership migration"
+    }
   },
   "relation_refs": [
     {
