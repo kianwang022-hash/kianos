@@ -813,16 +813,41 @@ Use four distinct layers and keep missing values as `UNKNOWN`:
 
 Wearable signals must not replace the subjective-functional layer. A watch can provide context about recovery; it cannot directly measure "how much Xizong reasoning is available now."
 
+### Sleep / circadian backbone and two planning scales
+
+For cognitive work, recovery is not only a morning physiology snapshot.
+
+Use the mature fatigue-model decomposition as the conceptual backbone:
+
+```text
+S = homeostatic sleep pressure / recent sleep-wake history
+C = circadian phase / time-of-day modulation
+I = sleep inertia after waking
+P = physiological recovery modifier (HRV / RHR / activity / other reliable vitals)
+F = current subjective + observed functional state
+```
+
+Do not pretend these are independent or fully observable from a watch.
+
+The useful outputs exist on two scales:
+
+1. **Day capacity envelope** — a bounded estimate of how much usable cognitive work the day can realistically support.
+2. **Intraday load curve** — which windows are more or less suitable for high-load cognition, without claiming minute-level precision.
+
+A morning readiness signal may modify the envelope. Sleep timing / circadian context / time awake shape the intraday curve. Current functional evidence can override a stale or misleading wearable interpretation.
+
 ### Personal baseline, not population thresholds
 
 Interpret physiological metrics primarily as **within-person deviations**.
 
 Preferred baseline behavior:
 
-- rolling robust baseline, normally 21–28 days when available;
-- median plus a robust dispersion estimate such as MAD / IQR rather than mean-only thresholds;
+- use multiple timescales rather than one magic window;
+- a short recent window can detect acute change, while a longer baseline anchors what is normal for Kian;
+- after roughly 7 usable nights a signal may become directionally informative, but confidence should continue increasing with longer history;
+- 3–7 day, ~28 day and ~60 day summaries may all be useful when data density supports them;
+- median plus a robust dispersion estimate such as MAD / IQR is preferred over mean-only thresholds for noisy wearable data;
 - preserve source/device identity and measurement timing when they materially affect comparability;
-- require enough observations before a deviation is allowed to affect planning;
 - treat a new device / sparse history as a calibration period, not as evidence of abnormal recovery.
 
 Population reference ranges may support health interpretation but must not be used as fake personalized readiness thresholds.
@@ -884,6 +909,7 @@ Use a staged model rather than pretending to be personalized on day one.
 
 - first roughly 7–14 useful days after a new wearable source;
 - collect objective context plus real study outcomes;
+- construct provisional S / C / I timing context plus physiological baselines;
 - do not let ordinary wearable fluctuations materially rewrite the plan;
 - obvious illness / concerning symptoms follow the health boundary, not the productivity model.
 
