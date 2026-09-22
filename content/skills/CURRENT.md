@@ -21,6 +21,7 @@ Current first instance:
 | Need | Owner |
 | --- | --- |
 | Cross-skill learning semantics | `content/skills/LEARNING_CONTRACT.md` |
+| Pre-build reuse / ecosystem scan | `content/skills/ECOSYSTEM_SCAN.md` |
 | Skill discovery/order | `content/skills/manifest.json` |
 | Exact skill learner content | `content/skills/<skill>/manifest.json` + referenced assets |
 | Generic Astro projection | `static-web/src/lib/skills.mjs` + `static-web/src/pages/skills/**` |
@@ -31,6 +32,7 @@ Personal OS still owns why a capability deserves portfolio space, demand discove
 
 ## Boundary
 
+- Before original Skill build / material upgrade, run the bounded Ecosystem / Capability Scan.
 - Do not make every Personal interest a Skill.
 - Do not build one Astro implementation per Skill.
 - New Skill content should normally require no Visual/Runtime code changes.
