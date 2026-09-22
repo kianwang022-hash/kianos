@@ -112,6 +112,7 @@ jobs:
         run: |
           npm install --no-save --no-audit --no-fund playwright@1.56.1
           npx playwright install --with-deps chromium
+          sudo apt-get install --yes --no-install-recommends openbox
       - name: Run full-paper browser journey
         working-directory: static-web
         run: node scripts/test-english-exam-session-browser.mjs
@@ -119,54 +120,14 @@ jobs:
         id: freeze_browser
         if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.browser.outcome == 'success' }}
         working-directory: static-web
-        run: xvfb-run -a node scripts/test-freeze-browser.mjs
-      - name: Bounded native focus diagnostic
-        if: ${{ !cancelled() && steps.freeze_browser.outcome == 'failure' && steps.browser.outcome == 'success' }}
-        working-directory: static-web
         run: |
-          xvfb-run -a node --input-type=module <<'JS'
-          import fs from 'node:fs';
-          import {spawn} from 'node:child_process';
-          import {chromium} from 'playwright';
-          import {listEnglishExamPapers} from './src/lib/englishExamPaper.mjs';
-          const base='http://127.0.0.1:4389';
-          const server=spawn('npm',['run','preview','--','--host','127.0.0.1','--port','4389'],{stdio:'ignore',detached:true});
-          const sleep=ms=>new Promise(r=>setTimeout(r,ms));
-          const observations=[];let browser;
-          try {
-            for(let i=0;i<80;i++){try{if((await fetch(base)).ok)break;}catch{}await sleep(200);}
-            browser=await chromium.launch({headless:false});
-            const context=await browser.newContext();
-            await context.addInitScript(()=>{
-              window.__focusEvents=[];window.__handoffMessages=[];
-              for(const name of ['focus','blur','pageshow','pagehide'])window.addEventListener(name,()=>window.__focusEvents.push({name,focus:document.hasFocus(),visibility:document.visibilityState}),true);
-              const channel=new BroadcastChannel('kianos-native-learner-writer-v1');
-              channel.onmessage=({data})=>window.__handoffMessages.push({kind:data?.kind,focus:document.hasFocus(),visibility:document.visibilityState});
-            });
-            const pages=[],sessions=[];
-            const snapshot=async(label)=>{
-              const states=[];
-              for(const [i,page] of pages.entries())states.push({page:i,...await page.evaluate(async()=>({focus:document.hasFocus(),visibility:document.visibilityState,writer:document.documentElement.dataset.learnerWriter,events:window.__focusEvents,messages:window.__handoffMessages.slice(-8),locks:await navigator.locks.query()}))});
-              observations.push({label,states});
-            };
-            for(const label of ['a','b']){
-              const page=await context.newPage();pages.push(page);
-              const cdp=await context.newCDPSession(page);sessions.push(cdp);
-              await cdp.send('Emulation.setFocusEmulationEnabled',{enabled:false});
-              await page.bringToFront();
-              await page.goto(base+'/english-exam/'+listEnglishExamPapers()[0].paperId+'/');
-              await sleep(1300);await snapshot('opened-'+label);
-            }
-            for(const cdp of sessions)await cdp.send('Emulation.setFocusEmulationEnabled',{enabled:false});
-            await pages[1].bringToFront();await sleep(1300);await snapshot('focus-disabled-again-after-navigation');
-          }catch(error){observations.push({error:String(error.stack||error)});}
-          finally{
-            await browser?.close();try{process.kill(-server.pid,'SIGTERM');}catch{}
-            fs.mkdirSync('../english-exam-audit',{recursive:true});
-            fs.writeFileSync('../english-exam-audit/native-focus-diagnostic.json',JSON.stringify(observations,null,2));
-            console.log(JSON.stringify(observations,null,2));
-          }
-          JS
+          xvfb-run -a bash -c '
+            openbox > "$RUNNER_TEMP/freeze-window-manager.log" 2>&1 &
+            manager=$!
+            trap "kill $manager 2>/dev/null || true" EXIT
+            sleep 1
+            node scripts/test-freeze-browser.mjs
+          '
       - name: Existing cross-subject browser journey
         if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.browser.outcome == 'success' }}
         working-directory: static-web

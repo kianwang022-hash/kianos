@@ -13,17 +13,35 @@ const base='http://127.0.0.1:4387';
 const paper=loadEnglishExamPaper(listEnglishExamPapers()[0].paperId);
 const home=`${base}/english-exam/${encodeURIComponent(paper.paper_id)}/`;
 const now=Date.parse('2026-09-22T01:00:00Z'),day='2026-09-22';
-const results=[],diagnostics=[];const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const results=[],diagnostics=[],focusProof=[];const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const server=spawn('npm',['run','preview','--','--host','127.0.0.1','--port','4387'],{cwd:webRoot,stdio:'ignore',detached:process.platform!=='win32'});
-let browser;
-// Playwright's default focus emulation makes every page appear focused.
-// Use headed Chromium with real native focus (Xvfb on CI), not a patched DOM
-// hasFocus/visibilityState or a test-only production lock bypass.
+let browser, nativeFocusVerified=false;
+// Use a real window manager with headed Chromium on Linux. Xvfb alone can
+// leave multiple Chromium windows reporting focus simultaneously. Verify native
+// activation on blank pages; never patch DOM focus or bypass production locks.
 async function nativeFocusPage(context){
  const page=await context.newPage();
  const session=await context.newCDPSession(page);
  await session.send('Emulation.setFocusEmulationEnabled',{enabled:false});
  return page;
+}
+async function verifyNativeFocus() {
+ const context=await browser.newContext();
+ try {
+  const a=await nativeFocusPage(context), b=await nativeFocusPage(context);
+  const observe=async(label)=>{
+   const states=await Promise.all([a,b].map(page=>page.evaluate(()=>({
+    url:location.href,focused:document.hasFocus(),visibility:document.visibilityState
+   }))));
+   focusProof.push({label,states});return states;
+  };
+  await b.bringToFront();await sleep(250);
+  let state=await observe('blank-b-foreground');
+  assert.deepEqual(state.map(row=>row.focused),[false,true],'PLATFORM_NATIVE_FOCUS_NOT_EXCLUSIVE');
+  await a.bringToFront();await sleep(250);
+  state=await observe('blank-a-foreground');
+  assert.deepEqual(state.map(row=>row.focused),[true,false],'PLATFORM_NATIVE_FOCUS_NOT_EXCLUSIVE');
+ } finally {await context.close();}
 }
 async function ready(page){
  try{await page.waitForFunction(()=>document.hasFocus()&&document.documentElement.dataset.learnerWriter==='active');}
@@ -68,12 +86,13 @@ function scoreCommand(state){
 async function scenario(name,fn){
  try{await fn();results.push({name,status:'PASS'});}
  catch(e){results.push({name,status:'FAIL',error:String(e.stack||e)});process.exitCode=1;}
- finally{fs.writeFileSync(path.join(reportDir,'freeze-browser.json'),JSON.stringify({focus_mode:'HEADED_NATIVE_FOCUS_NO_EMULATION',results,diagnostics},null,2));}
+ finally{fs.writeFileSync(path.join(reportDir,'freeze-browser.json'),JSON.stringify({focus_mode:'HEADED_WINDOW_MANAGER',native_focus_verified:nativeFocusVerified,results,diagnostics,focusProof},null,2));}
 }
 try{
  for(let n=0;;n++){try{if((await fetch(base)).ok)break;}catch{}if(n>100)throw new Error('ISOLATED_PREVIEW_UNAVAILABLE');await sleep(200);}
  if(process.platform==='linux'&&!process.env.DISPLAY)throw new Error('NATIVE_FOCUS_REQUIRES_DISPLAY');
  browser=await chromium.launch({headless:false});
+ await verifyNativeFocus();nativeFocusVerified=true;
  await scenario('manual and timed malformed seal preserve captured answers and expose recoverable failure',async()=>{
   const context=await makeContext();const page=await opened(context);const errors=[];page.on('pageerror',e=>errors.push(e.message));
   try{
@@ -190,9 +209,9 @@ try{
   }finally{await context.close();}
  });
  console.log((process.exitCode?'FAIL':'PASS')+' freeze browser: '+results.length+' isolated page journeys');
-}catch(error){console.error(error);process.exitCode=1;}
+}catch(error){diagnostics.push({phase:'browser-setup',error:String(error.stack||error)});console.error(error);process.exitCode=1;}
 finally{
  await browser?.close();
  try{if(server.pid)process.kill(-server.pid,'SIGTERM');}catch{}
- fs.writeFileSync(path.join(reportDir,'freeze-browser.json'),JSON.stringify({status:process.exitCode?'FAIL':'PASS',focus_mode:'HEADED_NATIVE_FOCUS_NO_EMULATION',results,diagnostics},null,2));
+ fs.writeFileSync(path.join(reportDir,'freeze-browser.json'),JSON.stringify({status:process.exitCode?'FAIL':'PASS',focus_mode:'HEADED_WINDOW_MANAGER',native_focus_verified:nativeFocusVerified,results,diagnostics,focusProof},null,2));
 }
