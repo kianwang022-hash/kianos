@@ -17,7 +17,7 @@ Kian explicitly reopened the remaining catalog for one second broad pass while p
 Authority:
 - `content/lexical/FINAL_SEMANTIC_FREEZE.md` — semantic ruler remains frozen;
 - `content/lexical/FINAL_SEMANTIC_FREEZE_SCOPE_AMENDMENT_20260922.md` — scope amendment;
-- `content/lexical/execution/three-chat-board.json` — active batch cursor.
+- `content/lexical/execution/live-batch.json` — compact active batch cursor.\n- `content/lexical/execution/three-chat-board.json` — legacy migration/history evidence; not a normal read path.
 
 Current continuation scope:
 

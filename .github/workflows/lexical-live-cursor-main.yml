@@ -1,0 +1,58 @@
+name: Lexical Live Cursor Main Advance
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'content/lexical/execution/live-batch.json'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: lexical-live-cursor-main
+  cancel-in-progress: false
+
+jobs:
+  advance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Detect merge-complete cursor
+        id: live
+        run: |
+          python - <<'PY' >> "$GITHUB_OUTPUT"
+          import json
+          c=json.load(open('content/lexical/execution/live-batch.json',encoding='utf-8'))
+          f=c['frontier']
+          print('state=' + str(f.get('state')))
+          print('candidate=' + str(f.get('candidate_id')))
+          PY
+
+      - name: Advance frontier
+        if: steps.live.outputs.state == 'READY_TO_MERGE'
+        run: |
+          python tools/test_lexical_live_batch.py
+          python tools/lexical_live_batch.py advance-after-merge \
+            --candidate "${{ steps.live.outputs.candidate }}" \
+            --merge-commit "${GITHUB_SHA}"
+
+      - name: Commit compact cursor only
+        if: steps.live.outputs.state == 'READY_TO_MERGE'
+        run: |
+          git config user.name "KianOS Lexical Orchestrator"
+          git config user.email "actions@users.noreply.github.com"
+          git add content/lexical/execution/live-batch.json
+          git commit -m "chore(lexical): advance live batch after merge"
+          git pull --rebase origin main
+          git push origin HEAD:main
