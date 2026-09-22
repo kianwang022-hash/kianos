@@ -2,83 +2,45 @@
 
 Role: **Lexical backend engineering Work Cursor + scope router**
 
-Learner-facing Vocabulary / Lexical belongs under **English**. This file owns only current Lexical BUILD / CONTROL routing. It does not own semantic truth, learner progress, visual acceptance, or Acceptance Truth.
+Learner-facing Vocabulary / Lexical belongs under **English**. This file owns only current Lexical BUILD / CONTROL routing. It does not own semantic truth, learner progress, Acceptance Truth, or the exact active batch.
 
 ---
 
-## Active work — full-catalog final-standard continuation
+## Canonical entry
 
-Kian reopened the remaining catalog on 2026-09-22 while preserving the frozen semantic ruler.
-
-Authority:
-
-- semantic ruler: `content/lexical/FINAL_SEMANTIC_FREEZE.md`
-- scope amendment: `content/lexical/FINAL_SEMANTIC_FREEZE_SCOPE_AMENDMENT_20260922.md`
-- execution runtime: `content/lexical/THREE_CHAT_RUNTIME.md`
-- **canonical compact cursor:** `content/lexical/execution/live-batch.json`
-- legacy migration/history: `content/lexical/execution/three-chat-board.json` — do not read in normal continuation
-
-Scope:
+For normal Lexical BUILD / CONTROL continuation:
 
 ```text
-o0001–o1250  closed / merged; preserve
-o1251–o7946  Fresh Read + Self Attack under the same frozen ruler
-```
-
-This is not enrichment-by-default. Simple words may remain simple. Mutate only for a real correctness, decision, structure, phraseology, ownership, register/Form, productive-value, testability, or redundancy gap.
-
-### Current frontier
-
-```text
-BF19 · o1951–o2050
-Production: 100/100
-42 affected / 58 PRESERVE / 0 blocked
-existing-truth repairs retained
-10 new Form groups removed by exact-scope recovery
-state: HUMAN_GATE_REQUIRED
-```
-
-Exact pending Human Gate ordinals:
-
-`o1957, o1962, o1975, o1987, o1991, o1994, o1999, o2003, o2004, o2044`
-
-### One lookahead
-
-```text
-BF20 · o2051–o2150
-Production: 100/100
-31 affected / 69 PRESERVE / 0 blocked
-2 genuinely new Form groups: o2130 get, o2137 give
-state: REVIEW_AHEAD_FROZEN / future Human Gate
-```
-
-Closed through BF18 on main. Exact historical evidence belongs in PRs, Audit Packs, mutation receipts and Acceptance owners, not in this cursor.
-
----
-
-## Normal continuation
-
-For a normal `继续词汇` / BUILD continuation:
-
-```text
-CURRENT.md
-→ execution/live-batch.json
-→ exact proposal / review bundle / Audit Pack named by the cursor
+content/lexical/CURRENT.md
+→ content/lexical/execution/live-batch.json
+→ exact proposal / review bundle / Audit Pack named there
 → work
 ```
 
+**Exact batch state lives only in `execution/live-batch.json`.**
+
+Do not copy BF numbers, current ranges, Human-Gate ordinals, candidate branches, audit states, or “next batch” into this file. That duplication is forbidden because it creates stale parallel truth.
+
+Legacy `execution/three-chat-board.json` is migration/history evidence only and is not part of the normal read path.
+
 Target: **2–3 precise GitHub reads before effective work.**
 
-Do not reconstruct progress from Chat memory, broad repo search, old branches, or the legacy board when the live cursor resolves it.
+---
 
-User-facing control normally needs only:
+## Active program
 
-```text
-继续词汇
-p
-```
+The full-catalog final-standard continuation is active under the already-frozen semantic ruler:
 
-A/B/C names remain optional internal reviewer roles, not required user commands.
+- `FINAL_SEMANTIC_FREEZE.md`
+- `FINAL_SEMANTIC_FREEZE_SCOPE_AMENDMENT_20260922.md`
+- `CONTENT_ASSET_CONTRACT.md`
+- `CONTENT_EXECUTION.md`
+- `THREE_CHAT_RUNTIME.md`
+- `execution/live-batch.json`
+
+Scope remains the reopened catalog continuation through o7946. This is not enrichment-by-default. Simple words may remain simple.
+
+A mutation requires a real correctness, decision, structure, phraseology, ownership, register/Form, productive-value, testability, or redundancy gap.
 
 ---
 
@@ -93,74 +55,69 @@ A/B/C names remain optional internal reviewer roles, not required user commands.
 → rebuild 7,946 Final Learner Objects
 → B readback / Independent Audit
 → bounded reconciliation if needed
-→ PASS merge
-→ automatic live-cursor advance
+→ READY_TO_MERGE
+→ normal authorized GitHub merge
+→ automatic main live-cursor advance
 ```
 
-Mechanical automation may transport, validate, rebuild, merge after explicit B PASS, and advance the cursor. It may not invent semantic changes or bypass Human Gate.
+Mechanical automation may transport, validate, rebuild, record B results, and advance the main cursor after merge. It may not invent semantic changes, bypass Human Gate, or bypass repository merge permissions.
 
-A stale Word / Relation / Form hash, stale declared dependency, missing gate, B HOLD, merge conflict, or FLOB count mismatch fails closed.
+A stale Word / Relation / Form hash, stale declared dependency, missing gate, B HOLD, FLOB-count mismatch, write-scope violation, or merge conflict fails closed.
 
 ---
 
-## Architecture-v2 owner map
+## User-facing control
+
+Kian should normally need only:
+
+```text
+继续词汇
+p
+```
+
+`p` approves only the exact genuinely-new learner delta currently shown from the live frontier.
+
+A/B/C remain optional internal reviewer roles, not user-required controls.
+
+---
+
+## Owner map
 
 | Responsibility | Current owner |
 | --- | --- |
 | Learning Rule / Model | `content/lexical/LEARNING_CONTRACT.md` |
 | Content-quality rules | `content/lexical/CONTENT_ASSET_CONTRACT.md` |
 | Execution / transport | `content/lexical/CONTENT_EXECUTION.md` |
-| Current semantic owners | `content/lexical/words/` + `relations/` + Form/Identity on Word owners |
+| Word semantic truth | `content/lexical/words/` |
+| Cross-word confusable / contrast truth | `content/lexical/relations/` |
+| Form / spelling / pronunciation / inflection identity | exact Word Form/Identity owner |
 | Final learner objects | `content/lexical/learner/final/` |
 | Independent audit | `content/lexical/INDEPENDENT_SEMANTIC_AUDIT_CONTRACT.md` |
-| Compact batch orchestration | `content/lexical/THREE_CHAT_RUNTIME.md` + `execution/live-batch.json` |
+| Active batch orchestration | `content/lexical/THREE_CHAT_RUNTIME.md` + `execution/live-batch.json` |
 | Visual product brief | `static-web/LEXICAL_PRODUCT_BRIEF.md` |
 | Final acceptance | `content/lexical/ACCEPTANCE.md` |
 
-Natural Owners remain semantic truth. Final Learner Objects remain the materialized learner asset. Website is a fixed consumer, not a semantic compiler.
+Natural Owners remain semantic truth. Final Learner Objects are derived learner assets. Website is a fixed consumer, not a semantic compiler.
 
 ---
 
 ## Must preserve
 
 - one Main Word = learning container;
-- smallest unstable lexical object = Repair unit;
-- Fast Pass stays cheap; rich Depth may stay rich;
-- whole-card routing judgment is not local Repair admission;
+- important polysemy, familiar-new meaning, confusable/形近/近义 decision boundaries, phraseology, construction syntax, register and Form all receive fresh coverage judgment;
+- genuine cross-word confusion belongs to Relation, not a fake Sense;
+- spelling / capitalization / pronunciation / inflection belongs to Form/Identity, not a fake Relation;
+- worth knowing does not automatically mean Core or prebuilt Repair Test;
+- L3 / rare / reference-only does not mean delete;
+- Fast Pass stays cheap and rich Depth stays available where intrinsic lexical risk earns it;
 - lookup alone creates no Repair/mastery state;
-- no daily quota, overdue wall, or fake mastery percentage;
-- Word / Relation / Form ownership stays explicit;
-- stable identity is preserved unless a genuine new branch exists;
-- L3 / rare / reference-only does not mean automatic deletion;
-- English and Lexical share one lexical truth/evidence system;
 - learner truth remains private;
-- learner-facing UI is not changed by content maintenance unless a real renderer defect is separately proven.
-
----
-
-## Accepted learner-surface baseline
-
-The Vocabulary v2 product family is accepted:
-
-```text
-Overview
-→ Learn / Fast Pass / Depth
-→ exact local +
-→ Repair / Challenge
-→ Research / Lookup
-→ English exact handoff / return
-```
-
-Visual/detail history lives in `static-web/LEXICAL_PRODUCT_BRIEF.md` and Acceptance evidence. Do not reopen broad UI architecture during this semantic continuation.
+- content maintenance does not reopen accepted UI without a real renderer defect.
 
 ---
 
 ## Exact next action
 
-Read `execution/live-batch.json`.
+Read `execution/live-batch.json` and obey its `next_action`.
 
-At the current canonical state, BF19 waits for its exact 10-Form Human Gate. Do not materialize BF20 or start BF21 before the live cursor advances.
-
-After a valid `p`, record approval only for the exact shown BF19 delta, materialize through the fail-closed executor, then let the compact orchestration chain carry the batch to B readback and merge.
-
-No broad architecture, UI, historical-CI, or unrelated content cleanup belongs in that continuation.
+Do not infer the active batch from this file, Chat memory, old branches, or the legacy board.

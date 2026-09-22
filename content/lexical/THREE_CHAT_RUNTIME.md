@@ -125,7 +125,7 @@ The audit-result request is mechanical metadata only:
 
 The orchestrator:
 
-- PASS → cursor `READY_TO_MERGE` → open/merge PR automatically;
+- PASS → cursor `READY_TO_MERGE`; merge through the normal authorized GitHub writer, then main advances automatically;
 - PASS_WITH_CORRECTIONS → cursor `RECONCILE_ALLOWED`; Chat supplies only the exact bounded correction package;
 - HOLD_FOR_SOL → fail closed and return to Chat.
 
@@ -133,7 +133,7 @@ Automation never invents semantic corrections.
 
 ### Main advance
 
-After a PASS candidate merges, main automatically:
+After a `READY_TO_MERGE` candidate is merged through the normal authorized GitHub writer, main automatically:
 
 - records `last_closed`;
 - promotes the one lookahead batch if present;
@@ -179,3 +179,18 @@ A failure records one compact blocker. Do not create another controller, retry l
 `three-chat-board.json` remains readable for historical recovery only during migration. It is not a normal synchronization barrier and must not be loaded on every continuation.
 
 Once all pre-migration branches are retired, it may be archived or deleted in a separate bounded cleanup.
+
+## 10. Merge permission boundary
+
+The repository currently forbids GitHub Actions from creating or approving pull requests.
+
+Therefore the mechanical boundary is intentionally:
+
+```text
+B PASS
+→ workflow records READY_TO_MERGE
+→ normal authorized GitHub writer performs the merge
+→ main workflow advances live-batch automatically
+```
+
+Do not add a second bot, token workaround, or direct semantic push to main merely to bypass that repository permission. A failed attempt to auto-create a PR is an execution-design defect, not a reason to weaken the permission boundary.

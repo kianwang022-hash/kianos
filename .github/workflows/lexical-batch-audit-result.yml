@@ -9,7 +9,6 @@ on:
 
 permissions:
   contents: write
-  pull-requests: write
 
 concurrency:
   group: lexical-audit-result-${{ github.ref_name }}
@@ -53,29 +52,3 @@ jobs:
           git add content/lexical/execution/live-batch.json
           git commit -m "chore(lexical): record ${{ steps.audit.outputs.candidate }} B result"
           git push origin HEAD:"${GITHUB_REF_NAME}"
-
-      - name: Auto-open and merge exact PASS candidate
-        if: steps.audit.outputs.result == 'PASS'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          set -euo pipefail
-          git fetch origin "${GITHUB_REF_NAME}"
-          git checkout "${GITHUB_REF_NAME}"
-          git reset --hard "origin/${GITHUB_REF_NAME}"
-          HEAD_SHA="$(git rev-parse HEAD)"
-          OWNER="${GITHUB_REPOSITORY%%/*}"
-          PR="$(gh api "repos/${GITHUB_REPOSITORY}/pulls?state=open&head=${OWNER}:${GITHUB_REF_NAME}&base=main" --jq '.[0].number // empty')"
-          if [ -z "$PR" ]; then
-            PR="$(gh api -X POST "repos/${GITHUB_REPOSITORY}/pulls" \
-              -f title="Lexical ${{ steps.audit.outputs.candidate }} automatic closure" \
-              -f head="${GITHUB_REF_NAME}" \
-              -f base="main" \
-              -f body="Explicit B PASS recorded in the candidate branch. Human Gate and fail-closed mutation guards are enforced by the live cursor/executor." \
-              --jq '.number')"
-          fi
-          MERGED="$(gh api -X PUT "repos/${GITHUB_REPOSITORY}/pulls/$PR/merge" \
-            -f merge_method="squash" \
-            -f sha="$HEAD_SHA" \
-            --jq '.merged')"
-          test "$MERGED" = "true"
