@@ -18,7 +18,7 @@ from pathlib import Path
 
 PACKAGE_SCHEMA = "kianos.lexical.final_mutation_package.v1"
 RECEIPT_SCHEMA = "kianos.lexical.final_mutation_receipt.v1"
-BOARD_SCHEMA = "kianos.lexical.three_chat_board.v1"
+BOARD_SCHEMA = "kianos.lexical.live_batch.v1"
 ALLOWED_FRONTIER_STATES = {
     "MATERIALIZE_ALLOWED",
     "RECONCILE_ALLOWED",
@@ -30,7 +30,7 @@ REL_RE = re.compile(r"content/lexical/relations/by-id/([0-9a-f]{2})/([0-9a-f]{64
 TEST_RE = re.compile(r"content/lexical/learner/repair-blueprints/shards/o([0-9]{4})-([0-9]{4})\.json$")
 RECEIPT_RE = re.compile(r"content/lexical/(?:audit/baseline-v2/.+|execution/manifests/.+)\.(?:json|md|tsv)$")
 REL_MANIFEST = "content/lexical/relations/manifest.json"
-BOARD_PATH = "content/lexical/execution/three-chat-board.json"
+BOARD_PATH = "content/lexical/execution/live-batch.json"
 FINAL_MANIFEST = "content/lexical/learner/final/manifest.json"
 MUTATION_RECEIPT_DIR = "content/lexical/execution/mutation-receipts"
 
