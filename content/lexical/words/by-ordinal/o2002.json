@@ -8,45 +8,39 @@
     "confusables": [],
     "constructions": [
       {
-        "construction_id": "construction:619a0c7552b6a804d5bc",
-        "direction": "R+P",
-        "level": "L2",
-        "meaning_cn": "建立牢固的关系、联盟或联系",
-        "pattern": "forge relationships/alliances/links"
-      },
-      {
         "construction_id": "construction:722436a7107ab2d96cb0",
         "direction": "R+P",
         "level": "L2",
         "meaning_cn": "开辟新道路",
-        "pattern": "forge a new path"
+        "pattern": "forge a new path",
+        "source_sense_id": "sense:forge:03ba0107613942c5"
       }
     ],
     "content_hash": "8522d35b9b6f0b48e7d3dd634b9940436445cd1415ed5be931d5f497680af792",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "锻造；打制；伪造；假冒",
-          "label_en": "create by hammering; make a copy of with the intent to deceive",
+          "label_cn": "锻造；打制；伪造；建立或发展牢固的关系/道路",
+          "label_en": "to forge metal; counterfeit; or build/develop strong relationships or paths",
           "pos": "verb",
           "sense_ids": [
             "sense:forge:547b7bfee5715df4",
-            "sense:forge:5d0ff6d8f99c57a2"
+            "sense:forge:5d0ff6d8f99c57a2",
+            "sense:forge:03ba0107613942c5"
           ]
         },
         {
-          "label_cn": "熔炉；锻炉；铁匠铺；锻造车间",
-          "label_en": "furnace consisting of a special hearth where metal is heated before shaping; a workplace where metal is worked by heating and hammering",
+          "label_cn": "熔炉；锻炉",
+          "label_en": "a forge/furnace",
           "pos": "noun",
           "sense_ids": [
-            "sense:forge:d6305a8374e35e82",
-            "sense:forge:21dc9fbce0655259"
+            "sense:forge:d6305a8374e35e82"
           ]
         }
       ],
-      "core_meaning_cn": "锻造；伪造",
-      "core_meaning_en": "to shape metal by heating and hammering, or to make a copy to deceive",
-      "mental_model_cn": "锻造；伪造",
+      "core_meaning_cn": "锻造；伪造；建立或开辟",
+      "core_meaning_en": "to forge metal, counterfeit, or build/develop a strong relationship or path",
+      "mental_model_cn": "从“锻造成形”延伸到伪造，以及建立牢固关系、联盟或开辟道路；铁匠铺义留在低优先级。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -67,15 +61,6 @@
             ],
             "meaning_cn": "锻造一把剑",
             "phrase": "forge a sword"
-          },
-          {
-            "collocation_id": "collocation:389f4449974ae69d6cfa",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:forge:547b7bfee5715df4:collocation:1"
-            ],
-            "meaning_cn": "开辟新道路",
-            "phrase": "forge a new path"
           }
         ],
         "confidence": "medium",
@@ -148,6 +133,20 @@
         "transitivity": "nonverb"
       },
       {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "建立或发展牢固的关系、联盟、联系或道路",
+        "definition_en": "to create or develop strong relationships, alliances, links, or paths",
+        "governing_pattern": "forge relationships/alliances/links",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:forge:03ba0107613942c5",
+        "sense_label_en": "to create or develop strong relationships, alliances, links, or paths",
+        "sort_order": 3,
+        "transitivity": "vt"
+      },
+      {
         "collocations": [
           {
             "collocation_id": "collocation:b7bf1e376d84e3d74cee",
@@ -168,22 +167,8 @@
         "pos": "noun",
         "sense_id": "sense:forge:21dc9fbce0655259",
         "sense_label_en": "a workplace where metal is worked by heating and hammering",
-        "sort_order": 3,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "建立或发展牢固的关系、联盟、联系或道路",
-        "definition_en": "to create or develop strong relationships, alliances, links, or paths",
-        "governing_pattern": "forge relationships/alliances/links",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:forge:03ba0107613942c5",
-        "sense_label_en": "to create or develop strong relationships, alliances, links, or paths",
         "sort_order": 4,
-        "transitivity": "vt"
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {

@@ -4747,7 +4747,7 @@
     "ordinal": 1951,
     "word": "flare",
     "source_owner_path": "content/lexical/words/by-ordinal/o1951.json",
-    "source_fingerprint": "e237de35b943799bd320ea3cea77f4348020e24ed5228dda550b966f7d223b72",
+    "source_fingerprint": "efe04f7766ab5f52eaf8c6b57fc5fdc71284db943f1abfad1618f7b98b0582ef",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4909,29 +4909,7 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:83545536534e36be7dce",
-        "source_locator": "record.constructions[0]",
-        "pattern": "flare up",
-        "lines": [
-          {
-            "text": "（火焰）突然烧旺；疾病、冲突、愤怒等突然发作或加剧",
-            "lang": "cn"
-          },
-          {
-            "text": "flare up is literal with fire and figurative with illness/conflict/anger",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:83545536534e36be7dce",
-          "target_locator": "record.constructions[0]",
-          "target_label": "flare up"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5397,7 +5375,7 @@
     "ordinal": 1955,
     "word": "flavor",
     "source_owner_path": "content/lexical/words/by-ordinal/o1955.json",
-    "source_fingerprint": "d73bf70bea6df1e4c7bded3d44d7e4986e53b042d5a4e93b1f9a35f15cab050a",
+    "source_fingerprint": "211414359ee897beb1aa17516d5d4b465f963cae34ffd50bc914e0ad4b202f85",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5425,15 +5403,7 @@
         "definition_cn": "食物或饮料的味道",
         "definition_en": "the particular taste of a food or drink",
         "note": "",
-        "identity_overlay": {
-          "text": "flavor is the usual American spelling; flavour is the usual British spelling. Same lexeme and sense inventory.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "flavor is the usual American spelling; flavour is the usual British spelling. Same lexeme and sense inventory."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:4592babc9609517b3525",
@@ -5464,15 +5434,7 @@
         "definition_cn": "特色，风味",
         "definition_en": "a distinctive quality or characteristic",
         "note": "",
-        "identity_overlay": {
-          "text": "flavor is the usual American spelling; flavour is the usual British spelling. Same lexeme and sense inventory.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "flavor is the usual American spelling; flavour is the usual British spelling. Same lexeme and sense inventory."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:1af1f4361410950a83d7",
@@ -5503,15 +5465,7 @@
         "definition_cn": "给……调味",
         "definition_en": "to give flavor to something",
         "note": "",
-        "identity_overlay": {
-          "text": "flavor is the usual American spelling; flavour is the usual British spelling. Same lexeme and sense inventory.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[2].lexical_identity_overlay",
-            "target_label": "flavor is the usual American spelling; flavour is the usual British spelling. Same lexeme and sense inventory."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:d402387d83b926714dfb",
@@ -5540,7 +5494,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "flavor is the usual American spelling; flavour is the usual British spelling.",
+        "boundaries": [
+          {
+            "surface": "flavor",
+            "condition": "American English",
+            "note": "AmE spelling"
+          },
+          {
+            "surface": "flavour",
+            "condition": "British English",
+            "note": "BrE spelling"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "flavor is the usual American spelling; flavour is the usual British spelling."
+        }
+      },
       "family": []
     }
   },
@@ -5664,7 +5639,7 @@
     "ordinal": 1957,
     "word": "flee",
     "source_owner_path": "content/lexical/words/by-ordinal/o1957.json",
-    "source_fingerprint": "383f82302f46d12bca154ff7d9002550b0946bf4ec3f2bdcb0de532e0ead6224",
+    "source_fingerprint": "c9ace5ef6da6e069abcc7157939cc9a7145cdf74db625a1c4c15c109ab584f0c",
     "sense_lineage": [
       {
         "word_id": "word:flee",
@@ -5702,7 +5677,7 @@
         "id": "sense:flee:ed479e70ad145d77",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + from",
+        "governing_pattern": "flee from + sb/sth / flee + place/country",
         "definition_cn": "逃跑，逃走",
         "definition_en": "to run away quickly from danger or a place",
         "note": "",
@@ -5764,7 +5739,33 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "flee is irregular: flee → fled → fled.",
+        "boundaries": [
+          {
+            "surface": "flee",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "fled",
+            "condition": "past simple",
+            "note": "irregular past"
+          },
+          {
+            "surface": "fled",
+            "condition": "past participle",
+            "note": "irregular participle"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "flee is irregular: flee → fled → fled."
+        }
+      },
       "family": []
     }
   },
@@ -5858,7 +5859,7 @@
     "ordinal": 1959,
     "word": "flesh",
     "source_owner_path": "content/lexical/words/by-ordinal/o1959.json",
-    "source_fingerprint": "a5d73be3747b1468d159e12c4778746c77ae484d97a932a05ace2ef5f8d5ba4f",
+    "source_fingerprint": "be88d92e217a5fc7ce832153077f7925037b25b3877781db181c503f37a8b66d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5868,71 +5869,19 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "肉，肉体",
-      "decision_cn": "",
+      "summary_cn": "肉；软组织；肉体",
+      "decision_cn": "肉，肉体",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "肉，肉体"
+        "target_label": "肉；软组织；肉体"
       }
     },
     "senses": [
       {
-        "id": "sense:flesh:b3b30de42be65bf4",
-        "source_locator": "record.senses[0]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "肉体（相对于精神）",
-        "definition_en": "the human body as opposed to the spirit",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:7ed35ea2d135b493e34a",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "the pleasures of the flesh",
-            "meaning_cn": "肉体的享乐",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:flesh:b3b30de42be65bf4",
-          "target_locator": "record.senses[0]",
-          "target_label": "肉体（相对于精神）"
-        }
-      },
-      {
-        "id": "sense:flesh:79dfb0b4f17552fb",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "去除（兽皮上的）肉",
-        "definition_en": "to remove adhering flesh from (hides) when preparing leather",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:6a3c5ca3783359afedf4",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "flesh a hide",
-            "meaning_cn": "刮去兽皮上的肉",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:flesh:79dfb0b4f17552fb",
-          "target_locator": "record.senses[1]",
-          "target_label": "去除（兽皮上的）肉"
-        }
-      },
-      {
         "id": "sense:flesh:01e8bc62861f58f7",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "肉；软组织",
@@ -5943,8 +5892,60 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:flesh:01e8bc62861f58f7",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[0]",
           "target_label": "肉；软组织"
+        }
+      },
+      {
+        "id": "sense:flesh:b3b30de42be65bf4",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "肉体（相对于精神）",
+        "definition_en": "the human body as opposed to the spirit",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:7ed35ea2d135b493e34a",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "the pleasures of the flesh",
+            "meaning_cn": "肉体的享乐",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:flesh:b3b30de42be65bf4",
+          "target_locator": "record.senses[1]",
+          "target_label": "肉体（相对于精神）"
+        }
+      },
+      {
+        "id": "sense:flesh:79dfb0b4f17552fb",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "vt. + object",
+        "definition_cn": "去除（兽皮上的）肉",
+        "definition_en": "to remove adhering flesh from (hides) when preparing leather",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:6a3c5ca3783359afedf4",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "flesh a hide",
+            "meaning_cn": "刮去兽皮上的肉",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:flesh:79dfb0b4f17552fb",
+          "target_locator": "record.senses[2]",
+          "target_label": "去除（兽皮上的）肉"
         }
       }
     ],
@@ -6066,7 +6067,7 @@
     "ordinal": 1961,
     "word": "flight",
     "source_owner_path": "content/lexical/words/by-ordinal/o1961.json",
-    "source_fingerprint": "4d1bf82794e93ee7a73df5147a6be396b603896ef51fcc0ea1fd34ffe7430cf1",
+    "source_fingerprint": "99c952d3bb1f98090aeec44da267793a998603deacfb8b10bc684bb114e5d073",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6147,8 +6148,39 @@
         }
       },
       {
-        "id": "sense:flight:c1e8ce45b8975449",
+        "id": "sense:flight:d3c5b2764c935261",
         "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "一段楼梯；一层楼之间的一组台阶",
+        "definition_en": "a set of stairs between two floors or levels",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:619dc3f891d6e97a1fbb",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "a flight of stairs",
+            "meaning_cn": "一段楼梯",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:619dc3f891d6e97a1fbb",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "a flight of stairs"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:flight:d3c5b2764c935261",
+          "target_locator": "record.senses[2]",
+          "target_label": "一段楼梯；一层楼之间的一组台阶"
+        }
+      },
+      {
+        "id": "sense:flight:c1e8ce45b8975449",
+        "source_locator": "record.senses[3]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "飞行编队",
@@ -6158,14 +6190,14 @@
         "usage": [
           {
             "id": "collocation:cbdc61a40df5fffcca6e",
-            "source_locator": "record.senses[2].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "in flight",
             "meaning_cn": "在飞行中",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:cbdc61a40df5fffcca6e",
-              "target_locator": "record.senses[2].collocations[0]",
+              "target_locator": "record.senses[3].collocations[0]",
               "target_label": "in flight"
             }
           }
@@ -6173,13 +6205,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:flight:c1e8ce45b8975449",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[3]",
           "target_label": "飞行编队"
         }
       },
       {
         "id": "sense:flight:f6ba19ad9c9a5a95",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[4]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "迁徙",
@@ -6189,7 +6221,7 @@
         "usage": [
           {
             "id": "collocation:a7bfeda6ebc5f54aecee",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[4].collocations[0]",
             "phrase": "bird flight",
             "meaning_cn": "鸟类迁徙",
             "kind": "usage_example",
@@ -6199,13 +6231,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:flight:f6ba19ad9c9a5a95",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[4]",
           "target_label": "迁徙"
         }
       },
       {
         "id": "sense:flight:f2fb9fe4b07b58b0",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[5]",
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "迁徙",
@@ -6216,39 +6248,8 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:flight:f2fb9fe4b07b58b0",
-          "target_locator": "record.senses[4]",
-          "target_label": "迁徙"
-        }
-      },
-      {
-        "id": "sense:flight:d3c5b2764c935261",
-        "source_locator": "record.senses[5]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "一段楼梯；一层楼之间的一组台阶",
-        "definition_en": "a set of stairs between two floors or levels",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:619dc3f891d6e97a1fbb",
-            "source_locator": "record.senses[5].collocations[0]",
-            "phrase": "a flight of stairs",
-            "meaning_cn": "一段楼梯",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:619dc3f891d6e97a1fbb",
-              "target_locator": "record.senses[5].collocations[0]",
-              "target_label": "a flight of stairs"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:flight:d3c5b2764c935261",
           "target_locator": "record.senses[5]",
-          "target_label": "一段楼梯；一层楼之间的一组台阶"
+          "target_label": "迁徙"
         }
       }
     ],
@@ -6267,7 +6268,7 @@
     "ordinal": 1962,
     "word": "fling",
     "source_owner_path": "content/lexical/words/by-ordinal/o1962.json",
-    "source_fingerprint": "33f2f5b85dd9b535c938c8c19da0de2e84fd75be4e11afbfead20f415ffa9555",
+    "source_fingerprint": "d0eb0de79e03ab15cf904dbf8b827575672c29e4d93ff2bfad393f189f663bb6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6394,7 +6395,33 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "fling is irregular: fling → flung → flung.",
+        "boundaries": [
+          {
+            "surface": "fling",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "flung",
+            "condition": "past simple",
+            "note": "irregular past"
+          },
+          {
+            "surface": "flung",
+            "condition": "past participle",
+            "note": "irregular participle"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "fling is irregular: fling → flung → flung."
+        }
+      },
       "family": []
     }
   },
@@ -6404,7 +6431,7 @@
     "ordinal": 1963,
     "word": "float",
     "source_owner_path": "content/lexical/words/by-ordinal/o1963.json",
-    "source_fingerprint": "e8e2dff913e68c14cc8bb1d768a7a75b8f5fd0e5987cfa0336e092c2ec31f76c",
+    "source_fingerprint": "1a87194be8e1d17df93b2ec84fa92fa9fbd0cc48871e23a0c3e64a2b78bb615d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6579,7 +6606,7 @@
     "ordinal": 1964,
     "word": "flock",
     "source_owner_path": "content/lexical/words/by-ordinal/o1964.json",
-    "source_fingerprint": "6b75b180312fe88527aa6ec69fb9e22910105523f9ea0cfede6ac6a62ba6b37e",
+    "source_fingerprint": "e76fd00fa9bf655d6804d56cee730f9426ebccb86fc34db2050f674e829c5a97",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6880,7 +6907,7 @@
     "ordinal": 1966,
     "word": "floor",
     "source_owner_path": "content/lexical/words/by-ordinal/o1966.json",
-    "source_fingerprint": "5c9be91933d2ad94ad0724e9313d73fccd9511c43122af23e0301dc3093aa9bc",
+    "source_fingerprint": "492afb4e11d9f8f76e105739564d62e17e4e52949eafc5a1911e942698147c92",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7046,7 +7073,7 @@
     "ordinal": 1967,
     "word": "flour",
     "source_owner_path": "content/lexical/words/by-ordinal/o1967.json",
-    "source_fingerprint": "1e0ba1bdefdbbf0548cbeb60aeb5a4a412562e98e812bc687f7fb9d0e87a9ec9",
+    "source_fingerprint": "6832cbd23b85721f5399b791c1720fd74c24c5aff384be0e52b8e0cbd5287b5d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7067,51 +7094,8 @@
     },
     "senses": [
       {
-        "id": "sense:flour:34076b7ba42052ed",
-        "source_locator": "record.senses[0]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "撒粉于",
-        "definition_en": "to cover with flour",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:a157ccc0af5890ef7728",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "flour the board",
-            "meaning_cn": "在面板上撒面粉",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:flour:34076b7ba42052ed",
-          "target_locator": "record.senses[0]",
-          "target_label": "撒粉于"
-        }
-      },
-      {
-        "id": "sense:flour:d80fdd070a74595c",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "磨成粉",
-        "definition_en": "to convert grain into flour",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:flour:d80fdd070a74595c",
-          "target_locator": "record.senses[1]",
-          "target_label": "磨成粉"
-        }
-      },
-      {
         "id": "sense:flour:d68773d12fab538c",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "面粉；谷物粉",
@@ -7122,8 +7106,51 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:flour:d68773d12fab538c",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[0]",
           "target_label": "面粉；谷物粉"
+        }
+      },
+      {
+        "id": "sense:flour:34076b7ba42052ed",
+        "source_locator": "record.senses[1]",
+        "pos": "verb",
+        "governing_pattern": "vt. + object",
+        "definition_cn": "撒粉于",
+        "definition_en": "to cover with flour",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:a157ccc0af5890ef7728",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "flour the board",
+            "meaning_cn": "在面板上撒面粉",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:flour:34076b7ba42052ed",
+          "target_locator": "record.senses[1]",
+          "target_label": "撒粉于"
+        }
+      },
+      {
+        "id": "sense:flour:d80fdd070a74595c",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "vt. + object",
+        "definition_cn": "磨成粉",
+        "definition_en": "to convert grain into flour",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:flour:d80fdd070a74595c",
+          "target_locator": "record.senses[2]",
+          "target_label": "磨成粉"
         }
       }
     ],
@@ -7274,7 +7301,7 @@
     "ordinal": 1969,
     "word": "flow",
     "source_owner_path": "content/lexical/words/by-ordinal/o1969.json",
-    "source_fingerprint": "198d4cbdf134537e83117cf5d0382a1fd77a6bad056b9bc6e80af70f0b5b075d",
+    "source_fingerprint": "c6fd433eeea618912e1dcbbcc5f0a61a4dfadb23648e47576c2611ba9a612629",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7284,13 +7311,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "流动",
-      "decision_cn": "",
+      "summary_cn": "流动；流量；流畅或连续",
+      "decision_cn": "主干是“连续地流动”：既可指液体/人流等流动，也可指流量、语言或过程的流畅连续。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "流动"
+        "target_label": "流动；流量；流畅或连续"
       }
     },
     "senses": [
@@ -7572,7 +7599,7 @@
     "ordinal": 1971,
     "word": "fluctuate",
     "source_owner_path": "content/lexical/words/by-ordinal/o1971.json",
-    "source_fingerprint": "63edc8043e8a08b066130dd9c1fca88c54b0d1721036bc4f8705d55a724a5767",
+    "source_fingerprint": "b18f19da4a4bb587e1278570f27ff8e5890dbc740f52c9074ba9bded9dd8be32",
     "sense_lineage": [
       {
         "word_id": "word:fluctuate",
@@ -7610,7 +7637,7 @@
         "id": "sense:fluctuate:8b75d0ff82e85c85",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vi. / fluctuate between A and B / fluctuate from A to B",
         "definition_cn": "波动；起伏变化",
         "definition_en": "to rise and fall in a wavelike manner; to change irregularly",
         "note": "",
@@ -7639,7 +7666,7 @@
     "ordinal": 1972,
     "word": "fluent",
     "source_owner_path": "content/lexical/words/by-ordinal/o1972.json",
-    "source_fingerprint": "8099c1e710c789d83a164eddbdd58141d8e1da7011665afb80fa3086f754c719",
+    "source_fingerprint": "46a2d5675a2445b5997b07b6939f6cea33f291aa9bfe025b874c8cc343ced986",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7730,7 +7757,7 @@
     "ordinal": 1973,
     "word": "fluid",
     "source_owner_path": "content/lexical/words/by-ordinal/o1973.json",
-    "source_fingerprint": "46ef7ff5cc7e7f6927a156a0a7edfe9339ea94a0c223790fac49e2f1d4adeb76",
+    "source_fingerprint": "37276c1341d8f3991405d6e78055a3c1600eef648995421ebfe66f6b654c6537",
     "sense_lineage": [
       {
         "word_id": "word:fluid",
@@ -7748,13 +7775,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "流体或流动的",
-      "decision_cn": "",
+      "summary_cn": "流体；流动的；易变的",
+      "decision_cn": "流体或流动的",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "流体或流动的"
+        "target_label": "流体；流动的；易变的"
       }
     },
     "senses": [
@@ -7789,8 +7816,8 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "流动的；易变的",
-        "definition_en": "characteristic of a fluid; capable of flowing and easily changing shape",
+        "definition_cn": "流动的；流体的",
+        "definition_en": "able to flow easily; having the nature of a fluid",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -7798,7 +7825,7 @@
           "target_kind": "sense",
           "target_id": "sense:fluid:a504a5117ab25e73",
           "target_locator": "record.senses[1]",
-          "target_label": "流动的；易变的"
+          "target_label": "流动的；流体的"
         }
       },
       {
@@ -7834,7 +7861,7 @@
     "ordinal": 1974,
     "word": "flush",
     "source_owner_path": "content/lexical/words/by-ordinal/o1974.json",
-    "source_fingerprint": "2c23371920253fd2e379c332d7b41fa4709e3dabc08c0345d138b1e452dae183",
+    "source_fingerprint": "11414bc5899646dd11775400f530cb8a8ae0ea26e48082de0154043b58bb7941",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8050,7 +8077,7 @@
     "ordinal": 1975,
     "word": "fly",
     "source_owner_path": "content/lexical/words/by-ordinal/o1975.json",
-    "source_fingerprint": "7d012178917684f3ba4b37aad1e87bf95e318d5af6ffe0f15ff592b4a8ef0426",
+    "source_fingerprint": "c4194d663370436a6234b6593cd31da37c2720ae3e875e472b992438a24f2e1a",
     "sense_lineage": [
       {
         "word_id": "word:fly",
@@ -8245,7 +8272,33 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "fly is irregular: fly → flew → flown.",
+        "boundaries": [
+          {
+            "surface": "fly",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "flew",
+            "condition": "past simple",
+            "note": "irregular past"
+          },
+          {
+            "surface": "flown",
+            "condition": "past participle",
+            "note": "irregular participle"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "fly is irregular: fly → flew → flown."
+        }
+      },
       "family": []
     }
   },
@@ -8255,7 +8308,7 @@
     "ordinal": 1976,
     "word": "foam",
     "source_owner_path": "content/lexical/words/by-ordinal/o1976.json",
-    "source_fingerprint": "84d220618ebce52586ab657edc449e0a346819878ea0f229fcb7ff03bf067554",
+    "source_fingerprint": "847b7b7b535211145be5e979abcf7bf54ef545bc64c3f40a20c52caae97454d1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8403,7 +8456,7 @@
     "ordinal": 1977,
     "word": "focus",
     "source_owner_path": "content/lexical/words/by-ordinal/o1977.json",
-    "source_fingerprint": "c4bbb2c6eb80bef04636f4631b5ea009301939136c3faf43494dfd7aace7ce51",
+    "source_fingerprint": "9f57b9a4324c6cb5b3b241c504c134ab27703327562a0d8dddd73a440bfaa504",
     "sense_lineage": [
       {
         "word_id": "word:focus",
@@ -8439,52 +8492,8 @@
     },
     "senses": [
       {
-        "id": "sense:focus:7ec8d0cd7c865e3c",
-        "source_locator": "record.senses[0]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "图像或思想的清晰度",
-        "definition_en": "maximum clarity or distinctness of an image or idea",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:df98919c54657569c577",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "in focus",
-            "meaning_cn": "清晰；焦点对准",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:df98919c54657569c577",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "in focus"
-            }
-          },
-          {
-            "id": "collocation:1f546f1d183edde1d19b",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "out of focus",
-            "meaning_cn": "模糊；焦点没对准",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:1f546f1d183edde1d19b",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "out of focus"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:focus:7ec8d0cd7c865e3c",
-          "target_locator": "record.senses[0]",
-          "target_label": "图像或思想的清晰度"
-        }
-      },
-      {
         "id": "sense:focus:eda414b7199f549d",
-        "source_locator": "record.senses[1]",
+        "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "注意力的集中；焦点",
@@ -8495,15 +8504,15 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:focus:eda414b7199f549d",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[0]",
           "target_label": "注意力的集中；焦点"
         }
       },
       {
         "id": "sense:focus:dea89f4a4f285aee",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "focus on",
+        "governing_pattern": "focus on + sth / focus sth on + sth",
         "definition_cn": "集中注意力；聚焦",
         "definition_en": "to concentrate attention or energy on something",
         "note": "",
@@ -8512,39 +8521,57 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:focus:dea89f4a4f285aee",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[1]",
           "target_label": "集中注意力；聚焦"
+        }
+      },
+      {
+        "id": "sense:focus:7ec8d0cd7c865e3c",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "图像或思想的清晰度",
+        "definition_en": "maximum clarity or distinctness of an image or idea",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:df98919c54657569c577",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "in focus",
+            "meaning_cn": "清晰；焦点对准",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:df98919c54657569c577",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "in focus"
+            }
+          },
+          {
+            "id": "collocation:1f546f1d183edde1d19b",
+            "source_locator": "record.senses[2].collocations[1]",
+            "phrase": "out of focus",
+            "meaning_cn": "模糊；焦点没对准",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:1f546f1d183edde1d19b",
+              "target_locator": "record.senses[2].collocations[1]",
+              "target_label": "out of focus"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:focus:7ec8d0cd7c865e3c",
+          "target_locator": "record.senses[2]",
+          "target_label": "图像或思想的清晰度"
         }
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "deep:constructions:focus:5902ee6ae0fab8d2",
-        "source_locator": "record.constructions[0]",
-        "pattern": "vi. + on",
-        "lines": [
-          {
-            "text": "集中注意力于",
-            "lang": "cn"
-          },
-          {
-            "text": "focus on + sth 集中注意力于",
-            "lang": "cn"
-          },
-          {
-            "text": "to concentrate attention or energy on something",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "deep:constructions:focus:5902ee6ae0fab8d2",
-          "target_locator": "record.constructions[0]",
-          "target_label": "vi. + on"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -8742,7 +8769,7 @@
     "ordinal": 1979,
     "word": "fold",
     "source_owner_path": "content/lexical/words/by-ordinal/o1979.json",
-    "source_fingerprint": "346a162aa55c6553f88c7c446e29e8230c8a217c5b64686a9abd9731a2af18b9",
+    "source_fingerprint": "ff224ff6ca7b317590f081c1586b7a6851725ab891793939a42d6d13f4db14cf",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8841,34 +8868,8 @@
         }
       },
       {
-        "id": "sense:fold:294a6125cf3859d1",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "羊栏",
-        "definition_en": "a pen for sheep",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:a0e00c249fb08a0f90b9",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "a sheep fold",
-            "meaning_cn": "羊圈",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:fold:294a6125cf3859d1",
-          "target_locator": "record.senses[3]",
-          "target_label": "羊栏"
-        }
-      },
-      {
         "id": "sense:fold:7a6c7b3b0b5f5144",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "business/company folds",
         "definition_cn": "倒闭；停业；停止运作",
@@ -8878,14 +8879,14 @@
         "usage": [
           {
             "id": "collocation:8adab368609251e5140c",
-            "source_locator": "record.senses[4].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "the company/business folded",
             "meaning_cn": "公司/企业倒闭",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:8adab368609251e5140c",
-              "target_locator": "record.senses[4].collocations[0]",
+              "target_locator": "record.senses[3].collocations[0]",
               "target_label": "the company/business folded"
             }
           }
@@ -8893,8 +8894,34 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:fold:7a6c7b3b0b5f5144",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[3]",
           "target_label": "倒闭；停业；停止运作"
+        }
+      },
+      {
+        "id": "sense:fold:294a6125cf3859d1",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "羊栏",
+        "definition_en": "a pen for sheep",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:a0e00c249fb08a0f90b9",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "a sheep fold",
+            "meaning_cn": "羊圈",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:fold:294a6125cf3859d1",
+          "target_locator": "record.senses[4]",
+          "target_label": "羊栏"
         }
       }
     ],
@@ -9035,7 +9062,7 @@
     "ordinal": 1981,
     "word": "follow",
     "source_owner_path": "content/lexical/words/by-ordinal/o1981.json",
-    "source_fingerprint": "592c9de273b42e667a296113b9e29bb17dc397e7cabc707f1682c2cbe52c4ab2",
+    "source_fingerprint": "af960688544e31fa6c8689de80c097fda1dad357328953b889808dc5fb78cddb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9044,13 +9071,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "跟随，遵循",
-      "decision_cn": "",
+      "summary_cn": "跟随；遵循；理解",
+      "decision_cn": "跟随，遵循",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "跟随，遵循"
+        "target_label": "跟随；遵循；理解"
       }
     },
     "senses": [
@@ -9120,8 +9147,25 @@
         }
       },
       {
-        "id": "sense:follow:5d54e6861e695b88",
+        "id": "sense:follow:6ccaed7f05415eb2",
         "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "follow + sth/sb / follow what + clause",
+        "definition_cn": "理解；听懂；跟得上",
+        "definition_en": "to understand the meaning, logic, or explanation of something",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:follow:6ccaed7f05415eb2",
+          "target_locator": "record.senses[2]",
+          "target_label": "理解；听懂；跟得上"
+        }
+      },
+      {
+        "id": "sense:follow:5d54e6861e695b88",
+        "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "接着，随后发生",
@@ -9131,20 +9175,20 @@
         "usage": [
           {
             "id": "collocation:8bb36a037cdcf951d18e",
-            "source_locator": "record.senses[2].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "follow from + sth",
             "meaning_cn": "由某事物引起",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:8bb36a037cdcf951d18e",
-              "target_locator": "record.senses[2].collocations[0]",
+              "target_locator": "record.senses[3].collocations[0]",
               "target_label": "follow from + sth"
             }
           },
           {
             "id": "collocation:c0eff8494af9921b1090",
-            "source_locator": "record.senses[2].collocations[1]",
+            "source_locator": "record.senses[3].collocations[1]",
             "phrase": "The results follow.",
             "meaning_cn": "结果随后出现。",
             "kind": "usage_example",
@@ -9154,15 +9198,15 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:follow:5d54e6861e695b88",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[3]",
           "target_label": "接着，随后发生"
         }
       },
       {
         "id": "sense:follow:05dc9c8f19d0551e",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "follow from + sth / it follows that + clause",
         "definition_cn": "由此产生；随之而来；合乎逻辑地推出",
         "definition_en": "to happen or be true as a result or logical consequence of something",
         "note": "",
@@ -9171,25 +9215,8 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:follow:05dc9c8f19d0551e",
-          "target_locator": "record.senses[3]",
-          "target_label": "由此产生；随之而来；合乎逻辑地推出"
-        }
-      },
-      {
-        "id": "sense:follow:6ccaed7f05415eb2",
-        "source_locator": "record.senses[4]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "理解；听懂；跟得上",
-        "definition_en": "to understand the meaning, logic, or explanation of something",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:follow:6ccaed7f05415eb2",
           "target_locator": "record.senses[4]",
-          "target_label": "理解；听懂；跟得上"
+          "target_label": "由此产生；随之而来；合乎逻辑地推出"
         }
       }
     ],
@@ -9230,7 +9257,7 @@
     "ordinal": 1982,
     "word": "following",
     "source_owner_path": "content/lexical/words/by-ordinal/o1982.json",
-    "source_fingerprint": "a87cb257df983048e729538020533c4b1e527d2afef80f23486f2d81473f8514",
+    "source_fingerprint": "e23b565eefba022d546a5220b3e297d1080f2c44a07a51f01a011420b6243b08",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9304,34 +9331,8 @@
         }
       },
       {
-        "id": "sense:following:53e9237ed4395c9e",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "追随者，支持者",
-        "definition_en": "a group of followers or enthusiasts",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:9a5c27a6065d9ff66aa3",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "a large following",
-            "meaning_cn": "大批追随者",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:following:53e9237ed4395c9e",
-          "target_locator": "record.senses[2]",
-          "target_label": "追随者，支持者"
-        }
-      },
-      {
         "id": "sense:following:7a50a15c563f5142",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "preposition",
         "governing_pattern": "",
         "definition_cn": "在…之后；由于…之后",
@@ -9342,8 +9343,34 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:following:7a50a15c563f5142",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "在…之后；由于…之后"
+        }
+      },
+      {
+        "id": "sense:following:53e9237ed4395c9e",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "追随者，支持者",
+        "definition_en": "a group of followers or enthusiasts",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:9a5c27a6065d9ff66aa3",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "a large following",
+            "meaning_cn": "大批追随者",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:following:53e9237ed4395c9e",
+          "target_locator": "record.senses[3]",
+          "target_label": "追随者，支持者"
         }
       }
     ],

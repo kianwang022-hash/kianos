@@ -10,10 +10,10 @@
     "content_hash": "54480cae413b55976f0b1bb39e58b56b3e664508f6b4d104c0ad17eb69b96c7f",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "建立；创立；find的过去式",
-      "core_meaning_en": "to establish or set up; also past tense of find",
-      "mental_model_cn": "建立；创立；find的过去式",
-      "mental_model_en": ""
+      "core_meaning_cn": "创立；建立；铸造",
+      "core_meaning_en": "to found/establish; also to cast metal",
+      "mental_model_cn": "默认先认独立动词 found=创立/建立；铸造是较低层。相同表面 found 作为 find 的过去式/过去分词由 Form 单独提示。",
+      "mental_model_en": "Default to lexical found = establish; casting metal is lower priority. The identical surface used as the past/past participle of find is handled in Form."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -28,6 +28,20 @@
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "创立；建立",
+        "definition_en": "to establish or set up an organization, institution, or settlement",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:found:4ac77dc17bb452e5",
+        "sense_label_en": "to establish or set up an organization, institution, or settlement",
+        "sort_order": 0,
+        "transitivity": "vt"
+      },
       {
         "collocations": [
           {
@@ -49,21 +63,7 @@
         "pos": "verb",
         "sense_id": "sense:found:c3642182dee15ad8",
         "sense_label_en": "to cast (metal) by melting and pouring into a mold",
-        "sort_order": 0,
-        "transitivity": "vt"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "创立；建立",
-        "definition_en": "to establish or set up an organization, institution, or settlement",
-        "governing_pattern": "",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:found:4ac77dc17bb452e5",
-        "sense_label_en": "to establish or set up an organization, institution, or settlement",
-        "sort_order": 999,
+        "sort_order": 1,
         "transitivity": "vt"
       }
     ],
@@ -122,104 +122,29 @@
         ],
         "verification_status": "verified",
         "writing_safe": false
-      },
-      {
-        "learning_note": "homographic with lemma found = establish",
-        "meaning_cn": "find 的过去式和过去分词",
-        "relation_id": "morphology_relation:3f439ba8a0dbf9b67aab",
-        "relation_type": "inflectional",
-        "source_evidence_objects": [
-          {
-            "collocation_id": "collocation:6ad793d2cb592ac364ab",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:found:c694745b40e7536f:collocation:0"
-            ],
-            "meaning_cn": "找到了一个钱包",
-            "phrase": "found a wallet"
-          }
-        ],
-        "surface_form": "found",
-        "target_lemma": "find"
-      },
-      {
-        "boundaries": [
-          "Same spelling and pronunciation; resolve from syntax and meaning."
-        ],
-        "codex_reviewed": false,
-        "direction": "C",
-        "evidence": [
-          {
-            "evidence_id": "horizontal:horizontal:048",
-            "evidence_status": "source_checked",
-            "source_locator": "horizontal:048",
-            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
-            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
-            "source_type": "external_horizontal_audit"
-          }
-        ],
-        "learning_note": "Same spelling and pronunciation; resolve from syntax and meaning.",
-        "members": [
-          {
-            "word_id": "word:found"
-          },
-          {
-            "word_id": "word:found"
-          }
-        ],
-        "priority": "A",
-        "publication_status": "publishable",
-        "relation_id": "relation:horizontal:94c703bddea9326422da",
-        "relation_note": "Same spelling and pronunciation; resolve from syntax and meaning.",
-        "relation_scope": "lexeme",
-        "relation_type": "homograph_morphology",
-        "sense_ids": [],
-        "shared_meaning": "Same spelling and pronunciation; resolve from syntax and meaning.",
-        "source_evidence_objects": [
-          {
-            "branches": [
-              {
-                "branch_id": "FOUND_A",
-                "meaning": "establish/set up",
-                "sense_id": "sense:found:4ac77dc17bb452e5",
-                "word_id": "word:found"
-              },
-              {
-                "branch_id": "FOUND_B",
-                "meaning": "past/past participle of find",
-                "morphology_id": "morphology_relation:3f439ba8a0dbf9b67aab",
-                "sense_id": "sense:found:c694745b40e7536f",
-                "word_id": "word:found"
-              }
-            ],
-            "canonical_members": [
-              {
-                "word_id": "word:found"
-              },
-              {
-                "word_id": "word:found"
-              }
-            ],
-            "direction": "C",
-            "learner_note": "Same spelling and pronunciation; resolve from syntax and meaning.",
-            "relation_type": "homograph_morphology",
-            "surface_form": "found"
-          }
-        ],
-        "source_expression": "found",
-        "source_sense_id": null,
-        "target_expression": "found ↔ found",
-        "target_sense_id": null,
-        "target_sense_ids": [],
-        "target_word": null,
-        "task_tags": [
-          "reading"
-        ],
-        "verification_status": "verified",
-        "writing_safe": false
       }
     ],
-    "word_id": "word:found"
+    "word_id": "word:found",
+    "form_identity": {
+      "form_type": "lexical_inflection_homograph_identity",
+      "spelling": "found",
+      "identity_rule": "surface_shared_between_lexeme_and_inflection",
+      "boundary": "found is a lexical verb meaning establish (and, separately, cast metal); the same surface found is also the past/past participle of find. Resolve from syntax and meaning.",
+      "boundaries": [
+        {
+          "surface": "found",
+          "condition": "lexical verb",
+          "note": "establish; also cast metal in a lower branch"
+        },
+        {
+          "surface": "found",
+          "condition": "past/past participle of find",
+          "note": "inflectional surface of find"
+        }
+      ],
+      "variants": [],
+      "authority": "BF19 existing-truth Form migration 2026-09-22"
+    }
   },
   "relation_refs": [],
   "reference_senses": [
