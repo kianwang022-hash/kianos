@@ -3,14 +3,14 @@
   "status": "ACTIVE",
   "campaign": "FULL_CATALOG_FINAL_STANDARD_CONTINUATION",
   "semantic_ruler": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
-  "updated_at": "2026-09-22",
+  "updated_at": "2026-09-22T12:28:14+00:00",
   "frontier": {
     "candidate_id": "BF20",
     "range": [
       2051,
       2150
     ],
-    "state": "MATERIALIZE_ALLOWED",
+    "state": "READY_FOR_B_READBACK",
     "proposal_path": "content/lexical/execution/manifests/o2051-o2150.fullcatalog-final-standard-proposal.md",
     "proposal_commit": "d803c5a7b8a267021e368461284d58e1f3417bd6",
     "review_branch": "work/lexical-fullcatalog-bf20-review-20260922",
@@ -29,7 +29,19 @@
       5557,
       5840
     ],
-    "accepted_main_head": "cacf614cce0a06a2744d8dac56f20de629cddc2e"
+    "accepted_main_head": "cacf614cce0a06a2744d8dac56f20de629cddc2e",
+    "materialization": {
+      "status": "READY_FOR_B_READBACK",
+      "package_id": "BF20-replay-official-v1",
+      "receipt": "content/lexical/execution/mutation-receipts/BF20-replay-official-v1.json",
+      "final_learner_objects": 7946,
+      "updated_at": "2026-09-22T12:28:14+00:00"
+    },
+    "audit": {
+      "status": "PENDING",
+      "result": null,
+      "pack": null
+    }
   },
   "next": {
     "candidate_id": "BF21",
@@ -58,6 +70,6 @@
     "final_learner_objects": 7946
   },
   "blocker": null,
-  "next_action": "MATERIALIZE_FRONTIER",
+  "next_action": "RUN_B_READBACK",
   "legacy_history": "content/lexical/execution/three-chat-board.json"
 }
