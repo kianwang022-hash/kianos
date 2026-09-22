@@ -77,5 +77,10 @@ const catalog = politicsProductCatalog(base);
 
 <script>
   import { initPoliticsReview } from '../../lib/politicsReviewClient.mjs';
+  import { learnerWriterReady } from '../../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   initPoliticsReview(document.querySelector('[data-politics-review]'));
+
+  });
 </script>

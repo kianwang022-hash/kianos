@@ -171,6 +171,8 @@ const workbenchHref = (unit) => `${base}politics/practice/?unit=${encodeURICompo
 </section>
 
 <script is:inline>
+window.__kianosLearnerWriterReady.then(() => {
+
   const politicsRuntime = document.querySelector('[data-politics-runtime]');
   const politicsLastKey = 'kianos-politics-last-location-v1';
   if (politicsRuntime) {
@@ -188,4 +190,6 @@ const workbenchHref = (unit) => `${base}politics/practice/?unit=${encodeURICompo
       }));
     } catch {}
   }
+
+});
 </script>

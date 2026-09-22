@@ -20,6 +20,9 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
     LEXICAL_SETTINGS_STORAGE_KEY
   } from '../lib/lexicalSettings.mjs';
   import { buildLexicalChatStatePacket, serializeLexicalChatStateForChat } from '../lib/lexicalChatState.mjs';
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
 
   const bridge = document.querySelector('[data-lexical-home-evidence-bridge]');
   const home = document.querySelector('[data-lexical-home]');
@@ -149,4 +152,6 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
     window.addEventListener('storage', (event) => { if (event.key === LEXICAL_LEDGER_STORAGE_KEY) render(); });
     render();
   }
+
+  });
 </script>

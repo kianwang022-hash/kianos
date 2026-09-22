@@ -439,6 +439,9 @@ const base = import.meta.env.BASE_URL;
 <script>
 import {LEXICAL_LEDGER_STORAGE_KEY,appendEvidenceEvent,emptyLexicalLedger,exportReturnEvents,legacyEventId,normalizeLexicalLedger,repairStateForEvent,serializeLexicalReturnPacketForChat} from '../lib/lexicalEvidence.mjs';
 import {parseLexicalChallengePacketText} from '../lib/lexicalChatState.mjs';
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
 const root=document.querySelector('[data-vocab-challenge-runtime]');
 if(root instanceof HTMLElement){
   const PACKET_KEY='kianos-lexical-challenge-packet-v1',PROGRESS_KEY='kianos-lexical-challenge-progress-v1',EVENTS_KEY='kianos-lexical-challenge-events-v1',WORD_PREFIX='kianos-vocabulary-astro-v2:';
@@ -738,4 +741,6 @@ if(root instanceof HTMLElement){
     if(initialSaved&&isRepairVisible())startPacket(initialSaved,false);
   });
 }
+
+  });
 </script>

@@ -3,6 +3,9 @@
 <span hidden data-xizong-block-aux-layout-sync></span>
 
 <script>
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   const root = document.querySelector('[data-xizong-v6-block]');
 
   if (root instanceof HTMLElement) {
@@ -11,4 +14,6 @@
       root.dataset.auxWeight = ['none', 'light', 'rich'].includes(weight) ? weight : 'none';
     });
   }
+
+  });
 </script>

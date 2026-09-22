@@ -4,6 +4,9 @@ const base = import.meta.env.BASE_URL;
 <span data-reading-session-transfer-root data-reading-base={base} hidden></span>
 
 <script>
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   const host = document.querySelector('[data-reading-session-transfer-root]');
   const readingRoot = document.querySelector('[data-local-port="reading"]');
 
@@ -154,4 +157,6 @@ const base = import.meta.env.BASE_URL;
       window.setTimeout(() => { void run(); }, 40);
     });
   }
+
+  });
 </script>

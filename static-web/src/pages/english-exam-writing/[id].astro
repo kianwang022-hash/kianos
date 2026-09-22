@@ -43,6 +43,9 @@ const task = loadWritingExamRuntimeTask(writingId);
 
 <script>
   import { readEnglishExamSession } from '../../lib/englishExamSession.mjs';
+  import { learnerWriterReady } from '../../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
 
   const gate = document.querySelector('[data-english-exam-writing-gate]');
   if (gate instanceof HTMLElement) {
@@ -67,6 +70,8 @@ const task = loadWritingExamRuntimeTask(writingId);
     if (locked instanceof HTMLElement) locked.hidden = allowed;
     if (runtime instanceof HTMLElement) runtime.hidden = !allowed;
   }
+
+  });
 </script>
 
 <style>

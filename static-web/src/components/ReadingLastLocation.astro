@@ -12,6 +12,9 @@ const { reading } = Astro.props;
 ></span>
 
 <script>
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   const node = document.querySelector('[data-reading-last-location]');
   const examMode = new URLSearchParams(location.search).has('exam_session');
   if (!examMode && node instanceof HTMLElement) {
@@ -28,4 +31,6 @@ const { reading } = Astro.props;
       try { localStorage.setItem('kianos-reading-last-location-v1', JSON.stringify(value)); } catch {}
     }
   }
+
+  });
 </script>

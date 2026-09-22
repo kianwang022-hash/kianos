@@ -22,6 +22,9 @@ const hrefFor = (id) => id ? `${base}reading/${encodeURIComponent(id)}/` : '';
 )}
 
 <script>
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   const passageNavigator = document.querySelector('[data-reading-passage-navigator]');
   const result = document.querySelector('[data-reading-result]');
   if (passageNavigator && result) {
@@ -50,4 +53,6 @@ const hrefFor = (id) => id ? `${base}reading/${encodeURIComponent(id)}/` : '';
     document.addEventListener('click', () => window.setTimeout(sync, 0));
     sync();
   }
+
+  });
 </script>

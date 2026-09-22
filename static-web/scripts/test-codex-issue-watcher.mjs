@@ -4,6 +4,8 @@ import os from 'node:os';
 import path from 'node:path';
 import { execFileSync, spawnSync, spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { createServer } from 'node:net';
+import { createHash } from 'node:crypto';
 
 export function fixture() {
   const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-watcher-'));
@@ -203,8 +205,28 @@ async function test() {
     assert.equal(f.state().issues['701'].status,'NEEDS_RECONCILIATION'); assert.equal(f.run().report.status,'quiet'); assert.equal(f.read('calls').length,1);
   });
   await scenario('overlapping triggers dispatch once',async f=>{
-    f.setIssues([f.issue()]); const r=await Promise.all([f.runAsync({TEST_EXEC_MODE:'hang',KIANOS_CODEX_WATCHER_EXECUTOR_TIMEOUT_MS:'400'}),f.runAsync()]);
-    assert.equal(f.read('calls').length,1); assert.ok(r.some(x=>x.report?.reason==='already-running'||x.report?.reason==='LOCK_RECOVERY_UNRESOLVED'));
+    f.setIssues([f.issue()]); const r=await Promise.all([f.runAsync({TEST_EXEC_MODE:'hang',KIANOS_CODEX_WATCHER_EXECUTOR_TIMEOUT_MS:'2000'}),f.runAsync()]);
+    assert.equal(f.read('calls').length,1,JSON.stringify(r)); assert.ok(r.some(x=>x.report?.reason==='already-running'||x.report?.reason==='LOCK_RECOVERY_UNRESOLVED'||x.report?.reason==='LOCK_GUARD_UNAVAILABLE'));
+  });
+  await scenario('crash while acquiring the process gate is recoverable without deleting a stale directory',f=>{
+    f.setIssues([f.issue()]);
+    const obsolete=path.join(f.stateDir,'lock-acquire');fs.mkdirSync(obsolete);
+    fs.writeFileSync(path.join(obsolete,'retained-evidence'),'keep');
+    const preload=path.join(f.temp,'kill-at-listen.cjs');
+    fs.writeFileSync(preload,`const net=require('node:net');const original=net.Server.prototype.listen;
+net.Server.prototype.listen=function(...args){this.once('listening',()=>process.kill(process.pid,'SIGKILL'));return original.apply(this,args);};`);
+    const killed=f.run({NODE_OPTIONS:'--require '+preload});
+    assert.equal(killed.signal,'SIGKILL');
+    for(let n=0;n<3;n++)assert.equal(f.run({},['--dry-run']).report.status,'would-launch');
+    assert.equal(fs.readFileSync(path.join(obsolete,'retained-evidence'),'utf8'),'keep');
+    assert.equal(f.read('calls').length,0);
+  });
+  await scenario('foreign port collision is explicit unavailable, not a fabricated running task',async f=>{
+    const identity=fs.realpathSync(f.stateDir);
+    const port=20000+createHash('sha256').update(identity).digest().readUInt32BE(0)%30000;
+    const server=createServer();await new Promise((resolve,reject)=>{server.once('error',reject);server.listen(port,'127.0.0.1',resolve);});
+    try { const result=f.run();assert.equal(result.report.reason,'LOCK_GUARD_UNAVAILABLE');assert.equal(f.read('calls').length,0); }
+    finally { await new Promise(resolve=>server.close(resolve)); }
   });
   console.log('PASS Codex watcher: '+count+' isolated execution, timeout/process-tree, claim, replay, corruption and privacy scenarios');
 }

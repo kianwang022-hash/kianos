@@ -227,6 +227,9 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
     registerLexicalIntroduction,
     sameDayLexicalRevisits
   } from '../lib/lexicalSettings.mjs';
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
 
   const root = document.querySelector('[data-lexical-home]');
   if (root instanceof HTMLElement) {
@@ -634,4 +637,6 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
       }
     });
   }
+
+  });
 </script>

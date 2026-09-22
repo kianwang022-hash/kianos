@@ -45,6 +45,9 @@ const referenceUrl = `${base}translation-reference/${encodeURIComponent(translat
   <TranslationReferenceLoader referenceUrl={referenceUrl} />
 
   <script>
+  import { learnerWriterReady } from '../../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
     // Projection guard: pending transfer labels are useful only after the
     // current task's complete first attempt is frozen. Revealing them during
     // Clean Attempt would cue the very demand that fresh evidence should test.
@@ -62,5 +65,7 @@ const referenceUrl = `${base}translation-reference/${encodeURIComponent(translat
         protectCleanAttempt();
       }
     }
-  </script>
+
+  });
+</script>
 </Base>

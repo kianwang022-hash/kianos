@@ -7,8 +7,13 @@ on:
       - 'static-web/src/lib/englishExamPaper.mjs'
       - 'static-web/src/lib/englishExamSession.mjs'
       - 'static-web/src/lib/englishSessionControl.mjs'
+      - 'static-web/src/lib/englishLearnerEvidence.mjs'
       - 'static-web/src/lib/englishWritingRuntimeTask.mjs'
       - 'static-web/src/lib/englishWritingRuntimeSourceTruth.mjs'
+      - 'static-web/src/lib/browserLearnerWriter.mjs'
+      - 'static-web/src/lib/privateCheckpointRuntime.mjs'
+      - 'static-web/src/lib/privateControlRuntime.mjs'
+      - 'static-web/src/lib/sharedControlCheckpoint.mjs'
       - 'static-web/src/components/EnglishExamTaskBridge.astro'
       - 'static-web/src/components/ReadingWorkspace.astro'
       - 'static-web/src/components/ClozeWorkspace.astro'
@@ -31,6 +36,9 @@ on:
       - 'static-web/src/pages/translation/**'
       - 'static-web/scripts/validate-english-exam-session.mjs'
       - 'static-web/scripts/test-english-exam-session-browser.mjs'
+      - 'static-web/scripts/test-english-exam-seal-integrity.mjs'
+      - 'static-web/scripts/test-freeze-integrity.mjs'
+      - 'static-web/scripts/test-freeze-browser.mjs'
       - '.github/workflows/static-web-english-exam-session.yml'
   push:
     branches: [main]
@@ -39,6 +47,11 @@ on:
       - 'static-web/src/lib/englishExamPaper.mjs'
       - 'static-web/src/lib/englishExamSession.mjs'
       - 'static-web/src/lib/englishSessionControl.mjs'
+      - 'static-web/src/lib/englishLearnerEvidence.mjs'
+      - 'static-web/src/lib/browserLearnerWriter.mjs'
+      - 'static-web/src/lib/privateCheckpointRuntime.mjs'
+      - 'static-web/src/lib/privateControlRuntime.mjs'
+      - 'static-web/src/lib/sharedControlCheckpoint.mjs'
       - 'static-web/src/components/EnglishExamTaskBridge.astro'
       - 'static-web/src/pages/english-exam.astro'
       - 'static-web/src/pages/english-exam/**'
@@ -46,6 +59,9 @@ on:
       - 'static-web/src/pages/english-exam-writing/**'
       - 'static-web/scripts/validate-english-exam-session.mjs'
       - 'static-web/scripts/test-english-exam-session-browser.mjs'
+      - 'static-web/scripts/test-english-exam-seal-integrity.mjs'
+      - 'static-web/scripts/test-freeze-integrity.mjs'
+      - 'static-web/scripts/test-freeze-browser.mjs'
       - '.github/workflows/static-web-english-exam-session.yml'
   workflow_dispatch:
 
@@ -62,30 +78,73 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
       - name: Install runtime
+        id: runtime
         working-directory: static-web
         run: npm install --no-audit --no-fund
-      - name: Validate full-paper semantics
+      - name: Validate full-paper and bounded integrity semantics
+        id: native
         working-directory: static-web
-        run: node scripts/validate-english-exam-session.mjs
+        run: |
+          node scripts/validate-english-exam-session.mjs
+          node --test scripts/test-english-exam-seal-integrity.mjs scripts/test-freeze-integrity.mjs
+          node --experimental-vm-modules scripts/test-l1-continuation.mjs ..
+          node --experimental-vm-modules scripts/test-l1-control-transactions.mjs
+          node scripts/test-private-learner-checkpoint.mjs
+          node scripts/test-shared-control-three-subjects.mjs
+          node scripts/test-xizong-forecast-model.mjs
+          node scripts/test-english-evidence-resume.mjs
+          node scripts/test-private-control-relay.mjs
       - name: Build learner site
+        id: build
         working-directory: static-web
-        run: npm run build
+        run: |
+          npm run build
+          node scripts/test-private-daily-learning-packet.mjs
       - name: Install browser acceptance
+        id: browser
         working-directory: static-web
         run: |
           npm install --no-save --no-audit --no-fund playwright@1.56.1
           npx playwright install --with-deps chromium
+          sudo apt-get install --yes --no-install-recommends openbox
       - name: Run full-paper browser journey
         working-directory: static-web
         run: node scripts/test-english-exam-session-browser.mjs
+      - name: Run corruption and two-page browser journeys
+        id: freeze_browser
+        if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.browser.outcome == 'success' }}
+        working-directory: static-web
+        run: |
+          xvfb-run -a bash -c '
+            openbox > "$RUNNER_TEMP/freeze-window-manager.log" 2>&1 &
+            manager=$!
+            trap "kill $manager 2>/dev/null || true" EXIT
+            sleep 1
+            node scripts/test-freeze-browser.mjs
+          '
+      - name: Existing cross-subject browser journey
+        if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.browser.outcome == 'success' }}
+        working-directory: static-web
+        run: node scripts/test-final-cross-subject-regression.mjs
+      - name: Isolated watcher and execution policy regression
+        if: ${{ !cancelled() && steps.runtime.outcome == 'success' }}
+        working-directory: static-web
+        run: |
+          node scripts/test-codex-issue-watcher.mjs
+          node scripts/test-codex-execution-policy.mjs
       - name: Upload full-paper proof
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: english-exam-session-${{ github.sha }}
-          path: english-exam-audit/
+          path: |
+            english-exam-audit/
+            static-web/.qa/final-cross-subject/
+          include-hidden-files: true
           retention-days: 14

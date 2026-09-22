@@ -66,6 +66,9 @@ const subjects = listPoliticsSubjectsCurrent();
 </Base>
 
 <script>
+  import { learnerWriterReady } from '../../../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   const root = document.querySelector('[data-politics-learn-index]');
   if (root) {
     const subjects = [...root.querySelectorAll('[data-politics-learn-subject]')];
@@ -97,4 +100,6 @@ const subjects = listPoliticsSubjectsCurrent();
     window.addEventListener('hashchange', selectFromHash);
     selectFromHash();
   }
+
+  });
 </script>

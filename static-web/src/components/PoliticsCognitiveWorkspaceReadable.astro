@@ -98,6 +98,8 @@
 </style>
 
 <script is:inline>
+window.__kianosLearnerWriterReady.then(() => {
+
   (() => {
     const workspace = document.querySelector('[data-politics-cognitive-workspace]');
     if (!workspace) return;
@@ -251,4 +253,6 @@
       }
     });
   })();
+
+});
 </script>

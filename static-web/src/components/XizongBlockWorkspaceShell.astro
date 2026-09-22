@@ -3,6 +3,9 @@
 <span data-xizong-block-workspace-shell hidden></span>
 
 <script>
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   const root = document.querySelector('[data-xizong-v6-block]');
   const rail = root?.querySelector('.portedStudyChain');
   const layout = root?.querySelector('[data-study-layout]');
@@ -56,4 +59,6 @@
     new MutationObserver(syncToggle).observe(layout, { attributes: true, attributeFilter: ['class'] });
     syncToggle();
   }
+
+  });
 </script>

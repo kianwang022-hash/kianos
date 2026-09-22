@@ -57,6 +57,9 @@ const itemTitle = (item) => item?.year ? `${item.year} · ${learnerLabel}` : lea
 </section>
 
 <script>
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   document.querySelectorAll('[data-objective-home]').forEach((node) => {
     if (!(node instanceof HTMLElement)) return;
     const base = node.getAttribute('data-base') || '/';
@@ -111,6 +114,8 @@ const itemTitle = (item) => item?.year ? `${item.year} · ${learnerLabel}` : lea
     };
     node.querySelector('[data-objective-search]')?.addEventListener('input', (event) => render(event.currentTarget.value || ''));
     render();
+  });
+
   });
 </script>
 

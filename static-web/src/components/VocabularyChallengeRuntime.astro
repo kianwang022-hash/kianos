@@ -62,6 +62,9 @@
 </style>
 
 <script>
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   const challengeRoot = document.querySelector('[data-vocab-challenge-runtime]');
   if (challengeRoot) {
     const packetKey = 'kianos-lexical-challenge-packet-v1';
@@ -406,4 +409,6 @@
       importStatus.textContent = `已有 ${savedPacket.challenges.length} 道本地 Challenge，可继续。`;
     }
   }
+
+  });
 </script>

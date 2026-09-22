@@ -201,6 +201,9 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
     applyWritingRepairReturn,
     resetWritingAttempt
   } from '../lib/writingRuntimeModel.mjs';
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
 
   function initWritingWorkspace() {
   const root = document.querySelector('[data-writing-runtime]');
@@ -457,6 +460,8 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
   }
   initWritingWorkspace();
   window.addEventListener('kianos:writing-task-opened', initWritingWorkspace);
+
+  });
 </script>
 
 <style>

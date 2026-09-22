@@ -48,10 +48,11 @@ const storage=new MemoryStorage({
       task:'reading_a',object_id:'reading-done',attempt_id:'synthetic-reading-attempt',revision:1,
       source_hash:'hash-reading-done',semantic_source_hash:'synthetic-reading-v1',
       prior_exposure:'unknown',assistance:'unknown',source_kind:'synthetic',
-      source_snapshot:{paragraphs:['Synthetic Resume regression passage.'],questions:[]}
+      source_snapshot:{paragraphs:['Synthetic Resume regression passage.'],questions:[{id:'q1'}]}
     },
     submitted:true,
-    results:{},
+    answers:{q1:'A'},
+    results:{q1:'correct'},
     uncertain:[],
     reviewResolved:true
   }),

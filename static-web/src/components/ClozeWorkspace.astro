@@ -75,6 +75,9 @@ function optionEntries(options) {
 
 <script>
   import {inspectEnglishAttempt, saveEnglishAttempt, archiveEnglishAttempt, taskMetadata, preserveEnglishFailure} from "../lib/englishLearnerEvidence.mjs";
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   document.querySelectorAll('[data-objective-root][data-objective-task="cloze"]').forEach((root) => {
     if (!(root instanceof HTMLElement)) return;
     const baseStorageKey = root.getAttribute('data-objective-storage-key') || '';
@@ -237,6 +240,8 @@ function optionEntries(options) {
 
     render();
     if (state.submitted) root.dispatchEvent(new CustomEvent('kianos:objective-submitted', { bubbles: true }));
+  });
+
   });
 </script>
 

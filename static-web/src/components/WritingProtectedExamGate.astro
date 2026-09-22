@@ -15,6 +15,9 @@ const payload = JSON.stringify({ taskId: task.id, taskKind: task.kind }).replace
   <script type="application/json" data-exam-gate-payload set:html={payload}></script>
 </section>
 <script>
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   const gate = document.querySelector('[data-writing-exam-gate]');
   if (gate instanceof HTMLElement) {
     const payload = JSON.parse(gate.querySelector('[data-exam-gate-payload]')?.textContent || '{}');
@@ -31,6 +34,8 @@ const payload = JSON.stringify({ taskId: task.id, taskKind: task.kind }).replace
     // No bootstrap writes occur inside the unopened gate.
     if (localStorage.getItem(`kianos-writing-runtime-v1:${payload.taskId}`) !== null) open();
   }
+
+  });
 </script>
 <style>
   .writingExamGate{display:grid;gap:12px}.writingExamLocked{max-width:54rem;margin:28px auto;padding:28px;border:1px solid var(--study-line);border-radius:16px;background:#fffdf8;box-shadow:var(--study-shadow)}.writingExamLocked span{font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;color:var(--study-green)}.writingExamLocked h2{margin:6px 0 8px}.writingExamLocked p{margin:0 0 14px;color:var(--study-muted);font-size:12px;line-height:1.7}.writingExamLocked a{font-size:11px;font-weight:800;color:var(--study-green);text-decoration:none}

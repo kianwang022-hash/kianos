@@ -115,6 +115,9 @@ const failureLabel = (mode) => Array.isArray(mode)
     validateXizongSessionInstruction
   } from '../lib/xizongSessionInstruction.mjs';
   import { studyDayAt } from '../lib/studyTimer.mjs';
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
 
   document.querySelectorAll('[data-xizong-system-exit]').forEach((root) => {
     const systemId = root.getAttribute('data-xizong-system-exit') || '';
@@ -242,5 +245,7 @@ const failureLabel = (mode) => Array.isArray(mode)
     render();
     if (afterRoundId && recallState.afterRoundId !== afterRoundId) openRecall();
     else if (chatSessionRecall) openRecall();
+  });
+
   });
 </script>

@@ -4,6 +4,9 @@ const { referenceUrl = '' } = Astro.props;
 <span data-translation-reference-loader data-reference-url={referenceUrl} hidden></span>
 
 <script>
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   const marker = document.querySelector('[data-translation-reference-loader]');
   const root = document.querySelector('[data-translation-runtime]');
 
@@ -224,4 +227,6 @@ const { referenceUrl = '' } = Astro.props;
       });
     }
   }
+
+  });
 </script>

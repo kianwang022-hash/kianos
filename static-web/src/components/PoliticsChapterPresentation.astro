@@ -1,4 +1,7 @@
 <script>
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   // Read-only presentation selection over existing Current nodes. All domain
   // actions, Evidence writes, return identity and completion stay in their owners.
   const root=document.querySelector<HTMLElement>('.politicsStudy[data-politics-runtime]');
@@ -42,4 +45,6 @@
     // Allow the existing private resume and Workbench bridge to resolve first.
     requestAnimationFrame(()=>select(initialTarget()));
   }
+
+  });
 </script>

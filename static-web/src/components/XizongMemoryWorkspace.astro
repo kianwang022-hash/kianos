@@ -140,6 +140,9 @@ const base = import.meta.env.BASE_URL;
     validateXizongSessionInstruction
   } from '../lib/xizongSessionInstruction.mjs';
   import { studyDayAt } from '../lib/studyTimer.mjs';
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
 
   const root = document.querySelector('[data-xizong-memory-workspace]');
   if (root instanceof HTMLElement) {
@@ -526,4 +529,6 @@ const base = import.meta.env.BASE_URL;
 
     rebuild();
   }
+
+  });
 </script>

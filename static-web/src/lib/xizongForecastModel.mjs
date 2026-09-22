@@ -76,6 +76,10 @@ const finite = (value) => {
   const number = Number(value);
   return Number.isFinite(number) ? number : null;
 };
+const observedCount = value => typeof value==='number' && Number.isSafeInteger(value) && value>=0 ? value : null;
+const validMinutesBand = value => value!==null && typeof value==='object' && !Array.isArray(value)
+  && ['p20','p50','p80'].every(key=>typeof value[key]==='number' && Number.isFinite(value[key]) && value[key]>=0)
+  && value.p20<=value.p50 && value.p50<=value.p80;
 const scoreNumber = (value) => typeof value === 'number' && Number.isFinite(value) && value >= 0 && value <= 300 ? value : null;
 const positive = (value) => {
   const n = finite(value);
@@ -1005,10 +1009,7 @@ function formalCalibrationForecast(progress) {
 
 function aggregateComponents(components, { scopeComplete = true } = {}) {
   const required = (Array.isArray(components) ? components : []).filter(Boolean);
-  const priced = required.filter((row) => row?.band_minutes
-    && finite(row.band_minutes.p20) !== null
-    && finite(row.band_minutes.p50) !== null
-    && finite(row.band_minutes.p80) !== null);
+  const priced = required.filter((row) => validMinutesBand(row?.band_minutes));
   const unpriced = required.filter((row) => !priced.includes(row)).map((row) => row.component);
   const sum = (key) => round(priced.reduce((total, row) => total + Number(row.band_minutes[key] || 0), 0));
   return {
@@ -1141,11 +1142,12 @@ export function buildXizongScoreEvidence(progress, {
 
   const capabilities = {
     source_model: {
-      evidence_status: Number(progress?.runtime_evidence?.completed_blocks || 0) === Number(progress?.canonical_scope?.blocks || 0)
+      evidence_status: observedCount(progress?.canonical_scope?.blocks)>0
+        && observedCount(progress?.runtime_evidence?.completed_blocks)===observedCount(progress?.canonical_scope?.blocks)
         ? 'FULL_RUNTIME_CLOSURE_OBSERVED'
         : 'PARTIAL_OR_UNKNOWN',
-      completed_blocks: Number(progress?.runtime_evidence?.completed_blocks || 0),
-      canonical_blocks: Number(progress?.canonical_scope?.blocks || 0),
+      completed_blocks: observedCount(progress?.runtime_evidence?.completed_blocks),
+      canonical_blocks: observedCount(progress?.canonical_scope?.blocks),
       boundary: 'No runtime evidence does not prove unstudied.'
     },
     active_recall: {
@@ -1629,7 +1631,7 @@ export function assessXizongDeadlineFeasibility(forecast, {
   });
   const target = scope === 'first_round' ? scenario.first_round : scenario.score_formation;
   const capacity = capacityThroughDeadline({ startDay, deadlineDay, dailyMinutes, capacityMinutesByDay });
-  if (!capacity || !target?.band_minutes) {
+  if (!capacity || !validMinutesBand(target?.band_minutes)) {
     return {
       schema: 'kianos.xizong.deadline-feasibility.v1',
       scope,
@@ -1723,7 +1725,7 @@ export function buildXizongCheckpointRequirement(forecast, {
       learner_role: actionById[id],
       status: String(row?.status || 'UNKNOWN'),
       band_minutes: row?.band_minutes || null,
-      priced: Boolean(row?.band_minutes),
+      priced: validMinutesBand(row?.band_minutes),
       risks: Array.isArray(row?.risks) ? row.risks : []
     };
   });
@@ -1749,7 +1751,7 @@ export function buildXizongCheckpointRequirement(forecast, {
     work_buckets: workBuckets,
     unpriced_bucket_ids: workBuckets.filter((row) => !row.priced).map((row) => row.id),
     aggregate_status: String(aggregate?.status || 'UNKNOWN'),
-    full_scope_priced: Boolean(aggregate?.full_band_minutes),
+    full_scope_priced: validMinutesBand(aggregate?.full_band_minutes) && feasibility.full_scope,
     subject_stage_decision: 'OUT_OF_SCOPE',
     boundary:
       'This checkpoint decomposes remaining evidence-priced work into learner-role buckets and capacity. It is not a daily schedule, does not choose subject/System order, and cannot claim full completion when the aggregate or a required material scope is only partially priced.'
@@ -1768,12 +1770,14 @@ export function applyXizongForecastScenario(forecast, {
   }
   const perDay = positive(dailyMinutes);
   const material = materialItems == null ? null : reconcileXizongMaterialIncrement(materialItems);
-  const directIncrement = Math.max(0, Number(netIncrementMinutes || 0));
+  const directIncrement = typeof netIncrementMinutes==='number' && Number.isFinite(netIncrementMinutes) && netIncrementMinutes>=0 ? netIncrementMinutes : null;
   const increment = material
     ? (material.net_minutes === null ? null : Number(material.net_minutes))
     : directIncrement;
   const project = (aggregate) => {
-    const band = aggregate?.full_band_minutes || aggregate?.known_priced_band_minutes;
+    const fullScope=aggregate?.scope_complete!==false && validMinutesBand(aggregate?.full_band_minutes);
+    const band=fullScope ? aggregate.full_band_minutes
+      : validMinutesBand(aggregate?.known_priced_band_minutes) ? aggregate.known_priced_band_minutes : null;
     if (!band || increment === null) return {
       status: 'UNPRICED',
       full_scope: false,
@@ -1787,8 +1791,8 @@ export function applyXizongForecastScenario(forecast, {
       p80: round(Number(band.p80 || 0) + increment)
     };
     return {
-      status: aggregate?.full_band_minutes ? 'FULL_SCOPE' : 'KNOWN_PRICED_LOWER_BOUND',
-      full_scope: Boolean(aggregate?.full_band_minutes),
+      status: fullScope ? 'FULL_SCOPE' : 'KNOWN_PRICED_LOWER_BOUND',
+      full_scope: fullScope,
       band_minutes: withIncrement,
       band_days: perDay === null ? null : {
         p20: Math.ceil(withIncrement.p20 / perDay),

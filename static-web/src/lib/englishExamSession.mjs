@@ -16,6 +16,26 @@ const hasProductiveOutput = (step, payload) => step.task === 'writing'
   : [payload?.answers, payload?.first_attempts].some((answers) => record(answers)
     && Object.values(answers).some((text) => typeof text === 'string' && text.trim()));
 
+// A missing capture is unvisited work. A present capture must carry an explicit
+// output channel, including an empty map/string for genuinely blank work.
+function assertExamCaptureOutput(step, payload) {
+  if (!record(payload)) throw new Error('ENGLISH_EXAM_CAPTURE_OUTPUT_UNREADABLE:' + step.step_id);
+  if (OBJECTIVE_TASKS.has(step.task) || step.task === 'translation') {
+    if (!Object.hasOwn(payload, 'answers') || !record(payload.answers)) {
+      throw new Error('ENGLISH_EXAM_CAPTURE_OUTPUT_UNREADABLE:' + step.step_id);
+    }
+    normalizeAnswers(payload.answers);
+  }
+  if (step.task === 'translation' && Object.hasOwn(payload, 'first_attempts')) {
+    if (!record(payload.first_attempts)) throw new Error('ENGLISH_EXAM_CAPTURE_OUTPUT_UNREADABLE:' + step.step_id);
+    normalizeAnswers(payload.first_attempts);
+  }
+  if (step.task === 'writing' && (typeof payload.essay !== 'string'
+      || (payload.first_draft != null && typeof payload.first_draft !== 'string'))) {
+    throw new Error('ENGLISH_EXAM_CAPTURE_OUTPUT_UNREADABLE:' + step.step_id);
+  }
+}
+
 function assertExamScoreEvidence(state) {
   if (!['RELEASED', 'SCORED'].includes(state.status)) return;
   const objective = state.release?.objective;
@@ -227,6 +247,7 @@ export function validateEnglishExamSession(value) {
     const step=value.steps.find(s=>s.step_id===id);
     if(!step || !record(capture) || capture.step_id!==id || capture.task!==step.task || capture.object_id!==step.object_id
         || !record(capture.payload)) throw new Error('ENGLISH_EXAM_CAPTURE_IDENTITY_INVALID');
+    assertExamCaptureOutput(step, capture.payload);
     if (capture.payload.source_hash != null && capture.payload.source_hash !== step.source_hash) {
       throw new Error('ENGLISH_EXAM_CAPTURE_SOURCE_MISMATCH');
     }
@@ -341,6 +362,7 @@ export function captureEnglishExamStep(state, {
   if (step.task !== task || step.object_id !== objectId) {
     throw new Error(`ENGLISH_EXAM_STEP_IDENTITY_MISMATCH:${stepId}`);
   }
+  assertExamCaptureOutput(step, payload);
 
   const updated = clone(current);
   updated.captures[step.step_id] = {
@@ -381,9 +403,22 @@ export function sealEnglishExamSession(state, now = Date.now(), {storage=null} =
       const raw=storage.getItem(englishExamTaskStorageKey(current.session_id,step.task,step.object_id));
       if(raw==null)continue;
       let local;try{local=JSON.parse(raw);}catch{throw new Error('ENGLISH_EXAM_UNREADABLE_TASK:'+step.step_id);}
+      // Absence was handled above. A present autosave must contain its output;
+      // never replace intact captures with a default invented from missing fields.
+      const payload = englishExamPayload(step.task, local);
+      const previous = current.captures[step.step_id]?.payload;
+      if (step.task === 'translation' && record(previous?.first_attempts)
+          && Object.entries(previous.first_attempts).some(([id, text]) =>
+            payload.first_attempts[id] !== text)) {
+        throw new Error('ENGLISH_EXAM_FIRST_OUTPUT_CHANGED:' + step.step_id);
+      }
+      if (step.task === 'writing' && typeof previous?.first_draft === 'string'
+          && previous.first_draft && previous.first_draft !== payload.first_draft) {
+        throw new Error('ENGLISH_EXAM_FIRST_OUTPUT_CHANGED:' + step.step_id);
+      }
       const savedAt=Date.parse(local.saved_at || local.updatedAt || '');
       if(Number.isFinite(savedAt) && savedAt>Date.parse(current.deadline_at))throw new Error('ENGLISH_EXAM_LATE_TASK_WRITE:'+step.step_id);
-      updated.captures[step.step_id]={step_id:step.step_id,task:step.task,object_id:step.object_id,completed_at:current.captures[step.step_id]?.completed_at||null,sealed_snapshot_at:iso(Math.min(Number(now),Date.parse(current.deadline_at))),payload:englishExamPayload(step.task,local)};
+      updated.captures[step.step_id]={step_id:step.step_id,task:step.task,object_id:step.object_id,completed_at:current.captures[step.step_id]?.completed_at||null,sealed_snapshot_at:iso(Math.min(Number(now),Date.parse(current.deadline_at))),payload};
     }
   }
   updated.status = 'SEALED';
@@ -391,7 +426,7 @@ export function sealEnglishExamSession(state, now = Date.now(), {storage=null} =
   updated.sealed_at = iso(now);
   updated.updated_at = iso(now);
   updated.revision = Number(current.revision||0)+1;
-  return updated;
+  return validateEnglishExamSession(updated);
 }
 
 function normalizeAnswers(value) {
@@ -634,6 +669,38 @@ export function applyEnglishExamProductiveScoreReturn(state, input, now = Date.n
   return updated;
 }
 
+// Native proof for replay/recovery. Transport never grades or invents a
+// success ledger: it asks this owner whether the accepted channels are present.
+export function englishExamProductiveScoreMatches(state, input) {
+  try {
+    const current=validateEnglishExamSession(state);
+    if(current.status!=='SCORED')return false;
+    const normalized=validateEnglishExamProductiveScoreReturn(input,{...current,status:'RELEASED'});
+    return same(current.release.productive.channels,normalized.channels)
+      && current.release.productive.scoring_standard_version===normalized.scoring_standard_version
+      && current.release.productive.review_of===normalized.review_of;
+  } catch { return false; }
+}
+
+// Only one proven native edge may enrich a kept local record during recovery.
+// A timestamp/revision alone is not ancestry. Rebuild from the *local* sealed
+// outputs through the normal score validator and require exact semantic equality.
+export function englishExamScoreIsSuccessor(previous, incoming) {
+  try {
+    const before=validateEnglishExamSession(previous),after=validateEnglishExamSession(incoming);
+    if(before.status!=='RELEASED'||after.status!=='SCORED')return false;
+    const expected=applyEnglishExamProductiveScoreReturn(before,{
+      schema:ENGLISH_EXAM_PRODUCTIVE_SCORE_RETURN_SCHEMA,
+      session_id:after.session_id,paper_id:after.paper_id,paper_source_hash:after.source_hash,
+      scoring_standard_version:after.release.productive.scoring_standard_version,
+      review_of:after.release.productive.review_of,channels:after.release.productive.channels
+    },Date.parse(after.scored_at));
+    const canonical=value=>Array.isArray(value)?value.map(canonical)
+      :record(value)?Object.fromEntries(Object.keys(value).sort().map(key=>[key,canonical(value[key])])):value;
+    return same(canonical(expected),canonical(after));
+  } catch { return false; }
+}
+
 export function englishExamProductiveScoreReturnContract(state) {
   const current = validateEnglishExamSession(state);
   if (current.status !== 'RELEASED') return null;
@@ -761,9 +828,34 @@ export function englishExamPayload(task, local) {
     timing_status:String(evidence.timing_status||'uncalibrated'),
     independent_transfer_candidate:evidence.independent_transfer_candidate===true
   };
-  if(['reading_a','cloze','reading_b'].includes(task))return {...common,answers:normalizeAnswers(local.answers),uncertain:clone(local.uncertain||[]),trajectory:clone(local.trajectory||{})};
-  if(task==='translation')return {...common,answers:normalizeAnswers(local.drafts),first_attempts:clone(local.firstAttempts||{})};
-  if(task==='writing')return {...common,plan_mode:local.planMode||'direct',plan:local.planMode==='planned'?local.draftPlan||'':'',essay:local.draftEssay||'',first_draft:local.firstDraft||''};
+  const requiredAnswers = (field) => {
+    if (!Object.hasOwn(local, field) || !record(local[field])) {
+      throw new Error('ENGLISH_EXAM_TASK_OUTPUT_UNREADABLE:' + task + ':' + field);
+    }
+    return normalizeAnswers(local[field]);
+  };
+  if (OBJECTIVE_TASKS.has(task)) {
+    return {...common, answers: requiredAnswers('answers'),
+      uncertain: clone(local.uncertain || []), trajectory: clone(local.trajectory || {})};
+  }
+  if (task === 'translation') {
+    const answers = requiredAnswers('drafts');
+    // Older unsubmitted records may omit firstAttempts; a supplied value must
+    // still be readable. Seal also preserves every previously captured first output.
+    const firstAttempts = Object.hasOwn(local, 'firstAttempts')
+      ? requiredAnswers('firstAttempts') : {};
+    return {...common, answers, first_attempts: firstAttempts};
+  }
+  if (task === 'writing') {
+    if (!Object.hasOwn(local, 'draftEssay') || typeof local.draftEssay !== 'string'
+        || (local.firstDraft != null && typeof local.firstDraft !== 'string')) {
+      throw new Error('ENGLISH_EXAM_TASK_OUTPUT_UNREADABLE:writing:draftEssay_or_firstDraft');
+    }
+    // Empty strings/maps are explicit blank work, unlike an absent output field.
+    return {...common, plan_mode: local.planMode || 'direct',
+      plan: local.planMode === 'planned' ? local.draftPlan || '' : '',
+      essay: local.draftEssay, first_draft: local.firstDraft ?? ''};
+  }
   throw new Error('ENGLISH_EXAM_TASK_UNSUPPORTED');
 }
 

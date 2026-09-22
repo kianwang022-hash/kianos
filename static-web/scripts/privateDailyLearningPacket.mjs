@@ -1,7 +1,7 @@
 import { englishSessionCatalog } from '../src/lib/englishSessionCatalog.mjs';
 import { validatePrivateLearnerCheckpoint } from './privateLearnerStore.mjs';
 import { restoreSharedControlCheckpoint } from '../src/lib/sharedControlCheckpoint.mjs';
-import { restorePrivateSubjectCheckpoints } from '../src/lib/privateSubjectCheckpoints.mjs';
+import { restorePrivateSubjectCheckpoints, subjectCheckpointEntries, sameCheckpointRaw } from '../src/lib/privateSubjectCheckpoints.mjs';
 import { buildHomeDailyLearningPacket } from '../src/lib/dailyLearningPacketRuntime.mjs';
 import { buildExamStudyTimeOverlay } from '../src/lib/examStudyTime.mjs';
 import { readExamChatPlan } from '../src/lib/examChatPlan.mjs';
@@ -151,11 +151,21 @@ export function buildDailyLearningPacketFromPrivateCheckpoint(input, {
 
   const storage = new MemoryStorage();
   const restoreWarnings = [...(checkpoint.payload.shared.capture_warnings || [])];
+  // This store is disposable and initially empty. Restore native owners first:
+  // a transport receipt must not make a failed reconstruction look applied.
+  const restored = restorePrivateSubjectCheckpoints(storage, checkpoint.payload.subjects || {}, { onlyIfEmpty: true });
+  const nativeComplete = !Object.values(restored).some(row => row.status === 'blocked' || row.blocked?.length)
+    && Object.values(checkpoint.payload.subjects || {}).flatMap(subjectCheckpointEntries)
+      .every(([key, raw]) => storage.getItem(key) != null && sameCheckpointRaw(storage.getItem(key), raw));
   try {
-    const sharedRestore = restoreSharedControlCheckpoint(storage, checkpoint.payload.shared, { expectedDay: checkpoint.study_day });
+    const sharedRestore = restoreSharedControlCheckpoint(storage, checkpoint.payload.shared, {
+      expectedDay: checkpoint.study_day, restoreReceipt: nativeComplete && !restoreWarnings.length
+    });
     restoreWarnings.push(...(sharedRestore.warnings || []));
   } catch (error) { restoreWarnings.push('checkpoint:shared:' + String(error.message || error)); }
-  const restored = restorePrivateSubjectCheckpoints(storage, checkpoint.payload.subjects || {}, { onlyIfEmpty: true });
+  if (!nativeComplete && checkpoint.payload.shared.control_receipt_raw != null) {
+    restoreWarnings.push('checkpoint:shared:RECEIPT_WITHHELD_NATIVE_CONFLICT');
+  }
   const failedSubjects = restoreWarnings.filter(value => value.startsWith('checkpoint:'))
     .flatMap(value => value.split(':')[1].split('+')).map(subject => subject === 'lexical' ? 'english' : subject);
   for (const [subject, row] of Object.entries(restored)) {

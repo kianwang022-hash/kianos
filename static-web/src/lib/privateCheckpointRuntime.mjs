@@ -1,3 +1,4 @@
+import { assertLearnerStorageWritable, commitLearnerStorageChanges } from './browserLearnerWriter.mjs';
 import {
   EXAM_CHAT_PLAN_KEY
 } from './examChatPlan.mjs';
@@ -75,7 +76,7 @@ class SharedStorage {
 }
 function sharedProjection(shared, day) {
   const staged = new SharedStorage();
-  const result = restoreSharedControlCheckpoint(staged, sharedForCurrentDay(shared, day), { expectedDay: day });
+  const result = restoreSharedControlCheckpoint(staged, sharedForCurrentDay(shared, day), { expectedDay: day, restoreReceipt: true });
   return { staged, warnings: result.warnings || [] };
 }
 function sharedConflict(storage, projected) {
@@ -85,7 +86,7 @@ function rememberBase(storage, id, warnings) {
   try { storage.setItem(PRIVATE_CHECKPOINT_BASE_KEY, id); }
   catch { warnings.push('checkpoint:shared:PRIVATE_CHECKPOINT_BASE_UNAVAILABLE'); }
 }
-function localContainsCheckpoint(storage, checkpoint, day) {
+function localContainsCheckpoint(storage, checkpoint, day, { includeReceipt = true } = {}) {
   const entries = Object.values(checkpoint.payload?.subjects || {}).flatMap(subjectCheckpointEntries);
   const projection = sharedProjection(checkpoint.payload?.shared, day);
   if (projection.warnings.length) return false;
@@ -93,42 +94,60 @@ function localContainsCheckpoint(storage, checkpoint, day) {
   // Native timer readers define an absent timer as empty. Compare that read
   // model, so an initial empty save need not manufacture local storage keys.
   const local = sharedProjection(captureSharedControlCheckpoint(storage, { studyDay: day }), day);
-  return !local.warnings.length && [...projection.staged.map].every(([key, raw]) => sameCheckpointRaw(local.staged.getItem(key), raw));
+  return !local.warnings.length && [...projection.staged.map]
+    .filter(([key])=>includeReceipt || key!==CONTROL_LOCAL_RECEIPT_KEY)
+    .every(([key, raw]) => sameCheckpointRaw(local.staged.getItem(key), raw));
 }
 
 export async function restoreSharedControlFromPrivate(storage, {
   now = Date.now(), readCheckpoint = readPrivateLearnerCheckpoint
 } = {}) {
   const studyDay = studyDayAt(now), remote = await readCheckpoint();
+  assertLearnerStorageWritable(storage);
   if (remote?.status !== 'ready' || remote?.checkpoint?.schema !== PRIVATE_CHECKPOINT_SCHEMA) {
     return { status: remote?.status || 'unavailable', reason: remote?.error || null, study_day: studyDay };
   }
   const checkpoint = remote.checkpoint;
+  // A denied local read is not an empty store. Read the receipt destination
+  // before preparing recovery; malformed shared VALUES still isolate locally.
+  const originalReceiptRaw = storage.getItem(CONTROL_LOCAL_RECEIPT_KEY);
   const prepared = preparePrivateSubjectCheckpointRestore(storage, checkpoint.payload?.subjects || {}, { onlyIfEmpty: true });
   const warnings = Object.entries(prepared.results).filter(([, row]) => row.status === 'blocked' || row.blocked?.length)
     .map(([subject, row]) => 'checkpoint:' + subject + ':' + (row.reason || 'native recovery ambiguous'));
   const sharedChanges = [];
+  let deferredReceipt = null;
   let concurrent = Object.values(checkpoint.payload?.subjects || {}).some(value => subjectCheckpointConflicts(storage, value));
   try {
     const projection = sharedProjection(checkpoint.payload?.shared, studyDay);
     warnings.push(...projection.warnings);
     concurrent ||= sharedConflict(storage, projection.staged);
-    for (const [key, raw] of projection.staged.map) if (storage.getItem(key) == null) sharedChanges.push([key, raw]);
-  } catch (error) { warnings.push('checkpoint:shared:' + String(error.message || error)); }
-  const changes = [...sharedChanges, ...prepared.changes];
-  const before = new Map(changes.map(([key]) => [key, storage.getItem(key)]));
-  let subjects;
-  try {
-    for (const [key, raw] of sharedChanges) storage.setItem(key, raw);
-    subjects = applyPrivateSubjectCheckpointRestore(storage, prepared);
-  } catch (error) {
-    let failed = false;
-    for (const [key, raw] of before) {
-      try { raw == null ? storage.removeItem(key) : storage.setItem(key, raw); } catch { failed = true; }
+    for (const [key, raw] of projection.staged.map) {
+      if(key===CONTROL_LOCAL_RECEIPT_KEY){deferredReceipt=raw;continue;}
+      if(storage.getItem(key)==null)sharedChanges.push([key,raw]);
     }
-    if (failed) throw new Error('PRIVATE_CHECKPOINT_ROLLBACK_FAILED_RECOVERY_REQUIRED');
-    throw error;
+  } catch (error) { warnings.push('checkpoint:shared:' + String(error.message || error)); }
+  // Apply the existing native preparation to an ephemeral overlay first. The
+  // success receipt is admitted only with its actual recovered native values,
+  // then the WHOLE write-set commits under the same browser ownership.
+  const pending = new Map(sharedChanges);
+  const staged = {
+    getItem:key=>pending.has(key)?pending.get(key):storage.getItem(key),
+    setItem:(key,raw)=>pending.set(key,String(raw)),
+    removeItem:key=>pending.set(key,null)
+  };
+  const subjects=applyPrivateSubjectCheckpointRestore(staged,prepared);
+  let nativePresent=false;
+  if(!warnings.length){
+    try { nativePresent=localContainsCheckpoint(staged,checkpoint,studyDay,{includeReceipt:false}); }
+    catch(error){warnings.push('checkpoint:shared:'+String(error.message||error));}
   }
+  if(deferredReceipt!=null && originalReceiptRaw==null){
+    if(nativePresent)pending.set(CONTROL_LOCAL_RECEIPT_KEY,deferredReceipt);
+    else warnings.push('checkpoint:shared:RECEIPT_WITHHELD_NATIVE_CONFLICT');
+  }
+  concurrent=!nativePresent;
+  const changes=[...pending];
+  commitLearnerStorageChanges(storage,changes);
   if (!concurrent && !warnings.length && localContainsCheckpoint(storage, checkpoint, studyDay)) rememberBase(storage, checkpoint.checkpoint_id, warnings);
   return { status: changes.length ? 'restored' : 'skipped', study_day: studyDay,
     checkpoint_id: checkpoint.checkpoint_id, source_day: checkpoint.study_day,
@@ -139,6 +158,7 @@ export async function saveSharedControlToPrivate(storage, {
   now = Date.now(), readCheckpoint = readPrivateLearnerCheckpoint, writeCheckpoint = writePrivateLearnerCheckpoint
 } = {}) {
   const studyDay = studyDayAt(now), existing = await readCheckpoint();
+  assertLearnerStorageWritable(storage);
   if (!['ready', 'missing'].includes(existing?.status)) throw new Error('PRIVATE_CHECKPOINT_EXISTING_READ_UNSAFE:' + (existing?.status || 'unknown'));
   if (existing.status === 'ready' && existing.checkpoint?.schema !== PRIVATE_CHECKPOINT_SCHEMA) throw new Error('PRIVATE_CHECKPOINT_EXISTING_SCHEMA_INVALID');
   const previous = existing.checkpoint || null, existingSubjects = previous?.payload?.subjects || {};

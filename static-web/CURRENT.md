@@ -10,6 +10,14 @@ Current closure work is limited to usable context routing, proven-safe cleanup a
 
 Content production remains independent: vocabulary upgrades, Xizong explanations, Visual assets and reviewed relations continue with their Chat-owned content owners. This engineering closure does not declare those frontiers complete.
 
+### Bounded Freeze repairs — verified candidate
+
+The existing [PR #754](https://github.com/kianwang022-hash/kianos/pull/754) carries all seven authorized repairs: normal private handoff; malformed English seal/result preservation; unknown Xizong quantities; native score/receipt recovery; exclusive browser writes with ownership-aware rollback; and crash-safe watcher acquisition. The write owner is ephemeral, not a second learner store or a strategy engine. Explicit blanks and legitimate zero remain legal.
+
+[The affected integration run](https://github.com/kianwang022-hash/kianos/actions/runs/35676415909) passed on candidate `fe2ff9b7be206c3181dcc56702cb0eab03eea19b` / test merge `2b0bf449ba8c19f5c3f39dfadd466db3743d6497`: 27 focused native integrity tests, existing native/control/checkpoint/Forecast interfaces, full build, normal whole-paper journey, four actual-page corruption/recovery/two-page journeys, cross-subject browser regression, and isolated watcher/execution-policy tests. Native foreground focus was separately observed before the two-page tests; no DOM focus predicate or application protection was weakened. This cursor and removal of temporary read-only diagnostics do not alter the tested native or browser-test blobs. Detailed proof and remaining CI distinctions stay on that PR, not a second tracker.
+
+Next: complete ordinary promotion from the verified candidate, reconciling only actual overlap. Existing broader source/content/legacy-fixture failures are not silently green and do not authorize content rewrites. After accepted merge, do not reopen the seven repairs without contrary evidence. Installed Mac, actual private relay, old/new already-open pages and fresh-Chat behavior remain separately NOT_PROVEN; this is not Final Freeze PASS. No learner migration, data reset, real-record mutation or deployment operation is authorized by this candidate.
+
 ## Start from the reported symptom
 
 | Need | Exact first owner | Read further only if needed |
@@ -18,7 +26,7 @@ Content production remains independent: vocabulary upgrades, Xizong explanations
 | Chat cannot see current learner facts | [private Packet builder](scripts/privateDailyLearningPacket.mjs) | [Packet relay](scripts/privateDailyLearningPacketRelay.mjs), then the affected subject adapter |
 | Plan seems unrealistic / a prediction is unclear | [Chat planning boundary, section 0](../EXAM_ORCHESTRATOR_CONTRACT.md) | Actual subject Packet first; [Xizong workload owner](src/lib/xizongForecastModel.mjs) or [English estimate utility](src/lib/englishForecastModel.mjs) only when the disputed output actually uses it |
 | Chat instruction did not apply / receipt differs | [control runtime](src/lib/privateControlRuntime.mjs) | [control relay](scripts/privateControlRelaySync.mjs), then the exact command/native operation |
-| Yesterday's state did not recover / one subject is corrupt | [checkpoint runtime](src/lib/privateCheckpointRuntime.mjs) | [subject checkpoint adapters](src/lib/privateSubjectCheckpoints.mjs), then only the affected native owner |
+| Yesterday's state did not recover / one subject is corrupt | [checkpoint runtime](src/lib/privateCheckpointRuntime.mjs) | [subject checkpoint adapters](src/lib/privateSubjectCheckpoints.mjs), [browser write ownership](src/lib/browserLearnerWriter.mjs), then only the affected native owner |
 | English source changed / Resume differs | [English session owner](src/lib/englishSessionControl.mjs) | [source identity owner](src/lib/englishSourceTruth.mjs) and [Resume surface](src/components/EnglishResume.astro) |
 | English whole-paper score or progress | [native exam session](src/lib/englishExamSession.mjs) | [exam surface](src/pages/english-exam/[id].astro) |
 | Xizong past attempts became stale | [native question evidence](src/lib/xizongQuestionAttempts.mjs) | [semantic source revisions](src/lib/xizongQuestions.mjs), then the affected native consumer |
@@ -36,7 +44,7 @@ For a known symptom, find its owner in two or three precise reads. Further sourc
 | Politics | [Politics Current](../content/politics/CURRENT.md) | Stop touching unless a concrete new defect is reproduced |
 | Vocabulary | [Lexical Current](../content/lexical/CURRENT.md) | Preserve the active content frontier; do not mirror its cursor here |
 
-Chat owns interpretation and plans. GitHub owns canonical content and durable rules. The website executes through subject-native owners; private Runtime preserves learner facts outside the disposable checkout. Shared transport must not become a scoring or strategy owner.
+Chat owns interpretation and plans. GitHub owns canonical content and durable rules. The website executes through subject-native owners; private Runtime preserves learner facts and transports instructions/receipts. Shared transport must not become a scoring or strategy owner.
 
 ## Runtime and background boundaries
 

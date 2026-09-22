@@ -24,6 +24,9 @@ const base = import.meta.env.BASE_URL;
     inspectEnglishSessionSourceContinuation,
     advanceEnglishSessionSourceRevision
   } from '../lib/englishSessionControl.mjs';
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
 
   const root = document.querySelector('[data-english-resume-surface]');
   if (root instanceof HTMLElement) {
@@ -166,4 +169,6 @@ const base = import.meta.env.BASE_URL;
     window.addEventListener('focus', () => void render());
     void render();
   }
+
+  });
 </script>

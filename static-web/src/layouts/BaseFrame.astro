@@ -40,6 +40,12 @@ const currentStatusUrl = `${base}__kianos-current.json`;
 <!doctype html>
 <html lang="zh-CN">
   <head>
+    <script is:inline>
+      // Inline native consumers register before deferred module bootstrapping.
+      window.__kianosLearnerWriterReady = new Promise(resolve => {
+        window.addEventListener('kianos:learner-writer-ready', resolve, {once:true});
+      });
+    </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="KianOS learning workspace" />
@@ -96,6 +102,10 @@ const currentStatusUrl = `${base}__kianos-current.json`;
   </body>
 </html>
 <script>
+  import { createCurrentRefreshPolicy } from '../lib/currentRefreshPolicy.mjs';
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   (() => {
     const body = document.body;
     const toggle = document.querySelector('[data-kianos-rail-toggle]');
@@ -119,7 +129,6 @@ const currentStatusUrl = `${base}__kianos-current.json`;
     });
   })();
 
-  import { createCurrentRefreshPolicy } from '../lib/currentRefreshPolicy.mjs';
 
   (() => {
     if (!['127.0.0.1', 'localhost'].includes(window.location.hostname)) return;
@@ -156,6 +165,8 @@ const currentStatusUrl = `${base}__kianos-current.json`;
       if (!reloading) void pollCurrent();
     });
   })();
+
+  });
 </script>
 <script>
   import { initStudyTimerRuntime } from '../lib/studyTimerClient.mjs';
@@ -165,6 +176,9 @@ const currentStatusUrl = `${base}__kianos-current.json`;
     restoreSharedControlFromPrivate
   } from '../lib/privateCheckpointRuntime.mjs';
   import { initPrivateControlRuntime } from '../lib/privateControlRuntime.mjs';
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
 
   void (async () => {
     let restored = null;
@@ -172,6 +186,7 @@ const currentStatusUrl = `${base}__kianos-current.json`;
       restored = await restoreSharedControlFromPrivate(localStorage);
     } catch {}
 
+    if (document.documentElement.dataset.learnerWriter !== 'active') return;
     if (restored?.status === 'restored') {
       window.location.reload();
       return;
@@ -180,7 +195,12 @@ const currentStatusUrl = `${base}__kianos-current.json`;
     const timer = initStudyTimerRuntime();
     const dock = document.querySelector('[data-study-timer-dock]');
     if (dock instanceof HTMLElement) initStudyTimerDock(dock, timer);
-    initPrivateCheckpointAutosave(localStorage);
-    initPrivateControlRuntime(localStorage);
+    const backup = initPrivateCheckpointAutosave(localStorage);
+    const control = initPrivateControlRuntime(localStorage);
+    window.addEventListener('kianos:learner-writer-retired', () => {
+      backup?.stop(); control?.stop(); timer?.destroy();
+    }, {once:true});
   })();
+
+  });
 </script>

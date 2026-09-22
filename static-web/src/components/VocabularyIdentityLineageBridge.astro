@@ -6,6 +6,8 @@ const payload = JSON.stringify(Array.isArray(lineage) ? lineage : []).replace(/<
   <script type="application/json" data-vocab-identity-lineage set:html={payload}></script>
 </div>
 <script is:inline>
+window.__kianosLearnerWriterReady.then(() => {
+
   (() => {
     const bridge = document.querySelector('[data-vocab-identity-lineage-bridge]');
     if (!(bridge instanceof HTMLElement)) return;
@@ -56,4 +58,6 @@ const payload = JSON.stringify(Array.isArray(lineage) ? lineage : []).replace(/<
     }
     if(!(new URLSearchParams(location.search).get('mode')==='lookup'||new URLSearchParams(location.search).has('lookup')||new URLSearchParams(location.search).get('from')==='english')) { try { localStorage.setItem(storageKey, JSON.stringify(ledger)); } catch {} }
   })();
+
+});
 </script>

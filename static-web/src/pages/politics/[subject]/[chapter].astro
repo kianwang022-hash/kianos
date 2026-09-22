@@ -57,6 +57,8 @@ const usePurposeFirstRuntime = !useCognitiveWorkspace && Boolean(compiled?.size)
   <PoliticsPracticeBridge chapter={data} base={base} />
 
   <script is:inline>
+window.__kianosLearnerWriterReady.then(() => {
+
     (() => {
       try {
         const key = 'kianos-politics-last-location-v1';
@@ -66,7 +68,9 @@ const usePurposeFirstRuntime = !useCognitiveWorkspace && Boolean(compiled?.size)
         if (url.pathname === window.location.pathname) window.__kianosPoliticsResumeSnapshot = last;
       } catch {}
     })();
-  </script>
+
+});
+</script>
 
   {useCognitiveWorkspace
     ? <PoliticsCognitiveWorkspace chapter={data} base={base} />
@@ -80,6 +84,8 @@ const usePurposeFirstRuntime = !useCognitiveWorkspace && Boolean(compiled?.size)
   {usePurposeFirstRuntime && <PoliticsPurposeFirstPilotReadable />}
 
   <script is:inline>
+window.__kianosLearnerWriterReady.then(() => {
+
     (() => {
       const snapshot = window.__kianosPoliticsResumeSnapshot;
       if (!snapshot) return;
@@ -88,7 +94,9 @@ const usePurposeFirstRuntime = !useCognitiveWorkspace && Boolean(compiled?.size)
       } catch {}
       delete window.__kianosPoliticsResumeSnapshot;
     })();
-  </script>
+
+});
+</script>
 
   <PoliticsRepairEnhancer chapter={data} compiled={compiled} />
   <PoliticsUnitReturnEnhancer chapter={data} />

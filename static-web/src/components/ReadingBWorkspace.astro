@@ -169,6 +169,9 @@ const questionByOrdinal = new Map(item.questions.map((question, index) => [Strin
 
 <script>
   import {inspectEnglishAttempt, saveEnglishAttempt, archiveEnglishAttempt, taskMetadata, preserveEnglishFailure} from "../lib/englishLearnerEvidence.mjs";
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   document.querySelectorAll('[data-objective-root][data-objective-task="reading_b"]').forEach((root) => {
     if (!(root instanceof HTMLElement)) return;
     const baseStorageKey = root.getAttribute('data-objective-storage-key') || '';
@@ -359,6 +362,8 @@ const questionByOrdinal = new Map(item.questions.map((question, index) => [Strin
 
     render();
     if (state.submitted) root.dispatchEvent(new CustomEvent('kianos:objective-submitted', { bubbles: true }));
+  });
+
   });
 </script>
 

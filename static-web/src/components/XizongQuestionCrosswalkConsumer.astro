@@ -12,6 +12,8 @@ const base = import.meta.env.BASE_URL;
 </aside>
 
 <script define:vars={{ systemId: system.systemId, base }}>
+window.__kianosLearnerWriterReady.then(() => {
+
   const consumer = document.querySelector(`[data-xizong-question-crosswalk-consumer="${systemId}"]`);
   const runtime = document.querySelector(`[data-xizong-system-exit="${systemId}"]`);
   if (consumer && runtime) {
@@ -84,4 +86,6 @@ const base = import.meta.env.BASE_URL;
     window.addEventListener('storage', sync);
     sync();
   }
+
+});
 </script>

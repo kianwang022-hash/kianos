@@ -1,4 +1,6 @@
 <script is:inline>
+window.__kianosLearnerWriterReady.then(() => {
+
   (() => {
     const workspace = document.querySelector('[data-politics-cognitive-workspace]');
     if (!workspace) return;
@@ -78,6 +80,8 @@
       requestAnimationFrame(() => unit.querySelector('[data-stage="EXTERNAL_LEARN"]')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }));
     });
   })();
+
+});
 </script>
 
 <style is:global>

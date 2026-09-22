@@ -22,6 +22,8 @@ const groupIds = (block?.logicGroups || []).map((group) => group.groupId);
 <div class="xizongExtensionLayer" data-xizong-extension-assets data-extension-block={block?.blockId || ''} aria-live="polite"></div>
 
 <script define:vars={{ extensionAssets: clientAssets, extensionGroupIds: groupIds }}>
+window.__kianosLearnerWriterReady.then(() => {
+
   const extensionHost = document.querySelector('[data-xizong-extension-assets]');
   const blockRoot = document.querySelector('[data-xizong-v6-block]');
 
@@ -144,6 +146,8 @@ const groupIds = (block?.logicGroups || []).map((group) => group.groupId);
     renderGroupSurfaces();
     new MutationObserver(renderGroupSurfaces).observe(blockRoot, { subtree: true, attributes: true, attributeFilter: ['class', 'data-logic-counter'] });
   }
+
+});
 </script>
 
 <style is:global>

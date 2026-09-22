@@ -14,6 +14,9 @@ const configs = buildPoliticsUnitReturnConfigs(chapter);
 
 <script>
   import { evaluatePoliticsUnitReturn, recordPoliticsFirstAttempt } from '../lib/politicsUnitReturn.mjs';
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
 
   const attemptKey = 'kianos-politics-attempts-v1';
   const lastKey = 'kianos-politics-last-location-v1';
@@ -554,6 +557,8 @@ const configs = buildPoliticsUnitReturnConfigs(chapter);
     document.querySelectorAll('[data-politics-unit], [data-politics-external-source], [data-politics-quiz]')
       .forEach((node) => cursorObserver.observe(node));
   }
+
+  });
 </script>
 
 <style>

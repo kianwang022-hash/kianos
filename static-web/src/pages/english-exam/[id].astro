@@ -91,6 +91,7 @@ const serverTaskLabel = (step) => ({
     englishExamRemainingMs,
     englishExamTaskHref,
     readEnglishExamSession,
+    inspectEnglishExamSession,
     releaseEnglishExamObjective,
     sealEnglishExamSession,
     selectEnglishExamStep,
@@ -98,6 +99,9 @@ const serverTaskLabel = (step) => ({
     writeEnglishExamSession
   } from '../../lib/englishExamSession.mjs';
   import { readEnglishSessionInstruction, englishStepIsComplete } from '../../lib/englishSessionControl.mjs';
+  import { learnerWriterReady } from '../../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
 
   const root = document.querySelector('[data-english-exam-home]');
   if (root instanceof HTMLElement) {
@@ -129,6 +133,7 @@ const serverTaskLabel = (step) => ({
       if (!(statusNode instanceof HTMLElement)) return;
       statusNode.textContent = message;
       statusNode.classList.toggle('isBad', bad);
+      statusNode.setAttribute('role', bad ? 'alert' : 'status');
     };
 
     const taskLabel = (step) => ({
@@ -148,8 +153,12 @@ const serverTaskLabel = (step) => ({
       return {taskOrder: Array.isArray(step?.params?.task_order) && step.params.task_order.length ? step.params.task_order : null, assistanceContext: step?.params?.assistance_context || null};
     };
 
+    let sealFailed = false;
+    let sessionUnreadable = false;
     const currentSession = () => {
-      const state = readEnglishExamSession(localStorage);
+      const inspected = inspectEnglishExamSession(localStorage);
+      sessionUnreadable = ['invalid','unavailable'].includes(inspected.status);
+      const state = inspected.session;
       return state?.paper_id === paperId ? state : null;
     };
 
@@ -170,10 +179,11 @@ const serverTaskLabel = (step) => ({
       stepList.replaceChildren();
       const source = state?.steps || paper.steps;
       source.forEach((step, index) => {
-        const row = document.createElement(state?.status === 'ACTIVE' ? 'a' : 'div');
+        const editable = state?.status === 'ACTIVE' && englishExamRemainingMs(state)>0;
+        const row = document.createElement(editable ? 'a' : 'div');
         row.className = 'englishExamStep';
         row.dataset.complete = state?.captures?.[step.step_id]?.completed_at ? 'true' : 'false';
-        if (state?.status === 'ACTIVE' && row instanceof HTMLAnchorElement) {
+        if (editable && row instanceof HTMLAnchorElement) {
           row.href = hrefFor(state, index);
           row.addEventListener('click', () => {
             try { writeSession(selectEnglishExamStep(currentSession(), index)); } catch {}
@@ -229,14 +239,22 @@ const serverTaskLabel = (step) => ({
       const sealed = state?.status === 'SEALED';
       const released = ['RELEASED', 'SCORED'].includes(state?.status);
 
-      if (startButton instanceof HTMLButtonElement) startButton.hidden = Boolean(state);
-      if (continueButton instanceof HTMLButtonElement) continueButton.hidden = !active;
-      if (sealButton instanceof HTMLButtonElement) sealButton.hidden = !active;
+      if (startButton instanceof HTMLButtonElement) startButton.hidden = Boolean(state) || sessionUnreadable;
+      if (continueButton instanceof HTMLButtonElement) {
+        continueButton.hidden = !active;
+        continueButton.disabled = active && englishExamRemainingMs(state)<=0;
+      }
+      if (sealButton instanceof HTMLButtonElement) {
+        sealButton.hidden = !active;
+        sealButton.textContent = sealFailed ? '重试交卷' : '提前交卷';
+      }
       if (releaseButton instanceof HTMLButtonElement) releaseButton.hidden = !sealed;
       if (copyButton instanceof HTMLButtonElement) copyButton.hidden = !sealed && !released;
 
       if (stateLabel) {
-        stateLabel.textContent = !state ? '尚未开始'
+        stateLabel.textContent = sessionUnreadable ? '记录暂不可读 · 作答已保留'
+          : sealFailed && active ? '交卷未成功 · 作答已保留'
+          : !state ? '尚未开始'
           : active ? '进行中 · ' + Object.keys(state.captures || {}).length + '/' + state.steps.length
           : sealed ? '已交卷 · 可查看客观题结果'
           : state.status === 'SCORED' ? '已复盘 · 主观题为参考分'
@@ -245,6 +263,27 @@ const serverTaskLabel = (step) => ({
 
       renderSteps(state);
       renderResult(state);
+      if(sessionUnreadable)setStatus('模考记录暂不可读。原始作答已保留，暂不能交卷或开始新卷。',true);
+    };
+
+    // A failed seal is not a submission. Retry only on an explicit action;
+    // the one-second clock must never become a silent exception/retry loop.
+    const trySeal = (state, automatic = false) => {
+      try {
+        const sealed = sealEnglishExamSession(state,Date.now(),{storage:localStorage});
+        writeSession(sealed);
+        sealFailed = false;
+        root.dataset.sealError = 'false';
+        render();
+        setStatus(automatic ? '180 分钟到，整卷已自动交卷。' : '已交卷。现在可以查看客观题结果。');
+        return true;
+      } catch {
+        sealFailed = true;
+        root.dataset.sealError = 'true';
+        render();
+        setStatus('交卷未成功。原始作答已保留，尚未生成成绩；记录恢复后可重试交卷。',true);
+        return false;
+      }
     };
 
     const start = () => {
@@ -278,9 +317,7 @@ const serverTaskLabel = (step) => ({
       const state = currentSession();
       if (!state || state.status !== 'ACTIVE') return;
       if (!confirm('确认提前交卷？交卷后不能继续修改这次整卷作答。')) return;
-      writeSession(sealEnglishExamSession(state,Date.now(),{storage:localStorage}));
-      setStatus('已交卷。现在可以查看客观题结果。');
-      render();
+      trySeal(state);
     });
     releaseButton?.addEventListener('click', async () => {
       const state = currentSession();
@@ -321,11 +358,7 @@ const serverTaskLabel = (step) => ({
       const minutes = Math.floor(seconds / 60);
       const rest = seconds % 60;
       if (clock) clock.textContent = String(minutes).padStart(3, '0') + ':' + String(rest).padStart(2, '0');
-      if (ms <= 0) {
-        writeSession(sealEnglishExamSession(state,Date.now(),{storage:localStorage}));
-        setStatus('180 分钟到，整卷已自动交卷。');
-        render();
-      }
+      if (ms <= 0 && !sealFailed) trySeal(state,true);
     };
 
     window.addEventListener('storage', (event) => {
@@ -339,6 +372,8 @@ const serverTaskLabel = (step) => ({
     root.dataset.examReady = 'true';
     setInterval(tick, 1000);
   }
+
+  });
 </script>
 
 <style>

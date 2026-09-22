@@ -1,6 +1,9 @@
 <span data-objective-handoff-root hidden></span>
 
 <script>
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   const TRANSFER_STORE_KEY = 'kianos-english-objective-transfer-claims-v1';
   const normalizeAnswer = (value) => Array.isArray(value)
     ? value.map(String)
@@ -226,6 +229,8 @@
       if (event.key === TRANSFER_STORE_KEY) sync();
     });
     sync();
+  });
+
   });
 </script>
 

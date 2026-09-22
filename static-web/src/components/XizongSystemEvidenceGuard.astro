@@ -62,6 +62,9 @@ const evidenceQuestions = (sweep?.questions || []).map((question) => ({
 
 <script>
   import { XIZONG_MEMORY_STORAGE_KEY, normalizeXizongMemoryState } from '../lib/xizongMemoryModel.mjs';
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
 
   const marker = document.querySelector('[data-xizong-system-evidence-guard]');
   const root = document.querySelector('[data-xizong-system-exit], [data-xizong-practice]');
@@ -223,4 +226,6 @@ const evidenceQuestions = (sweep?.questions || []).map((question) => ({
       }, true);
     }
   }
+
+  });
 </script>

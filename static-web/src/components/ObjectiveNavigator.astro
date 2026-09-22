@@ -20,6 +20,9 @@ const lastLocationKey = task === 'cloze'
 </nav>
 
 <script>
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   if (!new URLSearchParams(location.search).has('exam_session')) document.querySelectorAll('[data-objective-navigator]').forEach((node) => {
     if (!(node instanceof HTMLElement)) return;
     const key = node.getAttribute('data-last-key') || '';
@@ -28,6 +31,8 @@ const lastLocationKey = task === 'cloze'
       const payload = JSON.parse(node.getAttribute('data-current') || '{}');
       if (payload?.id) localStorage.setItem(key, JSON.stringify(payload));
     } catch {}
+  });
+
   });
 </script>
 

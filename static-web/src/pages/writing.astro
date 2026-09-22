@@ -74,6 +74,9 @@ const payload = JSON.stringify({ tasks, trueExam: trueExam.firstExam }).replace(
 </Base>
 
 <script>
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
   const root = document.querySelector('[data-writing-home]');
   if (root instanceof HTMLElement) {
     let catalog = { tasks: [], trueExam: null };
@@ -108,6 +111,8 @@ const payload = JSON.stringify({ tasks, trueExam: trueExam.firstExam }).replace(
     select?.addEventListener('change', updateEntry);
     updateEntry();
   }
+
+  });
 </script>
 
 <style>
