@@ -8,20 +8,20 @@ Learner-facing Vocabulary / Lexical belongs under **English**. This file owns on
 
 ## Canonical entry
 
-For normal Lexical BUILD / CONTROL continuation:
+For the current unfinished-catalog semantic sweep:
 
 ```text
 content/lexical/CURRENT.md
-→ content/lexical/execution/live-batch.json
-→ exact proposal / review bundle / Audit Pack named there
-→ work
+→ content/lexical/SEMANTIC_PIPELINE.md
+→ content/lexical/chat-roles/SEMANTIC_<A|B|C>.md
+→ content/lexical/execution/dual-review.json
+→ content/lexical/execution/dual-review-<A|B|C>.json
+→ exact lane artifact for the assigned range
 ```
 
-**Exact batch state lives only in `execution/live-batch.json`.**
+**Campaign baseline/scope lives in `execution/dual-review.json`; concurrent lane progress lives separately in `dual-review-A.json`, `dual-review-B.json`, and `dual-review-C.json`.**
 
-Do not copy BF numbers, current ranges, Human-Gate ordinals, candidate branches, audit states, or “next batch” into this file. That duplication is forbidden because it creates stale parallel truth.
-
-Legacy `execution/three-chat-board.json` is migration/history evidence only and is not part of the normal read path.
+The older `execution/live-batch.json` remains historical evidence for the superseded serialized BF25-era flow and is not the normal controller for this dual-review sweep. Legacy `execution/three-chat-board.json` is also history only.
 
 Target: **2–3 precise GitHub reads before effective work.**
 
@@ -36,8 +36,8 @@ The full-catalog final-standard continuation is active under the already-frozen 
 - `FINAL_SEMANTIC_FREEZE_VALUE_DELEGATION_AMENDMENT_20260922.md`
 - `CONTENT_ASSET_CONTRACT.md`
 - `CONTENT_EXECUTION.md`
-- `THREE_CHAT_RUNTIME.md`
-- `execution/live-batch.json`
+- `SEMANTIC_PIPELINE.md`
+- `execution/dual-review.json`
 
 Scope remains the reopened catalog continuation through o7946. This is not enrichment-by-default. Simple words may remain simple.
 
@@ -48,22 +48,20 @@ A mutation requires a real correctness, decision, structure, phraseology, owners
 ## Frozen execution chain
 
 ```text
-100/100 Fresh Read
-→ Production Self Attack
-→ smallest proposal
-→ standing delegated approval when eligible / exceptional bounded Human Gate otherwise
-→ fail-closed mutation package
+frozen semantic baseline
+├─ A: independent 100/100 review only
+└─ B: independent 100/100 review only
+
+A COMPLETE + B COMPLETE
+→ C: reconcile A ∪ B findings
+→ canonical mutation only in C
 → rebuild 7,946 Final Learner Objects
-→ B readback / Independent Audit
-→ bounded reconciliation if needed
-→ READY_TO_MERGE
-→ normal authorized GitHub merge
-→ automatic main live-cursor advance
+→ targeted final readback of changed owners/dependencies
+→ validators
+→ normal authorized merge
 ```
 
-Mechanical automation may transport, validate, rebuild, record B results, and advance the main cursor after merge. It may not invent semantic changes, bypass the exact approval boundary (standing delegation or exceptional Gate), or bypass repository merge permissions.
-
-A stale Word / Relation / Form hash, stale declared dependency, missing gate, B HOLD, FLOB-count mismatch, write-scope violation, or merge conflict fails closed.
+A and B never modify canonical lexical truth and never read each other's findings. C is not a third full-catalog audit. It only adjudicates findings-hit/disagreement owners plus required dependencies.
 
 ---
 
@@ -77,7 +75,7 @@ Kian should normally need only:
 
 Standing delegation (Kian, 2026-09-22) authorizes routine bounded batch approval after the exact proposal is frozen and quality gates pass. `p` remains available only for an exceptional bounded Gate.
 
-A/B/C remain optional internal reviewer roles, not user-required controls.
+A/B/C are durable execution roles for this campaign. The user selects a role by opening a dedicated `词义A`, `词义B`, or later `词义C` Chat; GitHub role files own the exact behavior.
 
 ---
 
@@ -93,7 +91,7 @@ A/B/C remain optional internal reviewer roles, not user-required controls.
 | Form / spelling / pronunciation / inflection identity | exact Word Form/Identity owner |
 | Final learner objects | `content/lexical/learner/final/` |
 | Independent audit | `content/lexical/INDEPENDENT_SEMANTIC_AUDIT_CONTRACT.md` |
-| Active batch orchestration | `content/lexical/THREE_CHAT_RUNTIME.md` + `execution/live-batch.json` |
+| Active semantic sweep | `content/lexical/SEMANTIC_PIPELINE.md` + `execution/dual-review.json` |
 | Visual product brief | `static-web/LEXICAL_PRODUCT_BRIEF.md` |
 | Final acceptance | `content/lexical/ACCEPTANCE.md` |
 
@@ -119,6 +117,6 @@ Natural Owners remain semantic truth. Final Learner Objects are derived learner 
 
 ## Exact next action
 
-Read `execution/live-batch.json` and obey its `next_action`.
+Read `execution/dual-review.json` plus the requested lane state file, then obey that lane's role file and `next_ordinal`.
 
-Do not infer the active batch from this file, Chat memory, old branches, or the legacy board.
+Do not infer progress from Chat memory, old BF branches, `live-batch.json`, or the legacy board.

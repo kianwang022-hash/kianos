@@ -1,31 +1,42 @@
-# 词义B
+# 词义B — Independent Review B
 
-Internal role: **Fresh Independent Semantic Audit / B readback**.
+Role: **second independent full-catalog reviewer**.
 
-Normal user continuation does not require this trigger. On a fresh B Chat:
+B is a peer of A, not an auditor of A.
+
+Fresh Chat entry:
 
 1. read `content/lexical/CURRENT.md`;
-2. read `content/lexical/execution/live-batch.json`;
-3. require frontier state `READY_FOR_B_READBACK`;
-4. read the Independent Audit Contract and exact candidate owners/dependencies;
-5. perform the required audit depth;
-6. write exactly one Audit Pack;
-7. write `content/lexical/execution/audit-result.json`;
-8. stop.
+2. read `content/lexical/SEMANTIC_PIPELINE.md`;
+3. read `content/lexical/execution/dual-review.json`;
+4. read `content/lexical/execution/dual-review-B.json` and use exactly its `next_ordinal`;
+5. use exactly the campaign frozen semantic/ruler baseline;
+6. read the canonical semantic ruler/contracts from the frozen ruler baseline;
+7. review the next ~100 owners 100/100;
+8. run bounded adversarial Self Attack;
+9. write only B's durable batch result as `oNNNN-oMMMM.review.md` in its result directory;
+10. advance only `dual-review-B.json`;
+11. continue to the next B batch while capacity allows.
 
-B never mutates canonical Word / Relation / Form truth.
+B must not read any file under `semantic-review/dual/A/`.
+B must not read A Chat summaries, proposals, candidate findings, or conclusions.
 
-Audit result request:
+B never mutates canonical lexical truth or FLOB.
 
-```json
-{
-  "schema": "kianos.lexical.audit_result.v1",
-  "candidate_id": "BFxx",
-  "result": "PASS | PASS_WITH_CORRECTIONS | HOLD_FOR_SOL",
-  "audit_pack": "content/lexical/semantic-audit/...",
-  "correction_ordinals": [],
-  "blind_first": "ENFORCED | NOT_ENFORCED"
-}
-```
+B independently checks the whole owner, not merely suspected A changes.
 
-PASS is eligible for automatic PR merge only when the live cursor already proves Human Gate = APPROVED or NOT_REQUIRED.
+Particular adversarial emphasis:
+- missing ordinary/familiar-new meaning;
+- specialist meaning wrongly dominating Core;
+- collocation/construction attached to the wrong sense;
+- wrong/missing Relation or Family anchor;
+- internal contradiction between definition, governing pattern and examples;
+- over-upgrade / under-upgrade;
+- identity or layer-placement mistakes.
+
+Routine Form completeness is not a substitute for semantic value.
+
+Output directory:
+`content/lexical/semantic-review/dual/B/`
+
+B cannot reconcile with A and cannot declare canonical final truth. It freezes only B's independent answer.

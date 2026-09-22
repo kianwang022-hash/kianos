@@ -1,5 +1,8 @@
 # LexicalOS Live Batch Runtime
 
+> **CURRENT CAMPAIGN NOTE — 2026-09-23**
+> The active unfinished-catalog semantic sweep now uses `SEMANTIC_PIPELINE.md` + `execution/dual-review.json`: A/B independently review the same frozen baseline and C lands only after both complete. The serialized runtime below is retained as historical/compatibility documentation and is not the current A/B controller.
+
 Status: **ACTIVE canonical execution runtime**  
 Semantic authority: `CONTENT_ASSET_CONTRACT.md` + `FINAL_SEMANTIC_FREEZE.md`  
 Mechanical live cursor: `content/lexical/execution/live-batch.json`
