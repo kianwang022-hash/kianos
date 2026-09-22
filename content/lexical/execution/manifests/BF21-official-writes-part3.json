@@ -1,0 +1,233 @@
+{
+  "schema": "kianos.lexical.bf21_write_fragment.v1",
+  "part": 3,
+  "writes": [
+    {
+      "path": "content/lexical/words/by-ordinal/o2239.json",
+      "mode": "patch_json",
+      "expected_sha256": "dd9d3b59a1640ab9af362fe307074249a9221cc37d6753cbbefe5c9b591e2e79",
+      "edits": [
+        {
+          "pointer": "/relation_refs",
+          "value": [
+            {
+              "relation_id": "relation:confusable:hair|hare:homophone",
+              "owner_path": "content/lexical/relations/by-id/b9/b9f49fe669ac5a5c82cb026934e2a07315e4011d3c42b9d7283853f54494d1a8.json",
+              "field": "confusables",
+              "index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o5546.json",
+      "mode": "patch_json",
+      "expected_sha256": "fadb10b9403dc8922aed2cf63c766cf1018f90aafb61d52e6522614d1c67fd47",
+      "edits": [
+        {
+          "pointer": "/relation_refs",
+          "value": [
+            {
+              "relation_id": "relation:confusable:hair|hare:homophone",
+              "owner_path": "content/lexical/relations/by-id/b9/b9f49fe669ac5a5c82cb026934e2a07315e4011d3c42b9d7283853f54494d1a8.json",
+              "field": "confusables",
+              "index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o0474.json",
+      "mode": "patch_json",
+      "expected_sha256": "bdf9d686412358f84c235254808f3d6f2e832f5d7865a438cb5f4c8848d3273b",
+      "edits": [
+        {
+          "pointer": "/record/form_identity",
+          "value": {
+            "form_type": "shared_surface_comparison_identity",
+            "spelling": "better",
+            "identity_rule": "independent_word_owner_plus_comparative_surface",
+            "boundary": "better is the comparative surface of adjective good and adverb well, while word:better also remains an independent Word owner for its noun, adverb, adjective, and verb uses.",
+            "boundaries": [
+              {
+                "surface": "better",
+                "condition": "comparative of adjective good",
+                "note": "comparison surface"
+              },
+              {
+                "surface": "better",
+                "condition": "comparative of adverb well",
+                "note": "comparison surface"
+              },
+              {
+                "surface": "better",
+                "condition": "independent lexical uses owned by word:better",
+                "note": "preserve independent Word owner"
+              }
+            ],
+            "variants": [],
+            "authority": "BF21 exact p approved comparison Form group 2026-09-22"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o0471.json",
+      "mode": "patch_json",
+      "expected_sha256": "7cd92f3686c21fafd1ff0879a088c01f6b1e1d0627ec3927976e0501b6f31ad4",
+      "edits": [
+        {
+          "pointer": "/record/form_identity",
+          "value": {
+            "form_type": "shared_surface_comparison_identity",
+            "spelling": "best",
+            "identity_rule": "independent_word_owner_plus_superlative_surface",
+            "boundary": "best is the superlative surface of adjective good and adverb well, while word:best also remains an independent Word owner for its adjective, adverb, and noun uses.",
+            "boundaries": [
+              {
+                "surface": "best",
+                "condition": "superlative of adjective good",
+                "note": "comparison surface"
+              },
+              {
+                "surface": "best",
+                "condition": "superlative of adverb well",
+                "note": "comparison surface"
+              },
+              {
+                "surface": "best",
+                "condition": "independent lexical uses owned by word:best",
+                "note": "preserve independent Word owner"
+              }
+            ],
+            "variants": [],
+            "authority": "BF21 exact p approved comparison Form group 2026-09-22"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o5388.json",
+      "mode": "patch_json",
+      "expected_sha256": "d07927742f31c6eeddcf6807552745c8fd2ff2c3a05b3a6d1c4fa86081ce344d",
+      "edits": [
+        {
+          "pointer": "/record/form_identity",
+          "value": {
+            "form_type": "suppletive_comparison_identity",
+            "spelling": "well",
+            "identity_rule": "shared_comparative_superlative_surfaces",
+            "boundary": "Adverb well compares as well → better → best. Adjective good uses the same comparative/superlative surfaces; better and best remain independent Word owners for their other lexical uses.",
+            "boundaries": [
+              {
+                "surface": "well",
+                "condition": "positive adverb meaning in a good/satisfactory way",
+                "note": "base adverb"
+              },
+              {
+                "surface": "better",
+                "condition": "comparative of adverb well",
+                "note": "shared surface; also independent Word owner"
+              },
+              {
+                "surface": "best",
+                "condition": "superlative of adverb well",
+                "note": "shared surface; also independent Word owner"
+              }
+            ],
+            "variants": [],
+            "authority": "BF21 exact p approved comparison Form group 2026-09-22"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/relations/by-id/b9/b9f49fe669ac5a5c82cb026934e2a07315e4011d3c42b9d7283853f54494d1a8.json",
+      "mode": "create_json",
+      "expected_absent": true,
+      "value": {
+        "schema": "kianos.lexical.relation_owner.v1",
+        "relation_id": "relation:confusable:hair|hare:homophone",
+        "canonical_record": null,
+        "fact_record": null,
+        "word_views": [
+          {
+            "source_word_id": "word:hair",
+            "source_ordinal": 2239,
+            "field": "confusables",
+            "index": 0,
+            "payload": {
+              "relation_id": "relation:confusable:hair|hare:homophone",
+              "relation_type": "homophone_confusable",
+              "relation_scope": "lexeme",
+              "target_word": "hare",
+              "source_sense_id": "sense:hair:8572bd75c25e5bca",
+              "target_sense_id": "sense:hare:3e2dc8dc93fe5c4b",
+              "boundary": "hair means the fine strands growing from skin; hare means a fast-running animal similar to a rabbit. They are standard homophones in the checked UK/US pronunciations.",
+              "boundaries": [
+                "hair = 毛发/头发",
+                "hare = 野兔",
+                "same pronunciation; spelling and meaning differ"
+              ],
+              "learning_note": "Do not confuse hair (毛发) with hare (野兔): same pronunciation, different spelling and meaning.",
+              "priority": "A",
+              "publication_status": "human_gate_approved",
+              "verification_status": "source_checked",
+              "writing_safe": true,
+              "task_tags": [
+                "reading",
+                "writing"
+              ]
+            }
+          },
+          {
+            "source_word_id": "word:hare",
+            "source_ordinal": 5546,
+            "field": "confusables",
+            "index": 0,
+            "payload": {
+              "relation_id": "relation:confusable:hair|hare:homophone",
+              "relation_type": "homophone_confusable",
+              "relation_scope": "lexeme",
+              "target_word": "hair",
+              "source_sense_id": "sense:hare:3e2dc8dc93fe5c4b",
+              "target_sense_id": "sense:hair:8572bd75c25e5bca",
+              "boundary": "hare means a fast-running animal similar to a rabbit; hair means the fine strands growing from skin. They are standard homophones in the checked UK/US pronunciations.",
+              "boundaries": [
+                "hare = 野兔",
+                "hair = 毛发/头发",
+                "same pronunciation; spelling and meaning differ"
+              ],
+              "learning_note": "Do not confuse hare (野兔) with hair (毛发): same pronunciation, different spelling and meaning.",
+              "priority": "A",
+              "publication_status": "human_gate_approved",
+              "verification_status": "source_checked",
+              "writing_safe": true,
+              "task_tags": [
+                "reading",
+                "writing"
+              ]
+            }
+          }
+        ],
+        "provenance": {
+          "materialized_from": "BF21 exact Human Gate 2026-09-22",
+          "semantic_delta": 1
+        }
+      }
+    },
+    {
+      "path": "content/lexical/relations/manifest.json",
+      "mode": "patch_json",
+      "expected_sha256": "25455b7ce88a5bb9a83b7281b736346b7acea093bc75059cc57ab89b372ecf48",
+      "edits": [
+        {
+          "pointer": "/relation_count",
+          "value": 440
+        }
+      ]
+    }
+  ]
+}
