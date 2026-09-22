@@ -1,0 +1,72 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "relation:confusable:human|humane:near_form",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:human",
+      "source_ordinal": 2399,
+      "field": "confusables",
+      "index": 0,
+      "payload": {
+        "relation_id": "relation:confusable:human|humane:near_form",
+        "relation_type": "near_form_semantic_confusable",
+        "relation_scope": "lexeme",
+        "target_word": "humane",
+        "source_sense_id": "sense:human:9b8839db0afd5c72",
+        "target_sense_id": "sense:humane:399b74f0f4675d45",
+        "boundary": "human means relating to people/humankind; humane means compassionate or concerned with reducing suffering.",
+        "boundaries": [
+          "human = 人的；人类的",
+          "humane = 人道的；仁慈的",
+          "near spelling, different semantic boundary"
+        ],
+        "learning_note": "human is not the adjective meaning compassionate; that learner boundary belongs to humane.",
+        "priority": "A",
+        "publication_status": "human_gate_approved",
+        "verification_status": "source_checked",
+        "writing_safe": false,
+        "task_tags": [
+          "reading",
+          "cloze",
+          "writing"
+        ]
+      }
+    },
+    {
+      "source_word_id": "word:humane",
+      "source_ordinal": 6967,
+      "field": "confusables",
+      "index": 0,
+      "payload": {
+        "relation_id": "relation:confusable:human|humane:near_form",
+        "relation_type": "near_form_semantic_confusable",
+        "relation_scope": "lexeme",
+        "target_word": "human",
+        "source_sense_id": "sense:humane:399b74f0f4675d45",
+        "target_sense_id": "sense:human:9b8839db0afd5c72",
+        "boundary": "humane means compassionate or concerned with reducing suffering; human means relating to people/humankind.",
+        "boundaries": [
+          "humane = 人道的；仁慈的",
+          "human = 人的；人类的",
+          "near spelling, different semantic boundary"
+        ],
+        "learning_note": "humane means compassionate/humane, not simply human/relating to people.",
+        "priority": "A",
+        "publication_status": "human_gate_approved",
+        "verification_status": "source_checked",
+        "writing_safe": false,
+        "task_tags": [
+          "reading",
+          "cloze",
+          "writing"
+        ]
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "BF23 exact Human Gate 2026-09-22",
+    "semantic_delta": 1
+  }
+}

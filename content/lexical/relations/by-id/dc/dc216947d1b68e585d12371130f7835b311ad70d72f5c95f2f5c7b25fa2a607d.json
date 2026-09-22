@@ -1,0 +1,72 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "relation:confusable:hour|our:pronunciation_overlap",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:hour",
+      "source_ordinal": 2386,
+      "field": "confusables",
+      "index": 0,
+      "payload": {
+        "relation_id": "relation:confusable:hour|our:pronunciation_overlap",
+        "relation_type": "pronunciation_overlap_confusable",
+        "relation_scope": "lexeme",
+        "target_word": "our",
+        "source_sense_id": "sense:hour:5598ba8cb1b65d61",
+        "target_sense_id": "sense:our:6dfafe59ebb651dd",
+        "boundary": "hour and a common pronunciation of our overlap; hour is a unit of time, while our is a possessive determiner. our also has accent-dependent alternative pronunciations.",
+        "boundaries": [
+          "hour = 小时",
+          "our = 我们的",
+          "common pronunciations overlap; our has accent-dependent alternatives"
+        ],
+        "learning_note": "Do not confuse hour (小时) with our (我们的) when the pronunciations overlap.",
+        "priority": "A",
+        "publication_status": "human_gate_approved",
+        "verification_status": "source_checked",
+        "writing_safe": false,
+        "task_tags": [
+          "reading",
+          "cloze",
+          "writing"
+        ]
+      }
+    },
+    {
+      "source_word_id": "word:our",
+      "source_ordinal": 3389,
+      "field": "confusables",
+      "index": 0,
+      "payload": {
+        "relation_id": "relation:confusable:hour|our:pronunciation_overlap",
+        "relation_type": "pronunciation_overlap_confusable",
+        "relation_scope": "lexeme",
+        "target_word": "hour",
+        "source_sense_id": "sense:our:6dfafe59ebb651dd",
+        "target_sense_id": "sense:hour:5598ba8cb1b65d61",
+        "boundary": "our is a possessive determiner; a common pronunciation overlaps with hour, a unit of time. our also has accent-dependent alternative pronunciations.",
+        "boundaries": [
+          "our = 我们的",
+          "hour = 小时",
+          "common pronunciations overlap; our has accent-dependent alternatives"
+        ],
+        "learning_note": "Do not confuse our (我们的) with hour (小时) when the pronunciations overlap.",
+        "priority": "A",
+        "publication_status": "human_gate_approved",
+        "verification_status": "source_checked",
+        "writing_safe": false,
+        "task_tags": [
+          "reading",
+          "cloze",
+          "writing"
+        ]
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "BF23 exact Human Gate 2026-09-22",
+    "semantic_delta": 1
+  }
+}

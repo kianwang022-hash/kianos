@@ -6993,7 +6993,7 @@
     "ordinal": 3389,
     "word": "our",
     "source_owner_path": "content/lexical/words/by-ordinal/o3389.json",
-    "source_fingerprint": "ca9e6d58abbcfb46ec0d1eca4232be5c6dbd507155f34b1342044fd97f8da06c",
+    "source_fingerprint": "f5d23d256e339ed271e6f24ffd256f88cf38f0fb9bbcff6ef890f93c34f4f573",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7050,7 +7050,41 @@
     "secondary_senses": [],
     "constructions": [],
     "reference": {
-      "confusables": [],
+      "confusables": [
+        {
+          "title": "our ↔ hour",
+          "target_word": "hour",
+          "lines": [
+            {
+              "text": "our is a possessive determiner; a common pronunciation overlaps with hour, a unit of time. our also has accent-dependent alternative pronunciations.",
+              "lang": "en"
+            },
+            {
+              "text": "our = 我们的",
+              "lang": "cn"
+            },
+            {
+              "text": "hour = 小时",
+              "lang": "cn"
+            },
+            {
+              "text": "common pronunciations overlap; our has accent-dependent alternatives",
+              "lang": "en"
+            },
+            {
+              "text": "Do not confuse our (我们的) with hour (小时) when the pronunciations overlap.",
+              "lang": "cn"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:confusable:hour|our:pronunciation_overlap",
+            "target_locator": "record.confusables[0]",
+            "target_label": "our ↔ hour"
+          }
+        }
+      ],
       "relations": [],
       "form": null,
       "family": []

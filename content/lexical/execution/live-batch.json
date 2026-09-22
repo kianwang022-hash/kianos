@@ -3,14 +3,14 @@
   "status": "ACTIVE",
   "campaign": "FULL_CATALOG_FINAL_STANDARD_CONTINUATION",
   "semantic_ruler": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
-  "updated_at": "2026-09-22",
+  "updated_at": "2026-09-22T14:15:55+00:00",
   "frontier": {
     "candidate_id": "BF23",
     "range": [
       2351,
       2450
     ],
-    "state": "MATERIALIZE_ALLOWED",
+    "state": "READY_FOR_B_READBACK",
     "proposal_path": "content/lexical/execution/manifests/o2351-o2450.fullcatalog-final-standard-proposal.md",
     "proposal_commit": "6b9de552f2bfede40bf49c6733e3d158a53d5b1a",
     "review_branch": "work/lexical-fullcatalog-bf23-review-20260922",
@@ -47,7 +47,19 @@
       "artifact_id": 10697616972,
       "digest": "sha256:ecc9b0dbd4e1431caa5e58b12497860366c674273cf27b0f1b696c82a8aaee07"
     },
-    "self_attack_note": "Tightened after proposal review: added six real L1/Core ordering/correctness repairs and narrowed horse/hoarse + hour/our pronunciation claims."
+    "self_attack_note": "Tightened after proposal review: added six real L1/Core ordering/correctness repairs and narrowed horse/hoarse + hour/our pronunciation claims.",
+    "materialization": {
+      "status": "READY_FOR_B_READBACK",
+      "package_id": "BF23-official-o2351-o2450-v2",
+      "receipt": "content/lexical/execution/mutation-receipts/BF23-official-o2351-o2450-v2.json",
+      "final_learner_objects": 7946,
+      "updated_at": "2026-09-22T14:15:55+00:00"
+    },
+    "audit": {
+      "status": "PENDING",
+      "result": null,
+      "pack": null
+    }
   },
   "next": {
     "candidate_id": "BF24",
@@ -76,6 +88,6 @@
     "final_learner_objects": 7946
   },
   "blocker": null,
-  "next_action": "MATERIALIZE_FRONTIER",
+  "next_action": "RUN_B_READBACK",
   "legacy_history": "content/lexical/execution/three-chat-board.json"
 }

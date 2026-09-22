@@ -4101,7 +4101,7 @@
     "ordinal": 6967,
     "word": "humane",
     "source_owner_path": "content/lexical/words/by-ordinal/o6967.json",
-    "source_fingerprint": "4c6de4bf3d22fee10c83830b2fb6ac2e657264684278289d0778fc973c27d23e",
+    "source_fingerprint": "d76fe3e270ec62f4de9b28e5eb0dc5f6b4ae329f112710d3efad99d167164656",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4158,7 +4158,41 @@
     "secondary_senses": [],
     "constructions": [],
     "reference": {
-      "confusables": [],
+      "confusables": [
+        {
+          "title": "humane ↔ human",
+          "target_word": "human",
+          "lines": [
+            {
+              "text": "humane means compassionate or concerned with reducing suffering; human means relating to people/humankind.",
+              "lang": "en"
+            },
+            {
+              "text": "humane = 人道的；仁慈的",
+              "lang": "cn"
+            },
+            {
+              "text": "human = 人的；人类的",
+              "lang": "cn"
+            },
+            {
+              "text": "near spelling, different semantic boundary",
+              "lang": "en"
+            },
+            {
+              "text": "humane means compassionate/humane, not simply human/relating to people.",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:confusable:human|humane:near_form",
+            "target_locator": "record.confusables[0]",
+            "target_label": "humane ↔ human"
+          }
+        }
+      ],
       "relations": [],
       "form": null,
       "family": []

@@ -3294,7 +3294,7 @@
     "ordinal": 5873,
     "word": "hoarse",
     "source_owner_path": "content/lexical/words/by-ordinal/o5873.json",
-    "source_fingerprint": "bfeb4c10a3ffe39afd2e802d820cff71e109866596382483ce80b20febad4611",
+    "source_fingerprint": "d0050e8b88b6b1671ca7fb900759adb36036f3cb1835cc041d3d05635694c541",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3334,7 +3334,41 @@
     "secondary_senses": [],
     "constructions": [],
     "reference": {
-      "confusables": [],
+      "confusables": [
+        {
+          "title": "hoarse ↔ horse",
+          "target_word": "horse",
+          "lines": [
+            {
+              "text": "hoarse describes a rough, harsh voice; horse means the animal. They are homophones in common standard pronunciations, though dialectal variants may differ.",
+              "lang": "en"
+            },
+            {
+              "text": "hoarse = 声音嘶哑的",
+              "lang": "cn"
+            },
+            {
+              "text": "horse = 马",
+              "lang": "cn"
+            },
+            {
+              "text": "common standard pronunciations overlap; avoid universal dialect claim",
+              "lang": "en"
+            },
+            {
+              "text": "hoarse and horse commonly sound the same but mean different things.",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:confusable:hoarse|horse:pronunciation_overlap",
+            "target_locator": "record.confusables[0]",
+            "target_label": "hoarse ↔ horse"
+          }
+        }
+      ],
       "relations": [],
       "form": null,
       "family": []

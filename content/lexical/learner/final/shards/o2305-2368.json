@@ -5163,7 +5163,7 @@
     "ordinal": 2352,
     "word": "hold",
     "source_owner_path": "content/lexical/words/by-ordinal/o2352.json",
-    "source_fingerprint": "664b76c1c616c88bd773c4c9c2877f6e8d264132d6e2749bdb623d48913324cf",
+    "source_fingerprint": "f251ead4d048fc41c33e7294d73b913c3fc32cfff65ca9fee69fc37884ca0ce8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5173,13 +5173,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "握住或容纳",
+      "summary_cn": "握住；持有；举行；坚持观点；保持",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "握住或容纳"
+        "target_label": "握住；持有；举行；坚持观点；保持"
       }
     },
     "senses": [
@@ -5363,7 +5363,33 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "hold is irregular: hold → held → held.",
+        "boundaries": [
+          {
+            "surface": "hold",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "held",
+            "condition": "past simple",
+            "note": "irregular past"
+          },
+          {
+            "surface": "held",
+            "condition": "past participle",
+            "note": "irregular participle"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "hold is irregular: hold → held → held."
+        }
+      },
       "family": []
     }
   },
@@ -5468,7 +5494,7 @@
     "ordinal": 2354,
     "word": "hole",
     "source_owner_path": "content/lexical/words/by-ordinal/o2354.json",
-    "source_fingerprint": "348cb6555149f5cabb9ec560428c4e9ffc5b58730bd4bf6d8040477b097e3c35",
+    "source_fingerprint": "a7214416e843e5d065415ed97192eeb50491cb1180114a5fe28f285e3bc5ba9c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5478,13 +5504,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "物体上的开口或凹陷空间",
+      "summary_cn": "孔、洞或凹陷空间",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "物体上的开口或凹陷空间"
+        "target_label": "孔、洞或凹陷空间"
       }
     },
     "senses": [
@@ -5638,7 +5664,41 @@
     "secondary_senses": [],
     "constructions": [],
     "reference": {
-      "confusables": [],
+      "confusables": [
+        {
+          "title": "hole ↔ whole",
+          "target_word": "whole",
+          "lines": [
+            {
+              "text": "hole means an opening or cavity; whole means complete/all of something.",
+              "lang": "en"
+            },
+            {
+              "text": "hole = 洞；孔",
+              "lang": "cn"
+            },
+            {
+              "text": "whole = 完整的；整体",
+              "lang": "cn"
+            },
+            {
+              "text": "standard pronunciations are homophones",
+              "lang": "en"
+            },
+            {
+              "text": "Do not confuse hole (洞/孔) with whole (完整的/整体).",
+              "lang": "cn"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:confusable:hole|whole:homophone",
+            "target_locator": "record.confusables[0]",
+            "target_label": "hole ↔ whole"
+          }
+        }
+      ],
       "relations": [],
       "form": null,
       "family": []
@@ -5743,7 +5803,7 @@
     "ordinal": 2356,
     "word": "hollow",
     "source_owner_path": "content/lexical/words/by-ordinal/o2356.json",
-    "source_fingerprint": "fbdce558c634b0a23a40fcad589f05ee78705cf9ef96b1648b0a8acb01d3e846",
+    "source_fingerprint": "3bdfbc5a5a31baed5459438b515eaae5e858fda6db8e35eb2caf9e0c761f1180",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6477,7 +6537,7 @@
     "ordinal": 2362,
     "word": "honey",
     "source_owner_path": "content/lexical/words/by-ordinal/o2362.json",
-    "source_fingerprint": "bbf7bf627beacd4dfe6003b353aece48e7de82aa80205fffafba4bb802b798f7",
+    "source_fingerprint": "6d6fe9631540ee02e4af30c36d75ce874b6a28773f6222c8f302d66ee7601e2e",
     "sense_lineage": [
       {
         "word_id": "word:honey",
@@ -6496,13 +6556,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "蜂蜜；甜蜜",
+      "summary_cn": "蜂蜜；亲爱的（称呼）",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "蜂蜜；甜蜜"
+        "target_label": "蜂蜜；亲爱的（称呼）"
       }
     },
     "senses": [
@@ -6624,7 +6684,7 @@
     "ordinal": 2363,
     "word": "honor",
     "source_owner_path": "content/lexical/words/by-ordinal/o2363.json",
-    "source_fingerprint": "cd32a88caf243350420f26e9112d54500ee5ad0524f3d05a055ccaf72fc5c4b8",
+    "source_fingerprint": "a989cee2c52a6f62b43757df4d23266b02842744dc664be3400e24d4f69789d6",
     "sense_lineage": [
       {
         "word_id": "word:honor",
@@ -6749,7 +6809,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "honor is the usual American spelling; honour is the usual British spelling.",
+        "boundaries": [
+          {
+            "surface": "honor",
+            "condition": "American English",
+            "note": "AmE spelling"
+          },
+          {
+            "surface": "honour",
+            "condition": "British English",
+            "note": "BrE spelling"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "honor is the usual American spelling; honour is the usual British spelling."
+        }
+      },
       "family": [
         {
           "target_word": "honorable",
@@ -6847,7 +6928,7 @@
     "ordinal": 2365,
     "word": "hook",
     "source_owner_path": "content/lexical/words/by-ordinal/o2365.json",
-    "source_fingerprint": "078470a2a2bfebd3b4d85f330408e6572416c52477cf69db2e9e6025cc102081",
+    "source_fingerprint": "fda695cc978f03b525b5e9a6f94f6b42f44f8b7a99c5dae6038117190cacd166",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7052,7 +7133,7 @@
     "ordinal": 2366,
     "word": "hop",
     "source_owner_path": "content/lexical/words/by-ordinal/o2366.json",
-    "source_fingerprint": "86a1ded367cc0df9e741a6c27103e1286c86da6f4fb62ad1805ceefdec15d907",
+    "source_fingerprint": "da9d59cd811c4a5379ca887ad5641509703d9be1fe34357613baa28035b2b3f7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7427,7 +7508,7 @@
     "ordinal": 2368,
     "word": "hopeful",
     "source_owner_path": "content/lexical/words/by-ordinal/o2368.json",
-    "source_fingerprint": "ccdc57d082f51182f15dcfb5de984e3597d20b170d5a636999a2733c3944213f",
+    "source_fingerprint": "5b19b423b93f403a9ff80df4c4bf7c45bd5727a23146f0f535d139431a53158d",
     "sense_lineage": [
       {
         "word_id": "word:hopeful",

@@ -745,7 +745,7 @@
     "ordinal": 2441,
     "word": "ill",
     "source_owner_path": "content/lexical/words/by-ordinal/o2441.json",
-    "source_fingerprint": "7e7e84a234bf12d083f907c58c899e6966ad5bb8a997151cadb5be0e5758b7d1",
+    "source_fingerprint": "61e10a63415a6fc503129a35d10d4c32ca3b0a1362f359d1a17031e019166975",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -756,13 +756,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "生病；坏",
+      "summary_cn": "生病；坏；有害",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "生病；坏"
+        "target_label": "生病；坏；有害"
       }
     },
     "senses": [
@@ -965,7 +965,7 @@
     "ordinal": 2443,
     "word": "illiterate",
     "source_owner_path": "content/lexical/words/by-ordinal/o2443.json",
-    "source_fingerprint": "329e04f60b74b27fd9140d0603cd246fc219df4fad0687968aafd1ef2de0192c",
+    "source_fingerprint": "ca439e0cdf47cfbbae5846719573b615dd1114831eb61ef8caa69029c7bdc1f6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1148,7 +1148,7 @@
     "ordinal": 2445,
     "word": "illuminate",
     "source_owner_path": "content/lexical/words/by-ordinal/o2445.json",
-    "source_fingerprint": "034092e32047bbdd8c431aa9a18ea66e1cd4e5a8dafda81bf695768706bea775",
+    "source_fingerprint": "22631f2d8f26d66f611da9dbf8447af901f61d535fe5a446486917358e46e061",
     "sense_lineage": [
       {
         "word_id": "word:illuminate",
@@ -1554,7 +1554,7 @@
     "ordinal": 2449,
     "word": "image",
     "source_owner_path": "content/lexical/words/by-ordinal/o2449.json",
-    "source_fingerprint": "cb07c92422c81ccea6bf97172c7d22cf7b61e8c964d10649a9d279e0b4631407",
+    "source_fingerprint": "67c455327ce23575084030fff78550037c4b262b8fc3d65552be7ebc3b19df93",
     "sense_lineage": [
       {
         "word_id": "word:image",
@@ -1585,13 +1585,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "图像；形象",
+      "summary_cn": "图像；公众形象、印象",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "图像；形象"
+        "target_label": "图像；公众形象、印象"
       }
     },
     "senses": [
@@ -1645,7 +1645,7 @@
     "ordinal": 2450,
     "word": "imaginary",
     "source_owner_path": "content/lexical/words/by-ordinal/o2450.json",
-    "source_fingerprint": "f34fadee2c49bbb537e68c57f310dc037bf1126c6ea3d51e828c730eaa0edb80",
+    "source_fingerprint": "f24eb359ab5c4b37074684061a57d99e51b686a7d341b37202dae7e1ccc17118",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1707,7 +1707,41 @@
     "secondary_senses": [],
     "constructions": [],
     "reference": {
-      "confusables": [],
+      "confusables": [
+        {
+          "title": "imaginary ↔ imaginative",
+          "target_word": "imaginative",
+          "lines": [
+            {
+              "text": "imaginary means not real / existing only in imagination; imaginative means creative or having new ideas.",
+              "lang": "en"
+            },
+            {
+              "text": "imaginary = 虚构的；不真实的",
+              "lang": "cn"
+            },
+            {
+              "text": "imaginative = 富有想象力的；有创造性的",
+              "lang": "cn"
+            },
+            {
+              "text": "near form, different meaning",
+              "lang": "en"
+            },
+            {
+              "text": "Do not use imaginary for a creative person; that is imaginative.",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:confusable:imaginary|imaginative:near_form",
+            "target_locator": "record.confusables[0]",
+            "target_label": "imaginary ↔ imaginative"
+          }
+        }
+      ],
       "relations": [],
       "form": null,
       "family": []
@@ -1796,7 +1830,7 @@
     "ordinal": 2452,
     "word": "imaginative",
     "source_owner_path": "content/lexical/words/by-ordinal/o2452.json",
-    "source_fingerprint": "aea80e07f9b99c2ac2cf9e29489b51bce041a72218c05ca1f7ec208a7810deef",
+    "source_fingerprint": "37a63aef03c20e6032503fd055131b3ab193ff209af1f96be6b29d3d80bb3b6e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1853,7 +1887,41 @@
     "secondary_senses": [],
     "constructions": [],
     "reference": {
-      "confusables": [],
+      "confusables": [
+        {
+          "title": "imaginative ↔ imaginary",
+          "target_word": "imaginary",
+          "lines": [
+            {
+              "text": "imaginative means creative or having new ideas; imaginary means not real / existing only in imagination.",
+              "lang": "en"
+            },
+            {
+              "text": "imaginative = 富有想象力的；有创造性的",
+              "lang": "cn"
+            },
+            {
+              "text": "imaginary = 虚构的；不真实的",
+              "lang": "cn"
+            },
+            {
+              "text": "near form, different meaning",
+              "lang": "en"
+            },
+            {
+              "text": "Do not use imaginative to mean unreal/fictional; that is imaginary.",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:confusable:imaginary|imaginative:near_form",
+            "target_locator": "record.confusables[0]",
+            "target_label": "imaginative ↔ imaginary"
+          }
+        }
+      ],
       "relations": [],
       "form": null,
       "family": []

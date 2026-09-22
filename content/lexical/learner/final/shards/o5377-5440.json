@@ -5196,7 +5196,7 @@
     "ordinal": 5416,
     "word": "whole",
     "source_owner_path": "content/lexical/words/by-ordinal/o5416.json",
-    "source_fingerprint": "df444097bb1bc85962939a746fe77ee16ee304a47a83cb52829789f7515b9e57",
+    "source_fingerprint": "a8fe03c786cda3dfcb12a3b92a63c39d1d75e96b0e8ff5ec688165c1f4580fd5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5311,7 +5311,41 @@
       }
     ],
     "reference": {
-      "confusables": [],
+      "confusables": [
+        {
+          "title": "whole ↔ hole",
+          "target_word": "hole",
+          "lines": [
+            {
+              "text": "whole means complete/all of something; hole means an opening or cavity.",
+              "lang": "en"
+            },
+            {
+              "text": "whole = 完整的；整体",
+              "lang": "cn"
+            },
+            {
+              "text": "hole = 洞；孔",
+              "lang": "cn"
+            },
+            {
+              "text": "standard pronunciations are homophones",
+              "lang": "en"
+            },
+            {
+              "text": "Do not confuse whole (完整的/整体) with hole (洞/孔).",
+              "lang": "cn"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:confusable:hole|whole:homophone",
+            "target_locator": "record.confusables[0]",
+            "target_label": "whole ↔ hole"
+          }
+        }
+      ],
       "relations": [
         {
           "title": "whole ↔ unit",
