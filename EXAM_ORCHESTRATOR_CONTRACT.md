@@ -129,6 +129,30 @@ Calendar answers **when**. The task projection answers **what**. Chat owns **why
 
 No new packet/task database is required merely to display this. If implementation later needs additional optional presentation fields, extend the existing Chat-controlled path rather than creating another planning owner.
 
+
+#### Existing Chat Plan presentation projection
+
+The existing `kianos.exam.chat-plan.v1` may carry one optional `presentation` object. This is a **read-only frontstage projection** of the same resolved Chat / Steward decision; it does not change the schema owner, create a scheduler, or become learner evidence.
+
+```json
+{
+  "presentation": {
+    "today_tasks": [{"id":"stable-id","subject":"xizong | english | politics | null","label":"learner-facing task","note":"optional context"}],
+    "week_reference": [{"id":"stable-id","subject":"xizong | english | politics | null","label":"weekly reference","detail":"optional","value":"optional","progress_ratio":"optional 0..1 only when supported"}],
+    "schedule_blocks": [{"id":"stable-id","subject":"xizong | english | politics | null","start":"HH:MM","end":"HH:MM | null","label":"calendar title","detail":"optional"}]
+  }
+}
+```
+
+Hard boundaries:
+
+- `today_tasks` are display/checklist rows only. Website-local check state is UI state and **must not** enter Chat Plan, Daily Packet, learner evidence, mastery, score or Forecast.
+- `week_reference` is a rolling reference, not debt or an autonomous quota. `progress_ratio` is omitted when current evidence does not support a meaningful ratio.
+- `schedule_blocks` contains **today only**. Steward should project the same resolved solo study / recovery / Review blocks that it renders to Calendar; Home is a glanceable mirror, not proof that Google Calendar sync succeeded and not a second calendar ledger.
+- The existing right-side `next_subject` + native `session_ref` path remains the **single Chat-controlled exact execution route**. Presentation rows do not invent task URLs.
+- Left Xizong / English / Politics Resume surfaces remain subject-native and available even when the Chat Plan is missing, stale or rejected.
+- A full Calendar link may leave KianOS for Google Calendar; editing Calendar does not mutate learner evidence.
+
 ### Typed private cross-subject plan
 
 The current private control packet is:

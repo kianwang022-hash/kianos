@@ -25,8 +25,10 @@ const check=(ok,name,detail='')=>{
   if(!ok)throw new Error('LIVE_CONTROL_FAIL:'+name+(detail?':'+detail:''));
   report.checks.push({name,pass:true,detail});
 };
-const studyDay='2026-09-20';
-const now=Date.parse('2026-09-20T05:20:00+08:00');
+const studyDay=new Intl.DateTimeFormat('en-CA',{
+  timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit'
+}).format(new Date());
+const now=Date.now();
 try{
   await ready();
   browser=await chromium.launch({headless:true});
@@ -60,7 +62,7 @@ try{
     await page.locator('[data-exam-home][data-ready="true"]').waitFor();
     check((await page.locator('[data-exam-next]').getAttribute('aria-disabled'))==='true','xizong_home_starts_without_fake_next');
 
-    const generatedAt='2026-09-19T21:18:00.000Z';
+    const generatedAt=new Date(now-40000).toISOString();
     const sessionId='live-xizong-session';
     const command={
       schema:'kianos.control-browser-command.v1',
@@ -107,7 +109,7 @@ try{
     });
     check(Boolean(row?.object_id&&row?.source_hash),'english_off_home_catalog_available');
 
-    const generatedAt='2026-09-19T21:18:20.000Z';
+    const generatedAt=new Date(now-30000).toISOString();
     const sessionId='off-home-english-session';
     const command={
       schema:'kianos.control-browser-command.v1',
@@ -151,7 +153,7 @@ try{
     });
     check(Boolean(row?.object_id&&row?.source_hash),'english_static_catalog_available');
 
-    const generatedAt='2026-09-19T21:18:30.000Z';
+    const generatedAt=new Date(now-20000).toISOString();
     const sessionId='live-english-session';
     const command={
       schema:'kianos.control-browser-command.v1',
@@ -209,7 +211,7 @@ try{
     await page.locator('[data-exam-home][data-ready="true"]').waitFor();
     check((await page.locator('[data-exam-next]').getAttribute('aria-disabled'))==='true','politics_home_starts_without_fake_next');
 
-    const generatedAt='2026-09-19T21:19:00.000Z';
+    const generatedAt=new Date(now-10000).toISOString();
     const planId='live-politics-memory-plan';
     const command={
       schema:'kianos.control-browser-command.v1',

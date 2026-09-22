@@ -165,5 +165,14 @@ const politicsHref = firstSubject && firstChapter ? `${base}politics/${firstSubj
     <aside class="homeL3Support" aria-label="今日安排与学习支持">
       <ExamOrchestratorHome xizongPacketIndex={xizongPacketIndex} xizongForecastQuestionScope={xizongForecastQuestionScope} xizongForecastCanonicalScope={xizongForecastCanonicalScope} />
     </aside>
+
+    <section class="homeL3Schedule" data-exam-schedule-strip aria-label="今日日程">
+      <header>
+        <strong>今日日程</strong>
+        <span data-exam-schedule-day></span>
+      </header>
+      <div class="homeL3ScheduleItems" data-exam-schedule-items aria-live="polite"></div>
+      <a class="homeL3ScheduleLink" href="https://calendar.google.com/calendar/r/day" target="_blank" rel="noreferrer">完整日历 →</a>
+    </section>
   </div>
 </Base>

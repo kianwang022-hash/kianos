@@ -18,5 +18,11 @@ assert.match(source, /new CustomEvent\('kianos:exam-plan-read-model',[\s\S]*bubb
   'Read-model event must bubble from the orchestrator surface.');
 assert.match(source, /strategyOwner\s*=\s*'chat'|dataset\.strategyOwner\s*=\s*'chat'/,
   'Production surface must declare Chat as strategy owner.');
+assert.match(source, /renderTodayTasks\(readModel\.presentation\)/,
+  'Home presentation projection must remain downstream of the validated Chat Plan read model.');
+assert.match(source, /renderWeek\(readModel\.presentation\)/,
+  'Home week visibility must consume the validated Chat-owned projection.');
+assert.match(source, /renderSchedule\(readModel\.presentation\)/,
+  'Home schedule strip must consume the same current-day Chat projection, not an autonomous scheduler.');
 
 console.log('PASS Chat-controlled exam plan read model publish bridge');

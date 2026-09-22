@@ -53,6 +53,122 @@ const finiteMinutes = (value, field) => {
   return Math.round(number);
 };
 
+const presentationId = (value, field) => {
+  const id = text(value, 96);
+  if (!id || !/^[A-Za-z0-9._:-]+$/.test(id)) {
+    throw new Error(`Invalid ${field}; expected a stable presentation id.`);
+  }
+  return id;
+};
+
+const presentationSubject = (value, field) => {
+  if (value === null || value === undefined || value === '') return null;
+  const subject = String(value);
+  if (!EXAM_CHAT_PLAN_SUBJECTS.includes(subject)) {
+    throw new Error(`Invalid ${field}; unsupported subject.`);
+  }
+  return subject;
+};
+
+const presentationClock = (value, field, optional = false) => {
+  if ((value === null || value === undefined || value === '') && optional) return null;
+  const clock = String(value || '');
+  if (!/^(?:[01]\d|2[0-3]):[0-5]\d$/.test(clock)) {
+    throw new Error(`Invalid ${field}; expected HH:MM.`);
+  }
+  return clock;
+};
+
+const presentationRows = (value, field, max) => {
+  if (value === null || value === undefined) return [];
+  if (!Array.isArray(value) || value.length > max) {
+    throw new Error(`Invalid ${field}; expected at most ${max} rows.`);
+  }
+  return value;
+};
+
+const assertUniquePresentationIds = (rows, field) => {
+  const seen = new Set();
+  for (const row of rows) {
+    if (seen.has(row.id)) throw new Error(`Invalid ${field}; duplicate id ${row.id}.`);
+    seen.add(row.id);
+  }
+  return rows;
+};
+
+function normalizeExamChatPlanPresentation(value) {
+  if (value == null) return null;
+  if (!record(value)) throw new Error('Chat Plan presentation must be an object.');
+
+  const todayTasks = assertUniquePresentationIds(
+    presentationRows(value.today_tasks, 'presentation.today_tasks', 12).map((raw, index) => {
+    if (!record(raw)) throw new Error(`Invalid presentation.today_tasks[${index}].`);
+    const label = text(raw.label, 120);
+    if (!label) throw new Error(`presentation.today_tasks[${index}].label is required.`);
+    return {
+      id: presentationId(raw.id, `presentation.today_tasks[${index}].id`),
+      subject: presentationSubject(raw.subject, `presentation.today_tasks[${index}].subject`),
+      label,
+      note: text(raw.note, 220)
+    };
+  }),
+    'presentation.today_tasks'
+  );
+
+  const weekReference = assertUniquePresentationIds(
+    presentationRows(value.week_reference, 'presentation.week_reference', 8).map((raw, index) => {
+    if (!record(raw)) throw new Error(`Invalid presentation.week_reference[${index}].`);
+    const label = text(raw.label, 120);
+    if (!label) throw new Error(`presentation.week_reference[${index}].label is required.`);
+    let progressRatio = null;
+    if (raw.progress_ratio !== null && raw.progress_ratio !== undefined) {
+      const number = Number(raw.progress_ratio);
+      if (!Number.isFinite(number) || number < 0 || number > 1) {
+        throw new Error(`Invalid presentation.week_reference[${index}].progress_ratio.`);
+      }
+      progressRatio = number;
+    }
+    return {
+      id: presentationId(raw.id, `presentation.week_reference[${index}].id`),
+      subject: presentationSubject(raw.subject, `presentation.week_reference[${index}].subject`),
+      label,
+      detail: text(raw.detail, 220),
+      value: text(raw.value, 80),
+      progress_ratio: progressRatio
+    };
+  }),
+    'presentation.week_reference'
+  );
+
+  const scheduleBlocks = assertUniquePresentationIds(
+    presentationRows(value.schedule_blocks, 'presentation.schedule_blocks', 12).map((raw, index) => {
+    if (!record(raw)) throw new Error(`Invalid presentation.schedule_blocks[${index}].`);
+    const start = presentationClock(raw.start, `presentation.schedule_blocks[${index}].start`);
+    const end = presentationClock(raw.end, `presentation.schedule_blocks[${index}].end`, true);
+    if (end && end <= start) {
+      throw new Error(`Invalid presentation.schedule_blocks[${index}]; end must be after start.`);
+    }
+    const label = text(raw.label, 100);
+    if (!label) throw new Error(`presentation.schedule_blocks[${index}].label is required.`);
+    return {
+      id: presentationId(raw.id, `presentation.schedule_blocks[${index}].id`),
+      subject: presentationSubject(raw.subject, `presentation.schedule_blocks[${index}].subject`),
+      start,
+      end,
+      label,
+      detail: text(raw.detail, 140)
+    };
+  }),
+    'presentation.schedule_blocks'
+  ).sort((a, b) => a.start.localeCompare(b.start));
+
+  return {
+    today_tasks: todayTasks,
+    week_reference: weekReference,
+    schedule_blocks: scheduleBlocks
+  };
+}
+
 const storageKeys = (storage) => {
   if (!storage?.getItem || typeof storage.key !== 'function'
       || !Number.isInteger(storage.length) || storage.length < 0) {
@@ -260,6 +376,7 @@ export function validateExamChatPlan(value, expectedDay = null) {
     throw new Error('Chat Plan generated_at is missing or invalid.');
   }
   const learnerEvidenceBasis = normalizeExamChatPlanBasis(value.learner_evidence_basis, value.study_day);
+  const presentation = normalizeExamChatPlanPresentation(value.presentation);
 
   const rawSubjects = value.subjects && typeof value.subjects === 'object' && !Array.isArray(value.subjects)
     ? value.subjects
@@ -316,7 +433,8 @@ export function validateExamChatPlan(value, expectedDay = null) {
     learner_evidence_basis: learnerEvidenceBasis,
     subjects,
     next_subject: nextSubject,
-    attention
+    attention,
+    presentation
   };
 }
 
@@ -337,13 +455,14 @@ export function readExamChatPlan(storage, expectedDay) {
   let raw;
   try { raw = storage.getItem(EXAM_CHAT_PLAN_KEY); }
   catch { return { status: 'unavailable', plan: null, error: 'Storage is unreadable.' }; }
-  if (raw == null) return { status: 'missing', plan: null, error: null };
+  if (raw == null) return { status: 'missing', plan: null, presentation: null, error: null };
   try {
     const parsed = JSON.parse(raw);
     if (parsed?.study_day && expectedDay && parsed.study_day !== expectedDay) {
       return {
         status: 'stale',
         plan: null,
+        presentation: null,
         error: `Chat Plan is for ${parsed.study_day}, not ${expectedDay}.`
       };
     }
@@ -351,13 +470,19 @@ export function readExamChatPlan(storage, expectedDay) {
       return {
         status: 'ready',
         plan: validateExamChatPlanAgainstStorage(storage, parsed, expectedDay),
+        presentation: null,
         error: null
       };
     } catch (error) {
       if (/CHAT_PLAN_EVIDENCE_BASIS_(?:REQUIRED|STALE|DAY_MISMATCH)/.test(String(error?.message || ''))) {
+        let presentation = null;
+        try {
+          presentation = validateExamChatPlan(parsed, expectedDay).presentation;
+        } catch {}
         return {
           status: 'stale',
           plan: null,
+          presentation,
           error: error instanceof Error ? error.message : String(error)
         };
       }
@@ -367,6 +492,7 @@ export function readExamChatPlan(storage, expectedDay) {
     return {
       status: 'invalid',
       plan: null,
+      presentation: null,
       error: error instanceof Error ? error.message : String(error)
     };
   }

@@ -16,14 +16,18 @@ const politicsMemoryCatalog = buildPoliticsMemoryCandidateCatalogCurrent();
   <script type="application/json" data-exam-xizong-forecast-canonical-scope set:html={JSON.stringify(xizongForecastCanonicalScope).replace(/</g, '\\u003c')} />
   <header class="examTodayHead"><div><h2>今天</h2></div><button class="examQuiet" data-exam-settings>调整时间</button></header>
   <p class="examCapacity" data-exam-capacity>今天的时间与学习记录会汇总在这里。</p>
+  <div class="examTaskList" data-exam-tasks aria-live="polite" hidden></div>
   <div class="examAllocation" data-exam-allocations aria-live="polite"></div>
   <div class="examNext"><span data-exam-next-label>下一步</span><a data-exam-next href={`${base}xizong/`}>进入学习 →</a></div>
+  <section class="examWeek" data-exam-week hidden>
+    <header><h3>本周</h3><span data-exam-week-range></span></header>
+    <div data-exam-week-rows></div>
+  </section>
   <section class="examAttention" data-exam-attention hidden><p data-exam-attention-text></p><button data-exam-attention-action class="examQuiet"></button></section>
   <p class="examError" data-exam-error role="alert" hidden></p>
   <footer class="examTodayFoot">
     <button class="examQuiet" data-exam-why>安排说明</button>
     <button class="examQuiet" data-exam-record>补录时间</button>
-    <button class="examQuiet examDailyPacketButton" data-exam-copy-daily>复制今日学习包</button>
   </footer>
   <p class="examDailyPacketStatus" data-exam-daily-status aria-live="polite"></p>
   <section class="examMaterial" data-exam-reminder hidden><p></p><button class="examQuiet" data-exam-reminder-dismiss>记住了</button></section>
@@ -51,6 +55,7 @@ const politicsMemoryCatalog = buildPoliticsMemoryCandidateCatalogCurrent();
     <div data-exam-reasons></div>
     <details class="examAdvanced"><summary>Chat Plan / 阶段证据 / 本机备份</summary>
       <p>阶段证据只作为 Chat 的决策输入；网页不根据工作量、估分、阶段标签或资料完成度自动生成学习计划。</p>
+      <button class="examQuiet examDailyPacketButton" data-exam-copy-daily>复制今日学习包</button>
       <button class="examQuiet" data-exam-export>导出本机学习上下文</button>
       <label>载入 Chat Plan / 本机学习上下文<input data-exam-import type="file" accept="application/json,.json" /></label>
       <pre data-exam-import-preview hidden></pre><button class="examPrimary" data-exam-import-confirm hidden>确认替换本机调度记录</button>

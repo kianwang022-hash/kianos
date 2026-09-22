@@ -55,7 +55,12 @@ const chatModel = buildChatControlledExamReadModel({
         politics: null
       },
       next_subject: 'xizong',
-      attention: null
+      attention: null,
+      presentation: {
+        today_tasks: [{ id: 'xz-b1', subject: 'xizong', label: '西综 · 当前 Block', note: '真实速度样本' }],
+        week_reference: [{ id: 'week-xz', subject: 'xizong', label: '真实速度采集中', detail: '再积累 2–3 天', value: '采样中', progress_ratio: null }],
+        schedule_blocks: [{ id: 'xz-morning', subject: 'xizong', start: '09:00', end: '11:00', label: '西综', detail: '主块' }]
+      }
     }
   },
   nativeContinue: {
@@ -68,6 +73,9 @@ assert.equal(chatModel.next.subject, 'xizong',
   'Chat-selected next subject identity must survive even when native Continue omits subject');
 assert.equal(chatModel.subjects.xizong.continue.subject, 'xizong',
   'subject Continue projection must preserve its owner identity');
+assert.equal(chatModel.presentation.todayTasks[0].id, 'xz-b1');
+assert.equal(chatModel.presentation.weekReference[0].value, '采样中');
+assert.equal(chatModel.presentation.scheduleBlocks[0].start, '09:00');
 
 console.log('PASS exam plan read model');
 

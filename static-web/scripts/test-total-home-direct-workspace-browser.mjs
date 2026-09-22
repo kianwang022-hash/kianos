@@ -4,6 +4,11 @@ import { spawn } from 'node:child_process';
 import { chromium } from 'playwright';
 import { englishSessionCatalog } from '../src/lib/englishSessionCatalog.mjs';
 import { buildPoliticsMemoryCandidateCatalogCurrent } from '../src/lib/politicsMemoryCandidates.mjs';
+import {
+  EXAM_CHAT_PLAN_KEY,
+  buildExamChatPlanBasis,
+  validateExamChatPlanAgainstStorage
+} from '../src/lib/examChatPlan.mjs';
 
 const PORT=4351;
 const BASE='http://127.0.0.1:'+PORT;
@@ -39,6 +44,37 @@ function chatPlan(studyDay,subject,sessionRef,title){
 }
 async function context(){
   return browser.newContext({viewport:{width:1512,height:982},timezoneId:'Asia/Shanghai'});
+}
+class MemoryStorage {
+  constructor(entries = {}) { this.map = new Map(Object.entries(entries)); }
+  getItem(key) { return this.map.has(key) ? this.map.get(key) : null; }
+  setItem(key, value) { this.map.set(key, String(value)); }
+  removeItem(key) { this.map.delete(key); }
+  key(index) { return [...this.map.keys()][index] ?? null; }
+  get length() { return this.map.size; }
+}
+async function bindCurrentPlanBasis(page,studyDay){
+  const entries=await page.evaluate(()=>Object.fromEntries(
+    Array.from({length:localStorage.length},(_,index)=>{
+      const key=localStorage.key(index);
+      return [key,localStorage.getItem(key)];
+    }).filter(([key])=>typeof key==='string')
+  ));
+  const storage=new MemoryStorage(entries);
+  const raw=JSON.parse(storage.getItem(EXAM_CHAT_PLAN_KEY)||'null');
+  if(!raw)throw new Error('DIRECT_HOME_CHAT_PLAN_MISSING');
+  const plan={
+    ...raw,
+    learner_evidence_basis:buildExamChatPlanBasis(storage,studyDay)
+  };
+  validateExamChatPlanAgainstStorage(storage,plan,studyDay);
+  await page.evaluate(({key,plan})=>{
+    localStorage.setItem(key,JSON.stringify(plan));
+    window.dispatchEvent(new CustomEvent('kianos:control-command-applied',{
+      detail:{kind:'exam.chat_plan',fixture:true}
+    }));
+  },{key:EXAM_CHAT_PLAN_KEY,plan});
+  await page.locator('[data-exam-home][data-ready="true"]').waitFor();
 }
 const server=spawn('npm',['run','preview','--','--host','127.0.0.1','--port',String(PORT)],{
   cwd:process.cwd(),stdio:['ignore','pipe','pipe'],detached:process.platform!=='win32'
@@ -98,6 +134,7 @@ try{
       }));
     },{studyDay,sessionId,cardId});
     await page.goto(BASE+'/',{waitUntil:'networkidle'});
+    await bindCurrentPlanBasis(page,studyDay);
     const href=await page.locator('[data-exam-next]').getAttribute('href');
     check(Boolean(href?.includes('/xizong/memory/?session=')),'xizong_total_home_points_exact_workspace',href||'');
     check(!/^\/xizong\/?$/.test(href||''),'xizong_does_not_stop_at_subject_home',href||'');
@@ -155,6 +192,7 @@ try{
       }));
     },{studyDay,returnId});
     await page.goto(BASE+'/',{waitUntil:'networkidle'});
+    await bindCurrentPlanBasis(page,studyDay);
     const href=await page.locator('[data-exam-next]').getAttribute('href');
     check(href==='/xizong/circulation/b01/'||href?.endsWith('/xizong/circulation/b01/'),
       'xizong_return_total_home_points_exact_block',href||'');
@@ -185,6 +223,7 @@ try{
       }));
     },{studyDay,sessionId,row});
     await page.goto(BASE+'/',{waitUntil:'networkidle'});
+    await bindCurrentPlanBasis(page,studyDay);
     await page.waitForTimeout(150);
     const href=await page.locator('[data-exam-next]').getAttribute('href');
     check(Boolean(href && !/^\/english\/?$/.test(href)),'english_total_home_points_exact_task',href||'');
@@ -223,6 +262,7 @@ try{
       }));
     },{studyDay,planId,catalogRevision:catalog.revision,candidateId:candidate.id});
     await page.goto(BASE+'/',{waitUntil:'networkidle'});
+    await bindCurrentPlanBasis(page,studyDay);
     const href=await page.locator('[data-exam-next]').getAttribute('href');
     check(href==='/politics/memory/'||href?.endsWith('/politics/memory/'),'politics_total_home_points_memory',href||'');
     check(!/^\/politics\/?$/.test(href||''),'politics_does_not_stop_at_subject_home',href||'');

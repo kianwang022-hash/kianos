@@ -53,6 +53,17 @@ const check = (condition, name, detail = '') => {
   console.log('PASS', name);
 };
 
+async function openManualDailyPacketRecovery(page) {
+  await page.locator('[data-exam-why]').click();
+  const dialog = page.locator('[data-exam-why-dialog]');
+  await dialog.waitFor({ state: 'visible' });
+  const advanced = dialog.locator('.examAdvanced');
+  if (!(await advanced.evaluate((node) => node.open))) {
+    await advanced.locator('summary').click();
+  }
+  await dialog.locator('[data-exam-copy-daily]').waitFor({ state: 'visible' });
+}
+
 let server = null;
 let serverOutput = '';
 
@@ -374,7 +385,8 @@ try {
     'Home next action follows Chat Plan');
 
   // 3. One-click Daily Learning Packet must carry all three subject-owned evidence payloads.
-  await page.locator('[data-exam-copy-daily]').click();
+  await openManualDailyPacketRecovery(page);
+  await page.locator('[data-exam-why-dialog] [data-exam-copy-daily]').click();
   await page.waitForTimeout(100);
   const copies = await page.evaluate(() => window.__kianosCopies.slice());
   check(copies.length === 1, 'Home copies exactly one Daily Learning Packet');
@@ -535,7 +547,8 @@ try {
   check(JSON.parse(restored[EXAM_CHAT_PLAN_KEY]).next_subject === 'xizong',
     'Restored Home keeps exact Chat Plan');
 
-  await restoredPage.locator('[data-exam-copy-daily]').click();
+  await openManualDailyPacketRecovery(restoredPage);
+  await restoredPage.locator('[data-exam-why-dialog] [data-exam-copy-daily]').click();
   await restoredPage.waitForTimeout(100);
   const restoredCopy = await restoredPage.evaluate(() => window.__kianosCopies.at(-1));
   const restoredDaily = parseDailyCopy(restoredCopy);
