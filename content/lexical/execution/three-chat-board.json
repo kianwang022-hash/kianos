@@ -38,17 +38,17 @@
       1751,
       1850
     ],
-    "state": "MATERIALIZE_ALLOWED",
+    "state": "B_AUDIT_PASS__READY_TO_MERGE",
     "candidate_pr": null,
     "candidate_branch": "work/lexical-continuous-bf17-official-20260922",
-    "materialized_owner_read_head": null,
-    "note": "BF17 Production 100/100 complete: 24 affected / 76 NO_CHANGE / 0 blocked / 0 new learner material. Human Gate not required; existing-truth-only materialization allowed.",
+    "materialized_owner_read_head": "723e4f9c9a672b90f6c2c9faa367400bab05fc87",
+    "note": "BF17 materialized and B readback PASS without reconciliation. No Human Gate required. Ready to merge; next o1851-o1950.",
     "review_branch": "work/lexical-fullcatalog-bf17-review-20260922",
     "proposal_path": "content/lexical/execution/manifests/o1751-o1850.fullcatalog-final-standard-proposal.md",
     "proposal_commit": "7246747eb30d53c1dbbbf3e3d061e5cc1e0afecb"
   },
   "audit_target": {
-    "state": "WAITING_MATERIALIZATION_AND_B_AUDIT",
+    "state": "PASS_READY_TO_MERGE",
     "candidate_id": "BF17",
     "range": [
       1751,
@@ -56,9 +56,11 @@
     ],
     "candidate_pr": null,
     "candidate_branch": "work/lexical-continuous-bf17-official-20260922",
-    "candidate_owner_read_head": null,
+    "candidate_owner_read_head": "723e4f9c9a672b90f6c2c9faa367400bab05fc87",
     "brief": null,
-    "output": null,
+    "output": "content/lexical/semantic-audit/O1751_O1850_FINAL_STANDARD_SAME_CHAT_B_AUDIT_PACK.md",
+    "result": "PASS",
+    "independence_note": "BLIND_FIRST_NOT_ENFORCED",
     "human_gate_status": "NOT_REQUIRED_EXISTING_TRUTH_ONLY"
   },
   "lanes": {
@@ -1696,7 +1698,23 @@
     "A_status": "REOPENED_FULL_CATALOG_CONTINUATION",
     "C_status": "REOPENED_FULL_CATALOG_CONTINUATION",
     "completion_note": "Original o0001-o1250 closure is preserved. Continuation starts at o1251 under unchanged FINAL_SEMANTIC_FREEZE v1 ruler.",
-    "current_batch_result": null
+    "current_batch_result": {
+      "candidate_id": "BF17",
+      "range": [
+        1751,
+        1850
+      ],
+      "reviewed_owner_count": 100,
+      "affected_owner_count": 24,
+      "no_change_count": 76,
+      "blocked": 0,
+      "new_material_group_count": 0,
+      "proposal": "content/lexical/execution/manifests/o1751-o1850.fullcatalog-final-standard-proposal.md",
+      "mutation_receipt": "content/lexical/execution/mutation-receipts/BF17-official-o1751-o1850-v1.json",
+      "audit": "content/lexical/semantic-audit/O1751_O1850_FINAL_STANDARD_SAME_CHAT_B_AUDIT_PACK.md",
+      "state": "B_AUDIT_PASS__READY_TO_MERGE",
+      "independence_note": "BLIND_FIRST_NOT_ENFORCED"
+    }
   },
   "phase_transition": {
     "entered_at": "2026-09-22",
@@ -1706,7 +1724,7 @@
   },
   "materialization_progress": {
     "candidate_id": "BF17",
-    "status": "MATERIALIZE_ALLOWED",
+    "status": "B_AUDIT_PASS__READY_TO_MERGE",
     "candidate_pr": null,
     "latest_main_refreeze": "530cd1347b52a076eb65bda260c954162758a47f",
     "review_range": [
@@ -1725,7 +1743,12 @@
     "standing_repair_tests_before": 0,
     "standing_repair_tests_after": 0,
     "final_learner_objects": 7946,
-    "final_learner_shards": 125
+    "final_learner_shards": 125,
+    "materialized_commit": "723e4f9c9a672b90f6c2c9faa367400bab05fc87",
+    "b_audit": "PASS",
+    "b_audit_output": "content/lexical/semantic-audit/O1751_O1850_FINAL_STANDARD_SAME_CHAT_B_AUDIT_PACK.md",
+    "b_reconciliation": "NOT_REQUIRED",
+    "independence_note": "BLIND_FIRST_NOT_ENFORCED"
   },
   "semantic_freeze_scope_amendment": "content/lexical/FINAL_SEMANTIC_FREEZE_SCOPE_AMENDMENT_20260922.md"
 }
