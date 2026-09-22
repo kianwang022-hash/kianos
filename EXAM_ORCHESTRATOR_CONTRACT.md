@@ -104,6 +104,31 @@ Missing or unreliable Forecast must not block ordinary learning. Chat can propos
 
 When an admitted material revision replaces the same native learning object, the Website may notify Kian and offer one-click entry into the current version while preserving old records. A source hash change alone does not require Chat approval or a new plan. Bring the change to Chat only when its substance affects learning strategy or the current arrangement; unavailable or ambiguous source identity still blocks that affected entry.
 
+### Frontstage week / day visibility
+
+The learner-facing control surface may show a compact **Today / This Week / Next Gate** projection, provided it remains downstream of Chat and current canonical facts.
+
+```text
+phase / Gate facts                    <- this contract / current canonical owners
+rolling week reference                <- Chat / Steward judgment
+Today tasks / current-day allocation  <- resolved Chat plan
+Calendar blocks                       <- time placement only
+subject Runtime evidence              <- actual learning truth
+```
+
+A future UI may let Kian check a Today item. That check is presentation/execution acknowledgement only; it is not learner evidence, mastery, a score claim, or permission to suppress native Wrong/Uncertain/Recall state. Weekly progress may display supported counts/ranges or `UNKNOWN`; Website must not infer a percent from missing evidence.
+
+This visibility layer must not become:
+- a second scheduler;
+- a second learner ledger;
+- automatic carry-over debt;
+- an autonomous weekly quota engine;
+- a replacement for the fixed Hard Gate hierarchy or subject-native Resume/evidence.
+
+Calendar answers **when**. The task projection answers **what**. Chat owns **why / change**. The Website only renders the current resolved projection and keeps any UI-only check state semantically separate.
+
+No new packet/task database is required merely to display this. If implementation later needs additional optional presentation fields, extend the existing Chat-controlled path rather than creating another planning owner.
+
 ### Typed private cross-subject plan
 
 The current private control packet is:
