@@ -1,0 +1,1792 @@
+{
+  "schema": "kianos.lexical.bf19_write_fragment.v1",
+  "part": 4,
+  "writes": [
+    {
+      "path": "content/lexical/words/by-ordinal/o2004.json",
+      "mode": "patch_json",
+      "expected_sha256": "c0192b6a98ec67e260ad166dd09b030fd79f5d12e9a4392e7485dc34755f03ce",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "e825378c4876f341b78dde07ba7b54ea69fafa6e8406a63a868aa857cb562dbc",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "停止对某人的过错感到愤怒或怨恨；取消债务",
+              "core_meaning_en": "to stop feeling angry or resentful toward someone for an offense; to cancel a debt",
+              "mental_model_cn": "停止对某人的过错感到愤怒或怨恨；取消债务",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:0b6bfa8e55edfb7a09df",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:forgive:92579cbdcb3a53fe:collocation:0"
+                    ],
+                    "meaning_cn": "原谅某人做了某事",
+                    "phrase": "forgive sb for + sth"
+                  },
+                  {
+                    "collocation_id": "collocation:eaebf50cae223e7b94ba",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:forgive:92579cbdcb3a53fe:collocation:1"
+                    ],
+                    "meaning_cn": "既往不咎",
+                    "phrase": "forgive and forget"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "原谅，宽恕",
+                "definition_en": "to stop blaming or feeling angry at someone for something they have done",
+                "governing_pattern": "vt. + sb / vt. + sb + for + sth",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:forgive:92579cbdcb3a53fe",
+                "sense_label_en": "to stop blaming or feeling angry at someone for something they have done",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:1973d46eb312c7e6995e",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:forgive:18aac418d59d53c3:collocation:0"
+                    ],
+                    "meaning_cn": "免除债务",
+                    "phrase": "forgive a debt"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "免除（债务等）",
+                "definition_en": "to cancel or not require payment of a debt or obligation",
+                "governing_pattern": "vt. + sth",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:forgive:18aac418d59d53c3",
+                "sense_label_en": "to cancel or not require payment of a debt or obligation",
+                "sort_order": 1,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 1,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "forgive",
+            "word_family": [],
+            "word_id": "word:forgive",
+            "form_identity": {
+              "form_type": "irregular_inflection_identity",
+              "spelling": "forgive",
+              "identity_rule": "same_word_owner_no_semantic_split",
+              "boundary": "forgive is irregular: forgive → forgave → forgiven.",
+              "boundaries": [
+                {
+                  "surface": "forgive",
+                  "condition": "base/present",
+                  "note": "base form"
+                },
+                {
+                  "surface": "forgave",
+                  "condition": "past simple",
+                  "note": "irregular past"
+                },
+                {
+                  "surface": "forgiven",
+                  "condition": "past participle",
+                  "note": "irregular participle"
+                }
+              ],
+              "variants": [],
+              "authority": "BF19 grouped p approved Form expansion 2026-09-22"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2005.json",
+      "mode": "patch_json",
+      "expected_sha256": "decd17f01582f215c448c39bdbe1d5cc3af7ff6eaba927e2733dde0f2f853057",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "c1e8ba6de5448773140abb438401ad10f175cd1eda756d7eb903dbb681c6b1a4",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "餐具叉子；分岔点",
+                  "label_en": "a fork utensil; a point where something divides",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:fork:fe2c8e8e6d2c5c18",
+                    "sense:fork:0b3ac29888fd5d30"
+                  ]
+                },
+                {
+                  "label_cn": "分叉",
+                  "label_en": "to divide into branches",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:fork:4e8573c4f2ac54c6"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "叉子或分叉",
+              "core_meaning_en": "a pronged tool or a division into branches",
+              "mental_model_cn": "叉子或分叉",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:7737cab01100c8ffc716",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:fork:fe2c8e8e6d2c5c18:collocation:0"
+                    ],
+                    "meaning_cn": "一副刀叉",
+                    "phrase": "a knife and fork"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "餐具叉子",
+                "definition_en": "a utensil with prongs used for eating or serving food",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:fork:fe2c8e8e6d2c5c18",
+                "sense_label_en": "a utensil with prongs used for eating or serving food",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:ac58105181a89b13bb30",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:fork:0b3ac29888fd5d30:collocation:0"
+                    ],
+                    "meaning_cn": "道路分岔口",
+                    "phrase": "a fork in the road"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "分岔点",
+                "definition_en": "a point where something divides into two branches",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:fork:0b3ac29888fd5d30",
+                "sense_label_en": "a point where something divides into two branches",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:26a9c72e4267f73cfe82",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:fork:4e8573c4f2ac54c6:collocation:0"
+                    ],
+                    "meaning_cn": "分成某物（如两条路）",
+                    "phrase": "fork into + sth"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "分叉",
+                "definition_en": "to divide into two branches",
+                "governing_pattern": "vi. + into",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:fork:4e8573c4f2ac54c6",
+                "sense_label_en": "to divide into two branches",
+                "sort_order": 2,
+                "transitivity": "vi"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:0ee9844df2a350d02bfc",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:fork:0ef673c3e7f9569c:collocation:0"
+                    ],
+                    "meaning_cn": "干草叉",
+                    "phrase": "a pitchfork"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "农用叉",
+                "definition_en": "a tool with prongs used for digging or lifting",
+                "governing_pattern": "",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:fork:0ef673c3e7f9569c",
+                "sense_label_en": "a tool with prongs used for digging or lifting",
+                "sort_order": 3,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:60d9b58f513d5e346920",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:fork:333ded431f5752a1:collocation:0"
+                    ],
+                    "meaning_cn": "用叉子叉干草",
+                    "phrase": "fork hay"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "用叉子叉起",
+                "definition_en": "to lift or dig with a fork",
+                "governing_pattern": "vt. + object",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:fork:333ded431f5752a1",
+                "sense_label_en": "to lift or dig with a fork",
+                "sort_order": 4,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 3,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "fork",
+            "word_family": [],
+            "word_id": "word:fork"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2006.json",
+      "mode": "patch_json",
+      "expected_sha256": "3818c822f850f57e9fcdb6780d8617570b4d2bbf552f217c31ecc30874fc8563",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "c762dafcc34fa10366f61a351bec1ffb79097a09ba0c014108905135b29f3b55",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "形状，外形；表格；类型，方式",
+                  "label_en": "the visible shape or configuration of something; a printed document with spaces to write in; a particular way in which something exists or appears",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:form:3d08af6aa4275537",
+                    "sense:form:fcd8d243bb4c5dbd",
+                    "sense:form:259d8b9dd9545c1b"
+                  ]
+                },
+                {
+                  "label_cn": "形成，组成",
+                  "label_en": "to make something by combining parts or materials",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:form:c14bc1aa3089572e"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "形状、结构或表格；形成",
+              "core_meaning_en": "shape, structure, or document; to create",
+              "mental_model_cn": "形状、结构或表格；形成",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "deep:deep:word_family:form:05f17a43bf8ad700",
+              "relation:deep:word_family:form:05f17a43bf8ad700"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:c3d720c189a9b4e3d5af",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:form:3d08af6aa4275537:collocation:0"
+                    ],
+                    "meaning_cn": "以……的形式",
+                    "phrase": "in the form of"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "形状，外形",
+                "definition_en": "the visible shape or configuration of something",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:form:3d08af6aa4275537",
+                "sense_label_en": "the visible shape or configuration of something",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:cd5b52c106738448ca15",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:form:fcd8d243bb4c5dbd:collocation:0"
+                    ],
+                    "meaning_cn": "填写表格",
+                    "phrase": "fill in a form"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "表格",
+                "definition_en": "a printed document with spaces to write in",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:form:fcd8d243bb4c5dbd",
+                "sense_label_en": "a printed document with spaces to write in",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:0a6b3eb4ed7c9d61c51f",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:form:c14bc1aa3089572e:collocation:0"
+                    ],
+                    "meaning_cn": "组建委员会",
+                    "phrase": "form a committee"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "形成，组成",
+                "definition_en": "to make something by combining parts or materials",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:form:c14bc1aa3089572e",
+                "sense_label_en": "to make something by combining parts or materials",
+                "sort_order": 2,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:863627c22120e11bd432",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:form:259d8b9dd9545c1b:collocation:0"
+                    ],
+                    "meaning_cn": "一种艺术形式",
+                    "phrase": "a form of art"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "类型，方式",
+                "definition_en": "a particular way in which something exists or appears",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:form:259d8b9dd9545c1b",
+                "sense_label_en": "a particular way in which something exists or appears",
+                "sort_order": 3,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 3,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "completed"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 1,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "form",
+            "word_family": [
+              {
+                "boundary": "formation 形成/结构",
+                "codex_reviewed": false,
+                "definition_cn": null,
+                "definition_en": null,
+                "dimensions": {},
+                "direction": "R+P",
+                "evidence": [
+                  {
+                    "evidence_id": "evidence:family:form:formation",
+                    "evidence_status": "source_checked",
+                    "source_locator": "form|formation",
+                    "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/processed/word_families.csv",
+                    "source_type": "learner_dictionary"
+                  }
+                ],
+                "fact_id": "deep:word_family:form:05f17a43bf8ad700",
+                "family_sources": [
+                  "curated core-card derivative",
+                  "local morphology candidate"
+                ],
+                "label_en": null,
+                "level": null,
+                "meaning_cn": null,
+                "module": "word_family",
+                "pattern": null,
+                "pos": null,
+                "priority": "A",
+                "publication_status": "publishable",
+                "shared_definition": null,
+                "source_sense_id": "sense:form:3d08af6aa4275537",
+                "target_sense_id": "sense:formation:c77115f85de2571b",
+                "target_word": "formation",
+                "task_tags": [
+                  "reading"
+                ],
+                "verification_status": "verified",
+                "writing_safe": true
+              }
+            ],
+            "word_id": "word:form"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2021.json",
+      "mode": "patch_json",
+      "expected_sha256": "88687442ba102052b023b0026a845cf0db64adf2bfc63c82de1340a752241af7",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "ff30a3f281a6dda07a059e629234ae6e963af478450715d920b0b9d328569656",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "向前地",
+                  "label_en": "forward",
+                  "pos": "adverb",
+                  "sense_ids": [
+                    "sense:forward:a218b1b844375453"
+                  ]
+                },
+                {
+                  "label_cn": "向前的；前面的",
+                  "label_en": "forward/front",
+                  "pos": "adjective",
+                  "sense_ids": [
+                    "sense:forward:f0c66ce7d2cb5d91"
+                  ]
+                },
+                {
+                  "label_cn": "转寄；转发",
+                  "label_en": "to forward/send on",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:forward:f6f6d1f9944b53e1"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "向前；转寄",
+              "core_meaning_en": "toward the front; to send on",
+              "mental_model_cn": "向前；转寄",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:d62f5242376cde36e625",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:forward:a218b1b844375453:collocation:0"
+                    ],
+                    "meaning_cn": "向前移动",
+                    "phrase": "move forward"
+                  },
+                  {
+                    "collocation_id": "collocation:6caecf04dd2fe253ee36",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:forward:a218b1b844375453:collocation:1"
+                    ],
+                    "meaning_cn": "期待…",
+                    "phrase": "look forward to + sth"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "向前地",
+                "definition_en": "toward the front or a point ahead",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "adverb",
+                "sense_id": "sense:forward:a218b1b844375453",
+                "sense_label_en": "toward the front or a point ahead",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:4b2660e8c8f51f80775f",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:forward:f0c66ce7d2cb5d91:collocation:0"
+                    ],
+                    "meaning_cn": "前沿阵地",
+                    "phrase": "a forward position"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "向前的；前面的",
+                "definition_en": "directed or moving toward the front",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:forward:f0c66ce7d2cb5d91",
+                "sense_label_en": "directed or moving toward the front",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:c1f4e05ea448813e42d3",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:forward:f6f6d1f9944b53e1:collocation:0"
+                    ],
+                    "meaning_cn": "把…转寄给…",
+                    "phrase": "forward + sth to + sb"
+                  },
+                  {
+                    "collocation_id": "collocation:b697d1274dfbe56c1c8f",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:forward:f6f6d1f9944b53e1:collocation:1"
+                    ],
+                    "meaning_cn": "转发电子邮件",
+                    "phrase": "forward an email"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "转寄；转发",
+                "definition_en": "to send a letter, email, etc. to someone after receiving it",
+                "governing_pattern": "vt. + object",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:forward:f6f6d1f9944b53e1",
+                "sense_label_en": "to send a letter, email, etc. to someone after receiving it",
+                "sort_order": 2,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:caf671a0e8c160092a6f",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:forward:5725f7b304eb5de1:collocation:0"
+                    ],
+                    "meaning_cn": "中锋",
+                    "phrase": "a center forward"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "前锋",
+                "definition_en": "a player in a sport such as basketball or soccer who plays near the opponent's goal",
+                "governing_pattern": "",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:forward:5725f7b304eb5de1",
+                "sense_label_en": "a player in a sport such as basketball or soccer who plays near the oppo",
+                "sort_order": 3,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 1,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 1,
+              "runtime_model_calls": false
+            },
+            "word": "forward",
+            "word_family": [],
+            "word_id": "word:forward"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2025.json",
+      "mode": "patch_json",
+      "expected_sha256": "45f10d2f83232788e241e23e69eab8c9d024f61e4a9e8fd92ab79c5f274ac526",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "54480cae413b55976f0b1bb39e58b56b3e664508f6b4d104c0ad17eb69b96c7f",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "创立；建立；铸造",
+              "core_meaning_en": "to found/establish; also to cast metal",
+              "mental_model_cn": "建立；创立；find的过去式",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "deep:deep:word_family:found:6cb0b14bd817fbe8",
+              "relation:deep:word_family:found:6cb0b14bd817fbe8",
+              "relation:horizontal:94c703bddea9326422da",
+              "relation:morphology_relation:3f439ba8a0dbf9b67aab"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "创立；建立",
+                "definition_en": "to establish or set up an organization, institution, or settlement",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:found:4ac77dc17bb452e5",
+                "sense_label_en": "to establish or set up an organization, institution, or settlement",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:d8656ba068e7d22cf048",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:found:c3642182dee15ad8:collocation:0"
+                    ],
+                    "meaning_cn": "铸造钟",
+                    "phrase": "found a bell"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "铸造",
+                "definition_en": "to cast (metal) by melting and pouring into a mold",
+                "governing_pattern": "vt. + object",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:found:c3642182dee15ad8",
+                "sense_label_en": "to cast (metal) by melting and pouring into a mold",
+                "sort_order": 1,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 1,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "completed"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 1,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "found",
+            "word_family": [
+              {
+                "boundary": "found加ation构成名词，表基础",
+                "codex_reviewed": false,
+                "definition_cn": null,
+                "definition_en": null,
+                "dimensions": {},
+                "direction": "R",
+                "evidence": [
+                  {
+                    "evidence_id": "evidence:family:found:foundation",
+                    "evidence_status": "source_checked",
+                    "source_locator": "found|foundation",
+                    "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/processed/word_families.csv",
+                    "source_type": "learner_dictionary"
+                  }
+                ],
+                "fact_id": "deep:word_family:found:6cb0b14bd817fbe8",
+                "family_sources": [
+                  "curated core-card derivative",
+                  "local morphology candidate"
+                ],
+                "label_en": null,
+                "level": null,
+                "meaning_cn": null,
+                "module": "word_family",
+                "pattern": null,
+                "pos": null,
+                "priority": "A",
+                "publication_status": "publishable",
+                "shared_definition": null,
+                "source_sense_id": "sense:found:4ac77dc17bb452e5",
+                "target_sense_id": "sense:foundation:8c6044501eea59cb",
+                "target_word": "foundation",
+                "task_tags": [
+                  "reading"
+                ],
+                "verification_status": "verified",
+                "writing_safe": false
+              }
+            ],
+            "word_id": "word:found",
+            "form_identity": {
+              "form_type": "lexical_inflection_homograph_identity",
+              "spelling": "found",
+              "identity_rule": "surface_shared_between_lexeme_and_inflection",
+              "boundary": "found is a lexical verb meaning establish (and, separately, cast metal); the same surface found is also the past/past participle of find. Resolve from syntax and meaning.",
+              "boundaries": [
+                {
+                  "surface": "found",
+                  "condition": "lexical verb",
+                  "note": "establish; also cast metal in a lower branch"
+                },
+                {
+                  "surface": "found",
+                  "condition": "past/past participle of find",
+                  "note": "inflectional surface of find"
+                }
+              ],
+              "variants": [],
+              "authority": "BF19 existing-truth Form migration 2026-09-22"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2030.json",
+      "mode": "patch_json",
+      "expected_sha256": "04d653129a6cb94ef6a4046d4a5064c478c3a609797e056a79d5cb77903ac39f",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "e1b05428b03bcc99a9301deb6af192cd86735345acbc6b2876eb11f7262df216",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "狐狸；狡猾的人",
+                  "label_en": "a fox; figuratively a sly person",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:fox:4ab695341e485b06",
+                    "sense:fox:cddd9345f8175289"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "狐狸；狡猾的人",
+              "core_meaning_en": "a fox; figuratively a sly person",
+              "mental_model_cn": "狐狸、狡猾的人或欺骗",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "狐狸",
+                "definition_en": "a wild animal of the dog family with a bushy tail",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:fox:4ab695341e485b06",
+                "sense_label_en": "a wild animal of the dog family with a bushy tail",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:b368dbe52793ddfbc80e",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:fox:cddd9345f8175289:collocation:0"
+                    ],
+                    "meaning_cn": "像狐狸一样狡猾",
+                    "phrase": "sly as a fox"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "狡猾的人",
+                "definition_en": "a cunning or sly person",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:fox:cddd9345f8175289",
+                "sense_label_en": "a cunning or sly person",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:9a211bdb98d1926d4f65",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:fox:d5cd1d318c3e5790:collocation:0"
+                    ],
+                    "meaning_cn": "书页泛黄",
+                    "phrase": "the pages foxed"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "（书页）生黄斑",
+                "definition_en": "to become discolored with brownish spots (of paper)",
+                "governing_pattern": "vi. + (no fixed)",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:fox:d5cd1d318c3e5790",
+                "sense_label_en": "to become discolored with brownish spots (of paper)",
+                "sort_order": 2,
+                "transitivity": "vi"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 0,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "fox",
+            "word_family": [],
+            "word_id": "word:fox"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2038.json",
+      "mode": "patch_json",
+      "expected_sha256": "9c7fef2aa98a7e31903d8c846a8b30091cfd3203b3832b1e957f8a2239c64e48",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "7758cebaefcf9dc98e8808e68702033197e38d09f510b32a7fa3e6f774224292",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "特许经营权；特许经营企业/加盟店；系列/IP franchise",
+                  "label_en": "a franchise right; a franchise business/outlet; a media or IP franchise",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:franchise:ba27bcfbb8165be0",
+                    "sense:franchise:9059d367cc255984",
+                    "sense:franchise:2d740d1ccdb80539"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "特许经营权；加盟店；系列/IP franchise",
+              "core_meaning_en": "a right or authorization granted to someone",
+              "mental_model_cn": "特许权，权利",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "sense:sense:franchise:9059d367cc255984"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:eb59aef7c652c452618b",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:franchise:ba27bcfbb8165be0:collocation:0"
+                    ],
+                    "meaning_cn": "特许经营协议",
+                    "phrase": "franchise agreement"
+                  },
+                  {
+                    "collocation_id": "collocation:76f650bc444e9c91f2a5",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:franchise:ba27bcfbb8165be0:collocation:1"
+                    ],
+                    "meaning_cn": "开设特许经营店",
+                    "phrase": "open a franchise"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "特许经营权",
+                "definition_en": "an authorization to sell a company's goods or services in a particular place",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:franchise:ba27bcfbb8165be0",
+                "sense_label_en": "an authorization to sell a company's goods or services in a particular p",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "特许经营企业；加盟店",
+                "definition_en": "a business or outlet operated under a franchise agreement",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:franchise:9059d367cc255984",
+                "sense_label_en": "a business or outlet operated under a franchise agreement",
+                "sort_order": 1,
+                "source_evidence": [
+                  {
+                    "external_evidence": [],
+                    "semantic_auditor_approved": true,
+                    "source_candidate_evidence_ids": [
+                      "source-sense-candidate:franchise:16777ded0334eecb",
+                      "source-sense-candidate:franchise:5c568324cdf95b96"
+                    ],
+                    "source_operation_id": "operation:83ed07ed7ff169f43a22",
+                    "source_operation_sha256": "2e9a8344f7eb52a3978ca63649586103e747ec23f51db92e72f383a762152856",
+                    "verification_status": "auditor_verified"
+                  }
+                ]
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "电影、游戏或书籍等相互关联的系列或知识产权",
+                "definition_en": "a connected series or intellectual property of films, games, books, or similar works",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:franchise:2d740d1ccdb80539",
+                "sense_label_en": "a connected series or intellectual property of films, games, books, or similar works",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:9802bade48e99613e167",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:franchise:19e614eba40950c2:collocation:0"
+                    ],
+                    "meaning_cn": "选举权",
+                    "phrase": "the right to vote"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "公民权，选举权",
+                "definition_en": "a statutory right or privilege granted to a person or group by a government (especially the rights of citizenship and the right to vote)",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:franchise:19e614eba40950c2",
+                "sense_label_en": "a statutory right or privilege granted to a person or group by a governm",
+                "sort_order": 3,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:213d96187ca6e14707a7",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:franchise:d9d4da6ced915073:collocation:0"
+                    ],
+                    "meaning_cn": "授予某企业特许经营权",
+                    "phrase": "franchise a business"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "授予特许经营权",
+                "definition_en": "grant a franchise to",
+                "governing_pattern": "vt. + object",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:franchise:d9d4da6ced915073",
+                "sense_label_en": "grant a franchise to",
+                "sort_order": 4,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 0,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "franchise",
+            "word_family": [],
+            "word_id": "word:franchise"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2041.json",
+      "mode": "patch_json",
+      "expected_sha256": "bc19cd9aa232fafb6c0db7f169d96e6151a45717d69b53759fd0c95acefdced2",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "0891a4196abbf14a857a25647208635028d5390b8c4a0a071fc76c46f1c79539",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "自由的；免费的；空闲的",
+                  "label_en": "free/unrestricted; free of charge; available",
+                  "pos": "adjective",
+                  "sense_ids": [
+                    "sense:free:71f335d6a5a858b5",
+                    "sense:free:b20ae9fa060b52e1",
+                    "sense:free:9f31022dd7255454"
+                  ]
+                },
+                {
+                  "label_cn": "释放；使自由",
+                  "label_en": "to free or release",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:free:8982bae68f945426"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "不受约束；无代价",
+              "core_meaning_en": "not under constraint; without cost",
+              "mental_model_cn": "不受约束；无代价",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:f063778c49416292c51a",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:free:71f335d6a5a858b5:collocation:0"
+                    ],
+                    "meaning_cn": "言论自由",
+                    "phrase": "free speech"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "自由的，不受约束的",
+                "definition_en": "not under the control of another; able to act as one wishes",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:free:71f335d6a5a858b5",
+                "sense_label_en": "not under the control of another; able to act as one wishes",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:442a0cb38a9937719e05",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:free:b20ae9fa060b52e1:collocation:0"
+                    ],
+                    "meaning_cn": "免费样品",
+                    "phrase": "free sample"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "免费的",
+                "definition_en": "given or available without charge",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:free:b20ae9fa060b52e1",
+                "sense_label_en": "given or available without charge",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:c6159b766e550c762cb3",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:free:8982bae68f945426:collocation:0"
+                    ],
+                    "meaning_cn": "释放囚犯",
+                    "phrase": "free the prisoners"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "释放，使自由",
+                "definition_en": "release from confinement or obligation",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:free:8982bae68f945426",
+                "sense_label_en": "release from confinement or obligation",
+                "sort_order": 2,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:3f0a932396f21d6ae063",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:free:9f31022dd7255454:collocation:0"
+                    ],
+                    "meaning_cn": "空闲时间",
+                    "phrase": "free time"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "空闲的，有空的",
+                "definition_en": "not occupied or in use; available",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:free:9f31022dd7255454",
+                "sense_label_en": "not occupied or in use; available",
+                "sort_order": 3,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:d950b26030ee4f11affc",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:free:9287e28adaa65532:collocation:0"
+                    ],
+                    "meaning_cn": "免费旅行",
+                    "phrase": "travel free"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "免费地",
+                "definition_en": "without cost or payment",
+                "governing_pattern": "",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "adverb",
+                "sense_id": "sense:free:9287e28adaa65532",
+                "sense_label_en": "without cost or payment",
+                "sort_order": 4,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 1,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "free",
+            "word_family": [],
+            "word_id": "word:free"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2044.json",
+      "mode": "patch_json",
+      "expected_sha256": "c63890462b1768df8051b9c16d96da2c7a69ef2b589a907202d86ab93f6d7270",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "3c937010657b618706830f467497ad03c201176d8cfabace168920dd1ec2f748",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "结冰；冻结；使结冰；使冻结；愣住；呆住",
+                  "label_en": "to become ice or solid due to cold; to cause something to become ice or solid; to stop moving suddenly, especially from fear or surprise",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:freeze:498bc787918456af",
+                    "sense:freeze:b5b1a1d1d46c5c9f",
+                    "sense:freeze:ac01f669ce5c506b"
+                  ]
+                },
+                {
+                  "label_cn": "严寒期；冻结",
+                  "label_en": "a period of very cold weather; a temporary halt",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:freeze:08004f38898153ad"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "冻结；愣住",
+              "core_meaning_en": "to become solid due to cold; to stop suddenly",
+              "mental_model_cn": "冻结；愣住",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:5940255fe06a1b1c1b48",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:freeze:498bc787918456af:collocation:0"
+                    ],
+                    "meaning_cn": "表面结冰",
+                    "phrase": "freeze over"
+                  },
+                  {
+                    "collocation_id": "collocation:7f15d6eba2530719c72a",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:freeze:498bc787918456af:collocation:1"
+                    ],
+                    "meaning_cn": "湖在冬天结冰了。",
+                    "phrase": "The lake froze in winter."
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "结冰；冻结",
+                "definition_en": "to become ice or solid due to cold",
+                "governing_pattern": "vi.",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:freeze:498bc787918456af",
+                "sense_label_en": "to become ice or solid due to cold",
+                "sort_order": 0,
+                "transitivity": "vi"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:7158065b667405945807",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:freeze:b5b1a1d1d46c5c9f:collocation:0"
+                    ],
+                    "meaning_cn": "使水结冰",
+                    "phrase": "freeze water"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "使结冰；使冻结",
+                "definition_en": "to cause something to become ice or solid",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:freeze:b5b1a1d1d46c5c9f",
+                "sense_label_en": "to cause something to become ice or solid",
+                "sort_order": 1,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:7dff33fd591442cbeabe",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:freeze:ac01f669ce5c506b:collocation:0"
+                    ],
+                    "meaning_cn": "吓得呆住",
+                    "phrase": "freeze in fear"
+                  },
+                  {
+                    "collocation_id": "collocation:f80de5fbd71f9ba3bbe8",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:freeze:ac01f669ce5c506b:collocation:1"
+                    ],
+                    "meaning_cn": "她看到蛇时愣住了。",
+                    "phrase": "She froze when she saw the snake."
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "愣住；呆住",
+                "definition_en": "to stop moving suddenly, especially from fear or surprise",
+                "governing_pattern": "vi.",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:freeze:ac01f669ce5c506b",
+                "sense_label_en": "to stop moving suddenly, especially from fear or surprise",
+                "sort_order": 2,
+                "transitivity": "vi"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:cb7e4b9d71644c9647c7",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:freeze:08004f38898153ad:collocation:0"
+                    ],
+                    "meaning_cn": "价格冻结",
+                    "phrase": "a price freeze"
+                  },
+                  {
+                    "collocation_id": "collocation:11e7ae9656bea1959582",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:freeze:08004f38898153ad:collocation:1"
+                    ],
+                    "meaning_cn": "严冬",
+                    "phrase": "a hard freeze"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "严寒期；冻结",
+                "definition_en": "a period of very cold weather; a temporary halt",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:freeze:08004f38898153ad",
+                "sense_label_en": "a period of very cold weather; a temporary halt",
+                "sort_order": 3,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:31b8cff265d22c0ede86",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:freeze:9fe6106e61acf851:collocation:handoff-o1625-o1874"
+                    ],
+                    "meaning_cn": "冻结价格、工资、账户或资产",
+                    "phrase": "freeze prices/wages/accounts/assets"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "冻结价格、工资、账户或资产",
+                "definition_en": "to hold prices, wages, accounts, or assets fixed or temporarily block access or activity",
+                "governing_pattern": "freeze prices/wages/accounts/assets",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:freeze:9fe6106e61acf851",
+                "sense_label_en": "to hold prices, wages, accounts, or assets fixed or temporarily block access or activity",
+                "sort_order": 4,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 0,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "freeze",
+            "word_family": [],
+            "word_id": "word:freeze",
+            "form_identity": {
+              "form_type": "irregular_inflection_identity",
+              "spelling": "freeze",
+              "identity_rule": "same_word_owner_no_semantic_split",
+              "boundary": "freeze is irregular: freeze → froze → frozen.",
+              "boundaries": [
+                {
+                  "surface": "freeze",
+                  "condition": "base/present",
+                  "note": "base form"
+                },
+                {
+                  "surface": "froze",
+                  "condition": "past simple",
+                  "note": "irregular past"
+                },
+                {
+                  "surface": "frozen",
+                  "condition": "past participle",
+                  "note": "irregular participle"
+                }
+              ],
+              "variants": [],
+              "authority": "BF19 grouped p approved Form expansion 2026-09-22"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2045.json",
+      "mode": "patch_json",
+      "expected_sha256": "250fd91da9d617283a05ca364725e88f9cdfae54efa488f56156994f841318f0",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "7e85a02a687de79cd53ed2dd80e71c5157c154f28224bbfcfd303666a3f1cb5e",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "货物；货运货物",
+                  "label_en": "goods or cargo transported commercially",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:freight:71597de37a76932b"
+                  ]
+                },
+                {
+                  "label_cn": "货运；运输活动",
+                  "label_en": "the commercial transport of goods",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:freight:080201027ae35017"
+                  ]
+                },
+                {
+                  "label_cn": "运费",
+                  "label_en": "the charge for transporting goods",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:freight:240a36820e4e5461"
+                  ]
+                },
+                {
+                  "label_cn": "以货运运送",
+                  "label_en": "transport commercially as cargo",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:freight:93ac8805dd395833"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "货物；货运；运费",
+              "core_meaning_en": "cargo/goods transported, freight transport, or the charge for transport",
+              "mental_model_cn": "货物；货运；运费",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "semantic-reconciliation:o2025-o2224"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:ff7455500213fd83c7f6",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:freight:71597de37a76932b:collocation:retro-o0025-o0224"
+                    ],
+                    "meaning_cn": "运输货物",
+                    "phrase": "carry freight"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "货物；货运货物",
+                "definition_en": "goods or cargo transported commercially from one place to another",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:freight:71597de37a76932b",
+                "sense_label_en": "goods or cargo transported commercially from one place to another",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:e35da67c82a91748b22e",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:freight:080201027ae35017:collocation:0"
+                    ],
+                    "meaning_cn": "货运列车",
+                    "phrase": "freight train"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "货运",
+                "definition_en": "transporting goods commercially at rates cheaper than express rates",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:freight:080201027ae35017",
+                "sense_label_en": "transporting goods commercially at rates cheaper than express rates",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:80f27708bffa46d53e3f",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:freight:240a36820e4e5461:collocation:0"
+                    ],
+                    "meaning_cn": "支付运费",
+                    "phrase": "pay freight"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "运费",
+                "definition_en": "the charge for transporting something by common carrier",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:freight:240a36820e4e5461",
+                "sense_label_en": "the charge for transporting something by common carrier",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:c91ca9e78e5dd69feb01",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:freight:93ac8805dd395833:collocation:0"
+                    ],
+                    "meaning_cn": "运送货物",
+                    "phrase": "freight goods"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "以货运运送",
+                "definition_en": "transport commercially as cargo",
+                "governing_pattern": "vt. + sth",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:freight:93ac8805dd395833",
+                "sense_label_en": "transport commercially as cargo",
+                "sort_order": 3,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 2,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "freight",
+            "word_family": [],
+            "word_id": "word:freight"
+          }
+        }
+      ]
+    }
+  ]
+}
