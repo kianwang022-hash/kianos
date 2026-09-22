@@ -6,8 +6,103 @@
   "canonical_id": "C",
   "selection_policy": "SPARSE_HIGH_VALUE_NOT_EXHAUSTIVE",
   "completeness": "PARTIAL_BY_DESIGN_EXTENSIBLE",
-  "notes": "Formal C/H11 Source Visual is grounded in the Project canonical `27内科精编版合集【带导图】.pdf`: printed P224 / physical PDF P272. The reviewed crop preserves the immunophenotype summary used by H11 LG08/KP31. RS variants, CHL subtype morphology and other H11 morphology visuals remain Source-gated rather than model-reconstructed.",
+  "notes": "Formal C/H11 Source Visual recovery from the Project canonical `27内科精编版合集【带导图】.pdf`. Reviewed bundles cover lineage orientation and DLBCL morphology (P268), skin-T/Pautrier + NK/T morphology (P270), RS/NLPHL/CHL morphology and CHL four-subtype source table (P271), and immunophenotype summary (P272). Unrecovered H11 visuals remain fail-closed.",
   "bundles": [
+    {
+      "cue_id": "c-h11-lg01-visual",
+      "source_sha256": "4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "xizong-lecture-internal-medicine-pdf-v2:4ebf1bf62eea5eb1:p268:lineage-map",
+          "source_page": 268,
+          "usage_role": "LYMPHOMA_LINEAGE_ORIENTATION_VISUAL",
+          "usage_label": "内科 P220｜PDF P268 · 淋巴细胞分化与淋巴瘤谱系图",
+          "alt": "27内科精编版合集 PDF P268（印刷 P220）：前体B/T、成熟B、T、NK、浆细胞分化位置与代表性淋巴瘤之间关系的原始谱系图",
+          "asset_path": "c-h11-lg01/h11-p268-lineage-map.webp",
+          "width": 1200,
+          "height": 1047,
+          "source_crop_sha256": "2a996c2b99dbf00ade21e4ba0582d85cccbdb231dbcf26c2de36024e65d5b931",
+          "derived_asset_sha256": "02db743721d16db3e4fa69bb05b9ffb5a512463ad4cfe0c850466f8da310053d"
+        }
+      ]
+    },
+    {
+      "cue_id": "c-h11-lg02-visual",
+      "source_sha256": "4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "xizong-lecture-internal-medicine-pdf-v2:4ebf1bf62eea5eb1:p268:dlbcl-morphology",
+          "source_page": 268,
+          "usage_role": "DLBCL_MORPHOLOGY_VISUAL",
+          "usage_label": "内科 P220｜PDF P268 · DLBCL 弥漫大细胞",
+          "alt": "27内科精编版合集 PDF P268（印刷 P220）：弥漫性大B细胞淋巴瘤大型异型淋巴细胞组织形态及 CD20 免疫组化 inset",
+          "asset_path": "c-h11-lg02/h11-p268-dlbcl.webp",
+          "width": 425,
+          "height": 500,
+          "source_crop_sha256": "94820083a8bd92ff7f3727e74280a0455d9fb8a0d3cdc1db3cbfcbd0411e7187",
+          "derived_asset_sha256": "a5d1240f2dd848bfa1963f1e7991c3d204d1e85024d94842b7504e6f0ca79045"
+        }
+      ]
+    },
+    {
+      "cue_id": "c-h11-lg04-visual",
+      "source_sha256": "4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "xizong-lecture-internal-medicine-pdf-v2:4ebf1bf62eea5eb1:p270:t-nk-morphology",
+          "source_page": 270,
+          "usage_role": "T_NK_LYMPHOMA_MORPHOLOGY_VISUAL",
+          "usage_label": "内科 P222｜PDF P270 · 皮肤T / Pautrier 与 NK/T",
+          "alt": "27内科精编版合集 PDF P270（印刷 P222）：蕈样肉芽肿 Pautrier 微脓肿组织图，以及鼻型结外 NK/T 淋巴瘤鼻腔病变与组织图",
+          "asset_path": "c-h11-lg04/h11-p270-t-nk-morphology.webp",
+          "width": 1200,
+          "height": 386,
+          "source_crop_sha256": "7aa0d38921486ae6bd5c812f5c57dc3a916088e5637008a57c4985e2afb64e7a",
+          "derived_asset_sha256": "a4b7ae0f46b276c642823a033673e5259b00a5616a921c9dc5d1f5b98ee7a975"
+        }
+      ]
+    },
+    {
+      "cue_id": "c-h11-lg06-visual",
+      "source_sha256": "4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "xizong-lecture-internal-medicine-pdf-v2:4ebf1bf62eea5eb1:p271:rs-variants",
+          "source_page": 271,
+          "usage_role": "RS_VARIANTS_HL_MORPHOLOGY_VISUAL",
+          "usage_label": "内科 P223｜PDF P271 · RS、NLPHL 与 CHL 形态",
+          "alt": "27内科精编版合集 PDF P271（印刷 P223）：典型 RS 细胞示意、RS 变体、爆米花细胞/NLPHL 与经典霍奇金淋巴瘤相关组织形态原图",
+          "asset_path": "c-h11-lg06/h11-p271-rs-variants.webp",
+          "width": 1200,
+          "height": 1091,
+          "source_crop_sha256": "64ca8d02a1c440e34d8517b1ad9de4dee5f8398d37953a00adb437d949a6fe74",
+          "derived_asset_sha256": "143bb3b2338f98af1d81b094a3d8b6ea1a2a3912ef27e96930730917c762dfbf"
+        }
+      ]
+    },
+    {
+      "cue_id": "c-h11-lg07-visual",
+      "source_sha256": "4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "xizong-lecture-internal-medicine-pdf-v2:4ebf1bf62eea5eb1:p271:chl-subtypes",
+          "source_page": 271,
+          "usage_role": "CHL_SUBTYPE_SOURCE_TABLE_VISUAL",
+          "usage_label": "内科 P223｜PDF P271 · CHL 四型原始表",
+          "alt": "27内科精编版合集 PDF P271（印刷 P223）：经典霍奇金淋巴瘤四型的发病率口径、预后与结节硬化/混合细胞/富于淋巴细胞/淋巴细胞减少型特征原始表",
+          "asset_path": "c-h11-lg07/h11-p271-chl-subtypes.webp",
+          "width": 1200,
+          "height": 569,
+          "source_crop_sha256": "986b16c8978976155ba3830308bb56fe53396559bca8d1ac236b28a8c3abe418",
+          "derived_asset_sha256": "f8425f7999adee8945b9d58789d1580c7fda808611f9b9077a2a687e882f3a03"
+        }
+      ]
+    },
     {
       "cue_id": "c-h11-lg08-visual",
       "source_sha256": "4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939",
