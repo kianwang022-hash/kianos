@@ -32,30 +32,46 @@
     "p_behavior": "APPROVE_EXACT_SHOWN_DELTA__FREEZE_BACKLOG__IMMEDIATE_NEXT_PRODUCTION_BATCH"
   },
   "frontier": {
-    "accepted_main_head": "54148774334fc98a8ce281e0c642220005891dc9",
+    "accepted_main_head": "71e9bcf8c546aa70fa068291128327dd1ba6cb60",
     "current_candidate_id": "BF18",
     "range": [
       1851,
       1950
     ],
-    "state": "REVIEW_BUNDLE_REQUIRED",
+    "state": "WAITING_HUMAN_GATE",
     "candidate_pr": null,
-    "candidate_branch": null,
+    "candidate_branch": "work/lexical-fullcatalog-bf18-review-20260922",
     "materialized_owner_read_head": null,
-    "note": "BF17 merged cleanly via PR #790. Advance full-catalog final-standard second pass to BF18 o1851-o1950; Fresh Read + Self Attack under unchanged ruler."
+    "review_branch": "work/lexical-fullcatalog-bf18-review-20260922",
+    "proposal_path": "content/lexical/execution/manifests/o1851-o1950.fullcatalog-final-standard-proposal.md",
+    "proposal_commit": "7e93b7ce67831e482a4fd5cd9b446501c9095f8d",
+    "note": "BF18 Fresh Read + Self Attack complete: 29 affected, 71 NO_CHANGE, 0 blocked. Seven genuinely new Form groups require exact Human Gate before materialization; existing-truth corrections are frozen."
   },
   "audit_target": {
-    "state": "WAITING_PRODUCTION_AND_MATERIALIZATION",
+    "state": "WAITING_HUMAN_GATE",
     "candidate_id": "BF18",
     "range": [
       1851,
       1950
     ],
     "candidate_pr": null,
-    "candidate_branch": null,
+    "candidate_branch": "work/lexical-fullcatalog-bf18-review-20260922",
     "candidate_owner_read_head": null,
     "brief": null,
-    "output": null
+    "output": null,
+    "human_gate_required_groups": 7,
+    "human_gate_required_ordinals": [
+      1851,
+      1896,
+      1898,
+      1919,
+      1929,
+      1941,
+      1944
+    ],
+    "remote_dependency_if_approved": [
+      5532
+    ]
   },
   "lanes": {
     "A": {
@@ -1697,7 +1713,33 @@
     "A_status": "REOPENED_FULL_CATALOG_CONTINUATION",
     "C_status": "REOPENED_FULL_CATALOG_CONTINUATION",
     "completion_note": "Original o0001-o1250 closure is preserved. Continuation starts at o1251 under unchanged FINAL_SEMANTIC_FREEZE v1 ruler.",
-    "current_batch_result": null
+    "current_batch_result": {
+      "candidate_id": "BF18",
+      "range": [
+        1851,
+        1950
+      ],
+      "reviewed_owner_count": 100,
+      "affected_owner_count": 29,
+      "no_change_count": 71,
+      "blocked": 0,
+      "new_material_group_count": 7,
+      "new_material_delta_owners": [
+        1851,
+        1896,
+        1898,
+        1919,
+        1929,
+        1941,
+        1944
+      ],
+      "remote_dependency_if_approved": [
+        5532
+      ],
+      "proposal": "content/lexical/execution/manifests/o1851-o1950.fullcatalog-final-standard-proposal.md",
+      "module_matrix": "content/lexical/execution/manifests/o1851-o1950.fullcatalog-final-standard-module-matrix.tsv",
+      "state": "WAITING_HUMAN_GATE"
+    }
   },
   "phase_transition": {
     "entered_at": "2026-09-22",
@@ -1707,14 +1749,37 @@
   },
   "materialization_progress": {
     "candidate_id": "BF18",
-    "status": "REVIEW_BUNDLE_REQUIRED",
+    "status": "WAITING_HUMAN_GATE",
     "candidate_pr": null,
-    "latest_main_refreeze": "54148774334fc98a8ce281e0c642220005891dc9",
+    "latest_main_refreeze": "71e9bcf8c546aa70fa068291128327dd1ba6cb60",
     "review_range": [
       1851,
       1950
     ],
+    "review_artifact": 10683431619,
+    "review_artifact_digest": "sha256:944b18b85c18256ee285cac4fb54e1cc7aa8cb727e2232b1083867757fed6abd",
+    "proposal_path": "content/lexical/execution/manifests/o1851-o1950.fullcatalog-final-standard-proposal.md",
+    "proposal_commit": "7e93b7ce67831e482a4fd5cd9b446501c9095f8d",
+    "fresh_read_coverage": "100/100",
+    "self_attack": "COMPLETE",
+    "content_affected_owners": 29,
+    "content_no_change": 71,
+    "new_material_group_count": 7,
+    "new_material_delta_owners": [
+      1851,
+      1896,
+      1898,
+      1919,
+      1929,
+      1941,
+      1944
+    ],
+    "remote_dependency_if_approved": [
+      5532
+    ],
     "blocked": 0,
+    "standing_repair_tests_before": 0,
+    "standing_repair_tests_after": 0,
     "final_learner_objects": 7946,
     "final_learner_shards": 125
   },
