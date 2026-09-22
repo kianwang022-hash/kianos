@@ -532,8 +532,9 @@ Default mainline for one dependency chain:
 6. Learning UX / Projection Design
 7. Runtime Implementation
 8. Module E2E Acceptance
-9. Learner Test
-10. Evidence-based Revision
+9. Pre-Use Final Maturity Audit
+10. Learner Test
+11. Evidence-based Revision
 ```
 
 This sequence is iterative: a concrete downstream defect may reopen the earliest upstream gate that actually explains it. Do not reopen mature gates merely because more features can be imagined.
@@ -582,11 +583,96 @@ Simulate realistic journeys on current `main@HEAD`, including at least:
 
 This can prove S–E behavior for the tested scope. It cannot prove U.
 
-## 5.9 Learner Test
+## 5.9 Pre-Use Final Maturity Audit
+
+Before a **material learner-facing model, planner, scorer, forecast, recovery/health interpretation, evidence-mutating runtime, or cross-surface control path** is intentionally handed to Kian for first real use, it must pass one final pre-use maturity audit on the exact current candidate.
+
+This is stronger than ordinary implementation QA and weaker than real U:
+
+~~~text
+S–E acceptance
+→ fresh independent adversarial pre-use audit
+→ READY_FOR_REAL_USER_TRIAL
+→ real learner use
+→ U by path
+~~~
+
+A pre-use audit must not manufacture U. Even a perfect simulation proves only that the system is mature enough to expose to the learner.
+
+### Required properties
+
+The strongest pre-use PASS requires all of the following when they are relevant to the claimed behavior:
+
+1. **Fresh exact-candidate readback**
+   - audit the exact current candidate and current dependencies;
+   - a prior green commit is not proof after a material semantic/runtime/model change.
+
+2. **Independent / blind-first attack**
+   - the final auditor should begin from current owners, requirements, contracts and acceptance criteria rather than Production's detailed rationale;
+   - Production decisions are revealed only after the auditor has formed provisional expectations where practical;
+   - a same-Chat self-attack is useful defect discovery but is not the strongest independence evidence;
+   - if blind-first independence cannot be enforced, disclose that limitation rather than silently calling the audit independent.
+
+3. **Realistic human simulation**
+   - simulate the learner as a person, not as a happy-path API client;
+   - include normal use, hesitation, interruption, wrong assumptions, skips, partial completion, return after a break, and plausible misuse;
+   - use the intended real surface arrangement and realistic data/state sequences.
+
+4. **Adversarial / self-attack coverage**
+   - actively search for false confidence, hidden assumptions, double counting, stale evidence, contamination, leakage, wrong-surface routing, manufactured mastery/debt, state corruption, overreaction, underreaction and silent fallback;
+   - attack both false-positive and false-negative decisions.
+
+5. **Boundary and degraded-mode coverage**
+   - missing, sparse, stale, conflicting or corrupt evidence;
+   - source/device/model/version changes;
+   - partial sync / unavailable dependency;
+   - error, retry, idempotency, persistence, rollback and recovery paths when state can mutate;
+   - explicit fail-closed behavior where correctness cannot be established.
+
+6. **Simpler-baseline challenge**
+   - a more complex model must justify itself against the simpler safe baseline it replaces or augments;
+   - extra complexity that does not improve decision usefulness, calibration, safety or maintenance should be removed.
+
+7. **Cross-dependency regression**
+   - test the smallest heterogeneous set of dependent/inherited behaviors that could realistically be broken by the change;
+   - do not substitute an unrelated broad green CI run for targeted proof.
+
+8. **Epistemic honesty**
+   - unknown stays unknown;
+   - simulated fixtures cannot prove personal calibration;
+   - sample size / source coverage / contamination limits remain visible;
+   - future probabilities or personalized effects are not called calibrated without held-out real evidence.
+
+9. **No known material blocker at handoff**
+   - every known MATERIAL / IDENTITY / learner-behavior-changing defect is repaired, bounded, or causes HOLD;
+   - non-blocking debt is named explicitly;
+   - there is a tested safe fallback for unavailable optional evidence.
+
+### Verdict
+
+Use:
+
+~~~text
+Pre-Use Final Audit: PASS / PASS_WITH_DEBT / BLOCKED / UNTESTED
+~~~
+
+PASS or legitimate PASS_WITH_DEBT permits only the claim:
+
+> **READY_FOR_REAL_USER_TRIAL**
+
+It does not permit:
+
+> learner-validated / personally calibrated / U PASS
+
+For a model whose personal coefficients require future real data, pre-use PASS means its cold-start behavior, uncertainty handling, calibration pathway and safe fallback have been fully tested. The personal calibration itself remains UNTESTED until real eligible observations exist.
+
+Real U may still reveal a defect. When it does, reopen the earliest responsible gate rather than defending the pre-use audit.
+
+## 5.10 Learner Test
 
 The learner uses the real product in the real intended surface arrangement. Record U by path.
 
-## 5.10 Evidence-based Revision
+## 5.11 Evidence-based Revision
 
 Revise only from concrete defects, friction, missing stable content, or repeated learner evidence.
 
@@ -791,6 +877,7 @@ Reports should identify concrete Current evidence rather than infer completion f
 24. **Content availability ≠ Render entitlement.**
 25. **Runtime capability ≠ Learning-surface authority.**
 26. **A wrong surface assignment is an L defect before it is a P/CSS defect.**
+27. **Material learner-facing systems must pass a fresh adversarial pre-use maturity audit before first intentional use; that PASS means ready for real trial, not U.**
 
 ---
 
