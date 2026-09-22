@@ -19,10 +19,20 @@ let browser, nativeFocusVerified=false;
 // Use a real window manager with headed Chromium on Linux. Xvfb alone can
 // leave multiple Chromium windows reporting focus simultaneously. Verify native
 // activation on blank pages; never patch DOM focus or bypass production locks.
+const focusSessions=new WeakMap();
+async function clearFocusEmulation(page){
+ let session=focusSessions.get(page);
+ if(!session){session=await page.context().newCDPSession(page);focusSessions.set(page,session);}
+ // Chromium 141 tracks this setting per inspector agent and returns early
+ // for false -> false. Playwright enabled it through a different agent, so
+ // force a real transition before clearing it. No application action occurs
+ // under the temporary override; the blank-page native-focus check is mandatory.
+ await session.send('Emulation.setFocusEmulationEnabled',{enabled:true});
+ await session.send('Emulation.setFocusEmulationEnabled',{enabled:false});
+}
 async function nativeFocusPage(context){
  const page=await context.newPage();
- const session=await context.newCDPSession(page);
- await session.send('Emulation.setFocusEmulationEnabled',{enabled:false});
+ await clearFocusEmulation(page);
  return page;
 }
 async function verifyNativeFocus() {
@@ -44,6 +54,9 @@ async function verifyNativeFocus() {
  } finally {await context.close();}
 }
 async function ready(page){
+ // Navigation may reinitialize the inspector agents. Clear their override
+ // again before observing actual foreground ownership.
+ await clearFocusEmulation(page);
  try{await page.waitForFunction(()=>document.hasFocus()&&document.documentElement.dataset.learnerWriter==='active');}
  catch(error){
   diagnostics.push(await page.evaluate(async()=>({url:location.href,focused:document.hasFocus(),visibility:document.visibilityState,writer:document.documentElement.dataset.learnerWriter,locks:await navigator.locks.query()})).catch(()=>({unreadable:true})));
