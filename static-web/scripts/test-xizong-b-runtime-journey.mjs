@@ -345,6 +345,15 @@ async function systemRecallToPracticeJourney(page) {
     ? memoryAfterPlan.evidence.length
     : 0;
   const repairTaskId = visibleRepair.id;
+  // Playwright headless reports every open tab as focused. Real Chrome does not.
+  // Emulate the real focus transfer so the old writer can retire before the
+  // newly opened Repair tab requests the single learner-writer lock.
+  await page.evaluate(() => {
+    Object.defineProperty(document, 'hasFocus', {
+      configurable: true,
+      value: () => false
+    });
+  });
   const [repairPage] = await Promise.all([
     page.context().waitForEvent('page'),
     routeLink.click()
@@ -405,6 +414,11 @@ async function systemRecallToPracticeJourney(page) {
   await repairPage.close();
 
   check(!page.isClosed(), 'b_original_practice_tab_preserved_for_return');
+  // Returning to a retired real tab reloads by design. Reload explicitly here
+  // to replace the headless-only hasFocus shim and reacquire writer ownership.
+  await page.reload({ waitUntil:'domcontentloaded' });
+  await page.bringToFront();
+  await page.waitForFunction(() => document.documentElement.dataset.learnerWriter === 'active');
   wuState = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), sweepKey);
   check(wuState?.results?.[reviewedTarget.questionId]?.status === 'uncertain',
     'b_repair_does_not_rewrite_original_question_attempt');
@@ -425,10 +439,14 @@ async function systemRecallToPracticeJourney(page) {
     const staleKeys = Object.keys(localStorage).filter((key) =>
       key.startsWith(`kianos-xizong-stale-system-evidence:${systemId}:`)
     );
+    const sweep = JSON.parse(localStorage.getItem(sweepKey) || 'null');
     return {
       metaVersion:meta?.version || '',
       staleKeys,
-      sweepStillPresent:localStorage.getItem(sweepKey) !== null,
+      sweepCurrentResultsEmpty: Object.keys(sweep?.results || {}).length === 0,
+      sweepHistoryPreserved: Array.isArray(sweep?.attemptHistory) && sweep.attemptHistory.length > 0,
+      sweepHistoryInvalidated: Array.isArray(sweep?.attemptHistory)
+        && sweep.attemptHistory.every((event) => event?.current_revision_valid === false),
       repairStillPresent:localStorage.getItem(`kianos:xizong:system-repair-return:${systemId}:v1`) !== null
     };
   }, { systemId:SYSTEM_ID, currentVersion, sweepKey });
@@ -436,8 +454,13 @@ async function systemRecallToPracticeJourney(page) {
     'b_version_mismatch_rebinds_current_evidence_version');
   check(staleResult.staleKeys.length >= 1,
     'b_version_mismatch_archives_stale_system_evidence');
-  check(staleResult.sweepStillPresent === false && staleResult.repairStillPresent === false,
-    'b_version_mismatch_clears_stale_sweep_and_repair_state');
+  check(
+    staleResult.sweepCurrentResultsEmpty
+      && staleResult.sweepHistoryPreserved
+      && staleResult.sweepHistoryInvalidated
+      && staleResult.repairStillPresent === false,
+    'b_version_mismatch_invalidates_current_sweep_preserves_history_and_clears_repair_state'
+  );
 }
 
 const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', String(PORT)], {
