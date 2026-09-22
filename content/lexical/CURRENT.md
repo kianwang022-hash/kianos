@@ -36,11 +36,13 @@ This is **not** enrichment-by-default and not permission to make every card equa
 Current batch:
 
 ```text
-BF18
-o1851–o1950
+BF19
+o1951–o2050
 Fresh Read + Self Attack complete
-29 affected / 71 PRESERVE / 0 blocked
-waiting exact Human Gate for 7 new Form groups
+42 affected / 58 PRESERVE / 0 blocked
+existing-truth repairs retained
+10 unauthorized Form additions recovered/removed
+waiting exact Human Gate for 10 new Form groups
 ```
 
 BF12 `o1251–o1350` is closed on main via PR #764: 100/100 reviewed, 21 affected owners, 79 NO_CHANGE, 0 blocked; all 7,946 Final Learner Objects rebuilt and same-Chat B readback passed.
@@ -54,6 +56,10 @@ BF15 `o1551–o1650` is closed on main via PR #780: 100/100 reviewed, 26 affecte
 BF16 `o1651–o1750` is closed on main via PR #784: 100/100 reviewed, 25 affected owners, 75 NO_CHANGE, 0 blocked; no Human Gate was required, three B-reconciliation residues were closed, and all 7,946 Final Learner Objects rebuilt successfully.
 
 BF17 `o1751–o1850` is closed on main via PR #790: 100/100 reviewed, 24 affected owners, 76 NO_CHANGE, 0 blocked; no Human Gate or B reconciliation was required, and all 7,946 Final Learner Objects rebuilt successfully.
+
+BF18 `o1851–o1950` is closed on main via PR #806: 100/100 reviewed, 29 affected owners, 71 NO_CHANGE, 0 blocked; the exact BF18-only Human Gate admitted 7 new Form groups, remote o5532 fertilizer stayed existing-truth-only, 7,946 Final Learner Objects rebuilt, and B readback passed.
+
+BF19 `o1951–o2050` existing-truth repairs from PR #808 are retained, but its 10 new Form groups were removed by the exact-scope recovery after the earlier grouped-approval interpretation was invalidated. BF19 is now waiting for its own exact Human Gate. BF20 remains review-ahead frozen and unapproved.
 
 ## Current state
 
