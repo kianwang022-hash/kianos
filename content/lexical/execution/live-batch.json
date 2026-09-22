@@ -3,14 +3,14 @@
   "status": "ACTIVE",
   "campaign": "FULL_CATALOG_FINAL_STANDARD_CONTINUATION",
   "semantic_ruler": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
-  "updated_at": "2026-09-22T15:04:56+00:00",
+  "updated_at": "2026-09-22T15:06:28+00:00",
   "frontier": {
     "candidate_id": "BF24",
     "range": [
       2451,
       2550
     ],
-    "state": "RECONCILE_ALLOWED",
+    "state": "READY_FOR_B_READBACK",
     "proposal_path": "content/lexical/execution/manifests/o2451-o2550.fullcatalog-final-standard-proposal.md",
     "proposal_commit": "a249e1c4d49d3065005fe10db61ffcac17338074",
     "review_branch": "work/lexical-fullcatalog-bf24-review-20260922",
@@ -44,20 +44,15 @@
     "self_attack_note": "Focused Gate to 3 noun/verb stress Forms + 3 high-value near-form academic decision Relations; repaired existing eminent↔imminent reciprocal entrypoint without a new gate.",
     "materialization": {
       "status": "READY_FOR_B_READBACK",
-      "package_id": "BF24-official-o2451-o2550-v1",
-      "receipt": "content/lexical/execution/mutation-receipts/BF24-official-o2451-o2550-v1.json",
+      "package_id": "BF24-B-reconcile-v2",
+      "receipt": "content/lexical/execution/mutation-receipts/BF24-B-reconcile-v2.json",
       "final_learner_objects": 7946,
-      "updated_at": "2026-09-22T15:01:01+00:00"
+      "updated_at": "2026-09-22T15:06:28+00:00"
     },
     "audit": {
-      "status": "COMPLETE",
-      "result": "PASS_WITH_CORRECTIONS",
-      "pack": "content/lexical/semantic-audit/O2451_O2550_FINAL_STANDARD_SAME_CHAT_B_AUDIT_PACK.md",
-      "blind_first": "NOT_ENFORCED",
-      "correction_ordinals": [
-        2501
-      ],
-      "updated_at": "2026-09-22T15:04:56+00:00"
+      "status": "PENDING",
+      "result": null,
+      "pack": null
     }
   },
   "next": {
@@ -86,7 +81,7 @@
     "audit_pack": "content/lexical/semantic-audit/O2351_O2450_FINAL_RECONCILED_READBACK.md",
     "final_learner_objects": 7946
   },
-  "blocker": "B_CORRECTIONS",
-  "next_action": "APPLY_BOUNDED_RECONCILIATION",
+  "blocker": null,
+  "next_action": "RUN_B_READBACK",
   "legacy_history": "content/lexical/execution/three-chat-board.json"
 }
