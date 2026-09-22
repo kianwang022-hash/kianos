@@ -100,82 +100,8 @@ jobs:
               re.compile(r'^content/lexical/execution/manifests/.+\.(json|md|tsv)$'),
               re.compile(r'^content/lexical/execution/mutation-receipts/.+\.json$'),
               re.compile(r'^content/lexical/learner/final/.+$'),
-              re.compile(r'^content/lexical/execution/final-mutation-package\.json
-          ]
-          paths=subprocess.check_output(['git','diff','--name-only']).decode().splitlines()
-          bad=[p for p in paths if not any(rx.fullmatch(p) for rx in allowed)]
-          if bad:
-              raise SystemExit('WORKTREE_SCOPE_VIOLATION:' + ','.join(bad))
-          print({'changed_paths': len(paths)})
-          PY
-
-      - name: Remove one-shot mutation request
-        run: git rm content/lexical/execution/final-mutation-package.json
-
-      - name: Commit candidate materialization
-        run: |
-          git config user.name "KianOS Lexical Mutation Executor"
-          git config user.email "actions@users.noreply.github.com"
-          git add -A content/lexical
-          if git diff --cached --quiet; then
-            echo "NO_EFFECT_MUTATION_PACKAGE"
-            exit 2
-          fi
-          PACKAGE_ID="$(python - <<'PY'
-          import json
-          print(json.load(open('/tmp/lexical-final-mutation/final.json',encoding='utf-8'))['package_id'])
-          PY
-          )"
-          git commit -m "content(lexical): apply final mutation package ${PACKAGE_ID}"
-          git push origin HEAD:"${GITHUB_REF_NAME}"
-
-      - name: Upload executor evidence
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: lexical-final-mutation-${{ github.sha }}
-          path: /tmp/lexical-final-mutation/
-          if-no-files-found: error
-          retention-days: 14
-),
-              re.compile(r'^content/lexical/execution/live-batch\.json
-          ]
-          paths=subprocess.check_output(['git','diff','--name-only']).decode().splitlines()
-          bad=[p for p in paths if not any(rx.fullmatch(p) for rx in allowed)]
-          if bad:
-              raise SystemExit('WORKTREE_SCOPE_VIOLATION:' + ','.join(bad))
-          print({'changed_paths': len(paths)})
-          PY
-
-      - name: Remove one-shot mutation request
-        run: git rm content/lexical/execution/final-mutation-package.json
-
-      - name: Commit candidate materialization
-        run: |
-          git config user.name "KianOS Lexical Mutation Executor"
-          git config user.email "actions@users.noreply.github.com"
-          git add -A content/lexical
-          if git diff --cached --quiet; then
-            echo "NO_EFFECT_MUTATION_PACKAGE"
-            exit 2
-          fi
-          PACKAGE_ID="$(python - <<'PY'
-          import json
-          print(json.load(open('/tmp/lexical-final-mutation/final.json',encoding='utf-8'))['package_id'])
-          PY
-          )"
-          git commit -m "content(lexical): apply final mutation package ${PACKAGE_ID}"
-          git push origin HEAD:"${GITHUB_REF_NAME}"
-
-      - name: Upload executor evidence
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: lexical-final-mutation-${{ github.sha }}
-          path: /tmp/lexical-final-mutation/
-          if-no-files-found: error
-          retention-days: 14
-),
+              re.compile(r'^content/lexical/execution/final-mutation-package\.json$'),
+              re.compile(r'^content/lexical/execution/live-batch\.json$'),
           ]
           paths=subprocess.check_output(['git','diff','--name-only']).decode().splitlines()
           bad=[p for p in paths if not any(rx.fullmatch(p) for rx in allowed)]
