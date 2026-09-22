@@ -347,3 +347,26 @@ body#kianos-workspace[data-kianos-rail="compact"] :is(.kianosRailBrandCopy, .kia
     padding-inline: 12px;
   }
 }
+
+
+/* Human Gate v2: Politics / Xizong top chrome must be visibly shallow.
+   This selector intentionally outranks the generic uiStageOne 58px rule. */
+@media (min-width: 1101px) and (min-height: 680px) {
+  body#kianos-workspace.uiStageOne:is(.surfaceBody-politics,.surfaceBody-xizong) .kianosShellMain > .kianosSubjectBar {
+    min-height: 42px;
+    margin-top: 4px;
+  }
+  body#kianos-workspace.uiStageOne:is(.surfaceBody-politics,.surfaceBody-xizong) .kianosSubjectNav {
+    min-height: 42px;
+  }
+  body#kianos-workspace.uiStageOne:is(.surfaceBody-politics,.surfaceBody-xizong) .kianosSubjectNav a {
+    min-height: 42px;
+    padding-inline: 10px;
+  }
+  body#kianos-workspace.uiStageOne:is(.surfaceBody-politics,.surfaceBody-xizong) .kianosSubjectIdentity {
+    padding-inline: 14px;
+  }
+  body#kianos-workspace.uiStageOne:is(.surfaceBody-politics,.surfaceBody-xizong) .kianosShellMain > .productCanvas {
+    padding-top: 4px;
+  }
+}
