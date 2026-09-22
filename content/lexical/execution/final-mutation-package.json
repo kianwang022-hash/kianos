@@ -1,0 +1,2300 @@
+{
+  "schema": "kianos.lexical.final_mutation_package.v1",
+  "package_id": "BF22-official-o2251-o2350-v1",
+  "candidate_id": "BF22",
+  "range": {
+    "start_ordinal": 2251,
+    "end_ordinal": 2350
+  },
+  "lane": "A",
+  "source_head": "fa2d7657431fe49e9b15f0b3e070dc8402e114ea",
+  "human_gate": {
+    "approved": true,
+    "approval_ref": "content/lexical/execution/live-batch.json@BF22-exact-p-2026-09-22"
+  },
+  "writes": [
+    {
+      "path": "content/lexical/words/by-ordinal/o2252.json",
+      "mode": "patch_json",
+      "expected_sha256": "778782b05c509ae78539648140e60821466d670cdab31b344dd85b37ad0b7a2b",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "柄，把手",
+                "label_en": "the part of an object that is designed to be held in order to use or move it",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:handle:201d465aa8c0588b"
+                ]
+              },
+              {
+                "label_cn": "处理，应对；触摸，拿，搬",
+                "label_en": "to deal with or manage a situation, problem, or person; to touch, lift, or hold something with your hands",
+                "pos": "verb",
+                "sense_ids": [
+                  "sense:handle:e6cb0addedc45bc2",
+                  "sense:handle:fa22268b8d4c5dcb"
+                ]
+              }
+            ],
+            "core_meaning_cn": "处理；把手",
+            "core_meaning_en": "to deal with or manage; a part of an object to hold",
+            "mental_model_cn": "处理；把手",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2253.json",
+      "mode": "patch_json",
+      "expected_sha256": "f0e76bf63f8c9f46a86989165a576c90872e678ab3cadaff122cde698b495038",
+      "edits": [
+        {
+          "pointer": "/record/senses",
+          "value": [
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:dc2c282ea240b3c63e3b",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:handsome:e87a848a3fd85fc8:collocation:0"
+                  ],
+                  "meaning_cn": "英俊的男子",
+                  "phrase": "a handsome man"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "英俊的",
+              "definition_en": "pleasing in appearance, especially of a man",
+              "governing_pattern": "",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "adjective",
+              "sense_id": "sense:handsome:e87a848a3fd85fc8",
+              "sense_label_en": "pleasing in appearance, especially of a man",
+              "sort_order": 0,
+              "transitivity": "nonverb"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:f8991a3fc173804b3f83",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:handsome:003234e4d9a25959:collocation:0"
+                  ],
+                  "meaning_cn": "可观的报酬",
+                  "phrase": "a handsome reward"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "可观的；相当大的；丰厚的",
+              "definition_en": "generous or ample",
+              "governing_pattern": "",
+              "level": "L2",
+              "needs_human_review": 0,
+              "pos": "adjective",
+              "sense_id": "sense:handsome:003234e4d9a25959",
+              "sense_label_en": "generous or ample",
+              "sort_order": 1,
+              "transitivity": "nonverb"
+            }
+          ]
+        },
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [],
+            "core_meaning_cn": "英俊的；可观的、相当大的",
+            "core_meaning_en": "pleasing in appearance or considerable/ample",
+            "mental_model_cn": "英俊的；可观的、相当大的",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2256.json",
+      "mode": "patch_json",
+      "expected_sha256": "a46b0c13cacb71ebb8175770c08cea8216cab91c48a823d838e492c00b3736e0",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "悬挂；吊着；悬挂；吊起；绞死；吊死",
+                "label_en": "to be suspended or hanging; to cause to be hanging or suspended; to kill by hanging",
+                "pos": "verb",
+                "sense_ids": [
+                  "sense:hang:8e57c8b78d9d5939",
+                  "sense:hang:03260e727c435665",
+                  "sense:hang:6c76160dd49c5189"
+                ]
+              }
+            ],
+            "core_meaning_cn": "悬挂或从上方吊起",
+            "core_meaning_en": "to suspend or be suspended from above",
+            "mental_model_cn": "悬挂或从上方吊起",
+            "mental_model_en": ""
+          }
+        },
+        {
+          "pointer": "/record/form_identity",
+          "value": {
+            "form_type": "irregular_inflection_identity",
+            "spelling": "hang",
+            "identity_rule": "semantic_conditioned_past_identity",
+            "boundary": "For ordinary hanging, hang → hung → hung. For execution by hanging, the normal past and past participle are hanged.",
+            "boundaries": [
+              {
+                "surface": "hang",
+                "condition": "base/present",
+                "note": "base form"
+              },
+              {
+                "surface": "hung",
+                "condition": "ordinary past simple / past participle",
+                "note": "ordinary hanging uses hung"
+              },
+              {
+                "surface": "hanged",
+                "condition": "past simple / past participle meaning executed by hanging",
+                "note": "execution branch uses hanged"
+              }
+            ],
+            "variants": [],
+            "authority": "BF22 exact p approved Form expansion 2026-09-22"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2260.json",
+      "mode": "patch_json",
+      "expected_sha256": "fbce6b7c3662c94400529644a7e0e9a396040112170482df360f5d718792a523",
+      "edits": [
+        {
+          "pointer": "/record/form_identity",
+          "value": {
+            "form_type": "regional_spelling_identity",
+            "spelling": "harbor",
+            "identity_rule": "same_lexeme_spelling_variant",
+            "boundary": "harbor is the usual American spelling; harbour is the usual British spelling.",
+            "boundaries": [
+              {
+                "surface": "harbor",
+                "condition": "American English",
+                "note": "AmE spelling"
+              },
+              {
+                "surface": "harbour",
+                "condition": "British English",
+                "note": "BrE spelling"
+              }
+            ],
+            "variants": [],
+            "authority": "BF22 exact p approved Form expansion 2026-09-22"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2261.json",
+      "mode": "patch_json",
+      "expected_sha256": "5381421ec467eae78c5c5411e93260d472dbe5b515ac11b1de7f755d01d87eda",
+      "edits": [
+        {
+          "pointer": "/record/senses",
+          "value": [
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:8743cf79d61068415356",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:hard:7c825e4c4cb45b06:collocation:0"
+                  ],
+                  "meaning_cn": "坚硬的表面",
+                  "phrase": "hard surface"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "坚硬的",
+              "definition_en": "resisting weight or pressure; not soft",
+              "governing_pattern": "",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "adjective",
+              "sense_id": "sense:hard:7c825e4c4cb45b06",
+              "sense_label_en": "resisting weight or pressure; not soft",
+              "sort_order": 0,
+              "transitivity": "nonverb"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:ed6c8e7bc54b645d8fd5",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:hard:2132671976cd5787:collocation:0"
+                  ],
+                  "meaning_cn": "难题",
+                  "phrase": "hard question"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "困难的",
+              "definition_en": "difficult to do or understand",
+              "governing_pattern": "",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "adjective",
+              "sense_id": "sense:hard:2132671976cd5787",
+              "sense_label_en": "difficult to do or understand",
+              "sort_order": 1,
+              "transitivity": "nonverb"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:246e9c923d61c124c213",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:hard:3288d6ad30a15e02:collocation:0"
+                  ],
+                  "meaning_cn": "努力工作",
+                  "phrase": "work hard"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "努力地，猛烈地",
+              "definition_en": "with great effort or force",
+              "governing_pattern": "",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "adverb",
+              "sense_id": "sense:hard:3288d6ad30a15e02",
+              "sense_label_en": "with great effort or force",
+              "sort_order": 2,
+              "transitivity": "nonverb",
+              "usage_note": "hard can mean with great effort or intensity; hardly means almost not or scarcely."
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:5ad4a79daaf73415a912",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:hard:a00ee874dbdb5425:collocation:0"
+                  ],
+                  "meaning_cn": "艰苦的工作",
+                  "phrase": "hard work"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "艰苦的，费力的",
+              "definition_en": "needing or using much effort; strenuous",
+              "governing_pattern": "",
+              "level": "L2",
+              "needs_human_review": 0,
+              "pos": "adjective",
+              "sense_id": "sense:hard:a00ee874dbdb5425",
+              "sense_label_en": "needing or using much effort; strenuous",
+              "sort_order": 3,
+              "transitivity": "nonverb"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:0be66f7ce8cc7eef1d2d",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:hard:4e6908b4c4db56ac:collocation:0"
+                  ],
+                  "meaning_cn": "猛烈的打击",
+                  "phrase": "hard blow"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "猛烈的，强烈的",
+              "definition_en": "very strong or vigorous",
+              "governing_pattern": "",
+              "level": "L2",
+              "needs_human_review": 0,
+              "pos": "adjective",
+              "sense_id": "sense:hard:4e6908b4c4db56ac",
+              "sense_label_en": "very strong or vigorous",
+              "sort_order": 4,
+              "transitivity": "nonverb"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:c645cc182d150b646d4d",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:hard:dfc83aa5e7035f97:collocation:0"
+                  ],
+                  "meaning_cn": "冷峻的目光",
+                  "phrase": "hard look"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "冷静的，无情的",
+              "definition_en": "dispassionate; not showing emotion",
+              "governing_pattern": "",
+              "level": "L3",
+              "needs_human_review": 0,
+              "pos": "adjective",
+              "sense_id": "sense:hard:dfc83aa5e7035f97",
+              "sense_label_en": "dispassionate; not showing emotion",
+              "sort_order": 5,
+              "transitivity": "nonverb"
+            }
+          ]
+        },
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "坚硬的；困难的；艰苦的、费力的；猛烈的、强烈的",
+                "label_en": "hard/not soft; difficult; requiring much effort; strong or vigorous",
+                "pos": "adjective",
+                "sense_ids": [
+                  "sense:hard:7c825e4c4cb45b06",
+                  "sense:hard:2132671976cd5787",
+                  "sense:hard:a00ee874dbdb5425",
+                  "sense:hard:4e6908b4c4db56ac"
+                ]
+              },
+              {
+                "label_cn": "努力地，猛烈地",
+                "label_en": "with great effort or force",
+                "pos": "adverb",
+                "sense_ids": [
+                  "sense:hard:3288d6ad30a15e02"
+                ]
+              }
+            ],
+            "core_meaning_cn": "坚硬或困难",
+            "core_meaning_en": "solid, firm, or difficult",
+            "mental_model_cn": "坚硬或困难",
+            "mental_model_en": ""
+          }
+        },
+        {
+          "pointer": "/relation_refs",
+          "value": [
+            {
+              "relation_id": "relation:confusable:hard|hardly:near_form",
+              "owner_path": "content/lexical/relations/by-id/29/2933901cfaab63ea2b68f573d8e01a83d7f9b65892776600d5b022a007addb58.json",
+              "field": "confusables",
+              "index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2270.json",
+      "mode": "patch_json",
+      "expected_sha256": "58b9941c942765b62106d656ea73a5d79c52a2903523dccd8c456754d2d7c2f4",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "收割成熟庄稼；努力的成果",
+                "label_en": "the gathering of a ripened crop; the consequence of an effort or activity",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:harvest:d7a5dce656fd529e",
+                  "sense:harvest:b9ccd42862ae5286"
+                ]
+              },
+              {
+                "label_cn": "收割庄稼",
+                "label_en": "to gather a crop from the fields",
+                "pos": "verb",
+                "sense_ids": [
+                  "sense:harvest:1dae343217315969"
+                ]
+              }
+            ],
+            "core_meaning_cn": "收割庄稼或收获成果",
+            "core_meaning_en": "the act or season of gathering crops, or the crops gathered; also, to gather a crop",
+            "mental_model_cn": "收割庄稼或收获成果",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2274.json",
+      "mode": "patch_json",
+      "expected_sha256": "d8ed4da881778d07f23c5d280cf6baf03aaf70ba77bde5f6252e2f74b7ef4140",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "孵化，孵出；孵出，孵化；策划，图谋",
+                "label_en": "emerge from an egg; cause young to emerge from (eggs); devise or originate (a plot or plan)",
+                "pos": "verb",
+                "sense_ids": [
+                  "sense:hatch:884a1c800e625216",
+                  "sense:hatch:530a2ef98c065fde",
+                  "sense:hatch:9a1afd1e348e55cd"
+                ]
+              },
+              {
+                "label_cn": "舱口，舱门",
+                "label_en": "a movable barrier covering a hatchway",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:hatch:3019194be44655e7"
+                ]
+              }
+            ],
+            "core_meaning_cn": "孵化；舱口",
+            "core_meaning_en": "to emerge from an egg; a covering for an opening",
+            "mental_model_cn": "孵化；舱口",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2277.json",
+      "mode": "patch_json",
+      "expected_sha256": "b44d5d29295773d50b80da567bd890ca9d01cca90ae8a8063cb00c584fed32db",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "用力拖；拉",
+                "label_en": "to pull or drag something with effort",
+                "pos": "verb",
+                "sense_ids": [
+                  "sense:haul:43674d55e81d5e1a"
+                ]
+              },
+              {
+                "label_cn": "捕获量；赃物",
+                "label_en": "a large amount of something that has been stolen or caught",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:haul:6ab23e1fc2b25e81"
+                ]
+              }
+            ],
+            "core_meaning_cn": "用力拉或搬运；大量捕获",
+            "core_meaning_en": "to pull or carry with effort; a large amount of something",
+            "mental_model_cn": "用力拉或搬运；大量捕获",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2278.json",
+      "mode": "patch_json",
+      "expected_sha256": "32e45ef740f28d2346d74d5a16ec33123a54cc5b3349c99b2b2dd0c6ca5ce0cd",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "有，拥有",
+                "label_en": "to possess or own",
+                "pos": "verb",
+                "sense_ids": [
+                  "sense:have:f5675038e8f4587f"
+                ]
+              },
+              {
+                "label_cn": "已经（构成完成时）",
+                "label_en": "used with past participle to form perfect tenses",
+                "pos": "auxiliary",
+                "sense_ids": [
+                  "sense:have:d86272a0a3dd54a1"
+                ]
+              },
+              {
+                "label_cn": "经历；遭遇；患有",
+                "label_en": "to experience, undergo, or be affected by an event, feeling, illness, or condition",
+                "pos": "verb",
+                "sense_ids": [
+                  "sense:have:12c6c0a104865777"
+                ]
+              }
+            ],
+            "core_meaning_cn": "有、拥有；经历；构成完成时",
+            "core_meaning_en": "to possess or experience; auxiliary for perfect tenses",
+            "mental_model_cn": "有、拥有；经历；构成完成时",
+            "mental_model_en": ""
+          }
+        },
+        {
+          "pointer": "/record/form_identity",
+          "value": {
+            "form_type": "irregular_inflection_identity",
+            "spelling": "have",
+            "identity_rule": "same_word_owner_no_semantic_split",
+            "boundary": "have is irregular: have → had → had.",
+            "boundaries": [
+              {
+                "surface": "have",
+                "condition": "base/present",
+                "note": "base form"
+              },
+              {
+                "surface": "had",
+                "condition": "past simple",
+                "note": "irregular past"
+              },
+              {
+                "surface": "had",
+                "condition": "past participle",
+                "note": "irregular participle"
+              }
+            ],
+            "variants": [],
+            "authority": "BF22 exact p approved Form expansion 2026-09-22"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2279.json",
+      "mode": "patch_json",
+      "expected_sha256": "58ce3421fe40b2b932ff54e5f180f1f5d771eb847e6806181342cf6f83c88d49",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "鹰；鹰派人物，主战派",
+                "label_en": "a bird of prey with short rounded wings and a long tail; a person who advocates aggressive or warlike policies",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:hawk:2f4f63c433e25742",
+                  "sense:hawk:5426b3b6c7ae5ce6"
+                ]
+              },
+              {
+                "label_cn": "兜售，叫卖",
+                "label_en": "to sell goods in public places by calling out",
+                "pos": "verb",
+                "sense_ids": [
+                  "sense:hawk:2dba3a324f5b5720"
+                ]
+              }
+            ],
+            "core_meaning_cn": "猛禽；也指主张强硬路线的人",
+            "core_meaning_en": "a bird of prey; also a person who advocates aggressive action",
+            "mental_model_cn": "猛禽；也指主张强硬路线的人",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2280.json",
+      "mode": "patch_json",
+      "expected_sha256": "ffc5a8b229a4320af211b4d993577c08d74b26361260ee2d5adffdd6591cd565",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "干草（用作饲料）",
+                "label_en": "grass that has been cut and dried for use as animal feed",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:hay:f44701a5c5d05208"
+                ]
+              }
+            ],
+            "core_meaning_cn": "干草",
+            "core_meaning_en": "dried grass used as animal fodder",
+            "mental_model_cn": "干草",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2283.json",
+      "mode": "patch_json",
+      "expected_sha256": "281db261ffdef507b846276d5a4df2f40ce27da442db7e2431b262c9884fe9f0",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "头，头部；领袖，负责人；前端，顶部",
+                "label_en": "the head/body part; a leader; the front or top part",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:head:5c8d00e3ad655885",
+                  "sense:head:61622888d10653a8",
+                  "sense:head:171e2e2e688d5f6d"
+                ]
+              },
+              {
+                "label_cn": "率领，带头；朝……行进",
+                "label_en": "to be at the front or top of something; to lead; to move in a particular direction",
+                "pos": "verb",
+                "sense_ids": [
+                  "sense:head:5fce83a7cbb85a07",
+                  "sense:head:4757e00c2d0d57bf"
+                ]
+              }
+            ],
+            "core_meaning_cn": "身体上部；领导者；朝某方向移动",
+            "core_meaning_en": "the upper part of the body; a leader; to move in a direction",
+            "mental_model_cn": "身体上部；领导者；朝某方向移动",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2285.json",
+      "mode": "patch_json",
+      "expected_sha256": "f7e5ccb0bfa6e98a6fb406c6d666cb35d0bd27808e3caff3c638551b37e727c0",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "大标题；新闻摘要",
+                "label_en": "the heading or caption of a newspaper article; a summary of the most important news",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:headline:f75fe3c65e5855b1",
+                  "sense:headline:28bf7c877c375567"
+                ]
+              },
+              {
+                "label_cn": "给…加标题",
+                "label_en": "provide a newspaper page or story with a headline",
+                "pos": "verb",
+                "sense_ids": [
+                  "sense:headline:703fe39c48825e6a"
+                ]
+              }
+            ],
+            "core_meaning_cn": "标题或头条宣传",
+            "core_meaning_en": "a heading or prominent publicity",
+            "mental_model_cn": "标题或头条宣传",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2292.json",
+      "mode": "patch_json",
+      "expected_sha256": "93b9325840cc47a9ba7311d66c084560e38d5cd28c88f7f253607069eda56e57",
+      "edits": [
+        {
+          "pointer": "/record/form_identity",
+          "value": {
+            "form_type": "irregular_inflection_identity",
+            "spelling": "hear",
+            "identity_rule": "same_word_owner_no_semantic_split",
+            "boundary": "hear is irregular: hear → heard → heard.",
+            "boundaries": [
+              {
+                "surface": "hear",
+                "condition": "base/present",
+                "note": "base form"
+              },
+              {
+                "surface": "heard",
+                "condition": "past simple",
+                "note": "irregular past"
+              },
+              {
+                "surface": "heard",
+                "condition": "past participle",
+                "note": "irregular participle"
+              }
+            ],
+            "variants": [],
+            "authority": "BF22 exact p approved Form expansion 2026-09-22"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2295.json",
+      "mode": "patch_json",
+      "expected_sha256": "5bdd8f117fd7d2f2e9d6d77aeb9de2dec89ae55f1ebd6ee3f2e264bb046647fa",
+      "edits": [
+        {
+          "pointer": "/record/senses",
+          "value": [
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:06fd75e5207e715c8e6a",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:heat:63ad3bbf05f25d1f:collocation:0"
+                  ],
+                  "meaning_cn": "热能",
+                  "phrase": "heat energy"
+                },
+                {
+                  "collocation_id": "collocation:5847d970e6fe35b251b0",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:heat:63ad3bbf05f25d1f:collocation:1"
+                  ],
+                  "meaning_cn": "散发热量",
+                  "phrase": "give off heat"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "热；热量",
+              "definition_en": "a form of energy transferred by a difference in temperature",
+              "governing_pattern": "",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "noun",
+              "sense_id": "sense:heat:63ad3bbf05f25d1f",
+              "sense_label_en": "a form of energy transferred by a difference in temperature",
+              "sort_order": 0,
+              "transitivity": "nonverb"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:cd80312ea1b8b32c59ed",
+                  "exam_value": "fixed_pattern",
+                  "legacy_source_object_ids": [
+                    "sense:heat:a74347f1c75852dc:collocation:0"
+                  ],
+                  "meaning_cn": "加热某物",
+                  "phrase": "heat up + sth"
+                },
+                {
+                  "collocation_id": "collocation:edb26f440d3385a1cd1a",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:heat:a74347f1c75852dc:collocation:1"
+                  ],
+                  "meaning_cn": "热汤",
+                  "phrase": "heat the soup"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "加热",
+              "definition_en": "to make something hot",
+              "governing_pattern": "vt. + object",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "verb",
+              "sense_id": "sense:heat:a74347f1c75852dc",
+              "sense_label_en": "to make something hot",
+              "sort_order": 1,
+              "transitivity": "vt"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:4be262a43b3f306bd1f9",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:heat:45022e0cf283520d:collocation:0"
+                  ],
+                  "meaning_cn": "感到热",
+                  "phrase": "feel the heat"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "热度；高温",
+              "definition_en": "the sensation caused by heat energy",
+              "governing_pattern": "",
+              "level": "L2",
+              "needs_human_review": 0,
+              "pos": "noun",
+              "sense_id": "sense:heat:45022e0cf283520d",
+              "sense_label_en": "the sensation caused by heat energy",
+              "sort_order": 2,
+              "transitivity": "nonverb"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:65a360e41ecd55e2f03c",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:heat:2093b7a4641d504f:collocation:0"
+                  ],
+                  "meaning_cn": "一时冲动",
+                  "phrase": "in the heat of the moment"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "激烈；激动",
+              "definition_en": "intense emotion, especially excitement or anger",
+              "governing_pattern": "",
+              "level": "L2",
+              "needs_human_review": 0,
+              "pos": "noun",
+              "sense_id": "sense:heat:2093b7a4641d504f",
+              "sense_label_en": "intense emotion, especially excitement or anger",
+              "sort_order": 3,
+              "transitivity": "nonverb"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:61e4e4d098892ae31c1a",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:heat:46e5a140ddb65168:collocation:0"
+                  ],
+                  "meaning_cn": "资格赛",
+                  "phrase": "qualifying heat"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "预赛",
+              "definition_en": "a preliminary race in which the winner advances",
+              "governing_pattern": "",
+              "level": "L3",
+              "needs_human_review": 0,
+              "pos": "noun",
+              "sense_id": "sense:heat:46e5a140ddb65168",
+              "sense_label_en": "a preliminary race in which the winner advances",
+              "sort_order": 4,
+              "transitivity": "nonverb"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:a6b77e8e0ce31dacea41",
+                  "exam_value": "fixed_pattern",
+                  "legacy_source_object_ids": [
+                    "sense:heat:ec2c1a7f6a5f51fc:collocation:0"
+                  ],
+                  "meaning_cn": "变热",
+                  "phrase": "heat up"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "变热；加热",
+              "definition_en": "to become hot",
+              "governing_pattern": "vi. + up",
+              "level": "L2",
+              "needs_human_review": 0,
+              "pos": "verb",
+              "sense_id": "sense:heat:ec2c1a7f6a5f51fc",
+              "sense_label_en": "to become hot",
+              "sort_order": 5,
+              "transitivity": "vi"
+            }
+          ]
+        },
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "热；热量；热度；高温；激烈；激动",
+                "label_en": "heat/thermal energy; high temperature; intense emotion",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:heat:63ad3bbf05f25d1f",
+                  "sense:heat:45022e0cf283520d",
+                  "sense:heat:2093b7a4641d504f"
+                ]
+              },
+              {
+                "label_cn": "加热；变热",
+                "label_en": "to make something hot; to become hot",
+                "pos": "verb",
+                "sense_ids": [
+                  "sense:heat:a74347f1c75852dc",
+                  "sense:heat:ec2c1a7f6a5f51fc"
+                ]
+              }
+            ],
+            "core_meaning_cn": "热或加热",
+            "core_meaning_en": "thermal energy or to make hot",
+            "mental_model_cn": "热或加热",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2296.json",
+      "mode": "patch_json",
+      "expected_sha256": "95288f09a226690b7f07b7b29c76b2123fcc3e84fe63f51439f0e58a4c659c22",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "用力举起，拖起；起伏，波动；用力抛出；恶心，作呕",
+                "label_en": "lift or haul with great effort; rise and fall rhythmically; throw (something heavy) with effort; make an effort to vomit",
+                "pos": "verb",
+                "sense_ids": [
+                  "sense:heave:c8268f72614552da",
+                  "sense:heave:66b71a3a5d3d5b2a",
+                  "sense:heave:ef9f130879ca51ef",
+                  "sense:heave:4f20552a4e5556dd"
+                ]
+              }
+            ],
+            "core_meaning_cn": "用力举起、拖起；起伏；用力抛出；作呕",
+            "core_meaning_en": "to lift/haul with effort; rise/fall; throw with effort; retch",
+            "mental_model_cn": "用力举起、拖起；起伏；用力抛出；作呕",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2299.json",
+      "mode": "patch_json",
+      "expected_sha256": "bea5eba5e0b28153e461ce2039c93b8e58b585683a3daecef18051e4f071a0c1",
+      "edits": [
+        {
+          "pointer": "/record/senses",
+          "value": [
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:85dc1e7d9e140d1de8a3",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:hedge:11107e60c50554f2:collocation:0"
+                  ],
+                  "meaning_cn": "对冲基金",
+                  "phrase": "hedge fund"
+                },
+                {
+                  "collocation_id": "collocation:ef7808de65ee37b5c74b",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:hedge:11107e60c50554f2:collocation:1"
+                  ],
+                  "meaning_cn": "女贞树篱",
+                  "phrase": "privet hedge"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "树篱",
+              "definition_en": "a fence formed by a row of closely planted shrubs or bushes",
+              "governing_pattern": "",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "noun",
+              "sense_id": "sense:hedge:11107e60c50554f2",
+              "sense_label_en": "a fence formed by a row of closely planted shrubs or bushes",
+              "sort_order": 0,
+              "transitivity": "nonverb"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:77f163d85d43841f6915",
+                  "exam_value": "fixed_pattern",
+                  "legacy_source_object_ids": [
+                    "sense:hedge:156b330f114a572a:collocation:0"
+                  ],
+                  "meaning_cn": "抵御通货膨胀的对冲手段",
+                  "phrase": "hedge against inflation"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "套期保值；对冲手段",
+              "definition_en": "a technique to reduce financial risk",
+              "governing_pattern": "",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "noun",
+              "sense_id": "sense:hedge:156b330f114a572a",
+              "sense_label_en": "a technique to reduce financial risk",
+              "sort_order": 1,
+              "transitivity": "nonverb"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:624c2419f89b45a81df8",
+                  "exam_value": "fixed_pattern",
+                  "legacy_source_object_ids": [
+                    "sense:hedge:f84b94474655578d:collocation:0"
+                  ],
+                  "meaning_cn": "两面下注；给自己留后路",
+                  "phrase": "hedge one's bets"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "闪烁其词；模棱两可的话",
+              "definition_en": "an intentionally noncommittal or ambiguous statement",
+              "governing_pattern": "",
+              "level": "L2",
+              "needs_human_review": 0,
+              "pos": "noun",
+              "sense_id": "sense:hedge:f84b94474655578d",
+              "sense_label_en": "an intentionally noncommittal or ambiguous statement",
+              "sort_order": 2,
+              "transitivity": "nonverb"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:bfe8c53b05d17c6ffafc",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:hedge:cd4167cbe172509d:collocation:0"
+                  ],
+                  "meaning_cn": "用树篱围住花园",
+                  "phrase": "hedge a garden"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "用树篱围住",
+              "definition_en": "to surround or enclose with a hedge",
+              "governing_pattern": "vt. + object",
+              "level": "L2",
+              "needs_human_review": 0,
+              "pos": "verb",
+              "sense_id": "sense:hedge:cd4167cbe172509d",
+              "sense_label_en": "to surround or enclose with a hedge",
+              "sort_order": 3,
+              "transitivity": "vt"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:1f7890491f3669c28264",
+                  "exam_value": "fixed_pattern",
+                  "legacy_source_object_ids": [
+                    "sense:hedge:ccd0a08a0d645f3f:collocation:0"
+                  ],
+                  "meaning_cn": "对冲风险",
+                  "phrase": "hedge against risk"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "套期保值；对冲",
+              "definition_en": "to protect oneself against financial loss by making balancing contracts",
+              "governing_pattern": "vt. + object",
+              "level": "L2",
+              "needs_human_review": 0,
+              "pos": "verb",
+              "sense_id": "sense:hedge:ccd0a08a0d645f3f",
+              "sense_label_en": "to protect oneself against financial loss by making balancing contracts",
+              "sort_order": 4,
+              "transitivity": "vt"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:f3172503dda3cd09a4d1",
+                  "exam_value": "fixed_pattern",
+                  "legacy_source_object_ids": [
+                    "sense:hedge:8e0c976e32c95235:collocation:0"
+                  ],
+                  "meaning_cn": "回避某事；对某事闪烁其词",
+                  "phrase": "hedge against + sth"
+                },
+                {
+                  "collocation_id": "collocation:46c350f1ef18173fc8a6",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:hedge:8e0c976e32c95235:collocation:1"
+                  ],
+                  "meaning_cn": "回避批评",
+                  "phrase": "hedge against criticism"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "躲闪；回避",
+              "definition_en": "to avoid giving a direct answer or commitment",
+              "governing_pattern": "vi.",
+              "level": "L2",
+              "needs_human_review": 0,
+              "pos": "verb",
+              "sense_id": "sense:hedge:8e0c976e32c95235",
+              "sense_label_en": "to avoid giving a direct answer or commitment",
+              "sort_order": 5,
+              "transitivity": "vi"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2300.json",
+      "mode": "patch_json",
+      "expected_sha256": "f77a5814fea4101355c324c88318d5d779f4b508f01fb112e607375a8089ed08",
+      "edits": [
+        {
+          "pointer": "/record/senses",
+          "value": [
+            {
+              "collocations": [],
+              "confidence": "medium",
+              "definition_cn": "脚后跟；足跟",
+              "definition_en": "the back part of the human foot",
+              "governing_pattern": "",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "noun",
+              "sense_id": "sense:heel:df90a5ed966853e0",
+              "sense_label_en": "the back part of the human foot",
+              "sort_order": 0,
+              "transitivity": "nonverb"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:d5be8e04cb6ac9e20480",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:heel:4a17b42f0ac15ca6:collocation:0"
+                  ],
+                  "meaning_cn": "穿高跟鞋",
+                  "phrase": "wear high heels"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "鞋跟",
+              "definition_en": "the part of a shoe or boot that touches the ground and provides elevation",
+              "governing_pattern": "",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "noun",
+              "sense_id": "sense:heel:4a17b42f0ac15ca6",
+              "sense_label_en": "the part of a shoe or boot that touches the ground and provides elevatio",
+              "sort_order": 1,
+              "transitivity": "nonverb"
+            },
+            {
+              "collocations": [],
+              "confidence": "medium",
+              "definition_cn": "面包头",
+              "definition_en": "one of the crusty ends of a loaf of bread",
+              "governing_pattern": "",
+              "level": "L2",
+              "needs_human_review": 0,
+              "pos": "noun",
+              "sense_id": "sense:heel:817a2ab0d3b15c32",
+              "sense_label_en": "one of the crusty ends of a loaf of bread",
+              "sort_order": 2,
+              "transitivity": "nonverb"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:80b05eb7b7fe1a9d20ad",
+                  "exam_value": "fixed_pattern",
+                  "legacy_source_object_ids": [
+                    "sense:heel:29879622d0e05cbd:collocation:0"
+                  ],
+                  "meaning_cn": "紧随某人",
+                  "phrase": "heel after sb"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "紧随，尾随",
+              "definition_en": "to follow closely behind someone",
+              "governing_pattern": "vi. + after",
+              "level": "L2",
+              "needs_human_review": 0,
+              "pos": "verb",
+              "sense_id": "sense:heel:29879622d0e05cbd",
+              "sense_label_en": "to follow closely behind someone",
+              "sort_order": 3,
+              "transitivity": "vi"
+            },
+            {
+              "collocations": [],
+              "confidence": "medium",
+              "definition_cn": "桅杆下端",
+              "definition_en": "the lower end of a ship's mast",
+              "governing_pattern": "",
+              "level": "L3",
+              "needs_human_review": 0,
+              "pos": "noun",
+              "sense_id": "sense:heel:5fc88a9b523951b4",
+              "sense_label_en": "the lower end of a ship's mast",
+              "sort_order": 4,
+              "transitivity": "nonverb"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:c994b93cdeb5fe516729",
+                  "exam_value": "fixed_pattern",
+                  "legacy_source_object_ids": [
+                    "sense:heel:eef0b1cae75b5f56:collocation:0"
+                  ],
+                  "meaning_cn": "倾侧",
+                  "phrase": "heel over"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "倾侧",
+              "definition_en": "to lean to one side (of a ship)",
+              "governing_pattern": "vi. + over",
+              "level": "L3",
+              "needs_human_review": 0,
+              "pos": "verb",
+              "sense_id": "sense:heel:eef0b1cae75b5f56",
+              "sense_label_en": "to lean to one side (of a ship)",
+              "sort_order": 5,
+              "transitivity": "vi"
+            }
+          ]
+        },
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "脚后跟；鞋跟；面包头",
+                "label_en": "the back part of the foot; the heel of a shoe/boot; a crusty end of a loaf",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:heel:df90a5ed966853e0",
+                  "sense:heel:4a17b42f0ac15ca6",
+                  "sense:heel:817a2ab0d3b15c32"
+                ]
+              },
+              {
+                "label_cn": "紧随，尾随",
+                "label_en": "to follow closely behind someone",
+                "pos": "verb",
+                "sense_ids": [
+                  "sense:heel:29879622d0e05cbd"
+                ]
+              }
+            ],
+            "core_meaning_cn": "脚后跟，鞋跟",
+            "core_meaning_en": "the back part of the foot or shoe",
+            "mental_model_cn": "脚后跟，鞋跟",
+            "mental_model_en": ""
+          }
+        },
+        {
+          "pointer": "/relation_refs",
+          "value": [
+            {
+              "relation_id": "relation:confusable:heal|heel:homophone",
+              "owner_path": "content/lexical/relations/by-id/e8/e86d1814adafeb869e2b9c0731b5298e810fa36829c5444b1107e5d793fd7e80.json",
+              "field": "confusables",
+              "index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2305.json",
+      "mode": "patch_json",
+      "expected_sha256": "a5f46b0aac84415264873f9fe5ace0dd2ef4b726f72a474c63721eaa0aae7a5e",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "地狱；苦境；极糟的处境",
+                "label_en": "the place where some religions believe bad people go after death; a situation or place that is extremely unpleasant",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:hell:2894b89783e4586f",
+                  "sense:hell:bd395850933450f6"
+                ]
+              }
+            ],
+            "core_meaning_cn": "地狱；苦境、极糟处境",
+            "core_meaning_en": "hell; an extremely unpleasant situation or place",
+            "mental_model_cn": "地狱；苦境、极糟处境",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2316.json",
+      "mode": "patch_json",
+      "expected_sha256": "2c989875b53352c2856439578cb60dcfa4950a9d62d260b1ae327d1a96d267a5",
+      "edits": [
+        {
+          "pointer": "/record/senses",
+          "value": [
+            {
+              "collocations": [],
+              "confidence": "medium",
+              "definition_cn": "草本植物；药草",
+              "definition_en": "a plant used for flavoring or medicine",
+              "governing_pattern": "",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "noun",
+              "sense_id": "sense:herb:2c769fba5b755a9d",
+              "sense_label_en": "a plant used for flavoring or medicine",
+              "sort_order": 0,
+              "transitivity": "nonverb"
+            }
+          ]
+        },
+        {
+          "pointer": "/record/form_identity",
+          "value": {
+            "form_type": "regional_pronunciation_identity",
+            "spelling": "herb",
+            "identity_rule": "same_word_owner_regional_pronunciation",
+            "boundary": "In standard British English herb is commonly pronounced with /h/; in standard American English the usual dictionary pronunciation is h-less.",
+            "boundaries": [
+              {
+                "surface": "herb",
+                "condition": "British English",
+                "note": "/hɜːb/ with pronounced h"
+              },
+              {
+                "surface": "herb",
+                "condition": "American English",
+                "note": "commonly /ɝːb/ with silent h"
+              }
+            ],
+            "variants": [],
+            "authority": "BF22 exact p approved pronunciation Form 2026-09-22"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2317.json",
+      "mode": "patch_json",
+      "expected_sha256": "9244213d98f7830669a7118f50644def0b0c0f999303207c0f40219a33012b33",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "兽群；牧群；人群；民众",
+                "label_en": "a group of animals of one kind that live or are kept together; a large group of people",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:herd:0ebe247a41525136",
+                  "sense:herd:c70259ddb12f50c3"
+                ]
+              },
+              {
+                "label_cn": "使成群；驱赶",
+                "label_en": "to gather or drive animals or people into a group",
+                "pos": "verb",
+                "sense_ids": [
+                  "sense:herd:6157b08d2e26514c"
+                ]
+              }
+            ],
+            "core_meaning_cn": "兽群或人群，或聚集",
+            "core_meaning_en": "a group of animals or people, or to gather them together",
+            "mental_model_cn": "兽群或人群，或聚集",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2318.json",
+      "mode": "patch_json",
+      "expected_sha256": "a5577493b1b9ae012609bf2f79a2e5e6b49f3d0f21036d38bd919ea93a26746f",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "在这里；此时，在这点上",
+                "label_en": "in or at this place; at this point in time or in a situation",
+                "pos": "adverb",
+                "sense_ids": [
+                  "sense:here:2a333acc423b58a5",
+                  "sense:here:57ab786b7e1f5d4f"
+                ]
+              }
+            ],
+            "core_meaning_cn": "在这里；此时/在这点上",
+            "core_meaning_en": "in this place; at this point",
+            "mental_model_cn": "在这里；此时/在这点上",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2327.json",
+      "mode": "patch_json",
+      "expected_sha256": "4c3a59646ca8340bf6c37e006a231afc412f39049b1957914b07b0093dd12289",
+      "edits": [
+        {
+          "pointer": "/record/senses",
+          "value": [
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:bcd7e81f047b42771495",
+                  "exam_value": "fixed_pattern",
+                  "legacy_source_object_ids": [
+                    "sense:hide:93921df921f05251:collocation:0"
+                  ],
+                  "meaning_cn": "对某人隐瞒某事",
+                  "phrase": "hide + sth from sb"
+                },
+                {
+                  "collocation_id": "collocation:618b27f0fd1946be44e0",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:hide:93921df921f05251:collocation:1"
+                  ],
+                  "meaning_cn": "隐瞒真相",
+                  "phrase": "hide the truth"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "防止被看见或发现",
+              "definition_en": "prevent from being seen or discovered",
+              "governing_pattern": "vt. + object",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "verb",
+              "sense_id": "sense:hide:93921df921f05251",
+              "sense_label_en": "prevent from being seen or discovered",
+              "sort_order": 0,
+              "transitivity": "vt"
+            },
+            {
+              "collocations": [],
+              "confidence": "medium",
+              "definition_cn": "兽皮；动物皮",
+              "definition_en": "the dressed skin of an animal, especially a large animal",
+              "governing_pattern": "",
+              "level": "L2",
+              "needs_human_review": 0,
+              "pos": "noun",
+              "sense_id": "sense:hide:92e1af38d1fe545e",
+              "sense_label_en": "the dressed skin of an animal, especially a large animal",
+              "sort_order": 2,
+              "transitivity": "nonverb"
+            },
+            {
+              "collocations": [],
+              "confidence": "medium",
+              "definition_cn": "躲藏；躲开视线",
+              "definition_en": "be or go into hiding; keep out of sight, as for protection and safety",
+              "governing_pattern": "vi.",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "verb",
+              "sense_id": "sense:hide:dfbdc2f08afb50dd",
+              "sense_label_en": "be or go into hiding; keep out of sight, as for protection and safety",
+              "sort_order": 1,
+              "transitivity": "vi"
+            }
+          ]
+        },
+        {
+          "pointer": "/record/form_identity",
+          "value": {
+            "form_type": "irregular_inflection_identity",
+            "spelling": "hide",
+            "identity_rule": "same_word_owner_no_semantic_split",
+            "boundary": "hide is irregular: hide → hid → hidden.",
+            "boundaries": [
+              {
+                "surface": "hide",
+                "condition": "base/present",
+                "note": "base form"
+              },
+              {
+                "surface": "hid",
+                "condition": "past simple",
+                "note": "irregular past"
+              },
+              {
+                "surface": "hidden",
+                "condition": "past participle",
+                "note": "irregular participle"
+              }
+            ],
+            "variants": [],
+            "authority": "BF22 exact p approved Form expansion 2026-09-22"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2329.json",
+      "mode": "patch_json",
+      "expected_sha256": "f48a30733cd4786772697a98b8f22852bd51700bfc5f93f58ad71dbe4c134621",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "高的；有较大垂直高度的；高的；大量的；强烈的；高级的；重要的",
+                "label_en": "having a large vertical extent; elevated; great in amount, degree, or intensity; of high rank or importance",
+                "pos": "adjective",
+                "sense_ids": [
+                  "sense:high:51ef7215c57851e6",
+                  "sense:high:ffaaccf186335962",
+                  "sense:high:e5034de1f05050eb"
+                ]
+              },
+              {
+                "label_cn": "高点；高水平；高度；兴奋状态；高潮",
+                "label_en": "a high point/level/degree; a state of great excitement",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:high:a63672c2293657e3",
+                  "sense:high:0a2e20c12fd85a68"
+                ]
+              }
+            ],
+            "core_meaning_cn": "高的；处于高处的",
+            "core_meaning_en": "having a large vertical extent; elevated",
+            "mental_model_cn": "高的；处于高处的",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2339.json",
+      "mode": "patch_json",
+      "expected_sha256": "47f13768e5497b57ab8f83ae3be2322e6ca639d0d509d0a2dec3e6d4066c64b0",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "铰链；关键，枢纽",
+                "label_en": "a joint that holds two parts together so that one can swing relative to the other; a circumstance upon which subsequent events depend",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:hinge:ea35425b76da504e",
+                  "sense:hinge:bbbc83830566546f"
+                ]
+              },
+              {
+                "label_cn": "取决于，关键在于",
+                "label_en": "to depend on something",
+                "pos": "verb",
+                "sense_ids": [
+                  "sense:hinge:551ddc6c1cb35853"
+                ]
+              }
+            ],
+            "core_meaning_cn": "铰链；关键",
+            "core_meaning_en": "a joint or point on which something turns or depends",
+            "mental_model_cn": "铰链；关键",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2341.json",
+      "mode": "patch_json",
+      "expected_sha256": "2f7a9575bb7b63b9ae35c74906a0af8d063c57add6c7174bfda6f491738c13d7",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "臀部",
+                "label_en": "the part of the body below the waist and above the thigh",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:hip:eef5252a66e9529f"
+                ]
+              },
+              {
+                "label_cn": "时髦的；新潮的",
+                "label_en": "aware of or following the latest trends",
+                "pos": "adjective",
+                "sense_ids": [
+                  "sense:hip:985f0c493aee5b5b"
+                ]
+              }
+            ],
+            "core_meaning_cn": "臀部或时髦",
+            "core_meaning_en": "part of the body or trendy",
+            "mental_model_cn": "臀部或时髦",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2342.json",
+      "mode": "patch_json",
+      "expected_sha256": "b15b72924cd0bd6eb3747533c066246fd9003b5732d648e1d95af405828e6fc7",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "雇用；聘请；租用；出租",
+                "label_en": "to employ someone; to rent something for a period",
+                "pos": "verb",
+                "sense_ids": [
+                  "sense:hire:5f04777da71d5d1c",
+                  "sense:hire:b2448cfbd9e35bd4"
+                ]
+              },
+              {
+                "label_cn": "雇用；租用",
+                "label_en": "the act of hiring or the state of being hired",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:hire:99ea45ee940e5035"
+                ]
+              }
+            ],
+            "core_meaning_cn": "雇用或租用",
+            "core_meaning_en": "to employ or rent",
+            "mental_model_cn": "雇用或租用",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2345.json",
+      "mode": "patch_json",
+      "expected_sha256": "ff8d3eab68f813521efa8b9ac97eec823be01f866dec9fcad0a896b8c6b55be4",
+      "edits": [
+        {
+          "pointer": "/record/word_family",
+          "value": []
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2348.json",
+      "mode": "patch_json",
+      "expected_sha256": "aec64a86488132324cf5f3acf1581e864841c2fb10db0a3731bca8000a78fb87",
+      "edits": [
+        {
+          "pointer": "/record/senses",
+          "value": [
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:29977e536da0994f1576",
+                  "exam_value": "fixed_pattern",
+                  "legacy_source_object_ids": [
+                    "sense:hit:8beddf6cfdcf5b5b:collocation:0"
+                  ],
+                  "meaning_cn": "打某人/某物",
+                  "phrase": "hit + sb/sth"
+                },
+                {
+                  "collocation_id": "collocation:9eb2884dddb31bc7455a",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:hit:8beddf6cfdcf5b5b:collocation:1"
+                  ],
+                  "meaning_cn": "击球",
+                  "phrase": "hit the ball"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "打；击中",
+              "definition_en": "to strike someone or something with force",
+              "governing_pattern": "vt. + object",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "verb",
+              "sense_id": "sense:hit:8beddf6cfdcf5b5b",
+              "sense_label_en": "to strike someone or something with force",
+              "sort_order": 0,
+              "transitivity": "vt"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:9baf0cf970a830c0310c",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:hit:cb5c59ca213553a3:collocation:0"
+                  ],
+                  "meaning_cn": "创历史新高",
+                  "phrase": "hit a record high"
+                },
+                {
+                  "collocation_id": "collocation:38d9d6107f66f365a0cd",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:hit:cb5c59ca213553a3:collocation:1"
+                  ],
+                  "meaning_cn": "击中目标",
+                  "phrase": "hit the target"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "达到；到达",
+              "definition_en": "to reach a particular level, number, or place",
+              "governing_pattern": "vt. + object",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "verb",
+              "sense_id": "sense:hit:cb5c59ca213553a3",
+              "sense_label_en": "to reach a particular level, number, or place",
+              "sort_order": 1,
+              "transitivity": "vt"
+            },
+            {
+              "collocations": [],
+              "confidence": "medium",
+              "definition_cn": "严重影响；打击",
+              "definition_en": "to affect someone or something badly, suddenly, or severely",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "verb",
+              "sense_id": "sense:hit:67e1aa2030145128",
+              "sense_label_en": "to affect someone or something badly, suddenly, or severely",
+              "sort_order": 2,
+              "source_evidence": [
+                {
+                  "external_evidence": [
+                    {
+                      "role": "semantic_boundary_or_usage_verification",
+                      "source_locator": "https://dictionary.cambridge.org/dictionary/english/hit",
+                      "source_name": "Cambridge Dictionary",
+                      "source_type": "authoritative_learner_dictionary"
+                    }
+                  ],
+                  "semantic_auditor_approved": true,
+                  "source_candidate_evidence_ids": [],
+                  "source_operation_id": "operation:7fea7b56080d17fad3e3",
+                  "source_operation_sha256": "6e0d725c49bb44f030af7f2d9f3da23e86a326598ceea69ca26565478574436e",
+                  "verification_status": "auditor_verified"
+                }
+              ]
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:5bbf7c3a301953216f3a",
+                  "exam_value": "fixed_pattern",
+                  "legacy_source_object_ids": [
+                    "sense:hit:6608f1b7de9f5eeb:collocation:0"
+                  ],
+                  "meaning_cn": "偶然想到；发现",
+                  "phrase": "hit on/upon + sth"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "偶然想到；发现",
+              "definition_en": "to suddenly think of or discover something",
+              "governing_pattern": "vi. + on/upon",
+              "level": "L2",
+              "needs_human_review": 0,
+              "pos": "verb",
+              "sense_id": "sense:hit:6608f1b7de9f5eeb",
+              "sense_label_en": "to suddenly think of or discover something",
+              "sort_order": 3,
+              "transitivity": "vi"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:c18d09a70ef2382bc726",
+                  "exam_value": "fixed_pattern",
+                  "legacy_source_object_ids": [
+                    "sense:hit:2b597c8f5e875463:collocation:0"
+                  ],
+                  "meaning_cn": "受到打击",
+                  "phrase": "take a hit"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "打击；碰撞",
+              "definition_en": "an act of hitting someone or something",
+              "governing_pattern": "",
+              "level": "L2",
+              "needs_human_review": 0,
+              "pos": "noun",
+              "sense_id": "sense:hit:2b597c8f5e875463",
+              "sense_label_en": "an act of hitting someone or something",
+              "sort_order": 4,
+              "transitivity": "nonverb"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:8101275996030873cc3c",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:hit:89b9454330a65b58:collocation:0"
+                  ],
+                  "meaning_cn": "大热门",
+                  "phrase": "a big hit"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "成功而轰动的事物",
+              "definition_en": "a successful and popular thing such as a song or film",
+              "governing_pattern": "",
+              "level": "L2",
+              "needs_human_review": 0,
+              "pos": "noun",
+              "sense_id": "sense:hit:89b9454330a65b58",
+              "sense_label_en": "a successful and popular thing such as a song or film",
+              "sort_order": 5,
+              "transitivity": "nonverb"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:8467c0ee3d8a761a9e8f",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:hit:f39bf3e586d85918:collocation:0"
+                  ],
+                  "meaning_cn": "获得很多点击",
+                  "phrase": "get a lot of hits"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "点击；访问",
+              "definition_en": "a visit to a website",
+              "governing_pattern": "",
+              "level": "L3",
+              "needs_human_review": 0,
+              "pos": "noun",
+              "sense_id": "sense:hit:f39bf3e586d85918",
+              "sense_label_en": "a visit to a website",
+              "sort_order": 6,
+              "transitivity": "nonverb"
+            }
+          ]
+        },
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "打；击中；达到；到达；严重影响、打击；偶然想到、发现",
+                "label_en": "to strike; reach; affect badly/severely; suddenly think of/discover",
+                "pos": "verb",
+                "sense_ids": [
+                  "sense:hit:8beddf6cfdcf5b5b",
+                  "sense:hit:cb5c59ca213553a3",
+                  "sense:hit:6608f1b7de9f5eeb",
+                  "sense:hit:67e1aa2030145128"
+                ]
+              },
+              {
+                "label_cn": "打击；碰撞；成功而轰动的事物",
+                "label_en": "an act of hitting; a successful popular thing",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:hit:2b597c8f5e875463",
+                  "sense:hit:89b9454330a65b58"
+                ]
+              }
+            ],
+            "core_meaning_cn": "打；击中",
+            "core_meaning_en": "to strike someone or something with force; to reach a target",
+            "mental_model_cn": "打；击中",
+            "mental_model_en": ""
+          }
+        },
+        {
+          "pointer": "/record/form_identity",
+          "value": {
+            "form_type": "irregular_inflection_identity",
+            "spelling": "hit",
+            "identity_rule": "same_word_owner_no_semantic_split",
+            "boundary": "hit has invariant past and past participle: hit → hit → hit; the present participle is hitting.",
+            "boundaries": [
+              {
+                "surface": "hit",
+                "condition": "base/present",
+                "note": "base form"
+              },
+              {
+                "surface": "hit",
+                "condition": "past simple",
+                "note": "invariant past"
+              },
+              {
+                "surface": "hit",
+                "condition": "past participle",
+                "note": "invariant participle"
+              },
+              {
+                "surface": "hitting",
+                "condition": "present participle",
+                "note": "double t before -ing"
+              }
+            ],
+            "variants": [],
+            "authority": "BF22 exact p approved Form expansion 2026-09-22"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2263.json",
+      "mode": "patch_json",
+      "expected_sha256": "a6277c571886235747712b8007afc0f27e370bd7a67908b10fcaefaec31b1795",
+      "edits": [
+        {
+          "pointer": "/relation_refs",
+          "value": [
+            {
+              "relation_id": "relation:confusable:hard|hardly:near_form",
+              "owner_path": "content/lexical/relations/by-id/29/2933901cfaab63ea2b68f573d8e01a83d7f9b65892776600d5b022a007addb58.json",
+              "field": "confusables",
+              "index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2288.json",
+      "mode": "patch_json",
+      "expected_sha256": "c2a49ef0d02bed2a7da2e283163d44b0ab081228b4b5403e172fb5abaa997416",
+      "edits": [
+        {
+          "pointer": "/relation_refs",
+          "value": [
+            {
+              "relation_id": "relation:confusable:heal|heel:homophone",
+              "owner_path": "content/lexical/relations/by-id/e8/e86d1814adafeb869e2b9c0731b5298e810fa36829c5444b1107e5d793fd7e80.json",
+              "field": "confusables",
+              "index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2303.json",
+      "mode": "patch_json",
+      "expected_sha256": "da8c5cbbc93e9309eb4d8a4d362cbab757eec42342f0d7f753201761e9221c00",
+      "edits": [
+        {
+          "pointer": "/relation_refs",
+          "value": [
+            {
+              "relation_id": "relation:confusable:air|heir:homophone",
+              "owner_path": "content/lexical/relations/by-id/31/31036bd8902acac3515a245b3880b20cb37fa148d2ba4e99dd19d06e391b5036.json",
+              "field": "confusables",
+              "index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o0129.json",
+      "mode": "patch_json",
+      "expected_sha256": "d7a8b32cc6aa4f88ed4d9942ac10335cc93a5a3331702348eb71463048ffff92",
+      "edits": [
+        {
+          "pointer": "/relation_refs",
+          "value": [
+            {
+              "relation_id": "relation:confusable:air|heir:homophone",
+              "owner_path": "content/lexical/relations/by-id/31/31036bd8902acac3515a245b3880b20cb37fa148d2ba4e99dd19d06e391b5036.json",
+              "field": "confusables",
+              "index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/relations/by-id/29/2933901cfaab63ea2b68f573d8e01a83d7f9b65892776600d5b022a007addb58.json",
+      "mode": "create_json",
+      "expected_absent": true,
+      "value": {
+        "schema": "kianos.lexical.relation_owner.v1",
+        "relation_id": "relation:confusable:hard|hardly:near_form",
+        "canonical_record": null,
+        "fact_record": null,
+        "word_views": [
+          {
+            "source_word_id": "word:hard",
+            "source_ordinal": 2261,
+            "field": "confusables",
+            "index": 0,
+            "payload": {
+              "relation_id": "relation:confusable:hard|hardly:near_form",
+              "relation_type": "near_form_semantic_confusable",
+              "relation_scope": "lexeme",
+              "target_word": "hardly",
+              "source_sense_id": "sense:hard:3288d6ad30a15e02",
+              "target_sense_id": "sense:hardly:daccab7b9e935a52",
+              "boundary": "hard as an adverb means with much effort or force; hardly means almost not / only just.",
+              "boundaries": [
+                "hard (adv.) = 努力地；猛烈地",
+                "hardly = 几乎不；简直不",
+                "near spelling does not imply similar meaning"
+              ],
+              "learning_note": "hard and hardly look related but differ sharply: hard = with effort/force; hardly = almost not.",
+              "priority": "A",
+              "publication_status": "human_gate_approved",
+              "verification_status": "source_checked",
+              "writing_safe": false,
+              "task_tags": [
+                "reading",
+                "cloze",
+                "writing"
+              ]
+            }
+          },
+          {
+            "source_word_id": "word:hardly",
+            "source_ordinal": 2263,
+            "field": "confusables",
+            "index": 0,
+            "payload": {
+              "relation_id": "relation:confusable:hard|hardly:near_form",
+              "relation_type": "near_form_semantic_confusable",
+              "relation_scope": "lexeme",
+              "target_word": "hard",
+              "source_sense_id": "sense:hardly:daccab7b9e935a52",
+              "target_sense_id": "sense:hard:3288d6ad30a15e02",
+              "boundary": "hardly means almost not / only just; hard as an adverb means with much effort or force.",
+              "boundaries": [
+                "near spelling does not imply similar meaning",
+                "hardly = 几乎不；简直不",
+                "hard (adv.) = 努力地；猛烈地"
+              ],
+              "learning_note": "hardly is not the ordinary adverb meaning 'with effort'; that is hard.",
+              "priority": "A",
+              "publication_status": "human_gate_approved",
+              "verification_status": "source_checked",
+              "writing_safe": false,
+              "task_tags": [
+                "reading",
+                "cloze",
+                "writing"
+              ]
+            }
+          }
+        ],
+        "provenance": {
+          "materialized_from": "BF22 exact Human Gate 2026-09-22",
+          "semantic_delta": 1
+        }
+      }
+    },
+    {
+      "path": "content/lexical/relations/by-id/e8/e86d1814adafeb869e2b9c0731b5298e810fa36829c5444b1107e5d793fd7e80.json",
+      "mode": "create_json",
+      "expected_absent": true,
+      "value": {
+        "schema": "kianos.lexical.relation_owner.v1",
+        "relation_id": "relation:confusable:heal|heel:homophone",
+        "canonical_record": null,
+        "fact_record": null,
+        "word_views": [
+          {
+            "source_word_id": "word:heal",
+            "source_ordinal": 2288,
+            "field": "confusables",
+            "index": 0,
+            "payload": {
+              "relation_id": "relation:confusable:heal|heel:homophone",
+              "relation_type": "homophone_confusable",
+              "relation_scope": "lexeme",
+              "target_word": "heel",
+              "source_sense_id": "sense:heal:bd4f5f4719265d37",
+              "target_sense_id": "sense:heel:df90a5ed966853e0",
+              "boundary": "heal means to recover or make healthy; heel means the back part of the foot.",
+              "boundaries": [
+                "heal = 治愈；愈合",
+                "heel = 脚后跟；足跟",
+                "standard pronunciations are homophones"
+              ],
+              "learning_note": "Do not confuse heal (治愈/愈合) with heel (脚后跟).",
+              "priority": "A",
+              "publication_status": "human_gate_approved",
+              "verification_status": "source_checked",
+              "writing_safe": false,
+              "task_tags": [
+                "reading",
+                "cloze",
+                "writing"
+              ]
+            }
+          },
+          {
+            "source_word_id": "word:heel",
+            "source_ordinal": 2300,
+            "field": "confusables",
+            "index": 0,
+            "payload": {
+              "relation_id": "relation:confusable:heal|heel:homophone",
+              "relation_type": "homophone_confusable",
+              "relation_scope": "lexeme",
+              "target_word": "heal",
+              "source_sense_id": "sense:heel:df90a5ed966853e0",
+              "target_sense_id": "sense:heal:bd4f5f4719265d37",
+              "boundary": "heel means the back part of the foot; heal means to recover or make healthy.",
+              "boundaries": [
+                "standard pronunciations are homophones",
+                "heel = 脚后跟；足跟",
+                "heal = 治愈；愈合"
+              ],
+              "learning_note": "Do not confuse heel (脚后跟) with heal (治愈/愈合).",
+              "priority": "A",
+              "publication_status": "human_gate_approved",
+              "verification_status": "source_checked",
+              "writing_safe": false,
+              "task_tags": [
+                "reading",
+                "cloze",
+                "writing"
+              ]
+            }
+          }
+        ],
+        "provenance": {
+          "materialized_from": "BF22 exact Human Gate 2026-09-22",
+          "semantic_delta": 1
+        }
+      }
+    },
+    {
+      "path": "content/lexical/relations/by-id/31/31036bd8902acac3515a245b3880b20cb37fa148d2ba4e99dd19d06e391b5036.json",
+      "mode": "create_json",
+      "expected_absent": true,
+      "value": {
+        "schema": "kianos.lexical.relation_owner.v1",
+        "relation_id": "relation:confusable:air|heir:homophone",
+        "canonical_record": null,
+        "fact_record": null,
+        "word_views": [
+          {
+            "source_word_id": "word:heir",
+            "source_ordinal": 2303,
+            "field": "confusables",
+            "index": 0,
+            "payload": {
+              "relation_id": "relation:confusable:air|heir:homophone",
+              "relation_type": "homophone_confusable",
+              "relation_scope": "lexeme",
+              "target_word": "air",
+              "source_sense_id": "sense:heir:cdde617e68395c7e",
+              "target_sense_id": "sense:air:8f65fa6fdc0258a9",
+              "boundary": "heir means a person entitled to inherit; air means the gases we breathe / the atmosphere.",
+              "boundaries": [
+                "heir = 继承人",
+                "air = 空气",
+                "standard pronunciations are homophones"
+              ],
+              "learning_note": "Do not confuse heir (继承人) with air (空气).",
+              "priority": "A",
+              "publication_status": "human_gate_approved",
+              "verification_status": "source_checked",
+              "writing_safe": false,
+              "task_tags": [
+                "reading",
+                "cloze",
+                "writing"
+              ]
+            }
+          },
+          {
+            "source_word_id": "word:air",
+            "source_ordinal": 129,
+            "field": "confusables",
+            "index": 0,
+            "payload": {
+              "relation_id": "relation:confusable:air|heir:homophone",
+              "relation_type": "homophone_confusable",
+              "relation_scope": "lexeme",
+              "target_word": "heir",
+              "source_sense_id": "sense:air:8f65fa6fdc0258a9",
+              "target_sense_id": "sense:heir:cdde617e68395c7e",
+              "boundary": "air means the gases we breathe / the atmosphere; heir means a person entitled to inherit.",
+              "boundaries": [
+                "standard pronunciations are homophones",
+                "air = 空气",
+                "heir = 继承人"
+              ],
+              "learning_note": "Do not confuse air (空气) with heir (继承人).",
+              "priority": "A",
+              "publication_status": "human_gate_approved",
+              "verification_status": "source_checked",
+              "writing_safe": false,
+              "task_tags": [
+                "reading",
+                "cloze",
+                "writing"
+              ]
+            }
+          }
+        ],
+        "provenance": {
+          "materialized_from": "BF22 exact Human Gate 2026-09-22",
+          "semantic_delta": 1
+        }
+      }
+    },
+    {
+      "path": "content/lexical/relations/manifest.json",
+      "mode": "patch_json",
+      "expected_sha256": "dd141c27a57b7f4e9a8b929b19303ca92d921ab823a7bbe6188c5cfebbf6ed49",
+      "edits": [
+        {
+          "pointer": "/relation_count",
+          "value": 443
+        }
+      ]
+    }
+  ],
+  "semantic_dependency_read_set": {
+    "content/lexical/relations/by-id/e8/e8e5f16ff34845b9a0c3b77ceb697a431bb86158db1ac87810d939e7153da0fe.json": "9d8c0d482a8ee458a36fb9dfb0ccdb2f0869e491eae77b6c6244b3dd04dba437",
+    "content/lexical/relations/by-id/a5/a58a5e0cb584e9f60c57566bd09440490489999710cafce317f7acbb54a48ab6.json": "76e7e38fba521c8fa3266ece8ef442a6ac2e20e1c1967f0d86a10f2cd4167f3f",
+    "content/lexical/relations/by-id/25/25b532b47c4ae88e2df74cb9383d667c7692f7642cadc91b67ff5d698cca16f4.json": "7863853eb64d96d7bdef59e5dd63632b5d3856b53dd11b7dd367f1b4fecc5cb1",
+    "content/lexical/relations/by-id/1a/1a3c52164e3f4930ec19ce64bad1adbc1df8810b0b306b6ee3214f465d90b2a1.json": "16a9550563f208022c1d54b65b237aa6a774949802305a682cb0ea8f4bef2a2b"
+  }
+}
