@@ -2,99 +2,177 @@ name: English Exam Session
 
 on:
   pull_request:
-    paths: ['.github/workflows/static-web-english-exam-session.yml']
+    paths:
+      - 'content/english/manifest.json'
+      - 'static-web/src/lib/englishExamPaper.mjs'
+      - 'static-web/src/lib/englishExamSession.mjs'
+      - 'static-web/src/lib/englishSessionControl.mjs'
+      - 'static-web/src/lib/englishLearnerEvidence.mjs'
+      - 'static-web/src/lib/englishWritingRuntimeTask.mjs'
+      - 'static-web/src/lib/englishWritingRuntimeSourceTruth.mjs'
+      - 'static-web/src/lib/browserLearnerWriter.mjs'
+      - 'static-web/src/lib/privateCheckpointRuntime.mjs'
+      - 'static-web/src/lib/privateControlRuntime.mjs'
+      - 'static-web/src/lib/sharedControlCheckpoint.mjs'
+      - 'static-web/src/components/EnglishExamTaskBridge.astro'
+      - 'static-web/src/components/ReadingWorkspace.astro'
+      - 'static-web/src/components/ClozeWorkspace.astro'
+      - 'static-web/src/components/ReadingBWorkspace.astro'
+      - 'static-web/src/components/TranslationWorkspace.astro'
+      - 'static-web/src/components/WritingWorkspace.astro'
+      - 'static-web/src/components/ReadingAnswerGate.astro'
+      - 'static-web/src/components/ObjectiveAnswerGate.astro'
+      - 'static-web/src/components/TranslationReferenceLoader.astro'
+      - 'static-web/src/components/ReadingLastLocation.astro'
+      - 'static-web/src/components/ObjectiveNavigator.astro'
+      - 'static-web/src/pages/english.astro'
+      - 'static-web/src/pages/english-exam.astro'
+      - 'static-web/src/pages/english-exam/**'
+      - 'static-web/src/pages/english-exam-answer/**'
+      - 'static-web/src/pages/english-exam-writing/**'
+      - 'static-web/src/pages/reading/**'
+      - 'static-web/src/pages/cloze/**'
+      - 'static-web/src/pages/reading-b/**'
+      - 'static-web/src/pages/translation/**'
+      - 'static-web/scripts/validate-english-exam-session.mjs'
+      - 'static-web/scripts/test-english-exam-session-browser.mjs'
+      - 'static-web/scripts/test-english-exam-seal-integrity.mjs'
+      - 'static-web/scripts/test-freeze-integrity.mjs'
+      - 'static-web/scripts/test-freeze-browser.mjs'
+      - '.github/workflows/static-web-english-exam-session.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'content/english/manifest.json'
+      - 'static-web/src/lib/englishExamPaper.mjs'
+      - 'static-web/src/lib/englishExamSession.mjs'
+      - 'static-web/src/lib/englishSessionControl.mjs'
+      - 'static-web/src/lib/englishLearnerEvidence.mjs'
+      - 'static-web/src/lib/browserLearnerWriter.mjs'
+      - 'static-web/src/lib/privateCheckpointRuntime.mjs'
+      - 'static-web/src/lib/privateControlRuntime.mjs'
+      - 'static-web/src/lib/sharedControlCheckpoint.mjs'
+      - 'static-web/src/components/EnglishExamTaskBridge.astro'
+      - 'static-web/src/pages/english-exam.astro'
+      - 'static-web/src/pages/english-exam/**'
+      - 'static-web/src/pages/english-exam-answer/**'
+      - 'static-web/src/pages/english-exam-writing/**'
+      - 'static-web/scripts/validate-english-exam-session.mjs'
+      - 'static-web/scripts/test-english-exam-session-browser.mjs'
+      - 'static-web/scripts/test-english-exam-seal-integrity.mjs'
+      - 'static-web/scripts/test-freeze-integrity.mjs'
+      - 'static-web/scripts/test-freeze-browser.mjs'
+      - '.github/workflows/static-web-english-exam-session.yml'
+  workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: english-exam-session-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  bounded-reconciliation:
-    if: github.event.pull_request.number == 754 && github.event.pull_request.head.repo.full_name == github.repository && github.event.pull_request.head.ref == 'fix/freeze-english-seal-integrity-20260922'
+  exam-session:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Publish exact native-interface delta after regression
-        env:
-          EXPECTED_HEAD: ${{ github.event.pull_request.head.sha }}
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          python3 - <<'PY'
-          import base64,lzma,hashlib,json,subprocess,os,pathlib,urllib.request
-          # One deterministic transport of nine already-tested public files.
-          # No model, learner records, deployment, merge, force push or rearm.
-          repo='kianwang022-hash/kianos';sha='c14cb314ae9c935ac6cc30f83b95746d8bcf9143'
-          req=urllib.request.Request('https://api.github.com/repos/'+repo+'/git/blobs/'+sha,headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'})
-          with urllib.request.urlopen(req,timeout=30) as response:blob=json.load(response)
-          assert blob['sha']==sha and blob['encoding']=='base64'
-          raw=base64.b64decode(blob['content'])
-          assert hashlib.sha256(raw).hexdigest()=='c05a18d1c9643717383a0b31569966cb0470c51b3d6b4f959d6bfdbc461da4ce','PAYLOAD_CHANGED'
-          payload=json.loads(lzma.decompress(raw));paths=payload['paths']
-          assert len(paths)==9 and len(set(paths))==9 and all(p.startswith('static-web/') and '..' not in pathlib.PurePosixPath(p).parts for p in paths)
-          def git(*args):return subprocess.check_output(['git',*args],text=True).strip()
-          before={p:git('hash-object',p) for p in paths}
-          assert before==payload['preimages'],'PREIMAGES_CHANGED'
-          subprocess.run(['git','apply','--check','--index','-'],input=payload['patch'],text=True,check=True)
-          subprocess.run(['git','apply','--index','-'],input=payload['patch'],text=True,check=True)
-          assert sorted(git('diff','--cached','--name-only').splitlines())==paths,'WRITE_SET_CHANGED'
-          after={p:git('hash-object',p) for p in paths}
-          assert after==payload['postimages'],'POSTIMAGES_CHANGED'
-          for args in [
-           ['--test','scripts/test-english-exam-seal-integrity.mjs','scripts/test-freeze-integrity.mjs'],
-           ['--experimental-vm-modules','scripts/test-l1-continuation.mjs','..'],
-           ['--experimental-vm-modules','scripts/test-l1-control-transactions.mjs'],
-           ['scripts/test-private-learner-checkpoint.mjs'],['scripts/test-shared-control-three-subjects.mjs'],
-           ['scripts/test-xizong-forecast-model.mjs'],['scripts/test-english-evidence-resume.mjs'],
-           ['scripts/test-english-generated-daily-packet.mjs'],['scripts/test-private-control-relay.mjs'],
-           ['scripts/test-daily-learning-packet.mjs'],['scripts/test-private-daily-learning-packet-relay.mjs'],
-           ['scripts/test-private-daily-learning-packet-bridge.mjs'],['scripts/test-exam-plan-read-model.mjs'],
-           ['scripts/test-english-generated-drill-store.mjs'],['scripts/test-english-external-combined-store.mjs']]:
-              subprocess.run(['node',*args],cwd='static-web',check=True)
-          subprocess.run(['node','static-web/scripts/test-xizong-source-revision-transitive.mjs'],check=True)
-          branch='fix/freeze-english-seal-integrity-20260922'
-          assert git('ls-remote','origin','refs/heads/'+branch).split()[0]==os.environ['EXPECTED_HEAD'],'BRANCH_MOVED_NO_PUSH'
-          subprocess.run(['git','config','user.name','github-actions[bot]'],check=True)
-          subprocess.run(['git','config','user.email','41898282+github-actions[bot]@users.noreply.github.com'],check=True)
-          subprocess.run(['git','commit','-m','fix(recovery): reconcile native receipt consumers and actual browser focus proof'],check=True)
-          subprocess.run(['git','push','origin','HEAD:refs/heads/'+branch],check=True)
-          pathlib.Path('english-exam-audit').mkdir(exist_ok=True)
-          pathlib.Path('english-exam-audit/interface-publication.json').write_text(json.dumps({'status':'PUBLISHED_CANDIDATE','head':git('rev-parse','HEAD'),'files':after,'native_tests':'PASS','deployment':'NOT_RUN'},indent=2))
-          PY
-      - name: Install and build exact candidate
+      - name: Install runtime
+        working-directory: static-web
+        run: npm install --no-audit --no-fund
+      - name: Validate full-paper and bounded integrity semantics
         working-directory: static-web
         run: |
-          npm install --no-audit --no-fund
+          node scripts/validate-english-exam-session.mjs
+          node --test scripts/test-english-exam-seal-integrity.mjs scripts/test-freeze-integrity.mjs
+          node --experimental-vm-modules scripts/test-l1-continuation.mjs ..
+          node --experimental-vm-modules scripts/test-l1-control-transactions.mjs
+          node scripts/test-private-learner-checkpoint.mjs
+          node scripts/test-shared-control-three-subjects.mjs
+          node scripts/test-xizong-forecast-model.mjs
+          node scripts/test-english-evidence-resume.mjs
+          node scripts/test-private-control-relay.mjs
+          node scripts/test-codex-issue-watcher.mjs
+          node scripts/test-codex-execution-policy.mjs
+      - name: Build learner site
+        working-directory: static-web
+        run: |
           npm run build
           node scripts/test-private-daily-learning-packet.mjs
-      - name: Install isolated browser
+      - name: Install browser acceptance
         working-directory: static-web
         run: |
           npm install --no-save --no-audit --no-fund playwright@1.56.1
           npx playwright install --with-deps chromium
-      - name: Existing healthy whole-paper journey
+      - name: Run full-paper browser journey
         working-directory: static-web
         run: node scripts/test-english-exam-session-browser.mjs
-      - name: Corruption and actual native-focus two-page journeys
+      - name: Run corruption and two-page browser journeys
         if: success() || failure()
         working-directory: static-web
         run: xvfb-run -a node scripts/test-freeze-browser.mjs
-      - name: Existing cross-subject journey with valid native fixture
+      - name: Bounded native focus diagnostic
+        if: failure()
+        working-directory: static-web
+        run: |
+          xvfb-run -a node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          import {spawn} from 'node:child_process';
+          import {chromium} from 'playwright';
+          import {listEnglishExamPapers} from './src/lib/englishExamPaper.mjs';
+          const base='http://127.0.0.1:4389';
+          const server=spawn('npm',['run','preview','--','--host','127.0.0.1','--port','4389'],{stdio:'ignore',detached:true});
+          const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+          const observations=[];let browser;
+          try {
+            for(let i=0;i<80;i++){try{if((await fetch(base)).ok)break;}catch{}await sleep(200);}
+            browser=await chromium.launch({headless:false});
+            const context=await browser.newContext();
+            await context.addInitScript(()=>{
+              window.__focusEvents=[];window.__handoffMessages=[];
+              for(const name of ['focus','blur','pageshow','pagehide'])window.addEventListener(name,()=>window.__focusEvents.push({name,focus:document.hasFocus(),visibility:document.visibilityState}),true);
+              const channel=new BroadcastChannel('kianos-native-learner-writer-v1');
+              channel.onmessage=({data})=>window.__handoffMessages.push({kind:data?.kind,focus:document.hasFocus(),visibility:document.visibilityState});
+            });
+            const pages=[],sessions=[];
+            const snapshot=async(label)=>{
+              const states=[];
+              for(const [i,page] of pages.entries())states.push({page:i,...await page.evaluate(async()=>({focus:document.hasFocus(),visibility:document.visibilityState,writer:document.documentElement.dataset.learnerWriter,events:window.__focusEvents,messages:window.__handoffMessages.slice(-8),locks:await navigator.locks.query()}))});
+              observations.push({label,states});
+            };
+            for(const label of ['a','b']){
+              const page=await context.newPage();pages.push(page);
+              const cdp=await context.newCDPSession(page);sessions.push(cdp);
+              await cdp.send('Emulation.setFocusEmulationEnabled',{enabled:false});
+              await page.bringToFront();
+              await page.goto(base+'/english-exam/'+listEnglishExamPapers()[0].paperId+'/');
+              await sleep(1300);await snapshot('opened-'+label);
+            }
+            for(const cdp of sessions)await cdp.send('Emulation.setFocusEmulationEnabled',{enabled:false});
+            await pages[1].bringToFront();await sleep(1300);await snapshot('focus-disabled-again-after-navigation');
+          }catch(error){observations.push({error:String(error.stack||error)});}
+          finally{
+            await browser?.close();try{process.kill(-server.pid,'SIGTERM');}catch{}
+            fs.mkdirSync('../english-exam-audit',{recursive:true});
+            fs.writeFileSync('../english-exam-audit/native-focus-diagnostic.json',JSON.stringify(observations,null,2));
+            console.log(JSON.stringify(observations,null,2));
+          }
+          JS
+      - name: Existing cross-subject browser journey
         if: success() || failure()
         working-directory: static-web
         run: node scripts/test-final-cross-subject-regression.mjs
-      - uses: actions/upload-artifact@v4
+      - name: Upload full-paper proof
         if: always()
+        uses: actions/upload-artifact@v4
         with:
-          name: freeze-interface-browser-${{ github.run_id }}
+          name: english-exam-session-${{ github.sha }}
           path: |
             english-exam-audit/
             static-web/.qa/final-cross-subject/
