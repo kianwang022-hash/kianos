@@ -3,14 +3,14 @@
   "status": "ACTIVE",
   "campaign": "FULL_CATALOG_FINAL_STANDARD_CONTINUATION",
   "semantic_ruler": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
-  "updated_at": "2026-09-22T13:16:14+00:00",
+  "updated_at": "2026-09-22T13:21:32+00:00",
   "frontier": {
     "candidate_id": "BF21",
     "range": [
       2151,
       2250
     ],
-    "state": "READY_FOR_B_READBACK",
+    "state": "RECONCILE_ALLOWED",
     "proposal_path": "content/lexical/execution/manifests/o2151-o2250.fullcatalog-final-standard-proposal.md",
     "proposal_commit": "95f1ce7960ad7df1982aa5b8e413662e6c6ca36d",
     "review_branch": "work/lexical-fullcatalog-bf21-review-20260922",
@@ -50,9 +50,18 @@
       "updated_at": "2026-09-22T13:16:14+00:00"
     },
     "audit": {
-      "status": "PENDING",
-      "result": null,
-      "pack": null
+      "status": "COMPLETE",
+      "result": "PASS_WITH_CORRECTIONS",
+      "pack": "content/lexical/semantic-audit/O2151_O2250_FINAL_STANDARD_SAME_CHAT_B_AUDIT_PACK.md",
+      "blind_first": "NOT_ENFORCED",
+      "correction_ordinals": [
+        2179,
+        2206,
+        2215,
+        2220,
+        2233
+      ],
+      "updated_at": "2026-09-22T13:21:32+00:00"
     }
   },
   "next": {
@@ -81,7 +90,7 @@
     "audit_pack": "content/lexical/semantic-audit/O2051_O2150_FINAL_RECONCILED_REPLAY_READBACK.md",
     "final_learner_objects": 7946
   },
-  "blocker": null,
-  "next_action": "RUN_B_READBACK",
+  "blocker": "B_CORRECTIONS",
+  "next_action": "APPLY_BOUNDED_RECONCILIATION",
   "legacy_history": "content/lexical/execution/three-chat-board.json"
 }
