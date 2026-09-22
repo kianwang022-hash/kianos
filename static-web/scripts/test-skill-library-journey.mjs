@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import os from 'node:os';
 import { spawn } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -8,12 +10,16 @@ import { chromium } from 'playwright';
 const PORT = 4431;
 const BASE = 'http://127.0.0.1:' + PORT;
 const webRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const privateDir = fs.mkdtempSync(path.join(os.tmpdir(), 'kianos-skill-library-'));
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 let server;
 
 async function startServer() {
-  server = spawn(process.execPath, ['scripts/kianos-static-server.mjs', '--host', '127.0.0.1', '--port', String(PORT), '--root', 'dist'], {
-    cwd: webRoot, stdio: ['ignore','pipe','pipe']
+  server = spawn('npm', ['run', 'dev', '--', '--host', '127.0.0.1', '--port', String(PORT)], {
+    cwd: webRoot,
+    env: { ...process.env, KIANOS_PRIVATE_DIR: privateDir },
+    stdio: ['ignore','pipe','pipe'],
+    detached: process.platform !== 'win32'
   });
   let output = '';
   server.stdout.on('data', (c) => { output += c; });
@@ -32,8 +38,11 @@ async function startServer() {
 
 async function stopServer() {
   if (!server) return;
-  server.kill('SIGTERM');
-  await Promise.race([new Promise((r)=>server.once('exit',r)), sleep(1000)]);
+  try {
+    if (process.platform === 'win32') server.kill('SIGTERM');
+    else process.kill(-server.pid, 'SIGTERM');
+  } catch { try { server.kill('SIGTERM'); } catch {} }
+  await Promise.race([new Promise((r)=>server.once('exit',r)), sleep(1500)]);
 }
 
 const pass = (name) => console.log('PASS', name);
@@ -43,9 +52,6 @@ const browser = await chromium.launch({ headless: true });
 try {
   const context = await browser.newContext();
   const page = await context.newPage();
-  page.on('pageerror', (error) => console.log('PAGE_ERROR', error.message));
-  page.on('console', (msg) => { if (msg.type() === 'error') console.log('CONSOLE_ERROR', msg.text()); });
-  page.on('requestfailed', (req) => console.log('REQUEST_FAILED', req.url(), req.failure()?.errorText || ''));
 
   await page.goto(BASE + '/skills/', { waitUntil: 'domcontentloaded' });
   await page.locator('h1').filter({ hasText: 'Skills' }).waitFor({ state: 'visible', timeout: 5000 });
@@ -60,7 +66,6 @@ try {
   await page.getByRole('link', { name: /总 Guide/ }).click();
   await page.getByText('高精力不是一个单变量').waitFor({ state: 'visible', timeout: 5000 });
   const key = 'kianos:skills:progress:v1';
-  console.log('GUIDE_RUNTIME_DEBUG', await page.evaluate(() => ({ reader: !!document.querySelector('[data-skill-reader]'), scripts: [...document.scripts].map((s) => s.src).filter(Boolean), keys: Object.keys(localStorage) })));
   await page.waitForFunction((k) => localStorage.getItem(k) !== null, key, { timeout: 3000 });
   let progress = JSON.parse(await page.evaluate((k) => localStorage.getItem(k), key));
   assert.equal(progress.skills['high-energy'].last_asset, 'guide');
