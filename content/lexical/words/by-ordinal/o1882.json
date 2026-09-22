@@ -64,14 +64,7 @@
         "sense_id": "sense:favorite:2c8e257bd7065487",
         "sense_label_en": "preferred or liked most",
         "sort_order": 0,
-        "transitivity": "nonverb",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "spelling_variant",
-          "surface_lemma": "favorite",
-          "paired_form": "favorite / favourite",
-          "note": "favorite is the usual American spelling; favourite is the usual British spelling. Same lexeme and sense inventory."
-        }
+        "transitivity": "nonverb"
       },
       {
         "collocations": [
@@ -95,14 +88,7 @@
         "sense_id": "sense:favorite:ad512f8c823a5877",
         "sense_label_en": "something regarded with special favor or liking",
         "sort_order": 1,
-        "transitivity": "nonverb",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "spelling_variant",
-          "surface_lemma": "favorite",
-          "paired_form": "favorite / favourite",
-          "note": "favorite is the usual American spelling; favourite is the usual British spelling. Same lexeme and sense inventory."
-        }
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -125,7 +111,27 @@
     "word_id": "word:favorite",
     "search_aliases": [
       "favourite"
-    ]
+    ],
+    "form_identity": {
+      "form_type": "regional_spelling_identity",
+      "spelling": "favorite",
+      "identity_rule": "same_lexeme_spelling_variant",
+      "boundary": "favorite is the usual American English spelling; favourite is the usual British English spelling.",
+      "boundaries": [
+        {
+          "surface": "favorite",
+          "condition": "American English",
+          "note": "American English spelling"
+        },
+        {
+          "surface": "favourite",
+          "condition": "British English",
+          "note": "British English spelling"
+        }
+      ],
+      "variants": [],
+      "authority": "BF18 existing-truth Form migration 2026-09-22"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
