@@ -1,6 +1,6 @@
 ---
-import SkillsBase from '../../../../layouts/SkillsBase.astro';
-import { listSkillAssetRoutes, loadSkillAsset, skillAssetHref } from '../../../../lib/skills.mjs';
+import SkillsBase from '../../../layouts/SkillsBase.astro';
+import { listSkillAssetRoutes, loadSkillAsset, skillAssetHref } from '../../../lib/skills.mjs';
 
 export function getStaticPaths() {
   return listSkillAssetRoutes().map((route) => ({
@@ -48,7 +48,7 @@ const isVerify = asset.kind === 'verify' || asset.protected;
 </SkillsBase>
 
 <script>
-  import { recordSkillAssetVisit, setSkillAssetCompleted, skillProgressFor } from '../../../../lib/skillRuntimeClient.mjs';
+  import { recordSkillAssetVisit, setSkillAssetCompleted, skillProgressFor } from '../../../lib/skillRuntimeClient.mjs';
 
   const reader = document.querySelector('[data-skill-reader]');
   if (reader instanceof HTMLElement) {
