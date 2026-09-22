@@ -253,7 +253,7 @@ Prefer these whenever available:
 - stand time;
 - VO2max;
 - daytime HR pattern;
-- reported caffeine timing/dose;
+- reported caffeine timing/dose as a masking/confounding context, never as recovery credit;
 - unusual alcohol exposure if volunteered;
 - meal / hydration / environment only when they explain a current mismatch.
 
@@ -323,6 +323,8 @@ Use:
 - workout duration / effort / training load when available;
 - active energy as a coarse load feature;
 - never convert calories directly into cognitive-capacity minutes.
+
+Physical activity is not assumed to have a monotonic effect on cognition. Moderate activity may improve alertness while unusually heavy or poorly recovered training may add recovery demand. The direction and magnitude should remain contextual until repeated personal outcome evidence supports it.
 
 ---
 
@@ -396,6 +398,8 @@ Initial phase estimate may use:
 - recent schedule shifts;
 - travel/timezone;
 - light/activity information when available.
+
+This is a **behavioral circadian proxy**, not a direct physiological phase marker such as DLMO. Alarm-driven wake times, forced schedules, travel and irregular social timing reduce phase confidence. Do not label a clock-time preference as biological phase merely because it is repeated.
 
 Stage 0/1 may use a generic harmonic prior around the inferred phase.
 
@@ -642,6 +646,15 @@ train on past
 → advance
 ```
 
+### No temporal leakage
+
+Every feature must be timestamped relative to the planning decision.
+
+- only information available **before** a decision may be used to evaluate that decision rule;
+- a session's outcome may update future state but may not retroactively justify the placement that produced it;
+- end-of-day totals may not be used as morning predictors for that same day;
+- derived baselines must be computed from prior eligible observations only.
+
 Compare against simpler baselines:
 
 - Calendar / time-of-day only;
@@ -700,11 +713,24 @@ Do not punish the current block solely from physiology.
 
 Continue with bounded observation and watch for degradation.
 
+### Severe acute sleep restriction safeguard
+
+A clearly severe sleep-restriction history is stronger evidence than an isolated favorable HRV value or a brief subjective "I feel fine." Temporary arousal, caffeine or stress may mask sleepiness.
+
+For study planning, this does not require cancelling all hard work. It does mean:
+
+- do not promote the day above the ordinary plan;
+- prefer a bounded high-load trial rather than a long unbroken high-stakes block;
+- require actual task function before relaxing the constraint;
+- keep prolonged vigilance-sensitive work conservative until evidence accumulates.
+
 ## 13.3 Missing sleep or device not worn
 
 Do not infer poor recovery.
 
 State = `UNKNOWN`.
+
+Track repeated missingness as a data-quality pattern, but do not interpret the fact of missing wearable data itself as physiological strain.
 
 ## 13.4 Source/device change
 
