@@ -3,14 +3,14 @@
   "status": "ACTIVE",
   "campaign": "FULL_CATALOG_FINAL_STANDARD_CONTINUATION",
   "semantic_ruler": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
-  "updated_at": "2026-09-22T13:22:28+00:00",
+  "updated_at": "2026-09-22T13:23:39+00:00",
   "frontier": {
     "candidate_id": "BF21",
     "range": [
       2151,
       2250
     ],
-    "state": "READY_FOR_B_READBACK",
+    "state": "READY_TO_MERGE",
     "proposal_path": "content/lexical/execution/manifests/o2151-o2250.fullcatalog-final-standard-proposal.md",
     "proposal_commit": "95f1ce7960ad7df1982aa5b8e413662e6c6ca36d",
     "review_branch": "work/lexical-fullcatalog-bf21-review-20260922",
@@ -50,9 +50,12 @@
       "updated_at": "2026-09-22T13:22:28+00:00"
     },
     "audit": {
-      "status": "PENDING",
-      "result": null,
-      "pack": null
+      "status": "COMPLETE",
+      "result": "PASS",
+      "pack": "content/lexical/semantic-audit/O2151_O2250_FINAL_RECONCILED_READBACK.md",
+      "blind_first": "NOT_ENFORCED",
+      "correction_ordinals": [],
+      "updated_at": "2026-09-22T13:23:39+00:00"
     }
   },
   "next": {
@@ -82,6 +85,6 @@
     "final_learner_objects": 7946
   },
   "blocker": null,
-  "next_action": "RUN_B_READBACK",
+  "next_action": "AUTO_MERGE",
   "legacy_history": "content/lexical/execution/three-chat-board.json"
 }
