@@ -169,7 +169,9 @@ assert(Object.keys(results).length === 3, 'question-result-not-idempotent-by-id'
 const wu = wuIds(roundTrip(results));
 assert(!wu.includes(q1) && wu.includes(q2) && wu.includes(q3) && wu.length === 2, 'wu-routing');
 for (const question of sweep.questions) {
-  if (question.relation) assert(question.relation.primaryKpId, `${question.questionId}:precise-relation-without-primary-kp`);
+  if (question.relation?.targetStatus === 'RESOLVED_KP') {
+    assert(question.relation.primaryKpId, `${question.questionId}:resolved-kp-relation-without-primary-kp`);
+  }
 }
 
 // ---------- Actual runtime-source contracts ----------
