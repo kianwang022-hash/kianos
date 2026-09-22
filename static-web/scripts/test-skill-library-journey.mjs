@@ -1,16 +1,19 @@
 #!/usr/bin/env node
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
 
 const PORT = 4431;
 const BASE = 'http://127.0.0.1:' + PORT;
+const webRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 let server;
 
 async function startServer() {
   server = spawn(process.execPath, ['scripts/kianos-static-server.mjs', '--host', '127.0.0.1', '--port', String(PORT), '--root', 'dist'], {
-    cwd: process.cwd(), stdio: ['ignore','pipe','pipe']
+    cwd: webRoot, stdio: ['ignore','pipe','pipe']
   });
   let output = '';
   server.stdout.on('data', (c) => { output += c; });
