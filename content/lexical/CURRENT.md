@@ -33,6 +33,7 @@ The full-catalog final-standard continuation is active under the already-frozen 
 
 - `FINAL_SEMANTIC_FREEZE.md`
 - `FINAL_SEMANTIC_FREEZE_SCOPE_AMENDMENT_20260922.md`
+- `FINAL_SEMANTIC_FREEZE_VALUE_DELEGATION_AMENDMENT_20260922.md`
 - `CONTENT_ASSET_CONTRACT.md`
 - `CONTENT_EXECUTION.md`
 - `THREE_CHAT_RUNTIME.md`
@@ -50,7 +51,7 @@ A mutation requires a real correctness, decision, structure, phraseology, owners
 100/100 Fresh Read
 → Production Self Attack
 → smallest proposal
-→ exact Human Gate only for genuinely new learner knowledge
+→ standing delegated approval when eligible / exceptional bounded Human Gate otherwise
 → fail-closed mutation package
 → rebuild 7,946 Final Learner Objects
 → B readback / Independent Audit
@@ -60,7 +61,7 @@ A mutation requires a real correctness, decision, structure, phraseology, owners
 → automatic main live-cursor advance
 ```
 
-Mechanical automation may transport, validate, rebuild, record B results, and advance the main cursor after merge. It may not invent semantic changes, bypass Human Gate, or bypass repository merge permissions.
+Mechanical automation may transport, validate, rebuild, record B results, and advance the main cursor after merge. It may not invent semantic changes, bypass the exact approval boundary (standing delegation or exceptional Gate), or bypass repository merge permissions.
 
 A stale Word / Relation / Form hash, stale declared dependency, missing gate, B HOLD, FLOB-count mismatch, write-scope violation, or merge conflict fails closed.
 
@@ -72,10 +73,9 @@ Kian should normally need only:
 
 ```text
 继续词汇
-p
 ```
 
-`p` approves only the exact genuinely-new learner delta currently shown from the live frontier.
+Standing delegation (Kian, 2026-09-22) authorizes routine bounded batch approval after the exact proposal is frozen and quality gates pass. `p` remains available only for an exceptional bounded Gate.
 
 A/B/C remain optional internal reviewer roles, not user-required controls.
 
@@ -107,6 +107,7 @@ Natural Owners remain semantic truth. Final Learner Objects are derived learner 
 - important polysemy, familiar-new meaning, confusable/形近/近义 decision boundaries, phraseology, construction syntax, register and Form all receive fresh coverage judgment;
 - genuine cross-word confusion belongs to Relation, not a fake Sense;
 - spelling / capitalization / pronunciation / inflection belongs to Form/Identity, not a fake Relation;
+- Form/Identity is background support by default; routine stress/pronunciation/regional spelling does not compete with semantic decision value or automatically become learner-facing Expansion;
 - worth knowing does not automatically mean Core or prebuilt Repair Test;
 - L3 / rare / reference-only does not mean delete;
 - Fast Pass stays cheap and rich Depth stays available where intrinsic lexical risk earns it;

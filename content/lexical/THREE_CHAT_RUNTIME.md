@@ -12,8 +12,9 @@ Kian should normally need only:
 
 ```text
 继续词汇
-p
 ```
+
+`p` remains an optional explicit approval control when an exceptional Gate is surfaced, but it is no longer required between routine batches under the standing delegation recorded in `CONTENT_EXECUTION.md §3B`.
 
 A/B/C role names may still be used internally, but they are no longer required user controls.
 
@@ -36,7 +37,7 @@ The frozen semantic sequence remains unchanged:
 100/100 Fresh Read
 → Self Attack
 → smallest Production proposal
-→ exact Human Gate only for genuinely new learner knowledge
+→ standing delegated approval when eligible / exceptional bounded Human Gate otherwise
 → materialize approved/existing-truth delta
 → rebuild 7,946 Final Learner Objects
 → B readback / independent audit
@@ -74,20 +75,13 @@ COMPLETE
 
 Historical batches, old shared claims and execution diaries stay out of the live cursor.
 
-## 4. Human Gate
+## 4. Delegated approval / exceptional Human Gate
 
-Only genuinely new learner knowledge requires `p`.
+The compact cursor keeps the existing `HUMAN_GATE_REQUIRED` / `APPROVED` mechanics for compatibility, but the normal resolver is now Kian's **standing delegation dated 2026-09-22**. After a batch proposal is frozen and passes Production Self Attack, Chat may record `APPROVED` with that standing approval reference and continue without waiting for a fresh `p`.
 
-`p` means:
+A fresh `p` is required only when Chat explicitly surfaces an exceptional Gate because the frozen ruler cannot safely resolve a material new policy boundary, meaning ambiguity or identity ambiguity.
 
-```text
-re-read live-batch + exact shown proposal
-→ approve exactly that pending delta
-→ mark frontier MATERIALIZE_ALLOWED
-→ mechanical pipeline may continue
-```
-
-Existing-truth correction, approved-scope narrowing, FLOB rebuild, validation and cursor advancement do not create a second routine gate.
+Routine existing-truth corrections, background Form / Identity facts, approved-scope narrowing, FLOB rebuild, validation, audit reconciliation inside the frozen ruler and cursor advancement do not create a new user gate.
 
 ## 5. Mechanical automation
 
@@ -152,10 +146,11 @@ B's durable output is Audit Pack + audit-result request. B does not reconcile or
 
 A/C remain optional internal producer labels. Both use the same semantic ruler.
 
-They may review one current batch plus at most one lookahead batch. They do not maintain a multi-batch live backlog. Once a proposal is frozen:
+They may close multiple consecutive batches in one Chat **serially**, but the live runtime still keeps only the current frontier plus at most one lookahead batch. They do not maintain a multi-batch live backlog or pre-authorize unseen batches. Once a proposal is frozen:
 
-- new material → show exact delta;
+- new material inside the frozen ruler → record the exact delta and use standing delegated approval;
 - no new material → mark `NOT_REQUIRED`;
+- unresolved material policy/meaning/identity ambiguity → surface one exceptional bounded Gate;
 - non-frontier lookahead stays proposal-only;
 - canonical mutation remains frontier-serialized.
 
@@ -165,7 +160,7 @@ Any of these stops automatically:
 
 - stale Word/Relation/Form hash;
 - stale declared semantic dependency;
-- Human Gate missing for new material;
+- exact approval reference missing where required;
 - candidate/range mismatch;
 - B HOLD;
 - merge conflict;
