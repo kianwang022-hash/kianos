@@ -13,24 +13,54 @@ let nativeStorage = null;
 const blockedNodes = new Map();
 const LOCK = 'kianos-native-learner-writer-v1';
 const keyOwned = key => /^kianos[-:]/.test(String(key));
+const WAITING_NOTICE_DELAY_MS = 600;
+let writerState = 'idle';
+let waitingNoticeTimer = null;
 
-function showState(state) {
-  document.documentElement.dataset.learnerWriter = state;
+function ensureNotice() {
   let notice = document.querySelector('[data-learner-writer-notice]');
   if (!notice) {
     notice = document.createElement('p');
     notice.setAttribute('data-learner-writer-notice', '');
     notice.setAttribute('role', 'status');
+    notice.hidden = true;
     document.body.prepend(notice);
   }
-  notice.hidden = state === 'active';
-  notice.textContent = state === 'waiting'
-    ? '正在接续最新学习记录…'
-    : state === 'retired'
+  return notice;
+}
+
+function clearWaitingNoticeTimer() {
+  if (waitingNoticeTimer !== null) window.clearTimeout(waitingNoticeTimer);
+  waitingNoticeTimer = null;
+}
+
+function showState(state) {
+  writerState = state;
+  document.documentElement.dataset.learnerWriter = state;
+  clearWaitingNoticeTimer();
+  let notice = document.querySelector('[data-learner-writer-notice]');
+
+  if (state === 'waiting') {
+    // Keep write protection immediate, but do not flash a transient banner on routine navigation.
+    if (notice) notice.hidden = true;
+    waitingNoticeTimer = window.setTimeout(() => {
+      waitingNoticeTimer = null;
+      if (writerState !== 'waiting') return;
+      const delayedNotice = ensureNotice();
+      delayedNotice.textContent = '正在接续最新学习记录…';
+      delayedNotice.hidden = false;
+    }, WAITING_NOTICE_DELAY_MS);
+  } else if (state === 'active') {
+    if (notice) notice.hidden = true;
+  } else {
+    notice = ensureNotice();
+    notice.textContent = state === 'retired'
       ? '学习已切换到另一个页面。返回这里时会重新读取最新进度。'
       : state === 'unavailable'
         ? '当前浏览器无法安全保存学习记录。原记录没有改动；内容仍可阅读。'
         : '';
+    notice.hidden = false;
+  }
   if (state === 'active' || state === 'unavailable') {
     for (const [node, wasInert] of blockedNodes) if (node.isConnected) node.inert = wasInert;
     blockedNodes.clear();
