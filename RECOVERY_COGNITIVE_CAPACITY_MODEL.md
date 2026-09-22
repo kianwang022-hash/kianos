@@ -132,7 +132,27 @@ Decision:
 - generic semantics and fixtures may live in GitHub;
 - device/source changes invalidate direct baseline comparison until bridged by new calibration.
 
-## 1.7 N-of-1 / individualized UMP — ADOPT personal calibration
+## 1.7 HRV4Training / Bevel / Athlytic — ADAPT practical baseline discipline
+
+These Apple/wearable-centered systems add several operational lessons:
+
+- short rolling baseline and longer "normal range" answer different questions;
+- subjective state should be interpreted alongside physiology;
+- HRV measurement definition and window must stay consistent;
+- sleep-window HRV reduces daytime contextual noise;
+- physiology should inform small plan adjustments rather than replace the plan;
+- robust filtering / outlier handling matters with Apple Watch sampling.
+
+HRV4Training uses a recent baseline plus a longer normal range and explicitly treats physiology as awareness around an existing plan. Athlytic uses an overnight HRV/RHR recovery view against a longer rolling baseline. Bevel exposes the SDNN/RMSSD distinction and defaults recovery HRV to sleep-window observations.
+
+Decision:
+
+- ADOPT short-baseline + long-normal-range semantics;
+- ADOPT sleep-window normalization for recovery HRV when coverage permits;
+- ADOPT outlier filtering and explicit formula/source identity;
+- DO NOT import their 0–100 scores or assume training readiness equals cognitive readiness.
+
+## 1.8 N-of-1 / individualized UMP — ADOPT personal calibration
 
 Population models are priors. Kian's actual response becomes the stronger local evidence.
 
@@ -858,6 +878,9 @@ Mature consumer systems:
 - Garmin Body Battery: https://www.garmin.com/en-US/garmin-technology/health-science/body-battery/
 - WHOOP Recovery: https://www.whoop.com/us/en/thelocker/how-does-whoop-recovery-work-101/
 - RISE Energy Schedule: https://help.risescience.com/hc/en-us/articles/40672503374871-How-does-RISE-predict-my-Energy-Schedule
+- HRV4Training QuickStart / baseline semantics: https://www.hrv4training.com/quickstart-guide.html
+- Athlytic recovery / 60-day baseline: https://athlyticapp.helpscoutdocs.com/article/13-getting-started
+- Bevel HRV / recovery semantics: https://www.bevel.health/blog/the-basics-heart-rate-variability
 
 Wearable measurement limits:
 
