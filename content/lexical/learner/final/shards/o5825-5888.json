@@ -1040,7 +1040,7 @@
     "ordinal": 5840,
     "word": "glamour",
     "source_owner_path": "content/lexical/words/by-ordinal/o5840.json",
-    "source_fingerprint": "641afe64270534cdef89f0b82f57f97feecf4f6b9fc5e8dc488bb236934a256d",
+    "source_fingerprint": "98dee6ce9b53f47cfccdff5309a693a7ceca9ed80bf30bc8afb8a4bac0cc0351",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1081,26 +1081,29 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "glamour ↔ glamor",
-          "target_word": "glamor",
-          "lines": [
-            {
-              "text": "glamour and glamor are regional spelling variants of the same ordinary concept. Preserve both stable Word owners and exact-spelling lookup ownership.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:39dcf27cb6fc97d0ceb0",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "glamour ↔ glamor"
+      "relations": [],
+      "form": {
+        "boundary": "glamour is the usual British spelling; glamor is the usual American spelling. Both frozen Word owners remain distinct catalogue identities.",
+        "boundaries": [
+          {
+            "surface": "glamour",
+            "condition": "British English",
+            "note": "BrE spelling"
+          },
+          {
+            "surface": "glamor",
+            "condition": "American English",
+            "note": "AmE spelling"
           }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "glamour is the usual British spelling; glamor is the usual American spelling. Both frozen Word owners remain distinct catalogue identities."
         }
-      ],
-      "form": null,
+      },
       "family": []
     }
   },

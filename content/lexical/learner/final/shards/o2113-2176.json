@@ -5,7 +5,7 @@
     "ordinal": 2113,
     "word": "generalise",
     "source_owner_path": "content/lexical/words/by-ordinal/o2113.json",
-    "source_fingerprint": "355f8110609142b0935a515a24e0ebfe25563e7c4c3890be831f4a5dbe735174",
+    "source_fingerprint": "5179db15db0637645af1120fe57e651812efc37e70da60835fc08fa81c589701",
     "sense_lineage": [
       {
         "word_id": "word:generalise",
@@ -47,15 +47,7 @@
         "definition_cn": "概括；归纳",
         "definition_en": "to draw a general conclusion from specific cases",
         "note": "",
-        "identity_overlay": {
-          "text": "generalise/generalize BrE/AmE spelling boundary",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "generalise/generalize BrE/AmE spelling boundary"
-          }
-        },
+        "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -70,7 +62,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "generalise is the usual British spelling; generalize is the usual American spelling.",
+        "boundaries": [
+          {
+            "surface": "generalise",
+            "condition": "British English",
+            "note": "BrE spelling"
+          },
+          {
+            "surface": "generalize",
+            "condition": "American English",
+            "note": "AmE spelling"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "generalise is the usual British spelling; generalize is the usual American spelling."
+        }
+      },
       "family": []
     }
   },
@@ -852,7 +865,7 @@
     "ordinal": 2121,
     "word": "gentle",
     "source_owner_path": "content/lexical/words/by-ordinal/o2121.json",
-    "source_fingerprint": "fe858848aafe50f6db5c7b0dcfa3338ddd879ea23a1696583890629749436a3c",
+    "source_fingerprint": "2e20f09fcea1908ab03acfe941fce13144a51fcc8a7144442538ac5456439d42",
     "sense_lineage": [
       {
         "word_id": "word:gentle",
@@ -1730,7 +1743,7 @@
     "ordinal": 2130,
     "word": "get",
     "source_owner_path": "content/lexical/words/by-ordinal/o2130.json",
-    "source_fingerprint": "5f7df78e54265bafe8812a8f4186758087f8ac9b861aac58da087c366383fc01",
+    "source_fingerprint": "ef40f74c99c93b5c53cacc8af44b0f2e74f2efa73259da4b24da203ac4355de9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1896,7 +1909,7 @@
         "id": "sense:get:67189d7e8a9356e2",
         "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "get + sth / get what/why/how + clause",
         "definition_cn": "理解；明白",
         "definition_en": "to understand or grasp the meaning of something",
         "note": "",
@@ -1997,7 +2010,38 @@
           }
         }
       ],
-      "form": null,
+      "form": {
+        "boundary": "get has present participle getting, past got, and past participle got; in U.S. English the past participle is usually gotten.",
+        "boundaries": [
+          {
+            "surface": "getting",
+            "condition": "present participle",
+            "note": "double t before -ing"
+          },
+          {
+            "surface": "got",
+            "condition": "past simple",
+            "note": "irregular past"
+          },
+          {
+            "surface": "got",
+            "condition": "past participle, especially British English",
+            "note": "accepted participle"
+          },
+          {
+            "surface": "gotten",
+            "condition": "past participle, usually U.S. English",
+            "note": "common AmE participle"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "get has present participle getting, past got, and past participle got; in U.S. English the past participle is usually gotten."
+        }
+      },
       "family": []
     }
   },
@@ -2007,7 +2051,7 @@
     "ordinal": 2131,
     "word": "ghost",
     "source_owner_path": "content/lexical/words/by-ordinal/o2131.json",
-    "source_fingerprint": "c538231a43a24fd7796f7121c8e95507eefb0eee2e942af24fef9ffc5f1396ef",
+    "source_fingerprint": "27bfceb8adc625f09cc813f1cd05e80805f6dcf3a2e8f95e22bb1fe1f5f4dd2b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2028,95 +2072,8 @@
     },
     "senses": [
       {
-        "id": "sense:ghost:9c5a6fb3d2485aaf",
-        "source_locator": "record.senses[0]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "一丝；一点",
-        "definition_en": "a slight trace or possibility of something",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:f2b5f069f8b788e723a9",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "a ghost of a chance",
-            "meaning_cn": "一线机会",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:f2b5f069f8b788e723a9",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "a ghost of a chance"
-            }
-          },
-          {
-            "id": "collocation:908f6b3c24cec1920f6a",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "a ghost of a smile",
-            "meaning_cn": "一丝微笑",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:ghost:9c5a6fb3d2485aaf",
-          "target_locator": "record.senses[0]",
-          "target_label": "一丝；一点"
-        }
-      },
-      {
-        "id": "sense:ghost:e2d7c253c58252e7",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "鬼似地游荡",
-        "definition_en": "to move smoothly and quietly like a ghost",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:ghost:e2d7c253c58252e7",
-          "target_locator": "record.senses[1]",
-          "target_label": "鬼似地游荡"
-        }
-      },
-      {
-        "id": "sense:ghost:e4f27ec6c099562a",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "代笔",
-        "definition_en": "to write for someone else who takes credit",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:7386be2eca2bcb27e890",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "ghost a book for + sb",
-            "meaning_cn": "为某人代笔写书",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:7386be2eca2bcb27e890",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "ghost a book for + sb"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:ghost:e4f27ec6c099562a",
-          "target_locator": "record.senses[2]",
-          "target_label": "代笔"
-        }
-      },
-      {
         "id": "sense:ghost:04473f0cc7765ab9",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "鬼；幽灵",
@@ -2127,8 +2084,95 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:ghost:04473f0cc7765ab9",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[0]",
           "target_label": "鬼；幽灵"
+        }
+      },
+      {
+        "id": "sense:ghost:9c5a6fb3d2485aaf",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "一丝；一点",
+        "definition_en": "a slight trace or possibility of something",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:f2b5f069f8b788e723a9",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "a ghost of a chance",
+            "meaning_cn": "一线机会",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:f2b5f069f8b788e723a9",
+              "target_locator": "record.senses[1].collocations[0]",
+              "target_label": "a ghost of a chance"
+            }
+          },
+          {
+            "id": "collocation:908f6b3c24cec1920f6a",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "a ghost of a smile",
+            "meaning_cn": "一丝微笑",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:ghost:9c5a6fb3d2485aaf",
+          "target_locator": "record.senses[1]",
+          "target_label": "一丝；一点"
+        }
+      },
+      {
+        "id": "sense:ghost:e2d7c253c58252e7",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "",
+        "definition_cn": "鬼似地游荡",
+        "definition_en": "to move smoothly and quietly like a ghost",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:ghost:e2d7c253c58252e7",
+          "target_locator": "record.senses[2]",
+          "target_label": "鬼似地游荡"
+        }
+      },
+      {
+        "id": "sense:ghost:e4f27ec6c099562a",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "vt. + object",
+        "definition_cn": "代笔",
+        "definition_en": "to write for someone else who takes credit",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:7386be2eca2bcb27e890",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "ghost a book for + sb",
+            "meaning_cn": "为某人代笔写书",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:7386be2eca2bcb27e890",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "ghost a book for + sb"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:ghost:e4f27ec6c099562a",
+          "target_locator": "record.senses[3]",
+          "target_label": "代笔"
         }
       }
     ],
@@ -2147,7 +2191,7 @@
     "ordinal": 2132,
     "word": "giant",
     "source_owner_path": "content/lexical/words/by-ordinal/o2132.json",
-    "source_fingerprint": "41b661337d6b2080b95d4259dea3d736d731fa5919e7abab9a81572b60511481",
+    "source_fingerprint": "a065c180ffdf0077cfb471f913c49a2b152d1ef17f2c69f899ebfe3dcbf32ffa",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2261,7 +2305,7 @@
     "ordinal": 2133,
     "word": "gift",
     "source_owner_path": "content/lexical/words/by-ordinal/o2133.json",
-    "source_fingerprint": "39f272e5d57d0072827a0c1f0740c312d3a202f167269e5761c3d470919e27f4",
+    "source_fingerprint": "fb023abb5e290e4b5e79ef403a7aa9746289239e8b805867a9bbd2e06a51fdeb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2637,7 +2681,7 @@
     "ordinal": 2137,
     "word": "give",
     "source_owner_path": "content/lexical/words/by-ordinal/o2137.json",
-    "source_fingerprint": "e5d3add75299e6b3e40210b9456d87ac34f216ecf3f5e818a97200454890af63",
+    "source_fingerprint": "982a7594af0bb70b2122a97f28dac1a103fe7dfed46489ba3e60fc5e0628ade3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2897,7 +2941,33 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "give is irregular: give → gave → given.",
+        "boundaries": [
+          {
+            "surface": "give",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "gave",
+            "condition": "past simple",
+            "note": "irregular past"
+          },
+          {
+            "surface": "given",
+            "condition": "past participle",
+            "note": "irregular participle"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "give is irregular: give → gave → given."
+        }
+      },
       "family": []
     }
   },
@@ -3081,7 +3151,7 @@
     "ordinal": 2140,
     "word": "glamor",
     "source_owner_path": "content/lexical/words/by-ordinal/o2140.json",
-    "source_fingerprint": "695c479263a4772197d69543b462c2b03731e1db30ec42caf7431af9decc6019",
+    "source_fingerprint": "05fa75c9fdfeabf4a886ae075bc4f3e3bb614857f9269180669d90ad1fbceb7c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3108,15 +3178,7 @@
         "definition_cn": "魅力；迷人的美",
         "definition_en": "alluring beauty or charm (often with sex-appeal)",
         "note": "",
-        "identity_overlay": {
-          "text": "glamor/glamour AmE/BrE spelling boundary",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "glamor/glamour AmE/BrE spelling boundary"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:8a8252a2c534948daf5c",
@@ -3165,26 +3227,29 @@
     ],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "glamor ↔ glamour",
-          "target_word": "glamour",
-          "lines": [
-            {
-              "text": "glamour and glamor are regional spelling variants of the same ordinary concept. Preserve both stable Word owners and exact-spelling lookup ownership.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:39dcf27cb6fc97d0ceb0",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "glamor ↔ glamour"
+      "relations": [],
+      "form": {
+        "boundary": "glamor is the usual American spelling; glamour is the usual British spelling. Both frozen Word owners remain distinct catalogue identities.",
+        "boundaries": [
+          {
+            "surface": "glamor",
+            "condition": "American English",
+            "note": "AmE spelling"
+          },
+          {
+            "surface": "glamour",
+            "condition": "British English",
+            "note": "BrE spelling"
           }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "glamor is the usual American spelling; glamour is the usual British spelling. Both frozen Word owners remain distinct catalogue identities."
         }
-      ],
-      "form": null,
+      },
       "family": []
     }
   },
@@ -3468,7 +3533,7 @@
     "ordinal": 2143,
     "word": "glass",
     "source_owner_path": "content/lexical/words/by-ordinal/o2143.json",
-    "source_fingerprint": "f2a9cc6baf4cfbc5cfbd42ae215b2175eee203d2b0ec7cb00707de8357dbf22f",
+    "source_fingerprint": "f3c10fe3918260b07ea012f7461650509bd19487d806d9a42198c359083ad8e6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3624,7 +3689,7 @@
     "ordinal": 2144,
     "word": "glide",
     "source_owner_path": "content/lexical/words/by-ordinal/o2144.json",
-    "source_fingerprint": "1c8fcf4dbd9f6e21233373ae8b5c48f2f08683cc4b9fd10eb47bc44e89957408",
+    "source_fingerprint": "5ea243b18bfbfbdd38404228e7edc27da64204be1b9c9eb69d103a504e71e656",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4078,7 +4143,7 @@
     "ordinal": 2148,
     "word": "globe",
     "source_owner_path": "content/lexical/words/by-ordinal/o2148.json",
-    "source_fingerprint": "bded7d9347d593f32cd50733eca7b5e612f78eb4e64adfd5e39d57d7dd71042c",
+    "source_fingerprint": "e757ccc15d8e41e7f86bcf24b03bf73388f24ce15da398e2ef29e690e6faab2c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [

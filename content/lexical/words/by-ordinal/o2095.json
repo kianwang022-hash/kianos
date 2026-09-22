@@ -66,13 +66,6 @@
         "definition_en": "a correctional institution where persons are held in lawful custody",
         "governing_pattern": "",
         "level": "L1",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "form_boundary",
-          "note": "gaol is chiefly British and now much less common than jail",
-          "paired_form": "jail",
-          "surface_lemma": "gaol"
-        },
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:gaol:740ea592b6665446",
@@ -131,7 +124,27 @@
     },
     "word": "gaol",
     "word_family": [],
-    "word_id": "word:gaol"
+    "word_id": "word:gaol",
+    "form_identity": {
+      "form_type": "regional_spelling_identity",
+      "spelling": "gaol",
+      "identity_rule": "paired_frozen_word_spelling_variant",
+      "boundary": "gaol is a chiefly British traditional spelling of jail and is now much less common; jail is the usual modern spelling.",
+      "boundaries": [
+        {
+          "surface": "gaol",
+          "condition": "chiefly British/traditional",
+          "note": "less common modern spelling"
+        },
+        {
+          "surface": "jail",
+          "condition": "usual modern spelling",
+          "note": "common spelling"
+        }
+      ],
+      "variants": [],
+      "authority": "BF20 existing-truth Form migration 2026-09-22"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
