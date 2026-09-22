@@ -36,8 +36,8 @@ This is **not** enrichment-by-default and not permission to make every card equa
 Current batch:
 
 ```text
-BF17
-o1751–o1850
+BF18
+o1851–o1950
 Fresh Read + Self Attack next
 ```
 
@@ -50,6 +50,8 @@ BF14 `o1451–o1550` is closed on main via PR #774: 100/100 reviewed, 31 affecte
 BF15 `o1551–o1650` is closed on main via PR #780: 100/100 reviewed, 26 affected owners, 74 NO_CHANGE, 0 blocked; two exact Human-Gated knowledge groups were admitted, the new electric↔electrical Relation owner closed at manifest count 439, and all 7,946 Final Learner Objects rebuilt successfully.
 
 BF16 `o1651–o1750` is closed on main via PR #784: 100/100 reviewed, 25 affected owners, 75 NO_CHANGE, 0 blocked; no Human Gate was required, three B-reconciliation residues were closed, and all 7,946 Final Learner Objects rebuilt successfully.
+
+BF17 `o1751–o1850` is closed on main via PR #790: 100/100 reviewed, 24 affected owners, 76 NO_CHANGE, 0 blocked; no Human Gate or B reconciliation was required, and all 7,946 Final Learner Objects rebuilt successfully.
 
 ## Current state
 
