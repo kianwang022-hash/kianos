@@ -768,6 +768,172 @@ If a Gate becomes infeasible, the response order is:
 4. defer optional phase tasks;
 5. only then reconsider a hard stop-line.
 
+
+## 4.5 Recovery / cognitive-capacity evidence model
+
+Recovery evidence is a **private planning input**, not a health score, diagnosis, subject-priority engine, or autonomous scheduler.
+
+The planning question is deliberately narrow:
+
+> given Kian's current physiological/recovery context and current functional state, what constraint should Chat place on **usable cognitive capacity, block intensity and time placement** today?
+
+It must not answer:
+
+> which subject matters more?
+
+Subject priority still comes from Gate / Demand / score / workload evidence under this contract.
+
+### Evidence layers
+
+Use four distinct layers and keep missing values as `UNKNOWN`:
+
+1. **Sleep / circadian context**
+   - sleep duration and timing;
+   - continuity / fragmentation when reliably available;
+   - recent schedule regularity;
+   - current time-of-day.
+
+2. **Autonomic / physiological recovery context**
+   - HRV relative to the individual's own recent baseline;
+   - resting heart rate relative to the individual's own recent baseline;
+   - recent workout / activity load;
+   - optional respiratory rate, temperature, oxygen saturation or other wearable metrics only as supporting anomaly context when their collection quality is adequate.
+
+3. **Current subjective-functional state**
+   - sleepiness;
+   - mental fatigue;
+   - attention fragmentation / arousal;
+   - pain, illness or other obvious physical limitation.
+
+4. **Observed study-performance feedback**
+   - actual usable study minutes;
+   - whether high-load blocks remain effective;
+   - task-specific throughput / accuracy when the subject runtime can support a valid comparison;
+   - whether a recovery action is followed by successful re-entry into real work.
+
+Wearable signals must not replace the subjective-functional layer. A watch can provide context about recovery; it cannot directly measure "how much Xizong reasoning is available now."
+
+### Personal baseline, not population thresholds
+
+Interpret physiological metrics primarily as **within-person deviations**.
+
+Preferred baseline behavior:
+
+- rolling robust baseline, normally 21–28 days when available;
+- median plus a robust dispersion estimate such as MAD / IQR rather than mean-only thresholds;
+- preserve source/device identity and measurement timing when they materially affect comparability;
+- require enough observations before a deviation is allowed to affect planning;
+- treat a new device / sparse history as a calibration period, not as evidence of abnormal recovery.
+
+Population reference ranges may support health interpretation but must not be used as fake personalized readiness thresholds.
+
+### No universal readiness score
+
+Do not collapse sleep, HRV, resting heart rate, activity and subjective state into one learner-facing `0–100` score.
+
+The private planning projection should instead preserve interpretable dimensions such as:
+
+```text
+sleep_context
+autonomic_recovery
+physical_load
+current_sleepiness
+mental_fatigue
+attention_arousal
+data_confidence
+```
+
+Chat may derive bounded planning consequences such as:
+
+```text
+usable_capacity_hint      normal | constrained | unknown
+high_load_tolerance       normal | reduced | unknown
+block_duration_hint       normal | shorter | unknown
+recovery_window_need      none | useful | strong | unknown
+time_placement_hint       optional evidence-bound suggestion
+```
+
+These are planning hints, not learner capability Truth.
+
+### Evidence fusion
+
+A single wearable deviation is weak evidence.
+
+Planning weight increases when independent layers agree:
+
+```text
+objective deviation
++ matching subjective state
++ matching functional-performance change
+=> stronger confidence that capacity/load should be adjusted
+```
+
+Conflicting layers should remain visible. For example:
+
+- low HRV with normal sleepiness and normal task performance does not automatically reduce the day;
+- ordinary HRV with strong sleepiness and repeated functional failure can still justify a lighter block;
+- a wearable signal that is sparse, stale or affected by a source change has low or zero planning weight.
+
+No physiological signal may directly suppress a subject floor or hard Gate. Chat first changes block intensity / placement / realistic usable capacity, then performs the normal cross-subject allocation with that revised capacity.
+
+### Calibration lifecycle
+
+Use a staged model rather than pretending to be personalized on day one.
+
+**Stage 0 — observe / baseline**
+
+- first roughly 7–14 useful days after a new wearable source;
+- collect objective context plus real study outcomes;
+- do not let ordinary wearable fluctuations materially rewrite the plan;
+- obvious illness / concerning symptoms follow the health boundary, not the productivity model.
+
+**Stage 1 — evidence-fusion heuristics**
+
+- once baseline coverage is adequate, use robust within-person deviations;
+- adjust only when the evidence is sufficiently coherent;
+- keep effects bounded and reversible;
+- verify with the next real study block rather than creating extra tests.
+
+**Stage 2 — personal outcome calibration**
+
+After enough comparable observations exist, estimate relationships between recovery context and Kian's actual outcomes.
+
+Candidate outcomes:
+
+- total usable cognitive minutes;
+- probability that a planned high-load block is completed effectively;
+- within-task throughput / error deviation from that task family's own baseline;
+- successful re-entry after recovery.
+
+Prefer simple regularized / robust models and chronological holdout validation before more complex ML. Do not pool incomparable subjects or task families merely to increase sample size. A model may influence planning only if it improves held-out calibration or decision usefulness over the simpler baseline.
+
+### Task-load interface
+
+The recovery model constrains **load**, not domain priority.
+
+Subject-native planning may expose a small task-load description when useful, for example:
+
+```text
+high cognitive load
+medium cognitive load
+low cognitive load / maintenance
+```
+
+The exact meaning stays subject-owned. Cross-subject Chat may use that description to place high-load work into the best available window and move lower-load work into constrained windows without rewriting the subject's learning semantics.
+
+### Health boundary
+
+Wearable data is wellness / recovery context, not medical diagnosis.
+
+Persistent or unusual fatigue, marked physiological change, illness symptoms, syncope, chest pain, severe dyspnea or other concerning symptoms must not be normalized into a productivity adjustment. The correct response is health evaluation, not increasingly aggressive scheduling.
+
+### Runtime / privacy boundary
+
+If implemented, extend the existing private Daily Learning Packet / Chat-controlled planning path with optional recovery context. Do not create a public learner-health ledger or a second scheduler.
+
+Raw personal health samples stay private. Shared GitHub may contain only generic semantics, schema rules and non-personal test fixtures.
+
+
 ---
 
 # 5｜Evidence → mastery/stability estimate → workload
