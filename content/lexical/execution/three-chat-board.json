@@ -38,17 +38,17 @@
       1351,
       1450
     ],
-    "state": "MATERIALIZE_ALLOWED",
+    "state": "RECONCILE_ALLOWED",
     "candidate_pr": null,
     "candidate_branch": "work/lexical-continuous-bf13-official-20260922",
-    "materialized_owner_read_head": null,
+    "materialized_owner_read_head": "0432dc69e18cba933f5792b06e3224c8009c6186",
     "review_branch": "work/lexical-fullcatalog-bf13-review-20260922",
     "proposal_path": "content/lexical/execution/manifests/o1351-o1450.fullcatalog-final-standard-proposal.md",
     "proposal_commit": "2af0432119838f3e4412202c420ae07044be333e",
-    "note": "Kian p approved exactly the five new Form/Identity deltas (o1360 dialog, o1375 diffuse, o1377 digest, o1411 discount, o1442 distil). BF13 official candidate may materialize 26 affected owners under unchanged final ruler."
+    "note": "BF13 official materialization mechanically PASS; B readback found three existing-truth structural cleanup items: o1383 dim core-cluster duplicate/coverage, o1385 diminish causative-only Core wording after I/T repair, o1420 discriminate Core cluster missing active against branch. No new learner material."
   },
   "audit_target": {
-    "state": "WAITING_MATERIALIZATION_AND_B_AUDIT",
+    "state": "RECONCILE_ALLOWED",
     "candidate_id": "BF13",
     "range": [
       1351,
@@ -56,7 +56,7 @@
     ],
     "candidate_pr": null,
     "candidate_branch": "work/lexical-continuous-bf13-official-20260922",
-    "candidate_owner_read_head": null,
+    "candidate_owner_read_head": "0432dc69e18cba933f5792b06e3224c8009c6186",
     "brief": null,
     "output": null,
     "human_gate_required_ordinals": [
@@ -74,6 +74,11 @@
       1377,
       1411,
       1442
+    ],
+    "reconcile_ordinals": [
+      1383,
+      1385,
+      1420
     ]
   },
   "lanes": {
@@ -1692,7 +1697,7 @@
   },
   "materialization_progress": {
     "candidate_id": "BF13",
-    "status": "MATERIALIZE_ALLOWED",
+    "status": "RECONCILE_ALLOWED",
     "candidate_pr": null,
     "latest_main_refreeze": "842b9e4d25eb0a9e579ac3cffde0f1bdb3716511",
     "review_range": [
@@ -1726,6 +1731,12 @@
       1377,
       1411,
       1442
+    ],
+    "b_audit": "RECONCILE_REQUIRED",
+    "reconcile_ordinals": [
+      1383,
+      1385,
+      1420
     ]
   },
   "semantic_freeze_scope_amendment": "content/lexical/FINAL_SEMANTIC_FREEZE_SCOPE_AMENDMENT_20260922.md"
