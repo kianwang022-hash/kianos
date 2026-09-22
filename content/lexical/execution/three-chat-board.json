@@ -38,17 +38,17 @@
       1651,
       1750
     ],
-    "state": "RECONCILE_ALLOWED",
+    "state": "B_AUDIT_PASS__READY_TO_MERGE",
     "candidate_pr": null,
     "candidate_branch": "work/lexical-continuous-bf16-official-20260922",
-    "materialized_owner_read_head": "51a8caa66de9d1758ddf884e3e0ed21a795652c8",
-    "note": "BF16 materialization mechanically PASS. B readback found three existing-truth residues: o1658 engineer family wording/ownership, o1669 enrol I/T governing pattern, o1723 ethnic Core wording. No new learner material.",
+    "materialized_owner_read_head": "4af226d390feb296d542d96d1dec4fb002ae8248",
+    "note": "BF16 materialized and B reconciliation PASS. No Human Gate required. Ready to merge; next o1751-o1850.",
     "review_branch": "work/lexical-fullcatalog-bf16-review-20260922",
     "proposal_path": "content/lexical/execution/manifests/o1651-o1750.fullcatalog-final-standard-proposal.md",
     "proposal_commit": "ec8dc13efec1c9728c9d3dede6348e535e514661"
   },
   "audit_target": {
-    "state": "RECONCILE_ALLOWED",
+    "state": "PASS_READY_TO_MERGE",
     "candidate_id": "BF16",
     "range": [
       1651,
@@ -56,15 +56,12 @@
     ],
     "candidate_pr": null,
     "candidate_branch": "work/lexical-continuous-bf16-official-20260922",
-    "candidate_owner_read_head": "51a8caa66de9d1758ddf884e3e0ed21a795652c8",
+    "candidate_owner_read_head": "4af226d390feb296d542d96d1dec4fb002ae8248",
     "brief": null,
-    "output": null,
-    "human_gate_status": "NOT_REQUIRED_EXISTING_TRUTH_ONLY",
-    "reconcile_ordinals": [
-      1658,
-      1669,
-      1723
-    ]
+    "output": "content/lexical/semantic-audit/O1651_O1750_FINAL_STANDARD_SAME_CHAT_B_AUDIT_PACK.md",
+    "result": "PASS",
+    "independence_note": "BLIND_FIRST_NOT_ENFORCED",
+    "human_gate_status": "NOT_REQUIRED_EXISTING_TRUTH_ONLY"
   },
   "lanes": {
     "A": {
@@ -1687,7 +1684,34 @@
     "A_status": "REOPENED_FULL_CATALOG_CONTINUATION",
     "C_status": "REOPENED_FULL_CATALOG_CONTINUATION",
     "completion_note": "Original o0001-o1250 closure is preserved. Continuation starts at o1251 under unchanged FINAL_SEMANTIC_FREEZE v1 ruler.",
-    "current_batch_result": null
+    "current_batch_result": {
+      "candidate_id": "BF16",
+      "range": [
+        1651,
+        1750
+      ],
+      "reviewed_owner_count": 100,
+      "affected_owner_count": 25,
+      "no_change_count": 75,
+      "blocked": 0,
+      "new_material_group_count": 0,
+      "remote_dependency_ordinals": [
+        5529
+      ],
+      "proposal": "content/lexical/execution/manifests/o1651-o1750.fullcatalog-final-standard-proposal.md",
+      "mutation_receipts": [
+        "content/lexical/execution/mutation-receipts/BF16-official-o1651-o1750-v1.json",
+        "content/lexical/execution/mutation-receipts/BF16-B-reconcile-v1.json"
+      ],
+      "audit": "content/lexical/semantic-audit/O1651_O1750_FINAL_STANDARD_SAME_CHAT_B_AUDIT_PACK.md",
+      "reconcile_ordinals": [
+        1658,
+        1669,
+        1723
+      ],
+      "state": "B_AUDIT_PASS__READY_TO_MERGE",
+      "independence_note": "BLIND_FIRST_NOT_ENFORCED"
+    }
   },
   "phase_transition": {
     "entered_at": "2026-09-22",
@@ -1697,7 +1721,7 @@
   },
   "materialization_progress": {
     "candidate_id": "BF16",
-    "status": "RECONCILE_ALLOWED",
+    "status": "B_AUDIT_PASS__READY_TO_MERGE",
     "candidate_pr": null,
     "latest_main_refreeze": "7c6b183b18f8240c2ac19b02f5edb49d3161280c",
     "review_range": [
@@ -1721,12 +1745,15 @@
     "final_learner_objects": 7946,
     "final_learner_shards": 125,
     "materialized_commit": "51a8caa66de9d1758ddf884e3e0ed21a795652c8",
-    "b_audit": "RECONCILE_REQUIRED",
+    "b_audit": "PASS",
     "reconcile_ordinals": [
       1658,
       1669,
       1723
-    ]
+    ],
+    "reconciled_commit": "4af226d390feb296d542d96d1dec4fb002ae8248",
+    "b_audit_output": "content/lexical/semantic-audit/O1651_O1750_FINAL_STANDARD_SAME_CHAT_B_AUDIT_PACK.md",
+    "independence_note": "BLIND_FIRST_NOT_ENFORCED"
   },
   "semantic_freeze_scope_amendment": "content/lexical/FINAL_SEMANTIC_FREEZE_SCOPE_AMENDMENT_20260922.md"
 }
