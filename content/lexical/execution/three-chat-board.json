@@ -38,27 +38,36 @@
       1251,
       1350
     ],
-    "state": "AWAITING_HUMAN_GATE",
+    "state": "B_AUDIT_PASS__READY_TO_MERGE",
     "candidate_pr": null,
-    "candidate_branch": "work/lexical-fullcatalog-bf12-20260922",
-    "materialized_owner_read_head": null,
+    "candidate_branch": "work/lexical-continuous-bf12-official-20260922",
+    "materialized_owner_read_head": "4b744caadcbd356495b63f08f4533e21fda1f5ec",
     "review_branch": "work/lexical-fullcatalog-bf12-review-20260922",
     "proposal_path": "content/lexical/execution/manifests/o1251-o1350.fullcatalog-final-standard-proposal.md",
     "proposal_commit": "3c0aec668752d6ca537b3fd9c0151b75dc4aa368",
-    "note": "Full-catalog continuation BF12 completed 100/100 Fresh Read + Self Attack. 21 affected owners, 79 NO_CHANGE, 0 blockers. Three genuinely new Form/Identity deltas require exact Human Gate p before materialization."
+    "note": "BF12 official candidate materialized and same-Chat B readback PASS. BLIND_FIRST_NOT_ENFORCED. Ready to merge; after merge advance to o1351-o1450."
   },
   "audit_target": {
-    "state": "WAITING_HUMAN_GATE_AND_MATERIALIZATION",
+    "state": "PASS_READY_TO_MERGE",
     "candidate_id": "BF12",
     "range": [
       1251,
       1350
     ],
     "candidate_pr": null,
-    "candidate_branch": "work/lexical-fullcatalog-bf12-20260922",
-    "candidate_owner_read_head": null,
+    "candidate_branch": "work/lexical-continuous-bf12-official-20260922",
+    "candidate_owner_read_head": "4b744caadcbd356495b63f08f4533e21fda1f5ec",
     "brief": null,
-    "output": "content/lexical/semantic-audit/O1251_O1350_FINAL_STANDARD_FRESH_AUDIT_PACK.md"
+    "output": "content/lexical/semantic-audit/O1251_O1350_FINAL_STANDARD_SAME_CHAT_B_AUDIT_PACK.md",
+    "result": "PASS",
+    "independence_note": "BLIND_FIRST_NOT_ENFORCED",
+    "human_gate_status": "APPROVED_EXACT_SCOPE",
+    "human_gate_approval": "Kian p 2026-09-22",
+    "human_gate_approved_ordinals": [
+      1263,
+      1268,
+      1279
+    ]
   },
   "lanes": {
     "A": {
@@ -1629,31 +1638,22 @@
         1350
       ],
       "reviewed_owner_count": 100,
-      "preserve_count": 82,
-      "repair_count": 18,
-      "unresolved_count": 0,
-      "proposal": "content/lexical/execution/manifests/o1251-o1350.second-pass-production-proposal.md",
-      "repair_ordinals": [
-        1259,
-        1264,
-        1282,
-        1285,
-        1286,
-        1288,
-        1301,
-        1309,
-        1316,
-        1320,
-        1323,
-        1339,
-        1340,
-        1344,
-        1346,
-        1347,
-        1349,
-        1350
+      "affected_owner_count": 21,
+      "no_change_count": 79,
+      "blocked": 0,
+      "remote_dependency_ordinals": [
+        5772
       ],
-      "state": "MATERIALIZATION_READY"
+      "new_material_delta_owners": [
+        1263,
+        1268,
+        1279
+      ],
+      "proposal": "content/lexical/execution/manifests/o1251-o1350.fullcatalog-final-standard-proposal.md",
+      "mutation_receipt": "content/lexical/execution/mutation-receipts/BF12-official-o1251-o1350-v1.json",
+      "audit": "content/lexical/semantic-audit/O1251_O1350_FINAL_STANDARD_SAME_CHAT_B_AUDIT_PACK.md",
+      "state": "B_AUDIT_PASS__READY_TO_MERGE",
+      "independence_note": "BLIND_FIRST_NOT_ENFORCED"
     }
   },
   "phase_transition": {
@@ -1664,7 +1664,7 @@
   },
   "materialization_progress": {
     "candidate_id": "BF12",
-    "status": "WAITING_HUMAN_GATE",
+    "status": "B_AUDIT_PASS__READY_TO_MERGE",
     "candidate_pr": null,
     "latest_main_refreeze": "a655dc8dd8a8067a811760151d6c36684d0312e4",
     "review_range": [
@@ -1684,6 +1684,12 @@
       1268,
       1279
     ],
+    "human_gate_status": "APPROVED_EXACT_SCOPE",
+    "materialized_commit": "4b744caadcbd356495b63f08f4533e21fda1f5ec",
+    "mutation_receipt": "content/lexical/execution/mutation-receipts/BF12-official-o1251-o1350-v1.json",
+    "b_audit": "PASS",
+    "b_audit_output": "content/lexical/semantic-audit/O1251_O1350_FINAL_STANDARD_SAME_CHAT_B_AUDIT_PACK.md",
+    "independence_note": "BLIND_FIRST_NOT_ENFORCED",
     "blocked": 0,
     "standing_repair_tests_before": 0,
     "standing_repair_tests_after": 0,

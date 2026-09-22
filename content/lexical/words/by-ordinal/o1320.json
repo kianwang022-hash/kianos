@@ -79,12 +79,6 @@
         "definition_en": "arid land with little or no vegetation",
         "governing_pattern": "",
         "level": "L1",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "pronunciation_boundary",
-          "note": "noun desert (arid land) and verb desert (abandon) have different stress",
-          "surface_lemma": "desert"
-        },
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:desert:ec2ccc8aff3e5f9d",
@@ -118,12 +112,6 @@
         "definition_en": "to leave behind; abandon",
         "governing_pattern": "vt. + object",
         "level": "L1",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "pronunciation_boundary",
-          "note": "noun desert (arid land) and verb desert (abandon) have different stress",
-          "surface_lemma": "desert"
-        },
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:desert:929a5a2a0d965cbe",
@@ -239,7 +227,27 @@
     },
     "word": "desert",
     "word_family": [],
-    "word_id": "word:desert"
+    "word_id": "word:desert",
+    "form_identity": {
+      "form_type": "same_spelling_sense_pos_conditioned_pronunciation",
+      "spelling": "desert",
+      "identity_rule": "sense_and_pos_select_stress",
+      "boundary": "desert meaning arid land normally has first-syllable stress; desert meaning abandon normally has final stress.",
+      "boundaries": [
+        {
+          "surface": "desert",
+          "condition": "noun = arid land",
+          "note": "first-syllable stress"
+        },
+        {
+          "surface": "desert",
+          "condition": "verb = abandon",
+          "note": "final stress"
+        }
+      ],
+      "variants": [],
+      "authority": "BF12 full-catalog final-standard approved ownership migration"
+    }
   },
   "relation_refs": [
     {
@@ -247,12 +255,6 @@
       "owner_path": "content/lexical/relations/by-id/9b/9bf6c3302549c20a0c952ce1086d99b18a105fcffe4a8a6965a272cd8140a7a3.json",
       "field": "confusables",
       "index": 0
-    },
-    {
-      "relation_id": "confusable:horizontal:2d30fd29b904135a1a8a",
-      "owner_path": "content/lexical/relations/by-id/e0/e080418600d4297269d63ca76977cd6dab4e02ba8fd8534ccbd8e8da49758016.json",
-      "field": "confusables",
-      "index": 1
     }
   ],
   "reference_senses": [],

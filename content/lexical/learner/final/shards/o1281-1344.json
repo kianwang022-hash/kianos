@@ -5,7 +5,7 @@
     "ordinal": 1281,
     "word": "deliberate",
     "source_owner_path": "content/lexical/words/by-ordinal/o1281.json",
-    "source_fingerprint": "4bf0663ab651f7ed08b79a1493799b3d663cff956275af6b29d8b4e1cbb11fce",
+    "source_fingerprint": "73b0b77893fe68ab8f07553192f9f2a877c2fd721a7610545ca1e0dd7218aa56",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -112,27 +112,34 @@
     "secondary_senses": [],
     "constructions": [],
     "reference": {
-      "confusables": [
-        {
-          "title": "deliberate ↔ deliberate adjective ↔ deliberate verb",
-          "target_word": "deliberate adjective ↔ deliberate verb",
-          "lines": [
-            {
-              "text": "deliberate adjective ends /-rət/; deliberate verb ends /-reɪt/.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "confusable:horizontal:ed14588f7bcea361f38f",
-            "target_locator": "record.confusables[0]",
-            "target_label": "deliberate ↔ deliberate adjective ↔ deliberate verb"
-          }
-        }
-      ],
+      "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [],
+        "variants": [
+          {
+            "pos": [
+              "adjective"
+            ],
+            "reading": "adjective: -rət",
+            "ipa": "/-rət/"
+          },
+          {
+            "pos": [
+              "verb"
+            ],
+            "reading": "verb: -reɪt",
+            "ipa": "/-reɪt/"
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -511,7 +518,7 @@
     "ordinal": 1285,
     "word": "deliver",
     "source_owner_path": "content/lexical/words/by-ordinal/o1285.json",
-    "source_fingerprint": "510819c8938b6061e936fde0c0a759b0859a45e928db9b0d059507f565e8be28",
+    "source_fingerprint": "a0b552f2eeace37d5e9900280fe5571c955e8585deda5edff2e194ecac888416",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -643,21 +650,7 @@
         "definition_en": "to assist with or give birth to a baby",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:4aa9ca79f94c1b741b54",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "deliver on a promise/commitment",
-            "meaning_cn": "履行承诺或约定",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:4aa9ca79f94c1b741b54",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "deliver on a promise/commitment"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:deliver:ee67ffdf8078d954",
@@ -667,7 +660,25 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:deliver:on-promise-commitment",
+        "source_locator": "record.constructions[0]",
+        "pattern": "deliver on + promise/commitment",
+        "lines": [
+          {
+            "text": "履行；兑现（承诺、义务或约定）",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:deliver:on-promise-commitment",
+          "target_locator": "record.constructions[0]",
+          "target_label": "deliver on + promise/commitment"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1021,7 +1032,7 @@
     "ordinal": 1289,
     "word": "democratic",
     "source_owner_path": "content/lexical/words/by-ordinal/o1289.json",
-    "source_fingerprint": "b7e4608f0370cc8077c368e353d5dda9ad57df8337dbfd499049b4b502320bff",
+    "source_fingerprint": "d08facb9bf5548573dd77364e0491be1f4c9fb57fc789f71ef3fec8701853b2b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1082,15 +1093,7 @@
         "definition_cn": "（美国）民主党的",
         "definition_en": "relating to the Democratic Party in the US",
         "note": "",
-        "identity_overlay": {
-          "text": "capitalized_political_proper_lexeme",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "capitalized_political_proper_lexeme"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:f44a50e5e979561231a7",
@@ -1140,7 +1143,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "lowercase democratic relates to democracy/fair participation; capitalized Democratic relates to the U.S. Democratic Party.",
+        "boundaries": [
+          {
+            "surface": "democratic",
+            "condition": "ordinary adjective",
+            "note": "relating to democracy or broad participation"
+          },
+          {
+            "surface": "Democratic",
+            "condition": "U.S. political proper adjective",
+            "note": "relating to the Democratic Party"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "lowercase democratic relates to democracy/fair participation; capitalized Democratic relates to the U.S. Democratic Party."
+        }
+      },
       "family": []
     }
   },
@@ -2147,7 +2171,7 @@
     "ordinal": 1299,
     "word": "deny",
     "source_owner_path": "content/lexical/words/by-ordinal/o1299.json",
-    "source_fingerprint": "15a16e26cca0c257d1186af846186f859681a4d797933ebc1bf7a8e26fbf4ab0",
+    "source_fingerprint": "b8215e296fe48ee9b28eba5e10c0a3dce2c4f98098d127d423f04ca68f153566",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2266,23 +2290,6 @@
       ],
       "relations": [
         {
-          "title": "deny ↔ reject",
-          "target_word": "reject",
-          "lines": [
-            {
-              "text": "negative stance toward a claim/request/proposal",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:bb8be6b4838dcd0bfebf",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "deny ↔ reject"
-          }
-        },
-        {
           "title": "deny ↔ deny ↔ refuse/reject",
           "target_word": "deny ↔ refuse/reject",
           "lines": [
@@ -2295,7 +2302,7 @@
           "repair": {
             "target_kind": "relation",
             "target_id": "relation:horizontal:42c3476a39ccfbf3babf",
-            "target_locator": "record.semantic_neighbors[1]",
+            "target_locator": "record.semantic_neighbors[0]",
             "target_label": "deny ↔ deny ↔ refuse/reject"
           }
         }
@@ -2652,7 +2659,7 @@
     "ordinal": 1303,
     "word": "depend",
     "source_owner_path": "content/lexical/words/by-ordinal/o1303.json",
-    "source_fingerprint": "a7695e087e2f35dbca4ab10517d88bbac55cb5d97e829f925090a6d2c852e086",
+    "source_fingerprint": "c422383f8370eb7f6ea648a2d769773806cd6e369326bca074c51dc066bef017",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2743,33 +2750,7 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "deep:constructions:depend:b285ec2b225e065f",
-        "source_locator": "record.constructions[0]",
-        "pattern": "vi. + on/upon",
-        "lines": [
-          {
-            "text": "取决于；依靠",
-            "lang": "cn"
-          },
-          {
-            "text": "depend on/upon sth",
-            "lang": "en"
-          },
-          {
-            "text": "to be decided by or to rely on something",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "deep:constructions:depend:b285ec2b225e065f",
-          "target_locator": "record.constructions[0]",
-          "target_label": "vi. + on/upon"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [
@@ -3327,12 +3308,12 @@
     "ordinal": 1309,
     "word": "deposit",
     "source_owner_path": "content/lexical/words/by-ordinal/o1309.json",
-    "source_fingerprint": "be12909205b9df60960c6cf6066d327fdbe4365a0ef6ae0ec310665aa2766979",
+    "source_fingerprint": "33c3553ab86dbbaa6b18e5843fbc9b809a3f325441b626afc25760eebd81f684",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "1N"
+        "(1+1)N"
       ],
       "density": "rich"
     },
@@ -3429,21 +3410,7 @@
         "definition_en": "to settle or accumulate as sediment",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:fa5b3757903e45592a1f",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "mineral/sediment deposit",
-            "meaning_cn": "矿藏/沉积物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:fa5b3757903e45592a1f",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "mineral/sediment deposit"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:deposit:1939d52058bd5e8e",
@@ -3452,7 +3419,22 @@
         }
       }
     ],
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "id": "usage:deposit:mineral-sediment-noun",
+        "source_locator": "record.secondary_senses[0]",
+        "pos": "noun",
+        "definition_cn": "矿藏；沉积物；沉积层",
+        "definition_en": "a natural accumulation or layer of material, such as a mineral or sediment deposit",
+        "pattern": "mineral/sediment deposit",
+        "repair": {
+          "target_kind": "secondary_sense",
+          "target_id": "usage:deposit:mineral-sediment-noun",
+          "target_locator": "record.secondary_senses[0]",
+          "target_label": "矿藏；沉积物；沉积层"
+        }
+      }
+    ],
     "constructions": [],
     "reference": {
       "confusables": [],
@@ -3971,7 +3953,7 @@
     "ordinal": 1314,
     "word": "derive",
     "source_owner_path": "content/lexical/words/by-ordinal/o1314.json",
-    "source_fingerprint": "f54ea85c3b80d3c40b25dacff2dff4b9a025612f348387571fe387443e5bf100",
+    "source_fingerprint": "65dcb3fe9637a2a28d6e66b63934985a08ac00a6adc7b8e9efb5ecde78acbb4b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3994,7 +3976,7 @@
         "id": "sense:derive:cbb4bf732a2a5d60",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "derive from / be derived from",
         "definition_cn": "源自；由……派生",
         "definition_en": "to originate or develop from a source",
         "note": "",
@@ -4028,7 +4010,7 @@
         "id": "sense:derive:2e6cf184b9e45b87",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "derive + object + from + source",
         "definition_cn": "从……获得；推导出",
         "definition_en": "to get a benefit, meaning, or conclusion from a source",
         "note": "",
@@ -4062,7 +4044,7 @@
         "id": "sense:derive:ee524a41c0fa5067",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "derive + result/formula/word",
         "definition_cn": "派生；推导",
         "definition_en": "to form a word, formula, or result from another form",
         "note": "",
@@ -4096,7 +4078,7 @@
         "id": "sense:derive:6152ee7b668a524a",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "derive + substance/product + from + source",
         "definition_cn": "提取；制得",
         "definition_en": "to obtain a substance from another material or process",
         "note": "",
@@ -4152,8 +4134,12 @@
           "target_word": "derivation",
           "lines": [
             {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
+              "text": "derive (v.) → derivation (n.): 从来源中推导、获得或派生 → 推导/派生的过程或结果；这是词族关系，不是同义替换。",
               "lang": "cn"
+            },
+            {
+              "text": "derive is the verb; derivation is the noun for the process, origin, or result of deriving.",
+              "lang": "en"
             }
           ],
           "source_locator": "record.word_family[0]"
@@ -4695,7 +4681,7 @@
     "ordinal": 1320,
     "word": "desert",
     "source_owner_path": "content/lexical/words/by-ordinal/o1320.json",
-    "source_fingerprint": "16b29ab4194c371657c0a66388b51e3f43400ec5ad28e3c4f67d952bcebff2f1",
+    "source_fingerprint": "a360d8a7b136bd7f67c78b2e536a9ffab6b02de29d27aabca38b73a51cc2d789",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4724,15 +4710,7 @@
         "definition_cn": "沙漠",
         "definition_en": "arid land with little or no vegetation",
         "note": "",
-        "identity_overlay": {
-          "text": "noun desert (arid land) and verb desert (abandon) have different stress",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "noun desert (arid land) and verb desert (abandon) have different stress"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:78bc9459af57f9c16430",
@@ -4771,15 +4749,7 @@
         "definition_cn": "遗弃；抛弃",
         "definition_en": "to leave behind; abandon",
         "note": "",
-        "identity_overlay": {
-          "text": "noun desert (arid land) and verb desert (abandon) have different stress",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "noun desert (arid land) and verb desert (abandon) have different stress"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:fd29e3857a9d65ec50e5",
@@ -4950,31 +4920,31 @@
             "target_locator": "record.confusables[0]",
             "target_label": "desert ↔ dessert"
           }
-        },
-        {
-          "title": "desert ↔ desert ↔ dessert",
-          "target_word": "desert ↔ dessert",
-          "lines": [
-            {
-              "text": "{\"desert_noun_arid\":\"first-syllable stress\",\"desert_verb_abandon\":\"final stress\",\"dessert_sweet_course\":\"final stress\",\"mnemonic_scope\":\"Useful for spelling/reading; pronunciation alone does not distinguish dessert from desert verb.\"}",
-              "lang": "en"
-            },
-            {
-              "text": "{'desert_noun_arid': 'first-syllable stress', 'desert_verb_abandon': 'final stress', 'dessert_sweet_course': 'final stress', 'mnemonic_scope': 'Useful for spelling/reading; pronunciation alone does not distinguish dessert from desert verb.'}",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "confusable:horizontal:2d30fd29b904135a1a8a",
-            "target_locator": "record.confusables[1]",
-            "target_label": "desert ↔ desert ↔ dessert"
-          }
         }
       ],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "desert meaning arid land normally has first-syllable stress; desert meaning abandon normally has final stress.",
+        "boundaries": [
+          {
+            "surface": "desert",
+            "condition": "noun = arid land",
+            "note": "first-syllable stress"
+          },
+          {
+            "surface": "desert",
+            "condition": "verb = abandon",
+            "note": "final stress"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "desert meaning arid land normally has first-syllable stress; desert meaning abandon normally has final stress."
+        }
+      },
       "family": []
     }
   },
@@ -5870,7 +5840,7 @@
     "ordinal": 1329,
     "word": "despatch",
     "source_owner_path": "content/lexical/words/by-ordinal/o1329.json",
-    "source_fingerprint": "57977e8c4cb3754a40e79aff770a50dbe743ff91cd738955b843b71699507644",
+    "source_fingerprint": "8c47b80d43443d4669d8fc7f7ed736c39b1891f095b18a548d80dac6c7216dde",
     "sense_lineage": [
       {
         "word_id": "word:despatch",
@@ -5906,15 +5876,7 @@
         "definition_cn": "派遣；发送",
         "definition_en": "to send someone or something to a particular place or for a particular purpose",
         "note": "",
-        "identity_overlay": {
-          "text": "dispatch is the standard spelling; despatch is an accepted chiefly British spelling variant.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "dispatch is the standard spelling; despatch is an accepted chiefly British spelling variant."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:a94950dbe9a74d0abf32",
@@ -5953,15 +5915,7 @@
         "definition_cn": "派遣；发送",
         "definition_en": "the act of sending someone or something somewhere",
         "note": "",
-        "identity_overlay": {
-          "text": "dispatch is the standard spelling; despatch is an accepted chiefly British spelling variant.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "dispatch is the standard spelling; despatch is an accepted chiefly British spelling variant."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:958e0d814424f3bbcd8d",
@@ -5987,15 +5941,7 @@
         "definition_cn": "急件；快报",
         "definition_en": "an official report, often sent quickly",
         "note": "",
-        "identity_overlay": {
-          "text": "dispatch is the standard spelling; despatch is an accepted chiefly British spelling variant.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[2].lexical_identity_overlay",
-            "target_label": "dispatch is the standard spelling; despatch is an accepted chiefly British spelling variant."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:b256dab63471c350b4c5",
@@ -6021,15 +5967,7 @@
         "definition_cn": "迅速；高效",
         "definition_en": "the quality of being prompt and efficient",
         "note": "",
-        "identity_overlay": {
-          "text": "dispatch is the standard spelling; despatch is an accepted chiefly British spelling variant.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[3].lexical_identity_overlay",
-            "target_label": "dispatch is the standard spelling; despatch is an accepted chiefly British spelling variant."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:b9e0b3e7192e3788829b",
@@ -6057,30 +5995,29 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "despatch ↔ dispatch",
-          "target_word": "dispatch",
-          "lines": [
-            {
-              "text": "dispatch is the standard spelling; despatch is an accepted chiefly British spelling variant. Preserve the same lexical meanings while keeping both frozen Word identities.",
-              "lang": "en"
-            },
-            {
-              "text": "to send/dispatch; the act/message/report of dispatch, with despatch chiefly British",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:9b9d2fac13dfc0c3bde1",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "despatch ↔ dispatch"
+      "relations": [],
+      "form": {
+        "boundary": "dispatch is the standard spelling; despatch is an accepted chiefly British spelling variant. Both frozen Word owners preserve the same spelling-variant relationship.",
+        "boundaries": [
+          {
+            "surface": "dispatch",
+            "condition": "standard modern spelling",
+            "note": "preferred standard spelling"
+          },
+          {
+            "surface": "despatch",
+            "condition": "chiefly British variant",
+            "note": "accepted variant spelling"
           }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "dispatch is the standard spelling; despatch is an accepted chiefly British spelling variant. Both frozen Word owners preserve the same spelling-variant relationship."
         }
-      ],
-      "form": null,
+      },
       "family": []
     }
   },
@@ -6382,7 +6319,7 @@
     "ordinal": 1333,
     "word": "dessert",
     "source_owner_path": "content/lexical/words/by-ordinal/o1333.json",
-    "source_fingerprint": "7edd4deb5c16ecea1946591a02a2db15ac2e3fe9f3614e3d6fcc6ec4bfa4aec6",
+    "source_fingerprint": "25972ca9e1f3e97d3b60b7dd64cdfc445c8d0f548b49fad35487e9d6229511ba",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6447,27 +6384,6 @@
             "target_id": "deep:confusables:desert:37f6c7139bdae3dc",
             "target_locator": "record.confusables[0]",
             "target_label": "dessert ↔ desert"
-          }
-        },
-        {
-          "title": "dessert ↔ dessert ↔ desert",
-          "target_word": "dessert ↔ desert",
-          "lines": [
-            {
-              "text": "{\"desert_noun_arid\":\"first-syllable stress\",\"desert_verb_abandon\":\"final stress\",\"dessert_sweet_course\":\"final stress\",\"mnemonic_scope\":\"Useful for spelling/reading; pronunciation alone does not distinguish dessert from desert verb.\"}",
-              "lang": "en"
-            },
-            {
-              "text": "{'desert_noun_arid': 'first-syllable stress', 'desert_verb_abandon': 'final stress', 'dessert_sweet_course': 'final stress', 'mnemonic_scope': 'Useful for spelling/reading; pronunciation alone does not distinguish dessert from desert verb.'}",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "confusable:horizontal:2d30fd29b904135a1a8a",
-            "target_locator": "record.confusables[1]",
-            "target_label": "dessert ↔ dessert ↔ desert"
           }
         }
       ],
@@ -7207,7 +7123,7 @@
     "ordinal": 1342,
     "word": "detect",
     "source_owner_path": "content/lexical/words/by-ordinal/o1342.json",
-    "source_fingerprint": "6b02f8c7231b1680276529dbc2310c613538f497a20c00aa30c159d70977a079",
+    "source_fingerprint": "c112ccb9a6453c59803a8a95856d980d14ea1277b6feb41891dcefff6de5ce37",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7269,34 +7185,18 @@
       "form": null,
       "family": [
         {
-          "target_word": "detective",
-          "lines": [
-            {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
-              "lang": "cn"
-            }
-          ],
-          "source_locator": "record.word_family[0]"
-        },
-        {
           "target_word": "detector",
           "lines": [
             {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
+              "text": "detect (v.) → detector (n.): 发现/探测 → 用于探测的装置；派生关系，不是同义替换。",
               "lang": "cn"
-            }
-          ],
-          "source_locator": "record.word_family[1]"
-        },
-        {
-          "target_word": "detectable",
-          "lines": [
+            },
             {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
-              "lang": "cn"
+              "text": "detect is the verb; detector is a device that detects.",
+              "lang": "en"
             }
           ],
-          "source_locator": "record.word_family[2]"
+          "source_locator": "record.word_family[0]"
         }
       ]
     }
@@ -7307,7 +7207,7 @@
     "ordinal": 1343,
     "word": "detective",
     "source_owner_path": "content/lexical/words/by-ordinal/o1343.json",
-    "source_fingerprint": "e1426194e89814bb78fb37e3b68e9f12eb8a6d7667056995b211deeab7c06ea8",
+    "source_fingerprint": "751bed3ea84985f2f63fcf779908c83579c98f95485235a8f8c2f87c4f248930",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7420,38 +7320,7 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": [
-        {
-          "target_word": "detect",
-          "lines": [
-            {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
-              "lang": "cn"
-            }
-          ],
-          "source_locator": "record.word_family[0]"
-        },
-        {
-          "target_word": "detector",
-          "lines": [
-            {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
-              "lang": "cn"
-            }
-          ],
-          "source_locator": "record.word_family[1]"
-        },
-        {
-          "target_word": "detectable",
-          "lines": [
-            {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
-              "lang": "cn"
-            }
-          ],
-          "source_locator": "record.word_family[2]"
-        }
-      ]
+      "family": []
     }
   },
   {
@@ -7460,7 +7329,7 @@
     "ordinal": 1344,
     "word": "detector",
     "source_owner_path": "content/lexical/words/by-ordinal/o1344.json",
-    "source_fingerprint": "b42f80dbe501c6c711b733f23e7920bca953315cda5eb097da87231356331ede",
+    "source_fingerprint": "a51f8701a1683ea95458b5d8f94bfb4c5c6748b1b9eb09a4975777a6801bb421",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7577,31 +7446,15 @@
           "target_word": "detect",
           "lines": [
             {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
+              "text": "detector (n.) ↔ detect (v.): 探测装置 ↔ 探测/发现；派生关系，不是同义替换。",
               "lang": "cn"
+            },
+            {
+              "text": "detector is the noun for a device that detects; detect is the verb.",
+              "lang": "en"
             }
           ],
           "source_locator": "record.word_family[0]"
-        },
-        {
-          "target_word": "detective",
-          "lines": [
-            {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
-              "lang": "cn"
-            }
-          ],
-          "source_locator": "record.word_family[1]"
-        },
-        {
-          "target_word": "detectable",
-          "lines": [
-            {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
-              "lang": "cn"
-            }
-          ],
-          "source_locator": "record.word_family[2]"
         }
       ]
     }

@@ -60,12 +60,6 @@
         "definition_en": "a person chosen to represent others",
         "governing_pattern": "",
         "level": "L1",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "pronunciation_boundary",
-          "note": "noun delegate and verb delegate have different stress",
-          "surface_lemma": "delegate"
-        },
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:delegate:7d13e2a2319055be",
@@ -99,12 +93,6 @@
         "definition_en": "to give a task or responsibility to someone",
         "governing_pattern": "vt. + object",
         "level": "L1",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "pronunciation_boundary",
-          "note": "noun delegate and verb delegate have different stress",
-          "surface_lemma": "delegate"
-        },
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:delegate:ab0e849d38fc52de",
@@ -130,7 +118,32 @@
     },
     "word": "delegate",
     "word_family": [],
-    "word_id": "word:delegate"
+    "word_id": "word:delegate",
+    "form_identity": {
+      "form_type": "same_spelling_pos_conditioned_pronunciation",
+      "spelling": "delegate",
+      "identity_rule": "same_word_owner_no_semantic_split",
+      "boundary": "The noun and verb share one spelling but differ in the final syllable: noun approximately /-gət/, verb /-geɪt/.",
+      "variants": [
+        {
+          "variant_id": "form:delegate:noun",
+          "pos": [
+            "noun"
+          ],
+          "ipa": "/ˈdel.ɪ.ɡət/",
+          "learner_key": "DEL-i-gət"
+        },
+        {
+          "variant_id": "form:delegate:verb",
+          "pos": [
+            "verb"
+          ],
+          "ipa": "/ˈdel.ɪ.ɡeɪt/",
+          "learner_key": "DEL-i-gate"
+        }
+      ],
+      "authority": "BF12 Kian-p approved Form expansion 2026-09-22"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],

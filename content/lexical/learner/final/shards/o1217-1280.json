@@ -4464,7 +4464,7 @@
     "ordinal": 1255,
     "word": "decrease",
     "source_owner_path": "content/lexical/words/by-ordinal/o1255.json",
-    "source_fingerprint": "4c0234d854f324091e31e14c221caae007350fd96dde9c2497deebd1f011f3a0",
+    "source_fingerprint": "059e8ea815be52cc8eb5a1aec93717c0f702c5264415e19293d15712be8315bb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4594,27 +4594,30 @@
     "secondary_senses": [],
     "constructions": [],
     "reference": {
-      "confusables": [
-        {
-          "title": "decrease ↔ decrease noun ↔ decrease verb",
-          "target_word": "decrease noun ↔ decrease verb",
-          "lines": [
-            {
-              "text": "decrease noun typically first-syllable stress; decrease verb typically second-syllable stress.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "confusable:horizontal:a4d9747168cfc4f4c58c",
-            "target_locator": "record.confusables[0]",
-            "target_label": "decrease ↔ decrease noun ↔ decrease verb"
-          }
-        }
-      ],
+      "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "decrease as a noun typically has first-syllable stress; as a verb it typically has second-syllable stress.",
+        "boundaries": [
+          {
+            "surface": "decrease",
+            "condition": "noun",
+            "note": "typically first-syllable stress"
+          },
+          {
+            "surface": "decrease",
+            "condition": "verb",
+            "note": "typically second-syllable stress"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "decrease as a noun typically has first-syllable stress; as a verb it typically has second-syllable stress."
+        }
+      },
       "family": []
     }
   },
@@ -5442,7 +5445,7 @@
     "ordinal": 1263,
     "word": "deer",
     "source_owner_path": "content/lexical/words/by-ordinal/o1263.json",
-    "source_fingerprint": "bd2005027bde34fd917073a7e13fcd13e006802ffe19aab7be20c0e2c146b5a6",
+    "source_fingerprint": "48efd90fee5413669240099019d246486de38f415b3882bda5cb0f5e2508cf56",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5501,7 +5504,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "deer is unchanged in ordinary singular and plural use: one deer, two deer.",
+        "boundaries": [
+          {
+            "surface": "deer",
+            "condition": "singular",
+            "note": "one deer"
+          },
+          {
+            "surface": "deer",
+            "condition": "plural",
+            "note": "two/many deer"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "deer is unchanged in ordinary singular and plural use: one deer, two deer."
+        }
+      },
       "family": []
     }
   },
@@ -5788,7 +5812,7 @@
     "ordinal": 1266,
     "word": "defect",
     "source_owner_path": "content/lexical/words/by-ordinal/o1266.json",
-    "source_fingerprint": "ceb4ee16c41956d7951e9daf4b3c0b9d620345da0b6fcb43733ed0dc47d6a279",
+    "source_fingerprint": "9873e83164324f9ad7532c48c0be4efb85e2c765e7b91e83c32a7af6100ad078",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5932,27 +5956,34 @@
     "secondary_senses": [],
     "constructions": [],
     "reference": {
-      "confusables": [
-        {
-          "title": "defect ↔ defect noun ↔ defect verb",
-          "target_word": "defect noun ↔ defect verb",
-          "lines": [
-            {
-              "text": "defect noun /ˈdiːfekt/; defect verb /dɪˈfekt/.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "confusable:horizontal:ff58a10afd2854344853",
-            "target_locator": "record.confusables[0]",
-            "target_label": "defect ↔ defect noun ↔ defect verb"
-          }
-        }
-      ],
+      "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [],
+        "variants": [
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "DE-fect",
+            "ipa": "/ˈdiː.fekt/"
+          },
+          {
+            "pos": [
+              "verb"
+            ],
+            "reading": "de-FECT",
+            "ipa": "/dɪˈfekt/"
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -6080,7 +6111,7 @@
     "ordinal": 1268,
     "word": "defense",
     "source_owner_path": "content/lexical/words/by-ordinal/o1268.json",
-    "source_fingerprint": "3b752dd64d02785e578f97d9fa91dd51e6bac437e01d06572e5b125156025412",
+    "source_fingerprint": "453cfa0aab1bbcbba6782f5bd5833ae6d48d4792b6a667c9f3529f351946d486",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6107,15 +6138,7 @@
         "definition_cn": "防御；防卫",
         "definition_en": "the act of protecting against attack or harm",
         "note": "",
-        "identity_overlay": {
-          "text": "defense is standard AmE; defence is standard BrE",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "defense is standard AmE; defence is standard BrE"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:55daefe99f805d086905",
@@ -6196,7 +6219,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "defense is the usual American spelling; defence is the usual British spelling.",
+        "boundaries": [
+          {
+            "surface": "defense",
+            "condition": "usual American English",
+            "note": "AmE spelling"
+          },
+          {
+            "surface": "defence",
+            "condition": "usual British English",
+            "note": "BrE spelling"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "defense is the usual American spelling; defence is the usual British spelling."
+        }
+      },
       "family": []
     }
   },
@@ -7367,7 +7411,7 @@
     "ordinal": 1279,
     "word": "delegate",
     "source_owner_path": "content/lexical/words/by-ordinal/o1279.json",
-    "source_fingerprint": "c9300b4272ef80ef52fd0de10760b8b2cc3afdd8296ae336cbf4578228881749",
+    "source_fingerprint": "8e93795ba56ce8367ad28db994ca8d67ddbb35ff19e2a127fd470d71f482a93b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7395,15 +7439,7 @@
         "definition_cn": "代表",
         "definition_en": "a person chosen to represent others",
         "note": "",
-        "identity_overlay": {
-          "text": "noun delegate and verb delegate have different stress",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "noun delegate and verb delegate have different stress"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:3263003c0f9adb302031",
@@ -7434,15 +7470,7 @@
         "definition_cn": "委派，授权",
         "definition_en": "to give a task or responsibility to someone",
         "note": "",
-        "identity_overlay": {
-          "text": "noun delegate and verb delegate have different stress",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "noun delegate and verb delegate have different stress"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:39e3397c90622210fb02",
@@ -7479,7 +7507,32 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [],
+        "variants": [
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "DEL-i-gət",
+            "ipa": "/ˈdel.ɪ.ɡət/"
+          },
+          {
+            "pos": [
+              "verb"
+            ],
+            "reading": "DEL-i-gate",
+            "ipa": "/ˈdel.ɪ.ɡeɪt/"
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },

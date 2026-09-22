@@ -75,13 +75,6 @@
         "definition_en": "relating to the Democratic Party in the US",
         "governing_pattern": "",
         "level": "L2",
-        "lexical_identity_overlay": {
-          "case_sensitive": true,
-          "identity_type": "capitalized_political_proper_lexeme",
-          "lexical_identity_id": "identity:04663dc09b0b463dba0e",
-          "recommended_disposition": null,
-          "surface_lemma": "Democratic"
-        },
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:democratic:4b5735e652f65028",
@@ -131,7 +124,27 @@
     },
     "word": "democratic",
     "word_family": [],
-    "word_id": "word:democratic"
+    "word_id": "word:democratic",
+    "form_identity": {
+      "form_type": "capitalization_identity",
+      "spelling": "democratic",
+      "identity_rule": "capitalization_selects_political_proper_lexeme",
+      "boundary": "lowercase democratic relates to democracy/fair participation; capitalized Democratic relates to the U.S. Democratic Party.",
+      "boundaries": [
+        {
+          "surface": "democratic",
+          "condition": "ordinary adjective",
+          "note": "relating to democracy or broad participation"
+        },
+        {
+          "surface": "Democratic",
+          "condition": "U.S. political proper adjective",
+          "note": "relating to the Democratic Party"
+        }
+      ],
+      "variants": [],
+      "authority": "BF12 full-catalog final-standard approved ownership migration"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
