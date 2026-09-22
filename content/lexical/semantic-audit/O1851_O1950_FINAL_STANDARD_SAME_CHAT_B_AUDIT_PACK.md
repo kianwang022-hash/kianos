@@ -9,29 +9,25 @@ Independence note: **BLIND_FIRST_NOT_ENFORCED**. Continuous same-Chat execution 
 - range: `o1851–o1950`
 - Production: **100/100**
 - result: **29 affected / 71 NO_CHANGE / 0 BLOCKED**
-- grouped Human Gate: **PASS**
+- exact Human Gate: **PASS**
 - approved BF18 new Form groups: **7**
 - remote existing-truth dependency: **o5532 fertilizer**
 - materialization commit: `d375c0bd3a2a450abb19139a6244b2399adec276`
 - Final Learner Objects: **7,946**
 
-## Grouped Human Gate
+## Exact Human Gate
 
-Kian clarified that the current `p` approves the whole currently frozen group.
+Kian replied `p` on 2026-09-22 after the BF18 gate was presented. That approval covers **only** these seven BF18 Form groups:
 
-Canonical approval bundle:
-`content/lexical/execution/approval-bundles/BF18_BF20_APPROVAL_BUNDLE_20260922.md`
+- o1851 fall — fall → fell → fallen
+- o1896 feed — feed → fed → fed
+- o1898 feel — feel → felt → felt
+- o1919 fight — fight → fought → fought
+- o1929 find — find → found → found
+- o1941 fish — plural fish / fishes
+- o1944 fit — fitted; U.S. also fit as past/past participle
 
-For BF18 this admits exactly:
-- fall → fell → fallen
-- feed → fed → fed
-- feel → felt → felt
-- fight → fought → fought
-- find → found → found
-- fish plural fish / fishes
-- fit fitted / U.S. also fit
-
-The same bundle pre-approves the already-frozen BF19/BF20 new-material groups, but sequencing remains frontier-ordered.
+It does **not** pre-approve BF19, BF20, or any later checkpoint.
 
 ## Mechanical closure
 
@@ -71,13 +67,12 @@ PRODUCTION_FRESH_READ = PASS 100/100
 AFFECTED = 29
 NO_CHANGE = 71
 BLOCKED = 0
-GROUP_HUMAN_GATE = PASS
-BF18_NEW_FORM_GROUPS = 7
+EXACT_HUMAN_GATE = PASS / BF18 7 groups only
 MATERIALIZATION = PASS
 FINAL_LEARNER_OBJECTS = PASS 7946/7946
 B_SEMANTIC_READBACK = PASS 30/30 changed owners
 B_RECONCILIATION = NOT_REQUIRED
 BLIND_FIRST_NOT_ENFORCED = YES
-BF18 = READY_TO_MERGE
-NEXT = BF19 pre-approved, frontier-order materialization
+BF18 = CLOSED / MERGED VIA PR #806
+NEXT = BF19 exact Human Gate required
 ```
