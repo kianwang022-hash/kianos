@@ -313,30 +313,56 @@ body#kianos-workspace.surfaceBody-politics .politicsUnitCognition .politicsOptio
    consume a second header's worth of height before the current Natural Unit. */
 @media (min-width: 901px) {
   body#kianos-workspace.surfaceBody-politics .workspaceBar {
-    padding: 10px 20px 9px;
+    padding: 4px 12px;
   }
 
   body#kianos-workspace.surfaceBody-politics .workspaceLocation {
-    line-height: 1.4;
+    line-height: 1.3;
   }
 
   body#kianos-workspace.surfaceBody-politics .workspaceUnitTabs {
-    margin-top: 8px;
+    margin-top: 4px;
   }
 
   body#kianos-workspace.surfaceBody-politics .workspaceUnitTabs button {
-    padding: 8px 14px;
+    padding: 6px 12px;
   }
 
   body#kianos-workspace.surfaceBody-politics .chapterContext {
-    padding: 10px 20px;
+    padding: 4px 12px;
   }
 
   body#kianos-workspace.surfaceBody-politics .chapterContext strong {
-    line-height: 1.45;
+    line-height: 1.35;
   }
 
   body#kianos-workspace.surfaceBody-politics .chapterContextChain span {
-    line-height: 1.45;
+    line-height: 1.4;
+  }
+}
+
+/* Human Gate v2.1 — Politics ch00 first layer only.
+   Exact specificity is intentional: the accepted first row must stay compact
+   without changing the chapter-context row below it. */
+@media (min-width: 901px) {
+  body#kianos-workspace.surfaceBody-politics .politicsCognitiveWorkspace.explicitSurfaceWorkspace .workspaceBar {
+    min-height: 0;
+    padding: 5px 12px;
+    gap: 10px;
+  }
+
+  body#kianos-workspace.surfaceBody-politics .politicsCognitiveWorkspace.explicitSurfaceWorkspace .workspaceLocation {
+    line-height: 1.25;
+  }
+
+  body#kianos-workspace.surfaceBody-politics .politicsCognitiveWorkspace.explicitSurfaceWorkspace .workspaceUnitTabs {
+    margin: 0;
+    padding: 2px;
+    gap: 2px;
+  }
+
+  body#kianos-workspace.surfaceBody-politics .politicsCognitiveWorkspace.explicitSurfaceWorkspace .workspaceUnitTabs button {
+    padding: 5px 12px;
+    line-height: 1.3;
   }
 }
