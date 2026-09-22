@@ -1,0 +1,4207 @@
+{
+  "schema": "kianos.lexical.final_mutation_package.v1",
+  "package_id": "BF13-official-o1351-o1450-v1",
+  "candidate_id": "BF13",
+  "range": {
+    "start_ordinal": 1351,
+    "end_ordinal": 1450
+  },
+  "lane": "A",
+  "source_head": "d1c615f92b2f5874bb13e2ce5c10dccf6e7b33ff",
+  "human_gate": {
+    "approved": true,
+    "approval_ref": "content/lexical/execution/manifests/o1351-o1450.fullcatalog-final-standard-proposal.md#human-gate-approval--2026-09-22"
+  },
+  "writes": [
+    {
+      "path": "content/lexical/words/by-ordinal/o1351.json",
+      "mode": "patch_json",
+      "expected_sha256": "29c3d35b8527a6d8b956dfd7397006964226cad608727c920bf2439c1830530f",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [
+              {
+                "construction_id": "construction:devil:a-devil-of",
+                "level": "L2",
+                "meaning_cn": "非常棘手、糟糕或困难的……",
+                "pattern": "a devil of a + problem/time/job"
+              }
+            ],
+            "content_hash": "4e8cd4e5ee7413abdfed69d05ae096f51576d00f84b58a68f479715a8c5f5a9a",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "魔鬼；撒旦；恶人；坏蛋",
+                  "label_en": "an evil supernatural being; the Devil; a person who is cruel or wicked",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:devil:241c7b0e4f5a5e24",
+                    "sense:devil:95f7d83b89c45641"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "魔鬼；撒旦；恶人；坏蛋",
+              "core_meaning_en": "an evil supernatural being or a cruel/wicked person",
+              "mental_model_cn": "核心是魔鬼/邪恶存在，也可非正式指恶人；a devil of a ... 是固定强调表达。",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:955a8f90aa1a0249ec11",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:devil:241c7b0e4f5a5e24:collocation:0"
+                    ],
+                    "meaning_cn": "魔鬼",
+                    "phrase": "the Devil"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "魔鬼；撒旦",
+                "definition_en": "an evil supernatural being; the Devil",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:devil:241c7b0e4f5a5e24",
+                "sense_label_en": "an evil supernatural being; the Devil",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "恶人；坏蛋",
+                "definition_en": "a person who is cruel or wicked",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:devil:95f7d83b89c45641",
+                "sense_label_en": "a person who is cruel or wicked",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 3,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "devil",
+            "word_family": [],
+            "word_id": "word:devil"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1352.json",
+      "mode": "patch_json",
+      "expected_sha256": "5a9a303367daebb0d0a6f38421d75ffb83459e201045f6495017fca4b284a100",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "b57bf7811f3ad2be2bf372cfd1b44c88a4990f95f87ac8950924e94963285dc7",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "想出；设计（计划、方法或方案）",
+              "core_meaning_en": "to think out or invent a plan, method, or solution",
+              "mental_model_cn": "主学习义是想出/设计方案；法律上的遗赠义保留为低优先级。",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "deep:deep:semantic_contrast:devise:5026eb40ded13df8",
+              "relation:deep:semantic_contrast:devise:5026eb40ded13df8"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "想出、发明计划或方法",
+                "definition_en": "to think of or invent a plan, idea, or method",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:devise:d0966008db155729",
+                "sense_label_en": "to think of or invent a plan, idea, or method",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "立遗嘱把财产留给某人",
+                "definition_en": "to give property by will",
+                "governing_pattern": "",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:devise:e9b8312ebcb0526f",
+                "sense_label_en": "to give property by will",
+                "sort_order": 1,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 1,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "completed",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 1,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "devise",
+            "word_family": [],
+            "word_id": "word:devise"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1358.json",
+      "mode": "patch_json",
+      "expected_sha256": "ee23397a9bac8ac6fa735b71584be17e45487ba3f4b470981d3028c5c95aa026",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "ed4808161a75e51942efd0c9ee0a4fbaae2626124a9d16f7d56ed33d446e926e",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "钟面；表盘；调谐旋钮；电话拨号盘",
+                  "label_en": "the face of a clock or watch, marked to show hours; a control on a radio or television used for tuning; a disc on a telephone that is rotated to select numbers",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:dial:e6f0071c357e51a5",
+                    "sense:dial:1e425295a2c3586d",
+                    "sense:dial:e22183874280564c"
+                  ]
+                },
+                {
+                  "label_cn": "拨（电话号码）",
+                  "label_en": "to call a telephone number by turning a dial or pressing buttons",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:dial:c2b4feb1d3ab578f"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "刻度盘或拨号",
+              "core_meaning_en": "a face or control for selecting numbers, or the act of calling a number",
+              "mental_model_cn": "刻度盘或拨号",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:cc4bb89db9615d44312a",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:dial:c2b4feb1d3ab578f:collocation:0"
+                    ],
+                    "meaning_cn": "拨一个号码",
+                    "phrase": "dial a number"
+                  },
+                  {
+                    "collocation_id": "collocation:c977ae5c8ae24f4848c9",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:dial:c2b4feb1d3ab578f:collocation:1"
+                    ],
+                    "meaning_cn": "拨打911",
+                    "phrase": "dial 911"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "拨（电话号码）",
+                "definition_en": "to call a telephone number by turning a dial or pressing buttons",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:dial:c2b4feb1d3ab578f",
+                "sense_label_en": "to call a telephone number by turning a dial or pressing buttons",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:4aa7891938cb76ca0a36",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:dial:e6f0071c357e51a5:collocation:0"
+                    ],
+                    "meaning_cn": "手表的表盘",
+                    "phrase": "the dial of a watch"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "钟面；表盘",
+                "definition_en": "the face of a clock or watch, marked to show hours",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:dial:e6f0071c357e51a5",
+                "sense_label_en": "the face of a clock or watch, marked to show hours",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:935548ca297da761b1eb",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:dial:1e425295a2c3586d:collocation:0"
+                    ],
+                    "meaning_cn": "转动旋钮",
+                    "phrase": "turn the dial"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "调谐旋钮",
+                "definition_en": "a control on a radio or television used for tuning",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:dial:1e425295a2c3586d",
+                "sense_label_en": "a control on a radio or television used for tuning",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:c33836baa151946534db",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:dial:e22183874280564c:collocation:0"
+                    ],
+                    "meaning_cn": "旋转拨号盘",
+                    "phrase": "rotary dial"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "电话拨号盘",
+                "definition_en": "a disc on a telephone that is rotated to select numbers",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:dial:e22183874280564c",
+                "sense_label_en": "a disc on a telephone that is rotated to select numbers",
+                "sort_order": 3,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 0,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "dial",
+            "word_family": [],
+            "word_id": "word:dial"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1360.json",
+      "mode": "patch_json",
+      "expected_sha256": "b16c3919ada5b3025f1349b335a6fa263fdbf925ad7c09df708e64a41e7ebffc",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "d5fb590542e7222d769ff5a85b99dd3c8aaccb4331fe2ca70a2a1a6f099ddd6b",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "对话；对白",
+              "core_meaning_en": "a conversation between two or more people, or the lines spoken in a drama",
+              "mental_model_cn": "对话；对白",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:8bd28d16acbdbcc8d328",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:dialog:d187eeb09965512b:collocation:0"
+                    ],
+                    "meaning_cn": "A和B之间的对话",
+                    "phrase": "a dialog between A and B"
+                  },
+                  {
+                    "collocation_id": "collocation:e06d0fa6cf8ff01015c4",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:dialog:d187eeb09965512b:collocation:1"
+                    ],
+                    "meaning_cn": "进行对话",
+                    "phrase": "engage in dialog"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "对话；会话",
+                "definition_en": "a conversation between two or more people",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:dialog:d187eeb09965512b",
+                "sense_label_en": "a conversation between two or more people",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:848b3531b70f9be861a0",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:dialog:b79180a334675e7b:collocation:0"
+                    ],
+                    "meaning_cn": "剧中的对白",
+                    "phrase": "the dialog in the play"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "对白；台词",
+                "definition_en": "the lines spoken by characters in a drama or fiction",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:dialog:b79180a334675e7b",
+                "sense_label_en": "the lines spoken by characters in a drama or fiction",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:78f639101dbe5ff72ea8",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:dialog:a064b0632e265c00:collocation:0"
+                    ],
+                    "meaning_cn": "哲学对话录",
+                    "phrase": "a philosophical dialog"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "对话体作品",
+                "definition_en": "a literary composition in the form of a conversation",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:dialog:a064b0632e265c00",
+                "sense_label_en": "a literary composition in the form of a conversation",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 1,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "dialog",
+            "word_family": [],
+            "word_id": "word:dialog",
+            "form_identity": {
+              "form_type": "spelling_variant_identity",
+              "spelling": "dialog",
+              "identity_rule": "same_lexeme_spelling_variant",
+              "boundary": "dialogue is the standard full spelling; dialog is also used, especially in American English and computing contexts.",
+              "boundaries": [
+                {
+                  "surface": "dialogue",
+                  "condition": "standard/general spelling",
+                  "note": "common full spelling"
+                },
+                {
+                  "surface": "dialog",
+                  "condition": "alternate spelling, especially AmE/computing",
+                  "note": "same lexeme"
+                }
+              ],
+              "variants": [],
+              "authority": "BF13 Kian-p approved Form expansion 2026-09-22"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1368.json",
+      "mode": "patch_json",
+      "expected_sha256": "13330fcfbd95d742c2c358f70c6a48b83d24843c0820228779c7561b16debf3c",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "6bd8e3537cf34608f69d4234ac6a19e90e48752b5b3eb66aa4240493aa184ab3",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "日常饮食；规定饮食，节食食谱；议会（如日本国会）",
+                  "label_en": "the usual food and drink consumed by a person or animal; a special selection of food prescribed for health or weight control; a legislative assembly in certain countries (e.g., Japan)",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:diet:0155a82f95dd5803",
+                    "sense:diet:653d9338ed9f5684",
+                    "sense:diet:3154a8051e2f505a"
+                  ]
+                },
+                {
+                  "label_cn": "节食",
+                  "label_en": "to restrict one's food intake, especially to lose weight",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:diet:2fc05dc1844e5a7f"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "饮食；节食",
+              "core_meaning_en": "the food and drink a person or animal usually consumes; a restricted eating plan",
+              "mental_model_cn": "饮食；节食",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:3bf9a5712a246164e8d5",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:diet:0155a82f95dd5803:collocation:0"
+                    ],
+                    "meaning_cn": "均衡饮食",
+                    "phrase": "balanced diet"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "日常饮食",
+                "definition_en": "the usual food and drink consumed by a person or animal",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:diet:0155a82f95dd5803",
+                "sense_label_en": "the usual food and drink consumed by a person or animal",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:d0c76bbdffdd447b8245",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:diet:653d9338ed9f5684:collocation:0"
+                    ],
+                    "meaning_cn": "开始节食",
+                    "phrase": "go on a diet"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "规定饮食，节食食谱",
+                "definition_en": "a special selection of food prescribed for health or weight control",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:diet:653d9338ed9f5684",
+                "sense_label_en": "a special selection of food prescribed for health or weight control",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:d5529abe030889981e14",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:diet:2fc05dc1844e5a7f:collocation:0"
+                    ],
+                    "meaning_cn": "节食减肥",
+                    "phrase": "dieting to lose weight"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "节食",
+                "definition_en": "to restrict one's food intake, especially to lose weight",
+                "governing_pattern": "vi.",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:diet:2fc05dc1844e5a7f",
+                "sense_label_en": "to restrict one's food intake, especially to lose weight",
+                "sort_order": 2,
+                "transitivity": "vi"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "（日本等国的）议会；国会，通常作 the Diet",
+                "definition_en": "the Diet: a legislative assembly in certain countries, especially Japan",
+                "governing_pattern": "",
+                "level": "L3",
+                "lexical_identity_overlay": {
+                  "case_sensitive": true,
+                  "identity_type": "proper_name_boundary",
+                  "note": "lowercase diet is food/eating plan; capitalized Diet can name an institutional legislature such as Japan's National Diet",
+                  "paired_form": "Diet",
+                  "surface_lemma": "diet"
+                },
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:diet:3154a8051e2f505a",
+                "sense_label_en": "a legislative assembly in certain countries (e.g., Japan)",
+                "sort_order": 3,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 1,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "diet",
+            "word_family": [],
+            "word_id": "word:diet"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1369.json",
+      "mode": "patch_json",
+      "expected_sha256": "a6e63801b072a5fa80f4c54f2baa9bb317a7d71c0fdd29297174d7e915c16647",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "f1301f3b7d1c779a2a026bac45d4d0ec13a76942c928c689ef446c395aaa3132",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "不同；有区别",
+              "core_meaning_en": "to be unlike or distinct",
+              "mental_model_cn": "不同；有区别",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "construction:deep:constructions:differ:35665787b450a05f",
+              "construction:deep:constructions:differ:49b5b8243b6bb450",
+              "construction:deep:constructions:differ:74e6b6eb6ead2479",
+              "deep:deep:constructions:differ:35665787b450a05f",
+              "deep:deep:constructions:differ:49b5b8243b6bb450",
+              "deep:deep:constructions:differ:74e6b6eb6ead2479",
+              "deep:deep:word_family:differ:35ebd02c00e1f60e",
+              "relation:deep:word_family:differ:35ebd02c00e1f60e"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:e4888fe4558253f99850",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:differ:27fbc17c95c05982:collocation:0"
+                    ],
+                    "meaning_cn": "与……不同",
+                    "phrase": "differ from + sth/sb"
+                  },
+                  {
+                    "collocation_id": "collocation:84744f6e9573d15fb471",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:differ:27fbc17c95c05982:collocation:1"
+                    ],
+                    "meaning_cn": "与原件不同",
+                    "phrase": "differ from the original"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "与……不同",
+                "definition_en": "to be different from something or someone",
+                "governing_pattern": "vi. + from",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:differ:27fbc17c95c05982",
+                "sense_label_en": "to be different from something or someone",
+                "sort_order": 0,
+                "transitivity": "vi"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:e8c118019871fe69b696",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:differ:75708f80a3185f56:collocation:0"
+                    ],
+                    "meaning_cn": "在……方面不同",
+                    "phrase": "differ in + sth"
+                  },
+                  {
+                    "collocation_id": "collocation:9b08399e013c0a78610a",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:differ:75708f80a3185f56:collocation:1"
+                    ],
+                    "meaning_cn": "意见不同",
+                    "phrase": "differ in opinion"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "在……方面有分歧",
+                "definition_en": "to have different opinions or views",
+                "governing_pattern": "vi. + in",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:differ:75708f80a3185f56",
+                "sense_label_en": "to have different opinions or views",
+                "sort_order": 1,
+                "transitivity": "vi"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 3,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "completed",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "completed"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 4,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "differ",
+            "word_family": [
+              {
+                "boundary": "differ → different",
+                "codex_reviewed": true,
+                "definition_cn": null,
+                "definition_en": null,
+                "dimensions": {},
+                "direction": "R+P",
+                "evidence": [
+                  {
+                    "evidence_id": "evidence:family:differ:different",
+                    "evidence_status": "source_checked",
+                    "source_locator": "differ|different",
+                    "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/processed/word_families.csv",
+                    "source_type": "learner_dictionary"
+                  }
+                ],
+                "fact_id": "deep:word_family:differ:35ebd02c00e1f60e",
+                "family_sources": [
+                  "curated core-card derivative"
+                ],
+                "label_en": null,
+                "level": null,
+                "meaning_cn": null,
+                "module": "word_family",
+                "pattern": null,
+                "pos": null,
+                "priority": "A",
+                "publication_status": "codex_reviewed",
+                "shared_definition": null,
+                "source_sense_id": "sense:differ:27fbc17c95c05982",
+                "target_sense_id": "sense:different:4f06d68560235bf2",
+                "target_word": "different",
+                "task_tags": [
+                  "reading"
+                ],
+                "verification_status": "verified",
+                "writing_safe": true
+              }
+            ],
+            "word_id": "word:differ"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1372.json",
+      "mode": "patch_json",
+      "expected_sha256": "9a5b39ec2f005fa2f25b0275d58922274fe297fca06ed54541a5a8ece3637882",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [
+              {
+                "construction_id": "construction:14f7ce517a9023e3730f",
+                "direction": "R+P",
+                "level": "L2",
+                "meaning_cn": "recognize or show differences between things",
+                "pattern": "differentiate between A and B / differentiate A from B"
+              }
+            ],
+            "content_hash": "584e0c34f4f99f451b4eac55255c9d221ccd6d774aeade48fe296d5c927673d8",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "区分；使不同",
+              "core_meaning_en": "to recognize or show a difference; to become different",
+              "mental_model_cn": "区分；使不同",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:b31de093dc676fc369d6",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:differentiate:06efbe5e20c55619:collocation:0"
+                    ],
+                    "meaning_cn": "区分是非",
+                    "phrase": "differentiate between right and wrong"
+                  },
+                  {
+                    "collocation_id": "collocation:d1ea58c818b083e582e3",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:differentiate:06efbe5e20c55619:collocation:1"
+                    ],
+                    "meaning_cn": "使一种产品区别于另一种",
+                    "phrase": "differentiate one product from another"
+                  },
+                  {
+                    "collocation_id": "collocation:db057a9920d42fae513e",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:differentiate:fa90f1c561a350d7:collocation:0"
+                    ],
+                    "meaning_cn": "区分某物",
+                    "phrase": "differentiate between + sth"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "区分；区别",
+                "definition_en": "to recognize or show the difference between things",
+                "governing_pattern": "differentiate A from B / differentiate between A and B",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:differentiate:06efbe5e20c55619",
+                "sense_label_en": "to recognize or show the difference between things",
+                "sort_order": 0,
+                "transitivity": "I/T"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:fe4e051aa3c76792d4f3",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:differentiate:6b36b5df69e35521:collocation:0"
+                    ],
+                    "meaning_cn": "从某物分化",
+                    "phrase": "differentiate from + sth"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "变得不同；分化",
+                "definition_en": "to become different from something else",
+                "governing_pattern": "vi. + from",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:differentiate:6b36b5df69e35521",
+                "sense_label_en": "to become different from something else",
+                "sort_order": 2,
+                "transitivity": "vi"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 1,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "differentiate",
+            "word_family": [],
+            "word_id": "word:differentiate"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1375.json",
+      "mode": "patch_json",
+      "expected_sha256": "66d568a754d0bcf8a7259e94a2c0a8583f45f21434e4a575e705547d5d5f0aa0",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "57440e703a4571081d5d8bd9013277d40d212d6ff291df27ce43f389d384c7d5",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "散播，传播；扩散，弥漫",
+                  "label_en": "to spread something over a wide area; to spread out in all directions",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:diffuse:020d979da5d95e4a",
+                    "sense:diffuse:078a4ac3cb0d559b"
+                  ]
+                },
+                {
+                  "label_cn": "散开的，弥漫的；冗长的，不简洁的",
+                  "label_en": "spread out over a large area; not concentrated; not concise; wordy",
+                  "pos": "adjective",
+                  "sense_ids": [
+                    "sense:diffuse:8acf59fe54235ee9",
+                    "sense:diffuse:3e83c0219bdd5884"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "扩散，散开",
+              "core_meaning_en": "to spread out or cause to spread out",
+              "mental_model_cn": "扩散，散开",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:d9110076a2b6e148cbe6",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:diffuse:020d979da5d95e4a:collocation:0"
+                    ],
+                    "meaning_cn": "散播某物",
+                    "phrase": "diffuse + sth"
+                  },
+                  {
+                    "collocation_id": "collocation:4bd2e9105db1bb14663b",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:diffuse:020d979da5d95e4a:collocation:1"
+                    ],
+                    "meaning_cn": "传播知识",
+                    "phrase": "diffuse knowledge"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "散播，传播",
+                "definition_en": "to spread something over a wide area",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:diffuse:020d979da5d95e4a",
+                "sense_label_en": "to spread something over a wide area",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:02307ff1286aca835287",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:diffuse:078a4ac3cb0d559b:collocation:0"
+                    ],
+                    "meaning_cn": "通过某物扩散",
+                    "phrase": "diffuse through + sth"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "扩散，弥漫",
+                "definition_en": "to spread out in all directions",
+                "governing_pattern": "vi.",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:diffuse:078a4ac3cb0d559b",
+                "sense_label_en": "to spread out in all directions",
+                "sort_order": 1,
+                "transitivity": "vi"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:e3be97dc2739d717905d",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:diffuse:8acf59fe54235ee9:collocation:0"
+                    ],
+                    "meaning_cn": "漫射光",
+                    "phrase": "diffuse light"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "散开的，弥漫的",
+                "definition_en": "spread out over a large area; not concentrated",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:diffuse:8acf59fe54235ee9",
+                "sense_label_en": "spread out over a large area; not concentrated",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:22225b4c2328b07f8f52",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:diffuse:3e83c0219bdd5884:collocation:0"
+                    ],
+                    "meaning_cn": "冗长的风格",
+                    "phrase": "diffuse style"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "冗长的，不简洁的",
+                "definition_en": "not concise; wordy",
+                "governing_pattern": "",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:diffuse:3e83c0219bdd5884",
+                "sense_label_en": "not concise; wordy",
+                "sort_order": 3,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 3,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "diffuse",
+            "word_family": [],
+            "word_id": "word:diffuse",
+            "form_identity": {
+              "form_type": "same_spelling_pos_conditioned_pronunciation",
+              "spelling": "diffuse",
+              "identity_rule": "same_word_owner_no_semantic_split",
+              "boundary": "Verb and adjective share the spelling diffuse but differ in the final consonant: verb /dɪˈfjuːz/, adjective /dɪˈfjuːs/.",
+              "variants": [
+                {
+                  "variant_id": "form:diffuse:verb",
+                  "pos": [
+                    "verb"
+                  ],
+                  "ipa": "/dɪˈfjuːz/",
+                  "learner_key": "verb: -fuse /z/"
+                },
+                {
+                  "variant_id": "form:diffuse:adjective",
+                  "pos": [
+                    "adjective"
+                  ],
+                  "ipa": "/dɪˈfjuːs/",
+                  "learner_key": "adjective: -fuse /s/"
+                }
+              ],
+              "authority": "BF13 Kian-p approved Form expansion 2026-09-22"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1377.json",
+      "mode": "patch_json",
+      "expected_sha256": "eae3296870545c3b11b31b13192e88a1aab304a48a9ebb26b4e7eddb87541ec5",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "c78f31992340e8878c7fe37a9975d3e4339dfcfd86f1464f440b841cda13bc98",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "消化（食物）；理解，领会；消化（不及物）",
+                  "label_en": "to break down food in the body into absorbable substances; to understand and absorb information mentally; to undergo digestion",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:digest:72a4c791e8a05c6f",
+                    "sense:digest:13c14dfe7ab25541",
+                    "sense:digest:ba1a51ee432b5b95"
+                  ]
+                },
+                {
+                  "label_cn": "文摘，摘要",
+                  "label_en": "a compilation or summary of information",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:digest:23aac5cb5c9051d7"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "消化；理解",
+              "core_meaning_en": "to process food or information",
+              "mental_model_cn": "消化；理解",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:d37c9c6bed132f759e61",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:digest:72a4c791e8a05c6f:collocation:0"
+                    ],
+                    "meaning_cn": "消化食物",
+                    "phrase": "digest food"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "消化（食物）",
+                "definition_en": "to break down food in the body into absorbable substances",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:digest:72a4c791e8a05c6f",
+                "sense_label_en": "to break down food in the body into absorbable substances",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:6342c12018f1473225e2",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:digest:13c14dfe7ab25541:collocation:0"
+                    ],
+                    "meaning_cn": "理解新闻",
+                    "phrase": "digest the news"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "理解，领会",
+                "definition_en": "to understand and absorb information mentally",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:digest:13c14dfe7ab25541",
+                "sense_label_en": "to understand and absorb information mentally",
+                "sort_order": 1,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:a7717bc146ed6281e839",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:digest:23aac5cb5c9051d7:collocation:0"
+                    ],
+                    "meaning_cn": "《读者文摘》",
+                    "phrase": "Reader's Digest"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "文摘，摘要",
+                "definition_en": "a compilation or summary of information",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:digest:23aac5cb5c9051d7",
+                "sense_label_en": "a compilation or summary of information",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "消化（不及物）",
+                "definition_en": "to undergo digestion",
+                "governing_pattern": "",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:digest:ba1a51ee432b5b95",
+                "sense_label_en": "to undergo digestion",
+                "sort_order": 3,
+                "transitivity": "vi"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 2,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "digest",
+            "word_family": [],
+            "word_id": "word:digest",
+            "form_identity": {
+              "form_type": "same_spelling_pos_conditioned_pronunciation",
+              "spelling": "digest",
+              "identity_rule": "same_word_owner_no_semantic_split",
+              "boundary": "Verb and noun share one spelling; the verb has final stress and the noun initial stress.",
+              "variants": [
+                {
+                  "variant_id": "form:digest:verb",
+                  "pos": [
+                    "verb"
+                  ],
+                  "ipa": "/daɪˈdʒest/",
+                  "stress": "final",
+                  "learner_key": "di-GEST"
+                },
+                {
+                  "variant_id": "form:digest:noun",
+                  "pos": [
+                    "noun"
+                  ],
+                  "ipa": "/ˈdaɪ.dʒest/",
+                  "stress": "initial",
+                  "learner_key": "DI-gest"
+                }
+              ],
+              "authority": "BF13 Kian-p approved Form expansion 2026-09-22"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1378.json",
+      "mode": "patch_json",
+      "expected_sha256": "dbfc927b3efc922a95659f03fc855701bb18be9324e558f4b41afc9dc9bb872e",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "c796f002b1321ba54de60c30872c2c688f085ee84175b622f602989336850188",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "数字的；数字技术的",
+                  "label_en": "using or relating to electronic technology and information represented in numerical form",
+                  "pos": "adjective",
+                  "sense_ids": [
+                    "sense:digital:6f6682405b4b522c"
+                  ]
+                },
+                {
+                  "label_cn": "手指的",
+                  "label_en": "relating to or performed with the fingers",
+                  "pos": "adjective",
+                  "sense_ids": [
+                    "sense:digital:a0686dc13d735c1c"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "数字的；数字技术的",
+              "core_meaning_en": "using or relating to digital technology or numerical representation",
+              "mental_model_cn": "主学习义是数字技术/数字信息；手指义保留为次要分支。",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:28bc4c9766bfb55b9d5d",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:digital:e568a7d463e082ac:collocation:handoff-o1375-o1624"
+                    ],
+                    "meaning_cn": "数字技术/数据",
+                    "phrase": "digital technology/data"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "数字的；数字技术的",
+                "definition_en": "using or relating to electronic technology and information represented in discrete numerical form",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:digital:6f6682405b4b522c",
+                "sense_label_en": "using or relating to electronic technology and information represented in discrete numerical form",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:b4ecabd3a94c90327e8f",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:digital:a0686dc13d735c1c:collocation:0"
+                    ],
+                    "meaning_cn": "手指灵巧",
+                    "phrase": "digital dexterity"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "手指的",
+                "definition_en": "relating to or performed with the fingers",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:digital:a0686dc13d735c1c",
+                "sense_label_en": "relating to or performed with the fingers",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 1,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "digital",
+            "word_family": [],
+            "word_id": "word:digital"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1383.json",
+      "mode": "patch_json",
+      "expected_sha256": "3585a863b92e6572231fd41b0ca21f12e20892cf246125752b1fb015bcd706d6",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [
+              {
+                "construction_id": "construction:dim:take-a-dim-view",
+                "level": "L2",
+                "meaning_cn": "不赞成；持负面或不乐观的看法",
+                "pattern": "take a dim view of + sth"
+              }
+            ],
+            "content_hash": "96fa054333d11ea2f56975155fb7df848c78d762331461701e094d2046f49c92",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "暗淡的；昏暗的；模糊的；不清楚的",
+                  "label_en": "not bright or not clearly visible; not clear in the mind or memory",
+                  "pos": "adjective",
+                  "sense_ids": [
+                    "sense:dim:b8dc767a592c5785",
+                    "sense:dim:76462dec96b5518c"
+                  ]
+                },
+                {
+                  "label_cn": "使暗淡；使变暗；变暗淡",
+                  "label_en": "to make something less bright; to become less bright",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:dim:f0024bab76815d97",
+                    "sense:dim:f0024bab76815d97"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "不明亮或不清晰",
+              "core_meaning_en": "not bright or not clear",
+              "mental_model_cn": "不明亮或不清晰",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:a3ad1db99551f7c03bfe",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:dim:b8dc767a592c5785:collocation:0"
+                    ],
+                    "meaning_cn": "昏暗的光线",
+                    "phrase": "dim light"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "暗淡的；昏暗的",
+                "definition_en": "not bright or not clearly visible",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:dim:b8dc767a592c5785",
+                "sense_label_en": "not bright or not clearly visible",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:582e1eeb67e60ee7d2ca",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:dim:f0024bab76815d97:collocation:0"
+                    ],
+                    "meaning_cn": "把灯光调暗",
+                    "phrase": "dim the lights"
+                  },
+                  {
+                    "collocation_id": "collocation:3679eedb66401c25848e",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:dim:9d9109454ce35579:collocation:0"
+                    ],
+                    "meaning_cn": "灯光变暗了",
+                    "phrase": "the lights dimmed"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "（使）变暗；（使）暗淡",
+                "definition_en": "to make or become less bright",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:dim:f0024bab76815d97",
+                "sense_label_en": "to make something less bright",
+                "sort_order": 2,
+                "transitivity": "I/T"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:bc999f27b48e2b860084",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:dim:76462dec96b5518c:collocation:0"
+                    ],
+                    "meaning_cn": "模糊的记忆",
+                    "phrase": "a dim memory"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "模糊的；不清楚的",
+                "definition_en": "not clear in the mind or memory",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:dim:76462dec96b5518c",
+                "sense_label_en": "not clear in the mind or memory",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:2e1f596473432cae49a5",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:dim:a56340103d645dfd:collocation:handoff-o1375-o1624"
+                    ],
+                    "meaning_cn": "前景/机会暗淡",
+                    "phrase": "dim prospects/chances"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "暗淡、无望的",
+                "definition_en": "unlikely to succeed or improve",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:dim:a56340103d645dfd",
+                "sense_label_en": "unlikely to succeed or improve",
+                "sort_order": 3,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 1,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 1,
+              "runtime_model_calls": false
+            },
+            "word": "dim",
+            "word_family": [],
+            "word_id": "word:dim"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1385.json",
+      "mode": "patch_json",
+      "expected_sha256": "dfd368a52f9a1f1cf7dbbe8db5154b6bf8d515c72f2a25b6476ae68220073a12",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "437fe819b4ae9492222816b6725dff4271cd01cc0f17bd644f598767b9597d53",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "使减少或变小",
+              "core_meaning_en": "make or become less",
+              "mental_model_cn": "使减少或变小",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:7c989d86378c27efcee8",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:diminish:7319a5bea4de587b:collocation:0"
+                    ],
+                    "meaning_cn": "减少风险",
+                    "phrase": "diminish the risk"
+                  },
+                  {
+                    "collocation_id": "collocation:6a4379ef045b16d58ff8",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:diminish:7319a5bea4de587b:collocation:1"
+                    ],
+                    "meaning_cn": "在尺寸上减小",
+                    "phrase": "diminish in size"
+                  },
+                  {
+                    "collocation_id": "collocation:0531a581d100565cdd03",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:diminish:996fd18626505f7c:collocation:0"
+                    ],
+                    "meaning_cn": "在某方面减小",
+                    "phrase": "diminish in + sth"
+                  },
+                  {
+                    "collocation_id": "collocation:3f0de9cdf8c41ce1e47a",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:diminish:996fd18626505f7c:collocation:1"
+                    ],
+                    "meaning_cn": "重要性降低",
+                    "phrase": "diminish in importance"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "使变小、减弱或变得不重要",
+                "definition_en": "to make or become smaller, weaker, or less important",
+                "governing_pattern": "diminish + object / diminish in + size/importance",
+                "level": "L1",
+                "needs_human_review": 0,
+                "normalized_core": "make/become smaller or less",
+                "pos": "verb",
+                "sense_id": "sense:diminish:7319a5bea4de587b",
+                "sense_label_en": "to make or become smaller, weaker, or less important",
+                "sort_order": 0,
+                "transitivity": "I/T"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 0,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 1,
+              "runtime_model_calls": false
+            },
+            "word": "diminish",
+            "word_family": [],
+            "word_id": "word:diminish"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1390.json",
+      "mode": "patch_json",
+      "expected_sha256": "4f38e31e5bb864387fa93da75fa2336636a15c2eb9e826178d6e07fbc06f23d6",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [
+              {
+                "construction_id": "construction:6fbd5142be79d36e6ee7",
+                "direction": "R+P",
+                "level": "L2",
+                "meaning_cn": "使用或短暂进入资源、储备或文本",
+                "pattern": "dip into savings/resources/a book"
+              }
+            ],
+            "content_hash": "bc5883959a5e5d518f5c8c162e3cd518c01730f7169d16885b7781858853c878",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "浸，蘸；下降，下沉",
+                  "label_en": "to put something briefly into a liquid; to go down or sink briefly",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:dip:d8dfb661393b5fa0",
+                    "sense:dip:ed27e9a497c75c69"
+                  ]
+                },
+                {
+                  "label_cn": "短时间的游泳，泡水；蘸酱",
+                  "label_en": "a brief swim or plunge into water; a thick sauce into which food is dipped",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:dip:efec46d80a675fe6",
+                    "sense:dip:2a1191affd9a59ca"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "浸，蘸",
+              "core_meaning_en": "to put something briefly into a liquid",
+              "mental_model_cn": "浸，蘸",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:1966c8f0199f890c45b2",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:dip:d8dfb661393b5fa0:collocation:0"
+                    ],
+                    "meaning_cn": "把饼干蘸牛奶",
+                    "phrase": "dip a cookie in milk"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "浸，蘸",
+                "definition_en": "to put something briefly into a liquid",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:dip:d8dfb661393b5fa0",
+                "sense_label_en": "to put something briefly into a liquid",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:2ffe12fcfcfa1d2668ed",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:dip:ed27e9a497c75c69:collocation:0"
+                    ],
+                    "meaning_cn": "落到地平线以下",
+                    "phrase": "dip below the horizon"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "下降，下沉",
+                "definition_en": "to go down or sink briefly",
+                "governing_pattern": "vi. + into",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:dip:ed27e9a497c75c69",
+                "sense_label_en": "to go down or sink briefly",
+                "sort_order": 1,
+                "transitivity": "vi"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:04c2424524b07f8613af",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:dip:efec46d80a675fe6:collocation:0"
+                    ],
+                    "meaning_cn": "泡个澡，游个泳",
+                    "phrase": "take a dip"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "短时间的游泳，泡水",
+                "definition_en": "a brief swim or plunge into water",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:dip:efec46d80a675fe6",
+                "sense_label_en": "a brief swim or plunge into water",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:68e5998a6a9d887cec6a",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:dip:2a1191affd9a59ca:collocation:0"
+                    ],
+                    "meaning_cn": "蔬菜蘸酱",
+                    "phrase": "veggie dip"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "蘸酱",
+                "definition_en": "a thick sauce into which food is dipped",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:dip:2a1191affd9a59ca",
+                "sense_label_en": "a thick sauce into which food is dipped",
+                "sort_order": 3,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:cbf1aa4071d9c6569736",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:dip:932518ae64d23285:collocation:handoff-o1375-o1624"
+                    ],
+                    "meaning_cn": "销售额/价格下降",
+                    "phrase": "a dip in sales/prices"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "短暂下降或减少",
+                "definition_en": "a brief decline in prices, sales, levels, or amount",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:dip:932518ae64d23285",
+                "sense_label_en": "a brief decline in prices, sales, levels, or amount",
+                "sort_order": 4,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 2,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 1,
+              "runtime_model_calls": false
+            },
+            "word": "dip",
+            "word_family": [],
+            "word_id": "word:dip"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1393.json",
+      "mode": "patch_json",
+      "expected_sha256": "a602f0c9eda0b99d7a0d3471e76237cb34718bd2375cd2b073ca5be2ef0bf8b8",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v3",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "abeab7beaf13a59585d7128a81eeb780b980673c10174564305619b3235402b1",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "指示；命令；管理；指挥；导演；把……对准；指向",
+                  "label_en": "to give an official order or instruction; to manage or be in charge of an activity or organization; to guide actors in a play or film; to aim or point something in a particular direction",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:direct:883ded6cab255ef5",
+                    "sense:direct:732400c9fe9c5495",
+                    "sense:direct:52bd6d8f22125aef",
+                    "sense:direct:57095b2340e85c6a"
+                  ]
+                },
+                {
+                  "label_cn": "直达的；径直的；直接的；坦率的",
+                  "label_en": "going straight from one place to another without stopping or changing direction; without anything or anyone in between; frank and honest",
+                  "pos": "adjective",
+                  "sense_ids": [
+                    "sense:direct:b6068e5d347f503f",
+                    "sense:direct:88d03e0c77a65861"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "直接：无中间环节，也可指坦率直截了当",
+              "core_meaning_en": "direct means without an intermediary or straightforward in manner",
+              "mental_model_cn": "直接：无中间环节，也可指坦率直截了当",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "construction:deep:constructions:direct:e159221de2b0dce6",
+              "construction:deep:constructions:direct:f14b6feb7060abfb",
+              "deep:deep:constructions:direct:e159221de2b0dce6",
+              "deep:deep:constructions:direct:f14b6feb7060abfb",
+              "deep:deep:secondary_senses:direct:2955dbc619dd51e3",
+              "deep:deep:word_family:direct:5fe47868bb96676b",
+              "deep:deep:word_family:direct:8734394e3b653440",
+              "relation:deep:word_family:direct:5fe47868bb96676b",
+              "relation:deep:word_family:direct:8734394e3b653440",
+              "sense:sense:direct:7c6e957407c15947"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:4ef6feb65a21df6ad019",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:direct:883ded6cab255ef5:collocation:0"
+                    ],
+                    "meaning_cn": "指示某人做某事",
+                    "phrase": "direct sb to do sth"
+                  },
+                  {
+                    "collocation_id": "collocation:59b7484362300e61ecc5",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:direct:883ded6cab255ef5:collocation:1"
+                    ],
+                    "meaning_cn": "命令……",
+                    "phrase": "direct that + clause"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "指示；命令",
+                "definition_en": "to give an official order or instruction",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:direct:883ded6cab255ef5",
+                "sense_label_en": "to give an official order or instruction",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:f05c073c081759e8be85",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:direct:732400c9fe9c5495:collocation:0"
+                    ],
+                    "meaning_cn": "管理一个项目",
+                    "phrase": "direct a project"
+                  },
+                  {
+                    "collocation_id": "collocation:113d1a89b4484cca0dda",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:direct:732400c9fe9c5495:collocation:1"
+                    ],
+                    "meaning_cn": "指挥行动",
+                    "phrase": "direct operations"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "管理；指挥",
+                "definition_en": "to manage or be in charge of an activity or organization",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:direct:732400c9fe9c5495",
+                "sense_label_en": "to manage or be in charge of an activity or organization",
+                "sort_order": 1,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:765c087e3e3be51a3d3e",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:direct:52bd6d8f22125aef:collocation:0"
+                    ],
+                    "meaning_cn": "导演一部电影",
+                    "phrase": "direct a film"
+                  },
+                  {
+                    "collocation_id": "collocation:34b51115681ef6ddf9a7",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:direct:52bd6d8f22125aef:collocation:1"
+                    ],
+                    "meaning_cn": "导演一部戏剧",
+                    "phrase": "direct a play"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "导演",
+                "definition_en": "to guide actors in a play or film",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:direct:52bd6d8f22125aef",
+                "sense_label_en": "to guide actors in a play or film",
+                "sort_order": 2,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:167b7feaba8d62cacf1f",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:direct:b6068e5d347f503f:collocation:0"
+                    ],
+                    "meaning_cn": "直达航班",
+                    "phrase": "direct flight"
+                  },
+                  {
+                    "collocation_id": "collocation:8d77a0ae8fac6d91f0f4",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:direct:b6068e5d347f503f:collocation:1"
+                    ],
+                    "meaning_cn": "直达路线",
+                    "phrase": "direct route"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "直达的；径直的",
+                "definition_en": "going straight from one place to another without stopping or changing direction",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:direct:b6068e5d347f503f",
+                "sense_label_en": "going straight from one place to another without stopping or changing di",
+                "sort_order": 4,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:fe9040e1b6cedec8750a",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:direct:88d03e0c77a65861:collocation:0"
+                    ],
+                    "meaning_cn": "直接接触",
+                    "phrase": "direct contact"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "直接的；无中介的",
+                "definition_en": "without an intermediary or intervening step",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:direct:88d03e0c77a65861",
+                "sense_label_en": "without anything or anyone in between; frank and honest",
+                "sort_order": 5,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:38738ef35dfa09ac61e1",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:direct:57095b2340e85c6a:collocation:0"
+                    ],
+                    "meaning_cn": "把注意力引向某物",
+                    "phrase": "direct attention to + sth"
+                  },
+                  {
+                    "collocation_id": "collocation:d4c2c35b2d3313281fd1",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:direct:57095b2340e85c6a:collocation:1"
+                    ],
+                    "meaning_cn": "把批评指向某人/某物",
+                    "phrase": "direct criticism at + sb/sth"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "把……对准；指向",
+                "definition_en": "to aim or point something in a particular direction",
+                "governing_pattern": "vt. + object + to/towards",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:direct:57095b2340e85c6a",
+                "sense_label_en": "to aim or point something in a particular direction",
+                "sort_order": 3,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:6471f5705e61d44825d3",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:direct:88d03e0c77a65861:collocation:1"
+                    ],
+                    "meaning_cn": "直截了当的回答",
+                    "phrase": "direct answer"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "直率的；坦率的",
+                "definition_en": "frank and straightforward in speech or manner",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:direct:7c6e957407c15947",
+                "sense_label_en": "without anything or anyone in between; frank and honest",
+                "sort_order": 5,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 2,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "completed",
+                "secondary_senses": "completed",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "completed"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 5,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "direct",
+            "word_family": [
+              {
+                "boundary": "directly (adverb)",
+                "codex_reviewed": true,
+                "definition_cn": null,
+                "definition_en": null,
+                "dimensions": {},
+                "direction": "R+P",
+                "evidence": [
+                  {
+                    "evidence_id": "evidence:family:direct:directly",
+                    "evidence_status": "source_checked",
+                    "source_locator": "direct|directly",
+                    "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/kianos-english-vocabulary-5500.generated.json",
+                    "source_type": "learner_dictionary"
+                  }
+                ],
+                "fact_id": "deep:word_family:direct:5fe47868bb96676b",
+                "family_sources": [
+                  "local morphology candidate"
+                ],
+                "label_en": null,
+                "level": null,
+                "meaning_cn": null,
+                "module": "word_family",
+                "pattern": null,
+                "pos": null,
+                "priority": "A",
+                "publication_status": "codex_reviewed",
+                "shared_definition": null,
+                "source_sense_id": "sense:direct:883ded6cab255ef5",
+                "target_sense_id": "sense:directly:53012ca40f5055ad",
+                "target_word": "directly",
+                "task_tags": [
+                  "reading"
+                ],
+                "verification_status": "verified",
+                "writing_safe": true
+              },
+              {
+                "boundary": "director (noun)",
+                "codex_reviewed": false,
+                "definition_cn": null,
+                "definition_en": null,
+                "dimensions": {},
+                "direction": "R+P",
+                "evidence": [
+                  {
+                    "evidence_id": "evidence:family:direct:director",
+                    "evidence_status": "source_checked",
+                    "source_locator": "direct|director",
+                    "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/processed/word_families.csv",
+                    "source_type": "learner_dictionary"
+                  }
+                ],
+                "fact_id": "deep:word_family:direct:8734394e3b653440",
+                "family_sources": [
+                  "curated core-card derivative",
+                  "local morphology candidate"
+                ],
+                "label_en": null,
+                "level": null,
+                "meaning_cn": null,
+                "module": "word_family",
+                "pattern": null,
+                "pos": null,
+                "priority": "A",
+                "publication_status": "publishable",
+                "shared_definition": null,
+                "source_sense_id": "sense:direct:883ded6cab255ef5",
+                "target_sense_id": "sense:director:a9a02e231d5558dd",
+                "target_word": "director",
+                "task_tags": [
+                  "reading"
+                ],
+                "verification_status": "verified",
+                "writing_safe": true
+              }
+            ],
+            "word_id": "word:direct"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1398.json",
+      "mode": "patch_json",
+      "expected_sha256": "072f533c25a39d1d49926bde8382ceba0bc74e2aecd3a5db2b261077eb55acf8",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [
+              {
+                "construction_id": "construction:dirt:scandal-information",
+                "level": "L2",
+                "meaning_cn": "关于某人的丑闻、负面内幕或把柄",
+                "pattern": "dirt on + sb / dig up dirt"
+              }
+            ],
+            "content_hash": "8945a1c45b2837994afae28d2015ae989e6c9be70c5c8eaf14c4ee952296f0bd",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "污物或泥土",
+              "core_meaning_en": "unclean matter or soil",
+              "mental_model_cn": "污物或泥土",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:97c09afefae5465c159b",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:dirt:9df1a0cf99515d6a:collocation:0"
+                    ],
+                    "meaning_cn": "某物上的污垢",
+                    "phrase": "dirt on + sth"
+                  },
+                  {
+                    "collocation_id": "collocation:dc796cb25ba03b29b3a0",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:dirt:9df1a0cf99515d6a:collocation:1"
+                    ],
+                    "meaning_cn": "去除污垢",
+                    "phrase": "remove dirt"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "污垢，尤指皮肤或衣物上的",
+                "definition_en": "unclean matter, especially on the skin or clothes",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:dirt:9df1a0cf99515d6a",
+                "sense_label_en": "unclean matter, especially on the skin or clothes",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:7ef0f624fcc27d7951af",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:dirt:cc7c6292acb9506c:collocation:0"
+                    ],
+                    "meaning_cn": "压实的泥土",
+                    "phrase": "packed dirt"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "松散的泥土",
+                "definition_en": "loose soil or earth",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:dirt:cc7c6292acb9506c",
+                "sense_label_en": "loose soil or earth",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 1,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "dirt",
+            "word_family": [],
+            "word_id": "word:dirt"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1405.json",
+      "mode": "patch_json",
+      "expected_sha256": "ecf0565d542339f7be86a2549533f7c0c86742985a9e4a96a66d173f8cf65985",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "35f1a76bd6aca9c4c1545367e87907b595c5552798997eab396318189dcb5b2e",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "扁平的圆形物体或圆盘",
+              "core_meaning_en": "a flat, round object or a flat circular plate",
+              "mental_model_cn": "扁平的圆形物体或圆盘",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "圆盘；碟片；圆形薄片",
+                "definition_en": "a flat circular object or disk",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:disc:aece4d3cc4af53ae",
+                "sense_label_en": "a flat circular object or disk",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 1,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "disc",
+            "word_family": [],
+            "word_id": "word:disc"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1408.json",
+      "mode": "patch_json",
+      "expected_sha256": "f8fd50c823a6acfaaab63e23a31350a602426c2f576dbcb1e68bde131d2bc697",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "6ac388944fe5200b6a487a3514cd62db38cc8eb0ce00c404c1d79e9047e5e0b0",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "解雇，免除（职责）；排放，放出（液体、气体等）",
+                  "label_en": "to release someone from a duty, responsibility, or employment; to allow liquid, gas, or other substance to flow out",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:discharge:c91f8d3f573a5409",
+                    "sense:discharge:7e65a0d69d4450b3"
+                  ]
+                },
+                {
+                  "label_cn": "排放，放出，排出；排出物，分泌物",
+                  "label_en": "the action of releasing or sending out something; a substance that is emitted or released",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:discharge:83416bcd1f1855ef",
+                    "sense:discharge:c3ee0da31f4a5295"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "释放或排出某物，或释放的行为",
+              "core_meaning_en": "to release or let out something, or the act of releasing",
+              "mental_model_cn": "释放或排出某物，或释放的行为",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:d09547ab19608e83a928",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:discharge:c91f8d3f573a5409:collocation:0"
+                    ],
+                    "meaning_cn": "将某人从……解雇/免除",
+                    "phrase": "discharge sb from + sth"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "解雇，免除（职责）",
+                "definition_en": "to release someone from a duty, responsibility, or employment",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:discharge:c91f8d3f573a5409",
+                "sense_label_en": "to release someone from a duty, responsibility, or employment",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:65efd1f5f6d3ecab775f",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:discharge:7e65a0d69d4450b3:collocation:0"
+                    ],
+                    "meaning_cn": "将废物排放到……",
+                    "phrase": "discharge waste into + sth"
+                  },
+                  {
+                    "collocation_id": "collocation:c8a33587c03f388b8f45",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:discharge:7e65a0d69d4450b3:collocation:1"
+                    ],
+                    "meaning_cn": "放电",
+                    "phrase": "discharge electricity"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "排放，放出（液体、气体等）",
+                "definition_en": "to allow liquid, gas, or other substance to flow out",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:discharge:7e65a0d69d4450b3",
+                "sense_label_en": "to allow liquid, gas, or other substance to flow out",
+                "sort_order": 1,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:212c794e32199c41ff72",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:discharge:83416bcd1f1855ef:collocation:0"
+                    ],
+                    "meaning_cn": "污水排放",
+                    "phrase": "discharge of sewage"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "排放，放出，排出",
+                "definition_en": "the action of releasing or sending out something",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:discharge:83416bcd1f1855ef",
+                "sense_label_en": "the action of releasing or sending out something",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:8b3bc44420f672172107",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:discharge:c3ee0da31f4a5295:collocation:0"
+                    ],
+                    "meaning_cn": "身体分泌物",
+                    "phrase": "bodily discharge"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "排出物，分泌物",
+                "definition_en": "a substance that is emitted or released",
+                "governing_pattern": "",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:discharge:c3ee0da31f4a5295",
+                "sense_label_en": "a substance that is emitted or released",
+                "sort_order": 3,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:a83629f3baeb23acad70",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:discharge:c91f8d3f573a5409:collocation:1"
+                    ],
+                    "meaning_cn": "履行职责",
+                    "phrase": "discharge a duty"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "履行职责或义务",
+                "definition_en": "to fulfil or perform a duty or responsibility",
+                "governing_pattern": "discharge a duty",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:discharge:3d596710b0f6e69f",
+                "sense_label_en": "to fulfil or perform a duty or responsibility",
+                "sort_order": 4,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 2,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 1,
+              "runtime_model_calls": false
+            },
+            "word": "discharge",
+            "word_family": [],
+            "word_id": "word:discharge"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1409.json",
+      "mode": "patch_json",
+      "expected_sha256": "5e1aa172c2f35413fec23468e9f867b2e026dc28231dd1db44ff65e915f38d90",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v3",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "20232a966d719fa14115a76fe039a6c59f85feb5753284b26b8666585a231c1e",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "学科；学术领域；自律；克制；训练；纪律",
+                  "label_en": "an organized area of academic knowledge with its own methods; the ability to control behavior and follow a demanding plan; training or rules that produce controlled behavior",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:discipline:8e4d2379734a59cd",
+                    "sense:discipline:552be73ebff0532c",
+                    "sense:discipline:3d582ab9d87f514f"
+                  ]
+                },
+                {
+                  "label_cn": "惩戒；处分",
+                  "label_en": "to punish or correct someone for breaking rules",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:discipline:8924bdc9bc8e5080"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "通过规则、训练或结构化领域形成的秩序与控制",
+              "core_meaning_en": "ordered control built through rules, training, or a structured field",
+              "mental_model_cn": "discipline 都在“建立秩序”：行为上是自律，知识上是有方法边界的学科。",
+              "mental_model_en": "A discipline creates order: in behavior through self-control, and in knowledge through a field with its own methods."
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "deep:deep:secondary_senses:discipline:cbb79fb432d9052e",
+              "deep:deep:semantic_contrast:discipline:0b671a9d743e8735",
+              "relation:deep:semantic_contrast:discipline:0b671a9d743e8735"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:4518a48616b4cb74e32b",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:discipline:8e4d2379734a59cd:collocation:0"
+                    ],
+                    "meaning_cn": "学科；学术领域",
+                    "meaning_en": "an organized area of academic knowledge with its own methods",
+                    "phrase": "academic discipline"
+                  },
+                  {
+                    "collocation_id": "collocation:cd5c5f4a5e322efd9dc4",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:discipline:8e4d2379734a59cd:collocation:1"
+                    ],
+                    "meaning_cn": "学科；学术领域",
+                    "meaning_en": "an organized area of academic knowledge with its own methods",
+                    "phrase": "scientific discipline"
+                  }
+                ],
+                "confidence": "high",
+                "definition_cn": "学科；学术领域",
+                "definition_en": "an organized area of academic knowledge with its own methods",
+                "depth": "full_card",
+                "domain_tag": "general",
+                "frequency_tag": "exam_core",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:discipline:8e4d2379734a59cd",
+                "sense_label_en": "field of study",
+                "sort_order": 0,
+                "source_evidence": [
+                  {
+                    "role": "local_evidence",
+                    "source": "kaoyan"
+                  },
+                  {
+                    "role": "local_evidence",
+                    "source": "local_ecdict"
+                  },
+                  {
+                    "role": "local_evidence",
+                    "source": "local_oewn"
+                  },
+                  {
+                    "role": "local_evidence",
+                    "source": "ai_curated_mvp_v1"
+                  }
+                ]
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:8b56b6dbca15c3a2f40d",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:discipline:552be73ebff0532c:collocation:0"
+                    ],
+                    "meaning_cn": "自律；克制",
+                    "meaning_en": "the ability to control behavior and follow a demanding plan",
+                    "phrase": "maintain discipline"
+                  },
+                  {
+                    "collocation_id": "collocation:529aab46f426eb3ea7f7",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:discipline:552be73ebff0532c:collocation:1"
+                    ],
+                    "meaning_cn": "自律；克制",
+                    "meaning_en": "the ability to control behavior and follow a demanding plan",
+                    "phrase": "self-discipline"
+                  }
+                ],
+                "confidence": "high",
+                "definition_cn": "自律；克制",
+                "definition_en": "the ability to control behavior and follow a demanding plan",
+                "depth": "recognition_plus",
+                "domain_tag": "general",
+                "frequency_tag": "exam_core",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:discipline:552be73ebff0532c",
+                "sense_label_en": "self-control",
+                "sort_order": 1,
+                "source_evidence": [
+                  {
+                    "role": "local_evidence",
+                    "source": "kaoyan"
+                  },
+                  {
+                    "role": "local_evidence",
+                    "source": "local_ecdict"
+                  },
+                  {
+                    "role": "local_evidence",
+                    "source": "local_oewn"
+                  },
+                  {
+                    "role": "local_evidence",
+                    "source": "ai_curated_mvp_v1"
+                  }
+                ]
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:3baf5bd52ba95748d706",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:discipline:3d582ab9d87f514f:collocation:0"
+                    ],
+                    "meaning_cn": "训练；纪律",
+                    "meaning_en": "training or rules that produce controlled behavior",
+                    "phrase": "military discipline"
+                  },
+                  {
+                    "collocation_id": "collocation:b7cd93600873182ca8e1",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:discipline:3d582ab9d87f514f:collocation:1"
+                    ],
+                    "meaning_cn": "训练；纪律",
+                    "meaning_en": "training or rules that produce controlled behavior",
+                    "phrase": "strict discipline"
+                  }
+                ],
+                "confidence": "high",
+                "definition_cn": "训练；纪律",
+                "definition_en": "training or rules that produce controlled behavior",
+                "depth": "recognition_plus",
+                "domain_tag": "general",
+                "frequency_tag": "exam_core",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:discipline:3d582ab9d87f514f",
+                "sense_label_en": "training and order",
+                "sort_order": 2,
+                "source_evidence": [
+                  {
+                    "role": "local_evidence",
+                    "source": "kaoyan"
+                  },
+                  {
+                    "role": "local_evidence",
+                    "source": "local_ecdict"
+                  },
+                  {
+                    "role": "local_evidence",
+                    "source": "local_oewn"
+                  },
+                  {
+                    "role": "local_evidence",
+                    "source": "ai_curated_mvp_v1"
+                  }
+                ]
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:038c609f97ba185104c6",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:discipline:8924bdc9bc8e5080:collocation:0"
+                    ],
+                    "meaning_cn": "惩戒；处分",
+                    "meaning_en": "to punish or correct someone for breaking rules",
+                    "phrase": "discipline an employee"
+                  }
+                ],
+                "confidence": "high",
+                "definition_cn": "惩戒；处分",
+                "definition_en": "to punish or correct someone for breaking rules",
+                "depth": "recognition_only",
+                "domain_tag": "institutional",
+                "frequency_tag": "low",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:discipline:8924bdc9bc8e5080",
+                "sense_label_en": "correct through penalty",
+                "sort_order": 3,
+                "source_evidence": [
+                  {
+                    "role": "local_evidence",
+                    "source": "kaoyan"
+                  },
+                  {
+                    "role": "local_evidence",
+                    "source": "local_ecdict"
+                  },
+                  {
+                    "role": "local_evidence",
+                    "source": "local_oewn"
+                  },
+                  {
+                    "role": "local_evidence",
+                    "source": "ai_curated_mvp_v1"
+                  }
+                ],
+                "governing_pattern": "discipline + sb",
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 2,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "completed",
+                "semantic_contrast": "completed",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 2,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "discipline",
+            "word_family": [],
+            "word_id": "word:discipline"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1411.json",
+      "mode": "patch_json",
+      "expected_sha256": "54c9ea731b31a7778b8be9e78e32c7dee6a3f58e67808433c0955b57b8259542",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "9e443ba9384d78bef84169481fc49eef96d0c44bfb9b6448559d48f5fa10f6d4",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "折扣",
+                  "label_en": "the act of reducing the selling price of merchandise",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:discount:e754875607455631"
+                  ]
+                },
+                {
+                  "label_cn": "打折扣；贴现",
+                  "label_en": "give a reduction in price on; to offer a reduction in price",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:discount:d06ede37ebe35e6c",
+                    "sense:discount:d06ede37ebe35e6c"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "折扣",
+              "core_meaning_en": "a reduction in price",
+              "mental_model_cn": "折扣",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:0c2dc177fd960fc0434e",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:discount:e754875607455631:collocation:0"
+                    ],
+                    "meaning_cn": "打折",
+                    "phrase": "at a discount"
+                  },
+                  {
+                    "collocation_id": "collocation:a97500e78225a90b0f8b",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:discount:e754875607455631:collocation:1"
+                    ],
+                    "meaning_cn": "折扣价",
+                    "phrase": "discount price"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "折扣",
+                "definition_en": "the act of reducing the selling price of merchandise",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:discount:e754875607455631",
+                "sense_label_en": "the act of reducing the selling price of merchandise",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:f09a4710b1cb18682048",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:discount:d06ede37ebe35e6c:collocation:0"
+                    ],
+                    "meaning_cn": "商品打折",
+                    "phrase": "discount goods"
+                  },
+                  {
+                    "collocation_id": "collocation:a670e5500b70bc63c945",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:discount:2d207d7c6bed529c:collocation:0"
+                    ],
+                    "meaning_cn": "对某物打折",
+                    "phrase": "discount on + sth"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "给…打折；降价",
+                "definition_en": "to reduce the price of something",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:discount:d06ede37ebe35e6c",
+                "sense_label_en": "give a reduction in price on",
+                "sort_order": 1,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:0f50b3ceefac3eca3c58",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:discount:7a7d2778ba35f779:collocation:handoff-o1375-o1624"
+                    ],
+                    "meaning_cn": "低估或忽视证据/可能性",
+                    "phrase": "discount evidence/possibility"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "对证据、可能性等不予重视",
+                "definition_en": "to treat evidence or a possibility as unimportant or unlikely",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:discount:7a7d2778ba35f779",
+                "sense_label_en": "to treat evidence or a possibility as unimportant or unlikely",
+                "sort_order": 2,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 1,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "discount",
+            "word_family": [],
+            "word_id": "word:discount",
+            "form_identity": {
+              "form_type": "same_spelling_pos_conditioned_pronunciation",
+              "spelling": "discount",
+              "identity_rule": "same_word_owner_no_semantic_split",
+              "boundary": "Noun/adjectival use typically has initial stress; the verb typically has final stress.",
+              "variants": [
+                {
+                  "variant_id": "form:discount:noun-adjective",
+                  "pos": [
+                    "noun",
+                    "adjective"
+                  ],
+                  "ipa": "/ˈdɪs.kaʊnt/",
+                  "stress": "initial",
+                  "learner_key": "DIS-count"
+                },
+                {
+                  "variant_id": "form:discount:verb",
+                  "pos": [
+                    "verb"
+                  ],
+                  "ipa": "/dɪˈskaʊnt/",
+                  "stress": "final",
+                  "learner_key": "dis-COUNT"
+                }
+              ],
+              "authority": "BF13 Kian-p approved Form expansion 2026-09-22"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1420.json",
+      "mode": "patch_json",
+      "expected_sha256": "71ae6b3eec46d12bc0394ec70f0bb97ff56a70e5d0085d7d89441b527d512948",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [
+              {
+                "construction_id": "construction:4a7ee3039e57a512cfb3",
+                "direction": "R+P",
+                "level": "L2",
+                "meaning_cn": "不公平对待某人或群体",
+                "pattern": "discriminate against sb"
+              }
+            ],
+            "content_hash": "3058b9ba55ee58cef3b28e63f11825c1538f1505dcbbe8bfdb99db08262c8fcb",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "区别，辨别；歧视；区分，辨别",
+                  "label_en": "to recognize or perceive the difference between things; to treat a person or group unfairly based on sex, race, etc.; to distinguish or differentiate",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:discriminate:81a532704d91594c",
+                    "sense:discriminate:751aacd2e32d56fc"
+                  ]
+                },
+                {
+                  "label_cn": "有辨别力的",
+                  "label_en": "able to see or make fine distinctions",
+                  "pos": "adjective",
+                  "sense_ids": [
+                    "sense:discriminate:2c7274d9770957f3"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "区分；差别对待",
+              "core_meaning_en": "to distinguish or treat differently",
+              "mental_model_cn": "区分；差别对待",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:1cbc618a4c9fa03ea465",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:discriminate:81a532704d91594c:collocation:0"
+                    ],
+                    "meaning_cn": "区分A和B",
+                    "phrase": "discriminate between + A and B"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "区别，辨别",
+                "definition_en": "to recognize or perceive the difference between things",
+                "governing_pattern": "vi. + between",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:discriminate:81a532704d91594c",
+                "sense_label_en": "to recognize or perceive the difference between things",
+                "sort_order": 0,
+                "transitivity": "vi"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "区分，辨别",
+                "definition_en": "to distinguish or differentiate",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:discriminate:751aacd2e32d56fc",
+                "sense_label_en": "to distinguish or differentiate",
+                "sort_order": 1,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "有辨别力的",
+                "definition_en": "able to see or make fine distinctions",
+                "governing_pattern": "",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:discriminate:2c7274d9770957f3",
+                "sense_label_en": "able to see or make fine distinctions",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "歧视；区别对待",
+                "definition_en": "to treat a person or group unfairly because of a characteristic",
+                "governing_pattern": "vi. + against",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:discriminate:f258a0c18777a10c",
+                "sense_label_en": "to treat a person or group unfairly because of a characteristic",
+                "sort_order": 3,
+                "transitivity": "vi"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 3,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "discriminate",
+            "word_family": [],
+            "word_id": "word:discriminate"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1421.json",
+      "mode": "patch_json",
+      "expected_sha256": "07543a38284677b6e68cef9b90437b9d5114e0516a51f0e4bf3cc0e6cf6e3d18",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "74c8100491505481cd16fbec7af6b8cda6c5bd1cc28c0b6e7bcb7b55a56aa49d",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "讨论，商量；论述，详述",
+                  "label_en": "to talk about something with another person or group; to write or talk about a subject in detail, especially in an academic context",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:discuss:184dd047bbac5547",
+                    "sense:discuss:c9c4f4e718b1507b"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "讨论；商量；论述",
+              "core_meaning_en": "to talk or write about a subject in detail",
+              "mental_model_cn": "discuss 是及物动词：discuss sth / discuss sth with sb；学术语境也可表示详细论述。",
+              "mental_model_en": "discuss takes a direct object and can also mean treat a subject in detail."
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:f24a06fbdf83a4363521",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:discuss:184dd047bbac5547:collocation:0"
+                    ],
+                    "meaning_cn": "与某人讨论某事",
+                    "phrase": "discuss + sth with sb"
+                  },
+                  {
+                    "collocation_id": "collocation:0de38a37c9c38999346e",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:discuss:184dd047bbac5547:collocation:1"
+                    ],
+                    "meaning_cn": "讨论这个问题",
+                    "phrase": "discuss the issue"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "讨论，商量",
+                "definition_en": "to talk about something with another person or group",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:discuss:184dd047bbac5547",
+                "sense_label_en": "to talk about something with another person or group",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:a8b589ebd5f993b00449",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:discuss:c9c4f4e718b1507b:collocation:0"
+                    ],
+                    "meaning_cn": "详细论述某事",
+                    "phrase": "discuss + sth in detail"
+                  },
+                  {
+                    "collocation_id": "collocation:e0f1eb75140bd4cb261c",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:discuss:c9c4f4e718b1507b:collocation:1"
+                    ],
+                    "meaning_cn": "论述这个话题",
+                    "phrase": "discuss the topic"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "论述，详述",
+                "definition_en": "to write or talk about a subject in detail, especially in an academic context",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:discuss:c9c4f4e718b1507b",
+                "sense_label_en": "to write or talk about a subject in detail, especially in an academic co",
+                "sort_order": 1,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 2,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "discuss",
+            "word_family": [],
+            "word_id": "word:discuss"
+          }
+        },
+        {
+          "pointer": "/reference_senses",
+          "value": []
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1438.json",
+      "mode": "patch_json",
+      "expected_sha256": "76c1962d77e756eb437c0e0dbbd57a54e62567a35bbf642e4a4b164b7be9330f",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "6c82bbe3e2e8e4cdb4ae0bb4725bb519bc26c7b6377586435a8bc5136d20cf1b",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "消散；驱散；浪费",
+              "core_meaning_en": "to scatter or disappear; to waste or squander",
+              "mental_model_cn": "消散；驱散；浪费",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:7c6d5172eb944bf6525c",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:dissipate:2308795db39c5c75:collocation:0"
+                    ],
+                    "meaning_cn": "消散成某物",
+                    "phrase": "dissipate into + sth"
+                  },
+                  {
+                    "collocation_id": "collocation:5fa25cb76632aa9d1363",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:dissipate:2308795db39c5c75:collocation:1"
+                    ],
+                    "meaning_cn": "晨光中雾气消散了。",
+                    "phrase": "The fog dissipated in the morning sun."
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "逐渐消失；消散",
+                "definition_en": "to gradually disappear or scatter",
+                "governing_pattern": "vi.",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:dissipate:2308795db39c5c75",
+                "sense_label_en": "to gradually disappear or scatter",
+                "sort_order": 0,
+                "transitivity": "vi"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:c0ca72cf03dcbe5a5f8e",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:dissipate:add44c428ee35aba:collocation:0"
+                    ],
+                    "meaning_cn": "驱散某物",
+                    "phrase": "dissipate + sth"
+                  },
+                  {
+                    "collocation_id": "collocation:2a4c444d6cfafb7a2632",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:dissipate:add44c428ee35aba:collocation:1"
+                    ],
+                    "meaning_cn": "驱散人群",
+                    "phrase": "dissipate the crowd"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "驱散；使消散",
+                "definition_en": "to cause something to scatter or disappear",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:dissipate:add44c428ee35aba",
+                "sense_label_en": "to cause something to scatter or disappear",
+                "sort_order": 1,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:2f5b1ceb679c300946fd",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:dissipate:1ca36e2d0e395bf3:collocation:handoff-o1375-o1624"
+                    ],
+                    "meaning_cn": "挥霍或耗尽资源/能量/财富",
+                    "phrase": "dissipate resources/energy/wealth"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "挥霍、耗尽或使资源/能量消散",
+                "definition_en": "to squander, use up, or disperse resources, energy, or wealth",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:dissipate:1ca36e2d0e395bf3",
+                "sense_label_en": "to squander, use up, or disperse resources, energy, or wealth",
+                "sort_order": 2,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:01ad80a6232bc19959c7",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:dissipate:bdfc9c156d1a5e9e:collocation:0"
+                    ],
+                    "meaning_cn": "沉溺于某事物（尤指享乐）",
+                    "phrase": "dissipate in + sth"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "放荡；沉溺于享乐",
+                "definition_en": "to live a life of pleasure, especially with respect to alcoholic consumption",
+                "governing_pattern": "vi. + in",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:dissipate:bdfc9c156d1a5e9e",
+                "sense_label_en": "to live a life of pleasure, especially with respect to alcoholic consump",
+                "sort_order": 3,
+                "transitivity": "vi"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 0,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "dissipate",
+            "word_family": [],
+            "word_id": "word:dissipate"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1439.json",
+      "mode": "patch_json",
+      "expected_sha256": "3d59e57faf1bd291101675afcb3b54e3ef616d97ed500d801fbc6f785f861ca0",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "0e1b26733b8988bc1f79b2ae0e50c025d3866add82414d900d656a8d19205851",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "溶解；解散",
+              "core_meaning_en": "to become or cause to become part of a liquid; to end or break up",
+              "mental_model_cn": "溶解；解散",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:3773d61d70c1d1e3265a",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:dissolve:b2b11b9b6b205d92:collocation:0"
+                    ],
+                    "meaning_cn": "溶解于……",
+                    "phrase": "dissolve in + liquid"
+                  },
+                  {
+                    "collocation_id": "collocation:684a651554e5eafb1fc4",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:dissolve:b2b11b9b6b205d92:collocation:1"
+                    ],
+                    "meaning_cn": "溶解成……",
+                    "phrase": "dissolve into + sth"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "（使）溶解",
+                "definition_en": "to make a solid dissolve in a liquid or become dissolved",
+                "governing_pattern": "dissolve + object / dissolve in + liquid",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:dissolve:b2b11b9b6b205d92",
+                "sense_label_en": "to make a solid become part of a liquid",
+                "sort_order": 0,
+                "transitivity": "I/T"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:3a8c0db6b00bb1c7e705",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:dissolve:3ee7b9b484f550b5:collocation:0"
+                    ],
+                    "meaning_cn": "解散议会",
+                    "phrase": "dissolve parliament"
+                  },
+                  {
+                    "collocation_id": "collocation:e449e0efb02c5bff7fc9",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:dissolve:3ee7b9b484f550b5:collocation:1"
+                    ],
+                    "meaning_cn": "解除婚姻",
+                    "phrase": "dissolve a marriage"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "解散，解除",
+                "definition_en": "to officially end a marriage, organization, or parliament",
+                "governing_pattern": "vt. + object",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:dissolve:3ee7b9b484f550b5",
+                "sense_label_en": "to officially end a marriage, organization, or parliament",
+                "sort_order": 2,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:da1a3df2766fa8ba5a51",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:dissolve:40c5314135a05b36:collocation:0"
+                    ],
+                    "meaning_cn": "逐渐变成……（如泪流满面）",
+                    "phrase": "dissolve into + sth"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "消失，消散",
+                "definition_en": "to gradually disappear or become weaker",
+                "governing_pattern": "vi. + into",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:dissolve:40c5314135a05b36",
+                "sense_label_en": "to gradually disappear or become weaker",
+                "sort_order": 3,
+                "transitivity": "vi"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 3,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "dissolve",
+            "word_family": [],
+            "word_id": "word:dissolve"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1442.json",
+      "mode": "patch_json",
+      "expected_sha256": "1d98e0832be68ccb0985cc08083248d988bb6a7d99581027a37d9ffc7036d7b2",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [
+              {
+                "construction_id": "construction:f88fde06907e96018382",
+                "direction": "R+P",
+                "level": "L2",
+                "meaning_cn": "从某物提炼精华",
+                "pattern": "distil the essence/key points from sth"
+              }
+            ],
+            "content_hash": "8bf0792470b7b2374de908646293d5a1604bda8e7736ce3a9fc187d2e859e23d",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "通过加热冷却净化或提取物质，或提取精华",
+              "core_meaning_en": "to purify or extract a substance by heating and cooling, or to obtain the essence of something",
+              "mental_model_cn": "通过加热冷却净化或提取物质，或提取精华",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:37e1457f3021a1a9b342",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:distil:1a0a30f3db1d579f:collocation:0"
+                    ],
+                    "meaning_cn": "蒸馏水",
+                    "phrase": "distil water"
+                  },
+                  {
+                    "collocation_id": "collocation:a6c954a7705681461d11",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:distil:1a0a30f3db1d579f:collocation:1"
+                    ],
+                    "meaning_cn": "从...中蒸馏出...",
+                    "phrase": "distil + sth from + sth"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "蒸馏",
+                "definition_en": "to make a liquid pure by heating it until it becomes a gas and then cooling it so that it becomes liquid again",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:distil:1a0a30f3db1d579f",
+                "sense_label_en": "to make a liquid pure by heating it until it becomes a gas and then cool",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "提炼出精华或要点",
+                "definition_en": "to extract the essential meaning or substance",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:distil:ac9191854bf55619",
+                "sense_label_en": "to extract the essential meaning or substance",
+                "sort_order": 1,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 1,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "distil",
+            "word_family": [],
+            "word_id": "word:distil",
+            "form_identity": {
+              "form_type": "regional_spelling_identity",
+              "spelling": "distil",
+              "identity_rule": "same_lexeme_spelling_variant",
+              "boundary": "distil is mainly the UK spelling; distill is the usual US spelling.",
+              "boundaries": [
+                {
+                  "surface": "distil",
+                  "condition": "mainly British English",
+                  "note": "BrE spelling"
+                },
+                {
+                  "surface": "distill",
+                  "condition": "usual American English",
+                  "note": "AmE spelling"
+                }
+              ],
+              "variants": [],
+              "authority": "BF13 Kian-p approved Form expansion 2026-09-22"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1443.json",
+      "mode": "patch_json",
+      "expected_sha256": "d7849406af70efb4ba917f4e3af930a278c608289b03c6a431927420635e16cb",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "dc1bee219b21a305a3edb8ca93aa5df6481b22a7bdfd6b85772f680bf49268b1",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "不同的；清楚的",
+              "core_meaning_en": "clearly different or easily perceived",
+              "mental_model_cn": "不同的；清楚的",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "deep:deep:word_family:distinct:b5721712d65ee499",
+              "deep:deep:word_family:distinct:b5cdaae11d58cdbe",
+              "relation:deep:word_family:distinct:b5721712d65ee499",
+              "relation:deep:word_family:distinct:b5cdaae11d58cdbe"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:e63181f916cdbedd65d5",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:distinct:ec7605c4a5c15e3f:collocation:0"
+                    ],
+                    "meaning_cn": "与某物不同",
+                    "phrase": "distinct from + sth"
+                  },
+                  {
+                    "collocation_id": "collocation:5241f01a4487b3cf9136",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:distinct:ec7605c4a5c15e3f:collocation:1"
+                    ],
+                    "meaning_cn": "两种不同的类型",
+                    "phrase": "two distinct types"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "不同的，有区别的",
+                "definition_en": "not alike; different in nature or quality",
+                "governing_pattern": "a. + from",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:distinct:ec7605c4a5c15e3f",
+                "sense_label_en": "not alike; different in nature or quality",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:5473bbda103688fef76a",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:distinct:cac966e1255059a1:collocation:0"
+                    ],
+                    "meaning_cn": "明显的优势",
+                    "phrase": "a distinct advantage"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "清楚的，明显的",
+                "definition_en": "easy to perceive; clearly outlined",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:distinct:cac966e1255059a1",
+                "sense_label_en": "easy to perceive; clearly outlined",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 2,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "completed"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 2,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "distinct",
+            "word_family": [
+              {
+                "boundary": "distinct = clearly different/separate; distinctive = having a characteristic that makes something easy to recognize. Related, but not interchangeable.",
+                "codex_reviewed": false,
+                "definition_cn": null,
+                "definition_en": "distinct means clearly separate or different; distinctive means characteristically recognizable.",
+                "dimensions": {},
+                "direction": "R+P",
+                "evidence": [
+                  {
+                    "evidence_id": "evidence:family:distinct:distinctive",
+                    "evidence_status": "source_checked",
+                    "source_locator": "distinct|distinctive",
+                    "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/processed/word_families.csv",
+                    "source_type": "learner_dictionary"
+                  }
+                ],
+                "fact_id": "deep:word_family:distinct:b5cdaae11d58cdbe",
+                "family_sources": [
+                  "AWL family"
+                ],
+                "label_en": null,
+                "level": null,
+                "meaning_cn": null,
+                "module": "word_family",
+                "pattern": null,
+                "pos": null,
+                "priority": "A",
+                "publication_status": "publishable",
+                "shared_definition": null,
+                "source_sense_id": "sense:distinct:ec7605c4a5c15e3f",
+                "target_sense_id": null,
+                "target_word": "distinctive",
+                "task_tags": [
+                  "reading"
+                ],
+                "verification_status": "verified",
+                "writing_safe": false
+              }
+            ],
+            "word_id": "word:distinct"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1449.json",
+      "mode": "patch_json",
+      "expected_sha256": "33747320e526a217f88addbbf82ca609da778385970e785263591a384e61ff78",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "64ec72ca073cf953a7a306c225e54013d88e37652a64b768a8399ee65dd69b4a",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "分发；分配；散布",
+              "core_meaning_en": "to give out or spread over an area",
+              "mental_model_cn": "分发；分配；散布",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "deep:deep:word_family:distribute:382949cebd14888d",
+              "deep:deep:word_family:distribute:eaef8c276f32f476",
+              "relation:deep:word_family:distribute:382949cebd14888d",
+              "relation:deep:word_family:distribute:eaef8c276f32f476"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:3dd9df5e0e6600e3316c",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:distribute:8d84204c3fa25a6f:collocation:0"
+                    ],
+                    "meaning_cn": "把某物分发给某人",
+                    "phrase": "distribute + sth to + sb"
+                  },
+                  {
+                    "collocation_id": "collocation:d8ce69683851192317c1",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:distribute:8d84204c3fa25a6f:collocation:1"
+                    ],
+                    "meaning_cn": "分发传单",
+                    "phrase": "distribute leaflets"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "分发；分配",
+                "definition_en": "to give something out to several people",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:distribute:8d84204c3fa25a6f",
+                "sense_label_en": "to give something out to several people",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:38b338628f5ea85ad307",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:distribute:9091523716425440:collocation:0"
+                    ],
+                    "meaning_cn": "均匀分布",
+                    "phrase": "distribute evenly"
+                  },
+                  {
+                    "collocation_id": "collocation:411f038e334757ea485f",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:distribute:9091523716425440:collocation:1"
+                    ],
+                    "meaning_cn": "把某物散布在某个区域",
+                    "phrase": "distribute + sth over + an area"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "散布；分布",
+                "definition_en": "to spread something over an area",
+                "governing_pattern": "vt. + object",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:distribute:9091523716425440",
+                "sense_label_en": "to spread something over an area",
+                "sort_order": 1,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:e0402cead73de13a6893",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:distribute:f42dc388ce425ded:collocation:0"
+                    ],
+                    "meaning_cn": "分销产品",
+                    "phrase": "distribute products"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "配送；分销",
+                "definition_en": "to supply goods to shops or customers",
+                "governing_pattern": "vt. + object",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:distribute:f42dc388ce425ded",
+                "sense_label_en": "to supply goods to shops or customers",
+                "sort_order": 2,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 2,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "completed"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 2,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "distribute",
+            "word_family": [
+              {
+                "boundary": "distribute (v.) → distributor (n.): 分发/分销 → 分销商或分发者；派生关系，不是同义替换。",
+                "codex_reviewed": false,
+                "definition_cn": null,
+                "definition_en": "distribute is the verb; distributor is a person or company that distributes goods.",
+                "dimensions": {},
+                "direction": "R+P",
+                "evidence": [
+                  {
+                    "evidence_id": "evidence:family:distribute:distributor",
+                    "evidence_status": "source_checked",
+                    "source_locator": "distribute|distributor",
+                    "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/processed/word_families.csv",
+                    "source_type": "learner_dictionary"
+                  }
+                ],
+                "fact_id": "deep:word_family:distribute:eaef8c276f32f476",
+                "family_sources": [
+                  "AWL family"
+                ],
+                "label_en": null,
+                "level": null,
+                "meaning_cn": null,
+                "module": "word_family",
+                "pattern": null,
+                "pos": null,
+                "priority": "A",
+                "publication_status": "publishable",
+                "shared_definition": null,
+                "source_sense_id": "sense:distribute:8d84204c3fa25a6f",
+                "target_sense_id": null,
+                "target_word": "distributor",
+                "task_tags": [
+                  "reading"
+                ],
+                "verification_status": "verified",
+                "writing_safe": true
+              }
+            ],
+            "word_id": "word:distribute"
+          }
+        }
+      ]
+    }
+  ],
+  "semantic_dependency_read_set": {}
+}
