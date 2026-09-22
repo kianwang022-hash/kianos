@@ -1,0 +1,62 @@
+{
+  "schema": "kianos.xizong.learning_cues.v1",
+  "status": "CURRENT",
+  "authority": "CHAT_APPROVED",
+  "system_id": "neuro-sensory-motor-orthopedics",
+  "canonical_id": "D",
+  "system_owner": "content/xizong/knowledge/systems/d-neuro-sensory-motor-orthopedics/system.json",
+  "medical_core_owner": "content/xizong/knowledge/systems/d-neuro-sensory-motor-orthopedics/",
+  "learning_support": "content/xizong/knowledge/learner/d-neuro-sensory-motor-orthopedics-learning.json",
+  "role": "SELECTIVE_PRECISION_AND_VISUAL_TRIGGER_INDEX_ONLY",
+  "rules": {
+    "no_second_owner": "Cues identify sparse high-value exactness / visual learning moments only. They do not copy or replace canonical medical Core or the original Lecture.",
+    "precision_selection": "SELECTIVE_HIGH_VALUE_INDEX_NOT_EXHAUSTIVE",
+    "precision_absence": "Absence from this index does not downgrade any canonical KP or fact.",
+    "first_pass": "Visual cues sit inside the accepted D natural-Source-unit flow and do not create an extra source trip.",
+    "visual_behavior": "Show the reviewed Project canonical Source crop at the relevant Logic Group with one bounded micro-task; missing imagery remains legal and fail-closed.",
+    "source_truth": "Exact medical meaning remains in the canonical D Block/KP and Project canonical Source PDF."
+  },
+  "precision_index": [],
+  "visual_bindings": [
+    {
+      "id": "d-o14-lg01-visual",
+      "anchor": {
+        "block_id": "orthopedics-o14",
+        "logic_group_id": "O14-LG01"
+      },
+      "source_locator": "27 外科跟课合集改.pdf · PDF P134｜骨与关节结核影像组",
+      "task": "先看椎体/关节破坏与间隙，再找椎旁或腰大肌冷脓肿和 MRI 病变范围；只用空间组合识别结核，不从单一影像词直接报病名。",
+      "answer_bearing": true
+    },
+    {
+      "id": "d-o14-lg02-visual",
+      "anchor": {
+        "block_id": "orthopedics-o14",
+        "logic_group_id": "O14-LG02"
+      },
+      "source_locator": "27 外科跟课合集改.pdf · PDF P135｜脊柱结核类型与截瘫",
+      "task": "沿腰椎边缘型—胸椎中心型对照走一遍，再把早期直接压迫与迟发畸形/瘢痕/血管机制分开。",
+      "answer_bearing": true
+    },
+    {
+      "id": "d-o14-lg03-visual",
+      "anchor": {
+        "block_id": "orthopedics-o14",
+        "logic_group_id": "O14-LG03"
+      },
+      "source_locator": "27 外科跟课合集改.pdf · PDF P135｜4字/Thomas 与髋结核手术分流",
+      "task": "先在动作图上认 4 字试验与 Thomas 征，再按滑膜、骨/全关节、纤维性强直、明显畸形把手术角色一一对应；不要把阳性体征当作结核特异诊断。",
+      "answer_bearing": true
+    },
+    {
+      "id": "d-o14-lg04-visual",
+      "anchor": {
+        "block_id": "orthopedics-o14",
+        "logic_group_id": "O14-LG04"
+      },
+      "source_locator": "27 外科跟课合集改.pdf · PDF P134｜复用脊柱结核影像组",
+      "task": "复用 LG01 图做鉴别：结核看破坏+间隙+冷脓肿组合；转移瘤/退变等只作为 Current 已明确的近邻边界，不从图外补现代影像规则。",
+      "answer_bearing": true
+    }
+  ]
+}

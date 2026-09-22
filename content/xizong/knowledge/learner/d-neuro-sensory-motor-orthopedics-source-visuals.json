@@ -1,0 +1,88 @@
+{
+  "schema": "kianos.xizong.source_visual_bundles.v1",
+  "status": "CURRENT",
+  "authority": "CHAT_APPROVED",
+  "system_id": "neuro-sensory-motor-orthopedics",
+  "canonical_id": "D",
+  "selection_policy": "SPARSE_HIGH_VALUE_NOT_EXHAUSTIVE",
+  "completeness": "PARTIAL_BY_DESIGN_EXTENSIBLE",
+  "notes": "O14 formal Source Visual recovery from the Project canonical `27 外科跟课合集改.pdf`. Physical PDF P134–135 directly support the accepted O14 visual-required Logic Groups; LG04 deliberately reuses the LG01 imaging asset rather than duplicating source bytes.",
+  "bundles": [
+    {
+      "cue_id": "d-o14-lg01-visual",
+      "source_sha256": "b7178fdf7aa277c78be37e4904fb3d3fe619278b8d2dcbcd92142140021044e2",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "xizong-surgery-project-pdf:b7178fdf7aa277c7:p134:tb-imaging",
+          "source_page": 134,
+          "usage_role": "OSTEOARTICULAR_TB_IMAGING_VISUAL",
+          "usage_label": "外科 PDF P134 · 骨关节结核影像组",
+          "alt": "外科 Project Source PDF P134：脊柱结核 X线、CT、MRI及髋/膝结核影像，显示椎体或关节破坏、间隙改变与椎旁/腰大肌冷脓肿等空间线索",
+          "asset_path": "d-o14-lg01/o14-p134-tb-imaging.webp",
+          "width": 1100,
+          "height": 655,
+          "source_crop_sha256": "407f8e4b4d4aee644fe4cffcb027925ab317ed9ad59267fb0e098845cf8e06a3",
+          "derived_asset_sha256": "00a656cefa67914b8c886d8f8b1b8e6cb11d84d7a61a9b42b63e64ce59e20aeb"
+        }
+      ]
+    },
+    {
+      "cue_id": "d-o14-lg02-visual",
+      "source_sha256": "b7178fdf7aa277c78be37e4904fb3d3fe619278b8d2dcbcd92142140021044e2",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "xizong-surgery-project-pdf:b7178fdf7aa277c7:p135:spine-paraplegia",
+          "source_page": 135,
+          "usage_role": "SPINAL_TB_TYPE_PARAPLEGIA_VISUAL",
+          "usage_label": "外科 PDF P135 · 腰胸椎结核与截瘫机制",
+          "alt": "外科 Project Source PDF P135：腰椎结核与胸椎结核对照、中心型/边缘型示意、拾物试验，以及早期与迟发截瘫机制",
+          "asset_path": "d-o14-lg02/o14-p135-spine-paraplegia.webp",
+          "width": 1100,
+          "height": 544,
+          "source_crop_sha256": "13f9d20f982b2435cbc6df3d618e8ba91805804359ec9f87202c123953b97164",
+          "derived_asset_sha256": "36fe30a502f20bb0be04c5ed00462078815e21db4ed0588a50ca3d7d884a049b"
+        }
+      ]
+    },
+    {
+      "cue_id": "d-o14-lg03-visual",
+      "source_sha256": "b7178fdf7aa277c78be37e4904fb3d3fe619278b8d2dcbcd92142140021044e2",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "xizong-surgery-project-pdf:b7178fdf7aa277c7:p135:hip-signs-surgery",
+          "source_page": 135,
+          "usage_role": "HIP_TB_SIGNS_SURGERY_ROUTE_VISUAL",
+          "usage_label": "外科 PDF P135 · 4字/Thomas 与髋结核手术分流",
+          "alt": "外科 Project Source PDF P135：4字试验、Thomas征动作示意及髋关节结核按滑膜、骨/全关节、纤维性强直、明显畸形分流的手术表",
+          "asset_path": "d-o14-lg03/o14-p135-hip-signs-surgery.webp",
+          "width": 1100,
+          "height": 532,
+          "source_crop_sha256": "8201641af69b3ca79bb2b549221d80c219cc94971d65b85e702c375d2dbca6ec",
+          "derived_asset_sha256": "cebd251b977fefef6a12b7549d07551da82d0c2c7402cbf5d4e446da30ab1a07"
+        }
+      ]
+    },
+    {
+      "cue_id": "d-o14-lg04-visual",
+      "source_sha256": "b7178fdf7aa277c78be37e4904fb3d3fe619278b8d2dcbcd92142140021044e2",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "xizong-surgery-project-pdf:b7178fdf7aa277c7:p134:tb-imaging",
+          "source_page": 134,
+          "usage_role": "OSTEOARTICULAR_TB_DIFFERENTIAL_REUSE_VISUAL",
+          "usage_label": "外科 PDF P134 · 骨关节结核影像组（鉴别复用）",
+          "alt": "复用外科 Project Source PDF P134 骨关节结核影像组，用于 O14-LG04 的结核与近邻破坏性脊柱病变鉴别",
+          "asset_path": "d-o14-lg01/o14-p134-tb-imaging.webp",
+          "width": 1100,
+          "height": 655,
+          "source_crop_sha256": "407f8e4b4d4aee644fe4cffcb027925ab317ed9ad59267fb0e098845cf8e06a3",
+          "derived_asset_sha256": "00a656cefa67914b8c886d8f8b1b8e6cb11d84d7a61a9b42b63e64ce59e20aeb"
+        }
+      ]
+    }
+  ]
+}
