@@ -1,0 +1,846 @@
+{
+  "schema": "kianos.lexical.final_mutation_package.v1",
+  "package_id": "BF19-B-reconcile-v1",
+  "candidate_id": "BF19",
+  "range": {
+    "start_ordinal": 1951,
+    "end_ordinal": 2050
+  },
+  "lane": "A",
+  "source_head": "8c4a0d3505f32a443f9c87adb1c3b5c72b049478",
+  "human_gate": {
+    "approved": true,
+    "approval_ref": "BF19 B readback existing-truth reconciliation; no new learner material"
+  },
+  "writes": [
+    {
+      "path": "content/lexical/words/by-ordinal/o1969.json",
+      "mode": "patch_json",
+      "expected_sha256": "d6598d687b2d3ea7ab9e359673214aeada079576b3c12419dce06fb369f207ec",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "b83ddc915dd202ea90103ccba35e3c9157a50c83b57740d28d757db87cb88887",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "流动；流量；流畅；连续",
+                  "label_en": "flow/movement; rate of flow; continuity or fluency",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:flow:b14347df064a5bb9",
+                    "sense:flow:b830cf241b4c5b2b"
+                  ]
+                },
+                {
+                  "label_cn": "流动；涌出",
+                  "label_en": "to flow or pour",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:flow:b1301c4c4e5b56c8"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "流动；流量；流畅或连续",
+              "core_meaning_en": "flow or movement; rate of flow; continuity or fluency",
+              "mental_model_cn": "主干是“连续地流动”：既可指液体/人流等流动，也可指流量、语言或过程的流畅连续。",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:97677f84dab1fe9ff6c6",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:flow:b14347df064a5bb9:collocation:0"
+                    ],
+                    "meaning_cn": "水的流动",
+                    "phrase": "the flow of water"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "流动；流量",
+                "definition_en": "the movement of a liquid or gas",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:flow:b14347df064a5bb9",
+                "sense_label_en": "the movement of a liquid or gas",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:d8b879f1dd6553f7477d",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:flow:b1301c4c4e5b56c8:collocation:0"
+                    ],
+                    "meaning_cn": "从某处流出",
+                    "phrase": "flow from + sth"
+                  },
+                  {
+                    "collocation_id": "collocation:8adf82c5ddd3bae7571c",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:flow:b1301c4c4e5b56c8:collocation:1"
+                    ],
+                    "meaning_cn": "流入某处",
+                    "phrase": "flow into + sth"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "流动；涌出",
+                "definition_en": "to move along in a stream",
+                "governing_pattern": "vi. + from/into",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:flow:b1301c4c4e5b56c8",
+                "sense_label_en": "to move along in a stream",
+                "sort_order": 1,
+                "transitivity": "vi"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:62e76c414ee092b07f22",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:flow:b830cf241b4c5b2b:collocation:0"
+                    ],
+                    "meaning_cn": "车流",
+                    "phrase": "the flow of traffic"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "流畅；连续",
+                "definition_en": "a continuous progression",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:flow:b830cf241b4c5b2b",
+                "sense_label_en": "a continuous progression",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:dac13457f311f88cbd16",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:flow:131452bab75c57a8:collocation:0"
+                    ],
+                    "meaning_cn": "使河水淹没田野",
+                    "phrase": "flow the river over the fields"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "使流动；淹没",
+                "definition_en": "to cause to flow",
+                "governing_pattern": "vt. + object",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:flow:131452bab75c57a8",
+                "sense_label_en": "to cause to flow",
+                "sort_order": 3,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 0,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "flow",
+            "word_family": [],
+            "word_id": "word:flow"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2002.json",
+      "mode": "patch_json",
+      "expected_sha256": "052bcf65ca0705c7a493e87756fda130acd3f3d9049114bfd1b0c0350842cfe5",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [
+              {
+                "construction_id": "construction:722436a7107ab2d96cb0",
+                "direction": "R+P",
+                "level": "L2",
+                "meaning_cn": "开辟新道路",
+                "pattern": "forge a new path",
+                "source_sense_id": "sense:forge:03ba0107613942c5"
+              }
+            ],
+            "content_hash": "8522d35b9b6f0b48e7d3dd634b9940436445cd1415ed5be931d5f497680af792",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "锻造；打制；伪造；建立或发展牢固的关系/道路",
+                  "label_en": "to forge metal; counterfeit; or build/develop strong relationships or paths",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:forge:547b7bfee5715df4",
+                    "sense:forge:5d0ff6d8f99c57a2",
+                    "sense:forge:03ba0107613942c5"
+                  ]
+                },
+                {
+                  "label_cn": "熔炉；锻炉",
+                  "label_en": "a forge/furnace",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:forge:d6305a8374e35e82"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "锻造；伪造；建立或开辟",
+              "core_meaning_en": "to forge metal, counterfeit, or build/develop a strong relationship or path",
+              "mental_model_cn": "从“锻造成形”延伸到伪造，以及建立牢固关系、联盟或开辟道路；铁匠铺义留在低优先级。",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:3dce873af26f96e71f19",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:forge:547b7bfee5715df4:collocation:0"
+                    ],
+                    "meaning_cn": "锻造一把剑",
+                    "phrase": "forge a sword"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "锻造；打制",
+                "definition_en": "create by hammering",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:forge:547b7bfee5715df4",
+                "sense_label_en": "create by hammering",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:abfdd619cf89779aef48",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:forge:5d0ff6d8f99c57a2:collocation:0"
+                    ],
+                    "meaning_cn": "伪造签名",
+                    "phrase": "forge a signature"
+                  },
+                  {
+                    "collocation_id": "collocation:53ce28c26c69a0a6c641",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:forge:5d0ff6d8f99c57a2:collocation:1"
+                    ],
+                    "meaning_cn": "伪造文件",
+                    "phrase": "forge a document"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "伪造；假冒",
+                "definition_en": "make a copy of with the intent to deceive",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:forge:5d0ff6d8f99c57a2",
+                "sense_label_en": "make a copy of with the intent to deceive",
+                "sort_order": 1,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:bef8f21a6656e097c32c",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:forge:d6305a8374e35e82:collocation:0"
+                    ],
+                    "meaning_cn": "铁匠的锻炉",
+                    "phrase": "a blacksmith's forge"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "熔炉；锻炉",
+                "definition_en": "furnace consisting of a special hearth where metal is heated before shaping",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:forge:d6305a8374e35e82",
+                "sense_label_en": "furnace consisting of a special hearth where metal is heated before shap",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "建立或发展牢固的关系、联盟、联系或道路",
+                "definition_en": "to create or develop strong relationships, alliances, links, or paths",
+                "governing_pattern": "forge relationships/alliances/links",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:forge:03ba0107613942c5",
+                "sense_label_en": "to create or develop strong relationships, alliances, links, or paths",
+                "sort_order": 3,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:b7bf1e376d84e3d74cee",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:forge:21dc9fbce0655259:collocation:0"
+                    ],
+                    "meaning_cn": "在锻造车间工作",
+                    "phrase": "work in a forge"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "铁匠铺；锻造车间",
+                "definition_en": "a workplace where metal is worked by heating and hammering",
+                "governing_pattern": "",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:forge:21dc9fbce0655259",
+                "sense_label_en": "a workplace where metal is worked by heating and hammering",
+                "sort_order": 4,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 2,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "forge",
+            "word_family": [],
+            "word_id": "word:forge"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2025.json",
+      "mode": "patch_json",
+      "expected_sha256": "cc152c6547a9e4969af09b6820e88caf5a2902afe08e778c16f18463b1072dcb",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "54480cae413b55976f0b1bb39e58b56b3e664508f6b4d104c0ad17eb69b96c7f",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "创立；建立；铸造",
+              "core_meaning_en": "to found/establish; also to cast metal",
+              "mental_model_cn": "默认先认独立动词 found=创立/建立；铸造是较低层。相同表面 found 作为 find 的过去式/过去分词由 Form 单独提示。",
+              "mental_model_en": "Default to lexical found = establish; casting metal is lower priority. The identical surface used as the past/past participle of find is handled in Form."
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "deep:deep:word_family:found:6cb0b14bd817fbe8",
+              "relation:deep:word_family:found:6cb0b14bd817fbe8",
+              "relation:horizontal:94c703bddea9326422da",
+              "relation:morphology_relation:3f439ba8a0dbf9b67aab"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "创立；建立",
+                "definition_en": "to establish or set up an organization, institution, or settlement",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:found:4ac77dc17bb452e5",
+                "sense_label_en": "to establish or set up an organization, institution, or settlement",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:d8656ba068e7d22cf048",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:found:c3642182dee15ad8:collocation:0"
+                    ],
+                    "meaning_cn": "铸造钟",
+                    "phrase": "found a bell"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "铸造",
+                "definition_en": "to cast (metal) by melting and pouring into a mold",
+                "governing_pattern": "vt. + object",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:found:c3642182dee15ad8",
+                "sense_label_en": "to cast (metal) by melting and pouring into a mold",
+                "sort_order": 1,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 1,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "completed"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 1,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "found",
+            "word_family": [
+              {
+                "boundary": "found加ation构成名词，表基础",
+                "codex_reviewed": false,
+                "definition_cn": null,
+                "definition_en": null,
+                "dimensions": {},
+                "direction": "R",
+                "evidence": [
+                  {
+                    "evidence_id": "evidence:family:found:foundation",
+                    "evidence_status": "source_checked",
+                    "source_locator": "found|foundation",
+                    "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/processed/word_families.csv",
+                    "source_type": "learner_dictionary"
+                  }
+                ],
+                "fact_id": "deep:word_family:found:6cb0b14bd817fbe8",
+                "family_sources": [
+                  "curated core-card derivative",
+                  "local morphology candidate"
+                ],
+                "label_en": null,
+                "level": null,
+                "meaning_cn": null,
+                "module": "word_family",
+                "pattern": null,
+                "pos": null,
+                "priority": "A",
+                "publication_status": "publishable",
+                "shared_definition": null,
+                "source_sense_id": "sense:found:4ac77dc17bb452e5",
+                "target_sense_id": "sense:foundation:8c6044501eea59cb",
+                "target_word": "foundation",
+                "task_tags": [
+                  "reading"
+                ],
+                "verification_status": "verified",
+                "writing_safe": false
+              }
+            ],
+            "word_id": "word:found",
+            "form_identity": {
+              "form_type": "lexical_inflection_homograph_identity",
+              "spelling": "found",
+              "identity_rule": "surface_shared_between_lexeme_and_inflection",
+              "boundary": "found is a lexical verb meaning establish (and, separately, cast metal); the same surface found is also the past/past participle of find. Resolve from syntax and meaning.",
+              "boundaries": [
+                {
+                  "surface": "found",
+                  "condition": "lexical verb",
+                  "note": "establish; also cast metal in a lower branch"
+                },
+                {
+                  "surface": "found",
+                  "condition": "past/past participle of find",
+                  "note": "inflectional surface of find"
+                }
+              ],
+              "variants": [],
+              "authority": "BF19 existing-truth Form migration 2026-09-22"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2030.json",
+      "mode": "patch_json",
+      "expected_sha256": "f259f6df53e95437111611e4268dd8e033c73973f7375516b3a1d9dbd62adf19",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "e1b05428b03bcc99a9301deb6af192cd86735345acbc6b2876eb11f7262df216",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "狐狸；狡猾的人",
+                  "label_en": "a fox; figuratively a sly person",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:fox:4ab695341e485b06",
+                    "sense:fox:cddd9345f8175289"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "狐狸；狡猾的人",
+              "core_meaning_en": "a fox; figuratively a sly person",
+              "mental_model_cn": "默认先认动物“狐狸”，也可比喻狡猾的人；书页生黄斑是低优先级专业义。",
+              "mental_model_en": "Default to the animal fox; it can figuratively mean a sly person. Paper foxing is a lower-priority specialist sense."
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "狐狸",
+                "definition_en": "a wild animal of the dog family with a bushy tail",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:fox:4ab695341e485b06",
+                "sense_label_en": "a wild animal of the dog family with a bushy tail",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:b368dbe52793ddfbc80e",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:fox:cddd9345f8175289:collocation:0"
+                    ],
+                    "meaning_cn": "像狐狸一样狡猾",
+                    "phrase": "sly as a fox"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "狡猾的人",
+                "definition_en": "a cunning or sly person",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:fox:cddd9345f8175289",
+                "sense_label_en": "a cunning or sly person",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:9a211bdb98d1926d4f65",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:fox:d5cd1d318c3e5790:collocation:0"
+                    ],
+                    "meaning_cn": "书页泛黄",
+                    "phrase": "the pages foxed"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "（书页）生黄斑",
+                "definition_en": "to become discolored with brownish spots (of paper)",
+                "governing_pattern": "vi. + (no fixed)",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:fox:d5cd1d318c3e5790",
+                "sense_label_en": "to become discolored with brownish spots (of paper)",
+                "sort_order": 2,
+                "transitivity": "vi"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 0,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "fox",
+            "word_family": [],
+            "word_id": "word:fox"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2038.json",
+      "mode": "patch_json",
+      "expected_sha256": "710d8f1839e0d841ff48ab30027ef11efc57eaa8761217a4cd060286f336d464",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "7758cebaefcf9dc98e8808e68702033197e38d09f510b32a7fa3e6f774224292",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "特许经营权；特许经营企业/加盟店；系列/IP franchise",
+                  "label_en": "a franchise right; a franchise business/outlet; a media or IP franchise",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:franchise:ba27bcfbb8165be0",
+                    "sense:franchise:9059d367cc255984",
+                    "sense:franchise:2d740d1ccdb80539"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "特许经营权；加盟店；系列/IP franchise",
+              "core_meaning_en": "a right or authorization granted to someone",
+              "mental_model_cn": "现代高价值主干包括特许经营权、加盟店/特许经营企业，以及电影、游戏、书籍等共享品牌或 IP 的系列；选举权和动词义留在下一层。",
+              "mental_model_en": "High-value modern uses include a franchise right, a franchise business/outlet, and a media/IP series; voting-right and verb uses stay lower."
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "sense:sense:franchise:9059d367cc255984"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:eb59aef7c652c452618b",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:franchise:ba27bcfbb8165be0:collocation:0"
+                    ],
+                    "meaning_cn": "特许经营协议",
+                    "phrase": "franchise agreement"
+                  },
+                  {
+                    "collocation_id": "collocation:76f650bc444e9c91f2a5",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:franchise:ba27bcfbb8165be0:collocation:1"
+                    ],
+                    "meaning_cn": "开设特许经营店",
+                    "phrase": "open a franchise"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "特许经营权",
+                "definition_en": "an authorization to sell a company's goods or services in a particular place",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:franchise:ba27bcfbb8165be0",
+                "sense_label_en": "an authorization to sell a company's goods or services in a particular p",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "特许经营企业；加盟店",
+                "definition_en": "a business or outlet operated under a franchise agreement",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:franchise:9059d367cc255984",
+                "sense_label_en": "a business or outlet operated under a franchise agreement",
+                "sort_order": 1,
+                "source_evidence": [
+                  {
+                    "external_evidence": [],
+                    "semantic_auditor_approved": true,
+                    "source_candidate_evidence_ids": [
+                      "source-sense-candidate:franchise:16777ded0334eecb",
+                      "source-sense-candidate:franchise:5c568324cdf95b96"
+                    ],
+                    "source_operation_id": "operation:83ed07ed7ff169f43a22",
+                    "source_operation_sha256": "2e9a8344f7eb52a3978ca63649586103e747ec23f51db92e72f383a762152856",
+                    "verification_status": "auditor_verified"
+                  }
+                ]
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "电影、游戏或书籍等相互关联的系列或知识产权",
+                "definition_en": "a connected series or intellectual property of films, games, books, or similar works",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:franchise:2d740d1ccdb80539",
+                "sense_label_en": "a connected series or intellectual property of films, games, books, or similar works",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:9802bade48e99613e167",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:franchise:19e614eba40950c2:collocation:0"
+                    ],
+                    "meaning_cn": "选举权",
+                    "phrase": "the right to vote"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "公民权，选举权",
+                "definition_en": "a statutory right or privilege granted to a person or group by a government (especially the rights of citizenship and the right to vote)",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:franchise:19e614eba40950c2",
+                "sense_label_en": "a statutory right or privilege granted to a person or group by a governm",
+                "sort_order": 3,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:213d96187ca6e14707a7",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:franchise:d9d4da6ced915073:collocation:0"
+                    ],
+                    "meaning_cn": "授予某企业特许经营权",
+                    "phrase": "franchise a business"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "授予特许经营权",
+                "definition_en": "grant a franchise to",
+                "governing_pattern": "vt. + object",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:franchise:d9d4da6ced915073",
+                "sense_label_en": "grant a franchise to",
+                "sort_order": 4,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 0,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "franchise",
+            "word_family": [],
+            "word_id": "word:franchise"
+          }
+        }
+      ]
+    }
+  ],
+  "semantic_dependency_read_set": {}
+}
