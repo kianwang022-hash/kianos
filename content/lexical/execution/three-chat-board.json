@@ -32,20 +32,23 @@
     "p_behavior": "APPROVE_EXACT_SHOWN_DELTA__FREEZE_BACKLOG__IMMEDIATE_NEXT_PRODUCTION_BATCH"
   },
   "frontier": {
-    "accepted_main_head": "948d1daded47b8466ecfd5a14f20b5ba1ead0e94",
+    "accepted_main_head": "a655dc8dd8a8067a811760151d6c36684d0312e4",
     "current_candidate_id": "BF12",
     "range": [
       1251,
       1350
     ],
-    "state": "PRODUCTION_REVIEW_COMPLETE__MATERIALIZATION_READY",
+    "state": "AWAITING_HUMAN_GATE",
     "candidate_pr": null,
-    "candidate_branch": "work/lexical-bf12-o1251-o1350-20260922",
+    "candidate_branch": "work/lexical-fullcatalog-bf12-20260922",
     "materialized_owner_read_head": null,
-    "note": "BF12 Fresh Read + Self Attack complete: 82 PRESERVE, 18 bounded repairs, 0 unresolved. Refreeze latest main before semantic writes."
+    "review_branch": "work/lexical-fullcatalog-bf12-review-20260922",
+    "proposal_path": "content/lexical/execution/manifests/o1251-o1350.fullcatalog-final-standard-proposal.md",
+    "proposal_commit": "3c0aec668752d6ca537b3fd9c0151b75dc4aa368",
+    "note": "Full-catalog continuation BF12 completed 100/100 Fresh Read + Self Attack. 21 affected owners, 79 NO_CHANGE, 0 blockers. Three genuinely new Form/Identity deltas require exact Human Gate p before materialization."
   },
   "audit_target": {
-    "state": "WAITING_PRODUCTION_AND_MATERIALIZATION",
+    "state": "WAITING_HUMAN_GATE_AND_MATERIALIZATION",
     "candidate_id": "BF12",
     "range": [
       1251,
@@ -66,8 +69,15 @@
           1251,
           1350
         ],
-        "state": "REVIEW_BUNDLE_REQUIRED",
-        "next_action": "Export latest-main review bundles, Fresh Read + Self Attack, freeze smallest proposal."
+        "state": "AWAITING_HUMAN_GATE",
+        "review_branch": "work/lexical-fullcatalog-bf12-review-20260922",
+        "proposal_path": "content/lexical/execution/manifests/o1251-o1350.fullcatalog-final-standard-proposal.md",
+        "new_material_delta_owners": [
+          1263,
+          1268,
+          1279
+        ],
+        "next_action": "Kian p approves only the three shown Form/Identity deltas; then refreeze latest main, materialize BF12, rebuild FLOBs, run B audit."
       },
       "bootstrap_integration": {
         "candidate_id": "BF00",
@@ -1654,20 +1664,31 @@
   },
   "materialization_progress": {
     "candidate_id": "BF12",
-    "status": "PRODUCTION_REVIEW_COMPLETE__MATERIALIZATION_READY",
+    "status": "WAITING_HUMAN_GATE",
     "candidate_pr": null,
-    "latest_main_refreeze": "948d1daded47b8466ecfd5a14f20b5ba1ead0e94",
+    "latest_main_refreeze": "a655dc8dd8a8067a811760151d6c36684d0312e4",
     "review_range": [
       1251,
       1350
     ],
-    "reviewed_owner_count": 100,
-    "preserve_count": 82,
-    "repair_count": 18,
-    "unresolved_count": 0,
+    "review_artifact": 10670517946,
+    "review_artifact_digest": "sha256:57a59593ad82f54dc484063595548a22f49829a104bbdfb31d5e22d5f8b1ab16",
+    "proposal_path": "content/lexical/execution/manifests/o1251-o1350.fullcatalog-final-standard-proposal.md",
+    "proposal_commit": "3c0aec668752d6ca537b3fd9c0151b75dc4aa368",
+    "fresh_read_coverage": "100/100",
+    "self_attack": "COMPLETE",
+    "content_affected_owners": 21,
+    "content_no_change": 79,
+    "new_material_delta_owners": [
+      1263,
+      1268,
+      1279
+    ],
+    "blocked": 0,
+    "standing_repair_tests_before": 0,
+    "standing_repair_tests_after": 0,
     "final_learner_objects": 7946,
-    "final_learner_shards": 125,
-    "blocked": 0
+    "final_learner_shards": 125
   },
   "semantic_freeze_scope_amendment": "content/lexical/FINAL_SEMANTIC_FREEZE_SCOPE_AMENDMENT_20260922.md"
 }
