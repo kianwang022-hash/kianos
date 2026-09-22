@@ -292,7 +292,7 @@
     "ordinal": 2372,
     "word": "horn",
     "source_owner_path": "content/lexical/words/by-ordinal/o2372.json",
-    "source_fingerprint": "98c3fa5d23ef57cd6134adef4a1b22bd860a056a261be492ecceba4b291b2068",
+    "source_fingerprint": "735068b8b1c731c852940cee18ca1dce9bb150467e7539130a7a1d6bd646d21d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -302,13 +302,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "角；喇叭",
+      "summary_cn": "角；喇叭、警报器",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "角；喇叭"
+        "target_label": "角；喇叭、警报器"
       }
     },
     "senses": [
@@ -632,7 +632,7 @@
     "ordinal": 2375,
     "word": "horse",
     "source_owner_path": "content/lexical/words/by-ordinal/o2375.json",
-    "source_fingerprint": "06dda2143eee5972f370ee903a603054891257f9080933ce8fef19ff7638c8c2",
+    "source_fingerprint": "c362fc5aa3018c8d05ab2a637a99ca9fd758bfe90b75da8fdd15aec8bf962607",
     "sense_lineage": [
       {
         "word_id": "word:horse",
@@ -723,7 +723,41 @@
     "secondary_senses": [],
     "constructions": [],
     "reference": {
-      "confusables": [],
+      "confusables": [
+        {
+          "title": "horse ↔ hoarse",
+          "target_word": "hoarse",
+          "lines": [
+            {
+              "text": "horse means the animal; hoarse describes a rough, harsh voice. They are homophones in common standard pronunciations, though dialectal variants may differ.",
+              "lang": "en"
+            },
+            {
+              "text": "horse = 马",
+              "lang": "cn"
+            },
+            {
+              "text": "hoarse = 声音嘶哑的",
+              "lang": "cn"
+            },
+            {
+              "text": "common standard pronunciations overlap; avoid universal dialect claim",
+              "lang": "en"
+            },
+            {
+              "text": "horse and hoarse commonly sound the same but mean different things.",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:confusable:hoarse|horse:pronunciation_overlap",
+            "target_locator": "record.confusables[0]",
+            "target_label": "horse ↔ hoarse"
+          }
+        }
+      ],
       "relations": [],
       "form": null,
       "family": []
@@ -1048,7 +1082,7 @@
     "ordinal": 2380,
     "word": "host",
     "source_owner_path": "content/lexical/words/by-ordinal/o2380.json",
-    "source_fingerprint": "41dc5557354c15a547feff07d623ccbd5526607bba4087644db276b49c2e6076",
+    "source_fingerprint": "89ef3a8a0ba37016e15fe4c35ceb849e9c2651309c991782b981a6f645d8c02a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1121,39 +1155,8 @@
         }
       },
       {
-        "id": "sense:host:0d1088f0a1c45113",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "主机",
-        "definition_en": "a computer that provides services to other computers on a network",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:26617f67dad66149b41d",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "host computer",
-            "meaning_cn": "主机",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:26617f67dad66149b41d",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "host computer"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:host:0d1088f0a1c45113",
-          "target_locator": "record.senses[2]",
-          "target_label": "主机"
-        }
-      },
-      {
         "id": "sense:host:5da60fda97ef5a2c",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "主办；主持；招待",
@@ -1163,7 +1166,7 @@
         "usage": [
           {
             "id": "collocation:f329ca710195c4222142",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "host a meeting",
             "meaning_cn": "主持会议",
             "kind": "usage_example",
@@ -1171,7 +1174,7 @@
           },
           {
             "id": "collocation:864643cf086ede966857",
-            "source_locator": "record.senses[3].collocations[1]",
+            "source_locator": "record.senses[2].collocations[1]",
             "phrase": "host a show",
             "meaning_cn": "主持节目",
             "kind": "usage_example",
@@ -1181,8 +1184,39 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:host:5da60fda97ef5a2c",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "主办；主持；招待"
+        }
+      },
+      {
+        "id": "sense:host:0d1088f0a1c45113",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "主机",
+        "definition_en": "a computer that provides services to other computers on a network",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:26617f67dad66149b41d",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "host computer",
+            "meaning_cn": "主机",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:26617f67dad66149b41d",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "host computer"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:host:0d1088f0a1c45113",
+          "target_locator": "record.senses[3]",
+          "target_label": "主机"
         }
       },
       {
@@ -1344,7 +1378,7 @@
     "ordinal": 2382,
     "word": "hostile",
     "source_owner_path": "content/lexical/words/by-ordinal/o2382.json",
-    "source_fingerprint": "6f3bcf9c51c4321f4f679b45ea58c618f628bb41f26799df656b1fbe8340254a",
+    "source_fingerprint": "331f4b2d8792bcdb9454386809764de3dbe8c9014cba4fb42c3dfac0b59e7140",
     "sense_lineage": [
       {
         "word_id": "word:hostile",
@@ -1736,7 +1770,7 @@
     "ordinal": 2386,
     "word": "hour",
     "source_owner_path": "content/lexical/words/by-ordinal/o2386.json",
-    "source_fingerprint": "5e5024853a996d5e1b6d7cae2bacf67bb5729d7cb7c73f9632ddca9813b08a63",
+    "source_fingerprint": "8fcdca84daaef4c397938fd79566ca1fad549ca0b4609da821795792fa2d1cfd",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1853,7 +1887,41 @@
     "secondary_senses": [],
     "constructions": [],
     "reference": {
-      "confusables": [],
+      "confusables": [
+        {
+          "title": "hour ↔ our",
+          "target_word": "our",
+          "lines": [
+            {
+              "text": "hour and a common pronunciation of our overlap; hour is a unit of time, while our is a possessive determiner. our also has accent-dependent alternative pronunciations.",
+              "lang": "en"
+            },
+            {
+              "text": "hour = 小时",
+              "lang": "cn"
+            },
+            {
+              "text": "our = 我们的",
+              "lang": "cn"
+            },
+            {
+              "text": "common pronunciations overlap; our has accent-dependent alternatives",
+              "lang": "en"
+            },
+            {
+              "text": "Do not confuse hour (小时) with our (我们的) when the pronunciations overlap.",
+              "lang": "cn"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:confusable:hour|our:pronunciation_overlap",
+            "target_locator": "record.confusables[0]",
+            "target_label": "hour ↔ our"
+          }
+        }
+      ],
       "relations": [],
       "form": null,
       "family": []
@@ -1865,7 +1933,7 @@
     "ordinal": 2387,
     "word": "house",
     "source_owner_path": "content/lexical/words/by-ordinal/o2387.json",
-    "source_fingerprint": "3806aea519a8877ded64306b6abf6f975a314fcaea231f68c2a3a46d1fb27368",
+    "source_fingerprint": "ecc75b59b1cadb91d61f740b24eb2796932048e9d42f0496ff467baafb8b7ef3",
     "sense_lineage": [
       {
         "word_id": "word:house",
@@ -2006,7 +2074,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "house as a noun is pronounced /haʊs/; house as a verb is pronounced /haʊz/.",
+        "boundaries": [
+          {
+            "surface": "house",
+            "condition": "noun",
+            "note": "/haʊs/"
+          },
+          {
+            "surface": "house",
+            "condition": "verb",
+            "note": "/haʊz/"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "house as a noun is pronounced /haʊs/; house as a verb is pronounced /haʊz/."
+        }
+      },
       "family": []
     }
   },
@@ -2372,7 +2461,7 @@
     "ordinal": 2392,
     "word": "how",
     "source_owner_path": "content/lexical/words/by-ordinal/o2392.json",
-    "source_fingerprint": "ad3fd7350b5408ecd94d57dd35bc20040b65defa3b3e2e54bd86987f8eea0513",
+    "source_fingerprint": "5e971d7fb6d8c673c42af767790ac1bd063f38f5fb64221337ac9c4970c4927f",
     "sense_lineage": [
       {
         "word_id": "word:how",
@@ -2491,7 +2580,7 @@
     "ordinal": 2393,
     "word": "however",
     "source_owner_path": "content/lexical/words/by-ordinal/o2393.json",
-    "source_fingerprint": "e387bbe6c5e9bb04c5bd5731f52903c64d05c21b6835ef2b462ae457ce31a923",
+    "source_fingerprint": "c6f1852fbc34a162bdc1a2a91b557504f09576daef41e38d1bef6e67470a14cc",
     "sense_lineage": [
       {
         "word_id": "word:however",
@@ -2677,7 +2766,7 @@
     "ordinal": 2394,
     "word": "howl",
     "source_owner_path": "content/lexical/words/by-ordinal/o2394.json",
-    "source_fingerprint": "ac2fbee3d8bfecd0c31b9d9d1eaa0b6f6c50fac35ac80ac3a55bf8212f029689",
+    "source_fingerprint": "60167016cb11587118486c715d6e45a5b78dda092349464c3baf9b01bd938806",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2874,7 +2963,7 @@
     "ordinal": 2395,
     "word": "huddle",
     "source_owner_path": "content/lexical/words/by-ordinal/o2395.json",
-    "source_fingerprint": "9a988bf95604e5ba2c8d9439f3b4b3596ee58c933728f3aaef7c559155ceada8",
+    "source_fingerprint": "e6338469ea31a55c254d9a3ad69240f894c8bd8acc160603898581f4e3ff162c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3375,7 +3464,7 @@
     "ordinal": 2399,
     "word": "human",
     "source_owner_path": "content/lexical/words/by-ordinal/o2399.json",
-    "source_fingerprint": "56635c2b0e8cb3b9d09f120ab886e868113ff7d5a4606a938d81fc2309aabadc",
+    "source_fingerprint": "689048e2f3a21fe0c745c48b7b4f0bd3207da9b63f59996c6233ee4410a10d86",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3511,7 +3600,41 @@
     "secondary_senses": [],
     "constructions": [],
     "reference": {
-      "confusables": [],
+      "confusables": [
+        {
+          "title": "human ↔ humane",
+          "target_word": "humane",
+          "lines": [
+            {
+              "text": "human primarily means relating to people or humankind and also has a lower-priority compassionate/human-hearted sense; humane is the standard learner choice for compassionate treatment or concern with reducing suffering.",
+              "lang": "en"
+            },
+            {
+              "text": "human (default) = 人的；人类的",
+              "lang": "cn"
+            },
+            {
+              "text": "human also has a lower-priority 有同情心的/有人情味的 sense",
+              "lang": "cn"
+            },
+            {
+              "text": "humane = 人道的；仁慈的，尤其强调减轻痛苦",
+              "lang": "cn"
+            },
+            {
+              "text": "Use human for 人的/人类的. For 人道的/仁慈的, humane is the standard choice; human has only a secondary overlapping compassionate sense.",
+              "lang": "cn"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:confusable:human|humane:near_form",
+            "target_locator": "record.confusables[0]",
+            "target_label": "human ↔ humane"
+          }
+        }
+      ],
       "relations": [],
       "form": null,
       "family": []
@@ -3648,7 +3771,7 @@
     "ordinal": 2401,
     "word": "humble",
     "source_owner_path": "content/lexical/words/by-ordinal/o2401.json",
-    "source_fingerprint": "7f0a556ff33b0e45f81211d8e8ebc2d3b71e9cee7c409fdf072269a7246cff1e",
+    "source_fingerprint": "8afd05cf3a68ba34fc184a49dba3e67cec6a7d05f436dfe168828aa44b32334b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4065,7 +4188,7 @@
     "ordinal": 2405,
     "word": "humor",
     "source_owner_path": "content/lexical/words/by-ordinal/o2405.json",
-    "source_fingerprint": "cf147be38d2f3dc1af7aef8cd45ded19e2c95e9e241948e3ef18c633e24b35c9",
+    "source_fingerprint": "a13c4bc03852e70b7c6f878df35cebacf683c1fa0fe05e606e90c425a2df76cd",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4075,13 +4198,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "幽默；迎合",
+      "summary_cn": "幽默；心情、情绪",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "幽默；迎合"
+        "target_label": "幽默；心情、情绪"
       }
     },
     "senses": [
@@ -4198,7 +4321,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "humor is the usual American spelling; humour is the usual British spelling.",
+        "boundaries": [
+          {
+            "surface": "humor",
+            "condition": "American English",
+            "note": "AmE spelling"
+          },
+          {
+            "surface": "humour",
+            "condition": "British English",
+            "note": "BrE spelling"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "humor is the usual American spelling; humour is the usual British spelling."
+        }
+      },
       "family": []
     }
   },
@@ -4288,7 +4432,7 @@
     "ordinal": 2407,
     "word": "hundred",
     "source_owner_path": "content/lexical/words/by-ordinal/o2407.json",
-    "source_fingerprint": "373889f56aeaefe9b0487dd142f901a8a6f96fe467193af6d01788e7be12e2b2",
+    "source_fingerprint": "954f0cbc688e99532b2453626632ade8fca9b03bbba0a4dcde1509755f2c5856",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4416,7 +4560,7 @@
     "ordinal": 2408,
     "word": "hunger",
     "source_owner_path": "content/lexical/words/by-ordinal/o2408.json",
-    "source_fingerprint": "4f34ff38ed91c9a115d0c2ae2f6fc5b50beb4a6f44353c5c62f9621af00e2602",
+    "source_fingerprint": "deba9307f00aae1c141e99bc14ede6fe5fd4074df6d9fcd77301cd28ff288400",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4794,7 +4938,7 @@
     "ordinal": 2411,
     "word": "hurl",
     "source_owner_path": "content/lexical/words/by-ordinal/o2411.json",
-    "source_fingerprint": "fd2afea900d0e9d85e56c783f31169dfacf7aa6eb6eb0f9be580dbcb4ade5279",
+    "source_fingerprint": "25b7db1d68edbaedcdc41111178e6e489980432c4358e5b264ba6b96f8977bfa",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4804,13 +4948,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "猛掷",
+      "summary_cn": "猛掷；大声说出",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "猛掷"
+        "target_label": "猛掷；大声说出"
       }
     },
     "senses": [
@@ -5154,7 +5298,7 @@
     "ordinal": 2414,
     "word": "hurt",
     "source_owner_path": "content/lexical/words/by-ordinal/o2414.json",
-    "source_fingerprint": "07af8e52fdf1f928d45c52f3f32203e9c64bb5aca434ad1319f64d3e19eaab61",
+    "source_fingerprint": "b211d1ff496882f8c37581edce98d16aeb61ab1aa6a706cd9825c7123c332265",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5164,13 +5308,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "伤害；疼痛",
+      "summary_cn": "伤害；疼痛；使伤心",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "伤害；疼痛"
+        "target_label": "伤害；疼痛；使伤心"
       }
     },
     "senses": [
@@ -5294,7 +5438,33 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "hurt has invariant past and past participle: hurt → hurt → hurt.",
+        "boundaries": [
+          {
+            "surface": "hurt",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "hurt",
+            "condition": "past simple",
+            "note": "invariant past"
+          },
+          {
+            "surface": "hurt",
+            "condition": "past participle",
+            "note": "invariant participle"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "hurt has invariant past and past participle: hurt → hurt → hurt."
+        }
+      },
       "family": []
     }
   },
@@ -5400,7 +5570,7 @@
     "ordinal": 2416,
     "word": "hut",
     "source_owner_path": "content/lexical/words/by-ordinal/o2416.json",
-    "source_fingerprint": "a01ec8433bbe7bd64f0e28e26a6e9a92e8c1f2212791692956e12f9692b87833",
+    "source_fingerprint": "9de0e5d7da5e3125a2c3b19447174a8c497a41a9143913271f245aa92143a1d7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5893,7 +6063,7 @@
     "ordinal": 2421,
     "word": "hypothesis",
     "source_owner_path": "content/lexical/words/by-ordinal/o2421.json",
-    "source_fingerprint": "e6196778f7cb60ab584684d60d3b20a00fdf6418f9f50a4eb514abeabd1d6236",
+    "source_fingerprint": "7b021b762a0af24450f5b4873935588af19029f8230eca9a125c610879dba11f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5952,7 +6122,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "hypothesis has the irregular plural hypotheses; the ending changes from singular -sis to plural -ses, with the plural pronounced with final /siːz/.",
+        "boundaries": [
+          {
+            "surface": "hypothesis",
+            "condition": "singular",
+            "note": "singular form"
+          },
+          {
+            "surface": "hypotheses",
+            "condition": "plural",
+            "note": "irregular plural; final /siːz/"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "hypothesis has the irregular plural hypotheses; the ending changes from singular -sis to plural -ses, with the plural pronounced with final /siːz/."
+        }
+      },
       "family": []
     }
   },
@@ -6053,7 +6244,7 @@
     "ordinal": 2423,
     "word": "I",
     "source_owner_path": "content/lexical/words/by-ordinal/o2423.json",
-    "source_fingerprint": "239f63e41d4c4c7020b4de19acfaf16f2f28be82f90d47e7fb9a884aeda3cb9b",
+    "source_fingerprint": "a42318d6fa75116f74f2312f5d592a9a2eca3f877113a1d9a6723a717f0ea503",
     "sense_lineage": [
       {
         "word_id": "word:i",
@@ -6113,7 +6304,7 @@
     "ordinal": 2424,
     "word": "ice",
     "source_owner_path": "content/lexical/words/by-ordinal/o2424.json",
-    "source_fingerprint": "e81c1abb86323004b84e7b90281faf97af020bffa7ddeba061ee3c66212018ef",
+    "source_fingerprint": "421a4809c18cc9bce604b3946ee6a0a6cd8a573c638ebd7b67dbc1001e368205",
     "sense_lineage": [
       {
         "word_id": "word:ice",
@@ -6131,13 +6322,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "冰",
+      "summary_cn": "冰；冰镇；结冰",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "冰"
+        "target_label": "冰；冰镇；结冰"
       }
     },
     "senses": [
@@ -6552,7 +6743,7 @@
     "ordinal": 2427,
     "word": "ideal",
     "source_owner_path": "content/lexical/words/by-ordinal/o2427.json",
-    "source_fingerprint": "9b8774ee268f6c7b75fe50cb368cfaff7fe644ff4eb6488ff716842173410284",
+    "source_fingerprint": "e8f104cd088e4848993ef5606bde37281092c2435715819353677f59ef15305a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [

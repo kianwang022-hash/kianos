@@ -4101,7 +4101,7 @@
     "ordinal": 6967,
     "word": "humane",
     "source_owner_path": "content/lexical/words/by-ordinal/o6967.json",
-    "source_fingerprint": "4c6de4bf3d22fee10c83830b2fb6ac2e657264684278289d0778fc973c27d23e",
+    "source_fingerprint": "c9424507b4be92a1a14f71c0102b1205cb7491fbe56937413172952b82ba8d10",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4158,7 +4158,41 @@
     "secondary_senses": [],
     "constructions": [],
     "reference": {
-      "confusables": [],
+      "confusables": [
+        {
+          "title": "humane ↔ human",
+          "target_word": "human",
+          "lines": [
+            {
+              "text": "humane means compassionate or concerned with reducing suffering; human primarily means relating to people/humankind, though human also preserves a lower-priority compassionate/human-hearted sense.",
+              "lang": "en"
+            },
+            {
+              "text": "humane = 人道的；仁慈的，尤其强调减轻痛苦",
+              "lang": "cn"
+            },
+            {
+              "text": "human (default) = 人的；人类的",
+              "lang": "cn"
+            },
+            {
+              "text": "human also has a lower-priority overlapping compassionate sense",
+              "lang": "en"
+            },
+            {
+              "text": "Use humane for 人道的/仁慈的. Human primarily means 人的/人类的, with only a secondary overlapping compassionate sense.",
+              "lang": "cn"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:confusable:human|humane:near_form",
+            "target_locator": "record.confusables[0]",
+            "target_label": "humane ↔ human"
+          }
+        }
+      ],
       "relations": [],
       "form": null,
       "family": []
