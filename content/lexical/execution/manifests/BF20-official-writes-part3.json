@@ -1,0 +1,1693 @@
+{
+  "schema": "kianos.lexical.bf20_write_fragment.v1",
+  "part": 3,
+  "writes": [
+    {
+      "path": "content/lexical/words/by-ordinal/o2121.json",
+      "mode": "patch_json",
+      "expected_sha256": "cc321ce199524407b09c1cbd931daca16a9acdd9b118e14e0839e135d84e0f36",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "59baf8c09d25139899ced59a8b27136973553466d231bcf141291afac77b6673",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "温和的，轻柔的",
+              "core_meaning_en": "mild, kind, or soft in manner or effect",
+              "mental_model_cn": "温和的，轻柔的",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "温和的；和善的；柔和的",
+                "definition_en": "mild, kind, or soft in manner or effect",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:gentle:b9bfe7ccd20552c9",
+                "sense_label_en": "mild, kind, or soft in manner or effect",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "和蔼的；温柔的",
+                "definition_en": "having or showing a kindly or tender nature",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:gentle:3e6627f89e925d9c",
+                "sense_label_en": "having or showing a kindly or tender nature",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 2,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "gentle",
+            "word_family": [],
+            "word_id": "word:gentle"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2130.json",
+      "mode": "patch_json",
+      "expected_sha256": "d2fd6132277c7667d44fb2ac6cd951469842773f15969f2e1a233539e5f23de8",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v3",
+            "confusables": [],
+            "constructions": [
+              {
+                "construction_id": "construction:707bd2829dfed90f16ad",
+                "direction": "R+P",
+                "level": "L1",
+                "meaning_cn": "使某事被完成；安排/找人把某事做了",
+                "pattern": "get sth done",
+                "definition_en": "to arrange for or cause something to be done",
+                "source_sense_id": "sense:get:af37ab5b13fc5589",
+                "boundary": "causative/resultative construction"
+              },
+              {
+                "construction_id": "construction:98144f79775b15d263b9",
+                "direction": "R+P",
+                "level": "L2",
+                "meaning_cn": "习惯于某物或做某事",
+                "pattern": "get used to + noun/doing"
+              },
+              {
+                "construction_id": "construction:55b224c4cea7322ec217",
+                "direction": "R+P",
+                "level": "L2",
+                "meaning_cn": "摆脱或除去某物",
+                "pattern": "get rid of sth"
+              }
+            ],
+            "content_hash": "7325d45c8a79dfa31d10b63db544daf3b00d623ae7df325b56eb48e336f1a73a",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "得到；变得",
+              "core_meaning_en": "obtain, receive, or become",
+              "mental_model_cn": "得到；变得",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "construction:construction:707bd2829dfed90f16ad",
+              "construction:deep:constructions:get:35be5e2a04568355",
+              "deep:deep:constructions:get:35be5e2a04568355",
+              "sense:sense:get:67189d7e8a9356e2",
+              "semantic-reconciliation:o2025-o2224"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:da9bf341211ab2dd8823",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:get:a81c17cb752756d9:collocation:0"
+                    ],
+                    "meaning_cn": "得到一份工作",
+                    "phrase": "get a job"
+                  },
+                  {
+                    "collocation_id": "collocation:3f2fa60f0be01fbcc5df",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:get:a81c17cb752756d9:collocation:1"
+                    ],
+                    "meaning_cn": "得到某物",
+                    "phrase": "get + sth"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "得到；获得",
+                "definition_en": "to obtain or receive something",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:get:a81c17cb752756d9",
+                "sense_label_en": "to obtain or receive something",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:127f1112fc8855b78bf3",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:get:fe196a3b43775355:collocation:0"
+                    ],
+                    "meaning_cn": "到达学校",
+                    "phrase": "get to school"
+                  },
+                  {
+                    "collocation_id": "collocation:279f875c1d280d332b04",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:get:fe196a3b43775355:collocation:1"
+                    ],
+                    "meaning_cn": "到达某地",
+                    "phrase": "get to + place"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "到达",
+                "definition_en": "to arrive at a place",
+                "governing_pattern": "vi. + to",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:get:fe196a3b43775355",
+                "sense_label_en": "to arrive at a place",
+                "sort_order": 1,
+                "transitivity": "vi"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:5e5717d545ab149d6d92",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:get:5cb76155072057b2:collocation:0"
+                    ],
+                    "meaning_cn": "变得疲劳",
+                    "phrase": "get tired"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "变得",
+                "definition_en": "to become",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:get:5cb76155072057b2",
+                "sense_label_en": "to become",
+                "sort_order": 2,
+                "transitivity": "linking"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:b13cab587c01d91d65ce",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:get:af37ab5b13fc5589:collocation:0"
+                    ],
+                    "meaning_cn": "让他帮忙",
+                    "phrase": "get him to help"
+                  },
+                  {
+                    "collocation_id": "collocation:23da6f4a9218050acd5a",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:get:af37ab5b13fc5589:collocation:1"
+                    ],
+                    "meaning_cn": "让某人做某事",
+                    "phrase": "get + sb + to do"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "使得；让",
+                "definition_en": "to cause someone or something to do something",
+                "governing_pattern": "vt. + object + to do",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:get:af37ab5b13fc5589",
+                "sense_label_en": "to cause someone or something to do something",
+                "sort_order": 3,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "理解；明白",
+                "definition_en": "to understand or grasp the meaning of something",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:get:67189d7e8a9356e2",
+                "sense_label_en": "to understand or grasp the meaning of something",
+                "sort_order": 4,
+                "source_evidence": [
+                  {
+                    "external_evidence": [],
+                    "semantic_auditor_approved": false,
+                    "source_candidate_evidence_ids": [],
+                    "source_operation_id": "operation:228ab0b4c655c98d3aa2",
+                    "source_operation_sha256": "aa853d39815f990fa79f4660c4f760adf0005ca6978297a49af90e38f4daccca",
+                    "verification_status": "semantic_auditor_verified"
+                  }
+                ],
+                "transitivity": "vt",
+                "governing_pattern": "get + sth / get what/why/how + clause"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 3,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "completed",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 1,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "get",
+            "word_family": [],
+            "word_id": "word:get",
+            "form_identity": {
+              "form_type": "irregular_inflection_identity",
+              "spelling": "get",
+              "identity_rule": "same_word_owner_no_semantic_split",
+              "boundary": "get has present participle getting, past got, and past participle got; in U.S. English the past participle is usually gotten.",
+              "boundaries": [
+                {
+                  "surface": "getting",
+                  "condition": "present participle",
+                  "note": "double t before -ing"
+                },
+                {
+                  "surface": "got",
+                  "condition": "past simple",
+                  "note": "irregular past"
+                },
+                {
+                  "surface": "got",
+                  "condition": "past participle, especially British English",
+                  "note": "accepted participle"
+                },
+                {
+                  "surface": "gotten",
+                  "condition": "past participle, usually U.S. English",
+                  "note": "common AmE participle"
+                }
+              ],
+              "variants": [],
+              "authority": "BF20 grouped p approved Form expansion 2026-09-22"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2131.json",
+      "mode": "patch_json",
+      "expected_sha256": "31c6bd42f7768aa62b2c393e4e7f19098bc3a06d5f4fc90bfe9581bb651103c3",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "a973fa4ddc7227934af5bbcd1441eaa89703623d4f77bd3f89aa3334ba12e6dc",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "鬼；幽灵",
+                  "label_en": "the spirit of a dead person that may appear to the living",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:ghost:04473f0cc7765ab9"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "鬼；幽灵",
+              "core_meaning_en": "the spirit of a dead person",
+              "mental_model_cn": "鬼；幽灵",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "鬼；幽灵",
+                "definition_en": "the spirit of a dead person that some people think they can see or feel",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:ghost:04473f0cc7765ab9",
+                "sense_label_en": "the spirit of a dead person that some people think they can see or feel",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:f2b5f069f8b788e723a9",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:ghost:9c5a6fb3d2485aaf:collocation:0"
+                    ],
+                    "meaning_cn": "一线机会",
+                    "phrase": "a ghost of a chance"
+                  },
+                  {
+                    "collocation_id": "collocation:908f6b3c24cec1920f6a",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:ghost:9c5a6fb3d2485aaf:collocation:1"
+                    ],
+                    "meaning_cn": "一丝微笑",
+                    "phrase": "a ghost of a smile"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "一丝；一点",
+                "definition_en": "a slight trace or possibility of something",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:ghost:9c5a6fb3d2485aaf",
+                "sense_label_en": "a slight trace or possibility of something",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "鬼似地游荡",
+                "definition_en": "to move smoothly and quietly like a ghost",
+                "governing_pattern": "",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:ghost:e2d7c253c58252e7",
+                "sense_label_en": "to move smoothly and quietly like a ghost",
+                "sort_order": 2,
+                "transitivity": "vi"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:7386be2eca2bcb27e890",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:ghost:e4f27ec6c099562a:collocation:0"
+                    ],
+                    "meaning_cn": "为某人代笔写书",
+                    "phrase": "ghost a book for + sb"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "代笔",
+                "definition_en": "to write for someone else who takes credit",
+                "governing_pattern": "vt. + object",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:ghost:e4f27ec6c099562a",
+                "sense_label_en": "to write for someone else who takes credit",
+                "sort_order": 3,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 3,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "ghost",
+            "word_family": [],
+            "word_id": "word:ghost"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2132.json",
+      "mode": "patch_json",
+      "expected_sha256": "f2d31b853293b25fd050938229763c33287627f35237b0e715d2a0a6c7408071",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "a0ab77de1700aff1f9f360b074e8adba17a46fec1fdd446f07663a11b9a9b54a",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "巨人；巨物；巨头；大公司",
+                  "label_en": "a person or creature of exceptional size; an unusually large enterprise",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:giant:28bd4b58cf0457bf",
+                    "sense:giant:74d0b75d23e65320"
+                  ]
+                },
+                {
+                  "label_cn": "巨大的",
+                  "label_en": "very large in size",
+                  "pos": "adjective",
+                  "sense_ids": [
+                    "sense:giant:0f552ad97a5a5527"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "巨大的人或物",
+              "core_meaning_en": "something or someone of great size or importance",
+              "mental_model_cn": "巨大的人或物",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:c88f67ef199c8042d531",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:giant:28bd4b58cf0457bf:collocation:0"
+                    ],
+                    "meaning_cn": "温和的巨人",
+                    "phrase": "a gentle giant"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "巨人；巨物",
+                "definition_en": "a person or creature of exceptional size",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:giant:28bd4b58cf0457bf",
+                "sense_label_en": "a person or creature of exceptional size",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:d6720eea75c74b698bde",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:giant:74d0b75d23e65320:collocation:0"
+                    ],
+                    "meaning_cn": "行业巨头",
+                    "phrase": "industry giant"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "巨头；大公司",
+                "definition_en": "an unusually large enterprise",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:giant:74d0b75d23e65320",
+                "sense_label_en": "an unusually large enterprise",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:1ddc8f3ddf66917e6a71",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:giant:0f552ad97a5a5527:collocation:0"
+                    ],
+                    "meaning_cn": "巨大的一步",
+                    "phrase": "giant step"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "巨大的",
+                "definition_en": "very large in size",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:giant:0f552ad97a5a5527",
+                "sense_label_en": "very large in size",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 1,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "giant",
+            "word_family": [],
+            "word_id": "word:giant"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2133.json",
+      "mode": "patch_json",
+      "expected_sha256": "a5777192b828a68ea514a40082f5b1994a5a6f91ac94bdf997356a0ef797955d",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "2f7eadd1972fe9734f308b8a8509c8a0c5f5f40750c351f1cf3fb3e863c9816c",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "礼物；天赋；才能",
+                  "label_en": "a gift; a natural talent or ability",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:gift:294794acac4e534a",
+                    "sense:gift:3d379070013854e0"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "礼物；天赋",
+              "core_meaning_en": "something given voluntarily; a natural talent",
+              "mental_model_cn": "礼物；天赋",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "construction:deep:constructions:gift:2aad0b902a6e26aa",
+              "deep:deep:constructions:gift:2aad0b902a6e26aa"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:07a6417dcf0b7e57c1a5",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:gift:294794acac4e534a:collocation:0"
+                    ],
+                    "meaning_cn": "生日礼物",
+                    "phrase": "birthday gift"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "礼物",
+                "definition_en": "something that you give to someone, especially on a special occasion",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:gift:294794acac4e534a",
+                "sense_label_en": "something that you give to someone, especially on a special occasion",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:e6c8848bc6605d287748",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:gift:3d379070013854e0:collocation:0"
+                    ],
+                    "meaning_cn": "音乐天赋",
+                    "phrase": "a gift for music"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "天赋；才能",
+                "definition_en": "a natural ability or talent",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:gift:3d379070013854e0",
+                "sense_label_en": "a natural ability or talent",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:5cf7db214e84cc1ee640",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:gift:e7f186f8216751c6:collocation:0"
+                    ],
+                    "meaning_cn": "用某物赠予某人",
+                    "phrase": "gift sb with + sth"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "赋予；赠送",
+                "definition_en": "to give something to someone as a gift",
+                "governing_pattern": "vt. + sb + with + sth",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:gift:e7f186f8216751c6",
+                "sense_label_en": "to give something to someone as a gift",
+                "sort_order": 2,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 3,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "completed",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 1,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "gift",
+            "word_family": [],
+            "word_id": "word:gift"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2137.json",
+      "mode": "patch_json",
+      "expected_sha256": "c73e2211d2e82ad9e4b7582bd0b8c0ba135c454fc448eb875f1c4721f26d66f0",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [
+              {
+                "construction_id": "construction:f1391c68be12952d61d8",
+                "direction": "R+P",
+                "level": "L1",
+                "meaning_cn": "引起；导致；产生",
+                "pattern": "give rise to sth",
+                "definition_en": "to cause or produce something",
+                "source_sense_id": "sense:give:af9558e1bdcd592d",
+                "boundary": "fixed causative phrase"
+              },
+              {
+                "construction_id": "construction:7bc67f3c8de42be2c46a",
+                "direction": "R",
+                "level": "L2",
+                "meaning_cn": "让位于；被……取代；屈服于",
+                "pattern": "give way to sth",
+                "definition_en": "to yield to something or be replaced by it",
+                "source_sense_id": "sense:give:e9c09603102055d3",
+                "boundary": "yield/replacement construction"
+              },
+              {
+                "construction_id": "construction:788ac465c42bd5d5862f",
+                "direction": "R+P",
+                "level": "L2",
+                "meaning_cn": "放弃某物；停止做某事",
+                "pattern": "give up sth/doing sth",
+                "definition_en": "to stop having, doing, or trying something",
+                "source_sense_id": "sense:give:e9c09603102055d3",
+                "boundary": "give up = stop/surrender"
+              }
+            ],
+            "content_hash": "eb1e2fa56fef349b1a7688695aa986750e576b9f8ece237a1e808ef1bf670aca",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "给；授予；提供；让步或屈服",
+                  "label_en": "to give, provide, yield, or surrender",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:give:5cb5553c31e3564b",
+                    "sense:give:af9558e1bdcd592d",
+                    "sense:give:e9c09603102055d3"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "给",
+              "core_meaning_en": "to transfer possession or provide something",
+              "mental_model_cn": "给",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "construction:construction:7bc67f3c8de42be2c46a",
+              "construction:construction:f1391c68be12952d61d8",
+              "semantic-reconciliation:o2025-o2224"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:1b6150b9f1e1a50be037",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:give:5cb5553c31e3564b:collocation:0"
+                    ],
+                    "meaning_cn": "给某人某物",
+                    "phrase": "give + sb + sth"
+                  },
+                  {
+                    "collocation_id": "collocation:94eaf76035f25b9edcb0",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:give:5cb5553c31e3564b:collocation:1"
+                    ],
+                    "meaning_cn": "把某物给某人",
+                    "phrase": "give + sth + to + sb"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "给，授予",
+                "definition_en": "to transfer possession of something to someone",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:give:5cb5553c31e3564b",
+                "sense_label_en": "to transfer possession of something to someone",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:f9f07c6234fe5880407a",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:give:af9558e1bdcd592d:collocation:0"
+                    ],
+                    "meaning_cn": "给某人建议",
+                    "phrase": "give + sb + advice"
+                  },
+                  {
+                    "collocation_id": "collocation:f5958a825536c6422a49",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:give:af9558e1bdcd592d:collocation:1"
+                    ],
+                    "meaning_cn": "做讲座",
+                    "phrase": "give + a lecture"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "供给，提供",
+                "definition_en": "to provide or supply something",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:give:af9558e1bdcd592d",
+                "sense_label_en": "to provide or supply something",
+                "sort_order": 1,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:5c95d423455e122b8d3b",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:give:e9c09603102055d3:collocation:0"
+                    ],
+                    "meaning_cn": "屈服",
+                    "phrase": "give in"
+                  },
+                  {
+                    "collocation_id": "collocation:d590b4c2b53ea151bec7",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:give:e9c09603102055d3:collocation:1"
+                    ],
+                    "meaning_cn": "放弃",
+                    "phrase": "give up"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "让步，屈服",
+                "definition_en": "to yield or surrender",
+                "governing_pattern": "vi. + in/up",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:give:e9c09603102055d3",
+                "sense_label_en": "to yield or surrender",
+                "sort_order": 2,
+                "transitivity": "vi"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:10d1964126583525b247",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:give:ca65388918fb51ef:collocation:0"
+                    ],
+                    "meaning_cn": "材料的弹性",
+                    "phrase": "give in the material"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "弹性",
+                "definition_en": "the ability to bend or stretch",
+                "governing_pattern": "",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:give:ca65388918fb51ef",
+                "sense_label_en": "the ability to bend or stretch",
+                "sort_order": 3,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 3,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "give",
+            "word_family": [],
+            "word_id": "word:give",
+            "form_identity": {
+              "form_type": "irregular_inflection_identity",
+              "spelling": "give",
+              "identity_rule": "same_word_owner_no_semantic_split",
+              "boundary": "give is irregular: give → gave → given.",
+              "boundaries": [
+                {
+                  "surface": "give",
+                  "condition": "base/present",
+                  "note": "base form"
+                },
+                {
+                  "surface": "gave",
+                  "condition": "past simple",
+                  "note": "irregular past"
+                },
+                {
+                  "surface": "given",
+                  "condition": "past participle",
+                  "note": "irregular participle"
+                }
+              ],
+              "variants": [],
+              "authority": "BF20 grouped p approved Form expansion 2026-09-22"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2140.json",
+      "mode": "patch_json",
+      "expected_sha256": "7fbd7106efd34cfe1c4bb977180db762ffabb091d04479cbe5652b3870410b4e",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [
+              {
+                "boundary": "glamor sb into doing sth",
+                "codex_reviewed": false,
+                "definition_cn": "迷惑；迷住",
+                "definition_en": "to enchant or bewitch",
+                "dimensions": {},
+                "direction": "R",
+                "evidence": [
+                  {
+                    "evidence_id": "evidence:core-card:glamor:934972be550b",
+                    "evidence_status": "source_checked",
+                    "source_labels": [],
+                    "source_locator": "glamor:l3:2",
+                    "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/kianos-english-vocabulary-5500.generated.json",
+                    "source_type": "learner_dictionary"
+                  }
+                ],
+                "fact_id": "deep:constructions:glamor:6cddc0725a5595c0",
+                "family_sources": [],
+                "label_en": null,
+                "level": null,
+                "meaning_cn": "迷惑某人做某事",
+                "module": "constructions",
+                "pattern": "glamor sb into doing sth",
+                "pos": "verb",
+                "presentation_merge": {
+                  "merge_id": "presentation-merge:c70460ceb27aebfbbd16",
+                  "metadata_tags": [
+                    "cloze",
+                    "collocation",
+                    "construction",
+                    "writing"
+                  ],
+                  "mode": "MERGE_PRESENTATION",
+                  "surviving_object_id": "collocation:b2e2b33261cb8a578788"
+                },
+                "priority": "A",
+                "publication_status": "publishable",
+                "shared_definition": null,
+                "source_sense_id": "sense:glamor:24d9fb75c4c45cd0",
+                "target_sense_id": null,
+                "target_word": null,
+                "task_tags": [
+                  "cloze",
+                  "writing"
+                ],
+                "verification_status": "verified",
+                "writing_safe": false
+              }
+            ],
+            "content_hash": "9448aa0d4e87d1099b4caca9a0b9b7fac861db20e8237da5976939aae9b4c1ca",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "魅力；迷人的美",
+                  "label_en": "alluring beauty or charm (often with sex-appeal)",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:glamor:b54e005fdaa45d1a"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "魅力；迷人的美",
+              "core_meaning_en": "alluring beauty or charm",
+              "mental_model_cn": "魅力；迷人的美",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "construction:deep:constructions:glamor:6cddc0725a5595c0",
+              "deep:deep:constructions:glamor:6cddc0725a5595c0"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:8a8252a2c534948daf5c",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:glamor:b54e005fdaa45d1a:collocation:0"
+                    ],
+                    "meaning_cn": "好莱坞的魅力",
+                    "phrase": "the glamor of Hollywood"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "魅力；迷人的美",
+                "definition_en": "alluring beauty or charm (often with sex-appeal)",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:glamor:b54e005fdaa45d1a",
+                "sense_label_en": "alluring beauty or charm (often with sex-appeal)",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 1,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "completed",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 1,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "glamor",
+            "word_family": [],
+            "word_id": "word:glamor",
+            "form_identity": {
+              "form_type": "regional_spelling_identity",
+              "spelling": "glamor",
+              "identity_rule": "paired_frozen_word_spelling_variant",
+              "boundary": "glamor is the usual American spelling; glamour is the usual British spelling. Both frozen Word owners remain distinct catalogue identities.",
+              "boundaries": [
+                {
+                  "surface": "glamor",
+                  "condition": "American English",
+                  "note": "AmE spelling"
+                },
+                {
+                  "surface": "glamour",
+                  "condition": "British English",
+                  "note": "BrE spelling"
+                }
+              ],
+              "variants": [],
+              "authority": "BF20 existing-truth Form migration 2026-09-22"
+            }
+          }
+        },
+        {
+          "pointer": "/relation_refs",
+          "value": []
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2143.json",
+      "mode": "patch_json",
+      "expected_sha256": "8c16b7eec3bcdcfe6b1621d0ecb365f5ff54df224cd338b8c71f0e5c5e943dd5",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "1ce03c23901d197feaf98c8e1768dbe7e9c4a4a9e1803f0def17c3642041b866",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "玻璃；玻璃杯；玻璃器皿",
+                  "label_en": "glass material; a drinking glass; glassware",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:glass:000599a0eabb5594",
+                    "sense:glass:be73dade7d205a48",
+                    "sense:glass:47f03b7bf10f5ea4"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "玻璃或玻璃杯",
+              "core_meaning_en": "a hard transparent material or a drinking container",
+              "mental_model_cn": "玻璃或玻璃杯",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:3c0e66075d02a01a4990",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:glass:000599a0eabb5594:collocation:0"
+                    ],
+                    "meaning_cn": "一杯水",
+                    "phrase": "a glass of water"
+                  },
+                  {
+                    "collocation_id": "collocation:218dbbdbdac7423ee06a",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:glass:000599a0eabb5594:collocation:1"
+                    ],
+                    "meaning_cn": "玻璃瓶",
+                    "phrase": "glass bottle"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "玻璃",
+                "definition_en": "a hard, brittle, transparent material made from sand",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:glass:000599a0eabb5594",
+                "sense_label_en": "a hard, brittle, transparent material made from sand",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:e4e184ff52f7219105e8",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:glass:be73dade7d205a48:collocation:0"
+                    ],
+                    "meaning_cn": "喝一杯",
+                    "phrase": "drink a glass"
+                  },
+                  {
+                    "collocation_id": "collocation:4769e96e23bcc3a8cb97",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:glass:be73dade7d205a48:collocation:1"
+                    ],
+                    "meaning_cn": "一杯酒",
+                    "phrase": "a glass of wine"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "玻璃杯",
+                "definition_en": "a container for drinking, made of glass",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:glass:be73dade7d205a48",
+                "sense_label_en": "a container for drinking, made of glass",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:902ea6caa21097facdba",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:glass:47f03b7bf10f5ea4:collocation:0"
+                    ],
+                    "meaning_cn": "展示玻璃器皿",
+                    "phrase": "display glass"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "玻璃器皿",
+                "definition_en": "glassware collectively",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:glass:47f03b7bf10f5ea4",
+                "sense_label_en": "glassware collectively",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:d2a163e660ace4c5d0d1",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:glass:4f86d8cd3b5a5535:collocation:0"
+                    ],
+                    "meaning_cn": "给窗户装玻璃",
+                    "phrase": "glass a window"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "装玻璃于；使成玻璃状",
+                "definition_en": "to fit with glass or make glassy",
+                "governing_pattern": "vt. + object",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:glass:4f86d8cd3b5a5535",
+                "sense_label_en": "to fit with glass or make glassy",
+                "sort_order": 3,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 3,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "glass",
+            "word_family": [],
+            "word_id": "word:glass"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2144.json",
+      "mode": "patch_json",
+      "expected_sha256": "9f0526210caec92c246a73a977cd8d0804f6ca8fe5c52884396af28e2c5caf90",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "66251b9bf0852cc2a9d3216f02158bc9a0aca3b349738ffa97496eafc812f42b",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "滑动；滑行；滑翔",
+                  "label_en": "to glide or move smoothly; to fly in a glider",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:glide:201ed5d04e9c5633",
+                    "sense:glide:9672727e4971558c"
+                  ]
+                },
+                {
+                  "label_cn": "滑翔运动",
+                  "label_en": "the activity of gliding/flying a glider",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:glide:fe9e1c7d6fc25afd"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "平滑地移动",
+              "core_meaning_en": "move smoothly and effortlessly",
+              "mental_model_cn": "平滑地移动",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "滑动，滑行",
+                "definition_en": "move smoothly and effortlessly",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:glide:201ed5d04e9c5633",
+                "sense_label_en": "move smoothly and effortlessly",
+                "sort_order": 0,
+                "transitivity": "vi"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "滑翔",
+                "definition_en": "fly in or as if in a glider plane",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:glide:9672727e4971558c",
+                "sense_label_en": "fly in or as if in a glider plane",
+                "sort_order": 1,
+                "transitivity": "vi"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:c53146b67785fb04582c",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:glide:fe9e1c7d6fc25afd:collocation:0"
+                    ],
+                    "meaning_cn": "去滑翔",
+                    "phrase": "go gliding"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "滑翔运动",
+                "definition_en": "the activity of flying a glider",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:glide:fe9e1c7d6fc25afd",
+                "sense_label_en": "the activity of flying a glider",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:bd3679fec6b8af2024ab",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:glide:292d0f54a45850f1:collocation:0"
+                    ],
+                    "meaning_cn": "使船悄悄驶入港口",
+                    "phrase": "glide the boat into the harbor"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "使滑动，使悄悄移动",
+                "definition_en": "cause to move or pass silently, smoothly, or imperceptibly",
+                "governing_pattern": "vt. + object",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:glide:292d0f54a45850f1",
+                "sense_label_en": "cause to move or pass silently, smoothly, or imperceptibly",
+                "sort_order": 3,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 1,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "glide",
+            "word_family": [],
+            "word_id": "word:glide"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2148.json",
+      "mode": "patch_json",
+      "expected_sha256": "bf4294ebf59632ae57b14ff7461798d37202cd991725e618e97e1f11749db75f",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "79104d15a7a06242b8b814f72cb0aa79231a492b88d272d6a6843b53e1dc74d7",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "地球仪；地球、世界；球体",
+                  "label_en": "a globe/model of Earth; the world; a spherical object",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:globe:b6081bb36bf5554d",
+                    "sense:globe:a55ba7dd768c561d",
+                    "sense:globe:7d92919e72125316"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "球体，地球",
+              "core_meaning_en": "a spherical object, especially the earth or a model of it",
+              "mental_model_cn": "球体，地球",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "deep:deep:word_family:globe:57c1127100683cde",
+              "relation:deep:word_family:globe:57c1127100683cde"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:5a908635666c73dab562",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:globe:b6081bb36bf5554d:collocation:0"
+                    ],
+                    "meaning_cn": "地球仪",
+                    "phrase": "a globe of the world"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "地球仪",
+                "definition_en": "a sphere on which a map (especially of the earth) is represented",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:globe:b6081bb36bf5554d",
+                "sense_label_en": "a sphere on which a map (especially of the earth) is represented",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:f4e1f878fbf43cc471d0",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:globe:a55ba7dd768c561d:collocation:0"
+                    ],
+                    "meaning_cn": "全球，世界各地",
+                    "phrase": "around the globe"
+                  },
+                  {
+                    "collocation_id": "collocation:10a4774b2d216a0280ee",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:globe:a55ba7dd768c561d:collocation:1"
+                    ],
+                    "meaning_cn": "遍及全球",
+                    "phrase": "across the globe"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "地球，世界",
+                "definition_en": "the earth; the world",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:globe:a55ba7dd768c561d",
+                "sense_label_en": "the earth; the world",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:800673ebb6a33ec2ea6c",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:globe:7d92919e72125316:collocation:0"
+                    ],
+                    "meaning_cn": "玻璃球",
+                    "phrase": "a glass globe"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "球体，球状物",
+                "definition_en": "any spherical object",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:globe:7d92919e72125316",
+                "sense_label_en": "any spherical object",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:d469a95e78853af52554",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:globe:490c49f7dab6575c:collocation:0"
+                    ],
+                    "meaning_cn": "把黏土做成球状",
+                    "phrase": "globe the clay"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "使成球状",
+                "definition_en": "make into a globe or sphere",
+                "governing_pattern": "vt. + object",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:globe:490c49f7dab6575c",
+                "sense_label_en": "make into a globe or sphere",
+                "sort_order": 3,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 2,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "completed"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 1,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "globe",
+            "word_family": [
+              {
+                "boundary": "globe 名词 → global 形容词",
+                "codex_reviewed": false,
+                "definition_cn": null,
+                "definition_en": null,
+                "dimensions": {},
+                "direction": "R+P",
+                "evidence": [
+                  {
+                    "evidence_id": "evidence:family:globe:global",
+                    "evidence_status": "source_checked",
+                    "source_locator": "globe|global",
+                    "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/processed/word_families.csv",
+                    "source_type": "learner_dictionary"
+                  }
+                ],
+                "fact_id": "deep:word_family:globe:57c1127100683cde",
+                "family_sources": [
+                  "curated core-card derivative",
+                  "local morphology candidate"
+                ],
+                "label_en": null,
+                "level": null,
+                "meaning_cn": null,
+                "module": "word_family",
+                "pattern": null,
+                "pos": null,
+                "priority": "A",
+                "publication_status": "publishable",
+                "shared_definition": null,
+                "source_sense_id": "sense:globe:b6081bb36bf5554d",
+                "target_sense_id": "sense:global:b1da06841bfa5652",
+                "target_word": "global",
+                "task_tags": [
+                  "reading"
+                ],
+                "verification_status": "verified",
+                "writing_safe": true
+              }
+            ],
+            "word_id": "word:globe"
+          }
+        }
+      ]
+    }
+  ]
+}
