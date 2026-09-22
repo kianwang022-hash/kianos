@@ -1245,7 +1245,9 @@ The Orchestrator should behave conceptually as:
 ```text
 Morning / entry
 → resolve current Phase + next Gate
-→ read real capacity
+→ read real clock-time capacity
+→ when current private wearable/Health evidence is available and useful, build Recovery Context under §4.5
+→ resolve usable cognitive-capacity / load-placement constraints without inventing missing Health data
 → read compact subject Demand summaries
 → protect Floors
 → allocate elastic capacity
@@ -1270,6 +1272,7 @@ Current website ↔ Chat daily handoff is:
 ```text
 Home / private learner state
 → kianos.daily-learning-packet.v1
++ optional current private Recovery Context from connected Health / wearable evidence
 → Chat planning under this contract
 → kianos.exam.chat-plan.v1 for the same study_day
 → Home validates/imports
@@ -1277,6 +1280,8 @@ Home / private learner state
 ```
 
 The Daily Learning Packet is factual learner/runtime evidence, not an engineering-control request. A fresh Chat should not enter root engineering Current merely because the packet mentions KianOS. Subject-specific typed Returns remain separate from this cross-subject plan.
+
+Recovery Context is optional private planning evidence. Missing, stale or unsynced Health data must not block ordinary planning; Chat falls back to real capacity + subject evidence and states the recovery uncertainty only when it changes the decision. Raw wearable samples are not copied into shared GitHub or treated as learner mastery evidence.
 
 The learner should not be required to maintain the scheduling model manually.
 
