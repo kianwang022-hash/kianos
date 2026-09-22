@@ -10,8 +10,8 @@
     "content_hash": "15ae156f9052b5532df9c44133f6a131cf8dfca42978a346805eb923ce650e39",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "跟随，遵循",
-      "core_meaning_en": "to go or come after; to act according to",
+      "core_meaning_cn": "跟随；遵循；理解",
+      "core_meaning_en": "to follow, obey, or understand",
       "mental_model_cn": "跟随，遵循",
       "mental_model_en": ""
     },
@@ -85,6 +85,32 @@
         "transitivity": "vt"
       },
       {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "理解；听懂；跟得上",
+        "definition_en": "to understand the meaning, logic, or explanation of something",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:follow:6ccaed7f05415eb2",
+        "sense_label_en": "to understand the meaning, logic, or explanation of something",
+        "sort_order": 2,
+        "source_evidence": [
+          {
+            "external_evidence": [],
+            "semantic_auditor_approved": false,
+            "source_candidate_evidence_ids": [
+              "source-sense-candidate:follow:c881465ea6a6993a"
+            ],
+            "source_operation_id": "operation:6faf5b0fe6ac31d78aa3",
+            "source_operation_sha256": "22fcfd25ea8f5dbcaa8652d1f01065a2a99816600a1acd83e7c0809f27f477b0",
+            "verification_status": "semantic_auditor_verified"
+          }
+        ],
+        "transitivity": "vt",
+        "governing_pattern": "follow + sth/sb / follow what + clause"
+      },
+      {
         "collocations": [
           {
             "collocation_id": "collocation:8bb36a037cdcf951d18e",
@@ -114,7 +140,7 @@
         "pos": "verb",
         "sense_id": "sense:follow:5d54e6861e695b88",
         "sense_label_en": "to come after in time or order",
-        "sort_order": 2,
+        "sort_order": 3,
         "transitivity": "vi"
       },
       {
@@ -127,7 +153,7 @@
         "pos": "verb",
         "sense_id": "sense:follow:05dc9c8f19d0551e",
         "sense_label_en": "to happen or be true as a result or logical consequence of something",
-        "sort_order": 3,
+        "sort_order": 4,
         "source_evidence": [
           {
             "external_evidence": [],
@@ -140,31 +166,9 @@
             "source_operation_sha256": "9c68ab21bfb2a1be5cde69b2b0053fcae6f6e5d8caa4b036aff21bab95c90dec",
             "verification_status": "semantic_auditor_verified"
           }
-        ]
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "理解；听懂；跟得上",
-        "definition_en": "to understand the meaning, logic, or explanation of something",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:follow:6ccaed7f05415eb2",
-        "sense_label_en": "to understand the meaning, logic, or explanation of something",
-        "sort_order": 4,
-        "source_evidence": [
-          {
-            "external_evidence": [],
-            "semantic_auditor_approved": false,
-            "source_candidate_evidence_ids": [
-              "source-sense-candidate:follow:c881465ea6a6993a"
-            ],
-            "source_operation_id": "operation:6faf5b0fe6ac31d78aa3",
-            "source_operation_sha256": "22fcfd25ea8f5dbcaa8652d1f01065a2a99816600a1acd83e7c0809f27f477b0",
-            "verification_status": "semantic_auditor_verified"
-          }
-        ]
+        ],
+        "transitivity": "vi",
+        "governing_pattern": "follow from + sth / it follows that + clause"
       }
     ],
     "verification_summary": {
