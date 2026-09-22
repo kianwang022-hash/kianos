@@ -186,10 +186,14 @@ def validate_board(root: Path, package):
     board = load_json(safe(root, BOARD_PATH))
     require(board.get("schema") == BOARD_SCHEMA, "BOARD_SCHEMA_MISMATCH")
     frontier = board.get("frontier", {})
-    require(frontier.get("current_candidate_id") == package.get("candidate_id"), "NOT_LIVE_FRONTIER_CANDIDATE")
+    require(frontier.get("candidate_id") == package.get("candidate_id"), "NOT_LIVE_FRONTIER_CANDIDATE")
     require(frontier.get("state") in ALLOWED_FRONTIER_STATES, "FRONTIER_NOT_EXECUTABLE")
     r = package.get("range", {})
     require([r.get("start_ordinal"), r.get("end_ordinal")] == frontier.get("range"), "FRONTIER_RANGE_MISMATCH")
+
+    live_gate = frontier.get("human_gate", {})
+    require(live_gate.get("status") in {"APPROVED", "NOT_REQUIRED"}, "LIVE_HUMAN_GATE_NOT_APPROVED")
+
     gate = package.get("human_gate", {})
     require(gate.get("approved") is True and isinstance(gate.get("approval_ref"), str) and gate["approval_ref"].strip(),
             "HUMAN_GATE_NOT_RECORDED")
