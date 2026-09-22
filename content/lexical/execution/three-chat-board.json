@@ -38,17 +38,17 @@
       1851,
       1950
     ],
-    "state": "MATERIALIZE_ALLOWED",
+    "state": "B_AUDIT_PASS__READY_TO_MERGE",
     "candidate_pr": null,
     "candidate_branch": "work/lexical-continuous-bf18-official-20260922",
-    "materialized_owner_read_head": null,
+    "materialized_owner_read_head": "d375c0bd3a2a450abb19139a6244b2399adec276",
     "review_branch": "work/lexical-fullcatalog-bf18-review-20260922",
     "proposal_path": "content/lexical/execution/manifests/o1851-o1950.fullcatalog-final-standard-proposal.md",
     "proposal_commit": "7e93b7ce67831e482a4fd5cd9b446501c9095f8d",
-    "note": "BF18 exact Human Gate approved. Same p also pre-approves frozen BF19/BF20 new-material groups via bounded approval bundle; frontier order remains mandatory."
+    "note": "BF18 materialized and B readback PASS 30/30 changed owners; no reconciliation. Grouped p also pre-approves frozen BF19/BF20 material, but frontier order remains mandatory."
   },
   "audit_target": {
-    "state": "WAITING_MATERIALIZATION_AND_B_AUDIT",
+    "state": "PASS_READY_TO_MERGE",
     "candidate_id": "BF18",
     "range": [
       1851,
@@ -56,23 +56,12 @@
     ],
     "candidate_pr": null,
     "candidate_branch": "work/lexical-continuous-bf18-official-20260922",
-    "candidate_owner_read_head": null,
+    "candidate_owner_read_head": "d375c0bd3a2a450abb19139a6244b2399adec276",
     "brief": null,
-    "output": null,
-    "human_gate_required_groups": 7,
-    "human_gate_required_ordinals": [
-      1851,
-      1896,
-      1898,
-      1919,
-      1929,
-      1941,
-      1944
-    ],
-    "remote_dependency_if_approved": [
-      5532
-    ],
-    "human_gate_status": "APPROVED_EXACT_SCOPE",
+    "output": "content/lexical/semantic-audit/O1851_O1950_FINAL_STANDARD_SAME_CHAT_B_AUDIT_PACK.md",
+    "result": "PASS",
+    "independence_note": "BLIND_FIRST_NOT_ENFORCED",
+    "human_gate_status": "APPROVED_GROUP_BUNDLE",
     "human_gate_approval": "Kian p 2026-09-22",
     "human_gate_approved_ordinals": [
       1851,
@@ -1744,12 +1733,14 @@
         1941,
         1944
       ],
-      "remote_dependency_if_approved": [
+      "remote_dependency_ordinals": [
         5532
       ],
       "proposal": "content/lexical/execution/manifests/o1851-o1950.fullcatalog-final-standard-proposal.md",
-      "module_matrix": "content/lexical/execution/manifests/o1851-o1950.fullcatalog-final-standard-module-matrix.tsv",
-      "state": "WAITING_HUMAN_GATE"
+      "mutation_receipt": "content/lexical/execution/mutation-receipts/BF18-official-o1851-o1950-v1.json",
+      "audit": "content/lexical/semantic-audit/O1851_O1950_FINAL_STANDARD_SAME_CHAT_B_AUDIT_PACK.md",
+      "state": "B_AUDIT_PASS__READY_TO_MERGE",
+      "independence_note": "BLIND_FIRST_NOT_ENFORCED"
     }
   },
   "phase_transition": {
@@ -1760,7 +1751,7 @@
   },
   "materialization_progress": {
     "candidate_id": "BF18",
-    "status": "MATERIALIZE_ALLOWED",
+    "status": "B_AUDIT_PASS__READY_TO_MERGE",
     "candidate_pr": null,
     "latest_main_refreeze": "dc6281467dfdada3a7f3710771ac7b19dd8a5a26",
     "review_range": [
@@ -1794,7 +1785,12 @@
     "final_learner_objects": 7946,
     "final_learner_shards": 125,
     "human_gate_status": "APPROVED_EXACT_SCOPE",
-    "human_gate_approved_groups": 7
+    "human_gate_approved_groups": 7,
+    "materialized_commit": "d375c0bd3a2a450abb19139a6244b2399adec276",
+    "b_audit": "PASS",
+    "b_audit_output": "content/lexical/semantic-audit/O1851_O1950_FINAL_STANDARD_SAME_CHAT_B_AUDIT_PACK.md",
+    "b_reconciliation": "NOT_REQUIRED",
+    "independence_note": "BLIND_FIRST_NOT_ENFORCED"
   },
   "semantic_freeze_scope_amendment": "content/lexical/FINAL_SEMANTIC_FREEZE_SCOPE_AMENDMENT_20260922.md",
   "quality_first_execution": {
