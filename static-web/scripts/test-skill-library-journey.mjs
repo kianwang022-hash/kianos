@@ -43,6 +43,9 @@ const browser = await chromium.launch({ headless: true });
 try {
   const context = await browser.newContext();
   const page = await context.newPage();
+  page.on('pageerror', (error) => console.log('PAGE_ERROR', error.message));
+  page.on('console', (msg) => { if (msg.type() === 'error') console.log('CONSOLE_ERROR', msg.text()); });
+  page.on('requestfailed', (req) => console.log('REQUEST_FAILED', req.url(), req.failure()?.errorText || ''));
 
   await page.goto(BASE + '/skills/', { waitUntil: 'domcontentloaded' });
   await page.locator('h1').filter({ hasText: 'Skills' }).waitFor({ state: 'visible', timeout: 5000 });
@@ -57,6 +60,7 @@ try {
   await page.getByRole('link', { name: /总 Guide/ }).click();
   await page.getByText('高精力不是一个单变量').waitFor({ state: 'visible', timeout: 5000 });
   const key = 'kianos:skills:progress:v1';
+  console.log('GUIDE_RUNTIME_DEBUG', await page.evaluate(() => ({ reader: !!document.querySelector('[data-skill-reader]'), scripts: [...document.scripts].map((s) => s.src).filter(Boolean), keys: Object.keys(localStorage) })));
   await page.waitForFunction((k) => localStorage.getItem(k) !== null, key, { timeout: 3000 });
   let progress = JSON.parse(await page.evaluate((k) => localStorage.getItem(k), key));
   assert.equal(progress.skills['high-energy'].last_asset, 'guide');
