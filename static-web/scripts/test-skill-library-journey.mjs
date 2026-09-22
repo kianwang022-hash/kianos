@@ -19,7 +19,11 @@ async function startServer() {
   server.stdout.on('data', (c) => { output += c; });
   server.stderr.on('data', (c) => { output += c; });
   for (let i=0;i<80;i+=1) {
-    try { const r = await fetch(BASE + '/skills/'); if (r.ok) return; } catch {}
+    try {
+      const r = await fetch(BASE + '/skills/');
+      const body = r.ok ? await r.text() : '';
+      if (r.ok && body.includes('Skill Library') && server.exitCode == null) return;
+    } catch {}
     if (server.exitCode != null) throw new Error('SKILL_SERVER_EXITED:' + output.slice(-1200));
     await sleep(100);
   }
@@ -41,7 +45,7 @@ try {
   const page = await context.newPage();
 
   await page.goto(BASE + '/skills/', { waitUntil: 'load' });
-  assert.equal(await page.getByRole('heading', { name: 'Skills' }).count() > 0, true);
+  assert.equal(await page.locator('h1').filter({ hasText: 'Skills' }).count() > 0, true);
   assert.equal(await page.getByText('高精力自我调节').count() > 0, true);
   pass('Skill Library renders first promoted Skill');
 
