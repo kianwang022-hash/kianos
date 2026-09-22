@@ -38,17 +38,17 @@
       1651,
       1750
     ],
-    "state": "MATERIALIZE_ALLOWED",
+    "state": "RECONCILE_ALLOWED",
     "candidate_pr": null,
     "candidate_branch": "work/lexical-continuous-bf16-official-20260922",
-    "materialized_owner_read_head": null,
-    "note": "BF16 Production 100/100 complete: 25 affected / 75 NO_CHANGE / 0 blocked / 0 new learner material. Human Gate not required; existing-truth-only materialization allowed.",
+    "materialized_owner_read_head": "51a8caa66de9d1758ddf884e3e0ed21a795652c8",
+    "note": "BF16 materialization mechanically PASS. B readback found three existing-truth residues: o1658 engineer family wording/ownership, o1669 enrol I/T governing pattern, o1723 ethnic Core wording. No new learner material.",
     "review_branch": "work/lexical-fullcatalog-bf16-review-20260922",
     "proposal_path": "content/lexical/execution/manifests/o1651-o1750.fullcatalog-final-standard-proposal.md",
     "proposal_commit": "ec8dc13efec1c9728c9d3dede6348e535e514661"
   },
   "audit_target": {
-    "state": "WAITING_MATERIALIZATION_AND_B_AUDIT",
+    "state": "RECONCILE_ALLOWED",
     "candidate_id": "BF16",
     "range": [
       1651,
@@ -56,10 +56,15 @@
     ],
     "candidate_pr": null,
     "candidate_branch": "work/lexical-continuous-bf16-official-20260922",
-    "candidate_owner_read_head": null,
+    "candidate_owner_read_head": "51a8caa66de9d1758ddf884e3e0ed21a795652c8",
     "brief": null,
     "output": null,
-    "human_gate_status": "NOT_REQUIRED_EXISTING_TRUTH_ONLY"
+    "human_gate_status": "NOT_REQUIRED_EXISTING_TRUTH_ONLY",
+    "reconcile_ordinals": [
+      1658,
+      1669,
+      1723
+    ]
   },
   "lanes": {
     "A": {
@@ -1692,7 +1697,7 @@
   },
   "materialization_progress": {
     "candidate_id": "BF16",
-    "status": "MATERIALIZE_ALLOWED",
+    "status": "RECONCILE_ALLOWED",
     "candidate_pr": null,
     "latest_main_refreeze": "7c6b183b18f8240c2ac19b02f5edb49d3161280c",
     "review_range": [
@@ -1714,7 +1719,14 @@
     "standing_repair_tests_before": 0,
     "standing_repair_tests_after": 0,
     "final_learner_objects": 7946,
-    "final_learner_shards": 125
+    "final_learner_shards": 125,
+    "materialized_commit": "51a8caa66de9d1758ddf884e3e0ed21a795652c8",
+    "b_audit": "RECONCILE_REQUIRED",
+    "reconcile_ordinals": [
+      1658,
+      1669,
+      1723
+    ]
   },
   "semantic_freeze_scope_amendment": "content/lexical/FINAL_SEMANTIC_FREEZE_SCOPE_AMENDMENT_20260922.md"
 }
