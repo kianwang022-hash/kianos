@@ -1,0 +1,1434 @@
+{
+  "schema": "kianos.lexical.final_mutation_package.v1",
+  "package_id": "BF19-human-gate-scope-recovery-v1",
+  "candidate_id": "BF19",
+  "range": {
+    "start_ordinal": 1951,
+    "end_ordinal": 2050
+  },
+  "lane": "A",
+  "source_head": "8db5fc9094a138e22ec5b316ff0ac459f15ea3c4",
+  "human_gate": {
+    "approved": true,
+    "approval_ref": "Recovery: Kian explicitly limited 2026-09-22 p to BF18 only; remove unauthorized BF19 new Form material while retaining existing-truth corrections."
+  },
+  "writes": [
+    {
+      "path": "content/lexical/words/by-ordinal/o1957.json",
+      "mode": "patch_json",
+      "expected_sha256": "2c844225e20f35d925bd7eff6dfd0a7496aab468583e5d30ccde927148aef623",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "a4b5560698b122b2a55c338df5d8868f10128a9ff92750459ffa04d46a675bb7",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "逃跑，逃离",
+              "core_meaning_en": "to run away from danger or a place",
+              "mental_model_cn": "逃跑，逃离",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:4d577ac58eac13ad959e",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:flee:ed479e70ad145d77:collocation:0"
+                    ],
+                    "meaning_cn": "从……逃跑",
+                    "phrase": "flee from + sb/sth"
+                  },
+                  {
+                    "collocation_id": "collocation:fa2b04e473b611d6a158",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:flee:ed479e70ad145d77:collocation:1"
+                    ],
+                    "meaning_cn": "惊慌逃跑",
+                    "phrase": "flee in panic"
+                  },
+                  {
+                    "collocation_id": "collocation:3ce082fd4c99da3136cb",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:flee:de1ab00f14f356e3:collocation:0"
+                    ],
+                    "meaning_cn": "逃离国家",
+                    "phrase": "flee the country"
+                  },
+                  {
+                    "collocation_id": "collocation:9e61f623702bacb70271",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:flee:de1ab00f14f356e3:collocation:1"
+                    ],
+                    "meaning_cn": "逃离某物",
+                    "phrase": "flee + sth"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "逃跑，逃走",
+                "definition_en": "to run away quickly from danger or a place",
+                "governing_pattern": "flee from + sb/sth / flee + place/country",
+                "level": "L1",
+                "needs_human_review": 0,
+                "normalized_core": "run away / run away from a place or person",
+                "pos": "verb",
+                "sense_id": "sense:flee:ed479e70ad145d77",
+                "sense_label_en": "to run away quickly from danger or a place",
+                "sort_order": 0,
+                "transitivity": "I/T"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 3,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "flee",
+            "word_family": [],
+            "word_id": "word:flee"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1962.json",
+      "mode": "patch_json",
+      "expected_sha256": "c68c7da49ad99a2fe6f981eb6cc0acf64b61a44a355934ca2b32d3a71c051174",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "6315825815a01622cb646799ed771cc91d62035339079cacba1921d3e44adfbc",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "猛扔；掷；猛冲；急奔",
+                  "label_en": "throw with force or recklessness; move in an abrupt or headlong manner",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:fling:8aca65e0f84e57b6",
+                    "sense:fling:96875f49a5a450d7"
+                  ]
+                },
+                {
+                  "label_cn": "投掷；猛冲",
+                  "label_en": "the act of flinging",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:fling:99aa6c9b44e5561d"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "用力扔或猛冲",
+              "core_meaning_en": "to throw forcefully or move suddenly",
+              "mental_model_cn": "用力扔或猛冲",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:45183043021f2de22469",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:fling:8aca65e0f84e57b6:collocation:0"
+                    ],
+                    "meaning_cn": "向某人/某物扔某物",
+                    "phrase": "fling + sth + at + sb/sth"
+                  },
+                  {
+                    "collocation_id": "collocation:b120f937adbfba7441be",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:fling:8aca65e0f84e57b6:collocation:1"
+                    ],
+                    "meaning_cn": "猛地打开门",
+                    "phrase": "fling the door open"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "猛扔；掷",
+                "definition_en": "throw with force or recklessness",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:fling:8aca65e0f84e57b6",
+                "sense_label_en": "throw with force or recklessness",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:148a9b8e581575afa3de",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:fling:96875f49a5a450d7:collocation:0"
+                    ],
+                    "meaning_cn": "冲进某处",
+                    "phrase": "fling into + sth"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "猛冲；急奔",
+                "definition_en": "move in an abrupt or headlong manner",
+                "governing_pattern": "vi. + into",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:fling:96875f49a5a450d7",
+                "sense_label_en": "move in an abrupt or headlong manner",
+                "sort_order": 1,
+                "transitivity": "vi"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:2466759732dcd439a296",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:fling:99aa6c9b44e5561d:collocation:0"
+                    ],
+                    "meaning_cn": "纵情享乐；尝试",
+                    "phrase": "have a fling"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "投掷；猛冲",
+                "definition_en": "the act of flinging",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:fling:99aa6c9b44e5561d",
+                "sense_label_en": "the act of flinging",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 0,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "fling",
+            "word_family": [],
+            "word_id": "word:fling"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1975.json",
+      "mode": "patch_json",
+      "expected_sha256": "e13f2b3eb40a62f6747bb3125f3f42ad1206260e63cd04838d2b31ad58efe625",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "6ad17764ea75a39b4a6d2314c71c48e9579f2de48710eae74ddc173a83468318",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "飞；飞翔；飞越；逃离",
+                  "label_en": "to fly, fly over, or flee quickly",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:fly:1b7f62f335595750",
+                    "sense:fly:fa4de5ce75725904",
+                    "sense:fly:5b07b9e6f0b85043"
+                  ]
+                },
+                {
+                  "label_cn": "苍蝇",
+                  "label_en": "a fly insect",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:fly:c5b5e628afc75ca6"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "飞行或昆虫",
+              "core_meaning_en": "to move through the air or an insect",
+              "mental_model_cn": "飞行或昆虫",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:6b2f44a0c8abb54f8a59",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:fly:1b7f62f335595750:collocation:0"
+                    ],
+                    "meaning_cn": "飞往某地",
+                    "phrase": "fly to + place"
+                  },
+                  {
+                    "collocation_id": "collocation:e2f0f836f513049688fe",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:fly:1b7f62f335595750:collocation:1"
+                    ],
+                    "meaning_cn": "飞走",
+                    "phrase": "fly away"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "飞；飞翔",
+                "definition_en": "to move through the air using wings",
+                "governing_pattern": "vi. + to/from/into",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:fly:1b7f62f335595750",
+                "sense_label_en": "to move through the air using wings",
+                "sort_order": 0,
+                "transitivity": "vi"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:311d67953e20a6269a53",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:fly:c5b5e628afc75ca6:collocation:0"
+                    ],
+                    "meaning_cn": "拍苍蝇",
+                    "phrase": "swat a fly"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "苍蝇",
+                "definition_en": "a two-winged insect",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:fly:c5b5e628afc75ca6",
+                "sense_label_en": "a two-winged insect",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:b1965cc7c096e1cd00d7",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:fly:fa4de5ce75725904:collocation:0"
+                    ],
+                    "meaning_cn": "飞越大西洋",
+                    "phrase": "fly the Atlantic"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "飞越",
+                "definition_en": "to travel over or across by flying",
+                "governing_pattern": "vt. + object",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:fly:fa4de5ce75725904",
+                "sense_label_en": "to travel over or across by flying",
+                "sort_order": 2,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:47bef64eb8e02cf2eba8",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:fly:5b07b9e6f0b85043:collocation:0"
+                    ],
+                    "meaning_cn": "逃离危险",
+                    "phrase": "fly from + danger"
+                  },
+                  {
+                    "collocation_id": "collocation:076d5ac12bcacf036789",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:fly:5b07b9e6f0b85043:collocation:1"
+                    ],
+                    "meaning_cn": "逃离危险",
+                    "phrase": "fly from danger"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "逃走；逃离",
+                "definition_en": "to flee or escape",
+                "governing_pattern": "vi. + from",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:fly:5b07b9e6f0b85043",
+                "sense_label_en": "to flee or escape",
+                "sort_order": 3,
+                "transitivity": "vi"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:052f82211cf91b09a619",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:fly:f981456cea6952ed:collocation:0"
+                    ],
+                    "meaning_cn": "拉上拉链",
+                    "phrase": "zip up your fly"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "（裤子的）开口；门襟",
+                "definition_en": "an opening in a garment closed by a zipper or buttons",
+                "governing_pattern": "",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:fly:f981456cea6952ed",
+                "sense_label_en": "an opening in a garment closed by a zipper or buttons",
+                "sort_order": 4,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 3,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "fly",
+            "word_family": [],
+            "word_id": "word:fly"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1987.json",
+      "mode": "patch_json",
+      "expected_sha256": "c070e5bed969d0b840d9fd4dc534fe7a07a66aaf84d0995668e282a821d72f4e",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [
+              {
+                "construction_id": "construction:49dcc5c066f22644da50",
+                "construction_type": "idiom",
+                "direction": "R+P",
+                "level": "L2",
+                "meaning_cn": "买单；支付费用",
+                "pattern": "foot the bill"
+              }
+            ],
+            "content_hash": "edd01459741c439fd868351deadfc5a2084b846105d1ee9a7deac43103e8f615",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "脚，足；英尺",
+                  "label_en": "lower part of the leg; unit of length equal to 12 inches",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:foot:62669744c7035cdf",
+                    "sense:foot:b7fca292c1c05d8b"
+                  ]
+                },
+                {
+                  "label_cn": "支付（账单）",
+                  "label_en": "pay (a bill)",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:foot:19fcb0eca9d95c0b"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "脚；英尺",
+              "core_meaning_en": "body part or unit of length",
+              "mental_model_cn": "脚；英尺",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "construction:construction:49dcc5c066f22644da50"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:8f3b73548817649d8184",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:foot:62669744c7035cdf:collocation:0"
+                    ],
+                    "meaning_cn": "步行",
+                    "phrase": "on foot"
+                  },
+                  {
+                    "collocation_id": "collocation:b3359e70879540379bd9",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:foot:62669744c7035cdf:collocation:1"
+                    ],
+                    "meaning_cn": "付账",
+                    "phrase": "foot the bill"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "脚，足",
+                "definition_en": "lower part of the leg",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:foot:62669744c7035cdf",
+                "sense_label_en": "lower part of the leg",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:aba200c5fc4c9282c098",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:foot:b7fca292c1c05d8b:collocation:0"
+                    ],
+                    "meaning_cn": "六英尺高",
+                    "phrase": "six feet tall"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "英尺",
+                "definition_en": "unit of length equal to 12 inches",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:foot:b7fca292c1c05d8b",
+                "sense_label_en": "unit of length equal to 12 inches",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:ea789a0823394251467e",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:foot:19fcb0eca9d95c0b:collocation:0"
+                    ],
+                    "meaning_cn": "付账",
+                    "phrase": "foot the bill"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "支付（账单、费用；尤见 foot the bill）",
+                "definition_en": "to pay a bill or cost, especially in the phrase foot the bill",
+                "governing_pattern": "vt. + object",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:foot:19fcb0eca9d95c0b",
+                "sense_label_en": "pay (a bill)",
+                "sort_order": 2,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 2,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "foot",
+            "word_family": [],
+            "word_id": "word:foot"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1991.json",
+      "mode": "patch_json",
+      "expected_sha256": "296a1ecab9a58435032d12193e2c911bcfded2df902426cbd0d3cd3cc140a5bb",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "64f4382ea5317ed704e12b0a8011d6444ca93218369c835a7eae8c8c25f8422d",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "禁止",
+              "core_meaning_en": "to order someone not to do something",
+              "mental_model_cn": "禁止",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "construction:deep:constructions:forbid:9e30a1a90a11ace1",
+              "construction:deep:constructions:forbid:fcb68a3603682481",
+              "deep:deep:constructions:forbid:9e30a1a90a11ace1",
+              "deep:deep:constructions:forbid:fcb68a3603682481"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:19e84d200fd2f65166f3",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:forbid:5a85f3e29d195a2a:collocation:0"
+                    ],
+                    "meaning_cn": "禁止某人做某事",
+                    "phrase": "forbid sb to do sth"
+                  },
+                  {
+                    "collocation_id": "collocation:c30930cbc62b41ee07de",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:forbid:5a85f3e29d195a2a:collocation:1"
+                    ],
+                    "meaning_cn": "禁止做某事",
+                    "phrase": "forbid doing sth"
+                  },
+                  {
+                    "collocation_id": "collocation:ce7fc92a5ef7cc9f289d",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:forbid:5a85f3e29d195a2a:collocation:2"
+                    ],
+                    "meaning_cn": "禁止某人做某事",
+                    "phrase": "forbid sb from doing sth"
+                  },
+                  {
+                    "collocation_id": "collocation:6553305cbff97841509c",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:forbid:5a85f3e29d195a2a:collocation:3"
+                    ],
+                    "meaning_cn": "禁止使用某物",
+                    "phrase": "forbid the use of + sth"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "禁止，不准；阻止，妨碍",
+                "definition_en": "to order someone not to do something, or to make something impossible",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:forbid:5a85f3e29d195a2a",
+                "sense_label_en": "to order someone not to do something, or to make something impossible",
+                "sort_order": 0,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 3,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "completed",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 2,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "forbid",
+            "word_family": [],
+            "word_id": "word:forbid"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1994.json",
+      "mode": "patch_json",
+      "expected_sha256": "b664de0b74dbbe8acc028f9553e6d91d73ff147447a9a1f25bdd9f704ca8a6bd",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "2cf19308df5ccd3fc6152ba2b07a96b4d0c1281afee0a7850261aaddea5f7e2e",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "预测；预报",
+                  "label_en": "to predict or estimate something in advance",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:forecast:28fafb4a4eb95bd2"
+                  ]
+                },
+                {
+                  "label_cn": "预测；预报",
+                  "label_en": "a statement of what is likely to happen in the future",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:forecast:2d494a87043759e4"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "预测；预报",
+              "core_meaning_en": "to predict or a prediction of future events",
+              "mental_model_cn": "预测；预报",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:ef11a23588dff798e2be",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:forecast:28fafb4a4eb95bd2:collocation:0"
+                    ],
+                    "meaning_cn": "预报天气",
+                    "phrase": "forecast the weather"
+                  },
+                  {
+                    "collocation_id": "collocation:59e81466ff419f42e327",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:forecast:28fafb4a4eb95bd2:collocation:1"
+                    ],
+                    "meaning_cn": "预测销售额",
+                    "phrase": "forecast sales"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "预测；预报",
+                "definition_en": "to predict or estimate something in advance",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:forecast:28fafb4a4eb95bd2",
+                "sense_label_en": "to predict or estimate something in advance",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:e7ce0daa021f76202000",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:forecast:2d494a87043759e4:collocation:0"
+                    ],
+                    "meaning_cn": "天气预报",
+                    "phrase": "weather forecast"
+                  },
+                  {
+                    "collocation_id": "collocation:78b806572b5d0980845d",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:forecast:2d494a87043759e4:collocation:1"
+                    ],
+                    "meaning_cn": "经济预测",
+                    "phrase": "economic forecast"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "预测；预报",
+                "definition_en": "a statement of what is likely to happen in the future",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:forecast:2d494a87043759e4",
+                "sense_label_en": "a statement of what is likely to happen in the future",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 1,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "forecast",
+            "word_family": [],
+            "word_id": "word:forecast"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1999.json",
+      "mode": "patch_json",
+      "expected_sha256": "782c9114d2518c057a87e2244c7a59527a2ca8a20c4a08125320197dcf9314cb",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "d6e04b22645f9372721543e4332c5c14895d09df9fa2dd5a85f836caece7184a",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "预先知道或意识到（某事将发生）",
+              "core_meaning_en": "to know or realize something before it happens",
+              "mental_model_cn": "预先知道或意识到（某事将发生）",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:5adba21ab2ba7ea0ae5b",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:foresee:3435b0cd79c75fe4:collocation:0"
+                    ],
+                    "meaning_cn": "预见未来",
+                    "phrase": "foresee the future"
+                  },
+                  {
+                    "collocation_id": "collocation:9b87244a80833b8de2ac",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:foresee:3435b0cd79c75fe4:collocation:1"
+                    ],
+                    "meaning_cn": "预见到困难",
+                    "phrase": "foresee difficulties"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "预见，预知",
+                "definition_en": "to know or realize something before it happens",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:foresee:3435b0cd79c75fe4",
+                "sense_label_en": "to know or realize something before it happens",
+                "sort_order": 0,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 1,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "foresee",
+            "word_family": [],
+            "word_id": "word:foresee"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2003.json",
+      "mode": "patch_json",
+      "expected_sha256": "d6fb0a4bfa1a2f4cb811911437a3c62a27186f712b13e8615ecca71b444b9858",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [
+              {
+                "construction_id": "construction:903535d604b9e8bf9474",
+                "direction": "R+P",
+                "level": "L2",
+                "meaning_cn": "忘记已经做过某事",
+                "pattern": "forget doing/having done"
+              }
+            ],
+            "content_hash": "a8373681d978e60af8e37b61d5e7b7426481e331459207499537d25c2ca03cc6",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "忘记",
+              "core_meaning_en": "to fail to remember",
+              "mental_model_cn": "忘记",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:0ff84ee4ae4d4a77d246",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:forget:6059403b10a85c27:collocation:0"
+                    ],
+                    "meaning_cn": "忘记某事",
+                    "phrase": "forget about + sth"
+                  },
+                  {
+                    "collocation_id": "collocation:83808ec2725943aebf97",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:forget:6059403b10a85c27:collocation:1"
+                    ],
+                    "meaning_cn": "忘记某事",
+                    "phrase": "forget + sth"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "忘记；想不起来",
+                "definition_en": "to be unable to remember something",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:forget:6059403b10a85c27",
+                "sense_label_en": "to be unable to remember something",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:af8f6b85501bc8aa8074",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:forget:1ac865a3ea4355a2:collocation:0"
+                    ],
+                    "meaning_cn": "忘记做某事",
+                    "phrase": "forget to do sth"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "忘记做某事",
+                "definition_en": "to fail to do something because you did not remember",
+                "governing_pattern": "vt. + to do",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:forget:1ac865a3ea4355a2",
+                "sense_label_en": "to fail to do something because you did not remember",
+                "sort_order": 1,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "遗忘；落下",
+                "definition_en": "to leave something behind unintentionally",
+                "governing_pattern": "vt. + object",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:forget:4dacbbf8bab05764",
+                "sense_label_en": "to leave something behind unintentionally",
+                "sort_order": 2,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:37c8de83e6fba39d0b03",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:forget:a3cad5e2e0515b39:collocation:0"
+                    ],
+                    "meaning_cn": "既往不咎",
+                    "phrase": "forgive and forget"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "不再想；忘怀",
+                "definition_en": "to dismiss from the mind; stop remembering",
+                "governing_pattern": "vt. + object",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:forget:a3cad5e2e0515b39",
+                "sense_label_en": "to dismiss from the mind; stop remembering",
+                "sort_order": 3,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 3,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "forget",
+            "word_family": [],
+            "word_id": "word:forget"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2004.json",
+      "mode": "patch_json",
+      "expected_sha256": "5efbc2a9121c2de84f0499af7965553d583331cb2c905d87ef634a800bcea0b2",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "e825378c4876f341b78dde07ba7b54ea69fafa6e8406a63a868aa857cb562dbc",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "停止对某人的过错感到愤怒或怨恨；取消债务",
+              "core_meaning_en": "to stop feeling angry or resentful toward someone for an offense; to cancel a debt",
+              "mental_model_cn": "停止对某人的过错感到愤怒或怨恨；取消债务",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:0b6bfa8e55edfb7a09df",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:forgive:92579cbdcb3a53fe:collocation:0"
+                    ],
+                    "meaning_cn": "原谅某人做了某事",
+                    "phrase": "forgive sb for + sth"
+                  },
+                  {
+                    "collocation_id": "collocation:eaebf50cae223e7b94ba",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:forgive:92579cbdcb3a53fe:collocation:1"
+                    ],
+                    "meaning_cn": "既往不咎",
+                    "phrase": "forgive and forget"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "原谅，宽恕",
+                "definition_en": "to stop blaming or feeling angry at someone for something they have done",
+                "governing_pattern": "vt. + sb / vt. + sb + for + sth",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:forgive:92579cbdcb3a53fe",
+                "sense_label_en": "to stop blaming or feeling angry at someone for something they have done",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:1973d46eb312c7e6995e",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:forgive:18aac418d59d53c3:collocation:0"
+                    ],
+                    "meaning_cn": "免除债务",
+                    "phrase": "forgive a debt"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "免除（债务等）",
+                "definition_en": "to cancel or not require payment of a debt or obligation",
+                "governing_pattern": "vt. + sth",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:forgive:18aac418d59d53c3",
+                "sense_label_en": "to cancel or not require payment of a debt or obligation",
+                "sort_order": 1,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 1,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "forgive",
+            "word_family": [],
+            "word_id": "word:forgive"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2044.json",
+      "mode": "patch_json",
+      "expected_sha256": "200011512c4943e9dedf4d4f5582fe0c1082162428ce2dc744186ad06dee425a",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "3c937010657b618706830f467497ad03c201176d8cfabace168920dd1ec2f748",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "结冰；冻结；使结冰；使冻结；愣住；呆住",
+                  "label_en": "to become ice or solid due to cold; to cause something to become ice or solid; to stop moving suddenly, especially from fear or surprise",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:freeze:498bc787918456af",
+                    "sense:freeze:b5b1a1d1d46c5c9f",
+                    "sense:freeze:ac01f669ce5c506b"
+                  ]
+                },
+                {
+                  "label_cn": "严寒期；冻结",
+                  "label_en": "a period of very cold weather; a temporary halt",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:freeze:08004f38898153ad"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "冻结；愣住",
+              "core_meaning_en": "to become solid due to cold; to stop suddenly",
+              "mental_model_cn": "冻结；愣住",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:5940255fe06a1b1c1b48",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:freeze:498bc787918456af:collocation:0"
+                    ],
+                    "meaning_cn": "表面结冰",
+                    "phrase": "freeze over"
+                  },
+                  {
+                    "collocation_id": "collocation:7f15d6eba2530719c72a",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:freeze:498bc787918456af:collocation:1"
+                    ],
+                    "meaning_cn": "湖在冬天结冰了。",
+                    "phrase": "The lake froze in winter."
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "结冰；冻结",
+                "definition_en": "to become ice or solid due to cold",
+                "governing_pattern": "vi.",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:freeze:498bc787918456af",
+                "sense_label_en": "to become ice or solid due to cold",
+                "sort_order": 0,
+                "transitivity": "vi"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:7158065b667405945807",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:freeze:b5b1a1d1d46c5c9f:collocation:0"
+                    ],
+                    "meaning_cn": "使水结冰",
+                    "phrase": "freeze water"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "使结冰；使冻结",
+                "definition_en": "to cause something to become ice or solid",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:freeze:b5b1a1d1d46c5c9f",
+                "sense_label_en": "to cause something to become ice or solid",
+                "sort_order": 1,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:7dff33fd591442cbeabe",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:freeze:ac01f669ce5c506b:collocation:0"
+                    ],
+                    "meaning_cn": "吓得呆住",
+                    "phrase": "freeze in fear"
+                  },
+                  {
+                    "collocation_id": "collocation:f80de5fbd71f9ba3bbe8",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:freeze:ac01f669ce5c506b:collocation:1"
+                    ],
+                    "meaning_cn": "她看到蛇时愣住了。",
+                    "phrase": "She froze when she saw the snake."
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "愣住；呆住",
+                "definition_en": "to stop moving suddenly, especially from fear or surprise",
+                "governing_pattern": "vi.",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:freeze:ac01f669ce5c506b",
+                "sense_label_en": "to stop moving suddenly, especially from fear or surprise",
+                "sort_order": 2,
+                "transitivity": "vi"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:cb7e4b9d71644c9647c7",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:freeze:08004f38898153ad:collocation:0"
+                    ],
+                    "meaning_cn": "价格冻结",
+                    "phrase": "a price freeze"
+                  },
+                  {
+                    "collocation_id": "collocation:11e7ae9656bea1959582",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:freeze:08004f38898153ad:collocation:1"
+                    ],
+                    "meaning_cn": "严冬",
+                    "phrase": "a hard freeze"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "严寒期；冻结",
+                "definition_en": "a period of very cold weather; a temporary halt",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:freeze:08004f38898153ad",
+                "sense_label_en": "a period of very cold weather; a temporary halt",
+                "sort_order": 3,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:31b8cff265d22c0ede86",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:freeze:9fe6106e61acf851:collocation:handoff-o1625-o1874"
+                    ],
+                    "meaning_cn": "冻结价格、工资、账户或资产",
+                    "phrase": "freeze prices/wages/accounts/assets"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "冻结价格、工资、账户或资产",
+                "definition_en": "to hold prices, wages, accounts, or assets fixed or temporarily block access or activity",
+                "governing_pattern": "freeze prices/wages/accounts/assets",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:freeze:9fe6106e61acf851",
+                "sense_label_en": "to hold prices, wages, accounts, or assets fixed or temporarily block access or activity",
+                "sort_order": 4,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 0,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "freeze",
+            "word_family": [],
+            "word_id": "word:freeze"
+          }
+        }
+      ]
+    }
+  ],
+  "semantic_dependency_read_set": {}
+}
