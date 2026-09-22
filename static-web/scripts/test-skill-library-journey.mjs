@@ -40,19 +40,19 @@ try {
   const context = await browser.newContext();
   const page = await context.newPage();
 
-  await page.goto(BASE + '/skills/', { waitUntil: 'networkidle' });
+  await page.goto(BASE + '/skills/', { waitUntil: 'load' });
   assert.equal(await page.getByRole('heading', { name: 'Skills' }).count() > 0, true);
   assert.equal(await page.getByText('高精力自我调节').count() > 0, true);
   pass('Skill Library renders first promoted Skill');
 
   await page.getByRole('link', { name: '查看学习地图' }).click();
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('load');
   assert.equal(await page.getByText('Capability Map').count() > 0, true);
   assert.equal(await page.getByText('U1 · 状态诊断').count() > 0, true);
   pass('Skill map is manifest-driven');
 
   await page.getByRole('link', { name: /总 Guide/ }).click();
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('load');
   assert.equal(await page.getByText('高精力不是一个单变量').count() > 0, true);
   const key = 'kianos:skills:progress:v1';
   let progress = JSON.parse(await page.evaluate((k) => localStorage.getItem(k), key));
@@ -66,13 +66,13 @@ try {
   assert.equal(await page.getByText('已标记读完 · 不代表掌握').count() > 0, true);
   pass('Read completion is explicit and does not claim mastery');
 
-  await page.goto(BASE + '/skills/high-energy/', { waitUntil: 'networkidle' });
+  await page.goto(BASE + '/skills/high-energy/', { waitUntil: 'load' });
   const continueHref = await page.locator('[data-skill-continue]').getAttribute('href');
   assert.equal(continueHref.endsWith('/skills/high-energy/guide/'), true);
   assert.equal(await page.locator('[data-skill-asset-row="guide"][data-completed="true"]').count(), 1);
   pass('Skill Home restores last asset and completion marker');
 
-  await page.goto(BASE + '/skills/high-energy/u1-verify/', { waitUntil: 'networkidle' });
+  await page.goto(BASE + '/skills/high-energy/u1-verify/', { waitUntil: 'load' });
   assert.equal(await page.getByText('Protected Verify').count() > 0, true);
   assert.equal(await page.locator('[data-skill-complete]').count(), 0);
   progress = JSON.parse(await page.evaluate((k) => localStorage.getItem(k), key));
@@ -80,7 +80,7 @@ try {
   assert.equal(progress.skills['high-energy'].completed.includes('u1-verify'), false);
   pass('Verify stays separate and cannot be mistaken for reading completion');
 
-  await page.goto(BASE + '/skills/', { waitUntil: 'networkidle' });
+  await page.goto(BASE + '/skills/', { waitUntil: 'load' });
   const libraryContinue = await page.locator('[data-skill-continue="high-energy"]').getAttribute('href');
   assert.equal(libraryContinue.endsWith('/skills/high-energy/u1-verify/'), true);
   pass('Library Continue resumes exact last Skill asset');
