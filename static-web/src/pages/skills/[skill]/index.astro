@@ -1,0 +1,84 @@
+---
+import SkillsBase from '../../../layouts/SkillsBase.astro';
+import { listSkills, loadSkill, skillAssetHref } from '../../../lib/skills.mjs';
+
+export function getStaticPaths() {
+  return listSkills().map((skill) => ({ params: { skill: skill.id } }));
+}
+
+const base = import.meta.env.BASE_URL;
+const skillId = Astro.params.skill;
+const skill = loadSkill(skillId);
+const current = skill.assets.find((asset) => asset.id === skill.manifest.current_asset) || skill.assets[0];
+---
+<SkillsBase title={skill.title} kicker={skill.manifest.kicker || 'Skill'} description={skill.manifest.description || skill.subtitle}>
+  <header class="skillHero">
+    <div class="skillHeroMain">
+      <p class="skillEyebrow">{skill.portfolioState} · {skill.status}</p>
+      <h2>{skill.title}</h2>
+      <p>{skill.manifest.demand}</p>
+      {current && (
+        <a
+          class="skillPrimaryAction"
+          href={skillAssetHref(base, skill.id, current.id)}
+          data-skill-continue={skill.id}
+          data-default-asset={current.id}
+        >继续当前学习</a>
+      )}
+    </div>
+    <aside class="skillCapabilityMap" aria-label="能力地图">
+      <span>Capability Map</span>
+      <ol>
+        {(skill.manifest.capability_map || []).map((item) => <li>{item}</li>)}
+      </ol>
+    </aside>
+  </header>
+
+  <section class="skillSection">
+    <header class="skillSectionHead">
+      <div><span>Current route</span><h3>学习资产</h3></div>
+      <p>正文和 Verify 分开；完成阅读不等于掌握。</p>
+    </header>
+    <div class="skillAssetList">
+      {skill.assets.map((asset) => (
+        <a class={'skillAssetRow skillAssetRow-' + asset.kind} href={skillAssetHref(base, skill.id, asset.id)} data-skill-asset-row={asset.id}>
+          <div>
+            <span>{asset.kind.toUpperCase()}</span>
+            <strong>{asset.title}</strong>
+            <p>{asset.label}</p>
+          </div>
+          <b aria-hidden="true">→</b>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  {(skill.manifest.next_planned || []).length > 0 && (
+    <section class="skillSection skillPlanned">
+      <header class="skillSectionHead"><div><span>Next</span><h3>后续能力</h3></div></header>
+      <div class="skillPlannedGrid">
+        {skill.manifest.next_planned.map((item) => <div><span>{item.status}</span><strong>{item.title}</strong></div>)}
+      </div>
+    </section>
+  )}
+</SkillsBase>
+
+<script>
+  import { skillProgressFor } from '../../../lib/skillRuntimeClient.mjs';
+  const base = import.meta.env.BASE_URL;
+  const link = document.querySelector('[data-skill-continue]');
+  if (link instanceof HTMLAnchorElement) {
+    const skillId = link.dataset.skillContinue || '';
+    const state = skillProgressFor(skillId);
+    if (state.last_asset) {
+      link.href = base + 'skills/' + encodeURIComponent(skillId) + '/' + encodeURIComponent(state.last_asset) + '/';
+      link.textContent = '继续上次位置';
+    }
+    for (const row of document.querySelectorAll('[data-skill-asset-row]')) {
+      if (!(row instanceof HTMLElement)) continue;
+      const assetId = row.dataset.skillAssetRow || '';
+      if (state.completed.includes(assetId)) row.dataset.completed = 'true';
+      else if (state.visited.includes(assetId)) row.dataset.visited = 'true';
+    }
+  }
+</script>
