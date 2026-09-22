@@ -56,15 +56,8 @@
         "confidence": "medium",
         "definition_cn": "登记，注册（使成为参与者或成员）",
         "definition_en": "register formally as a participant or member",
-        "governing_pattern": "vt. + sb (as/in/for sth)",
+        "governing_pattern": "enrol in/at + course/institution / enrol sb as/in/for + sth",
         "level": "L1",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "form_boundary",
-          "note": "enrol/enroll UK/US spelling boundary",
-          "paired_form": "enrol",
-          "surface_lemma": "enrol"
-        },
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:enrol:ab871afbff9651e7",
@@ -90,16 +83,29 @@
     },
     "word": "enrol",
     "word_family": [],
-    "word_id": "word:enrol"
-  },
-  "relation_refs": [
-    {
-      "relation_id": "relation:horizontal:4b9944a12c0792d22a26",
-      "owner_path": "content/lexical/relations/by-id/81/811c22c7c3636982c326b2c1a0e6ab4552dfafc9e7e91c8d16e9b2afff09343c.json",
-      "field": "semantic_neighbors",
-      "index": 0
+    "word_id": "word:enrol",
+    "form_identity": {
+      "form_type": "regional_spelling_identity",
+      "spelling": "enrol",
+      "identity_rule": "paired_frozen_word_spelling_variant",
+      "boundary": "enrol is the common British spelling; enroll is the usual American spelling. Both frozen Word owners remain distinct catalogue identities.",
+      "boundaries": [
+        {
+          "surface": "enrol",
+          "condition": "British English",
+          "note": "common BrE spelling"
+        },
+        {
+          "surface": "enroll",
+          "condition": "American English",
+          "note": "usual AmE spelling"
+        }
+      ],
+      "variants": [],
+      "authority": "BF16 existing-truth Form migration 2026-09-22"
     }
-  ],
+  },
+  "relation_refs": [],
   "reference_senses": [
     {
       "stable_sense_id": "sense:enrol:786d6ff3a51d5d5f",

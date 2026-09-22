@@ -5,7 +5,7 @@
     "ordinal": 1729,
     "word": "even",
     "source_owner_path": "content/lexical/words/by-ordinal/o1729.json",
-    "source_fingerprint": "0da2f256045dd3684d3c7ea48687e9381de427605e45b59c7c48f4d0e57fd87f",
+    "source_fingerprint": "92c4f2f376cb288543c0e5180bba08aff0af248f6b8769afd4b616ae88dad9e8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -17,13 +17,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "平坦；相等；甚至",
-      "decision_cn": "",
+      "summary_cn": "甚至、更加；平坦、均衡、偶数或平稳",
+      "decision_cn": "高频先分副词 even（甚至/更加）与形容词 even（平坦、均衡、偶数、平稳）；低频动词/名词留在扩展。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "平坦；相等；甚至"
+        "target_label": "甚至、更加；平坦、均衡、偶数或平稳"
       }
     },
     "senses": [
@@ -70,8 +70,50 @@
         }
       },
       {
-        "id": "sense:even:aaecbb1d8d145f87",
+        "id": "sense:even:cec2f94f2fae5036",
         "source_locator": "record.senses[1]",
+        "pos": "adverb",
+        "governing_pattern": "",
+        "definition_cn": "更加；甚至更",
+        "definition_en": "used before a comparative to emphasize a greater degree or extent",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:419005ad51a89cbdc0bb",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "even more",
+            "meaning_cn": "",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:cf3522c12b0cb4b2a7bd",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "even better",
+            "meaning_cn": "",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:021428edfd1ac9d13e8c",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "even less",
+            "meaning_cn": "",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:even:cec2f94f2fae5036",
+          "target_locator": "record.senses[1]",
+          "target_label": "更加；甚至更"
+        }
+      },
+      {
+        "id": "sense:even:aaecbb1d8d145f87",
+        "source_locator": "record.senses[2]",
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "平坦的，平的",
@@ -81,7 +123,7 @@
         "usage": [
           {
             "id": "collocation:a58792806c73caa727e3",
-            "source_locator": "record.senses[1].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "even surface",
             "meaning_cn": "平坦的表面",
             "kind": "usage_example",
@@ -91,13 +133,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:even:aaecbb1d8d145f87",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[2]",
           "target_label": "平坦的，平的"
         }
       },
       {
         "id": "sense:even:b1cb8a558c555cb7",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[3]",
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "相等的；均衡的；公平的",
@@ -107,7 +149,7 @@
         "usage": [
           {
             "id": "collocation:94158db02dd8a0cd7fbe",
-            "source_locator": "record.senses[2].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "even score",
             "meaning_cn": "平局",
             "kind": "usage_example",
@@ -117,13 +159,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:even:b1cb8a558c555cb7",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[3]",
           "target_label": "相等的；均衡的；公平的"
         }
       },
       {
         "id": "sense:even:0915c6db34da53fa",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[4]",
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "偶数的",
@@ -133,7 +175,7 @@
         "usage": [
           {
             "id": "collocation:24e6ce8f2dac6533c3b3",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[4].collocations[0]",
             "phrase": "even number",
             "meaning_cn": "偶数",
             "kind": "usage_example",
@@ -143,13 +185,55 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:even:0915c6db34da53fa",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[4]",
           "target_label": "偶数的"
         }
       },
       {
+        "id": "sense:even:c805d837b8cb5c9b",
+        "source_locator": "record.senses[5]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "均匀的；平稳的；规律的",
+        "definition_en": "continuous, regular, and not changing suddenly",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:71b658ff7aaf63c1cfe8",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "an even rate",
+            "meaning_cn": "",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:7c954f5fad058f077669",
+            "source_locator": "record.senses[5].collocations[1]",
+            "phrase": "even breathing",
+            "meaning_cn": "",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:38caee3365ccab383949",
+            "source_locator": "record.senses[5].collocations[2]",
+            "phrase": "an even pace",
+            "meaning_cn": "",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:even:c805d837b8cb5c9b",
+          "target_locator": "record.senses[5]",
+          "target_label": "均匀的；平稳的；规律的"
+        }
+      },
+      {
         "id": "sense:even:97f381555b7d5696",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[6]",
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "使平坦；使相等",
@@ -160,13 +244,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:even:97f381555b7d5696",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[6]",
           "target_label": "使平坦；使相等"
         }
       },
       {
         "id": "sense:even:c4c46fa9ebf25f3d",
-        "source_locator": "record.senses[5]",
+        "source_locator": "record.senses[7]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "偶数",
@@ -176,7 +260,7 @@
         "usage": [
           {
             "id": "collocation:a1bd55c5d7811e08da2e",
-            "source_locator": "record.senses[5].collocations[0]",
+            "source_locator": "record.senses[7].collocations[0]",
             "phrase": "odd and even",
             "meaning_cn": "奇数和偶数",
             "kind": "usage_example",
@@ -186,92 +270,8 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:even:c4c46fa9ebf25f3d",
-          "target_locator": "record.senses[5]",
-          "target_label": "偶数"
-        }
-      },
-      {
-        "id": "sense:even:c805d837b8cb5c9b",
-        "source_locator": "record.senses[6]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "均匀的；平稳的；规律的",
-        "definition_en": "continuous, regular, and not changing suddenly",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:71b658ff7aaf63c1cfe8",
-            "source_locator": "record.senses[6].collocations[0]",
-            "phrase": "an even rate",
-            "meaning_cn": "",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:7c954f5fad058f077669",
-            "source_locator": "record.senses[6].collocations[1]",
-            "phrase": "even breathing",
-            "meaning_cn": "",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:38caee3365ccab383949",
-            "source_locator": "record.senses[6].collocations[2]",
-            "phrase": "an even pace",
-            "meaning_cn": "",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:even:c805d837b8cb5c9b",
-          "target_locator": "record.senses[6]",
-          "target_label": "均匀的；平稳的；规律的"
-        }
-      },
-      {
-        "id": "sense:even:cec2f94f2fae5036",
-        "source_locator": "record.senses[7]",
-        "pos": "adverb",
-        "governing_pattern": "",
-        "definition_cn": "更加；甚至更",
-        "definition_en": "used before a comparative to emphasize a greater degree or extent",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:419005ad51a89cbdc0bb",
-            "source_locator": "record.senses[7].collocations[0]",
-            "phrase": "even more",
-            "meaning_cn": "",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:cf3522c12b0cb4b2a7bd",
-            "source_locator": "record.senses[7].collocations[1]",
-            "phrase": "even better",
-            "meaning_cn": "",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:021428edfd1ac9d13e8c",
-            "source_locator": "record.senses[7].collocations[2]",
-            "phrase": "even less",
-            "meaning_cn": "",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:even:cec2f94f2fae5036",
           "target_locator": "record.senses[7]",
-          "target_label": "更加；甚至更"
+          "target_label": "偶数"
         }
       }
     ],
@@ -1566,7 +1566,7 @@
     "ordinal": 1744,
     "word": "evolution",
     "source_owner_path": "content/lexical/words/by-ordinal/o1744.json",
-    "source_fingerprint": "ce4744875b74dec2ec9da7522834f334b30b763e1250952d846cb52612ddfd4b",
+    "source_fingerprint": "268089c0b5dcf679c912b4af79ee6ae997a79daf11293ddbaa5e423f377e4676",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1693,8 +1693,12 @@
           "target_word": "evolve",
           "lines": [
             {
-              "text": "evolution名词，evolve动词",
+              "text": "evolve (v.) ↔ evolution (n.): 逐渐发展/演化 ↔ 进化或演变的过程；词性不同，不可机械互换。",
               "lang": "cn"
+            },
+            {
+              "text": "evolve is the verb; evolution is the noun for the process of gradual development or biological change.",
+              "lang": "en"
             }
           ],
           "source_locator": "record.word_family[0]"
@@ -1703,21 +1707,15 @@
           "target_word": "evolutionary",
           "lines": [
             {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
+              "text": "evolution (n.) → evolutionary (adj.): 进化/演变 → 与进化或渐进发展有关的；派生关系。",
               "lang": "cn"
+            },
+            {
+              "text": "evolutionary is the adjective meaning relating to evolution or gradual development.",
+              "lang": "en"
             }
           ],
           "source_locator": "record.word_family[1]"
-        },
-        {
-          "target_word": "evolutionist",
-          "lines": [
-            {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
-              "lang": "cn"
-            }
-          ],
-          "source_locator": "record.word_family[2]"
         }
       ]
     }

@@ -12,26 +12,18 @@
       "core_clusters": [
         {
           "label_cn": "入口，大门；进入；登场；入学；入场权",
-          "label_en": "a place where you enter a building or area; the act of entering a place or situation; the right or opportunity to enter a place or join an institution",
+          "label_en": "a place where you enter; the act of entering; the right or opportunity to enter or join",
           "pos": "noun",
           "sense_ids": [
             "sense:entrance:4a449ada82fa558f",
             "sense:entrance:62ab2ed291b35924",
             "sense:entrance:556000b09dea5f4f"
           ]
-        },
-        {
-          "label_cn": "使入迷，使出神",
-          "label_en": "to fill someone with wonder and delight, so that they cannot think clearly",
-          "pos": "verb",
-          "sense_ids": [
-            "sense:entrance:64936ec09ab55276"
-          ]
         }
       ],
-      "core_meaning_cn": "入口或进入；也指使入迷",
-      "core_meaning_en": "a way in or the act of entering; also to enchant",
-      "mental_model_cn": "入口或进入；也指使入迷",
+      "core_meaning_cn": "入口；进入；入学或入场资格",
+      "core_meaning_en": "an entrance or act/right of entering",
+      "mental_model_cn": "默认先认名词“入口/进入/入场资格”；低频动词 entrance=使入迷保留在扩展层。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -75,14 +67,7 @@
         "sense_id": "sense:entrance:4a449ada82fa558f",
         "sense_label_en": "a place where you enter a building or area",
         "sort_order": 0,
-        "transitivity": "nonverb",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "pronunciation_boundary",
-          "surface_lemma": "entrance",
-          "paired_form": "entrance noun / verb",
-          "note": "entrance noun has initial stress; entrance verb meaning enchant/put into a trance has final stress."
-        }
+        "transitivity": "nonverb"
       },
       {
         "collocations": [
@@ -115,14 +100,7 @@
         "sense_id": "sense:entrance:62ab2ed291b35924",
         "sense_label_en": "the act of entering a place or situation",
         "sort_order": 1,
-        "transitivity": "nonverb",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "pronunciation_boundary",
-          "surface_lemma": "entrance",
-          "paired_form": "entrance noun / verb",
-          "note": "entrance noun has initial stress; entrance verb meaning enchant/put into a trance has final stress."
-        }
+        "transitivity": "nonverb"
       },
       {
         "collocations": [
@@ -155,14 +133,7 @@
         "sense_id": "sense:entrance:556000b09dea5f4f",
         "sense_label_en": "the right or opportunity to enter a place or join an institution",
         "sort_order": 2,
-        "transitivity": "nonverb",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "pronunciation_boundary",
-          "surface_lemma": "entrance",
-          "paired_form": "entrance noun / verb",
-          "note": "entrance noun has initial stress; entrance verb meaning enchant/put into a trance has final stress."
-        }
+        "transitivity": "nonverb"
       },
       {
         "collocations": [
@@ -195,14 +166,7 @@
         "sense_id": "sense:entrance:64936ec09ab55276",
         "sense_label_en": "to fill someone with wonder and delight, so that they cannot think clear",
         "sort_order": 3,
-        "transitivity": "vt",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "pronunciation_boundary",
-          "surface_lemma": "entrance",
-          "paired_form": "entrance noun / verb",
-          "note": "entrance noun has initial stress; entrance verb meaning enchant/put into a trance has final stress."
-        }
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -222,7 +186,27 @@
     },
     "word": "entrance",
     "word_family": [],
-    "word_id": "word:entrance"
+    "word_id": "word:entrance",
+    "form_identity": {
+      "form_type": "same_spelling_pos_conditioned_pronunciation",
+      "spelling": "entrance",
+      "identity_rule": "same_word_owner_no_semantic_split",
+      "boundary": "entrance noun has initial stress; entrance verb meaning enchant/put into a trance has final stress.",
+      "boundaries": [
+        {
+          "surface": "entrance",
+          "condition": "noun",
+          "note": "initial stress"
+        },
+        {
+          "surface": "entrance",
+          "condition": "verb = enchant",
+          "note": "final stress"
+        }
+      ],
+      "variants": [],
+      "authority": "BF16 existing-truth Form migration 2026-09-22"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],

@@ -1633,7 +1633,7 @@
     "ordinal": 5529,
     "word": "enroll",
     "source_owner_path": "content/lexical/words/by-ordinal/o5529.json",
-    "source_fingerprint": "4746c4031113fa4e3d7efd6c1a24bc877bf216c6d2880b8125c9ae6c7640be3b",
+    "source_fingerprint": "7d087d86ae5f573030c7ff00bd37db9a49c61c6fb0db630f59a0026ec127fdc8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1674,26 +1674,29 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "enroll ↔ enrol",
-          "target_word": "enrol",
-          "lines": [
-            {
-              "text": "enroll is usual AmE; enrol is common BrE. Preserve both stable Word owners as regional spelling variants.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:4b9944a12c0792d22a26",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "enroll ↔ enrol"
+      "relations": [],
+      "form": {
+        "boundary": "enroll is the usual American spelling; enrol is the common British spelling. Both frozen Word owners remain distinct catalogue identities.",
+        "boundaries": [
+          {
+            "surface": "enroll",
+            "condition": "American English",
+            "note": "usual AmE spelling"
+          },
+          {
+            "surface": "enrol",
+            "condition": "British English",
+            "note": "common BrE spelling"
           }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "enroll is the usual American spelling; enrol is the common British spelling. Both frozen Word owners remain distinct catalogue identities."
         }
-      ],
-      "form": null,
+      },
       "family": []
     }
   },

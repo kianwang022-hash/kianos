@@ -73,14 +73,7 @@
         "sense_id": "sense:escort:6b780f6cd9ab568f",
         "sense_label_en": "to accompany someone or something to protect or guide them",
         "sort_order": 0,
-        "transitivity": "vt",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "pronunciation_boundary",
-          "surface_lemma": "escort",
-          "paired_form": "escort noun / verb",
-          "note": "escort noun has initial stress; escort verb has final stress."
-        }
+        "transitivity": "vt"
       },
       {
         "collocations": [
@@ -104,14 +97,7 @@
         "sense_id": "sense:escort:cbc6f6344b2e5b94",
         "sense_label_en": "a person or group that accompanies someone for protection",
         "sort_order": 1,
-        "transitivity": "nonverb",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "pronunciation_boundary",
-          "surface_lemma": "escort",
-          "paired_form": "escort noun / verb",
-          "note": "escort noun has initial stress; escort verb has final stress."
-        }
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -131,7 +117,27 @@
     },
     "word": "escort",
     "word_family": [],
-    "word_id": "word:escort"
+    "word_id": "word:escort",
+    "form_identity": {
+      "form_type": "same_spelling_pos_conditioned_pronunciation",
+      "spelling": "escort",
+      "identity_rule": "same_word_owner_no_semantic_split",
+      "boundary": "escort noun has initial stress; escort verb has final stress.",
+      "boundaries": [
+        {
+          "surface": "escort",
+          "condition": "noun",
+          "note": "initial stress"
+        },
+        {
+          "surface": "escort",
+          "condition": "verb",
+          "note": "final stress"
+        }
+      ],
+      "variants": [],
+      "authority": "BF16 existing-truth Form migration 2026-09-22"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
