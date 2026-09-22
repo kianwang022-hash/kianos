@@ -1,0 +1,3978 @@
+{
+  "schema": "kianos.lexical.final_mutation_package.v1",
+  "package_id": "BF17-official-o1751-o1850-v1",
+  "candidate_id": "BF17",
+  "range": {
+    "start_ordinal": 1751,
+    "end_ordinal": 1850
+  },
+  "lane": "A",
+  "source_head": "b9b843c09f71cf6b41aed0546c0b5a4d838f5b1e",
+  "human_gate": {
+    "approved": true,
+    "approval_ref": "content/lexical/execution/manifests/o1751-o1850.fullcatalog-final-standard-proposal.md#human-gate-not-required-existing-truth-only"
+  },
+  "writes": [
+    {
+      "path": "content/lexical/words/by-ordinal/o1755.json",
+      "mode": "patch_json",
+      "expected_sha256": "d7a8a36dcb7a227929e130b19f47ca5393540e682715cc31560e8e4e9016b16e",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "977a51b1445c7c295c8479b1ae43d995a1998dc9e922e62c6823143f59bd7555",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "除…之外",
+                  "label_en": "not including; other than",
+                  "pos": "preposition",
+                  "sense_ids": [
+                    "sense:except:a735b6bdab4059af"
+                  ]
+                },
+                {
+                  "label_cn": "只是；除非",
+                  "label_en": "used before stating a reason for something, or before saying something that makes what you have just said less true",
+                  "pos": "conjunction",
+                  "sense_ids": [
+                    "sense:except:72dea7de44ec5edc"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "排除；不包括",
+              "core_meaning_en": "excluding; not including",
+              "mental_model_cn": "排除；不包括",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:a4a275d287221a73bb51",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:except:a735b6bdab4059af:collocation:0"
+                    ],
+                    "meaning_cn": "除了…之外；要不是",
+                    "phrase": "except for + sth"
+                  },
+                  {
+                    "collocation_id": "collocation:5f2f4d75bd9fd1ff5c9a",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:except:a735b6bdab4059af:collocation:1"
+                    ],
+                    "meaning_cn": "除了我以外的每个人",
+                    "phrase": "everyone except me"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "除…之外",
+                "definition_en": "not including; other than",
+                "governing_pattern": "prep. + noun/pronoun",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "preposition",
+                "sense_id": "sense:except:a735b6bdab4059af",
+                "sense_label_en": "not including; other than",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:db8626acc3a75633c2f0",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:except:72dea7de44ec5edc:collocation:0"
+                    ],
+                    "meaning_cn": "除了…；只是",
+                    "phrase": "except that + clause"
+                  },
+                  {
+                    "collocation_id": "collocation:cca42562e535f6a5bbb6",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:except:72dea7de44ec5edc:collocation:1"
+                    ],
+                    "meaning_cn": "我想去，只是我累了。",
+                    "phrase": "I would go except that I'm tired."
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "只是；不过；但",
+                "definition_en": "used to introduce an exception, qualification, or fact that makes the preceding statement less fully true",
+                "governing_pattern": "conj. + clause",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "conjunction",
+                "sense_id": "sense:except:72dea7de44ec5edc",
+                "sense_label_en": "used before stating a reason for something, or before saying something t",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:2f604361f732ebeec4cc",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:except:098217a68b895833:collocation:0"
+                    ],
+                    "meaning_cn": "把某人/某物从…中排除",
+                    "phrase": "except sb/sth from + sth"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "把…除外",
+                "definition_en": "exclude from a category or group",
+                "governing_pattern": "vt. + sb/sth",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:except:098217a68b895833",
+                "sense_label_en": "exclude from a category or group",
+                "sort_order": 2,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 2,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "except",
+            "word_family": [],
+            "word_id": "word:except"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1756.json",
+      "mode": "patch_json",
+      "expected_sha256": "1db94191fe2482b7896f6089aabc57c95869034ccc6ca11f2505f9b81678a167",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "45361401e108e4b3d694ede5fe78a64266875e86694df42e09a32be0868b0a35",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "例外",
+              "core_meaning_en": "something that does not follow a rule or is not included",
+              "mental_model_cn": "例外",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "construction:construction:68edaf9831dbfc4b9ce8",
+              "semantic-reconciliation:o1625-o1824"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:4c3429f04af17020f513",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:exception:4f1f5d635f3d51d3:collocation:0"
+                    ],
+                    "meaning_cn": "除……之外",
+                    "phrase": "with the exception of + sth/sb"
+                  },
+                  {
+                    "collocation_id": "collocation:90c5b23a16e98d7cfbc6",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:exception:4f1f5d635f3d51d3:collocation:1"
+                    ],
+                    "meaning_cn": "为……破例",
+                    "phrase": "make an exception for + sb/sth"
+                  },
+                  {
+                    "collocation_id": "collocation:6e13fdd2cc2db4467e25",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:exception:4f1f5d635f3d51d3:collocation:2"
+                    ],
+                    "meaning_cn": "规则的一个例外",
+                    "phrase": "an exception to the rule"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "例外，不合规则的情况",
+                "definition_en": "a case that does not follow a general rule",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:exception:4f1f5d635f3d51d3",
+                "sense_label_en": "a case that does not follow a general rule",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "排除，除外（故意遗漏）",
+                "definition_en": "a deliberate act of omission",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:exception:a3ac6297f8fe5684",
+                "sense_label_en": "a deliberate act of omission",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:5d180c894c93dbb5a448",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:exception:a3ac6297f8fe5684:collocation:0"
+                    ],
+                    "meaning_cn": "反对/对某事或某人感到不满",
+                    "phrase": "take exception to sth/sb",
+                    "presentation_merge": {
+                      "surviving_object_id": "collocation:6df2d383bcece3cf0860"
+                    }
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "反对；异议；不满",
+                "definition_en": "an objection or expression of offense or displeasure",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:exception:19c33e3aa3fc5c96",
+                "sense_label_en": "an objection or expression of offense or displeasure",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 2,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "exception",
+            "word_family": [],
+            "word_id": "word:exception"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1758.json",
+      "mode": "patch_json",
+      "expected_sha256": "eb2111936a68d8d11bad32cf38716372eae4280ec9532bfef3fc26b42f360662",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "025ffda9b748aab176f73b8d594c11f13cc0b366eb6aaf8decf5a737e7e9de80",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "摘录；选段",
+                  "label_en": "a short passage selected from a larger work",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:excerpt:c08891932c8c5982"
+                  ]
+                },
+                {
+                  "label_cn": "摘录；引用",
+                  "label_en": "to take out a passage from a literary work",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:excerpt:783cf927d7eb585d"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "摘录",
+              "core_meaning_en": "a passage taken from a larger work",
+              "mental_model_cn": "摘录",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "semantic-reconciliation:o1625-o1824"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:70a2da59caf793ac8404",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:excerpt:c08891932c8c5982:collocation:0"
+                    ],
+                    "meaning_cn": "从某作品中摘录的片段",
+                    "phrase": "an excerpt from + sth"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "摘录；选段",
+                "definition_en": "a short passage selected from a larger work",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:excerpt:c08891932c8c5982",
+                "sense_label_en": "a short passage selected from a larger work",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:c7ddb5f6b40f90ac609c",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:excerpt:783cf927d7eb585d:collocation:0"
+                    ],
+                    "meaning_cn": "摘录一段",
+                    "phrase": "excerpt a passage"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "摘录；引用",
+                "definition_en": "to take out a passage from a literary work",
+                "governing_pattern": "vt. + object",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:excerpt:783cf927d7eb585d",
+                "sense_label_en": "to take out a passage from a literary work",
+                "sort_order": 1,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 3,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "excerpt",
+            "word_family": [],
+            "word_id": "word:excerpt",
+            "form_identity": {
+              "form_type": "same_spelling_pos_conditioned_pronunciation",
+              "spelling": "excerpt",
+              "identity_rule": "same_word_owner_no_semantic_split",
+              "boundary": "excerpt noun typically has initial stress; excerpt verb typically has final stress.",
+              "boundaries": [
+                {
+                  "surface": "excerpt",
+                  "condition": "noun",
+                  "note": "typically initial stress"
+                },
+                {
+                  "surface": "excerpt",
+                  "condition": "verb",
+                  "note": "typically final stress"
+                }
+              ],
+              "variants": [],
+              "authority": "BF17 existing-truth Form migration 2026-09-22"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1765.json",
+      "mode": "patch_json",
+      "expected_sha256": "5790eed50c131bd6dd217e285f1f3212abb166e3f0b81b6f9be4d6a91199dcaf",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "92255169084f47c98ade1b6e0ad18d9c908669e95b73d8fa6b922b345ac5dd45",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "突然呼喊",
+              "core_meaning_en": "to cry out suddenly, especially in surprise or emotion",
+              "mental_model_cn": "突然呼喊",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "construction:deep:constructions:exclaim:286702c03e4b6baf",
+              "deep:deep:constructions:exclaim:286702c03e4b6baf"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:661e89e67b0fb6c55666",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:exclaim:20e228f62b8558eb:collocation:0"
+                    ],
+                    "meaning_cn": "对…惊呼",
+                    "phrase": "exclaim at + sth"
+                  },
+                  {
+                    "collocation_id": "collocation:e8fbd20c567c4dd1323f",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:exclaim:20e228f62b8558eb:collocation:1"
+                    ],
+                    "meaning_cn": "惊呼…",
+                    "phrase": "exclaim that ..."
+                  },
+                  {
+                    "collocation_id": "collocation:5c89114331d60e1daa90",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:exclaim:20e228f62b8558eb:collocation:2"
+                    ],
+                    "meaning_cn": "惊讶地大叫",
+                    "phrase": "exclaim in surprise"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "惊叫；呼喊",
+                "definition_en": "to say something suddenly and loudly, especially because of strong emotion",
+                "governing_pattern": "vi. + that-clause / vi. + at",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:exclaim:20e228f62b8558eb",
+                "sense_label_en": "to say something suddenly and loudly, especially because of strong emoti",
+                "sort_order": 0,
+                "transitivity": "vi"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 2,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "completed",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 1,
+              "rejected_fact_count": 1,
+              "runtime_model_calls": false
+            },
+            "word": "exclaim",
+            "word_family": [],
+            "word_id": "word:exclaim"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1767.json",
+      "mode": "patch_json",
+      "expected_sha256": "01f20b074d413c121507ac4f37067b7486bf2fb7802bb87a3b341625ad49a26d",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "4e043bfde7e51969a443fc51b1ea507d227d7a8ddc4916e81abd548dda0b81d8",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "独有的；独占的；排外的；不包括的",
+                  "label_en": "not shared with others; only for a particular person or group; excluding others; not including something",
+                  "pos": "adjective",
+                  "sense_ids": [
+                    "sense:exclusive:8e653fd4163158c6",
+                    "sense:exclusive:f7053a1da8105591"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "独有的；排外的",
+              "core_meaning_en": "limited to a particular person or group",
+              "mental_model_cn": "独有的；排外的",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "deep:deep:word_family:exclusive:2c7b3bbb00b9353b",
+              "relation:deep:word_family:exclusive:2c7b3bbb00b9353b"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:68d4c9af7ce6c96ea9f1",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:exclusive:8e653fd4163158c6:collocation:0"
+                    ],
+                    "meaning_cn": "专有权",
+                    "phrase": "exclusive right"
+                  },
+                  {
+                    "collocation_id": "collocation:b9b88818297fabb58af6",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:exclusive:8e653fd4163158c6:collocation:1"
+                    ],
+                    "meaning_cn": "独家采访",
+                    "phrase": "exclusive interview"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "独有的；独占的",
+                "definition_en": "not shared with others; only for a particular person or group",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:exclusive:8e653fd4163158c6",
+                "sense_label_en": "not shared with others; only for a particular person or group",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:6547497627352f45de7f",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:exclusive:f7053a1da8105591:collocation:0"
+                    ],
+                    "meaning_cn": "不含税",
+                    "phrase": "exclusive of tax"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "排外的；不包括的",
+                "definition_en": "excluding others; not including something",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:exclusive:f7053a1da8105591",
+                "sense_label_en": "excluding others; not including something",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:a5928dc5a9a516e5d8d4",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:exclusive:58331cbeb85c59cf:collocation:0"
+                    ],
+                    "meaning_cn": "全球独家新闻",
+                    "phrase": "a world exclusive"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "独家新闻",
+                "definition_en": "a news story published by only one newspaper or organization",
+                "governing_pattern": "",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:exclusive:58331cbeb85c59cf",
+                "sense_label_en": "a news story published by only one newspaper or organization",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 1,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "completed"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 1,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "exclusive",
+            "word_family": [
+              {
+                "boundary": "exclusively 是 exclusive 的副词形式",
+                "codex_reviewed": true,
+                "definition_cn": null,
+                "definition_en": null,
+                "dimensions": {},
+                "direction": "R",
+                "evidence": [
+                  {
+                    "evidence_id": "evidence:family:exclusive:exclusively",
+                    "evidence_status": "source_checked",
+                    "source_locator": "exclusive|exclusively",
+                    "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/processed/word_families.csv",
+                    "source_type": "learner_dictionary"
+                  }
+                ],
+                "fact_id": "deep:word_family:exclusive:2c7b3bbb00b9353b",
+                "family_sources": [
+                  "AWL family"
+                ],
+                "label_en": null,
+                "level": null,
+                "meaning_cn": null,
+                "module": "word_family",
+                "pattern": null,
+                "pos": null,
+                "priority": "A",
+                "publication_status": "codex_reviewed",
+                "shared_definition": null,
+                "source_sense_id": "sense:exclusive:8e653fd4163158c6",
+                "target_sense_id": null,
+                "target_word": "exclusively",
+                "task_tags": [
+                  "reading"
+                ],
+                "verification_status": "verified",
+                "writing_safe": false
+              }
+            ],
+            "word_id": "word:exclusive"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1769.json",
+      "mode": "patch_json",
+      "expected_sha256": "44dd80ab346c5ba05a7109a6315104dffbab5032b557d7ad1b1c1850b35b1d3c",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "7ae554365e8d4a18c70a3a40f582dd417d9d6b3362a3888f2cedfe7df75dd6fc",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "原谅；宽恕；为…辩解；作为…的借口；免除；准许离开",
+                  "label_en": "to forgive someone for something; to provide a reason or explanation for something; to allow someone to leave or not do something",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:excuse:4df4193d47835b96",
+                    "sense:excuse:d39fbb4ef5db540c",
+                    "sense:excuse:96c707f37a6151f7"
+                  ]
+                },
+                {
+                  "label_cn": "借口；理由",
+                  "label_en": "a reason given to explain or defend one's actions",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:excuse:096eb8e1c1725dba"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "原谅；借口",
+              "core_meaning_en": "to forgive or provide a reason for something",
+              "mental_model_cn": "原谅；借口",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "construction:deep:constructions:excuse:449e35245b145fcc",
+              "construction:deep:constructions:excuse:721bd9f954128cfb",
+              "deep:deep:constructions:excuse:449e35245b145fcc",
+              "deep:deep:constructions:excuse:721bd9f954128cfb"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:ef265a602c534c3865a7",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:excuse:4df4193d47835b96:collocation:0"
+                    ],
+                    "meaning_cn": "原谅某人某事",
+                    "phrase": "excuse sb for sth"
+                  },
+                  {
+                    "collocation_id": "collocation:497a4496ed7665d42b95",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:excuse:4df4193d47835b96:collocation:1"
+                    ],
+                    "meaning_cn": "请原谅我的无知",
+                    "phrase": "excuse my ignorance"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "原谅；宽恕",
+                "definition_en": "to forgive someone for something",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:excuse:4df4193d47835b96",
+                "sense_label_en": "to forgive someone for something",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:53fde9d6418dd9a9f0ab",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:excuse:d39fbb4ef5db540c:collocation:0"
+                    ],
+                    "meaning_cn": "为自己辩解",
+                    "phrase": "excuse oneself for sth"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "为…辩解；作为…的借口",
+                "definition_en": "to provide a reason or explanation for something",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:excuse:d39fbb4ef5db540c",
+                "sense_label_en": "to provide a reason or explanation for something",
+                "sort_order": 1,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:bb0758db49d463338bd3",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:excuse:096eb8e1c1725dba:collocation:0"
+                    ],
+                    "meaning_cn": "找借口",
+                    "phrase": "make an excuse"
+                  },
+                  {
+                    "collocation_id": "collocation:0d14091a08a3c22f39f0",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:excuse:096eb8e1c1725dba:collocation:1"
+                    ],
+                    "meaning_cn": "蹩脚的借口",
+                    "phrase": "a lame excuse"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "借口；理由",
+                "definition_en": "a reason given to explain or defend one's actions",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:excuse:096eb8e1c1725dba",
+                "sense_label_en": "a reason given to explain or defend one's actions",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:66695aa5f22157ebb867",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:excuse:96c707f37a6151f7:collocation:0"
+                    ],
+                    "meaning_cn": "免除某人的职责",
+                    "phrase": "excuse sb from duty"
+                  },
+                  {
+                    "collocation_id": "collocation:03c34472b7fc139223a7",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:excuse:96c707f37a6151f7:collocation:1"
+                    ],
+                    "meaning_cn": "对不起；打扰一下",
+                    "phrase": "excuse me"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "免除；准许离开",
+                "definition_en": "to allow someone to leave or not do something",
+                "governing_pattern": "vt. + object",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:excuse:96c707f37a6151f7",
+                "sense_label_en": "to allow someone to leave or not do something",
+                "sort_order": 3,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 1,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "completed",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 2,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "excuse",
+            "word_family": [],
+            "word_id": "word:excuse",
+            "form_identity": {
+              "form_type": "same_spelling_pos_conditioned_pronunciation",
+              "spelling": "excuse",
+              "identity_rule": "same_word_owner_no_semantic_split",
+              "boundary": "excuse noun has /s/ in the final consonant; excuse verb has /z/.",
+              "boundaries": [
+                {
+                  "surface": "excuse",
+                  "condition": "noun",
+                  "note": "final /s/"
+                },
+                {
+                  "surface": "excuse",
+                  "condition": "verb",
+                  "note": "final /z/"
+                }
+              ],
+              "variants": [],
+              "authority": "BF17 existing-truth Form migration 2026-09-22"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1774.json",
+      "mode": "patch_json",
+      "expected_sha256": "8dca84657abfbbc89defb9083cb7830bc7513dedd98773246e08ff525a56084b",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "8946225d0a31a38dd26a4c426b99b62dd59ea4c9eb9630a1da9557bd587a7460",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "运动，锻炼；练习，习题；行使，运用",
+                  "label_en": "physical activity done to stay healthy or become stronger; a task or activity done to practice a skill; the use of a power, right, or ability",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:exercise:6039fc96569f588a",
+                    "sense:exercise:9150c8e970755b8c",
+                    "sense:exercise:850a82db79115bf2"
+                  ]
+                },
+                {
+                  "label_cn": "锻炼，运动；行使，运用",
+                  "label_en": "to do physical activity; to use a power, right, or quality",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:exercise:896db89eeaa05be0",
+                    "sense:exercise:07f4c0e37f9154e6"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "锻炼、练习或行使",
+              "core_meaning_en": "physical activity, practice, or use of a power",
+              "mental_model_cn": "锻炼、练习或行使",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "deep:deep:secondary_senses:exercise:313c3005112c468d",
+              "deep:deep:secondary_senses:exercise:8d2b1d0bbc4a63a9"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:b06669af8905d5d3cc60",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:exercise:6039fc96569f588a:collocation:0"
+                    ],
+                    "meaning_cn": "做运动",
+                    "phrase": "do exercise"
+                  },
+                  {
+                    "collocation_id": "collocation:42563223077fcf6cbe5a",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:exercise:6039fc96569f588a:collocation:1"
+                    ],
+                    "meaning_cn": "锻炼",
+                    "phrase": "take exercise"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "运动，锻炼",
+                "definition_en": "physical activity done to stay healthy or become stronger",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:exercise:6039fc96569f588a",
+                "sense_label_en": "physical activity done to stay healthy or become stronger",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:0c90e407012e1ec0e91c",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:exercise:9150c8e970755b8c:collocation:0"
+                    ],
+                    "meaning_cn": "练习本",
+                    "phrase": "exercise book"
+                  },
+                  {
+                    "collocation_id": "collocation:5828dd5ef4155c346697",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:exercise:9150c8e970755b8c:collocation:1"
+                    ],
+                    "meaning_cn": "语法练习",
+                    "phrase": "grammar exercise"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "练习，习题",
+                "definition_en": "a task or activity done to practice a skill",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:exercise:9150c8e970755b8c",
+                "sense_label_en": "a task or activity done to practice a skill",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:9711bf61dcf007545cef",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:exercise:896db89eeaa05be0:collocation:0"
+                    ],
+                    "meaning_cn": "定期锻炼",
+                    "phrase": "exercise regularly"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "锻炼，运动",
+                "definition_en": "to do physical activity",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:exercise:896db89eeaa05be0",
+                "sense_label_en": "to do physical activity",
+                "sort_order": 2,
+                "transitivity": "vi"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:078617c934109a1bdb0a",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:exercise:850a82db79115bf2:collocation:0"
+                    ],
+                    "meaning_cn": "权力的行使",
+                    "phrase": "exercise of power"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "行使，运用",
+                "definition_en": "the use of a power, right, or ability",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:exercise:850a82db79115bf2",
+                "sense_label_en": "the use of a power, right, or ability",
+                "sort_order": 3,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:e5a4e06d1b782f0f38fa",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:exercise:07f4c0e37f9154e6:collocation:0"
+                    ],
+                    "meaning_cn": "实施控制",
+                    "phrase": "exercise control"
+                  },
+                  {
+                    "collocation_id": "collocation:3b148f05debbf2bae5b9",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:exercise:07f4c0e37f9154e6:collocation:1"
+                    ],
+                    "meaning_cn": "谨慎行事",
+                    "phrase": "exercise caution"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "行使，运用",
+                "definition_en": "to use a power, right, or quality",
+                "governing_pattern": "vt. + object",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:exercise:07f4c0e37f9154e6",
+                "sense_label_en": "to use a power, right, or quality",
+                "sort_order": 4,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 1,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "completed",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 2,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "exercise",
+            "word_family": [],
+            "word_id": "word:exercise"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1776.json",
+      "mode": "patch_json",
+      "expected_sha256": "5d2ecd872837058b011982815274203d05a8da8a177ebe8ce2e9204466998ec2",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "384b0f17fc1101da502c5c59fd3c45b3be36460528ed1023f31fc1c773e4e10e",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "耗尽，用尽；使精疲力尽",
+                  "label_en": "use up completely; wear out completely",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:exhaust:eaaec6d24bab5517",
+                    "sense:exhaust:23a4804d9ab55061"
+                  ]
+                },
+                {
+                  "label_cn": "废气",
+                  "label_en": "gases ejected from an engine as waste products",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:exhaust:db596e6713975ab7"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "耗尽；使精疲力尽；废气",
+              "core_meaning_en": "to use up completely or exhaust someone; engine waste gases",
+              "mental_model_cn": "耗尽或废气",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:5dd57a3d1d9a8042f7e9",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:exhaust:eaaec6d24bab5517:collocation:0"
+                    ],
+                    "meaning_cn": "耗尽资源",
+                    "phrase": "exhaust resources"
+                  },
+                  {
+                    "collocation_id": "collocation:1cadb5216855582129bf",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:exhaust:eaaec6d24bab5517:collocation:1"
+                    ],
+                    "meaning_cn": "耗尽某人的耐心",
+                    "phrase": "exhaust one's patience"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "耗尽，用尽",
+                "definition_en": "use up the whole supply of",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:exhaust:eaaec6d24bab5517",
+                "sense_label_en": "use up the whole supply of",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:a5d538a9cb654b03ecbd",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:exhaust:23a4804d9ab55061:collocation:0"
+                    ],
+                    "meaning_cn": "使自己精疲力尽",
+                    "phrase": "exhaust oneself"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "使精疲力尽",
+                "definition_en": "wear out completely",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:exhaust:23a4804d9ab55061",
+                "sense_label_en": "wear out completely",
+                "sort_order": 1,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:b353498b13a2ffaed45a",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:exhaust:db596e6713975ab7:collocation:0"
+                    ],
+                    "meaning_cn": "汽车尾气",
+                    "phrase": "car exhaust"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "废气",
+                "definition_en": "gases ejected from an engine as waste products",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:exhaust:db596e6713975ab7",
+                "sense_label_en": "gases ejected from an engine as waste products",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:e2e1a13ab9ad6bceea68",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:exhaust:4e7cbb5cebeb54f9:collocation:0"
+                    ],
+                    "meaning_cn": "排气管",
+                    "phrase": "exhaust pipe"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "排气装置",
+                "definition_en": "the system through which burned gases are discharged",
+                "governing_pattern": "",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:exhaust:4e7cbb5cebeb54f9",
+                "sense_label_en": "the system through which burned gases are discharged",
+                "sort_order": 3,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 3,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "exhaust",
+            "word_family": [],
+            "word_id": "word:exhaust"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1777.json",
+      "mode": "patch_json",
+      "expected_sha256": "50bdea936ec096e0fd564e1817fe7838b5e36166bb3b0c0d5cba67be8541c9fd",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "4d02630019c73f72508db8057baf9176d6013d6293ec021f4362b718c2499fd3",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "展现；显示；陈列；展览",
+                  "label_en": "to show or display a quality, skill, or object",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:exhibit:6502ded7c3505efa"
+                  ]
+                },
+                {
+                  "label_cn": "展览品；陈列品；物证",
+                  "label_en": "an object displayed publicly or produced as evidence",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:exhibit:3da169c99cb855c8",
+                    "sense:exhibit:e466ff1ec5cd5fe4"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "展示；展览品",
+              "core_meaning_en": "to show or display, or an object displayed",
+              "mental_model_cn": "展示；展览品",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:a4c8a1007ee2d92f8fbc",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:exhibit:6502ded7c3505efa:collocation:0"
+                    ],
+                    "meaning_cn": "表现出……的迹象",
+                    "phrase": "exhibit signs of"
+                  },
+                  {
+                    "collocation_id": "collocation:617ae428c630ac283e70",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:exhibit:6502ded7c3505efa:collocation:1"
+                    ],
+                    "meaning_cn": "展出画作",
+                    "phrase": "exhibit paintings"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "展现，显示；陈列，展览",
+                "definition_en": "to show or display (a quality, skill, or object)",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:exhibit:6502ded7c3505efa",
+                "sense_label_en": "to show or display (a quality, skill, or object)",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:19d4f4c322fcfa11e347",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:exhibit:3da169c99cb855c8:collocation:0"
+                    ],
+                    "meaning_cn": "博物馆展品",
+                    "phrase": "museum exhibit"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "展览品，陈列品",
+                "definition_en": "an object displayed in a museum or gallery",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:exhibit:3da169c99cb855c8",
+                "sense_label_en": "an object displayed in a museum or gallery",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:2ebc200e512d94b10453",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:exhibit:e466ff1ec5cd5fe4:collocation:0"
+                    ],
+                    "meaning_cn": "证据A",
+                    "phrase": "exhibit A"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "物证，证物",
+                "definition_en": "an object or document produced as evidence in court",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:exhibit:e466ff1ec5cd5fe4",
+                "sense_label_en": "an object or document produced as evidence in court",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:7d8f298160d039e4edab",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:exhibit:8cc067ba4a2a55cd:collocation:0"
+                    ],
+                    "meaning_cn": "在某处参展",
+                    "phrase": "exhibit at + place"
+                  },
+                  {
+                    "collocation_id": "collocation:725a67df9b3f95736aea",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:exhibit:8cc067ba4a2a55cd:collocation:1"
+                    ],
+                    "meaning_cn": "在展会上参展",
+                    "phrase": "exhibit at a fair"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "举办展览，参展",
+                "definition_en": "to put on an exhibition",
+                "governing_pattern": "vi. + at",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:exhibit:8cc067ba4a2a55cd",
+                "sense_label_en": "to put on an exhibition",
+                "sort_order": 3,
+                "transitivity": "vi"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 2,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "exhibit",
+            "word_family": [],
+            "word_id": "word:exhibit"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1795.json",
+      "mode": "patch_json",
+      "expected_sha256": "ccbb2aaf81f0226691d97a8dfc26ce287224bf8bf6550224cd703bb6a4af952c",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "2c6a7a5839ef51aa8d3b8c480c40c2751af9249aa17e8720e574092f15575d3e",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "实验；试验",
+                  "label_en": "a scientific test to discover or prove something",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:experiment:cfa7019d1b9856b6"
+                  ]
+                },
+                {
+                  "label_cn": "做实验；尝试",
+                  "label_en": "to perform a test or try something new",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:experiment:6315bb581d935f9b"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "实验；做实验",
+              "core_meaning_en": "a test or trial; to conduct a test",
+              "mental_model_cn": "实验；做实验",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "construction:deep:constructions:experiment:547122abc78b3e2e",
+              "construction:deep:constructions:experiment:e44ab92820382ad1",
+              "deep:deep:constructions:experiment:547122abc78b3e2e",
+              "deep:deep:constructions:experiment:e44ab92820382ad1"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:80a73c5c4846cc3a7d11",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:experiment:cfa7019d1b9856b6:collocation:0"
+                    ],
+                    "meaning_cn": "进行实验",
+                    "phrase": "conduct an experiment"
+                  },
+                  {
+                    "collocation_id": "collocation:c6ae841ec164b7760307",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:experiment:cfa7019d1b9856b6:collocation:1"
+                    ],
+                    "meaning_cn": "对……进行实验",
+                    "phrase": "experiment on + sth"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "实验；试验",
+                "definition_en": "a scientific test to discover or prove something",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:experiment:cfa7019d1b9856b6",
+                "sense_label_en": "a scientific test to discover or prove something",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:fa2e94a875b9072fd14f",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:experiment:6315bb581d935f9b:collocation:0"
+                    ],
+                    "meaning_cn": "用……做实验",
+                    "phrase": "experiment with + sth"
+                  },
+                  {
+                    "collocation_id": "collocation:302e4600ba1fb5f094f0",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:experiment:6315bb581d935f9b:collocation:1"
+                    ],
+                    "meaning_cn": "对……做实验",
+                    "phrase": "experiment on + sth"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "做实验；尝试",
+                "definition_en": "to perform a test or try something new",
+                "governing_pattern": "vi. + with / on",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:experiment:6315bb581d935f9b",
+                "sense_label_en": "to perform a test or try something new",
+                "sort_order": 1,
+                "transitivity": "vi"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 3,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "completed",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 2,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "experiment",
+            "word_family": [],
+            "word_id": "word:experiment"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1798.json",
+      "mode": "patch_json",
+      "expected_sha256": "aad44783c168db144f6654c61d1d84ac589309dd7dec5acb0d530fef14b7186b",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "0bb3b73edb0e8d3edf8b3c1f6476fd2e9a7941409e864879113e70f31b060450",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "到期；失效；结束",
+                  "label_en": "to come to an end or cease to be valid",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:expire:335279e31bab5316"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "到期；失效；结束",
+              "core_meaning_en": "to expire, end, or cease to be valid",
+              "mental_model_cn": "现代默认先认合同、证件、期限等“到期/失效”；死亡和呼气义保留在低优先级扩展。",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "到期、失效或结束",
+                "definition_en": "to come to an end or cease to be valid",
+                "governing_pattern": "vi. (licence/contract/card expires)",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:expire:335279e31bab5316",
+                "sense_label_en": "to come to an end or cease to be valid",
+                "sort_order": 0,
+                "transitivity": "vi"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:523972084f39b92d3659",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:expire:b519f64bab7d5cd7:collocation:0"
+                    ],
+                    "meaning_cn": "安详地去世",
+                    "phrase": "expire peacefully"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "断气；死亡",
+                "definition_en": "to pass from physical life; to die",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:expire:b519f64bab7d5cd7",
+                "sense_label_en": "to pass from physical life; to die",
+                "sort_order": 1,
+                "transitivity": "vi"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:3358e235ed93793bbf92",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:expire:df7add6b2141560d:collocation:0"
+                    ],
+                    "meaning_cn": "深呼吸",
+                    "phrase": "expire deeply"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "呼气",
+                "definition_en": "to expel air; to breathe out",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:expire:df7add6b2141560d",
+                "sense_label_en": "to expel air; to breathe out",
+                "sort_order": 2,
+                "transitivity": "vi"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:4bdaa41ee103ea8f6aec",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:expire:a21e7f6af41550bf:collocation:0"
+                    ],
+                    "meaning_cn": "从肺部呼出空气",
+                    "phrase": "expire air from the lungs"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "呼出",
+                "definition_en": "to breathe out (air)",
+                "governing_pattern": "vt. + object",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:expire:a21e7f6af41550bf",
+                "sense_label_en": "to breathe out (air)",
+                "sort_order": 3,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 3,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "expire",
+            "word_family": [],
+            "word_id": "word:expire"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1803.json",
+      "mode": "patch_json",
+      "expected_sha256": "5b64852598705059aa73a746619deaca0745fb2305940260953ae34f94d1e61d",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v3",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "9fa58fa9f616e832efc31bf8196c5d5d04cf04e191e4dfc7573a3b22035bfc42",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "利用；剥削；开发；开拓",
+                  "label_en": "to use for benefit, sometimes unfairly; to develop or make full use of a resource",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:exploit:8a8e044e70705bd0",
+                    "sense:exploit:a4353045371a5274"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "利用",
+              "core_meaning_en": "to use something or someone for one's own benefit",
+              "mental_model_cn": "利用",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "confusable:horizontal:a257a82c73eec2460ac7",
+              "deep:deep:secondary_senses:exploit:f19580eaac923e4d"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:b6c5b0993664c205759e",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:exploit:8a8e044e70705bd0:collocation:0"
+                    ],
+                    "meaning_cn": "利用某物",
+                    "phrase": "exploit + sth"
+                  },
+                  {
+                    "collocation_id": "collocation:0610cd004a28343bd959",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:exploit:8a8e044e70705bd0:collocation:1"
+                    ],
+                    "meaning_cn": "开发自然资源",
+                    "phrase": "exploit natural resources"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "利用；剥削",
+                "definition_en": "to use something or someone in a way that helps you, sometimes unfairly",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:exploit:8a8e044e70705bd0",
+                "sense_label_en": "to use something or someone in a way that helps you, sometimes unfairly",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:18fe72b599ffb13884af",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:exploit:a4353045371a5274:collocation:0"
+                    ],
+                    "meaning_cn": "开发某物",
+                    "phrase": "exploit + sth"
+                  },
+                  {
+                    "collocation_id": "collocation:6ebd848e09ba1a30ddd0",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:exploit:a4353045371a5274:collocation:1"
+                    ],
+                    "meaning_cn": "开矿",
+                    "phrase": "exploit a mine"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "开发；开拓",
+                "definition_en": "to develop or make full use of a resource",
+                "governing_pattern": "vt. + object",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:exploit:a4353045371a5274",
+                "sense_label_en": "to develop or make full use of a resource",
+                "sort_order": 1,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:7212854c1130688962b0",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:exploit:eca75fa98e135b1f:collocation:0"
+                    ],
+                    "meaning_cn": "军事功绩",
+                    "phrase": "military exploits"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "功绩；勋绩",
+                "definition_en": "a brave or notable deed",
+                "governing_pattern": "",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:exploit:eca75fa98e135b1f",
+                "sense_label_en": "a brave or notable deed",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 0,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "completed",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 1,
+              "rejected_fact_count": 1,
+              "runtime_model_calls": false
+            },
+            "word": "exploit",
+            "word_family": [],
+            "word_id": "word:exploit"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1807.json",
+      "mode": "patch_json",
+      "expected_sha256": "4a0c6e8c8efaa8a71fbf9e5b17b4c3859157ddf6c8f24a4ac4d096e91270f98b",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "7cd22ad78c88d847d3a231d947cc8b3cbf2c6dcb833d3369e1757dbed4bbd4b1",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "出口；向国外出售或转移；数据导出",
+                  "label_en": "to sell or transfer abroad; to export data",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:export:12783da9ade15934",
+                    "sense:export:ef27e5afa878503d"
+                  ]
+                },
+                {
+                  "label_cn": "出口商品；出口品",
+                  "label_en": "goods or services sold to another country",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:export:1ecd6ea82dec5f18"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "出口；导出；出口商品",
+              "core_meaning_en": "to export goods/data; goods sold abroad",
+              "mental_model_cn": "将货物或数据发送到另一个国家或系统",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "semantic-reconciliation:o1625-o1824"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:c07293157647b0be4cd1",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:export:12783da9ade15934:collocation:0"
+                    ],
+                    "meaning_cn": "把某物出口到某国",
+                    "phrase": "export + sth to + country"
+                  },
+                  {
+                    "collocation_id": "collocation:0785d9d5b1d68d2016ea",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:export:12783da9ade15934:collocation:1"
+                    ],
+                    "meaning_cn": "出口货物",
+                    "phrase": "export goods"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "向国外出售或转移",
+                "definition_en": "sell or transfer abroad",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:export:12783da9ade15934",
+                "sense_label_en": "sell or transfer abroad",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:51d6c8edbba228d0fff7",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:export:1ecd6ea82dec5f18:collocation:0"
+                    ],
+                    "meaning_cn": "出口贸易",
+                    "phrase": "export trade"
+                  },
+                  {
+                    "collocation_id": "collocation:ebff9907f49fa8ddd983",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:export:1ecd6ea82dec5f18:collocation:1"
+                    ],
+                    "meaning_cn": "主要出口产品",
+                    "phrase": "main export"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "卖给外国的商品（货物或服务）",
+                "definition_en": "commodities (goods or services) sold to a foreign country",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:export:1ecd6ea82dec5f18",
+                "sense_label_en": "commodities (goods or services) sold to a foreign country",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:dba0a85d74f517000b3c",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:export:ef27e5afa878503d:collocation:0"
+                    ],
+                    "meaning_cn": "将数据导出到文件",
+                    "phrase": "export data to a file"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "将电子数据从数据库或文档中导出为其他程序可用的格式",
+                "definition_en": "transfer (electronic data) out of a database or document in a format that can be used by other programs",
+                "governing_pattern": "vt. + object",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:export:ef27e5afa878503d",
+                "sense_label_en": "transfer (electronic data) out of a database or document in a format tha",
+                "sort_order": 2,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:0817c6d4f6bd901f51b1",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:export:2626f9ac0b1b571b:collocation:0"
+                    ],
+                    "meaning_cn": "传播思想",
+                    "phrase": "export ideas"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "使在世界的另一部分传播",
+                "definition_en": "cause to spread in another part of the world",
+                "governing_pattern": "vt. + object",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:export:2626f9ac0b1b571b",
+                "sense_label_en": "cause to spread in another part of the world",
+                "sort_order": 3,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 3,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "export",
+            "word_family": [],
+            "word_id": "word:export",
+            "form_identity": {
+              "form_type": "same_spelling_pos_conditioned_pronunciation",
+              "spelling": "export",
+              "identity_rule": "dialect_aware_pos_pronunciation_boundary",
+              "boundary": "In standard British pronunciation, export commonly has initial stress as a noun and later stress as a verb; major American pronunciation also permits initial stress for the verb, so the split is not universal across English.",
+              "boundaries": [
+                {
+                  "surface": "export",
+                  "condition": "noun",
+                  "note": "commonly initial stress"
+                },
+                {
+                  "surface": "export",
+                  "condition": "verb in BrE",
+                  "note": "commonly later stress"
+                },
+                {
+                  "surface": "export",
+                  "condition": "verb in AmE",
+                  "note": "initial stress is also common/accepted"
+                }
+              ],
+              "variants": [],
+              "authority": "BF17 existing-truth Form migration 2026-09-22"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1810.json",
+      "mode": "patch_json",
+      "expected_sha256": "bcddc744ed6f37527751d19278c97942099eb661b2c13471b6c5443273bc46a1",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "cfe0ee5711833b31fe2a4e5fbb465ec327e228997bb6e2be8b0d4e27d31a40b4",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "表达；表示",
+                  "label_en": "give expression to",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:express:a6f6dfa5cb0e5f56"
+                  ]
+                },
+                {
+                  "label_cn": "快车；直达车；快递；快件",
+                  "label_en": "public transport consisting of a fast train or bus that makes only a few scheduled stops; mail that is distributed by a rapid and efficient system",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:express:682a385e64c25955",
+                    "sense:express:bafe63d7f93850cf"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "传达或表明；快速或直达",
+              "core_meaning_en": "to convey or make known; fast or direct",
+              "mental_model_cn": "传达或表明；快速或直达",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:5ec46f9015d4491c004e",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:express:a6f6dfa5cb0e5f56:collocation:0"
+                    ],
+                    "meaning_cn": "表达某事",
+                    "phrase": "express + sth"
+                  },
+                  {
+                    "collocation_id": "collocation:01743cff0430072022b9",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:express:a6f6dfa5cb0e5f56:collocation:1"
+                    ],
+                    "meaning_cn": "表达自己",
+                    "phrase": "express + oneself"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "表达；表示",
+                "definition_en": "give expression to",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:express:a6f6dfa5cb0e5f56",
+                "sense_label_en": "give expression to",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:74316d5dce53d9fce147",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:express:682a385e64c25955:collocation:0"
+                    ],
+                    "meaning_cn": "乘坐快车",
+                    "phrase": "take the express"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "快车；直达车",
+                "definition_en": "public transport consisting of a fast train or bus that makes only a few scheduled stops",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:express:682a385e64c25955",
+                "sense_label_en": "public transport consisting of a fast train or bus that makes only a few",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:b4abd8414e38033fcbda",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:express:bafe63d7f93850cf:collocation:0"
+                    ],
+                    "meaning_cn": "用快递寄送",
+                    "phrase": "send by express"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "快递；快件",
+                "definition_en": "mail that is distributed by a rapid and efficient system",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:express:bafe63d7f93850cf",
+                "sense_label_en": "mail that is distributed by a rapid and efficient system",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:c486f70958810eec1c1a",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:express:ec11929dccdc5a15:collocation:0"
+                    ],
+                    "meaning_cn": "明确的目的",
+                    "phrase": "express purpose"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "明确的；明白表示的",
+                "definition_en": "clearly stated; explicit",
+                "governing_pattern": "",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:express:ec11929dccdc5a15",
+                "sense_label_en": "clearly stated; explicit",
+                "sort_order": 3,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 2,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "express",
+            "word_family": [],
+            "word_id": "word:express"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1818.json",
+      "mode": "patch_json",
+      "expected_sha256": "1f079e5474095bd2e6b513fc86bb439fb5c5e984a815ab9e4e33a9dd551b2d7d",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "9523c2952ddc415f418bd9b68643b8ffe9e877eb074cc508208d09ce129762f0",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "外部的或来自外部的",
+              "core_meaning_en": "outside or coming from outside",
+              "mental_model_cn": "外部的或来自外部的",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "deep:deep:word_family:external:07c4cabf0c3d7136",
+              "deep:deep:word_family:external:11ff3d65dade4348",
+              "deep:deep:word_family:external:99504fd0784ac16e",
+              "deep:deep:word_family:external:a27245e60bfa2551",
+              "relation:deep:word_family:external:07c4cabf0c3d7136",
+              "relation:deep:word_family:external:11ff3d65dade4348",
+              "relation:deep:word_family:external:99504fd0784ac16e",
+              "relation:deep:word_family:external:a27245e60bfa2551"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "外部的、外来的",
+                "definition_en": "outside or relating to the outside",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:external:8eab6f8c006abd2c",
+                "sense_label_en": "outside or relating to the outside",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 1,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "completed"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 4,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "external",
+            "word_family": [],
+            "word_id": "word:external"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1822.json",
+      "mode": "patch_json",
+      "expected_sha256": "2b433d6a1f7bf174c111a1e9e9f8258c857823359c4e20a88a59b7c0925cb627",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "15bf30d2d240ea9da0f0c93613b8d73eba257dd53241a766a225a51edf445f8c",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "取出；提取；榨取；提炼；求根",
+                  "label_en": "to remove, obtain, separate, or derive something",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:extract:3add00a853355c69",
+                    "sense:extract:95eb712ca3c25cec",
+                    "sense:extract:31fdf8b17dab5f1b",
+                    "sense:extract:a1989954d6e355a6"
+                  ]
+                },
+                {
+                  "label_cn": "摘录；选段；提取物；浓缩物",
+                  "label_en": "a selected passage or a substance obtained by extraction",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:extract:6ae9cb3381375206",
+                    "sense:extract:5a1258a0cf92f9d2"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "提取；摘录；榨取",
+              "core_meaning_en": "to pull or take out, often with effort, or a substance obtained by extraction",
+              "mental_model_cn": "提取；摘录；榨取",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:fc0db070e86d42b2ca7b",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:extract:3add00a853355c69:collocation:0"
+                    ],
+                    "meaning_cn": "从……中取出某物",
+                    "phrase": "extract + sth from + sth"
+                  },
+                  {
+                    "collocation_id": "collocation:ce513881ff4a50c51e4e",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:extract:3add00a853355c69:collocation:1"
+                    ],
+                    "meaning_cn": "拔牙",
+                    "phrase": "extract a tooth"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "取出；拔出",
+                "definition_en": "remove or take out, usually with some force or effort",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:extract:3add00a853355c69",
+                "sense_label_en": "remove or take out, usually with some force or effort",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:7bfe640d23309df14744",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:extract:95eb712ca3c25cec:collocation:0"
+                    ],
+                    "meaning_cn": "从某人处获取信息",
+                    "phrase": "extract information from + sb"
+                  },
+                  {
+                    "collocation_id": "collocation:252dc71b8b01f5d3ecbc",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:extract:95eb712ca3c25cec:collocation:1"
+                    ],
+                    "meaning_cn": "迫使作出承诺",
+                    "phrase": "extract a promise"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "设法得到；榨取",
+                "definition_en": "get something despite difficulties or obstacles",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:extract:95eb712ca3c25cec",
+                "sense_label_en": "get something despite difficulties or obstacles",
+                "sort_order": 1,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:d95dfb32c6f423a4c199",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:extract:31fdf8b17dab5f1b:collocation:0"
+                    ],
+                    "meaning_cn": "从矿石中提炼金属",
+                    "phrase": "extract metal from ore"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "提炼；提取（金属）",
+                "definition_en": "separate (a metal) from an ore",
+                "governing_pattern": "vt. + object",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:extract:31fdf8b17dab5f1b",
+                "sense_label_en": "separate (a metal) from an ore",
+                "sort_order": 2,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:207015b59d4813c3737b",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:extract:a1989954d6e355a6:collocation:0"
+                    ],
+                    "meaning_cn": "求平方根",
+                    "phrase": "extract the square root"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "求（数的）根",
+                "definition_en": "calculate the root of a number",
+                "governing_pattern": "vt. + object",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:extract:a1989954d6e355a6",
+                "sense_label_en": "calculate the root of a number",
+                "sort_order": 3,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:fae4e8244e324458c62f",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:extract:6ae9cb3381375206:collocation:0"
+                    ],
+                    "meaning_cn": "小说摘录",
+                    "phrase": "extract from a novel"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "摘录；选段",
+                "definition_en": "a short passage taken from a book, piece of music, etc.",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:extract:6ae9cb3381375206",
+                "sense_label_en": "a short passage taken from a book, piece of music, etc.",
+                "sort_order": 4,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "提取物、浓缩物",
+                "definition_en": "a substance or concentrate obtained by extraction",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:extract:5a1258a0cf92f9d2",
+                "sense_label_en": "a substance or concentrate obtained by extraction",
+                "sort_order": 5,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 0,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "extract",
+            "word_family": [],
+            "word_id": "word:extract",
+            "form_identity": {
+              "form_type": "same_spelling_pos_conditioned_pronunciation",
+              "spelling": "extract",
+              "identity_rule": "same_word_owner_no_semantic_split",
+              "boundary": "extract noun is pronounced /ˈekstrækt/; extract verb is pronounced /ɪkˈstrækt/.",
+              "boundaries": [
+                {
+                  "surface": "extract",
+                  "condition": "noun",
+                  "note": "/ˈekstrækt/"
+                },
+                {
+                  "surface": "extract",
+                  "condition": "verb",
+                  "note": "/ɪkˈstrækt/"
+                }
+              ],
+              "variants": [],
+              "authority": "BF17 existing-truth Form migration 2026-09-22"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1835.json",
+      "mode": "patch_json",
+      "expected_sha256": "e3b380d60da5cc8e795a6176acc43d2924bb8456845a472b915c85b0ef5ccbb1",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "34c526d6c593b80cdd6244b8382a2947783f93ffe65837d9d121e86355a97b12",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "使容易；促进",
+              "core_meaning_en": "to make something easier or more likely to happen",
+              "mental_model_cn": "使容易；促进",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "deep:deep:word_family:facilitate:3ec29680d9eb9ba6",
+              "relation:deep:word_family:facilitate:3ec29680d9eb9ba6"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:94e7fe7f1bf9fb23e512",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:facilitate:4f0caca8ae845b0e:collocation:0"
+                    ],
+                    "meaning_cn": "促进交流",
+                    "phrase": "facilitate communication"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "使容易；促进",
+                "definition_en": "to make an action or process easier",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:facilitate:4f0caca8ae845b0e",
+                "sense_label_en": "to make an action or process easier",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:36a10d0ee8e25b78b0cd",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:facilitate:86004cf576565619:collocation:0"
+                    ],
+                    "meaning_cn": "促进学习",
+                    "phrase": "facilitate learning"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "增加（反应）的可能性",
+                "definition_en": "to increase the likelihood of a response",
+                "governing_pattern": "vt. + object",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:facilitate:86004cf576565619",
+                "sense_label_en": "to increase the likelihood of a response",
+                "sort_order": 1,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 0,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "completed"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 1,
+              "rejected_fact_count": 2,
+              "runtime_model_calls": false
+            },
+            "word": "facilitate",
+            "word_family": [
+              {
+                "boundary": "facilitate (v.) → facilitator (n.): 促进/使更容易 → 促进过程的人或引导者；派生关系，不是同义替换。",
+                "codex_reviewed": false,
+                "definition_cn": null,
+                "definition_en": "facilitate is the verb; facilitator is a person who helps a process, discussion, or activity happen more effectively.",
+                "dimensions": {},
+                "direction": "R+P",
+                "evidence": [
+                  {
+                    "evidence_id": "evidence:family:facilitate:facilitator",
+                    "evidence_status": "source_checked",
+                    "source_locator": "facilitate|facilitator",
+                    "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/processed/word_families.csv",
+                    "source_type": "learner_dictionary"
+                  }
+                ],
+                "fact_id": "deep:word_family:facilitate:3ec29680d9eb9ba6",
+                "family_sources": [
+                  "AWL family"
+                ],
+                "label_en": null,
+                "level": null,
+                "meaning_cn": null,
+                "module": "word_family",
+                "pattern": null,
+                "pos": null,
+                "priority": "A",
+                "publication_status": "publishable",
+                "shared_definition": null,
+                "source_sense_id": "sense:facilitate:4f0caca8ae845b0e",
+                "target_sense_id": null,
+                "target_word": "facilitator",
+                "task_tags": [
+                  "reading"
+                ],
+                "verification_status": "verified",
+                "writing_safe": true
+              }
+            ],
+            "word_id": "word:facilitate"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1836.json",
+      "mode": "patch_json",
+      "expected_sha256": "8c797722b8f34b236834611122b1cc401a842f306d9e6265753c76204113e910",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "ec6318ac824c9deb2f458a24f8e77e44ef0999a444ebc536b02df0dc1e73969e",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "设施；场所；配套设备和服务",
+              "core_meaning_en": "a place, equipment, or services provided for a purpose",
+              "mental_model_cn": "设施；场所；配套设备和服务",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "deep:deep:word_family:facility:7e2fc0c738bc5f0b",
+              "relation:deep:word_family:facility:7e2fc0c738bc5f0b",
+              "semantic-reconciliation:o1825-o2024"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:2d8744639ce449ecb8dc",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:facility:a1796d0db7265e39:collocation:0"
+                    ],
+                    "meaning_cn": "体育设施",
+                    "phrase": "sports facility"
+                  },
+                  {
+                    "collocation_id": "collocation:dbf483e121c6b78f7cd7",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:facility:a1796d0db7265e39:collocation:1"
+                    ],
+                    "meaning_cn": "用于某事的设施",
+                    "phrase": "facility for + sth"
+                  },
+                  {
+                    "collocation_id": "collocation:a4eac2eb09f3adf16eaa",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:facility:a1796d0db7265e39:collocation:retro-o0025-o0224"
+                    ],
+                    "meaning_cn": "供学生使用的设施和服务",
+                    "phrase": "facilities for students"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "设施；场所；配套设备或服务",
+                "definition_en": "a building, place, equipment, or service provided for a particular purpose",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:facility:a1796d0db7265e39",
+                "sense_label_en": "a building, place, equipment, or service provided for a particular purpose",
+                "sort_order": 0,
+                "transitivity": "nonverb",
+                "usage_note": "Plural facilities commonly refers collectively to buildings, equipment, and services provided for a purpose."
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:c1bf177878e2857dd0aa",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:facility:4620a2efe94658fa:collocation:0"
+                    ],
+                    "meaning_cn": "对某事的熟练",
+                    "phrase": "facility with + sth"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "灵巧；熟练",
+                "definition_en": "a natural ability to do something easily",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:facility:4620a2efe94658fa",
+                "sense_label_en": "a natural ability to do something easily",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 2,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "completed"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 1,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "facility",
+            "word_family": [],
+            "word_id": "word:facility"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1838.json",
+      "mode": "patch_json",
+      "expected_sha256": "bbd3fcaef6b322c2952c269199488277f806b136888f04998944193a0cb64f7f",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [
+              {
+                "construction_id": "construction:2261adc9634422f71890",
+                "construction_type": "phrasal_verb",
+                "direction": "R+P",
+                "level": "L2",
+                "meaning_cn": "把…计入；把…考虑进去",
+                "pattern": "factor sth in / factor sth into sth"
+              }
+            ],
+            "content_hash": "501ba425cba4ab8091f205b23ade3bc25bd3ebf15e817e5db6e4a2c30187f943",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "因素；要素",
+                  "label_en": "one of the things that influence or cause a result",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:factor:39a2dfe80d825825"
+                  ]
+                },
+                {
+                  "label_cn": "因数；因子",
+                  "label_en": "a number that divides another number exactly",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:factor:6115e5a352ba51b7"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "因素；因数或因子",
+              "core_meaning_en": "a contributing factor; a mathematical factor",
+              "mental_model_cn": "因素；因子",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "construction:construction:2261adc9634422f71890"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:749d98e3611983c4bac4",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:factor:39a2dfe80d825825:collocation:0"
+                    ],
+                    "meaning_cn": "关键因素",
+                    "phrase": "a key factor"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "因素，要素",
+                "definition_en": "one of the things that influence or cause a result",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:factor:39a2dfe80d825825",
+                "sense_label_en": "one of the things that influence or cause a result",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:fd36eeab3147d2a35897",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:factor:6115e5a352ba51b7:collocation:0"
+                    ],
+                    "meaning_cn": "公因数",
+                    "phrase": "common factor"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "因数，因子",
+                "definition_en": "a number that divides another number exactly",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:factor:6115e5a352ba51b7",
+                "sense_label_en": "a number that divides another number exactly",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:d32f0b96c33f2205dc83",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:factor:beb556a89f635b39:collocation:0"
+                    ],
+                    "meaning_cn": "分解一个数",
+                    "phrase": "factor a number"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "将…分解为因子",
+                "definition_en": "to express a number as a product of its factors",
+                "governing_pattern": "vt. + object",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:factor:beb556a89f635b39",
+                "sense_label_en": "to express a number as a product of its factors",
+                "sort_order": 2,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 3,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "factor",
+            "word_family": [],
+            "word_id": "word:factor"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1841.json",
+      "mode": "patch_json",
+      "expected_sha256": "30cd51eb707f039e8ed87f6a2cfcfe006ee0121c003be6849c9c00d43dde26a4",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "e8f03b82e1f7a95862c52a23bdf635f8dfdd5d827a69cc28ebca00ccf2a3e478",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "褪色；逐渐消失；使褪色",
+                  "label_en": "to lose brightness/color or disappear gradually; to cause to fade",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:fade:494cdfe652e359aa",
+                    "sense:fade:ba807327ae6f55bb"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "褪色；逐渐消失；使褪色",
+              "core_meaning_en": "to fade, disappear gradually, or cause to fade",
+              "mental_model_cn": "逐渐消失或失去活力",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:0b41b6a325d50e335d81",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:fade:494cdfe652e359aa:collocation:0"
+                    ],
+                    "meaning_cn": "逐渐消失",
+                    "phrase": "fade away"
+                  },
+                  {
+                    "collocation_id": "collocation:5b677a69c4165e673554",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:fade:494cdfe652e359aa:collocation:1"
+                    ],
+                    "meaning_cn": "淡出；逐渐消失",
+                    "phrase": "fade out"
+                  },
+                  {
+                    "collocation_id": "collocation:e1adfd3f2cb8aaa1442e",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:fade:494cdfe652e359aa:collocation:2"
+                    ],
+                    "meaning_cn": "颜色褪了",
+                    "phrase": "the colors faded"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "褪色；逐渐消失",
+                "definition_en": "to lose brightness, color, or freshness; to disappear gradually",
+                "governing_pattern": "vi. + away/out",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:fade:494cdfe652e359aa",
+                "sense_label_en": "to lose brightness, color, or freshness; to disappear gradually",
+                "sort_order": 0,
+                "transitivity": "vi"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:9f9a9c39c644b63b4f79",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:fade:ba807327ae6f55bb:collocation:0"
+                    ],
+                    "meaning_cn": "使窗帘褪色",
+                    "phrase": "fade the curtains"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "使褪色",
+                "definition_en": "to cause to lose color or freshness",
+                "governing_pattern": "vt. + object",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:fade:ba807327ae6f55bb",
+                "sense_label_en": "to cause to lose color or freshness",
+                "sort_order": 1,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:15933d23110da02a202d",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:fade:cda32e92d1fc567f:collocation:0"
+                    ],
+                    "meaning_cn": "淡入",
+                    "phrase": "fade in"
+                  },
+                  {
+                    "collocation_id": "collocation:b3655869a9f86ccb449d",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:fade:cda32e92d1fc567f:collocation:1"
+                    ],
+                    "meaning_cn": "淡出",
+                    "phrase": "fade out"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "淡入淡出",
+                "definition_en": "a gradual increase or decrease in the visibility of a film or television image",
+                "governing_pattern": "",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:fade:cda32e92d1fc567f",
+                "sense_label_en": "a gradual increase or decrease in the visibility of a film or television",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 2,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 1,
+              "runtime_model_calls": false
+            },
+            "word": "fade",
+            "word_family": [],
+            "word_id": "word:fade"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1842.json",
+      "mode": "patch_json",
+      "expected_sha256": "fd3290c4bd1de8f3ef9a912ad1255c7c870a1adce575cf2be5bf7c8d6f458d59",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "c705b24809dbe4bf69045b0f3a39df507494e659fec555d1c5a4b6c857d6e81e",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "失败；未成功；未能做到；使失望；失灵",
+                  "label_en": "to be unsuccessful; fail to do something; disappoint; stop functioning",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:fail:146e6d3bdd1f5592",
+                    "sense:fail:64bc961feb37515a",
+                    "sense:fail:9f81c07941685c5e",
+                    "sense:fail:346fa981ac1151be"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "失败；未能做到",
+              "core_meaning_en": "to be unsuccessful or not do what is expected",
+              "mental_model_cn": "失败；未能做到",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "construction:deep:constructions:fail:1efdcbdd6a9ab29d",
+              "construction:deep:constructions:fail:73225091ea7f1fc2",
+              "construction:deep:constructions:fail:e1d649564bf02e0c",
+              "deep:deep:constructions:fail:1efdcbdd6a9ab29d",
+              "deep:deep:constructions:fail:73225091ea7f1fc2",
+              "deep:deep:constructions:fail:e1d649564bf02e0c",
+              "deep:deep:word_family:fail:7eec2df050916faf",
+              "relation:deep:word_family:fail:7eec2df050916faf",
+              "semantic-reconciliation:o1825-o2024"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:d69443236e3eef405e90",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:fail:146e6d3bdd1f5592:collocation:0"
+                    ],
+                    "meaning_cn": "在某事上失败",
+                    "phrase": "fail in + sth"
+                  },
+                  {
+                    "collocation_id": "collocation:f1c1576ec34fe5d7db57",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:fail:146e6d3bdd1f5592:collocation:1"
+                    ],
+                    "meaning_cn": "考试不及格",
+                    "phrase": "fail in the exam"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "失败；未成功",
+                "definition_en": "to be unsuccessful in achieving something",
+                "governing_pattern": "vi. + in + sth/doing sth",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:fail:146e6d3bdd1f5592",
+                "sense_label_en": "to be unsuccessful in achieving something",
+                "sort_order": 0,
+                "transitivity": "vi"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:6bfa361f5b58b5e77bce",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:fail:64bc961feb37515a:collocation:0"
+                    ],
+                    "meaning_cn": "未能做某事",
+                    "phrase": "fail to do sth"
+                  },
+                  {
+                    "collocation_id": "collocation:f0349541f9fa279295bd",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:fail:64bc961feb37515a:collocation:1"
+                    ],
+                    "meaning_cn": "未能遵守诺言",
+                    "phrase": "fail to keep a promise"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "未能做到；忘记做",
+                "definition_en": "to not do something that you should do",
+                "governing_pattern": "fail to do sth",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:fail:64bc961feb37515a",
+                "sense_label_en": "to not do something that you should do",
+                "sort_order": 1,
+                "transitivity": "vi"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:ef613aee97e21bdebfff",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:fail:9f81c07941685c5e:collocation:0"
+                    ],
+                    "meaning_cn": "辜负某人",
+                    "phrase": "fail sb"
+                  },
+                  {
+                    "collocation_id": "collocation:c43060e2e2a7ee06cf0a",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:fail:9f81c07941685c5e:collocation:1"
+                    ],
+                    "meaning_cn": "辜负父母",
+                    "phrase": "fail his parents"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "使失望；辜负",
+                "definition_en": "to disappoint someone or not be what they expected",
+                "governing_pattern": "vt. + sb",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:fail:9f81c07941685c5e",
+                "sense_label_en": "to disappoint someone or not be what they expected",
+                "sort_order": 2,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:99572bb621104c8f9342",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:fail:346fa981ac1151be:collocation:0"
+                    ],
+                    "meaning_cn": "发动机失灵",
+                    "phrase": "the engine failed"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "失灵；停止运转",
+                "definition_en": "to stop working or functioning",
+                "governing_pattern": "vi.",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:fail:346fa981ac1151be",
+                "sense_label_en": "to stop working or functioning",
+                "sort_order": 3,
+                "transitivity": "vi"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:a890a0fa2863a42abe3b",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:fail:3a7f553776ba57cd:collocation:0"
+                    ],
+                    "meaning_cn": "得不及格",
+                    "phrase": "get a fail"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "不及格（成绩）",
+                "definition_en": "a mark given for a test or exam that is not good enough",
+                "governing_pattern": "",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:fail:3a7f553776ba57cd",
+                "sense_label_en": "a mark given for a test or exam that is not good enough",
+                "sort_order": 4,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 3,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "completed",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "completed"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 4,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "fail",
+            "word_family": [
+              {
+                "boundary": "fail → failure 失败",
+                "codex_reviewed": true,
+                "definition_cn": null,
+                "definition_en": null,
+                "dimensions": {},
+                "direction": "R+P",
+                "evidence": [
+                  {
+                    "evidence_id": "evidence:family:fail:failure",
+                    "evidence_status": "source_checked",
+                    "source_locator": "fail|failure",
+                    "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/processed/word_families.csv",
+                    "source_type": "learner_dictionary"
+                  }
+                ],
+                "fact_id": "deep:word_family:fail:7eec2df050916faf",
+                "family_sources": [
+                  "curated core-card derivative"
+                ],
+                "label_en": null,
+                "level": null,
+                "meaning_cn": null,
+                "module": "word_family",
+                "pattern": null,
+                "pos": null,
+                "priority": "A",
+                "publication_status": "codex_reviewed",
+                "shared_definition": null,
+                "source_sense_id": "sense:fail:146e6d3bdd1f5592",
+                "target_sense_id": "sense:failure:ade6e5311f035881",
+                "target_word": "failure",
+                "task_tags": [
+                  "reading"
+                ],
+                "verification_status": "verified",
+                "writing_safe": true
+              }
+            ],
+            "word_id": "word:fail"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1845.json",
+      "mode": "patch_json",
+      "expected_sha256": "ea10f7659724c909e40c5085e68ab935f12c1c0472014299ccada3396509f7eb",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v3",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "e8293c5eaf9be4b93e383c36f06fa8d5c4cacd677cfbe1a9ca6e78b2dec65bd2",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "公平的；公正的；相当大的；相当好的；尚可的",
+                  "label_en": "fair/just; quite large, good, or reasonable",
+                  "pos": "adjective",
+                  "sense_ids": [
+                    "sense:fair:adba4e0a1b98505f",
+                    "sense:fair:d3ee665d5a5a57d6"
+                  ]
+                },
+                {
+                  "label_cn": "展览会；市集",
+                  "label_en": "an event where people show and sell products",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:fair:f86d0622f2055e92"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "公正的，合理的，或买卖的公共活动",
+              "core_meaning_en": "just, reasonable, or a public event for buying and selling",
+              "mental_model_cn": "公正的，合理的，或买卖的公共活动",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "confusable:horizontal:ff35d42ca5511ac26ae2",
+              "deep:deep:semantic_contrast:fair:4ea7a561c6410f23",
+              "relation:deep:semantic_contrast:fair:4ea7a561c6410f23"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:28fd604a70864801c134",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:fair:adba4e0a1b98505f:collocation:0"
+                    ],
+                    "meaning_cn": "公正的审判",
+                    "phrase": "fair trial"
+                  },
+                  {
+                    "collocation_id": "collocation:dc92431a4c5ee89389ca",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:fair:adba4e0a1b98505f:collocation:1"
+                    ],
+                    "meaning_cn": "公平竞争；公正对待",
+                    "phrase": "fair play"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "公平的；公正的",
+                "definition_en": "treating people equally or in a reasonable way",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:fair:adba4e0a1b98505f",
+                "sense_label_en": "treating people equally or in a reasonable way",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:e006a1b1a323c8666ea6",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:fair:d3ee665d5a5a57d6:collocation:0"
+                    ],
+                    "meaning_cn": "相当多的数量",
+                    "phrase": "a fair amount"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "相当大的；相当好的；尚可的",
+                "definition_en": "quite large, good, or reasonable",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:fair:d3ee665d5a5a57d6",
+                "sense_label_en": "quite large, good, or reasonable",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:931c35a1838477333983",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:fair:f86d0622f2055e92:collocation:0"
+                    ],
+                    "meaning_cn": "贸易博览会",
+                    "phrase": "trade fair"
+                  },
+                  {
+                    "collocation_id": "collocation:a0de68cd1723ae2f54cc",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:fair:f86d0622f2055e92:collocation:1"
+                    ],
+                    "meaning_cn": "书展",
+                    "phrase": "book fair"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "展览会；市集",
+                "definition_en": "an event where people show and sell products",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:fair:f86d0622f2055e92",
+                "sense_label_en": "an event where people show and sell products",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:ce7fdaf4d879c24c7f98",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:fair:2e5a3180695f525a:collocation:0"
+                    ],
+                    "meaning_cn": "金发",
+                    "phrase": "fair hair"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "白皙的；美丽的",
+                "definition_en": "having light skin or hair; beautiful",
+                "governing_pattern": "",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:fair:2e5a3180695f525a",
+                "sense_label_en": "having light skin or hair; beautiful",
+                "sort_order": 3,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 3,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "completed",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 1,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "fair",
+            "word_family": [],
+            "word_id": "word:fair"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1847.json",
+      "mode": "patch_json",
+      "expected_sha256": "4b9a51d191ff53a75756d42573dfbf34c52f6033e6ddd0a0b72fd756c91919d7",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "ba392f860e2525ffe46d59c634d4f548e8724945e812a9d443015bcef705ab93",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "仙女；精灵",
+                  "label_en": "a small imaginary being with magical powers",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:fairy:7ad00493be4a5bbf"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "小仙子，精灵",
+              "core_meaning_en": "a small magical being",
+              "mental_model_cn": "小仙子，精灵",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:311f69f2fb4eb405e193",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:fairy:7ad00493be4a5bbf:collocation:0"
+                    ],
+                    "meaning_cn": "童话故事",
+                    "phrase": "fairy tale"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "仙女，精灵",
+                "definition_en": "a small imaginary being with magical powers",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:fairy:7ad00493be4a5bbf",
+                "sense_label_en": "a small imaginary being with magical powers",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "仙女的",
+                "definition_en": "of or relating to fairies",
+                "governing_pattern": "",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:fairy:bf4826ef187154d4",
+                "sense_label_en": "of or relating to fairies",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 0,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 1,
+              "runtime_model_calls": false
+            },
+            "word": "fairy",
+            "word_family": [],
+            "word_id": "word:fairy"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1849.json",
+      "mode": "patch_json",
+      "expected_sha256": "21b3801d32fcea0ffb816e0dc4260c4e700fa29b97c64b0c2acba2a50b10b919",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "4aba879321dc95df82e64ca0f95cade1be6244eb60ede2dbd6c80675251baa52",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "忠实的；忠诚的；忠贞的",
+                  "label_en": "loyal and steadfast; sexually faithful",
+                  "pos": "adjective",
+                  "sense_ids": [
+                    "sense:faithful:9fe7c3ad9c475bec",
+                    "sense:faithful:2193f89cbbda5abc"
+                  ]
+                },
+                {
+                  "label_cn": "忠实准确的；符合原文的",
+                  "label_en": "accurate or true to the original",
+                  "pos": "adjective",
+                  "sense_ids": [
+                    "sense:faithful:0541aeeba97f1bd0"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "忠实的；忠诚的；忠实准确的",
+              "core_meaning_en": "loyal or faithful; accurate and true to the original",
+              "mental_model_cn": "既可指对人/承诺忠诚，也可指译文、复制品、叙述等忠实于原文或事实；低频名词 the faithful 留在扩展层。",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "deep:deep:word_family:faithful:2e080730c3b60055",
+              "relation:deep:word_family:faithful:2e080730c3b60055"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:c44be2f73998bf37f354",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:faithful:9fe7c3ad9c475bec:collocation:0"
+                    ],
+                    "meaning_cn": "对……忠诚",
+                    "phrase": "be faithful to + sb/sth"
+                  },
+                  {
+                    "collocation_id": "collocation:621a636924930d72cfd1",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:faithful:9fe7c3ad9c475bec:collocation:1"
+                    ],
+                    "meaning_cn": "忠实的朋友",
+                    "phrase": "a faithful friend"
+                  },
+                  {
+                    "collocation_id": "collocation:06be3eefb81f089c884b",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:faithful:9fe7c3ad9c475bec:collocation:handoff-o1625-o1874"
+                    ],
+                    "meaning_cn": "忠实的叙述、复制品或翻译",
+                    "phrase": "faithful account/reproduction/translation"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "忠实的；忠诚的",
+                "definition_en": "loyal and steadfast in affection or allegiance",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:faithful:9fe7c3ad9c475bec",
+                "sense_label_en": "loyal and steadfast in affection or allegiance",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:791a04596845f58c91a6",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:faithful:2193f89cbbda5abc:collocation:0"
+                    ],
+                    "meaning_cn": "对配偶忠贞",
+                    "phrase": "be faithful to one's spouse"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "忠贞的",
+                "definition_en": "not having sexual relations with anyone except your partner",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:faithful:2193f89cbbda5abc",
+                "sense_label_en": "not having sexual relations with anyone except your partner",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:e6797eb3e0066b39e515",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:faithful:552e76d256745cf7:collocation:0"
+                    ],
+                    "meaning_cn": "党的忠实信徒",
+                    "phrase": "the party faithful"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "信徒；忠实追随者",
+                "definition_en": "a loyal follower or supporter",
+                "governing_pattern": "",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:faithful:552e76d256745cf7",
+                "sense_label_en": "a loyal follower or supporter",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "忠实准确的、符合原文的",
+                "definition_en": "accurate or true to the original",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:faithful:0541aeeba97f1bd0",
+                "sense_label_en": "accurate or true to the original",
+                "sort_order": 3,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 3,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "completed"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 1,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "faithful",
+            "word_family": [
+              {
+                "boundary": "faithful → faith",
+                "codex_reviewed": false,
+                "definition_cn": null,
+                "definition_en": null,
+                "dimensions": {},
+                "direction": "R+P",
+                "evidence": [
+                  {
+                    "evidence_id": "evidence:family:faithful:faith",
+                    "evidence_status": "source_checked",
+                    "source_locator": "faithful|faith",
+                    "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/processed/word_families.csv",
+                    "source_type": "learner_dictionary"
+                  }
+                ],
+                "fact_id": "deep:word_family:faithful:2e080730c3b60055",
+                "family_sources": [
+                  "curated core-card derivative",
+                  "local morphology candidate"
+                ],
+                "label_en": null,
+                "level": null,
+                "meaning_cn": null,
+                "module": "word_family",
+                "pattern": null,
+                "pos": null,
+                "priority": "A",
+                "publication_status": "publishable",
+                "shared_definition": null,
+                "source_sense_id": "sense:faithful:9fe7c3ad9c475bec",
+                "target_sense_id": "sense:faith:1c3db8e0f6f0543e",
+                "target_word": "faith",
+                "task_tags": [
+                  "reading"
+                ],
+                "verification_status": "verified",
+                "writing_safe": true
+              }
+            ],
+            "word_id": "word:faithful"
+          }
+        }
+      ]
+    }
+  ],
+  "semantic_dependency_read_set": {}
+}
