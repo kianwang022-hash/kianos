@@ -11,18 +11,17 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "进口；输入；（计算机）导入；引入；有关系；有重要性",
-          "label_en": "to bring in goods or services from a foreign country; to transfer electronic data into a database or document; to be of importance or consequence",
+          "label_cn": "进口；输入；（计算机）导入、引入",
+          "label_en": "to bring in goods/services from another country; to transfer electronic data into a system",
           "pos": "verb",
           "sense_ids": [
             "sense:import:2aea7b0ca1245c41",
-            "sense:import:83dd6840f252538a",
-            "sense:import:e495faf518c059cf"
+            "sense:import:83dd6840f252538a"
           ]
         },
         {
           "label_cn": "进口商品；进口货；含义；重要性",
-          "label_en": "commodities (goods or services) bought from a foreign country; the meaning or significance of something",
+          "label_en": "imported goods/services; the meaning or significance of something",
           "pos": "noun",
           "sense_ids": [
             "sense:import:c557e55d59865d39",
@@ -30,9 +29,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "从外国或外部系统引入货物或数据，或引入的行为",
-      "core_meaning_en": "to bring in goods or data from another country or system, or the act of doing so",
-      "mental_model_cn": "从外国或外部系统引入货物或数据，或引入的行为",
+      "core_meaning_cn": "进口、导入；进口品；含义、重要性",
+      "core_meaning_en": "to import goods/data; imported goods; meaning or significance",
+      "mental_model_cn": "进口、导入；进口品；含义、重要性",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -222,7 +221,27 @@
     },
     "word": "import",
     "word_family": [],
-    "word_id": "word:import"
+    "word_id": "word:import",
+    "form_identity": {
+      "form_type": "same_spelling_pos_conditioned_stress",
+      "spelling": "import",
+      "identity_rule": "same_word_owner_no_semantic_split",
+      "boundary": "import has noun stress on the first syllable and verb stress on the second syllable.",
+      "boundaries": [
+        {
+          "surface": "import",
+          "condition": "noun",
+          "note": "/ˈɪm.pɔːt/ (US rhotic equivalent)"
+        },
+        {
+          "surface": "import",
+          "condition": "verb",
+          "note": "/ɪmˈpɔːt/"
+        }
+      ],
+      "variants": [],
+      "authority": "BF24 exact p approved stress Form 2026-09-22"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
