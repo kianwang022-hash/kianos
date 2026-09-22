@@ -49,7 +49,9 @@ const isVerify = asset.kind === 'verify' || asset.protected;
 
 <script>
   import { recordSkillAssetVisit, setSkillAssetCompleted, skillProgressFor } from '../../../lib/skillRuntimeClient.mjs';
+  import { learnerWriterReady } from '../../../lib/browserLearnerWriter.mjs';
 
+  void learnerWriterReady.then(() => {
   const reader = document.querySelector('[data-skill-reader]');
   if (reader instanceof HTMLElement) {
     const skillId = reader.dataset.skillId || '';
@@ -76,4 +78,5 @@ const isVerify = asset.kind === 'verify' || asset.protected;
       });
     }
   }
+  });
 </script>
