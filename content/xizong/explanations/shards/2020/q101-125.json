@@ -1,1 +1,622 @@
-[{"question_id":"xizong-official-2020-n101","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2020/q101-125.json","blob_sha":"94ff434d287703059f7c0f137f6ceeab1f678a9a","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"直肠癌共享病例子问缺失","decision_axis":"当前记录只保留共享直肠癌病例，正式答案指向肝转移，但题干本身未保留对应后续病情/子问条件，无法安全恢复判断轴。","reasoning_chain":["共享题干不足以独立恢复子问语义，按题源答案保留并 fail-closed。"],"transfer_rule":"仅保留题源/Question Truth边界；不得凭答案补造缺失病情。","mapping_decision":"NO_SAFE_MATCH","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2020-n102","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2020/q101-125.json","blob_sha":"94ff434d287703059f7c0f137f6ceeab1f678a9a","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"直肠癌肝转移术式共享题边界","decision_axis":"题源答案为左肝切除，但当前记录缺少决定肝转移部位、数量和可切除性的完整子问信息，不能安全恢复现代手术决策。","reasoning_chain":["共享题干不足以独立恢复子问语义，按题源答案保留并 fail-closed。"],"transfer_rule":"仅保留题源/Study边界；肝转移切除需完整影像和可切除性信息。","mapping_decision":"NO_SAFE_MATCH","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2020-n103","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2020/q101-125.json","blob_sha":"94ff434d287703059f7c0f137f6ceeab1f678a9a","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"前臂双骨折识别","decision_axis":"前臂挤压伤后明显畸形、肿胀及骨性异常提示桡尺骨同时骨折，需同时评估神经血管与筋膜室。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"前臂高能量伤要把桡骨、尺骨和筋膜室一起评估。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2020-n104","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2020/q101-125.json","blob_sha":"94ff434d287703059f7c0f137f6ceeab1f678a9a","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"前臂骨折共享子问缺失","decision_axis":"当前Question记录保留病例与选项，但未保留具体问法；正式答案B无法说明是在问禁忌证、治疗选择还是其他判断，不能安全解释。","reasoning_chain":["共享题干不足以独立恢复子问语义，按题源答案保留并 fail-closed。"],"transfer_rule":"仅保留题源/Question Truth边界；不得根据答案反推缺失子问。","mapping_decision":"NO_SAFE_MATCH","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2020-n105","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2020/q101-125.json","blob_sha":"94ff434d287703059f7c0f137f6ceeab1f678a9a","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"前臂骨折共享子问缺失","decision_axis":"正式答案指向骨筋膜室综合征，但当前记录缺失具体子问，无法确认是在问最危险并发症、当前诊断还是后续观察点。","reasoning_chain":["共享题干不足以独立恢复子问语义，按题源答案保留并 fail-closed。"],"transfer_rule":"仅保留题源/Question Truth边界；高能量前臂伤需警惕筋膜室综合征。","mapping_decision":"NO_SAFE_MATCH","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2020-n106","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2020/q101-125.json","blob_sha":"94ff434d287703059f7c0f137f6ceeab1f678a9a","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"骨软骨瘤识别","decision_axis":"青少年长骨干骺端无痛性骨性突起、与母骨皮质和髓腔连续，典型提示骨软骨瘤。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"骨软骨瘤抓青少年、干骺端、骨性外生。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2020-n107","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2020/q101-125.json","blob_sha":"94ff434d287703059f7c0f137f6ceeab1f678a9a","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"无症状骨软骨瘤处理","decision_axis":"无症状、无快速增长或神经血管压迫等高危表现的骨软骨瘤通常可观察随访。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"骨软骨瘤是否手术看症状、压迫、快速生长和恶变风险。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2020-n108","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2020/q101-125.json","blob_sha":"94ff434d287703059f7c0f137f6ceeab1f678a9a","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"医学人文与紧急救助","decision_axis":"面对生命危险首先积极救治体现患者利益优先和救死扶伤，是医学专业人文责任的核心表现。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"紧急医疗首先围绕保护生命和患者利益。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2020-n109","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2020/q101-125.json","blob_sha":"94ff434d287703059f7c0f137f6ceeab1f678a9a","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"医患沟通恰当表达","decision_axis":"有效沟通应清楚说明治疗要求和后果，避免贬低、威胁或否定患者理解能力；题源选择相对尊重且具体的表达。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"沟通要尊重、具体、可执行，不用羞辱或威胁。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2020-n110","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2020/q101-125.json","blob_sha":"94ff434d287703059f7c0f137f6ceeab1f678a9a","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"术中扩大手术范围与知情同意","decision_axis":"术中发现非紧急的额外病变时，若拟扩大原计划手术范围，应尽可能重新完成适当授权/同意，而不能把原手术同意无限外推。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"知情同意具有范围边界；非紧急额外操作需另行授权。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2020-n111","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2020/q101-125.json","blob_sha":"94ff434d287703059f7c0f137f6ceeab1f678a9a","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"SARS时期公共卫生处置旧法规","decision_axis":"题源按2003年SARS时期的报告与隔离流程作答；具体报告主体、隔离权限和程序属于时代性公共卫生规范，不能直接升级为Current操作规则。","reasoning_chain":["按题干与正式答案保留题源判断，同时对法规时代边界 fail-closed。"],"transfer_rule":"仅保留题源/历史法规边界；现实传染病处置按现行法定流程。","mapping_decision":"NO_SAFE_MATCH","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2020-n112","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2020/q101-125.json","blob_sha":"94ff434d287703059f7c0f137f6ceeab1f678a9a","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"传染病报告与保密例外","decision_axis":"患者隐私原则并非绝对；依法必须进行的传染病公共卫生报告可构成法定保密例外。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"保密义务存在依法报告等明确例外，但具体程序看现行法规。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2020-n113","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2020/q101-125.json","blob_sha":"94ff434d287703059f7c0f137f6ceeab1f678a9a","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"知情同意本质","decision_axis":"知情同意要求医务人员提供充分信息和专业建议，由有能力的患者基于自身价值作出授权或拒绝决定。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"信息由医生提供，决定权属于患者。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2020-n114","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2020/q101-125.json","blob_sha":"94ff434d287703059f7c0f137f6ceeab1f678a9a","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"纽伦堡法典首要原则","decision_axis":"《纽伦堡法典》把受试者自愿同意置于核心位置，强调参与研究必须建立在自由、知情和有能力同意基础上。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"纽伦堡法典最经典关键词=自愿同意。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2020-n115","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2020/q101-125.json","blob_sha":"94ff434d287703059f7c0f137f6ceeab1f678a9a","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"医疗事故等级旧法规口径","decision_axis":"题源依据当时医疗事故分级规范选择等级；具体法律名称、等级标准和责任认定可能更新，不能作为Current法务规则。","reasoning_chain":["按题干与正式答案保留题源判断，同时对法规更新 fail-closed。"],"transfer_rule":"仅保留题源/法规时代边界；现实认定以现行法律规范为准。","mapping_decision":"NO_SAFE_MATCH","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2020-n116","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2020/q101-125.json","blob_sha":"94ff434d287703059f7c0f137f6ceeab1f678a9a","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"交感缩血管纤维分布","decision_axis":"皮肤血管受交感缩血管神经支配较丰富，是全身血流重新分配和体温调节的重要效应部位。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"皮肤血管交感缩血管支配密度高。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2020-n117","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2020/q101-125.json","blob_sha":"94ff434d287703059f7c0f137f6ceeab1f678a9a","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"脑血管神经调节特点","decision_axis":"脑血流主要受局部代谢和自身调节控制，直接交感缩血管支配的相对影响较小。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"脑血流调节优先想局部代谢/自身调节。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2020-n118","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2020/q101-125.json","blob_sha":"94ff434d287703059f7c0f137f6ceeab1f678a9a","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"感觉性语言障碍定位","decision_axis":"听力正常但不能理解口语提示听觉语言理解中枢受损，经典定位于优势半球颞上回后部/Wernicke相关区域。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"听得到但听不懂→语言理解区。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2020-n119","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2020/q101-125.json","blob_sha":"94ff434d287703059f7c0f137f6ceeab1f678a9a","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"运动性失语定位","decision_axis":"理解基本保留但主动语言表达困难、发音器官本身无瘫痪，经典提示优势半球Broca区损伤。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"懂但说不出→Broca运动性语言区。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2020-n120","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2020/q101-125.json","blob_sha":"94ff434d287703059f7c0f137f6ceeab1f678a9a","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"嘌呤从头合成关键酶","decision_axis":"谷氨酰胺-PRPP酰胺转移酶催化嘌呤从头合成的重要承诺步骤，是经典调节酶。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"嘌呤从头合成关键酶联想PRPP酰胺转移酶。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2020-n121","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2020/q101-125.json","blob_sha":"94ff434d287703059f7c0f137f6ceeab1f678a9a","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"嘧啶从头合成调节酶","decision_axis":"题源教材把天冬氨酸氨基甲酰转移酶列为嘧啶从头合成的重要调节酶；需与哺乳动物CPSⅡ调控框架区分。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"该题按题源教材的嘧啶调节酶口径掌握，并注意物种/教材差异。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2020-n122","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2020/q101-125.json","blob_sha":"94ff434d287703059f7c0f137f6ceeab1f678a9a","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"内源性胆固醇运输","decision_axis":"LDL主要把肝来源胆固醇输送到外周组织，参与外周细胞摄取和胆固醇沉积。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"LDL：肝→外周。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2020-n123","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2020/q101-125.json","blob_sha":"94ff434d287703059f7c0f137f6ceeab1f678a9a","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"胆固醇逆向运输","decision_axis":"HDL从外周组织接受胆固醇并将其转运回肝，是胆固醇逆向运输的主要脂蛋白。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"HDL：外周→肝。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2020-n124","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2020/q101-125.json","blob_sha":"94ff434d287703059f7c0f137f6ceeab1f678a9a","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"急性细菌性炎症细胞","decision_axis":"急性细菌感染早期以中性粒细胞快速募集和浸润最典型。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"急性化脓性细菌炎症→中性粒细胞。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2020-n125","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2020/q101-125.json","blob_sha":"94ff434d287703059f7c0f137f6ceeab1f678a9a","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"寄生虫感染炎症细胞","decision_axis":"寄生虫感染和部分过敏反应常伴嗜酸性粒细胞增多和组织浸润。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"寄生虫/过敏→嗜酸性粒细胞。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}}]
+[
+  {
+    "question_id": "xizong-official-2020-n101",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2020/q101-125.json",
+      "blob_sha": "94ff434d287703059f7c0f137f6ceeab1f678a9a",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "直肠癌共享病例子问缺失",
+    "decision_axis": "当前记录只保留共享直肠癌病例，正式答案指向肝转移，但题干本身未保留对应后续病情/子问条件，无法安全恢复判断轴。",
+    "reasoning_chain": [
+      "共享题干不足以独立恢复子问语义，按题源答案保留并 fail-closed。"
+    ],
+    "transfer_rule": "仅保留题源/Question Truth边界；不得凭答案补造缺失病情。",
+    "mapping_decision": "NO_SAFE_MATCH",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2020-n102",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2020/q101-125.json",
+      "blob_sha": "94ff434d287703059f7c0f137f6ceeab1f678a9a",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "直肠癌肝转移术式共享题边界",
+    "decision_axis": "题源答案为左肝切除，但当前记录缺少决定肝转移部位、数量和可切除性的完整子问信息，不能安全恢复现代手术决策。",
+    "reasoning_chain": [
+      "共享题干不足以独立恢复子问语义，按题源答案保留并 fail-closed。"
+    ],
+    "transfer_rule": "仅保留题源/Study边界；肝转移切除需完整影像和可切除性信息。",
+    "mapping_decision": "NO_SAFE_MATCH",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2020-n103",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2020/q101-125.json",
+      "blob_sha": "94ff434d287703059f7c0f137f6ceeab1f678a9a",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "前臂双骨折识别",
+    "decision_axis": "前臂挤压伤后明显畸形、肿胀及骨性异常提示桡尺骨同时骨折，需同时评估神经血管与筋膜室。",
+    "reasoning_chain": [
+      "按题干与选项，依据上述判断轴确定题源答案。"
+    ],
+    "transfer_rule": "前臂高能量伤要把桡骨、尺骨和筋膜室一起评估。",
+    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2020-n104",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2020/q101-125.json",
+      "blob_sha": "94ff434d287703059f7c0f137f6ceeab1f678a9a",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "前臂骨折共享子问缺失",
+    "decision_axis": "当前Question记录保留病例与选项，但未保留具体问法；正式答案B无法说明是在问禁忌证、治疗选择还是其他判断，不能安全解释。",
+    "reasoning_chain": [
+      "共享题干不足以独立恢复子问语义，按题源答案保留并 fail-closed。"
+    ],
+    "transfer_rule": "仅保留题源/Question Truth边界；不得根据答案反推缺失子问。",
+    "mapping_decision": "NO_SAFE_MATCH",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2020-n105",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2020/q101-125.json",
+      "blob_sha": "94ff434d287703059f7c0f137f6ceeab1f678a9a",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "前臂骨折共享子问缺失",
+    "decision_axis": "正式答案指向骨筋膜室综合征，但当前记录缺失具体子问，无法确认是在问最危险并发症、当前诊断还是后续观察点。",
+    "reasoning_chain": [
+      "共享题干不足以独立恢复子问语义，按题源答案保留并 fail-closed。"
+    ],
+    "transfer_rule": "仅保留题源/Question Truth边界；高能量前臂伤需警惕筋膜室综合征。",
+    "mapping_decision": "NO_SAFE_MATCH",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2020-n106",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2020/q101-125.json",
+      "blob_sha": "94ff434d287703059f7c0f137f6ceeab1f678a9a",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "骨软骨瘤识别",
+    "decision_axis": "青少年长骨干骺端无痛性骨性突起、与母骨皮质和髓腔连续，典型提示骨软骨瘤。",
+    "reasoning_chain": [
+      "14岁、胫骨上端无痛性骨性突起，并且病灶皮质和髓腔与母骨连续，这是骨软骨瘤最典型的影像身份。",
+      "因此选C。",
+      "骨肉瘤通常侵袭性强、疼痛并伴破坏性骨膜反应；骨巨细胞瘤更偏骨端，骨样骨瘤则常以夜间痛和小瘤巢为线索。"
+    ],
+    "transfer_rule": "骨软骨瘤抓青少年、干骺端、骨性外生。",
+    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2020-n107",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2020/q101-125.json",
+      "blob_sha": "94ff434d287703059f7c0f137f6ceeab1f678a9a",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "无症状骨软骨瘤处理",
+    "decision_axis": "无症状、无快速增长或神经血管压迫等高危表现的骨软骨瘤通常可观察随访。",
+    "reasoning_chain": [
+      "同一病灶符合稳定、无症状的骨软骨瘤，题干没有快速增大、疼痛、神经血管压迫或恶变警报。",
+      "因此可以观察随访，选D。",
+      "出现持续疼痛、快速增长或压迫等情况时才进入切除评估，而不是一开始就做根治性手术或放化疗。"
+    ],
+    "transfer_rule": "骨软骨瘤是否手术看症状、压迫、快速生长和恶变风险。",
+    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2020-n108",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2020/q101-125.json",
+      "blob_sha": "94ff434d287703059f7c0f137f6ceeab1f678a9a",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "医学人文与紧急救助",
+    "decision_axis": "面对生命危险首先积极救治体现患者利益优先和救死扶伤，是医学专业人文责任的核心表现。",
+    "reasoning_chain": [
+      "按题干与选项，依据上述判断轴确定题源答案。"
+    ],
+    "transfer_rule": "紧急医疗首先围绕保护生命和患者利益。",
+    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2020-n109",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2020/q101-125.json",
+      "blob_sha": "94ff434d287703059f7c0f137f6ceeab1f678a9a",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "医患沟通恰当表达",
+    "decision_axis": "有效沟通应清楚说明治疗要求和后果，避免贬低、威胁或否定患者理解能力；题源选择相对尊重且具体的表达。",
+    "reasoning_chain": [
+      "按题干与选项，依据上述判断轴确定题源答案。"
+    ],
+    "transfer_rule": "沟通要尊重、具体、可执行，不用羞辱或威胁。",
+    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2020-n110",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2020/q101-125.json",
+      "blob_sha": "94ff434d287703059f7c0f137f6ceeab1f678a9a",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "术中扩大手术范围与知情同意",
+    "decision_axis": "术中发现非紧急的额外病变时，若拟扩大原计划手术范围，应尽可能重新完成适当授权/同意，而不能把原手术同意无限外推。",
+    "reasoning_chain": [
+      "按题干与选项，依据上述判断轴确定题源答案。"
+    ],
+    "transfer_rule": "知情同意具有范围边界；非紧急额外操作需另行授权。",
+    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2020-n111",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2020/q101-125.json",
+      "blob_sha": "94ff434d287703059f7c0f137f6ceeab1f678a9a",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "SARS时期公共卫生处置旧法规",
+    "decision_axis": "题源按2003年SARS时期的报告与隔离流程作答；具体报告主体、隔离权限和程序属于时代性公共卫生规范，不能直接升级为Current操作规则。",
+    "reasoning_chain": [
+      "按题干与正式答案保留题源判断，同时对法规时代边界 fail-closed。"
+    ],
+    "transfer_rule": "仅保留题源/历史法规边界；现实传染病处置按现行法定流程。",
+    "mapping_decision": "NO_SAFE_MATCH",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2020-n112",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2020/q101-125.json",
+      "blob_sha": "94ff434d287703059f7c0f137f6ceeab1f678a9a",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "传染病报告与保密例外",
+    "decision_axis": "患者隐私原则并非绝对；依法必须进行的传染病公共卫生报告可构成法定保密例外。",
+    "reasoning_chain": [
+      "按题干与选项，依据上述判断轴确定题源答案。"
+    ],
+    "transfer_rule": "保密义务存在依法报告等明确例外，但具体程序看现行法规。",
+    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2020-n113",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2020/q101-125.json",
+      "blob_sha": "94ff434d287703059f7c0f137f6ceeab1f678a9a",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "知情同意本质",
+    "decision_axis": "知情同意要求医务人员提供充分信息和专业建议，由有能力的患者基于自身价值作出授权或拒绝决定。",
+    "reasoning_chain": [
+      "按题干与选项，依据上述判断轴确定题源答案。"
+    ],
+    "transfer_rule": "信息由医生提供，决定权属于患者。",
+    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2020-n114",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2020/q101-125.json",
+      "blob_sha": "94ff434d287703059f7c0f137f6ceeab1f678a9a",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "纽伦堡法典首要原则",
+    "decision_axis": "《纽伦堡法典》把受试者自愿同意置于核心位置，强调参与研究必须建立在自由、知情和有能力同意基础上。",
+    "reasoning_chain": [
+      "按题干与选项，依据上述判断轴确定题源答案。"
+    ],
+    "transfer_rule": "纽伦堡法典最经典关键词=自愿同意。",
+    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2020-n115",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2020/q101-125.json",
+      "blob_sha": "94ff434d287703059f7c0f137f6ceeab1f678a9a",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "医疗事故等级旧法规口径",
+    "decision_axis": "题源依据当时医疗事故分级规范选择等级；具体法律名称、等级标准和责任认定可能更新，不能作为Current法务规则。",
+    "reasoning_chain": [
+      "按题干与正式答案保留题源判断，同时对法规更新 fail-closed。"
+    ],
+    "transfer_rule": "仅保留题源/法规时代边界；现实认定以现行法律规范为准。",
+    "mapping_decision": "NO_SAFE_MATCH",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2020-n116",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2020/q101-125.json",
+      "blob_sha": "94ff434d287703059f7c0f137f6ceeab1f678a9a",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "交感缩血管纤维分布",
+    "decision_axis": "皮肤血管受交感缩血管神经支配较丰富，是全身血流重新分配和体温调节的重要效应部位。",
+    "reasoning_chain": [
+      "交感缩血管纤维在不同血管床分布并不相同。",
+      "Current Study明确给出皮肤血管分布最多，因此答案B。",
+      "脑和心血管受直接交感缩血管影响相对少，更依赖局部代谢和自身调节。"
+    ],
+    "transfer_rule": "皮肤血管交感缩血管支配密度高。",
+    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2020-n117",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2020/q101-125.json",
+      "blob_sha": "94ff434d287703059f7c0f137f6ceeab1f678a9a",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "脑血管神经调节特点",
+    "decision_axis": "脑血流主要受局部代谢和自身调节控制，直接交感缩血管支配的相对影响较小。",
+    "reasoning_chain": [
+      "这题和上一题是同一坐标的反向问法：交感缩血管纤维分布皮肤最多，而心、脑最少。",
+      "因此最低的是脑血管，选A。",
+      "脑血流控制的主轴仍是局部代谢和自身调节，不要机械套全身交感收缩模式。"
+    ],
+    "transfer_rule": "脑血流调节优先想局部代谢/自身调节。",
+    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2020-n118",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2020/q101-125.json",
+      "blob_sha": "94ff434d287703059f7c0f137f6ceeab1f678a9a",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "感觉性语言障碍定位",
+    "decision_axis": "听力正常但不能理解口语提示听觉语言理解中枢受损，经典定位于优势半球颞上回后部/Wernicke相关区域。",
+    "reasoning_chain": [
+      "听力正常却听不懂别人说话，说明声音输入本身没坏，坏的是听觉语言理解。",
+      "Current Study把这一功能定位在优势半球颞上回后部，因此选B。",
+      "Broca区损伤偏表达困难，角回更偏阅读书写网络。"
+    ],
+    "transfer_rule": "听得到但听不懂→语言理解区。",
+    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2020-n119",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2020/q101-125.json",
+      "blob_sha": "94ff434d287703059f7c0f137f6ceeab1f678a9a",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "运动性失语定位",
+    "decision_axis": "理解基本保留但主动语言表达困难、发音器官本身无瘫痪，经典提示优势半球Broca区损伤。",
+    "reasoning_chain": [
+      "患者理解基本保留、发音器官无障碍，但自己不能组织并说出语言，属于运动性失语。",
+      "经典定位在优势半球Broca区，因此选A。",
+      "感觉性语言障碍才更偏颞上回后部/Wernicke相关区域。"
+    ],
+    "transfer_rule": "懂但说不出→Broca运动性语言区。",
+    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2020-n120",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2020/q101-125.json",
+      "blob_sha": "94ff434d287703059f7c0f137f6ceeab1f678a9a",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "嘌呤从头合成关键酶",
+    "decision_axis": "谷氨酰胺-PRPP酰胺转移酶催化嘌呤从头合成的重要承诺步骤，是经典调节酶。",
+    "reasoning_chain": [
+      "嘌呤从头合成从PRPP出发，谷氨酰胺-PRPP酰胺转移酶催化重要承诺步骤。",
+      "因此题目所列主要关键酶选A。",
+      "HGPRT属于嘌呤补救合成，尿苷/胞苷激酶偏嘧啶补救；它们不是这条从头合成主入口。"
+    ],
+    "transfer_rule": "嘌呤从头合成关键酶联想PRPP酰胺转移酶。",
+    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2020-n121",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2020/q101-125.json",
+      "blob_sha": "94ff434d287703059f7c0f137f6ceeab1f678a9a",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "嘧啶从头合成调节酶",
+    "decision_axis": "题源教材把天冬氨酸氨基甲酰转移酶列为嘧啶从头合成的重要调节酶；需与哺乳动物CPSⅡ调控框架区分。",
+    "reasoning_chain": [
+      "按题干与选项，依据上述判断轴确定题源答案。"
+    ],
+    "transfer_rule": "该题按题源教材的嘧啶调节酶口径掌握，并注意物种/教材差异。",
+    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2020-n122",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2020/q101-125.json",
+      "blob_sha": "94ff434d287703059f7c0f137f6ceeab1f678a9a",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "内源性胆固醇运输",
+    "decision_axis": "LDL主要把肝来源胆固醇输送到外周组织，参与外周细胞摄取和胆固醇沉积。",
+    "reasoning_chain": [
+      "VLDL由肝输出内源性TAG，逐步转变为IDL/LDL；LDL负责把富含胆固醇的颗粒交付给外周组织。",
+      "因此肝合成的内源性胆固醇向全身组织运输主要靠LDL，选C。",
+      "CM主要走外源性膳食脂质，HDL则负责逆向胆固醇运输。"
+    ],
+    "transfer_rule": "LDL：肝→外周。",
+    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2020-n123",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2020/q101-125.json",
+      "blob_sha": "94ff434d287703059f7c0f137f6ceeab1f678a9a",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "胆固醇逆向运输",
+    "decision_axis": "HDL从外周组织接受胆固醇并将其转运回肝，是胆固醇逆向运输的主要脂蛋白。",
+    "reasoning_chain": [
+      "HDL的核心方向与LDL相反：它从肝外组织接受胆固醇，再把胆固醇带回肝。",
+      "这就是胆固醇逆向运输，因此选D。",
+      "LDL是向外周送胆固醇，不是把外周胆固醇回收到肝。"
+    ],
+    "transfer_rule": "HDL：外周→肝。",
+    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2020-n124",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2020/q101-125.json",
+      "blob_sha": "94ff434d287703059f7c0f137f6ceeab1f678a9a",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "急性细菌性炎症细胞",
+    "decision_axis": "急性细菌感染早期以中性粒细胞快速募集和浸润最典型。",
+    "reasoning_chain": [
+      "急性细菌性化脓性炎症最典型的早期效应细胞是中性粒细胞。",
+      "因此选A。",
+      "巨噬细胞更多参与后续清除与慢性炎症，嗜酸性粒细胞更偏寄生虫/过敏，淋巴细胞更偏病毒或慢性免疫反应。"
+    ],
+    "transfer_rule": "急性化脓性细菌炎症→中性粒细胞。",
+    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2020-n125",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2020/q101-125.json",
+      "blob_sha": "94ff434d287703059f7c0f137f6ceeab1f678a9a",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "寄生虫感染炎症细胞",
+    "decision_axis": "寄生虫感染和部分过敏反应常伴嗜酸性粒细胞增多和组织浸润。",
+    "reasoning_chain": [
+      "按题干与选项，依据上述判断轴确定题源答案。"
+    ],
+    "transfer_rule": "寄生虫/过敏→嗜酸性粒细胞。",
+    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false
+    }
+  }
+]
