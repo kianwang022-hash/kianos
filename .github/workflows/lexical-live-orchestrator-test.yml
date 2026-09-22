@@ -1,0 +1,36 @@
+name: Lexical Live Orchestrator Test
+
+on:
+  pull_request:
+    paths:
+      - 'content/lexical/CURRENT.md'
+      - 'content/lexical/THREE_CHAT_RUNTIME.md'
+      - 'content/lexical/chat-roles/**'
+      - 'content/lexical/execution/live-batch.json'
+      - 'tools/lexical_live_batch.py'
+      - 'tools/test_lexical_live_batch.py'
+      - 'tools/lexical_apply_final_mutation_package.py'
+      - 'tools/test_lexical_final_mutation_executor.py'
+      - '.github/workflows/lexical-*mutation-package.yml'
+      - '.github/workflows/lexical-batch-audit-result.yml'
+      - '.github/workflows/lexical-live-cursor-main.yml'
+      - '.github/workflows/lexical-live-orchestrator-test.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Unit tests
+        run: |
+          python tools/test_lexical_final_mutation_executor.py
+          python tools/test_lexical_live_batch.py
+      - name: Validate canonical live cursor
+        run: python tools/lexical_live_batch.py validate
