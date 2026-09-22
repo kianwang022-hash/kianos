@@ -905,7 +905,7 @@ body#kianos-workspace.surfaceBody-home .homeL3Support .examDailyPacketStatus:emp
   body#kianos-workspace.surfaceBody-home .homeL3Grid {
     grid-template-columns: minmax(0, 1.28fr) minmax(440px, .92fr);
     gap: 10px;
-    align-items: stretch;
+    align-items: start;
   }
 
   body#kianos-workspace.surfaceBody-home .homeL3SectionHead {
@@ -991,27 +991,28 @@ body#kianos-workspace.surfaceBody-home .examTaskCopy {
 }
 
 body#kianos-workspace.surfaceBody-home .examTaskCopy strong {
-  overflow: hidden;
   color: var(--study-ink);
   font-size: 17px;
   font-weight: var(--study-weight-title);
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  line-height: 1.35;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 body#kianos-workspace.surfaceBody-home .examTaskCopy small {
-  overflow: hidden;
   color: var(--study-muted);
   font-size: 16px;
   line-height: 1.35;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 body#kianos-workspace.surfaceBody-home .examTaskStatus {
+  align-self: center;
   color: var(--study-green);
   font-size: 16px;
   font-weight: var(--study-weight-shell);
+  white-space: nowrap;
 }
 
 body#kianos-workspace.surfaceBody-home .examTaskRow[data-checked='true'] .examTaskCopy {
@@ -1079,7 +1080,8 @@ body#kianos-workspace.surfaceBody-home .examWeekBody > span {
 body#kianos-workspace.surfaceBody-home .examWeekBody > small {
   color: var(--study-muted);
   font-size: 16px;
-  line-height: 1.35;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
 }
 
 body#kianos-workspace.surfaceBody-home .examWeekBar {
@@ -1098,6 +1100,7 @@ body#kianos-workspace.surfaceBody-home .examWeekBar > i {
 
 body#kianos-workspace.surfaceBody-home .homeL3Schedule {
   grid-column: 1 / -1;
+  margin-top: 4px;
   display: grid;
   grid-template-columns: 126px minmax(0, 1fr) auto;
   align-items: stretch;
