@@ -70,11 +70,13 @@ This matrix belongs in the receipt / audit evidence, not in semantic Natural Own
 
 ---
 
-## 3B. One-shard Kian Human Gate
+## 3B. Standing delegation + exceptional Human Gate
 
-Baseline-v2 review is **read-first, self-attack, one normal Human Gate, then independent semantic closure**.
+Baseline-v2 review is **read-first, self-attack, standing delegated approval when eligible, then independent semantic closure**.
 
-The normal learner-facing interaction unit is one Human-Gate batch of approximately **100 owners**. Backend semantic execution remains bounded in normally **≤50-owner shards**. Batch size is a Human interaction unit; shard size remains an execution/transport unit.
+**Standing delegation — Kian, 2026-09-22:** after the post-attack proposal is frozen, Chat may approve the exact bounded batch without waiting for a per-batch `p` when the proposal stays inside the frozen semantic ruler, evidence is sufficient, and no unresolved material identity/meaning ambiguity remains. The approval reference must explicitly cite this standing delegation. This is delegation of routine bounded execution, not permission to invent semantics or lower evidence standards.
+
+The normal semantic atom remains approximately **100 owners**. Backend semantic execution remains bounded in normally **≤50-owner shards**. One Chat may close multiple consecutive ~100-owner atoms serially when capacity allows; each atom still requires full Fresh Read, Self Attack, fail-closed materialization, Independent Audit and final readback. Larger throughput must never reduce semantic or audit coverage.
 
 Required sequence:
 
@@ -83,8 +85,8 @@ fresh-read the whole shard
 → judge Content + Repair Test needs together
 → run the mandatory Production self-adversarial attack in §3C
 → freeze the post-attack proposal
-→ give Kian one plain-language shard report
-→ Kian approves once
+→ record the exact bounded delta
+→ apply standing delegated approval when eligible; otherwise surface only the exceptional bounded Gate
 → automatically apply only the reported/approved Content fixes on an isolated branch
 → automatically write the reported/approved Repair Test blueprints
 → rebuild derived Final Learner Objects
@@ -103,7 +105,7 @@ The single pre-change report should cover the whole shard and include only decis
 - words that need no change / no Test may be summarized rather than expanded one by one;
 - learner-page/UI impact (normally **none**).
 
-One Kian approval for that shard authorizes all items explicitly included in that report:
+One exact approval reference — normally the standing delegation, exceptionally a fresh Kian Gate — authorizes all items explicitly included in that report:
 
 - the reported Word / Relation / Form semantic fixes;
 - the reported Repair Test blueprint writes;
@@ -111,27 +113,27 @@ One Kian approval for that shard authorizes all items explicitly included in tha
 - validation / receipt updates;
 - exact cursor advancement to the next shard.
 
-Do **not** insert a routine second approval gate between Content, Repair Test, materialization, and Independent Audit. The only exceptional extra Gate is a bounded delta when the fresh auditor discovers **new material semantic scope** that was absent from the approved report. Do not re-gate the whole batch for a narrow delta.
+Do **not** insert a routine second approval gate between Content, Repair Test, materialization, and Independent Audit. A fresh user Gate is exceptional: use it only when the proposal changes the learning-policy boundary itself, contains unresolved material meaning/identity ambiguity that the frozen ruler cannot safely decide, or Independent Audit discovers genuinely new material scope outside both the approved report and standing delegation. Routine background Form / Identity truth does not create a Gate by itself.
 
 Hard rules:
 
-- no semantic Content or Repair Test mutation before the shard approval;
-- no bundling hidden extra fixes into an approved shard;
-- approval for one shard does not authorize unreported fixes in later shards;
+- no semantic Content or Repair Test mutation before an exact approval reference is recorded;
+- standing delegation may authorize later batches only after each later batch has its own frozen post-attack proposal; it is not permission to pre-approve unseen content;
+- no bundling hidden extra fixes into an approved batch;
 - `PRESERVE` / `NOT_NEEDED` decisions may be recorded without mutation;
 - mechanical derived materialization after approved changes does not need separate approval;
-- if writeback/readback or Independent Audit exposes a **new semantic problem not present in the approved report**, stop that new mutation; if it is material enough to prevent truthful batch closure, request one bounded delta Gate for that scope, otherwise record it as non-blocking debt for later evidence-triggered maintenance;
-- a critical correctness defect may be reported immediately, but still waits for approval unless leaving it unmodified would corrupt already-running data.
+- if writeback/readback or Independent Audit exposes a **new semantic problem not present in the approved report**, first test whether it is safely covered by the frozen ruler + standing delegation; if yes, reconcile it as a bounded correction with explicit evidence; if not, stop that new mutation and request one exceptional bounded Gate;
+- a critical correctness defect may be repaired under the same standing delegation only when the correct state is evidence-resolved and bounded; unresolved identity/meaning ambiguity still fails closed.
 
 Learner-page / UI changes remain governed separately and are never implied by Content approval.
 
 ---
 
-## 3C. Production self-adversarial attack — mandatory before Human Gate
+## 3C. Production self-adversarial attack — mandatory before approval
 
 Baseline-v2 production must not send its first draft judgment directly to Kian.
 
-After the whole Human-Gate batch has received a fresh owner/module judgment, the **same Production Chat** performs one bounded self-adversarial pass before writing the report.
+After the whole ~100-owner semantic atom has received a fresh owner/module judgment, the **same Production Chat** performs one bounded self-adversarial pass before freezing the proposal.
 
 This is stronger than casual self-review, but it is **not independent audit evidence**.
 
@@ -182,10 +184,10 @@ draft upgrades/tests
 → self-attack removals
 → self-attack additions
 → self-attack re-layerings / owner corrections
-→ final proposed Human-Gate set
+→ final proposed bounded delta
 ```
 
-The learner-facing Human Gate sees only the **post-attack** proposal, with plain-language before → after examples.
+The approval boundary sees only the **post-attack** proposal. Under standing delegation, the exact proposal is recorded durably and execution continues without interrupting Kian; an exceptional user Gate, when required, shows only the bounded decision-relevant delta in plain language.
 
 Same-Chat self-attack may never be described as fresh or independent acceptance.
 
@@ -251,9 +253,9 @@ A Chat must not simulate bundling by issuing dozens of sequential `fetch_file` c
 
 The repository workflow `.github/workflows/lexical-review-bundle-export.yml` is the normal remote wrapper. A batch Chat writes one request file on its working branch, downloads the resulting **single artifact containing all bounded bundles**, and reviews that artifact as the frozen transport projection. The artifact is not semantic authority.
 
-### Post-Gate write transport
+### Post-approval write transport
 
-After the single Human Gate:
+After the exact approval reference is recorded:
 
 - accumulate all approved mutations before writing;
 - preserve untouched operational metadata such as existing `card_version`, stable IDs, provenance fields and lifecycle placement;
@@ -281,7 +283,7 @@ Per-owner remote reads/writes are allowed only when one of these is true:
 
 A fallback must stay bounded and must not silently become the default for the rest of the batch.
 
-This section changes **transport only**. It does not reduce fresh-read coverage, the self-adversarial pass, Human Gate scope, Independent Audit coverage, or final readback requirements.
+This section changes **transport only**. It does not reduce fresh-read coverage, the self-adversarial pass, approval-boundary scope, Independent Audit coverage, or final readback requirements.
 
 
 ## 5B. Final Mutation Executor — mechanical candidate landing
@@ -292,7 +294,7 @@ The same mechanical executor is used at both write stages:
 
 ```text
 Stage 1 · approved candidate materialization
-Kian-approved Production delta
+exactly approved Production delta (normally standing delegation; exceptionally fresh user Gate)
 → frontier = MATERIALIZE_ALLOWED
 → final-mutation-package.json
 → executor
@@ -326,7 +328,7 @@ Hard guards:
 3. `source_head` must equal that request commit's parent;
 4. the live board must name the same candidate as the serialized frontier;
 5. frontier state must be one of `MATERIALIZE_ALLOWED / RECONCILE_ALLOWED / AUDIT_CORRECTION_ALLOWED`;
-6. the package must record the Human Gate approval reference;
+6. the package must record the exact approval reference (standing delegation or exceptional user Gate);
 7. every existing file mutation carries the exact pre-write SHA256; direct write drift is `STALE_FILE` and fails closed;
 8. every material related semantic dependency that supports the final judgment is recorded in `semantic_dependency_read_set` with an exact file SHA256; any drift is `STALE_SEMANTIC_DEPENDENCY` and fails closed even if that file is not being written;
 9. new Relation files must be declared as expected-absent and must satisfy the deterministic Relation path hash;
@@ -365,7 +367,7 @@ Executor:
 Workflow:
 `.github/workflows/lexical-apply-final-mutation-package.yml`
 
-This is the preferred write path both after the Human Gate and after any audit reconciliation. Direct per-file Chat writes remain a bounded fallback only when the executor itself is broken or the required mutation is outside its declared safe capability.
+This is the preferred write path both after approval and after any audit reconciliation. Direct per-file Chat writes remain a bounded fallback only when the executor itself is broken or the required mutation is outside its declared safe capability.
 
 
 ---
@@ -407,27 +409,8 @@ Stop the turn while there is still room to checkpoint and explain the result. Me
 
 ---
 
-## Production-first final sweep
+## Historical production-first sweep — CLOSED
 
-Current campaign phase is `PRODUCTION_SWEEP_ONLY` under `FINAL_SEMANTIC_FREEZE.md`.
+The former `PRODUCTION_SWEEP_ONLY` rule applied only to the completed o0001–o1150 backfill phase. It is historical evidence and **does not govern the current full-catalog continuation**.
 
-Execution order is temporarily:
-
-```text
-A/C complete all remaining o0001–o1150 Production reviews
-→ freeze approved/no-delta proposals into backlog
-→ only after Production sweep COMPLETE:
-   materialize serialized candidates
-   → Fresh B audit
-   → bounded reconciliation
-   → merge
-```
-
-During `PRODUCTION_SWEEP_ONLY`:
-- no backfill mutation package is emitted;
-- no FLOB rebuild is triggered for a backfill batch;
-- no new B audit is launched;
-- no backfill merge is performed;
-- `p` records the exact current delta approval and immediately advances the producer to its next review batch.
-
-This phase rule supersedes normal frontier materialization scheduling until the Production sweep is complete.
+Current continuation follows the live frontier in `THREE_CHAT_RUNTIME.md` and `execution/live-batch.json`: close each ~100-owner semantic atom through proposal → approval → materialization → Independent Audit → reconciliation/merge, then advance. Multiple consecutive atoms may be closed serially in one Chat under the standing delegation; do not accumulate a hidden multi-batch semantic backlog.

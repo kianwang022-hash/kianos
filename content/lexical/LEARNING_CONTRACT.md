@@ -26,7 +26,7 @@ Kian already has broad vocabulary exposure. The main problem is not beginner wor
 - constructions and phrase skeletons;
 - collocation / phraseology;
 - confusable and contrast boundaries;
-- register / form / pronunciation distinctions when material;
+- register distinctions and **decision-relevant** Form / pronunciation distinctions when material;
 - useful productive lexical knowledge for Translation / Writing;
 - fast recognition and branch selection in real context.
 
@@ -54,7 +54,7 @@ A high-quality lexical object should make clear, when material:
 - constructions / argument skeletons;
 - useful collocation / phraseology;
 - confusable / contrast / contronym boundaries;
-- register / stance / intensity / form / pronunciation distinctions;
+- register / stance / intensity plus Form / pronunciation distinctions only when they materially affect recognition, meaning, identity or safe production;
 - productive value for Translation / Writing;
 - what is active learner knowledge versus low-priority reference-only material.
 
@@ -64,6 +64,7 @@ Hard rules:
 - simple words may remain simple;
 - rich words may remain rich;
 - learner burden is controlled by hierarchy and selective Repair, not by deleting useful truth;
+- routine noun/verb stress, ordinary pronunciation detail and regional spelling are canonical background support by default, not automatic learner-facing Expansion;
 - generated questions, card judgments, learner notes and runtime state are evidence, not semantic owners.
 
 ---
@@ -218,7 +219,7 @@ Preferred hierarchy:
 4. construction / phrase skeletons;
 5. collocation / phraseology / multiword units;
 6. material contrast / confusable boundaries;
-7. form / pronunciation / register / stance / intensity distinctions when useful;
+7. register / stance / intensity distinctions and only **decision-relevant** Form / pronunciation boundaries; routine Form remains available in Explore/Lookup without demanding learner attention;
 8. productive word-family material when it adds real value.
 
 Expansion is a first-class learning layer, not decorative “more.”

@@ -74,6 +74,8 @@ Admission rules:
 - a fact does **not** disappear merely because it is not high-yield for the exam;
 - high-leverage non-Core truth belongs in Expansion when it improves future decoding, transfer, academic English, productive use, or lexical network quality;
 - low-value valid truth belongs in Reference;
+- Form / Identity truth may remain canonical background support without becoming learner-facing Expansion;
+- when learner attention is scarce, **semantic decision value outranks form completeness**: familiar-new meaning, polysemy, confusable/near-form semantic boundaries, construction/argument structure and phraseology normally outrank routine pronunciation/stress or regional spelling;
 - whether an object deserves a Repair Test is decided separately from whether it deserves Content.
 
 Hard distinctions:
@@ -425,9 +427,11 @@ Prefer a few productive links over exhaustive family trees. Decorative family me
 
 **Job:** preserve non-obvious form distinctions that matter for recognition, identity or production.
 
-Generate when material: POS-conditioned pronunciation / stress, irregular inflection, confusing spelling, capitalization changing lexical identity, regional form difference, homograph / heteronym distinction.
+Structured Form / Identity is a **canonical support layer, not learner-facing Expansion by default**. Record high-confidence Form truth when it protects lookup, recognition, lexical identity or safe output, but do not let completeness compete with higher-value semantic learning.
 
-Structured Form / identity remains canonical.
+Default-background examples include ordinary noun/verb stress alternations, routine pronunciation details and regional spelling pairs. These stay available to Lookup / Explore / exact Form ownership without automatically entering default Depth, Expansion, Repair or a learner approval surface.
+
+Promote Form into learner-facing Expansion only when the distinction is materially decision-relevant — for example it prevents lexical misidentification, separates meanings/identities, resolves a high-risk homograph/heteronym, or protects likely productive output.
 
 Do not duplicate the same pronunciation rule in Sense notes once Form owns it. Routine pronunciation alone is not Expansion.
 
@@ -562,8 +566,10 @@ Expansion may include:
 - contrast / confusable decision boundaries;
 - register / stance / intensity / valence;
 - morphology / word family;
-- pronunciation / stress / spelling / capitalization / inflection / regional-form boundaries;
+- **decision-relevant** Form / Identity boundaries when they materially change recognition, meaning, identity or safe production;
 - useful translation / production distinctions.
+
+Routine noun/verb stress, ordinary pronunciation detail and regional spelling are not Expansion merely because they are true. They normally remain background Form / Identity support.
 
 Hard rule:
 
