@@ -26,12 +26,13 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "去，走；进行，运转；消失，结束；花费，用于",
-          "label_en": "to move or travel from one place to another; to continue or proceed in a certain way; to leave or disappear; to be spent or used for a particular purpose",
+          "label_cn": "去，走；进行，运转；变得；消失，结束；花费，用于",
+          "label_en": "to move or travel; to proceed; to become or enter a state; to leave or disappear; to be spent or used for a purpose",
           "pos": "verb",
           "sense_ids": [
             "sense:go:88e1046daa8e5b24",
             "sense:go:a4968567c9a45855",
+            "sense:go:db4f82862841529e",
             "sense:go:5a6d967024f75d10",
             "sense:go:2b5840232d695e3a"
           ]
@@ -146,7 +147,7 @@
         "pos": "verb",
         "sense_id": "sense:go:5a6d967024f75d10",
         "sense_label_en": "to leave or disappear",
-        "sort_order": 2,
+        "sort_order": 3,
         "transitivity": "vi"
       },
       {
@@ -160,7 +161,7 @@
         "pos": "verb",
         "sense_id": "sense:go:2b5840232d695e3a",
         "sense_label_en": "to be spent or used for a particular purpose",
-        "sort_order": 3,
+        "sort_order": 4,
         "transitivity": "vi"
       },
       {
@@ -184,7 +185,7 @@
         "pos": "noun",
         "sense_id": "sense:go:c8d500d2cb0057d2",
         "sense_label_en": "an attempt or try",
-        "sort_order": 4,
+        "sort_order": 5,
         "transitivity": "nonverb"
       },
       {
@@ -197,7 +198,7 @@
         "pos": "verb",
         "sense_id": "sense:go:db4f82862841529e",
         "sense_label_en": "to become or enter a particular state, especially an undesirable one",
-        "sort_order": 5,
+        "sort_order": 2,
         "source_evidence": [
           {
             "external_evidence": [
@@ -214,7 +215,9 @@
             "source_operation_sha256": "97c27bd800bafda9086ca7f695fba1de4308f0a34ef58f96224d04fbeb001f92",
             "verification_status": "auditor_verified"
           }
-        ]
+        ],
+        "transitivity": "linking",
+        "governing_pattern": "linking + adjective/noun phrase"
       }
     ],
     "verification_summary": {
@@ -234,7 +237,37 @@
     },
     "word": "go",
     "word_family": [],
-    "word_id": "word:go"
+    "word_id": "word:go",
+    "form_identity": {
+      "form_type": "irregular_inflection_identity",
+      "spelling": "go",
+      "identity_rule": "same_word_owner_no_semantic_split",
+      "boundary": "go is irregular: go → went → gone; going is the present participle.",
+      "boundaries": [
+        {
+          "surface": "go",
+          "condition": "base/present",
+          "note": "base form"
+        },
+        {
+          "surface": "going",
+          "condition": "present participle",
+          "note": "-ing form"
+        },
+        {
+          "surface": "went",
+          "condition": "past simple",
+          "note": "irregular past"
+        },
+        {
+          "surface": "gone",
+          "condition": "past participle",
+          "note": "irregular participle"
+        }
+      ],
+      "variants": [],
+      "authority": "BF21 exact p approved Form expansion 2026-09-22"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],

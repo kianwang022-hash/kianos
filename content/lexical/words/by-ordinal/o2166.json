@@ -12,25 +12,17 @@
       "core_clusters": [
         {
           "label_cn": "鹅；鹅肉",
-          "label_en": "web-footed long-necked typically gregarious migratory aquatic birds usually larger and less aquatic than ducks; flesh of a goose (domestic or wild)",
+          "label_en": "a goose; the flesh of a goose",
           "pos": "noun",
           "sense_ids": [
+            "sense:goose:1437a359e4a153b0",
             "sense:goose:a22119d6c7d45f77"
-          ]
-        },
-        {
-          "label_cn": "掐（某人）的屁股；催促；激励",
-          "label_en": "pinch in the buttocks; prod into action",
-          "pos": "verb",
-          "sense_ids": [
-            "sense:goose:ac5f8013f16d5a46",
-            "sense:goose:f98c6ed8042c56ca"
           ]
         }
       ],
-      "core_meaning_cn": "鹅；掐（屁股）",
-      "core_meaning_en": "a water bird or its flesh; to poke or urge",
-      "mental_model_cn": "鹅；掐（屁股）",
+      "core_meaning_cn": "鹅；鹅肉",
+      "core_meaning_en": "a goose or its flesh",
+      "mental_model_cn": "鹅；鹅肉",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -65,7 +57,7 @@
         "pos": "noun",
         "sense_id": "sense:goose:a22119d6c7d45f77",
         "sense_label_en": "flesh of a goose (domestic or wild)",
-        "sort_order": 0,
+        "sort_order": 1,
         "transitivity": "nonverb"
       },
       {
@@ -89,7 +81,7 @@
         "pos": "verb",
         "sense_id": "sense:goose:ac5f8013f16d5a46",
         "sense_label_en": "pinch in the buttocks",
-        "sort_order": 1,
+        "sort_order": 2,
         "transitivity": "vt"
       },
       {
@@ -113,7 +105,7 @@
         "pos": "verb",
         "sense_id": "sense:goose:f98c6ed8042c56ca",
         "sense_label_en": "prod into action",
-        "sort_order": 2,
+        "sort_order": 3,
         "transitivity": "vt"
       },
       {
@@ -127,7 +119,7 @@
         "pos": "noun",
         "sense_id": "sense:goose:1437a359e4a153b0",
         "sense_label_en": "web-footed long-necked typically gregarious migratory aquatic birds usually larger and less aquatic than ducks",
-        "sort_order": 999,
+        "sort_order": 0,
         "transitivity": "nonverb"
       }
     ],
@@ -148,7 +140,27 @@
     },
     "word": "goose",
     "word_family": [],
-    "word_id": "word:goose"
+    "word_id": "word:goose",
+    "form_identity": {
+      "form_type": "number_identity",
+      "spelling": "goose",
+      "identity_rule": "same_word_owner_no_semantic_split",
+      "boundary": "goose has the irregular plural geese.",
+      "boundaries": [
+        {
+          "surface": "goose",
+          "condition": "singular",
+          "note": "singular noun"
+        },
+        {
+          "surface": "geese",
+          "condition": "plural",
+          "note": "irregular plural"
+        }
+      ],
+      "variants": [],
+      "authority": "BF21 exact p approved Form expansion 2026-09-22"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],

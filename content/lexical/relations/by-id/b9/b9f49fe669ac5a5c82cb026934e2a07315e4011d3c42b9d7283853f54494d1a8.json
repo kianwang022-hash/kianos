@@ -1,0 +1,70 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "relation:confusable:hair|hare:homophone",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:hair",
+      "source_ordinal": 2239,
+      "field": "confusables",
+      "index": 0,
+      "payload": {
+        "relation_id": "relation:confusable:hair|hare:homophone",
+        "relation_type": "homophone_confusable",
+        "relation_scope": "lexeme",
+        "target_word": "hare",
+        "source_sense_id": "sense:hair:8572bd75c25e5bca",
+        "target_sense_id": "sense:hare:3e2dc8dc93fe5c4b",
+        "boundary": "hair means the fine strands growing from skin; hare means a fast-running animal similar to a rabbit. They are standard homophones in the checked UK/US pronunciations.",
+        "boundaries": [
+          "hair = 毛发/头发",
+          "hare = 野兔",
+          "same pronunciation; spelling and meaning differ"
+        ],
+        "learning_note": "Do not confuse hair (毛发) with hare (野兔): same pronunciation, different spelling and meaning.",
+        "priority": "A",
+        "publication_status": "human_gate_approved",
+        "verification_status": "source_checked",
+        "writing_safe": true,
+        "task_tags": [
+          "reading",
+          "writing"
+        ]
+      }
+    },
+    {
+      "source_word_id": "word:hare",
+      "source_ordinal": 5546,
+      "field": "confusables",
+      "index": 0,
+      "payload": {
+        "relation_id": "relation:confusable:hair|hare:homophone",
+        "relation_type": "homophone_confusable",
+        "relation_scope": "lexeme",
+        "target_word": "hair",
+        "source_sense_id": "sense:hare:3e2dc8dc93fe5c4b",
+        "target_sense_id": "sense:hair:8572bd75c25e5bca",
+        "boundary": "hare means a fast-running animal similar to a rabbit; hair means the fine strands growing from skin. They are standard homophones in the checked UK/US pronunciations.",
+        "boundaries": [
+          "hare = 野兔",
+          "hair = 毛发/头发",
+          "same pronunciation; spelling and meaning differ"
+        ],
+        "learning_note": "Do not confuse hare (野兔) with hair (毛发): same pronunciation, different spelling and meaning.",
+        "priority": "A",
+        "publication_status": "human_gate_approved",
+        "verification_status": "source_checked",
+        "writing_safe": true,
+        "task_tags": [
+          "reading",
+          "writing"
+        ]
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "BF21 exact Human Gate 2026-09-22",
+    "semantic_delta": 1
+  }
+}

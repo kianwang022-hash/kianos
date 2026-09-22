@@ -11,26 +11,19 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "上帝；偶像，被崇拜的人或物",
-          "label_en": "the supreme being in monotheistic religions; a person or thing that is greatly admired or has great influence",
+          "label_cn": "上帝；神；神祇；偶像、被崇拜的人或物",
+          "label_en": "God in monotheistic religions; a god/deity; a greatly admired person or thing",
           "pos": "noun",
           "sense_ids": [
             "sense:god:af1ba04e972c5cbc",
+            "sense:god:0f37fad99ce655b7",
             "sense:god:eea99b13a31f5f7c"
-          ]
-        },
-        {
-          "label_cn": "使神化",
-          "label_en": "to make someone or something into a god",
-          "pos": "verb",
-          "sense_ids": [
-            "sense:god:9422f35a294b5b16"
           ]
         }
       ],
-      "core_meaning_cn": "神或上帝",
-      "core_meaning_en": "a divine being or deity",
-      "mental_model_cn": "神或上帝",
+      "core_meaning_cn": "上帝；神；神祇",
+      "core_meaning_en": "God or a god/deity",
+      "mental_model_cn": "上帝；神；神祇",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -95,7 +88,7 @@
         "pos": "noun",
         "sense_id": "sense:god:eea99b13a31f5f7c",
         "sense_label_en": "a person or thing that is greatly admired or has great influence",
-        "sort_order": 1,
+        "sort_order": 2,
         "transitivity": "nonverb"
       },
       {
@@ -119,7 +112,7 @@
         "pos": "verb",
         "sense_id": "sense:god:9422f35a294b5b16",
         "sense_label_en": "to make someone or something into a god",
-        "sort_order": 2,
+        "sort_order": 3,
         "transitivity": "vt"
       },
       {
@@ -132,7 +125,7 @@
         "pos": "noun",
         "sense_id": "sense:god:0f37fad99ce655b7",
         "sense_label_en": "a deity or supernatural being believed to have power over nature or human life and worshipped by people",
-        "sort_order": 3,
+        "sort_order": 1,
         "source_evidence": [
           {
             "external_evidence": [
@@ -169,7 +162,27 @@
     },
     "word": "god",
     "word_family": [],
-    "word_id": "word:god"
+    "word_id": "word:god",
+    "form_identity": {
+      "form_type": "case_conditioned_identity",
+      "spelling": "god",
+      "identity_rule": "same_word_owner_case_conditioned_use",
+      "boundary": "God with a capital G is used for the supreme being in monotheistic religions; god is the common noun for a deity or figuratively an idolized person or thing.",
+      "boundaries": [
+        {
+          "surface": "God",
+          "condition": "the supreme being in monotheistic religions",
+          "note": "capitalized"
+        },
+        {
+          "surface": "god",
+          "condition": "common noun for a deity or figurative idol",
+          "note": "lower-case common noun"
+        }
+      ],
+      "variants": [],
+      "authority": "BF21 existing-truth capitalization migration 2026-09-22"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],

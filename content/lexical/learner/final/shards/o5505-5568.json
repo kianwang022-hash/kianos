@@ -2613,7 +2613,7 @@
     "ordinal": 5546,
     "word": "hare",
     "source_owner_path": "content/lexical/words/by-ordinal/o5546.json",
-    "source_fingerprint": "1fd2be7998be9296b3b407bdf029e700f94ab80ce13dbfa33f301dad37868f09",
+    "source_fingerprint": "aceafc6264a6bb5ce14aaa9d4c7ea0c5500a82d124f2b8156b254edce39dba64",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2653,7 +2653,41 @@
     "secondary_senses": [],
     "constructions": [],
     "reference": {
-      "confusables": [],
+      "confusables": [
+        {
+          "title": "hare ↔ hair",
+          "target_word": "hair",
+          "lines": [
+            {
+              "text": "hare means a fast-running animal similar to a rabbit; hair means the fine strands growing from skin. They are standard homophones in the checked UK/US pronunciations.",
+              "lang": "en"
+            },
+            {
+              "text": "hare = 野兔",
+              "lang": "cn"
+            },
+            {
+              "text": "hair = 毛发/头发",
+              "lang": "cn"
+            },
+            {
+              "text": "same pronunciation; spelling and meaning differ",
+              "lang": "en"
+            },
+            {
+              "text": "Do not confuse hare (野兔) with hair (毛发): same pronunciation, different spelling and meaning.",
+              "lang": "cn"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:confusable:hair|hare:homophone",
+            "target_locator": "record.confusables[0]",
+            "target_label": "hare ↔ hair"
+          }
+        }
+      ],
       "relations": [],
       "form": null,
       "family": []

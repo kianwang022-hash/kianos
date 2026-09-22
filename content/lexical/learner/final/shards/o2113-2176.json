@@ -4520,7 +4520,7 @@
     "ordinal": 2151,
     "word": "glory",
     "source_owner_path": "content/lexical/words/by-ordinal/o2151.json",
-    "source_fingerprint": "463ce4b6bccae21d8517e314dbbd701e87dac4e769e8718f4caa870f3144a6e4",
+    "source_fingerprint": "a375fb9689a1d76ab27226950b81f87bb3db809f32607c0458f67ae377d109f6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4624,33 +4624,7 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:d690b17a8f45199a34d0",
-        "source_locator": "record.constructions[0]",
-        "pattern": "glory in sth",
-        "lines": [
-          {
-            "text": "因……而自豪、得意或感到极大满足",
-            "lang": "cn"
-          },
-          {
-            "text": "verb glory = rejoice proudly in something",
-            "lang": "en"
-          },
-          {
-            "text": "to take great pride or pleasure in something",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:d690b17a8f45199a34d0",
-          "target_locator": "record.constructions[0]",
-          "target_label": "glory in sth"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4664,7 +4638,7 @@
     "ordinal": 2152,
     "word": "glove",
     "source_owner_path": "content/lexical/words/by-ordinal/o2152.json",
-    "source_fingerprint": "b747043fa9cbc1807f90599c7a2a7130bc9625794c970201a5ac4c6f87bf555b",
+    "source_fingerprint": "4ea4801d00b48c443f1e02fbc0bbc961ed67bbff4f6057c7f17ee8fc2f1ec776",
     "sense_lineage": [
       {
         "word_id": "word:glove",
@@ -4995,7 +4969,7 @@
     "ordinal": 2155,
     "word": "go",
     "source_owner_path": "content/lexical/words/by-ordinal/o2155.json",
-    "source_fingerprint": "9a6990fe0a96da72d12d2673fa1f8f4dd55cea9360408f557f30286ed338b2dd",
+    "source_fingerprint": "dd9fc3d0b6257450ca843470eb79c8ada0bc10255528ef1a3a99de7c96dadfa1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5175,7 +5149,7 @@
         "id": "sense:go:db4f82862841529e",
         "source_locator": "record.senses[5]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "linking + adjective/noun phrase",
         "definition_cn": "变得；进入某种状态",
         "definition_en": "to become or enter a particular state, especially an undesirable one",
         "note": "",
@@ -5229,7 +5203,38 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "go is irregular: go → went → gone; going is the present participle.",
+        "boundaries": [
+          {
+            "surface": "go",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "going",
+            "condition": "present participle",
+            "note": "-ing form"
+          },
+          {
+            "surface": "went",
+            "condition": "past simple",
+            "note": "irregular past"
+          },
+          {
+            "surface": "gone",
+            "condition": "past participle",
+            "note": "irregular participle"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "go is irregular: go → went → gone; going is the present participle."
+        }
+      },
       "family": []
     }
   },
@@ -5450,7 +5455,7 @@
     "ordinal": 2158,
     "word": "god",
     "source_owner_path": "content/lexical/words/by-ordinal/o2158.json",
-    "source_fingerprint": "dc6dfbe86aebcd64611dd68148daef65887972a6b2cd7a971f15333f176ab521",
+    "source_fingerprint": "679146c138711ff2440ba1df5dfce7d123cca88af32915d7ced11361c59c3055",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5460,13 +5465,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "神或上帝",
+      "summary_cn": "上帝；神；神祇",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "神或上帝"
+        "target_label": "上帝；神；神祇"
       }
     },
     "senses": [
@@ -5584,7 +5589,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "God with a capital G is used for the supreme being in monotheistic religions; god is the common noun for a deity or figuratively an idolized person or thing.",
+        "boundaries": [
+          {
+            "surface": "God",
+            "condition": "the supreme being in monotheistic religions",
+            "note": "capitalized"
+          },
+          {
+            "surface": "god",
+            "condition": "common noun for a deity or figurative idol",
+            "note": "lower-case common noun"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "God with a capital G is used for the supreme being in monotheistic religions; god is the common noun for a deity or figuratively an idolized person or thing."
+        }
+      },
       "family": []
     }
   },
@@ -5951,7 +5977,7 @@
     "ordinal": 2162,
     "word": "good",
     "source_owner_path": "content/lexical/words/by-ordinal/o2162.json",
-    "source_fingerprint": "609c50e9cf9263629cd076179a5855a4c037bf76ec8a9fc36322b09dfb7695aa",
+    "source_fingerprint": "e48c930a65ea5b6cd2fb5f2a256eb42765446bcec98fc8ef486ca6f36b0bd7cb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6097,7 +6123,33 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "Adjective good compares as good → better → best. Adverb well uses the same comparative/superlative surfaces better → best; better and best remain independent Word owners for their other lexical uses.",
+        "boundaries": [
+          {
+            "surface": "good",
+            "condition": "positive adjective",
+            "note": "base adjective"
+          },
+          {
+            "surface": "better",
+            "condition": "comparative of adjective good",
+            "note": "shared surface; also independent Word owner"
+          },
+          {
+            "surface": "best",
+            "condition": "superlative of adjective good",
+            "note": "shared surface; also independent Word owner"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "Adjective good compares as good → better → best. Adverb well uses the same comparative/superlative surfaces better → best; better and best remain independent Word owners for their other lexical uses."
+        }
+      },
       "family": []
     }
   },
@@ -6381,7 +6433,7 @@
     "ordinal": 2166,
     "word": "goose",
     "source_owner_path": "content/lexical/words/by-ordinal/o2166.json",
-    "source_fingerprint": "d04976a5db056d7c83cf82bf165f4e4f7cbeacf296bab9b776345c3d43990b9a",
+    "source_fingerprint": "2848292800722cf0c5462f3d59dad1fc6fab489df59fe562482abc96d7f68d2c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6391,13 +6443,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "鹅；掐（屁股）",
+      "summary_cn": "鹅；鹅肉",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "鹅；掐（屁股）"
+        "target_label": "鹅；鹅肉"
       }
     },
     "senses": [
@@ -6512,7 +6564,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "goose has the irregular plural geese.",
+        "boundaries": [
+          {
+            "surface": "goose",
+            "condition": "singular",
+            "note": "singular noun"
+          },
+          {
+            "surface": "geese",
+            "condition": "plural",
+            "note": "irregular plural"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "goose has the irregular plural geese."
+        }
+      },
       "family": []
     }
   },
@@ -6937,7 +7010,7 @@
     "ordinal": 2171,
     "word": "governor",
     "source_owner_path": "content/lexical/words/by-ordinal/o2171.json",
-    "source_fingerprint": "e8800f8cb6a6e1047d6e36ff0cfbc05fc8974a2793adb47f567385847260f703",
+    "source_fingerprint": "702636c2a1f569e2c42e1283318c8001c99fb4f72ed41da6bd82bf761bf02083",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6946,13 +7019,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "统治者或调节器",
+      "summary_cn": "州长、总督或管理者",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "统治者或调节器"
+        "target_label": "州长、总督或管理者"
       }
     },
     "senses": [
