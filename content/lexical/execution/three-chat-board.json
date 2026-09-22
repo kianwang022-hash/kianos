@@ -32,46 +32,35 @@
     "p_behavior": "APPROVE_EXACT_SHOWN_DELTA__FREEZE_BACKLOG__IMMEDIATE_NEXT_PRODUCTION_BATCH"
   },
   "frontier": {
-    "accepted_main_head": "dc6281467dfdada3a7f3710771ac7b19dd8a5a26",
-    "current_candidate_id": "BF18",
+    "accepted_main_head": "7582bb9463b6c8498e7738f4afccd29160e4c918",
+    "current_candidate_id": "BF19",
     "range": [
-      1851,
-      1950
+      1951,
+      2050
     ],
-    "state": "B_AUDIT_PASS__READY_TO_MERGE",
+    "state": "MATERIALIZE_ALLOWED",
     "candidate_pr": null,
-    "candidate_branch": "work/lexical-continuous-bf18-official-20260922",
-    "materialized_owner_read_head": "d375c0bd3a2a450abb19139a6244b2399adec276",
-    "review_branch": "work/lexical-fullcatalog-bf18-review-20260922",
-    "proposal_path": "content/lexical/execution/manifests/o1851-o1950.fullcatalog-final-standard-proposal.md",
-    "proposal_commit": "7e93b7ce67831e482a4fd5cd9b446501c9095f8d",
-    "note": "BF18 materialized and B readback PASS 30/30 changed owners; no reconciliation. Grouped p also pre-approves frozen BF19/BF20 material, but frontier order remains mandatory."
+    "candidate_branch": "work/lexical-continuous-bf19-official-20260922",
+    "materialized_owner_read_head": null,
+    "review_branch": "work/lexical-fullcatalog-bf19-review-20260922",
+    "proposal_path": "content/lexical/execution/manifests/o1951-o2050.fullcatalog-final-standard-proposal.md",
+    "proposal_commit": "aeb5e4648883166cc139b07d809019b16afa23c0",
+    "note": "BF19 review-ahead is frozen 100/100 and its ten new-material groups are pre-approved by grouped p. Latest-main refreeze after BF18 merge passed; materialization allowed."
   },
   "audit_target": {
-    "state": "PASS_READY_TO_MERGE",
-    "candidate_id": "BF18",
+    "state": "WAITING_MATERIALIZATION_AND_B_AUDIT",
+    "candidate_id": "BF19",
     "range": [
-      1851,
-      1950
+      1951,
+      2050
     ],
     "candidate_pr": null,
-    "candidate_branch": "work/lexical-continuous-bf18-official-20260922",
-    "candidate_owner_read_head": "d375c0bd3a2a450abb19139a6244b2399adec276",
+    "candidate_branch": "work/lexical-continuous-bf19-official-20260922",
+    "candidate_owner_read_head": null,
     "brief": null,
-    "output": "content/lexical/semantic-audit/O1851_O1950_FINAL_STANDARD_SAME_CHAT_B_AUDIT_PACK.md",
-    "result": "PASS",
-    "independence_note": "BLIND_FIRST_NOT_ENFORCED",
-    "human_gate_status": "APPROVED_GROUP_BUNDLE",
-    "human_gate_approval": "Kian p 2026-09-22",
-    "human_gate_approved_ordinals": [
-      1851,
-      1896,
-      1898,
-      1919,
-      1929,
-      1941,
-      1944
-    ]
+    "output": null,
+    "human_gate_status": "PREAPPROVED_BY_GROUP_P",
+    "human_gate_approval_path": "content/lexical/execution/approval-bundles/BF18_BF20_APPROVAL_BUNDLE_20260922.md"
   },
   "lanes": {
     "A": {
@@ -1600,18 +1589,21 @@
     }
   ],
   "last_closed": {
-    "candidate_id": "BF17",
+    "candidate_id": "BF18",
     "range": [
-      1751,
-      1850
+      1851,
+      1950
     ],
-    "pr": 790,
-    "merge_commit": "54148774334fc98a8ce281e0c642220005891dc9",
+    "pr": 806,
+    "merge_commit": "7582bb9463b6c8498e7738f4afccd29160e4c918",
     "result": "PRODUCTION_MATERIALIZED_B_AUDIT_PASS_AND_MERGED",
     "production_review": "100/100",
-    "affected_owner_count": 24,
-    "no_change_count": 76,
-    "new_material_human_gate_approved_groups": 0,
+    "affected_owner_count": 29,
+    "no_change_count": 71,
+    "new_material_human_gate_approved_groups": 7,
+    "remote_dependency_ordinals": [
+      5532
+    ],
     "b_reconciliation": "NOT_REQUIRED",
     "independence_note": "BLIND_FIRST_NOT_ENFORCED",
     "final_learner_objects": 7946
@@ -1714,33 +1706,31 @@
     "C_status": "REOPENED_FULL_CATALOG_CONTINUATION",
     "completion_note": "Original o0001-o1250 closure is preserved. Continuation starts at o1251 under unchanged FINAL_SEMANTIC_FREEZE v1 ruler.",
     "current_batch_result": {
-      "candidate_id": "BF18",
+      "candidate_id": "BF19",
       "range": [
-        1851,
-        1950
+        1951,
+        2050
       ],
       "reviewed_owner_count": 100,
-      "affected_owner_count": 29,
-      "no_change_count": 71,
+      "affected_owner_count": 42,
+      "no_change_count": 58,
       "blocked": 0,
-      "new_material_group_count": 7,
+      "new_material_group_count": 10,
       "new_material_delta_owners": [
-        1851,
-        1896,
-        1898,
-        1919,
-        1929,
-        1941,
-        1944
+        1957,
+        1962,
+        1975,
+        1987,
+        1991,
+        1994,
+        1999,
+        2003,
+        2004,
+        2044
       ],
-      "remote_dependency_ordinals": [
-        5532
-      ],
-      "proposal": "content/lexical/execution/manifests/o1851-o1950.fullcatalog-final-standard-proposal.md",
-      "mutation_receipt": "content/lexical/execution/mutation-receipts/BF18-official-o1851-o1950-v1.json",
-      "audit": "content/lexical/semantic-audit/O1851_O1950_FINAL_STANDARD_SAME_CHAT_B_AUDIT_PACK.md",
-      "state": "B_AUDIT_PASS__READY_TO_MERGE",
-      "independence_note": "BLIND_FIRST_NOT_ENFORCED"
+      "proposal": "content/lexical/execution/manifests/o1951-o2050.fullcatalog-final-standard-proposal.md",
+      "module_matrix": "content/lexical/execution/manifests/o1951-o2050.fullcatalog-final-standard-module-matrix.tsv",
+      "state": "MATERIALIZE_ALLOWED"
     }
   },
   "phase_transition": {
@@ -1750,47 +1740,27 @@
     "rule": "Kian explicitly revoked the o1251+ broad-review prohibition while preserving the frozen semantic ruler. Continue serialized 100-owner batches through o7946."
   },
   "materialization_progress": {
-    "candidate_id": "BF18",
-    "status": "B_AUDIT_PASS__READY_TO_MERGE",
+    "candidate_id": "BF19",
+    "status": "MATERIALIZE_ALLOWED",
     "candidate_pr": null,
-    "latest_main_refreeze": "dc6281467dfdada3a7f3710771ac7b19dd8a5a26",
+    "latest_main_refreeze": "7582bb9463b6c8498e7738f4afccd29160e4c918",
     "review_range": [
-      1851,
-      1950
+      1951,
+      2050
     ],
-    "review_artifact": 10683431619,
-    "review_artifact_digest": "sha256:944b18b85c18256ee285cac4fb54e1cc7aa8cb727e2232b1083867757fed6abd",
-    "proposal_path": "content/lexical/execution/manifests/o1851-o1950.fullcatalog-final-standard-proposal.md",
-    "proposal_commit": "7e93b7ce67831e482a4fd5cd9b446501c9095f8d",
+    "proposal_path": "content/lexical/execution/manifests/o1951-o2050.fullcatalog-final-standard-proposal.md",
+    "proposal_commit": "aeb5e4648883166cc139b07d809019b16afa23c0",
     "fresh_read_coverage": "100/100",
     "self_attack": "COMPLETE",
-    "content_affected_owners": 29,
-    "content_no_change": 71,
-    "new_material_group_count": 7,
-    "new_material_delta_owners": [
-      1851,
-      1896,
-      1898,
-      1919,
-      1929,
-      1941,
-      1944
-    ],
-    "remote_dependency_if_approved": [
-      5532
-    ],
+    "content_affected_owners": 42,
+    "content_no_change": 58,
+    "new_material_group_count": 10,
+    "human_gate_status": "PREAPPROVED_BY_GROUP_P",
     "blocked": 0,
     "standing_repair_tests_before": 0,
     "standing_repair_tests_after": 0,
     "final_learner_objects": 7946,
-    "final_learner_shards": 125,
-    "human_gate_status": "APPROVED_EXACT_SCOPE",
-    "human_gate_approved_groups": 7,
-    "materialized_commit": "d375c0bd3a2a450abb19139a6244b2399adec276",
-    "b_audit": "PASS",
-    "b_audit_output": "content/lexical/semantic-audit/O1851_O1950_FINAL_STANDARD_SAME_CHAT_B_AUDIT_PACK.md",
-    "b_reconciliation": "NOT_REQUIRED",
-    "independence_note": "BLIND_FIRST_NOT_ENFORCED"
+    "final_learner_shards": 125
   },
   "semantic_freeze_scope_amendment": "content/lexical/FINAL_SEMANTIC_FREEZE_SCOPE_AMENDMENT_20260922.md",
   "quality_first_execution": {
@@ -1809,44 +1779,11 @@
     "effective_from": "BF18 onward / 2026-09-22"
   },
   "review_ahead_queue": {
-    "status": "PREAPPROVED_BUT_FRONTIER_ORDER_BLOCKED",
+    "status": "ONE_CHECKPOINT_AHEAD__BF20_PREAPPROVED",
     "max_checkpoints": 2,
     "max_words": 200,
-    "canonical_frontier_remains": "BF18",
+    "canonical_frontier_remains": "BF19",
     "checkpoints": [
-      {
-        "candidate_id": "BF19",
-        "range": [
-          1951,
-          2050
-        ],
-        "state": "REVIEW_AHEAD_FROZEN",
-        "reviewed_owner_count": 100,
-        "affected_owner_count": 42,
-        "no_change_count": 58,
-        "blocked": 0,
-        "new_material_group_count": 10,
-        "new_material_delta_owners": [
-          1957,
-          1962,
-          1975,
-          1987,
-          1991,
-          1994,
-          1999,
-          2003,
-          2004,
-          2044
-        ],
-        "proposal": "content/lexical/execution/manifests/o1951-o2050.fullcatalog-final-standard-proposal.md",
-        "review_branch": "work/lexical-fullcatalog-bf19-review-20260922",
-        "proposal_commit": "aeb5e4648883166cc139b07d809019b16afa23c0",
-        "may_materialize": false,
-        "gate_deferred_until": "BF18 closes",
-        "human_gate_status": "PREAPPROVED_BY_GROUP_P",
-        "human_gate_approval_path": "content/lexical/execution/approval-bundles/BF18_BF20_APPROVAL_BUNDLE_20260922.md",
-        "materialize_when": "BF18 closes and latest-main refreeze passes"
-      },
       {
         "candidate_id": "BF20",
         "range": [
