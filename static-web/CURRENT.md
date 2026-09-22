@@ -43,6 +43,7 @@ For a known symptom, find its owner in two or three precise reads. Further sourc
 | Xizong | [Xizong Current](../content/xizong/CURRENT.md) | Content follows its declared live authority; no second evidence model |
 | Politics | [Politics Current](../content/politics/CURRENT.md) | Stop touching unless a concrete new defect is reproduced |
 | Vocabulary | [Lexical Current](../content/lexical/CURRENT.md) | Preserve the active content frontier; do not mirror its cursor here |
+| Skills | [Skills Current](../content/skills/CURRENT.md) | One generic renderer; new ordinary Skills are Content-only changes |
 
 Chat owns interpretation and plans. GitHub owns canonical content and durable rules. The website executes through subject-native owners; private Runtime preserves learner facts and transports instructions/receipts. Shared transport must not become a scoring or strategy owner.
 
