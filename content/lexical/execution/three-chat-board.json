@@ -45,7 +45,7 @@
     "review_branch": "work/lexical-fullcatalog-bf18-review-20260922",
     "proposal_path": "content/lexical/execution/manifests/o1851-o1950.fullcatalog-final-standard-proposal.md",
     "proposal_commit": "7e93b7ce67831e482a4fd5cd9b446501c9095f8d",
-    "note": "BF18 Fresh Read + Self Attack complete: 29 affected, 71 NO_CHANGE, 0 blocked. Seven genuinely new Form groups require exact Human Gate before materialization; existing-truth corrections are frozen."
+    "note": "BF18 Fresh Read + Self Attack complete: 29 affected, 71 NO_CHANGE, 0 blocked. Seven genuinely new Form groups require exact Human Gate before materialization; existing-truth corrections are frozen. Quality-first review-ahead is full: BF19 and BF20 are frozen review-only checkpoints; BF21 must not start until the backlog is reduced. BF18 remains canonical Human Gate."
   },
   "audit_target": {
     "state": "WAITING_HUMAN_GATE",
@@ -1798,5 +1798,70 @@
     "priority": "QUALITY_OVER_SPEED",
     "human_gate": "EXACT_NEW_KNOWLEDGE_ONLY",
     "effective_from": "BF18 onward / 2026-09-22"
+  },
+  "review_ahead_queue": {
+    "status": "FULL_AT_LIMIT__DO_NOT_START_BF21",
+    "max_checkpoints": 2,
+    "max_words": 200,
+    "canonical_frontier_remains": "BF18",
+    "checkpoints": [
+      {
+        "candidate_id": "BF19",
+        "range": [
+          1951,
+          2050
+        ],
+        "state": "REVIEW_AHEAD_FROZEN",
+        "reviewed_owner_count": 100,
+        "affected_owner_count": 42,
+        "no_change_count": 58,
+        "blocked": 0,
+        "new_material_group_count": 10,
+        "new_material_delta_owners": [
+          1957,
+          1962,
+          1975,
+          1987,
+          1991,
+          1994,
+          1999,
+          2003,
+          2004,
+          2044
+        ],
+        "proposal": "content/lexical/execution/manifests/o1951-o2050.fullcatalog-final-standard-proposal.md",
+        "review_branch": "work/lexical-fullcatalog-bf19-review-20260922",
+        "proposal_commit": "aeb5e4648883166cc139b07d809019b16afa23c0",
+        "may_materialize": false,
+        "gate_deferred_until": "BF18 closes"
+      },
+      {
+        "candidate_id": "BF20",
+        "range": [
+          2051,
+          2150
+        ],
+        "state": "REVIEW_AHEAD_FROZEN",
+        "reviewed_owner_count": 100,
+        "affected_owner_count": 31,
+        "no_change_count": 69,
+        "blocked": 0,
+        "new_material_group_count": 2,
+        "new_material_delta_owners": [
+          2130,
+          2137
+        ],
+        "existing_truth_remote_dependencies": [
+          5557,
+          5840
+        ],
+        "proposal": "content/lexical/execution/manifests/o2051-o2150.fullcatalog-final-standard-proposal.md",
+        "review_branch": "work/lexical-fullcatalog-bf20-review-20260922",
+        "proposal_commit": "d803c5a7b8a267021e368461284d58e1f3417bd6",
+        "may_materialize": false,
+        "gate_deferred_until": "BF18 closes"
+      }
+    ],
+    "stop_condition": "No BF21 review while two reviewed-but-unmaterialized checkpoints remain."
   }
 }
