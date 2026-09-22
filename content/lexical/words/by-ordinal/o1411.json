@@ -67,13 +67,6 @@
         "definition_en": "the act of reducing the selling price of merchandise",
         "governing_pattern": "",
         "level": "L1",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "form_boundary",
-          "note": "noun/verb stress boundary",
-          "paired_form": "discount",
-          "surface_lemma": "discount"
-        },
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:discount:e754875607455631",
@@ -107,13 +100,6 @@
         "definition_en": "to reduce the price of something",
         "governing_pattern": "vt. + object",
         "level": "L1",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "form_boundary",
-          "note": "noun/verb stress boundary",
-          "paired_form": "discount",
-          "surface_lemma": "discount"
-        },
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:discount:d06ede37ebe35e6c",
@@ -163,7 +149,35 @@
     },
     "word": "discount",
     "word_family": [],
-    "word_id": "word:discount"
+    "word_id": "word:discount",
+    "form_identity": {
+      "form_type": "same_spelling_pos_conditioned_pronunciation",
+      "spelling": "discount",
+      "identity_rule": "same_word_owner_no_semantic_split",
+      "boundary": "Noun/adjectival use typically has initial stress; the verb typically has final stress.",
+      "variants": [
+        {
+          "variant_id": "form:discount:noun-adjective",
+          "pos": [
+            "noun",
+            "adjective"
+          ],
+          "ipa": "/ˈdɪs.kaʊnt/",
+          "stress": "initial",
+          "learner_key": "DIS-count"
+        },
+        {
+          "variant_id": "form:discount:verb",
+          "pos": [
+            "verb"
+          ],
+          "ipa": "/dɪˈskaʊnt/",
+          "stress": "final",
+          "learner_key": "dis-COUNT"
+        }
+      ],
+      "authority": "BF13 Kian-p approved Form expansion 2026-09-22"
+    }
   },
   "relation_refs": [],
   "reference_senses": [

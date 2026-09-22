@@ -59,13 +59,6 @@
         "definition_en": "to break down food in the body into absorbable substances",
         "governing_pattern": "vt. + object",
         "level": "L1",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "form_boundary",
-          "note": "noun/verb pronunciation-stress boundary",
-          "paired_form": "digest",
-          "surface_lemma": "digest"
-        },
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:digest:72a4c791e8a05c6f",
@@ -114,13 +107,6 @@
         "definition_en": "a compilation or summary of information",
         "governing_pattern": "",
         "level": "L2",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "form_boundary",
-          "note": "noun/verb pronunciation-stress boundary",
-          "paired_form": "digest",
-          "surface_lemma": "digest"
-        },
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:digest:23aac5cb5c9051d7",
@@ -160,7 +146,34 @@
     },
     "word": "digest",
     "word_family": [],
-    "word_id": "word:digest"
+    "word_id": "word:digest",
+    "form_identity": {
+      "form_type": "same_spelling_pos_conditioned_pronunciation",
+      "spelling": "digest",
+      "identity_rule": "same_word_owner_no_semantic_split",
+      "boundary": "Verb and noun share one spelling; the verb has final stress and the noun initial stress.",
+      "variants": [
+        {
+          "variant_id": "form:digest:verb",
+          "pos": [
+            "verb"
+          ],
+          "ipa": "/daɪˈdʒest/",
+          "stress": "final",
+          "learner_key": "di-GEST"
+        },
+        {
+          "variant_id": "form:digest:noun",
+          "pos": [
+            "noun"
+          ],
+          "ipa": "/ˈdaɪ.dʒest/",
+          "stress": "initial",
+          "learner_key": "DI-gest"
+        }
+      ],
+      "authority": "BF13 Kian-p approved Form expansion 2026-09-22"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],

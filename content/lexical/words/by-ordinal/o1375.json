@@ -68,13 +68,6 @@
         "definition_en": "to spread something over a wide area",
         "governing_pattern": "vt. + object",
         "level": "L1",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "form_boundary",
-          "note": "noun/verb pronunciation-stress boundary",
-          "paired_form": "diffuse",
-          "surface_lemma": "diffuse"
-        },
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:diffuse:020d979da5d95e4a",
@@ -123,13 +116,6 @@
         "definition_en": "spread out over a large area; not concentrated",
         "governing_pattern": "",
         "level": "L2",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "form_boundary",
-          "note": "noun/verb pronunciation-stress boundary",
-          "paired_form": "diffuse",
-          "surface_lemma": "diffuse"
-        },
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:diffuse:8acf59fe54235ee9",
@@ -179,7 +165,32 @@
     },
     "word": "diffuse",
     "word_family": [],
-    "word_id": "word:diffuse"
+    "word_id": "word:diffuse",
+    "form_identity": {
+      "form_type": "same_spelling_pos_conditioned_pronunciation",
+      "spelling": "diffuse",
+      "identity_rule": "same_word_owner_no_semantic_split",
+      "boundary": "Verb and adjective share the spelling diffuse but differ in the final consonant: verb /dɪˈfjuːz/, adjective /dɪˈfjuːs/.",
+      "variants": [
+        {
+          "variant_id": "form:diffuse:verb",
+          "pos": [
+            "verb"
+          ],
+          "ipa": "/dɪˈfjuːz/",
+          "learner_key": "verb: -fuse /z/"
+        },
+        {
+          "variant_id": "form:diffuse:adjective",
+          "pos": [
+            "adjective"
+          ],
+          "ipa": "/dɪˈfjuːs/",
+          "learner_key": "adjective: -fuse /s/"
+        }
+      ],
+      "authority": "BF13 Kian-p approved Form expansion 2026-09-22"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
