@@ -46,6 +46,10 @@ A mature explanation should answer, as compactly as the question allows:
 - why an important distractor fails, when that boundary matters;
 - what reusable recognition rule is worth keeping.
 
+For explicit SECOND_PASS review, also run a **currency / dispute check** when the item is treatment-, diagnostic-, classification-, threshold-, procedure-, terminology-, or source-era-sensitive, or when an external dispute/outdated-question list nominates it for review. External lists are candidate radar only, never answer authority. Preserve the historical official answer in Question Truth; compare it against Current Knowledge and the exact authoritative current source when needed. Record any real mismatch or ambiguity in the existing `source_conflict_note`, `source_boundary_note`, or `source_gap_note` field rather than silently teaching an old answer as current medicine.
+
+Source-provided or third-party explanation prose is never learner-facing explanation truth. It may help identify a question that deserves re-checking, but the website explanation must come from this Chat-reviewed Explanation owner.
+
 Simple questions should stay short. Do not turn explanations into mini-textbooks.
 
 ## Truth boundary
