@@ -233,7 +233,7 @@
     "ordinal": 1795,
     "word": "experiment",
     "source_owner_path": "content/lexical/words/by-ordinal/o1795.json",
-    "source_fingerprint": "4bfdcf275f13e7ed2da3bf2097889d60d81053b8732adf22a06402706e279387",
+    "source_fingerprint": "71efc6eb4f885a91fc8647568da5914a1abca2905f123ea24707d314593a7f74",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -338,33 +338,7 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "deep:constructions:experiment:547122abc78b3e2e",
-        "source_locator": "record.constructions[0]",
-        "pattern": "vi. + with / on",
-        "lines": [
-          {
-            "text": "做实验；尝试",
-            "lang": "cn"
-          },
-          {
-            "text": "experiment with/on 用……做实验",
-            "lang": "cn"
-          },
-          {
-            "text": "to perform a test or try something new",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "deep:constructions:experiment:547122abc78b3e2e",
-          "target_locator": "record.constructions[0]",
-          "target_label": "vi. + with / on"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [
         {
@@ -613,7 +587,7 @@
     "ordinal": 1798,
     "word": "expire",
     "source_owner_path": "content/lexical/words/by-ordinal/o1798.json",
-    "source_fingerprint": "a3b96766b5cffcc424e581466867d36d81a5e2069349939ef4a3c743842bc29c",
+    "source_fingerprint": "34c2d23e68b3384e2bfaed657fbf1220a73193a5a9b6d7d7a0f5619547cc36f5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -622,19 +596,36 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "期满；呼气；断气",
-      "decision_cn": "",
+      "summary_cn": "到期；失效；结束",
+      "decision_cn": "现代默认先认合同、证件、期限等“到期/失效”；死亡和呼气义保留在低优先级扩展。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "期满；呼气；断气"
+        "target_label": "到期；失效；结束"
       }
     },
     "senses": [
       {
-        "id": "sense:expire:b519f64bab7d5cd7",
+        "id": "sense:expire:335279e31bab5316",
         "source_locator": "record.senses[0]",
+        "pos": "verb",
+        "governing_pattern": "vi. (licence/contract/card expires)",
+        "definition_cn": "到期、失效或结束",
+        "definition_en": "to come to an end or cease to be valid",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:expire:335279e31bab5316",
+          "target_locator": "record.senses[0]",
+          "target_label": "到期、失效或结束"
+        }
+      },
+      {
+        "id": "sense:expire:b519f64bab7d5cd7",
+        "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "断气；死亡",
@@ -644,7 +635,7 @@
         "usage": [
           {
             "id": "collocation:523972084f39b92d3659",
-            "source_locator": "record.senses[0].collocations[0]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "expire peacefully",
             "meaning_cn": "安详地去世",
             "kind": "usage_example",
@@ -654,13 +645,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:expire:b519f64bab7d5cd7",
-          "target_locator": "record.senses[0]",
+          "target_locator": "record.senses[1]",
           "target_label": "断气；死亡"
         }
       },
       {
         "id": "sense:expire:df7add6b2141560d",
-        "source_locator": "record.senses[1]",
+        "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "呼气",
@@ -670,7 +661,7 @@
         "usage": [
           {
             "id": "collocation:3358e235ed93793bbf92",
-            "source_locator": "record.senses[1].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "expire deeply",
             "meaning_cn": "深呼吸",
             "kind": "usage_example",
@@ -680,13 +671,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:expire:df7add6b2141560d",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[2]",
           "target_label": "呼气"
         }
       },
       {
         "id": "sense:expire:a21e7f6af41550bf",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "呼出",
@@ -696,7 +687,7 @@
         "usage": [
           {
             "id": "collocation:4bdaa41ee103ea8f6aec",
-            "source_locator": "record.senses[2].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "expire air from the lungs",
             "meaning_cn": "从肺部呼出空气",
             "kind": "usage_example",
@@ -706,25 +697,8 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:expire:a21e7f6af41550bf",
-          "target_locator": "record.senses[2]",
-          "target_label": "呼出"
-        }
-      },
-      {
-        "id": "sense:expire:335279e31bab5316",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "licence/contract/card expires",
-        "definition_cn": "到期、失效或结束",
-        "definition_en": "to come to an end or cease to be valid",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:expire:335279e31bab5316",
           "target_locator": "record.senses[3]",
-          "target_label": "到期、失效或结束"
+          "target_label": "呼出"
         }
       }
     ],
@@ -1209,11 +1183,11 @@
     "ordinal": 1803,
     "word": "exploit",
     "source_owner_path": "content/lexical/words/by-ordinal/o1803.json",
-    "source_fingerprint": "b0c309644e36328769105e9e905aeed0c4c05f1cea926940c5f666bc10102c74",
+    "source_fingerprint": "6e86e5e24a6c0c511f46ecf5fb61648d035c2e625974c038bec464f218fd2b82",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(2+1)V",
+        "2V",
         "1N"
       ],
       "density": "rich"
@@ -1334,22 +1308,7 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:exploit:f19580eaac923e4d",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "开发；开拓",
-        "definition_en": "to develop or make full use of a resource",
-        "pattern": "开发资源；开矿",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:exploit:f19580eaac923e4d",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "开发；开拓"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [
@@ -1831,7 +1790,7 @@
     "ordinal": 1807,
     "word": "export",
     "source_owner_path": "content/lexical/words/by-ordinal/o1807.json",
-    "source_fingerprint": "7cee189c3250bfa6f71438bb38e0ef5248a4fc4856c36057b3fab0b478f06328",
+    "source_fingerprint": "ac85a7482f24ef159dd660a3cd2304914c2b01c8861c38b026a4cab05853963f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1841,13 +1800,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "将货物或数据发送到另一个国家或系统",
-      "decision_cn": "",
+      "summary_cn": "出口；导出；出口商品",
+      "decision_cn": "将货物或数据发送到另一个国家或系统",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "将货物或数据发送到另一个国家或系统"
+        "target_label": "出口；导出；出口商品"
       }
     },
     "senses": [
@@ -1859,15 +1818,7 @@
         "definition_cn": "向国外出售或转移",
         "definition_en": "sell or transfer abroad",
         "note": "",
-        "identity_overlay": {
-          "text": "In standard British pronunciation, export commonly has initial stress as a noun and later stress as a verb; major American pronunciation also permits initial stress for the verb. Do not treat the stress split as universal across all English.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "In standard British pronunciation, export commonly has initial stress as a noun and later stress as a verb; major American pronunciation also permits initial stress for the verb. Do not treat the stress split as universal across all English."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:c07293157647b0be4cd1",
@@ -1899,94 +1850,18 @@
         }
       },
       {
-        "id": "sense:export:ef27e5afa878503d",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "将电子数据从数据库或文档中导出为其他程序可用的格式",
-        "definition_en": "transfer (electronic data) out of a database or document in a format that can be used by other programs",
-        "note": "",
-        "identity_overlay": {
-          "text": "In standard British pronunciation, export commonly has initial stress as a noun and later stress as a verb; major American pronunciation also permits initial stress for the verb. Do not treat the stress split as universal across all English.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "In standard British pronunciation, export commonly has initial stress as a noun and later stress as a verb; major American pronunciation also permits initial stress for the verb. Do not treat the stress split as universal across all English."
-          }
-        },
-        "usage": [
-          {
-            "id": "collocation:dba0a85d74f517000b3c",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "export data to a file",
-            "meaning_cn": "将数据导出到文件",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:export:ef27e5afa878503d",
-          "target_locator": "record.senses[1]",
-          "target_label": "将电子数据从数据库或文档中导出为其他程序可用的格式"
-        }
-      },
-      {
-        "id": "sense:export:2626f9ac0b1b571b",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使在世界的另一部分传播",
-        "definition_en": "cause to spread in another part of the world",
-        "note": "",
-        "identity_overlay": {
-          "text": "In standard British pronunciation, export commonly has initial stress as a noun and later stress as a verb; major American pronunciation also permits initial stress for the verb. Do not treat the stress split as universal across all English.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[2].lexical_identity_overlay",
-            "target_label": "In standard British pronunciation, export commonly has initial stress as a noun and later stress as a verb; major American pronunciation also permits initial stress for the verb. Do not treat the stress split as universal across all English."
-          }
-        },
-        "usage": [
-          {
-            "id": "collocation:0817c6d4f6bd901f51b1",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "export ideas",
-            "meaning_cn": "传播思想",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:export:2626f9ac0b1b571b",
-          "target_locator": "record.senses[2]",
-          "target_label": "使在世界的另一部分传播"
-        }
-      },
-      {
         "id": "sense:export:1ecd6ea82dec5f18",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "卖给外国的商品（货物或服务）",
         "definition_en": "commodities (goods or services) sold to a foreign country",
         "note": "",
-        "identity_overlay": {
-          "text": "In standard British pronunciation, export commonly has initial stress as a noun and later stress as a verb; major American pronunciation also permits initial stress for the verb. Do not treat the stress split as universal across all English.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[3].lexical_identity_overlay",
-            "target_label": "In standard British pronunciation, export commonly has initial stress as a noun and later stress as a verb; major American pronunciation also permits initial stress for the verb. Do not treat the stress split as universal across all English."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:51d6c8edbba228d0fff7",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "export trade",
             "meaning_cn": "出口贸易",
             "kind": "usage_example",
@@ -1994,7 +1869,7 @@
           },
           {
             "id": "collocation:ebff9907f49fa8ddd983",
-            "source_locator": "record.senses[3].collocations[1]",
+            "source_locator": "record.senses[1].collocations[1]",
             "phrase": "main export",
             "meaning_cn": "主要出口产品",
             "kind": "usage_example",
@@ -2004,8 +1879,60 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:export:1ecd6ea82dec5f18",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[1]",
           "target_label": "卖给外国的商品（货物或服务）"
+        }
+      },
+      {
+        "id": "sense:export:ef27e5afa878503d",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "vt. + object",
+        "definition_cn": "将电子数据从数据库或文档中导出为其他程序可用的格式",
+        "definition_en": "transfer (electronic data) out of a database or document in a format that can be used by other programs",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:dba0a85d74f517000b3c",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "export data to a file",
+            "meaning_cn": "将数据导出到文件",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:export:ef27e5afa878503d",
+          "target_locator": "record.senses[2]",
+          "target_label": "将电子数据从数据库或文档中导出为其他程序可用的格式"
+        }
+      },
+      {
+        "id": "sense:export:2626f9ac0b1b571b",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "vt. + object",
+        "definition_cn": "使在世界的另一部分传播",
+        "definition_en": "cause to spread in another part of the world",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:0817c6d4f6bd901f51b1",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "export ideas",
+            "meaning_cn": "传播思想",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:export:2626f9ac0b1b571b",
+          "target_locator": "record.senses[3]",
+          "target_label": "使在世界的另一部分传播"
         }
       }
     ],
@@ -2014,7 +1941,33 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "In standard British pronunciation, export commonly has initial stress as a noun and later stress as a verb; major American pronunciation also permits initial stress for the verb, so the split is not universal across English.",
+        "boundaries": [
+          {
+            "surface": "export",
+            "condition": "noun",
+            "note": "commonly initial stress"
+          },
+          {
+            "surface": "export",
+            "condition": "verb in BrE",
+            "note": "commonly later stress"
+          },
+          {
+            "surface": "export",
+            "condition": "verb in AmE",
+            "note": "initial stress is also common/accepted"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "In standard British pronunciation, export commonly has initial stress as a noun and later stress as a verb; major American pronunciation also permits initial stress for the verb, so the split is not universal across English."
+        }
+      },
       "family": []
     }
   },
@@ -2300,7 +2253,7 @@
     "ordinal": 1810,
     "word": "express",
     "source_owner_path": "content/lexical/words/by-ordinal/o1810.json",
-    "source_fingerprint": "a1e2787ab746ff6bbc03ebdc672138e96c6b9f14595cb46b2f1788f977a6636d",
+    "source_fingerprint": "2e66566fd26f38383d47dac87868dacefa427d0f02dadc61a021a1dea80baa91",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3334,7 +3287,7 @@
     "ordinal": 1818,
     "word": "external",
     "source_owner_path": "content/lexical/words/by-ordinal/o1818.json",
-    "source_fingerprint": "a5038278dafd7661e5e446e809a6d29060e6c33c4235742fbebd756b3dc8f924",
+    "source_fingerprint": "ced862670157d9f623d85325e0c03b4c30647c13c593e8d081455f6c6cab8177",
     "sense_lineage": [
       {
         "word_id": "word:external",
@@ -3392,48 +3345,7 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": [
-        {
-          "target_word": "externalise",
-          "lines": [
-            {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
-              "lang": "cn"
-            }
-          ],
-          "source_locator": "record.word_family[0]"
-        },
-        {
-          "target_word": "externality",
-          "lines": [
-            {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
-              "lang": "cn"
-            }
-          ],
-          "source_locator": "record.word_family[1]"
-        },
-        {
-          "target_word": "externalize",
-          "lines": [
-            {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
-              "lang": "cn"
-            }
-          ],
-          "source_locator": "record.word_family[2]"
-        },
-        {
-          "target_word": "externally",
-          "lines": [
-            {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
-              "lang": "cn"
-            }
-          ],
-          "source_locator": "record.word_family[3]"
-        }
-      ]
+      "family": []
     }
   },
   {
@@ -3845,7 +3757,7 @@
     "ordinal": 1822,
     "word": "extract",
     "source_owner_path": "content/lexical/words/by-ordinal/o1822.json",
-    "source_fingerprint": "a0cfd343b724257835d7c05968453dd9da357a8f4cb8869171d05f6ccea631ab",
+    "source_fingerprint": "4878e782f210931deb534423f517eaed0d1f0d23e081ca1b58b682fc89590ff9",
     "sense_lineage": [
       {
         "word_id": "word:extract",
@@ -4037,15 +3949,7 @@
         "definition_cn": "提取物、浓缩物",
         "definition_en": "a substance or concentrate obtained by extraction",
         "note": "",
-        "identity_overlay": {
-          "text": "noun /ˈekstrækt/ vs verb /ɪkˈstrækt/ stress boundary",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[5].lexical_identity_overlay",
-            "target_label": "noun /ˈekstrækt/ vs verb /ɪkˈstrækt/ stress boundary"
-          }
-        },
+        "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -4060,7 +3964,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "extract noun is pronounced /ˈekstrækt/; extract verb is pronounced /ɪkˈstrækt/.",
+        "boundaries": [
+          {
+            "surface": "extract",
+            "condition": "noun",
+            "note": "/ˈekstrækt/"
+          },
+          {
+            "surface": "extract",
+            "condition": "verb",
+            "note": "/ɪkˈstrækt/"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "extract noun is pronounced /ˈekstrækt/; extract verb is pronounced /ɪkˈstrækt/."
+        }
+      },
       "family": []
     }
   },
@@ -5341,7 +5266,7 @@
     "ordinal": 1835,
     "word": "facilitate",
     "source_owner_path": "content/lexical/words/by-ordinal/o1835.json",
-    "source_fingerprint": "f32316fad9fb1f7979b0cd4c39569d58982460c48fb42b1bf4d3b6c5bd26bcfb",
+    "source_fingerprint": "9b927e2dc0059f81921255ec015591691979b31162427e843aabbaf7a98d36c1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5424,8 +5349,12 @@
           "target_word": "facilitator",
           "lines": [
             {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
+              "text": "facilitate (v.) → facilitator (n.): 促进/使更容易 → 促进过程的人或引导者；派生关系，不是同义替换。",
               "lang": "cn"
+            },
+            {
+              "text": "facilitate is the verb; facilitator is a person who helps a process, discussion, or activity happen more effectively.",
+              "lang": "en"
             }
           ],
           "source_locator": "record.word_family[0]"
@@ -5439,7 +5368,7 @@
     "ordinal": 1836,
     "word": "facility",
     "source_owner_path": "content/lexical/words/by-ordinal/o1836.json",
-    "source_fingerprint": "81265aee05d54a70bc4ab5261e6610fb07f01f0f16c2a90b298e55fa860bfde2",
+    "source_fingerprint": "8e68514eeb47b2e18e4a034ae7d8e6a8f90e640f7b16d1399b5fdde6c0e06be8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5548,18 +5477,7 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": [
-        {
-          "target_word": "facilitation",
-          "lines": [
-            {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
-              "lang": "cn"
-            }
-          ],
-          "source_locator": "record.word_family[0]"
-        }
-      ]
+      "family": []
     }
   },
   {
@@ -5686,7 +5604,7 @@
     "ordinal": 1838,
     "word": "factor",
     "source_owner_path": "content/lexical/words/by-ordinal/o1838.json",
-    "source_fingerprint": "ea77f70f633ba7ecb37bd1815042ca6bc7f3788b639b56f5df770d5e80ac1747",
+    "source_fingerprint": "1258c37eb1139e6aad86ec3c8a76eaf5771e49922c62cc26b9e98ec708c78424",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5696,13 +5614,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "因素；因子",
-      "decision_cn": "",
+      "summary_cn": "因素；因数或因子",
+      "decision_cn": "因素；因子",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "因素；因子"
+        "target_label": "因素；因数或因子"
       }
     },
     "senses": [
@@ -6010,7 +5928,7 @@
     "ordinal": 1841,
     "word": "fade",
     "source_owner_path": "content/lexical/words/by-ordinal/o1841.json",
-    "source_fingerprint": "7eba635e77045a722fd2994ca1b3a9c30414295f8ed8929b0f59f2b2ce12d863",
+    "source_fingerprint": "7728e3ea06aea7b7e88dd7321c0abac5e1015838c4dc3e6ea818f7f842bcb7f9",
     "sense_lineage": [
       {
         "word_id": "word:fade",
@@ -6028,13 +5946,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "逐渐消失或失去活力",
-      "decision_cn": "",
+      "summary_cn": "褪色；逐渐消失；使褪色",
+      "decision_cn": "逐渐消失或失去活力",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "逐渐消失或失去活力"
+        "target_label": "褪色；逐渐消失；使褪色"
       }
     },
     "senses": [
@@ -6176,7 +6094,7 @@
     "ordinal": 1842,
     "word": "fail",
     "source_owner_path": "content/lexical/words/by-ordinal/o1842.json",
-    "source_fingerprint": "f9988653c911c35ef0df8dae871236659e1aa594f82bb0a1c83eee63dabccde3",
+    "source_fingerprint": "54972d422c1352b3b318fa7df0e75ca9992f32e5fb5be3957b074008ab031ac5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6367,62 +6285,7 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "deep:constructions:fail:e1d649564bf02e0c",
-        "source_locator": "record.constructions[0]",
-        "pattern": "vi. + in + sth/doing sth",
-        "lines": [
-          {
-            "text": "失败；未成功",
-            "lang": "cn"
-          },
-          {
-            "text": "fail in + sth/doing sth",
-            "lang": "en"
-          },
-          {
-            "text": "to be unsuccessful in achieving something",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "deep:constructions:fail:e1d649564bf02e0c",
-          "target_locator": "record.constructions[0]",
-          "target_label": "vi. + in + sth/doing sth"
-        }
-      },
-      {
-        "id": "deep:constructions:fail:1efdcbdd6a9ab29d",
-        "source_locator": "record.constructions[1]",
-        "pattern": "fail to do sth",
-        "lines": [
-          {
-            "text": "未能做某事",
-            "lang": "cn"
-          },
-          {
-            "text": "未能做到；忘记做",
-            "lang": "cn"
-          },
-          {
-            "text": "fail to do sth = fail to perform/achieve the following action; to-infinitive complement, not an object",
-            "lang": "en"
-          },
-          {
-            "text": "to not do something that you should or intend to do",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "deep:constructions:fail:1efdcbdd6a9ab29d",
-          "target_locator": "record.constructions[1]",
-          "target_label": "fail to do sth"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6722,7 +6585,7 @@
     "ordinal": 1845,
     "word": "fair",
     "source_owner_path": "content/lexical/words/by-ordinal/o1845.json",
-    "source_fingerprint": "ec5db4b288e711695067108e5c3bb100e08e0c9f04c362fbe2870b505e79e6ca",
+    "source_fingerprint": "580a40a5577e82eb34d29f34a76d169bf13cf95b38486aedbd52c6b721181439",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7051,7 +6914,7 @@
     "ordinal": 1847,
     "word": "fairy",
     "source_owner_path": "content/lexical/words/by-ordinal/o1847.json",
-    "source_fingerprint": "feb20b25d98a3656d2df758cb34281d197da19765a5888127a0068475e64a062",
+    "source_fingerprint": "b6b14bd9c7b5480e97946c9a9013b67bbefcfa6768cc7ebbeff2a5f175088ebb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7276,7 +7139,7 @@
     "ordinal": 1849,
     "word": "faithful",
     "source_owner_path": "content/lexical/words/by-ordinal/o1849.json",
-    "source_fingerprint": "9626e6ededc79d5bd54743b3e342c4164dc5c7458be3fa5396f20b78c09a6d1c",
+    "source_fingerprint": "dddbec2746be4a31c8217993b57f9952ac4aa20d2bca731c9997c5449e84168c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7286,13 +7149,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "忠实的",
-      "decision_cn": "",
+      "summary_cn": "忠实的；忠诚的；忠实准确的",
+      "decision_cn": "既可指对人/承诺忠诚，也可指译文、复制品、叙述等忠实于原文或事实；低频名词 the faithful 留在扩展层。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "忠实的"
+        "target_label": "忠实的；忠诚的；忠实准确的"
       }
     },
     "senses": [

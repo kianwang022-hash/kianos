@@ -2734,7 +2734,7 @@
     "ordinal": 1755,
     "word": "except",
     "source_owner_path": "content/lexical/words/by-ordinal/o1755.json",
-    "source_fingerprint": "acb279b353a4219439c3d2b881e2c565d9ea315c809b8d62259d7cefcfd2dc44",
+    "source_fingerprint": "8dbc366d8a49b7c297615eaf5a2cd820ea686a47b08d39f8aab541df04783df1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2898,7 +2898,7 @@
     "ordinal": 1756,
     "word": "exception",
     "source_owner_path": "content/lexical/words/by-ordinal/o1756.json",
-    "source_fingerprint": "4a6c9e60161080cff0f37a928a89481d2716bd215c5d062d9148a0cd349cf76d",
+    "source_fingerprint": "72672f43f1034142f8bd5b577355b3360a808aef6713c01f66fc4f8917aa872f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3019,29 +3019,7 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:68edaf9831dbfc4b9ce8",
-        "source_locator": "record.constructions[0]",
-        "pattern": "take exception to sth/sb",
-        "lines": [
-          {
-            "text": "因…而不悦/反感；对…表示异议",
-            "lang": "cn"
-          },
-          {
-            "text": "to object to or be offended by something or someone",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:68edaf9831dbfc4b9ce8",
-          "target_locator": "record.constructions[0]",
-          "target_label": "take exception to sth/sb"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -3142,7 +3120,7 @@
     "ordinal": 1758,
     "word": "excerpt",
     "source_owner_path": "content/lexical/words/by-ordinal/o1758.json",
-    "source_fingerprint": "013ea871392336348bfdd547ee4378e49a0f1328e50c7315c372398af6d3daad",
+    "source_fingerprint": "a42da62d524579f68d0db4f901b0f3c242d4ae544f74a911cf21017881fda4f0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3170,15 +3148,7 @@
         "definition_cn": "摘录；选段",
         "definition_en": "a short passage selected from a larger work",
         "note": "",
-        "identity_overlay": {
-          "text": "excerpt noun has initial stress; excerpt verb has final stress.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "excerpt noun has initial stress; excerpt verb has final stress."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:70a2da59caf793ac8404",
@@ -3209,15 +3179,7 @@
         "definition_cn": "摘录；引用",
         "definition_en": "to take out a passage from a literary work",
         "note": "",
-        "identity_overlay": {
-          "text": "excerpt noun has initial stress; excerpt verb has final stress.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "excerpt noun has initial stress; excerpt verb has final stress."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:c7ddb5f6b40f90ac609c",
@@ -3259,7 +3221,28 @@
         }
       ],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "excerpt noun typically has initial stress; excerpt verb typically has final stress.",
+        "boundaries": [
+          {
+            "surface": "excerpt",
+            "condition": "noun",
+            "note": "typically initial stress"
+          },
+          {
+            "surface": "excerpt",
+            "condition": "verb",
+            "note": "typically final stress"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "excerpt noun typically has initial stress; excerpt verb typically has final stress."
+        }
+      },
       "family": []
     }
   },
@@ -3935,7 +3918,7 @@
     "ordinal": 1765,
     "word": "exclaim",
     "source_owner_path": "content/lexical/words/by-ordinal/o1765.json",
-    "source_fingerprint": "55d81bf429e60ad1eabced94be678d9003025a9fed61e3ba15382db57bc3ccdb",
+    "source_fingerprint": "db7e8f10a604cd7d204c172486a868ca6b306fa95be05fea13c6e352ad63f0fa",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4008,33 +3991,7 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "deep:constructions:exclaim:286702c03e4b6baf",
-        "source_locator": "record.constructions[0]",
-        "pattern": "vi. + that-clause / vi. + at",
-        "lines": [
-          {
-            "text": "惊叫；呼喊",
-            "lang": "cn"
-          },
-          {
-            "text": "exclaim that 从句 惊叫",
-            "lang": "cn"
-          },
-          {
-            "text": "to say something suddenly and loudly, especially because of strong emotion",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "deep:constructions:exclaim:286702c03e4b6baf",
-          "target_locator": "record.constructions[0]",
-          "target_label": "vi. + that-clause / vi. + at"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4170,7 +4127,7 @@
     "ordinal": 1767,
     "word": "exclusive",
     "source_owner_path": "content/lexical/words/by-ordinal/o1767.json",
-    "source_fingerprint": "80a6965b31c359c432561d1a09163fdbb6e4bc9c86bad1d86c0cadb4501388ec",
+    "source_fingerprint": "9565c335a4ec4b9190b28b5f71ca22b4cdb074de4ca1d2b4d61e49d03c6f7272",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4392,7 +4349,7 @@
     "ordinal": 1769,
     "word": "excuse",
     "source_owner_path": "content/lexical/words/by-ordinal/o1769.json",
-    "source_fingerprint": "784af53462bb7989b2ead71decd6a74b8986fa6e8e2bca4ef60fc07087e83507",
+    "source_fingerprint": "d344b6aff51807fd992bcc03b62e647907de69826ed3030a87284248bc7489f6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4420,15 +4377,7 @@
         "definition_cn": "原谅；宽恕",
         "definition_en": "to forgive someone for something",
         "note": "",
-        "identity_overlay": {
-          "text": "noun /s/ vs verb /z/ pronunciation boundary",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "noun /s/ vs verb /z/ pronunciation boundary"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:ef265a602c534c3865a7",
@@ -4498,15 +4447,7 @@
         "definition_cn": "借口；理由",
         "definition_en": "a reason given to explain or defend one's actions",
         "note": "",
-        "identity_overlay": {
-          "text": "noun /s/ vs verb /z/ pronunciation boundary",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[2].lexical_identity_overlay",
-            "target_label": "noun /s/ vs verb /z/ pronunciation boundary"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:bb0758db49d463338bd3",
@@ -4577,7 +4518,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "excuse noun has /s/ in the final consonant; excuse verb has /z/.",
+        "boundaries": [
+          {
+            "surface": "excuse",
+            "condition": "noun",
+            "note": "final /s/"
+          },
+          {
+            "surface": "excuse",
+            "condition": "verb",
+            "note": "final /z/"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "excuse noun has /s/ in the final consonant; excuse verb has /z/."
+        }
+      },
       "family": []
     }
   },
@@ -5081,12 +5043,12 @@
     "ordinal": 1774,
     "word": "exercise",
     "source_owner_path": "content/lexical/words/by-ordinal/o1774.json",
-    "source_fingerprint": "a0809e4cd619c44ecab3d65609026c06bd1f00e20390843b0b2d045ef52d95b6",
+    "source_fingerprint": "b8ac5b005fa695b9c33856b3d3907051c89367c8b3c7622c2a89ab72a476ee25",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(2+1)V",
-        "(3+1)N"
+        "2V",
+        "3N"
       ],
       "density": "rich"
     },
@@ -5256,36 +5218,7 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:exercise:313c3005112c468d",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "noun",
-        "definition_cn": "行使，运用",
-        "definition_en": "the use of a power, right, or ability",
-        "pattern": "exercise of power: 权力行使",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:exercise:313c3005112c468d",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "行使，运用"
-        }
-      },
-      {
-        "id": "deep:secondary_senses:exercise:8d2b1d0bbc4a63a9",
-        "source_locator": "record.secondary_senses[1]",
-        "pos": "verb",
-        "definition_cn": "行使，运用",
-        "definition_en": "to use a power, right, or quality",
-        "pattern": "exercise control: 实施控制",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:exercise:8d2b1d0bbc4a63a9",
-          "target_locator": "record.secondary_senses[1]",
-          "target_label": "行使，运用"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
@@ -5431,7 +5364,7 @@
     "ordinal": 1776,
     "word": "exhaust",
     "source_owner_path": "content/lexical/words/by-ordinal/o1776.json",
-    "source_fingerprint": "c533897618488c73c79274ad07fd151143c5bf33008b06edb25d46be71105dc3",
+    "source_fingerprint": "152c4d5932a6e5093a4cb7cf6732b7332fb8dc6d551a8c14f7dbd86d8e0da2d1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5441,13 +5374,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "耗尽或废气",
-      "decision_cn": "",
+      "summary_cn": "耗尽；使精疲力尽；废气",
+      "decision_cn": "耗尽或废气",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "耗尽或废气"
+        "target_label": "耗尽；使精疲力尽；废气"
       }
     },
     "senses": [
@@ -5584,7 +5517,7 @@
     "ordinal": 1777,
     "word": "exhibit",
     "source_owner_path": "content/lexical/words/by-ordinal/o1777.json",
-    "source_fingerprint": "68138fe78ab8feffff1cb58ddf3c949fd2624f437ba17a536f7eee68b72de840",
+    "source_fingerprint": "e2fa362ef371a72efec2bcaac2ea5739274bd84a30598bb6c6f0f4ba893c5968",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
