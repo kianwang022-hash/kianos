@@ -11,29 +11,29 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "打；击中；达到；到达；偶然想到；发现",
-          "label_en": "to strike someone or something with force; to reach a particular level, number, or place; to suddenly think of or discover something",
+          "label_cn": "打；击中；达到；到达；严重影响、打击；偶然想到、发现",
+          "label_en": "to strike; reach; affect badly/severely; suddenly think of/discover",
           "pos": "verb",
           "sense_ids": [
             "sense:hit:8beddf6cfdcf5b5b",
             "sense:hit:cb5c59ca213553a3",
-            "sense:hit:6608f1b7de9f5eeb"
+            "sense:hit:6608f1b7de9f5eeb",
+            "sense:hit:67e1aa2030145128"
           ]
         },
         {
-          "label_cn": "打击；碰撞；成功而轰动的事物；点击；访问",
-          "label_en": "an act of hitting someone or something; a successful and popular thing such as a song or film; a visit to a website",
+          "label_cn": "打击；碰撞；成功而轰动的事物",
+          "label_en": "an act of hitting; a successful popular thing",
           "pos": "noun",
           "sense_ids": [
             "sense:hit:2b597c8f5e875463",
-            "sense:hit:89b9454330a65b58",
-            "sense:hit:f39bf3e586d85918"
+            "sense:hit:89b9454330a65b58"
           ]
         }
       ],
-      "core_meaning_cn": "打；击中",
-      "core_meaning_en": "to strike someone or something with force; to reach a target",
-      "mental_model_cn": "打；击中",
+      "core_meaning_cn": "打；击中；达到；严重影响、打击",
+      "core_meaning_en": "to strike or hit; to reach; to affect badly or severely",
+      "mental_model_cn": "打；击中；达到；严重影响、打击",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -115,6 +115,35 @@
         "transitivity": "vt"
       },
       {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "严重影响；打击",
+        "definition_en": "to affect someone or something badly, suddenly, or severely",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:hit:67e1aa2030145128",
+        "sense_label_en": "to affect someone or something badly, suddenly, or severely",
+        "sort_order": 2,
+        "source_evidence": [
+          {
+            "external_evidence": [
+              {
+                "role": "semantic_boundary_or_usage_verification",
+                "source_locator": "https://dictionary.cambridge.org/dictionary/english/hit",
+                "source_name": "Cambridge Dictionary",
+                "source_type": "authoritative_learner_dictionary"
+              }
+            ],
+            "semantic_auditor_approved": true,
+            "source_candidate_evidence_ids": [],
+            "source_operation_id": "operation:7fea7b56080d17fad3e3",
+            "source_operation_sha256": "6e0d725c49bb44f030af7f2d9f3da23e86a326598ceea69ca26565478574436e",
+            "verification_status": "auditor_verified"
+          }
+        ]
+      },
+      {
         "collocations": [
           {
             "collocation_id": "collocation:5bbf7c3a301953216f3a",
@@ -135,7 +164,7 @@
         "pos": "verb",
         "sense_id": "sense:hit:6608f1b7de9f5eeb",
         "sense_label_en": "to suddenly think of or discover something",
-        "sort_order": 2,
+        "sort_order": 3,
         "transitivity": "vi"
       },
       {
@@ -159,7 +188,7 @@
         "pos": "noun",
         "sense_id": "sense:hit:2b597c8f5e875463",
         "sense_label_en": "an act of hitting someone or something",
-        "sort_order": 3,
+        "sort_order": 4,
         "transitivity": "nonverb"
       },
       {
@@ -183,7 +212,7 @@
         "pos": "noun",
         "sense_id": "sense:hit:89b9454330a65b58",
         "sense_label_en": "a successful and popular thing such as a song or film",
-        "sort_order": 4,
+        "sort_order": 5,
         "transitivity": "nonverb"
       },
       {
@@ -207,37 +236,8 @@
         "pos": "noun",
         "sense_id": "sense:hit:f39bf3e586d85918",
         "sense_label_en": "a visit to a website",
-        "sort_order": 5,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "严重影响；打击",
-        "definition_en": "to affect someone or something badly, suddenly, or severely",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:hit:67e1aa2030145128",
-        "sense_label_en": "to affect someone or something badly, suddenly, or severely",
         "sort_order": 6,
-        "source_evidence": [
-          {
-            "external_evidence": [
-              {
-                "role": "semantic_boundary_or_usage_verification",
-                "source_locator": "https://dictionary.cambridge.org/dictionary/english/hit",
-                "source_name": "Cambridge Dictionary",
-                "source_type": "authoritative_learner_dictionary"
-              }
-            ],
-            "semantic_auditor_approved": true,
-            "source_candidate_evidence_ids": [],
-            "source_operation_id": "operation:7fea7b56080d17fad3e3",
-            "source_operation_sha256": "6e0d725c49bb44f030af7f2d9f3da23e86a326598ceea69ca26565478574436e",
-            "verification_status": "auditor_verified"
-          }
-        ]
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -257,7 +257,37 @@
     },
     "word": "hit",
     "word_family": [],
-    "word_id": "word:hit"
+    "word_id": "word:hit",
+    "form_identity": {
+      "form_type": "irregular_inflection_identity",
+      "spelling": "hit",
+      "identity_rule": "same_word_owner_no_semantic_split",
+      "boundary": "hit has invariant past and past participle: hit → hit → hit; the present participle is hitting.",
+      "boundaries": [
+        {
+          "surface": "hit",
+          "condition": "base/present",
+          "note": "base form"
+        },
+        {
+          "surface": "hit",
+          "condition": "past simple",
+          "note": "invariant past"
+        },
+        {
+          "surface": "hit",
+          "condition": "past participle",
+          "note": "invariant participle"
+        },
+        {
+          "surface": "hitting",
+          "condition": "present participle",
+          "note": "double t before -ing"
+        }
+      ],
+      "variants": [],
+      "authority": "BF22 exact p approved Form expansion 2026-09-22"
+    }
   },
   "relation_refs": [
     {

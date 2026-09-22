@@ -27,14 +27,6 @@
             "sense:hang:03260e727c435665",
             "sense:hang:6c76160dd49c5189"
           ]
-        },
-        {
-          "label_cn": "衣服的下垂方式",
-          "label_en": "the way a garment hangs",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:hang:76febdaf8e665f7b"
-          ]
         }
       ],
       "core_meaning_cn": "悬挂或从上方吊起",
@@ -172,7 +164,32 @@
     },
     "word": "hang",
     "word_family": [],
-    "word_id": "word:hang"
+    "word_id": "word:hang",
+    "form_identity": {
+      "form_type": "irregular_inflection_identity",
+      "spelling": "hang",
+      "identity_rule": "semantic_conditioned_past_identity",
+      "boundary": "For ordinary hanging, hang → hung → hung. For execution by hanging, the normal past and past participle are hanged.",
+      "boundaries": [
+        {
+          "surface": "hang",
+          "condition": "base/present",
+          "note": "base form"
+        },
+        {
+          "surface": "hung",
+          "condition": "ordinary past simple / past participle",
+          "note": "ordinary hanging uses hung"
+        },
+        {
+          "surface": "hanged",
+          "condition": "past simple / past participle meaning executed by hanging",
+          "note": "execution branch uses hanged"
+        }
+      ],
+      "variants": [],
+      "authority": "BF22 exact p approved Form expansion 2026-09-22"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],

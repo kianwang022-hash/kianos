@@ -3,14 +3,14 @@
   "status": "ACTIVE",
   "campaign": "FULL_CATALOG_FINAL_STANDARD_CONTINUATION",
   "semantic_ruler": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
-  "updated_at": "2026-09-22",
+  "updated_at": "2026-09-22T13:50:52+00:00",
   "frontier": {
     "candidate_id": "BF22",
     "range": [
       2251,
       2350
     ],
-    "state": "MATERIALIZE_ALLOWED",
+    "state": "READY_TO_MERGE",
     "proposal_path": "content/lexical/execution/manifests/o2251-o2350.fullcatalog-final-standard-proposal.md",
     "proposal_commit": "a6e88af5281d8b58fa06626f3830dc1b7bbf63aa",
     "review_branch": "work/lexical-fullcatalog-bf22-review-20260922",
@@ -43,6 +43,21 @@
       "workflow_run": 35733292664,
       "artifact_id": 10696037979,
       "digest": "sha256:30ea309a2cf612ed035c0ef15e08b1dd4e1666df3be5fc8342fa1e4737b2dcd2"
+    },
+    "materialization": {
+      "status": "READY_FOR_B_READBACK",
+      "package_id": "BF22-B-reconcile-v1",
+      "receipt": "content/lexical/execution/mutation-receipts/BF22-B-reconcile-v1.json",
+      "final_learner_objects": 7946,
+      "updated_at": "2026-09-22T13:49:51+00:00"
+    },
+    "audit": {
+      "status": "COMPLETE",
+      "result": "PASS",
+      "pack": "content/lexical/semantic-audit/O2251_O2350_FINAL_RECONCILED_READBACK.md",
+      "blind_first": "NOT_ENFORCED",
+      "correction_ordinals": [],
+      "updated_at": "2026-09-22T13:50:52+00:00"
     }
   },
   "next": {
@@ -72,6 +87,6 @@
     "final_learner_objects": 7946
   },
   "blocker": null,
-  "next_action": "MATERIALIZE_FRONTIER",
+  "next_action": "AUTO_MERGE",
   "legacy_history": "content/lexical/execution/three-chat-board.json"
 }

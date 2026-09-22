@@ -1,0 +1,320 @@
+{
+  "schema": "kianos.lexical.bf22_write_fragment.v1",
+  "part": 3,
+  "writes": [
+    {
+      "path": "content/lexical/words/by-ordinal/o2263.json",
+      "mode": "patch_json",
+      "expected_sha256": "a6277c571886235747712b8007afc0f27e370bd7a67908b10fcaefaec31b1795",
+      "edits": [
+        {
+          "pointer": "/relation_refs",
+          "value": [
+            {
+              "relation_id": "relation:confusable:hard|hardly:near_form",
+              "owner_path": "content/lexical/relations/by-id/29/2933901cfaab63ea2b68f573d8e01a83d7f9b65892776600d5b022a007addb58.json",
+              "field": "confusables",
+              "index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2288.json",
+      "mode": "patch_json",
+      "expected_sha256": "c2a49ef0d02bed2a7da2e283163d44b0ab081228b4b5403e172fb5abaa997416",
+      "edits": [
+        {
+          "pointer": "/relation_refs",
+          "value": [
+            {
+              "relation_id": "relation:confusable:heal|heel:homophone",
+              "owner_path": "content/lexical/relations/by-id/e8/e86d1814adafeb869e2b9c0731b5298e810fa36829c5444b1107e5d793fd7e80.json",
+              "field": "confusables",
+              "index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2303.json",
+      "mode": "patch_json",
+      "expected_sha256": "da8c5cbbc93e9309eb4d8a4d362cbab757eec42342f0d7f753201761e9221c00",
+      "edits": [
+        {
+          "pointer": "/relation_refs",
+          "value": [
+            {
+              "relation_id": "relation:confusable:air|heir:homophone",
+              "owner_path": "content/lexical/relations/by-id/31/31036bd8902acac3515a245b3880b20cb37fa148d2ba4e99dd19d06e391b5036.json",
+              "field": "confusables",
+              "index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o0129.json",
+      "mode": "patch_json",
+      "expected_sha256": "d7a8b32cc6aa4f88ed4d9942ac10335cc93a5a3331702348eb71463048ffff92",
+      "edits": [
+        {
+          "pointer": "/relation_refs",
+          "value": [
+            {
+              "relation_id": "relation:confusable:air|heir:homophone",
+              "owner_path": "content/lexical/relations/by-id/31/31036bd8902acac3515a245b3880b20cb37fa148d2ba4e99dd19d06e391b5036.json",
+              "field": "confusables",
+              "index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/relations/by-id/29/2933901cfaab63ea2b68f573d8e01a83d7f9b65892776600d5b022a007addb58.json",
+      "mode": "create_json",
+      "expected_absent": true,
+      "value": {
+        "schema": "kianos.lexical.relation_owner.v1",
+        "relation_id": "relation:confusable:hard|hardly:near_form",
+        "canonical_record": null,
+        "fact_record": null,
+        "word_views": [
+          {
+            "source_word_id": "word:hard",
+            "source_ordinal": 2261,
+            "field": "confusables",
+            "index": 0,
+            "payload": {
+              "relation_id": "relation:confusable:hard|hardly:near_form",
+              "relation_type": "near_form_semantic_confusable",
+              "relation_scope": "lexeme",
+              "target_word": "hardly",
+              "source_sense_id": "sense:hard:3288d6ad30a15e02",
+              "target_sense_id": "sense:hardly:daccab7b9e935a52",
+              "boundary": "hard as an adverb means with much effort or force; hardly means almost not / only just.",
+              "boundaries": [
+                "hard (adv.) = 努力地；猛烈地",
+                "hardly = 几乎不；简直不",
+                "near spelling does not imply similar meaning"
+              ],
+              "learning_note": "hard and hardly look related but differ sharply: hard = with effort/force; hardly = almost not.",
+              "priority": "A",
+              "publication_status": "human_gate_approved",
+              "verification_status": "source_checked",
+              "writing_safe": false,
+              "task_tags": [
+                "reading",
+                "cloze",
+                "writing"
+              ]
+            }
+          },
+          {
+            "source_word_id": "word:hardly",
+            "source_ordinal": 2263,
+            "field": "confusables",
+            "index": 0,
+            "payload": {
+              "relation_id": "relation:confusable:hard|hardly:near_form",
+              "relation_type": "near_form_semantic_confusable",
+              "relation_scope": "lexeme",
+              "target_word": "hard",
+              "source_sense_id": "sense:hardly:daccab7b9e935a52",
+              "target_sense_id": "sense:hard:3288d6ad30a15e02",
+              "boundary": "hardly means almost not / only just; hard as an adverb means with much effort or force.",
+              "boundaries": [
+                "near spelling does not imply similar meaning",
+                "hardly = 几乎不；简直不",
+                "hard (adv.) = 努力地；猛烈地"
+              ],
+              "learning_note": "hardly is not the ordinary adverb meaning 'with effort'; that is hard.",
+              "priority": "A",
+              "publication_status": "human_gate_approved",
+              "verification_status": "source_checked",
+              "writing_safe": false,
+              "task_tags": [
+                "reading",
+                "cloze",
+                "writing"
+              ]
+            }
+          }
+        ],
+        "provenance": {
+          "materialized_from": "BF22 exact Human Gate 2026-09-22",
+          "semantic_delta": 1
+        }
+      }
+    },
+    {
+      "path": "content/lexical/relations/by-id/e8/e86d1814adafeb869e2b9c0731b5298e810fa36829c5444b1107e5d793fd7e80.json",
+      "mode": "create_json",
+      "expected_absent": true,
+      "value": {
+        "schema": "kianos.lexical.relation_owner.v1",
+        "relation_id": "relation:confusable:heal|heel:homophone",
+        "canonical_record": null,
+        "fact_record": null,
+        "word_views": [
+          {
+            "source_word_id": "word:heal",
+            "source_ordinal": 2288,
+            "field": "confusables",
+            "index": 0,
+            "payload": {
+              "relation_id": "relation:confusable:heal|heel:homophone",
+              "relation_type": "homophone_confusable",
+              "relation_scope": "lexeme",
+              "target_word": "heel",
+              "source_sense_id": "sense:heal:bd4f5f4719265d37",
+              "target_sense_id": "sense:heel:df90a5ed966853e0",
+              "boundary": "heal means to recover or make healthy; heel means the back part of the foot.",
+              "boundaries": [
+                "heal = 治愈；愈合",
+                "heel = 脚后跟；足跟",
+                "standard pronunciations are homophones"
+              ],
+              "learning_note": "Do not confuse heal (治愈/愈合) with heel (脚后跟).",
+              "priority": "A",
+              "publication_status": "human_gate_approved",
+              "verification_status": "source_checked",
+              "writing_safe": false,
+              "task_tags": [
+                "reading",
+                "cloze",
+                "writing"
+              ]
+            }
+          },
+          {
+            "source_word_id": "word:heel",
+            "source_ordinal": 2300,
+            "field": "confusables",
+            "index": 0,
+            "payload": {
+              "relation_id": "relation:confusable:heal|heel:homophone",
+              "relation_type": "homophone_confusable",
+              "relation_scope": "lexeme",
+              "target_word": "heal",
+              "source_sense_id": "sense:heel:df90a5ed966853e0",
+              "target_sense_id": "sense:heal:bd4f5f4719265d37",
+              "boundary": "heel means the back part of the foot; heal means to recover or make healthy.",
+              "boundaries": [
+                "standard pronunciations are homophones",
+                "heel = 脚后跟；足跟",
+                "heal = 治愈；愈合"
+              ],
+              "learning_note": "Do not confuse heel (脚后跟) with heal (治愈/愈合).",
+              "priority": "A",
+              "publication_status": "human_gate_approved",
+              "verification_status": "source_checked",
+              "writing_safe": false,
+              "task_tags": [
+                "reading",
+                "cloze",
+                "writing"
+              ]
+            }
+          }
+        ],
+        "provenance": {
+          "materialized_from": "BF22 exact Human Gate 2026-09-22",
+          "semantic_delta": 1
+        }
+      }
+    },
+    {
+      "path": "content/lexical/relations/by-id/31/31036bd8902acac3515a245b3880b20cb37fa148d2ba4e99dd19d06e391b5036.json",
+      "mode": "create_json",
+      "expected_absent": true,
+      "value": {
+        "schema": "kianos.lexical.relation_owner.v1",
+        "relation_id": "relation:confusable:air|heir:homophone",
+        "canonical_record": null,
+        "fact_record": null,
+        "word_views": [
+          {
+            "source_word_id": "word:heir",
+            "source_ordinal": 2303,
+            "field": "confusables",
+            "index": 0,
+            "payload": {
+              "relation_id": "relation:confusable:air|heir:homophone",
+              "relation_type": "homophone_confusable",
+              "relation_scope": "lexeme",
+              "target_word": "air",
+              "source_sense_id": "sense:heir:cdde617e68395c7e",
+              "target_sense_id": "sense:air:8f65fa6fdc0258a9",
+              "boundary": "heir means a person entitled to inherit; air means the gases we breathe / the atmosphere.",
+              "boundaries": [
+                "heir = 继承人",
+                "air = 空气",
+                "standard pronunciations are homophones"
+              ],
+              "learning_note": "Do not confuse heir (继承人) with air (空气).",
+              "priority": "A",
+              "publication_status": "human_gate_approved",
+              "verification_status": "source_checked",
+              "writing_safe": false,
+              "task_tags": [
+                "reading",
+                "cloze",
+                "writing"
+              ]
+            }
+          },
+          {
+            "source_word_id": "word:air",
+            "source_ordinal": 129,
+            "field": "confusables",
+            "index": 0,
+            "payload": {
+              "relation_id": "relation:confusable:air|heir:homophone",
+              "relation_type": "homophone_confusable",
+              "relation_scope": "lexeme",
+              "target_word": "heir",
+              "source_sense_id": "sense:air:8f65fa6fdc0258a9",
+              "target_sense_id": "sense:heir:cdde617e68395c7e",
+              "boundary": "air means the gases we breathe / the atmosphere; heir means a person entitled to inherit.",
+              "boundaries": [
+                "standard pronunciations are homophones",
+                "air = 空气",
+                "heir = 继承人"
+              ],
+              "learning_note": "Do not confuse air (空气) with heir (继承人).",
+              "priority": "A",
+              "publication_status": "human_gate_approved",
+              "verification_status": "source_checked",
+              "writing_safe": false,
+              "task_tags": [
+                "reading",
+                "cloze",
+                "writing"
+              ]
+            }
+          }
+        ],
+        "provenance": {
+          "materialized_from": "BF22 exact Human Gate 2026-09-22",
+          "semantic_delta": 1
+        }
+      }
+    },
+    {
+      "path": "content/lexical/relations/manifest.json",
+      "mode": "patch_json",
+      "expected_sha256": "dd141c27a57b7f4e9a8b929b19303ca92d921ab823a7bbe6188c5cfebbf6ed49",
+      "edits": [
+        {
+          "pointer": "/relation_count",
+          "value": 443
+        }
+      ]
+    }
+  ]
+}
