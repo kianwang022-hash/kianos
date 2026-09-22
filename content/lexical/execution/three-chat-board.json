@@ -32,23 +32,23 @@
     "p_behavior": "APPROVE_EXACT_SHOWN_DELTA__FREEZE_BACKLOG__IMMEDIATE_NEXT_PRODUCTION_BATCH"
   },
   "frontier": {
-    "accepted_main_head": "8db5fc9094a138e22ec5b316ff0ac459f15ea3c4",
+    "accepted_main_head": "9419b9d9ad043984f9e0288bc83532840377969e",
     "current_candidate_id": "BF19",
     "range": [
       1951,
       2050
     ],
-    "state": "RECONCILE_ALLOWED",
+    "state": "WAITING_HUMAN_GATE",
     "candidate_pr": null,
     "candidate_branch": "work/lexical-fullcatalog-bf19-review-20260922",
     "materialized_owner_read_head": "ad23ac85627dcafb4ec7c1645bfc6141f29488bc",
     "review_branch": "work/lexical-fullcatalog-bf19-review-20260922",
     "proposal_path": "content/lexical/execution/manifests/o1951-o2050.fullcatalog-final-standard-proposal.md",
     "proposal_commit": "aeb5e4648883166cc139b07d809019b16afa23c0",
-    "note": "Provenance-only reconciliation: correct BF18 seven valid Form authority labels from obsolete grouped-p wording to exact BF18 p. BF19 remains pending its own Human Gate; no BF19/BF20 learner material is authorized."
+    "note": "BF19 exact-scope recovery complete. BF18 seven valid Form authority labels reconciled to exact BF18 p provenance. BF19 existing-truth repairs remain; ten BF19 new Form groups are absent and require a fresh exact Human Gate."
   },
   "audit_target": {
-    "state": "RECONCILE_ALLOWED",
+    "state": "WAITING_HUMAN_GATE",
     "candidate_id": "BF19",
     "range": [
       1951,
@@ -59,7 +59,7 @@
     "candidate_owner_read_head": "ad23ac85627dcafb4ec7c1645bfc6141f29488bc",
     "brief": null,
     "output": "content/lexical/semantic-audit/O1951_O2050_FINAL_STANDARD_SAME_CHAT_B_AUDIT_PACK.md",
-    "result": "PROVENANCE_RECONCILE_ONLY",
+    "result": "RECOVERED_PENDING_GATE",
     "independence_note": "BLIND_FIRST_NOT_ENFORCED",
     "human_gate_status": "PENDING_EXACT_SCOPE",
     "human_gate_required_ordinals": [
@@ -1758,9 +1758,9 @@
   },
   "materialization_progress": {
     "candidate_id": "BF19",
-    "status": "RECONCILE_ALLOWED",
+    "status": "EXISTING_TRUTH_MATERIALIZED__NEW_FORM_GATE_PENDING",
     "candidate_pr": null,
-    "latest_main_refreeze": "8db5fc9094a138e22ec5b316ff0ac459f15ea3c4",
+    "latest_main_refreeze": "9419b9d9ad043984f9e0288bc83532840377969e",
     "review_range": [
       1951,
       2050
@@ -1790,7 +1790,9 @@
     "final_learner_shards": 125,
     "recovery_commit": "ad23ac85627dcafb4ec7c1645bfc6141f29488bc",
     "recovery_receipt": "content/lexical/execution/mutation-receipts/BF19-human-gate-scope-recovery-v1.json",
-    "recovery_readback": "PASS_10_OF_10_FORM_IDENTITIES_ABSENT"
+    "recovery_readback": "PASS_10_OF_10_FORM_IDENTITIES_ABSENT",
+    "provenance_reconcile_commit": "20d66ffaaecd2f7fdd0ff429ecde9cb70eec47ca",
+    "provenance_reconcile_result": "PASS_BF18_FORM_AUTHORITY_7_OF_7"
   },
   "semantic_freeze_scope_amendment": "content/lexical/FINAL_SEMANTIC_FREEZE_SCOPE_AMENDMENT_20260922.md",
   "quality_first_execution": {
