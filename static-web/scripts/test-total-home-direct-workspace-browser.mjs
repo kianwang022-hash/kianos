@@ -40,6 +40,21 @@ function chatPlan(studyDay,subject,sessionRef,title){
 async function context(){
   return browser.newContext({viewport:{width:1512,height:982},timezoneId:'Asia/Shanghai'});
 }
+async function bindCurrentPlanBasis(page,studyDay){
+  await page.evaluate(async(day)=>{
+    const mod=await import('/src/lib/examChatPlan.mjs');
+    const raw=JSON.parse(localStorage.getItem(mod.EXAM_CHAT_PLAN_KEY)||'null');
+    if(!raw)throw new Error('DIRECT_HOME_CHAT_PLAN_MISSING');
+    mod.writeExamChatPlan(localStorage,{
+      ...raw,
+      learner_evidence_basis:mod.buildExamChatPlanBasis(localStorage,day)
+    },day);
+    window.dispatchEvent(new CustomEvent('kianos:control-command-applied',{
+      detail:{kind:'exam.chat_plan',fixture:true}
+    }));
+  },studyDay);
+  await page.locator('[data-exam-home][data-ready="true"]').waitFor();
+}
 const server=spawn('npm',['run','preview','--','--host','127.0.0.1','--port',String(PORT)],{
   cwd:process.cwd(),stdio:['ignore','pipe','pipe'],detached:process.platform!=='win32'
 });
@@ -98,6 +113,7 @@ try{
       }));
     },{studyDay,sessionId,cardId});
     await page.goto(BASE+'/',{waitUntil:'networkidle'});
+    await bindCurrentPlanBasis(page,studyDay);
     const href=await page.locator('[data-exam-next]').getAttribute('href');
     check(Boolean(href?.includes('/xizong/memory/?session=')),'xizong_total_home_points_exact_workspace',href||'');
     check(!/^\/xizong\/?$/.test(href||''),'xizong_does_not_stop_at_subject_home',href||'');
@@ -155,6 +171,7 @@ try{
       }));
     },{studyDay,returnId});
     await page.goto(BASE+'/',{waitUntil:'networkidle'});
+    await bindCurrentPlanBasis(page,studyDay);
     const href=await page.locator('[data-exam-next]').getAttribute('href');
     check(href==='/xizong/circulation/b01/'||href?.endsWith('/xizong/circulation/b01/'),
       'xizong_return_total_home_points_exact_block',href||'');
@@ -185,6 +202,7 @@ try{
       }));
     },{studyDay,sessionId,row});
     await page.goto(BASE+'/',{waitUntil:'networkidle'});
+    await bindCurrentPlanBasis(page,studyDay);
     await page.waitForTimeout(150);
     const href=await page.locator('[data-exam-next]').getAttribute('href');
     check(Boolean(href && !/^\/english\/?$/.test(href)),'english_total_home_points_exact_task',href||'');
@@ -223,6 +241,7 @@ try{
       }));
     },{studyDay,planId,catalogRevision:catalog.revision,candidateId:candidate.id});
     await page.goto(BASE+'/',{waitUntil:'networkidle'});
+    await bindCurrentPlanBasis(page,studyDay);
     const href=await page.locator('[data-exam-next]').getAttribute('href');
     check(href==='/politics/memory/'||href?.endsWith('/politics/memory/'),'politics_total_home_points_memory',href||'');
     check(!/^\/politics\/?$/.test(href||''),'politics_does_not_stop_at_subject_home',href||'');
