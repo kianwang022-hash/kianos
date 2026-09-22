@@ -771,6 +771,8 @@ If a Gate becomes infeasible, the response order is:
 
 ## 4.5 Recovery / cognitive-capacity evidence model
 
+Detailed operational/model specification: [Recovery & Cognitive Capacity Model](RECOVERY_COGNITIVE_CAPACITY_MODEL.md). This contract remains the authority; the model document refines the evidence/calibration procedure without creating a second scheduler or learner ledger.
+
 Recovery evidence is a **private planning input**, not a health score, diagnosis, subject-priority engine, or autonomous scheduler.
 
 The planning question is deliberately narrow:
