@@ -1,0 +1,458 @@
+{
+  "schema": "kianos.lexical.final_mutation_package.v1",
+  "package_id": "BF13-B-reconcile-v1",
+  "candidate_id": "BF13",
+  "range": {
+    "start_ordinal": 1351,
+    "end_ordinal": 1450
+  },
+  "lane": "A",
+  "source_head": "17d457ad3de5bd802a8b5ad5011a863b6427b1d2",
+  "human_gate": {
+    "approved": true,
+    "approval_ref": "BF13 B readback existing-truth reconciliation; no new learner material"
+  },
+  "writes": [
+    {
+      "path": "content/lexical/words/by-ordinal/o1383.json",
+      "mode": "patch_json",
+      "expected_sha256": "ddc167470c226e2879b5e221b90dfa9c825fead9a3f85d307e5c5db19dc78587",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [
+              {
+                "construction_id": "construction:dim:take-a-dim-view",
+                "level": "L2",
+                "meaning_cn": "不赞成；持负面或不乐观的看法",
+                "pattern": "take a dim view of + sth"
+              }
+            ],
+            "content_hash": "96fa054333d11ea2f56975155fb7df848c78d762331461701e094d2046f49c92",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "暗淡的；昏暗的；模糊的；不清楚的",
+                  "label_en": "not bright or not clearly visible; not clear in the mind or memory",
+                  "pos": "adjective",
+                  "sense_ids": [
+                    "sense:dim:b8dc767a592c5785",
+                    "sense:dim:76462dec96b5518c"
+                  ]
+                },
+                {
+                  "label_cn": "暗淡、无望的",
+                  "label_en": "unlikely to succeed or improve",
+                  "pos": "adjective",
+                  "sense_ids": [
+                    "sense:dim:a56340103d645dfd"
+                  ]
+                },
+                {
+                  "label_cn": "（使）变暗；（使）暗淡",
+                  "label_en": "to make something less bright or to become less bright",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:dim:f0024bab76815d97"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "不明亮或不清晰",
+              "core_meaning_en": "not bright or not clear",
+              "mental_model_cn": "不明亮或不清晰",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:a3ad1db99551f7c03bfe",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:dim:b8dc767a592c5785:collocation:0"
+                    ],
+                    "meaning_cn": "昏暗的光线",
+                    "phrase": "dim light"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "暗淡的；昏暗的",
+                "definition_en": "not bright or not clearly visible",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:dim:b8dc767a592c5785",
+                "sense_label_en": "not bright or not clearly visible",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:582e1eeb67e60ee7d2ca",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:dim:f0024bab76815d97:collocation:0"
+                    ],
+                    "meaning_cn": "把灯光调暗",
+                    "phrase": "dim the lights"
+                  },
+                  {
+                    "collocation_id": "collocation:3679eedb66401c25848e",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:dim:9d9109454ce35579:collocation:0"
+                    ],
+                    "meaning_cn": "灯光变暗了",
+                    "phrase": "the lights dimmed"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "（使）变暗；（使）暗淡",
+                "definition_en": "to make or become less bright",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:dim:f0024bab76815d97",
+                "sense_label_en": "to make something less bright",
+                "sort_order": 2,
+                "transitivity": "I/T"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:bc999f27b48e2b860084",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:dim:76462dec96b5518c:collocation:0"
+                    ],
+                    "meaning_cn": "模糊的记忆",
+                    "phrase": "a dim memory"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "模糊的；不清楚的",
+                "definition_en": "not clear in the mind or memory",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:dim:76462dec96b5518c",
+                "sense_label_en": "not clear in the mind or memory",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:2e1f596473432cae49a5",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:dim:a56340103d645dfd:collocation:handoff-o1375-o1624"
+                    ],
+                    "meaning_cn": "前景/机会暗淡",
+                    "phrase": "dim prospects/chances"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "暗淡、无望的",
+                "definition_en": "unlikely to succeed or improve",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:dim:a56340103d645dfd",
+                "sense_label_en": "unlikely to succeed or improve",
+                "sort_order": 3,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 1,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 1,
+              "runtime_model_calls": false
+            },
+            "word": "dim",
+            "word_family": [],
+            "word_id": "word:dim"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1385.json",
+      "mode": "patch_json",
+      "expected_sha256": "40a66f0f9a0308fc5ca3360f62fac2ecb134055fd1472c63735ee95760f680ed",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "437fe819b4ae9492222816b6725dff4271cd01cc0f17bd644f598767b9597d53",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "（使）减少、变小、减弱或变得不重要",
+              "core_meaning_en": "make or become less",
+              "mental_model_cn": "既可及物表示使某物减少/减弱，也可不及物表示自身变小、降低或减弱。",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:7c989d86378c27efcee8",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:diminish:7319a5bea4de587b:collocation:0"
+                    ],
+                    "meaning_cn": "减少风险",
+                    "phrase": "diminish the risk"
+                  },
+                  {
+                    "collocation_id": "collocation:6a4379ef045b16d58ff8",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:diminish:7319a5bea4de587b:collocation:1"
+                    ],
+                    "meaning_cn": "在尺寸上减小",
+                    "phrase": "diminish in size"
+                  },
+                  {
+                    "collocation_id": "collocation:0531a581d100565cdd03",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:diminish:996fd18626505f7c:collocation:0"
+                    ],
+                    "meaning_cn": "在某方面减小",
+                    "phrase": "diminish in + sth"
+                  },
+                  {
+                    "collocation_id": "collocation:3f0de9cdf8c41ce1e47a",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:diminish:996fd18626505f7c:collocation:1"
+                    ],
+                    "meaning_cn": "重要性降低",
+                    "phrase": "diminish in importance"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "使变小、减弱或变得不重要",
+                "definition_en": "to make or become smaller, weaker, or less important",
+                "governing_pattern": "diminish + object / diminish in + size/importance",
+                "level": "L1",
+                "needs_human_review": 0,
+                "normalized_core": "make/become smaller or less",
+                "pos": "verb",
+                "sense_id": "sense:diminish:7319a5bea4de587b",
+                "sense_label_en": "to make or become smaller, weaker, or less important",
+                "sort_order": 0,
+                "transitivity": "I/T"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 0,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 1,
+              "runtime_model_calls": false
+            },
+            "word": "diminish",
+            "word_family": [],
+            "word_id": "word:diminish"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1420.json",
+      "mode": "patch_json",
+      "expected_sha256": "886e635d519b5753986f3bde587fa493d4e5261256964e8706bb61e3acad2ddc",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [
+              {
+                "construction_id": "construction:4a7ee3039e57a512cfb3",
+                "direction": "R+P",
+                "level": "L2",
+                "meaning_cn": "不公平对待某人或群体",
+                "pattern": "discriminate against sb"
+              }
+            ],
+            "content_hash": "3058b9ba55ee58cef3b28e63f11825c1538f1505dcbbe8bfdb99db08262c8fcb",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "区别；辨别",
+                  "label_en": "to recognize, perceive, or make a distinction between things",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:discriminate:81a532704d91594c",
+                    "sense:discriminate:751aacd2e32d56fc"
+                  ]
+                },
+                {
+                  "label_cn": "歧视；不公平区别对待",
+                  "label_en": "to treat a person or group unfairly because of a characteristic",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:discriminate:f258a0c18777a10c"
+                  ]
+                },
+                {
+                  "label_cn": "有辨别力的",
+                  "label_en": "able to see or make fine distinctions",
+                  "pos": "adjective",
+                  "sense_ids": [
+                    "sense:discriminate:2c7274d9770957f3"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "区分；辨别；歧视或差别对待",
+              "core_meaning_en": "to distinguish or treat differently",
+              "mental_model_cn": "区分；差别对待",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:1cbc618a4c9fa03ea465",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:discriminate:81a532704d91594c:collocation:0"
+                    ],
+                    "meaning_cn": "区分A和B",
+                    "phrase": "discriminate between + A and B"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "区别，辨别",
+                "definition_en": "to recognize or perceive the difference between things",
+                "governing_pattern": "vi. + between",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:discriminate:81a532704d91594c",
+                "sense_label_en": "to recognize or perceive the difference between things",
+                "sort_order": 0,
+                "transitivity": "vi"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "区分，辨别",
+                "definition_en": "to distinguish or differentiate",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:discriminate:751aacd2e32d56fc",
+                "sense_label_en": "to distinguish or differentiate",
+                "sort_order": 1,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "有辨别力的",
+                "definition_en": "able to see or make fine distinctions",
+                "governing_pattern": "",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:discriminate:2c7274d9770957f3",
+                "sense_label_en": "able to see or make fine distinctions",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "歧视；区别对待",
+                "definition_en": "to treat a person or group unfairly because of a characteristic",
+                "governing_pattern": "vi. + against",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:discriminate:f258a0c18777a10c",
+                "sense_label_en": "to treat a person or group unfairly because of a characteristic",
+                "sort_order": 3,
+                "transitivity": "vi"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 3,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "discriminate",
+            "word_family": [],
+            "word_id": "word:discriminate"
+          }
+        }
+      ]
+    }
+  ],
+  "semantic_dependency_read_set": {}
+}
