@@ -42,21 +42,13 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "给，授予；供给，提供；让步，屈服",
-          "label_en": "to transfer possession of something to someone; to provide or supply something; to yield or surrender",
+          "label_cn": "给；授予；提供；让步或屈服",
+          "label_en": "to give, provide, yield, or surrender",
           "pos": "verb",
           "sense_ids": [
             "sense:give:5cb5553c31e3564b",
             "sense:give:af9558e1bdcd592d",
             "sense:give:e9c09603102055d3"
-          ]
-        },
-        {
-          "label_cn": "弹性",
-          "label_en": "the ability to bend or stretch",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:give:ca65388918fb51ef"
           ]
         }
       ],
@@ -218,7 +210,32 @@
     },
     "word": "give",
     "word_family": [],
-    "word_id": "word:give"
+    "word_id": "word:give",
+    "form_identity": {
+      "form_type": "irregular_inflection_identity",
+      "spelling": "give",
+      "identity_rule": "same_word_owner_no_semantic_split",
+      "boundary": "give is irregular: give → gave → given.",
+      "boundaries": [
+        {
+          "surface": "give",
+          "condition": "base/present",
+          "note": "base form"
+        },
+        {
+          "surface": "gave",
+          "condition": "past simple",
+          "note": "irregular past"
+        },
+        {
+          "surface": "given",
+          "condition": "past participle",
+          "note": "irregular participle"
+        }
+      ],
+      "variants": [],
+      "authority": "BF20 grouped p approved Form expansion 2026-09-22"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],

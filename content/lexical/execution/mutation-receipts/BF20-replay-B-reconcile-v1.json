@@ -1,0 +1,36 @@
+{
+  "schema": "kianos.lexical.final_mutation_receipt.v1",
+  "package_id": "BF20-replay-B-reconcile-v1",
+  "candidate_id": "BF20",
+  "range": {
+    "start_ordinal": 2051,
+    "end_ordinal": 2150
+  },
+  "lane": "A",
+  "package_sha256": "f38469f8cda121ede797269dbc6535edcdc510fcb01a30039ef6207214f16fa9",
+  "source_head": "99820e5aa59f16e9c1095928ec8b416e466b2327",
+  "semantic_dependency_read_set": {
+    "content/lexical/words/by-ordinal/o2056.json": "0b2d98d7487fd671e1158a6218ae0c5986c0f9858a0263c358de540cbba11bbf",
+    "content/lexical/words/by-ordinal/o2130.json": "d251b4b65d32cb27a0613d54145c41602311b542c57b8e25f065d7e1a5615344"
+  },
+  "semantic_dependency_count": 2,
+  "applied_paths": [
+    "content/lexical/words/by-ordinal/o2056.json",
+    "content/lexical/words/by-ordinal/o2130.json"
+  ],
+  "before_sha256": {
+    "content/lexical/words/by-ordinal/o2056.json": "0b2d98d7487fd671e1158a6218ae0c5986c0f9858a0263c358de540cbba11bbf",
+    "content/lexical/words/by-ordinal/o2130.json": "d251b4b65d32cb27a0613d54145c41602311b542c57b8e25f065d7e1a5615344"
+  },
+  "after_sha256": {
+    "content/lexical/words/by-ordinal/o2056.json": "d51fefabee62c8f3f68c58e5325f08acdef072aacf0f680f52685295524e0660",
+    "content/lexical/words/by-ordinal/o2130.json": "5c3a856f927429935d9e4ca095f50b4b82522945ce0e90515ecff9eaff65574a"
+  },
+  "semantic_decision": "external_human_and_chat_approved; executor_mechanical_only",
+  "main_merge_authorized": false,
+  "status": "CANDIDATE_READY_FOR_PR_AUDIT",
+  "final_learner_objects": {
+    "object_count": 7946,
+    "manifest_sha256": "3622b49dd38bffd4b1973790cb6d037e854b3269a7978bc1c2fc29fd1ab186eb"
+  }
+}
