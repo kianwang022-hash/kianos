@@ -307,3 +307,36 @@ body#kianos-workspace.surfaceBody-politics .politicsUnitCognition .politicsOptio
 body#kianos-workspace.surfaceBody-politics .politicsUnitCognition .politicsOptions button { font-size:17px;line-height:1.7;padding:12px; }
 @media(max-width:1000px){body#kianos-workspace.surfaceBody-politics .politicsChapterLocation {position:static;} body#kianos-workspace.surfaceBody-politics .politicsRail {top:58px;} }
 @media(max-width:760px){body#kianos-workspace.surfaceBody-politics .subject-history .compiledPrimary,body#kianos-workspace.surfaceBody-politics .subject-marxism .role-teaching_relations>.projectionValueList,body#kianos-workspace.surfaceBody-politics .politicsUnitCognition .politicsOptions {grid-template-columns:1fr;} body#kianos-workspace.surfaceBody-politics .projectionKeyValue {grid-template-columns:95px minmax(0,1fr);} }
+
+
+/* Politics workspace vertical density: controls stay readable, but no longer
+   consume a second header's worth of height before the current Natural Unit. */
+@media (min-width: 901px) {
+  body#kianos-workspace.surfaceBody-politics .workspaceBar {
+    padding: 10px 20px 9px;
+  }
+
+  body#kianos-workspace.surfaceBody-politics .workspaceLocation {
+    line-height: 1.4;
+  }
+
+  body#kianos-workspace.surfaceBody-politics .workspaceUnitTabs {
+    margin-top: 8px;
+  }
+
+  body#kianos-workspace.surfaceBody-politics .workspaceUnitTabs button {
+    padding: 8px 14px;
+  }
+
+  body#kianos-workspace.surfaceBody-politics .chapterContext {
+    padding: 10px 20px;
+  }
+
+  body#kianos-workspace.surfaceBody-politics .chapterContext strong {
+    line-height: 1.45;
+  }
+
+  body#kianos-workspace.surfaceBody-politics .chapterContextChain span {
+    line-height: 1.45;
+  }
+}
