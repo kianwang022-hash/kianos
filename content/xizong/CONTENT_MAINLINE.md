@@ -358,6 +358,8 @@ question-relations/README.md
 
 Rules remain: REVIEWED rows only are positive mapping truth; no linear frontier; no inferred target; missing mapping is legal; exact Current owner review is required. Ordinary batch progress belongs to `continuation.json`, not this file.
 
+When Kian explicitly asks for **SECOND_PASS / 二轮统一审查**, Crosswalk is only one output of that task. The review unit is `Question Truth → independent medical solve → Explanation upgrade when the existing explanation is thin/insufficient → exact Current Knowledge owner review → REVIEWED relation when safe`. A relation-only C2 optimization must not silently redefine or replace an active SECOND_PASS task.
+
 ---
 
 ## B3｜Late-stage material readiness — 26 cycle baseline absorbed
