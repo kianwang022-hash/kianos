@@ -77,13 +77,6 @@
         "definition_en": "marked by complexity and richness of detail",
         "governing_pattern": "",
         "level": "L1",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "pronunciation_boundary",
-          "surface_lemma": "elaborate",
-          "paired_form": "elaborate adjective / verb",
-          "note": "elaborate adjective ends /-rət/; elaborate verb ends /-reɪt/."
-        },
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:elaborate:65d3498de3ad5fd8",
@@ -108,13 +101,6 @@
         "definition_en": "to explain something more fully or in greater detail",
         "governing_pattern": "vi. + on/upon",
         "level": "L2",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "pronunciation_boundary",
-          "surface_lemma": "elaborate",
-          "paired_form": "elaborate adjective / verb",
-          "note": "elaborate adjective ends /-rət/; elaborate verb ends /-reɪt/."
-        },
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:elaborate:ec4fb825407c57d0",
@@ -144,14 +130,7 @@
         "sense_id": "sense:elaborate:fad0d80211845311",
         "sense_label_en": "to add details to or develop/work out something in detail",
         "sort_order": 2,
-        "transitivity": "vt",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "pronunciation_boundary",
-          "surface_lemma": "elaborate",
-          "paired_form": "elaborate adjective / verb",
-          "note": "elaborate adjective ends /-rət/; elaborate verb ends /-reɪt/."
-        }
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -171,16 +150,29 @@
     },
     "word": "elaborate",
     "word_family": [],
-    "word_id": "word:elaborate"
-  },
-  "relation_refs": [
-    {
-      "relation_id": "confusable:horizontal:26b0f6b340197db13162",
-      "owner_path": "content/lexical/relations/by-id/55/5536b9ada6b9ed4e7769ae7dc0e28b9b0acf9fb60be9c5d83579581a64291bd4.json",
-      "field": "confusables",
-      "index": 0
+    "word_id": "word:elaborate",
+    "form_identity": {
+      "form_type": "same_spelling_pos_conditioned_pronunciation",
+      "spelling": "elaborate",
+      "identity_rule": "same_word_owner_no_semantic_split",
+      "boundary": "elaborate adjective ends /-rət/; elaborate verb ends /-reɪt/.",
+      "boundaries": [
+        {
+          "surface": "elaborate",
+          "condition": "adjective",
+          "note": "final /-rət/"
+        },
+        {
+          "surface": "elaborate",
+          "condition": "verb",
+          "note": "final /-reɪt/"
+        }
+      ],
+      "variants": [],
+      "authority": "BF15 existing-truth Form migration 2026-09-22"
     }
-  ],
+  },
+  "relation_refs": [],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
