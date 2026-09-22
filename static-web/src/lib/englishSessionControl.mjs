@@ -472,6 +472,15 @@ export function englishSessionStepHref(step, base = '/') {
 }
 
 function problemCount(attempt = {}) {
+  // External Reading has source-native/manual outcome shapes, not the three
+  // exam-objective schemas. Preserve its observed problem count separately.
+  if (attempt?.binding?.task === 'external_reading') {
+    if (!attempt.results || typeof attempt.results !== 'object' || Array.isArray(attempt.results)) return null;
+    const uncertain = new Set(Array.isArray(attempt.uncertain) ? attempt.uncertain.map(String) : []);
+    return Object.keys(attempt.results).filter(id =>
+      ['wrong', 'unanswered'].includes(attempt.results[id]) || uncertain.has(String(id))
+    ).length;
+  }
   return inspectEnglishObjectiveResults(attempt).problem_count;
 }
 

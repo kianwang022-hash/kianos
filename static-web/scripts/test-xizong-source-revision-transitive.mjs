@@ -215,7 +215,7 @@ assert.ok(prepareXizongPrivateCheckpointRestore(retiredStorage, currentBackup).c
 const vm = await import('node:vm');
 const { normalizeXizongMemoryState, XIZONG_MEMORY_STORAGE_KEY } = await import('../src/lib/xizongMemoryModel.mjs');
 const guardSource = fs.readFileSync('static-web/src/components/XizongSystemEvidenceGuard.astro', 'utf8');
-const guardScript = guardSource.match(/<script>\s*([\s\S]*?)<\/script>/)[1].replace(/^\s*import[^;]+;\s*/m, '');
+const guardScript = guardSource.match(/<script>\s*([\s\S]*?)<\/script>/)[1].replace(/^\s*import[^;]+;/gm, '');
 for (const failure of ['archive', 'sweep', 'meta', null]) {
   class Element { constructor(attrs = {}) { this.attrs = attrs; this.inert = false; } getAttribute(key) { return this.attrs[key]; } before() {} setAttribute() {} }
   const marker = new Element({ 'data-system-id': 'audit', 'data-evidence-version': 'new' });
@@ -230,13 +230,17 @@ for (const failure of ['archive', 'sweep', 'meta', null]) {
     if (failure === 'meta' && key === metaKey) throw Error('quota');
     set(key, value);
   };
-  let reloads = 0;
+  let reloads = 0, initialized;
   vm.runInNewContext(guardScript, {
+    // This VM owns isolated storage. The real cross-page Web Lock is exercised
+    // by the separate browser regression, not claimed by this admission double.
+    learnerWriterReady: { then(fn) { initialized = Promise.resolve().then(fn); return initialized; } },
     HTMLElement: Element, Element, localStorage: local, sessionStorage: new Storage(),
     XIZONG_MEMORY_STORAGE_KEY, normalizeXizongMemoryState,
     document: { querySelector: selector => selector.includes('data-xizong-system-evidence-guard') ? marker : selector.includes('data-xizong-system-exit') ? root : { textContent: '[]' }, querySelectorAll: () => [], createElement: () => new Element() },
     window: { location: { reload: () => { reloads++; } } }, Date, JSON
   });
+  await initialized;
   if (failure) {
     assert.equal(root.inert, true);
     assert.equal(local.getItem(sweepKey), initialSweep);

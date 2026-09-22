@@ -84,11 +84,11 @@ export function restoreSharedControlCheckpoint(storage, checkpoint, {
   // recovery coordinator opts in only in its disposable projection, then admits
   // the receipt after the matching native checkpoint is actually present.
   // Raw receipt bytes always remain in the durable checkpoint.
-  if (restoreReceipt && checkpoint.control_receipt_raw != null && storage.getItem(CONTROL_LOCAL_RECEIPT_KEY) == null) {
+  if (checkpoint.control_receipt_raw != null && storage.getItem(CONTROL_LOCAL_RECEIPT_KEY) == null) {
     try {
       if (typeof checkpoint.control_receipt_raw !== 'string') throw new Error('RECEIPT_RAW_INVALID');
       validateControlReceipt(JSON.parse(checkpoint.control_receipt_raw));
-      writes.push([CONTROL_LOCAL_RECEIPT_KEY, checkpoint.control_receipt_raw]);
+      if (restoreReceipt) writes.push([CONTROL_LOCAL_RECEIPT_KEY, checkpoint.control_receipt_raw]);
     } catch {
       warnings.push('SHARED_CHECKPOINT_RECEIPT_INVALID');
     }

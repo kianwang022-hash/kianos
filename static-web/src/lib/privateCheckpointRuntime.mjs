@@ -108,6 +108,9 @@ export async function restoreSharedControlFromPrivate(storage, {
     return { status: remote?.status || 'unavailable', reason: remote?.error || null, study_day: studyDay };
   }
   const checkpoint = remote.checkpoint;
+  // A denied local read is not an empty store. Read the receipt destination
+  // before preparing recovery; malformed shared VALUES still isolate locally.
+  const originalReceiptRaw = storage.getItem(CONTROL_LOCAL_RECEIPT_KEY);
   const prepared = preparePrivateSubjectCheckpointRestore(storage, checkpoint.payload?.subjects || {}, { onlyIfEmpty: true });
   const warnings = Object.entries(prepared.results).filter(([, row]) => row.status === 'blocked' || row.blocked?.length)
     .map(([subject, row]) => 'checkpoint:' + subject + ':' + (row.reason || 'native recovery ambiguous'));
@@ -138,7 +141,7 @@ export async function restoreSharedControlFromPrivate(storage, {
     try { nativePresent=localContainsCheckpoint(staged,checkpoint,studyDay,{includeReceipt:false}); }
     catch(error){warnings.push('checkpoint:shared:'+String(error.message||error));}
   }
-  if(deferredReceipt!=null && storage.getItem(CONTROL_LOCAL_RECEIPT_KEY)==null){
+  if(deferredReceipt!=null && originalReceiptRaw==null){
     if(nativePresent)pending.set(CONTROL_LOCAL_RECEIPT_KEY,deferredReceipt);
     else warnings.push('checkpoint:shared:RECEIPT_WITHHELD_NATIVE_CONFLICT');
   }

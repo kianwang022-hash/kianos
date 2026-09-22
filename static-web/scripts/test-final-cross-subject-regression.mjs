@@ -260,12 +260,13 @@ const englishAttempt = {
     object_id: 'final-regression-reading',
     source_hash: 'synthetic-final-regression-hash',
     attempt_id: 'final-regression-attempt',
+    source_snapshot: { questions: [{ id: 'q1' }] },
     prior_exposure: 'unknown',
     assistance: 'unassisted'
   },
   submitted: true,
   answers: { q1: 'A' },
-  results: {},
+  results: { q1: 'correct' },
   saved_at: new Date(FIXTURE_NOW - 15 * 60 * 1000).toISOString()
 };
 

@@ -13,11 +13,26 @@ const base='http://127.0.0.1:4387';
 const paper=loadEnglishExamPaper(listEnglishExamPapers()[0].paperId);
 const home=`${base}/english-exam/${encodeURIComponent(paper.paper_id)}/`;
 const now=Date.parse('2026-09-22T01:00:00Z'),day='2026-09-22';
-const results=[];const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const results=[],diagnostics=[];const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const server=spawn('npm',['run','preview','--','--host','127.0.0.1','--port','4387'],{cwd:webRoot,stdio:'ignore',detached:process.platform!=='win32'});
 let browser;
-async function ready(page){await page.waitForFunction(()=>document.documentElement.dataset.learnerWriter==='active');}
-async function opened(context,url=home){const p=await context.newPage();await p.bringToFront();await p.goto(url);await ready(p);return p;}
+// Playwright's default focus emulation makes every page appear focused.
+// Use headed Chromium with real native focus (Xvfb on CI), not a patched DOM
+// hasFocus/visibilityState or a test-only production lock bypass.
+async function nativeFocusPage(context){
+ const page=await context.newPage();
+ const session=await context.newCDPSession(page);
+ await session.send('Emulation.setFocusEmulationEnabled',{enabled:false});
+ return page;
+}
+async function ready(page){
+ try{await page.waitForFunction(()=>document.hasFocus()&&document.documentElement.dataset.learnerWriter==='active');}
+ catch(error){
+  diagnostics.push(await page.evaluate(async()=>({url:location.href,focused:document.hasFocus(),visibility:document.visibilityState,writer:document.documentElement.dataset.learnerWriter,locks:await navigator.locks.query()})).catch(()=>({unreadable:true})));
+  throw error;
+ }
+}
+async function opened(context,url=home){const p=await nativeFocusPage(context);await p.bringToFront();await p.goto(url);await ready(p);return p;}
 async function makeContext(){
  const context=await browser.newContext({timezoneId:'Asia/Shanghai',viewport:{width:1440,height:900}});
  // Native modules are served from the SAME checked-out source as the built
@@ -50,10 +65,15 @@ function scoreCommand(state){
  for(const [id,row] of Object.entries(payload.channels))Object.assign(row,{score_range:id==='writing_big'?{low:15,high:18}:{low:7,high:9},confidence:'MEDIUM',review_mode:'ANCHORED_SINGLE',requires_independent_rescore:false});
  return {schema:'kianos.control-browser-command.v1',command_id:'synthetic-browser-score',command_hash:'synthetic-browser-hash',study_day:day,generated_at:new Date(now+90000).toISOString(),expires_at:null,operations:[{kind:'english.exam_score_return',payload}]};
 }
-async function scenario(name,fn){try{await fn();results.push({name,status:'PASS'});}catch(e){results.push({name,status:'FAIL',error:String(e.stack||e)});throw e;}finally{fs.writeFileSync(path.join(reportDir,'freeze-browser.json'),JSON.stringify({results},null,2));}}
+async function scenario(name,fn){
+ try{await fn();results.push({name,status:'PASS'});}
+ catch(e){results.push({name,status:'FAIL',error:String(e.stack||e)});process.exitCode=1;}
+ finally{fs.writeFileSync(path.join(reportDir,'freeze-browser.json'),JSON.stringify({focus_mode:'HEADED_NATIVE_FOCUS_NO_EMULATION',results,diagnostics},null,2));}
+}
 try{
  for(let n=0;;n++){try{if((await fetch(base)).ok)break;}catch{}if(n>100)throw new Error('ISOLATED_PREVIEW_UNAVAILABLE');await sleep(200);}
- browser=await chromium.launch({headless:true});
+ if(process.platform==='linux'&&!process.env.DISPLAY)throw new Error('NATIVE_FOCUS_REQUIRES_DISPLAY');
+ browser=await chromium.launch({headless:false});
  await scenario('manual and timed malformed seal preserve captured answers and expose recoverable failure',async()=>{
   const context=await makeContext();const page=await opened(context);const errors=[];page.on('pageerror',e=>errors.push(e.message));
   try{
@@ -126,7 +146,8 @@ try{
     const P=await import('/__freeze_native__/static-web/src/lib/privateCheckpointRuntime.mjs');
     window.__lateRestore=P.restoreSharedControlFromPrivate(localStorage,{readCheckpoint:()=>new Promise(resolve=>window.__restoreResponse=resolve)}).then(r=>({status:r.status}),e=>({error:e.message}));
    });
-   b=await opened(context);await a.waitForFunction(()=>document.documentElement.dataset.learnerWriter==='retired');
+   b=await opened(context);await a.waitForFunction(()=>!document.hasFocus()&&document.documentElement.dataset.learnerWriter==='retired');
+   assert.equal(await b.evaluate(()=>document.hasFocus()),true);
    const state=released();await b.evaluate(state=>localStorage.setItem('kianos-english-exam-session-v1',JSON.stringify(state)),state);
    const before=await b.evaluate(()=>localStorage.getItem('kianos-english-exam-session-v1'));
    const result=await a.evaluate(async()=>{window.__restoreResponse({status:'missing'});return await window.__lateRestore;});
@@ -144,11 +165,14 @@ try{
   const context=await makeContext();const a=await opened(context);
   try{
    await a.evaluate(()=>localStorage.setItem('kianos-test-transaction','before'));
-   const failed=a.evaluate(async()=>{
-    const {commitLearnerStorageChanges}=await import('/__freeze_native__/static-web/src/lib/browserLearnerWriter.mjs');
+   await a.evaluate(async()=>{window.__commit=(await import('/__freeze_native__/static-web/src/lib/browserLearnerWriter.mjs')).commitLearnerStorageChanges;});
+   const entered=a.waitForEvent('console',{predicate:message=>message.text()==='__freeze-transaction-open'});
+   const failed=a.evaluate(()=>{
+    const commitLearnerStorageChanges=window.__commit;
     const proto=Storage.prototype,original=proto.setItem;
     proto.setItem=function(key,value){
      if(key==='kianos-test-failure'){
+      console.log('__freeze-transaction-open');
       const until=performance.now()+400;while(performance.now()<until){};
       throw new Error('SYNTHETIC_WRITE_FAILURE');
      }
@@ -157,7 +181,7 @@ try{
     try{commitLearnerStorageChanges(localStorage,[['kianos-test-transaction','our-write'],['kianos-test-failure','fail']]);return 'unexpected';}
     catch(error){return error.message;}finally{proto.setItem=original;}
    });
-   const b=await opened(context);assert.match(await failed,/SYNTHETIC_WRITE_FAILURE/);
+   await entered;const b=await opened(context);assert.match(await failed,/SYNTHETIC_WRITE_FAILURE/);
    assert.equal(await b.evaluate(()=>localStorage.getItem('kianos-test-transaction')),'before');
    await b.evaluate(()=>localStorage.setItem('kianos-test-transaction','new-writer'));
    assert.equal(await a.evaluate(()=>localStorage.getItem('kianos-test-transaction')),'new-writer');
@@ -165,10 +189,10 @@ try{
    assert.equal(await a.evaluate(()=>localStorage.getItem('kianos-test-transaction')),'new-writer');
   }finally{await context.close();}
  });
- console.log('PASS freeze browser: '+results.length+' isolated page journeys');
+ console.log((process.exitCode?'FAIL':'PASS')+' freeze browser: '+results.length+' isolated page journeys');
 }catch(error){console.error(error);process.exitCode=1;}
 finally{
  await browser?.close();
  try{if(server.pid)process.kill(-server.pid,'SIGTERM');}catch{}
- fs.writeFileSync(path.join(reportDir,'freeze-browser.json'),JSON.stringify({status:process.exitCode?'FAIL':'PASS',results},null,2));
+ fs.writeFileSync(path.join(reportDir,'freeze-browser.json'),JSON.stringify({status:process.exitCode?'FAIL':'PASS',focus_mode:'HEADED_NATIVE_FOCUS_NO_EMULATION',results,diagnostics},null,2));
 }

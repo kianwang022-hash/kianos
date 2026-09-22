@@ -168,10 +168,10 @@ await test('corrupt timer is unknown, never measured zero',()=>{
  const p=daily.buildDailyLearningPacket({storage:s,day:D,now:NOW,subjectPackets:{politics:{native:'healthy'}}});
  assert.equal(p.total_minutes,null);assert.equal(p.subjects.english.time,null);assert.equal(p.learner_evidence_basis,null);assert.equal(p.subjects.politics.evidence.native,'healthy');
 });
-await test('valid receipt survives existing checkpoint -> packet',()=>{
+await test('valid receipt survives whole checkpoint -> packet',async()=>{
  const s=new Storage({[K.receipt]:JSON.stringify(applied)});
  const c=shared.captureSharedControlCheckpoint(s,{studyDay:D,now:NOW});const t=new Storage();
- shared.restoreSharedControlCheckpoint(t,c,{expectedDay:D});
+ await outer.restoreSharedControlFromPrivate(t,{now:NOW,readCheckpoint:async()=>({status:'ready',checkpoint:{schema:'kianos.private-checkpoint.v1',checkpoint_id:'receipt-full',study_day:D,payload:{shared:c,subjects:{}}}})});
  const p=daily.buildDailyLearningPacket({storage:t,day:D,now:NOW});
  assert.equal(p.control.command_id,applied.command_id);assert.equal(p.control.status,'APPLIED');assert.equal(p.subjects.english.evidence,null);
 });
@@ -222,16 +222,22 @@ await test('failed reconstruction cannot manufacture empty valid planning basis'
  const p=privatePacket.buildDailyLearningPacketFromPrivateCheckpoint(checkpoint({english:{broken:true}})).packet;
  assert.equal(p.learner_evidence_basis,null);assert.equal(p.schedule,null);assert(p.warnings.some(x=>x.startsWith('checkpoint:english:')));
 });
+await test('private projection with broken native evidence withholds a success receipt',()=>{
+ const p=privatePacket.buildDailyLearningPacketFromPrivateCheckpoint(checkpoint({english:{broken:true}},new Storage({[K.receipt]:JSON.stringify(applied)}))).packet;
+ assert.equal(p.control,null);assert.equal(p.learner_evidence_basis,null);
+ assert(p.warnings.some(x=>x.includes('RECEIPT_WITHHELD_NATIVE_CONFLICT')));
+});
 await test('old-day checkpoint cannot be relabeled today by regeneration',()=>{
  const p=privatePacket.buildDailyLearningPacketFromPrivateCheckpoint(checkpoint(),{now:NOW+86400000}).packet;
  assert.equal(p.study_day,D);
 });
 
-// Continuation additions. The original 33 scenarios above remain unchanged.
-await test('receipt recovery preserves exact original bytes',()=>{
+// Continuation additions. Receipt recovery now exercises the full native-aware
+// coordinator; shared-only recovery intentionally does not admit apply proof.
+await test('receipt recovery preserves exact original bytes',async()=>{
  const raw=JSON.stringify(applied,null,2)+'\n';
  const c=shared.captureSharedControlCheckpoint(new Storage({[K.receipt]:raw}),{studyDay:D,now:NOW});
- const s=new Storage();shared.restoreSharedControlCheckpoint(s,c,{expectedDay:D});
+ const s=new Storage();await outer.restoreSharedControlFromPrivate(s,{now:NOW,readCheckpoint:async()=>({status:'ready',checkpoint:{schema:'kianos.private-checkpoint.v1',checkpoint_id:'receipt-bytes',study_day:D,payload:{shared:c,subjects:{}}}})});
  assert.equal(c.control_receipt_raw,raw);assert.equal(s.getItem(K.receipt),raw);
 });
 await test('outer restore carries corrupt receipt warning without blocking shared state',async()=>{
