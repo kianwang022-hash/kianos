@@ -1211,3 +1211,137 @@ body#kianos-workspace.surfaceBody-home .homeL3Support .examDailyPacketButton {
   body#kianos-workspace.surfaceBody-home .homeL3ScheduleItems { overflow-x: auto; }
   body#kianos-workspace.surfaceBody-home .homeL3ScheduleLink { min-height: 44px; }
 }
+
+
+/* 2026-09-22 Human Gate: restore the tidy Mac-wide Home composition.
+   Compactness comes from spacing; learner-facing Today/Week copy remains complete.
+   Calendar stays below the aligned main row and may fall below the first viewport. */
+@media (min-width: 901px) {
+  body#kianos-workspace.surfaceBody-home .homeL3Header {
+    margin-bottom: 10px;
+    padding: 13px 18px;
+    border: 1px solid var(--study-line);
+    border-radius: 12px;
+    background: var(--study-surface);
+    box-shadow: 0 1px 2px rgba(25, 45, 36, .035);
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeL3Header h1 {
+    margin-top: 1px;
+    font-size: 30px;
+    line-height: 1.15;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeL3Subtitle {
+    margin-top: 3px;
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeL3Gate {
+    min-width: 278px;
+    padding: 4px 2px 4px 12px;
+    background: transparent;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeL3Gate span {
+    font-size: 16px;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeL3Gate strong {
+    font-size: 18px;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeL3Grid {
+    grid-template-columns: minmax(0, 1.28fr) minmax(455px, .92fr);
+    gap: 10px;
+    align-items: stretch;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeL3Subjects,
+  body#kianos-workspace.surfaceBody-home .homeL3Support {
+    border-radius: 12px;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeL3SectionHead {
+    padding: 10px 17px;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeL3SectionHead h2 {
+    font-size: 22px;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeL3Subject {
+    padding: 11px 17px 12px;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeL3Subject h2 {
+    font-size: 22px;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeL3Meta {
+    margin-top: 2px;
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeL3ActionSurface {
+    margin-top: 7px;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeL3Subject .xzHomeContinue,
+  body#kianos-workspace.surfaceBody-home .homeL3Subject .politicsContinueCard,
+  body#kianos-workspace.surfaceBody-home .homeL3Subject .englishResume {
+    padding-block: 9px;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeL3TaskLinks {
+    margin-top: 6px;
+    gap: 4px 15px;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeL3TaskLinks a {
+    font-size: 16px;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeL3Support .examToday {
+    height: 100%;
+    padding: 13px 17px 12px;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeL3Support .examTodayHead h2 {
+    font-size: 25px;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeL3Support .examCapacity {
+    margin: 4px 0 9px;
+    font-size: 16px;
+    line-height: 1.35;
+  }
+
+  body#kianos-workspace.surfaceBody-home .examTaskRow {
+    min-height: 52px;
+    padding: 5px 0;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeL3Support .examNext {
+    margin: 10px 0;
+  }
+
+  body#kianos-workspace.surfaceBody-home .examWeek {
+    padding-top: 9px;
+  }
+
+  body#kianos-workspace.surfaceBody-home .examWeekRow {
+    padding: 5px 0;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeL3Support .examTodayFoot {
+    margin-top: 8px;
+    padding-top: 8px;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeL3Schedule {
+    margin-top: 10px;
+  }
+}

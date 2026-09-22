@@ -34,6 +34,7 @@ Must preserve:
 - task check state remains UI-only;
 - one-screen Mac-wide composition where current content permits it, but **Today / This Week information completeness outranks keeping the Calendar strip in the first viewport**; Calendar may sit just below the fold rather than forcing truncation or smaller type.
 - compactness should come from spacing / padding / row rhythm, not hidden learner-facing copy.
+- the accepted Mac composition keeps the top title/Gate inside one bordered surface and keeps the two main Home columns visually aligned/equal-height; do not trade that alignment away merely to move Calendar upward.
 
 The schedule strip is today-only. `完整日历 →` opens Google Calendar; Home does not reproduce tomorrow/week Calendar views because `This Week` already owns the forward reference.
 
