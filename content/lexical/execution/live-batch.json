@@ -3,62 +3,8 @@
   "status": "ACTIVE",
   "campaign": "FULL_CATALOG_FINAL_STANDARD_CONTINUATION",
   "semantic_ruler": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
-  "updated_at": "2026-09-22T13:23:39+00:00",
+  "updated_at": "2026-09-22T13:24:20+00:00",
   "frontier": {
-    "candidate_id": "BF21",
-    "range": [
-      2151,
-      2250
-    ],
-    "state": "READY_TO_MERGE",
-    "proposal_path": "content/lexical/execution/manifests/o2151-o2250.fullcatalog-final-standard-proposal.md",
-    "proposal_commit": "95f1ce7960ad7df1982aa5b8e413662e6c6ca36d",
-    "review_branch": "work/lexical-fullcatalog-bf21-review-20260922",
-    "human_gate": {
-      "status": "APPROVED",
-      "ordinals": [
-        2155,
-        2162,
-        2166,
-        2203,
-        2208,
-        2216,
-        2239
-      ],
-      "approval_ref": "Kian p on BF21 exact 7-group delta, 2026-09-22",
-      "approved_at": "2026-09-22"
-    },
-    "affected_owner_count": 33,
-    "no_change_count": 67,
-    "remote_dependency_ordinals": [
-      471,
-      474,
-      5388,
-      5546
-    ],
-    "accepted_main_head": "28dcf7ddd5b44f7632962215eed18b175f302ea2",
-    "review_artifact": {
-      "workflow_run": 35727813857,
-      "artifact_id": 10693911883,
-      "digest": "sha256:15f4435dbcb489885e74ca7552e3d4110ba26ad37b781ec39ea37eb2a72c7a3c"
-    },
-    "materialization": {
-      "status": "READY_FOR_B_READBACK",
-      "package_id": "BF21-B-reconcile-v1",
-      "receipt": "content/lexical/execution/mutation-receipts/BF21-B-reconcile-v1.json",
-      "final_learner_objects": 7946,
-      "updated_at": "2026-09-22T13:22:28+00:00"
-    },
-    "audit": {
-      "status": "COMPLETE",
-      "result": "PASS",
-      "pack": "content/lexical/semantic-audit/O2151_O2250_FINAL_RECONCILED_READBACK.md",
-      "blind_first": "NOT_ENFORCED",
-      "correction_ordinals": [],
-      "updated_at": "2026-09-22T13:23:39+00:00"
-    }
-  },
-  "next": {
     "candidate_id": "BF22",
     "range": [
       2251,
@@ -72,19 +18,36 @@
       "status": "NOT_REQUIRED",
       "ordinals": [],
       "approval_ref": null
+    },
+    "accepted_main_head": "d119a3be0aa19cddb1a23f588787ebab35d0bf54"
+  },
+  "next": {
+    "candidate_id": "BF23",
+    "range": [
+      2351,
+      2450
+    ],
+    "state": "REVIEW_REQUIRED",
+    "proposal_path": null,
+    "proposal_commit": null,
+    "review_branch": null,
+    "human_gate": {
+      "status": "NOT_REQUIRED",
+      "ordinals": [],
+      "approval_ref": null
     }
   },
   "last_closed": {
-    "candidate_id": "BF20",
+    "candidate_id": "BF21",
     "range": [
-      2051,
-      2150
+      2151,
+      2250
     ],
-    "merge_commit": "33b5afa4096988502f0c9ce57b8d6ed88b0195b3",
-    "audit_pack": "content/lexical/semantic-audit/O2051_O2150_FINAL_RECONCILED_REPLAY_READBACK.md",
+    "merge_commit": "d119a3be0aa19cddb1a23f588787ebab35d0bf54",
+    "audit_pack": "content/lexical/semantic-audit/O2151_O2250_FINAL_RECONCILED_READBACK.md",
     "final_learner_objects": 7946
   },
   "blocker": null,
-  "next_action": "AUTO_MERGE",
+  "next_action": "RUN_PRODUCTION_REVIEW",
   "legacy_history": "content/lexical/execution/three-chat-board.json"
 }
