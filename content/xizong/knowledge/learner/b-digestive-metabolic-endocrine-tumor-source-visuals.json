@@ -1,0 +1,50 @@
+{
+  "schema": "kianos.xizong.source_visual_bundles.v1",
+  "status": "CURRENT",
+  "authority": "CHAT_APPROVED",
+  "system_id": "digestive-metabolic-endocrine-tumor",
+  "canonical_id": "B",
+  "selection_policy": "SPARSE_HIGH_VALUE_NOT_EXHAUSTIVE",
+  "completeness": "PARTIAL_BY_DESIGN_EXTENSIBLE",
+  "notes": "First formal B/D13 Source Visual recovery from the Project canonical `27 外科跟课合集改.pdf`. Only spatial relations that add learning value beyond existing Current Core / structured table are admitted: abscess location and intraperitoneal-vs-retroperitoneal organ space. Bleeding-vs-contamination remains a structured Current-derived table, not a duplicated Source image.",
+  "bundles": [
+    {
+      "cue_id": "b-d13-lg01-visual",
+      "source_sha256": "b7178fdf7aa277c78be37e4904fb3d3fe619278b8d2dcbcd92142140021044e2",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "xizong-surgery-project-pdf:b7178fdf7aa277c7:p31:abscess-spaces",
+          "source_page": 31,
+          "usage_role": "ABDOMINAL_ABSCESS_SPATIAL_VISUAL",
+          "usage_label": "外科 PDF P31 · 膈下/盆腔脓肿空间",
+          "alt": "外科 Project Source PDF P31（印刷 P30）：膈下脓肿与盆腔脓肿的好发空间、相邻器官与相关临床提示原页区域",
+          "asset_path": "b-d13-lg01/d13-p31-abscess-spaces.webp",
+          "width": 1200,
+          "height": 726,
+          "source_crop_sha256": "2aa48edc15047e90e14d3462ea3056ffff4a616d5bb1d93a0ec8ab87687cafe4",
+          "derived_asset_sha256": "24d1e5c8354fe523b04fbc14f7cab349928069c8c9c24d398510eb21d000ec47"
+        }
+      ]
+    },
+    {
+      "cue_id": "b-d13-lg03-visual",
+      "source_sha256": "b7178fdf7aa277c78be37e4904fb3d3fe619278b8d2dcbcd92142140021044e2",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "xizong-surgery-project-pdf:b7178fdf7aa277c7:p32:peritoneal-spaces",
+          "source_page": 32,
+          "usage_role": "PERITONEAL_ORGAN_SPACE_VISUAL",
+          "usage_label": "外科 PDF P32 · 腹膜内/间位/外位器官空间",
+          "alt": "外科 Project Source PDF P32（印刷 P31）：腹膜内位、腹膜间位与腹膜外/腹膜后器官关系及腹部横断面空间示意",
+          "asset_path": "b-d13-lg03/d13-p32-peritoneal-spaces.webp",
+          "width": 1200,
+          "height": 521,
+          "source_crop_sha256": "43e4aa20a578327c21ebe3f90c0ee3add92c6b24bd1b20989abdb179cfb6c463",
+          "derived_asset_sha256": "c06fb5e6238c40add9a2eeae7b669e5c59ca629083b9f011cbc259e64eb79159"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schema": "kianos.xizong.learning_cues.v1",
+  "status": "CURRENT",
+  "authority": "CHAT_APPROVED",
+  "system_id": "digestive-metabolic-endocrine-tumor",
+  "canonical_id": "B",
+  "system_owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/system.json",
+  "medical_core_owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/",
+  "learning_support": "content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json",
+  "role": "SELECTIVE_PRECISION_AND_VISUAL_TRIGGER_INDEX_ONLY",
+  "rules": {
+    "no_second_owner": "Cues identify sparse high-value exactness / visual learning moments only. They do not copy or replace canonical medical Core or the original Lecture.",
+    "precision_selection": "SELECTIVE_HIGH_VALUE_INDEX_NOT_EXHAUSTIVE",
+    "precision_absence": "Absence from this index does not downgrade any canonical KP or fact.",
+    "first_pass": "Visual cues sit inside the accepted B Logic-Group flow and do not create a second Source-contact sequence.",
+    "visual_behavior": "Show the reviewed Project canonical Source crop at the relevant Logic Group with one bounded micro-task; missing imagery remains legal and fail-closed.",
+    "source_truth": "Exact medical meaning remains in canonical B Block/KP content and the Project canonical Source PDF."
+  },
+  "precision_index": [],
+  "visual_bindings": [
+    {
+      "id": "b-d13-lg01-visual",
+      "anchor": {
+        "block_id": "D13",
+        "logic_group_id": "b-d13-lg01"
+      },
+      "source_locator": "27 外科跟课合集改.pdf · PDF P31（印刷 P30）｜腹腔脓肿好发部位",
+      "task": "先在图上定位膈下与盆腔两个高价值空间，再把上腹痛/呃逆/胸膜刺激与肛门坠胀/直肠或膀胱刺激分别挂回位置；不要把症状名单脱离空间背。",
+      "answer_bearing": true
+    },
+    {
+      "id": "b-d13-lg03-visual",
+      "anchor": {
+        "block_id": "D13",
+        "logic_group_id": "b-d13-lg03"
+      },
+      "source_locator": "27 外科跟课合集改.pdf · PDF P32（印刷 P31）｜腹膜内/间位/外位器官空间",
+      "task": "用腹膜内、间位、外位三种空间关系解释为什么某些器官损伤腹膜炎早而明显，而腹膜后器官早期腹膜刺激可轻；只做空间定位，不用单张图替代器官损伤诊断。",
+      "answer_bearing": true
+    }
+  ]
+}
