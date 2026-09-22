@@ -323,3 +323,27 @@ body#kianos-workspace[data-kianos-rail="compact"] :is(.kianosRailBrandCopy, .kia
   .kianosSubjectBar { display: none; }
   .kianosShellFrame { display: block; }
 }
+
+
+/* Politics / Xizong learning surfaces: compact the persistent subject shell
+   so the actual learning workspace enters the first viewport earlier.
+   Typography stays unchanged; only vertical chrome is reduced. */
+@media (min-width: 901px) {
+  body#kianos-workspace:is(.surfaceBody-politics,.surfaceBody-xizong) .kianosSubjectBar {
+    min-height: 50px;
+    margin-top: 9px;
+  }
+
+  body#kianos-workspace:is(.surfaceBody-politics,.surfaceBody-xizong) .kianosSubjectIdentity {
+    padding-inline: 16px;
+  }
+
+  body#kianos-workspace:is(.surfaceBody-politics,.surfaceBody-xizong) .kianosSubjectNav {
+    min-height: 50px;
+  }
+
+  body#kianos-workspace:is(.surfaceBody-politics,.surfaceBody-xizong) .kianosSubjectNav a {
+    min-height: 50px;
+    padding-inline: 12px;
+  }
+}

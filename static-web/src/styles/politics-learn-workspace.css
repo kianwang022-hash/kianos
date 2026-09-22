@@ -902,3 +902,23 @@ body#kianos-workspace.surfaceBody-politics .politicsUnitCognition>.politicsQuiz>
   line-height: 1.55;
 }
 
+
+
+/* 2026-09-22 learner-facing density pass.
+   Bring the actual Politics learning content upward without compressing body text. */
+@media (min-width: 901px) {
+  body#kianos-workspace.surfaceBody-politics .politicsStudy {
+    gap: 16px 26px;
+    padding-top: 10px;
+    padding-bottom: 36px;
+  }
+
+  body#kianos-workspace.surfaceBody-politics .politicsChapterLocation {
+    gap: 10px;
+    padding: 8px 16px;
+  }
+
+  body#kianos-workspace.surfaceBody-politics .politicsChapterLocation h1 {
+    line-height: 1.35;
+  }
+}

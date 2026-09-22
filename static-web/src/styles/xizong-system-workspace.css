@@ -889,3 +889,39 @@ body#kianos-workspace.surfaceBody-xizong .xzSystemRecallEntry>a {
   font-weight:600;
   text-decoration:none;
 }
+
+
+/* 2026-09-22 learner-facing density pass.
+   Preserve System identity and controls while moving Block Route / Guide upward. */
+@media (min-width: 1001px) {
+  body#kianos-workspace.surfaceBody-xizong .xzSystemTopbar {
+    gap: 20px;
+    padding: 8px 16px 9px;
+  }
+
+  body#kianos-workspace.surfaceBody-xizong .xzSystemIdentity {
+    gap: 2px 14px;
+  }
+
+  body#kianos-workspace.surfaceBody-xizong .xzSystemIdentity p {
+    margin-top: 2px;
+    line-height: 1.4;
+  }
+
+  body#kianos-workspace.surfaceBody-xizong .xzSystemViewTabs {
+    min-height: 48px;
+  }
+
+  body#kianos-workspace.surfaceBody-xizong .xzSystemViewTabs button {
+    min-width: 110px;
+  }
+
+  body#kianos-workspace.surfaceBody-xizong .xzSystemViewTabs button::after {
+    bottom: -9px;
+  }
+
+  body#kianos-workspace.surfaceBody-xizong .xzSystemRouteRail > header {
+    gap: 2px;
+    padding: 10px 14px 8px;
+  }
+}
