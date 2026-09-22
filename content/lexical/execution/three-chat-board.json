@@ -32,36 +32,48 @@
     "p_behavior": "APPROVE_EXACT_SHOWN_DELTA__FREEZE_BACKLOG__IMMEDIATE_NEXT_PRODUCTION_BATCH"
   },
   "frontier": {
-    "accepted_main_head": "7582bb9463b6c8498e7738f4afccd29160e4c918",
+    "accepted_main_head": "ba86c5650be841ee20a39f4b87ecac1e0d84365b",
     "current_candidate_id": "BF19",
     "range": [
       1951,
       2050
     ],
-    "state": "B_AUDIT_PASS__READY_TO_MERGE",
+    "state": "WAITING_HUMAN_GATE",
     "candidate_pr": null,
-    "candidate_branch": "work/lexical-continuous-bf19-official-20260922",
-    "materialized_owner_read_head": "0e1b4fe1c72583e7604d963782453461ebd4fa47",
+    "candidate_branch": "work/lexical-fullcatalog-bf19-review-20260922",
+    "materialized_owner_read_head": "ad23ac85627dcafb4ec7c1645bfc6141f29488bc",
     "review_branch": "work/lexical-fullcatalog-bf19-review-20260922",
     "proposal_path": "content/lexical/execution/manifests/o1951-o2050.fullcatalog-final-standard-proposal.md",
     "proposal_commit": "aeb5e4648883166cc139b07d809019b16afa23c0",
-    "note": "BF19 42/42 changed-owner B readback PASS after bounded reconciliation. BF20 remains pre-approved and next in frontier order."
+    "note": "Post-recovery refreeze complete at main ba86c5650be841ee20a39f4b87ecac1e0d84365b. BF19 existing-truth repairs are retained; its ten new Form groups are absent and require a fresh exact Human Gate. BF20 remains review-ahead frozen and unapproved."
   },
   "audit_target": {
-    "state": "PASS_READY_TO_MERGE",
+    "state": "WAITING_HUMAN_GATE",
     "candidate_id": "BF19",
     "range": [
       1951,
       2050
     ],
     "candidate_pr": null,
-    "candidate_branch": "work/lexical-continuous-bf19-official-20260922",
-    "candidate_owner_read_head": "0e1b4fe1c72583e7604d963782453461ebd4fa47",
+    "candidate_branch": "work/lexical-fullcatalog-bf19-review-20260922",
+    "candidate_owner_read_head": "ad23ac85627dcafb4ec7c1645bfc6141f29488bc",
     "brief": null,
     "output": "content/lexical/semantic-audit/O1951_O2050_FINAL_STANDARD_SAME_CHAT_B_AUDIT_PACK.md",
-    "result": "PASS",
+    "result": "RECOVERED_PENDING_GATE",
     "independence_note": "BLIND_FIRST_NOT_ENFORCED",
-    "human_gate_status": "PREAPPROVED_BY_GROUP_P"
+    "human_gate_status": "PENDING_EXACT_SCOPE",
+    "human_gate_required_ordinals": [
+      1957,
+      1962,
+      1975,
+      1987,
+      1991,
+      1994,
+      1999,
+      2003,
+      2004,
+      2044
+    ]
   },
   "lanes": {
     "A": {
@@ -1699,8 +1711,8 @@
       }
     ],
     "next_range": [
-      1851,
-      1950
+      1951,
+      2050
     ],
     "completion_condition": "All owners o1251-o7946 receive final-standard Fresh Read/Self Attack judgment and all accepted batch mutations are materialized, B-audited, reconciled and merged.",
     "A_status": "REOPENED_FULL_CATALOG_CONTINUATION",
@@ -1730,21 +1742,12 @@
         2044
       ],
       "proposal": "content/lexical/execution/manifests/o1951-o2050.fullcatalog-final-standard-proposal.md",
-      "mutation_receipts": [
-        "content/lexical/execution/mutation-receipts/BF19-official-o1951-o2050-v1.json",
-        "content/lexical/execution/mutation-receipts/BF19-B-reconcile-v1.json",
-        "content/lexical/execution/mutation-receipts/BF19-B-reconcile-v2.json"
-      ],
+      "recovery_receipt": "content/lexical/execution/mutation-receipts/BF19-human-gate-scope-recovery-v1.json",
       "audit": "content/lexical/semantic-audit/O1951_O2050_FINAL_STANDARD_SAME_CHAT_B_AUDIT_PACK.md",
-      "reconcile_ordinals": [
-        1969,
-        2002,
-        2025,
-        2030,
-        2038
-      ],
-      "state": "B_AUDIT_PASS__READY_TO_MERGE",
-      "independence_note": "BLIND_FIRST_NOT_ENFORCED"
+      "state": "WAITING_HUMAN_GATE_AFTER_RECOVERY",
+      "existing_truth_materialized": true,
+      "unauthorized_form_scope_removed": true,
+      "recovery_commit": "ad23ac85627dcafb4ec7c1645bfc6141f29488bc"
     }
   },
   "phase_transition": {
@@ -1755,9 +1758,9 @@
   },
   "materialization_progress": {
     "candidate_id": "BF19",
-    "status": "B_AUDIT_PASS__READY_TO_MERGE",
+    "status": "EXISTING_TRUTH_MATERIALIZED__NEW_FORM_GATE_PENDING",
     "candidate_pr": null,
-    "latest_main_refreeze": "7582bb9463b6c8498e7738f4afccd29160e4c918",
+    "latest_main_refreeze": "ba86c5650be841ee20a39f4b87ecac1e0d84365b",
     "review_range": [
       1951,
       2050
@@ -1769,23 +1772,27 @@
     "content_affected_owners": 42,
     "content_no_change": 58,
     "new_material_group_count": 10,
-    "human_gate_status": "PREAPPROVED_BY_GROUP_P",
+    "new_material_delta_owners": [
+      1957,
+      1962,
+      1975,
+      1987,
+      1991,
+      1994,
+      1999,
+      2003,
+      2004,
+      2044
+    ],
+    "human_gate_status": "PENDING_EXACT_SCOPE",
     "blocked": 0,
-    "standing_repair_tests_before": 0,
-    "standing_repair_tests_after": 0,
     "final_learner_objects": 7946,
     "final_learner_shards": 125,
-    "materialized_commit": "cd1b7bb178b7003b50c09dbe59da8863ce9dfa7a",
-    "b_audit": "PASS",
-    "reconcile_ordinals": [
-      1969,
-      2002,
-      2025,
-      2030,
-      2038
-    ],
-    "reconciled_commit": "0e1b4fe1c72583e7604d963782453461ebd4fa47",
-    "b_audit_output": "content/lexical/semantic-audit/O1951_O2050_FINAL_STANDARD_SAME_CHAT_B_AUDIT_PACK.md"
+    "recovery_commit": "ad23ac85627dcafb4ec7c1645bfc6141f29488bc",
+    "recovery_receipt": "content/lexical/execution/mutation-receipts/BF19-human-gate-scope-recovery-v1.json",
+    "recovery_readback": "PASS_10_OF_10_FORM_IDENTITIES_ABSENT",
+    "provenance_reconcile_commit": "20d66ffaaecd2f7fdd0ff429ecde9cb70eec47ca",
+    "provenance_reconcile_result": "PASS_BF18_FORM_AUTHORITY_7_OF_7"
   },
   "semantic_freeze_scope_amendment": "content/lexical/FINAL_SEMANTIC_FREEZE_SCOPE_AMENDMENT_20260922.md",
   "quality_first_execution": {
@@ -1804,7 +1811,7 @@
     "effective_from": "BF18 onward / 2026-09-22"
   },
   "review_ahead_queue": {
-    "status": "ONE_CHECKPOINT_AHEAD__BF20_PREAPPROVED",
+    "status": "ONE_CHECKPOINT_AHEAD__BF20_UNAPPROVED",
     "max_checkpoints": 2,
     "max_words": 200,
     "canonical_frontier_remains": "BF19",
@@ -1833,47 +1840,10 @@
         "review_branch": "work/lexical-fullcatalog-bf20-review-20260922",
         "proposal_commit": "d803c5a7b8a267021e368461284d58e1f3417bd6",
         "may_materialize": false,
-        "gate_deferred_until": "BF18 closes",
-        "human_gate_status": "PREAPPROVED_BY_GROUP_P",
-        "human_gate_approval_path": "content/lexical/execution/approval-bundles/BF18_BF20_APPROVAL_BUNDLE_20260922.md",
-        "materialize_when": "BF19 closes and latest-main refreeze passes"
+        "human_gate_status": "PENDING_FUTURE_GATE",
+        "gate_deferred_until": "BF19 closes"
       }
     ],
-    "stop_condition": "No BF21 review while two reviewed-but-unmaterialized checkpoints remain."
-  },
-  "group_human_gate_approval": {
-    "status": "APPROVED",
-    "approval_token": "p",
-    "approved_at": "2026-09-22",
-    "approval_path": "content/lexical/execution/approval-bundles/BF18_BF20_APPROVAL_BUNDLE_20260922.md",
-    "scope_candidates": [
-      "BF18",
-      "BF19",
-      "BF20"
-    ],
-    "approved_group_count": 19,
-    "approved_ordinals": [
-      1851,
-      1896,
-      1898,
-      1919,
-      1929,
-      1941,
-      1944,
-      1957,
-      1962,
-      1975,
-      1987,
-      1991,
-      1994,
-      1999,
-      2003,
-      2004,
-      2044,
-      2130,
-      2137
-    ],
-    "excludes": "BF21+ unseen/unfrozen material",
-    "sequencing": "FRONTIER_ORDER_REQUIRED"
+    "stop_condition": "Do not start BF21 while BF19 is unresolved and BF20 remains reviewed-but-unmaterialized."
   }
 }

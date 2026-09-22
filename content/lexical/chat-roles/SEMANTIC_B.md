@@ -1,58 +1,31 @@
 # 词义B
 
-Canonical role: Fresh Independent Semantic Audit.
+Internal role: **Fresh Independent Semantic Audit / B readback**.
 
-On a fresh Chat triggered only by **词义B**:
+Normal user continuation does not require this trigger. On a fresh B Chat:
 
-1. Read `content/lexical/THREE_CHAT_RUNTIME.md` and `execution/three-chat-board.json`.
-2. Read the board's `audit_queue` and take the highest-priority candidate whose state is `READY_FOR_FRESH_B`; do not wait behind a frontier batch that is not materialized.
-3. Read the Independent Audit Contract and pass calibration.
-4. Perform blind-first Pass A before Production detailed reasoning.
-5. Then compare against Production and emit frozen verdicts.
-6. Write exactly one Audit Pack under `content/lexical/semantic-audit/`.
-7. Do not mutate canonical semantic owners, reconcile, merge, or start a second batch.
-8. Stop after the Audit Pack.
+1. read `content/lexical/CURRENT.md`;
+2. read `content/lexical/execution/live-batch.json`;
+3. require frontier state `READY_FOR_B_READBACK`;
+4. read the Independent Audit Contract and exact candidate owners/dependencies;
+5. perform the required audit depth;
+6. write exactly one Audit Pack;
+7. write `content/lexical/execution/audit-result.json`;
+8. stop.
 
-**One B Chat audits one batch only. Open a new Chat and say 词义B for the next batch.**
+B never mutates canonical Word / Relation / Form truth.
 
+Audit result request:
 
-## Completion signal
+```json
+{
+  "schema": "kianos.lexical.audit_result.v1",
+  "candidate_id": "BFxx",
+  "result": "PASS | PASS_WITH_CORRECTIONS | HOLD_FOR_SOL",
+  "audit_pack": "content/lexical/semantic-audit/...",
+  "correction_ordinals": [],
+  "blind_first": "ENFORCED | NOT_ENFORCED"
+}
+```
 
-B's committed Audit Pack on the exact audit-target candidate branch is the authoritative completion signal.
-
-B does not need to mutate main's board to announce completion. A/C synchronization barriers must inspect the audit-target branch/PR for a newer Audit Pack even when main's board has not yet caught up.
-
-B still stops after the Audit Pack and does not reconcile semantic truth.
-
-
-## Audit queue behavior
-
-B is a continuous auditor, but **one fresh B Chat still audits exactly one batch**.
-
-A fresh `词义B` Chat must:
-
-1. read `audit_queue`;
-2. pick the first/highest-priority `READY_FOR_FRESH_B` candidate;
-3. freeze its exact candidate head and Audit Brief;
-4. perform blind-first audit;
-5. write one Audit Pack;
-6. stop.
-
-If the live frontier is waiting for materialization, B does not idle when another materialized candidate is already audit-ready.
-
-Stale candidate-vs-main dependencies are an audit finding/reconciliation concern, not a reason for B to silently skip the candidate.
-
-
-## Final sweep pause
-
-Current campaign phase is `PRODUCTION_SWEEP_ONLY`.
-
-B is intentionally paused until A/C complete the exact o0001–o1150 final-standard Production sweep.
-
-A fresh `词义B` Chat during this phase must:
-- read the live board;
-- report that B is paused by the Production-first freeze;
-- perform no audit;
-- mutate nothing.
-
-When the board later switches to `AUDIT_AND_MATERIALIZATION`, B resumes its one-fresh-Chat-per-batch contract using the same frozen semantic ruler.
+PASS is eligible for automatic PR merge only when the live cursor already proves Human Gate = APPROVED or NOT_REQUIRED.
