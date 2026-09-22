@@ -1,0 +1,704 @@
+{
+  "schema": "kianos.lexical.bf17_write_fragment.v1",
+  "part": "2b",
+  "writes": [
+    {
+      "path": "content/lexical/words/by-ordinal/o1807.json",
+      "mode": "patch_json",
+      "expected_sha256": "4a0c6e8c8efaa8a71fbf9e5b17b4c3859157ddf6c8f24a4ac4d096e91270f98b",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "7cd22ad78c88d847d3a231d947cc8b3cbf2c6dcb833d3369e1757dbed4bbd4b1",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "出口；向国外出售或转移；数据导出",
+                  "label_en": "to sell or transfer abroad; to export data",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:export:12783da9ade15934",
+                    "sense:export:ef27e5afa878503d"
+                  ]
+                },
+                {
+                  "label_cn": "出口商品；出口品",
+                  "label_en": "goods or services sold to another country",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:export:1ecd6ea82dec5f18"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "出口；导出；出口商品",
+              "core_meaning_en": "to export goods/data; goods sold abroad",
+              "mental_model_cn": "将货物或数据发送到另一个国家或系统",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "semantic-reconciliation:o1625-o1824"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:c07293157647b0be4cd1",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:export:12783da9ade15934:collocation:0"
+                    ],
+                    "meaning_cn": "把某物出口到某国",
+                    "phrase": "export + sth to + country"
+                  },
+                  {
+                    "collocation_id": "collocation:0785d9d5b1d68d2016ea",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:export:12783da9ade15934:collocation:1"
+                    ],
+                    "meaning_cn": "出口货物",
+                    "phrase": "export goods"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "向国外出售或转移",
+                "definition_en": "sell or transfer abroad",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:export:12783da9ade15934",
+                "sense_label_en": "sell or transfer abroad",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:51d6c8edbba228d0fff7",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:export:1ecd6ea82dec5f18:collocation:0"
+                    ],
+                    "meaning_cn": "出口贸易",
+                    "phrase": "export trade"
+                  },
+                  {
+                    "collocation_id": "collocation:ebff9907f49fa8ddd983",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:export:1ecd6ea82dec5f18:collocation:1"
+                    ],
+                    "meaning_cn": "主要出口产品",
+                    "phrase": "main export"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "卖给外国的商品（货物或服务）",
+                "definition_en": "commodities (goods or services) sold to a foreign country",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:export:1ecd6ea82dec5f18",
+                "sense_label_en": "commodities (goods or services) sold to a foreign country",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:dba0a85d74f517000b3c",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:export:ef27e5afa878503d:collocation:0"
+                    ],
+                    "meaning_cn": "将数据导出到文件",
+                    "phrase": "export data to a file"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "将电子数据从数据库或文档中导出为其他程序可用的格式",
+                "definition_en": "transfer (electronic data) out of a database or document in a format that can be used by other programs",
+                "governing_pattern": "vt. + object",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:export:ef27e5afa878503d",
+                "sense_label_en": "transfer (electronic data) out of a database or document in a format tha",
+                "sort_order": 2,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:0817c6d4f6bd901f51b1",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:export:2626f9ac0b1b571b:collocation:0"
+                    ],
+                    "meaning_cn": "传播思想",
+                    "phrase": "export ideas"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "使在世界的另一部分传播",
+                "definition_en": "cause to spread in another part of the world",
+                "governing_pattern": "vt. + object",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:export:2626f9ac0b1b571b",
+                "sense_label_en": "cause to spread in another part of the world",
+                "sort_order": 3,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 3,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "export",
+            "word_family": [],
+            "word_id": "word:export",
+            "form_identity": {
+              "form_type": "same_spelling_pos_conditioned_pronunciation",
+              "spelling": "export",
+              "identity_rule": "dialect_aware_pos_pronunciation_boundary",
+              "boundary": "In standard British pronunciation, export commonly has initial stress as a noun and later stress as a verb; major American pronunciation also permits initial stress for the verb, so the split is not universal across English.",
+              "boundaries": [
+                {
+                  "surface": "export",
+                  "condition": "noun",
+                  "note": "commonly initial stress"
+                },
+                {
+                  "surface": "export",
+                  "condition": "verb in BrE",
+                  "note": "commonly later stress"
+                },
+                {
+                  "surface": "export",
+                  "condition": "verb in AmE",
+                  "note": "initial stress is also common/accepted"
+                }
+              ],
+              "variants": [],
+              "authority": "BF17 existing-truth Form migration 2026-09-22"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1810.json",
+      "mode": "patch_json",
+      "expected_sha256": "bcddc744ed6f37527751d19278c97942099eb661b2c13471b6c5443273bc46a1",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "cfe0ee5711833b31fe2a4e5fbb465ec327e228997bb6e2be8b0d4e27d31a40b4",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "表达；表示",
+                  "label_en": "give expression to",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:express:a6f6dfa5cb0e5f56"
+                  ]
+                },
+                {
+                  "label_cn": "快车；直达车；快递；快件",
+                  "label_en": "public transport consisting of a fast train or bus that makes only a few scheduled stops; mail that is distributed by a rapid and efficient system",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:express:682a385e64c25955",
+                    "sense:express:bafe63d7f93850cf"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "传达或表明；快速或直达",
+              "core_meaning_en": "to convey or make known; fast or direct",
+              "mental_model_cn": "传达或表明；快速或直达",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:5ec46f9015d4491c004e",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:express:a6f6dfa5cb0e5f56:collocation:0"
+                    ],
+                    "meaning_cn": "表达某事",
+                    "phrase": "express + sth"
+                  },
+                  {
+                    "collocation_id": "collocation:01743cff0430072022b9",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:express:a6f6dfa5cb0e5f56:collocation:1"
+                    ],
+                    "meaning_cn": "表达自己",
+                    "phrase": "express + oneself"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "表达；表示",
+                "definition_en": "give expression to",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:express:a6f6dfa5cb0e5f56",
+                "sense_label_en": "give expression to",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:74316d5dce53d9fce147",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:express:682a385e64c25955:collocation:0"
+                    ],
+                    "meaning_cn": "乘坐快车",
+                    "phrase": "take the express"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "快车；直达车",
+                "definition_en": "public transport consisting of a fast train or bus that makes only a few scheduled stops",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:express:682a385e64c25955",
+                "sense_label_en": "public transport consisting of a fast train or bus that makes only a few",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:b4abd8414e38033fcbda",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:express:bafe63d7f93850cf:collocation:0"
+                    ],
+                    "meaning_cn": "用快递寄送",
+                    "phrase": "send by express"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "快递；快件",
+                "definition_en": "mail that is distributed by a rapid and efficient system",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:express:bafe63d7f93850cf",
+                "sense_label_en": "mail that is distributed by a rapid and efficient system",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:c486f70958810eec1c1a",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:express:ec11929dccdc5a15:collocation:0"
+                    ],
+                    "meaning_cn": "明确的目的",
+                    "phrase": "express purpose"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "明确的；明白表示的",
+                "definition_en": "clearly stated; explicit",
+                "governing_pattern": "",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:express:ec11929dccdc5a15",
+                "sense_label_en": "clearly stated; explicit",
+                "sort_order": 3,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 2,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "express",
+            "word_family": [],
+            "word_id": "word:express"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1818.json",
+      "mode": "patch_json",
+      "expected_sha256": "1f079e5474095bd2e6b513fc86bb439fb5c5e984a815ab9e4e33a9dd551b2d7d",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "9523c2952ddc415f418bd9b68643b8ffe9e877eb074cc508208d09ce129762f0",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "外部的或来自外部的",
+              "core_meaning_en": "outside or coming from outside",
+              "mental_model_cn": "外部的或来自外部的",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "deep:deep:word_family:external:07c4cabf0c3d7136",
+              "deep:deep:word_family:external:11ff3d65dade4348",
+              "deep:deep:word_family:external:99504fd0784ac16e",
+              "deep:deep:word_family:external:a27245e60bfa2551",
+              "relation:deep:word_family:external:07c4cabf0c3d7136",
+              "relation:deep:word_family:external:11ff3d65dade4348",
+              "relation:deep:word_family:external:99504fd0784ac16e",
+              "relation:deep:word_family:external:a27245e60bfa2551"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "外部的、外来的",
+                "definition_en": "outside or relating to the outside",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:external:8eab6f8c006abd2c",
+                "sense_label_en": "outside or relating to the outside",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 1,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "completed"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 4,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "external",
+            "word_family": [],
+            "word_id": "word:external"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1822.json",
+      "mode": "patch_json",
+      "expected_sha256": "2b433d6a1f7bf174c111a1e9e9f8258c857823359c4e20a88a59b7c0925cb627",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "15bf30d2d240ea9da0f0c93613b8d73eba257dd53241a766a225a51edf445f8c",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "取出；提取；榨取；提炼；求根",
+                  "label_en": "to remove, obtain, separate, or derive something",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:extract:3add00a853355c69",
+                    "sense:extract:95eb712ca3c25cec",
+                    "sense:extract:31fdf8b17dab5f1b",
+                    "sense:extract:a1989954d6e355a6"
+                  ]
+                },
+                {
+                  "label_cn": "摘录；选段；提取物；浓缩物",
+                  "label_en": "a selected passage or a substance obtained by extraction",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:extract:6ae9cb3381375206",
+                    "sense:extract:5a1258a0cf92f9d2"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "提取；摘录；榨取",
+              "core_meaning_en": "to pull or take out, often with effort, or a substance obtained by extraction",
+              "mental_model_cn": "提取；摘录；榨取",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:fc0db070e86d42b2ca7b",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:extract:3add00a853355c69:collocation:0"
+                    ],
+                    "meaning_cn": "从……中取出某物",
+                    "phrase": "extract + sth from + sth"
+                  },
+                  {
+                    "collocation_id": "collocation:ce513881ff4a50c51e4e",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:extract:3add00a853355c69:collocation:1"
+                    ],
+                    "meaning_cn": "拔牙",
+                    "phrase": "extract a tooth"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "取出；拔出",
+                "definition_en": "remove or take out, usually with some force or effort",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:extract:3add00a853355c69",
+                "sense_label_en": "remove or take out, usually with some force or effort",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:7bfe640d23309df14744",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:extract:95eb712ca3c25cec:collocation:0"
+                    ],
+                    "meaning_cn": "从某人处获取信息",
+                    "phrase": "extract information from + sb"
+                  },
+                  {
+                    "collocation_id": "collocation:252dc71b8b01f5d3ecbc",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:extract:95eb712ca3c25cec:collocation:1"
+                    ],
+                    "meaning_cn": "迫使作出承诺",
+                    "phrase": "extract a promise"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "设法得到；榨取",
+                "definition_en": "get something despite difficulties or obstacles",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:extract:95eb712ca3c25cec",
+                "sense_label_en": "get something despite difficulties or obstacles",
+                "sort_order": 1,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:d95dfb32c6f423a4c199",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:extract:31fdf8b17dab5f1b:collocation:0"
+                    ],
+                    "meaning_cn": "从矿石中提炼金属",
+                    "phrase": "extract metal from ore"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "提炼；提取（金属）",
+                "definition_en": "separate (a metal) from an ore",
+                "governing_pattern": "vt. + object",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:extract:31fdf8b17dab5f1b",
+                "sense_label_en": "separate (a metal) from an ore",
+                "sort_order": 2,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:207015b59d4813c3737b",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:extract:a1989954d6e355a6:collocation:0"
+                    ],
+                    "meaning_cn": "求平方根",
+                    "phrase": "extract the square root"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "求（数的）根",
+                "definition_en": "calculate the root of a number",
+                "governing_pattern": "vt. + object",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:extract:a1989954d6e355a6",
+                "sense_label_en": "calculate the root of a number",
+                "sort_order": 3,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:fae4e8244e324458c62f",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:extract:6ae9cb3381375206:collocation:0"
+                    ],
+                    "meaning_cn": "小说摘录",
+                    "phrase": "extract from a novel"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "摘录；选段",
+                "definition_en": "a short passage taken from a book, piece of music, etc.",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:extract:6ae9cb3381375206",
+                "sense_label_en": "a short passage taken from a book, piece of music, etc.",
+                "sort_order": 4,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "提取物、浓缩物",
+                "definition_en": "a substance or concentrate obtained by extraction",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:extract:5a1258a0cf92f9d2",
+                "sense_label_en": "a substance or concentrate obtained by extraction",
+                "sort_order": 5,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 0,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "extract",
+            "word_family": [],
+            "word_id": "word:extract",
+            "form_identity": {
+              "form_type": "same_spelling_pos_conditioned_pronunciation",
+              "spelling": "extract",
+              "identity_rule": "same_word_owner_no_semantic_split",
+              "boundary": "extract noun is pronounced /ˈekstrækt/; extract verb is pronounced /ɪkˈstrækt/.",
+              "boundaries": [
+                {
+                  "surface": "extract",
+                  "condition": "noun",
+                  "note": "/ˈekstrækt/"
+                },
+                {
+                  "surface": "extract",
+                  "condition": "verb",
+                  "note": "/ɪkˈstrækt/"
+                }
+              ],
+              "variants": [],
+              "authority": "BF17 existing-truth Form migration 2026-09-22"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
