@@ -11,6 +11,33 @@ Do **not** inherit old Chat oral state when GitHub differs.
 
 ## Product contract fixed by Kian
 
+### 2026-09-22 explicit Home interaction extension
+
+Kian identified a concrete regular-use gap after the 2026-09-20 Human Gate: the Home made native Resume and the exact Chat-controlled Next Action clear, but did not make **today's concrete tasks, the rolling week reference, or today's time placement** glanceable without returning to Chat / Calendar.
+
+The accepted direction for the bounded extension is:
+
+```text
+Mac-wide first viewport
+→ left: existing three subject-native Resume / free entry
+→ right: Today checklist + existing exact Next Action + This Week reference
+→ bottom: one full-width, today-only schedule strip
+```
+Must preserve:
+
+- left Xizong / English / Politics Resume semantics and manual navigation;
+- one Chat-controlled exact Next Action using existing native session identity;
+- native subject evidence / Return / source-validation boundaries;
+- global Timer;
+- no Website scheduling policy;
+- no second Calendar database;
+- task check state remains UI-only;
+- one-screen Mac-wide composition where current content permits it.
+
+The schedule strip is today-only. `完整日历 →` opens Google Calendar; Home does not reproduce tomorrow/week Calendar views because `This Week` already owns the forward reference.
+
+The production handoff remains one existing `exam.chat_plan`: its optional `presentation.today_tasks / week_reference / schedule_blocks` travel through the same private control command as the executable subject allocation. `schedule_blocks` mirrors only the resolved **same-day** Steward study / recovery / Review placement; Calendar remains the commitment/editing surface. Home task rows carry no task URLs: exact execution continues through the validated `next_subject + session_ref` route, while the left subject-native Resume remains the free-entry fallback.
+
 Normal learner flow is:
 
 ```text
@@ -24,7 +51,7 @@ Chat / Steward decides
 
 The key boundary is:
 
-> **Do not redesign Total Home. Only connect the existing right-side scheduler / Next Action to Chat-controlled exact routes.**
+> **The 2026-09-20 direct-route integration must not be used as permission to replace Home or repurpose native subject Resume. The 2026-09-22 explicit interaction extension above may add bounded presentation around those preserved owners.**
 
 ## Learner-facing UI boundary
 

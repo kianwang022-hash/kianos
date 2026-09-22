@@ -87,6 +87,54 @@ export function initExamHome(root) {
   let reminder = null;
 
   const day = () => examDay();
+  const taskChecksKey = () => `kianos-exam-home-task-checks-v1:${day()}`;
+  const readTaskChecks = () => {
+    try {
+      const parsed = JSON.parse(localStorage.getItem(taskChecksKey()) || '{}');
+      return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : {};
+    } catch { return {}; }
+  };
+  const writeTaskCheck = (id, checked) => {
+    const state = readTaskChecks();
+    if (checked) state[id] = true;
+    else delete state[id];
+    try { localStorage.setItem(taskChecksKey(), JSON.stringify(state)); } catch {}
+  };
+  const localClock = () => new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', hour12: false });
+  const addStudyDays = (studyDay, offset) => {
+    const date = new Date(`${studyDay}T12:00:00`);
+    date.setDate(date.getDate() + offset);
+    return date.toLocaleDateString('en-CA');
+  };
+  const remainingTaskCount = (presentation) => {
+    const rows = presentation?.todayTasks || [];
+    const checked = readTaskChecks();
+    return rows.filter((row) => !checked[row.id]).length;
+  };
+  const renderCapacitySummary = () => {
+    const node = $('[data-exam-capacity]');
+    if (!node || !readModel) return;
+    if (!readable) {
+      node.textContent = '本机学习记录暂时没有完整恢复。';
+      return;
+    }
+    const taskRows = readModel.presentation?.todayTasks || [];
+    const taskLabel = taskRows.length ? ` · 还剩 ${remainingTaskCount(readModel.presentation)} 项` : '';
+    if (readModel.capacity.dayMinutes === null) {
+      node.textContent = taskRows.length
+        ? `可用时间待记录${taskLabel}`
+        : '记录今天可用时间后，这里会显示今天的安排。';
+      return;
+    }
+    if (readModel.phase?.outsideCycle) {
+      node.textContent = '今天没有考试学习安排。';
+      return;
+    }
+    const planLabel = chatPlanState.status === 'ready'
+      ? ''
+      : chatPlanState.status === 'stale' ? ' · 安排依据已变化' : ' · 今日安排待同步';
+    node.textContent = `可用 ${formatMinutes(readModel.capacity.dayMinutes)} · 已学 ${formatMinutes(readModel.capacity.actualMinutes)}${taskLabel}${planLabel}`;
+  };
   const error = (message) => {
     const element = $('[data-exam-error]');
     element.hidden = !message;
@@ -250,6 +298,133 @@ export function initExamHome(root) {
     return readModel;
   }
 
+  function renderTodayTasks(presentation) {
+    const taskList = $('[data-exam-tasks]');
+    const allocations = $('[data-exam-allocations]');
+    const rows = presentation?.todayTasks || [];
+    taskList.replaceChildren();
+    taskList.hidden = rows.length === 0;
+    allocations.hidden = rows.length > 0;
+    if (!rows.length) return;
+
+    const checked = readTaskChecks();
+    for (const task of rows) {
+      const row = document.createElement('label');
+      row.className = 'examTaskRow';
+      row.dataset.taskId = task.id;
+      const input = document.createElement('input');
+      input.type = 'checkbox';
+      input.checked = Boolean(checked[task.id]);
+      input.setAttribute('aria-label', `完成：${task.label}`);
+      const copy = document.createElement('span');
+      copy.className = 'examTaskCopy';
+      const strong = document.createElement('strong');
+      strong.textContent = task.label;
+      copy.append(strong);
+      if (task.note) {
+        const small = document.createElement('small');
+        small.textContent = task.note;
+        copy.append(small);
+      }
+      const status = document.createElement('span');
+      status.className = 'examTaskStatus';
+      status.textContent = input.checked ? '已处理' : '';
+      row.dataset.checked = input.checked ? 'true' : 'false';
+      input.addEventListener('change', () => {
+        writeTaskCheck(task.id, input.checked);
+        row.dataset.checked = input.checked ? 'true' : 'false';
+        status.textContent = input.checked ? '已处理' : '';
+        renderCapacitySummary();
+      });
+      row.append(input, copy, status);
+      taskList.append(row);
+    }
+  }
+
+  function renderWeek(presentation) {
+    const section = $('[data-exam-week]');
+    const target = $('[data-exam-week-rows]');
+    const rows = presentation?.weekReference || [];
+    section.hidden = rows.length === 0;
+    target.replaceChildren();
+    if (!rows.length) return;
+    const gateDate = readModel?.gate?.date || null;
+    const rollingEnd = addStudyDays(day(), 6);
+    const weekEnd = gateDate && gateDate < rollingEnd ? gateDate : rollingEnd;
+    $('[data-exam-week-range]').textContent =
+      `${day().slice(5).replace('-', '/')} — ${weekEnd.slice(5).replace('-', '/')} · 滚动参考`;
+    for (const item of rows) {
+      const row = document.createElement('div');
+      row.className = 'examWeekRow';
+      const subject = document.createElement('strong');
+      subject.textContent = item.subject ? names[item.subject] : item.label;
+      const body = document.createElement('div');
+      body.className = 'examWeekBody';
+      if (item.subject) {
+        const label = document.createElement('span');
+        label.textContent = item.label;
+        body.append(label);
+      }
+      if (Number.isFinite(item.progress_ratio)) {
+        const bar = document.createElement('div');
+        bar.className = 'examWeekBar';
+        const fill = document.createElement('i');
+        fill.style.width = `${Math.round(item.progress_ratio * 100)}%`;
+        bar.append(fill);
+        body.append(bar);
+      }
+      if (item.detail) {
+        const detail = document.createElement('small');
+        detail.textContent = item.detail;
+        body.append(detail);
+      }
+      const value = document.createElement('b');
+      value.textContent = item.value || '';
+      row.append(subject, body, value);
+      target.append(row);
+    }
+  }
+
+  function renderSchedule(presentation) {
+    const strip = document.querySelector('[data-exam-schedule-strip]');
+    const target = document.querySelector('[data-exam-schedule-items]');
+    const dayNode = document.querySelector('[data-exam-schedule-day]');
+    if (!(strip instanceof HTMLElement) || !(target instanceof HTMLElement)) return;
+    if (dayNode) {
+      const date = new Date(`${day()}T12:00:00`);
+      dayNode.textContent = date.toLocaleDateString('zh-CN', { month: 'numeric', day: 'numeric', weekday: 'short' });
+    }
+    const rows = presentation?.scheduleBlocks || [];
+    target.replaceChildren();
+    if (!rows.length) {
+      const empty = document.createElement('p');
+      empty.className = 'homeL3ScheduleEmpty';
+      empty.textContent = '日报后，这里会显示今天已经排好的学习时间块。';
+      target.append(empty);
+      return;
+    }
+    const now = localClock();
+    for (const block of rows) {
+      const node = document.createElement('div');
+      node.className = 'homeL3ScheduleBlock';
+      const ended = block.end ? block.end <= now : block.start < now;
+      const current = block.end ? block.start <= now && now < block.end : false;
+      if (ended) node.dataset.past = 'true';
+      if (current) node.dataset.current = 'true';
+      const time = document.createElement('time');
+      time.textContent = block.end ? `${block.start}–${block.end}` : block.start;
+      const label = document.createElement('strong');
+      label.textContent = block.label;
+      node.append(time, label);
+      if (block.detail) {
+        const detail = document.createElement('span');
+        detail.textContent = block.detail;
+        node.append(detail);
+      }
+      target.append(node);
+    }
+  }
+
   function render() {
     chatPlanState = readExamChatPlan(localStorage, day());
     const xizongNative = nativeLink(
@@ -310,18 +485,12 @@ export function initExamHome(root) {
     }
     if (phaseNode) phaseNode.textContent = `${readModel.phase?.label || '考试周期'} · 总目标 ${TARGETS.total}+`;
 
-    const capacityText = $('[data-exam-capacity]');
-    if (!readable) {
-      capacityText.textContent = '本机学习记录暂时没有完整恢复。';
-    } else if (readModel.capacity.dayMinutes === null) {
-      capacityText.textContent = '记录今天可用时间后，这里会显示今天的安排。';
-    } else if (readModel.phase?.outsideCycle) {
-      capacityText.textContent = '今天没有考试学习安排。';
-    } else {
-      const planLabel = chatPlanState.status === 'ready' ? '' : ' · 今日安排待同步';
-      capacityText.textContent = `可用 ${formatMinutes(readModel.capacity.dayMinutes)} · 已学 ${formatMinutes(readModel.capacity.actualMinutes)}${planLabel}`;
-    }
-    $('[data-exam-settings]').textContent = readModel.capacity.dayMinutes === null ? '记录时间' : '调整时间';
+    renderCapacitySummary();
+    $('[data-exam-settings]').textContent = readModel.capacity.dayMinutes === null ? '记录可用时间' : '调整可用时间';
+
+    renderTodayTasks(readModel.presentation);
+    renderWeek(readModel.presentation);
+    renderSchedule(readModel.presentation);
 
     const allocations = $('[data-exam-allocations]');
     allocations.replaceChildren();

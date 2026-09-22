@@ -1,4 +1,9 @@
 const finiteOrNull = (value) => Number.isFinite(value) ? value : null;
+const clonePresentation = (value) => value ? {
+  todayTasks: (value.today_tasks || []).map((row) => ({ ...row })),
+  weekReference: (value.week_reference || []).map((row) => ({ ...row })),
+  scheduleBlocks: (value.schedule_blocks || []).map((row) => ({ ...row }))
+} : null;
 const cloneContinue = (value, fallbackSubject = null) => value?.href ? {
   subject: value.subject || fallbackSubject || null,
   href: value.href,
@@ -220,6 +225,7 @@ export function buildChatControlledExamReadModel({
     subjects,
     next,
     attention,
+    presentation: clonePresentation(plan?.presentation || chatPlanState?.presentation),
     time: timeOverlay ? {
       usesTimer: Boolean(timeOverlay.usesTimer),
       sourceBySubject: { ...(timeOverlay.sourceBySubject || {}) },

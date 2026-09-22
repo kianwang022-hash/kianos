@@ -881,3 +881,330 @@ body#kianos-workspace.surfaceBody-home .homeL3Support .examDailyPacketStatus:emp
   body#kianos-workspace.surfaceBody-home .homeL3Meta,
   body#kianos-workspace.surfaceBody-home .homeL3TaskLinks { margin-left: 0; }
 }
+
+
+/* Home task/week/calendar projection — Kian-approved Mac-wide composition.
+   Native subject Resume remains the left-side execution fallback; this block
+   only changes Home presentation and the Chat-owned projection surface. */
+@media (min-width: 901px) {
+  body#kianos-workspace.surfaceBody-home .homeL3Header {
+    margin-bottom: 10px;
+    padding-block: 6px 12px;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeL3Header h1 {
+    margin-top: 3px;
+    font-size: 34px;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeL3Gate {
+    padding: 7px 12px;
+    background: transparent;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeL3Grid {
+    grid-template-columns: minmax(0, 1.28fr) minmax(440px, .92fr);
+    gap: 10px;
+    align-items: stretch;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeL3SectionHead {
+    padding: 12px 19px;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeL3Subject {
+    padding: 13px 19px 14px;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeL3Meta {
+    margin-top: 3px;
+    font-size: 16px;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeL3ActionSurface {
+    margin-top: 8px;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeL3Subject .xzHomeContinue,
+  body#kianos-workspace.surfaceBody-home .homeL3Subject .politicsContinueCard,
+  body#kianos-workspace.surfaceBody-home .homeL3Subject .englishResume {
+    padding-block: 10px;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeL3TaskLinks {
+    margin-top: 7px;
+  }
+
+  body#kianos-workspace.surfaceBody-home .homeL3Support .examToday {
+    padding: 15px 18px 13px;
+  }
+}
+
+body#kianos-workspace.surfaceBody-home .examTaskList {
+  display: grid;
+  border-top: 1px solid var(--study-line);
+  border-bottom: 1px solid var(--study-line);
+}
+
+body#kianos-workspace.surfaceBody-home .examTaskRow {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+  min-height: 58px;
+  padding: 8px 0;
+  border-bottom: 1px solid #edf1ee;
+  cursor: pointer;
+}
+
+body#kianos-workspace.surfaceBody-home .examTaskRow:last-child { border-bottom: 0; }
+
+body#kianos-workspace.surfaceBody-home .examTaskRow > input {
+  appearance: none;
+  display: grid;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  place-content: center;
+  border: 1.5px solid #9fb5aa;
+  border-radius: 5px;
+  background: #fff;
+  cursor: pointer;
+}
+
+body#kianos-workspace.surfaceBody-home .examTaskRow > input:checked {
+  border-color: var(--study-green);
+  background: var(--study-green);
+}
+
+body#kianos-workspace.surfaceBody-home .examTaskRow > input:checked::after {
+  content: '✓';
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+body#kianos-workspace.surfaceBody-home .examTaskCopy {
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+}
+
+body#kianos-workspace.surfaceBody-home .examTaskCopy strong {
+  overflow: hidden;
+  color: var(--study-ink);
+  font-size: 17px;
+  font-weight: var(--study-weight-title);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body#kianos-workspace.surfaceBody-home .examTaskCopy small {
+  overflow: hidden;
+  color: var(--study-muted);
+  font-size: 15px;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body#kianos-workspace.surfaceBody-home .examTaskStatus {
+  color: var(--study-green);
+  font-size: 15px;
+  font-weight: var(--study-weight-shell);
+}
+
+body#kianos-workspace.surfaceBody-home .examTaskRow[data-checked='true'] .examTaskCopy {
+  opacity: .68;
+}
+
+body#kianos-workspace.surfaceBody-home .examWeek {
+  margin-top: 2px;
+  padding-top: 11px;
+  border-top: 1px solid var(--study-line);
+}
+
+body#kianos-workspace.surfaceBody-home .examWeek > header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 2px;
+}
+
+body#kianos-workspace.surfaceBody-home .examWeek h3 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: var(--study-weight-title);
+}
+
+body#kianos-workspace.surfaceBody-home .examWeek > header span {
+  color: var(--study-muted);
+  font-size: 14px;
+}
+
+body#kianos-workspace.surfaceBody-home .examWeekRow {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #edf1ee;
+}
+
+body#kianos-workspace.surfaceBody-home .examWeekRow:last-child { border-bottom: 0; }
+
+body#kianos-workspace.surfaceBody-home .examWeekRow > strong,
+body#kianos-workspace.surfaceBody-home .examWeekRow > b {
+  font-size: 15px;
+  font-weight: var(--study-weight-title);
+}
+
+body#kianos-workspace.surfaceBody-home .examWeekRow > b {
+  color: var(--study-green);
+  white-space: nowrap;
+}
+
+body#kianos-workspace.surfaceBody-home .examWeekBody {
+  display: grid;
+  min-width: 0;
+  gap: 3px;
+}
+
+body#kianos-workspace.surfaceBody-home .examWeekBody > span {
+  color: var(--study-ink);
+  font-size: 15px;
+}
+
+body#kianos-workspace.surfaceBody-home .examWeekBody > small {
+  color: var(--study-muted);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+body#kianos-workspace.surfaceBody-home .examWeekBar {
+  height: 5px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e4ece7;
+}
+
+body#kianos-workspace.surfaceBody-home .examWeekBar > i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: #82a894;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Schedule {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 126px minmax(0, 1fr) auto;
+  align-items: stretch;
+  min-height: 94px;
+  overflow: hidden;
+  border: 1px solid var(--study-line);
+  border-radius: 15px;
+  background: var(--study-surface);
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Schedule > header {
+  display: grid;
+  align-content: center;
+  gap: 3px;
+  padding: 14px 18px;
+  border-right: 1px solid var(--study-line);
+  background: #f7f9f7;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Schedule > header strong {
+  font-size: 20px;
+  font-weight: var(--study-weight-title);
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Schedule > header span {
+  color: var(--study-muted);
+  font-size: 14px;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3ScheduleItems {
+  display: flex;
+  min-width: 0;
+  align-items: stretch;
+  gap: 8px;
+  padding: 10px 12px;
+  overflow: hidden;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3ScheduleBlock {
+  display: grid;
+  min-width: 150px;
+  align-content: center;
+  gap: 2px;
+  padding: 8px 11px;
+  border-left: 3px solid #8aaf9b;
+  border-radius: 9px;
+  background: #f5f8f6;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3ScheduleBlock[data-current='true'] {
+  border-left-color: var(--study-green);
+  background: var(--study-green-soft);
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3ScheduleBlock[data-past='true'] {
+  opacity: .48;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3ScheduleBlock time {
+  color: var(--study-muted);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3ScheduleBlock strong {
+  color: var(--study-ink);
+  font-size: 16px;
+  font-weight: var(--study-weight-title);
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3ScheduleBlock span {
+  color: var(--study-muted);
+  font-size: 14px;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3ScheduleEmpty {
+  align-self: center;
+  margin: 0;
+  color: var(--study-muted);
+  font-size: 15px;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3ScheduleLink {
+  display: grid;
+  place-items: center;
+  padding: 0 18px;
+  color: var(--study-green);
+  font-size: 15px;
+  font-weight: var(--study-weight-shell);
+  white-space: nowrap;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Support .examDailyPacketButton {
+  margin: 0;
+  padding: 6px 0;
+  background: transparent;
+}
+
+@media (max-width: 900px) {
+  body#kianos-workspace.surfaceBody-home .homeL3Schedule {
+    grid-column: 1;
+    grid-template-columns: 1fr;
+  }
+  body#kianos-workspace.surfaceBody-home .homeL3Schedule > header {
+    border-right: 0;
+    border-bottom: 1px solid var(--study-line);
+  }
+  body#kianos-workspace.surfaceBody-home .homeL3ScheduleItems { overflow-x: auto; }
+  body#kianos-workspace.surfaceBody-home .homeL3ScheduleLink { min-height: 44px; }
+}
