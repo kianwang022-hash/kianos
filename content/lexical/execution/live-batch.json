@@ -3,14 +3,14 @@
   "status": "ACTIVE",
   "campaign": "FULL_CATALOG_FINAL_STANDARD_CONTINUATION",
   "semantic_ruler": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
-  "updated_at": "2026-09-22",
+  "updated_at": "2026-09-22T13:16:14+00:00",
   "frontier": {
     "candidate_id": "BF21",
     "range": [
       2151,
       2250
     ],
-    "state": "MATERIALIZE_ALLOWED",
+    "state": "READY_FOR_B_READBACK",
     "proposal_path": "content/lexical/execution/manifests/o2151-o2250.fullcatalog-final-standard-proposal.md",
     "proposal_commit": "95f1ce7960ad7df1982aa5b8e413662e6c6ca36d",
     "review_branch": "work/lexical-fullcatalog-bf21-review-20260922",
@@ -41,6 +41,18 @@
       "workflow_run": 35727813857,
       "artifact_id": 10693911883,
       "digest": "sha256:15f4435dbcb489885e74ca7552e3d4110ba26ad37b781ec39ea37eb2a72c7a3c"
+    },
+    "materialization": {
+      "status": "READY_FOR_B_READBACK",
+      "package_id": "BF21-official-o2151-o2250-v2",
+      "receipt": "content/lexical/execution/mutation-receipts/BF21-official-o2151-o2250-v2.json",
+      "final_learner_objects": 7946,
+      "updated_at": "2026-09-22T13:16:14+00:00"
+    },
+    "audit": {
+      "status": "PENDING",
+      "result": null,
+      "pack": null
     }
   },
   "next": {
@@ -70,6 +82,6 @@
     "final_learner_objects": 7946
   },
   "blocker": null,
-  "next_action": "MATERIALIZE_FRONTIER",
+  "next_action": "RUN_B_READBACK",
   "legacy_history": "content/lexical/execution/three-chat-board.json"
 }

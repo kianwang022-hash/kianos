@@ -5,7 +5,7 @@
     "ordinal": 2177,
     "word": "grade",
     "source_owner_path": "content/lexical/words/by-ordinal/o2177.json",
-    "source_fingerprint": "5ee713b7d5e4c25ed5c29c24c138d6e0923963bce242c298470fca448f4e0c11",
+    "source_fingerprint": "ad6233a05caa136158f6130107e42dff5829e4ff2fd16f7d458ef13c8c157d91",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -15,13 +15,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "等级，年级",
+      "summary_cn": "等级；成绩",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "等级，年级"
+        "target_label": "等级；成绩"
       }
     },
     "senses": [
@@ -179,7 +179,7 @@
     "ordinal": 2178,
     "word": "gradual",
     "source_owner_path": "content/lexical/words/by-ordinal/o2178.json",
-    "source_fingerprint": "f46f72841b4b480eb3c34f9af9215486c47cbc6428de88f5d74aa0f5bf7f9dcf",
+    "source_fingerprint": "008d4968735de8ab509d59103d8e69d36071780da3f235487111e5528ab9c85f",
     "sense_lineage": [
       {
         "word_id": "word:gradual",
@@ -239,7 +239,7 @@
     "ordinal": 2179,
     "word": "graduate",
     "source_owner_path": "content/lexical/words/by-ordinal/o2179.json",
-    "source_fingerprint": "8104258931312c06f53921bf0b98586c894288ee76a9a16556dd99396d04da17",
+    "source_fingerprint": "af060640d5a5d0bacf569b7f5ef3d99021372ed8d1410c7354bf40ab0c755900",
     "sense_lineage": [
       {
         "word_id": "word:graduate",
@@ -415,27 +415,30 @@
     "secondary_senses": [],
     "constructions": [],
     "reference": {
-      "confusables": [
-        {
-          "title": "graduate ↔ adjective/graduate noun ↔ graduate verb",
-          "target_word": "adjective/graduate noun ↔ graduate verb",
-          "lines": [
-            {
-              "text": "graduate noun/adjective /ˈɡrædʒuət/ contrasts with graduate verb /ˈɡrædʒueɪt/ in the final syllable.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "confusable:horizontal:a84c9246d100201de18b",
-            "target_locator": "record.confusables[0]",
-            "target_label": "graduate ↔ adjective/graduate noun ↔ graduate verb"
-          }
-        }
-      ],
+      "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "graduate noun/adjective /ˈɡrædʒuət/ contrasts with graduate verb /ˈɡrædʒueɪt/ in the final syllable.",
+        "boundaries": [
+          {
+            "surface": "graduate",
+            "condition": "noun/adjective",
+            "note": "/ˈɡrædʒuət/"
+          },
+          {
+            "surface": "graduate",
+            "condition": "verb",
+            "note": "/ˈɡrædʒueɪt/"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "graduate noun/adjective /ˈɡrædʒuət/ contrasts with graduate verb /ˈɡrædʒueɪt/ in the final syllable."
+        }
+      },
       "family": []
     }
   },
@@ -956,7 +959,7 @@
     "ordinal": 2185,
     "word": "grant",
     "source_owner_path": "content/lexical/words/by-ordinal/o2185.json",
-    "source_fingerprint": "444034aed23e164b6bc4ca7ffa916b6d37908c0fd14f71366b2d439ddad4398a",
+    "source_fingerprint": "7b92aa77eec873946cd7d77fcbbb02e173e531f98776739d942be86136491d4e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1089,33 +1092,8 @@
     ],
     "constructions": [
       {
-        "id": "deep:constructions:grant:11287ed2faf972ac",
-        "source_locator": "record.constructions[0]",
-        "pattern": "vt. + that clause",
-        "lines": [
-          {
-            "text": "承认某事属实",
-            "lang": "cn"
-          },
-          {
-            "text": "grant that 承认某事属实",
-            "lang": "cn"
-          },
-          {
-            "text": "to admit that something is true",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "deep:constructions:grant:11287ed2faf972ac",
-          "target_locator": "record.constructions[0]",
-          "target_label": "vt. + that clause"
-        }
-      },
-      {
         "id": "construction:fbca56cd38fff39854b8",
-        "source_locator": "record.constructions[1]",
+        "source_locator": "record.constructions[0]",
         "pattern": "take sth for granted",
         "lines": [
           {
@@ -1130,7 +1108,7 @@
         "repair": {
           "target_kind": "construction",
           "target_id": "construction:fbca56cd38fff39854b8",
-          "target_locator": "record.constructions[1]",
+          "target_locator": "record.constructions[0]",
           "target_label": "take sth for granted"
         }
       }
@@ -1960,7 +1938,7 @@
     "ordinal": 2193,
     "word": "grave",
     "source_owner_path": "content/lexical/words/by-ordinal/o2193.json",
-    "source_fingerprint": "673072da06725b53e4aebf4bfcde3d3e9230535588e4ee0d4368a6ae859b7bfd",
+    "source_fingerprint": "6d5e13d500373388eefa2a2ccf53670244ac474e14a55de674ebbe17f50619d3",
     "sense_lineage": [
       {
         "word_id": "word:grave",
@@ -2079,7 +2057,7 @@
           "target_word": "gravity",
           "lines": [
             {
-              "text": "grave 严肃 → gravity 重力",
+              "text": "grave 严肃的/严重的 → gravity 严肃性/严重性",
               "lang": "cn"
             }
           ],
@@ -2370,7 +2348,7 @@
     "ordinal": 2196,
     "word": "grease",
     "source_owner_path": "content/lexical/words/by-ordinal/o2196.json",
-    "source_fingerprint": "13bbc6da01d7a2b960ca1bd602019afe8778c4e2e1352faf66afbc060dc37ccc",
+    "source_fingerprint": "24780c08fe14e9925aced268f5a3f0e385d91f8d6befc35d9b7e4449405c2edb",
     "sense_lineage": [
       {
         "word_id": "word:grease",
@@ -3298,7 +3276,7 @@
     "ordinal": 2203,
     "word": "grey",
     "source_owner_path": "content/lexical/words/by-ordinal/o2203.json",
-    "source_fingerprint": "1f68f9c8055f8943247607628d1793b6447577003d999302afc047155523cdab",
+    "source_fingerprint": "311eb8d4b7a372481f89a30ee9b96a7c4b13c4ccd4dd3926b7085cc5b5dfaf4b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3425,7 +3403,7 @@
         "id": "sense:grey:5c4223b0f7d75b69",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vi. / vt. + object",
         "definition_cn": "（使）变灰",
         "definition_en": "make or become grey",
         "note": "",
@@ -3478,7 +3456,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "grey is the usual British spelling; gray is the usual American spelling.",
+        "boundaries": [
+          {
+            "surface": "grey",
+            "condition": "British English",
+            "note": "BrE spelling"
+          },
+          {
+            "surface": "gray",
+            "condition": "American English",
+            "note": "AmE spelling"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "grey is the usual British spelling; gray is the usual American spelling."
+        }
+      },
       "family": []
     }
   },
@@ -3698,7 +3697,7 @@
     "ordinal": 2206,
     "word": "grim",
     "source_owner_path": "content/lexical/words/by-ordinal/o2206.json",
-    "source_fingerprint": "bd380d3ac4f3281e810c5da30a26f548c051a35adaf2409ad09a71591141ea36",
+    "source_fingerprint": "004887a3f46045412551ea4a06bbceb50f31dc4a17dcbd7bd47fa8edfe0f2c76",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3707,58 +3706,19 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "冷酷的；严峻的",
+      "summary_cn": "严峻的；令人不快或担忧的",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "冷酷的；严峻的"
+        "target_label": "严峻的；令人不快或担忧的"
       }
     },
     "senses": [
       {
-        "id": "sense:grim:3e736454a6c4582b",
-        "source_locator": "record.senses[0]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "冷酷的；严厉的；不屈的",
-        "definition_en": "not to be placated or appeased or moved by entreaty; stern and unyielding",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:5711c10077f5fbdb51ad",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "a grim expression",
-            "meaning_cn": "冷酷的表情",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:38264b2e2530fde6739b",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "grim determination",
-            "meaning_cn": "坚定的决心",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:38264b2e2530fde6739b",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "grim determination"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:grim:3e736454a6c4582b",
-          "target_locator": "record.senses[0]",
-          "target_label": "冷酷的；严厉的；不屈的"
-        }
-      },
-      {
         "id": "sense:grim:b393448033b35b23",
-        "source_locator": "record.senses[1]",
+        "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "可怕的；令人沮丧的",
@@ -3768,20 +3728,20 @@
         "usage": [
           {
             "id": "collocation:750249f7480fe32d36b4",
-            "source_locator": "record.senses[1].collocations[0]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "grim news",
             "meaning_cn": "坏消息",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:750249f7480fe32d36b4",
-              "target_locator": "record.senses[1].collocations[0]",
+              "target_locator": "record.senses[0].collocations[0]",
               "target_label": "grim news"
             }
           },
           {
             "id": "collocation:26bbf8ef2f2eb94d0ceb",
-            "source_locator": "record.senses[1].collocations[1]",
+            "source_locator": "record.senses[0].collocations[1]",
             "phrase": "a grim situation",
             "meaning_cn": "严峻的形势",
             "kind": "usage_example",
@@ -3791,8 +3751,47 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:grim:b393448033b35b23",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[0]",
           "target_label": "可怕的；令人沮丧的"
+        }
+      },
+      {
+        "id": "sense:grim:3e736454a6c4582b",
+        "source_locator": "record.senses[1]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "冷酷的；严厉的；不屈的",
+        "definition_en": "not to be placated or appeased or moved by entreaty; stern and unyielding",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:5711c10077f5fbdb51ad",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "a grim expression",
+            "meaning_cn": "冷酷的表情",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:38264b2e2530fde6739b",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "grim determination",
+            "meaning_cn": "坚定的决心",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:38264b2e2530fde6739b",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "grim determination"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:grim:3e736454a6c4582b",
+          "target_locator": "record.senses[1]",
+          "target_label": "冷酷的；严厉的；不屈的"
         }
       }
     ],
@@ -3917,7 +3916,7 @@
     "ordinal": 2208,
     "word": "grind",
     "source_owner_path": "content/lexical/words/by-ordinal/o2208.json",
-    "source_fingerprint": "0f9ee1fc896634e0678f11a42cc04d66b738ce93a5a47dbc51aad77c4984a6d0",
+    "source_fingerprint": "cf6735d0be0fa6f086e90223a2a44bb3b73a4e9c849bb6d81e361836e69b4df0",
     "sense_lineage": [
       {
         "word_id": "word:grind",
@@ -4117,7 +4116,33 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "grind is irregular: grind → ground → ground. The surface ground is also an independent frozen Word owner with its own meanings.",
+        "boundaries": [
+          {
+            "surface": "grind",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "ground",
+            "condition": "past simple of grind",
+            "note": "irregular past; also independent Word owner"
+          },
+          {
+            "surface": "ground",
+            "condition": "past participle of grind",
+            "note": "irregular participle; also independent Word owner"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "grind is irregular: grind → ground → ground. The surface ground is also an independent frozen Word owner with its own meanings."
+        }
+      },
       "family": []
     }
   },
@@ -4127,7 +4152,7 @@
     "ordinal": 2209,
     "word": "grip",
     "source_owner_path": "content/lexical/words/by-ordinal/o2209.json",
-    "source_fingerprint": "251bd401205e8731d35c355d6e10233a2335d8c5e7ec1784aec22ffe1452e74f",
+    "source_fingerprint": "b074925e6c3c4528c2661b9bace78e129312a6cc66c06c4a4783038b7eb70567",
     "sense_lineage": [
       {
         "word_id": "word:grip",
@@ -4214,25 +4239,8 @@
         }
       },
       {
-        "id": "sense:grip:37291525af65560b",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "抓住注意力或兴趣",
-        "definition_en": "to hold someone's attention or interest",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:grip:37291525af65560b",
-          "target_locator": "record.senses[1]",
-          "target_label": "抓住注意力或兴趣"
-        }
-      },
-      {
         "id": "sense:grip:7c9bcec3c7035433",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "紧紧抓住；牢牢握住",
@@ -4243,8 +4251,25 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:grip:7c9bcec3c7035433",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[1]",
           "target_label": "紧紧抓住；牢牢握住"
+        }
+      },
+      {
+        "id": "sense:grip:37291525af65560b",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "",
+        "definition_cn": "抓住注意力或兴趣",
+        "definition_en": "to hold someone's attention or interest",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:grip:37291525af65560b",
+          "target_locator": "record.senses[2]",
+          "target_label": "抓住注意力或兴趣"
         }
       }
     ],
@@ -4810,7 +4835,7 @@
     "ordinal": 2214,
     "word": "ground",
     "source_owner_path": "content/lexical/words/by-ordinal/o2214.json",
-    "source_fingerprint": "ac591354c4d19371c378981e405ff11733c8db5efaff50362496c1252fd70c9b",
+    "source_fingerprint": "1bc0d88ab0150363dd785b46f0914e4c2293cdf76385b56598e5383e5ed620f6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4977,7 +5002,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "ground is an independent Word owner with its own meanings and also the past simple/past participle surface of grind. Do not collapse the two lexical identities.",
+        "boundaries": [
+          {
+            "surface": "ground",
+            "condition": "independent uses owned by word:ground",
+            "note": "independent frozen Word owner"
+          },
+          {
+            "surface": "ground",
+            "condition": "past simple/past participle of grind",
+            "note": "inflectional surface of word:grind"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "ground is an independent Word owner with its own meanings and also the past simple/past participle surface of grind. Do not collapse the two lexical identities."
+        }
+      },
       "family": []
     }
   },
@@ -4987,7 +5033,7 @@
     "ordinal": 2215,
     "word": "group",
     "source_owner_path": "content/lexical/words/by-ordinal/o2215.json",
-    "source_fingerprint": "98d5c67fa7f4f54783b67d8972417b1d0c080e8cf64ff73461239b81737f6b79",
+    "source_fingerprint": "4dfe66db383eed2a1df5181af2ae6702740d204282be464f4379d2070026e167",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5094,39 +5140,8 @@
         }
       },
       {
-        "id": "sense:group:c7cc822bb1ce57aa",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vi. + together",
-        "definition_cn": "聚集，成群",
-        "definition_en": "to come together to form a group",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:e956435cf08d08f3f573",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "group together",
-            "meaning_cn": "聚集在一起",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:e956435cf08d08f3f573",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "group together"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:group:c7cc822bb1ce57aa",
-          "target_locator": "record.senses[3]",
-          "target_label": "聚集，成群"
-        }
-      },
-      {
         "id": "sense:group:a1e18bf7a8f4502d",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[3]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "群（数学）",
@@ -5136,7 +5151,7 @@
         "usage": [
           {
             "id": "collocation:5ee4bfc68bfb33b79384",
-            "source_locator": "record.senses[4].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "group theory",
             "meaning_cn": "群论",
             "kind": "usage_example",
@@ -5146,8 +5161,39 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:group:a1e18bf7a8f4502d",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[3]",
           "target_label": "群（数学）"
+        }
+      },
+      {
+        "id": "sense:group:c7cc822bb1ce57aa",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "vi. + together",
+        "definition_cn": "聚集，成群",
+        "definition_en": "to come together to form a group",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:e956435cf08d08f3f573",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "group together",
+            "meaning_cn": "聚集在一起",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:e956435cf08d08f3f573",
+              "target_locator": "record.senses[4].collocations[0]",
+              "target_label": "group together"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:group:c7cc822bb1ce57aa",
+          "target_locator": "record.senses[4]",
+          "target_label": "聚集，成群"
         }
       }
     ],
@@ -5166,7 +5212,7 @@
     "ordinal": 2216,
     "word": "grow",
     "source_owner_path": "content/lexical/words/by-ordinal/o2216.json",
-    "source_fingerprint": "5c153b8960e0f38228fe7c1cd2298bb6232131b1e02f03dbe793b83b320bedb3",
+    "source_fingerprint": "2d655b0edc106c7b3b3871c2bbd142cbfae26354a1bd1e1995e91e73cdb2cfdd",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5298,7 +5344,33 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "grow is irregular: grow → grew → grown.",
+        "boundaries": [
+          {
+            "surface": "grow",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "grew",
+            "condition": "past simple",
+            "note": "irregular past"
+          },
+          {
+            "surface": "grown",
+            "condition": "past participle",
+            "note": "irregular participle"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "grow is irregular: grow → grew → grown."
+        }
+      },
       "family": []
     }
   },
@@ -5697,7 +5769,7 @@
     "ordinal": 2220,
     "word": "guard",
     "source_owner_path": "content/lexical/words/by-ordinal/o2220.json",
-    "source_fingerprint": "ffa3d4b4958997e2110605f0a67416b4f0986b095a0af46f44ee0bf027cd9433",
+    "source_fingerprint": "5f603e4ceeda965fc354a383d187626d852a2657cc207a796bc5713c441f10c2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5854,7 +5926,7 @@
     "ordinal": 2221,
     "word": "guess",
     "source_owner_path": "content/lexical/words/by-ordinal/o2221.json",
-    "source_fingerprint": "b53924747229f85757f7836ad332a15b375f661b097bc2f5f1c5406cca1eaca9",
+    "source_fingerprint": "b295fb81c12fa3e571efeae3da881e211ba233afd19c3a3484b5047affad21dd",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6167,7 +6239,7 @@
     "ordinal": 2224,
     "word": "guide",
     "source_owner_path": "content/lexical/words/by-ordinal/o2224.json",
-    "source_fingerprint": "70f24e8089f2a383be0968220192c7d1c5109bdb711638ba9431efc94e58d7bc",
+    "source_fingerprint": "5a9812f3e6c912f3fabd4688d3bd15d2958e36d94354cb10113aec376482fd37",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6334,7 +6406,7 @@
           "target_word": "guidance",
           "lines": [
             {
-              "text": "名词形式指指导或引导",
+              "text": "guide 指导/提供建议 → guidance 指导；建议",
               "lang": "cn"
             }
           ],
@@ -6492,7 +6564,7 @@
     "ordinal": 2227,
     "word": "guilt",
     "source_owner_path": "content/lexical/words/by-ordinal/o2227.json",
-    "source_fingerprint": "38fb35f5492fcea677179b283fc04a2f4fe55dd6915569d8845ea4fcdd4883d1",
+    "source_fingerprint": "1e26491abb4f67195f55e3dc90d0509b7033ad344553b60dba47ec1354d33a0a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6501,13 +6573,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "罪行；内疚",
+      "summary_cn": "有罪；罪责；内疚",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "罪行；内疚"
+        "target_label": "有罪；罪责；内疚"
       }
     },
     "senses": [
@@ -6516,7 +6588,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "罪行，犯罪",
+        "definition_cn": "有罪；犯罪责任",
         "definition_en": "the state of having committed an offense",
         "note": "",
         "identity_overlay": null,
@@ -6552,7 +6624,7 @@
           "target_kind": "sense",
           "target_id": "sense:guilt:dc1152bb02fd5e29",
           "target_locator": "record.senses[0]",
-          "target_label": "罪行，犯罪"
+          "target_label": "有罪；犯罪责任"
         }
       },
       {
@@ -7111,7 +7183,7 @@
     "ordinal": 2232,
     "word": "gun",
     "source_owner_path": "content/lexical/words/by-ordinal/o2232.json",
-    "source_fingerprint": "fbba5b1d3878d07dac92a05d9b352778675239964d4c8101f668baaa751e42de",
+    "source_fingerprint": "225f27132d1fbe8c7007a9367484e0837c0fefce6fdffea08163974bbf2f94f5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7121,13 +7193,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "枪",
+      "summary_cn": "枪；枪声信号",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "枪"
+        "target_label": "枪；枪声信号"
       }
     },
     "senses": [
@@ -7170,7 +7242,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "礼炮；信号枪",
+        "definition_cn": "枪声信号；鸣枪礼",
         "definition_en": "the discharge of a firearm as a signal or salute",
         "note": "",
         "identity_overlay": null,
@@ -7188,7 +7260,7 @@
           "target_kind": "sense",
           "target_id": "sense:gun:18a13fe2954558f7",
           "target_locator": "record.senses[1]",
-          "target_label": "礼炮；信号枪"
+          "target_label": "枪声信号；鸣枪礼"
         }
       },
       {
@@ -7238,7 +7310,7 @@
     "ordinal": 2233,
     "word": "gut",
     "source_owner_path": "content/lexical/words/by-ordinal/o2233.json",
-    "source_fingerprint": "62165e735afc0c798af18e94249bb57801f18d89df0bdd0309bb89f3d0170e3c",
+    "source_fingerprint": "f2b845ceabaa3c08551fc581546410b597250c2895eb4dc5c0e93c3ce3e4d9c1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7396,7 +7468,7 @@
     "ordinal": 2234,
     "word": "guy",
     "source_owner_path": "content/lexical/words/by-ordinal/o2234.json",
-    "source_fingerprint": "b5fc0eef77df5dc7df9d3acb0a046a81b0ed93d8d2720d98d1eddc6c99e6a83f",
+    "source_fingerprint": "5213c81b9cd2ac436270fb11472eff8c89e07c83a93c0d3d3b69a67ef52336ab",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7406,112 +7478,19 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "家伙或支索",
+      "summary_cn": "家伙；男人（非正式）",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "家伙或支索"
+        "target_label": "家伙；男人（非正式）"
       }
     },
     "senses": [
       {
-        "id": "sense:guy:c2e20cf020fa5a39",
-        "source_locator": "record.senses[0]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "支索，拉线",
-        "definition_en": "a cable, wire, or rope used to brace something",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:3519618be8956710f00c",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "guy wire",
-            "meaning_cn": "拉线，支索",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:3519618be8956710f00c",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "guy wire"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:guy:c2e20cf020fa5a39",
-          "target_locator": "record.senses[0]",
-          "target_label": "支索，拉线"
-        }
-      },
-      {
-        "id": "sense:guy:ae80ad5bd7fe5cfa",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "用支索撑住",
-        "definition_en": "steady or support with a guy wire or cable",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:44c7650a8ba4096c5b50",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "guy + sth",
-            "meaning_cn": "用支索固定某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:44c7650a8ba4096c5b50",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "guy + sth"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:guy:ae80ad5bd7fe5cfa",
-          "target_locator": "record.senses[1]",
-          "target_label": "用支索撑住"
-        }
-      },
-      {
-        "id": "sense:guy:098ffa2b70d4557e",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "取笑，嘲弄",
-        "definition_en": "make fun of or tease",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:63ae22e5386daebff1a8",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "guy + sb",
-            "meaning_cn": "取笑某人",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:63ae22e5386daebff1a8",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "guy + sb"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:guy:098ffa2b70d4557e",
-          "target_locator": "record.senses[2]",
-          "target_label": "取笑，嘲弄"
-        }
-      },
-      {
         "id": "sense:guy:9d4a4f75f34852a5",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "家伙；男人（非正式）",
@@ -7522,8 +7501,101 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:guy:9d4a4f75f34852a5",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[0]",
           "target_label": "家伙；男人（非正式）"
+        }
+      },
+      {
+        "id": "sense:guy:c2e20cf020fa5a39",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "支索，拉线",
+        "definition_en": "a cable, wire, or rope used to brace something",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:3519618be8956710f00c",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "guy wire",
+            "meaning_cn": "拉线，支索",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:3519618be8956710f00c",
+              "target_locator": "record.senses[1].collocations[0]",
+              "target_label": "guy wire"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:guy:c2e20cf020fa5a39",
+          "target_locator": "record.senses[1]",
+          "target_label": "支索，拉线"
+        }
+      },
+      {
+        "id": "sense:guy:ae80ad5bd7fe5cfa",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "vt. + object",
+        "definition_cn": "用支索撑住",
+        "definition_en": "steady or support with a guy wire or cable",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:44c7650a8ba4096c5b50",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "guy + sth",
+            "meaning_cn": "用支索固定某物",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:44c7650a8ba4096c5b50",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "guy + sth"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:guy:ae80ad5bd7fe5cfa",
+          "target_locator": "record.senses[2]",
+          "target_label": "用支索撑住"
+        }
+      },
+      {
+        "id": "sense:guy:098ffa2b70d4557e",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "vt. + object",
+        "definition_cn": "取笑，嘲弄",
+        "definition_en": "make fun of or tease",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:63ae22e5386daebff1a8",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "guy + sb",
+            "meaning_cn": "取笑某人",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:63ae22e5386daebff1a8",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "guy + sb"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:guy:098ffa2b70d4557e",
+          "target_locator": "record.senses[3]",
+          "target_label": "取笑，嘲弄"
         }
       }
     ],
@@ -7611,7 +7683,7 @@
     "ordinal": 2236,
     "word": "habit",
     "source_owner_path": "content/lexical/words/by-ordinal/o2236.json",
-    "source_fingerprint": "e35ab1504d30ffedd38134d7ea3749482227969918ede4cae6c682ada994afd4",
+    "source_fingerprint": "6ca93d2b34ace8d6575991e98ea6d87c0a120d7e8a9c31314f8121171994d616",
     "sense_lineage": [
       {
         "word_id": "word:habit",
@@ -7771,7 +7843,7 @@
     "ordinal": 2238,
     "word": "hail",
     "source_owner_path": "content/lexical/words/by-ordinal/o2238.json",
-    "source_fingerprint": "d35835235de6924f5c17f556fe192cf4d225082274badc407198725edd33dcb4",
+    "source_fingerprint": "20b6fe9086e192d4e715c16cb996b753a82394839848027291676ba02e6e0080",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7781,13 +7853,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "冰雹；欢呼；招呼；来自",
+      "summary_cn": "冰雹；欢呼；招呼、叫停；来自",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "冰雹；欢呼；招呼；来自"
+        "target_label": "冰雹；欢呼；招呼、叫停；来自"
       }
     },
     "senses": [
@@ -7822,8 +7894,8 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "向...欢呼；致敬",
-        "definition_en": "to greet or acclaim enthusiastically",
+        "definition_cn": "向……欢呼、致敬；招呼、叫停",
+        "definition_en": "to greet or acclaim enthusiastically, or to call out to attract attention or make a vehicle stop",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7853,7 +7925,7 @@
           "target_kind": "sense",
           "target_id": "sense:hail:ce1775e9726d54d1",
           "target_locator": "record.senses[1]",
-          "target_label": "向...欢呼；致敬"
+          "target_label": "向……欢呼、致敬；招呼、叫停"
         }
       },
       {
@@ -7929,7 +8001,7 @@
     "ordinal": 2239,
     "word": "hair",
     "source_owner_path": "content/lexical/words/by-ordinal/o2239.json",
-    "source_fingerprint": "371e0523c5f0a1cbc0b16924e8d2bc17347014e555a60092858bf68da7a1b5c2",
+    "source_fingerprint": "db2d4e1397329371b6504796509c238efcddb042b1d02d084c513d88b1bbb1c9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8025,7 +8097,41 @@
     "secondary_senses": [],
     "constructions": [],
     "reference": {
-      "confusables": [],
+      "confusables": [
+        {
+          "title": "hair ↔ hare",
+          "target_word": "hare",
+          "lines": [
+            {
+              "text": "hair means the fine strands growing from skin; hare means a fast-running animal similar to a rabbit. They are standard homophones in the checked UK/US pronunciations.",
+              "lang": "en"
+            },
+            {
+              "text": "hair = 毛发/头发",
+              "lang": "cn"
+            },
+            {
+              "text": "hare = 野兔",
+              "lang": "cn"
+            },
+            {
+              "text": "same pronunciation; spelling and meaning differ",
+              "lang": "en"
+            },
+            {
+              "text": "Do not confuse hair (毛发) with hare (野兔): same pronunciation, different spelling and meaning.",
+              "lang": "cn"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:confusable:hair|hare:homophone",
+            "target_locator": "record.confusables[0]",
+            "target_label": "hair ↔ hare"
+          }
+        }
+      ],
       "relations": [],
       "form": null,
       "family": []
@@ -8037,7 +8143,7 @@
     "ordinal": 2240,
     "word": "half",
     "source_owner_path": "content/lexical/words/by-ordinal/o2240.json",
-    "source_fingerprint": "d86300d4d7075c4a32d283ca5576c36dacd35a8945fbad4cbc237dba557bc079",
+    "source_fingerprint": "001d3bc551769f99d55be6efb4c4fdb735809c16f71b146be494f40ed38d672a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8176,34 +8282,8 @@
         }
       },
       {
-        "id": "sense:half:c33452097bfb57c5",
-        "source_locator": "record.senses[4]",
-        "pos": "adverb",
-        "governing_pattern": "",
-        "definition_cn": "一半地；部分地",
-        "definition_en": "to the extent of half; partially",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:b901bd2890e89938855f",
-            "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "half full",
-            "meaning_cn": "半满",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:half:c33452097bfb57c5",
-          "target_locator": "record.senses[4]",
-          "target_label": "一半地；部分地"
-        }
-      },
-      {
         "id": "sense:half:9a38b12595c15fd3",
-        "source_locator": "record.senses[5]",
+        "source_locator": "record.senses[4]",
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "同父异母或同母异父的",
@@ -8213,7 +8293,7 @@
         "usage": [
           {
             "id": "collocation:8805d32a3effafe22b28",
-            "source_locator": "record.senses[5].collocations[0]",
+            "source_locator": "record.senses[4].collocations[0]",
             "phrase": "half brother",
             "meaning_cn": "同父异母或同母异父的兄弟",
             "kind": "usage_example",
@@ -8223,8 +8303,34 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:half:9a38b12595c15fd3",
-          "target_locator": "record.senses[5]",
+          "target_locator": "record.senses[4]",
           "target_label": "同父异母或同母异父的"
+        }
+      },
+      {
+        "id": "sense:half:c33452097bfb57c5",
+        "source_locator": "record.senses[5]",
+        "pos": "adverb",
+        "governing_pattern": "",
+        "definition_cn": "一半地；部分地",
+        "definition_en": "to the extent of half; partially",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:b901bd2890e89938855f",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "half full",
+            "meaning_cn": "半满",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:half:c33452097bfb57c5",
+          "target_locator": "record.senses[5]",
+          "target_label": "一半地；部分地"
         }
       }
     ],
