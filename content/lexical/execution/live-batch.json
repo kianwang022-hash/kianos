@@ -3,14 +3,14 @@
   "status": "ACTIVE",
   "campaign": "FULL_CATALOG_FINAL_STANDARD_CONTINUATION",
   "semantic_ruler": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
-  "updated_at": "2026-09-22",
+  "updated_at": "2026-09-22T15:07:24+00:00",
   "frontier": {
     "candidate_id": "BF24",
     "range": [
       2451,
       2550
     ],
-    "state": "MATERIALIZE_ALLOWED",
+    "state": "READY_TO_MERGE",
     "proposal_path": "content/lexical/execution/manifests/o2451-o2550.fullcatalog-final-standard-proposal.md",
     "proposal_commit": "a249e1c4d49d3065005fe10db61ffcac17338074",
     "review_branch": "work/lexical-fullcatalog-bf24-review-20260922",
@@ -41,7 +41,22 @@
       "artifact_id": 10699202984,
       "digest": "sha256:6e92415465e7f56f3bbf5e95e00f1f09b24a71c55b8c68bd90472b658fedb1a9"
     },
-    "self_attack_note": "Focused Gate to 3 noun/verb stress Forms + 3 high-value near-form academic decision Relations; repaired existing eminent↔imminent reciprocal entrypoint without a new gate."
+    "self_attack_note": "Focused Gate to 3 noun/verb stress Forms + 3 high-value near-form academic decision Relations; repaired existing eminent↔imminent reciprocal entrypoint without a new gate.",
+    "materialization": {
+      "status": "READY_FOR_B_READBACK",
+      "package_id": "BF24-B-reconcile-v2",
+      "receipt": "content/lexical/execution/mutation-receipts/BF24-B-reconcile-v2.json",
+      "final_learner_objects": 7946,
+      "updated_at": "2026-09-22T15:06:28+00:00"
+    },
+    "audit": {
+      "status": "COMPLETE",
+      "result": "PASS",
+      "pack": "content/lexical/semantic-audit/O2451_O2550_FINAL_RECONCILED_READBACK.md",
+      "blind_first": "NOT_ENFORCED",
+      "correction_ordinals": [],
+      "updated_at": "2026-09-22T15:07:24+00:00"
+    }
   },
   "next": {
     "candidate_id": "BF25",
@@ -70,6 +85,6 @@
     "final_learner_objects": 7946
   },
   "blocker": null,
-  "next_action": "MATERIALIZE_FRONTIER",
+  "next_action": "AUTO_MERGE",
   "legacy_history": "content/lexical/execution/three-chat-board.json"
 }
