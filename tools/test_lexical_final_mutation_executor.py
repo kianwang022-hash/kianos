@@ -68,9 +68,14 @@ class ExecutorFixture:
         self.board = {
             "schema": m.BOARD_SCHEMA,
             "frontier": {
-                "current_candidate_id": "BF01",
+                "candidate_id": "BF01",
                 "range": [101, 200],
                 "state": "MATERIALIZE_ALLOWED",
+                "human_gate": {
+                    "status": "APPROVED",
+                    "ordinals": [],
+                    "approval_ref": "proposal@approved",
+                },
             },
         }
         write_json(self.word_path, self.owner)
@@ -154,6 +159,21 @@ class MutationExecutorTests(unittest.TestCase):
                 m.apply_package(fx.root, fx.package_path, "work/lexical-continuous-test")
         finally:
             fx.close()
+
+    def test_live_cursor_gate_cannot_be_bypassed_by_package(self):
+        fx = ExecutorFixture()
+        try:
+            fx.board["frontier"]["human_gate"]["status"] = "PENDING"
+            write_json(fx.board_path, fx.board)
+            run(fx.root, "add", ".")
+            run(fx.root, "commit", "-m", "gate pending")
+            fx.base = run(fx.root, "rev-parse", "HEAD")
+            fx.make_package()
+            with self.assertRaisesRegex(ValueError, "LIVE_HUMAN_GATE_NOT_APPROVED"):
+                m.apply_package(fx.root, fx.package_path, "work/lexical-continuous-test")
+        finally:
+            fx.close()
+
 
     def test_non_lexical_path_fails_closed(self):
         fx = ExecutorFixture()
