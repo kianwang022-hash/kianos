@@ -350,6 +350,7 @@ async function systemRecallToPracticeJourney(page) {
     routeLink.click()
   ]);
   await repairPage.waitForLoadState('domcontentloaded');
+  await repairPage.bringToFront();
   await repairPage.waitForFunction(() => document.documentElement.dataset.learnerWriter === 'active');
   await repairPage.waitForFunction((blockId) => (
     localStorage.getItem('kianos-xizong-repair-inbox-v1:xizong:' + blockId) === null
