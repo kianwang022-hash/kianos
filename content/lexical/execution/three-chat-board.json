@@ -32,42 +32,30 @@
     "p_behavior": "APPROVE_EXACT_SHOWN_DELTA__FREEZE_BACKLOG__IMMEDIATE_NEXT_PRODUCTION_BATCH"
   },
   "frontier": {
-    "accepted_main_head": "8d95bf2a4505b7a80fc0402af93ba0a55ab36374",
-    "current_candidate_id": "BF15",
+    "accepted_main_head": "949277d8476494fe9236d216d66162ce7b9d16cf",
+    "current_candidate_id": "BF16",
     "range": [
-      1551,
-      1650
+      1651,
+      1750
     ],
-    "state": "B_AUDIT_PASS__READY_TO_MERGE",
+    "state": "REVIEW_BUNDLE_REQUIRED",
     "candidate_pr": null,
-    "candidate_branch": "work/lexical-continuous-bf15-official-20260922",
-    "materialized_owner_read_head": "c53178ed7c9d2c2b5ad6b85c9d6d03d18e652317",
-    "review_branch": "work/lexical-fullcatalog-bf15-review-20260922",
-    "proposal_path": "content/lexical/execution/manifests/o1551-o1650.fullcatalog-final-standard-proposal.md",
-    "proposal_commit": "8700c37e75f375c5b50d3143e962d092c9d979df",
-    "note": "BF15 official candidate materialized and B readback PASS without reconciliation. BLIND_FIRST_NOT_ENFORCED. Ready to merge; next o1651-o1750."
+    "candidate_branch": null,
+    "materialized_owner_read_head": null,
+    "note": "BF15 merged cleanly via PR #780. Advance full-catalog final-standard second pass to BF16 o1651-o1750; Fresh Read + Self Attack under unchanged ruler."
   },
   "audit_target": {
-    "state": "PASS_READY_TO_MERGE",
-    "candidate_id": "BF15",
+    "state": "WAITING_PRODUCTION_AND_MATERIALIZATION",
+    "candidate_id": "BF16",
     "range": [
-      1551,
-      1650
+      1651,
+      1750
     ],
     "candidate_pr": null,
-    "candidate_branch": "work/lexical-continuous-bf15-official-20260922",
-    "candidate_owner_read_head": "c53178ed7c9d2c2b5ad6b85c9d6d03d18e652317",
+    "candidate_branch": null,
+    "candidate_owner_read_head": null,
     "brief": null,
-    "output": "content/lexical/semantic-audit/O1551_O1650_FINAL_STANDARD_SAME_CHAT_B_AUDIT_PACK.md",
-    "result": "PASS",
-    "independence_note": "BLIND_FIRST_NOT_ENFORCED",
-    "human_gate_status": "APPROVED_EXACT_SCOPE",
-    "human_gate_approval": "Kian p 2026-09-22",
-    "human_gate_approved_ordinals": [
-      1557,
-      1593,
-      1594
-    ]
+    "output": null
   },
   "lanes": {
     "A": {
@@ -1596,42 +1584,24 @@
     }
   ],
   "last_closed": {
-    "candidate_id": "BF14",
+    "candidate_id": "BF15",
     "range": [
-      1451,
-      1550
+      1551,
+      1650
     ],
-    "pr": 774,
-    "merge_commit": "7db2b3145c2747dbdb5e2f7de6d4c19d2625d978",
-    "result": "PRODUCTION_MATERIALIZED_B_RECONCILED_AUDIT_PASS_AND_MERGED",
+    "pr": 780,
+    "merge_commit": "949277d8476494fe9236d216d66162ce7b9d16cf",
+    "result": "PRODUCTION_MATERIALIZED_B_AUDIT_PASS_AND_MERGED",
     "production_review": "100/100",
-    "affected_owner_count": 31,
-    "no_change_count": 69,
-    "new_material_human_gate_approved_groups": 9,
+    "affected_owner_count": 26,
+    "no_change_count": 74,
     "new_material_human_gate_approved_ordinals": [
-      1454,
-      1464,
-      1488,
-      1502,
-      1507,
-      1511,
-      1513,
-      1538,
-      1540,
-      1550
+      1557,
+      1593,
+      1594
     ],
-    "remote_dependency_ordinals": [
-      1367
-    ],
-    "b_reconcile_ordinals": [
-      1464,
-      1509,
-      1511,
-      1514,
-      1515,
-      1537,
-      1546
-    ],
+    "relation_owner_count_after": 439,
+    "b_reconciliation": "NOT_REQUIRED",
     "independence_note": "BLIND_FIRST_NOT_ENFORCED",
     "final_learner_objects": 7946
   },
@@ -1686,38 +1656,29 @@
         "result": "CLOSED",
         "affected_owner_count": 31,
         "no_change_count": 69
+      },
+      {
+        "candidate_id": "BF15",
+        "range": [
+          1551,
+          1650
+        ],
+        "pr": 780,
+        "merge_commit": "949277d8476494fe9236d216d66162ce7b9d16cf",
+        "result": "CLOSED",
+        "affected_owner_count": 26,
+        "no_change_count": 74
       }
     ],
     "next_range": [
-      1551,
-      1650
+      1651,
+      1750
     ],
     "completion_condition": "All owners o1251-o7946 receive final-standard Fresh Read/Self Attack judgment and all accepted batch mutations are materialized, B-audited, reconciled and merged.",
     "A_status": "REOPENED_FULL_CATALOG_CONTINUATION",
     "C_status": "REOPENED_FULL_CATALOG_CONTINUATION",
     "completion_note": "Original o0001-o1250 closure is preserved. Continuation starts at o1251 under unchanged FINAL_SEMANTIC_FREEZE v1 ruler.",
-    "current_batch_result": {
-      "candidate_id": "BF15",
-      "range": [
-        1551,
-        1650
-      ],
-      "reviewed_owner_count": 100,
-      "affected_owner_count": 26,
-      "no_change_count": 74,
-      "blocked": 0,
-      "new_material_group_count": 2,
-      "new_material_delta_owners": [
-        1557,
-        1593,
-        1594
-      ],
-      "proposal": "content/lexical/execution/manifests/o1551-o1650.fullcatalog-final-standard-proposal.md",
-      "mutation_receipt": "content/lexical/execution/mutation-receipts/BF15-official-o1551-o1650-v1.json",
-      "audit": "content/lexical/semantic-audit/O1551_O1650_FINAL_STANDARD_SAME_CHAT_B_AUDIT_PACK.md",
-      "state": "B_AUDIT_PASS__READY_TO_MERGE",
-      "independence_note": "BLIND_FIRST_NOT_ENFORCED"
-    }
+    "current_batch_result": null
   },
   "phase_transition": {
     "entered_at": "2026-09-22",
@@ -1726,40 +1687,17 @@
     "rule": "Kian explicitly revoked the o1251+ broad-review prohibition while preserving the frozen semantic ruler. Continue serialized 100-owner batches through o7946."
   },
   "materialization_progress": {
-    "candidate_id": "BF15",
-    "status": "B_AUDIT_PASS__READY_TO_MERGE",
+    "candidate_id": "BF16",
+    "status": "REVIEW_BUNDLE_REQUIRED",
     "candidate_pr": null,
-    "latest_main_refreeze": "8d95bf2a4505b7a80fc0402af93ba0a55ab36374",
+    "latest_main_refreeze": "949277d8476494fe9236d216d66162ce7b9d16cf",
     "review_range": [
-      1551,
-      1650
-    ],
-    "review_artifact": 10672614393,
-    "review_artifact_digest": "sha256:abf7791cb743519159469e06a550465c5125b1a976b3ebd0fc885f41ed18deaa",
-    "proposal_path": "content/lexical/execution/manifests/o1551-o1650.fullcatalog-final-standard-proposal.md",
-    "proposal_commit": "8700c37e75f375c5b50d3143e962d092c9d979df",
-    "fresh_read_coverage": "100/100",
-    "self_attack": "COMPLETE",
-    "content_affected_owners": 26,
-    "content_no_change": 74,
-    "new_material_group_count": 2,
-    "new_material_delta_owners": [
-      1557,
-      1593,
-      1594
+      1651,
+      1750
     ],
     "blocked": 0,
-    "standing_repair_tests_before": 0,
-    "standing_repair_tests_after": 0,
     "final_learner_objects": 7946,
-    "final_learner_shards": 125,
-    "human_gate_status": "APPROVED_EXACT_SCOPE",
-    "human_gate_approved_groups": 2,
-    "materialized_commit": "c53178ed7c9d2c2b5ad6b85c9d6d03d18e652317",
-    "b_audit": "PASS",
-    "b_audit_output": "content/lexical/semantic-audit/O1551_O1650_FINAL_STANDARD_SAME_CHAT_B_AUDIT_PACK.md",
-    "b_reconciliation": "NOT_REQUIRED",
-    "independence_note": "BLIND_FIRST_NOT_ENFORCED"
+    "final_learner_shards": 125
   },
   "semantic_freeze_scope_amendment": "content/lexical/FINAL_SEMANTIC_FREEZE_SCOPE_AMENDMENT_20260922.md"
 }
