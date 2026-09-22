@@ -350,7 +350,10 @@ async function systemRecallToPracticeJourney(page) {
     routeLink.click()
   ]);
   await repairPage.waitForLoadState('domcontentloaded');
-  await repairPage.waitForTimeout(500);
+  await repairPage.waitForFunction(() => document.documentElement.dataset.learnerWriter === 'active');
+  await repairPage.waitForFunction((blockId) => (
+    localStorage.getItem('kianos-xizong-repair-inbox-v1:xizong:' + blockId) === null
+  ), reviewedTarget.relation.blockId);
   const repairMigration = await repairPage.evaluate(({ blockId, taskId, questionId }) => {
     const inboxKey = `kianos-xizong-repair-inbox-v1:xizong:${blockId}`;
     const memory = JSON.parse(localStorage.getItem('kianos-xizong-memory-v1') || 'null');
