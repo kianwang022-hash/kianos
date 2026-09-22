@@ -1,0 +1,435 @@
+{
+  "schema": "kianos.lexical.final_mutation_package.v1",
+  "package_id": "BF16-B-reconcile-v1",
+  "candidate_id": "BF16",
+  "range": {
+    "start_ordinal": 1651,
+    "end_ordinal": 1750
+  },
+  "lane": "A",
+  "source_head": "405d3a784f415ea5b3849b53fb473b3d3e2a98d7",
+  "human_gate": {
+    "approved": true,
+    "approval_ref": "BF16 B readback existing-truth reconciliation; no new learner material"
+  },
+  "writes": [
+    {
+      "path": "content/lexical/words/by-ordinal/o1658.json",
+      "mode": "patch_json",
+      "expected_sha256": "5e17f69d741c5594bce67784f5c678175a9fded2905828cb9a13f1f9f47bc34f",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "44be352a74ab15acbf4afcda995d7316493ca10272a4c06aaaf6ceb6730ddd03",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "工程师，技师",
+                  "label_en": "a person who designs, builds, or maintains engines, machines, or structures",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:engineer:182a34bcb5585666"
+                  ]
+                },
+                {
+                  "label_cn": "设计，建造",
+                  "label_en": "to design and build something, especially as an engineer",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:engineer:e3e205a90c465991"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "工程师；设计、建造",
+              "core_meaning_en": "an engineer; to design and build",
+              "mental_model_cn": "默认先认职业“工程师”，动词主干是设计/建造；策划、操纵保留为低优先级扩展。",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "relation:rel:v3-family:engineer:engineering"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:254c044c968a9d86895c",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:engineer:182a34bcb5585666:collocation:0"
+                    ],
+                    "meaning_cn": "土木工程师",
+                    "phrase": "civil engineer"
+                  },
+                  {
+                    "collocation_id": "collocation:41d25d3adea9698891e0",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:engineer:182a34bcb5585666:collocation:1"
+                    ],
+                    "meaning_cn": "软件工程师",
+                    "phrase": "software engineer"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "工程师，技师",
+                "definition_en": "a person who designs, builds, or maintains engines, machines, or structures",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:engineer:182a34bcb5585666",
+                "sense_label_en": "a person who designs, builds, or maintains engines, machines, or structu",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:d010f04f3062188f1c00",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:engineer:e3e205a90c465991:collocation:0"
+                    ],
+                    "meaning_cn": "设计一座桥",
+                    "phrase": "engineer a bridge"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "设计，建造",
+                "definition_en": "to design and build something, especially as an engineer",
+                "governing_pattern": "vt. + object",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:engineer:e3e205a90c465991",
+                "sense_label_en": "to design and build something, especially as an engineer",
+                "sort_order": 1,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:26c92f052a1f8fc44963",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:engineer:52514890e9765c8e:collocation:0"
+                    ],
+                    "meaning_cn": "策划一笔交易",
+                    "phrase": "engineer a deal"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "策划，操纵",
+                "definition_en": "to arrange or bring about skillfully",
+                "governing_pattern": "vt. + object",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:engineer:52514890e9765c8e",
+                "sense_label_en": "to arrange or bring about skillfully",
+                "sort_order": 2,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 0,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 1,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "engineer",
+            "word_family": [
+              {
+                "boundaries": [
+                  "engineering is the noun form related to the profession of engineer, and is listed in the exchange field."
+                ],
+                "collocation_constraints": [
+                  "Do not substitute one family member for another without changing grammar."
+                ],
+                "direction": "R+P",
+                "evidence": [
+                  {
+                    "evidence_id": "evidence:6e406fb5fc7fa33ecd04",
+                    "evidence_status": "source_checked",
+                    "evidence_text": "engineering",
+                    "pdf_page": null,
+                    "source_locator": "entries[word=engineer].exchange",
+                    "source_path": "academic_vocab_builder/output/vocab_5500/source_manifest.json",
+                    "source_sha256": "f36be6487ffb22b2c4da60cc2aa7b7cfe3453a1fbefb0129f096588cf83ef5d6",
+                    "source_type": "learner_dictionary",
+                    "verified_at": "2026-08-13T23:16:58+00:00",
+                    "verified_by": "local_rule+deepseek_independent_verification"
+                  }
+                ],
+                "family_relation_type": "derivational",
+                "priority": "A",
+                "publication_status": "publishable",
+                "register": "morphological relation",
+                "relation_id": "rel:v3-family:engineer:engineering",
+                "relation_scope": "lexeme",
+                "relation_type": "derivational_family",
+                "shared_meaning": "noun derivation",
+                "source_expression": "engineer",
+                "source_sense_id": "sense:engineer:182a34bcb5585666",
+                "source_sentence": "",
+                "strength_difference": "not a synonym relation",
+                "syntax_constraints": [],
+                "target_expression": "engineering",
+                "target_sense_id": null,
+                "target_sentence": "",
+                "task_tags": [
+                  "reading",
+                  "cloze",
+                  "translation"
+                ],
+                "verification_status": "verified",
+                "target_word": "engineering",
+                "boundary": "engineer (n.) ↔ engineering (n.): 工程师（人）↔ 工程学/工程设计与建造活动（领域或实践）；相关但不是同义替换。",
+                "definition_en": "engineer is a person who designs/builds; engineering is the field or activity of designing and building systems, machines, or structures."
+              }
+            ],
+            "word_id": "word:engineer"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1669.json",
+      "mode": "patch_json",
+      "expected_sha256": "4fb5253afe3c01cde5ba1ab7d6843dc6d5ad1ba6b585c6d21836ed180e1c090e",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "93650c165be2d525dd9d9704ffcb99827c97d34787fe2c38ae05e59b1566211c",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "登记，注册",
+              "core_meaning_en": "register formally as a participant or member",
+              "mental_model_cn": "登记，注册",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:daf340ca06fd44d97e60",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:enrol:ab871afbff9651e7:collocation:0"
+                    ],
+                    "meaning_cn": "注册课程/入学",
+                    "phrase": "enrol in + course/school"
+                  },
+                  {
+                    "collocation_id": "collocation:c6088fccee02e85c926e",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:enrol:ab871afbff9651e7:collocation:1"
+                    ],
+                    "meaning_cn": "吸收某人为成员",
+                    "phrase": "enrol sb as + member"
+                  },
+                  {
+                    "collocation_id": "collocation:f567c5bf42128ebead2b",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:enrol:786d6ff3a51d5d5f:collocation:1"
+                    ],
+                    "meaning_cn": "在大学注册",
+                    "phrase": "enrol at university"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "登记，注册（使成为参与者或成员）",
+                "definition_en": "register formally as a participant or member",
+                "governing_pattern": "enrol in/at + course/institution / enrol sb as/in/for + sth",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:enrol:ab871afbff9651e7",
+                "sense_label_en": "register formally as a participant or member",
+                "sort_order": 0,
+                "transitivity": "I/T"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 1,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "enrol",
+            "word_family": [],
+            "word_id": "word:enrol",
+            "form_identity": {
+              "form_type": "regional_spelling_identity",
+              "spelling": "enrol",
+              "identity_rule": "paired_frozen_word_spelling_variant",
+              "boundary": "enrol is the common British spelling; enroll is the usual American spelling. Both frozen Word owners remain distinct catalogue identities.",
+              "boundaries": [
+                {
+                  "surface": "enrol",
+                  "condition": "British English",
+                  "note": "common BrE spelling"
+                },
+                {
+                  "surface": "enroll",
+                  "condition": "American English",
+                  "note": "usual AmE spelling"
+                }
+              ],
+              "variants": [],
+              "authority": "BF16 existing-truth Form migration 2026-09-22"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1723.json",
+      "mode": "patch_json",
+      "expected_sha256": "ba73f25aff25032d9a7daca2df29ea89ac8f7d491cbf93eec1e7b751b6ac3707",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "1ee0ceba64e7557bcadd9ee4a557698262f730520f7278bee171021c52c82641",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "民族的；族群的",
+              "core_meaning_en": "relating to a group sharing cultural, national, or ancestral identity",
+              "mental_model_cn": "ethnic 主要指民族/族群身份与文化归属，不等同于单纯的生物学“种族”。",
+              "mental_model_en": "ethnic refers mainly to cultural/ancestral group identity rather than a purely biological race category."
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "deep:deep:word_family:ethnic:762ef631b6f4651a",
+              "relation:deep:word_family:ethnic:762ef631b6f4651a"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "民族的；族群的",
+                "definition_en": "relating to a particular ethnic group",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:ethnic:388358b45c3a604d",
+                "sense_label_en": "relating to a particular ethnic group",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 3,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "completed"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 1,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "ethnic",
+            "word_family": [
+              {
+                "boundary": "ethnic (adj.) → ethnicity (n.): 民族/族群相关的 → 民族或族群身份/归属；派生关系，不是同义替换。",
+                "codex_reviewed": false,
+                "definition_cn": null,
+                "definition_en": "ethnic is the adjective; ethnicity is the noun for ethnic identity or group membership.",
+                "dimensions": {},
+                "direction": "R+P",
+                "evidence": [
+                  {
+                    "evidence_id": "evidence:family:ethnic:ethnicity",
+                    "evidence_status": "source_checked",
+                    "source_locator": "ethnic|ethnicity",
+                    "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/processed/word_families.csv",
+                    "source_type": "learner_dictionary"
+                  }
+                ],
+                "fact_id": "deep:word_family:ethnic:762ef631b6f4651a",
+                "family_sources": [
+                  "AWL family"
+                ],
+                "label_en": null,
+                "level": null,
+                "meaning_cn": null,
+                "module": "word_family",
+                "pattern": null,
+                "pos": null,
+                "priority": "A",
+                "publication_status": "publishable",
+                "shared_definition": null,
+                "source_sense_id": "sense:ethnic:50357ae40bc75a9b",
+                "target_sense_id": null,
+                "target_word": "ethnicity",
+                "task_tags": [
+                  "reading"
+                ],
+                "verification_status": "verified",
+                "writing_safe": true
+              }
+            ],
+            "word_id": "word:ethnic"
+          }
+        }
+      ]
+    }
+  ],
+  "semantic_dependency_read_set": {}
+}
