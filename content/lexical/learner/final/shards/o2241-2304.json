@@ -1400,7 +1400,7 @@
     "ordinal": 2252,
     "word": "handle",
     "source_owner_path": "content/lexical/words/by-ordinal/o2252.json",
-    "source_fingerprint": "3d6cea968c9bacda213c3b2b274364f9a6055ede382f0ac8adce9a43755dd709",
+    "source_fingerprint": "c64b1310324bdaeaa025c60535a3889d7408bf50b367b86f9f1a975920f49f84",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1531,7 +1531,7 @@
     "ordinal": 2253,
     "word": "handsome",
     "source_owner_path": "content/lexical/words/by-ordinal/o2253.json",
-    "source_fingerprint": "6b0c70fa9f212afc3680dc102600e38251d8726d5fb12e336d126ca13b78b77d",
+    "source_fingerprint": "cc9c6d8a9839edfeb2b5327a29c96371ead4233401be40c53dbfdd8393e00c2b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1540,13 +1540,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "英俊的；慷慨的",
+      "summary_cn": "英俊的；可观的、相当大的",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "英俊的；慷慨的"
+        "target_label": "英俊的；可观的、相当大的"
       }
     },
     "senses": [
@@ -1581,7 +1581,7 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "大方的；可观的",
+        "definition_cn": "可观的；相当大的；丰厚的",
         "definition_en": "generous or ample",
         "note": "",
         "identity_overlay": null,
@@ -1599,7 +1599,7 @@
           "target_kind": "sense",
           "target_id": "sense:handsome:003234e4d9a25959",
           "target_locator": "record.senses[1]",
-          "target_label": "大方的；可观的"
+          "target_label": "可观的；相当大的；丰厚的"
         }
       }
     ],
@@ -1819,7 +1819,7 @@
     "ordinal": 2256,
     "word": "hang",
     "source_owner_path": "content/lexical/words/by-ordinal/o2256.json",
-    "source_fingerprint": "c89c05b265f9ea678a6ffdf37554476b69fdf4c7cb35ecb1eece548e29d68b93",
+    "source_fingerprint": "fd9e4fad5d582eed4f390b7b958d3a5664b041db412d01f3ab3cfdffb71889e1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1984,7 +1984,33 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "For ordinary hanging, hang → hung → hung. For execution by hanging, the normal past and past participle are hanged.",
+        "boundaries": [
+          {
+            "surface": "hang",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "hung",
+            "condition": "ordinary past simple / past participle",
+            "note": "ordinary hanging uses hung"
+          },
+          {
+            "surface": "hanged",
+            "condition": "past simple / past participle meaning executed by hanging",
+            "note": "execution branch uses hanged"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "For ordinary hanging, hang → hung → hung. For execution by hanging, the normal past and past participle are hanged."
+        }
+      },
       "family": []
     }
   },
@@ -2308,7 +2334,7 @@
     "ordinal": 2260,
     "word": "harbor",
     "source_owner_path": "content/lexical/words/by-ordinal/o2260.json",
-    "source_fingerprint": "138b2bd0aaa711ad6f3267f5333a2c5337a0631afabe87c666fdb423ca61f3b6",
+    "source_fingerprint": "6ef766264ee587145bcf1aa9acaa1ca7f646690b85a831a4d75a0cd20220eb17",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2420,7 +2446,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "harbor is the usual American spelling; harbour is the usual British spelling.",
+        "boundaries": [
+          {
+            "surface": "harbor",
+            "condition": "American English",
+            "note": "AmE spelling"
+          },
+          {
+            "surface": "harbour",
+            "condition": "British English",
+            "note": "BrE spelling"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "harbor is the usual American spelling; harbour is the usual British spelling."
+        }
+      },
       "family": []
     }
   },
@@ -2430,7 +2477,7 @@
     "ordinal": 2261,
     "word": "hard",
     "source_owner_path": "content/lexical/words/by-ordinal/o2261.json",
-    "source_fingerprint": "496e8ee62f0e0310ca919a6c283e28cb3b98236f1d0383957f2b0731a6cef4fc",
+    "source_fingerprint": "318ad9c90dce82cee33f605e8d66f51f8f2a3dd37423c9c58f58d23dec2f2303",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2610,7 +2657,41 @@
     "secondary_senses": [],
     "constructions": [],
     "reference": {
-      "confusables": [],
+      "confusables": [
+        {
+          "title": "hard ↔ hardly",
+          "target_word": "hardly",
+          "lines": [
+            {
+              "text": "hard as an adverb means with much effort or force; hardly means almost not / only just.",
+              "lang": "en"
+            },
+            {
+              "text": "hard (adv.) = 努力地；猛烈地",
+              "lang": "cn"
+            },
+            {
+              "text": "hardly = 几乎不；简直不",
+              "lang": "cn"
+            },
+            {
+              "text": "near spelling does not imply similar meaning",
+              "lang": "en"
+            },
+            {
+              "text": "hard and hardly look related but differ sharply: hard = with effort/force; hardly = almost not.",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:confusable:hard|hardly:near_form",
+            "target_locator": "record.confusables[0]",
+            "target_label": "hard ↔ hardly"
+          }
+        }
+      ],
       "relations": [],
       "form": null,
       "family": [
@@ -2778,7 +2859,7 @@
     "ordinal": 2263,
     "word": "hardly",
     "source_owner_path": "content/lexical/words/by-ordinal/o2263.json",
-    "source_fingerprint": "4bbd46fdc54df37143780fbe72a8ca85a81c021c65d6a070d7832cf618a1caf3",
+    "source_fingerprint": "29e35f4197f36c797b380e1594db08c8cf08961ba2ad17d9b92dbc42f666c668",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2843,7 +2924,41 @@
     "secondary_senses": [],
     "constructions": [],
     "reference": {
-      "confusables": [],
+      "confusables": [
+        {
+          "title": "hardly ↔ hard",
+          "target_word": "hard",
+          "lines": [
+            {
+              "text": "hardly means almost not / only just; hard as an adverb means with much effort or force.",
+              "lang": "en"
+            },
+            {
+              "text": "near spelling does not imply similar meaning",
+              "lang": "en"
+            },
+            {
+              "text": "hardly = 几乎不；简直不",
+              "lang": "cn"
+            },
+            {
+              "text": "hard (adv.) = 努力地；猛烈地",
+              "lang": "cn"
+            },
+            {
+              "text": "hardly is not the ordinary adverb meaning 'with effort'; that is hard.",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:confusable:hard|hardly:near_form",
+            "target_locator": "record.confusables[0]",
+            "target_label": "hardly ↔ hard"
+          }
+        }
+      ],
       "relations": [],
       "form": null,
       "family": []
@@ -3503,7 +3618,7 @@
     "ordinal": 2270,
     "word": "harvest",
     "source_owner_path": "content/lexical/words/by-ordinal/o2270.json",
-    "source_fingerprint": "10ec2dc48b405936e78e5a626d58667aa7cc81e7eb18d80604df948bb9c805ba",
+    "source_fingerprint": "f418793479950360c5dd16445f19409d410b243bec723f179a4eac115de52267",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3927,7 +4042,7 @@
     "ordinal": 2274,
     "word": "hatch",
     "source_owner_path": "content/lexical/words/by-ordinal/o2274.json",
-    "source_fingerprint": "235243fb3d3dac0d97c1746635b8eecf9605bec7449468efa29b15251ac4cbde",
+    "source_fingerprint": "0426e268bbf0a37cdbd2d0028313398fca3cbcf502bfcdeaf023d590e0b7880d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4320,7 +4435,7 @@
     "ordinal": 2277,
     "word": "haul",
     "source_owner_path": "content/lexical/words/by-ordinal/o2277.json",
-    "source_fingerprint": "0f8e8069850c835aea2afa12c94923ad9d945253ac754a0c4b0ae20df6f58bfe",
+    "source_fingerprint": "e6eebef0515e639c150855052f1414bdb997f4a30ee576d26c1df53d36fd012a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4500,7 +4615,7 @@
     "ordinal": 2278,
     "word": "have",
     "source_owner_path": "content/lexical/words/by-ordinal/o2278.json",
-    "source_fingerprint": "c25b6c4b515bc0b8f0942b6d928797bc8d42e3fb92cdf8acf04db5908f647aba",
+    "source_fingerprint": "b612707f3ad148ac8d5fe241aba3ba9115788d04c834a016411a09ca60f1423d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4510,13 +4625,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "有，拥有",
+      "summary_cn": "有、拥有；经历；构成完成时",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "有，拥有"
+        "target_label": "有、拥有；经历；构成完成时"
       }
     },
     "senses": [
@@ -4668,7 +4783,33 @@
           }
         }
       ],
-      "form": null,
+      "form": {
+        "boundary": "have is irregular: have → had → had.",
+        "boundaries": [
+          {
+            "surface": "have",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "had",
+            "condition": "past simple",
+            "note": "irregular past"
+          },
+          {
+            "surface": "had",
+            "condition": "past participle",
+            "note": "irregular participle"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "have is irregular: have → had → had."
+        }
+      },
       "family": []
     }
   },
@@ -4678,7 +4819,7 @@
     "ordinal": 2279,
     "word": "hawk",
     "source_owner_path": "content/lexical/words/by-ordinal/o2279.json",
-    "source_fingerprint": "2ecf3106b4b1ad6a506ad0883f9013858635d10be30aa1b913259a5071ed88f9",
+    "source_fingerprint": "ae3fbeb66000a52a4e9a6edbfa937e31f693a064179d77eb4d699c2da7480c4b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4823,7 +4964,7 @@
     "ordinal": 2280,
     "word": "hay",
     "source_owner_path": "content/lexical/words/by-ordinal/o2280.json",
-    "source_fingerprint": "6c6d4465d0875aa993a67bf099929e661a323882a90f06802cae148595aef73e",
+    "source_fingerprint": "055b30af4b50a4cff4b491587059497ab2d238b17c1cff1bba791c60d4a4f036",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5124,7 +5265,7 @@
     "ordinal": 2283,
     "word": "head",
     "source_owner_path": "content/lexical/words/by-ordinal/o2283.json",
-    "source_fingerprint": "c5f8f03a972118ab4ff8beb094ee4347bbc2f91ea8ac9c108e1f550e1861e39f",
+    "source_fingerprint": "50f5f16edb18d405fdcd2f6ed08c692f9c31a3074b1e32886d72a6eee6ac6418",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5476,7 +5617,7 @@
     "ordinal": 2285,
     "word": "headline",
     "source_owner_path": "content/lexical/words/by-ordinal/o2285.json",
-    "source_fingerprint": "483c0823492fe901d5f146133c3e5401b8ad0bc9e16e4d3071e41022631ba432",
+    "source_fingerprint": "a6c98d1446495ec383967fcbb02173bd97dac21d4f1f8d027b48a712133ad4a3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5769,7 +5910,7 @@
     "ordinal": 2288,
     "word": "heal",
     "source_owner_path": "content/lexical/words/by-ordinal/o2288.json",
-    "source_fingerprint": "24beff99ff69d83bddbdb91eff1ac5bc35e47bc6e339800a061bf07de615c8a9",
+    "source_fingerprint": "35a427e2914c13c3a1eed0f05c9218dd29d7c93171c6d8f921f6e8aa039d9554",
     "sense_lineage": [
       {
         "word_id": "word:heal",
@@ -5894,7 +6035,41 @@
     "secondary_senses": [],
     "constructions": [],
     "reference": {
-      "confusables": [],
+      "confusables": [
+        {
+          "title": "heal ↔ heel",
+          "target_word": "heel",
+          "lines": [
+            {
+              "text": "heal means to recover or make healthy; heel means the back part of the foot.",
+              "lang": "en"
+            },
+            {
+              "text": "heal = 治愈；愈合",
+              "lang": "cn"
+            },
+            {
+              "text": "heel = 脚后跟；足跟",
+              "lang": "cn"
+            },
+            {
+              "text": "standard pronunciations are homophones",
+              "lang": "en"
+            },
+            {
+              "text": "Do not confuse heal (治愈/愈合) with heel (脚后跟).",
+              "lang": "cn"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:confusable:heal|heel:homophone",
+            "target_locator": "record.confusables[0]",
+            "target_label": "heal ↔ heel"
+          }
+        }
+      ],
       "relations": [],
       "form": null,
       "family": []
@@ -6349,7 +6524,7 @@
     "ordinal": 2292,
     "word": "hear",
     "source_owner_path": "content/lexical/words/by-ordinal/o2292.json",
-    "source_fingerprint": "5253011eb45425fce7c7ee9fdb1c810357af682c098689c7f3d6870e2b7ecf1d",
+    "source_fingerprint": "af40878f3cbc75162d4ee53ec9ea1e3ebc4e4d0d1aeb151701b45d3a959716ad",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6501,7 +6676,33 @@
         }
       ],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "hear is irregular: hear → heard → heard.",
+        "boundaries": [
+          {
+            "surface": "hear",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "heard",
+            "condition": "past simple",
+            "note": "irregular past"
+          },
+          {
+            "surface": "heard",
+            "condition": "past participle",
+            "note": "irregular participle"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "hear is irregular: hear → heard → heard."
+        }
+      },
       "family": []
     }
   },
@@ -6821,7 +7022,7 @@
     "ordinal": 2295,
     "word": "heat",
     "source_owner_path": "content/lexical/words/by-ordinal/o2295.json",
-    "source_fingerprint": "1c49d216a3064a177867a18a5b8357b9755ffd4d5e563af7a2d650560ebe680b",
+    "source_fingerprint": "12c09386a98546cadda74579afd365cc124da208c7221bb7c44545a854182153",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7039,7 +7240,7 @@
     "ordinal": 2296,
     "word": "heave",
     "source_owner_path": "content/lexical/words/by-ordinal/o2296.json",
-    "source_fingerprint": "15930fe4b85b4bab5fdef6dffcbf0a8a342a8d591188d4c82a69e5d12dc78b64",
+    "source_fingerprint": "3eb9b301bb98933048668fcb82d9bbe0b6e3cc41990c0103b9e668125174a9f4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7049,13 +7250,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "用力举起；起伏",
+      "summary_cn": "用力举起、拖起；起伏；用力抛出；作呕",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "用力举起；起伏"
+        "target_label": "用力举起、拖起；起伏；用力抛出；作呕"
       }
     },
     "senses": [
@@ -7455,7 +7656,7 @@
     "ordinal": 2299,
     "word": "hedge",
     "source_owner_path": "content/lexical/words/by-ordinal/o2299.json",
-    "source_fingerprint": "8d889dca325bd7e827bf2e1fcbf00a6c3853e7f9edf6a14e7d8d7f345d655d43",
+    "source_fingerprint": "2d91b45b87f4e21fd62345ce1186da8f8eda2df5b9f14febe93c7880f30b46f8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7632,7 +7833,7 @@
         "id": "sense:hedge:8e0c976e32c95235",
         "source_locator": "record.senses[5]",
         "pos": "verb",
-        "governing_pattern": "vi. + against",
+        "governing_pattern": "vi.",
         "definition_cn": "躲闪；回避",
         "definition_en": "to avoid giving a direct answer or commitment",
         "note": "",
@@ -7683,7 +7884,7 @@
     "ordinal": 2300,
     "word": "heel",
     "source_owner_path": "content/lexical/words/by-ordinal/o2300.json",
-    "source_fingerprint": "c31ee5f34ffba50cbfb0ccd9a860860b87b51aeedcfe146ae2c12acb9c8baa52",
+    "source_fingerprint": "62af66a79d21f7573559cadabfe02beaee75fbded101963adfaceda695896835",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7704,130 +7905,8 @@
     },
     "senses": [
       {
-        "id": "sense:heel:4a17b42f0ac15ca6",
-        "source_locator": "record.senses[0]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "鞋跟",
-        "definition_en": "the part of a shoe or boot that touches the ground and provides elevation",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:d5be8e04cb6ac9e20480",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "wear high heels",
-            "meaning_cn": "穿高跟鞋",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:heel:4a17b42f0ac15ca6",
-          "target_locator": "record.senses[0]",
-          "target_label": "鞋跟"
-        }
-      },
-      {
-        "id": "sense:heel:817a2ab0d3b15c32",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "面包头",
-        "definition_en": "one of the crusty ends of a loaf of bread",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:heel:817a2ab0d3b15c32",
-          "target_locator": "record.senses[1]",
-          "target_label": "面包头"
-        }
-      },
-      {
-        "id": "sense:heel:29879622d0e05cbd",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vi. + after",
-        "definition_cn": "紧随，尾随",
-        "definition_en": "to follow closely behind someone",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:80b05eb7b7fe1a9d20ad",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "heel after sb",
-            "meaning_cn": "紧随某人",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:80b05eb7b7fe1a9d20ad",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "heel after sb"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:heel:29879622d0e05cbd",
-          "target_locator": "record.senses[2]",
-          "target_label": "紧随，尾随"
-        }
-      },
-      {
-        "id": "sense:heel:5fc88a9b523951b4",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "桅杆下端",
-        "definition_en": "the lower end of a ship's mast",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:heel:5fc88a9b523951b4",
-          "target_locator": "record.senses[3]",
-          "target_label": "桅杆下端"
-        }
-      },
-      {
-        "id": "sense:heel:eef0b1cae75b5f56",
-        "source_locator": "record.senses[4]",
-        "pos": "verb",
-        "governing_pattern": "vi. + over",
-        "definition_cn": "倾侧",
-        "definition_en": "to lean to one side (of a ship)",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:c994b93cdeb5fe516729",
-            "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "heel over",
-            "meaning_cn": "倾侧",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c994b93cdeb5fe516729",
-              "target_locator": "record.senses[4].collocations[0]",
-              "target_label": "heel over"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:heel:eef0b1cae75b5f56",
-          "target_locator": "record.senses[4]",
-          "target_label": "倾侧"
-        }
-      },
-      {
         "id": "sense:heel:df90a5ed966853e0",
-        "source_locator": "record.senses[5]",
+        "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "脚后跟；足跟",
@@ -7838,15 +7917,171 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:heel:df90a5ed966853e0",
-          "target_locator": "record.senses[5]",
+          "target_locator": "record.senses[0]",
           "target_label": "脚后跟；足跟"
+        }
+      },
+      {
+        "id": "sense:heel:4a17b42f0ac15ca6",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "鞋跟",
+        "definition_en": "the part of a shoe or boot that touches the ground and provides elevation",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:d5be8e04cb6ac9e20480",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "wear high heels",
+            "meaning_cn": "穿高跟鞋",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:heel:4a17b42f0ac15ca6",
+          "target_locator": "record.senses[1]",
+          "target_label": "鞋跟"
+        }
+      },
+      {
+        "id": "sense:heel:817a2ab0d3b15c32",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "面包头",
+        "definition_en": "one of the crusty ends of a loaf of bread",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:heel:817a2ab0d3b15c32",
+          "target_locator": "record.senses[2]",
+          "target_label": "面包头"
+        }
+      },
+      {
+        "id": "sense:heel:29879622d0e05cbd",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "vi. + after",
+        "definition_cn": "紧随，尾随",
+        "definition_en": "to follow closely behind someone",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:80b05eb7b7fe1a9d20ad",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "heel after sb",
+            "meaning_cn": "紧随某人",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:80b05eb7b7fe1a9d20ad",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "heel after sb"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:heel:29879622d0e05cbd",
+          "target_locator": "record.senses[3]",
+          "target_label": "紧随，尾随"
+        }
+      },
+      {
+        "id": "sense:heel:5fc88a9b523951b4",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "桅杆下端",
+        "definition_en": "the lower end of a ship's mast",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:heel:5fc88a9b523951b4",
+          "target_locator": "record.senses[4]",
+          "target_label": "桅杆下端"
+        }
+      },
+      {
+        "id": "sense:heel:eef0b1cae75b5f56",
+        "source_locator": "record.senses[5]",
+        "pos": "verb",
+        "governing_pattern": "vi. + over",
+        "definition_cn": "倾侧",
+        "definition_en": "to lean to one side (of a ship)",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:c994b93cdeb5fe516729",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "heel over",
+            "meaning_cn": "倾侧",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:c994b93cdeb5fe516729",
+              "target_locator": "record.senses[5].collocations[0]",
+              "target_label": "heel over"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:heel:eef0b1cae75b5f56",
+          "target_locator": "record.senses[5]",
+          "target_label": "倾侧"
         }
       }
     ],
     "secondary_senses": [],
     "constructions": [],
     "reference": {
-      "confusables": [],
+      "confusables": [
+        {
+          "title": "heel ↔ heal",
+          "target_word": "heal",
+          "lines": [
+            {
+              "text": "heel means the back part of the foot; heal means to recover or make healthy.",
+              "lang": "en"
+            },
+            {
+              "text": "standard pronunciations are homophones",
+              "lang": "en"
+            },
+            {
+              "text": "heel = 脚后跟；足跟",
+              "lang": "cn"
+            },
+            {
+              "text": "heal = 治愈；愈合",
+              "lang": "cn"
+            },
+            {
+              "text": "Do not confuse heel (脚后跟) with heal (治愈/愈合).",
+              "lang": "cn"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:confusable:heal|heel:homophone",
+            "target_locator": "record.confusables[0]",
+            "target_label": "heel ↔ heal"
+          }
+        }
+      ],
       "relations": [],
       "form": null,
       "family": []
@@ -8056,7 +8291,7 @@
     "ordinal": 2303,
     "word": "heir",
     "source_owner_path": "content/lexical/words/by-ordinal/o2303.json",
-    "source_fingerprint": "104e13b0416bcc403b2708a824f334335d21552af5541a1ab0d9b502e37e5806",
+    "source_fingerprint": "8cc250eaf6c6867b0ad63892339717c9e51c5bf034f660a5fdae76ff216dd946",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8118,7 +8353,41 @@
     "secondary_senses": [],
     "constructions": [],
     "reference": {
-      "confusables": [],
+      "confusables": [
+        {
+          "title": "heir ↔ air",
+          "target_word": "air",
+          "lines": [
+            {
+              "text": "heir means a person entitled to inherit; air means the gases we breathe / the atmosphere.",
+              "lang": "en"
+            },
+            {
+              "text": "heir = 继承人",
+              "lang": "cn"
+            },
+            {
+              "text": "air = 空气",
+              "lang": "cn"
+            },
+            {
+              "text": "standard pronunciations are homophones",
+              "lang": "en"
+            },
+            {
+              "text": "Do not confuse heir (继承人) with air (空气).",
+              "lang": "cn"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:confusable:air|heir:homophone",
+            "target_locator": "record.confusables[0]",
+            "target_label": "heir ↔ air"
+          }
+        }
+      ],
       "relations": [],
       "form": null,
       "family": []

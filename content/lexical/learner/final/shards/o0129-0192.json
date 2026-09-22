@@ -5,7 +5,7 @@
     "ordinal": 129,
     "word": "air",
     "source_owner_path": "content/lexical/words/by-ordinal/o0129.json",
-    "source_fingerprint": "0b34a24198486420394a2d9e671e487f2c5cc55739d0d67be01f15bc0a355355",
+    "source_fingerprint": "3585180f6dc03408a537ae5902cba55d67ee9ab32c7c39a699311521f9200b63",
     "sense_lineage": [
       {
         "word_id": "word:air",
@@ -246,7 +246,41 @@
       }
     ],
     "reference": {
-      "confusables": [],
+      "confusables": [
+        {
+          "title": "air ↔ heir",
+          "target_word": "heir",
+          "lines": [
+            {
+              "text": "air means the gases we breathe / the atmosphere; heir means a person entitled to inherit.",
+              "lang": "en"
+            },
+            {
+              "text": "standard pronunciations are homophones",
+              "lang": "en"
+            },
+            {
+              "text": "air = 空气",
+              "lang": "cn"
+            },
+            {
+              "text": "heir = 继承人",
+              "lang": "cn"
+            },
+            {
+              "text": "Do not confuse air (空气) with heir (继承人).",
+              "lang": "cn"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:confusable:air|heir:homophone",
+            "target_locator": "record.confusables[0]",
+            "target_label": "air ↔ heir"
+          }
+        }
+      ],
       "relations": [],
       "form": null,
       "family": []
