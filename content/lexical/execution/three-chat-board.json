@@ -1628,7 +1628,7 @@
       1251,
       7946
     ],
-    "mode": "SERIAL_100_OWNER_BATCHES__SAME_FINAL_RULER",
+    "mode": "SERIAL_100_OWNER_SEMANTIC_BATCHES__QUALITY_FIRST__BOUNDED_ENGINEERING_AGGREGATION",
     "status": "ACTIVE",
     "broad_semantic_reopen_after_closure": "AUTHORIZED_BY_EXPLICIT_KIAN_2026_09_22",
     "completed_or_frozen": [
@@ -1783,5 +1783,20 @@
     "final_learner_objects": 7946,
     "final_learner_shards": 125
   },
-  "semantic_freeze_scope_amendment": "content/lexical/FINAL_SEMANTIC_FREEZE_SCOPE_AMENDMENT_20260922.md"
+  "semantic_freeze_scope_amendment": "content/lexical/FINAL_SEMANTIC_FREEZE_SCOPE_AMENDMENT_20260922.md",
+  "quality_first_execution": {
+    "status": "ACTIVE_CANONICAL",
+    "rule_path": "content/lexical/QUALITY_FIRST_EXECUTION_RULE_20260922.md",
+    "semantic_atomic_batch_size": 100,
+    "campaign_progress_group_size": 500,
+    "campaign_is_semantic_unit": false,
+    "engineering_aggregation_max_words": 300,
+    "engineering_aggregation_default_words": 100,
+    "review_ahead_max_checkpoints": 2,
+    "review_ahead_max_words": 200,
+    "b_readback": "EVERY_CHANGED_OWNER__PER_100_CHECKPOINT",
+    "priority": "QUALITY_OVER_SPEED",
+    "human_gate": "EXACT_NEW_KNOWLEDGE_ONLY",
+    "effective_from": "BF18 onward / 2026-09-22"
+  }
 }

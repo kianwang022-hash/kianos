@@ -37,7 +37,9 @@ The continuation begins at `o1251`.
 
 ## Execution model
 
-Default batch size: 100 ordinals, final batch truncated at o7946.
+Default semantic atomic batch: **100 ordinals**, final batch truncated at o7946.
+
+Execution is additionally governed by `QUALITY_FIRST_EXECUTION_RULE_20260922.md`: 500-word groupings are progress campaigns only; semantic review/B judgment remains per 100 words, engineering aggregation is bounded to 200–300 only under the safe conditions in that rule, and review-ahead is capped at two atomic checkpoints.
 
 Each batch runs:
 
