@@ -72,9 +72,9 @@ for (const id of blockIds) systemStates[id].completed = true;
 assert(canRecordSystemRecall(systemStates, blockIds), 'completed-system-recall-blocked');
 
 const sweep = loadXizongSystemQuestionSweep(system);
-assert(sweep?.questionCount === 243, `questions:${sweep?.questionCount}`);
-assert(sweep.questions.length === 243, `loaded-questions:${sweep.questions.length}`);
-assert(new Set(sweep.questions.map((question) => question.questionId)).size === 243, 'question-truth-id-duplicate');
+assert(sweep?.questionCount === 244, `questions:${sweep?.questionCount}`);
+assert(sweep.questions.length === 244, `loaded-questions:${sweep.questions.length}`);
+assert(new Set(sweep.questions.map((question) => question.questionId)).size === 244, 'question-truth-id-duplicate');
 assert(Array.isArray(sweep.years) && sweep.years.length > 0, 'question-years-missing');
 
 const blockEvidenceRows = system.blocks.map((block) => [block.blockId, block.sourcePath, read(block.sourcePath)].join('~')).join('|');
@@ -89,6 +89,7 @@ const stageGuard = read('static-web/src/components/XizongRuntimeStageGuard.astro
 const blockEvidenceGuard = read('static-web/src/components/XizongBlockEvidenceGuard.astro');
 const systemEvidenceGuard = read('static-web/src/components/XizongSystemEvidenceGuard.astro');
 const repairUi = read('static-web/src/components/XizongSystemRepairReturn.astro');
+const systemWuReturn = read('static-web/src/lib/xizongSystemWuReturn.mjs');
 const repairBridge = read('static-web/src/components/XizongRepairInboxBridge.astro');
 const memoryModel = read('static-web/src/lib/xizongMemoryModel.mjs');
 const memoryWorkspace = read('static-web/src/components/XizongMemoryWorkspace.astro');
@@ -100,7 +101,12 @@ const systemPage = read('static-web/src/pages/xizong/[system]/index.astro');
 const recallPage = read('static-web/src/pages/xizong/[system]/recall.astro');
 const practicePage = read('static-web/src/pages/xizong/practice/[system].astro');
 
-has(blockUi, "let state = { stage: 'block_learn', groupIndex: 0, kpIndex: 0, learned: {}, ratings: {}, ttsxEvidence: {}, ttsxAnnotations: {}, pendingTtsx: null, blockRecallDone: false, completed: false }", 'block-initial-state');
+has(blockUi, "stage: 'block_learn'", 'block-initial-stage');
+has(blockUi, 'groupIndex: 0', 'block-initial-group');
+has(blockUi, 'kpIndex: 0', 'block-initial-kp');
+has(blockUi, 'blockRecallDone: false', 'block-initial-recall');
+has(blockUi, 'completed: false', 'block-initial-completion');
+has(blockUi, 'sourceHash: currentSourceHash', 'block-initial-source-binding');
 has(blockUi, 'state.sourceContactDone = true;', 'source-contact-completion-write');
 has(blockUi, "setStage(queued ? 'ttsx_checkpoint' : 'kp_recall')", 'kp-recall-transition');
 has(blockUi, "window.setTimeout(() => setStage('block_recall'), 120)", 'block-recall-transition');
@@ -129,7 +135,8 @@ has(systemEvidenceGuard, 'const blockEvidenceRows = (system?.blocks || []).map((
 has(systemEvidenceGuard, "system?.learningSupport?.sourceHash || ''", 'system-learning-support-not-versioned');
 has(systemEvidenceGuard, 'blockEvidenceHash.toString(16)', 'system-block-version-not-in-evidence-version');
 has(systemEvidenceGuard, 'localStorage.removeItem(recallKey);', 'stale-system-recall-not-invalidated');
-has(systemEvidenceGuard, 'localStorage.removeItem(sweepKey);', 'stale-system-sweep-not-invalidated');
+has(systemEvidenceGuard, 'results: {},', 'stale-system-current-results-not-cleared');
+has(systemEvidenceGuard, 'current_revision_valid: false', 'stale-system-history-not-retained-as-invalid');
 has(systemEvidenceGuard, 'stale_block_repair_inboxes', 'stale-system-repair-inbox-not-archived');
 
 has(recallPage, 'data-xizong-system-recall-lock hidden', 'system-recall-lock-missing');
@@ -142,19 +149,19 @@ has(practiceUi, "let holdoutYears = data.allowHoldout ? [] : readJson(holdoutKey
 has(practiceUi, "if (data.holdoutRequired !== false && !holdoutYears.length) { renderGate(); return; }", 'question-sweep-prerequisite-gate');
 has(practiceUi, 'data-question-uncertain', 'uncertain-control-missing');
 has(practiceUi, "currentUncertain ? 'uncertain' : 'stable'", 'correct-unsure-evidence-missing');
-has(repairUi, ".filter(([, row]) => row && ['wrong', 'uncertain'].includes(row.status))", 'wu-only-handoff');
-has(repairUi, '暂无审核过的精确 Block/KP 回链：保留题号给 Chat，不自动猜。', 'no-guessed-repair-route');
+has(systemWuReturn, "!['wrong','uncertain'].includes(String(result.status || ''))", 'wu-only-handoff');
+has(systemWuReturn, '!relation?.blockId || !relation?.primaryKpId || !route', 'no-guessed-repair-route');
 
-has(repairUi, 'allowed.has(row.questionId)', 'chat-plan-not-scoped-to-real-wu');
-has(repairUi, '!relation?.blockId || !relation?.primaryKpId', 'repair-route-not-reviewed-relation-only');
-has(repairUi, 'kianos-xizong-repair-inbox-v1:', 'repair-return-does-not-use-inbox');
+has(systemWuReturn, 'assertCurrentWuBinding(row, currentWu.get(row.question_id) || null)', 'chat-plan-not-scoped-to-real-wu');
+has(systemWuReturn, 'const relation = question?.relation;', 'repair-route-not-reviewed-relation-only');
+has(systemWuReturn, "inboxKey:'kianos-xizong-repair-inbox-v1:xizong:'", 'repair-return-does-not-use-inbox');
 has(repairBridge, 'kianos-xizong-repair-inbox-v1:', 'block-repair-inbox-not-consumed');
-has(repairBridge, "type: 'SYSTEM_WU_PLAN_IMPORTED'", 'repair-inbox-import-not-evidenced');
+has(repairBridge, "origin = blockChat ? 'BLOCK_CHAT_RETURN'", 'repair-inbox-origin-not-derived');
 has(repairBridge, "window.addEventListener('storage'", 'open-block-tab-repair-return-missing');
-has(repairBridge, 'window.location.reload();', 'repair-return-does-not-rebuild-block-memory-state');
+has(repairBridge, "window.dispatchEvent(new CustomEvent('kianos:xizong-repair-inbox-migrated'", 'repair-return-consumption-event-missing');
 has(blockPage, '<XizongRepairInboxBridge block={projection} />', 'repair-inbox-bridge-not-mounted');
-has(repairUi, 'XIZONG_MEMORY_STORAGE_KEY', 'visible-memory-repair-delivery-missing');
-has(repairUi, "origin: 'SYSTEM_WU_CHAT_RETURN'", 'visible-memory-repair-origin-missing');
+has(systemWuReturn, 'XIZONG_MEMORY_STORAGE_KEY', 'visible-memory-repair-delivery-missing');
+has(systemWuReturn, "origin:'SYSTEM_WU_CHAT_RETURN'", 'visible-memory-repair-origin-missing');
 has(memoryModel, 'export function completeRepairTask', 'visible-repair-completion-owner-missing');
 has(memoryWorkspace, 'data-repair-complete', 'visible-repair-completion-control-missing');
 has(systemEvidenceGuard, 'stale_visible_memory_repairs', 'stale-visible-repair-not-versioned');
