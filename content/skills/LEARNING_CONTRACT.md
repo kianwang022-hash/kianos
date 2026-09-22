@@ -199,7 +199,148 @@ It may not infer:
 - a health score;
 - future scheduling debt.
 
-## 4｜Verification
+
+## 4｜Learn Control — make material become capability
+
+The shared Skill lifecycle does **not** imply one universal teaching method.
+
+The learner surface must route practice by the type of capability being built, preserve clean evidence when useful, and stop calling exposure "learning".
+
+### 4.1｜Baseline Gate — test before teaching only when it is informative
+
+Before the first learner exposure to a capability unit, ask:
+
+> **Would a clean unseen baseline produce useful information without creating avoidable risk or noise?**
+
+Use a pre-learning baseline when:
+- Kian can make a meaningful attempt without first being taught the answer;
+- the attempt can reveal current capability rather than random guessing;
+- the task is low-risk enough to attempt;
+- prior exposure would materially contaminate the evidence.
+
+Skip or soften the baseline when:
+- a true novice could only guess;
+- the task is safety-critical / medically or financially consequential;
+- the real baseline already exists in durable evidence;
+- the baseline would cost more attention than it would save.
+
+A baseline exists to compress future learning, not to generate a score.
+
+### 4.2｜Practice Geometry Router — train the cognition the real task requires
+
+Do not default every Skill to reading + quiz.
+
+Choose the smallest geometry that matches the capability:
+
+| Capability type | Default learning geometry |
+| --- | --- |
+| Knowledge / mental model | retrieve, explain, compare, reconstruct relationships |
+| Discrimination / judgment | contrasted cases, decisive cues, uncertainty, changed-context classification |
+| Procedure / software / building | perform the workflow, debug failure, ship a working artifact |
+| Communication / social | live production, role-play when useful, then real interaction and feedback |
+| Physical / perceptual | embodied repetitions, external feedback, representative conditions |
+| Decision / governance | scenario analysis, policy/rules, actual decisions, later outcome review |
+| Creative / taste | produce, compare, critique, revise, build a reference library through use |
+| Mixed capability | combine only the geometries required by the actual success condition |
+
+The real task has priority over the convenient exercise.
+
+### 4.3｜Unit Closure Contract
+
+Every material learning unit must be able to answer:
+
+```text
+Target capability:
+Why this unit exists now:
+Prerequisites:
+Learner asset:
+Practice geometry:
+Allowed assistance:
+Verification mode:
+Exit evidence:
+Changed-context transfer target:
+Real-use manifestation:
+```
+
+Not every field must appear on the learner-facing page, but the design must resolve them.
+
+A unit is too broad if its target cannot be demonstrated in one coherent performance family.
+
+### 4.4｜Assistance Mode — distinguish Kian's capability from system capability
+
+Verification must state what assistance is legitimate for the success condition.
+
+Useful modes:
+
+- **NATIVE** — Kian must perform without AI / external answer generation;
+- **TOOL_ALLOWED** — ordinary tools are part of the real task;
+- **AI_ASSISTED** — effective AI use is itself part of the target capability;
+- **EXPERT_GATED** — real performance requires qualified human review or supervision.
+
+Do not label a polished AI-assisted artifact as native personal mastery when the Native Floor has not been demonstrated.
+
+### 4.5｜Promotion Ladder — exposure is not capability
+
+Use this evidence ladder when useful:
+
+```text
+ORIENTED
+→ DIRECTLY_DEMONSTRATED
+→ CHANGED_CONTEXT_TRANSFER
+→ REAL_USE
+→ STABLE
+```
+
+Meaning:
+
+- **ORIENTED** — learner has read / understood the model;
+- **DIRECTLY_DEMONSTRATED** — can perform a near-form task without answer leakage;
+- **CHANGED_CONTEXT_TRANSFER** — succeeds when surface features or context change;
+- **REAL_USE** — capability appears in an actual decision / project / conversation / performance;
+- **STABLE** — repeated evidence across time or context shows the capability is reliable enough for its stakes.
+
+Not every Skill needs to reach STABLE.
+
+The required promotion level comes from the original success condition and consequence of failure.
+
+Never promote on:
+- file existence;
+- page completion;
+- self-reported understanding alone;
+- same-item correction alone.
+
+### 4.6｜Difficulty and Feedback Control
+
+Practice should remain informative.
+
+When performance is:
+- **too easy / highly familiar** → increase delay, variability, context change or realism;
+- **productive but imperfect** → keep the task and give the smallest feedback that changes the next attempt;
+- **chaotic / mostly guessing** → shrink scope, restore prerequisites or add scaffolding;
+- **unsafe / high-consequence** → move to simulation, source review or expert-gated practice before real action.
+
+Feedback timing is domain-dependent.
+
+Use immediate feedback when early procedural error, safety or misconception makes continued blind practice costly.
+
+Delay feedback when clean retrieval / verification would otherwise be contaminated.
+
+There is no universal "always immediate" or "always delayed" rule.
+
+### 4.7｜Maintenance Gate
+
+Do not automatically create spaced review for every Skill.
+
+Add maintenance only when:
+- the capability decays without use;
+- future failure is costly;
+- real use is too infrequent to maintain it naturally;
+- or evidence shows regression.
+
+If normal real-world use already maintains the capability, real use is the maintenance plan.
+
+
+## 5｜Verification
 
 Teaching and verification must be separable when answer exposure would contaminate evidence.
 
@@ -215,7 +356,7 @@ Stable evidence exits cheaply.
 
 Wrong / Uncertain does not automatically create a large review queue. Chat should choose the smallest responsible Repair.
 
-## 5｜Source rule
+## 6｜Source rule
 
 Use the smallest source set that is strong enough for the decision.
 
@@ -223,7 +364,7 @@ More citations do not automatically improve the Skill.
 
 High-consequence claims require stronger Source and a higher human judgment floor.
 
-## 6｜Resume
+## 7｜Resume
 
 A fresh learner entry should answer cheaply:
 - what this Skill is for;
@@ -233,7 +374,7 @@ A fresh learner entry should answer cheaply:
 
 Do not require repo knowledge.
 
-## 7｜Anti-overengineering
+## 8｜Anti-overengineering
 
 FAIL when a Skill becomes:
 - a second textbook without learner value;
