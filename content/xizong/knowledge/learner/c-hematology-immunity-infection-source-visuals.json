@@ -6,23 +6,24 @@
   "canonical_id": "C",
   "selection_policy": "SPARSE_HIGH_VALUE_NOT_EXHAUSTIVE",
   "completeness": "PARTIAL_BY_DESIGN_EXTENSIBLE",
-  "notes": "First formal C/H11 Source Visual recovery. The exact original P461 page image from 03、内科学大合集.pdf is preserved for the lymphoma immunophenotype summary used by H11 LG08/KP31. RS variants, CHL subtype morphology and other H11 morphology visuals remain Source-gated rather than model-reconstructed.",
+  "notes": "Formal C/H11 Source Visual is grounded in the Project canonical `27内科精编版合集【带导图】.pdf`: printed P224 / physical PDF P272. The reviewed crop preserves the immunophenotype summary used by H11 LG08/KP31. RS variants, CHL subtype morphology and other H11 morphology visuals remain Source-gated rather than model-reconstructed.",
   "bundles": [
     {
       "cue_id": "c-h11-lg08-visual",
-      "source_sha256": "e9c479f5018b0e474fc887d367fb9c85dfcf4a10fdc78537020fabf621cc45cb",
+      "source_sha256": "4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939",
       "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
       "assets": [
         {
-          "source_object_id": "internal-medicine-page:e9c479f5018b0e47:p461:full",
-          "source_page": 461,
+          "source_object_id": "xizong-lecture-internal-medicine-pdf-v2:4ebf1bf62eea5eb1:p272:immunophenotype-crop",
+          "source_page": 272,
           "usage_role": "LYMPHOMA_IMMUNOPHENOTYPE_SUMMARY_VISUAL",
-          "usage_label": "P461 · 淋巴瘤免疫表型总表",
-          "alt": "内科学大合集 P461 特征免疫表型原页：CHL、NLPHL、浆细胞骨髓瘤、淋巴母/前体、CLL/SLL、套细胞、边缘区、DLBCL、滤泡、Burkitt、间变性大细胞、皮肤T与NK/T等标志组合总结",
-          "asset_path": "c-h11-lg08/h11-p461-immunophenotype-summary.png",
-          "width": 1158,
-          "height": 1638,
-          "derived_asset_sha256": "e9c479f5018b0e474fc887d367fb9c85dfcf4a10fdc78537020fabf621cc45cb"
+          "usage_label": "内科 P224｜PDF P272 · 淋巴瘤免疫表型总表",
+          "alt": "27内科精编版合集 PDF P272（印刷 P224）：CHL、NLPHL、浆细胞骨髓瘤、淋巴母/前体、CLL/SLL、套细胞、边缘区、DLBCL、滤泡、Burkitt、间变性大细胞、皮肤T、NK/T及部分AML免疫表型总结",
+          "asset_path": "c-h11-lg08/h11-p272-immunophenotype-summary.webp",
+          "width": 1100,
+          "height": 537,
+          "source_crop_sha256": "7192a549302872d293ac20f532a5f4220bbfba1920cdc258d343077c5550a45e",
+          "derived_asset_sha256": "a2b354b3725144ac0cb6a73e052397faf386bff0eb68aae38ee62630c9937295"
         }
       ]
     }
