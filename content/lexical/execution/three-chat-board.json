@@ -38,17 +38,17 @@
       2051,
       2150
     ],
-    "state": "MATERIALIZE_ALLOWED",
+    "state": "RECONCILE_ALLOWED",
     "candidate_pr": null,
     "candidate_branch": "work/lexical-continuous-bf20-official-20260922",
-    "materialized_owner_read_head": null,
+    "materialized_owner_read_head": "db7d97f3922075ad0be98acd1ee02549932afff1",
     "review_branch": "work/lexical-fullcatalog-bf20-review-20260922",
     "proposal_path": "content/lexical/execution/manifests/o2051-o2150.fullcatalog-final-standard-proposal.md",
     "proposal_commit": "d803c5a7b8a267021e368461284d58e1f3417bd6",
-    "note": "BF20 review-ahead frozen 100/100; two new Form groups pre-approved by grouped p. BF19 closed and latest-main refreeze passed. Materialization allowed."
+    "note": "BF20 materialized and same-Chat changed-owner B readback found two bounded refinements at o2056 and o2130; reconciliation allowed."
   },
   "audit_target": {
-    "state": "WAITING_MATERIALIZATION_AND_B_AUDIT",
+    "state": "PASS_WITH_CORRECTIONS__RECONCILE_ALLOWED",
     "candidate_id": "BF20",
     "range": [
       2051,
@@ -56,11 +56,13 @@
     ],
     "candidate_pr": null,
     "candidate_branch": "work/lexical-continuous-bf20-official-20260922",
-    "candidate_owner_read_head": null,
+    "candidate_owner_read_head": "db7d97f3922075ad0be98acd1ee02549932afff1",
     "brief": null,
-    "output": null,
+    "output": "content/lexical/semantic-audit/O2051_O2150_FINAL_STANDARD_SAME_CHAT_B_AUDIT_PACK.md",
     "human_gate_status": "PREAPPROVED_BY_GROUP_P",
-    "human_gate_approval_path": "content/lexical/execution/approval-bundles/BF18_BF20_APPROVAL_BUNDLE_20260922.md"
+    "human_gate_approval_path": "content/lexical/execution/approval-bundles/BF18_BF20_APPROVAL_BUNDLE_20260922.md",
+    "result": "PASS_WITH_CORRECTIONS",
+    "independence_note": "BLIND_FIRST_NOT_ENFORCED"
   },
   "lanes": {
     "A": {
@@ -1740,7 +1742,7 @@
   },
   "materialization_progress": {
     "candidate_id": "BF20",
-    "status": "MATERIALIZE_ALLOWED",
+    "status": "B_READBACK_PASS_WITH_CORRECTIONS",
     "candidate_pr": null,
     "latest_main_refreeze": "146b35e0f4009b998c70260a5feb635cb6c5eff1",
     "review_range": [
@@ -1763,7 +1765,14 @@
     "standing_repair_tests_before": 0,
     "standing_repair_tests_after": 0,
     "final_learner_objects": 7946,
-    "final_learner_shards": 125
+    "final_learner_shards": 125,
+    "materialized_commit": "db7d97f3922075ad0be98acd1ee02549932afff1",
+    "b_audit": "PASS_WITH_CORRECTIONS",
+    "b_audit_output": "content/lexical/semantic-audit/O2051_O2150_FINAL_STANDARD_SAME_CHAT_B_AUDIT_PACK.md",
+    "reconcile_ordinals": [
+      2056,
+      2130
+    ]
   },
   "semantic_freeze_scope_amendment": "content/lexical/FINAL_SEMANTIC_FREEZE_SCOPE_AMENDMENT_20260922.md",
   "quality_first_execution": {
