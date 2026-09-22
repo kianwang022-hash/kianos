@@ -1810,7 +1810,7 @@
     "ordinal": 5532,
     "word": "fertilizer",
     "source_owner_path": "content/lexical/words/by-ordinal/o5532.json",
-    "source_fingerprint": "68a9345d3d08fe98cdd5190caec2f5c6ac5de2c110e4f3bbadcf65d726c67907",
+    "source_fingerprint": "47a6b0afb1864feb36ca9c0f49c51e4df9d6e09683b5c154ffc8d5c13e0f115b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1851,26 +1851,29 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "fertilizer ↔ fertiliser",
-          "target_word": "fertiliser",
-          "lines": [
-            {
-              "text": "fertiliser is the usual British spelling; fertilizer is the usual American spelling. Same lexeme.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:955d35897cf4f82105ba",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "fertilizer ↔ fertiliser"
+      "relations": [],
+      "form": {
+        "boundary": "fertilizer is the usual American spelling; fertiliser is the usual British spelling. Both frozen Word owners remain distinct catalogue identities.",
+        "boundaries": [
+          {
+            "surface": "fertilizer",
+            "condition": "American English",
+            "note": "usual AmE spelling"
+          },
+          {
+            "surface": "fertiliser",
+            "condition": "British English",
+            "note": "usual BrE spelling"
           }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "fertilizer is the usual American spelling; fertiliser is the usual British spelling. Both frozen Word owners remain distinct catalogue identities."
         }
-      ],
-      "form": null,
+      },
       "family": []
     }
   },

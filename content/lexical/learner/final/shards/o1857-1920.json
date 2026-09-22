@@ -2098,7 +2098,7 @@
     "ordinal": 1872,
     "word": "fasten",
     "source_owner_path": "content/lexical/words/by-ordinal/o1872.json",
-    "source_fingerprint": "7bafc6204ffad2780b9aef50d0c9ab413332248be25c4c004ae18f115735a7c2",
+    "source_fingerprint": "24e36e6c3ec447a0dd663971bb4d464dfd9b1771a37f6eb1781f8a514e89addd",
     "sense_lineage": [
       {
         "word_id": "word:fasten",
@@ -2136,7 +2136,7 @@
         "id": "sense:fasten:575ac8cdbec55077",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "fasten + object / fasten to/with + sth / sth fastens",
         "definition_cn": "系紧，固定",
         "definition_en": "cause to be firmly attached",
         "note": "",
@@ -2345,7 +2345,7 @@
     "ordinal": 1874,
     "word": "fatal",
     "source_owner_path": "content/lexical/words/by-ordinal/o1874.json",
-    "source_fingerprint": "e444763e706a8cc093379a885ea17296428a7ad771495b35007bdc4059722096",
+    "source_fingerprint": "f670b03fea7088c55943e37d6c9b6594055d0a80840f724f6fef742a27694a7e",
     "sense_lineage": [
       {
         "word_id": "word:fatal",
@@ -2380,25 +2380,8 @@
     },
     "senses": [
       {
-        "id": "sense:fatal:909005c3595657ce",
-        "source_locator": "record.senses[0]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "命运注定的",
-        "definition_en": "controlled or decreed by fate; predetermined",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:fatal:909005c3595657ce",
-          "target_locator": "record.senses[0]",
-          "target_label": "命运注定的"
-        }
-      },
-      {
         "id": "sense:fatal:fad7651a4240bcd6",
-        "source_locator": "record.senses[1]",
+        "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "致命的、导致灾难的",
@@ -2409,8 +2392,25 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:fatal:fad7651a4240bcd6",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[0]",
           "target_label": "致命的、导致灾难的"
+        }
+      },
+      {
+        "id": "sense:fatal:909005c3595657ce",
+        "source_locator": "record.senses[1]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "命运注定的",
+        "definition_en": "controlled or decreed by fate; predetermined",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:fatal:909005c3595657ce",
+          "target_locator": "record.senses[1]",
+          "target_label": "命运注定的"
         }
       }
     ],
@@ -2898,7 +2898,7 @@
     "ordinal": 1878,
     "word": "fault",
     "source_owner_path": "content/lexical/words/by-ordinal/o1878.json",
-    "source_fingerprint": "d728ad438903b1fee18e4068f1f8495ddff16f546d2aa19e4853986f6b4369b2",
+    "source_fingerprint": "18a00fae16e032b7e72ef6de01a937166da6140d521ebc443042e54fc144cf69",
     "sense_lineage": [
       {
         "word_id": "word:fault",
@@ -2940,34 +2940,8 @@
     },
     "senses": [
       {
-        "id": "sense:fault:b07d1cea8074503a",
-        "source_locator": "record.senses[0]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "故障，毛病，缺陷",
-        "definition_en": "a defect or imperfection in something",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:3a0d443726bc26874a49",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "a fault in the system",
-            "meaning_cn": "系统中的故障",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:fault:b07d1cea8074503a",
-          "target_locator": "record.senses[0]",
-          "target_label": "故障，毛病，缺陷"
-        }
-      },
-      {
         "id": "sense:fault:629a4c7886d75858",
-        "source_locator": "record.senses[1]",
+        "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "过错；责任",
@@ -2978,8 +2952,34 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:fault:629a4c7886d75858",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[0]",
           "target_label": "过错；责任"
+        }
+      },
+      {
+        "id": "sense:fault:b07d1cea8074503a",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "故障，毛病，缺陷",
+        "definition_en": "a defect or imperfection in something",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:3a0d443726bc26874a49",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "a fault in the system",
+            "meaning_cn": "系统中的故障",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:fault:b07d1cea8074503a",
+          "target_locator": "record.senses[1]",
+          "target_label": "故障，毛病，缺陷"
         }
       }
     ],
@@ -3107,11 +3107,11 @@
     "ordinal": 1880,
     "word": "favor",
     "source_owner_path": "content/lexical/words/by-ordinal/o1880.json",
-    "source_fingerprint": "718ca9b22857231357492da0a40a8ea79f2cfced5a87dcbae1450803bfeb6ffb",
+    "source_fingerprint": "c6255af2a51ebadb91c1c046a774330eccfc571e3cc12a559530bc11ba19b9b3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(1+1)V",
+        "1V",
         "1N"
       ],
       "density": "rich"
@@ -3135,15 +3135,7 @@
         "definition_cn": "恩惠；赞同",
         "definition_en": "a kind or helpful act; approval or support",
         "note": "",
-        "identity_overlay": {
-          "text": "favor is the usual American spelling; favour is the usual British spelling. Same lexeme and sense inventory.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "favor is the usual American spelling; favour is the usual British spelling. Same lexeme and sense inventory."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:286dd2d9282d5277c5b2",
@@ -3187,15 +3179,7 @@
         "definition_cn": "支持，赞成；偏爱",
         "definition_en": "to support or prefer someone or something",
         "note": "",
-        "identity_overlay": {
-          "text": "favor is the usual American spelling; favour is the usual British spelling. Same lexeme and sense inventory.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "favor is the usual American spelling; favour is the usual British spelling. Same lexeme and sense inventory."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:10ed5dca2cac462e87ed",
@@ -3227,27 +3211,33 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:favor:6977e5315809b588",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "支持，赞成；偏爱",
-        "definition_en": "to support or prefer someone or something",
-        "pattern": "favor + sth",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:favor:6977e5315809b588",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "支持，赞成；偏爱"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "favor is the usual American English spelling; favour is the usual British English spelling.",
+        "boundaries": [
+          {
+            "surface": "favor",
+            "condition": "American English",
+            "note": "American English spelling"
+          },
+          {
+            "surface": "favour",
+            "condition": "British English",
+            "note": "British English spelling"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "favor is the usual American English spelling; favour is the usual British English spelling."
+        }
+      },
       "family": []
     }
   },
@@ -3257,7 +3247,7 @@
     "ordinal": 1881,
     "word": "favorable",
     "source_owner_path": "content/lexical/words/by-ordinal/o1881.json",
-    "source_fingerprint": "c7d20368baf4042a6b0e36c8a10e990cf36b265583c6ca18268ce49b3e244855",
+    "source_fingerprint": "b71acd691aea3ead10d314dc5f9025d49f7f5fd3920a87396b2eac88ea976b41",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3284,15 +3274,7 @@
         "definition_cn": "赞许的；赞同的",
         "definition_en": "showing approval or support",
         "note": "",
-        "identity_overlay": {
-          "text": "favorable is the usual American spelling; favourable is the usual British spelling. Same lexeme and sense inventory.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "favorable is the usual American spelling; favourable is the usual British spelling. Same lexeme and sense inventory."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:8b2b6a549bd40499139d",
@@ -3318,15 +3300,7 @@
         "definition_cn": "有利的；有帮助的",
         "definition_en": "advantageous or helpful",
         "note": "",
-        "identity_overlay": {
-          "text": "favorable is the usual American spelling; favourable is the usual British spelling. Same lexeme and sense inventory.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "favorable is the usual American spelling; favourable is the usual British spelling. Same lexeme and sense inventory."
-          }
-        },
+        "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -3343,15 +3317,7 @@
         "definition_cn": "适时的；时机有利的",
         "definition_en": "occurring at a suitable or advantageous time; opportune",
         "note": "",
-        "identity_overlay": {
-          "text": "favorable is the usual American spelling; favourable is the usual British spelling. Same lexeme and sense inventory.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[2].lexical_identity_overlay",
-            "target_label": "favorable is the usual American spelling; favourable is the usual British spelling. Same lexeme and sense inventory."
-          }
-        },
+        "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -3366,7 +3332,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "favorable is the usual American English spelling; favourable is the usual British English spelling.",
+        "boundaries": [
+          {
+            "surface": "favorable",
+            "condition": "American English",
+            "note": "American English spelling"
+          },
+          {
+            "surface": "favourable",
+            "condition": "British English",
+            "note": "British English spelling"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "favorable is the usual American English spelling; favourable is the usual British English spelling."
+        }
+      },
       "family": [
         {
           "target_word": "favor",
@@ -3387,7 +3374,7 @@
     "ordinal": 1882,
     "word": "favorite",
     "source_owner_path": "content/lexical/words/by-ordinal/o1882.json",
-    "source_fingerprint": "ddaae29c5be4d32bc54646c6d2c529c590fc41fcc9f43e404e80ae9f09f1f099",
+    "source_fingerprint": "aeb76bd516890a7dc5a5f15a086b6ab46d7112fa78d9223bf84b1cdaf0b05c42",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3415,15 +3402,7 @@
         "definition_cn": "最喜欢的；最受偏爱的",
         "definition_en": "preferred or liked most",
         "note": "",
-        "identity_overlay": {
-          "text": "favorite is the usual American spelling; favourite is the usual British spelling. Same lexeme and sense inventory.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "favorite is the usual American spelling; favourite is the usual British spelling. Same lexeme and sense inventory."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:2610c7a6a821170ce508",
@@ -3449,15 +3428,7 @@
         "definition_cn": "特别喜爱的人或事物",
         "definition_en": "something regarded with special favor or liking",
         "note": "",
-        "identity_overlay": {
-          "text": "favorite is the usual American spelling; favourite is the usual British spelling. Same lexeme and sense inventory.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "favorite is the usual American spelling; favourite is the usual British spelling. Same lexeme and sense inventory."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:ad9816e477035df0404d",
@@ -3481,7 +3452,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "favorite is the usual American English spelling; favourite is the usual British English spelling.",
+        "boundaries": [
+          {
+            "surface": "favorite",
+            "condition": "American English",
+            "note": "American English spelling"
+          },
+          {
+            "surface": "favourite",
+            "condition": "British English",
+            "note": "British English spelling"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "favorite is the usual American English spelling; favourite is the usual British English spelling."
+        }
+      },
       "family": []
     }
   },
@@ -4350,11 +4342,11 @@
     "ordinal": 1890,
     "word": "feature",
     "source_owner_path": "content/lexical/words/by-ordinal/o1890.json",
-    "source_fingerprint": "8237d25274f7d565d0f554538957f81a8e8693539fa86f1eb554f4d8e47f5f0d",
+    "source_fingerprint": "9722a69ba17a365400833759a620c3304ca4ab92b252f059f1703c2a216d64c2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(2+1)V",
+        "2V",
         "3N"
       ],
       "density": "rich"
@@ -4535,22 +4527,7 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:feature:d1fa69791ecd66b9",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "以…为特色；突出",
-        "definition_en": "include or highlight as a prominent part",
-        "pattern": "以…为特色",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:feature:d1fa69791ecd66b9",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "以…为特色；突出"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
@@ -4639,7 +4616,7 @@
     "ordinal": 1892,
     "word": "federal",
     "source_owner_path": "content/lexical/words/by-ordinal/o1892.json",
-    "source_fingerprint": "7869d561e9d2b3a014f5a4aa147d7e731aecde15df1abe7b9ac7af2434daef23",
+    "source_fingerprint": "f75de2fd89ae25cb1dd095ef1677048f5ae7be599cd6b89280ac7fa7ba1910b2",
     "sense_lineage": [
       {
         "word_id": "word:federal",
@@ -4972,7 +4949,7 @@
     "ordinal": 1896,
     "word": "feed",
     "source_owner_path": "content/lexical/words/by-ordinal/o1896.json",
-    "source_fingerprint": "7b6537e7002f77efbcbc93ef025bbe0d00199bc049dff7f515c661a7fffd946d",
+    "source_fingerprint": "2d17c602051f76688b559476002ad6ce216bcef94bd998dcacb24fb70d5bfe48",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5048,7 +5025,7 @@
         "id": "sense:feed:2d342ec3a3c9589c",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vi. + into + sth",
         "definition_cn": "流入；汇入",
         "definition_en": "flow into",
         "note": "",
@@ -5111,37 +5088,37 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "deep:constructions:feed:02cc16f8c590e91b",
-        "source_locator": "record.constructions[0]",
-        "pattern": "feed into + sth",
-        "lines": [
-          {
-            "text": "流入...",
-            "lang": "cn"
-          },
-          {
-            "text": "流入",
-            "lang": "cn"
-          },
-          {
-            "text": "flow into",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "deep:constructions:feed:02cc16f8c590e91b",
-          "target_locator": "record.constructions[0]",
-          "target_label": "feed into + sth"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "feed is irregular: feed → fed → fed.",
+        "boundaries": [
+          {
+            "surface": "feed",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "fed",
+            "condition": "past simple",
+            "note": "irregular past"
+          },
+          {
+            "surface": "fed",
+            "condition": "past participle",
+            "note": "irregular participle"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "feed is irregular: feed → fed → fed."
+        }
+      },
       "family": []
     }
   },
@@ -5251,7 +5228,7 @@
     "ordinal": 1898,
     "word": "feel",
     "source_owner_path": "content/lexical/words/by-ordinal/o1898.json",
-    "source_fingerprint": "da786236b69c1482770dc9d5e67a4e08b326de61d89f223dd0269931f2ccde72",
+    "source_fingerprint": "1a4be8e0b80caf4d8d18c9ed2f95d970707f5b5bd9d51e867d8592e0d8ad0c88",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5301,7 +5278,7 @@
         "id": "sense:feel:6f9e5e7557af5877",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "feel + adjective / feel like + doing",
         "definition_cn": "感觉；觉得",
         "definition_en": "undergo an emotional sensation or be in a particular state of mind",
         "note": "",
@@ -5435,7 +5412,33 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "feel is irregular: feel → felt → felt.",
+        "boundaries": [
+          {
+            "surface": "feel",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "felt",
+            "condition": "past simple",
+            "note": "irregular past"
+          },
+          {
+            "surface": "felt",
+            "condition": "past participle",
+            "note": "irregular participle"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "feel is irregular: feel → felt → felt."
+        }
+      },
       "family": []
     }
   },
@@ -5445,7 +5448,7 @@
     "ordinal": 1899,
     "word": "feeling",
     "source_owner_path": "content/lexical/words/by-ordinal/o1899.json",
-    "source_fingerprint": "9536e4d35f9f6c844251c108a62e531e5342c79a63f396d5e70a40f89d57d2fb",
+    "source_fingerprint": "ab583a8b2ea4cd365c0861624c2b456eafed11b858d99a302ef91c4e9a3e80be",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5586,8 +5589,17 @@
       "form": null,
       "family": [
         {
-          "target_word": "",
-          "lines": [],
+          "target_word": "feel",
+          "lines": [
+            {
+              "text": "feel (v.) ↔ feeling (n.): 感觉/感受 → 感觉、情绪或感受；词性不同，不可机械互换。",
+              "lang": "cn"
+            },
+            {
+              "text": "feel is the verb; feeling is the noun for an emotion, sensation, or intuitive impression.",
+              "lang": "en"
+            }
+          ],
           "source_locator": "record.word_family[0]"
         }
       ]
@@ -6059,7 +6071,7 @@
     "ordinal": 1904,
     "word": "fence",
     "source_owner_path": "content/lexical/words/by-ordinal/o1904.json",
-    "source_fingerprint": "23d9ec8d209a782a651143e5ec92f51901b8180a0043c998537451856257f804",
+    "source_fingerprint": "d394ee96e421684d7ac5ac1f381a05788878613ed2c81fd0cd14b7bc63445fff",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6069,40 +6081,31 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "栅栏或围住",
-      "decision_cn": "",
+      "summary_cn": "栅栏；围栏；用篱笆围住",
+      "decision_cn": "栅栏或围住",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "栅栏或围住"
+        "target_label": "栅栏；围栏；用篱笆围住"
       }
     },
     "senses": [
       {
-        "id": "sense:fence:08fd1b7ef3f051eb",
+        "id": "sense:fence:3b9ef8f43b5e5ba6",
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "买卖赃物的人",
-        "definition_en": "a dealer in stolen property",
+        "definition_cn": "栅栏；围栏",
+        "definition_en": "a barrier that encloses an area",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:0b3cfa6420e9f84cd846",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "a fence for stolen goods",
-            "meaning_cn": "买卖赃物的人",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:fence:08fd1b7ef3f051eb",
+          "target_id": "sense:fence:3b9ef8f43b5e5ba6",
           "target_locator": "record.senses[0]",
-          "target_label": "买卖赃物的人"
+          "target_label": "栅栏；围栏"
         }
       },
       {
@@ -6132,8 +6135,34 @@
         }
       },
       {
-        "id": "sense:fence:393a9e24f2835d3c",
+        "id": "sense:fence:08fd1b7ef3f051eb",
         "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "买卖赃物的人",
+        "definition_en": "a dealer in stolen property",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:0b3cfa6420e9f84cd846",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "a fence for stolen goods",
+            "meaning_cn": "买卖赃物的人",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:fence:08fd1b7ef3f051eb",
+          "target_locator": "record.senses[2]",
+          "target_label": "买卖赃物的人"
+        }
+      },
+      {
+        "id": "sense:fence:393a9e24f2835d3c",
+        "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "vi. + with",
         "definition_cn": "击剑",
@@ -6143,14 +6172,14 @@
         "usage": [
           {
             "id": "collocation:545abaa6dfddf6c9359f",
-            "source_locator": "record.senses[2].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "fence with + sb",
             "meaning_cn": "与某人击剑",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:545abaa6dfddf6c9359f",
-              "target_locator": "record.senses[2].collocations[0]",
+              "target_locator": "record.senses[3].collocations[0]",
               "target_label": "fence with + sb"
             }
           }
@@ -6158,13 +6187,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:fence:393a9e24f2835d3c",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[3]",
           "target_label": "击剑"
         }
       },
       {
         "id": "sense:fence:b29f1f23724250b6",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[4]",
         "pos": "verb",
         "governing_pattern": "vi. + with",
         "definition_cn": "搪塞",
@@ -6174,14 +6203,14 @@
         "usage": [
           {
             "id": "collocation:be4b6377eba280bfa95e",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[4].collocations[0]",
             "phrase": "fence with + a question",
             "meaning_cn": "搪塞问题",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:be4b6377eba280bfa95e",
-              "target_locator": "record.senses[3].collocations[0]",
+              "target_locator": "record.senses[4].collocations[0]",
               "target_label": "fence with + a question"
             }
           }
@@ -6189,25 +6218,8 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:fence:b29f1f23724250b6",
-          "target_locator": "record.senses[3]",
-          "target_label": "搪塞"
-        }
-      },
-      {
-        "id": "sense:fence:3b9ef8f43b5e5ba6",
-        "source_locator": "record.senses[4]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "栅栏；围栏",
-        "definition_en": "a barrier that encloses an area",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:fence:3b9ef8f43b5e5ba6",
           "target_locator": "record.senses[4]",
-          "target_label": "栅栏；围栏"
+          "target_label": "搪塞"
         }
       }
     ],
@@ -6453,7 +6465,7 @@
     "ordinal": 1907,
     "word": "fertiliser",
     "source_owner_path": "content/lexical/words/by-ordinal/o1907.json",
-    "source_fingerprint": "b942d1b5e2167e73f051f0fc96bd1648ede78fa0ce9736a568cd6b57b6a90817",
+    "source_fingerprint": "98a241bf8dfbfd4a1c8cb2b4bb5b979d13f32ed46eaafac66aec8dcc94016469",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6511,26 +6523,29 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "fertiliser ↔ fertilizer",
-          "target_word": "fertilizer",
-          "lines": [
-            {
-              "text": "fertiliser is the usual British spelling; fertilizer is the usual American spelling. Same lexeme.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:955d35897cf4f82105ba",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "fertiliser ↔ fertilizer"
+      "relations": [],
+      "form": {
+        "boundary": "fertiliser is the usual British spelling; fertilizer is the usual American spelling. Both frozen Word owners remain distinct catalogue identities.",
+        "boundaries": [
+          {
+            "surface": "fertiliser",
+            "condition": "British English",
+            "note": "usual BrE spelling"
+          },
+          {
+            "surface": "fertilizer",
+            "condition": "American English",
+            "note": "usual AmE spelling"
           }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "fertiliser is the usual British spelling; fertilizer is the usual American spelling. Both frozen Word owners remain distinct catalogue identities."
         }
-      ],
-      "form": null,
+      },
       "family": []
     }
   },
@@ -6540,7 +6555,7 @@
     "ordinal": 1908,
     "word": "festival",
     "source_owner_path": "content/lexical/words/by-ordinal/o1908.json",
-    "source_fingerprint": "780bdb2d59de348e5382132278f58865168da3683c09b79f12a115c63bf0f4d9",
+    "source_fingerprint": "879af455f43a627834c2626bd770b385b3182ddb1b3a858b3606aea0628b6d88",
     "sense_lineage": [
       {
         "word_id": "word:festival",
@@ -7064,7 +7079,7 @@
     "ordinal": 1913,
     "word": "fibre",
     "source_owner_path": "content/lexical/words/by-ordinal/o1913.json",
-    "source_fingerprint": "ef45f72d6493191a3a7f14fd6ff7c62f7f328d02b080ae7302d71b8cc37fa95d",
+    "source_fingerprint": "7fc299fb3c9d92cdb7b6c34e99662bad73ded3b0004c1dd174d8b8507d510626",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7073,13 +7088,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "纤维；构造；性格",
-      "decision_cn": "",
+      "summary_cn": "纤维；纤维细胞；膳食纤维",
+      "decision_cn": "主干是“细长纤维结构”：可指材料、肌/神经纤维和膳食纤维；品格义留在低优先级。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "纤维；构造；性格"
+        "target_label": "纤维；纤维细胞；膳食纤维"
       }
     },
     "senses": [
@@ -7091,15 +7106,7 @@
         "definition_cn": "纤维",
         "definition_en": "a slender, elongated substance that can be spun into yarn",
         "note": "",
-        "identity_overlay": {
-          "text": "fiber is the usual American spelling; fibre is the usual British spelling. Same lexeme and sense inventory.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "fiber is the usual American spelling; fibre is the usual British spelling. Same lexeme and sense inventory."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:4557f751c4ed168ad57c",
@@ -7133,15 +7140,7 @@
         "definition_cn": "纤维细胞（如肌纤维、神经纤维）",
         "definition_en": "a threadlike cell, especially a muscle or nerve fiber",
         "note": "",
-        "identity_overlay": {
-          "text": "fiber is the usual American spelling; fibre is the usual British spelling. Same lexeme and sense inventory.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "fiber is the usual American spelling; fibre is the usual British spelling. Same lexeme and sense inventory."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:4da795a5a1db2650777b",
@@ -7160,26 +7159,35 @@
         }
       },
       {
-        "id": "sense:fibre:91fdb50674f05d1f",
+        "id": "sense:fibre:afedf4e0962651b1",
         "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "膳食纤维；食物纤维",
+        "definition_en": "the indigestible part of plant foods that helps food move through the digestive system",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:fibre:afedf4e0962651b1",
+          "target_locator": "record.senses[2]",
+          "target_label": "膳食纤维；食物纤维"
+        }
+      },
+      {
+        "id": "sense:fibre:91fdb50674f05d1f",
+        "source_locator": "record.senses[3]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "品格，素质",
         "definition_en": "the inherent complex of attributes that determines a person's moral and ethical actions",
         "note": "",
-        "identity_overlay": {
-          "text": "fiber is the usual American spelling; fibre is the usual British spelling. Same lexeme and sense inventory.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[2].lexical_identity_overlay",
-            "target_label": "fiber is the usual American spelling; fibre is the usual British spelling. Same lexeme and sense inventory."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:3b8baf6570075b799140",
-            "source_locator": "record.senses[2].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "moral fibre",
             "meaning_cn": "道德品质",
             "kind": "usage_example",
@@ -7189,33 +7197,8 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:fibre:91fdb50674f05d1f",
-          "target_locator": "record.senses[2]",
-          "target_label": "品格，素质"
-        }
-      },
-      {
-        "id": "sense:fibre:afedf4e0962651b1",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "膳食纤维；食物纤维",
-        "definition_en": "the indigestible part of plant foods that helps food move through the digestive system",
-        "note": "",
-        "identity_overlay": {
-          "text": "fiber is the usual American spelling; fibre is the usual British spelling. Same lexeme and sense inventory.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[3].lexical_identity_overlay",
-            "target_label": "fiber is the usual American spelling; fibre is the usual British spelling. Same lexeme and sense inventory."
-          }
-        },
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:fibre:afedf4e0962651b1",
           "target_locator": "record.senses[3]",
-          "target_label": "膳食纤维；食物纤维"
+          "target_label": "品格，素质"
         }
       }
     ],
@@ -7224,7 +7207,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "fibre is the usual British spelling; fiber is the usual American spelling.",
+        "boundaries": [
+          {
+            "surface": "fibre",
+            "condition": "British English",
+            "note": "BrE spelling"
+          },
+          {
+            "surface": "fiber",
+            "condition": "American English",
+            "note": "AmE spelling"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "fibre is the usual British spelling; fiber is the usual American spelling."
+        }
+      },
       "family": []
     }
   },
@@ -7329,7 +7333,7 @@
     "ordinal": 1915,
     "word": "field",
     "source_owner_path": "content/lexical/words/by-ordinal/o1915.json",
-    "source_fingerprint": "0baaf2fcb0c89d72659b239cda7b2a6468151f8a6f0c9e0987bede39924b8a4c",
+    "source_fingerprint": "9a055fa8cc801d0e1ab8a817dcf064d2db34202ca118476a8270b1a02b4f9c5c",
     "sense_lineage": [
       {
         "word_id": "word:field",
@@ -7797,7 +7801,7 @@
     "ordinal": 1919,
     "word": "fight",
     "source_owner_path": "content/lexical/words/by-ordinal/o1919.json",
-    "source_fingerprint": "85634422147325be054b92244315a61fcc9bc31918bf1e5d1ad8b9b3c37294b8",
+    "source_fingerprint": "1d99b4c75f41e1861cf0ec47e0417fca6fce6cf5f11e3e8d7ccabbd2ff67e936",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8003,7 +8007,33 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "fight is irregular: fight → fought → fought.",
+        "boundaries": [
+          {
+            "surface": "fight",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "fought",
+            "condition": "past simple",
+            "note": "irregular past"
+          },
+          {
+            "surface": "fought",
+            "condition": "past participle",
+            "note": "irregular participle"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "fight is irregular: fight → fought → fought."
+        }
+      },
       "family": []
     }
   },
@@ -8013,11 +8043,11 @@
     "ordinal": 1920,
     "word": "figure",
     "source_owner_path": "content/lexical/words/by-ordinal/o1920.json",
-    "source_fingerprint": "72030803b3c18ca6d0d4cdc9df92c9667f385ce2ff48162a6b13f908da85b283",
+    "source_fingerprint": "fbcd1c77da117a2999ad2e026bb90fa65b42ffc26851371f2162d865b2b85e40",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(2+1)V",
+        "2V",
         "4N"
       ],
       "density": "rich"
@@ -8229,49 +8259,8 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:figure:6f8ae18e49912bd0",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "认为，估计",
-        "definition_en": "to think or decide that something is true",
-        "pattern": "figure that + 从句，表示认为",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:figure:6f8ae18e49912bd0",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "认为，估计"
-        }
-      }
-    ],
-    "constructions": [
-      {
-        "id": "deep:constructions:figure:f08b5b1dc61c14de",
-        "source_locator": "record.constructions[0]",
-        "pattern": "vt. + that-clause",
-        "lines": [
-          {
-            "text": "认为，估计",
-            "lang": "cn"
-          },
-          {
-            "text": "figure + that-clause 认为",
-            "lang": "cn"
-          },
-          {
-            "text": "to think or decide that something is true",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "deep:constructions:figure:f08b5b1dc61c14de",
-          "target_locator": "record.constructions[0]",
-          "target_label": "vt. + that-clause"
-        }
-      }
-    ],
+    "secondary_senses": [],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],

@@ -32,35 +32,38 @@
     "p_behavior": "APPROVE_EXACT_SHOWN_DELTA__FREEZE_BACKLOG__IMMEDIATE_NEXT_PRODUCTION_BATCH"
   },
   "frontier": {
-    "accepted_main_head": "71e9bcf8c546aa70fa068291128327dd1ba6cb60",
+    "accepted_main_head": "dc6281467dfdada3a7f3710771ac7b19dd8a5a26",
     "current_candidate_id": "BF18",
     "range": [
       1851,
       1950
     ],
-    "state": "WAITING_HUMAN_GATE",
+    "state": "B_AUDIT_PASS__READY_TO_MERGE",
     "candidate_pr": null,
-    "candidate_branch": "work/lexical-fullcatalog-bf18-review-20260922",
-    "materialized_owner_read_head": null,
+    "candidate_branch": "work/lexical-continuous-bf18-official-20260922",
+    "materialized_owner_read_head": "d375c0bd3a2a450abb19139a6244b2399adec276",
     "review_branch": "work/lexical-fullcatalog-bf18-review-20260922",
     "proposal_path": "content/lexical/execution/manifests/o1851-o1950.fullcatalog-final-standard-proposal.md",
     "proposal_commit": "7e93b7ce67831e482a4fd5cd9b446501c9095f8d",
-    "note": "BF18 Fresh Read + Self Attack complete: 29 affected, 71 NO_CHANGE, 0 blocked. Seven genuinely new Form groups require exact Human Gate before materialization; existing-truth corrections are frozen. Quality-first review-ahead is full: BF19 and BF20 are frozen review-only checkpoints; BF21 must not start until the backlog is reduced. BF18 remains canonical Human Gate."
+    "note": "BF18 materialized and B readback PASS 30/30 changed owners; no reconciliation. Grouped p also pre-approves frozen BF19/BF20 material, but frontier order remains mandatory."
   },
   "audit_target": {
-    "state": "WAITING_HUMAN_GATE",
+    "state": "PASS_READY_TO_MERGE",
     "candidate_id": "BF18",
     "range": [
       1851,
       1950
     ],
     "candidate_pr": null,
-    "candidate_branch": "work/lexical-fullcatalog-bf18-review-20260922",
-    "candidate_owner_read_head": null,
+    "candidate_branch": "work/lexical-continuous-bf18-official-20260922",
+    "candidate_owner_read_head": "d375c0bd3a2a450abb19139a6244b2399adec276",
     "brief": null,
-    "output": null,
-    "human_gate_required_groups": 7,
-    "human_gate_required_ordinals": [
+    "output": "content/lexical/semantic-audit/O1851_O1950_FINAL_STANDARD_SAME_CHAT_B_AUDIT_PACK.md",
+    "result": "PASS",
+    "independence_note": "BLIND_FIRST_NOT_ENFORCED",
+    "human_gate_status": "APPROVED_GROUP_BUNDLE",
+    "human_gate_approval": "Kian p 2026-09-22",
+    "human_gate_approved_ordinals": [
       1851,
       1896,
       1898,
@@ -68,9 +71,6 @@
       1929,
       1941,
       1944
-    ],
-    "remote_dependency_if_approved": [
-      5532
     ]
   },
   "lanes": {
@@ -1733,12 +1733,14 @@
         1941,
         1944
       ],
-      "remote_dependency_if_approved": [
+      "remote_dependency_ordinals": [
         5532
       ],
       "proposal": "content/lexical/execution/manifests/o1851-o1950.fullcatalog-final-standard-proposal.md",
-      "module_matrix": "content/lexical/execution/manifests/o1851-o1950.fullcatalog-final-standard-module-matrix.tsv",
-      "state": "WAITING_HUMAN_GATE"
+      "mutation_receipt": "content/lexical/execution/mutation-receipts/BF18-official-o1851-o1950-v1.json",
+      "audit": "content/lexical/semantic-audit/O1851_O1950_FINAL_STANDARD_SAME_CHAT_B_AUDIT_PACK.md",
+      "state": "B_AUDIT_PASS__READY_TO_MERGE",
+      "independence_note": "BLIND_FIRST_NOT_ENFORCED"
     }
   },
   "phase_transition": {
@@ -1749,9 +1751,9 @@
   },
   "materialization_progress": {
     "candidate_id": "BF18",
-    "status": "WAITING_HUMAN_GATE",
+    "status": "B_AUDIT_PASS__READY_TO_MERGE",
     "candidate_pr": null,
-    "latest_main_refreeze": "71e9bcf8c546aa70fa068291128327dd1ba6cb60",
+    "latest_main_refreeze": "dc6281467dfdada3a7f3710771ac7b19dd8a5a26",
     "review_range": [
       1851,
       1950
@@ -1781,7 +1783,14 @@
     "standing_repair_tests_before": 0,
     "standing_repair_tests_after": 0,
     "final_learner_objects": 7946,
-    "final_learner_shards": 125
+    "final_learner_shards": 125,
+    "human_gate_status": "APPROVED_EXACT_SCOPE",
+    "human_gate_approved_groups": 7,
+    "materialized_commit": "d375c0bd3a2a450abb19139a6244b2399adec276",
+    "b_audit": "PASS",
+    "b_audit_output": "content/lexical/semantic-audit/O1851_O1950_FINAL_STANDARD_SAME_CHAT_B_AUDIT_PACK.md",
+    "b_reconciliation": "NOT_REQUIRED",
+    "independence_note": "BLIND_FIRST_NOT_ENFORCED"
   },
   "semantic_freeze_scope_amendment": "content/lexical/FINAL_SEMANTIC_FREEZE_SCOPE_AMENDMENT_20260922.md",
   "quality_first_execution": {
@@ -1800,7 +1809,7 @@
     "effective_from": "BF18 onward / 2026-09-22"
   },
   "review_ahead_queue": {
-    "status": "FULL_AT_LIMIT__DO_NOT_START_BF21",
+    "status": "PREAPPROVED_BUT_FRONTIER_ORDER_BLOCKED",
     "max_checkpoints": 2,
     "max_words": 200,
     "canonical_frontier_remains": "BF18",
@@ -1833,7 +1842,10 @@
         "review_branch": "work/lexical-fullcatalog-bf19-review-20260922",
         "proposal_commit": "aeb5e4648883166cc139b07d809019b16afa23c0",
         "may_materialize": false,
-        "gate_deferred_until": "BF18 closes"
+        "gate_deferred_until": "BF18 closes",
+        "human_gate_status": "PREAPPROVED_BY_GROUP_P",
+        "human_gate_approval_path": "content/lexical/execution/approval-bundles/BF18_BF20_APPROVAL_BUNDLE_20260922.md",
+        "materialize_when": "BF18 closes and latest-main refreeze passes"
       },
       {
         "candidate_id": "BF20",
@@ -1859,9 +1871,47 @@
         "review_branch": "work/lexical-fullcatalog-bf20-review-20260922",
         "proposal_commit": "d803c5a7b8a267021e368461284d58e1f3417bd6",
         "may_materialize": false,
-        "gate_deferred_until": "BF18 closes"
+        "gate_deferred_until": "BF18 closes",
+        "human_gate_status": "PREAPPROVED_BY_GROUP_P",
+        "human_gate_approval_path": "content/lexical/execution/approval-bundles/BF18_BF20_APPROVAL_BUNDLE_20260922.md",
+        "materialize_when": "BF19 closes and latest-main refreeze passes"
       }
     ],
     "stop_condition": "No BF21 review while two reviewed-but-unmaterialized checkpoints remain."
+  },
+  "group_human_gate_approval": {
+    "status": "APPROVED",
+    "approval_token": "p",
+    "approved_at": "2026-09-22",
+    "approval_path": "content/lexical/execution/approval-bundles/BF18_BF20_APPROVAL_BUNDLE_20260922.md",
+    "scope_candidates": [
+      "BF18",
+      "BF19",
+      "BF20"
+    ],
+    "approved_group_count": 19,
+    "approved_ordinals": [
+      1851,
+      1896,
+      1898,
+      1919,
+      1929,
+      1941,
+      1944,
+      1957,
+      1962,
+      1975,
+      1987,
+      1991,
+      1994,
+      1999,
+      2003,
+      2004,
+      2044,
+      2130,
+      2137
+    ],
+    "excludes": "BF21+ unseen/unfrozen material",
+    "sequencing": "FRONTIER_ORDER_REQUIRED"
   }
 }

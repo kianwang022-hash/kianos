@@ -10,9 +10,9 @@
     "content_hash": "20a35eb9f0726beb2768460f8902596e68530d2fa5066232d1e749eb8aa1e71d",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "纤维；构造；性格",
-      "core_meaning_en": "a thin thread-like material or structure; also character or texture",
-      "mental_model_cn": "纤维；构造；性格",
+      "core_meaning_cn": "纤维；纤维细胞；膳食纤维",
+      "core_meaning_en": "fibre material or cells; dietary fibre",
+      "mental_model_cn": "主干是“细长纤维结构”：可指材料、肌/神经纤维和膳食纤维；品格义留在低优先级。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -58,14 +58,7 @@
         "sense_id": "sense:fibre:bdf8a16fa24d5513",
         "sense_label_en": "a slender, elongated substance that can be spun into yarn",
         "sort_order": 0,
-        "transitivity": "nonverb",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "spelling_variant",
-          "surface_lemma": "fibre",
-          "paired_form": "fiber / fibre",
-          "note": "fiber is the usual American spelling; fibre is the usual British spelling. Same lexeme and sense inventory."
-        }
+        "transitivity": "nonverb"
       },
       {
         "collocations": [
@@ -89,14 +82,31 @@
         "sense_id": "sense:fibre:1b7f4875fe2c59bc",
         "sense_label_en": "a threadlike cell, especially a muscle or nerve fiber",
         "sort_order": 1,
-        "transitivity": "nonverb",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "spelling_variant",
-          "surface_lemma": "fibre",
-          "paired_form": "fiber / fibre",
-          "note": "fiber is the usual American spelling; fibre is the usual British spelling. Same lexeme and sense inventory."
-        }
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "膳食纤维；食物纤维",
+        "definition_en": "the indigestible part of plant foods that helps food move through the digestive system",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:fibre:afedf4e0962651b1",
+        "sense_label_en": "the indigestible part of plant foods that helps food move through the digestive system",
+        "sort_order": 2,
+        "source_evidence": [
+          {
+            "external_evidence": [],
+            "semantic_auditor_approved": true,
+            "source_candidate_evidence_ids": [
+              "source-sense-candidate:fibre:11db381ca610a6c8"
+            ],
+            "source_operation_id": "operation:40da68a8f95f5a3ff92f",
+            "source_operation_sha256": "7fe2091e5acdb3d3585cbdd57423cd088d961e17da655d37702750e18192d892",
+            "verification_status": "auditor_verified"
+          }
+        ]
       },
       {
         "collocations": [
@@ -119,46 +129,8 @@
         "pos": "noun",
         "sense_id": "sense:fibre:91fdb50674f05d1f",
         "sense_label_en": "the inherent complex of attributes that determines a person's moral and ",
-        "sort_order": 2,
-        "transitivity": "nonverb",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "spelling_variant",
-          "surface_lemma": "fibre",
-          "paired_form": "fiber / fibre",
-          "note": "fiber is the usual American spelling; fibre is the usual British spelling. Same lexeme and sense inventory."
-        }
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "膳食纤维；食物纤维",
-        "definition_en": "the indigestible part of plant foods that helps food move through the digestive system",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:fibre:afedf4e0962651b1",
-        "sense_label_en": "the indigestible part of plant foods that helps food move through the digestive system",
         "sort_order": 3,
-        "source_evidence": [
-          {
-            "external_evidence": [],
-            "semantic_auditor_approved": true,
-            "source_candidate_evidence_ids": [
-              "source-sense-candidate:fibre:11db381ca610a6c8"
-            ],
-            "source_operation_id": "operation:40da68a8f95f5a3ff92f",
-            "source_operation_sha256": "7fe2091e5acdb3d3585cbdd57423cd088d961e17da655d37702750e18192d892",
-            "verification_status": "auditor_verified"
-          }
-        ],
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "spelling_variant",
-          "surface_lemma": "fibre",
-          "paired_form": "fiber / fibre",
-          "note": "fiber is the usual American spelling; fibre is the usual British spelling. Same lexeme and sense inventory."
-        }
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -181,7 +153,27 @@
     "word_id": "word:fibre",
     "search_aliases": [
       "fiber"
-    ]
+    ],
+    "form_identity": {
+      "form_type": "regional_spelling_identity",
+      "spelling": "fibre",
+      "identity_rule": "same_lexeme_spelling_variant",
+      "boundary": "fibre is the usual British spelling; fiber is the usual American spelling.",
+      "boundaries": [
+        {
+          "surface": "fibre",
+          "condition": "British English",
+          "note": "BrE spelling"
+        },
+        {
+          "surface": "fiber",
+          "condition": "American English",
+          "note": "AmE spelling"
+        }
+      ],
+      "variants": [],
+      "authority": "BF18 existing-truth Form migration 2026-09-22"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
