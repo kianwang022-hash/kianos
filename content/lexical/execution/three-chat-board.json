@@ -32,30 +32,40 @@
     "p_behavior": "APPROVE_EXACT_SHOWN_DELTA__FREEZE_BACKLOG__IMMEDIATE_NEXT_PRODUCTION_BATCH"
   },
   "frontier": {
-    "accepted_main_head": "6f2616837d9be826c1635cc56a59322b1feb747c",
+    "accepted_main_head": "842b9e4d25eb0a9e579ac3cffde0f1bdb3716511",
     "current_candidate_id": "BF13",
     "range": [
       1351,
       1450
     ],
-    "state": "REVIEW_BUNDLE_REQUIRED",
+    "state": "WAITING_HUMAN_GATE",
     "candidate_pr": null,
-    "candidate_branch": null,
+    "candidate_branch": "work/lexical-fullcatalog-bf13-review-20260922",
     "materialized_owner_read_head": null,
-    "note": "BF12 merged cleanly via PR #764. Advance full-catalog final-standard second pass to BF13 o1351-o1450; Fresh Read + Self Attack under unchanged ruler."
+    "review_branch": "work/lexical-fullcatalog-bf13-review-20260922",
+    "proposal_path": "content/lexical/execution/manifests/o1351-o1450.fullcatalog-final-standard-proposal.md",
+    "proposal_commit": "2af0432119838f3e4412202c420ae07044be333e",
+    "note": "BF13 Fresh Read + Self Attack complete: 26 affected, 74 NO_CHANGE, 0 blocked. Existing-truth corrections may proceed after exact Human Gate on five genuinely new Form/Identity deltas."
   },
   "audit_target": {
-    "state": "WAITING_PRODUCTION_AND_MATERIALIZATION",
+    "state": "WAITING_HUMAN_GATE",
     "candidate_id": "BF13",
     "range": [
       1351,
       1450
     ],
     "candidate_pr": null,
-    "candidate_branch": null,
+    "candidate_branch": "work/lexical-fullcatalog-bf13-review-20260922",
     "candidate_owner_read_head": null,
     "brief": null,
-    "output": null
+    "output": null,
+    "human_gate_required_ordinals": [
+      1360,
+      1375,
+      1377,
+      1411,
+      1442
+    ]
   },
   "lanes": {
     "A": {
@@ -1643,7 +1653,27 @@
     "A_status": "REOPENED_FULL_CATALOG_CONTINUATION",
     "C_status": "REOPENED_FULL_CATALOG_CONTINUATION",
     "completion_note": "Original o0001-o1250 closure is preserved. Continuation starts at o1251 under unchanged FINAL_SEMANTIC_FREEZE v1 ruler.",
-    "current_batch_result": null
+    "current_batch_result": {
+      "candidate_id": "BF13",
+      "range": [
+        1351,
+        1450
+      ],
+      "reviewed_owner_count": 100,
+      "affected_owner_count": 26,
+      "no_change_count": 74,
+      "blocked": 0,
+      "new_material_delta_owners": [
+        1360,
+        1375,
+        1377,
+        1411,
+        1442
+      ],
+      "proposal": "content/lexical/execution/manifests/o1351-o1450.fullcatalog-final-standard-proposal.md",
+      "module_matrix": "content/lexical/execution/manifests/o1351-o1450.fullcatalog-final-standard-module-matrix.tsv",
+      "state": "WAITING_HUMAN_GATE"
+    }
   },
   "phase_transition": {
     "entered_at": "2026-09-22",
@@ -1653,14 +1683,31 @@
   },
   "materialization_progress": {
     "candidate_id": "BF13",
-    "status": "REVIEW_BUNDLE_REQUIRED",
+    "status": "WAITING_HUMAN_GATE",
     "candidate_pr": null,
-    "latest_main_refreeze": "6f2616837d9be826c1635cc56a59322b1feb747c",
+    "latest_main_refreeze": "842b9e4d25eb0a9e579ac3cffde0f1bdb3716511",
     "review_range": [
       1351,
       1450
     ],
+    "review_artifact": 10671368002,
+    "review_artifact_digest": "sha256:bdce6a300074badc11d2d68174b9355e0966e5e33426566a766b1bdf8e3fbc10",
+    "proposal_path": "content/lexical/execution/manifests/o1351-o1450.fullcatalog-final-standard-proposal.md",
+    "proposal_commit": "2af0432119838f3e4412202c420ae07044be333e",
+    "fresh_read_coverage": "100/100",
+    "self_attack": "COMPLETE",
+    "content_affected_owners": 26,
+    "content_no_change": 74,
+    "new_material_delta_owners": [
+      1360,
+      1375,
+      1377,
+      1411,
+      1442
+    ],
     "blocked": 0,
+    "standing_repair_tests_before": 0,
+    "standing_repair_tests_after": 0,
     "final_learner_objects": 7946,
     "final_learner_shards": 125
   },
