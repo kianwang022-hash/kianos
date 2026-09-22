@@ -38,7 +38,9 @@ Current batch:
 ```text
 BF15
 o1551–o1650
-Fresh Read + Self Attack next
+Fresh Read + Self Attack complete
+26 affected / 74 PRESERVE / 0 blocked
+waiting exact Human Gate for 2 new knowledge groups
 ```
 
 BF12 `o1251–o1350` is closed on main via PR #764: 100/100 reviewed, 21 affected owners, 79 NO_CHANGE, 0 blocked; all 7,946 Final Learner Objects rebuilt and same-Chat B readback passed.
