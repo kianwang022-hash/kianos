@@ -45,7 +45,7 @@
     "review_branch": "work/lexical-fullcatalog-bf18-review-20260922",
     "proposal_path": "content/lexical/execution/manifests/o1851-o1950.fullcatalog-final-standard-proposal.md",
     "proposal_commit": "7e93b7ce67831e482a4fd5cd9b446501c9095f8d",
-    "note": "Kian p approved exactly seven BF18 Form groups. BF18 may materialize 29 affected in-range owners plus existing-truth remote o5532 fertilizer. BF19/BF20 remain review-ahead only."
+    "note": "BF18 exact Human Gate approved. Same p also pre-approves frozen BF19/BF20 new-material groups via bounded approval bundle; frontier order remains mandatory."
   },
   "audit_target": {
     "state": "WAITING_MATERIALIZATION_AND_B_AUDIT",
@@ -1813,7 +1813,7 @@
     "effective_from": "BF18 onward / 2026-09-22"
   },
   "review_ahead_queue": {
-    "status": "FULL_AT_LIMIT__DO_NOT_START_BF21",
+    "status": "PREAPPROVED_BUT_FRONTIER_ORDER_BLOCKED",
     "max_checkpoints": 2,
     "max_words": 200,
     "canonical_frontier_remains": "BF18",
@@ -1846,7 +1846,10 @@
         "review_branch": "work/lexical-fullcatalog-bf19-review-20260922",
         "proposal_commit": "aeb5e4648883166cc139b07d809019b16afa23c0",
         "may_materialize": false,
-        "gate_deferred_until": "BF18 closes"
+        "gate_deferred_until": "BF18 closes",
+        "human_gate_status": "PREAPPROVED_BY_GROUP_P",
+        "human_gate_approval_path": "content/lexical/execution/approval-bundles/BF18_BF20_APPROVAL_BUNDLE_20260922.md",
+        "materialize_when": "BF18 closes and latest-main refreeze passes"
       },
       {
         "candidate_id": "BF20",
@@ -1872,9 +1875,47 @@
         "review_branch": "work/lexical-fullcatalog-bf20-review-20260922",
         "proposal_commit": "d803c5a7b8a267021e368461284d58e1f3417bd6",
         "may_materialize": false,
-        "gate_deferred_until": "BF18 closes"
+        "gate_deferred_until": "BF18 closes",
+        "human_gate_status": "PREAPPROVED_BY_GROUP_P",
+        "human_gate_approval_path": "content/lexical/execution/approval-bundles/BF18_BF20_APPROVAL_BUNDLE_20260922.md",
+        "materialize_when": "BF19 closes and latest-main refreeze passes"
       }
     ],
     "stop_condition": "No BF21 review while two reviewed-but-unmaterialized checkpoints remain."
+  },
+  "group_human_gate_approval": {
+    "status": "APPROVED",
+    "approval_token": "p",
+    "approved_at": "2026-09-22",
+    "approval_path": "content/lexical/execution/approval-bundles/BF18_BF20_APPROVAL_BUNDLE_20260922.md",
+    "scope_candidates": [
+      "BF18",
+      "BF19",
+      "BF20"
+    ],
+    "approved_group_count": 19,
+    "approved_ordinals": [
+      1851,
+      1896,
+      1898,
+      1919,
+      1929,
+      1941,
+      1944,
+      1957,
+      1962,
+      1975,
+      1987,
+      1991,
+      1994,
+      1999,
+      2003,
+      2004,
+      2044,
+      2130,
+      2137
+    ],
+    "excludes": "BF21+ unseen/unfrozen material",
+    "sequencing": "FRONTIER_ORDER_REQUIRED"
   }
 }
