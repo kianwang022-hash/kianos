@@ -1,0 +1,498 @@
+{
+  "schema": "kianos.lexical.bf23_write_fragment.v1",
+  "part": 3,
+  "writes": [
+    {
+      "path": "content/lexical/words/by-ordinal/o5416.json",
+      "mode": "patch_json",
+      "expected_sha256": "1d0731c0349dc4e75733788e459296e4c6685452519a2eb655f74093e878251c",
+      "edits": [
+        {
+          "pointer": "/relation_refs",
+          "value": [
+            {
+              "relation_id": "deep:semantic_contrast:unit:cec4ba7cfde269fa",
+              "owner_path": "content/lexical/relations/by-id/93/938124f178485b33d5acf2b0cc4719ced4e5dbe22929a277e50da650efd4d655.json",
+              "field": "semantic_neighbors",
+              "index": 0
+            },
+            {
+              "relation_id": "relation:confusable:hole|whole:homophone",
+              "owner_path": "content/lexical/relations/by-id/2b/2ba7ae778335396ace3337bcb6000207761f56672834112090f76e7c64d8a650.json",
+              "field": "confusables",
+              "index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o5873.json",
+      "mode": "patch_json",
+      "expected_sha256": "4f0944f17f49a69f7ea87f3790c4fa6a9b50dc6132c64ac076f6f2eb42b6e6ab",
+      "edits": [
+        {
+          "pointer": "/relation_refs",
+          "value": [
+            {
+              "relation_id": "relation:confusable:hoarse|horse:pronunciation_overlap",
+              "owner_path": "content/lexical/relations/by-id/55/55625391e880f91bc34865f1603791fa26eeefea3699e517b7aef6d665da5642.json",
+              "field": "confusables",
+              "index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o3389.json",
+      "mode": "patch_json",
+      "expected_sha256": "edd5297a284a6166956c5ae907cd0b1a8c8b2b2774b3d2bf83959cec800125cd",
+      "edits": [
+        {
+          "pointer": "/relation_refs",
+          "value": [
+            {
+              "relation_id": "relation:confusable:hour|our:pronunciation_overlap",
+              "owner_path": "content/lexical/relations/by-id/dc/dc216947d1b68e585d12371130f7835b311ad70d72f5c95f2f5c7b25fa2a607d.json",
+              "field": "confusables",
+              "index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o6967.json",
+      "mode": "patch_json",
+      "expected_sha256": "2758e6624b78cc9cc6dcea2dbfe2b40766217e629c229d3801a5991b826a8206",
+      "edits": [
+        {
+          "pointer": "/relation_refs",
+          "value": [
+            {
+              "relation_id": "relation:confusable:human|humane:near_form",
+              "owner_path": "content/lexical/relations/by-id/b9/b94da6dfd2737c7f83032433ea62d10202efdd7bf50b468899bd7d677f3c57ab.json",
+              "field": "confusables",
+              "index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2452.json",
+      "mode": "patch_json",
+      "expected_sha256": "ba875507d589afce762c23f0cb2d10d88a4b63d759485ced8b63465d9572b180",
+      "edits": [
+        {
+          "pointer": "/relation_refs",
+          "value": [
+            {
+              "relation_id": "relation:confusable:imaginary|imaginative:near_form",
+              "owner_path": "content/lexical/relations/by-id/cc/cc6541468a2abf5479c57806f5ea5f65724b34ba525ea730c7bddaf1a6bf0217.json",
+              "field": "confusables",
+              "index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/relations/by-id/2b/2ba7ae778335396ace3337bcb6000207761f56672834112090f76e7c64d8a650.json",
+      "mode": "create_json",
+      "expected_absent": true,
+      "value": {
+        "schema": "kianos.lexical.relation_owner.v1",
+        "relation_id": "relation:confusable:hole|whole:homophone",
+        "canonical_record": null,
+        "fact_record": null,
+        "word_views": [
+          {
+            "source_word_id": "word:hole",
+            "source_ordinal": 2354,
+            "field": "confusables",
+            "index": 0,
+            "payload": {
+              "relation_id": "relation:confusable:hole|whole:homophone",
+              "relation_type": "homophone_confusable",
+              "relation_scope": "lexeme",
+              "target_word": "whole",
+              "source_sense_id": "sense:hole:d15ca24c1d475824",
+              "target_sense_id": "sense:whole:50963d3eb1675009",
+              "boundary": "hole means an opening or cavity; whole means complete/all of something.",
+              "boundaries": [
+                "hole = 洞；孔",
+                "whole = 完整的；整体",
+                "standard pronunciations are homophones"
+              ],
+              "learning_note": "Do not confuse hole (洞/孔) with whole (完整的/整体).",
+              "priority": "A",
+              "publication_status": "human_gate_approved",
+              "verification_status": "source_checked",
+              "writing_safe": false,
+              "task_tags": [
+                "reading",
+                "cloze",
+                "writing"
+              ]
+            }
+          },
+          {
+            "source_word_id": "word:whole",
+            "source_ordinal": 5416,
+            "field": "confusables",
+            "index": 0,
+            "payload": {
+              "relation_id": "relation:confusable:hole|whole:homophone",
+              "relation_type": "homophone_confusable",
+              "relation_scope": "lexeme",
+              "target_word": "hole",
+              "source_sense_id": "sense:whole:50963d3eb1675009",
+              "target_sense_id": "sense:hole:d15ca24c1d475824",
+              "boundary": "whole means complete/all of something; hole means an opening or cavity.",
+              "boundaries": [
+                "whole = 完整的；整体",
+                "hole = 洞；孔",
+                "standard pronunciations are homophones"
+              ],
+              "learning_note": "Do not confuse whole (完整的/整体) with hole (洞/孔).",
+              "priority": "A",
+              "publication_status": "human_gate_approved",
+              "verification_status": "source_checked",
+              "writing_safe": false,
+              "task_tags": [
+                "reading",
+                "cloze",
+                "writing"
+              ]
+            }
+          }
+        ],
+        "provenance": {
+          "materialized_from": "BF23 exact Human Gate 2026-09-22",
+          "semantic_delta": 1
+        }
+      }
+    },
+    {
+      "path": "content/lexical/relations/by-id/55/55625391e880f91bc34865f1603791fa26eeefea3699e517b7aef6d665da5642.json",
+      "mode": "create_json",
+      "expected_absent": true,
+      "value": {
+        "schema": "kianos.lexical.relation_owner.v1",
+        "relation_id": "relation:confusable:hoarse|horse:pronunciation_overlap",
+        "canonical_record": null,
+        "fact_record": null,
+        "word_views": [
+          {
+            "source_word_id": "word:horse",
+            "source_ordinal": 2375,
+            "field": "confusables",
+            "index": 0,
+            "payload": {
+              "relation_id": "relation:confusable:hoarse|horse:pronunciation_overlap",
+              "relation_type": "pronunciation_overlap_confusable",
+              "relation_scope": "lexeme",
+              "target_word": "hoarse",
+              "source_sense_id": "sense:horse:ad5d83acf01654ea",
+              "target_sense_id": "sense:hoarse:551cbbab2f5555b3",
+              "boundary": "horse means the animal; hoarse describes a rough, harsh voice. They are homophones in common standard pronunciations, though dialectal variants may differ.",
+              "boundaries": [
+                "horse = 马",
+                "hoarse = 声音嘶哑的",
+                "common standard pronunciations overlap; avoid universal dialect claim"
+              ],
+              "learning_note": "horse and hoarse commonly sound the same but mean different things.",
+              "priority": "A",
+              "publication_status": "human_gate_approved",
+              "verification_status": "source_checked",
+              "writing_safe": false,
+              "task_tags": [
+                "reading",
+                "cloze",
+                "writing"
+              ]
+            }
+          },
+          {
+            "source_word_id": "word:hoarse",
+            "source_ordinal": 5873,
+            "field": "confusables",
+            "index": 0,
+            "payload": {
+              "relation_id": "relation:confusable:hoarse|horse:pronunciation_overlap",
+              "relation_type": "pronunciation_overlap_confusable",
+              "relation_scope": "lexeme",
+              "target_word": "horse",
+              "source_sense_id": "sense:hoarse:551cbbab2f5555b3",
+              "target_sense_id": "sense:horse:ad5d83acf01654ea",
+              "boundary": "hoarse describes a rough, harsh voice; horse means the animal. They are homophones in common standard pronunciations, though dialectal variants may differ.",
+              "boundaries": [
+                "hoarse = 声音嘶哑的",
+                "horse = 马",
+                "common standard pronunciations overlap; avoid universal dialect claim"
+              ],
+              "learning_note": "hoarse and horse commonly sound the same but mean different things.",
+              "priority": "A",
+              "publication_status": "human_gate_approved",
+              "verification_status": "source_checked",
+              "writing_safe": false,
+              "task_tags": [
+                "reading",
+                "cloze",
+                "writing"
+              ]
+            }
+          }
+        ],
+        "provenance": {
+          "materialized_from": "BF23 exact Human Gate 2026-09-22",
+          "semantic_delta": 1
+        }
+      }
+    },
+    {
+      "path": "content/lexical/relations/by-id/dc/dc216947d1b68e585d12371130f7835b311ad70d72f5c95f2f5c7b25fa2a607d.json",
+      "mode": "create_json",
+      "expected_absent": true,
+      "value": {
+        "schema": "kianos.lexical.relation_owner.v1",
+        "relation_id": "relation:confusable:hour|our:pronunciation_overlap",
+        "canonical_record": null,
+        "fact_record": null,
+        "word_views": [
+          {
+            "source_word_id": "word:hour",
+            "source_ordinal": 2386,
+            "field": "confusables",
+            "index": 0,
+            "payload": {
+              "relation_id": "relation:confusable:hour|our:pronunciation_overlap",
+              "relation_type": "pronunciation_overlap_confusable",
+              "relation_scope": "lexeme",
+              "target_word": "our",
+              "source_sense_id": "sense:hour:5598ba8cb1b65d61",
+              "target_sense_id": "sense:our:6dfafe59ebb651dd",
+              "boundary": "hour and a common pronunciation of our overlap; hour is a unit of time, while our is a possessive determiner. our also has accent-dependent alternative pronunciations.",
+              "boundaries": [
+                "hour = 小时",
+                "our = 我们的",
+                "common pronunciations overlap; our has accent-dependent alternatives"
+              ],
+              "learning_note": "Do not confuse hour (小时) with our (我们的) when the pronunciations overlap.",
+              "priority": "A",
+              "publication_status": "human_gate_approved",
+              "verification_status": "source_checked",
+              "writing_safe": false,
+              "task_tags": [
+                "reading",
+                "cloze",
+                "writing"
+              ]
+            }
+          },
+          {
+            "source_word_id": "word:our",
+            "source_ordinal": 3389,
+            "field": "confusables",
+            "index": 0,
+            "payload": {
+              "relation_id": "relation:confusable:hour|our:pronunciation_overlap",
+              "relation_type": "pronunciation_overlap_confusable",
+              "relation_scope": "lexeme",
+              "target_word": "hour",
+              "source_sense_id": "sense:our:6dfafe59ebb651dd",
+              "target_sense_id": "sense:hour:5598ba8cb1b65d61",
+              "boundary": "our is a possessive determiner; a common pronunciation overlaps with hour, a unit of time. our also has accent-dependent alternative pronunciations.",
+              "boundaries": [
+                "our = 我们的",
+                "hour = 小时",
+                "common pronunciations overlap; our has accent-dependent alternatives"
+              ],
+              "learning_note": "Do not confuse our (我们的) with hour (小时) when the pronunciations overlap.",
+              "priority": "A",
+              "publication_status": "human_gate_approved",
+              "verification_status": "source_checked",
+              "writing_safe": false,
+              "task_tags": [
+                "reading",
+                "cloze",
+                "writing"
+              ]
+            }
+          }
+        ],
+        "provenance": {
+          "materialized_from": "BF23 exact Human Gate 2026-09-22",
+          "semantic_delta": 1
+        }
+      }
+    },
+    {
+      "path": "content/lexical/relations/by-id/b9/b94da6dfd2737c7f83032433ea62d10202efdd7bf50b468899bd7d677f3c57ab.json",
+      "mode": "create_json",
+      "expected_absent": true,
+      "value": {
+        "schema": "kianos.lexical.relation_owner.v1",
+        "relation_id": "relation:confusable:human|humane:near_form",
+        "canonical_record": null,
+        "fact_record": null,
+        "word_views": [
+          {
+            "source_word_id": "word:human",
+            "source_ordinal": 2399,
+            "field": "confusables",
+            "index": 0,
+            "payload": {
+              "relation_id": "relation:confusable:human|humane:near_form",
+              "relation_type": "near_form_semantic_confusable",
+              "relation_scope": "lexeme",
+              "target_word": "humane",
+              "source_sense_id": "sense:human:9b8839db0afd5c72",
+              "target_sense_id": "sense:humane:399b74f0f4675d45",
+              "boundary": "human means relating to people/humankind; humane means compassionate or concerned with reducing suffering.",
+              "boundaries": [
+                "human = 人的；人类的",
+                "humane = 人道的；仁慈的",
+                "near spelling, different semantic boundary"
+              ],
+              "learning_note": "human is not the adjective meaning compassionate; that learner boundary belongs to humane.",
+              "priority": "A",
+              "publication_status": "human_gate_approved",
+              "verification_status": "source_checked",
+              "writing_safe": false,
+              "task_tags": [
+                "reading",
+                "cloze",
+                "writing"
+              ]
+            }
+          },
+          {
+            "source_word_id": "word:humane",
+            "source_ordinal": 6967,
+            "field": "confusables",
+            "index": 0,
+            "payload": {
+              "relation_id": "relation:confusable:human|humane:near_form",
+              "relation_type": "near_form_semantic_confusable",
+              "relation_scope": "lexeme",
+              "target_word": "human",
+              "source_sense_id": "sense:humane:399b74f0f4675d45",
+              "target_sense_id": "sense:human:9b8839db0afd5c72",
+              "boundary": "humane means compassionate or concerned with reducing suffering; human means relating to people/humankind.",
+              "boundaries": [
+                "humane = 人道的；仁慈的",
+                "human = 人的；人类的",
+                "near spelling, different semantic boundary"
+              ],
+              "learning_note": "humane means compassionate/humane, not simply human/relating to people.",
+              "priority": "A",
+              "publication_status": "human_gate_approved",
+              "verification_status": "source_checked",
+              "writing_safe": false,
+              "task_tags": [
+                "reading",
+                "cloze",
+                "writing"
+              ]
+            }
+          }
+        ],
+        "provenance": {
+          "materialized_from": "BF23 exact Human Gate 2026-09-22",
+          "semantic_delta": 1
+        }
+      }
+    },
+    {
+      "path": "content/lexical/relations/by-id/cc/cc6541468a2abf5479c57806f5ea5f65724b34ba525ea730c7bddaf1a6bf0217.json",
+      "mode": "create_json",
+      "expected_absent": true,
+      "value": {
+        "schema": "kianos.lexical.relation_owner.v1",
+        "relation_id": "relation:confusable:imaginary|imaginative:near_form",
+        "canonical_record": null,
+        "fact_record": null,
+        "word_views": [
+          {
+            "source_word_id": "word:imaginary",
+            "source_ordinal": 2450,
+            "field": "confusables",
+            "index": 0,
+            "payload": {
+              "relation_id": "relation:confusable:imaginary|imaginative:near_form",
+              "relation_type": "near_form_semantic_confusable",
+              "relation_scope": "lexeme",
+              "target_word": "imaginative",
+              "source_sense_id": "sense:imaginary:0ff8bbe733555981",
+              "target_sense_id": "sense:imaginative:f7a66271c37b5f6c",
+              "boundary": "imaginary means not real / existing only in imagination; imaginative means creative or having new ideas.",
+              "boundaries": [
+                "imaginary = 虚构的；不真实的",
+                "imaginative = 富有想象力的；有创造性的",
+                "near form, different meaning"
+              ],
+              "learning_note": "Do not use imaginary for a creative person; that is imaginative.",
+              "priority": "A",
+              "publication_status": "human_gate_approved",
+              "verification_status": "source_checked",
+              "writing_safe": false,
+              "task_tags": [
+                "reading",
+                "cloze",
+                "writing"
+              ]
+            }
+          },
+          {
+            "source_word_id": "word:imaginative",
+            "source_ordinal": 2452,
+            "field": "confusables",
+            "index": 0,
+            "payload": {
+              "relation_id": "relation:confusable:imaginary|imaginative:near_form",
+              "relation_type": "near_form_semantic_confusable",
+              "relation_scope": "lexeme",
+              "target_word": "imaginary",
+              "source_sense_id": "sense:imaginative:f7a66271c37b5f6c",
+              "target_sense_id": "sense:imaginary:0ff8bbe733555981",
+              "boundary": "imaginative means creative or having new ideas; imaginary means not real / existing only in imagination.",
+              "boundaries": [
+                "imaginative = 富有想象力的；有创造性的",
+                "imaginary = 虚构的；不真实的",
+                "near form, different meaning"
+              ],
+              "learning_note": "Do not use imaginative to mean unreal/fictional; that is imaginary.",
+              "priority": "A",
+              "publication_status": "human_gate_approved",
+              "verification_status": "source_checked",
+              "writing_safe": false,
+              "task_tags": [
+                "reading",
+                "cloze",
+                "writing"
+              ]
+            }
+          }
+        ],
+        "provenance": {
+          "materialized_from": "BF23 exact Human Gate 2026-09-22",
+          "semantic_delta": 1
+        }
+      }
+    },
+    {
+      "path": "content/lexical/relations/manifest.json",
+      "mode": "patch_json",
+      "expected_sha256": "2587ee9f927cba2cbb3f4f68b544417e1e0e9a680b8f0658546fcf61a19393c1",
+      "edits": [
+        {
+          "pointer": "/relation_count",
+          "value": 448
+        }
+      ]
+    }
+  ]
+}
