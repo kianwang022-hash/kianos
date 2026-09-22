@@ -3,59 +3,14 @@
   "status": "ACTIVE",
   "campaign": "FULL_CATALOG_FINAL_STANDARD_CONTINUATION",
   "semantic_ruler": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
-  "updated_at": "2026-09-22T12:08:34+00:00",
+  "updated_at": "2026-09-22T12:09:37+00:00",
   "frontier": {
-    "candidate_id": "BF19",
-    "range": [
-      1951,
-      2050
-    ],
-    "state": "READY_TO_MERGE",
-    "accepted_main_head": "ba86c5650be841ee20a39f4b87ecac1e0d84365b",
-    "proposal_path": "content/lexical/execution/manifests/o1951-o2050.fullcatalog-final-standard-proposal.md",
-    "proposal_commit": "aeb5e4648883166cc139b07d809019b16afa23c0",
-    "review_branch": "work/lexical-fullcatalog-bf19-review-20260922",
-    "candidate_branch": "work/lexical-fullcatalog-bf19-review-20260922",
-    "human_gate": {
-      "status": "APPROVED",
-      "ordinals": [
-        1957,
-        1962,
-        1975,
-        1987,
-        1991,
-        1994,
-        1999,
-        2003,
-        2004,
-        2044
-      ],
-      "approval_ref": "Kian p on BF19 exact 10-Form delta, 2026-09-22",
-      "approved_at": "2026-09-22"
-    },
-    "materialization": {
-      "status": "READY_FOR_B_READBACK",
-      "package_id": "BF19-exact-forms-v3",
-      "receipt": "content/lexical/execution/mutation-receipts/BF19-exact-forms-v3.json",
-      "final_learner_objects": 7946,
-      "updated_at": "2026-09-22T12:07:17+00:00"
-    },
-    "audit": {
-      "status": "COMPLETE",
-      "result": "PASS",
-      "pack": "content/lexical/semantic-audit/O1951_O2050_EXACT_FORM_POST_GATE_B_READBACK.md",
-      "blind_first": "NOT_ENFORCED",
-      "correction_ordinals": [],
-      "updated_at": "2026-09-22T12:08:34+00:00"
-    }
-  },
-  "next": {
     "candidate_id": "BF20",
     "range": [
       2051,
       2150
     ],
-    "state": "REVIEW_AHEAD_FROZEN",
+    "state": "HUMAN_GATE_REQUIRED",
     "proposal_path": "content/lexical/execution/manifests/o2051-o2150.fullcatalog-final-standard-proposal.md",
     "proposal_commit": "d803c5a7b8a267021e368461284d58e1f3417bd6",
     "review_branch": "work/lexical-fullcatalog-bf20-review-20260922",
@@ -72,18 +27,36 @@
     "remote_dependency_ordinals": [
       5557,
       5840
-    ]
+    ],
+    "accepted_main_head": "cacf614cce0a06a2744d8dac56f20de629cddc2e"
+  },
+  "next": {
+    "candidate_id": "BF21",
+    "range": [
+      2151,
+      2250
+    ],
+    "state": "REVIEW_REQUIRED",
+    "proposal_path": null,
+    "proposal_commit": null,
+    "review_branch": null,
+    "human_gate": {
+      "status": "NOT_REQUIRED",
+      "ordinals": [],
+      "approval_ref": null
+    }
   },
   "last_closed": {
-    "candidate_id": "BF18",
+    "candidate_id": "BF19",
     "range": [
-      1851,
-      1950
+      1951,
+      2050
     ],
-    "merge_commit": "7582bb9463b6c8498e7738f4afccd29160e4c918",
+    "merge_commit": "cacf614cce0a06a2744d8dac56f20de629cddc2e",
+    "audit_pack": "content/lexical/semantic-audit/O1951_O2050_EXACT_FORM_POST_GATE_B_READBACK.md",
     "final_learner_objects": 7946
   },
-  "blocker": null,
-  "next_action": "AUTO_MERGE",
+  "blocker": "HUMAN_GATE_REQUIRED",
+  "next_action": "SHOW_EXACT_FRONTIER_DELTA",
   "legacy_history": "content/lexical/execution/three-chat-board.json"
 }
