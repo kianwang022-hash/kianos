@@ -1,0 +1,83 @@
+{
+  "schema": "kianos.skill.manifest.v1",
+  "id": "high-energy",
+  "title": "高精力自我调节",
+  "kicker": "Health & Recovery",
+  "description": "建立稳定、可调用、可恢复的高质量可用精力；能判断为什么掉状态，并选择匹配的恢复或负荷调整。",
+  "status": "ACTIVE",
+  "portfolio_state": "CORE_SUPPORT",
+  "demand": "建立高精力自我调节能力：主动判断低能量/低效率原因，完成瞬时恢复，并在日、周、长期尺度管理恢复和高精力 baseline。",
+  "guide": "guide.md",
+  "current_asset": "u1-state-diagnosis",
+  "assets": [
+    {
+      "id": "guide",
+      "kind": "guide",
+      "title": "总 Guide",
+      "label": "先建立整张地图",
+      "path": "guide.md",
+      "order": 0,
+      "learner_visible": true,
+      "completable": true
+    },
+    {
+      "id": "u1-state-diagnosis",
+      "kind": "unit",
+      "title": "U1 · 状态诊断",
+      "label": "为什么我现在低能量 / 低效率？",
+      "path": "units/u1-state-diagnosis.md",
+      "order": 10,
+      "learner_visible": true,
+      "completable": true
+    },
+    {
+      "id": "u1-verify",
+      "kind": "verify",
+      "title": "U1 · Verify",
+      "label": "独立判断真实情境",
+      "path": "verify/u1-state-diagnosis.md",
+      "order": 20,
+      "learner_visible": true,
+      "protected": true,
+      "completable": false
+    }
+  ],
+  "source_reviews": [
+    {
+      "id": "u1-source-review",
+      "title": "U1 Source Review",
+      "path": "source-review/u1-state-diagnosis.md"
+    }
+  ],
+  "capability_map": [
+    "C1 状态诊断",
+    "C2 瞬时恢复",
+    "C3 日内精力配置",
+    "C4 周尺度负荷 / 恢复",
+    "C5 长期高精力 baseline",
+    "C6 个体自证 / calibration",
+    "C7 医疗升级边界"
+  ],
+  "next_planned": [
+    {
+      "id": "u2-acute-recovery",
+      "title": "U2 · 瞬时恢复",
+      "status": "PLANNED"
+    },
+    {
+      "id": "u3-day-energy",
+      "title": "U3 · 日内精力配置",
+      "status": "PLANNED"
+    },
+    {
+      "id": "u4-week-recovery",
+      "title": "U4 · 周尺度恢复",
+      "status": "PLANNED"
+    },
+    {
+      "id": "u5-baseline",
+      "title": "U5 · 长期高精力 baseline",
+      "status": "PLANNED"
+    }
+  ]
+}

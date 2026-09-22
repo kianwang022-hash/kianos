@@ -1,0 +1,82 @@
+---
+import SkillsBase from '../../../layouts/SkillsBase.astro';
+import { listSkillAssetRoutes, loadSkillAsset, skillAssetHref } from '../../../lib/skills.mjs';
+
+export function getStaticPaths() {
+  return listSkillAssetRoutes().map((route) => ({
+    params: { skill: route.skillId, asset: route.assetId }
+  }));
+}
+
+const base = import.meta.env.BASE_URL;
+const skillId = Astro.params.skill;
+const assetId = Astro.params.asset;
+const { skill, asset, html } = loadSkillAsset(skillId, assetId);
+const index = skill.assets.findIndex((item) => item.id === asset.id);
+const previous = index > 0 ? skill.assets[index - 1] : null;
+const next = index >= 0 && index < skill.assets.length - 1 ? skill.assets[index + 1] : null;
+const isVerify = asset.kind === 'verify' || asset.protected;
+---
+<SkillsBase title={asset.title} kicker={skill.title + ' · ' + asset.kind.toUpperCase()} description={asset.label || skill.subtitle}>
+  <nav class="skillBreadcrumb" aria-label="Skill navigation">
+    <a href={base + 'skills/'}>Skills</a>
+    <span>›</span>
+    <a href={base + 'skills/' + skill.id + '/'}>{skill.title}</a>
+    <span>›</span>
+    <strong>{asset.title}</strong>
+  </nav>
+
+  {isVerify && (
+    <aside class="skillVerifyBanner">
+      <strong>Protected Verify</strong>
+      <p>这是独立验证面。若要保留 clean evidence，先完成学习正文，再在不回看的情况下作答。</p>
+    </aside>
+  )}
+
+  <article class={'skillReader ' + (isVerify ? 'skillReaderVerify' : '')} data-skill-reader data-skill-id={skill.id} data-asset-id={asset.id} data-completable={asset.completable ? 'true' : 'false'}>
+    <div class="skillMarkdown" set:html={html} />
+  </article>
+
+  <footer class="skillReaderFooter">
+    <div class="skillReaderProgress" data-skill-progress-label>本页尚未记录</div>
+    {asset.completable && <button type="button" class="skillReadButton" data-skill-complete>标记已读</button>}
+    <nav>
+      {previous ? <a href={skillAssetHref(base, skill.id, previous.id)}>← {previous.title}</a> : <span />}
+      {next ? <a href={skillAssetHref(base, skill.id, next.id)}>{next.title} →</a> : <a href={base + 'skills/' + skill.id + '/'}>返回学习地图</a>}
+    </nav>
+  </footer>
+</SkillsBase>
+
+<script>
+  import { recordSkillAssetVisit, setSkillAssetCompleted, skillProgressFor } from '../../../lib/skillRuntimeClient.mjs';
+  import { learnerWriterReady } from '../../../lib/browserLearnerWriter.mjs';
+
+  void learnerWriterReady.then(() => {
+  const reader = document.querySelector('[data-skill-reader]');
+  if (reader instanceof HTMLElement) {
+    const skillId = reader.dataset.skillId || '';
+    const assetId = reader.dataset.assetId || '';
+    recordSkillAssetVisit(skillId, assetId);
+
+    const label = document.querySelector('[data-skill-progress-label]');
+    const button = document.querySelector('[data-skill-complete]');
+
+    const render = () => {
+      const state = skillProgressFor(skillId);
+      const done = state.completed.includes(assetId);
+      if (label instanceof HTMLElement) label.textContent = done ? '已标记读完 · 不代表掌握' : '已记录到访';
+      if (button instanceof HTMLButtonElement) button.textContent = done ? '取消已读' : '标记已读';
+      if (button instanceof HTMLButtonElement) button.dataset.done = done ? 'true' : 'false';
+    };
+
+    render();
+    if (button instanceof HTMLButtonElement) {
+      button.addEventListener('click', () => {
+        const state = skillProgressFor(skillId);
+        setSkillAssetCompleted(skillId, assetId, !state.completed.includes(assetId));
+        render();
+      });
+    }
+  }
+  });
+</script>

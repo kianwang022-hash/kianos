@@ -59,6 +59,8 @@ known domain/task
 
 Do **not** enter an engineering `CURRENT.md` merely because one exists.
 
+For a promoted non-exam Skill, use `content/skills/CURRENT.md` → exact Skill manifest / learner asset → learn. The generic Skill renderer is a learner surface, not a new strategy owner.
+
 ### Daily learner handoff
 
 A message containing `KIANOS_DAILY_LEARNING_HANDOFF_V1` or a `kianos.daily-learning-packet.v1` object is itself **LEARN** state.

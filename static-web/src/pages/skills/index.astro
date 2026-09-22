@@ -1,0 +1,58 @@
+---
+import SkillsBase from '../../layouts/SkillsBase.astro';
+import { listSkills, skillAssetHref } from '../../lib/skills.mjs';
+
+const base = import.meta.env.BASE_URL;
+const skills = listSkills();
+---
+<SkillsBase title="Skills" kicker="KianOS · Skill Library" description="把值得学习的能力变成可阅读、可验证、可继续的学习产品。">
+  <section class="skillLibraryIntro">
+    <div>
+      <p class="skillEyebrow">Skill Library</p>
+      <h2>能力不是清单，进入以后就是学习空间。</h2>
+    </div>
+    <p>Guide / Framework / Unit / Verify 由 Content 决定；页面只负责清楚呈现。新增普通 Skill 不需要重新开发一套 Astro。</p>
+  </section>
+
+  <section class="skillLibraryGrid" aria-label="技能库">
+    {skills.map((skill) => {
+      const current = skill.assets.find((asset) => asset.id === skill.currentAsset) || skill.assets[0];
+      return (
+        <article class="skillLibraryCard" data-skill-card={skill.id}>
+          <header>
+            <span>{skill.portfolioState || 'ACTIVE'}</span>
+            <strong>{skill.title}</strong>
+          </header>
+          <p>{skill.subtitle}</p>
+          <div class="skillLibraryCardMeta">
+            <span>{skill.assets.length} 个当前学习资产</span>
+            <span>{skill.status}</span>
+          </div>
+          <a
+            class="skillPrimaryAction"
+            href={current ? skillAssetHref(base, skill.id, current.id) : base + 'skills/' + skill.id + '/'}
+            data-skill-continue={skill.id}
+            data-default-asset={current?.id || ''}
+          >
+            继续学习
+          </a>
+          <a class="skillSecondaryAction" href={base + 'skills/' + skill.id + '/'}>查看学习地图</a>
+        </article>
+      );
+    })}
+  </section>
+</SkillsBase>
+
+<script>
+  import { skillProgressFor } from '../../lib/skillRuntimeClient.mjs';
+  const base = import.meta.env.BASE_URL;
+  for (const link of document.querySelectorAll('[data-skill-continue]')) {
+    if (!(link instanceof HTMLAnchorElement)) continue;
+    const skillId = link.dataset.skillContinue || '';
+    const state = skillProgressFor(skillId);
+    if (state.last_asset) {
+      link.href = base + 'skills/' + encodeURIComponent(skillId) + '/' + encodeURIComponent(state.last_asset) + '/';
+      link.textContent = '继续上次位置';
+    }
+  }
+</script>

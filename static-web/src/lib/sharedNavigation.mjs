@@ -6,7 +6,8 @@ export function globalNavigation(base = '/') {
     { key: 'home', label: 'Home', href: base, icon: 'M3 10 12 3l9 7M5 9v11h5v-6h4v6h5V9' },
     { key: 'xizong', label: '西综', href: `${base}xizong/`, icon: 'M12 3v18M3 12h18M6 6l12 12M6 18 18 6' },
     { key: 'politics', label: '政治', href: `${base}politics/`, icon: 'M4 20h16M6 17V8m6 9V8m6 9V8M3 6l9-3 9 3H3Z' },
-    { key: 'english', label: 'English', href: `${base}english/`, icon: 'M4 5h7a4 4 0 0 1 4 4v11a4 4 0 0 0-4-3H4V5Zm11 4a4 4 0 0 1 4-4h2v12h-2a4 4 0 0 0-4 3' }
+    { key: 'english', label: 'English', href: `${base}english/`, icon: 'M4 5h7a4 4 0 0 1 4 4v11a4 4 0 0 0-4-3H4V5Zm11 4a4 4 0 0 1 4-4h2v12h-2a4 4 0 0 0-4 3' },
+    { key: 'skills', label: 'Skills', href: `${base}skills/`, icon: 'M7 4h10v4H7V4Zm-2 7h14v9H5v-9Zm4 3h6' }
   ];
 }
 
@@ -107,6 +108,7 @@ export function resolveGlobalActive(localPath = '', active = 'home') {
   if (ENGLISH_FAMILY_PREFIXES.includes(segment)) return 'english';
   if (segment === 'xizong') return 'xizong';
   if (segment === 'politics') return 'politics';
+  if (segment === 'skills') return 'skills';
   return active;
 }
 

@@ -1,0 +1,107 @@
+/* Generic Skill Library visual owner. Reuses shared KianOS tokens; no subject CSS dependency. */
+
+.skillLibraryIntro,
+.skillHero,
+.skillSection,
+.skillReader,
+.skillReaderFooter,
+.skillVerifyBanner {
+  border: 1px solid var(--study-line);
+  background: var(--study-surface);
+}
+
+.skillLibraryIntro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, .9fr);
+  gap: 28px;
+  align-items: end;
+  padding: 28px 30px;
+  border-radius: var(--study-radius);
+}
+.skillLibraryIntro h2, .skillHero h2 {
+  margin: 4px 0 0;
+  font-size: clamp(30px, 3vw, 44px);
+  line-height: 1.16;
+  letter-spacing: -.02em;
+}
+.skillLibraryIntro > p, .skillHeroMain > p { margin: 0; color: var(--study-muted); font-size: var(--study-type-secondary); }
+.skillEyebrow { margin: 0; color: var(--study-green); font-size: var(--study-type-meta); font-weight: var(--study-weight-strong); text-transform: uppercase; letter-spacing: .05em; }
+
+.skillLibraryGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 18px; margin-top: 18px; }
+.skillLibraryCard { display: grid; gap: 16px; padding: 24px; border: 1px solid var(--study-line); border-radius: var(--study-radius-medium); background: var(--study-surface); box-shadow: 0 10px 26px rgba(28,48,39,.035); }
+.skillLibraryCard header { display: grid; gap: 5px; }
+.skillLibraryCard header span, .skillLibraryCardMeta span, .skillAssetRow span, .skillPlannedGrid span, .skillCapabilityMap > span, .skillSectionHead span { color: var(--study-faint); font-size: var(--study-type-meta); font-weight: var(--study-weight-strong); }
+.skillLibraryCard header strong { font-size: var(--study-type-task); }
+.skillLibraryCard > p { margin: 0; color: var(--study-muted); }
+.skillLibraryCardMeta { display: flex; flex-wrap: wrap; gap: 8px 16px; }
+
+.skillPrimaryAction, .skillSecondaryAction, .skillReaderFooter a { text-decoration: none; }
+.skillPrimaryAction { display: inline-flex; width: fit-content; align-items: center; justify-content: center; min-height: 44px; padding: 0 16px; border-radius: var(--study-radius-control); background: var(--study-green); color: white; font-weight: var(--study-weight-strong); }
+.skillPrimaryAction:hover { filter: brightness(.96); }
+.skillSecondaryAction { width: fit-content; color: var(--study-green); font-weight: var(--study-weight-strong); }
+
+.skillHero { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(290px, .65fr); gap: 28px; padding: 28px 30px; border-radius: var(--study-radius); }
+.skillHeroMain { display: grid; align-content: start; gap: 14px; }
+.skillCapabilityMap { padding: 20px 22px; border-radius: var(--study-radius-medium); background: var(--study-surface-muted); }
+.skillCapabilityMap ol { display: grid; gap: 8px; margin: 12px 0 0; padding-left: 23px; }
+.skillCapabilityMap li { color: var(--study-muted); font-size: var(--study-type-secondary); }
+
+.skillSection { margin-top: 18px; padding: 24px; border-radius: var(--study-radius-medium); }
+.skillSectionHead { display: flex; gap: 22px; align-items: end; justify-content: space-between; margin-bottom: 16px; }
+.skillSectionHead h3 { margin: 2px 0 0; font-size: var(--study-type-section); }
+.skillSectionHead p { max-width: 540px; margin: 0; color: var(--study-muted); }
+.skillAssetList { display: grid; gap: 8px; }
+.skillAssetRow { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 18px; align-items: center; padding: 17px 18px; border: 1px solid var(--study-line); border-radius: var(--study-radius-small); background: var(--study-warm); color: inherit; text-decoration: none; }
+.skillAssetRow:hover { border-color: var(--study-line-strong); background: var(--study-surface-muted); }
+.skillAssetRow > div { display: grid; gap: 3px; }
+.skillAssetRow strong { font-size: var(--study-type-secondary); }
+.skillAssetRow p { margin: 0; color: var(--study-muted); }
+.skillAssetRow b { color: var(--study-green); font-size: 24px; }
+.skillAssetRow[data-completed='true']::before { content: '✓'; color: var(--study-green); font-weight: 800; }
+.skillAssetRow[data-completed='true'] { grid-template-columns: auto minmax(0, 1fr) auto; }
+.skillAssetRow[data-visited='true']:not([data-completed='true']) { border-color: #c8d8d0; }
+
+.skillPlannedGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; }
+.skillPlannedGrid > div { display: grid; gap: 4px; padding: 14px 16px; border-radius: var(--study-radius-small); background: var(--study-surface-muted); }
+
+.skillBreadcrumb { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 14px; color: var(--study-muted); font-size: var(--study-type-meta); }
+.skillBreadcrumb a { color: var(--study-green); text-decoration: none; }
+.skillBreadcrumb strong { color: var(--study-ink); }
+
+.skillVerifyBanner { display: grid; gap: 4px; margin-bottom: 14px; padding: 14px 18px; border-left: 4px solid #a96b43; border-radius: var(--study-radius-small); background: #fff8f1; }
+.skillVerifyBanner strong { color: #754322; }
+.skillVerifyBanner p { margin: 0; color: #795b46; }
+
+.skillReader { max-width: 980px; margin: 0 auto; padding: clamp(28px, 4vw, 54px) clamp(24px, 5vw, 72px); border-radius: var(--study-radius); box-shadow: var(--study-shadow); }
+.skillReaderVerify { border-top: 4px solid #b1774d; }
+.skillMarkdown { color: var(--study-ink); font-size: 18px; line-height: 1.75; }
+.skillMarkdown > :first-child { margin-top: 0; }
+.skillMarkdown h1 { margin: 0 0 26px; font-size: 38px; line-height: 1.18; letter-spacing: -.02em; }
+.skillMarkdown h2 { margin: 46px 0 16px; padding-top: 4px; border-top: 1px solid var(--study-line); font-size: 28px; line-height: 1.28; }
+.skillMarkdown h3 { margin: 30px 0 12px; font-size: 22px; line-height: 1.34; }
+.skillMarkdown p { margin: 12px 0; }
+.skillMarkdown ul, .skillMarkdown ol { margin: 12px 0; padding-left: 1.45em; }
+.skillMarkdown li { margin: 5px 0; }
+.skillMarkdown blockquote { margin: 18px 0; padding: 12px 18px; border-left: 4px solid var(--study-green-2); background: var(--study-green-soft); border-radius: 0 var(--study-radius-control) var(--study-radius-control) 0; }
+.skillMarkdown blockquote p { margin: 0; }
+.skillMarkdown pre { overflow-x: auto; margin: 18px 0; padding: 17px 19px; border: 1px solid var(--study-line); border-radius: var(--study-radius-small); background: #18231f; color: #edf4ef; font: 15px/1.6 var(--study-mono); }
+.skillMarkdown code:not(pre code) { padding: 2px 6px; border-radius: 6px; background: var(--study-surface-muted); font-family: var(--study-mono); font-size: .9em; }
+.skillMarkdown a { color: var(--study-green); text-underline-offset: 3px; }
+.skillMarkdown hr { margin: 34px 0; border: 0; border-top: 1px solid var(--study-line); }
+.skillMarkdown table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 16px; }
+.skillMarkdown th, .skillMarkdown td { padding: 10px 12px; border: 1px solid var(--study-line); text-align: left; vertical-align: top; }
+.skillMarkdown th { background: var(--study-surface-muted); }
+
+.skillReaderFooter { display: grid; grid-template-columns: auto auto minmax(0, 1fr); gap: 12px; align-items: center; max-width: 980px; margin: 14px auto 0; padding: 14px 16px; border-radius: var(--study-radius-medium); }
+.skillReaderProgress { color: var(--study-muted); font-size: var(--study-type-meta); }
+.skillReadButton { min-height: 40px; padding: 0 13px; border: 1px solid var(--study-line-strong); border-radius: var(--study-radius-control); background: var(--study-surface); color: var(--study-ink); cursor: pointer; }
+.skillReadButton[data-done='true'] { border-color: #a9cbbb; background: var(--study-green-soft); color: var(--study-green); }
+.skillReaderFooter nav { display: flex; justify-content: flex-end; gap: 16px; }
+.skillReaderFooter nav a { color: var(--study-green); font-weight: var(--study-weight-strong); }
+
+@media (max-width: 900px) {
+  .skillLibraryIntro, .skillHero { grid-template-columns: 1fr; }
+  .skillReader { padding: 28px 24px; }
+  .skillReaderFooter { grid-template-columns: 1fr; }
+  .skillReaderFooter nav { justify-content: space-between; }
+}
