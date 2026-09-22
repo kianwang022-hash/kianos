@@ -58,6 +58,20 @@ const currentStatusUrl = `${base}__kianos-current.json`;
     </style>
   </head>
   <body id="kianos-workspace" data-current-status-url={currentStatusUrl} data-kianos-rail="expanded" class={`surfaceBody-${active}${stageOne ? ' uiStageOne' : ''}${isHub ? ' uiHub' : ''}${isWordStudy ? ' uiWordStudy' : ''}${englishRuntime ? ' uiEnglish' : ''}${englishFamily ? ' uiEnglishFamily' : ''}`}>
+    <script is:inline>
+      // Presentation state must be restored before shell markup can paint.
+      (() => {
+        const body = document.body;
+        if (!body) return;
+        const key = 'kianos-global-rail-expanded-v1';
+        let expanded = !window.matchMedia('(max-width: 1180px)').matches;
+        try {
+          const saved = window.localStorage.getItem(key);
+          if (saved === '1' || saved === '0') expanded = saved === '1';
+        } catch {}
+        body.dataset.kianosRail = expanded ? 'expanded' : 'compact';
+      })();
+    </script>
     <div class="kianosShellFrame" data-kianos-shell-frame>
       <aside class="kianosGlobalRail" data-kianos-global-rail aria-label="KianOS 全局导航">
         <button type="button" class="kianosRailToggle" data-kianos-rail-toggle aria-expanded="true" aria-label="展开或收起全局导航">
