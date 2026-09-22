@@ -38,17 +38,17 @@
       1451,
       1550
     ],
-    "state": "MATERIALIZE_ALLOWED",
+    "state": "RECONCILE_ALLOWED",
     "candidate_pr": null,
     "candidate_branch": "work/lexical-continuous-bf14-official-20260922",
-    "materialized_owner_read_head": null,
+    "materialized_owner_read_head": "6c9347e4f84f27f3b84aabbcbdf3468b31c11a49",
     "review_branch": "work/lexical-fullcatalog-bf14-review-20260922",
     "proposal_path": "content/lexical/execution/manifests/o1451-o1550.fullcatalog-final-standard-proposal.md",
     "proposal_commit": "fd355e293f4f55976ab40a0cad2778fdd7a700a7",
-    "note": "Kian p approved exactly the nine BF14 new-knowledge groups. BF14 official candidate may materialize 31 in-range affected owners plus remote dependency o1367 die under unchanged final ruler."
+    "note": "BF14 official materialization mechanically PASS. B readback found seven existing-truth presentation/ownership residues at o1464,o1509,o1511,o1514,o1515,o1537,o1546. No new learner material."
   },
   "audit_target": {
-    "state": "WAITING_MATERIALIZATION_AND_B_AUDIT",
+    "state": "RECONCILE_ALLOWED",
     "candidate_id": "BF14",
     "range": [
       1451,
@@ -56,7 +56,7 @@
     ],
     "candidate_pr": null,
     "candidate_branch": "work/lexical-continuous-bf14-official-20260922",
-    "candidate_owner_read_head": null,
+    "candidate_owner_read_head": "6c9347e4f84f27f3b84aabbcbdf3468b31c11a49",
     "brief": null,
     "output": null,
     "human_gate_required_groups": 9,
@@ -76,7 +76,16 @@
       1367
     ],
     "human_gate_status": "APPROVED_EXACT_SCOPE",
-    "human_gate_approval": "Kian p 2026-09-22"
+    "human_gate_approval": "Kian p 2026-09-22",
+    "reconcile_ordinals": [
+      1464,
+      1509,
+      1511,
+      1514,
+      1515,
+      1537,
+      1546
+    ]
   },
   "lanes": {
     "A": {
@@ -1719,7 +1728,7 @@
   },
   "materialization_progress": {
     "candidate_id": "BF14",
-    "status": "MATERIALIZE_ALLOWED",
+    "status": "RECONCILE_ALLOWED",
     "candidate_pr": null,
     "latest_main_refreeze": "dca9f5dc8dc383a0da9f28e7e7a786178a1ff90e",
     "review_range": [
@@ -1756,7 +1765,18 @@
     "final_learner_objects": 7946,
     "final_learner_shards": 125,
     "human_gate_status": "APPROVED_EXACT_SCOPE",
-    "human_gate_approved_groups": 9
+    "human_gate_approved_groups": 9,
+    "b_audit": "RECONCILE_REQUIRED",
+    "materialized_commit": "6c9347e4f84f27f3b84aabbcbdf3468b31c11a49",
+    "reconcile_ordinals": [
+      1464,
+      1509,
+      1511,
+      1514,
+      1515,
+      1537,
+      1546
+    ]
   },
   "semantic_freeze_scope_amendment": "content/lexical/FINAL_SEMANTIC_FREEZE_SCOPE_AMENDMENT_20260922.md"
 }
