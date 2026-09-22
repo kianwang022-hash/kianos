@@ -84,9 +84,11 @@ jobs:
         with:
           node-version: '22'
       - name: Install runtime
+        id: runtime
         working-directory: static-web
         run: npm install --no-audit --no-fund
       - name: Validate full-paper and bounded integrity semantics
+        id: native
         working-directory: static-web
         run: |
           node scripts/validate-english-exam-session.mjs
@@ -98,14 +100,14 @@ jobs:
           node scripts/test-xizong-forecast-model.mjs
           node scripts/test-english-evidence-resume.mjs
           node scripts/test-private-control-relay.mjs
-          node scripts/test-codex-issue-watcher.mjs
-          node scripts/test-codex-execution-policy.mjs
       - name: Build learner site
+        id: build
         working-directory: static-web
         run: |
           npm run build
           node scripts/test-private-daily-learning-packet.mjs
       - name: Install browser acceptance
+        id: browser
         working-directory: static-web
         run: |
           npm install --no-save --no-audit --no-fund playwright@1.56.1
@@ -114,11 +116,12 @@ jobs:
         working-directory: static-web
         run: node scripts/test-english-exam-session-browser.mjs
       - name: Run corruption and two-page browser journeys
-        if: success() || failure()
+        id: freeze_browser
+        if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.browser.outcome == 'success' }}
         working-directory: static-web
         run: xvfb-run -a node scripts/test-freeze-browser.mjs
       - name: Bounded native focus diagnostic
-        if: failure()
+        if: ${{ !cancelled() && steps.freeze_browser.outcome == 'failure' && steps.browser.outcome == 'success' }}
         working-directory: static-web
         run: |
           xvfb-run -a node --input-type=module <<'JS'
@@ -165,9 +168,48 @@ jobs:
           }
           JS
       - name: Existing cross-subject browser journey
-        if: success() || failure()
+        if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.browser.outcome == 'success' }}
         working-directory: static-web
         run: node scripts/test-final-cross-subject-regression.mjs
+      - name: Isolated watcher regression and kernel error evidence
+        if: ${{ !cancelled() && steps.runtime.outcome == 'success' }}
+        working-directory: static-web
+        run: |
+          mkdir -p ../english-exam-audit
+          cat > "$RUNNER_TEMP/freeze-listen-observer.cjs" <<'JS'
+          const net=require('node:net'),fs=require('node:fs');
+          const original=net.Server.prototype.listen;
+          net.Server.prototype.listen=function(...args){
+            this.once('error',error=>{
+              if(error.code==='EADDRINUSE')fs.appendFileSync(process.env.FREEZE_LISTEN_LOG,JSON.stringify({pid:process.pid,code:error.code,port:error.port,address:error.address})+'\n');
+            });
+            return original.apply(this,args);
+          };
+          JS
+          export FREEZE_LISTEN_LOG="$PWD/../english-exam-audit/watcher-listen-errors.jsonl"
+          export NODE_OPTIONS="--require $RUNNER_TEMP/freeze-listen-observer.cjs"
+          node scripts/test-codex-issue-watcher.mjs
+          node scripts/test-codex-execution-policy.mjs
+      - name: Capture public candidate source for bounded reproduction
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import pathlib,subprocess,json,hashlib
+          root=pathlib.Path('.');out=root/'english-exam-audit';out.mkdir(exist_ok=True)
+          prefixes=('static-web/src/','static-web/scripts/','.github/workflows/static-web-english-exam-session.yml')
+          rows=[]
+          for item in subprocess.check_output(['git','ls-files','-z']).decode().split('\0'):
+            if not item or not item.startswith(prefixes):continue
+            p=pathlib.Path(item)
+            if p.suffix not in ('.mjs','.astro','.yml','.sh','.css','.ts','.json'):continue
+            raw=p.read_bytes()
+            if len(raw)>1000000:continue
+            try:content=raw.decode('utf-8')
+            except UnicodeDecodeError:continue
+            blob=hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest()
+            rows.append({'path':item,'blob':blob,'content':content})
+          (out/'candidate-source.json').write_text(json.dumps({'commit':subprocess.check_output(['git','rev-parse','HEAD']).decode().strip(),'files':rows}))
+          PY
       - name: Upload full-paper proof
         if: always()
         uses: actions/upload-artifact@v4
@@ -176,4 +218,5 @@ jobs:
           path: |
             english-exam-audit/
             static-web/.qa/final-cross-subject/
+          include-hidden-files: true
           retention-days: 14
