@@ -327,6 +327,28 @@ Delay feedback when clean retrieval / verification would otherwise be contaminat
 
 There is no universal "always immediate" or "always delayed" rule.
 
+### 4.8｜Discussion / Reflection Channel
+
+After learner content, Kian may bring questions, objections, personal examples or alternative interpretations back to Chat.
+
+This channel is **optional**.
+
+Use it to:
+- resolve genuine conceptual friction;
+- test whether the Guide maps to Kian's reality;
+- identify missing distinctions or poor explanations;
+- update learner content when the problem is in the material;
+- update the learner model when the new information is about Kian.
+
+Do not:
+- force a Socratic conversation after every page;
+- count comfortable discussion as verification by default;
+- replace protected Verify with hints leaked through discussion;
+- turn ordinary curiosity into mandatory review debt.
+
+Discussion may generate a new hypothesis or Repair target. Capability evidence still comes from the appropriate performance / transfer / real-use layer.
+
+
 ### 4.7｜Maintenance Gate
 
 Do not automatically create spaced review for every Skill.
