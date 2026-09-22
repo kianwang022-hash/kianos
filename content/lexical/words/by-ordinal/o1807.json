@@ -11,26 +11,25 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "向国外出售或转移；将电子数据从数据库或文档中导出为其他程序可用的格式；使在世界的另一部分传播",
-          "label_en": "sell or transfer abroad; transfer (electronic data) out of a database or document in a format that can be used by other programs; cause to spread in another part of the world",
+          "label_cn": "出口；向国外出售或转移；数据导出",
+          "label_en": "to sell or transfer abroad; to export data",
           "pos": "verb",
           "sense_ids": [
             "sense:export:12783da9ade15934",
-            "sense:export:ef27e5afa878503d",
-            "sense:export:2626f9ac0b1b571b"
+            "sense:export:ef27e5afa878503d"
           ]
         },
         {
-          "label_cn": "卖给外国的商品（货物或服务）",
-          "label_en": "commodities (goods or services) sold to a foreign country",
+          "label_cn": "出口商品；出口品",
+          "label_en": "goods or services sold to another country",
           "pos": "noun",
           "sense_ids": [
             "sense:export:1ecd6ea82dec5f18"
           ]
         }
       ],
-      "core_meaning_cn": "将货物或数据发送到另一个国家或系统",
-      "core_meaning_en": "to send goods or data to another country or system",
+      "core_meaning_cn": "出口；导出；出口商品",
+      "core_meaning_en": "to export goods/data; goods sold abroad",
       "mental_model_cn": "将货物或数据发送到另一个国家或系统",
       "mental_model_en": ""
     },
@@ -75,76 +74,7 @@
         "sense_id": "sense:export:12783da9ade15934",
         "sense_label_en": "sell or transfer abroad",
         "sort_order": 0,
-        "transitivity": "vt",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "pronunciation_boundary",
-          "surface_lemma": "export",
-          "paired_form": "export noun / verb (dialect-aware)",
-          "note": "In standard British pronunciation, export commonly has initial stress as a noun and later stress as a verb; major American pronunciation also permits initial stress for the verb. Do not treat the stress split as universal across all English."
-        }
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:dba0a85d74f517000b3c",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:export:ef27e5afa878503d:collocation:0"
-            ],
-            "meaning_cn": "将数据导出到文件",
-            "phrase": "export data to a file"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "将电子数据从数据库或文档中导出为其他程序可用的格式",
-        "definition_en": "transfer (electronic data) out of a database or document in a format that can be used by other programs",
-        "governing_pattern": "vt. + object",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:export:ef27e5afa878503d",
-        "sense_label_en": "transfer (electronic data) out of a database or document in a format tha",
-        "sort_order": 1,
-        "transitivity": "vt",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "pronunciation_boundary",
-          "surface_lemma": "export",
-          "paired_form": "export noun / verb (dialect-aware)",
-          "note": "In standard British pronunciation, export commonly has initial stress as a noun and later stress as a verb; major American pronunciation also permits initial stress for the verb. Do not treat the stress split as universal across all English."
-        }
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:0817c6d4f6bd901f51b1",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:export:2626f9ac0b1b571b:collocation:0"
-            ],
-            "meaning_cn": "传播思想",
-            "phrase": "export ideas"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "使在世界的另一部分传播",
-        "definition_en": "cause to spread in another part of the world",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:export:2626f9ac0b1b571b",
-        "sense_label_en": "cause to spread in another part of the world",
-        "sort_order": 2,
-        "transitivity": "vt",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "pronunciation_boundary",
-          "surface_lemma": "export",
-          "paired_form": "export noun / verb (dialect-aware)",
-          "note": "In standard British pronunciation, export commonly has initial stress as a noun and later stress as a verb; major American pronunciation also permits initial stress for the verb. Do not treat the stress split as universal across all English."
-        }
+        "transitivity": "vt"
       },
       {
         "collocations": [
@@ -176,15 +106,56 @@
         "pos": "noun",
         "sense_id": "sense:export:1ecd6ea82dec5f18",
         "sense_label_en": "commodities (goods or services) sold to a foreign country",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:dba0a85d74f517000b3c",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:export:ef27e5afa878503d:collocation:0"
+            ],
+            "meaning_cn": "将数据导出到文件",
+            "phrase": "export data to a file"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "将电子数据从数据库或文档中导出为其他程序可用的格式",
+        "definition_en": "transfer (electronic data) out of a database or document in a format that can be used by other programs",
+        "governing_pattern": "vt. + object",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:export:ef27e5afa878503d",
+        "sense_label_en": "transfer (electronic data) out of a database or document in a format tha",
+        "sort_order": 2,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:0817c6d4f6bd901f51b1",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:export:2626f9ac0b1b571b:collocation:0"
+            ],
+            "meaning_cn": "传播思想",
+            "phrase": "export ideas"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "使在世界的另一部分传播",
+        "definition_en": "cause to spread in another part of the world",
+        "governing_pattern": "vt. + object",
+        "level": "L3",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:export:2626f9ac0b1b571b",
+        "sense_label_en": "cause to spread in another part of the world",
         "sort_order": 3,
-        "transitivity": "nonverb",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "pronunciation_boundary",
-          "surface_lemma": "export",
-          "paired_form": "export noun / verb (dialect-aware)",
-          "note": "In standard British pronunciation, export commonly has initial stress as a noun and later stress as a verb; major American pronunciation also permits initial stress for the verb. Do not treat the stress split as universal across all English."
-        }
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -204,7 +175,32 @@
     },
     "word": "export",
     "word_family": [],
-    "word_id": "word:export"
+    "word_id": "word:export",
+    "form_identity": {
+      "form_type": "same_spelling_pos_conditioned_pronunciation",
+      "spelling": "export",
+      "identity_rule": "dialect_aware_pos_pronunciation_boundary",
+      "boundary": "In standard British pronunciation, export commonly has initial stress as a noun and later stress as a verb; major American pronunciation also permits initial stress for the verb, so the split is not universal across English.",
+      "boundaries": [
+        {
+          "surface": "export",
+          "condition": "noun",
+          "note": "commonly initial stress"
+        },
+        {
+          "surface": "export",
+          "condition": "verb in BrE",
+          "note": "commonly later stress"
+        },
+        {
+          "surface": "export",
+          "condition": "verb in AmE",
+          "note": "initial stress is also common/accepted"
+        }
+      ],
+      "variants": [],
+      "authority": "BF17 existing-truth Form migration 2026-09-22"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],

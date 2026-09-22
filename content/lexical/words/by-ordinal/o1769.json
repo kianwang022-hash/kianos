@@ -73,13 +73,6 @@
         "definition_en": "to forgive someone for something",
         "governing_pattern": "vt. + object",
         "level": "L1",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "form_boundary",
-          "note": "noun /s/ vs verb /z/ pronunciation boundary",
-          "paired_form": "excuse",
-          "surface_lemma": "excuse"
-        },
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:excuse:4df4193d47835b96",
@@ -137,18 +130,11 @@
         "definition_en": "a reason given to explain or defend one's actions",
         "governing_pattern": "",
         "level": "L1",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "form_boundary",
-          "note": "noun /s/ vs verb /z/ pronunciation boundary",
-          "paired_form": "excuse",
-          "surface_lemma": "excuse"
-        },
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:excuse:096eb8e1c1725dba",
         "sense_label_en": "a reason given to explain or defend one's actions",
-        "sort_order": 3,
+        "sort_order": 2,
         "transitivity": "nonverb"
       },
       {
@@ -181,7 +167,7 @@
         "pos": "verb",
         "sense_id": "sense:excuse:96c707f37a6151f7",
         "sense_label_en": "to allow someone to leave or not do something",
-        "sort_order": 2,
+        "sort_order": 3,
         "transitivity": "vt"
       }
     ],
@@ -202,7 +188,27 @@
     },
     "word": "excuse",
     "word_family": [],
-    "word_id": "word:excuse"
+    "word_id": "word:excuse",
+    "form_identity": {
+      "form_type": "same_spelling_pos_conditioned_pronunciation",
+      "spelling": "excuse",
+      "identity_rule": "same_word_owner_no_semantic_split",
+      "boundary": "excuse noun has /s/ in the final consonant; excuse verb has /z/.",
+      "boundaries": [
+        {
+          "surface": "excuse",
+          "condition": "noun",
+          "note": "final /s/"
+        },
+        {
+          "surface": "excuse",
+          "condition": "verb",
+          "note": "final /z/"
+        }
+      ],
+      "variants": [],
+      "authority": "BF17 existing-truth Form migration 2026-09-22"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],

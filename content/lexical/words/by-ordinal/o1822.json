@@ -11,8 +11,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "取出；拔出；设法得到；榨取；提炼；提取（金属）；求（数的）根",
-          "label_en": "remove or take out, usually with some force or effort; get something despite difficulties or obstacles; separate (a metal) from an ore; calculate the root of a number",
+          "label_cn": "取出；提取；榨取；提炼；求根",
+          "label_en": "to remove, obtain, separate, or derive something",
           "pos": "verb",
           "sense_ids": [
             "sense:extract:3add00a853355c69",
@@ -22,11 +22,12 @@
           ]
         },
         {
-          "label_cn": "摘录；选段；提取物；精华",
-          "label_en": "a short passage taken from a book, piece of music, etc.; a substance obtained by extracting",
+          "label_cn": "摘录；选段；提取物；浓缩物",
+          "label_en": "a selected passage or a substance obtained by extraction",
           "pos": "noun",
           "sense_ids": [
-            "sense:extract:6ae9cb3381375206"
+            "sense:extract:6ae9cb3381375206",
+            "sense:extract:5a1258a0cf92f9d2"
           ]
         }
       ],
@@ -188,13 +189,6 @@
         "definition_en": "a substance or concentrate obtained by extraction",
         "governing_pattern": "",
         "level": "L2",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "form_boundary",
-          "note": "noun /ˈekstrækt/ vs verb /ɪkˈstrækt/ stress boundary",
-          "paired_form": "extract",
-          "surface_lemma": "extract"
-        },
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:extract:5a1258a0cf92f9d2",
@@ -220,7 +214,27 @@
     },
     "word": "extract",
     "word_family": [],
-    "word_id": "word:extract"
+    "word_id": "word:extract",
+    "form_identity": {
+      "form_type": "same_spelling_pos_conditioned_pronunciation",
+      "spelling": "extract",
+      "identity_rule": "same_word_owner_no_semantic_split",
+      "boundary": "extract noun is pronounced /ˈekstrækt/; extract verb is pronounced /ɪkˈstrækt/.",
+      "boundaries": [
+        {
+          "surface": "extract",
+          "condition": "noun",
+          "note": "/ˈekstrækt/"
+        },
+        {
+          "surface": "extract",
+          "condition": "verb",
+          "note": "/ɪkˈstrækt/"
+        }
+      ],
+      "variants": [],
+      "authority": "BF17 existing-truth Form migration 2026-09-22"
+    }
   },
   "relation_refs": [],
   "reference_senses": [

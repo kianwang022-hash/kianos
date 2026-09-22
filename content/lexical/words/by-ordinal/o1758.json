@@ -64,14 +64,7 @@
         "sense_id": "sense:excerpt:c08891932c8c5982",
         "sense_label_en": "a short passage selected from a larger work",
         "sort_order": 0,
-        "transitivity": "nonverb",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "pronunciation_boundary",
-          "surface_lemma": "excerpt",
-          "paired_form": "excerpt noun / verb",
-          "note": "excerpt noun has initial stress; excerpt verb has final stress."
-        }
+        "transitivity": "nonverb"
       },
       {
         "collocations": [
@@ -95,14 +88,7 @@
         "sense_id": "sense:excerpt:783cf927d7eb585d",
         "sense_label_en": "to take out a passage from a literary work",
         "sort_order": 1,
-        "transitivity": "vt",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "pronunciation_boundary",
-          "surface_lemma": "excerpt",
-          "paired_form": "excerpt noun / verb",
-          "note": "excerpt noun has initial stress; excerpt verb has final stress."
-        }
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -122,7 +108,27 @@
     },
     "word": "excerpt",
     "word_family": [],
-    "word_id": "word:excerpt"
+    "word_id": "word:excerpt",
+    "form_identity": {
+      "form_type": "same_spelling_pos_conditioned_pronunciation",
+      "spelling": "excerpt",
+      "identity_rule": "same_word_owner_no_semantic_split",
+      "boundary": "excerpt noun typically has initial stress; excerpt verb typically has final stress.",
+      "boundaries": [
+        {
+          "surface": "excerpt",
+          "condition": "noun",
+          "note": "typically initial stress"
+        },
+        {
+          "surface": "excerpt",
+          "condition": "verb",
+          "note": "typically final stress"
+        }
+      ],
+      "variants": [],
+      "authority": "BF17 existing-truth Form migration 2026-09-22"
+    }
   },
   "relation_refs": [
     {

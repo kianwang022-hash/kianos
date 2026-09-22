@@ -9,10 +9,19 @@
     "constructions": [],
     "content_hash": "0bb3b73edb0e8d3edf8b3c1f6476fd2e9a7941409e864879113e70f31b060450",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "期满；呼气；断气",
-      "core_meaning_en": "to come to an end; to breathe out; to die",
-      "mental_model_cn": "期满；呼气；断气",
+      "core_clusters": [
+        {
+          "label_cn": "到期；失效；结束",
+          "label_en": "to come to an end or cease to be valid",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:expire:335279e31bab5316"
+          ]
+        }
+      ],
+      "core_meaning_cn": "到期；失效；结束",
+      "core_meaning_en": "to expire, end, or cease to be valid",
+      "mental_model_cn": "现代默认先认合同、证件、期限等“到期/失效”；死亡和呼气义保留在低优先级扩展。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -23,6 +32,20 @@
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "到期、失效或结束",
+        "definition_en": "to come to an end or cease to be valid",
+        "governing_pattern": "vi. (licence/contract/card expires)",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:expire:335279e31bab5316",
+        "sense_label_en": "to come to an end or cease to be valid",
+        "sort_order": 0,
+        "transitivity": "vi"
+      },
       {
         "collocations": [
           {
@@ -44,7 +67,7 @@
         "pos": "verb",
         "sense_id": "sense:expire:b519f64bab7d5cd7",
         "sense_label_en": "to pass from physical life; to die",
-        "sort_order": 0,
+        "sort_order": 1,
         "transitivity": "vi"
       },
       {
@@ -68,7 +91,7 @@
         "pos": "verb",
         "sense_id": "sense:expire:df7add6b2141560d",
         "sense_label_en": "to expel air; to breathe out",
-        "sort_order": 1,
+        "sort_order": 2,
         "transitivity": "vi"
       },
       {
@@ -92,21 +115,7 @@
         "pos": "verb",
         "sense_id": "sense:expire:a21e7f6af41550bf",
         "sense_label_en": "to breathe out (air)",
-        "sort_order": 2,
-        "transitivity": "vt"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "到期、失效或结束",
-        "definition_en": "to come to an end or cease to be valid",
-        "governing_pattern": "licence/contract/card expires",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:expire:335279e31bab5316",
-        "sense_label_en": "to come to an end or cease to be valid",
-        "sort_order": 999,
+        "sort_order": 3,
         "transitivity": "vt"
       }
     ],
