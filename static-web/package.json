@@ -59,7 +59,9 @@
     "codex:watcher": "node scripts/codex-issue-watcher.mjs --json",
     "codex:watcher:dry": "node scripts/codex-issue-watcher.mjs --dry-run --json",
     "codex:watcher:install": "bash scripts/install-codex-issue-watcher-macos.sh",
-    "test:codex-watcher": "node scripts/test-codex-issue-watcher.mjs && node scripts/test-codex-execution-policy.mjs"
+    "test:codex-watcher": "node scripts/test-codex-issue-watcher.mjs && node scripts/test-codex-execution-policy.mjs",
+    "validate:skills": "node scripts/validate-skill-library.mjs",
+    "qa:skills": "npm run validate:skills && npm run build"
   },
   "dependencies": {
     "astro": "^5.0.0",
