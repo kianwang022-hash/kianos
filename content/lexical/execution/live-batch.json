@@ -3,23 +3,49 @@
   "status": "ACTIVE",
   "campaign": "FULL_CATALOG_FINAL_STANDARD_CONTINUATION",
   "semantic_ruler": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
-  "updated_at": "2026-09-22T13:51:58+00:00",
+  "updated_at": "2026-09-22",
   "frontier": {
     "candidate_id": "BF23",
     "range": [
       2351,
       2450
     ],
-    "state": "REVIEW_REQUIRED",
-    "proposal_path": null,
-    "proposal_commit": null,
-    "review_branch": null,
+    "state": "HUMAN_GATE_REQUIRED",
+    "proposal_path": "content/lexical/execution/manifests/o2351-o2450.fullcatalog-final-standard-proposal.md",
+    "proposal_commit": "8a20ea5c0476a8704e7148d21f996a4a9f31e9e6",
+    "review_branch": "work/lexical-fullcatalog-bf23-review-20260922",
     "human_gate": {
-      "status": "NOT_REQUIRED",
-      "ordinals": [],
+      "status": "PENDING",
+      "ordinals": [
+        2352,
+        2354,
+        2363,
+        2375,
+        2386,
+        2387,
+        2399,
+        2405,
+        2414,
+        2421,
+        2450
+      ],
       "approval_ref": null
     },
-    "accepted_main_head": "9e991a289b138195470171800c507952c6f365ff"
+    "affected_owner_count": 29,
+    "no_change_count": 71,
+    "remote_dependency_ordinals": [
+      5416,
+      5873,
+      3389,
+      6967,
+      2452
+    ],
+    "accepted_main_head": "2377f4268842adfe1ac8dd4e1e89caa7bfc86744",
+    "review_artifact": {
+      "workflow_run": 35736395516,
+      "artifact_id": 10697616972,
+      "digest": "sha256:ecc9b0dbd4e1431caa5e58b12497860366c674273cf27b0f1b696c82a8aaee07"
+    }
   },
   "next": {
     "candidate_id": "BF24",
@@ -47,7 +73,7 @@
     "audit_pack": "content/lexical/semantic-audit/O2251_O2350_FINAL_RECONCILED_READBACK.md",
     "final_learner_objects": 7946
   },
-  "blocker": null,
-  "next_action": "RUN_PRODUCTION_REVIEW",
+  "blocker": "HUMAN_GATE_REQUIRED",
+  "next_action": "SHOW_EXACT_FRONTIER_DELTA",
   "legacy_history": "content/lexical/execution/three-chat-board.json"
 }
