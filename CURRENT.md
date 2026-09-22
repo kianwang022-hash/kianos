@@ -11,6 +11,7 @@ Role: the single root routing entry for engineering/status requests. Normal lear
 | English content or source boundary | [English Current](content/english/CURRENT.md) |
 | Politics content or source boundary | [Politics Current](content/politics/CURRENT.md) |
 | Vocabulary content production | [Lexical Current](content/lexical/CURRENT.md), then its exact declared continuation authority |
+| Skill Library / promoted non-exam learning assets | [Skills Current](content/skills/CURRENT.md), then the exact Skill manifest |
 | Operating permissions, task dispatch and executor boundary | [AGENTS](AGENTS.md) |
 | Ownership/inheritance conflict | [Authority contract](AUTHORITY_INHERITANCE_CONTRACT.md); [machine topology](AUTHORITY_OWNERSHIP.json) only when needed |
 
