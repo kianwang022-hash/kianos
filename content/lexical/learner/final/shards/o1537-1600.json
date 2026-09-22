@@ -5,7 +5,7 @@
     "ordinal": 1537,
     "word": "dwarf",
     "source_owner_path": "content/lexical/words/by-ordinal/o1537.json",
-    "source_fingerprint": "f3c7c9c9460614fc31b3bc9f1a0ce327102ce319d5868005246606c1f38e08c6",
+    "source_fingerprint": "c85c8a6ce6166a4c47c1ae8d93fa93824e79f8509fcdee70b8f3f75fb9034237",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -32,26 +32,9 @@
         "governing_pattern": "",
         "definition_cn": "侏儒，矮子",
         "definition_en": "a person who is very small, especially because of a medical condition",
-        "note": "",
-        "identity_overlay": {
-          "text": "neutral person-reference boundary; prefer person with dwarfism",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "neutral person-reference boundary; prefer person with dwarfism"
-          }
-        },
-        "usage": [
-          {
-            "id": "collocation:4026112443568fcd0276",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "a dwarf star",
-            "meaning_cn": "矮星",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "note": "often offensive when used as a noun for a person; prefer person with dwarfism",
+        "identity_overlay": null,
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:dwarf:7dc9f97eed6b5416",
@@ -143,7 +126,25 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:dwarf:small-type",
+        "source_locator": "record.constructions[0]",
+        "pattern": "dwarf + star/conifer/type",
+        "lines": [
+          {
+            "text": "表示某类事物的矮小型或小型变体",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:dwarf:small-type",
+          "target_locator": "record.constructions[0]",
+          "target_label": "dwarf + star/conifer/type"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -157,7 +158,7 @@
     "ordinal": 1538,
     "word": "dwell",
     "source_owner_path": "content/lexical/words/by-ordinal/o1538.json",
-    "source_fingerprint": "4346cd4c5aee4bd2d72c8779cf7f6a28414ef2218e75b4e62f6346407ef3138b",
+    "source_fingerprint": "06ce7aa9a7973a4d2060b23e4f9e3e01c69789cb8958fed40bf11bd719e21404",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -288,11 +289,41 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "dwell has two accepted past and past-participle forms: dwelt and dwelled.",
+        "boundaries": [
+          {
+            "surface": "dwelt",
+            "condition": "past simple / past participle",
+            "note": "accepted form"
+          },
+          {
+            "surface": "dwelled",
+            "condition": "past simple / past participle",
+            "note": "accepted variant form"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "dwell has two accepted past and past-participle forms: dwelt and dwelled."
+        }
+      },
       "family": [
         {
-          "target_word": "",
-          "lines": [],
+          "target_word": "dwelling",
+          "lines": [
+            {
+              "text": "dwell (v.) → dwelling (n.): 居住 → 住所/住处；派生关系，不是同义替换。",
+              "lang": "cn"
+            },
+            {
+              "text": "dwell is the verb meaning live/reside; dwelling is the noun for a place of residence.",
+              "lang": "en"
+            }
+          ],
           "source_locator": "record.word_family[0]"
         }
       ]
@@ -378,7 +409,7 @@
     "ordinal": 1540,
     "word": "dye",
     "source_owner_path": "content/lexical/words/by-ordinal/o1540.json",
-    "source_fingerprint": "96aee128ff5063551acbee3aba483e0e0df6aff8b7e8e64d3c1bc67fa62f5d56",
+    "source_fingerprint": "fd3e5e2703b3cf8f9bc91d8034d1068edb3055a9f08f70bdde496be15b474656",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -477,7 +508,33 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "dye forms its -ing form as dyeing and its past as dyed; contrast die → dying/died.",
+        "boundaries": [
+          {
+            "surface": "dyeing",
+            "condition": "-ing form of dye",
+            "note": "keep e to distinguish from dying"
+          },
+          {
+            "surface": "dyed",
+            "condition": "past / past participle of dye",
+            "note": "regular past spelling"
+          },
+          {
+            "surface": "dying",
+            "condition": "-ing form of die",
+            "note": "belongs to die, not dye"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "dye forms its -ing form as dyeing and its past as dyed; contrast die → dying/died."
+        }
+      },
       "family": []
     }
   },
@@ -984,7 +1041,7 @@
     "ordinal": 1546,
     "word": "ear",
     "source_owner_path": "content/lexical/words/by-ordinal/o1546.json",
-    "source_fingerprint": "758803f9df740abbd534e4561f587293f21048d868ff26e3480802b0c1e90c49",
+    "source_fingerprint": "a40e67399b26ba014066da96116ec09b6e1cc43e854e74913352661a70afac20",
     "sense_lineage": [
       {
         "word_id": "word:ear",
@@ -1022,13 +1079,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "听觉器官；引申为倾听或谷穗",
-      "decision_cn": "",
+      "summary_cn": "耳朵；听觉器官",
+      "decision_cn": "默认学习身体器官“耳朵”；倾听、谷穗等保留为短语或 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "听觉器官；引申为倾听或谷穗"
+        "target_label": "耳朵；听觉器官"
       }
     },
     "senses": [
@@ -1075,23 +1132,6 @@
           "target_id": "deep:constructions:ear:010b167f44bb910e",
           "target_locator": "record.constructions[0]",
           "target_label": "lend an ear to + sb/sth"
-        }
-      },
-      {
-        "id": "construction:74ac74ca80a49568f17b",
-        "source_locator": "record.constructions[1]",
-        "pattern": "lend an ear to sb/sth",
-        "lines": [
-          {
-            "text": "listen sympathetically",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:74ac74ca80a49568f17b",
-          "target_locator": "record.constructions[1]",
-          "target_label": "lend an ear to sb/sth"
         }
       }
     ],
@@ -1491,7 +1531,7 @@
     "ordinal": 1550,
     "word": "earth",
     "source_owner_path": "content/lexical/words/by-ordinal/o1550.json",
-    "source_fingerprint": "11e42b34f829fd1cae19b4b452cec6f375f62b1f1f28c1a9fc15f5e79b6a2d72",
+    "source_fingerprint": "0fbe67c1a3c18c1014118f9cdafae18ba4bfa529df3f1de276c002a95cf707aa",
     "sense_lineage": [
       {
         "word_id": "word:earth",
@@ -1520,51 +1560,8 @@
     },
     "senses": [
       {
-        "id": "sense:earth:d9600fcd2614593c",
-        "source_locator": "record.senses[0]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "（古代哲学中的）土（元素）",
-        "definition_en": "one of the four elements in ancient philosophy",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:earth:d9600fcd2614593c",
-          "target_locator": "record.senses[0]",
-          "target_label": "（古代哲学中的）土（元素）"
-        }
-      },
-      {
-        "id": "sense:earth:9001e73cd16b5f06",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "埋入土中",
-        "definition_en": "to cover with earth; to bury in the ground",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:5b9c0cdda3c3c5a77fff",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "earth the roots",
-            "meaning_cn": "用土埋根",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:earth:9001e73cd16b5f06",
-          "target_locator": "record.senses[1]",
-          "target_label": "埋入土中"
-        }
-      },
-      {
         "id": "sense:earth:3cb4cb2499b65294",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "地球；行星",
@@ -1575,13 +1572,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:earth:3cb4cb2499b65294",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[0]",
           "target_label": "地球；行星"
         }
       },
       {
         "id": "sense:earth:abf32d6fd3c15155",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "土壤、土地或地面",
@@ -1592,8 +1589,51 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:earth:abf32d6fd3c15155",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[1]",
           "target_label": "土壤、土地或地面"
+        }
+      },
+      {
+        "id": "sense:earth:d9600fcd2614593c",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（古代哲学中的）土（元素）",
+        "definition_en": "one of the four elements in ancient philosophy",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:earth:d9600fcd2614593c",
+          "target_locator": "record.senses[2]",
+          "target_label": "（古代哲学中的）土（元素）"
+        }
+      },
+      {
+        "id": "sense:earth:9001e73cd16b5f06",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "vt. + object",
+        "definition_cn": "埋入土中",
+        "definition_en": "to cover with earth; to bury in the ground",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:5b9c0cdda3c3c5a77fff",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "earth the roots",
+            "meaning_cn": "用土埋根",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:earth:9001e73cd16b5f06",
+          "target_locator": "record.senses[3]",
+          "target_label": "埋入土中"
         }
       }
     ],
@@ -1602,7 +1642,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "Planet sense may appear as proper-name Earth, while earth is also used in lowercase; soil/ground earth remains lowercase. Do not treat capitalization as a rigid semantic split.",
+        "boundaries": [
+          {
+            "surface": "Earth",
+            "condition": "proper-name use for the planet",
+            "note": "capitalized proper-name form"
+          },
+          {
+            "surface": "earth",
+            "condition": "planet in some general contexts; soil/ground",
+            "note": "lowercase is possible for planet and standard for soil/ground"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "Planet sense may appear as proper-name Earth, while earth is also used in lowercase; soil/ground earth remains lowercase. Do not treat capitalization as a rigid semantic split."
+        }
+      },
       "family": []
     }
   },

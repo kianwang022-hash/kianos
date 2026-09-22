@@ -131,7 +131,7 @@
         "collocation_constraints": [
           "Do not substitute one family member for another without changing grammar."
         ],
-        "direction": "R",
+        "direction": "R+P",
         "evidence": [
           {
             "evidence_id": "evidence:c272382ee3672523fba3",
@@ -166,10 +166,33 @@
           "reading",
           "cloze"
         ],
-        "verification_status": "verified"
+        "verification_status": "verified",
+        "boundary": "dwell (v.) → dwelling (n.): 居住 → 住所/住处；派生关系，不是同义替换。",
+        "definition_en": "dwell is the verb meaning live/reside; dwelling is the noun for a place of residence.",
+        "target_word": "dwelling"
       }
     ],
-    "word_id": "word:dwell"
+    "word_id": "word:dwell",
+    "form_identity": {
+      "form_type": "variant_irregular_inflection_identity",
+      "spelling": "dwell",
+      "identity_rule": "same_word_owner_no_semantic_split",
+      "boundary": "dwell has two accepted past and past-participle forms: dwelt and dwelled.",
+      "boundaries": [
+        {
+          "surface": "dwelt",
+          "condition": "past simple / past participle",
+          "note": "accepted form"
+        },
+        {
+          "surface": "dwelled",
+          "condition": "past simple / past participle",
+          "note": "accepted variant form"
+        }
+      ],
+      "variants": [],
+      "authority": "BF14 Kian-p approved Form/knowledge expansion 2026-09-22"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],

@@ -5,7 +5,7 @@
     "ordinal": 1473,
     "word": "domain",
     "source_owner_path": "content/lexical/words/by-ordinal/o1473.json",
-    "source_fingerprint": "58162c41e7b774f401cb1c8a65551eee886c346903261f596f3d30731b1b0da9",
+    "source_fingerprint": "0cde66b9e93f26e472a8a77a66c212f49c92ead5589eb0842a4e406b2735fc19",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -14,13 +14,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "领域/范围；互联网域；数学定义域",
-      "decision_cn": "",
+      "summary_cn": "领域、范围；互联网域",
+      "decision_cn": "主干是“有边界的一块范围”：可指知识/权力领域，也可指网络命名空间；数学定义域作为扩展。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "领域/范围；互联网域；数学定义域"
+        "target_label": "领域、范围；互联网域"
       }
     },
     "senses": [
@@ -69,34 +69,8 @@
         }
       },
       {
-        "id": "sense:domain:c7adcd05a6b05e0a",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "（数学）定义域",
-        "definition_en": "in mathematics, the set of values for which a function is defined",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:3dc2521d9743c9c2e5ed",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "domain of a function",
-            "meaning_cn": "函数的定义域",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:domain:c7adcd05a6b05e0a",
-          "target_locator": "record.senses[1]",
-          "target_label": "（数学）定义域"
-        }
-      },
-      {
         "id": "sense:domain:148fff1170e0a882",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "互联网域；域名；网络命名空间",
@@ -106,27 +80,27 @@
         "usage": [
           {
             "id": "collocation:d70cfb41601e16a3328b",
-            "source_locator": "record.senses[2].collocations[0]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "domain name",
             "meaning_cn": "域名",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:d70cfb41601e16a3328b",
-              "target_locator": "record.senses[2].collocations[0]",
+              "target_locator": "record.senses[1].collocations[0]",
               "target_label": "domain name"
             }
           },
           {
             "id": "collocation:c0f2b3943ea8591b3563",
-            "source_locator": "record.senses[2].collocations[1]",
+            "source_locator": "record.senses[1].collocations[1]",
             "phrase": "internet/web domain",
             "meaning_cn": "互联网/网站域",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:c0f2b3943ea8591b3563",
-              "target_locator": "record.senses[2].collocations[1]",
+              "target_locator": "record.senses[1].collocations[1]",
               "target_label": "internet/web domain"
             }
           }
@@ -134,8 +108,34 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:domain:148fff1170e0a882",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[1]",
           "target_label": "互联网域；域名；网络命名空间"
+        }
+      },
+      {
+        "id": "sense:domain:c7adcd05a6b05e0a",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（数学）定义域",
+        "definition_en": "in mathematics, the set of values for which a function is defined",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:3dc2521d9743c9c2e5ed",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "domain of a function",
+            "meaning_cn": "函数的定义域",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:domain:c7adcd05a6b05e0a",
+          "target_locator": "record.senses[2]",
+          "target_label": "（数学）定义域"
         }
       }
     ],
@@ -676,7 +676,7 @@
     "ordinal": 1479,
     "word": "donkey",
     "source_owner_path": "content/lexical/words/by-ordinal/o1479.json",
-    "source_fingerprint": "24d72665ca283ccbed56937771c20b30ae60b4e0d78ade6f74cff4059edd9415",
+    "source_fingerprint": "9efa7be26cb258ed416a69bebd11bf237393032b5f95e8fb8b75968433427477",
     "sense_lineage": [
       {
         "word_id": "word:donkey",
@@ -693,13 +693,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "驴；愚蠢或顽固的人",
-      "decision_cn": "",
+      "summary_cn": "驴",
+      "decision_cn": "核心只学动物“驴”；辱骂性的人物义保留在 Reference，不占默认注意力。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "驴；愚蠢或顽固的人"
+        "target_label": "驴"
       }
     },
     "senses": [
@@ -1161,7 +1161,7 @@
     "ordinal": 1484,
     "word": "dose",
     "source_owner_path": "content/lexical/words/by-ordinal/o1484.json",
-    "source_fingerprint": "56cb5e7d1b3ed39a62e73ec9e88218871e3eac7e1e092f126e397d76571875b9",
+    "source_fingerprint": "4cf026ec6c179ae0ec48c7134d866ed5a236bf378d05df3ae377fa6faeb66ed1",
     "sense_lineage": [
       {
         "word_id": "word:dose",
@@ -1179,81 +1179,19 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "药物或药剂的量",
-      "decision_cn": "",
+      "summary_cn": "（药物或物质的）剂量；一剂",
+      "decision_cn": "药物或药剂的量",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "药物或药剂的量"
+        "target_label": "（药物或物质的）剂量；一剂"
       }
     },
     "senses": [
       {
-        "id": "sense:dose:81c7dcd43f235d26",
-        "source_locator": "record.senses[0]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "给...服药",
-        "definition_en": "to give a dose of medicine to someone",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:13fc488e5e159392465d",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "dose sb with + medicine",
-            "meaning_cn": "给某人服某药",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:13fc488e5e159392465d",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "dose sb with + medicine"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:dose:81c7dcd43f235d26",
-          "target_locator": "record.senses[0]",
-          "target_label": "给...服药"
-        }
-      },
-      {
-        "id": "sense:dose:a755828905c45f7a",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "vi. + with",
-        "definition_cn": "服药",
-        "definition_en": "to take a dose of medicine",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:28fed8d59e752d1e488d",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "dose with + medicine",
-            "meaning_cn": "服用某药",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:28fed8d59e752d1e488d",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "dose with + medicine"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:dose:a755828905c45f7a",
-          "target_locator": "record.senses[1]",
-          "target_label": "服药"
-        }
-      },
-      {
         "id": "sense:dose:b7e83a8c502306d8",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "（药物或物质的）一定剂量",
@@ -1263,14 +1201,14 @@
         "usage": [
           {
             "id": "collocation:e36c894a2780eb4e8eff",
-            "source_locator": "record.senses[2].collocations[0]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "a dose of medicine",
             "meaning_cn": "一剂药",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:e36c894a2780eb4e8eff",
-              "target_locator": "record.senses[2].collocations[0]",
+              "target_locator": "record.senses[0].collocations[0]",
               "target_label": "a dose of medicine"
             }
           }
@@ -1278,8 +1216,70 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:dose:b7e83a8c502306d8",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[0]",
           "target_label": "（药物或物质的）一定剂量"
+        }
+      },
+      {
+        "id": "sense:dose:81c7dcd43f235d26",
+        "source_locator": "record.senses[1]",
+        "pos": "verb",
+        "governing_pattern": "vt. + object",
+        "definition_cn": "给...服药",
+        "definition_en": "to give a dose of medicine to someone",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:13fc488e5e159392465d",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "dose sb with + medicine",
+            "meaning_cn": "给某人服某药",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:13fc488e5e159392465d",
+              "target_locator": "record.senses[1].collocations[0]",
+              "target_label": "dose sb with + medicine"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:dose:81c7dcd43f235d26",
+          "target_locator": "record.senses[1]",
+          "target_label": "给...服药"
+        }
+      },
+      {
+        "id": "sense:dose:a755828905c45f7a",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "vi. + with",
+        "definition_cn": "服药",
+        "definition_en": "to take a dose of medicine",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:28fed8d59e752d1e488d",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "dose with + medicine",
+            "meaning_cn": "服用某药",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:28fed8d59e752d1e488d",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "dose with + medicine"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:dose:a755828905c45f7a",
+          "target_locator": "record.senses[2]",
+          "target_label": "服药"
         }
       }
     ],
@@ -1728,7 +1728,7 @@
     "ordinal": 1488,
     "word": "dove",
     "source_owner_path": "content/lexical/words/by-ordinal/o1488.json",
-    "source_fingerprint": "c76bf616c751cd3eb6cdb7fb39b892fe15b11a69203dd88137feeea4736e9391",
+    "source_fingerprint": "b14f39770d72ee9e51bb7a89c77fad9dc7b08270cdb08e888d016baef5767c95",
     "sense_lineage": [
       {
         "word_id": "word:dove",
@@ -1843,21 +1843,29 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "dove ↔ dove",
-          "target_word": "dove",
-          "lines": [],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:ec0946a4307eb48063a6",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "dove ↔ dove"
+      "relations": [],
+      "form": {
+        "boundary": "dove is a noun /dʌv/; dove can also be the mainly-U.S. past-simple form of dive, pronounced /doʊv/ (UK rendering /dəʊv/).",
+        "boundaries": [
+          {
+            "surface": "dove",
+            "condition": "noun = bird / political dove",
+            "note": "pronounced /dʌv/"
+          },
+          {
+            "surface": "dove",
+            "condition": "past simple of dive, mainly U.S.",
+            "note": "pronounced /doʊv/ in AmE (UK rendering /dəʊv/)"
           }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "dove is a noun /dʌv/; dove can also be the mainly-U.S. past-simple form of dive, pronounced /doʊv/ (UK rendering /dəʊv/)."
         }
-      ],
-      "form": null,
+      },
       "family": []
     }
   },
@@ -1867,7 +1875,7 @@
     "ordinal": 1489,
     "word": "down",
     "source_owner_path": "content/lexical/words/by-ordinal/o1489.json",
-    "source_fingerprint": "af8e7584c0384f53eb6636606a72d662151a340373ce3166464dedc1328385a2",
+    "source_fingerprint": "5ae38f84290185da5cde16793e1da62c298a8babe918fe230c6f58a00c62d0c4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1959,8 +1967,50 @@
         }
       },
       {
-        "id": "sense:down:8036ed0aad475834",
+        "id": "sense:down:ea743133a5635b5a",
         "source_locator": "record.senses[2]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "下降的；降低的；减少的；低于原水平的",
+        "definition_en": "at a lower level, amount, value, rate, or intensity than before or than expected",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:5ab4f32941056d47f693",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "sales are down",
+            "meaning_cn": "",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:b231bc09966ee74c5ad5",
+            "source_locator": "record.senses[2].collocations[1]",
+            "phrase": "prices are down",
+            "meaning_cn": "",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:2ce2fc7a5f7ce9d5c963",
+            "source_locator": "record.senses[2].collocations[2]",
+            "phrase": "be down by 10 percent",
+            "meaning_cn": "",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:down:ea743133a5635b5a",
+          "target_locator": "record.senses[2]",
+          "target_label": "下降的；降低的；减少的；低于原水平的"
+        }
+      },
+      {
+        "id": "sense:down:8036ed0aad475834",
+        "source_locator": "record.senses[3]",
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "向下的",
@@ -1970,7 +2020,7 @@
         "usage": [
           {
             "id": "collocation:c353d6044962b962dc74",
-            "source_locator": "record.senses[2].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "a down escalator",
             "meaning_cn": "下行扶梯",
             "kind": "usage_example",
@@ -1980,13 +2030,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:down:8036ed0aad475834",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[3]",
           "target_label": "向下的"
         }
       },
       {
         "id": "sense:down:256ecd35282c50a6",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[4]",
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "沮丧的；低落的",
@@ -1996,7 +2046,7 @@
         "usage": [
           {
             "id": "collocation:15aee97b568f460193cb",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[4].collocations[0]",
             "phrase": "feel down",
             "meaning_cn": "感到沮丧",
             "kind": "usage_example",
@@ -2006,13 +2056,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:down:256ecd35282c50a6",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[4]",
           "target_label": "沮丧的；低落的"
         }
       },
       {
         "id": "sense:down:ac0bc6f9594e59e1",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[5]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "软毛；羽绒",
@@ -2022,7 +2072,7 @@
         "usage": [
           {
             "id": "collocation:c7d2c09a2322790d6da0",
-            "source_locator": "record.senses[4].collocations[0]",
+            "source_locator": "record.senses[5].collocations[0]",
             "phrase": "down jacket",
             "meaning_cn": "羽绒服",
             "kind": "usage_example",
@@ -2032,13 +2082,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:down:ac0bc6f9594e59e1",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[5]",
           "target_label": "软毛；羽绒"
         }
       },
       {
         "id": "sense:down:50f1b7422a0d51b0",
-        "source_locator": "record.senses[5]",
+        "source_locator": "record.senses[6]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "快速吃完；一口气喝下",
@@ -2048,7 +2098,7 @@
         "usage": [
           {
             "id": "collocation:2a811d030a92f0cb12f6",
-            "source_locator": "record.senses[5].collocations[0]",
+            "source_locator": "record.senses[6].collocations[0]",
             "phrase": "down a drink",
             "meaning_cn": "一口气喝下饮料",
             "kind": "usage_example",
@@ -2058,13 +2108,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:down:50f1b7422a0d51b0",
-          "target_locator": "record.senses[5]",
+          "target_locator": "record.senses[6]",
           "target_label": "快速吃完；一口气喝下"
         }
       },
       {
         "id": "sense:down:24d6a82099325548",
-        "source_locator": "record.senses[6]",
+        "source_locator": "record.senses[7]",
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "击落；使倒下；击倒",
@@ -2074,7 +2124,7 @@
         "usage": [
           {
             "id": "collocation:8234253411f6e88a455a",
-            "source_locator": "record.senses[6].collocations[0]",
+            "source_locator": "record.senses[7].collocations[0]",
             "phrase": "down an aircraft",
             "meaning_cn": "",
             "kind": "usage_example",
@@ -2082,7 +2132,7 @@
           },
           {
             "id": "collocation:42603b168e5581e5d6ee",
-            "source_locator": "record.senses[6].collocations[1]",
+            "source_locator": "record.senses[7].collocations[1]",
             "phrase": "down a tree",
             "meaning_cn": "",
             "kind": "usage_example",
@@ -2092,13 +2142,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:down:24d6a82099325548",
-          "target_locator": "record.senses[6]",
+          "target_locator": "record.senses[7]",
           "target_label": "击落；使倒下；击倒"
         }
       },
       {
         "id": "sense:down:e37b7eec99be53cd",
-        "source_locator": "record.senses[7]",
+        "source_locator": "record.senses[8]",
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "（系统、网络或设备）停机的；故障的",
@@ -2109,50 +2159,8 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:down:e37b7eec99be53cd",
-          "target_locator": "record.senses[7]",
-          "target_label": "（系统、网络或设备）停机的；故障的"
-        }
-      },
-      {
-        "id": "sense:down:ea743133a5635b5a",
-        "source_locator": "record.senses[8]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "下降的；降低的；减少的；低于原水平的",
-        "definition_en": "at a lower level, amount, value, rate, or intensity than before or than expected",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:5ab4f32941056d47f693",
-            "source_locator": "record.senses[8].collocations[0]",
-            "phrase": "sales are down",
-            "meaning_cn": "",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:b231bc09966ee74c5ad5",
-            "source_locator": "record.senses[8].collocations[1]",
-            "phrase": "prices are down",
-            "meaning_cn": "",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:2ce2fc7a5f7ce9d5c963",
-            "source_locator": "record.senses[8].collocations[2]",
-            "phrase": "be down by 10 percent",
-            "meaning_cn": "",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:down:ea743133a5635b5a",
           "target_locator": "record.senses[8]",
-          "target_label": "下降的；降低的；减少的；低于原水平的"
+          "target_label": "（系统、网络或设备）停机的；故障的"
         }
       }
     ],
@@ -2770,11 +2778,11 @@
     "ordinal": 1495,
     "word": "draft",
     "source_owner_path": "content/lexical/words/by-ordinal/o1495.json",
-    "source_fingerprint": "7fdaa6de3a0397eed932ca1f031151ffa8a827dce64ef70c6d83a640c90c74d7",
+    "source_fingerprint": "4685db84d259d61b6e7c9979ab14d198b3504076318906f5bf7cc25bca225500",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(2+1)V",
+        "2V",
         "5N"
       ],
       "density": "rich"
@@ -2798,15 +2806,7 @@
         "definition_cn": "草稿；草图",
         "definition_en": "a preliminary sketch of a design or picture",
         "note": "",
-        "identity_overlay": {
-          "text": "draft/draught regional spelling boundary",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "draft/draught regional spelling boundary"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:a97c9586da04c1cad65b",
@@ -2840,15 +2840,7 @@
         "definition_cn": "汇票",
         "definition_en": "a document ordering the payment of money; drawn by one person or bank on another",
         "note": "",
-        "identity_overlay": {
-          "text": "draft/draught regional spelling boundary",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "draft/draught regional spelling boundary"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:fd10a0002f82b6075fec",
@@ -2874,15 +2866,7 @@
         "definition_cn": "气流；穿堂风",
         "definition_en": "a current of air (usually coming into a chimney or room or vehicle)",
         "note": "",
-        "identity_overlay": {
-          "text": "draft/draught regional spelling boundary",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[2].lexical_identity_overlay",
-            "target_label": "draft/draught regional spelling boundary"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:ed7b1906e8c451b810ac",
@@ -2908,15 +2892,7 @@
         "definition_cn": "起草",
         "definition_en": "to write a preliminary version of a document",
         "note": "",
-        "identity_overlay": {
-          "text": "draft/draught regional spelling boundary",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[3].lexical_identity_overlay",
-            "target_label": "draft/draught regional spelling boundary"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:64767f96723801399121",
@@ -2942,15 +2918,7 @@
         "definition_cn": "散装啤酒；扎啤",
         "definition_en": "a serving of drink (usually alcoholic) drawn from a keg",
         "note": "",
-        "identity_overlay": {
-          "text": "draft/draught regional spelling boundary",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[4].lexical_identity_overlay",
-            "target_label": "draft/draught regional spelling boundary"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:e2b4ddb35680f47752f6",
@@ -2976,15 +2944,7 @@
         "definition_cn": "征兵",
         "definition_en": "to select for military service",
         "note": "",
-        "identity_overlay": {
-          "text": "draft/draught regional spelling boundary",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[5].lexical_identity_overlay",
-            "target_label": "draft/draught regional spelling boundary"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:2d19a9c18266747d9e94",
@@ -3010,15 +2970,7 @@
         "definition_cn": "征兵；服兵役抽签或征召",
         "definition_en": "compulsory selection for military service",
         "note": "",
-        "identity_overlay": {
-          "text": "draft/draught regional spelling boundary",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[6].lexical_identity_overlay",
-            "target_label": "draft/draught regional spelling boundary"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:063172bbb3f2c9e1931e",
@@ -3042,27 +2994,33 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:draft:fbcbce9e687d1946",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "起草",
-        "definition_en": "to write a preliminary version of a document",
-        "pattern": "draft 作动词指起草",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:draft:fbcbce9e687d1946",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "起草"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "draft/draught is a sense-scoped regional spelling boundary: British English often uses draught for an air current and draught beer, while draft remains standard for document, conscription, and bank-draft uses.",
+        "boundaries": [
+          {
+            "surface": "draught",
+            "condition": "BrE: air current / beer",
+            "note": "common British spelling in these senses"
+          },
+          {
+            "surface": "draft",
+            "condition": "AmE: air current / beer; general document/conscription/bank uses",
+            "note": "draft is standard for most other senses"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "draft/draught is a sense-scoped regional spelling boundary: British English often uses draught for an air current and draught beer, while draft remains standard for document, conscription, and bank-draft uses."
+        }
+      },
       "family": []
     }
   },
@@ -3209,7 +3167,7 @@
     "ordinal": 1497,
     "word": "dragon",
     "source_owner_path": "content/lexical/words/by-ordinal/o1497.json",
-    "source_fingerprint": "5e37e9fef99155eba730fabf20835f2d829a1fcaa20c4f9e94311f371f8dadfb",
+    "source_fingerprint": "70612c3f66398eb080e326ff73cb282cfa4e09b8771540894e81bfae401b83f1",
     "sense_lineage": [
       {
         "word_id": "word:dragon",
@@ -3233,36 +3191,19 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "神话中的喷火生物，或凶暴的人",
-      "decision_cn": "",
+      "summary_cn": "龙；神话中的大型爬行动物",
+      "decision_cn": "默认学习神话中的“龙”；飞蜥是低优先级专业义，凶暴人物义只留 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "神话中的喷火生物，或凶暴的人"
+        "target_label": "龙；神话中的大型爬行动物"
       }
     },
     "senses": [
       {
-        "id": "sense:dragon:50cd546d1948525b",
-        "source_locator": "record.senses[0]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "飞蜥",
-        "definition_en": "a small tropical Asian lizard that can glide by spreading winglike membranes",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:dragon:50cd546d1948525b",
-          "target_locator": "record.senses[0]",
-          "target_label": "飞蜥"
-        }
-      },
-      {
         "id": "sense:dragon:f75e4777f721d078",
-        "source_locator": "record.senses[1]",
+        "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "龙；神话中的大型爬行动物",
@@ -3273,8 +3214,25 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:dragon:f75e4777f721d078",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[0]",
           "target_label": "龙；神话中的大型爬行动物"
+        }
+      },
+      {
+        "id": "sense:dragon:50cd546d1948525b",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "飞蜥",
+        "definition_en": "a small tropical Asian lizard that can glide by spreading winglike membranes",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:dragon:50cd546d1948525b",
+          "target_locator": "record.senses[1]",
+          "target_label": "飞蜥"
         }
       }
     ],
@@ -3785,7 +3743,7 @@
     "ordinal": 1502,
     "word": "draw",
     "source_owner_path": "content/lexical/words/by-ordinal/o1502.json",
-    "source_fingerprint": "b35d71dd797cf7a0dd3b17ffda6451bb475eccc0967484f0f21c0e4b9b290c11",
+    "source_fingerprint": "dba80711962c7c9570d53ae15bfc7745814e6271e182e14aff718c8e72c901be",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4068,7 +4026,33 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "draw is irregular: draw → drew → drawn.",
+        "boundaries": [
+          {
+            "surface": "draw",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "drew",
+            "condition": "past simple",
+            "note": "irregular past"
+          },
+          {
+            "surface": "drawn",
+            "condition": "past participle",
+            "note": "irregular participle"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "draw is irregular: draw → drew → drawn."
+        }
+      },
       "family": []
     }
   },
@@ -4359,7 +4343,7 @@
     "ordinal": 1506,
     "word": "dread",
     "source_owner_path": "content/lexical/words/by-ordinal/o1506.json",
-    "source_fingerprint": "1f40226decfb94846b56f090ffe9895812860540e9eb46ad4259a0d5d2d86c18",
+    "source_fingerprint": "ab65889fab8bd9c6487df256c50c46af8867f6645dafac7cc411b2250dc2b2d5",
     "sense_lineage": [
       {
         "word_id": "word:dread",
@@ -4444,12 +4428,12 @@
     "ordinal": 1507,
     "word": "dream",
     "source_owner_path": "content/lexical/words/by-ordinal/o1507.json",
-    "source_fingerprint": "fe622e62985c2b96d44af38507316a7d2cd2309abc535994caf4a45a62c3c50e",
+    "source_fingerprint": "19985810dba4296fbb5f6dcb506de7ab0c1582c4e212fa0cea7068e402323b4a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "4N"
+        "(4+1)N"
       ],
       "density": "rich"
     },
@@ -4654,12 +4638,48 @@
         }
       }
     ],
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "id": "usage:dream:aspiration-noun",
+        "source_locator": "record.secondary_senses[0]",
+        "pos": "noun",
+        "definition_cn": "梦想；愿望；很想实现的目标",
+        "definition_en": "a hope, ambition, or condition that you want very much to achieve",
+        "pattern": "a dream of + sth / pursue or fulfil a dream",
+        "repair": {
+          "target_kind": "secondary_sense",
+          "target_id": "usage:dream:aspiration-noun",
+          "target_locator": "record.secondary_senses[0]",
+          "target_label": "梦想；愿望；很想实现的目标"
+        }
+      }
+    ],
     "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "dream has two accepted past and past-participle forms: dreamed and dreamt.",
+        "boundaries": [
+          {
+            "surface": "dreamed",
+            "condition": "past simple / past participle",
+            "note": "accepted form"
+          },
+          {
+            "surface": "dreamt",
+            "condition": "past simple / past participle",
+            "note": "accepted variant form"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "dream has two accepted past and past-participle forms: dreamed and dreamt."
+        }
+      },
       "family": []
     }
   },
@@ -4839,7 +4859,7 @@
     "ordinal": 1509,
     "word": "drift",
     "source_owner_path": "content/lexical/words/by-ordinal/o1509.json",
-    "source_fingerprint": "36afaec261808bb82e970064ae97804b0067f1efc7fc497d75972530d4c214eb",
+    "source_fingerprint": "f0fad1a986e9b3108881e9430c16789593729dc846acca06fcde653b44c4b403",
     "sense_lineage": [
       {
         "word_id": "word:drift",
@@ -4857,13 +4877,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "漂流；漂移；堆积",
-      "decision_cn": "",
+      "summary_cn": "漂移；逐渐偏移或变化",
+      "decision_cn": "漂流；漂移；堆积",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "漂流；漂移；堆积"
+        "target_label": "漂移；逐渐偏移或变化"
       }
     },
     "senses": [
@@ -4912,34 +4932,8 @@
         }
       },
       {
-        "id": "sense:drift:02d489f6851058c6",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "（风吹成的）堆积物",
-        "definition_en": "a pile of snow or sand made by the wind",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:86a52468fd2a3ecd4822",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "snow drift",
-            "meaning_cn": "雪堆",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:drift:02d489f6851058c6",
-          "target_locator": "record.senses[1]",
-          "target_label": "（风吹成的）堆积物"
-        }
-      },
-      {
         "id": "sense:drift:8ac0ffbf6fbb5024",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "逐渐偏离的移动或变化",
@@ -4949,14 +4943,14 @@
         "usage": [
           {
             "id": "collocation:cde4bc8f1c8cb15cc6c2",
-            "source_locator": "record.senses[2].collocations[0]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "a drift in opinion/policy",
             "meaning_cn": "观点或政策逐渐偏移",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:cde4bc8f1c8cb15cc6c2",
-              "target_locator": "record.senses[2].collocations[0]",
+              "target_locator": "record.senses[1].collocations[0]",
               "target_label": "a drift in opinion/policy"
             }
           }
@@ -4964,8 +4958,34 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:drift:8ac0ffbf6fbb5024",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[1]",
           "target_label": "逐渐偏离的移动或变化"
+        }
+      },
+      {
+        "id": "sense:drift:02d489f6851058c6",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（风吹成的）堆积物",
+        "definition_en": "a pile of snow or sand made by the wind",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:86a52468fd2a3ecd4822",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "snow drift",
+            "meaning_cn": "雪堆",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:drift:02d489f6851058c6",
+          "target_locator": "record.senses[2]",
+          "target_label": "（风吹成的）堆积物"
         }
       }
     ],
@@ -4984,7 +5004,7 @@
     "ordinal": 1510,
     "word": "drill",
     "source_owner_path": "content/lexical/words/by-ordinal/o1510.json",
-    "source_fingerprint": "52f0dac2d3b1d7183595e5d6d2883a462fcefc9495e4d87353030950cd1b10d8",
+    "source_fingerprint": "ce68b167fbea4435e69796a504bd8de863e2299d2d0f1f3e6a187070fd8b3609",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5049,8 +5069,39 @@
         }
       },
       {
-        "id": "sense:drill:2712382b21295755",
+        "id": "sense:drill:13e11e9d1379537b",
         "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "钻头、钻机或工具",
+        "definition_en": "a tool or machine for making holes",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:cc575460c7587ac39eac",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "a drill/drill bit",
+            "meaning_cn": "钻机/钻头",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:cc575460c7587ac39eac",
+              "target_locator": "record.senses[1].collocations[0]",
+              "target_label": "a drill/drill bit"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:drill:13e11e9d1379537b",
+          "target_locator": "record.senses[1]",
+          "target_label": "钻头、钻机或工具"
+        }
+      },
+      {
+        "id": "sense:drill:2712382b21295755",
+        "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "训练，操练",
@@ -5060,7 +5111,7 @@
         "usage": [
           {
             "id": "collocation:9857da510252c28c767e",
-            "source_locator": "record.senses[1].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "fire drill",
             "meaning_cn": "消防演习",
             "kind": "usage_example",
@@ -5068,7 +5119,7 @@
           },
           {
             "id": "collocation:0a028efe59f569bfcccf",
-            "source_locator": "record.senses[1].collocations[1]",
+            "source_locator": "record.senses[2].collocations[1]",
             "phrase": "drill sergeant",
             "meaning_cn": "操练军士",
             "kind": "usage_example",
@@ -5078,13 +5129,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:drill:2712382b21295755",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[2]",
           "target_label": "训练，操练"
         }
       },
       {
         "id": "sense:drill:17c6e2bb5f025e77",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "训练，操练",
@@ -5094,20 +5145,20 @@
         "usage": [
           {
             "id": "collocation:a74dcf8f716aae59e7f9",
-            "source_locator": "record.senses[2].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "drill sb in + sth",
             "meaning_cn": "在某方面训练某人",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:a74dcf8f716aae59e7f9",
-              "target_locator": "record.senses[2].collocations[0]",
+              "target_locator": "record.senses[3].collocations[0]",
               "target_label": "drill sb in + sth"
             }
           },
           {
             "id": "collocation:2f525bf01ec8cc6d5d6b",
-            "source_locator": "record.senses[2].collocations[1]",
+            "source_locator": "record.senses[3].collocations[1]",
             "phrase": "drill the troops",
             "meaning_cn": "操练部队",
             "kind": "usage_example",
@@ -5117,13 +5168,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:drill:17c6e2bb5f025e77",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[3]",
           "target_label": "训练，操练"
         }
       },
       {
         "id": "sense:drill:8117f2f480b956a8",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[4]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "条播机",
@@ -5134,39 +5185,8 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:drill:8117f2f480b956a8",
-          "target_locator": "record.senses[3]",
-          "target_label": "条播机"
-        }
-      },
-      {
-        "id": "sense:drill:13e11e9d1379537b",
-        "source_locator": "record.senses[4]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "钻头、钻机或工具",
-        "definition_en": "a tool or machine for making holes",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:cc575460c7587ac39eac",
-            "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "a drill/drill bit",
-            "meaning_cn": "钻机/钻头",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:cc575460c7587ac39eac",
-              "target_locator": "record.senses[4].collocations[0]",
-              "target_label": "a drill/drill bit"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:drill:13e11e9d1379537b",
           "target_locator": "record.senses[4]",
-          "target_label": "钻头、钻机或工具"
+          "target_label": "条播机"
         }
       }
     ],
@@ -5207,7 +5227,7 @@
     "ordinal": 1511,
     "word": "drink",
     "source_owner_path": "content/lexical/words/by-ordinal/o1511.json",
-    "source_fingerprint": "8e972acee62e1b4255e1376081e3ba60265eecc1aca2dde2c44b98cfb1c37836",
+    "source_fingerprint": "d06cfc24537a17e50e0c6b4e9a9b3004d1099cb09d7ba19d476b973f1027fa52",
     "sense_lineage": [
       {
         "word_id": "word:drink",
@@ -5401,7 +5421,33 @@
           }
         }
       ],
-      "form": null,
+      "form": {
+        "boundary": "drink is irregular: drink → drank → drunk.",
+        "boundaries": [
+          {
+            "surface": "drink",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "drank",
+            "condition": "past simple",
+            "note": "irregular past"
+          },
+          {
+            "surface": "drunk",
+            "condition": "past participle",
+            "note": "irregular participle; drunk also has a separately lexicalized adjective owner"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "drink is irregular: drink → drank → drunk."
+        }
+      },
       "family": []
     }
   },
@@ -5538,12 +5584,12 @@
     "ordinal": 1513,
     "word": "drive",
     "source_owner_path": "content/lexical/words/by-ordinal/o1513.json",
-    "source_fingerprint": "63a175883821548505bf76026080cc33d778d8b6e51d20dc075a910bcdceaedd",
+    "source_fingerprint": "01a78059e4d285f03c652764c8d8de4b9e4fd7d90278ebc32013cb4c4ec09487",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "4V",
-        "(4+1)N"
+        "4N"
       ],
       "density": "rich"
     },
@@ -5642,103 +5688,8 @@
         }
       },
       {
-        "id": "sense:drive:cacc997223095239",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "干劲；驱动力",
-        "definition_en": "a strong motivation or ambition",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:b21d7b994c02ff335f9c",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "have the drive to succeed",
-            "meaning_cn": "有成功的动力",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:723de389820d69be3a71",
-            "source_locator": "record.senses[2].collocations[1]",
-            "phrase": "drive for + sth",
-            "meaning_cn": "对……的追求",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:723de389820d69be3a71",
-              "target_locator": "record.senses[2].collocations[1]",
-              "target_label": "drive for + sth"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:drive:cacc997223095239",
-          "target_locator": "record.senses[2]",
-          "target_label": "干劲；驱动力"
-        }
-      },
-      {
-        "id": "sense:drive:c97327b45c2d5348",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "驱动器；传动装置",
-        "definition_en": "a mechanism that transmits power in a machine",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:89e38368c8bffdf5e5bb",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "hard drive",
-            "meaning_cn": "硬盘驱动器",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:89e38368c8bffdf5e5bb",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "hard drive"
-            }
-          },
-          {
-            "id": "collocation:f380f1b47e44a0936ffc",
-            "source_locator": "record.senses[3].collocations[1]",
-            "phrase": "disk drive",
-            "meaning_cn": "磁盘驱动器",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:drive:c97327b45c2d5348",
-          "target_locator": "record.senses[3]",
-          "target_label": "驱动器；传动装置"
-        }
-      },
-      {
-        "id": "sense:drive:3aaa8889be8e531b",
-        "source_locator": "record.senses[4]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "猛击；猛冲",
-        "definition_en": "to hit or strike forcefully",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:drive:3aaa8889be8e531b",
-          "target_locator": "record.senses[4]",
-          "target_label": "猛击；猛冲"
-        }
-      },
-      {
         "id": "sense:drive:9d81aa51756e57dc",
-        "source_locator": "record.senses[5]",
+        "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "驾车旅行；车程",
@@ -5749,8 +5700,117 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:drive:9d81aa51756e57dc",
-          "target_locator": "record.senses[5]",
+          "target_locator": "record.senses[2]",
           "target_label": "驾车旅行；车程"
+        }
+      },
+      {
+        "id": "sense:drive:cacc997223095239",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "干劲；驱动力",
+        "definition_en": "a strong motivation or ambition",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:b21d7b994c02ff335f9c",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "have the drive to succeed",
+            "meaning_cn": "有成功的动力",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:723de389820d69be3a71",
+            "source_locator": "record.senses[3].collocations[1]",
+            "phrase": "drive for + sth",
+            "meaning_cn": "对……的追求",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:723de389820d69be3a71",
+              "target_locator": "record.senses[3].collocations[1]",
+              "target_label": "drive for + sth"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:drive:cacc997223095239",
+          "target_locator": "record.senses[3]",
+          "target_label": "干劲；驱动力"
+        }
+      },
+      {
+        "id": "sense:drive:c97327b45c2d5348",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "驱动器；传动装置",
+        "definition_en": "a mechanism that transmits power in a machine",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:89e38368c8bffdf5e5bb",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "hard drive",
+            "meaning_cn": "硬盘驱动器",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:89e38368c8bffdf5e5bb",
+              "target_locator": "record.senses[4].collocations[0]",
+              "target_label": "hard drive"
+            }
+          },
+          {
+            "id": "collocation:f380f1b47e44a0936ffc",
+            "source_locator": "record.senses[4].collocations[1]",
+            "phrase": "disk drive",
+            "meaning_cn": "磁盘驱动器",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:drive:c97327b45c2d5348",
+          "target_locator": "record.senses[4]",
+          "target_label": "驱动器；传动装置"
+        }
+      },
+      {
+        "id": "sense:drive:8c56f0ef5c5ee0b6",
+        "source_locator": "record.senses[5]",
+        "pos": "verb",
+        "governing_pattern": "drive growth/change/demand/innovation",
+        "definition_cn": "推动或导致增长、变化、需求或创新",
+        "definition_en": "to propel or cause a process such as growth, change, demand, or innovation",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:798da974d199d6c9677d",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "drive growth/change/demand/innovation",
+            "meaning_cn": "推动增长、变化、需求或创新",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:798da974d199d6c9677d",
+              "target_locator": "record.senses[5].collocations[0]",
+              "target_label": "drive growth/change/demand/innovation"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:drive:8c56f0ef5c5ee0b6",
+          "target_locator": "record.senses[5]",
+          "target_label": "推动或导致增长、变化、需求或创新"
         }
       },
       {
@@ -5771,53 +5831,24 @@
         }
       },
       {
-        "id": "sense:drive:8c56f0ef5c5ee0b6",
+        "id": "sense:drive:3aaa8889be8e531b",
         "source_locator": "record.senses[7]",
         "pos": "verb",
-        "governing_pattern": "drive growth/change/demand/innovation",
-        "definition_cn": "推动或导致增长、变化、需求或创新",
-        "definition_en": "to propel or cause a process such as growth, change, demand, or innovation",
+        "governing_pattern": "",
+        "definition_cn": "猛击；猛冲",
+        "definition_en": "to hit or strike forcefully",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:798da974d199d6c9677d",
-            "source_locator": "record.senses[7].collocations[0]",
-            "phrase": "drive growth/change/demand/innovation",
-            "meaning_cn": "推动增长、变化、需求或创新",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:798da974d199d6c9677d",
-              "target_locator": "record.senses[7].collocations[0]",
-              "target_label": "drive growth/change/demand/innovation"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:drive:8c56f0ef5c5ee0b6",
+          "target_id": "sense:drive:3aaa8889be8e531b",
           "target_locator": "record.senses[7]",
-          "target_label": "推动或导致增长、变化、需求或创新"
+          "target_label": "猛击；猛冲"
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:drive:6d6fe48e59381e86",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "noun",
-        "definition_cn": "干劲；驱动力",
-        "definition_en": "a strong motivation or ambition",
-        "pattern": "drive for + sth",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:drive:6d6fe48e59381e86",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "干劲；驱动力"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
@@ -5844,7 +5875,33 @@
           }
         }
       ],
-      "form": null,
+      "form": {
+        "boundary": "drive is irregular: drive → drove → driven.",
+        "boundaries": [
+          {
+            "surface": "drive",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "drove",
+            "condition": "past simple",
+            "note": "irregular past"
+          },
+          {
+            "surface": "driven",
+            "condition": "past participle",
+            "note": "irregular participle"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "drive is irregular: drive → drove → driven."
+        }
+      },
       "family": [
         {
           "target_word": "driver",
@@ -5865,7 +5922,7 @@
     "ordinal": 1514,
     "word": "driver",
     "source_owner_path": "content/lexical/words/by-ordinal/o1514.json",
-    "source_fingerprint": "860eb9013ecb5636a09e20981ec9273583b171cd6fb37afa6e463e43bd7c53d2",
+    "source_fingerprint": "a4852a7021d0e433ac35ff6ed8a994c97d67e3f706767f81b9cd1f30efcdaa6b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5874,13 +5931,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "驾驶员；驱动器",
-      "decision_cn": "",
+      "summary_cn": "驾驶员；驱动因素、主要原因",
+      "decision_cn": "驾驶员；驱动器",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "驾驶员；驱动器"
+        "target_label": "驾驶员；驱动因素、主要原因"
       }
     },
     "senses": [
@@ -5911,60 +5968,8 @@
         }
       },
       {
-        "id": "sense:driver:b23f7ed124aa59ae",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "驱动程序",
-        "definition_en": "a computer program that controls a device",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:858ac857765a797a2750",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "device driver",
-            "meaning_cn": "设备驱动程序",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:driver:b23f7ed124aa59ae",
-          "target_locator": "record.senses[1]",
-          "target_label": "驱动程序"
-        }
-      },
-      {
-        "id": "sense:driver:bc5631b195625e85",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "高尔夫球杆（一号木杆）",
-        "definition_en": "a golf club used for long shots",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:f3a9838c21462504f4db",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "hit with a driver",
-            "meaning_cn": "用一号木杆击球",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:driver:bc5631b195625e85",
-          "target_locator": "record.senses[2]",
-          "target_label": "高尔夫球杆（一号木杆）"
-        }
-      },
-      {
         "id": "sense:driver:1bb87482e5fb50e2",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "驱动因素；推动力；主要原因",
@@ -5975,8 +5980,60 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:driver:1bb87482e5fb50e2",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[1]",
           "target_label": "驱动因素；推动力；主要原因"
+        }
+      },
+      {
+        "id": "sense:driver:b23f7ed124aa59ae",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "驱动程序",
+        "definition_en": "a computer program that controls a device",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:858ac857765a797a2750",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "device driver",
+            "meaning_cn": "设备驱动程序",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:driver:b23f7ed124aa59ae",
+          "target_locator": "record.senses[2]",
+          "target_label": "驱动程序"
+        }
+      },
+      {
+        "id": "sense:driver:bc5631b195625e85",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "高尔夫球杆（一号木杆）",
+        "definition_en": "a golf club used for long shots",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:f3a9838c21462504f4db",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "hit with a driver",
+            "meaning_cn": "用一号木杆击球",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:driver:bc5631b195625e85",
+          "target_locator": "record.senses[3]",
+          "target_label": "高尔夫球杆（一号木杆）"
         }
       }
     ],
@@ -6006,7 +6063,7 @@
     "ordinal": 1515,
     "word": "drone",
     "source_owner_path": "content/lexical/words/by-ordinal/o1515.json",
-    "source_fingerprint": "e54df0c6147f4d120a651e53a2f321c490338b315c4cae2179f36753fa7d0bc4",
+    "source_fingerprint": "e82b3e1ea9aebca5793fc3533aed949e84f6093c3ff3439b4e50672e9817ee42",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6173,7 +6230,7 @@
     "ordinal": 1516,
     "word": "drop",
     "source_owner_path": "content/lexical/words/by-ordinal/o1516.json",
-    "source_fingerprint": "2489e8514610915b71243db3700b7178021e871d94f71fe65188277c25ff2880",
+    "source_fingerprint": "c3d72d071237fc119d0a406ea0acc50f1d512b887bc2b4147fb8156f63529dfc",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6233,86 +6290,8 @@
         }
       },
       {
-        "id": "sense:drop:c38fa086ebd8509f",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "滴；微量",
-        "definition_en": "a small amount of liquid",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:e1a05aa4a6fd814ffcae",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "a drop of water",
-            "meaning_cn": "一滴水",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:drop:c38fa086ebd8509f",
-          "target_locator": "record.senses[1]",
-          "target_label": "滴；微量"
-        }
-      },
-      {
-        "id": "sense:drop:77afb0e5cae25875",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "下降",
-        "definition_en": "a sudden decrease",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:9b278fe7fde9cf63c7d8",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "a drop in prices",
-            "meaning_cn": "价格下降",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:drop:77afb0e5cae25875",
-          "target_locator": "record.senses[2]",
-          "target_label": "下降"
-        }
-      },
-      {
-        "id": "sense:drop:b19b032ddd2c557b",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "投递点（秘密）",
-        "definition_en": "a secret place for leaving or collecting something",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:fbf15e4f1f71cfd4fe27",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "a drop point",
-            "meaning_cn": "秘密投递点",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:drop:b19b032ddd2c557b",
-          "target_locator": "record.senses[3]",
-          "target_label": "投递点（秘密）"
-        }
-      },
-      {
         "id": "sense:drop:55368f684b715a6c",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "vi.",
         "definition_cn": "下降；减少（价格、水平、温度等）",
@@ -6322,14 +6301,14 @@
         "usage": [
           {
             "id": "collocation:02f6d57fbd2eb284e9d3",
-            "source_locator": "record.senses[4].collocations[0]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "prices/levels/temperature drop",
             "meaning_cn": "价格、水平或温度下降",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:02f6d57fbd2eb284e9d3",
-              "target_locator": "record.senses[4].collocations[0]",
+              "target_locator": "record.senses[1].collocations[0]",
               "target_label": "prices/levels/temperature drop"
             }
           }
@@ -6337,8 +6316,86 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:drop:55368f684b715a6c",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[1]",
           "target_label": "下降；减少（价格、水平、温度等）"
+        }
+      },
+      {
+        "id": "sense:drop:c38fa086ebd8509f",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "滴；微量",
+        "definition_en": "a small amount of liquid",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:e1a05aa4a6fd814ffcae",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "a drop of water",
+            "meaning_cn": "一滴水",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:drop:c38fa086ebd8509f",
+          "target_locator": "record.senses[2]",
+          "target_label": "滴；微量"
+        }
+      },
+      {
+        "id": "sense:drop:77afb0e5cae25875",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "下降",
+        "definition_en": "a sudden decrease",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:9b278fe7fde9cf63c7d8",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "a drop in prices",
+            "meaning_cn": "价格下降",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:drop:77afb0e5cae25875",
+          "target_locator": "record.senses[3]",
+          "target_label": "下降"
+        }
+      },
+      {
+        "id": "sense:drop:b19b032ddd2c557b",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "投递点（秘密）",
+        "definition_en": "a secret place for leaving or collecting something",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:fbf15e4f1f71cfd4fe27",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "a drop point",
+            "meaning_cn": "秘密投递点",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:drop:b19b032ddd2c557b",
+          "target_locator": "record.senses[4]",
+          "target_label": "投递点（秘密）"
         }
       }
     ],
@@ -6748,7 +6805,7 @@
     "ordinal": 1520,
     "word": "drum",
     "source_owner_path": "content/lexical/words/by-ordinal/o1520.json",
-    "source_fingerprint": "a6379e2c956cee1d64df27653f8f3126f80d0b987f11cd67e49d4099e8cc576b",
+    "source_fingerprint": "9e24d08f376b40b96eaf1c1c65656e75732c2bab2faac943253bb083fd937254",
     "sense_lineage": [
       {
         "word_id": "word:drum",
@@ -6798,34 +6855,8 @@
     },
     "senses": [
       {
-        "id": "sense:drum:62b670dbfca253a9",
-        "source_locator": "record.senses[0]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "打鼓奏出",
-        "definition_en": "play (a tune) on a drum",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:0507a793f3c82f4933f5",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "drum a rhythm",
-            "meaning_cn": "敲出节奏",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:drum:62b670dbfca253a9",
-          "target_locator": "record.senses[0]",
-          "target_label": "打鼓奏出"
-        }
-      },
-      {
         "id": "sense:drum:7978f4d5afc05559",
-        "source_locator": "record.senses[1]",
+        "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "鼓；鼓声",
@@ -6835,14 +6866,14 @@
         "usage": [
           {
             "id": "collocation:132db94395283801d145",
-            "source_locator": "record.senses[1].collocations[0]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "beat/play the drum",
             "meaning_cn": "击鼓/打鼓",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:132db94395283801d145",
-              "target_locator": "record.senses[1].collocations[0]",
+              "target_locator": "record.senses[0].collocations[0]",
               "target_label": "beat/play the drum"
             }
           }
@@ -6850,8 +6881,34 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:drum:7978f4d5afc05559",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[0]",
           "target_label": "鼓；鼓声"
+        }
+      },
+      {
+        "id": "sense:drum:62b670dbfca253a9",
+        "source_locator": "record.senses[1]",
+        "pos": "verb",
+        "governing_pattern": "vt. + object",
+        "definition_cn": "打鼓奏出",
+        "definition_en": "play (a tune) on a drum",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:0507a793f3c82f4933f5",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "drum a rhythm",
+            "meaning_cn": "敲出节奏",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:drum:62b670dbfca253a9",
+          "target_locator": "record.senses[1]",
+          "target_label": "打鼓奏出"
         }
       }
     ],
@@ -6888,7 +6945,7 @@
     "ordinal": 1521,
     "word": "drunk",
     "source_owner_path": "content/lexical/words/by-ordinal/o1521.json",
-    "source_fingerprint": "4af16a7dc369445ac59e416bdab1ab338c9245fd6da2885a9ba5721af7cbd0c9",
+    "source_fingerprint": "11baee07fa2ee11cdf00cb6d8e3f575ba06f6f1b9802ac282462d0098c51a4a4",
     "sense_lineage": [
       {
         "word_id": "word:drunk",
@@ -6945,14 +7002,29 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
-      "family": [
-        {
-          "target_word": "",
-          "lines": [],
-          "source_locator": "record.word_family[0]"
+      "form": {
+        "boundary": "drunk is the irregular past participle of drink and also a separately lexicalized adjective meaning intoxicated.",
+        "boundaries": [
+          {
+            "surface": "drunk",
+            "condition": "past participle of drink",
+            "note": "participial surface of drink"
+          },
+          {
+            "surface": "drunk",
+            "condition": "adjective lexeme",
+            "note": "intoxicated with alcohol"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "drunk is the irregular past participle of drink and also a separately lexicalized adjective meaning intoxicated."
         }
-      ]
+      },
+      "family": []
     }
   },
   {
@@ -6961,7 +7033,7 @@
     "ordinal": 1522,
     "word": "dry",
     "source_owner_path": "content/lexical/words/by-ordinal/o1522.json",
-    "source_fingerprint": "d979118ec1e896f367ce5428285ca5d127230060e10476657a37213ac6beb905",
+    "source_fingerprint": "a1a569d08e9a1f07f9ffa1a858d0e769d63c69772941c3fc0f34245882b46de9",
     "sense_lineage": [
       {
         "word_id": "word:dry",
@@ -7031,47 +7103,8 @@
         }
       },
       {
-        "id": "sense:dry:916461d952d654c3",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "vi.",
-        "definition_cn": "变干",
-        "definition_en": "become dry or drier",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:0b6eace9f445f6d8bf2c",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "dry up",
-            "meaning_cn": "干涸；枯竭",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:0b6eace9f445f6d8bf2c",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "dry up"
-            }
-          },
-          {
-            "id": "collocation:bdc26b6686a3d085e28d",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "The paint dried quickly.",
-            "meaning_cn": "油漆干得很快。",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:dry:916461d952d654c3",
-          "target_locator": "record.senses[1]",
-          "target_label": "变干"
-        }
-      },
-      {
         "id": "sense:dry:12e9356b77415c84",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "dry sth",
         "definition_cn": "使某物变干",
@@ -7082,31 +7115,52 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:dry:12e9356b77415c84",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[1]",
           "target_label": "使某物变干"
+        }
+      },
+      {
+        "id": "sense:dry:916461d952d654c3",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "vi.",
+        "definition_cn": "变干",
+        "definition_en": "become dry or drier",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:0b6eace9f445f6d8bf2c",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "dry up",
+            "meaning_cn": "干涸；枯竭",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:0b6eace9f445f6d8bf2c",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "dry up"
+            }
+          },
+          {
+            "id": "collocation:bdc26b6686a3d085e28d",
+            "source_locator": "record.senses[2].collocations[1]",
+            "phrase": "The paint dried quickly.",
+            "meaning_cn": "油漆干得很快。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:dry:916461d952d654c3",
+          "target_locator": "record.senses[2]",
+          "target_label": "变干"
         }
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:983638313f8c9ead0b58",
-        "source_locator": "record.constructions[0]",
-        "pattern": "dry sth",
-        "lines": [
-          {
-            "text": "使某物变干",
-            "lang": "cn"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:983638313f8c9ead0b58",
-          "target_locator": "record.constructions[0]",
-          "target_label": "dry sth"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7316,7 +7370,7 @@
     "ordinal": 1525,
     "word": "duck",
     "source_owner_path": "content/lexical/words/by-ordinal/o1525.json",
-    "source_fingerprint": "f6f567f82af2368a23501969a9224ad2389b50a205288b206639c2f426d85f06",
+    "source_fingerprint": "a16f17676a40b3d7b2d783ce90faa97d2f4231217131d5799b1550682681468f",
     "sense_lineage": [
       {
         "word_id": "word:duck",
@@ -7379,8 +7433,25 @@
         }
       },
       {
-        "id": "sense:duck:baaed94c34e45aad",
+        "id": "sense:duck:5a0b9ce333f57447",
         "source_locator": "record.senses[1]",
+        "pos": "verb",
+        "governing_pattern": "vi. / duck down/behind/under",
+        "definition_cn": "迅速低头或弯身躲避",
+        "definition_en": "to lower the head or body quickly to avoid being seen or hit",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:duck:5a0b9ce333f57447",
+          "target_locator": "record.senses[1]",
+          "target_label": "迅速低头或弯身躲避"
+        }
+      },
+      {
+        "id": "sense:duck:baaed94c34e45aad",
+        "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "把...按入水中",
@@ -7390,14 +7461,14 @@
         "usage": [
           {
             "id": "collocation:3fca5564d3b7eb793438",
-            "source_locator": "record.senses[1].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "duck + sb + in/under + water",
             "meaning_cn": "把某人按入水中",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:3fca5564d3b7eb793438",
-              "target_locator": "record.senses[1].collocations[0]",
+              "target_locator": "record.senses[2].collocations[0]",
               "target_label": "duck + sb + in/under + water"
             }
           }
@@ -7405,13 +7476,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:duck:baaed94c34e45aad",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[2]",
           "target_label": "把...按入水中"
         }
       },
       {
         "id": "sense:duck:e4da9a8e062d5a93",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[3]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "（板球）零分",
@@ -7421,14 +7492,14 @@
         "usage": [
           {
             "id": "collocation:e27d31c4335e8fd2dc22",
-            "source_locator": "record.senses[2].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "out for a duck",
             "meaning_cn": "得零分出局",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:e27d31c4335e8fd2dc22",
-              "target_locator": "record.senses[2].collocations[0]",
+              "target_locator": "record.senses[3].collocations[0]",
               "target_label": "out for a duck"
             }
           }
@@ -7436,13 +7507,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:duck:e4da9a8e062d5a93",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[3]",
           "target_label": "（板球）零分"
         }
       },
       {
         "id": "sense:duck:f195bb13a8a15db4",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[4]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "粗帆布",
@@ -7452,7 +7523,7 @@
         "usage": [
           {
             "id": "collocation:6eae11dd4baa3d9fb32c",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[4].collocations[0]",
             "phrase": "duck canvas",
             "meaning_cn": "帆布",
             "kind": "usage_example",
@@ -7462,25 +7533,8 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:duck:f195bb13a8a15db4",
-          "target_locator": "record.senses[3]",
-          "target_label": "粗帆布"
-        }
-      },
-      {
-        "id": "sense:duck:5a0b9ce333f57447",
-        "source_locator": "record.senses[4]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "迅速低头或弯身躲避",
-        "definition_en": "to lower the head or body quickly to avoid being seen or hit",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:duck:5a0b9ce333f57447",
           "target_locator": "record.senses[4]",
-          "target_label": "迅速低头或弯身躲避"
+          "target_label": "粗帆布"
         }
       }
     ],
@@ -7867,7 +7921,7 @@
     "ordinal": 1528,
     "word": "dumb",
     "source_owner_path": "content/lexical/words/by-ordinal/o1528.json",
-    "source_fingerprint": "c7bcd407ebcd843192231de58979da0ca5f4c1d5984f2f82e00f67c46e36abb4",
+    "source_fingerprint": "3183daf6cd502dad50c55f81aadcfbd348149e41c42a2dd582a07ecde620341e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7876,40 +7930,31 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "愚蠢、笨的；暂时沉默的",
-      "decision_cn": "",
+      "summary_cn": "愚蠢的；沉默的",
+      "decision_cn": "愚蠢、笨的；暂时沉默的",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "愚蠢、笨的；暂时沉默的"
+        "target_label": "愚蠢的；沉默的"
       }
     },
     "senses": [
       {
-        "id": "sense:dumb:6fe0e3635fd058d1",
+        "id": "sense:dumb:68185678120b549f",
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "不能说话的（旧式或可能冒犯）",
-        "definition_en": "unable to speak, old-fashioned or potentially offensive",
-        "note": "old-fashioned and potentially offensive when used of a person unable to speak",
+        "definition_cn": "愚蠢的；笨的",
+        "definition_en": "stupid or foolish",
+        "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:f0622289a5f0df665937",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "dumb person",
-            "meaning_cn": "哑巴",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:dumb:6fe0e3635fd058d1",
+          "target_id": "sense:dumb:68185678120b549f",
           "target_locator": "record.senses[0]",
-          "target_label": "不能说话的（旧式或可能冒犯）"
+          "target_label": "愚蠢的；笨的"
         }
       },
       {
@@ -7944,20 +7989,29 @@
         }
       },
       {
-        "id": "sense:dumb:68185678120b549f",
+        "id": "sense:dumb:6fe0e3635fd058d1",
         "source_locator": "record.senses[2]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "愚蠢的；笨的",
-        "definition_en": "stupid or foolish",
-        "note": "",
+        "definition_cn": "不能说话的（旧式或可能冒犯）",
+        "definition_en": "unable to speak, old-fashioned or potentially offensive",
+        "note": "old-fashioned and potentially offensive when used of a person unable to speak",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:f0622289a5f0df665937",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "dumb person",
+            "meaning_cn": "哑巴",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:dumb:68185678120b549f",
+          "target_id": "sense:dumb:6fe0e3635fd058d1",
           "target_locator": "record.senses[2]",
-          "target_label": "愚蠢的；笨的"
+          "target_label": "不能说话的（旧式或可能冒犯）"
         }
       }
     ],
@@ -8147,7 +8201,7 @@
     "ordinal": 1530,
     "word": "duplicate",
     "source_owner_path": "content/lexical/words/by-ordinal/o1530.json",
-    "source_fingerprint": "527e16f8f137cbd3407873019f7dc21aca32f0ca7f3f5d69227f459c196e58d4",
+    "source_fingerprint": "81000dad83277499d845a8d339a8e09c0802bc179ce87de0f3f10c5cf2620ff7",
     "sense_lineage": [
       {
         "word_id": "word:duplicate",
@@ -8184,15 +8238,7 @@
         "definition_cn": "与原件完全相同的复制品",
         "definition_en": "a copy that corresponds to an original exactly",
         "note": "",
-        "identity_overlay": {
-          "text": "duplicate noun/adjective has initial stress and final /-kət/; duplicate verb has final /-keɪt/ and verbal stress pattern.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "duplicate noun/adjective has initial stress and final /-kət/; duplicate verb has final /-keɪt/ and verbal stress pattern."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:72e5642772c09c803617",
@@ -8218,15 +8264,7 @@
         "definition_cn": "复制；制作完全相同的副本",
         "definition_en": "to make an exact copy of something",
         "note": "",
-        "identity_overlay": {
-          "text": "duplicate noun/adjective has initial stress and final /-kət/; duplicate verb has final /-keɪt/ and verbal stress pattern.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "duplicate noun/adjective has initial stress and final /-kət/; duplicate verb has final /-keɪt/ and verbal stress pattern."
-          }
-        },
+        "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -8243,15 +8281,7 @@
         "definition_cn": "重复；再做一次",
         "definition_en": "to do or perform something again; repeat it",
         "note": "",
-        "identity_overlay": {
-          "text": "duplicate noun/adjective has initial stress and final /-kət/; duplicate verb has final /-keɪt/ and verbal stress pattern.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[2].lexical_identity_overlay",
-            "target_label": "duplicate noun/adjective has initial stress and final /-kət/; duplicate verb has final /-keɪt/ and verbal stress pattern."
-          }
-        },
+        "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -8268,15 +8298,7 @@
         "definition_cn": "复制的；完全相同的",
         "definition_en": "exactly copied from or identical to an original",
         "note": "",
-        "identity_overlay": {
-          "text": "duplicate noun/adjective has initial stress and final /-kət/; duplicate verb has final /-keɪt/ and verbal stress pattern.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[3].lexical_identity_overlay",
-            "target_label": "duplicate noun/adjective has initial stress and final /-kət/; duplicate verb has final /-keɪt/ and verbal stress pattern."
-          }
-        },
+        "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -8291,7 +8313,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "duplicate as a noun/adjective has initial stress and final /-kət/; as a verb it has final /-keɪt/ with the verbal stress pattern.",
+        "boundaries": [
+          {
+            "surface": "duplicate",
+            "condition": "noun/adjective",
+            "note": "initial stress; final /-kət/"
+          },
+          {
+            "surface": "duplicate",
+            "condition": "verb",
+            "note": "verbal stress pattern; final /-keɪt/"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "duplicate as a noun/adjective has initial stress and final /-kət/; as a verb it has final /-keɪt/ with the verbal stress pattern."
+        }
+      },
       "family": []
     }
   },

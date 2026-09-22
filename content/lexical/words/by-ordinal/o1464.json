@@ -26,25 +26,25 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "做，进行；行动，表现",
-          "label_en": "to perform or carry out an action; to act or behave",
+          "label_cn": "助动词 do：构成疑问、否定和强调",
+          "label_en": "auxiliary do used for questions, negatives, and emphasis",
+          "pos": "auxiliary",
+          "sense_ids": [
+            "sense:do:0832dc53e83f5ea2"
+          ]
+        },
+        {
+          "label_cn": "做；进行；行动；表现",
+          "label_en": "to perform an action or task; to act or behave",
           "pos": "verb",
           "sense_ids": [
             "sense:do:a964fede106a530b",
             "sense:do:bd2c267ad96f58a7"
           ]
-        },
-        {
-          "label_cn": "（构成疑问句和否定句）",
-          "label_en": "used to form questions and negatives",
-          "pos": "auxiliary",
-          "sense_ids": [
-            "sense:do:0832dc53e83f5ea2"
-          ]
         }
       ],
-      "core_meaning_cn": "执行动作或任务",
-      "core_meaning_en": "perform an action or task",
+      "core_meaning_cn": "助动词 do；做、进行",
+      "core_meaning_en": "auxiliary do; to perform or carry out",
       "mental_model_cn": "执行动作或任务",
       "mental_model_en": ""
     },
@@ -58,6 +58,30 @@
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:ace4b835f9477ccb5d2b",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:do:0832dc53e83f5ea2:collocation:0"
+            ],
+            "meaning_cn": "……吗？",
+            "phrase": "do + subject + verb?"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "（构成疑问句和否定句）",
+        "definition_en": "used to form questions and negatives",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "auxiliary",
+        "sense_id": "sense:do:0832dc53e83f5ea2",
+        "sense_label_en": "used to form questions and negatives",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
       {
         "collocations": [
           {
@@ -88,7 +112,7 @@
         "pos": "verb",
         "sense_id": "sense:do:a964fede106a530b",
         "sense_label_en": "to perform or carry out an action",
-        "sort_order": 0,
+        "sort_order": 1,
         "transitivity": "vt"
       },
       {
@@ -112,32 +136,8 @@
         "pos": "verb",
         "sense_id": "sense:do:bd2c267ad96f58a7",
         "sense_label_en": "to act or behave",
-        "sort_order": 1,
-        "transitivity": "vi"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:ace4b835f9477ccb5d2b",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:do:0832dc53e83f5ea2:collocation:0"
-            ],
-            "meaning_cn": "……吗？",
-            "phrase": "do + subject + verb?"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "（构成疑问句和否定句）",
-        "definition_en": "used to form questions and negatives",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "auxiliary",
-        "sense_id": "sense:do:0832dc53e83f5ea2",
-        "sense_label_en": "used to form questions and negatives",
         "sort_order": 2,
-        "transitivity": "nonverb"
+        "transitivity": "vi"
       },
       {
         "collocations": [],
@@ -181,7 +181,32 @@
     },
     "word": "do",
     "word_family": [],
-    "word_id": "word:do"
+    "word_id": "word:do",
+    "form_identity": {
+      "form_type": "irregular_inflection_identity",
+      "spelling": "do",
+      "identity_rule": "same_word_owner_no_semantic_split",
+      "boundary": "do is irregular: do → did → done.",
+      "boundaries": [
+        {
+          "surface": "do",
+          "condition": "base/present",
+          "note": "base form"
+        },
+        {
+          "surface": "did",
+          "condition": "past simple",
+          "note": "irregular past"
+        },
+        {
+          "surface": "done",
+          "condition": "past participle",
+          "note": "irregular participle"
+        }
+      ],
+      "variants": [],
+      "authority": "BF14 Kian-p approved Form/knowledge expansion 2026-09-22"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],

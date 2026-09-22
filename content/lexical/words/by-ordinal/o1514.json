@@ -9,9 +9,26 @@
     "constructions": [],
     "content_hash": "9f8e807f01d603d9ea32a33497f08bdb607ee9e3bdce2b40a3d51d8684564347",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "驾驶员；驱动器",
-      "core_meaning_en": "one who drives or a device that drives",
+      "core_clusters": [
+        {
+          "label_cn": "驾驶员；司机",
+          "label_en": "a person who drives a vehicle",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:driver:5d4d4cc40c8251d0"
+          ]
+        },
+        {
+          "label_cn": "驱动因素；推动力；主要原因",
+          "label_en": "a main factor, force, or cause that drives change or activity",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:driver:1bb87482e5fb50e2"
+          ]
+        }
+      ],
+      "core_meaning_cn": "驾驶员；驱动因素、主要原因",
+      "core_meaning_en": "a driver; a main driving factor or cause",
       "mental_model_cn": "驾驶员；驱动器",
       "mental_model_en": ""
     },
@@ -52,6 +69,35 @@
         "transitivity": "nonverb"
       },
       {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "驱动因素；推动力；主要原因",
+        "definition_en": "a factor or force that causes something to happen, change, or increase",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:driver:1bb87482e5fb50e2",
+        "sense_label_en": "a factor or force that causes something to happen, change, or increase",
+        "sort_order": 1,
+        "source_evidence": [
+          {
+            "external_evidence": [
+              {
+                "role": "semantic_boundary_or_usage_verification",
+                "source_locator": "https://dictionary.cambridge.org/dictionary/english/driver",
+                "source_name": "Cambridge Dictionary",
+                "source_type": "authoritative_learner_dictionary"
+              }
+            ],
+            "semantic_auditor_approved": true,
+            "source_candidate_evidence_ids": [],
+            "source_operation_id": "operation:6074ba2858e8630afc84",
+            "source_operation_sha256": "63a4e804a493cf175dd15aed62dd0819ca8816022686a60443d990802c8e1132",
+            "verification_status": "auditor_verified"
+          }
+        ]
+      },
+      {
         "collocations": [
           {
             "collocation_id": "collocation:858ac857765a797a2750",
@@ -72,7 +118,7 @@
         "pos": "noun",
         "sense_id": "sense:driver:b23f7ed124aa59ae",
         "sense_label_en": "a computer program that controls a device",
-        "sort_order": 1,
+        "sort_order": 2,
         "transitivity": "nonverb"
       },
       {
@@ -96,37 +142,8 @@
         "pos": "noun",
         "sense_id": "sense:driver:bc5631b195625e85",
         "sense_label_en": "a golf club used for long shots",
-        "sort_order": 2,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "驱动因素；推动力；主要原因",
-        "definition_en": "a factor or force that causes something to happen, change, or increase",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:driver:1bb87482e5fb50e2",
-        "sense_label_en": "a factor or force that causes something to happen, change, or increase",
         "sort_order": 3,
-        "source_evidence": [
-          {
-            "external_evidence": [
-              {
-                "role": "semantic_boundary_or_usage_verification",
-                "source_locator": "https://dictionary.cambridge.org/dictionary/english/driver",
-                "source_name": "Cambridge Dictionary",
-                "source_type": "authoritative_learner_dictionary"
-              }
-            ],
-            "semantic_auditor_approved": true,
-            "source_candidate_evidence_ids": [],
-            "source_operation_id": "operation:6074ba2858e8630afc84",
-            "source_operation_sha256": "63a4e804a493cf175dd15aed62dd0819ca8816022686a60443d990802c8e1132",
-            "verification_status": "auditor_verified"
-          }
-        ]
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {

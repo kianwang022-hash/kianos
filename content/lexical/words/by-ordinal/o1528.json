@@ -9,9 +9,26 @@
     "constructions": [],
     "content_hash": "8431d716c0221eb2af02bcabfd494b0fd1ec527b25cee2da6f434aebea497c40",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "愚蠢、笨的；暂时沉默的",
-      "core_meaning_en": "stupid or foolish; temporarily silent or not speaking",
+      "core_clusters": [
+        {
+          "label_cn": "愚蠢的；笨的",
+          "label_en": "stupid or foolish",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:dumb:68185678120b549f"
+          ]
+        },
+        {
+          "label_cn": "不说话的；沉默的",
+          "label_en": "silent or not speaking",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:dumb:1a56f8ba22db5f4e"
+          ]
+        }
+      ],
+      "core_meaning_cn": "愚蠢的；沉默的",
+      "core_meaning_en": "stupid or foolish; silent or not speaking",
       "mental_model_cn": "愚蠢、笨的；暂时沉默的",
       "mental_model_en": ""
     },
@@ -26,29 +43,38 @@
     "semantic_neighbors": [],
     "senses": [
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:f0622289a5f0df665937",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:dumb:6fe0e3635fd058d1:collocation:0"
-            ],
-            "meaning_cn": "哑巴",
-            "phrase": "dumb person"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
-        "definition_cn": "不能说话的（旧式或可能冒犯）",
-        "definition_en": "unable to speak, old-fashioned or potentially offensive",
-        "governing_pattern": "",
-        "level": "L3",
+        "definition_cn": "愚蠢的；笨的",
+        "definition_en": "stupid or foolish",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
-        "sense_id": "sense:dumb:6fe0e3635fd058d1",
-        "sense_label_en": "unable to speak, old-fashioned or potentially offensive",
+        "register": "mainly US informal",
+        "sense_id": "sense:dumb:68185678120b549f",
+        "sense_label_en": "stupid or foolish",
         "sort_order": 0,
+        "source_evidence": [
+          {
+            "external_evidence": [
+              {
+                "role": "semantic_boundary_or_usage_verification",
+                "source_locator": "https://dictionary.cambridge.org/dictionary/english/dumb",
+                "source_name": "Cambridge Dictionary",
+                "source_type": "authoritative_learner_dictionary"
+              }
+            ],
+            "semantic_auditor_approved": false,
+            "source_candidate_evidence_ids": [
+              "source-sense-candidate:dumb:5fddad41cfaf36ba"
+            ],
+            "source_operation_id": "operation:ec6da8d582d3874c1934",
+            "source_operation_sha256": "2b1e9a66b4d399138ed7b640ea073b75dcc45488c96db5c09013de782d9e7a9f",
+            "verification_status": "semantic_auditor_verified"
+          }
+        ],
         "transitivity": "nonverb",
-        "usage_note": "old-fashioned and potentially offensive when used of a person unable to speak"
+        "governing_pattern": ""
       },
       {
         "collocations": [
@@ -75,36 +101,29 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:f0622289a5f0df665937",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:dumb:6fe0e3635fd058d1:collocation:0"
+            ],
+            "meaning_cn": "哑巴",
+            "phrase": "dumb person"
+          }
+        ],
         "confidence": "medium",
-        "definition_cn": "愚蠢的；笨的",
-        "definition_en": "stupid or foolish",
-        "level": "L1",
+        "definition_cn": "不能说话的（旧式或可能冒犯）",
+        "definition_en": "unable to speak, old-fashioned or potentially offensive",
+        "governing_pattern": "",
+        "level": "L3",
         "needs_human_review": 0,
         "pos": "adjective",
-        "register": "mainly US informal",
-        "sense_id": "sense:dumb:68185678120b549f",
-        "sense_label_en": "stupid or foolish",
+        "sense_id": "sense:dumb:6fe0e3635fd058d1",
+        "sense_label_en": "unable to speak, old-fashioned or potentially offensive",
         "sort_order": 2,
-        "source_evidence": [
-          {
-            "external_evidence": [
-              {
-                "role": "semantic_boundary_or_usage_verification",
-                "source_locator": "https://dictionary.cambridge.org/dictionary/english/dumb",
-                "source_name": "Cambridge Dictionary",
-                "source_type": "authoritative_learner_dictionary"
-              }
-            ],
-            "semantic_auditor_approved": false,
-            "source_candidate_evidence_ids": [
-              "source-sense-candidate:dumb:5fddad41cfaf36ba"
-            ],
-            "source_operation_id": "operation:ec6da8d582d3874c1934",
-            "source_operation_sha256": "2b1e9a66b4d399138ed7b640ea073b75dcc45488c96db5c09013de782d9e7a9f",
-            "verification_status": "semantic_auditor_verified"
-          }
-        ]
+        "transitivity": "nonverb",
+        "usage_note": "old-fashioned and potentially offensive when used of a person unable to speak"
       }
     ],
     "verification_summary": {
