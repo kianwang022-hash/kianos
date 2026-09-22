@@ -128,6 +128,15 @@ function normalizeExplanation(row) {
   const reasoningChain = Array.isArray(row.reasoning_chain)
     ? row.reasoning_chain.map((item) => String(item || '').trim()).filter(Boolean)
     : [];
+  const sourceNotes = [
+    ['conflict', '争议 / 旧口径', row.source_conflict_note],
+    ['boundary', '题源边界', row.source_boundary_note],
+    ['gap', '题源缺口', row.source_gap_note]
+  ].map(([kind, label, value]) => ({
+    kind,
+    label,
+    text: String(value || '').trim()
+  })).filter((item) => item.text);
   return {
     examTarget: String(row.exam_target || ''),
     decisionAxis: String(row.decision_axis || ''),
@@ -135,7 +144,8 @@ function normalizeExplanation(row) {
     correctOptionReason: String(row.correct_option_reason || ''),
     commonFailureNode: String(row.common_failure_node || ''),
     transferRule: String(row.transfer_rule || ''),
-    valuableDistractors
+    valuableDistractors,
+    sourceNotes
   };
 }
 

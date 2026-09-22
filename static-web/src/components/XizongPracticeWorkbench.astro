@@ -210,6 +210,11 @@ const payload = JSON.stringify({
           <p data-decision-axis></p>
         </section>
 
+        <section data-source-notes-wrap hidden>
+          <h3>题源 / 当前边界</h3>
+          <ul data-source-notes></ul>
+        </section>
+
         <section data-reasoning-chain-wrap hidden>
           <h3>推理</h3>
           <ol data-reasoning-chain></ol>
@@ -611,6 +616,7 @@ const payload = JSON.stringify({
     const field = {
       examTarget: [root.querySelector('[data-exam-target-wrap]'), root.querySelector('[data-exam-target]')],
       decisionAxis: [root.querySelector('[data-decision-axis-wrap]'), root.querySelector('[data-decision-axis]')],
+      sourceNotes: [root.querySelector('[data-source-notes-wrap]'), root.querySelector('[data-source-notes]')],
       reasoningChain: [root.querySelector('[data-reasoning-chain-wrap]'), root.querySelector('[data-reasoning-chain]')],
       correctReason: [root.querySelector('[data-correct-reason-wrap]'), root.querySelector('[data-correct-reason]')],
       distractors: [root.querySelector('[data-distractors-wrap]'), root.querySelector('[data-distractors]')],
@@ -769,6 +775,16 @@ const payload = JSON.stringify({
 
       setTextField('examTarget', explanation.examTarget);
       setTextField('decisionAxis', explanation.decisionAxis);
+
+      const sourceNotes = Array.isArray(explanation.sourceNotes) ? explanation.sourceNotes : [];
+      if (sourceNotes.length && field.sourceNotes[0] && field.sourceNotes[1]) {
+        field.sourceNotes[0].hidden = false;
+        sourceNotes.forEach((item) => {
+          const li = document.createElement('li');
+          li.textContent = `${item.label || '题源边界'} · ${item.text || ''}`;
+          field.sourceNotes[1].appendChild(li);
+        });
+      }
 
       const chain = Array.isArray(explanation.reasoningChain) ? explanation.reasoningChain : [];
       if (chain.length && field.reasoningChain[0] && field.reasoningChain[1]) {
