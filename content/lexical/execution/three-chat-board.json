@@ -38,28 +38,32 @@
       1351,
       1450
     ],
-    "state": "WAITING_HUMAN_GATE",
+    "state": "B_AUDIT_PASS__READY_TO_MERGE",
     "candidate_pr": null,
-    "candidate_branch": "work/lexical-fullcatalog-bf13-review-20260922",
-    "materialized_owner_read_head": null,
+    "candidate_branch": "work/lexical-continuous-bf13-official-20260922",
+    "materialized_owner_read_head": "d8304b78977b9e032fe50a3e79eabc6f754aa857",
     "review_branch": "work/lexical-fullcatalog-bf13-review-20260922",
     "proposal_path": "content/lexical/execution/manifests/o1351-o1450.fullcatalog-final-standard-proposal.md",
     "proposal_commit": "2af0432119838f3e4412202c420ae07044be333e",
-    "note": "BF13 Fresh Read + Self Attack complete: 26 affected, 74 NO_CHANGE, 0 blocked. Existing-truth corrections may proceed after exact Human Gate on five genuinely new Form/Identity deltas."
+    "note": "BF13 official candidate materialized and B reconciliation PASS. BLIND_FIRST_NOT_ENFORCED. Ready to merge; next o1451-o1550."
   },
   "audit_target": {
-    "state": "WAITING_HUMAN_GATE",
+    "state": "PASS_READY_TO_MERGE",
     "candidate_id": "BF13",
     "range": [
       1351,
       1450
     ],
     "candidate_pr": null,
-    "candidate_branch": "work/lexical-fullcatalog-bf13-review-20260922",
-    "candidate_owner_read_head": null,
+    "candidate_branch": "work/lexical-continuous-bf13-official-20260922",
+    "candidate_owner_read_head": "d8304b78977b9e032fe50a3e79eabc6f754aa857",
     "brief": null,
-    "output": null,
-    "human_gate_required_ordinals": [
+    "output": "content/lexical/semantic-audit/O1351_O1450_FINAL_STANDARD_SAME_CHAT_B_AUDIT_PACK.md",
+    "result": "PASS",
+    "independence_note": "BLIND_FIRST_NOT_ENFORCED",
+    "human_gate_status": "APPROVED_EXACT_SCOPE",
+    "human_gate_approval": "Kian p 2026-09-22",
+    "human_gate_approved_ordinals": [
       1360,
       1375,
       1377,
@@ -1671,8 +1675,18 @@
         1442
       ],
       "proposal": "content/lexical/execution/manifests/o1351-o1450.fullcatalog-final-standard-proposal.md",
-      "module_matrix": "content/lexical/execution/manifests/o1351-o1450.fullcatalog-final-standard-module-matrix.tsv",
-      "state": "WAITING_HUMAN_GATE"
+      "mutation_receipts": [
+        "content/lexical/execution/mutation-receipts/BF13-official-o1351-o1450-v1.json",
+        "content/lexical/execution/mutation-receipts/BF13-B-reconcile-v1.json"
+      ],
+      "audit": "content/lexical/semantic-audit/O1351_O1450_FINAL_STANDARD_SAME_CHAT_B_AUDIT_PACK.md",
+      "reconcile_ordinals": [
+        1383,
+        1385,
+        1420
+      ],
+      "state": "B_AUDIT_PASS__READY_TO_MERGE",
+      "independence_note": "BLIND_FIRST_NOT_ENFORCED"
     }
   },
   "phase_transition": {
@@ -1683,7 +1697,7 @@
   },
   "materialization_progress": {
     "candidate_id": "BF13",
-    "status": "WAITING_HUMAN_GATE",
+    "status": "B_AUDIT_PASS__READY_TO_MERGE",
     "candidate_pr": null,
     "latest_main_refreeze": "842b9e4d25eb0a9e579ac3cffde0f1bdb3716511",
     "review_range": [
@@ -1709,7 +1723,25 @@
     "standing_repair_tests_before": 0,
     "standing_repair_tests_after": 0,
     "final_learner_objects": 7946,
-    "final_learner_shards": 125
+    "final_learner_shards": 125,
+    "human_gate_status": "APPROVED_EXACT_SCOPE",
+    "human_gate_approved_ordinals": [
+      1360,
+      1375,
+      1377,
+      1411,
+      1442
+    ],
+    "b_audit": "PASS",
+    "reconcile_ordinals": [
+      1383,
+      1385,
+      1420
+    ],
+    "materialized_commit": "0432dc69e18cba933f5792b06e3224c8009c6186",
+    "reconciled_commit": "d8304b78977b9e032fe50a3e79eabc6f754aa857",
+    "b_audit_output": "content/lexical/semantic-audit/O1351_O1450_FINAL_STANDARD_SAME_CHAT_B_AUDIT_PACK.md",
+    "independence_note": "BLIND_FIRST_NOT_ENFORCED"
   },
   "semantic_freeze_scope_amendment": "content/lexical/FINAL_SEMANTIC_FREEZE_SCOPE_AMENDMENT_20260922.md"
 }

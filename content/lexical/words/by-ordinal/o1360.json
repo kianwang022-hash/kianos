@@ -49,13 +49,6 @@
         "definition_en": "a conversation between two or more people",
         "governing_pattern": "",
         "level": "L1",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "form_boundary",
-          "note": "dialogue is the traditional/general spelling; dialog is common in computing and AmE contexts",
-          "paired_form": "dialogue",
-          "surface_lemma": "dialog"
-        },
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:dialog:d187eeb09965512b",
@@ -129,7 +122,27 @@
     },
     "word": "dialog",
     "word_family": [],
-    "word_id": "word:dialog"
+    "word_id": "word:dialog",
+    "form_identity": {
+      "form_type": "spelling_variant_identity",
+      "spelling": "dialog",
+      "identity_rule": "same_lexeme_spelling_variant",
+      "boundary": "dialogue is the standard full spelling; dialog is also used, especially in American English and computing contexts.",
+      "boundaries": [
+        {
+          "surface": "dialogue",
+          "condition": "standard/general spelling",
+          "note": "common full spelling"
+        },
+        {
+          "surface": "dialog",
+          "condition": "alternate spelling, especially AmE/computing",
+          "note": "same lexeme"
+        }
+      ],
+      "variants": [],
+      "authority": "BF13 Kian-p approved Form expansion 2026-09-22"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],

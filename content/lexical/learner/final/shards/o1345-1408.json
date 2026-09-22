@@ -614,7 +614,7 @@
     "ordinal": 1351,
     "word": "devil",
     "source_owner_path": "content/lexical/words/by-ordinal/o1351.json",
-    "source_fingerprint": "73f0ae6a53324d94e2cec3c861ebe20cd3f35f99713b89f062513bbf4ff19493",
+    "source_fingerprint": "cdaab3b38ab469f3139a43400b946085518911d67c2f4bd49193427fcd4ae7ba",
     "sense_lineage": [
       {
         "word_id": "word:devil",
@@ -631,13 +631,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "魔鬼或折磨者",
-      "decision_cn": "",
+      "summary_cn": "魔鬼；撒旦；恶人；坏蛋",
+      "decision_cn": "核心是魔鬼/邪恶存在，也可非正式指恶人；a devil of a ... 是固定强调表达。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "魔鬼或折磨者"
+        "target_label": "魔鬼；撒旦；恶人；坏蛋"
       }
     },
     "senses": [
@@ -676,34 +676,7 @@
         "definition_en": "a person who is cruel or wicked",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:8610722dadb4c3bac7b1",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "a devil of a problem",
-            "meaning_cn": "棘手的问题",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:8610722dadb4c3bac7b1",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "a devil of a problem"
-            }
-          },
-          {
-            "id": "collocation:59b803fde728552da442",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "a devil of a problem/time/job",
-            "meaning_cn": "非常棘手、糟糕的问题/时间/工作",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:59b803fde728552da442",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "a devil of a problem/time/job"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:devil:95f7d83b89c45641",
@@ -713,7 +686,25 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:devil:a-devil-of",
+        "source_locator": "record.constructions[0]",
+        "pattern": "a devil of a + problem/time/job",
+        "lines": [
+          {
+            "text": "非常棘手、糟糕或困难的……",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:devil:a-devil-of",
+          "target_locator": "record.constructions[0]",
+          "target_label": "a devil of a + problem/time/job"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -727,7 +718,7 @@
     "ordinal": 1352,
     "word": "devise",
     "source_owner_path": "content/lexical/words/by-ordinal/o1352.json",
-    "source_fingerprint": "03611e2c9437298e5a16cafb6e2a87177585c970b78717370aa77243d3e1aa6b",
+    "source_fingerprint": "efed3bf2b2608e600547afd19d8c7e40baf0a00fc98ced605b66e2c3dc13b220",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -736,13 +727,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "设计；遗赠",
-      "decision_cn": "",
+      "summary_cn": "想出；设计（计划、方法或方案）",
+      "decision_cn": "主学习义是想出/设计方案；法律上的遗赠义保留为低优先级。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "设计；遗赠"
+        "target_label": "想出；设计（计划、方法或方案）"
       }
     },
     "senses": [
@@ -1231,7 +1222,7 @@
     "ordinal": 1358,
     "word": "dial",
     "source_owner_path": "content/lexical/words/by-ordinal/o1358.json",
-    "source_fingerprint": "3f0b109e6c9d33570c6f32838256db5adf57512af87cfa3f84629f1c8baa741a",
+    "source_fingerprint": "b58c828b92156c4d33f12d7f207dd9a6561764d0ae53602b984de7299cbbf493",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1252,60 +1243,8 @@
     },
     "senses": [
       {
-        "id": "sense:dial:e6f0071c357e51a5",
-        "source_locator": "record.senses[0]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "钟面；表盘",
-        "definition_en": "the face of a clock or watch, marked to show hours",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:4aa7891938cb76ca0a36",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "the dial of a watch",
-            "meaning_cn": "手表的表盘",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:dial:e6f0071c357e51a5",
-          "target_locator": "record.senses[0]",
-          "target_label": "钟面；表盘"
-        }
-      },
-      {
-        "id": "sense:dial:1e425295a2c3586d",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "调谐旋钮",
-        "definition_en": "a control on a radio or television used for tuning",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:935548ca297da761b1eb",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "turn the dial",
-            "meaning_cn": "转动旋钮",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:dial:1e425295a2c3586d",
-          "target_locator": "record.senses[1]",
-          "target_label": "调谐旋钮"
-        }
-      },
-      {
         "id": "sense:dial:c2b4feb1d3ab578f",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "拨（电话号码）",
@@ -1315,20 +1254,20 @@
         "usage": [
           {
             "id": "collocation:cc4bb89db9615d44312a",
-            "source_locator": "record.senses[2].collocations[0]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "dial a number",
             "meaning_cn": "拨一个号码",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:cc4bb89db9615d44312a",
-              "target_locator": "record.senses[2].collocations[0]",
+              "target_locator": "record.senses[0].collocations[0]",
               "target_label": "dial a number"
             }
           },
           {
             "id": "collocation:c977ae5c8ae24f4848c9",
-            "source_locator": "record.senses[2].collocations[1]",
+            "source_locator": "record.senses[0].collocations[1]",
             "phrase": "dial 911",
             "meaning_cn": "拨打911",
             "kind": "usage_example",
@@ -1338,8 +1277,60 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:dial:c2b4feb1d3ab578f",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[0]",
           "target_label": "拨（电话号码）"
+        }
+      },
+      {
+        "id": "sense:dial:e6f0071c357e51a5",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "钟面；表盘",
+        "definition_en": "the face of a clock or watch, marked to show hours",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:4aa7891938cb76ca0a36",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "the dial of a watch",
+            "meaning_cn": "手表的表盘",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:dial:e6f0071c357e51a5",
+          "target_locator": "record.senses[1]",
+          "target_label": "钟面；表盘"
+        }
+      },
+      {
+        "id": "sense:dial:1e425295a2c3586d",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "调谐旋钮",
+        "definition_en": "a control on a radio or television used for tuning",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:935548ca297da761b1eb",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "turn the dial",
+            "meaning_cn": "转动旋钮",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:dial:1e425295a2c3586d",
+          "target_locator": "record.senses[2]",
+          "target_label": "调谐旋钮"
         }
       },
       {
@@ -1458,7 +1449,7 @@
     "ordinal": 1360,
     "word": "dialog",
     "source_owner_path": "content/lexical/words/by-ordinal/o1360.json",
-    "source_fingerprint": "ac81fcbd22f0673a24e821b3a8bd4eceaaaf678f938b43f83ce2c5c8615b92a6",
+    "source_fingerprint": "d5ad1ceec29fb3085e41288bb45733e246b5cef74d913d3dc2f3256fb57eb18a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1485,15 +1476,7 @@
         "definition_cn": "对话；会话",
         "definition_en": "a conversation between two or more people",
         "note": "",
-        "identity_overlay": {
-          "text": "dialogue is the traditional/general spelling; dialog is common in computing and AmE contexts",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "dialogue is the traditional/general spelling; dialog is common in computing and AmE contexts"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:8bd28d16acbdbcc8d328",
@@ -1582,7 +1565,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "dialogue is the standard full spelling; dialog is also used, especially in American English and computing contexts.",
+        "boundaries": [
+          {
+            "surface": "dialogue",
+            "condition": "standard/general spelling",
+            "note": "common full spelling"
+          },
+          {
+            "surface": "dialog",
+            "condition": "alternate spelling, especially AmE/computing",
+            "note": "same lexeme"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "dialogue is the standard full spelling; dialog is also used, especially in American English and computing contexts."
+        }
+      },
       "family": []
     }
   },
@@ -2403,7 +2407,7 @@
     "ordinal": 1368,
     "word": "diet",
     "source_owner_path": "content/lexical/words/by-ordinal/o1368.json",
-    "source_fingerprint": "338e7f852016baac791b9063e7c9dc257b372fb6ce522b474903a4d555111914",
+    "source_fingerprint": "dda80778418d8a04cfbd6cfb7bdb99e78febfe9989f80cf0b25387c4d78eba23",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2506,8 +2510,8 @@
         "source_locator": "record.senses[3]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "议会（如日本国会）",
-        "definition_en": "a legislative assembly in certain countries (e.g., Japan)",
+        "definition_cn": "（日本等国的）议会；国会，通常作 the Diet",
+        "definition_en": "the Diet: a legislative assembly in certain countries, especially Japan",
         "note": "",
         "identity_overlay": {
           "text": "lowercase diet is food/eating plan; capitalized Diet can name an institutional legislature such as Japan's National Diet",
@@ -2523,7 +2527,7 @@
           "target_kind": "sense",
           "target_id": "sense:diet:3154a8051e2f505a",
           "target_locator": "record.senses[3]",
-          "target_label": "议会（如日本国会）"
+          "target_label": "（日本等国的）议会；国会，通常作 the Diet"
         }
       }
     ],
@@ -2542,7 +2546,7 @@
     "ordinal": 1369,
     "word": "differ",
     "source_owner_path": "content/lexical/words/by-ordinal/o1369.json",
-    "source_fingerprint": "02c7e9d304c6af74ac1bd5cbb32e6ae3505c5b76ca45c756e5f94ce95cdf471f",
+    "source_fingerprint": "859cc68db27ab14dd3db6288dfdf1009c087c0dcca657a364c38b60a49e381ac",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2641,33 +2645,7 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "deep:constructions:differ:49b5b8243b6bb450",
-        "source_locator": "record.constructions[0]",
-        "pattern": "vi. + from",
-        "lines": [
-          {
-            "text": "与……不同",
-            "lang": "cn"
-          },
-          {
-            "text": "differ from + sth/sb",
-            "lang": "en"
-          },
-          {
-            "text": "to be different from something or someone",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "deep:constructions:differ:49b5b8243b6bb450",
-          "target_locator": "record.constructions[0]",
-          "target_label": "vi. + from"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -2938,7 +2916,7 @@
     "ordinal": 1372,
     "word": "differentiate",
     "source_owner_path": "content/lexical/words/by-ordinal/o1372.json",
-    "source_fingerprint": "fc24d93b3be0da3d1209523bf4ea4b62e0a9ee8b3f3a0ca662b69f929ca02ae2",
+    "source_fingerprint": "1680511c896d015475b03d210bf885a8a6040afef68dae061b0c5ab31826ce62",
     "sense_lineage": [
       {
         "word_id": "word:differentiate",
@@ -2969,7 +2947,7 @@
         "id": "sense:differentiate:06efbe5e20c55619",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "differentiate A from B / differentiate between A and B",
         "definition_cn": "区分；区别",
         "definition_en": "to recognize or show the difference between things",
         "note": "",
@@ -3264,7 +3242,7 @@
     "ordinal": 1375,
     "word": "diffuse",
     "source_owner_path": "content/lexical/words/by-ordinal/o1375.json",
-    "source_fingerprint": "b86afd2ff7154d841e9525698d776a65be88fbfe484726bd8f4476802fe84813",
+    "source_fingerprint": "eac7b7b852a0ea92dbca15b5d9cd125c16155aefe53e00e8a6f3e3abb3dbb585",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3292,15 +3270,7 @@
         "definition_cn": "散播，传播",
         "definition_en": "to spread something over a wide area",
         "note": "",
-        "identity_overlay": {
-          "text": "noun/verb pronunciation-stress boundary",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "noun/verb pronunciation-stress boundary"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:d9110076a2b6e148cbe6",
@@ -3370,15 +3340,7 @@
         "definition_cn": "散开的，弥漫的",
         "definition_en": "spread out over a large area; not concentrated",
         "note": "",
-        "identity_overlay": {
-          "text": "noun/verb pronunciation-stress boundary",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[2].lexical_identity_overlay",
-            "target_label": "noun/verb pronunciation-stress boundary"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:e3be97dc2739d717905d",
@@ -3428,7 +3390,32 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [],
+        "variants": [
+          {
+            "pos": [
+              "verb"
+            ],
+            "reading": "verb: -fuse /z/",
+            "ipa": "/dɪˈfjuːz/"
+          },
+          {
+            "pos": [
+              "adjective"
+            ],
+            "reading": "adjective: -fuse /s/",
+            "ipa": "/dɪˈfjuːs/"
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -3578,7 +3565,7 @@
     "ordinal": 1377,
     "word": "digest",
     "source_owner_path": "content/lexical/words/by-ordinal/o1377.json",
-    "source_fingerprint": "ab566cb99392975c7cd272557892f323a38efc6adba7ececfd2cff297eaa23ea",
+    "source_fingerprint": "bdf7ffddab2049abab1f066241c8441853ef668cb03971e60b6141ac809637c1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3606,15 +3593,7 @@
         "definition_cn": "消化（食物）",
         "definition_en": "to break down food in the body into absorbable substances",
         "note": "",
-        "identity_overlay": {
-          "text": "noun/verb pronunciation-stress boundary",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "noun/verb pronunciation-stress boundary"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:d37c9c6bed132f759e61",
@@ -3666,15 +3645,7 @@
         "definition_cn": "文摘，摘要",
         "definition_en": "a compilation or summary of information",
         "note": "",
-        "identity_overlay": {
-          "text": "noun/verb pronunciation-stress boundary",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[2].lexical_identity_overlay",
-            "target_label": "noun/verb pronunciation-stress boundary"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:a7717bc146ed6281e839",
@@ -3715,7 +3686,32 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [],
+        "variants": [
+          {
+            "pos": [
+              "verb"
+            ],
+            "reading": "di-GEST",
+            "ipa": "/daɪˈdʒest/"
+          },
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "DI-gest",
+            "ipa": "/ˈdaɪ.dʒest/"
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -3725,7 +3721,7 @@
     "ordinal": 1378,
     "word": "digital",
     "source_owner_path": "content/lexical/words/by-ordinal/o1378.json",
-    "source_fingerprint": "285260bf28b0b043c128d1fedefc8dd81fb775bf5d847d6a66b5236c7afb27a1",
+    "source_fingerprint": "765bd567d27ee6255d6cf3b16ecbb0da30d5cb8a39395557b3d49211c88d178a",
     "sense_lineage": [
       {
         "word_id": "word:digital",
@@ -3756,45 +3752,19 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "数字的",
-      "decision_cn": "",
+      "summary_cn": "数字的；数字技术的",
+      "decision_cn": "主学习义是数字技术/数字信息；手指义保留为次要分支。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "数字的"
+        "target_label": "数字的；数字技术的"
       }
     },
     "senses": [
       {
-        "id": "sense:digital:a0686dc13d735c1c",
-        "source_locator": "record.senses[0]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "手指的",
-        "definition_en": "relating to or performed with the fingers",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:b4ecabd3a94c90327e8f",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "digital dexterity",
-            "meaning_cn": "手指灵巧",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:digital:a0686dc13d735c1c",
-          "target_locator": "record.senses[0]",
-          "target_label": "手指的"
-        }
-      },
-      {
         "id": "sense:digital:6f6682405b4b522c",
-        "source_locator": "record.senses[1]",
+        "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "数字的；数字技术的",
@@ -3804,14 +3774,14 @@
         "usage": [
           {
             "id": "collocation:28bc4c9766bfb55b9d5d",
-            "source_locator": "record.senses[1].collocations[0]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "digital technology/data",
             "meaning_cn": "数字技术/数据",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:28bc4c9766bfb55b9d5d",
-              "target_locator": "record.senses[1].collocations[0]",
+              "target_locator": "record.senses[0].collocations[0]",
               "target_label": "digital technology/data"
             }
           }
@@ -3819,8 +3789,34 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:digital:6f6682405b4b522c",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[0]",
           "target_label": "数字的；数字技术的"
+        }
+      },
+      {
+        "id": "sense:digital:a0686dc13d735c1c",
+        "source_locator": "record.senses[1]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "手指的",
+        "definition_en": "relating to or performed with the fingers",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:b4ecabd3a94c90327e8f",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "digital dexterity",
+            "meaning_cn": "手指灵巧",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:digital:a0686dc13d735c1c",
+          "target_locator": "record.senses[1]",
+          "target_label": "手指的"
         }
       }
     ],
@@ -4221,7 +4217,7 @@
     "ordinal": 1383,
     "word": "dim",
     "source_owner_path": "content/lexical/words/by-ordinal/o1383.json",
-    "source_fingerprint": "daa2d6412815983c3df6eef6c340f29e57e8a2b6825248bed6ba3d4207d8e7cd",
+    "source_fingerprint": "754a6b12818975cba97fc7883508c71c9abab6b11d8540535d47fcfafda9f67a",
     "sense_lineage": [
       {
         "word_id": "word:dim",
@@ -4326,19 +4322,6 @@
             "meaning_cn": "模糊的记忆",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:4252aeeac98076c156aa",
-            "source_locator": "record.senses[2].collocations[1]",
-            "phrase": "take a dim view of sth",
-            "meaning_cn": "对某事持不乐观看法",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:4252aeeac98076c156aa",
-              "target_locator": "record.senses[2].collocations[1]",
-              "target_label": "take a dim view of sth"
-            }
           }
         ],
         "repair": {
@@ -4381,7 +4364,25 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:dim:take-a-dim-view",
+        "source_locator": "record.constructions[0]",
+        "pattern": "take a dim view of + sth",
+        "lines": [
+          {
+            "text": "不赞成；持负面或不乐观的看法",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:dim:take-a-dim-view",
+          "target_locator": "record.constructions[0]",
+          "target_label": "take a dim view of + sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4566,7 +4567,7 @@
     "ordinal": 1385,
     "word": "diminish",
     "source_owner_path": "content/lexical/words/by-ordinal/o1385.json",
-    "source_fingerprint": "069639116c02d8b85596f7471932801c385105d3aff221665a66436ccac78010",
+    "source_fingerprint": "5094dfe75054700373204ac4e0b673f612d0aebe40fb019d19a0dc17f73e9c80",
     "sense_lineage": [
       {
         "word_id": "word:diminish",
@@ -4583,13 +4584,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "使减少或变小",
-      "decision_cn": "",
+      "summary_cn": "（使）减少、变小、减弱或变得不重要",
+      "decision_cn": "既可及物表示使某物减少/减弱，也可不及物表示自身变小、降低或减弱。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "使减少或变小"
+        "target_label": "（使）减少、变小、减弱或变得不重要"
       }
     },
     "senses": [
@@ -4597,7 +4598,7 @@
         "id": "sense:diminish:7319a5bea4de587b",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "diminish in importance/size",
+        "governing_pattern": "diminish + object / diminish in + size/importance",
         "definition_cn": "使变小、减弱或变得不重要",
         "definition_en": "to make or become smaller, weaker, or less important",
         "note": "",
@@ -4989,7 +4990,7 @@
     "ordinal": 1390,
     "word": "dip",
     "source_owner_path": "content/lexical/words/by-ordinal/o1390.json",
-    "source_fingerprint": "097e23e6dd18f90cac1d49e7c03f8add80ba832cd90c989e621bdbb078c65ea5",
+    "source_fingerprint": "1ceb2800fbb3f3ccc77461bfd66aca828ba7e281189e6d3479127d48d4af94f3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5026,19 +5027,6 @@
             "meaning_cn": "把饼干蘸牛奶",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:414958b1365f001ecb0c",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "dip into",
-            "meaning_cn": "浸入；翻阅；动用",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:414958b1365f001ecb0c",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "dip into"
-            }
           }
         ],
         "repair": {
@@ -5065,19 +5053,6 @@
             "meaning_cn": "落到地平线以下",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:089e6380362c60305e4b",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "dip into one's savings",
-            "meaning_cn": "动用储蓄",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:089e6380362c60305e4b",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "dip into one's savings"
-            }
           }
         ],
         "repair": {
@@ -5378,11 +5353,11 @@
     "ordinal": 1393,
     "word": "direct",
     "source_owner_path": "content/lexical/words/by-ordinal/o1393.json",
-    "source_fingerprint": "a966c0bbb08fd8c08ac3ff3ed8ab9e11fd94a0c506359fa15edd605dd130c155",
+    "source_fingerprint": "40da3fad99c93791ad93792e4f4d89bc93684df32dfbf01a3ae16581c89376e5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(4+1)V",
+        "4V",
         "3A"
       ],
       "density": "rich"
@@ -5641,22 +5616,7 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:direct:2955dbc619dd51e3",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "把……对准；指向",
-        "definition_en": "to aim or point something in a particular direction",
-        "pattern": "direct attention/criticism to/at",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:direct:2955dbc619dd51e3",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "把……对准；指向"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
@@ -6194,7 +6154,7 @@
     "ordinal": 1398,
     "word": "dirt",
     "source_owner_path": "content/lexical/words/by-ordinal/o1398.json",
-    "source_fingerprint": "4c64d2b70194cd480919ce4c0b65bb51d5cb6a3fcc8fa67c4fd90ea0a2717b9c",
+    "source_fingerprint": "9c90905043f40af1c7e3cd2a4f76b0d1da3e0e93fe3f10dec684ae1381530398",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6243,19 +6203,6 @@
             "meaning_cn": "去除污垢",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:a4ad3c8df923a0418215",
-            "source_locator": "record.senses[0].collocations[2]",
-            "phrase": "dirt on sb / dig up dirt",
-            "meaning_cn": "某人的丑闻信息；挖出丑闻",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:a4ad3c8df923a0418215",
-              "target_locator": "record.senses[0].collocations[2]",
-              "target_label": "dirt on sb / dig up dirt"
-            }
           }
         ],
         "repair": {
@@ -6293,7 +6240,25 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:dirt:scandal-information",
+        "source_locator": "record.constructions[0]",
+        "pattern": "dirt on + sb / dig up dirt",
+        "lines": [
+          {
+            "text": "关于某人的丑闻、负面内幕或把柄",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:dirt:scandal-information",
+          "target_locator": "record.constructions[0]",
+          "target_label": "dirt on + sb / dig up dirt"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6878,7 +6843,7 @@
     "ordinal": 1405,
     "word": "disc",
     "source_owner_path": "content/lexical/words/by-ordinal/o1405.json",
-    "source_fingerprint": "26a42a9a740e85a39bc5a165358b45ad77956e9f87d08996c2c349ca7c603996",
+    "source_fingerprint": "49ad0ae28fefe9e41603b229436cf3e1555d0f54fbdafeaad6daaf771da3b42e",
     "sense_lineage": [
       {
         "word_id": "word:disc",
@@ -6927,15 +6892,7 @@
         "definition_cn": "圆盘；碟片；圆形薄片",
         "definition_en": "a flat circular object or disk",
         "note": "",
-        "identity_overlay": {
-          "text": "disc/disk spelling boundary",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "disc/disk spelling boundary"
-          }
-        },
+        "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -7190,7 +7147,7 @@
     "ordinal": 1408,
     "word": "discharge",
     "source_owner_path": "content/lexical/words/by-ordinal/o1408.json",
-    "source_fingerprint": "d1ad41b2b9dc0bc671c4dc9939498edee27de60d1c04a3f124bdacbc20ff4511",
+    "source_fingerprint": "fba7a98aafecf1f21313b94b2b011389dfd9ba8c7ccf7d136834273c8606840b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7232,14 +7189,6 @@
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "discharge sb from + sth"
             }
-          },
-          {
-            "id": "collocation:a83629f3baeb23acad70",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "discharge a duty",
-            "meaning_cn": "履行职责",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -7349,7 +7298,16 @@
         "definition_en": "to fulfil or perform a duty or responsibility",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:a83629f3baeb23acad70",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "discharge a duty",
+            "meaning_cn": "履行职责",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:discharge:3d596710b0f6e69f",

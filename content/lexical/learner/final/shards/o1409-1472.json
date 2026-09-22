@@ -5,12 +5,12 @@
     "ordinal": 1409,
     "word": "discipline",
     "source_owner_path": "content/lexical/words/by-ordinal/o1409.json",
-    "source_fingerprint": "35445c0c83b071ef3d38335b54924875b3161db885a6e67e3274ff1445d8756d",
+    "source_fingerprint": "07c97c2cf9c69d6a7d4f62f06abb3224ae31e5ba557900d2f76745d83bbb7d1a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
-        "(3+1)N"
+        "3N"
       ],
       "density": "rich"
     },
@@ -131,7 +131,7 @@
         "id": "sense:discipline:8924bdc9bc8e5080",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "discipline + sb",
         "definition_cn": "惩戒；处分",
         "definition_en": "to punish or correct someone for breaking rules",
         "note": "",
@@ -154,22 +154,7 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:discipline:cbb79fb432d9052e",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "noun",
-        "definition_cn": "自律；克制",
-        "definition_en": "the ability to control behavior and follow a demanding plan",
-        "pattern": "self-discipline 自律；克制",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:discipline:cbb79fb432d9052e",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "自律；克制"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
@@ -302,7 +287,7 @@
     "ordinal": 1411,
     "word": "discount",
     "source_owner_path": "content/lexical/words/by-ordinal/o1411.json",
-    "source_fingerprint": "d7dad3f535cffc31ff26b0aaff0091ab8ba8aa0a028e90a6324d1ab90d4f2cc0",
+    "source_fingerprint": "31e726d5d8fcee992109f536ce6c4514b1f565fe1f396a8ab310a8a659259c0d",
     "sense_lineage": [
       {
         "word_id": "word:discount",
@@ -338,15 +323,7 @@
         "definition_cn": "折扣",
         "definition_en": "the act of reducing the selling price of merchandise",
         "note": "",
-        "identity_overlay": {
-          "text": "noun/verb stress boundary",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "noun/verb stress boundary"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:0c2dc177fd960fc0434e",
@@ -380,15 +357,7 @@
         "definition_cn": "给…打折；降价",
         "definition_en": "to reduce the price of something",
         "note": "",
-        "identity_overlay": {
-          "text": "noun/verb stress boundary",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "noun/verb stress boundary"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:f09a4710b1cb18682048",
@@ -456,7 +425,33 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [],
+        "variants": [
+          {
+            "pos": [
+              "noun",
+              "adjective"
+            ],
+            "reading": "DIS-count",
+            "ipa": "/ˈdɪs.kaʊnt/"
+          },
+          {
+            "pos": [
+              "verb"
+            ],
+            "reading": "dis-COUNT",
+            "ipa": "/dɪˈskaʊnt/"
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -1221,7 +1216,7 @@
     "ordinal": 1420,
     "word": "discriminate",
     "source_owner_path": "content/lexical/words/by-ordinal/o1420.json",
-    "source_fingerprint": "a01e5c6461d4916c9cf7593377fca2df520c3fc466ba35b2a3bbb159e1a1a9de",
+    "source_fingerprint": "b5c32c66bf4e1305412972ef763847953d556d42b72183b781d0977093f1086e",
     "sense_lineage": [
       {
         "word_id": "word:discriminate",
@@ -1239,13 +1234,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "区分；差别对待",
-      "decision_cn": "",
+      "summary_cn": "区分；辨别；歧视或差别对待",
+      "decision_cn": "区分；差别对待",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "区分；差别对待"
+        "target_label": "区分；辨别；歧视或差别对待"
       }
     },
     "senses": [
@@ -1318,7 +1313,7 @@
         "id": "sense:discriminate:f258a0c18777a10c",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "discriminate against sb",
+        "governing_pattern": "vi. + against",
         "definition_cn": "歧视；区别对待",
         "definition_en": "to treat a person or group unfairly because of a characteristic",
         "note": "",
@@ -1365,7 +1360,7 @@
     "ordinal": 1421,
     "word": "discuss",
     "source_owner_path": "content/lexical/words/by-ordinal/o1421.json",
-    "source_fingerprint": "8eb4ba827ca5c71311529afed1549df5a2960b9b9bbd86479457a637a64b8de2",
+    "source_fingerprint": "ae5080b1f17fde6608be9321addab8500da223b49aa14cc66e40b6d346a6a3ee",
     "sense_lineage": [
       {
         "word_id": "word:discuss",
@@ -1382,13 +1377,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "讨论、谈论某个主题，不是 discus 铁饼",
-      "decision_cn": "",
+      "summary_cn": "讨论；商量；论述",
+      "decision_cn": "discuss 是及物动词：discuss sth / discuss sth with sb；学术语境也可表示详细论述。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "讨论、谈论某个主题，不是 discus 铁饼"
+        "target_label": "讨论；商量；论述"
       }
     },
     "senses": [
@@ -3631,7 +3626,7 @@
     "ordinal": 1438,
     "word": "dissipate",
     "source_owner_path": "content/lexical/words/by-ordinal/o1438.json",
-    "source_fingerprint": "4ead4142435f7865f717dfb51fea226ffd7c588ca54a3b92e4dfb68426f9624d",
+    "source_fingerprint": "d5f19dd8b225d02ce61102ef76ff1ad38240a9e4049b31e822aaa0228e813b7e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3729,39 +3724,8 @@
         }
       },
       {
-        "id": "sense:dissipate:bdfc9c156d1a5e9e",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vi. + in",
-        "definition_cn": "放荡；沉溺于享乐",
-        "definition_en": "to live a life of pleasure, especially with respect to alcoholic consumption",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:01ad80a6232bc19959c7",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "dissipate in + sth",
-            "meaning_cn": "沉溺于某事物（尤指享乐）",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:01ad80a6232bc19959c7",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "dissipate in + sth"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:dissipate:bdfc9c156d1a5e9e",
-          "target_locator": "record.senses[2]",
-          "target_label": "放荡；沉溺于享乐"
-        }
-      },
-      {
         "id": "sense:dissipate:1ca36e2d0e395bf3",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "挥霍、耗尽或使资源/能量消散",
@@ -3771,14 +3735,14 @@
         "usage": [
           {
             "id": "collocation:2f5b1ceb679c300946fd",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "dissipate resources/energy/wealth",
             "meaning_cn": "挥霍或耗尽资源/能量/财富",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:2f5b1ceb679c300946fd",
-              "target_locator": "record.senses[3].collocations[0]",
+              "target_locator": "record.senses[2].collocations[0]",
               "target_label": "dissipate resources/energy/wealth"
             }
           }
@@ -3786,8 +3750,39 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:dissipate:1ca36e2d0e395bf3",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "挥霍、耗尽或使资源/能量消散"
+        }
+      },
+      {
+        "id": "sense:dissipate:bdfc9c156d1a5e9e",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "vi. + in",
+        "definition_cn": "放荡；沉溺于享乐",
+        "definition_en": "to live a life of pleasure, especially with respect to alcoholic consumption",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:01ad80a6232bc19959c7",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "dissipate in + sth",
+            "meaning_cn": "沉溺于某事物（尤指享乐）",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:01ad80a6232bc19959c7",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "dissipate in + sth"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:dissipate:bdfc9c156d1a5e9e",
+          "target_locator": "record.senses[3]",
+          "target_label": "放荡；沉溺于享乐"
         }
       }
     ],
@@ -3806,7 +3801,7 @@
     "ordinal": 1439,
     "word": "dissolve",
     "source_owner_path": "content/lexical/words/by-ordinal/o1439.json",
-    "source_fingerprint": "91c6c061af2450ca79ad06bff72a2cb32a7bbec8d1b31d5c1f263125856bf392",
+    "source_fingerprint": "e6924bb242dfc0e6cc7d6a1f5a1ff9ff4097ec8093997efec5f3d63bc90eed07",
     "sense_lineage": [
       {
         "word_id": "word:dissolve",
@@ -3837,7 +3832,7 @@
         "id": "sense:dissolve:b2b11b9b6b205d92",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "dissolve + object / dissolve in + liquid",
         "definition_cn": "（使）溶解",
         "definition_en": "to make a solid dissolve in a liquid or become dissolved",
         "note": "",
@@ -4278,7 +4273,7 @@
     "ordinal": 1442,
     "word": "distil",
     "source_owner_path": "content/lexical/words/by-ordinal/o1442.json",
-    "source_fingerprint": "00f28b06c053c7d91310a97676074a914a229cddebdb142a37f973e8b5cac769",
+    "source_fingerprint": "4df08b17e70bced89c6ddef593cf940d61f2ec5f678bf049e7aee905580300a6",
     "sense_lineage": [
       {
         "word_id": "word:distil",
@@ -4352,15 +4347,7 @@
         "definition_cn": "提炼出精华或要点",
         "definition_en": "to extract the essential meaning or substance",
         "note": "",
-        "identity_overlay": {
-          "text": "distil/distill BrE/AmE spelling boundary",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "distil/distill BrE/AmE spelling boundary"
-          }
-        },
+        "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -4393,7 +4380,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "distil is mainly the UK spelling; distill is the usual US spelling.",
+        "boundaries": [
+          {
+            "surface": "distil",
+            "condition": "mainly British English",
+            "note": "BrE spelling"
+          },
+          {
+            "surface": "distill",
+            "condition": "usual American English",
+            "note": "AmE spelling"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "distil is mainly the UK spelling; distill is the usual US spelling."
+        }
+      },
       "family": []
     }
   },
@@ -4403,7 +4411,7 @@
     "ordinal": 1443,
     "word": "distinct",
     "source_owner_path": "content/lexical/words/by-ordinal/o1443.json",
-    "source_fingerprint": "cdaccb3e9181acd6b0aacc4298532b518ca66d54b8a9ddd18896b7318fd50749",
+    "source_fingerprint": "5cb8851fd0b4fc235fd02baf088bf5f573a442ecd576e5f1c6b97f3696737a5e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4499,21 +4507,15 @@
           "target_word": "distinctive",
           "lines": [
             {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
-              "lang": "cn"
+              "text": "distinct = clearly different/separate; distinctive = having a characteristic that makes something easy to recognize. Related, but not interchangeable.",
+              "lang": "en"
+            },
+            {
+              "text": "distinct means clearly separate or different; distinctive means characteristically recognizable.",
+              "lang": "en"
             }
           ],
           "source_locator": "record.word_family[0]"
-        },
-        {
-          "target_word": "distinctly",
-          "lines": [
-            {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
-              "lang": "cn"
-            }
-          ],
-          "source_locator": "record.word_family[1]"
         }
       ]
     }
@@ -5063,7 +5065,7 @@
     "ordinal": 1449,
     "word": "distribute",
     "source_owner_path": "content/lexical/words/by-ordinal/o1449.json",
-    "source_fingerprint": "42c323a5711d819b1d12c3d7ee7d5be7305c80b205459ccbbd9b52a00eca9a77",
+    "source_fingerprint": "bba7f5478dada43ba0712a6fc765b064d44fc7e46943761eb6e4200ef6708102",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5195,24 +5197,18 @@
       "form": null,
       "family": [
         {
-          "target_word": "distributive",
-          "lines": [
-            {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
-              "lang": "cn"
-            }
-          ],
-          "source_locator": "record.word_family[0]"
-        },
-        {
           "target_word": "distributor",
           "lines": [
             {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
+              "text": "distribute (v.) → distributor (n.): 分发/分销 → 分销商或分发者；派生关系，不是同义替换。",
               "lang": "cn"
+            },
+            {
+              "text": "distribute is the verb; distributor is a person or company that distributes goods.",
+              "lang": "en"
             }
           ],
-          "source_locator": "record.word_family[1]"
+          "source_locator": "record.word_family[0]"
         }
       ]
     }
