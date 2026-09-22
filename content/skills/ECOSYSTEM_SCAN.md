@@ -1,104 +1,45 @@
 # Skill Ecosystem Scan
 
-Status: CURRENT
-Role: bounded pre-build discovery contract for new Skills and material Skill upgrades.
+Status: OPTIONAL BOUNDED TOOL  
+Role: reuse / build-vs-integrate check when external capability could materially change a Skill design.
 
-## Why
+## Trigger
 
-Before KianOS creates original learner content, integrations, Visual or Runtime, it should check whether mature external capability already exists.
+Use this only when at least one is true:
 
-The goal is not “find more tools”.
+- a mature external course / standard may already solve the learning sequence;
+- a plugin / API / connected app could remove meaningful manual work;
+- a mature open-source project could replace substantial native implementation;
+- the domain has an authoritative professional or technical standard that should shape the product;
+- reuse could materially reduce KianOS maintenance.
 
-The goal is:
+Do **not** run this merely because a new Skill exists.
 
-> **reuse mature capability where it lowers attention, engineering and maintenance cost; build only the Kian-specific gap.**
+## Small scan order
 
-## Default scan
+Inspect only the lanes relevant to the current decision:
 
-For a new Skill, Chat should consider:
+1. existing connected capability;
+2. mature course / textbook / benchmark;
+3. official standard / first-party documentation;
+4. high-quality scientific or professional evidence;
+5. mature open-source implementation;
+6. reusable KianOS / Personal pattern.
 
-1. current connected capabilities;
-2. relevant available plugins;
-3. mature GitHub / open-source projects;
-4. official standards / first-party docs / APIs;
-5. strong scientific / professional evidence;
-6. mature courses, benchmarks, templates or curricula;
-7. reusable KianOS / Personal patterns.
+## Decision
 
-Not every lane must be searched every time.
-
-## Current known capability substrate
-
-Already-available or already-integrated capability families that should be checked before building equivalents:
-
-- GitHub + authorized desktop/terminal execution;
-- Google Calendar / Gmail / Drive;
-- Figma;
-- Health;
-- Finances;
-- Quartr;
-- BioRender.
-
-High-value optional capability families discovered for future demand:
-
-- Scite — scientific literature / citation-context intelligence;
-- Wolfram — rigorous computational verification;
-- PostHog — product analytics / experiments / surveys / errors;
-- Expedia — live travel inventory / price / availability.
-
-These names are examples of the current ecosystem, not frozen architecture. Future scans should discover better or more relevant options when they exist.
-
-## GitHub search standard
-
-When GitHub is relevant, search for the real problem rather than the Skill title alone.
-
-Example:
-
-```text
-Need: learn and verify personal energy regulation
-
-Bad search:
-"high energy skill"
-
-Better searches:
-"fatigue self monitoring"
-"sleep diary open source"
-"behavior experiment tracker"
-"health education interactive"
-```
-
-Evaluate the project on:
-- exact problem fit;
-- maintenance recency;
-- docs;
-- tests;
-- architecture quality;
-- license;
-- dependency burden;
-- reusable data models / validation / UX;
-- whether it actually works in a comparable real context.
-
-Stars are weak evidence.
-
-## Decision record
-
-Only preserve candidates that change design.
-
-For each:
+Preserve only candidates that change design:
 
 ```text
 Candidate:
 Capability solved:
-Evidence of maturity:
 Decision: ADOPT | INTEGRATE | ADAPT | LEARN_FROM | IGNORE
 Why:
 Maintenance consequence:
 ```
 
-## Hard rule
+## Stop
 
-Do not build a KianOS-native substitute merely because Chat can code it.
+Stop when further search would not change the learner design or build-vs-reuse decision.
 
-Do not integrate a mature tool merely because it exists.
-
-The correct outcome is the smallest capability stack that satisfies the real success condition.
+The goal is not an ecosystem catalog. The goal is to avoid rebuilding mature capability when reuse is genuinely cheaper.
