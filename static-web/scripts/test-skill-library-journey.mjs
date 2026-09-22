@@ -45,7 +45,6 @@ try {
   const page = await context.newPage();
 
   await page.goto(BASE + '/skills/', { waitUntil: 'load' });
-  console.log('DEBUG_PAGE', page.url(), await page.title(), (await page.locator('body').innerText()).slice(0, 700).replace(/\n/g, ' | '));
   assert.equal(await page.locator('h1').filter({ hasText: 'Skills' }).count() > 0, true);
   assert.equal(await page.getByText('高精力自我调节').count() > 0, true);
   pass('Skill Library renders first promoted Skill');
@@ -60,6 +59,7 @@ try {
   await page.waitForLoadState('load');
   assert.equal(await page.getByText('高精力不是一个单变量').count() > 0, true);
   const key = 'kianos:skills:progress:v1';
+  await page.waitForFunction((k) => localStorage.getItem(k) !== null, key, { timeout: 3000 });
   let progress = JSON.parse(await page.evaluate((k) => localStorage.getItem(k), key));
   assert.equal(progress.skills['high-energy'].last_asset, 'guide');
   assert.equal(progress.skills['high-energy'].visited.includes('guide'), true);
