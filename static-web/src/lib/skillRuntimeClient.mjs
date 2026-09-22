@@ -1,3 +1,4 @@
+import { commitLearnerStorageChanges } from './browserLearnerWriter.mjs';
 export const SKILL_PROGRESS_SCHEMA = 'kianos.skill-progress.v1';
 export const SKILL_PROGRESS_KEY = 'kianos:skills:progress:v1';
 
@@ -12,7 +13,7 @@ export function readSkillProgress(storage = window.localStorage) {
 }
 
 function writeSkillProgress(value, storage = window.localStorage) {
-  storage.setItem(SKILL_PROGRESS_KEY, JSON.stringify(value));
+  commitLearnerStorageChanges(storage, [[SKILL_PROGRESS_KEY, JSON.stringify(value)]]);
   window.dispatchEvent(new CustomEvent('kianos:skill-progress-updated', { detail: value }));
   return value;
 }
