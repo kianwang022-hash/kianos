@@ -132,45 +132,12 @@ jobs:
         if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.browser.outcome == 'success' }}
         working-directory: static-web
         run: node scripts/test-final-cross-subject-regression.mjs
-      - name: Isolated watcher regression and kernel error evidence
+      - name: Isolated watcher and execution policy regression
         if: ${{ !cancelled() && steps.runtime.outcome == 'success' }}
         working-directory: static-web
         run: |
-          mkdir -p ../english-exam-audit
-          cat > "$RUNNER_TEMP/freeze-listen-observer.cjs" <<'JS'
-          const net=require('node:net'),fs=require('node:fs');
-          const original=net.Server.prototype.listen;
-          net.Server.prototype.listen=function(...args){
-            this.once('error',error=>{
-              if(error.code==='EADDRINUSE')fs.appendFileSync(process.env.FREEZE_LISTEN_LOG,JSON.stringify({pid:process.pid,code:error.code,port:error.port,address:error.address})+'\n');
-            });
-            return original.apply(this,args);
-          };
-          JS
-          export FREEZE_LISTEN_LOG="$PWD/../english-exam-audit/watcher-listen-errors.jsonl"
-          export NODE_OPTIONS="--require $RUNNER_TEMP/freeze-listen-observer.cjs"
           node scripts/test-codex-issue-watcher.mjs
           node scripts/test-codex-execution-policy.mjs
-      - name: Capture public candidate source for bounded reproduction
-        if: always()
-        run: |
-          python3 - <<'PY'
-          import pathlib,subprocess,json,hashlib
-          root=pathlib.Path('.');out=root/'english-exam-audit';out.mkdir(exist_ok=True)
-          prefixes=('static-web/src/','static-web/scripts/','.github/workflows/static-web-english-exam-session.yml')
-          rows=[]
-          for item in subprocess.check_output(['git','ls-files','-z']).decode().split('\0'):
-            if not item or not item.startswith(prefixes):continue
-            p=pathlib.Path(item)
-            if p.suffix not in ('.mjs','.astro','.yml','.sh','.css','.ts','.json'):continue
-            raw=p.read_bytes()
-            if len(raw)>1000000:continue
-            try:content=raw.decode('utf-8')
-            except UnicodeDecodeError:continue
-            blob=hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest()
-            rows.append({'path':item,'blob':blob,'content':content})
-          (out/'candidate-source.json').write_text(json.dumps({'commit':subprocess.check_output(['git','rev-parse','HEAD']).decode().strip(),'files':rows}))
-          PY
       - name: Upload full-paper proof
         if: always()
         uses: actions/upload-artifact@v4

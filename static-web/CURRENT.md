@@ -10,13 +10,13 @@ Current closure work is limited to usable context routing, proven-safe cleanup a
 
 Content production remains independent: vocabulary upgrades, Xizong explanations, Visual assets and reviewed relations continue with their Chat-owned content owners. This engineering closure does not declare those frontiers complete.
 
-### Active bounded Freeze repair
+### Bounded Freeze repairs — verified candidate
 
-The existing [PR #754](https://github.com/kianwang022-hash/kianos/pull/754) contains the bounded repair candidate for the seven Final Freeze findings authorized by Kian. Normal handoff uses the existing private control owner; explicit blank work remains legal; malformed English outputs/results stay unknown; Xizong invalid counts/bands cannot prove completion; native score recovery and receipts stay coupled. Existing native storage is unchanged: browser write ownership only excludes competing page transactions, and the watcher uses a process-owned guard for crash-safe lock recovery.
+The existing [PR #754](https://github.com/kianwang022-hash/kianos/pull/754) carries all seven authorized repairs: normal private handoff; malformed English seal/result preservation; unknown Xizong quantities; native score/receipt recovery; exclusive browser writes with ownership-aware rollback; and crash-safe watcher acquisition. The write owner is ephemeral, not a second learner store or a strategy engine. Explicit blanks and legitimate zero remain legal.
 
-Run the existing affected workflows plus `scripts/test-freeze-integrity.mjs`, `scripts/test-freeze-browser.mjs` and the extended watcher regression. Complete native regressions and isolated process checks have been executed; real-page corruption and cross-page ownership require the candidate browser run before promotion. The main-branch snapshot, a green CI badge and this cursor never prove installed-Mac health. No learner migration, data reset, real-record mutation or deployment is authorized by this candidate.
+[The affected integration run](https://github.com/kianwang022-hash/kianos/actions/runs/35676415909) passed on candidate `fe2ff9b7be206c3181dcc56702cb0eab03eea19b` / test merge `2b0bf449ba8c19f5c3f39dfadd466db3743d6497`: 27 focused native integrity tests, existing native/control/checkpoint/Forecast interfaces, full build, normal whole-paper journey, four actual-page corruption/recovery/two-page journeys, cross-subject browser regression, and isolated watcher/execution-policy tests. Native foreground focus was separately observed before the two-page tests; no DOM focus predicate or application protection was weakened. This cursor and removal of temporary read-only diagnostics do not alter the tested native or browser-test blobs. Detailed proof and remaining CI distinctions stay on that PR, not a second tracker.
 
-Next: validate this complete candidate and reconcile only actual overlapping changes. Keep the PR unmerged until affected-interface proof is sufficient. Do not restart broad audits, introduce another durable learner store or claim Final Freeze readiness from local tests.
+Next: complete ordinary promotion from the verified candidate, reconciling only actual overlap. Existing broader source/content/legacy-fixture failures are not silently green and do not authorize content rewrites. After accepted merge, do not reopen the seven repairs without contrary evidence. Installed Mac, actual private relay, old/new already-open pages and fresh-Chat behavior remain separately NOT_PROVEN; this is not Final Freeze PASS. No learner migration, data reset, real-record mutation or deployment operation is authorized by this candidate.
 
 ## Start from the reported symptom
 
@@ -44,7 +44,7 @@ For a known symptom, find its owner in two or three precise reads. Further sourc
 | Politics | [Politics Current](../content/politics/CURRENT.md) | Stop touching unless a concrete new defect is reproduced |
 | Vocabulary | [Lexical Current](../content/lexical/CURRENT.md) | Preserve the active content frontier; do not mirror its cursor here |
 
-Chat owns interpretation and plans. GitHub owns canonical content and durable rules. The website executes through subject-native owners; private Runtime preserves learner facts outside the disposable checkout. Shared transport must not become a scoring or strategy owner.
+Chat owns interpretation and plans. GitHub owns canonical content and durable rules. The website executes through subject-native owners; private Runtime preserves learner facts and transports instructions/receipts. Shared transport must not become a scoring or strategy owner.
 
 ## Runtime and background boundaries
 
