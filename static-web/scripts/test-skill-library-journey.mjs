@@ -45,6 +45,7 @@ try {
   const page = await context.newPage();
 
   await page.goto(BASE + '/skills/', { waitUntil: 'load' });
+  console.log('DEBUG_PAGE', page.url(), await page.title(), (await page.locator('body').innerText()).slice(0, 700).replace(/\n/g, ' | '));
   assert.equal(await page.locator('h1').filter({ hasText: 'Skills' }).count() > 0, true);
   assert.equal(await page.getByText('高精力自我调节').count() > 0, true);
   pass('Skill Library renders first promoted Skill');
