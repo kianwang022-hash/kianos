@@ -3,23 +3,43 @@
   "status": "ACTIVE",
   "campaign": "FULL_CATALOG_FINAL_STANDARD_CONTINUATION",
   "semantic_ruler": "content/lexical/FINAL_SEMANTIC_FREEZE.md",
-  "updated_at": "2026-09-22T15:08:17+00:00",
+  "updated_at": "2026-09-22",
   "frontier": {
     "candidate_id": "BF25",
     "range": [
       2551,
       2650
     ],
-    "state": "REVIEW_REQUIRED",
-    "proposal_path": null,
-    "proposal_commit": null,
-    "review_branch": null,
+    "state": "HUMAN_GATE_REQUIRED",
+    "proposal_path": "content/lexical/execution/manifests/o2551-o2650.fullcatalog-final-standard-proposal.md",
+    "proposal_commit": "5a768fc9c5607edd931c85144e7d61678a3eff36",
+    "review_branch": "work/lexical-fullcatalog-bf25-review-20260922",
     "human_gate": {
-      "status": "NOT_REQUIRED",
-      "ordinals": [],
+      "status": "PENDING",
+      "ordinals": [
+        2558,
+        2580,
+        2592,
+        2594,
+        2605,
+        2606,
+        2628
+      ],
       "approval_ref": null
     },
-    "accepted_main_head": "e2d7ed0343b6328f7d740736fc5b3ae244e294b9"
+    "affected_owner_count": 29,
+    "no_change_count": 71,
+    "remote_dependency_ordinals": [
+      5246,
+      5902
+    ],
+    "accepted_main_head": "358f41a5f72bdc2a22d59a590670e7ee5cb2b747",
+    "review_artifact": {
+      "workflow_run": 35745266243,
+      "artifact_id": 10702267247,
+      "digest": "sha256:4b18dc9dc5e5dead3f31d7a848ff3ae57cf976e5ca48ca513e3b306fd6104340"
+    },
+    "self_attack_note": "Gate reduced to two POS-conditioned stress Forms plus three high-value semantic-confusable Relations; existing instalment/installment and intimate pronunciation truth will migrate ownership without a new Gate."
   },
   "next": {
     "candidate_id": "BF26",
@@ -47,7 +67,7 @@
     "audit_pack": "content/lexical/semantic-audit/O2451_O2550_FINAL_RECONCILED_READBACK.md",
     "final_learner_objects": 7946
   },
-  "blocker": null,
-  "next_action": "RUN_PRODUCTION_REVIEW",
+  "blocker": "HUMAN_GATE_REQUIRED",
+  "next_action": "SHOW_EXACT_FRONTIER_DELTA",
   "legacy_history": "content/lexical/execution/three-chat-board.json"
 }
