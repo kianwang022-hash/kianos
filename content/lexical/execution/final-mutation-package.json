@@ -1,0 +1,1901 @@
+{
+  "schema": "kianos.lexical.final_mutation_package.v1",
+  "package_id": "BF24-official-o2451-o2550-v1",
+  "candidate_id": "BF24",
+  "range": {
+    "start_ordinal": 2451,
+    "end_ordinal": 2550
+  },
+  "lane": "A",
+  "source_head": "9aab61ac9edd2285b2501860caeaa7f9af6be5f5",
+  "human_gate": {
+    "approved": true,
+    "approval_ref": "content/lexical/execution/live-batch.json@BF24-exact-p-2026-09-22"
+  },
+  "writes": [
+    {
+      "path": "content/lexical/words/by-ordinal/o2458.json",
+      "mode": "patch_json",
+      "expected_sha256": "3be02813467a4f0cdd844b7201d71fa7f99781c0a0ff05916097b2a903aaf7fb",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "使浸没于液体中；使沉浸于、专心于",
+                "label_en": "to put completely into a liquid; to involve oneself deeply in an activity or interest",
+                "pos": "verb",
+                "sense_ids": [
+                  "sense:immerse:528b97b089d1504e",
+                  "sense:immerse:dbd73856257f57b2"
+                ]
+              }
+            ],
+            "core_meaning_cn": "浸入；沉浸、专心",
+            "core_meaning_en": "to immerse in liquid or become deeply involved",
+            "mental_model_cn": "浸入；沉浸、专心",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2460.json",
+      "mode": "patch_json",
+      "expected_sha256": "36f19e70e610f21ec78fa2323271c4f0e3fce52fd276e64e5d67e3afd253c6be",
+      "edits": [
+        {
+          "pointer": "/relation_refs",
+          "value": [
+            {
+              "relation_id": "deep:confusables:eminent:b2a9125e3a34889b",
+              "owner_path": "content/lexical/relations/by-id/e4/e450f59247d03f17226d213f1a839ba113fcc5950f9dbccd8933ff05be5e790e.json",
+              "field": "confusables",
+              "index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2461.json",
+      "mode": "patch_json",
+      "expected_sha256": "5609c2d0b0950266120fa04e6e186e0bf0cbb98a43e4181222af537b2e1ee28b",
+      "edits": [
+        {
+          "pointer": "/record/senses",
+          "value": [
+            {
+              "collocations": [],
+              "confidence": "medium",
+              "definition_cn": "免疫的；对疾病有抵抗力的",
+              "definition_en": "protected against a particular disease by the body's immune system",
+              "governing_pattern": "",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "adjective",
+              "sense_id": "sense:immune:ae33ccb6fb395d94",
+              "sense_label_en": "protected against a particular disease by the body's immune system",
+              "sort_order": 0,
+              "transitivity": "nonverb"
+            },
+            {
+              "collocations": [],
+              "confidence": "medium",
+              "definition_cn": "不受影响的；不易受伤害的",
+              "definition_en": "not affected by something, especially criticism or unpleasant events",
+              "governing_pattern": "",
+              "level": "L2",
+              "needs_human_review": 0,
+              "pos": "adjective",
+              "sense_id": "sense:immune:2b85fa463e5e5d39",
+              "sense_label_en": "not affected by something, especially criticism or unpleasant events",
+              "sort_order": 1,
+              "transitivity": "nonverb"
+            }
+          ]
+        },
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "免疫的；对疾病有抵抗力的",
+                "label_en": "protected against a particular disease by the immune system",
+                "pos": "adjective",
+                "sense_ids": [
+                  "sense:immune:ae33ccb6fb395d94"
+                ]
+              },
+              {
+                "label_cn": "不受影响的；不易受伤害的",
+                "label_en": "not affected by something, especially criticism or unpleasant events",
+                "pos": "adjective",
+                "sense_ids": [
+                  "sense:immune:2b85fa463e5e5d39"
+                ]
+              }
+            ],
+            "core_meaning_cn": "免疫的；不受影响的",
+            "core_meaning_en": "protected against disease or unaffected by something",
+            "mental_model_cn": "免疫的；不受影响的",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2462.json",
+      "mode": "patch_json",
+      "expected_sha256": "48dbe9be40ba3f0fd12b40b388aceff53380fd08757fec09a7f092ac09c89cf1",
+      "edits": [
+        {
+          "pointer": "/record/senses",
+          "value": [
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:983e1c6988ca2bf35200",
+                  "exam_value": "fixed_pattern",
+                  "legacy_source_object_ids": [
+                    "sense:impact:937a06263da35d50:collocation:0"
+                  ],
+                  "meaning_cn": "对…有影响",
+                  "phrase": "have an impact on + sth"
+                },
+                {
+                  "collocation_id": "collocation:78cf10f1ad6a37cb6554",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:impact:937a06263da35d50:collocation:1"
+                  ],
+                  "meaning_cn": "显著影响",
+                  "phrase": "significant impact"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "影响；效果",
+              "definition_en": "a forceful consequence; a strong effect",
+              "governing_pattern": "",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "noun",
+              "sense_id": "sense:impact:937a06263da35d50",
+              "sense_label_en": "a forceful consequence; a strong effect",
+              "sort_order": 0,
+              "transitivity": "nonverb"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:db195991d97380989451",
+                  "exam_value": "fixed_pattern",
+                  "legacy_source_object_ids": [
+                    "sense:impact:16dc8b9e4f9354bf:collocation:0"
+                  ],
+                  "meaning_cn": "撞击时",
+                  "phrase": "on impact"
+                },
+                {
+                  "collocation_id": "collocation:67abe7cc2139d730cce3",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:impact:16dc8b9e4f9354bf:collocation:1"
+                  ],
+                  "meaning_cn": "碰撞的冲击",
+                  "phrase": "the impact of the collision"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "冲击；撞击",
+              "definition_en": "the striking of one body against another",
+              "governing_pattern": "",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "noun",
+              "sense_id": "sense:impact:16dc8b9e4f9354bf",
+              "sense_label_en": "the striking of one body against another",
+              "sort_order": 1,
+              "transitivity": "nonverb"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:bc035240d260424b4a23",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:impact:e567c05e33e95c87:collocation:0"
+                  ],
+                  "meaning_cn": "压实土壤",
+                  "phrase": "impact the soil"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "压紧；挤入",
+              "definition_en": "press or wedge together; pack together",
+              "governing_pattern": "vt. + object",
+              "level": "L2",
+              "needs_human_review": 0,
+              "pos": "verb",
+              "sense_id": "sense:impact:e567c05e33e95c87",
+              "sense_label_en": "press or wedge together; pack together",
+              "sort_order": 3,
+              "transitivity": "vt"
+            },
+            {
+              "collocations": [],
+              "confidence": "medium",
+              "definition_cn": "对……有影响；影响",
+              "definition_en": "have a strong effect on or affect",
+              "governing_pattern": "",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "verb",
+              "sense_id": "sense:impact:7a4440d447cd56dd",
+              "sense_label_en": "have a strong effect on or affect",
+              "sort_order": 2,
+              "transitivity": "vt"
+            }
+          ]
+        },
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "影响；效果；冲击；撞击",
+                "label_en": "a strong effect; the striking of one body against another",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:impact:937a06263da35d50",
+                  "sense:impact:16dc8b9e4f9354bf"
+                ]
+              },
+              {
+                "label_cn": "影响；对……有强烈作用",
+                "label_en": "to have a strong effect on or affect",
+                "pos": "verb",
+                "sense_ids": [
+                  "sense:impact:7a4440d447cd56dd"
+                ]
+              }
+            ],
+            "core_meaning_cn": "冲击；影响",
+            "core_meaning_en": "a strong effect or collision; to affect strongly",
+            "mental_model_cn": "冲击；影响",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2470.json",
+      "mode": "patch_json",
+      "expected_sha256": "1898dc3a37f53541976765a4ba584f3c49614de2e09c0074015e2bd6cc052a9a",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "可能的影响；后果",
+                "label_en": "a possible effect or result of an action or decision",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:implication:1f99f489f3c25cc5"
+                ]
+              },
+              {
+                "label_cn": "含义；暗示",
+                "label_en": "something suggested or implied but not stated directly",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:implication:47962ed00d765282"
+                ]
+              }
+            ],
+            "core_meaning_cn": "影响、后果；含义、暗示",
+            "core_meaning_en": "a possible consequence or an implied meaning",
+            "mental_model_cn": "影响、后果；含义、暗示",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2473.json",
+      "mode": "patch_json",
+      "expected_sha256": "000ad44098a64c4e088ebf01951fae46fd9f89f178562295ec7cc4550ca09252",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "进口；输入；（计算机）导入、引入",
+                "label_en": "to bring in goods/services from another country; to transfer electronic data into a system",
+                "pos": "verb",
+                "sense_ids": [
+                  "sense:import:2aea7b0ca1245c41",
+                  "sense:import:83dd6840f252538a"
+                ]
+              },
+              {
+                "label_cn": "进口商品；进口货；含义；重要性",
+                "label_en": "imported goods/services; the meaning or significance of something",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:import:c557e55d59865d39",
+                  "sense:import:5dd9febfadcf5954"
+                ]
+              }
+            ],
+            "core_meaning_cn": "进口、导入；进口品；含义、重要性",
+            "core_meaning_en": "to import goods/data; imported goods; meaning or significance",
+            "mental_model_cn": "进口、导入；进口品；含义、重要性",
+            "mental_model_en": ""
+          }
+        },
+        {
+          "pointer": "/record/form_identity",
+          "value": {
+            "form_type": "same_spelling_pos_conditioned_stress",
+            "spelling": "import",
+            "identity_rule": "same_word_owner_no_semantic_split",
+            "boundary": "import has noun stress on the first syllable and verb stress on the second syllable.",
+            "boundaries": [
+              {
+                "surface": "import",
+                "condition": "noun",
+                "note": "/ˈɪm.pɔːt/ (US rhotic equivalent)"
+              },
+              {
+                "surface": "import",
+                "condition": "verb",
+                "note": "/ɪmˈpɔːt/"
+              }
+            ],
+            "variants": [],
+            "authority": "BF24 exact p approved stress Form 2026-09-22"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2478.json",
+      "mode": "patch_json",
+      "expected_sha256": "a958dd155c0e3e09328e05e7a4930ffecdc1cc40c4081d73c736d8c61ed86dd1",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "使钦佩；给……留下深刻印象",
+                "label_en": "to make someone admire or respect you; to make a strong impression",
+                "pos": "verb",
+                "sense_ids": [
+                  "sense:impress:5fd5261e90b45a72"
+                ]
+              }
+            ],
+            "core_meaning_cn": "使钦佩；留下深刻印象",
+            "core_meaning_en": "to make a strong impression or inspire admiration",
+            "mental_model_cn": "使钦佩；留下深刻印象",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2481.json",
+      "mode": "patch_json",
+      "expected_sha256": "04ae1452019df77e38a575bfe51a32c292a4b8e041ae5117eb00087976b6e426",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "改善；改进；变得更好",
+                "label_en": "to make something better; to become better",
+                "pos": "verb",
+                "sense_ids": [
+                  "sense:improve:cd441a7c469a565c",
+                  "sense:improve:430a2dc6815550c7"
+                ]
+              }
+            ],
+            "core_meaning_cn": "改善；变得更好",
+            "core_meaning_en": "to make or become better",
+            "mental_model_cn": "改善；变得更好",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2483.json",
+      "mode": "patch_json",
+      "expected_sha256": "091532843ba317346f4475142ffafe3715b6ad95453b1617134bce0797fb6157",
+      "edits": [
+        {
+          "pointer": "/record/senses",
+          "value": [
+            {
+              "collocations": [],
+              "confidence": "medium",
+              "definition_cn": "在……里面；在……期间",
+              "definition_en": "expressing location or time within",
+              "governing_pattern": "",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "preposition",
+              "sense_id": "sense:in:e2a0eabd63a65222",
+              "sense_label_en": "expressing location or time within",
+              "sort_order": 0,
+              "transitivity": "nonverb"
+            },
+            {
+              "collocations": [],
+              "confidence": "medium",
+              "definition_cn": "向内；进入里面",
+              "definition_en": "toward or into the inside",
+              "governing_pattern": "",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "adverb",
+              "sense_id": "sense:in:00db532f4ca65c76",
+              "sense_label_en": "toward or into the inside",
+              "sort_order": 1,
+              "transitivity": "nonverb"
+            }
+          ]
+        },
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "在……里面；在……期间",
+                "label_en": "expressing location or time within",
+                "pos": "preposition",
+                "sense_ids": [
+                  "sense:in:e2a0eabd63a65222"
+                ]
+              },
+              {
+                "label_cn": "向内；进入里面",
+                "label_en": "toward or into the inside",
+                "pos": "adverb",
+                "sense_ids": [
+                  "sense:in:00db532f4ca65c76"
+                ]
+              }
+            ],
+            "core_meaning_cn": "在……之内；向内进入",
+            "core_meaning_en": "inside/within; inward",
+            "mental_model_cn": "在……之内；向内进入",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2485.json",
+      "mode": "patch_json",
+      "expected_sha256": "c05f7704b39205f55976275ef1e1a4ee79b145a73b0c1baa1e568a65c11c029e",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "激励；刺激；诱因",
+                "label_en": "something that encourages a person to do something",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:incentive:09d230c3c9b0531c"
+                ]
+              }
+            ],
+            "core_meaning_cn": "激励；诱因",
+            "core_meaning_en": "something that motivates or encourages action",
+            "mental_model_cn": "激励；诱因",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2487.json",
+      "mode": "patch_json",
+      "expected_sha256": "50d0bae925d4f082c1663b68e4eaf62b42a477b2582411bfbcf546805267511e",
+      "edits": [
+        {
+          "pointer": "/relation_refs",
+          "value": [
+            {
+              "relation_id": "relation:confusable:incidence|incident:near_form",
+              "owner_path": "content/lexical/relations/by-id/4a/4aa48360a42790431482d9d47c554ef0ea31eceb9c69e19e9615ecdd725f3273.json",
+              "field": "confusables",
+              "index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2488.json",
+      "mode": "patch_json",
+      "expected_sha256": "16f00f0208569784a6cd9a812a778260d452e1e8d5d26f6a12731d814f0b8338",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "事件；发生的事；骚乱、事变",
+                "label_en": "a single distinct event; a public disturbance",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:incident:f0fba07ed4cc5692",
+                  "sense:incident:90e3fc6537215008"
+                ]
+              }
+            ],
+            "core_meaning_cn": "事件；事变",
+            "core_meaning_en": "a distinct event or disturbance",
+            "mental_model_cn": "事件；事变",
+            "mental_model_en": ""
+          }
+        },
+        {
+          "pointer": "/relation_refs",
+          "value": [
+            {
+              "relation_id": "relation:confusable:incidence|incident:near_form",
+              "owner_path": "content/lexical/relations/by-id/4a/4aa48360a42790431482d9d47c554ef0ea31eceb9c69e19e9615ecdd725f3273.json",
+              "field": "confusables",
+              "index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2490.json",
+      "mode": "patch_json",
+      "expected_sha256": "a41def39a6ff764a64a8dfb76fd07d57b4fdf0e6f6f4c7dc52fb2d6456c38e25",
+      "edits": [
+        {
+          "pointer": "/record/form_identity",
+          "value": {
+            "form_type": "same_spelling_pos_conditioned_stress",
+            "spelling": "incline",
+            "identity_rule": "same_word_owner_no_semantic_split",
+            "boundary": "incline has noun stress on the first syllable and verb stress on the second syllable.",
+            "boundaries": [
+              {
+                "surface": "incline",
+                "condition": "noun",
+                "note": "/ˈɪn.klaɪn/"
+              },
+              {
+                "surface": "incline",
+                "condition": "verb",
+                "note": "/ɪnˈklaɪn/"
+              }
+            ],
+            "variants": [],
+            "authority": "BF24 exact p approved stress Form 2026-09-22"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2495.json",
+      "mode": "patch_json",
+      "expected_sha256": "52e5ecaa4738cc31b25113f569caa201aabc55451c62394fb5bd44cfff2736d9",
+      "edits": [
+        {
+          "pointer": "/record/senses",
+          "value": [
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:cec595f9c42fdb01f46c",
+                  "exam_value": "fixed_pattern",
+                  "legacy_source_object_ids": [
+                    "sense:increase:c9530bcc41bf5510:collocation:0"
+                  ],
+                  "meaning_cn": "在某方面增加",
+                  "phrase": "increase in + sth"
+                },
+                {
+                  "collocation_id": "collocation:a7f3cbc0c12aa7fe7e67",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:increase:c9530bcc41bf5510:collocation:1"
+                  ],
+                  "meaning_cn": "人口增长",
+                  "phrase": "increase in population"
+                },
+                {
+                  "collocation_id": "collocation:49d088f335d58cfb2803",
+                  "exam_value": "fixed_pattern",
+                  "legacy_source_object_ids": [
+                    "sense:increase:4a4eebc8d7365ae6:collocation:0"
+                  ],
+                  "meaning_cn": "增加某物",
+                  "phrase": "increase + sth"
+                },
+                {
+                  "collocation_id": "collocation:9ea4fc8951cf0e038041",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:increase:4a4eebc8d7365ae6:collocation:1"
+                  ],
+                  "meaning_cn": "增加风险",
+                  "phrase": "increase the risk"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "（使）增加；（使）增大",
+              "definition_en": "to make or become larger in amount, size, number, or degree",
+              "governing_pattern": "vi. + in",
+              "level": "L1",
+              "lexical_identity_overlay": {
+                "case_sensitive": false,
+                "identity_type": "stress_boundary",
+                "note": "noun increase /ˈɪnkriːs/ versus verb increase /ɪnˈkriːs/",
+                "paired_form": "increase",
+                "surface_lemma": "increase"
+              },
+              "needs_human_review": 0,
+              "pos": "verb",
+              "sense_id": "sense:increase:c9530bcc41bf5510",
+              "sense_label_en": "to become larger in amount, size, or degree",
+              "sort_order": 0,
+              "transitivity": "I/T"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:2e53b6f1c20c942aca60",
+                  "exam_value": "fixed_pattern",
+                  "legacy_source_object_ids": [
+                    "sense:increase:db50ad9e6c6159e3:collocation:0"
+                  ],
+                  "meaning_cn": "在某方面的增加",
+                  "phrase": "an increase in + sth"
+                },
+                {
+                  "collocation_id": "collocation:98dfc5d3b95b80beed7b",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:increase:db50ad9e6c6159e3:collocation:1"
+                  ],
+                  "meaning_cn": "显著增长",
+                  "phrase": "a significant increase"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "增加，增长",
+              "definition_en": "a rise in the amount, size, or degree of something",
+              "governing_pattern": "",
+              "level": "L1",
+              "lexical_identity_overlay": {
+                "case_sensitive": false,
+                "identity_type": "stress_boundary",
+                "note": "noun increase /ˈɪnkriːs/ versus verb increase /ɪnˈkriːs/",
+                "paired_form": "increase",
+                "surface_lemma": "increase"
+              },
+              "needs_human_review": 0,
+              "pos": "noun",
+              "sense_id": "sense:increase:db50ad9e6c6159e3",
+              "sense_label_en": "a rise in the amount, size, or degree of something",
+              "sort_order": 1,
+              "transitivity": "nonverb"
+            }
+          ]
+        },
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "（使）增加；（使）增大",
+                "label_en": "to make or become larger in amount, size, number, or degree",
+                "pos": "verb",
+                "sense_ids": [
+                  "sense:increase:c9530bcc41bf5510"
+                ]
+              },
+              {
+                "label_cn": "增加；增长",
+                "label_en": "a rise in the amount, size, or degree of something",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:increase:db50ad9e6c6159e3"
+                ]
+              }
+            ],
+            "core_meaning_cn": "增加；增长",
+            "core_meaning_en": "to increase; a rise or growth",
+            "mental_model_cn": "增加；增长",
+            "mental_model_en": ""
+          }
+        },
+        {
+          "pointer": "/record/form_identity",
+          "value": {
+            "form_type": "same_spelling_pos_conditioned_stress",
+            "spelling": "increase",
+            "identity_rule": "same_word_owner_no_semantic_split",
+            "boundary": "increase has noun stress on the first syllable and verb stress on the second syllable.",
+            "boundaries": [
+              {
+                "surface": "increase",
+                "condition": "noun",
+                "note": "/ˈɪn.kriːs/"
+              },
+              {
+                "surface": "increase",
+                "condition": "verb",
+                "note": "/ɪnˈkriːs/"
+              }
+            ],
+            "variants": [],
+            "authority": "BF24 exact p approved stress Form 2026-09-22"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2500.json",
+      "mode": "patch_json",
+      "expected_sha256": "4c0ea8678d6dbb427389b2c27bd7730a9070e9f6ea3c07ba51ea4dae9d12fcc6",
+      "edits": [
+        {
+          "pointer": "/record/senses",
+          "value": [
+            {
+              "collocations": [],
+              "confidence": "medium",
+              "definition_cn": "美国密苏里州西部城市，圣菲小径的起点",
+              "definition_en": "a city in western Missouri; the beginning of the Santa Fe Trail",
+              "governing_pattern": "",
+              "level": "L3",
+              "needs_human_review": 0,
+              "pos": "noun",
+              "sense_id": "sense:independence:87453499bc195ab4",
+              "sense_label_en": "a city in western Missouri; the beginning of the Santa Fe Trail",
+              "sort_order": 1,
+              "transitivity": "nonverb"
+            },
+            {
+              "collocations": [],
+              "confidence": "medium",
+              "definition_cn": "独立；不受外部控制",
+              "definition_en": "freedom from control or influence of another or others",
+              "governing_pattern": "",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "noun",
+              "sense_id": "sense:independence:b9023a509fe35aec",
+              "sense_label_en": "freedom from control or influence of another or others",
+              "sort_order": 0,
+              "transitivity": "nonverb"
+            }
+          ]
+        },
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "独立；不受外部控制",
+                "label_en": "freedom from control or influence of another or others",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:independence:b9023a509fe35aec"
+                ]
+              }
+            ],
+            "core_meaning_cn": "独立；自主",
+            "core_meaning_en": "freedom from external control or influence",
+            "mental_model_cn": "独立；自主",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2501.json",
+      "mode": "patch_json",
+      "expected_sha256": "00efaa7c99a677cd60321ba2d2200a12aa65a86245ba6e426a54eba60d4ccf38",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "独立的；不受外部控制的；无党派的",
+                "label_en": "free from external control; not controlled by a party or interest group",
+                "pos": "adjective",
+                "sense_ids": [
+                  "sense:independent:ff71371bf89d5cdc",
+                  "sense:independent:995e23c8b8df55cd"
+                ]
+              },
+              {
+                "label_cn": "无党派人士；独立人士",
+                "label_en": "a person not affiliated with a political party",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:independent:3a580c84220d50d9"
+                ]
+              }
+            ],
+            "core_meaning_cn": "独立的；不受控制的",
+            "core_meaning_en": "free from external control or influence",
+            "mental_model_cn": "独立的；不受控制的",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2502.json",
+      "mode": "patch_json",
+      "expected_sha256": "6b6de88ed3daee07715b515ab56e1b921c72be95a6359dd963477591da139e75",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "索引；指数；指标、标志",
+                "label_en": "an alphabetical index; a numerical index; a sign or indication",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:index:902882ce283f57f1",
+                  "sense:index:1943843f3edc5d1b",
+                  "sense:index:8d2f178b75495d6a"
+                ]
+              },
+              {
+                "label_cn": "为……编索引",
+                "label_en": "to make an index for a book or collection",
+                "pos": "verb",
+                "sense_ids": [
+                  "sense:index:980fcb8b29d65f88"
+                ]
+              }
+            ],
+            "core_meaning_cn": "索引；指数；指标",
+            "core_meaning_en": "an index/indicator; to compile an index",
+            "mental_model_cn": "索引；指数；指标",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2503.json",
+      "mode": "patch_json",
+      "expected_sha256": "e840b02f8859fb6557b0fa840ddcf2033905480e70b0d45fd7642217c76eb3a1",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "表明；显示；指出；指示；表示",
+                "label_en": "to suggest or show through signs/data/evidence; to communicate a choice, direction, or piece of information",
+                "pos": "verb",
+                "sense_ids": [
+                  "sense:indicate:10f72093d79d5705",
+                  "sense:indicate:2e356eb1da415bf3"
+                ]
+              }
+            ],
+            "core_meaning_cn": "表明；显示；指出、指示",
+            "core_meaning_en": "to show, suggest, point out, or indicate",
+            "mental_model_cn": "表明；显示；指出、指示",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2509.json",
+      "mode": "patch_json",
+      "expected_sha256": "23b0b1e57cec25640f6bb0b59e542889382958ec470a9e3008d41b65bd4bea0a",
+      "edits": [
+        {
+          "pointer": "/record/senses",
+          "value": [
+            {
+              "collocations": [],
+              "confidence": "medium",
+              "definition_cn": "不可或缺的；绝对必要的",
+              "definition_en": "absolutely necessary; essential",
+              "governing_pattern": "",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "adjective",
+              "sense_id": "sense:indispensable:c966cbd390a057da",
+              "sense_label_en": "absolutely necessary; essential",
+              "sort_order": 0,
+              "transitivity": "nonverb"
+            }
+          ]
+        },
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "不可或缺的；绝对必要的",
+                "label_en": "absolutely necessary; essential",
+                "pos": "adjective",
+                "sense_ids": [
+                  "sense:indispensable:c966cbd390a057da"
+                ]
+              }
+            ],
+            "core_meaning_cn": "不可或缺的；绝对必要的",
+            "core_meaning_en": "absolutely necessary; essential",
+            "mental_model_cn": "不可或缺的；绝对必要的",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2512.json",
+      "mode": "patch_json",
+      "expected_sha256": "e31cbd7acfa162f6040f30a252d4a67db39bcf154e884d330e509c1d4ff3496d",
+      "edits": [
+        {
+          "pointer": "/record/senses",
+          "value": [
+            {
+              "collocations": [],
+              "confidence": "medium",
+              "definition_cn": "导致；引起",
+              "definition_en": "to cause something to happen or exist",
+              "governing_pattern": "",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "verb",
+              "sense_id": "sense:induce:761085b78b3c54d9",
+              "sense_label_en": "to cause something to happen or exist",
+              "sort_order": 0,
+              "transitivity": "vt"
+            },
+            {
+              "collocations": [],
+              "confidence": "medium",
+              "definition_cn": "劝说；促使某人做某事",
+              "definition_en": "to persuade or influence someone to do something",
+              "governing_pattern": "",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "verb",
+              "sense_id": "sense:induce:7a5743bdcb7e52bd",
+              "sense_label_en": "to persuade or influence someone to do something",
+              "sort_order": 1,
+              "transitivity": "vt"
+            }
+          ]
+        },
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "导致；引起；劝说、促使某人做某事",
+                "label_en": "to cause something to happen or exist; to persuade/influence someone to do something",
+                "pos": "verb",
+                "sense_ids": [
+                  "sense:induce:761085b78b3c54d9",
+                  "sense:induce:7a5743bdcb7e52bd"
+                ]
+              }
+            ],
+            "core_meaning_cn": "导致；促使",
+            "core_meaning_en": "to cause or persuade",
+            "mental_model_cn": "导致；促使",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2518.json",
+      "mode": "patch_json",
+      "expected_sha256": "16764392c587a91d1f5dcdf10dd1fa966cec8bed3713e4f7675914cadbefce67",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "不可避免的；必然的",
+                "label_en": "certain to happen; unavoidable",
+                "pos": "adjective",
+                "sense_ids": [
+                  "sense:inevitable:8e8a93fbaa1e56ff"
+                ]
+              }
+            ],
+            "core_meaning_cn": "不可避免的；必然的",
+            "core_meaning_en": "certain to happen; unavoidable",
+            "mental_model_cn": "不可避免的；必然的",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2525.json",
+      "mode": "patch_json",
+      "expected_sha256": "9d04e2e991499aa5e9a20ba3072c4fa46c5323697ac702ece9a39176c8c2a176",
+      "edits": [
+        {
+          "pointer": "/record/senses",
+          "value": [
+            {
+              "collocations": [],
+              "confidence": "medium",
+              "definition_cn": "无限；神",
+              "definition_en": "that which is infinite; God",
+              "governing_pattern": "",
+              "level": "L3",
+              "needs_human_review": 0,
+              "pos": "noun",
+              "sense_id": "sense:infinite:8b2e28339dc7557f",
+              "sense_label_en": "that which is infinite; God",
+              "sort_order": 1,
+              "transitivity": "nonverb"
+            },
+            {
+              "collocations": [],
+              "confidence": "medium",
+              "definition_cn": "无限的；无穷的",
+              "definition_en": "having no limits or boundaries in time, space, or extent",
+              "governing_pattern": "",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "adjective",
+              "sense_id": "sense:infinite:625b8ad0935f551a",
+              "sense_label_en": "having no limits or boundaries in time, space, or extent",
+              "sort_order": 0,
+              "transitivity": "nonverb"
+            }
+          ]
+        },
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "无限的；无穷的",
+                "label_en": "having no limits or boundaries in time, space, or extent",
+                "pos": "adjective",
+                "sense_ids": [
+                  "sense:infinite:625b8ad0935f551a"
+                ]
+              }
+            ],
+            "core_meaning_cn": "无限的；无穷的",
+            "core_meaning_en": "without limits or end",
+            "mental_model_cn": "无限的；无穷的",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2528.json",
+      "mode": "patch_json",
+      "expected_sha256": "e0340db6208edfe0218fbb40bcc4a1c6b33a4234e00eda59cd9bbfae283c6fe9",
+      "edits": [
+        {
+          "pointer": "/record/senses",
+          "value": [
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:aa28cfd9bf196a918224",
+                  "exam_value": "fixed_pattern",
+                  "legacy_source_object_ids": [
+                    "sense:influence:098da0c9fb275e4a:collocation:0"
+                  ],
+                  "meaning_cn": "对…有影响",
+                  "phrase": "have influence on/over + sb/sth"
+                },
+                {
+                  "collocation_id": "collocation:bee3415ac7d1c355bd0a",
+                  "exam_value": "fixed_pattern",
+                  "legacy_source_object_ids": [
+                    "sense:influence:098da0c9fb275e4a:collocation:1"
+                  ],
+                  "meaning_cn": "在…的影响下",
+                  "phrase": "under the influence of + sth"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "影响力；势力",
+              "definition_en": "the power to affect people or events, especially based on prestige or position",
+              "governing_pattern": "",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "noun",
+              "sense_id": "sense:influence:098da0c9fb275e4a",
+              "sense_label_en": "the power to affect people or events, especially based on prestige or po",
+              "sort_order": 0,
+              "transitivity": "nonverb"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:85364b8f15d393ad8bf4",
+                  "exam_value": "fixed_pattern",
+                  "legacy_source_object_ids": [
+                    "sense:influence:506da888e6d65a63:collocation:0"
+                  ],
+                  "meaning_cn": "影响某人/某事",
+                  "phrase": "influence + sb/sth"
+                },
+                {
+                  "collocation_id": "collocation:dbbbe76ef350641969a7",
+                  "exam_value": "fixed_pattern",
+                  "legacy_source_object_ids": [
+                    "sense:influence:506da888e6d65a63:collocation:1"
+                  ],
+                  "meaning_cn": "受…影响",
+                  "phrase": "be influenced by + sth"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "影响；对…起作用",
+              "definition_en": "to have an effect on the way someone or something develops, behaves, or thinks",
+              "governing_pattern": "vt. + object",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "verb",
+              "sense_id": "sense:influence:506da888e6d65a63",
+              "sense_label_en": "to have an effect on the way someone or something develops, behaves, or ",
+              "sort_order": 1,
+              "transitivity": "vt"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:f6448e34e6eae46323f8",
+                  "exam_value": "fixed_pattern",
+                  "legacy_source_object_ids": [
+                    "sense:influence:17f07ca8d2ac5818:collocation:0"
+                  ],
+                  "meaning_cn": "A对B的影响",
+                  "phrase": "the influence of A on B"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "影响；作用",
+              "definition_en": "the effect that one thing or person has on another",
+              "governing_pattern": "",
+              "level": "L2",
+              "needs_human_review": 0,
+              "pos": "noun",
+              "sense_id": "sense:influence:17f07ca8d2ac5818",
+              "sense_label_en": "the effect that one thing or person has on another",
+              "sort_order": 2,
+              "transitivity": "nonverb"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2532.json",
+      "mode": "patch_json",
+      "expected_sha256": "baea7c68832ac5a9d873277aff1899956115c608eead72014e2d772b1787421a",
+      "edits": [
+        {
+          "pointer": "/record/senses",
+          "value": [
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:00de7a1f5ef5ca763c01",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:information:67c096ccd03b5eca:collocation:0"
+                  ],
+                  "meaning_cn": "信息技术",
+                  "phrase": "information technology"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "知识；学问",
+              "definition_en": "knowledge acquired through study or experience or instruction",
+              "governing_pattern": "",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "noun",
+              "sense_id": "sense:information:67c096ccd03b5eca",
+              "sense_label_en": "knowledge acquired through study or experience or instruction",
+              "sort_order": 0,
+              "transitivity": "nonverb"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:f60a2e3134553c87a5c6",
+                  "exam_value": "fixed_pattern",
+                  "legacy_source_object_ids": [
+                    "sense:information:a577791555b8568e:collocation:0"
+                  ],
+                  "meaning_cn": "对……提出控告",
+                  "phrase": "lay information against + sb"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "起诉；控告",
+              "definition_en": "formal accusation of a crime",
+              "governing_pattern": "",
+              "level": "L2",
+              "needs_human_review": 0,
+              "pos": "noun",
+              "sense_id": "sense:information:a577791555b8568e",
+              "sense_label_en": "formal accusation of a crime",
+              "sort_order": 2,
+              "transitivity": "nonverb"
+            },
+            {
+              "collocations": [
+                {
+                  "collocation_id": "collocation:57d726f4f7294fca5fd5",
+                  "exam_value": "usage_example",
+                  "legacy_source_object_ids": [
+                    "sense:information:56de94aa4e165ad7:collocation:0"
+                  ],
+                  "meaning_cn": "信息论",
+                  "phrase": "information theory"
+                }
+              ],
+              "confidence": "medium",
+              "definition_cn": "信息量（信息论）",
+              "definition_en": "(communication theory) a numerical measure of the uncertainty of an outcome",
+              "governing_pattern": "",
+              "level": "L3",
+              "needs_human_review": 0,
+              "pos": "noun",
+              "sense_id": "sense:information:56de94aa4e165ad7",
+              "sense_label_en": "(communication theory) a numerical measure of the uncertainty of an outc",
+              "sort_order": 3,
+              "transitivity": "nonverb"
+            },
+            {
+              "collocations": [],
+              "confidence": "medium",
+              "definition_cn": "信息；资料（不可数）",
+              "definition_en": "facts, details, or messages communicated or learned; normally an uncountable noun",
+              "governing_pattern": "",
+              "level": "L1",
+              "needs_human_review": 0,
+              "pos": "noun",
+              "sense_id": "sense:information:c23d558790385835",
+              "sense_label_en": "facts, details, or messages communicated or learned; normally an uncountable noun",
+              "sort_order": 1,
+              "transitivity": "nonverb"
+            }
+          ]
+        },
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "知识；学问；信息；资料（不可数）",
+                "label_en": "knowledge acquired through study/experience; facts, details, or messages communicated or learned",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:information:67c096ccd03b5eca",
+                  "sense:information:c23d558790385835"
+                ]
+              }
+            ],
+            "core_meaning_cn": "信息；知识",
+            "core_meaning_en": "knowledge or information communicated or learned",
+            "mental_model_cn": "信息；知识",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2536.json",
+      "mode": "patch_json",
+      "expected_sha256": "f396d33295ac7485b501fa3125195660c5ff3576a26c11ed89eb52b9bc7e0f3c",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "成分；组成部分；烹饪原料、配料",
+                "label_en": "a component of a mixture or compound; an ingredient used in cooking",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:ingredient:671544fd6dfa586c",
+                  "sense:ingredient:459346d0f4505d17"
+                ]
+              }
+            ],
+            "core_meaning_cn": "成分；配料",
+            "core_meaning_en": "a component or cooking ingredient",
+            "mental_model_cn": "成分；配料",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2537.json",
+      "mode": "patch_json",
+      "expected_sha256": "bf482841df812c0ee8d2569b0118c7dbf09fc533da415253ac3715b07e027725",
+      "edits": [
+        {
+          "pointer": "/relation_refs",
+          "value": [
+            {
+              "relation_id": "relation:confusable:inhabit|inhibit:near_form",
+              "owner_path": "content/lexical/relations/by-id/d5/d50cdca3618a191fbdc9198248ac1cb8b60b625b475989093c9035c753dba1bf.json",
+              "field": "confusables",
+              "index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2540.json",
+      "mode": "patch_json",
+      "expected_sha256": "da43a158f90daccf3f1b1913059373e192379fed100af808446e761594302a54",
+      "edits": [
+        {
+          "pointer": "/relation_refs",
+          "value": [
+            {
+              "relation_id": "relation:confusable:inherent|inherit:near_form",
+              "owner_path": "content/lexical/relations/by-id/1d/1d38cb2f8f7c30413c5eea663aa4381a14725f15352660a231b366395d694a74.json",
+              "field": "confusables",
+              "index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2541.json",
+      "mode": "patch_json",
+      "expected_sha256": "e63974d79e1dd42bbd94cdaf009610c930a40fd09041dd16b824a067adc8919f",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "继承（金钱、财产或头衔）；继承（品质、特点或责任）",
+                "label_en": "to receive money/property/title after someone's death; to receive a quality, characteristic, or responsibility from a predecessor",
+                "pos": "verb",
+                "sense_ids": [
+                  "sense:inherit:08671617e7285e27",
+                  "sense:inherit:6ac213be589f550e"
+                ]
+              }
+            ],
+            "core_meaning_cn": "继承财产、权利、品质或责任",
+            "core_meaning_en": "to inherit property, status, qualities, or responsibilities",
+            "mental_model_cn": "继承财产、权利、品质或责任",
+            "mental_model_en": ""
+          }
+        },
+        {
+          "pointer": "/relation_refs",
+          "value": [
+            {
+              "relation_id": "relation:confusable:inherent|inherit:near_form",
+              "owner_path": "content/lexical/relations/by-id/1d/1d38cb2f8f7c30413c5eea663aa4381a14725f15352660a231b366395d694a74.json",
+              "field": "confusables",
+              "index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2542.json",
+      "mode": "patch_json",
+      "expected_sha256": "ac56855b48c0f26b5d89ac0ba0e9a4aa666a023366729d407326fefd1b3b05fd",
+      "edits": [
+        {
+          "pointer": "/relation_refs",
+          "value": [
+            {
+              "relation_id": "relation:confusable:inhabit|inhibit:near_form",
+              "owner_path": "content/lexical/relations/by-id/d5/d50cdca3618a191fbdc9198248ac1cb8b60b625b475989093c9035c753dba1bf.json",
+              "field": "confusables",
+              "index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2543.json",
+      "mode": "patch_json",
+      "expected_sha256": "5b07f7c97ec41fa0098b5503a3716b628478d71e68ea027a025a454dddb773d9",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "开始的；最初的",
+                "label_en": "occurring at the beginning",
+                "pos": "adjective",
+                "sense_ids": [
+                  "sense:initial:82d3e8e836735b33"
+                ]
+              },
+              {
+                "label_cn": "首字母",
+                "label_en": "the first letter of a word, especially a person's name",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:initial:d958de6d91a8555a"
+                ]
+              }
+            ],
+            "core_meaning_cn": "最初的；首字母",
+            "core_meaning_en": "initial/beginning; an initial letter",
+            "mental_model_cn": "最初的；首字母",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2544.json",
+      "mode": "patch_json",
+      "expected_sha256": "3ac7dfc3625d0ae2a7db368122ed7a45f73e67d4fdf2821acd1c1f26dd754392",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "开始；发起；使加入、接纳（常通过仪式）",
+                "label_en": "to cause something to begin; to admit someone into a group or society, often with a ritual",
+                "pos": "verb",
+                "sense_ids": [
+                  "sense:initiate:5c5a18e54f625a2c",
+                  "sense:initiate:30c7fac478ab512c"
+                ]
+              }
+            ],
+            "core_meaning_cn": "开始；发起；接纳",
+            "core_meaning_en": "to initiate/start; to admit someone into a group",
+            "mental_model_cn": "开始；发起；接纳",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2545.json",
+      "mode": "patch_json",
+      "expected_sha256": "38c2e6b806f95eb1dd980448b20c5f0e35d31e739e626e8d6c7e25b1f45c62c2",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "主动性；首创精神；倡议；新方案",
+                "label_en": "the ability to act independently; a new plan or action to solve a problem",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:initiative:839a6d4bace65872",
+                  "sense:initiative:5ee9dbd564c3574e"
+                ]
+              }
+            ],
+            "core_meaning_cn": "主动性；倡议、新方案",
+            "core_meaning_en": "initiative or a new plan/action",
+            "mental_model_cn": "主动性；倡议、新方案",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2549.json",
+      "mode": "patch_json",
+      "expected_sha256": "2a7115ee61b7917513ee9728b083801cd58354dfe3bd240100143e5f4f00c7c7",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "用于书写、印刷或绘画的液体；头足类动物喷出的黑色液体",
+                "label_en": "colored liquid for writing/printing/drawing; dark fluid ejected by cephalopods",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:ink:a344337d86f556c5",
+                  "sense:ink:77ca22686a8550b6"
+                ]
+              },
+              {
+                "label_cn": "签署",
+                "label_en": "to sign one's name",
+                "pos": "verb",
+                "sense_ids": [
+                  "sense:ink:45bc360d03da55a1"
+                ]
+              }
+            ],
+            "core_meaning_cn": "墨水；签署",
+            "core_meaning_en": "ink; to sign",
+            "mental_model_cn": "墨水；签署",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/relations/by-id/e4/e450f59247d03f17226d213f1a839ba113fcc5950f9dbccd8933ff05be5e790e.json",
+      "mode": "patch_json",
+      "expected_sha256": "e6296db4518d85d468a0e38e605ffa35a7aba5f64f65461a6c8c8291533dfc49",
+      "edits": [
+        {
+          "pointer": "/word_views",
+          "value": [
+            {
+              "source_word_id": "word:eminent",
+              "source_ordinal": 1624,
+              "field": "confusables",
+              "index": 0,
+              "payload": {
+                "boundary": "eminent 表杰出；imminent 表即将发生",
+                "codex_reviewed": true,
+                "definition_cn": null,
+                "definition_en": null,
+                "dimensions": {},
+                "direction": "C",
+                "evidence": [
+                  {
+                    "evidence_id": "evidence:ecdict-spelling:eminent:imminent",
+                    "evidence_status": "source_checked",
+                    "source_locator": "eminent|imminent",
+                    "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/source_manifest.json",
+                    "source_type": "learner_dictionary"
+                  }
+                ],
+                "fact_id": "deep:confusables:eminent:b2a9125e3a34889b",
+                "family_sources": [],
+                "label_en": null,
+                "level": null,
+                "meaning_cn": null,
+                "module": "confusables",
+                "pattern": null,
+                "pos": null,
+                "priority": "A",
+                "publication_status": "codex_reviewed",
+                "shared_definition": null,
+                "source_sense_id": "sense:eminent:9de27487013d5f99",
+                "target_sense_id": "sense:imminent:a98248d5846a5db9",
+                "target_word": "imminent",
+                "task_tags": [
+                  "reading"
+                ],
+                "verification_status": "verified",
+                "writing_safe": false
+              }
+            },
+            {
+              "source_word_id": "word:imminent",
+              "source_ordinal": 2460,
+              "field": "confusables",
+              "index": 0,
+              "payload": {
+                "boundary": "eminent 表杰出、著名且受尊敬；imminent 表即将发生、迫近",
+                "codex_reviewed": true,
+                "definition_cn": null,
+                "definition_en": null,
+                "dimensions": {},
+                "direction": "C",
+                "evidence": [
+                  {
+                    "evidence_id": "evidence:ecdict-spelling:eminent:imminent",
+                    "evidence_status": "source_checked",
+                    "source_locator": "eminent|imminent",
+                    "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/source_manifest.json",
+                    "source_type": "learner_dictionary"
+                  }
+                ],
+                "fact_id": "deep:confusables:eminent:b2a9125e3a34889b",
+                "family_sources": [],
+                "label_en": null,
+                "level": null,
+                "meaning_cn": null,
+                "module": "confusables",
+                "pattern": null,
+                "pos": null,
+                "priority": "A",
+                "publication_status": "codex_reviewed",
+                "shared_definition": null,
+                "source_sense_id": "sense:imminent:a98248d5846a5db9",
+                "target_sense_id": "sense:eminent:9de27487013d5f99",
+                "target_word": "eminent",
+                "task_tags": [
+                  "reading"
+                ],
+                "verification_status": "verified",
+                "writing_safe": false,
+                "reciprocal_entrypoint": true
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/relations/by-id/4a/4aa48360a42790431482d9d47c554ef0ea31eceb9c69e19e9615ecdd725f3273.json",
+      "mode": "create_json",
+      "expected_absent": true,
+      "value": {
+        "schema": "kianos.lexical.relation_owner.v1",
+        "relation_id": "relation:confusable:incidence|incident:near_form",
+        "canonical_record": null,
+        "fact_record": null,
+        "word_views": [
+          {
+            "source_word_id": "word:incidence",
+            "source_ordinal": 2487,
+            "field": "confusables",
+            "index": 0,
+            "payload": {
+              "relation_id": "relation:confusable:incidence|incident:near_form",
+              "relation_type": "near_form_semantic_confusable",
+              "relation_scope": "lexeme",
+              "target_word": "incident",
+              "source_sense_id": "sense:incidence:5eac9f86a97150e8",
+              "target_sense_id": "sense:incident:f0fba07ed4cc5692",
+              "boundary": "incidence means the rate or frequency at which something occurs; incident means a distinct event or occurrence.",
+              "boundaries": [
+                "incidence = 发生率/发生频率; incident = 一次具体事件.",
+                "near spelling; different learner decision"
+              ],
+              "learning_note": "incidence = 发生率/发生频率; incident = 一次具体事件.",
+              "priority": "A",
+              "publication_status": "human_gate_approved",
+              "verification_status": "source_checked",
+              "writing_safe": false,
+              "task_tags": [
+                "reading",
+                "cloze",
+                "writing"
+              ]
+            }
+          },
+          {
+            "source_word_id": "word:incident",
+            "source_ordinal": 2488,
+            "field": "confusables",
+            "index": 0,
+            "payload": {
+              "relation_id": "relation:confusable:incidence|incident:near_form",
+              "relation_type": "near_form_semantic_confusable",
+              "relation_scope": "lexeme",
+              "target_word": "incidence",
+              "source_sense_id": "sense:incident:f0fba07ed4cc5692",
+              "target_sense_id": "sense:incidence:5eac9f86a97150e8",
+              "boundary": "incident means a distinct event or occurrence; incidence means the rate or frequency at which something occurs.",
+              "boundaries": [
+                "incident = 一次具体事件; incidence = 发生率/发生频率.",
+                "near spelling; different learner decision"
+              ],
+              "learning_note": "incident = 一次具体事件; incidence = 发生率/发生频率.",
+              "priority": "A",
+              "publication_status": "human_gate_approved",
+              "verification_status": "source_checked",
+              "writing_safe": false,
+              "task_tags": [
+                "reading",
+                "cloze",
+                "writing"
+              ]
+            }
+          }
+        ],
+        "provenance": {
+          "materialized_from": "BF24 exact Human Gate 2026-09-22",
+          "semantic_delta": 1
+        }
+      }
+    },
+    {
+      "path": "content/lexical/relations/by-id/d5/d50cdca3618a191fbdc9198248ac1cb8b60b625b475989093c9035c753dba1bf.json",
+      "mode": "create_json",
+      "expected_absent": true,
+      "value": {
+        "schema": "kianos.lexical.relation_owner.v1",
+        "relation_id": "relation:confusable:inhabit|inhibit:near_form",
+        "canonical_record": null,
+        "fact_record": null,
+        "word_views": [
+          {
+            "source_word_id": "word:inhabit",
+            "source_ordinal": 2537,
+            "field": "confusables",
+            "index": 0,
+            "payload": {
+              "relation_id": "relation:confusable:inhabit|inhibit:near_form",
+              "relation_type": "near_form_semantic_confusable",
+              "relation_scope": "lexeme",
+              "target_word": "inhibit",
+              "source_sense_id": "sense:inhabit:10b834be50d75d71",
+              "target_sense_id": "sense:inhibit:5508b0ea609d5cab",
+              "boundary": "inhabit means to live or dwell in a place; inhibit means to restrain, block, prevent, or slow a function/action.",
+              "boundaries": [
+                "inhabit = 居住于/栖息于; inhibit = 抑制/阻碍.",
+                "near spelling; different learner decision"
+              ],
+              "learning_note": "inhabit = 居住于/栖息于; inhibit = 抑制/阻碍.",
+              "priority": "A",
+              "publication_status": "human_gate_approved",
+              "verification_status": "source_checked",
+              "writing_safe": false,
+              "task_tags": [
+                "reading",
+                "cloze",
+                "writing"
+              ]
+            }
+          },
+          {
+            "source_word_id": "word:inhibit",
+            "source_ordinal": 2542,
+            "field": "confusables",
+            "index": 0,
+            "payload": {
+              "relation_id": "relation:confusable:inhabit|inhibit:near_form",
+              "relation_type": "near_form_semantic_confusable",
+              "relation_scope": "lexeme",
+              "target_word": "inhabit",
+              "source_sense_id": "sense:inhibit:5508b0ea609d5cab",
+              "target_sense_id": "sense:inhabit:10b834be50d75d71",
+              "boundary": "inhibit means to restrain, block, prevent, or slow; inhabit means to live or dwell in a place.",
+              "boundaries": [
+                "inhibit = 抑制/阻碍; inhabit = 居住于/栖息于.",
+                "near spelling; different learner decision"
+              ],
+              "learning_note": "inhibit = 抑制/阻碍; inhabit = 居住于/栖息于.",
+              "priority": "A",
+              "publication_status": "human_gate_approved",
+              "verification_status": "source_checked",
+              "writing_safe": false,
+              "task_tags": [
+                "reading",
+                "cloze",
+                "writing"
+              ]
+            }
+          }
+        ],
+        "provenance": {
+          "materialized_from": "BF24 exact Human Gate 2026-09-22",
+          "semantic_delta": 1
+        }
+      }
+    },
+    {
+      "path": "content/lexical/relations/by-id/1d/1d38cb2f8f7c30413c5eea663aa4381a14725f15352660a231b366395d694a74.json",
+      "mode": "create_json",
+      "expected_absent": true,
+      "value": {
+        "schema": "kianos.lexical.relation_owner.v1",
+        "relation_id": "relation:confusable:inherent|inherit:near_form",
+        "canonical_record": null,
+        "fact_record": null,
+        "word_views": [
+          {
+            "source_word_id": "word:inherent",
+            "source_ordinal": 2540,
+            "field": "confusables",
+            "index": 0,
+            "payload": {
+              "relation_id": "relation:confusable:inherent|inherit:near_form",
+              "relation_type": "near_form_semantic_confusable",
+              "relation_scope": "lexeme",
+              "target_word": "inherit",
+              "source_sense_id": "sense:inherent:4237801bec93597c",
+              "target_sense_id": "sense:inherit:08671617e7285e27",
+              "boundary": "inherent means intrinsic or existing as an essential characteristic; inherit means to receive property, status, qualities, or characteristics from another source/predecessor.",
+              "boundaries": [
+                "inherent = 固有的/内在的; inherit = 继承.",
+                "near spelling; different learner decision"
+              ],
+              "learning_note": "inherent = 固有的/内在的; inherit = 继承.",
+              "priority": "A",
+              "publication_status": "human_gate_approved",
+              "verification_status": "source_checked",
+              "writing_safe": false,
+              "task_tags": [
+                "reading",
+                "cloze",
+                "writing"
+              ]
+            }
+          },
+          {
+            "source_word_id": "word:inherit",
+            "source_ordinal": 2541,
+            "field": "confusables",
+            "index": 0,
+            "payload": {
+              "relation_id": "relation:confusable:inherent|inherit:near_form",
+              "relation_type": "near_form_semantic_confusable",
+              "relation_scope": "lexeme",
+              "target_word": "inherent",
+              "source_sense_id": "sense:inherit:08671617e7285e27",
+              "target_sense_id": "sense:inherent:4237801bec93597c",
+              "boundary": "inherit means to receive property, status, qualities, or characteristics; inherent means intrinsic or naturally/essentially present.",
+              "boundaries": [
+                "inherit = 继承; inherent = 固有的/内在的.",
+                "near spelling; different learner decision"
+              ],
+              "learning_note": "inherit = 继承; inherent = 固有的/内在的.",
+              "priority": "A",
+              "publication_status": "human_gate_approved",
+              "verification_status": "source_checked",
+              "writing_safe": false,
+              "task_tags": [
+                "reading",
+                "cloze",
+                "writing"
+              ]
+            }
+          }
+        ],
+        "provenance": {
+          "materialized_from": "BF24 exact Human Gate 2026-09-22",
+          "semantic_delta": 1
+        }
+      }
+    },
+    {
+      "path": "content/lexical/relations/manifest.json",
+      "mode": "patch_json",
+      "expected_sha256": "86671552f4066d7972355d70f484c7518fcac9dd356439de77f743a5ac9a51f4",
+      "edits": [
+        {
+          "pointer": "/relation_count",
+          "value": 451
+        }
+      ]
+    }
+  ],
+  "semantic_dependency_read_set": {}
+}
