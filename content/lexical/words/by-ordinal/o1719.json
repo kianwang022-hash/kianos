@@ -66,13 +66,6 @@
         "definition_en": "concerned with beauty or the appreciation of beauty",
         "governing_pattern": "",
         "level": "L1",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "form_boundary",
-          "note": "esthetic/aesthetic spelling relationship; aesthetic is dominant contemporary form",
-          "paired_form": "esthetic",
-          "surface_lemma": "esthetic"
-        },
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:esthetic:6cdfcab5e0375df7",
@@ -122,7 +115,27 @@
     },
     "word": "esthetic",
     "word_family": [],
-    "word_id": "word:esthetic"
+    "word_id": "word:esthetic",
+    "form_identity": {
+      "form_type": "spelling_variant_identity",
+      "spelling": "esthetic",
+      "identity_rule": "same_lexeme_spelling_variant",
+      "boundary": "esthetic is a spelling variant of aesthetic; aesthetic is the dominant contemporary form.",
+      "boundaries": [
+        {
+          "surface": "aesthetic",
+          "condition": "dominant contemporary spelling",
+          "note": "preferred general form"
+        },
+        {
+          "surface": "esthetic",
+          "condition": "variant spelling",
+          "note": "same lexeme"
+        }
+      ],
+      "variants": [],
+      "authority": "BF16 existing-truth Form migration 2026-09-22"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],

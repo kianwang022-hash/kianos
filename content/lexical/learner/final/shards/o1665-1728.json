@@ -668,7 +668,7 @@
     "ordinal": 1669,
     "word": "enrol",
     "source_owner_path": "content/lexical/words/by-ordinal/o1669.json",
-    "source_fingerprint": "99611eee001d371e8e3492d13af67afaffe53e8f8193170ea4af17078e3ee62a",
+    "source_fingerprint": "3e301d03c922171f0155accb0c3cd46c5b1f8aff9e32e3aaddbb086c6fbb3a09",
     "sense_lineage": [
       {
         "word_id": "word:enrol",
@@ -703,15 +703,7 @@
         "definition_cn": "登记，注册（使成为参与者或成员）",
         "definition_en": "register formally as a participant or member",
         "note": "",
-        "identity_overlay": {
-          "text": "enrol/enroll UK/US spelling boundary",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "enrol/enroll UK/US spelling boundary"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:daf340ca06fd44d97e60",
@@ -760,26 +752,29 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "enrol ↔ enroll",
-          "target_word": "enroll",
-          "lines": [
-            {
-              "text": "enroll is usual AmE; enrol is common BrE. Preserve both stable Word owners as regional spelling variants.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:4b9944a12c0792d22a26",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "enrol ↔ enroll"
+      "relations": [],
+      "form": {
+        "boundary": "enrol is the common British spelling; enroll is the usual American spelling. Both frozen Word owners remain distinct catalogue identities.",
+        "boundaries": [
+          {
+            "surface": "enrol",
+            "condition": "British English",
+            "note": "common BrE spelling"
+          },
+          {
+            "surface": "enroll",
+            "condition": "American English",
+            "note": "usual AmE spelling"
           }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "enrol is the common British spelling; enroll is the usual American spelling. Both frozen Word owners remain distinct catalogue identities."
         }
-      ],
-      "form": null,
+      },
       "family": []
     }
   },
@@ -789,7 +784,7 @@
     "ordinal": 1670,
     "word": "ensure",
     "source_owner_path": "content/lexical/words/by-ordinal/o1670.json",
-    "source_fingerprint": "00d9cbefa56b8c42eac086dc279945e93973db3fa7ed88be40ce2ef10232c148",
+    "source_fingerprint": "6510f56a1070e3f7255ae181b08d12b0447b8f7757780ad06e3d85dd00b80bb0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -816,15 +811,7 @@
         "definition_cn": "确保；保证",
         "definition_en": "to make certain that something will happen or be the case",
         "note": "",
-        "identity_overlay": {
-          "text": "ensure vs assure vs insure: ensure a result; assure a person; insure against risk",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "ensure vs assure vs insure: ensure a result; assure a person; insure against risk"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:9c216dc91031b857032f",
@@ -875,33 +862,7 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "deep:constructions:ensure:af4da17d55936ea1",
-        "source_locator": "record.constructions[0]",
-        "pattern": "vt. + that-clause / vt. + object",
-        "lines": [
-          {
-            "text": "确保；保证",
-            "lang": "cn"
-          },
-          {
-            "text": "ensure + that-clause/object",
-            "lang": "en"
-          },
-          {
-            "text": "to make certain that something will happen or be the case",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "deep:constructions:ensure:af4da17d55936ea1",
-          "target_locator": "record.constructions[0]",
-          "target_label": "vt. + that-clause / vt. + object"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [
@@ -949,7 +910,7 @@
     "ordinal": 1671,
     "word": "entail",
     "source_owner_path": "content/lexical/words/by-ordinal/o1671.json",
-    "source_fingerprint": "ac0e940034900db313bc079a94880ded91ba4517e86a9298b853f35c6716615c",
+    "source_fingerprint": "800a3a7114dda4f114ff47468689d9baf5c26728bcd7ebb96923a94b5a00dbfd",
     "sense_lineage": [
       {
         "word_id": "word:entail",
@@ -974,36 +935,19 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "使成为必需，需要",
-      "decision_cn": "",
+      "summary_cn": "必然涉及；需要",
+      "decision_cn": "使成为必需，需要",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "使成为必需，需要"
+        "target_label": "必然涉及；需要"
       }
     },
     "senses": [
       {
-        "id": "sense:entail:b934ea6036fd5021",
-        "source_locator": "record.senses[0]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "限定继承",
-        "definition_en": "land received by fee tail; the act of entailing property",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:entail:b934ea6036fd5021",
-          "target_locator": "record.senses[0]",
-          "target_label": "限定继承"
-        }
-      },
-      {
         "id": "sense:entail:1a7bd968f5b1bdca",
-        "source_locator": "record.senses[1]",
+        "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "entail sth",
         "definition_cn": "必然涉及、需要",
@@ -1014,8 +958,25 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:entail:1a7bd968f5b1bdca",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[0]",
           "target_label": "必然涉及、需要"
+        }
+      },
+      {
+        "id": "sense:entail:b934ea6036fd5021",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "限定继承",
+        "definition_en": "land received by fee tail; the act of entailing property",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:entail:b934ea6036fd5021",
+          "target_locator": "record.senses[1]",
+          "target_label": "限定继承"
         }
       }
     ],
@@ -1329,11 +1290,11 @@
     "ordinal": 1674,
     "word": "entertain",
     "source_owner_path": "content/lexical/words/by-ordinal/o1674.json",
-    "source_fingerprint": "e387f89807f5f10895af7f8d8125362a62be454ad3b01caad1807247fd264aba",
+    "source_fingerprint": "7295e2a9df7f9a4556573b37887293af7085d5341f537ef2cc3a7500d22c0ce2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(3+1)V"
+        "3V"
       ],
       "density": "rich"
     },
@@ -1456,22 +1417,7 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:entertain:948f235fa04ea7d4",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "考虑，心存（想法）",
-        "definition_en": "to consider or be open to an idea, suggestion, etc.",
-        "pattern": "宾语为 idea/possibility 时表示考虑、愿意接受",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:entertain:948f235fa04ea7d4",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "考虑，心存（想法）"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
@@ -1836,7 +1782,7 @@
     "ordinal": 1679,
     "word": "entitle",
     "source_owner_path": "content/lexical/words/by-ordinal/o1679.json",
-    "source_fingerprint": "4e70e1cc73ceb6bbc629f586d65c0c4c1a34eb8778234fe3b05ffcad0fd971c4",
+    "source_fingerprint": "dc39325f35259eabc6b8bbd49ed2ea1a849dd0e3566825595fc138c379581add",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1935,33 +1881,7 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "deep:constructions:entitle:05e618dbbe719019",
-        "source_locator": "record.constructions[0]",
-        "pattern": "vt. + sb + to + sth",
-        "lines": [
-          {
-            "text": "使有权利；使有资格",
-            "lang": "cn"
-          },
-          {
-            "text": "entitle sb to sth 使有权利",
-            "lang": "cn"
-          },
-          {
-            "text": "to give someone the right to do or have something",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "deep:constructions:entitle:05e618dbbe719019",
-          "target_locator": "record.constructions[0]",
-          "target_label": "vt. + sb + to + sth"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -2049,7 +1969,7 @@
     "ordinal": 1681,
     "word": "entrance",
     "source_owner_path": "content/lexical/words/by-ordinal/o1681.json",
-    "source_fingerprint": "4c4f0920569fb8a4f1f0ea0b6de9e2a73e26556ef11a98f53ca112b1b259df3d",
+    "source_fingerprint": "f88bd6c55b1a48747b8b6a9525a7688d1510f905819c1edbab42799ae05f78a5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2059,13 +1979,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "入口或进入；也指使入迷",
-      "decision_cn": "",
+      "summary_cn": "入口；进入；入学或入场资格",
+      "decision_cn": "默认先认名词“入口/进入/入场资格”；低频动词 entrance=使入迷保留在扩展层。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "入口或进入；也指使入迷"
+        "target_label": "入口；进入；入学或入场资格"
       }
     },
     "senses": [
@@ -2077,15 +1997,7 @@
         "definition_cn": "入口，大门",
         "definition_en": "a place where you enter a building or area",
         "note": "",
-        "identity_overlay": {
-          "text": "entrance noun has initial stress; entrance verb meaning enchant/put into a trance has final stress.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "entrance noun has initial stress; entrance verb meaning enchant/put into a trance has final stress."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:9aef4400c8baac79dac5",
@@ -2124,15 +2036,7 @@
         "definition_cn": "进入；登场",
         "definition_en": "the act of entering a place or situation",
         "note": "",
-        "identity_overlay": {
-          "text": "entrance noun has initial stress; entrance verb meaning enchant/put into a trance has final stress.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "entrance noun has initial stress; entrance verb meaning enchant/put into a trance has final stress."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:4b4c02cdc48cf1236a59",
@@ -2171,15 +2075,7 @@
         "definition_cn": "入学；入场权",
         "definition_en": "the right or opportunity to enter a place or join an institution",
         "note": "",
-        "identity_overlay": {
-          "text": "entrance noun has initial stress; entrance verb meaning enchant/put into a trance has final stress.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[2].lexical_identity_overlay",
-            "target_label": "entrance noun has initial stress; entrance verb meaning enchant/put into a trance has final stress."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:c21c3a2154a59689450b",
@@ -2218,15 +2114,7 @@
         "definition_cn": "使入迷，使出神",
         "definition_en": "to fill someone with wonder and delight, so that they cannot think clearly",
         "note": "",
-        "identity_overlay": {
-          "text": "entrance noun has initial stress; entrance verb meaning enchant/put into a trance has final stress.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[3].lexical_identity_overlay",
-            "target_label": "entrance noun has initial stress; entrance verb meaning enchant/put into a trance has final stress."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:9c4b6492be655031a5f2",
@@ -2263,7 +2151,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "entrance noun has initial stress; entrance verb meaning enchant/put into a trance has final stress.",
+        "boundaries": [
+          {
+            "surface": "entrance",
+            "condition": "noun",
+            "note": "initial stress"
+          },
+          {
+            "surface": "entrance",
+            "condition": "verb = enchant",
+            "note": "final stress"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "entrance noun has initial stress; entrance verb meaning enchant/put into a trance has final stress."
+        }
+      },
       "family": []
     }
   },
@@ -2525,7 +2434,7 @@
     "ordinal": 1684,
     "word": "envelope",
     "source_owner_path": "content/lexical/words/by-ordinal/o1684.json",
-    "source_fingerprint": "bb7c69c54b7d0117536e1a9d2210bf2320eee99a81c412d03adb8df325c8441d",
+    "source_fingerprint": "2b22365300373e3172abe7b8cc3d73502f514d56584e7a98f982f78b5b45605b",
     "sense_lineage": [
       {
         "word_id": "word:envelope",
@@ -2560,25 +2469,8 @@
     },
     "senses": [
       {
-        "id": "sense:envelope:231b9d6246595d6a",
-        "source_locator": "record.senses[0]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "包络线",
-        "definition_en": "a curve that is tangent to each of a family of curves (mathematics)",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:envelope:231b9d6246595d6a",
-          "target_locator": "record.senses[0]",
-          "target_label": "包络线"
-        }
-      },
-      {
         "id": "sense:envelope:53928979bd6237cd",
-        "source_locator": "record.senses[1]",
+        "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "信封；包裹或覆盖物",
@@ -2589,8 +2481,25 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:envelope:53928979bd6237cd",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[0]",
           "target_label": "信封；包裹或覆盖物"
+        }
+      },
+      {
+        "id": "sense:envelope:231b9d6246595d6a",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "包络线",
+        "definition_en": "a curve that is tangent to each of a family of curves (mathematics)",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:envelope:231b9d6246595d6a",
+          "target_locator": "record.senses[1]",
+          "target_label": "包络线"
         }
       }
     ],
@@ -2949,7 +2858,7 @@
     "ordinal": 1688,
     "word": "epic",
     "source_owner_path": "content/lexical/words/by-ordinal/o1688.json",
-    "source_fingerprint": "168c312a8d501a6c9e9ae28e8dbfa840818b5f436bf6249b4c6a5250eb4cc797",
+    "source_fingerprint": "c58c8b919b93b38f93b3dd25b35fec8a66043ad5208290ea92393098ca17abae",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3864,7 +3773,7 @@
     "ordinal": 1696,
     "word": "equip",
     "source_owner_path": "content/lexical/words/by-ordinal/o1696.json",
-    "source_fingerprint": "6ed781d16cc5844b7799b8e5c958b60be236432233dda4488c73d5f047659c3a",
+    "source_fingerprint": "0e230fe6a96f987e770600381deffac8fba91278455268f7bafca5784eae03e8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3950,37 +3859,7 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "deep:constructions:equip:8db27ec25bfd3e1b",
-        "source_locator": "record.constructions[0]",
-        "pattern": "equip sb/sth with sth",
-        "lines": [
-          {
-            "text": "给某人/某物配备…；使具备…",
-            "lang": "cn"
-          },
-          {
-            "text": "装备，配备",
-            "lang": "cn"
-          },
-          {
-            "text": "及物：equip sb/sth with sth",
-            "lang": "cn"
-          },
-          {
-            "text": "to provide with the necessary equipment or supplies",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "deep:constructions:equip:8db27ec25bfd3e1b",
-          "target_locator": "record.constructions[0]",
-          "target_label": "equip sb/sth with sth"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4188,7 +4067,7 @@
     "ordinal": 1699,
     "word": "equivalent",
     "source_owner_path": "content/lexical/words/by-ordinal/o1699.json",
-    "source_fingerprint": "cf40a8f4fac9d38aed3b982a335c7545ef942157f04c1c82504dab75b8da0716",
+    "source_fingerprint": "ac09147c53b269297f656c381cbd94912e59da3bb5021aa2573147a03f440250",
     "sense_lineage": [
       {
         "word_id": "word:equivalent",
@@ -4206,13 +4085,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "相等，等价",
-      "decision_cn": "",
+      "summary_cn": "相等、相当或等价；等值物",
+      "decision_cn": "相等，等价",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "相等，等价"
+        "target_label": "相等、相当或等价；等值物"
       }
     },
     "senses": [
@@ -4256,39 +4135,8 @@
         }
       },
       {
-        "id": "sense:equivalent:df3e9e6f3eef5571",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "当量（化学）",
-        "definition_en": "the atomic weight of an element that has the same combining capacity as a given weight of another element; the standard is 8 for oxygen",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:cabdeed181101c00eefb",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "equivalent weight",
-            "meaning_cn": "当量",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:cabdeed181101c00eefb",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "equivalent weight"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:equivalent:df3e9e6f3eef5571",
-          "target_locator": "record.senses[1]",
-          "target_label": "当量（化学）"
-        }
-      },
-      {
         "id": "sense:equivalent:f4484729e8e8c1cc",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "等值物、对应物或功能相当的人/物",
@@ -4299,8 +4147,39 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:equivalent:f4484729e8e8c1cc",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[1]",
           "target_label": "等值物、对应物或功能相当的人/物"
+        }
+      },
+      {
+        "id": "sense:equivalent:df3e9e6f3eef5571",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "当量（化学）",
+        "definition_en": "the atomic weight of an element that has the same combining capacity as a given weight of another element; the standard is 8 for oxygen",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:cabdeed181101c00eefb",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "equivalent weight",
+            "meaning_cn": "当量",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:cabdeed181101c00eefb",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "equivalent weight"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:equivalent:df3e9e6f3eef5571",
+          "target_locator": "record.senses[2]",
+          "target_label": "当量（化学）"
         }
       }
     ],
@@ -5372,7 +5251,7 @@
     "ordinal": 1710,
     "word": "escape",
     "source_owner_path": "content/lexical/words/by-ordinal/o1710.json",
-    "source_fingerprint": "a64583b1b75793d3ae9bf6fb06c0569033c67a67686a299f5f6f650da3f53ce7",
+    "source_fingerprint": "ee2b0a895cc45bc3586ed4e917560c7830dce4c3e52a8d8618ba135f29f5a279",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5382,13 +5261,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "逃离某地或某情况，或逃离的行为",
-      "decision_cn": "",
+      "summary_cn": "逃跑、逃脱或逃避；逃脱的行为",
+      "decision_cn": "主干是“从束缚、危险或不愉快中脱离”；fire escape 等具体出口留在低优先级。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "逃离某地或某情况，或逃离的行为"
+        "target_label": "逃跑、逃脱或逃避；逃脱的行为"
       }
     },
     "senses": [
@@ -5567,7 +5446,7 @@
     "ordinal": 1711,
     "word": "escort",
     "source_owner_path": "content/lexical/words/by-ordinal/o1711.json",
-    "source_fingerprint": "d5e5fc682f21298ac200e274f3f1ff70a23e2c8a8ff7fe38329756e84ea5355b",
+    "source_fingerprint": "df012b473f69bcb4d2a6f344d75c55f5b0b6c9446130502596e5457973cb2859",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5595,15 +5474,7 @@
         "definition_cn": "护送，护卫",
         "definition_en": "to accompany someone or something to protect or guide them",
         "note": "",
-        "identity_overlay": {
-          "text": "escort noun has initial stress; escort verb has final stress.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "escort noun has initial stress; escort verb has final stress."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:bd812af098c4bc3ddf00",
@@ -5647,15 +5518,7 @@
         "definition_cn": "护送者，护卫者",
         "definition_en": "a person or group that accompanies someone for protection",
         "note": "",
-        "identity_overlay": {
-          "text": "escort noun has initial stress; escort verb has final stress.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "escort noun has initial stress; escort verb has final stress."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:b525fe37c4a29c30c186",
@@ -5679,7 +5542,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "escort noun has initial stress; escort verb has final stress.",
+        "boundaries": [
+          {
+            "surface": "escort",
+            "condition": "noun",
+            "note": "initial stress"
+          },
+          {
+            "surface": "escort",
+            "condition": "verb",
+            "note": "final stress"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "escort noun has initial stress; escort verb has final stress."
+        }
+      },
       "family": []
     }
   },
@@ -6102,11 +5986,11 @@
     "ordinal": 1716,
     "word": "establish",
     "source_owner_path": "content/lexical/words/by-ordinal/o1716.json",
-    "source_fingerprint": "ffbb1088ff7b64959beef049eab511117cfa1e5c0c80bea7d8e312046ee178c6",
+    "source_fingerprint": "d02692ec810aed986441046adf82dcb53cdb9876098bb3f6d2854b78a8f7368e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(3+1)V"
+        "3V"
       ],
       "density": "rich"
     },
@@ -6199,22 +6083,7 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:establish:fb355c50ab840cb2",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "确立；使被接受",
-        "definition_en": "to make something accepted or recognized",
-        "pattern": "establish a fact",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:establish:fb355c50ab840cb2",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "确立；使被接受"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [
       {
         "id": "construction:5ccabb3bde44bc102b9a",
@@ -6470,7 +6339,7 @@
     "ordinal": 1719,
     "word": "esthetic",
     "source_owner_path": "content/lexical/words/by-ordinal/o1719.json",
-    "source_fingerprint": "a1d6083042749bd6f219e448d407eb0869466982bd9a1c6d2df9522f9bab5fa4",
+    "source_fingerprint": "d28864061604b7601557bc1549dd0a73275a21e19def521e1a9be1671fb7c10e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6498,15 +6367,7 @@
         "definition_cn": "审美的，美学的",
         "definition_en": "concerned with beauty or the appreciation of beauty",
         "note": "",
-        "identity_overlay": {
-          "text": "esthetic/aesthetic spelling relationship; aesthetic is dominant contemporary form",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "esthetic/aesthetic spelling relationship; aesthetic is dominant contemporary form"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:3f2d0be042c99dbea622",
@@ -6564,7 +6425,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "esthetic is a spelling variant of aesthetic; aesthetic is the dominant contemporary form.",
+        "boundaries": [
+          {
+            "surface": "aesthetic",
+            "condition": "dominant contemporary spelling",
+            "note": "preferred general form"
+          },
+          {
+            "surface": "esthetic",
+            "condition": "variant spelling",
+            "note": "same lexeme"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "esthetic is a spelling variant of aesthetic; aesthetic is the dominant contemporary form."
+        }
+      },
       "family": []
     }
   },
@@ -6574,7 +6456,7 @@
     "ordinal": 1720,
     "word": "estimate",
     "source_owner_path": "content/lexical/words/by-ordinal/o1720.json",
-    "source_fingerprint": "09d6a4986e38676627cf1dbf0b5e4a44cd94707abbda7ecdcc47034cec92c1c1",
+    "source_fingerprint": "9a502134e877e22712468ed37a9a408bf2d12b8baffbda401107235f8c00db41",
     "sense_lineage": [
       {
         "word_id": "word:estimate",
@@ -6638,15 +6520,7 @@
         "definition_cn": "估计；估算；估计值",
         "definition_en": "an approximate calculation or judgment of an amount, value, number, or cost",
         "note": "",
-        "identity_overlay": {
-          "text": "estimate noun ends with the reduced noun ending /-mət/; estimate verb ends /-meɪt/. The main contrast is the final syllable pronunciation, not a stress shift.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "estimate noun ends with the reduced noun ending /-mət/; estimate verb ends /-meɪt/. The main contrast is the final syllable pronunciation, not a stress shift."
-          }
-        },
+        "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -6663,15 +6537,7 @@
         "definition_cn": "估计；估算",
         "definition_en": "to calculate or judge an amount, value, number, or cost approximately",
         "note": "",
-        "identity_overlay": {
-          "text": "estimate noun ends with the reduced noun ending /-mət/; estimate verb ends /-meɪt/. The main contrast is the final syllable pronunciation, not a stress shift.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "estimate noun ends with the reduced noun ending /-mət/; estimate verb ends /-meɪt/. The main contrast is the final syllable pronunciation, not a stress shift."
-          }
-        },
+        "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -6682,41 +6548,32 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "deep:constructions:estimate:4e811dfa9022a2c2",
-        "source_locator": "record.constructions[0]",
-        "pattern": "estimate that + clause",
-        "lines": [
-          {
-            "text": "估计…",
-            "lang": "cn"
-          },
-          {
-            "text": "估计，估算",
-            "lang": "cn"
-          },
-          {
-            "text": "estimate that 估计…",
-            "lang": "cn"
-          },
-          {
-            "text": "to calculate approximately the value, amount, or size of something",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "deep:constructions:estimate:4e811dfa9022a2c2",
-          "target_locator": "record.constructions[0]",
-          "target_label": "estimate that + clause"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "estimate noun ends with reduced /-mət/; estimate verb ends /-meɪt/. The main contrast is the final syllable, not a stress shift.",
+        "boundaries": [
+          {
+            "surface": "estimate",
+            "condition": "noun",
+            "note": "final /-mət/"
+          },
+          {
+            "surface": "estimate",
+            "condition": "verb",
+            "note": "final /-meɪt/"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "estimate noun ends with reduced /-mət/; estimate verb ends /-meɪt/. The main contrast is the final syllable, not a stress shift."
+        }
+      },
       "family": []
     }
   },
@@ -6903,7 +6760,7 @@
     "ordinal": 1723,
     "word": "ethnic",
     "source_owner_path": "content/lexical/words/by-ordinal/o1723.json",
-    "source_fingerprint": "9a609c438d8f5f4c997d5fd149aea7228fb5d71001dfb0d4f35dc00394caca2e",
+    "source_fingerprint": "65b09069824a8d14e6c8508d67794eea30f5046b7a21f7a1ab4a9b87dafbacc5",
     "sense_lineage": [
       {
         "word_id": "word:ethnic",
@@ -6966,8 +6823,12 @@
           "target_word": "ethnicity",
           "lines": [
             {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
+              "text": "ethnic (adj.) → ethnicity (n.): 民族/族群相关的 → 民族或族群身份/归属；派生关系，不是同义替换。",
               "lang": "cn"
+            },
+            {
+              "text": "ethnic is the adjective; ethnicity is the noun for ethnic identity or group membership.",
+              "lang": "en"
             }
           ],
           "source_locator": "record.word_family[0]"
@@ -7181,7 +7042,7 @@
     "ordinal": 1726,
     "word": "evaluate",
     "source_owner_path": "content/lexical/words/by-ordinal/o1726.json",
-    "source_fingerprint": "bca9a2afde322f79dcae0b914f94956c05af0293478eaf80276144dfcb3f36b1",
+    "source_fingerprint": "286975cddab50ccab39da225346445df0ecd49dccf7df8d2e6f9c228280722de",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7251,8 +7112,12 @@
           "target_word": "evaluative",
           "lines": [
             {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
+              "text": "evaluate (v.) → evaluative (adj.): 评估、评价 → 用于评价/带有评价性质的；派生关系，不是同义替换。",
               "lang": "cn"
+            },
+            {
+              "text": "evaluate is the verb; evaluative is the adjective meaning involving or expressing evaluation.",
+              "lang": "en"
             }
           ],
           "source_locator": "record.word_family[0]"
