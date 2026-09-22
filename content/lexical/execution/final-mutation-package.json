@@ -1,0 +1,210 @@
+{
+  "schema": "kianos.lexical.final_mutation_package.v1",
+  "package_id": "BF21-B-reconcile-v1",
+  "candidate_id": "BF21",
+  "range": {
+    "start_ordinal": 2151,
+    "end_ordinal": 2250
+  },
+  "lane": "A",
+  "source_head": "45ea64a9e0feb38e5c22d9be6b8db27f115367b2",
+  "human_gate": {
+    "approved": true,
+    "approval_ref": "content/lexical/semantic-audit/O2151_O2250_FINAL_STANDARD_SAME_CHAT_B_AUDIT_PACK.md@bounded-refine-no-new-scope"
+  },
+  "writes": [
+    {
+      "path": "content/lexical/words/by-ordinal/o2206.json",
+      "mode": "patch_json",
+      "expected_sha256": "cba103c9b1e5894dbb637040c4ace10c187973b56782e092ebf57e3d8b01345c",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "可怕的；令人沮丧的",
+                "label_en": "causing fear or dread; unpleasant",
+                "pos": "adjective",
+                "sense_ids": [
+                  "sense:grim:b393448033b35b23"
+                ]
+              }
+            ],
+            "core_meaning_cn": "可怕的；令人沮丧的",
+            "core_meaning_en": "causing fear or dread; unpleasant",
+            "mental_model_cn": "可怕的；令人沮丧的",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2179.json",
+      "mode": "patch_json",
+      "expected_sha256": "8a0bd1349941ff3b3c0a1b0a1638928098050945931a6b5019e84818c6e01bad",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "毕业；授予学位、准予毕业",
+                "label_en": "to graduate; to confer an academic degree",
+                "pos": "verb",
+                "sense_ids": [
+                  "sense:graduate:c488ab16153d52c0",
+                  "sense:graduate:7e5ff946afe05cea"
+                ]
+              },
+              {
+                "label_cn": "毕业生",
+                "label_en": "a person who has completed a course of study",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:graduate:b808f278d74a5ca9"
+                ]
+              },
+              {
+                "label_cn": "研究生的",
+                "label_en": "of or relating to studies beyond a bachelor's degree",
+                "pos": "adjective",
+                "sense_ids": [
+                  "sense:graduate:ef60f3d0b2715435"
+                ]
+              }
+            ],
+            "core_meaning_cn": "毕业；毕业生；研究生的",
+            "core_meaning_en": "to complete a course of study; a graduate; relating to postgraduate study",
+            "mental_model_cn": "毕业；毕业生；研究生的",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/relations/by-id/39/3903a5b4cac59162bca2a45d0b37c9aa87251f387401bb3594d6454fb51b00ac.json",
+      "mode": "patch_json",
+      "expected_sha256": "1957ce72594a76b7ba22a94969e3058c78a19c6601053b69d2dd841aed91806e",
+      "edits": [
+        {
+          "pointer": "/word_views",
+          "value": []
+        },
+        {
+          "pointer": "/provenance",
+          "value": {
+            "materialized_from": "graduate pronunciation truth migrated to Word Form/Identity in BF21",
+            "semantic_delta": 0,
+            "retired_from_learner_projection": true
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2215.json",
+      "mode": "patch_json",
+      "expected_sha256": "89d72f9fae19cda62049539687911974140ab27858713ff06bc98fd1fb96bb84",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "组，团体，群",
+                "label_en": "a number of people or things considered as a unit",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:group:ca959ce474825226"
+                ]
+              },
+              {
+                "label_cn": "分组，归类",
+                "label_en": "to arrange into groups",
+                "pos": "verb",
+                "sense_ids": [
+                  "sense:group:ec2ca466df2f5398"
+                ]
+              }
+            ],
+            "core_meaning_cn": "组，团体，群；分组、归类",
+            "core_meaning_en": "a group; to arrange into groups",
+            "mental_model_cn": "组，团体，群；分组、归类",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2220.json",
+      "mode": "patch_json",
+      "expected_sha256": "6b67426ae81686b344f08390de4a1562ae3da41f3d2cb4c13a92a120faa9afef",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "保卫；守护",
+                "label_en": "to protect someone or something from danger",
+                "pos": "verb",
+                "sense_ids": [
+                  "sense:guard:33bcbdfc1c725771"
+                ]
+              },
+              {
+                "label_cn": "警卫；守卫；防护装置",
+                "label_en": "a person who protects or watches over; a device that prevents injury or damage",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:guard:1072fed54c305780",
+                  "sense:guard:2e5f1361c4ce5b49"
+                ]
+              }
+            ],
+            "core_meaning_cn": "保卫；看守",
+            "core_meaning_en": "to protect or watch over",
+            "mental_model_cn": "保卫；看守",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o2233.json",
+      "mode": "patch_json",
+      "expected_sha256": "15d2f8e484198bd88d1255234ec655e9cfca01cec71296cd049300dbe44fbdf1",
+      "edits": [
+        {
+          "pointer": "/record/core_concept",
+          "value": {
+            "core_clusters": [
+              {
+                "label_cn": "内脏；肚子；内部",
+                "label_en": "the stomach or intestines, or the inner parts of something",
+                "pos": "noun",
+                "sense_ids": [
+                  "sense:gut:5069d5ecf16b5967"
+                ]
+              },
+              {
+                "label_cn": "取出（鱼或动物）的内脏；毁坏（建筑物等）的内部",
+                "label_en": "to remove the internal organs of a fish or animal; to destroy the inside of a building or room",
+                "pos": "verb",
+                "sense_ids": [
+                  "sense:gut:2c9d0c3f7b06532a",
+                  "sense:gut:fe5b6eba20e2549e"
+                ]
+              }
+            ],
+            "core_meaning_cn": "内脏或内部；去除或毁坏内部",
+            "core_meaning_en": "intestines or inner parts; to remove or destroy the inside",
+            "mental_model_cn": "内脏或内部；去除或毁坏内部",
+            "mental_model_en": ""
+          }
+        }
+      ]
+    }
+  ],
+  "semantic_dependency_read_set": {}
+}
