@@ -36,16 +36,16 @@ This is **not** enrichment-by-default and not permission to make every card equa
 Current batch:
 
 ```text
-BF14
-o1451–o1550
-Fresh Read + Self Attack complete
-31 affected / 69 PRESERVE / 0 blocked
-waiting exact Human Gate for 9 new knowledge groups
+BF15
+o1551–o1650
+Fresh Read + Self Attack next
 ```
 
 BF12 `o1251–o1350` is closed on main via PR #764: 100/100 reviewed, 21 affected owners, 79 NO_CHANGE, 0 blocked; all 7,946 Final Learner Objects rebuilt and same-Chat B readback passed.
 
 BF13 `o1351–o1450` is closed on main via PR #767: 100/100 reviewed, 26 affected owners, 74 NO_CHANGE, 0 blocked; B reconciliation closed three existing-truth structure issues and all 7,946 Final Learner Objects rebuilt successfully.
+
+BF14 `o1451–o1550` is closed on main via PR #774: 100/100 reviewed, 31 affected owners, 69 NO_CHANGE, 0 blocked; 9 exact Human-Gated knowledge groups were admitted, 7 B-reconciliation residues were closed, and all 7,946 Final Learner Objects rebuilt successfully.
 
 ## Current state
 
