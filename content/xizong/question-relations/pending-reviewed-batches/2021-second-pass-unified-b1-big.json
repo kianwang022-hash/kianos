@@ -1,0 +1,914 @@
+[
+  {
+    "question_id": "xizong-official-2021-n003",
+    "system_id": "neuro_sensory_motor_orthopedics",
+    "block_id": "neuro-n04",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q001-025.json",
+      "question_truth_blob_sha": "91c261ac816758d12f9312a44dc6da35e216163d",
+      "knowledge_path": "content/xizong/knowledge/systems/d-neuro-sensory-motor-orthopedics/n-n1-n11/神经系统_N4_神经肌接头与骨骼肌_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "36c206830b362ee689189e40481d4fca74f936a4"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: N2 channels pass multiple cations, but at resting voltage the Na inward driving force exceeds K outward driving force, so EPP is Na-dominant. N4 KP02 explicitly owns this."
+    },
+    "primary_kp_id": "neuro-n04-kp02"
+  },
+  {
+    "question_id": "xizong-official-2021-n004",
+    "system_id": "hematology_immunity_infection",
+    "block_id": "hematology-h06",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q001-025.json",
+      "question_truth_blob_sha": "91c261ac816758d12f9312a44dc6da35e216163d",
+      "knowledge_path": "content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H6_出血性疾病_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "967f82f66fa920c98c7b2b9ca7b19a085fd125f3"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: von Willebrand disease is caused by vWF quantitative/functional deficiency, impairing platelet adhesion and factor-VIII stability. H6 KP13 explicitly owns the vWD-vs-hemophilia distinction."
+    },
+    "primary_kp_id": "hematology-h06-kp13"
+  },
+  {
+    "question_id": "xizong-official-2021-n007",
+    "system_id": "respiratory",
+    "block_id": "respiratory-r02",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q001-025.json",
+      "question_truth_blob_sha": "91c261ac816758d12f9312a44dc6da35e216163d",
+      "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "0da394d48b854f0386b406eda704dae4c7bdaf4d"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: V/Q inequality causes uneven alveolar oxygenation and hypoxemia; peripheral chemoreceptor sensitivity is a downstream response rather than the reason hypoxemia predominates. R2 KP03 owns the V/Q mechanism."
+    },
+    "primary_kp_id": "respiratory-r02-kp03"
+  },
+  {
+    "question_id": "xizong-official-2021-n008",
+    "system_id": "digestive_metabolic_endocrine",
+    "block_id": "D3",
+    "supporting_kp_ids": [
+      "digestive-d3-kp05",
+      "digestive-d3-kp06"
+    ],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q001-025.json",
+      "question_truth_blob_sha": "91c261ac816758d12f9312a44dc6da35e216163d",
+      "knowledge_path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/D3_胰液胆汁与小肠消化_大分子拆解与脂肪处理_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "a43a47e2be4ef7b46f9797f3eb89e77a128e9bd4"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: cholecystectomy preserves continuous hepatic bile but removes storage/concentration and meal-triggered delivery, so fat digestion can be impaired especially with fatty meals. D3 KP07 owns the post-cholecystectomy boundary, supported by KP05/06."
+    },
+    "primary_kp_id": "digestive-d3-kp07"
+  },
+  {
+    "question_id": "xizong-official-2021-n009",
+    "system_id": "digestive_metabolic_endocrine",
+    "block_id": "D5",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q001-025.json",
+      "question_truth_blob_sha": "91c261ac816758d12f9312a44dc6da35e216163d",
+      "knowledge_path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/D5_能量体温应激与临床营养_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "5cf336d86aa5d261a5c35b16b54b4c8c19efd01e"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: protein has lower physiologic than physical caloric value because nitrogen is excreted in partially oxidized products rather than fully oxidized to CO2/H2O. D5 KP02 explicitly owns the heat-value distinction."
+    },
+    "primary_kp_id": "digestive-d05-kp02"
+  },
+  {
+    "question_id": "xizong-official-2021-n011",
+    "system_id": "neuro_sensory_motor_orthopedics",
+    "block_id": "neuro-n04",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q001-025.json",
+      "question_truth_blob_sha": "91c261ac816758d12f9312a44dc6da35e216163d",
+      "knowledge_path": "content/xizong/knowledge/systems/d-neuro-sensory-motor-orthopedics/n-n1-n11/神经系统_N4_神经肌接头与骨骼肌_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "36c206830b362ee689189e40481d4fca74f936a4"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: neostigmine inhibits acetylcholinesterase, prolonging ACh action and improving neuromuscular transmission in MG. N4 KP04 explicitly owns this intervention."
+    },
+    "primary_kp_id": "neuro-n04-kp04"
+  },
+  {
+    "question_id": "xizong-official-2021-n012",
+    "system_id": "neuro_sensory_motor_orthopedics",
+    "block_id": "neuro-n07",
+    "supporting_kp_ids": [
+      "neuro-n07-kp05"
+    ],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q001-025.json",
+      "question_truth_blob_sha": "91c261ac816758d12f9312a44dc6da35e216163d",
+      "knowledge_path": "content/xizong/knowledge/systems/d-neuro-sensory-motor-orthopedics/n-n1-n11/神经系统_N7_听觉完整链_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "5588dd171edbda15fa1e5f615542cdaed1820c4f"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: loop-diuretic ototoxicity disrupts stria-vascularis ion transport and the high-K positive endolymph environment. N7 KP11 owns the failure localization; KP05 owns the normal electrochemical environment."
+    },
+    "primary_kp_id": "neuro-n07-kp11"
+  },
+  {
+    "question_id": "xizong-official-2021-n014",
+    "system_id": "digestive_metabolic_endocrine",
+    "block_id": "D23",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q001-025.json",
+      "question_truth_blob_sha": "91c261ac816758d12f9312a44dc6da35e216163d",
+      "knowledge_path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/内分泌_D23_钙调节甲状旁腺与生长激素_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "36f52334f986f648b49bd4c4e3081466e7da7e3a"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: chronic GH excess drives IGF-1 elevation; acromegaly is the matching disease state. D23 KP12 explicitly owns GH/IGF-1 disease recognition."
+    },
+    "primary_kp_id": "dme-d23-kp12"
+  },
+  {
+    "question_id": "xizong-official-2021-n017",
+    "system_id": "digestive_metabolic_endocrine",
+    "block_id": "M1",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q001-025.json",
+      "question_truth_blob_sha": "91c261ac816758d12f9312a44dc6da35e216163d",
+      "knowledge_path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M1_蛋白质酶与维生素_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "b92cfa9f4c11b48aee0ce03765a8a2104f77f82d"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: a leucine zipper is a recurring structural motif rather than a whole independent domain. M1 KP04 explicitly owns motif-vs-domain structure levels."
+    },
+    "primary_kp_id": "biochem-m1-kp04"
+  },
+  {
+    "question_id": "xizong-official-2021-n018",
+    "system_id": "digestive_metabolic_endocrine",
+    "block_id": "M1",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q001-025.json",
+      "question_truth_blob_sha": "91c261ac816758d12f9312a44dc6da35e216163d",
+      "knowledge_path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M1_蛋白质酶与维生素_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "b92cfa9f4c11b48aee0ce03765a8a2104f77f82d"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: enzyme proximity/orientation catalysis places substrates at the correct distance and geometry to raise effective collisions. M1 KP10 explicitly owns this mechanism."
+    },
+    "primary_kp_id": "biochem-m1-kp10"
+  },
+  {
+    "question_id": "xizong-official-2021-n019",
+    "system_id": "digestive_metabolic_endocrine",
+    "block_id": "M2",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q001-025.json",
+      "question_truth_blob_sha": "91c261ac816758d12f9312a44dc6da35e216163d",
+      "knowledge_path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M2_碳氧化TCA氧化磷酸化与ATP_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "bd2b2f7276bc4a293125b58d7f74cccff66a06d1"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: oligomycin blocks the F0 proton channel of ATP synthase, classically at the c-ring/subunit interface, preventing H+ return and ATP synthesis. M2 KP15 owns ATP-synthase inhibition."
+    },
+    "primary_kp_id": "biochem-m2-kp15"
+  },
+  {
+    "question_id": "xizong-official-2021-n020",
+    "system_id": "digestive_metabolic_endocrine",
+    "block_id": "M8",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q001-025.json",
+      "question_truth_blob_sha": "91c261ac816758d12f9312a44dc6da35e216163d",
+      "knowledge_path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M8_氨基酸氨尿素与一碳单位_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "ad43bd6cc0702e399c34b53563b93fb76d74a51a"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: muscle transfers amino nitrogen to pyruvate as alanine and sends it to liver in the glucose-alanine cycle. M8 KP12 explicitly owns this nitrogen-transport route."
+    },
+    "primary_kp_id": "biochem-m8-kp12"
+  },
+  {
+    "question_id": "xizong-official-2021-n021",
+    "system_id": "digestive_metabolic_endocrine",
+    "block_id": "M9",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q001-025.json",
+      "question_truth_blob_sha": "91c261ac816758d12f9312a44dc6da35e216163d",
+      "knowledge_path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M9_核苷酸代谢与抗代谢物_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "0447d3c85bbc32874c7ede5c96c6ce272247ea1b"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: dUMP→dTMP directly requires an N5,N10-methylene-THF one-carbon donation. M9 KP10 explicitly owns this one-carbon entry into nucleotide metabolism."
+    },
+    "primary_kp_id": "biochem-m9-kp10"
+  },
+  {
+    "question_id": "xizong-official-2021-n022",
+    "system_id": "digestive_metabolic_endocrine",
+    "block_id": "G2",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q001-025.json",
+      "question_truth_blob_sha": "91c261ac816758d12f9312a44dc6da35e216163d",
+      "knowledge_path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G2_DNA复制逆转录与端粒_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "4dd5085493e6f80c334b9a45eaf1790e33d1757e"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: telomerase carries its own RNA template and reverse-transcriptase activity to extend chromosome ends. G2 KP08 explicitly owns telomerase function."
+    },
+    "primary_kp_id": "dme-g02-kp08"
+  },
+  {
+    "question_id": "xizong-official-2021-n023",
+    "system_id": "digestive_metabolic_endocrine",
+    "block_id": "G1",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q001-025.json",
+      "question_truth_blob_sha": "91c261ac816758d12f9312a44dc6da35e216163d",
+      "knowledge_path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G1_核酸与真核基因组_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "afcce41b177c25dc3523269bf7ed682422819a76"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: eukaryotic mature mRNA is typically monocistronic—one mRNA encodes one polypeptide. G1 KP10 owns the eukaryotic-genome/mRNA organization boundary."
+    },
+    "primary_kp_id": "dme-g01-kp10"
+  },
+  {
+    "question_id": "xizong-official-2021-n024",
+    "system_id": "digestive_metabolic_endocrine",
+    "block_id": "G3",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q001-025.json",
+      "question_truth_blob_sha": "91c261ac816758d12f9312a44dc6da35e216163d",
+      "knowledge_path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G3_转录RNA加工与翻译_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "373fe5d255f433d173118395026431b37f479694"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: peptidyl-transferase catalysis is carried by large-subunit rRNA, making the ribosome a ribozyme. G3 KP12 explicitly owns peptide-bond formation by rRNA."
+    },
+    "primary_kp_id": "dme-g03-kp12"
+  },
+  {
+    "question_id": "xizong-official-2021-n025",
+    "system_id": "digestive_metabolic_endocrine",
+    "block_id": "G4",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q001-025.json",
+      "question_truth_blob_sha": "91c261ac816758d12f9312a44dc6da35e216163d",
+      "knowledge_path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G4_基因表达调控_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "68883796e7259da7509ce95019ade2b54952c41a"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: enhancers are eukaryotic cis-regulatory DNA elements that increase transcription, often at a distance from the promoter. G4 KP07 explicitly owns enhancer/silencer cis elements."
+    },
+    "primary_kp_id": "dme-g04-kp07"
+  },
+  {
+    "question_id": "xizong-official-2021-n026",
+    "system_id": "digestive_metabolic_endocrine",
+    "block_id": "G5",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q026-050.json",
+      "question_truth_blob_sha": "8af95035bc7b150c1e86493dc9fb98dbf82978b8",
+      "knowledge_path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G5_DNA损伤癌基因重组与分子技术_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "337df971070b73fcfb10aa5f3fd1bb3e0197c6e2"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: delivery of plasmid/exogenous DNA into animal/eukaryotic cells is transfection; bacterial DNA uptake is transformation. G5 KP08 explicitly owns transformation-vs-transfection-vs-infection."
+    },
+    "primary_kp_id": "dme-g05-kp08"
+  },
+  {
+    "question_id": "xizong-official-2021-n028",
+    "system_id": "digestive_metabolic_endocrine",
+    "block_id": "G4",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q026-050.json",
+      "question_truth_blob_sha": "8af95035bc7b150c1e86493dc9fb98dbf82978b8",
+      "knowledge_path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G4_基因表达调控_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "68883796e7259da7509ce95019ade2b54952c41a"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: a silencer is a negative cis-regulatory element; adding it upstream can reduce transcription without changing the coding sequence. G4 KP07 explicitly owns this."
+    },
+    "primary_kp_id": "dme-g04-kp07"
+  },
+  {
+    "question_id": "xizong-official-2021-n033",
+    "system_id": "hematology_immunity_infection",
+    "block_id": "hematology-h17",
+    "supporting_kp_ids": [
+      "hematology-h17-kp03"
+    ],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q026-050.json",
+      "question_truth_blob_sha": "8af95035bc7b150c1e86493dc9fb98dbf82978b8",
+      "knowledge_path": "content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H17_类风湿关节炎RA_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "3cc44d030e35ed5a2df3cfb513d9bead4dbb2540"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: RA begins as chronic nonspecific proliferative synovitis and forms pannus that erodes cartilage/bone. H17 KP02 owns synovitis and KP03 pannus."
+    },
+    "primary_kp_id": "hematology-h17-kp02"
+  },
+  {
+    "question_id": "xizong-official-2021-n034",
+    "system_id": "digestive_metabolic_endocrine",
+    "block_id": "D11",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q026-050.json",
+      "question_truth_blob_sha": "8af95035bc7b150c1e86493dc9fb98dbf82978b8",
+      "knowledge_path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/D11_食管与胃肿瘤_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "710291989d8a96e0d4a2e9e8646d327c432ef73a"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: the Current Study's classic gastric-cancer location is the antrum/lesser-curvature region. D11 KP09 explicitly owns the site distribution."
+    },
+    "primary_kp_id": "dme-d11-kp09"
+  },
+  {
+    "question_id": "xizong-official-2021-n037",
+    "system_id": "respiratory",
+    "block_id": "respiratory-r06",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q026-050.json",
+      "question_truth_blob_sha": "8af95035bc7b150c1e86493dc9fb98dbf82978b8",
+      "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "4cf25038e8e43bec00e15e3c5928b5478a0bebb2"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: bronchiectasis is built on destruction of bronchial-wall supporting structures with subsequent irreversible dilation. R6 explicitly owns this structural disease model; relation intentionally stops at Block level because stable embedded KP ids are absent."
+    }
+  },
+  {
+    "question_id": "xizong-official-2021-n038",
+    "system_id": "urinary",
+    "block_id": "urinary-b10",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q026-050.json",
+      "question_truth_blob_sha": "8af95035bc7b150c1e86493dc9fb98dbf82978b8",
+      "knowledge_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block10_肾炎分支_急性急进IgA与慢性肾炎_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "12ba127043d424b53ed7ddd17dbe27b01889da7a"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: post-streptococcal acute nephritis classically shows subepithelial hump-shaped deposits on EM. Urinary B10 KP03 explicitly owns this pathology."
+    },
+    "primary_kp_id": "urinary-b10-kp03"
+  },
+  {
+    "question_id": "xizong-official-2021-n039",
+    "system_id": "reproductive_breast",
+    "block_id": "E6",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q026-050.json",
+      "question_truth_blob_sha": "8af95035bc7b150c1e86493dc9fb98dbf82978b8",
+      "knowledge_path": "content/xizong/knowledge/systems/e-reproductive-breast/e-e1-e14/生殖病理_E6_侵袭性葡萄胎绒癌与PSTT_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "195d565f67a2369b5cfa4bced428927539702dc7"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: choriocarcinoma has no villi, no true tumor stroma and no intrinsic tumor vessels, with prominent hemorrhagic necrosis. E6 KP05 explicitly owns the 'three absences'."
+    },
+    "primary_kp_id": "repro-path-e6-kp05"
+  },
+  {
+    "question_id": "xizong-official-2021-n040",
+    "system_id": "digestive_metabolic_endocrine",
+    "block_id": "D21",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q026-050.json",
+      "question_truth_blob_sha": "8af95035bc7b150c1e86493dc9fb98dbf82978b8",
+      "knowledge_path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/内分泌_D21_甲状腺轴及甲状腺内外科_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "3fa2e6985daf78c036cd8ca791b670bf40340d2f"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: medullary thyroid carcinoma is a C-cell neuroendocrine tumor with characteristic amyloid stroma. D21 KP24 explicitly owns the medullary-carcinoma identity."
+    },
+    "primary_kp_id": "dme-d21-kp24"
+  },
+  {
+    "question_id": "xizong-official-2021-n041",
+    "system_id": "digestive_metabolic_endocrine",
+    "block_id": "M10",
+    "supporting_kp_ids": [
+      "biochem-m10-kp08"
+    ],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q026-050.json",
+      "question_truth_blob_sha": "8af95035bc7b150c1e86493dc9fb98dbf82978b8",
+      "knowledge_path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M10_血红素胆红素与生物转化_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "a50acf6215f54bd155898ab3de84e1aeb2f52c37"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: hepatocellular dysfunction can reflux water-soluble conjugated bilirubin into blood, making urine bilirubin positive. M10 KP09 owns jaundice patterns and KP08 the CB-vs-UCB urine boundary."
+    },
+    "primary_kp_id": "biochem-m10-kp09"
+  },
+  {
+    "question_id": "xizong-official-2021-n042",
+    "system_id": "respiratory",
+    "block_id": "respiratory-r03",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q026-050.json",
+      "question_truth_blob_sha": "8af95035bc7b150c1e86493dc9fb98dbf82978b8",
+      "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "4a4417bc76dbd0f200e00f2f246884879d4be5c3"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: COPD requires persistent post-bronchodilator airflow limitation; FEV1/FVC<0.70 is the Current Study diagnostic threshold. R3 KP13 explicitly owns diagnostic spirometry."
+    },
+    "primary_kp_id": "respiratory-r03-kp13"
+  },
+  {
+    "question_id": "xizong-official-2021-n044",
+    "system_id": "respiratory",
+    "block_id": "respiratory-r06",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q026-050.json",
+      "question_truth_blob_sha": "8af95035bc7b150c1e86493dc9fb98dbf82978b8",
+      "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "4cf25038e8e43bec00e15e3c5928b5478a0bebb2"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: hematogenous lung abscess classically comes from septic emboli and Staphylococcus aureus, often producing bilateral peripheral lesions. R6 explicitly owns this pattern; relation stops at Block level because stable embedded KP ids are absent."
+    }
+  },
+  {
+    "question_id": "xizong-official-2021-n045",
+    "system_id": "circulation",
+    "block_id": "circulation-b05",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q026-050.json",
+      "question_truth_blob_sha": "8af95035bc7b150c1e86493dc9fb98dbf82978b8",
+      "knowledge_path": "content/xizong/knowledge/systems/a1-circulation/blocks/Block5_高血压与动脉粥样硬化_学习阅读版_v2_最终执行版.md",
+      "knowledge_blob_sha": "6d3ea9aa5df2e7520da402f579fdb2722cd16259"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: hypertension with diabetes/proteinuria/renal involvement favors RAAS blockade for BP control plus renal/proteinuria benefit. B5 owns the comorbidity-based antihypertensive selection; relation is Block-level because stable embedded KP ids are absent."
+    }
+  },
+  {
+    "question_id": "xizong-official-2021-n047",
+    "system_id": "circulation",
+    "block_id": "circulation-b08",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q026-050.json",
+      "question_truth_blob_sha": "8af95035bc7b150c1e86493dc9fb98dbf82978b8",
+      "knowledge_path": "content/xizong/knowledge/systems/a1-circulation/blocks/Block8_心肌与心包_学习阅读版_v1_Batch4冻结版.md",
+      "knowledge_blob_sha": "628349002b475f336a1f86c8190def7b4a14523f"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: myocarditis commonly causes arrhythmia, heart failure, shock/sudden death or MI-like injury; tamponade is a pericardial-pressure syndrome, not a usual myocarditis manifestation. B8 owns the full myocarditis/pericardium distinction."
+    }
+  },
+  {
+    "question_id": "xizong-official-2021-n048",
+    "system_id": "circulation",
+    "block_id": "circulation-b07",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q026-050.json",
+      "question_truth_blob_sha": "8af95035bc7b150c1e86493dc9fb98dbf82978b8",
+      "knowledge_path": "content/xizong/knowledge/systems/a1-circulation/blocks/Block7_风湿_IE与四瓣膜病_学习阅读版_v1_Batch4冻结版.md",
+      "knowledge_blob_sha": "4b8fc8938e415d5840c55bb6e331161afc353399"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: AR raises LV volume work while lowering aortic diastolic pressure and coronary perfusion pressure, producing angina. B7 KP36 explicitly owns this hemodynamic mechanism."
+    },
+    "primary_kp_id": "circulation-b07-kp36"
+  },
+  {
+    "question_id": "xizong-official-2021-n049",
+    "system_id": "digestive_metabolic_endocrine",
+    "block_id": "D9",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q026-050.json",
+      "question_truth_blob_sha": "8af95035bc7b150c1e86493dc9fb98dbf82978b8",
+      "knowledge_path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/D9_GERD与贲门失弛缓_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "f1d092e03d26464e00baeb69301ea1c86d846005"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: GERD complications include bleeding, stricture and Barrett esophagus; esophageal diverticulum is not a typical reflux complication. D9 KP07 explicitly owns the complication set."
+    },
+    "primary_kp_id": "dme-d09-kp07"
+  },
+  {
+    "question_id": "xizong-official-2021-n050",
+    "system_id": "digestive_metabolic_endocrine",
+    "block_id": "D10",
+    "supporting_kp_ids": [
+      "dme-d10-kp13",
+      "dme-d10-kp14"
+    ],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q026-050.json",
+      "question_truth_blob_sha": "8af95035bc7b150c1e86493dc9fb98dbf82978b8",
+      "knowledge_path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/D10_胃炎HP消化性溃疡与上消化道出血_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "3124b960adaca04335ce5f3385bc79676d7e7a58"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: postprandial pain fits gastric ulcer and coffee-ground emesis/melena establishes UGIB. D10 KP10 owns GU-vs-DU pain timing, with KP13/14 owning bleeding complications/UGIB entry."
+    },
+    "primary_kp_id": "dme-d10-kp10"
+  },
+  {
+    "question_id": "xizong-official-2021-n051",
+    "system_id": "digestive_metabolic_endocrine",
+    "block_id": "D12",
+    "supporting_kp_ids": [
+      "digestive-d12-kp06"
+    ],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q051-075.json",
+      "question_truth_blob_sha": "022d858f94bfcd7f91009fe7e25716fc11e1fa35",
+      "knowledge_path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/消化系统_D12_肠结核结核性腹膜炎IBD与IBS_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "342701061341084dfa7426c16eaae6f12fefa8ae"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: TB history, low fever, doughy abdomen and ascites suggest tuberculous peritonitis; ascitic-fluid analysis directly characterizes the effusion and TB tendency. D12 KP07 owns ascites evidence; KP06 owns the clinical identity."
+    },
+    "primary_kp_id": "digestive-d12-kp07"
+  },
+  {
+    "question_id": "xizong-official-2021-n052",
+    "system_id": "urinary",
+    "block_id": "urinary-b10",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q051-075.json",
+      "question_truth_blob_sha": "022d858f94bfcd7f91009fe7e25716fc11e1fa35",
+      "knowledge_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block10_肾炎分支_急性急进IgA与慢性肾炎_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "12ba127043d424b53ed7ddd17dbe27b01889da7a"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: acute nephritis lowers GFR, causing sodium/water retention and volume-dependent edema/hypertension. Urinary B10 KP04 explicitly owns this mechanism."
+    },
+    "primary_kp_id": "urinary-b10-kp04"
+  },
+  {
+    "question_id": "xizong-official-2021-n053",
+    "system_id": "hematology_immunity_infection",
+    "block_id": "hematology-h03",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q051-075.json",
+      "question_truth_blob_sha": "022d858f94bfcd7f91009fe7e25716fc11e1fa35",
+      "knowledge_path": "content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H3_贫血总坐标缺铁与巨幼_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "b6cbe71447ee7765935257b87e9a1edb16dfb326"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: after effective iron replacement, reticulocytes rise before hemoglobin and red-cell indices normalize. H3 KP11 explicitly owns treatment response and the early Ret signal."
+    },
+    "primary_kp_id": "hematology-h03-kp11"
+  },
+  {
+    "question_id": "xizong-official-2021-n055",
+    "system_id": "hematology_immunity_infection",
+    "block_id": "hematology-h19",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q051-075.json",
+      "question_truth_blob_sha": "022d858f94bfcd7f91009fe7e25716fc11e1fa35",
+      "knowledge_path": "content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H19_系统性血管炎与贝赫切特病_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "6ca9c78ded121b2f4a6dd315288d5367008f6014"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: pathergy—a papular/pustular inflammatory reaction after needle trauma—is a classic Behcet feature. H19 KP15 explicitly owns this sign."
+    },
+    "primary_kp_id": "hematology-h19-kp15"
+  },
+  {
+    "question_id": "xizong-official-2021-n056",
+    "system_id": "hematology_immunity_infection",
+    "block_id": "hematology-h19",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q051-075.json",
+      "question_truth_blob_sha": "022d858f94bfcd7f91009fe7e25716fc11e1fa35",
+      "knowledge_path": "content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H19_系统性血管炎与贝赫切特病_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "6ca9c78ded121b2f4a6dd315288d5367008f6014"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: microscopic polyangiitis belongs to the ANCA-associated vasculitis group and is classically linked to MPO-ANCA/p-ANCA. H19 KP04 explicitly owns this classification."
+    },
+    "primary_kp_id": "hematology-h19-kp04"
+  },
+  {
+    "question_id": "xizong-official-2021-n060",
+    "system_id": "digestive_metabolic_endocrine",
+    "block_id": "D9",
+    "supporting_kp_ids": [
+      "dme-d09-kp11"
+    ],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q051-075.json",
+      "question_truth_blob_sha": "022d858f94bfcd7f91009fe7e25716fc11e1fa35",
+      "knowledge_path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/D9_GERD与贲门失弛缓_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "f1d092e03d26464e00baeb69301ea1c86d846005"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: chronic intermittent dysphagia plus a smooth bird-beak distal esophagus identifies achalasia; Heller myotomy is the classic operation. D9 KP12 owns the procedure, with KP11 the disease identity."
+    },
+    "primary_kp_id": "dme-d09-kp12"
+  },
+  {
+    "question_id": "xizong-official-2021-n063",
+    "system_id": "digestive_metabolic_endocrine",
+    "block_id": "D20",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q051-075.json",
+      "question_truth_blob_sha": "022d858f94bfcd7f91009fe7e25716fc11e1fa35",
+      "knowledge_path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/消化系统_D20_急性胰腺炎与胰腺肿瘤_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "8ddaf080125b58f84cc843686b2171205f11f8dd"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: progressive painless obstructive jaundice plus a palpable nontender gallbladder is the Courvoisier pattern of pancreatic-head cancer. D20 KP17 explicitly owns this presentation."
+    },
+    "primary_kp_id": "digestive-d20-kp17"
+  },
+  {
+    "question_id": "xizong-official-2021-n064",
+    "system_id": "digestive_metabolic_endocrine",
+    "block_id": "D14",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q051-075.json",
+      "question_truth_blob_sha": "022d858f94bfcd7f91009fe7e25716fc11e1fa35",
+      "knowledge_path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/消化系统_D14_肠梗阻阑尾炎与腹外疝_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "bcf9efb78a54aa86f4dd41b11f873ceeecc3807c"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: strangulation is signaled by persistent severe pain, localized peritoneal signs, bloody output and early shock; simple abdominal distension is nonspecific. D14 KP08 explicitly owns strangulation signals."
+    },
+    "primary_kp_id": "digestive-d14-kp08"
+  },
+  {
+    "question_id": "xizong-official-2021-n069",
+    "system_id": "digestive_metabolic_endocrine",
+    "block_id": "D10",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q051-075.json",
+      "question_truth_blob_sha": "022d858f94bfcd7f91009fe7e25716fc11e1fa35",
+      "knowledge_path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/D10_胃炎HP消化性溃疡与上消化道出血_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "3124b960adaca04335ce5f3385bc79676d7e7a58"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: chronic peptic-ulcer-pattern pain followed by abrupt persistent severe abdominal pain is classic free perforation. D10 KP17 explicitly owns acute perforation."
+    },
+    "primary_kp_id": "dme-d10-kp17"
+  },
+  {
+    "question_id": "xizong-official-2021-n070",
+    "system_id": "hematology_immunity_infection",
+    "block_id": "hematology-h03",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q051-075.json",
+      "question_truth_blob_sha": "022d858f94bfcd7f91009fe7e25716fc11e1fa35",
+      "knowledge_path": "content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H3_贫血总坐标缺铁与巨幼_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "b6cbe71447ee7765935257b87e9a1edb16dfb326"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: chronic heavy menses is a major chronic blood-loss cause of IDA; pallor and high-output cardiac findings fit the anemia phenotype. H3 KP07 explicitly owns chronic menstrual blood loss as an IDA cause."
+    },
+    "primary_kp_id": "hematology-h03-kp07"
+  },
+  {
+    "question_id": "xizong-official-2021-n073",
+    "system_id": "respiratory",
+    "block_id": "respiratory-r10",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q051-075.json",
+      "question_truth_blob_sha": "022d858f94bfcd7f91009fe7e25716fc11e1fa35",
+      "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "69546cda7aed75e8efbbb7322ea3d5749cdad607"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: fever, severe pleuritic pain, neutrophil-predominant high-cell pleural fluid and very high LDH identify acute empyema/complicated bacterial pleural infection. R10 KP12 owns acute empyema."
+    },
+    "primary_kp_id": "respiratory-r10-kp12"
+  },
+  {
+    "question_id": "xizong-official-2021-n075",
+    "system_id": "respiratory",
+    "block_id": "respiratory-r10",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2021/q051-075.json",
+      "question_truth_blob_sha": "022d858f94bfcd7f91009fe7e25716fc11e1fa35",
+      "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "69546cda7aed75e8efbbb7322ea3d5749cdad607"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent solve: empyema requires source control by adequate pleural drainage in addition to antibiotics. R10 KP12 explicitly owns drainage as the basic treatment."
+    },
+    "primary_kp_id": "respiratory-r10-kp12"
+  }
+]
