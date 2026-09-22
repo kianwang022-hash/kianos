@@ -56,54 +56,28 @@
       "runtime_model_calls": false
     },
     "word": "drunk",
-    "word_family": [
-      {
-        "boundaries": [
-          "drunk is the past participle of drink"
-        ],
-        "collocation_constraints": [
-          "Do not substitute one family member for another without changing grammar."
-        ],
-        "direction": "R",
-        "evidence": [
-          {
-            "evidence_id": "evidence:52f5989fbc9a380fb604",
-            "evidence_status": "source_checked",
-            "evidence_text": "drink",
-            "pdf_page": null,
-            "source_locator": "entries[word=drunk].exchange",
-            "source_path": "academic_vocab_builder/output/vocab_5500/source_manifest.json",
-            "source_sha256": "f36be6487ffb22b2c4da60cc2aa7b7cfe3453a1fbefb0129f096588cf83ef5d6",
-            "source_type": "learner_dictionary",
-            "verified_at": "2026-08-13T23:16:58+00:00",
-            "verified_by": "local_rule+deepseek_independent_verification"
-          }
-        ],
-        "family_relation_type": "inflectional",
-        "priority": "A",
-        "publication_status": "publishable",
-        "register": "morphological relation",
-        "relation_id": "rel:v3-family:drunk:drink",
-        "relation_note": "drunk is an irregular past participle of drink; independent noun/adjective lexemes remain separately modeled",
-        "relation_scope": "lexeme",
-        "relation_type": "inflectional",
-        "shared_meaning": "base verb",
-        "source_expression": "drunk",
-        "source_sense_id": "sense:drunk:50257d2750745491",
-        "source_sentence": "",
-        "strength_difference": "not a synonym relation",
-        "syntax_constraints": [],
-        "target_expression": "drink",
-        "target_sense_id": null,
-        "target_sentence": "",
-        "task_tags": [
-          "reading",
-          "cloze"
-        ],
-        "verification_status": "verified"
-      }
-    ],
-    "word_id": "word:drunk"
+    "word_family": [],
+    "word_id": "word:drunk",
+    "form_identity": {
+      "form_type": "lexicalized_participle_surface_identity",
+      "spelling": "drunk",
+      "identity_rule": "shared_surface_inflection_and_lexicalized_adjective",
+      "boundary": "drunk is the irregular past participle of drink and also a separately lexicalized adjective meaning intoxicated.",
+      "boundaries": [
+        {
+          "surface": "drunk",
+          "condition": "past participle of drink",
+          "note": "participial surface of drink"
+        },
+        {
+          "surface": "drunk",
+          "condition": "adjective lexeme",
+          "note": "intoxicated with alcohol"
+        }
+      ],
+      "variants": [],
+      "authority": "BF14 Kian-p approved Form/knowledge expansion 2026-09-22"
+    }
   },
   "relation_refs": [],
   "reference_senses": [

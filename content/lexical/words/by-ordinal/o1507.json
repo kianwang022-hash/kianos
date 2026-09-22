@@ -41,7 +41,21 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [],
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "fact_id": "usage:dream:aspiration-noun",
+        "module": "secondary_senses",
+        "pos": "noun",
+        "level": "L1",
+        "definition_cn": "梦想；愿望；很想实现的目标",
+        "definition_en": "a hope, ambition, or condition that you want very much to achieve",
+        "pattern": "a dream of + sth / pursue or fulfil a dream",
+        "boundary": "aspiration dream = desired future goal, not a sleep dream or mere fantasy",
+        "publication_status": "publishable",
+        "verification_status": "verified",
+        "source_sense_id": null
+      }
+    ],
     "semantic_neighbors": [],
     "senses": [
       {
@@ -232,7 +246,27 @@
     },
     "word": "dream",
     "word_family": [],
-    "word_id": "word:dream"
+    "word_id": "word:dream",
+    "form_identity": {
+      "form_type": "variant_inflection_identity",
+      "spelling": "dream",
+      "identity_rule": "same_word_owner_no_semantic_split",
+      "boundary": "dream has two accepted past and past-participle forms: dreamed and dreamt.",
+      "boundaries": [
+        {
+          "surface": "dreamed",
+          "condition": "past simple / past participle",
+          "note": "accepted form"
+        },
+        {
+          "surface": "dreamt",
+          "condition": "past simple / past participle",
+          "note": "accepted variant form"
+        }
+      ],
+      "variants": [],
+      "authority": "BF14 Kian-p approved Form/knowledge expansion 2026-09-22"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],

@@ -11,19 +11,19 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "地球；泥土；土壤；尘世；人间；（古代哲学中的）土（元素）",
-          "label_en": "the third planet from the sun; the world we live on; the loose soft material that makes up the ground; soil; the world as opposed to heaven or hell; mortal life; one of the four elements in ancient philosophy",
+          "label_cn": "地球；行星",
+          "label_en": "the planet we live on",
           "pos": "noun",
           "sense_ids": [
-            "sense:earth:d9600fcd2614593c"
+            "sense:earth:3cb4cb2499b65294"
           ]
         },
         {
-          "label_cn": "埋入土中",
-          "label_en": "to cover with earth; to bury in the ground",
-          "pos": "verb",
+          "label_cn": "土壤；土地；地面",
+          "label_en": "soil, land, or the ground",
+          "pos": "noun",
           "sense_ids": [
-            "sense:earth:9001e73cd16b5f06"
+            "sense:earth:abf32d6fd3c15155"
           ]
         }
       ],
@@ -43,6 +43,34 @@
       {
         "collocations": [],
         "confidence": "medium",
+        "definition_cn": "地球；行星",
+        "definition_en": "the planet Earth",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:earth:3cb4cb2499b65294",
+        "sense_label_en": "the planet Earth",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "土壤、土地或地面",
+        "definition_en": "soil or ground",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:earth:abf32d6fd3c15155",
+        "sense_label_en": "soil or ground",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
         "definition_cn": "（古代哲学中的）土（元素）",
         "definition_en": "one of the four elements in ancient philosophy",
         "governing_pattern": "",
@@ -51,7 +79,7 @@
         "pos": "noun",
         "sense_id": "sense:earth:d9600fcd2614593c",
         "sense_label_en": "one of the four elements in ancient philosophy",
-        "sort_order": 0,
+        "sort_order": 2,
         "transitivity": "nonverb"
       },
       {
@@ -75,36 +103,8 @@
         "pos": "verb",
         "sense_id": "sense:earth:9001e73cd16b5f06",
         "sense_label_en": "to cover with earth; to bury in the ground",
-        "sort_order": 1,
+        "sort_order": 3,
         "transitivity": "vt"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "地球；行星",
-        "definition_en": "the planet Earth",
-        "governing_pattern": "",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:earth:3cb4cb2499b65294",
-        "sense_label_en": "the planet Earth",
-        "sort_order": 999,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "土壤、土地或地面",
-        "definition_en": "soil or ground",
-        "governing_pattern": "",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:earth:abf32d6fd3c15155",
-        "sense_label_en": "soil or ground",
-        "sort_order": 999,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -124,7 +124,27 @@
     },
     "word": "earth",
     "word_family": [],
-    "word_id": "word:earth"
+    "word_id": "word:earth",
+    "form_identity": {
+      "form_type": "capitalization_identity",
+      "spelling": "earth",
+      "identity_rule": "capitalization_is_context_sensitive_not_absolute",
+      "boundary": "Planet sense may appear as proper-name Earth, while earth is also used in lowercase; soil/ground earth remains lowercase. Do not treat capitalization as a rigid semantic split.",
+      "boundaries": [
+        {
+          "surface": "Earth",
+          "condition": "proper-name use for the planet",
+          "note": "capitalized proper-name form"
+        },
+        {
+          "surface": "earth",
+          "condition": "planet in some general contexts; soil/ground",
+          "note": "lowercase is possible for planet and standard for soil/ground"
+        }
+      ],
+      "variants": [],
+      "authority": "BF14 Kian-p approved Form/knowledge expansion 2026-09-22"
+    }
   },
   "relation_refs": [],
   "reference_senses": [
