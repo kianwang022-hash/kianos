@@ -11,25 +11,25 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "电的，电动的；紧张的，令人激动的",
-          "label_en": "using, providing, producing, transmitting, or operated by electricity; exceptionally tense or thrilling",
+          "label_cn": "电的；电动的；用电驱动的",
+          "label_en": "powered by, producing, or directly involving electricity",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:electric:75a50699ac580c0d"
+          ]
+        },
+        {
+          "label_cn": "令人兴奋的；气氛紧张而热烈的",
+          "label_en": "exceptionally exciting, tense, or thrilling",
           "pos": "adjective",
           "sense_ids": [
             "sense:electric:a167879d96365bb3"
           ]
-        },
-        {
-          "label_cn": "电动车",
-          "label_en": "a car powered by electricity",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:electric:8b788bf04ecc58de"
-          ]
         }
       ],
-      "core_meaning_cn": "电的",
-      "core_meaning_en": "operated by electricity",
-      "mental_model_cn": "电的",
+      "core_meaning_cn": "电的；电动的；也可形容气氛非常兴奋或紧张",
+      "core_meaning_en": "powered by or involving electricity; also figuratively exciting or tense",
+      "mental_model_cn": "先判断是不是“直接由电驱动/产生电”；再与更宽泛的 electrical 区分。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -43,6 +43,30 @@
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:d8016f7680eac244b43f",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:electric:75a50699ac580c0d:collocation:handoff-o1375-o1624"
+            ],
+            "meaning_cn": "电动汽车或设备",
+            "phrase": "electric car/device"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "电的；用电驱动的",
+        "definition_en": "powered by or producing electricity",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:electric:75a50699ac580c0d",
+        "sense_label_en": "powered by or producing electricity",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
       {
         "collocations": [
           {
@@ -64,7 +88,7 @@
         "pos": "adjective",
         "sense_id": "sense:electric:a167879d96365bb3",
         "sense_label_en": "exceptionally tense or thrilling",
-        "sort_order": 0,
+        "sort_order": 1,
         "transitivity": "nonverb"
       },
       {
@@ -88,30 +112,6 @@
         "pos": "noun",
         "sense_id": "sense:electric:8b788bf04ecc58de",
         "sense_label_en": "a car powered by electricity",
-        "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:d8016f7680eac244b43f",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:electric:75a50699ac580c0d:collocation:handoff-o1375-o1624"
-            ],
-            "meaning_cn": "电动汽车或设备",
-            "phrase": "electric car/device"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "电的；用电驱动的",
-        "definition_en": "powered by or producing electricity",
-        "governing_pattern": "",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:electric:75a50699ac580c0d",
-        "sense_label_en": "powered by or producing electricity",
         "sort_order": 2,
         "transitivity": "nonverb"
       }
@@ -175,7 +175,14 @@
     ],
     "word_id": "word:electric"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "relation:final-standard:electric-electrical:semantic_contrast",
+      "owner_path": "content/lexical/relations/by-id/0d/0d9dd0ef0d1101cf942659544590b474b8cc229c003500172eeec04cf46e45c0.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
   "reference_senses": [
     {
       "stable_sense_id": "sense:electric:06edb7f0aa0f5fde",

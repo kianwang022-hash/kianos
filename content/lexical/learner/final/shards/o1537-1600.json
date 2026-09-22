@@ -2128,7 +2128,7 @@
     "ordinal": 1555,
     "word": "eastern",
     "source_owner_path": "content/lexical/words/by-ordinal/o1555.json",
-    "source_fingerprint": "1c86d4e48179b41f6a211909e55ec985857d9a262d9190b13b3c99d9f4055af9",
+    "source_fingerprint": "fb5d9a1001cfc48e481f4b9fade5de995d5baae800c71890fb9bbea1a92983b0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2411,7 +2411,7 @@
     "ordinal": 1557,
     "word": "eat",
     "source_owner_path": "content/lexical/words/by-ordinal/o1557.json",
-    "source_fingerprint": "53d7894cbbff6efe5f8833d823b6c41f1553e292e30947bcd6849bda0f10c99b",
+    "source_fingerprint": "6d782990ba7d2b6410782739a19e55b7e35c853655d9272ec666aaec04f0db62",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2558,7 +2558,33 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "eat is irregular: eat → ate → eaten.",
+        "boundaries": [
+          {
+            "surface": "eat",
+            "condition": "base/present",
+            "note": "base form"
+          },
+          {
+            "surface": "ate",
+            "condition": "past simple",
+            "note": "irregular past"
+          },
+          {
+            "surface": "eaten",
+            "condition": "past participle",
+            "note": "irregular participle"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "eat is irregular: eat → ate → eaten."
+        }
+      },
       "family": []
     }
   },
@@ -3016,7 +3042,7 @@
     "ordinal": 1561,
     "word": "eclipse",
     "source_owner_path": "content/lexical/words/by-ordinal/o1561.json",
-    "source_fingerprint": "7f2543068469b544fb84696776aceb2ccebbfd0bad68f1907aa212d535b8458a",
+    "source_fingerprint": "5111e6403285c59bfb8ff212adeefa72f6a3151d830528597f57057d818f5d2e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3269,7 +3295,7 @@
     "ordinal": 1563,
     "word": "economic",
     "source_owner_path": "content/lexical/words/by-ordinal/o1563.json",
-    "source_fingerprint": "e9edd6677d80dee713924c99b0778f9e6eb39ece1e82ac0417d8422373d387be",
+    "source_fingerprint": "20ace9ee4b9943fd62b22aae87331c8fbca24f5cc21f4964d012deaf5d0d322e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3416,38 +3442,10 @@
             "target_locator": "record.semantic_neighbors[0]",
             "target_label": "economic ↔ economical"
           }
-        },
-        {
-          "title": "economic ↔ economic ↔ economical",
-          "target_word": "economic ↔ economical",
-          "lines": [
-            {
-              "text": "economic ↔ economical",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:89094570deb964bee53d",
-            "target_locator": "record.semantic_neighbors[1]",
-            "target_label": "economic ↔ economic ↔ economical"
-          }
         }
       ],
       "form": null,
-      "family": [
-        {
-          "target_word": "economical",
-          "lines": [
-            {
-              "text": "economic 与 economical 同根形容词",
-              "lang": "cn"
-            }
-          ],
-          "source_locator": "record.word_family[0]"
-        }
-      ]
+      "family": []
     }
   },
   {
@@ -4712,7 +4710,7 @@
     "ordinal": 1575,
     "word": "effect",
     "source_owner_path": "content/lexical/words/by-ordinal/o1575.json",
-    "source_fingerprint": "c89535f74985155677f1fc4f5ed0e25cf34de420847f3d41f2a00c27a2b7b7b8",
+    "source_fingerprint": "97ffe5458990594a877d839df9770abda7943104539dcc557c127dcc3722d703",
     "sense_lineage": [
       {
         "word_id": "word:effect",
@@ -4724,19 +4722,19 @@
     ],
     "recall_map": {
       "parts": [
-        "(1+1)V",
+        "1V",
         "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "由原因引起的变化或结果",
-      "decision_cn": "",
+      "summary_cn": "由原因引起的影响、效果或结果；也可作正式动词表示“使发生”",
+      "decision_cn": "由原因引起的变化或结果",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "由原因引起的变化或结果"
+        "target_label": "由原因引起的影响、效果或结果；也可作正式动词表示“使发生”"
       }
     },
     "senses": [
@@ -4900,22 +4898,7 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:effect:f2eca9fe50ad7ea2",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "引起；使发生",
-        "definition_en": "to cause something to happen or bring about",
-        "pattern": "作动词指使某事发生；不可按名词 effect 解析",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:effect:f2eca9fe50ad7ea2",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "引起；使发生"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [
@@ -4970,7 +4953,7 @@
     "ordinal": 1576,
     "word": "effective",
     "source_owner_path": "content/lexical/words/by-ordinal/o1576.json",
-    "source_fingerprint": "093f91e3bda7da86fb071988707d6c1956cf25973d9ac8bd422589998774295d",
+    "source_fingerprint": "c7b1d77b27e00860ea30ddf4945b747c5c767d767df60250f513715b9a34d02c",
     "sense_lineage": [
       {
         "word_id": "word:effective",
@@ -5105,7 +5088,7 @@
     "ordinal": 1577,
     "word": "efficiency",
     "source_owner_path": "content/lexical/words/by-ordinal/o1577.json",
-    "source_fingerprint": "35205858ce9ddde18ef038c9c0741cb604a8d6aafa2bb20eb71b5dfab1f1c695",
+    "source_fingerprint": "23f3abf53a3aef92124d65130687a61ca344f6366210d736e476353cd3cac674",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5125,42 +5108,8 @@
     },
     "senses": [
       {
-        "id": "sense:efficiency:d79fcf817aed54d1",
-        "source_locator": "record.senses[0]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "效率（输出与输入之比）",
-        "definition_en": "the ratio of the useful output to the total input in a system",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:a9d3b87c148d64700cf7",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "energy efficiency",
-            "meaning_cn": "能源效率",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:5a61c22d2281a0ddc131",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "improve efficiency",
-            "meaning_cn": "提高效率",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:efficiency:d79fcf817aed54d1",
-          "target_locator": "record.senses[0]",
-          "target_label": "效率（输出与输入之比）"
-        }
-      },
-      {
         "id": "sense:efficiency:e3ac5b639b5159fe",
-        "source_locator": "record.senses[1]",
+        "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "效率；不浪费时间、精力或资源",
@@ -5170,7 +5119,7 @@
         "usage": [
           {
             "id": "collocation:8f043357abc30e824460",
-            "source_locator": "record.senses[1].collocations[0]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "work efficiency",
             "meaning_cn": "工作效率",
             "kind": "usage_example",
@@ -5178,7 +5127,7 @@
           },
           {
             "id": "collocation:c2613490a6efc4caa64f",
-            "source_locator": "record.senses[1].collocations[1]",
+            "source_locator": "record.senses[0].collocations[1]",
             "phrase": "with efficiency",
             "meaning_cn": "高效地",
             "kind": "usage_example",
@@ -5188,8 +5137,42 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:efficiency:e3ac5b639b5159fe",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[0]",
           "target_label": "效率；不浪费时间、精力或资源"
+        }
+      },
+      {
+        "id": "sense:efficiency:d79fcf817aed54d1",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "效率（输出与输入之比）",
+        "definition_en": "the ratio of the useful output to the total input in a system",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:a9d3b87c148d64700cf7",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "energy efficiency",
+            "meaning_cn": "能源效率",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:5a61c22d2281a0ddc131",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "improve efficiency",
+            "meaning_cn": "提高效率",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:efficiency:d79fcf817aed54d1",
+          "target_locator": "record.senses[1]",
+          "target_label": "效率（输出与输入之比）"
         }
       }
     ],
@@ -6152,7 +6135,7 @@
     "ordinal": 1587,
     "word": "elaborate",
     "source_owner_path": "content/lexical/words/by-ordinal/o1587.json",
-    "source_fingerprint": "543ebfe9bc7a378e0664819fef582f3b454b594bcfac211b8308d34ecf2aa700",
+    "source_fingerprint": "a3457e9a3d99cb6dc1b4c60fef3cd0cdf552c0e2778cddab776c2bfb058b74fd",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6180,15 +6163,7 @@
         "definition_cn": "精细的，详尽的",
         "definition_en": "marked by complexity and richness of detail",
         "note": "",
-        "identity_overlay": {
-          "text": "elaborate adjective ends /-rət/; elaborate verb ends /-reɪt/.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "elaborate adjective ends /-rət/; elaborate verb ends /-reɪt/."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:8135325bc89f82e7c6bd",
@@ -6222,15 +6197,7 @@
         "definition_cn": "详细说明；进一步阐述",
         "definition_en": "to explain something more fully or in greater detail",
         "note": "",
-        "identity_overlay": {
-          "text": "elaborate adjective ends /-rət/; elaborate verb ends /-reɪt/.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "elaborate adjective ends /-rət/; elaborate verb ends /-reɪt/."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:8a215a31a4948ff8f2c4",
@@ -6261,15 +6228,7 @@
         "definition_cn": "精心扩展；增添细节；详细制定",
         "definition_en": "to add details to or develop/work out something in detail",
         "note": "",
-        "identity_overlay": {
-          "text": "elaborate adjective ends /-rət/; elaborate verb ends /-reɪt/.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[2].lexical_identity_overlay",
-            "target_label": "elaborate adjective ends /-rət/; elaborate verb ends /-reɪt/."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:07312ab7c9d715fcba75",
@@ -6296,27 +6255,30 @@
     "secondary_senses": [],
     "constructions": [],
     "reference": {
-      "confusables": [
-        {
-          "title": "elaborate ↔ elaborate adjective ↔ elaborate verb",
-          "target_word": "elaborate adjective ↔ elaborate verb",
-          "lines": [
-            {
-              "text": "elaborate adjective ends /-rət/; elaborate verb ends /-reɪt/.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "confusable:horizontal:26b0f6b340197db13162",
-            "target_locator": "record.confusables[0]",
-            "target_label": "elaborate ↔ elaborate adjective ↔ elaborate verb"
-          }
-        }
-      ],
+      "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "elaborate adjective ends /-rət/; elaborate verb ends /-reɪt/.",
+        "boundaries": [
+          {
+            "surface": "elaborate",
+            "condition": "adjective",
+            "note": "final /-rət/"
+          },
+          {
+            "surface": "elaborate",
+            "condition": "verb",
+            "note": "final /-reɪt/"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "elaborate adjective ends /-rət/; elaborate verb ends /-reɪt/."
+        }
+      },
       "family": []
     }
   },
@@ -6326,7 +6288,7 @@
     "ordinal": 1588,
     "word": "elapse",
     "source_owner_path": "content/lexical/words/by-ordinal/o1588.json",
-    "source_fingerprint": "844c0a67787cb2d6af52c7696bf4a0fbf3fdf34755d491d9bf6169e212b56999",
+    "source_fingerprint": "f21346e839695e2e37fdfccca7548baad941c1a5d8c8d4516618e921da26ce9e",
     "sense_lineage": [
       {
         "word_id": "word:elapse",
@@ -6357,7 +6319,7 @@
         "id": "sense:elapse:aa1d5418f94151fa",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "time elapses",
+        "governing_pattern": "vi. (time elapses)",
         "definition_cn": "（时间）流逝",
         "definition_en": "for time to pass",
         "note": "",
@@ -6658,7 +6620,7 @@
     "ordinal": 1591,
     "word": "elder",
     "source_owner_path": "content/lexical/words/by-ordinal/o1591.json",
-    "source_fingerprint": "61705bd37d7a78a53aa7f7680cee1f89bf653d7182162fef888fdfd48b4880db",
+    "source_fingerprint": "f8422a77f3acc2882de30f548696336941a5b0072544fb9457a5309bf5e53ce6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7014,7 +6976,7 @@
     "ordinal": 1593,
     "word": "electric",
     "source_owner_path": "content/lexical/words/by-ordinal/o1593.json",
-    "source_fingerprint": "a54b936d49378bc616b5af5dccceb9ea6df6a5e2ef8f1c962895b52c8e39685b",
+    "source_fingerprint": "4daf9ce38701c70281ece701cccf6359f9a350f97e8f439e04f0d054881c2e08",
     "sense_lineage": [
       {
         "word_id": "word:electric",
@@ -7032,71 +6994,19 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "电的",
-      "decision_cn": "",
+      "summary_cn": "电的；电动的；也可形容气氛非常兴奋或紧张",
+      "decision_cn": "先判断是不是“直接由电驱动/产生电”；再与更宽泛的 electrical 区分。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "电的"
+        "target_label": "电的；电动的；也可形容气氛非常兴奋或紧张"
       }
     },
     "senses": [
       {
-        "id": "sense:electric:a167879d96365bb3",
-        "source_locator": "record.senses[0]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "紧张的，令人激动的",
-        "definition_en": "exceptionally tense or thrilling",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:dedb7cf5a00728265ea3",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "electric atmosphere",
-            "meaning_cn": "紧张的气氛",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:electric:a167879d96365bb3",
-          "target_locator": "record.senses[0]",
-          "target_label": "紧张的，令人激动的"
-        }
-      },
-      {
-        "id": "sense:electric:8b788bf04ecc58de",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "电动车",
-        "definition_en": "a car powered by electricity",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:f7bf1d5224321b4d30ac",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "buy an electric",
-            "meaning_cn": "买一辆电动车",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:electric:8b788bf04ecc58de",
-          "target_locator": "record.senses[1]",
-          "target_label": "电动车"
-        }
-      },
-      {
         "id": "sense:electric:75a50699ac580c0d",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "电的；用电驱动的",
@@ -7106,14 +7016,14 @@
         "usage": [
           {
             "id": "collocation:d8016f7680eac244b43f",
-            "source_locator": "record.senses[2].collocations[0]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "electric car/device",
             "meaning_cn": "电动汽车或设备",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:d8016f7680eac244b43f",
-              "target_locator": "record.senses[2].collocations[0]",
+              "target_locator": "record.senses[0].collocations[0]",
               "target_label": "electric car/device"
             }
           }
@@ -7121,8 +7031,60 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:electric:75a50699ac580c0d",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[0]",
           "target_label": "电的；用电驱动的"
+        }
+      },
+      {
+        "id": "sense:electric:a167879d96365bb3",
+        "source_locator": "record.senses[1]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "紧张的，令人激动的",
+        "definition_en": "exceptionally tense or thrilling",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:dedb7cf5a00728265ea3",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "electric atmosphere",
+            "meaning_cn": "紧张的气氛",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:electric:a167879d96365bb3",
+          "target_locator": "record.senses[1]",
+          "target_label": "紧张的，令人激动的"
+        }
+      },
+      {
+        "id": "sense:electric:8b788bf04ecc58de",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "电动车",
+        "definition_en": "a car powered by electricity",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:f7bf1d5224321b4d30ac",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "buy an electric",
+            "meaning_cn": "买一辆电动车",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:electric:8b788bf04ecc58de",
+          "target_locator": "record.senses[2]",
+          "target_label": "电动车"
         }
       }
     ],
@@ -7130,7 +7092,25 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [],
+      "relations": [
+        {
+          "title": "electric ↔ electrical",
+          "target_word": "electrical",
+          "lines": [
+            {
+              "text": "electric typically means powered by, producing, or directly involving electricity; electrical more broadly means relating to electricity or electrical systems/equipment. Some contexts overlap.",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:final-standard:electric-electrical:semantic_contrast",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "electric ↔ electrical"
+          }
+        }
+      ],
       "form": null,
       "family": [
         {
@@ -7152,7 +7132,7 @@
     "ordinal": 1594,
     "word": "electrical",
     "source_owner_path": "content/lexical/words/by-ordinal/o1594.json",
-    "source_fingerprint": "6f0ea4afd8dd445d1f6f15bf3cbcb05e578bba71773bd2d7734125d074e49839",
+    "source_fingerprint": "6a6b9541d57924c2db8ed095e1816f53443671ba18edbb316610edd4fab850f9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7215,7 +7195,25 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [],
+      "relations": [
+        {
+          "title": "electrical ↔ electric",
+          "target_word": "electric",
+          "lines": [
+            {
+              "text": "electrical broadly means relating to electricity or electrical systems/equipment; electric more often foregrounds direct electrical power/operation or, figuratively, excitement. Some contexts overlap.",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:final-standard:electric-electrical:semantic_contrast",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "electrical ↔ electric"
+          }
+        }
+      ],
       "form": null,
       "family": []
     }

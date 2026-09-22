@@ -1,0 +1,126 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "relation:final-standard:electric-electrical:semantic_contrast",
+  "canonical_record": null,
+  "fact_record": {
+    "record_type": "deep_vocabulary_fact",
+    "fact_id": "relation:final-standard:electric-electrical:semantic_contrast",
+    "module": "semantic_contrast",
+    "word": "electric",
+    "word_id": "word:electric",
+    "source_sense_id": "sense:electric:75a50699ac580c0d",
+    "target_word": "electrical",
+    "target_sense_id": "sense:electrical:91048a46709454e2",
+    "boundary": "electric typically describes something powered by, producing, or directly involving electricity; electrical more broadly means relating to electricity or electrical systems/equipment. The distinction is useful guidance, not an absolute non-overlap rule.",
+    "direction": "C",
+    "dimensions": {
+      "core_meaning": "electric = directly powered by/producing electricity or figuratively exciting; electrical = broadly relating to electricity/electrical systems",
+      "collocation": "electric car/motor; electrical equipment/fault/engineering",
+      "exam_trap": "近义形容词选择；存在重叠，不能机械绝对化",
+      "writing_safety": "按搭配与语义选择，不可机械互换"
+    },
+    "evidence": [
+      {
+        "evidence_id": "evidence:cambridge:electric-electrical:20260922",
+        "evidence_status": "source_checked",
+        "source_locator": "electric|electrical",
+        "source_path": "https://dictionary.cambridge.org/",
+        "source_type": "learner_dictionary"
+      }
+    ],
+    "priority": "A",
+    "publication_status": "publishable",
+    "verification_status": "verified",
+    "task_tags": [
+      "reading",
+      "writing"
+    ],
+    "writing_safe": false,
+    "source_grounded": true,
+    "verification_confidence": 1,
+    "verification_decision": "Kian_human_gate_approved"
+  },
+  "word_views": [
+    {
+      "source_word_id": "word:electric",
+      "source_ordinal": 1593,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "electric typically means powered by, producing, or directly involving electricity; electrical more broadly means relating to electricity or electrical systems/equipment. Some contexts overlap.",
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:cambridge:electric-electrical:20260922",
+            "evidence_status": "source_checked",
+            "source_locator": "electric|electrical",
+            "source_path": "https://dictionary.cambridge.org/",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "relation:final-standard:electric-electrical:semantic_contrast",
+        "module": "semantic_contrast",
+        "priority": "A",
+        "publication_status": "publishable",
+        "source_sense_id": "sense:electric:75a50699ac580c0d",
+        "target_sense_id": "sense:electrical:91048a46709454e2",
+        "target_word": "electrical",
+        "task_tags": [
+          "reading",
+          "writing"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false,
+        "dimensions": {
+          "core_meaning": "electric = directly powered by/producing electricity or figuratively exciting; electrical = broadly relating to electricity/electrical systems",
+          "collocation": "electric car/motor; electrical equipment/fault/engineering",
+          "exam_trap": "近义形容词选择；存在重叠，不能机械绝对化",
+          "writing_safety": "按搭配与语义选择，不可机械互换"
+        }
+      }
+    },
+    {
+      "source_word_id": "word:electrical",
+      "source_ordinal": 1594,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "electrical broadly means relating to electricity or electrical systems/equipment; electric more often foregrounds direct electrical power/operation or, figuratively, excitement. Some contexts overlap.",
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:cambridge:electric-electrical:20260922",
+            "evidence_status": "source_checked",
+            "source_locator": "electric|electrical",
+            "source_path": "https://dictionary.cambridge.org/",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "relation:final-standard:electric-electrical:semantic_contrast",
+        "module": "semantic_contrast",
+        "priority": "A",
+        "publication_status": "publishable",
+        "source_sense_id": "sense:electrical:91048a46709454e2",
+        "target_sense_id": "sense:electric:75a50699ac580c0d",
+        "target_word": "electric",
+        "task_tags": [
+          "reading",
+          "writing"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false,
+        "dimensions": {
+          "core_meaning": "electric = directly powered by/producing electricity or figuratively exciting; electrical = broadly relating to electricity/electrical systems",
+          "collocation": "electric car/motor; electrical equipment/fault/engineering",
+          "exam_trap": "近义形容词选择；存在重叠，不能机械绝对化",
+          "writing_safety": "按搭配与语义选择，不可机械互换"
+        }
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "BF15 exact Human Gate",
+    "semantic_delta": 1,
+    "last_semantic_authority": "content/lexical/execution/manifests/o1551-o1650.fullcatalog-final-standard-proposal.md"
+  }
+}
