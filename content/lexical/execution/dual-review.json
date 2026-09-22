@@ -1,0 +1,25 @@
+{
+  "schema": "kianos.lexical.dual_independent_review_campaign.v1",
+  "status": "ACTIVE",
+  "created_at": "2026-09-23",
+  "semantic_baseline_sha": "12766cf94b89bd135016e3213637e31edd19adfe",
+  "ruler_baseline_sha": "12766cf94b89bd135016e3213637e31edd19adfe",
+  "scope": {
+    "start_ordinal": 2551,
+    "end_ordinal": 7946,
+    "previously_closed_through": 2550
+  },
+  "batch_size": 100,
+  "canonical_mutation_policy": "A_AND_B_READ_ONLY_C_ONLY_WRITER",
+  "independence_rule": "A_MUST_NOT_READ_B_RESULTS_AND_B_MUST_NOT_READ_A_RESULTS",
+  "completion_rule": "C_MAY_START_ONLY_WHEN_A_AND_B_ARE_COMPLETE",
+  "lane_state_files": {
+    "A": "content/lexical/execution/dual-review-A.json",
+    "B": "content/lexical/execution/dual-review-B.json",
+    "C": "content/lexical/execution/dual-review-C.json"
+  },
+  "legacy_serial_frontier": {
+    "file": "content/lexical/execution/live-batch.json",
+    "status": "SUPERSEDED_FOR_CURRENT_DUAL_REVIEW_SWEEP"
+  }
+}
