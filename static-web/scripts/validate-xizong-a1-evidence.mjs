@@ -32,6 +32,7 @@ const memoryModel = read('static-web/src/lib/xizongMemoryModel.mjs');
 const blockGuard = read('static-web/src/components/XizongBlockEvidenceGuard.astro');
 const systemGuard = read('static-web/src/components/XizongSystemEvidenceGuard.astro');
 const repairReturn = read('static-web/src/components/XizongSystemRepairReturn.astro');
+const systemWuReturn = read('static-web/src/lib/xizongSystemWuReturn.mjs');
 const repairBridge = read('static-web/src/components/XizongRepairInboxBridge.astro');
 const practiceUi = read('static-web/src/components/XizongPracticeWorkbench.astro');
 const questionLib = read('static-web/src/lib/xizongQuestions.mjs');
@@ -82,23 +83,23 @@ assert(systemGuard.includes("'MID_SWEEP'"), 'system-recall-mid-phase-missing');
 assert(systemGuard.includes("'POST_QUESTION'"), 'system-recall-post-phase-missing');
 
 // Stable question evidence stays out of repair. Precise repair requires reviewed relation.
-assert(repairReturn.includes(".filter(([, row]) => row && ['wrong', 'uncertain'].includes(row.status))"), 'stable-question-forced-to-repair');
-assert(repairReturn.includes('const allowed = new Set(currentWu().map'), 'repair-plan-not-scoped-to-current-wu');
+assert(systemWuReturn.includes("!['wrong','uncertain'].includes(String(result.status || ''))"), 'stable-question-forced-to-repair');
+assert(systemWuReturn.includes('currentXizongSystemWuEvidence') && systemWuReturn.includes('assertCurrentWuBinding'), 'repair-plan-not-scoped-to-current-wu');
 assert(practiceUi.includes("let holdoutYears = data.allowHoldout ? [] : readJson(holdoutKey, []);"), 'holdout-not-private-empty-default');
 assert(practiceUi.includes('const eligibleQuestions = () => data.questions.filter((q) => !holdoutYears.includes(Number(q.year)));'), 'holdout-not-excluded-from-sweep');
-assert(repairReturn.includes('暂无审核过的精确 Block/KP 回链：保留题号给 Chat，不自动猜。'), 'missing-relation-guessed');
+assert(systemWuReturn.includes('if (!relation?.blockId || !relation?.primaryKpId || !route)'), 'missing-relation-guessed');
 assert(questionLib.includes('loadReviewedXizongQuestionRelation(questionId)'), 'question-runtime-bypasses-crosswalk-owner');
 assert(crosswalkLib.includes("if (!row || row.review_status !== 'REVIEWED') return null;"), 'unreviewed-question-relation-accepted');
-assert(repairReturn.includes('allowed.has(row.questionId)'), 'repair-plan-not-limited-to-current-wu');
-assert(repairReturn.includes('!relation?.blockId || !relation?.primaryKpId'), 'repair-return-not-reviewed-only');
+assert(systemWuReturn.includes('assertCurrentWuBinding(row, currentWu.get(row.question_id) || null)'), 'repair-plan-not-limited-to-current-wu');
+assert(systemWuReturn.includes('const relation = question?.relation;') && systemWuReturn.includes('!relation?.blockId || !relation?.primaryKpId || !route'), 'repair-return-not-reviewed-only');
 
 // System→Block repair uses fail-closed inbox ownership and preserves question provenance.
-assert(repairReturn.includes('kianos-xizong-repair-inbox-v1:'), 'system-repair-bypasses-inbox');
+assert(systemWuReturn.includes("inboxKey:'kianos-xizong-repair-inbox-v1:xizong:'"), 'system-repair-bypasses-inbox');
 assert(repairBridge.includes('kianos-xizong-repair-inbox-v1:'), 'block-inbox-consumer-missing');
-assert(repairBridge.includes("type: 'SYSTEM_WU_PLAN_IMPORTED'"), 'inbox-import-evidence-missing');
-assert(repairBridge.includes("evidence_role: 'REPAIR_ONLY'"), 'inbox-import-promotes-mastery');
-assert(repairBridge.includes('source_question_ids:'), 'inbox-loses-question-provenance');
-const durableWriteIndex = repairBridge.indexOf('if (!writeJson(extensionKey, ext)) return false;');
+assert(repairBridge.includes("origin = blockChat ? 'BLOCK_CHAT_RETURN'"), 'inbox-import-origin-missing');
+assert(repairBridge.includes('const next = setRepairTasks(memory, [...preserved, ...incoming]);'), 'inbox-import-promotes-mastery');
+assert(repairBridge.includes('sourceQuestionIds,'), 'inbox-loses-question-provenance');
+const durableWriteIndex = repairBridge.indexOf("if (!writeJson(XIZONG_MEMORY_STORAGE_KEY, next)) throw new Error('Repair save failed');");
 const durableClearIndex = repairBridge.indexOf('localStorage.removeItem(inboxKey)', durableWriteIndex);
 assert(durableWriteIndex >= 0 && durableClearIndex > durableWriteIndex, 'inbox-clear-before-write');
 assert(repairBridge.includes("window.addEventListener('storage'"), 'already-open-block-cross-tab-return-missing');

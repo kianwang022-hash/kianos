@@ -128,9 +128,9 @@ try {
   assert.equal(controlPayload.relay?.state, 'disabled');
 
   const external = await timed('/__kianos-private/external-reading/status');
-  assert.ok([200, 404, 503].includes(external.status), 'PRIVATE_EXTERNAL_READING_PREVIEW_ROUTE_MISSING');
+  assert.ok([200, 404, 409, 503].includes(external.status), 'PRIVATE_EXTERNAL_READING_STATUS_HTTP_INVALID');
   const externalPayload = JSON.parse(external.text);
-  assert.ok(['ready', 'missing_source', 'error'].includes(externalPayload.status), 'PRIVATE_EXTERNAL_READING_RESPONSE_INVALID');
+  assert.ok(['ready', 'missing_source', 'stale_source', 'error'].includes(externalPayload.status), 'PRIVATE_EXTERNAL_READING_RESPONSE_INVALID');
 
   console.log(
     'STATIC_CURRENT_RUNTIME PASS'
