@@ -32,30 +32,34 @@
     "p_behavior": "APPROVE_EXACT_SHOWN_DELTA__FREEZE_BACKLOG__IMMEDIATE_NEXT_PRODUCTION_BATCH"
   },
   "frontier": {
-    "accepted_main_head": "f097d759bb7a7cb638f44c2da28489e7dcf500e4",
+    "accepted_main_head": "530cd1347b52a076eb65bda260c954162758a47f",
     "current_candidate_id": "BF17",
     "range": [
       1751,
       1850
     ],
-    "state": "REVIEW_BUNDLE_REQUIRED",
+    "state": "MATERIALIZE_ALLOWED",
     "candidate_pr": null,
-    "candidate_branch": null,
+    "candidate_branch": "work/lexical-continuous-bf17-official-20260922",
     "materialized_owner_read_head": null,
-    "note": "BF16 merged cleanly via PR #784. Advance full-catalog final-standard second pass to BF17 o1751-o1850; Fresh Read + Self Attack under unchanged ruler."
+    "note": "BF17 Production 100/100 complete: 24 affected / 76 NO_CHANGE / 0 blocked / 0 new learner material. Human Gate not required; existing-truth-only materialization allowed.",
+    "review_branch": "work/lexical-fullcatalog-bf17-review-20260922",
+    "proposal_path": "content/lexical/execution/manifests/o1751-o1850.fullcatalog-final-standard-proposal.md",
+    "proposal_commit": "7246747eb30d53c1dbbbf3e3d061e5cc1e0afecb"
   },
   "audit_target": {
-    "state": "WAITING_PRODUCTION_AND_MATERIALIZATION",
+    "state": "WAITING_MATERIALIZATION_AND_B_AUDIT",
     "candidate_id": "BF17",
     "range": [
       1751,
       1850
     ],
     "candidate_pr": null,
-    "candidate_branch": null,
+    "candidate_branch": "work/lexical-continuous-bf17-official-20260922",
     "candidate_owner_read_head": null,
     "brief": null,
-    "output": null
+    "output": null,
+    "human_gate_status": "NOT_REQUIRED_EXISTING_TRUTH_ONLY"
   },
   "lanes": {
     "A": {
@@ -1702,14 +1706,24 @@
   },
   "materialization_progress": {
     "candidate_id": "BF17",
-    "status": "REVIEW_BUNDLE_REQUIRED",
+    "status": "MATERIALIZE_ALLOWED",
     "candidate_pr": null,
-    "latest_main_refreeze": "f097d759bb7a7cb638f44c2da28489e7dcf500e4",
+    "latest_main_refreeze": "530cd1347b52a076eb65bda260c954162758a47f",
     "review_range": [
       1751,
       1850
     ],
+    "proposal_path": "content/lexical/execution/manifests/o1751-o1850.fullcatalog-final-standard-proposal.md",
+    "proposal_commit": "7246747eb30d53c1dbbbf3e3d061e5cc1e0afecb",
+    "fresh_read_coverage": "100/100",
+    "self_attack": "COMPLETE",
+    "content_affected_owners": 24,
+    "content_no_change": 76,
+    "new_material_group_count": 0,
+    "human_gate_status": "NOT_REQUIRED_EXISTING_TRUTH_ONLY",
     "blocked": 0,
+    "standing_repair_tests_before": 0,
+    "standing_repair_tests_after": 0,
     "final_learner_objects": 7946,
     "final_learner_shards": 125
   },
