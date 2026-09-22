@@ -38,17 +38,17 @@
       1451,
       1550
     ],
-    "state": "RECONCILE_ALLOWED",
+    "state": "B_AUDIT_PASS__READY_TO_MERGE",
     "candidate_pr": null,
     "candidate_branch": "work/lexical-continuous-bf14-official-20260922",
-    "materialized_owner_read_head": "6c9347e4f84f27f3b84aabbcbdf3468b31c11a49",
+    "materialized_owner_read_head": "b2733a0fb804f28c3eee4de9f73ed13b282cd046",
     "review_branch": "work/lexical-fullcatalog-bf14-review-20260922",
     "proposal_path": "content/lexical/execution/manifests/o1451-o1550.fullcatalog-final-standard-proposal.md",
     "proposal_commit": "fd355e293f4f55976ab40a0cad2778fdd7a700a7",
-    "note": "BF14 official materialization mechanically PASS. B readback found seven existing-truth presentation/ownership residues at o1464,o1509,o1511,o1514,o1515,o1537,o1546. No new learner material."
+    "note": "BF14 official candidate materialized and B reconciliation PASS. BLIND_FIRST_NOT_ENFORCED. Ready to merge; next o1551-o1650."
   },
   "audit_target": {
-    "state": "RECONCILE_ALLOWED",
+    "state": "PASS_READY_TO_MERGE",
     "candidate_id": "BF14",
     "range": [
       1451,
@@ -56,35 +56,16 @@
     ],
     "candidate_pr": null,
     "candidate_branch": "work/lexical-continuous-bf14-official-20260922",
-    "candidate_owner_read_head": "6c9347e4f84f27f3b84aabbcbdf3468b31c11a49",
+    "candidate_owner_read_head": "b2733a0fb804f28c3eee4de9f73ed13b282cd046",
     "brief": null,
-    "output": null,
-    "human_gate_required_groups": 9,
-    "human_gate_required_ordinals": [
-      1454,
-      1464,
-      1488,
-      1502,
-      1507,
-      1511,
-      1513,
-      1538,
-      1540,
-      1550
-    ],
-    "remote_dependency_if_approved": [
-      1367
-    ],
+    "output": "content/lexical/semantic-audit/O1451_O1550_FINAL_STANDARD_SAME_CHAT_B_AUDIT_PACK.md",
+    "result": "PASS",
+    "independence_note": "BLIND_FIRST_NOT_ENFORCED",
     "human_gate_status": "APPROVED_EXACT_SCOPE",
     "human_gate_approval": "Kian p 2026-09-22",
-    "reconcile_ordinals": [
-      1464,
-      1509,
-      1511,
-      1514,
-      1515,
-      1537,
-      1546
+    "human_gate_approved_groups": 9,
+    "remote_dependency_ordinals": [
+      1367
     ]
   },
   "lanes": {
@@ -1712,12 +1693,26 @@
         1540,
         1550
       ],
-      "remote_dependency_if_approved": [
+      "remote_dependency_ordinals": [
         1367
       ],
       "proposal": "content/lexical/execution/manifests/o1451-o1550.fullcatalog-final-standard-proposal.md",
-      "module_matrix": "content/lexical/execution/manifests/o1451-o1550.fullcatalog-final-standard-module-matrix.tsv",
-      "state": "WAITING_HUMAN_GATE"
+      "mutation_receipts": [
+        "content/lexical/execution/mutation-receipts/BF14-official-o1451-o1550-v1.json",
+        "content/lexical/execution/mutation-receipts/BF14-B-reconcile-v1.json"
+      ],
+      "audit": "content/lexical/semantic-audit/O1451_O1550_FINAL_STANDARD_SAME_CHAT_B_AUDIT_PACK.md",
+      "reconcile_ordinals": [
+        1464,
+        1509,
+        1511,
+        1514,
+        1515,
+        1537,
+        1546
+      ],
+      "state": "B_AUDIT_PASS__READY_TO_MERGE",
+      "independence_note": "BLIND_FIRST_NOT_ENFORCED"
     }
   },
   "phase_transition": {
@@ -1728,7 +1723,7 @@
   },
   "materialization_progress": {
     "candidate_id": "BF14",
-    "status": "RECONCILE_ALLOWED",
+    "status": "B_AUDIT_PASS__READY_TO_MERGE",
     "candidate_pr": null,
     "latest_main_refreeze": "dca9f5dc8dc383a0da9f28e7e7a786178a1ff90e",
     "review_range": [
@@ -1766,7 +1761,7 @@
     "final_learner_shards": 125,
     "human_gate_status": "APPROVED_EXACT_SCOPE",
     "human_gate_approved_groups": 9,
-    "b_audit": "RECONCILE_REQUIRED",
+    "b_audit": "PASS",
     "materialized_commit": "6c9347e4f84f27f3b84aabbcbdf3468b31c11a49",
     "reconcile_ordinals": [
       1464,
@@ -1776,7 +1771,10 @@
       1515,
       1537,
       1546
-    ]
+    ],
+    "reconciled_commit": "b2733a0fb804f28c3eee4de9f73ed13b282cd046",
+    "b_audit_output": "content/lexical/semantic-audit/O1451_O1550_FINAL_STANDARD_SAME_CHAT_B_AUDIT_PACK.md",
+    "independence_note": "BLIND_FIRST_NOT_ENFORCED"
   },
   "semantic_freeze_scope_amendment": "content/lexical/FINAL_SEMANTIC_FREEZE_SCOPE_AMENDMENT_20260922.md"
 }
