@@ -14,8 +14,10 @@ The intended path is:
 Chat / GitHub change
 → accepted change lands on GitHub main
 → dedicated Mac Current mirror detects the new main SHA
-→ the whole repository updates atomically to origin/main
-→ Astro restarts against that exact Current
+→ the dedicated checkout updates to origin/main
+→ affected Lexical objects are compiled; unchanged input/output proofs are reused
+→ Astro builds that exact Current in a background staging slot
+→ the completed slot atomically replaces the served website
 → the already-open localhost page detects the new SHA without interrupting an active foreground task
 → the page reloads when the learner leaves that tab/window and returns, or the next natural navigation loads the new document
 → learner sees the new Current without a forced mid-task refresh
@@ -44,11 +46,17 @@ This prevents a GitHub update from destroying local development changes and remo
 2. compares the remote SHA with the mirror HEAD;
 3. fetches and hard-resets the dedicated mirror when main advances;
 4. refreshes npm dependencies only when package inputs changed;
-5. restarts Astro so canonical files outside `static-web/src/` cannot remain stale through an HMR/watch-boundary miss;
+5. validates the Lexical input/output cache, recompiles changed Word owners and relation dependants only, then builds Astro into a staging slot and atomically promotes it; the old website stays available during the build;
 6. writes the exact local Current SHA to `static-web/public/__kianos-current.json` inside the disposable mirror;
 7. the shared Base polls that localhost-only status and records a pending browser refresh when the synced SHA changes;
 8. an active foreground learner page is never force-reloaded solely because main advanced; returning to the page after leaving it performs the pending refresh, while natural navigation already loads the newest Current;
-9. transient network failure keeps the last successfully synced site usable.
+9. transient network failure keeps the last successfully synced site usable; a failed build preserves the served SHA and reports a separate target SHA/error. The same failed source is not rebuilt on every poll or process restart. A new source SHA resumes automatically.
+
+Lexical cache state is disposable and ignored by Git (`static-web/.cache/lexical-projection`). Reuse requires clean source-tree identity and verified output hashes; dirty inputs, missing outputs or corrupt cache cause bounded repair/recompilation. No cache is a semantic owner. The builder resolves all affected references before overwriting any projection shards.
+
+For an explicit engineering retry after an environmental repair, run the supervisor once with `KIANOS_SYNC_ONCE=1 KIANOS_RETRY_FAILED_BUILD=1`. Do not use retries to suppress a content error.
+
+Ordinary explanation and lexical owner updates have read-only content CI; full browser/system QA remains for runtime/schema changes and explicit integration checkpoints. Astro still performs one site build per accepted update; this change does not claim incremental page rendering.
 
 Default main check interval: **8 seconds**.  
 Default browser Current check interval: **3 seconds**.

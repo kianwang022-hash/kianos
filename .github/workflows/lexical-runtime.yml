@@ -1,12 +1,18 @@
 name: LexicalOS Current Runtime
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
     paths:
       - 'LEARNING_ACCEPTANCE.md'
       - 'content/lexical/**'
+      - '!content/lexical/words/by-ordinal/**'
+      - '!content/lexical/relations/by-id/**'
+      - '!content/lexical/canonical/**'
+      - '!content/lexical/execution/**'
+      - '!content/lexical/semantic-review/**'
       - 'static-web/package.json'
       - 'static-web/astro.config.mjs'
       - 'static-web/src/layouts/**'
@@ -27,6 +33,11 @@ on:
     paths:
       - 'LEARNING_ACCEPTANCE.md'
       - 'content/lexical/**'
+      - '!content/lexical/words/by-ordinal/**'
+      - '!content/lexical/relations/by-id/**'
+      - '!content/lexical/canonical/**'
+      - '!content/lexical/execution/**'
+      - '!content/lexical/semantic-review/**'
       - 'static-web/package.json'
       - 'static-web/astro.config.mjs'
       - 'static-web/src/layouts/**'

@@ -48,6 +48,32 @@ A mature explanation should answer, as compactly as the question allows:
 
 Simple questions should stay short. Do not turn explanations into mini-textbooks.
 
+## SECOND_PASS transport discipline
+
+SECOND_PASS is semantic review, not a reason to accumulate repository history.
+
+- Start each newly assigned year / bounded year-group from the latest accepted `main@HEAD`; do not create the next year's branch from the previous year's unmerged SECOND_PASS branch.
+- Keep the write-set to the exact explanation shards, explanation manifest synchronization, and explicit pending reviewed-relation transport produced by that review. Do not carry unrelated earlier-year deltas forward.
+- Several 25-question semantic chunks may be reviewed inside one bounded year checkpoint. Expensive materialization / integration QA should run once at that checkpoint when possible, not after every tiny semantic write.
+- After an accepted merge, the next year / year-group starts again from fresh `main`.
+- Existing concurrent branches are not force-rebased merely to satisfy this rule; apply it at the next safe checkpoint and never overwrite another worker's live write-set.
+
+At the reviewed checkpoint, run the existing materializer and manifest sync once
+before the single content commit:
+
+```sh
+node static-web/scripts/apply-xizong-crosswalk-reviewed-batches.mjs
+node static-web/scripts/sync-xizong-question-relations-manifest.mjs --write
+```
+
+Commit the affected relation shards, manifest and cursor together. Pending batches
+are staging decisions and do not claim learner-visible relations until that
+checkpoint. CI is read-only and never pushes an extra materialization commit.
+Full integration/browser QA remains available through the explicit workflow
+checkpoint; ordinary explanation/decision batches use content validation.
+
+The website and CI must treat explanation-only changes as Xizong content deltas. They do not require rebuilding Lexical Final Learner Objects.
+
 ## Truth boundary
 
 Explanations must not mutate:

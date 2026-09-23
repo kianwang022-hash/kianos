@@ -1,0 +1,40 @@
+name: Lexical Content Fast QA
+on:
+  pull_request:
+    paths:
+      - 'content/lexical/**'
+      - 'tools/lexical_build_final_learner_objects.py'
+      - 'tools/test_lexical_incremental_projection.py'
+      - '.github/workflows/lexical-content-fast-qa.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'content/lexical/**'
+      - 'tools/lexical_build_final_learner_objects.py'
+      - 'tools/test_lexical_incremental_projection.py'
+      - '.github/workflows/lexical-content-fast-qa.yml'
+permissions:
+  contents: read
+concurrency:
+  group: lexical-content-fast-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  content:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prove incremental dependencies and failure preservation
+        run: python3 -m unittest tools/test_lexical_incremental_projection.py
+      - name: Validate changed Word owners and relation dependants without materializing
+        env:
+          CONTENT_BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: |
+          test -n "$CONTENT_BASE"
+          git cat-file -e "$CONTENT_BASE^{commit}"
+          python3 tools/lexical_build_final_learner_objects.py --validate-changed-from "$CONTENT_BASE"
+          git diff --exit-code

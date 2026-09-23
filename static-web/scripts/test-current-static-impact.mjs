@@ -69,7 +69,9 @@ assert.deepEqual(
     required: false,
     changed_paths: 0,
     build_paths: [],
-    reusable_paths: []
+    reusable_paths: [],
+    lexical_projection_required: false,
+    lexical_projection_paths: []
   }
 );
 
@@ -100,3 +102,11 @@ assert.equal(
 );
 
 console.log('STATIC_CURRENT_IMPACT PASS');
+
+assert.equal(classifyStaticBuild(['content/xizong/explanations/manifest.json']).lexical_projection_required, false);
+for (const file of ['content/lexical/words/by-ordinal/o0001.json',
+  'content/lexical/relations/by-id/aa/a.json',
+  'content/lexical/final-learner-object-decisions.json',
+  'tools/lexical_build_final_learner_objects.py']) {
+  assert.equal(classifyStaticBuild([file]).lexical_projection_required, true, file);
+}

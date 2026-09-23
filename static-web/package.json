@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "python3 ../tools/lexical_build_final_learner_objects.py && astro build",
+    "build": "npm run build:lexical && astro build",
     "preview": "astro preview",
     "current:serve": "node scripts/kianos-current-sync.mjs",
     "current:install": "bash scripts/install-current-macos.sh",
@@ -38,7 +38,7 @@
     "qa:translation": "npm run validate:translation && npm run build",
     "qa:writing": "npm run validate:writing && npm run build",
     "qa:politics": "npm run validate:politics && npm run build",
-    "qa:xizong": "npm run validate:xizong && npm run build",
+    "qa:xizong": "npm run validate:xizong && npm run build:astro",
     "test:xizong-golden-journey": "node scripts/test-xizong-golden-journey.mjs",
     "test:politics-practice": "node scripts/test-politics-practice-journey.mjs",
     "test:politics-practice-formal": "node scripts/test-politics-practice-formal.mjs",
@@ -62,7 +62,9 @@
     "test:codex-watcher": "node scripts/test-codex-issue-watcher.mjs && node scripts/test-codex-execution-policy.mjs",
     "validate:skills": "node scripts/validate-skill-library.mjs",
     "qa:skills": "npm run validate:skills && npm run build",
-    "test:current-static-slots": "node scripts/test-current-static-slots.mjs"
+    "test:current-static-slots": "node scripts/test-current-static-slots.mjs",
+    "build:lexical": "python3 ../tools/lexical_build_final_learner_objects.py",
+    "test:content-fast-path": "python3 -m unittest discover -s ../tools -p test_lexical_incremental_projection.py && node scripts/test-current-static-impact.mjs && node scripts/test-current-build-recovery.mjs"
   },
   "dependencies": {
     "astro": "^5.0.0",

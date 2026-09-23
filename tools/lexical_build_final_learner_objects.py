@@ -4,7 +4,9 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import shutil
+import os
+import tempfile
+import subprocess
 from pathlib import Path
 from typing import Any
 
@@ -18,9 +20,21 @@ SHARD_SIZE = 64
 def load(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
 
-def dump(path: Path, value: Any) -> None:
+def dump(path: Path, value: Any) -> bool:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    payload = json.dumps(value, ensure_ascii=False, indent=2) + "\n"
+    if path.exists() and path.read_text(encoding="utf-8") == payload:
+        return False
+    # Never truncate a valid projection/cache if the process is interrupted.
+    fd, temporary = tempfile.mkstemp(dir=path.parent, prefix=".lexical-")
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as stream:
+            stream.write(payload)
+        os.replace(temporary, path)
+    finally:
+        if os.path.exists(temporary):
+            os.unlink(temporary)
+    return True
 
 def stable(value: Any) -> str:
     return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
@@ -393,40 +407,128 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
         },
     }
 
-def main() -> int:
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--output-root", type=Path, default=OUT)
-    args = ap.parse_args()
+def clean_input_signature() -> str | None:
+    """Cheap Git tree proof; never trust it over dirty/untracked source input."""
+    inputs = ["content/lexical/words", "content/lexical/relations",
+              "content/lexical/final-learner-object-decisions.json",
+              "tools/lexical_build_final_learner_objects.py"]
+    try:
+        if subprocess.run(["git", "diff", "--quiet", "HEAD", "--", *inputs], cwd=ROOT,
+                          stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).returncode:
+            return None
+        if subprocess.check_output(["git", "ls-files", "--others", "--exclude-standard", "--", *inputs], cwd=ROOT):
+            return None
+        trees = subprocess.check_output(["git", "ls-tree", "HEAD", "--", *inputs], cwd=ROOT)
+        return hashlib.sha256(trees).hexdigest() if trees else None
+    except (OSError, subprocess.CalledProcessError):
+        return None
 
-    output_root = args.output_root
+
+def build(output_root: Path, cache_root: Path, expected_count: int = 7946) -> dict[str, Any]:
+    input_signature = clean_input_signature()
+    proof_path = cache_root / "quick-proof.json"
+    try:
+        proof = load(proof_path)
+        if (input_signature and proof["inputs"] == input_signature
+                and proof["output_root"] == str(output_root.resolve())
+                and proof["result"]["object_count"] == expected_count
+                and proof["files"]):
+            restore = {}
+            for name, digest in proof["files"].items():
+                file = output_root / name
+                if file.is_file() and hashlib.sha256(file.read_bytes()).hexdigest() == digest:
+                    continue
+                # Current checkout/reset may replace tracked projections with
+                # older checked-in bytes even when semantic inputs are unchanged.
+                payload = (cache_root / "outputs" / name).read_bytes()
+                if hashlib.sha256(payload).hexdigest() != digest:
+                    raise ValueError("LEXICAL_CACHED_OUTPUT_HASH_MISMATCH")
+                restore[name] = json.loads(payload)
+            for name, value in restore.items():
+                dump(output_root / name, value)
+            return {**proof["result"], "compiled_words": 0, "reused_words": expected_count,
+                    "changed_shards": sum(name.startswith("shards/") for name in restore),
+                    "removed_shards": 0, "manifest_changed": "manifest.json" in restore,
+                    "input_tree_reused": True}
+    except (OSError, ValueError, KeyError, TypeError):
+        pass
     decisions = load(DECISIONS) if DECISIONS.exists() else {"words": {}}
     shards_dir = output_root / "shards"
-    if shards_dir.exists():
-        shutil.rmtree(shards_dir)
-    shards_dir.mkdir(parents=True, exist_ok=True)
-
+    compiler_hash = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
+    paths = sorted(WORDS.glob("o*.json"))
+    if len(paths) != expected_count:
+        raise RuntimeError(f"FINAL_LEARNER_OBJECT_COUNT:{len(paths)}")
+    dependency_hashes = {}
+    caches = {}
+    pending_caches = {}
     objects = []
-    for path in sorted(WORDS.glob("o*.json")):
+    compiled = 0
+    standard_dependencies = True
+    for offset, path in enumerate(paths):
         owner = load(path)
-        objects.append(compile_word(owner, decisions))
+        if owner.get("ordinal") != offset + 1:
+            raise RuntimeError(f"FINAL_LEARNER_ORDINAL_MISMATCH:{path.name}")
+        dependencies = {}
+        for ref in owner.get("relation_refs") or []:
+            relative = str(ref.get("owner_path") or "")
+            standard_dependencies &= relative.startswith("content/lexical/relations/by-id/")
+            source = (ROOT / relative).resolve()
+            if not source.is_relative_to(ROOT.resolve()):
+                raise RuntimeError(f"FINAL_LEARNER_RELATION_PATH_INVALID:{relative}")
+            if relative not in dependency_hashes:
+                dependency_hashes[relative] = hashlib.sha256(source.read_bytes()).hexdigest() if source.is_file() else None
+            dependencies[relative] = dependency_hashes[relative]
+        signature = sha256({"compiler": compiler_hash, "owner": owner,
+                            "relations": dependencies,
+                            "decision": (decisions.get("words") or {}).get(owner["word_id"])})
+        name = f"{offset // SHARD_SIZE:04d}.json"
+        if name not in caches:
+            try:
+                caches[name] = load(cache_root / name)
+                if not isinstance(caches[name], dict):
+                    caches[name] = {}
+            except (OSError, ValueError):
+                caches[name] = {}
+        prior = caches[name].get(owner["word_id"], {})
+        if (isinstance(prior, dict) and prior.get("input_hash") == signature
+                and isinstance(prior.get("object"), dict)
+                and prior.get("output_hash") == sha256(prior["object"])):
+            obj = prior["object"]
+        else:
+            obj = compile_word(owner, decisions)
+            compiled += 1
+        objects.append(obj)
+        pending_caches.setdefault(name, {})[owner["word_id"]] = {
+            "input_hash": signature, "output_hash": sha256(obj), "object": obj}
 
-    if len(objects) != 7946:
-        raise RuntimeError(f"FINAL_LEARNER_OBJECT_COUNT:{len(objects)}")
+    # Resolve every affected owner successfully before touching any published
+    # shard. A bad relation cannot delete the previous valid projection.
 
     shard_rows = []
+    expected_shards = set()
+    changed_shards = 0
     for start in range(0, len(objects), SHARD_SIZE):
         chunk = objects[start:start + SHARD_SIZE]
         first = chunk[0]["ordinal"]
         last = chunk[-1]["ordinal"]
         name = f"o{first:04d}-{last:04d}.json"
+        expected_shards.add(name)
         shard_path = shards_dir / name
-        dump(shard_path, chunk)
+        if dump(shard_path, chunk):
+            changed_shards += 1
+        dump(cache_root / "outputs/shards" / name, chunk)
         shard_rows.append({
             "start": first,
             "end": last,
             "path": shard_path.relative_to(ROOT).as_posix(),
             "sha256": hashlib.sha256(shard_path.read_bytes()).hexdigest(),
         })
+
+    removed_shards = 0
+    for stale in shards_dir.glob("*.json"):
+        if stale.name not in expected_shards:
+            stale.unlink()
+            removed_shards += 1
 
     manifest = {
         "schema": "kianos.lexical.final_learner_manifest.v1",
@@ -440,13 +542,65 @@ def main() -> int:
         "shard_size": SHARD_SIZE,
         "shards": shard_rows,
     }
-    dump(output_root / "manifest.json", manifest)
-    print(json.dumps({
+    manifest_changed = dump(output_root / "manifest.json", manifest)
+    dump(cache_root / "outputs/manifest.json", manifest)
+    for name, rows in pending_caches.items():
+        dump(cache_root / name, rows)
+    result = {
         "object_count": len(objects),
         "shard_count": len(shard_rows),
+        "changed_shards": changed_shards,
+        "removed_shards": removed_shards,
+        "manifest_changed": manifest_changed,
+        "compiled_words": compiled,
+        "reused_words": len(objects) - compiled,
         "first": objects[0]["word"],
         "last": objects[-1]["word"],
-    }, ensure_ascii=False))
+    }
+    if input_signature and standard_dependencies:
+        dump(proof_path, {
+            "inputs": input_signature, "output_root": str(output_root.resolve()), "result": result,
+            "files": {p.relative_to(output_root).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
+                      for p in [output_root / "manifest.json", *[shards_dir / n for n in sorted(expected_shards)]]}
+        })
+    return result
+
+def validate_changed(base: str, expected_count: int = 7946) -> dict[str, Any]:
+    changed = set(subprocess.check_output(
+        ["git", "diff", "--name-only", base, "HEAD"], cwd=ROOT, text=True).splitlines())
+    full = bool(changed & {"tools/lexical_build_final_learner_objects.py",
+                          "content/lexical/final-learner-object-decisions.json"})
+    decisions = load(DECISIONS) if DECISIONS.exists() else {"words": {}}
+    count = 0
+    paths = sorted(WORDS.glob("o*.json"))
+    if len(paths) != expected_count:
+        raise RuntimeError(f"FINAL_LEARNER_OBJECT_COUNT:{len(paths)}")
+    # Relations can be shared by several Word owners: validate reverse
+    # dependants too, including when a relation is removed.
+    for offset, path in enumerate(paths):
+        owner = load(path)
+        relative = path.relative_to(ROOT).as_posix()
+        if owner.get("ordinal") != offset + 1:
+            raise RuntimeError(f"FINAL_LEARNER_ORDINAL_MISMATCH:{relative}")
+        if relative in changed:
+            old = json.loads(subprocess.check_output(["git", "show", f"{base}:{relative}"], cwd=ROOT))
+            if (old.get("ordinal"), old.get("word_id")) != (owner.get("ordinal"), owner.get("word_id")):
+                raise RuntimeError(f"FINAL_LEARNER_IDENTITY_CHANGED:{relative}")
+        inputs = {relative}
+        inputs.update(ref.get("owner_path") for ref in owner.get("relation_refs") or [])
+        if full or inputs & changed:
+            compile_word(owner, decisions)
+            count += 1
+    return {"status": "PASS", "validated_words": count, "changed_paths": len(changed), "writes": 0}
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--output-root", type=Path, default=OUT)
+    ap.add_argument("--cache-root", type=Path, default=ROOT / "static-web/.cache/lexical-projection")
+    ap.add_argument("--validate-changed-from", help="Read-only content validation against an exact Git base")
+    args = ap.parse_args()
+    result = validate_changed(args.validate_changed_from) if args.validate_changed_from else build(args.output_root, args.cache_root)
+    print(json.dumps(result, ensure_ascii=False))
     return 0
 
 if __name__ == "__main__":

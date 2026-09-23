@@ -14,6 +14,7 @@ on:
       - "static-web/scripts/currentStaticImpact.mjs"
       - "static-web/scripts/currentStaticSlots.mjs"
       - "static-web/scripts/test-current-static-impact.mjs"
+      - "static-web/scripts/test-current-build-recovery.mjs"
       - "static-web/scripts/test-current-static-slots.mjs"
       - "static-web/scripts/test-current-static-runtime.mjs"
       - "static-web/package.json"
@@ -48,6 +49,8 @@ jobs:
           node --check scripts/test-current-static-runtime.mjs
       - name: Verify Current build-impact gate
         run: node scripts/test-current-static-impact.mjs
+      - name: Prove failed build retention and bounded retry
+        run: node scripts/test-current-build-recovery.mjs
       - name: Build staging Current and promote
         run: |
           rm -rf .current-build-next dist

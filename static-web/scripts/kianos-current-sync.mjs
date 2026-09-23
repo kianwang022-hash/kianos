@@ -27,6 +27,7 @@ const distPath = path.join(webRoot, 'dist');
 const stagePath = path.join(webRoot, '.current-build-next');
 const previousPath = path.join(webRoot, '.current-build-prev');
 const buildsPath = path.join(webRoot, '.current-builds');
+const failurePath = path.join(webRoot, '.current-build-failure.json');
 const intervalMs = Math.max(3000, Number(process.env.KIANOS_SYNC_INTERVAL_MS || 8000));
 const host = process.env.KIANOS_HOST || '127.0.0.1';
 const port = String(process.env.KIANOS_PORT || '4321');
@@ -42,6 +43,10 @@ let reloadingSite = false;
 let lastNetworkError = '';
 let lastKnownSha = '';
 let lastSyncHealthy = true;
+
+function readBuildFailure() {
+  try { return JSON.parse(fs.readFileSync(failurePath, 'utf8')); } catch { return null; }
+}
 
 const stamp = () => new Date().toISOString();
 const log = (message) => console.log(`[${stamp()}] ${message}`);
@@ -138,19 +143,33 @@ function ensureAtomicServingLayout(sha) {
 }
 
 async function buildStatic(sha, extra = {}) {
+  const failure = readBuildFailure();
+  if (failure?.sha === sha && !(oneShot && process.env.KIANOS_RETRY_FAILED_BUILD === '1')) {
+    throw new Error(`CURRENT_BUILD_BLOCKED:${sha}:${failure.error}`);
+  }
   fs.rmSync(stagePath, { recursive: true, force: true });
   writeStatus('building', sha, extra);
+  // The compiler validates its content-addressed cache. Even when Git reports
+  // no lexical change, a cold/missing/corrupt projection cannot be trusted.
+  const buildScript = 'build';
   log(
     'building static Current ' + String(sha).slice(0, 8)
     + ' at background priority while the previous site remains available'
+    + '; lexical projection recompiles only changed inputs'
   );
-  const args = [npmBin, 'run', 'build', '--', '--outDir', stagePath];
-  if (buildNice > 0 && process.platform !== 'win32' && fs.existsSync('/usr/bin/nice')) {
-    await runChild('/usr/bin/nice', ['-n', String(buildNice), ...args], { label: 'Astro static build' });
-  } else {
-    await runChild(npmBin, args.slice(1), { label: 'Astro static build' });
+  const args = [npmBin, 'run', buildScript, '--', '--outDir', stagePath];
+  try {
+    if (buildNice > 0 && process.platform !== 'win32' && fs.existsSync('/usr/bin/nice')) {
+      await runChild('/usr/bin/nice', ['-n', String(buildNice), ...args], { label: 'Astro static build' });
+    } else {
+      await runChild(npmBin, args.slice(1), { label: 'Astro static build' });
+    }
+  } catch (error) {
+    writeJson(failurePath, { sha, error: error.message, failed_at: stamp() });
+    throw error;
   }
   writeBuiltStatus(stagePath, sha, extra);
+  fs.rmSync(failurePath, { force: true });
 }
 
 function promoteStaticBuild(sha) {
@@ -284,7 +303,6 @@ async function syncOnce({ initial = false } = {}) {
 
     const remote = await remoteMainSha();
     if (!remote) throw new Error('origin/main did not return a SHA');
-    lastNetworkError = '';
 
     if (local === remote) {
       const rebuilt = await ensureStaticBuild(local, { changed_paths: 0 });
@@ -300,7 +318,11 @@ async function syncOnce({ initial = false } = {}) {
     log(`main advanced ${local.slice(0, 8)} → ${remote.slice(0, 8)}; syncing whole repository`);
     await git(['fetch', 'origin', 'main', '--prune']);
     const fetched = await git(['rev-parse', 'origin/main']);
-    const changed = await git(['diff', '--name-only', local, fetched]);
+    // A previous update may have moved HEAD but failed to publish. Classify
+    // from the actually served source, never from that failed checkout.
+    const builtBase = readBuiltStatus();
+    const impactBase = builtBase?.state === 'synced' && builtBase?.sha ? builtBase.sha : local;
+    const changed = await git(['diff', '--name-only', impactBase, fetched]);
     const changedPaths = changed ? changed.split('\n').filter(Boolean) : [];
     const buildDecision = classifyStaticBuild(changedPaths);
     const syncRuntimeChanged = changedPaths.some((file) => [
@@ -332,7 +354,7 @@ async function syncOnce({ initial = false } = {}) {
     let staticBuild = 'rebuilt';
     if (!skipAstro && !buildDecision.required) {
       const reused = reuseStaticBuild(fetched, {
-        baseSha: local,
+        baseSha: impactBase,
         changed_paths: changedPaths.length,
         build_impact_paths: 0
       });
@@ -345,17 +367,22 @@ async function syncOnce({ initial = false } = {}) {
       } else {
         await ensureStaticBuild(fetched, {
           changed_paths: changedPaths.length,
-          build_impact_paths: 0
+          build_impact_paths: 0,
+          lexical_projection_required: false,
+          lexical_projection_paths: 0
         });
       }
     } else {
       await ensureStaticBuild(fetched, {
         changed_paths: changedPaths.length,
-        build_impact_paths: buildDecision.build_paths.length
+        build_impact_paths: buildDecision.build_paths.length,
+        lexical_projection_required: buildDecision.lexical_projection_required,
+        lexical_projection_paths: buildDecision.lexical_projection_paths.length
       });
     }
 
     lastSyncHealthy = true;
+    lastNetworkError = '';
     writeStatus('synced', fetched, {
       changed_paths: changedPaths.length,
       static_build: skipAstro ? 'skipped' : staticBuild,
@@ -384,8 +411,12 @@ async function syncOnce({ initial = false } = {}) {
       warn(`sync/build check failed: ${message}`);
       lastNetworkError = message;
     }
-    writeStatus('degraded', lastKnownSha);
-    if (!site && !stopping && resolveServedRoot(distPath)) {
+    writeStatus('degraded', readBuiltStatus()?.sha || '', {
+      target_sha: lastKnownSha,
+      build_blocked: readBuildFailure()?.sha === lastKnownSha,
+      error: message
+    });
+    if (!oneShot && !site && !stopping && resolveServedRoot(distPath)) {
       try { startSite(); } catch (startError) { warn(startError.stack || startError.message); }
     }
     return false;
