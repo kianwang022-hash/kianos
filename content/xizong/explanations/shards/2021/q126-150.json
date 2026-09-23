@@ -11,7 +11,9 @@
     "exam_target": "肺结核旧分型最常见类型",
     "decision_axis": "题源采用旧版肺结核形态分类并固定“浸润型肺结核最常见”的时代口径；现行结核分类和诊断表达已变化，不宜升级为Current规则。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对Current边界 fail-closed。"
+      "题源采用旧版肺结核形态分类并选择浸润型最常见。",
+      "Current R7保留相关病理形态用于考试识别，但不把旧分类频率排序升级。",
+      "因此保留B并fail-closed。"
     ],
     "transfer_rule": "仅保留题源/Study时代边界；Current结核分类按现行规范。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -21,7 +23,16 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.浸润型肺结核为题源旧分类答案；“最常见类型”依赖旧版肺结核形态分类，Current结核分类与诊断表述已变化。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "慢性纤维空洞型代表慢性破坏性形态，但并非题源所给最常见类型。"
+      }
+    ],
+    "common_failure_node": "把历史分类中的频率排序当成Current固定流行病学事实。",
+    "source_boundary_note": "题源使用旧版肺结核形态分类并固定“浸润型最常见”；Current分类体系与诊断表达已变化。"
   },
   {
     "question_id": "xizong-official-2021-n127",
@@ -40,14 +51,22 @@
       "它不是普通细菌性大叶性肺炎，而是结核坏死反应扩大的表现。"
     ],
     "transfer_rule": "结核大片干酪样坏死并呈肺炎样实变，可指向干酪性肺炎。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.干酪性肺炎。大片干酪样坏死和明显全身中毒构成重症肺结核的严重病理形态。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "浸润型可有多种渗出/增殖表现，但题目“病情危重、中毒明显”更指向干酪性肺炎。"
+      }
+    ],
+    "common_failure_node": "只按“肺结核常见类型”判断，不看严重度和病理破坏程度。"
   },
   {
     "question_id": "xizong-official-2021-n128",
@@ -66,14 +85,27 @@
       "但真正决定靶向治疗仍需基因检测，不能仅凭‘腺癌’组织学就假定一定EGFR阳性。"
     ],
     "transfer_rule": "肺腺癌常进入驱动基因检测路径；用药看检测，不靠病理类型直接替代。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.肺腺癌。腺癌中EGFR驱动突变是重要分子亚型，亚洲、非吸烟等人群富集；靶向治疗仍需实际分子检测。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "肺鳞癌并非EGFR突变的经典富集组织学类型。"
+      },
+      {
+        "option": "C",
+        "reason": "小细胞肺癌主要属于神经内分泌谱系。"
+      }
+    ],
+    "common_failure_node": "看到“亚洲人”就直接假定EGFR阳性，忽略最终治疗必须由分子检测决定。",
+    "source_boundary_note": "relation仅承接“肺腺癌是EGFR驱动突变重要富集组织学类型”；实际靶向治疗必须依据分子检测。"
   },
   {
     "question_id": "xizong-official-2021-n129",
@@ -92,14 +124,22 @@
       "这属于典型副癌/异位内分泌表现。"
     ],
     "transfer_rule": "小细胞肺癌常见副肿瘤综合征：SIADH、异位ACTH等。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.小细胞肺癌。其神经内分泌特征可导致异位ACTH分泌并形成Cushing综合征。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "腺癌更常见EGFR等驱动突变，不是异位ACTH的经典肺癌类型。"
+      }
+    ],
+    "common_failure_node": "把所有伴瘤内分泌综合征都泛化到任何肺癌组织学类型。"
   },
   {
     "question_id": "xizong-official-2021-n130",
@@ -113,17 +153,27 @@
     "exam_target": "亚硝酸盐中毒解毒剂",
     "decision_axis": "亚硝酸盐可将Hb氧化为高铁血红蛋白，亚甲蓝可促进高铁Hb还原，是经典解毒药；现实使用还需注意剂量与G6PD缺乏等边界。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "亚硝酸盐把Fe²⁺氧化成Fe³⁺，形成高铁血红蛋白。",
+      "Current F1 KP14明确给出“亚硝酸盐所致高铁Hb血症→亚甲蓝”。",
+      "因此选D。"
     ],
     "transfer_rule": "亚硝酸盐→高铁血红蛋白血症→经典解毒剂亚甲蓝。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.亚甲蓝。亚硝酸盐可造成高铁血红蛋白血症，Current F1 KP14明确把亚甲蓝作为对应解毒药。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "亚硝酸异戊酯本身可诱导高铁血红蛋白，用于特定氰化物解毒历史路径，不是本题答案。"
+      }
+    ],
+    "common_failure_node": "只记“蓝色/发绀”表现，不建立毒效应—解毒药双向映射。"
   },
   {
     "question_id": "xizong-official-2021-n131",
@@ -137,17 +187,32 @@
     "exam_target": "苯二氮卓中毒氟马西尼",
     "decision_axis": "题源固定将氟马西尼作为苯二氮卓中毒拮抗剂；现实使用存在诱发惊厥、混合中毒等重要禁忌和选择条件，不能固化为普遍处理规则。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对Current边界 fail-closed。"
+      "题源考苯二氮䓬类拮抗剂身份。",
+      "Current F1 KP14明确保留氟马西尼配对。",
+      "因此选A；但现实应用需注意惊厥和混合中毒等选择条件。"
     ],
     "transfer_rule": "仅保留药理对应关系；临床是否使用氟马西尼需按中毒背景与禁忌判断。",
-    "mapping_decision": "NO_SAFE_MATCH",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.氟马西尼。Current F1 KP14明确保留“苯二氮䓬类→氟马西尼”考试配对。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "亚甲蓝用于高铁血红蛋白血症。"
+      },
+      {
+        "option": "C",
+        "reason": "二巯丙磺钠用于部分重金属中毒。"
+      }
+    ],
+    "common_failure_node": "把“存在现实禁忌”误解成“Current Study不能承接药物身份配对”。",
+    "source_boundary_note": "Current F1原样保留苯二氮䓬类→氟马西尼考试配对；现实使用存在诱发惊厥、混合中毒等禁忌/选择条件，不扩写成所有病例常规使用。"
   },
   {
     "question_id": "xizong-official-2021-n132",
@@ -166,14 +231,22 @@
       "降钙素既帮助识别疾病，也可用于随访肿瘤负荷。"
     ],
     "transfer_rule": "髓样癌=C细胞=降钙素。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.髓样癌。甲状腺髓样癌来源于滤泡旁C细胞，可分泌降钙素。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "乳头状癌来源于滤泡上皮，身份由特征性核改变等确定。"
+      }
+    ],
+    "common_failure_node": "把降钙素和甲状腺滤泡激素来源混淆。"
   },
   {
     "question_id": "xizong-official-2021-n133",
@@ -192,14 +265,22 @@
       "髓样癌和未分化癌各有特殊生物学，但发生频率都低于乳头状癌。"
     ],
     "transfer_rule": "甲状腺癌最常见=乳头状癌。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.乳头状癌。Current D21明确乳头状癌是最常见的甲状腺恶性肿瘤。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "髓样癌有独特C细胞/降钙素身份，但频率低于乳头状癌。"
+      }
+    ],
+    "common_failure_node": "把“某类型生物学特殊”误当成“发生最常见”。"
   },
   {
     "question_id": "xizong-official-2021-n134",
@@ -218,14 +299,22 @@
       "关键是‘高胃泌素 + 高胃酸 + 难治溃疡’。"
     ],
     "transfer_rule": "胃泌素瘤→高胃酸→Zollinger-Ellison。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.Zollinger-Ellison综合征。胃泌素瘤导致高胃泌素、高胃酸和顽固/多发溃疡。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "Whipple三联征属于胰岛素瘤低血糖识别。"
+      }
+    ],
+    "common_failure_node": "把胰腺神经内分泌肿瘤的几个综合征配对互相串错。"
   },
   {
     "question_id": "xizong-official-2021-n135",
@@ -244,14 +333,22 @@
       "它反映的是内源性高胰岛素导致的反复低血糖。"
     ],
     "transfer_rule": "胰岛素瘤抓Whipple三联征。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.Whipple三联征。低血糖症状、实测低血糖和补糖后缓解是胰岛素瘤经典识别。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "Zollinger-Ellison综合征属于胃泌素瘤。"
+      }
+    ],
+    "common_failure_node": "只记“胰岛肿瘤有内分泌综合征”，却不会按激素功能配对。"
   },
   {
     "question_id": "xizong-official-2021-n136",
@@ -265,17 +362,28 @@
     "exam_target": "维生素B12缺乏机制",
     "decision_axis": "胃切除可减少内因子，回肠末段切除可破坏B12-内因子复合物吸收，内因子抗体也可导致B12吸收障碍。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "B12吸收需要胃酸释放、内因子结合和终末回肠吸收。",
+      "题源选择B、C、D并排除胃酸不足。",
+      "Current D4 KP03/H3 KP15明确胃酸缺乏也可构成B12吸收故障，因此不能把BCD整体升级为Current规则。"
     ],
     "transfer_rule": "B12吸收链：胃内因子→回肠末段吸收。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B、C、D为题源答案：胃大部切除、末端回肠切除和抗内因子抗体都可造成B12吸收障碍；但题源把“胃酸分泌不足”排除，与Current D4/H3把胃酸缺乏列为B12吸收故障入口存在冲突。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "Current D4明确：胃酸缺乏可使食物结合态B12难以释放；是否足以造成临床缺乏取决于程度与背景。"
+      }
+    ],
+    "common_failure_node": "为了服从旧答案，静默删除Current已经明确冻结的胃酸—B12释放链。",
+    "source_conflict_note": "题源排除“胃酸分泌不足”，但Current D4 KP03与H3 KP15明确把胃酸缺乏/食物B12释放失败列为B12吸收故障入口，存在Source/Current冲突。"
   },
   {
     "question_id": "xizong-official-2021-n137",
@@ -294,14 +402,22 @@
       "长期血压工作点最终更多依赖肾-体液容量调节。"
     ],
     "transfer_rule": "baroreflex=快、短期、双向、可重设。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、C、D正确。压力感受性反射可双向快速缓冲血压、主要负责短期调节，并在持续高压时发生重调定。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "压力感受性反射通过交感/迷走输出会影响心率，不是“对心率无调节”。"
+      }
+    ],
+    "common_failure_node": "把短期压力反射误学成长期血压设定系统。"
   },
   {
     "question_id": "xizong-official-2021-n138",
@@ -315,17 +431,31 @@
     "exam_target": "激素与产热",
     "decision_axis": "甲状腺激素可提高基础代谢和产热，生长激素也可通过促进代谢参与机体产热调节。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "产热调节需要区分直接代谢效应和Current Study专门冻结的体液产热接口。",
+      "D5 KP09明确列甲状腺激素、生长激素及儿茶酚胺。",
+      "因此本题B、C正确。"
     ],
     "transfer_rule": "甲状腺激素是经典长期产热激素。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B、C正确。Current D5 KP09明确甲状腺激素参与非战栗产热的慢持续调节，并把生长激素列入起效较快的体液产热调节接口。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "胰岛素不是Current D5本题产热激素列表。"
+      },
+      {
+        "option": "D",
+        "reason": "糖皮质激素虽影响代谢，但不在当前Study这道产热调节配对中。"
+      }
+    ],
+    "common_failure_node": "把“会改变代谢”的所有激素都等同于体温调节中的产热激素。"
   },
   {
     "question_id": "xizong-official-2021-n139",
@@ -344,14 +474,22 @@
       "这几条共同服务于净排酸和新生HCO₃⁻。"
     ],
     "transfer_rule": "肾排酸抓H⁺分泌+NH₃/NH₄⁺缓冲。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、B、C正确。Na⁺/H⁺交换、H⁺泵和NH₃/NH₄⁺系统共同服务肾小管泌酸、净排酸和新生HCO₃⁻。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "NKCC2主要参与粗升支NaCl重吸收和髓质梯度建立，不是这道酸碱调节主机制。"
+      }
+    ],
+    "common_failure_node": "看到肾小管转运蛋白就认为都直接负责酸碱调节。"
   },
   {
     "question_id": "xizong-official-2021-n140",
@@ -365,17 +503,31 @@
     "exam_target": "后马托品眼部作用",
     "decision_axis": "后马托品属于抗毒蕈碱药，可阻断瞳孔括约肌和睫状肌的胆碱能作用，导致散瞳和调节麻痹。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "Current N3 KP03明确M受体使瞳孔括约肌和睫状肌收缩，并列后马托品为阻断剂。",
+      "反向阻断即散瞳和调节麻痹。",
+      "因此A、C正确。"
     ],
     "transfer_rule": "抗M药眼部效应=散瞳+睫状肌麻痹。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、C正确。后马托品阻断M受体，使瞳孔括约肌和睫状肌作用被抑制，造成散瞳与调节麻痹，从而近视物模糊。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "抗M散瞳可诱发/加重闭角型青光眼风险，不是“青光眼症状缓解”。"
+      },
+      {
+        "option": "B",
+        "reason": "复视不是M受体阻断在眼部的经典直接效应。"
+      }
+    ],
+    "common_failure_node": "只记阿托品类“散瞳”，漏掉睫状肌麻痹导致近视物模糊。"
   },
   {
     "question_id": "xizong-official-2021-n141",
@@ -394,14 +546,22 @@
       "REM更偏脑活动活跃、梦境和肌张力抑制，不是这道题所问的恢复主轴。"
     ],
     "transfer_rule": "深NREM→GH分泌高峰→偏身体恢复。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、C正确。NREM/慢波睡眠与生长激素增加、儿童生长发育及体力恢复相关。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "突触重塑/记忆整合更多属于更复杂的睡眠认知功能，不是本题NREM经典Study答案。"
+      }
+    ],
+    "common_failure_node": "把REM/NREM所有功能混成“睡眠都有利于大脑”。"
   },
   {
     "question_id": "xizong-official-2021-n142",
@@ -415,17 +575,28 @@
     "exam_target": "跨胞质与线粒体代谢通路",
     "decision_axis": "苹果酸-天冬氨酸穿梭、甘油磷酸穿梭以及尿素循环均涉及胞质与线粒体间的物质转运；三羧酸循环主要在线粒体内进行。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "Current M8 Coverage Ledger明确点名2021N142X为混合题，并规定鸟氨酸循环归M8 Primary、穿梭Recall M2。",
+      "M8 KP15–16冻结尿素循环与TCA/区室，M2 KP09冻结α-磷酸甘油/苹果酸-天冬氨酸穿梭。",
+      "因此保留A、B、C，relation以M8 Block为最小安全Primary并辅以M2。"
     ],
     "transfer_rule": "问跨两区室时，先看穿梭系统和尿素循环。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、B、C正确。题目考跨胞质—线粒体的混合通路：尿素/鸟氨酸循环跨两个区室，α-磷酸甘油穿梭跨线粒体膜系统，天冬氨酸—精氨酸代琥珀酸/TCA接口也跨区室；TCA本体主要在线粒体。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "三羧酸循环主体在线粒体基质内进行，不属于题目所指胞质和线粒体都参与的通路。"
+      }
+    ],
+    "common_failure_node": "把“某通路与另一通路有连接”误等同于“该通路本身两个区室都进行”。",
+    "source_boundary_note": "Current M8明确将2021N142X路由为“鸟氨酸循环Primary + M2穿梭Recall”的混合题；relation按该既定路由承接，不制造重复Primary。"
   },
   {
     "question_id": "xizong-official-2021-n143",
@@ -439,17 +610,21 @@
     "exam_target": "必需氨基酸识别",
     "decision_axis": "赖氨酸、色氨酸、亮氨酸和组氨酸均属于人体必需氨基酸。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "Current M8 KP01明确列出9种营养必需氨基酸，其中包含本题四项。",
+      "因此A、B、C、D全对。"
     ],
     "transfer_rule": "必需氨基酸需由膳食供给。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、B、C、D均正确。赖氨酸、色氨酸、亮氨酸和组氨酸都在Current M8 KP01的营养必需氨基酸名单中。",
+    "valuable_distractors": [],
+    "common_failure_node": "全选题为了寻找陷阱而错误否定组氨酸等真实必需氨基酸。"
   },
   {
     "question_id": "xizong-official-2021-n144",
@@ -468,14 +643,22 @@
       "这题考的是两条合成路线的交集。"
     ],
     "transfer_rule": "共同原料抓Asp+CO₂+PRPP；Gly偏嘌呤。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、C、D正确。天冬氨酸、CO₂和PRPP都是嘌呤与嘧啶从头合成共同需要的原料/入口；甘氨酸只直接参与嘌呤环。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "甘氨酸是嘌呤环原料，不属于嘧啶环直接原料。"
+      }
+    ],
+    "common_failure_node": "分别背两条通路却不会取交集。"
   },
   {
     "question_id": "xizong-official-2021-n145",
@@ -489,17 +672,32 @@
     "exam_target": "具有酶活性的膜受体",
     "decision_axis": "EGF受体属于受体酪氨酸激酶；TGF-β受体具有丝氨酸/苏氨酸激酶活性，二者都具有内在酶活性。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "题源按受体是否具有内在酶活性选择EGFR和TGFβR。",
+      "D6 KP09仅保留膜受体—第二信使总语言，并把GPCR/RTK细节回送P0。",
+      "缺少一个最小Current owner同时承接B、D，故fail-closed。"
     ],
     "transfer_rule": "RTK抓EGF/胰岛素；TGF-β受体抓Ser/Thr激酶。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B、D为题源答案。EGF受体属于受体酪氨酸激酶；TGF-β受体具有Ser/Thr激酶活性。Current D6只把RTK等机制留作P0 Recall，没有在最小Current owner中完整冻结EGF+TGF这一双答案。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "GPCR自身不具备内在激酶催化活性。"
+      },
+      {
+        "option": "C",
+        "reason": "核受体是配体依赖转录因子，不是膜酶受体。"
+      }
+    ],
+    "common_failure_node": "因为Current知道“RTK”这个大类，就认为EGF和TGF两个具体受体都已被同一KP冻结。",
+    "source_gap_note": "Current D6未在单一最小KP完整冻结“EGFR为RTK + TGFβR为Ser/Thr激酶受体”双轴，只保留受体类别Recall。"
   },
   {
     "question_id": "xizong-official-2021-n146",
@@ -518,14 +716,17 @@
       "红细胞Hb是主来源，但不是唯一来源。"
     ],
     "transfer_rule": "胆红素不仅来自Hb，也来自其他含血红素蛋白。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、B、C、D均正确。Hb、肌红蛋白、细胞色素和过氧化物酶等含血红素蛋白降解后都可贡献胆红素来源。",
+    "valuable_distractors": [],
+    "common_failure_node": "只记衰老红细胞Hb是主要来源，就误认为其它血红素蛋白不能生成胆红素。"
   },
   {
     "question_id": "xizong-official-2021-n147",
@@ -539,17 +740,28 @@
     "exam_target": "血浆蛋白共同特征",
     "decision_axis": "多数血浆蛋白由肝合成，许多为糖蛋白并经分泌途径进入血液；免疫球蛋白等存在重要例外，因此应按选项语境判断而非绝对化。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "Current M1 KP07直接支持A、B并明确D错误。",
+      "题源还把C“均为分泌型蛋白质”列为正确，但Current没有冻结这一绝对命题。",
+      "因此答案保留，Crosswalk不强行正向映射。"
     ],
     "transfer_rule": "血浆蛋白的合成来源不能一概而论，免疫球蛋白是经典例外。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、B、C为题源答案。Current M1 KP07明确“多数血浆蛋白在肝合成、多数为糖蛋白”，但对“均为分泌型蛋白质”并未以同样绝对方式冻结，反而提示避免绝对化。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "血浆蛋白不全是球蛋白，白蛋白本身就是重要非球蛋白组分。"
+      }
+    ],
+    "common_failure_node": "用“多数”证据去支持“全部”选项。",
+    "source_gap_note": "Current M1 KP07只明确“多数肝合成、多数为糖蛋白”，并提醒不要机械绝对化血浆蛋白类别；题源C“均为分泌型蛋白质”缺少同等强度Current owner。"
   },
   {
     "question_id": "xizong-official-2021-n148",
@@ -568,14 +780,26 @@
       "其余选项若以肉芽肿或其他炎症类型为主，就不在这一分类。"
     ],
     "transfer_rule": "化脓性炎抓中性粒细胞+脓液。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B、C正确。疖和流行性脑脊髓膜炎都属于中性粒细胞主导、可形成脓液的化脓性炎。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "阿米巴肝脓肿虽名为脓肿，但病理本质不是典型细菌性中性粒细胞化脓性炎。"
+      },
+      {
+        "option": "D",
+        "reason": "流行性乙型脑炎属于病毒性炎症。"
+      }
+    ],
+    "common_failure_node": "只看疾病名称里有“脓肿”就自动归为化脓性炎。"
   },
   {
     "question_id": "xizong-official-2021-n149",
@@ -589,17 +813,28 @@
     "exam_target": "肉芽肿性炎病变",
     "decision_axis": "结核结节、风湿性Aschoff小体及伤寒小结均可表现为以巨噬细胞/组织细胞反应为核心的肉芽肿样病变。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "结核结节、Aschoff小体和伤寒小结分别有自己的病理身份。",
+      "三项正确事实横跨多个Current Block。",
+      "没有单一最小owner完整承接B、C、D，故不制造正向relation。"
     ],
     "transfer_rule": "肉芽肿性炎不是只有结核；先看是否以活化巨噬细胞聚集为核心。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B、C、D为题源答案：结核结节、风湿性Aschoff小体和伤寒小结均可归入肉芽肿样/组织细胞反应性病变；但三者分别属于结核、风湿和伤寒不同Current owner。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "砂粒体是同心层状钙化小体，不是肉芽肿。"
+      }
+    ],
+    "common_failure_node": "为了覆盖一道多选题，把三个独立疾病的病理owner硬拼成一个虚构Primary。",
+    "source_gap_note": "正确项横跨结核、风湿、伤寒三个Current owner，没有单一最小KP可安全承担整题。"
   },
   {
     "question_id": "xizong-official-2021-n150",
@@ -613,16 +848,26 @@
     "exam_target": "癌前病变识别",
     "decision_axis": "黏膜白斑、长期慢性溃疡性结肠炎及绒毛状腺瘤等均可增加相应癌变风险，属于经典癌前病变/癌前状态范畴。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "Current O9 KP22明确列黏膜白斑、腺瘤/息肉病和炎症性肠病为癌前病变范畴。",
+      "D15 KP13进一步明确UC及绒毛状腺瘤的癌变风险。",
+      "因此A、C、D正确。"
     ],
     "transfer_rule": "癌前病变强调癌变风险升高，并非已经是癌。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、C、D正确。黏膜白斑、长期炎症性肠病（尤其UC）和大肠绒毛状腺瘤均属于Current癌前病变/高风险连续谱；慢性非萎缩性胃炎本身不是题源癌前病变。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "Current胃癌前链更强调慢性萎缩性胃炎、肠化/异型增生等，而非单纯慢性非萎缩性胃炎。"
+      }
+    ],
+    "common_failure_node": "把“慢性炎症”三个字一律等同癌前病变。"
   }
 ]
