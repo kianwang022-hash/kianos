@@ -22,9 +22,18 @@
         "meaning_cn": "需要被做",
         "pattern": "need to be done",
         "source_sense_id": "sense:need:7e3dcf9fd59955a9"
+      },
+      {
+        "boundary": "absence of necessity, not prohibition",
+        "construction_id": "construction:5f475962d88f598dc036",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "不必；没有必要做某事",
+        "pattern": "need not / needn't + base verb",
+        "source_sense_id": "sense:need:bc81e25cfae65772"
       }
     ],
-    "content_hash": "be4619cecef19c237e52a325242f6c26f6a3d5db2c6b56e746c6adad99cd6646",
+    "content_hash": "e4e5d44fa5ad660a2cf2dbee55d7f49185d2e774dee7184b35682fcc47efef5e",
     "core_concept": {
       "core_clusters": [
         {
@@ -209,7 +218,14 @@
     "word_family": [],
     "word_id": "word:need"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "deep:semantic_contrast:must:bd8e1771fe5f0841",
+      "owner_path": "content/lexical/relations/by-id/6e/6e82498d3aa319dd82d93fe03bb05888130f3bc3cbdee7e75da83f1b3c1426aa.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -325,7 +341,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3193-3200.json",
-    "source_content_hash": "be4619cecef19c237e52a325242f6c26f6a3d5db2c6b56e746c6adad99cd6646",
+    "source_content_hash": "e4e5d44fa5ad660a2cf2dbee55d7f49185d2e774dee7184b35682fcc47efef5e",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
