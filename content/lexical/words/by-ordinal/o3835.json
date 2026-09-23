@@ -6,24 +6,35 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "6839f2d5edbf877125862bc833467a13c1a4ae716ec4e5ae3331be6ef5de21f5",
+    "constructions": [
+      {
+        "boundary": "appropriate relative amount/size",
+        "construction_id": "construction:5b3e95ede36841b52b02",
+        "definition_en": "in the correct or appropriate relative amount or size",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "与…成适当比例；相称",
+        "pattern": "in proportion (to sth)"
+      },
+      {
+        "boundary": "relative mismatch; figuratively exaggerated",
+        "construction_id": "construction:0a9d9195d32a7482efee",
+        "definition_en": "too large, small, or strong relative to something else; figuratively exaggerated",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "与…不成比例；相对过大/过小/过强；夸大失衡",
+        "pattern": "out of proportion (to sth)"
+      }
+    ],
+    "content_hash": "6fdec6098b468247cce5c5e035a1d61516eedd7e922ff98fa3fb077c627f0cb4",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "比例；比率",
-          "label_en": "ratio or quantitative relationship",
+          "label_cn": "比例；比率；占比",
+          "label_en": "a ratio/quantitative relationship or a share of a whole",
           "pos": "noun",
           "sense_ids": [
             "sense:proportion:e26cd9308ffe5921"
-          ]
-        },
-        {
-          "label_cn": "一部分；占比",
-          "label_en": "a part or share of a whole",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:proportion:5e6b1c9b2fb8ef9d"
           ]
         },
         {
@@ -108,19 +119,6 @@
         "transitivity": "vt"
       },
       {
-        "collocations": [],
-        "confidence": "owner_approved",
-        "definition_cn": "一部分；占比",
-        "definition_en": "a part or share of a whole",
-        "governing_pattern": "",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:proportion:5e6b1c9b2fb8ef9d",
-        "sense_label_en": "a part or share of a whole",
-        "sort_order": 2,
-        "transitivity": "nonverb"
-      },
-      {
         "collocations": [
           {
             "collocation_id": "collocation:d601c0251467c6b56a32",
@@ -165,7 +163,24 @@
     "word_id": "word:proportion"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:proportion:5e6b1c9b2fb8ef9d",
+      "status": "merged",
+      "merged_into_sense_id": "sense:proportion:e26cd9308ffe5921",
+      "pos": "noun",
+      "definition_cn": "一部分；占比",
+      "definition_en": "a part or share of a whole",
+      "semantic_key": "a2c5a024f928d80db1247da7d438285ce44ab2dc80c3aa9a5e2ac726a1dce518",
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-09-09T00:00:00Z",
+      "source_row": 19499,
+      "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -173,13 +188,6 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10675,
-        "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json"
-      },
-      {
-        "sense_id": "sense:proportion:5e6b1c9b2fb8ef9d",
-        "status": "active",
-        "merged_into_sense_id": null,
-        "source_row": 19499,
         "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json"
       },
       {
@@ -194,6 +202,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10677,
+        "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json"
+      },
+      {
+        "sense_id": "sense:proportion:5e6b1c9b2fb8ef9d",
+        "status": "merged",
+        "merged_into_sense_id": "sense:proportion:e26cd9308ffe5921",
+        "source_row": 19499,
         "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json"
       }
     ],
@@ -226,13 +241,13 @@
         "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
       },
       {
-        "id": "collocation:d601c0251467c6b56a32",
-        "source_row": 21627,
+        "id": "collocation:f3795590fe155cf57929",
+        "source_row": 20620,
         "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
       },
       {
-        "id": "collocation:f3795590fe155cf57929",
-        "source_row": 20620,
+        "id": "collocation:d601c0251467c6b56a32",
+        "source_row": 21627,
         "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
       }
     ],
@@ -282,7 +297,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3833-3840.json",
-    "source_content_hash": "bbf8b3d7c335cc5e76587b956de03911167b60887f9fe5a2f544d5b47e951d16",
+    "source_content_hash": "6fdec6098b468247cce5c5e035a1d61516eedd7e922ff98fa3fb077c627f0cb4",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

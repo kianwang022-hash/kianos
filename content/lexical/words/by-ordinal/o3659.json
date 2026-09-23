@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "00c33b6b248d7fa60a254976c1a7fc0bc6459620cbb30fdcef1e116f00722944",
+    "content_hash": "8d3578dee3d8aafc868528bc8ca1f6c56f8775d7c087e57c7fa95d952531fe9e",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "有毒的；恶意的",
@@ -26,15 +26,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:5d4b62fd5fd85504de93",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:poisonous:72bb6f9b2ebf5bdb:collocation:0"
-            ],
-            "meaning_cn": "毒蛇",
-            "phrase": "poisonous snake"
-          },
-          {
             "collocation_id": "collocation:afc83b10721b1480e4b2",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -42,6 +33,15 @@
             ],
             "meaning_cn": "毒气",
             "phrase": "poisonous gas"
+          },
+          {
+            "collocation_id": "collocation:03bb3cfd54378a64ae07",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:poisonous:72bb6f9b2ebf5bdb:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "有毒植物/蘑菇/气体",
+            "phrase": "poisonous plant/mushroom/gas"
           }
         ],
         "confidence": "medium",
@@ -54,7 +54,8 @@
         "sense_id": "sense:poisonous:72bb6f9b2ebf5bdb",
         "sense_label_en": "containing poison; capable of harming or killing by poison",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "poisonous harms through ingestion, contact, or absorption; venomous animals deliver venom, typically by bite or sting"
       },
       {
         "collocations": [
@@ -120,7 +121,7 @@
       }
     ],
     "active_collocations": [
-      "collocation:5d4b62fd5fd85504de93",
+      "collocation:03bb3cfd54378a64ae07",
       "collocation:6183387978d620740f75",
       "collocation:afc83b10721b1480e4b2"
     ],
@@ -139,6 +140,11 @@
       {
         "id": "collocation:afc83b10721b1480e4b2",
         "source_row": 14902,
+        "source_path": "content/lexical/canonical/collocations/shards/o3649-3680.json"
+      },
+      {
+        "id": "collocation:03bb3cfd54378a64ae07",
+        "source_row": 20909,
         "source_path": "content/lexical/canonical/collocations/shards/o3649-3680.json"
       }
     ],
@@ -173,7 +179,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3657-3664.json",
-    "source_content_hash": "00c33b6b248d7fa60a254976c1a7fc0bc6459620cbb30fdcef1e116f00722944",
+    "source_content_hash": "8d3578dee3d8aafc868528bc8ca1f6c56f8775d7c087e57c7fa95d952531fe9e",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

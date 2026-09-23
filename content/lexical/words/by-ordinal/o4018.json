@@ -7,21 +7,21 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "ee7aa4fc289f409f13f2fd7459f11eb3acaeec9a78afbac1aa78e2884f80355b",
+    "content_hash": "c67ed6b309156876390e5ab6bf06e7e955640966e3f77a391b059c31d9d07e69",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "躲避；避难；庇护；收容",
-          "label_en": "to take shelter from danger; to give shelter to",
-          "pos": "verb",
+          "label_cn": "避难所；庇护",
+          "label_en": "shelter/protection from danger or hardship",
+          "pos": "noun",
           "sense_ids": [
-            "sense:refuge:82d9ab3eb1ac5b4f"
+            "sense:refuge:8ec0d427742c5282"
           ]
         }
       ],
-      "core_meaning_cn": "躲避危险的庇护所",
-      "core_meaning_en": "shelter from danger",
-      "mental_model_cn": "躲避危险的庇护所",
+      "core_meaning_cn": "避难所；庇护",
+      "core_meaning_en": "shelter or protection from danger or hardship",
+      "mental_model_cn": "避难所；庇护",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -59,7 +59,17 @@
         "transitivity": "vt"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:8795255ed8020c7ab366",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:refuge:8ec0d427742c5282:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "寻求/获得庇护",
+            "phrase": "seek/take refuge"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "避难所；庇护",
         "definition_en": "a shelter from danger or hardship",
@@ -145,7 +155,8 @@
       }
     ],
     "active_collocations": [
-      "collocation:86e3c030843dee0ec73a"
+      "collocation:86e3c030843dee0ec73a",
+      "collocation:8795255ed8020c7ab366"
     ],
     "facts": [],
     "collocations": [
@@ -167,6 +178,11 @@
       {
         "id": "collocation:86e3c030843dee0ec73a",
         "source_row": 11454,
+        "source_path": "content/lexical/canonical/collocations/shards/o4001-4032.json"
+      },
+      {
+        "id": "collocation:8795255ed8020c7ab366",
+        "source_row": 21627,
         "source_path": "content/lexical/canonical/collocations/shards/o4001-4032.json"
       }
     ],
@@ -206,7 +222,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4017-4024.json",
-    "source_content_hash": "09be5bc6891adf2dce192a8cce14885671ce841f51d468022902692962a24169",
+    "source_content_hash": "c67ed6b309156876390e5ab6bf06e7e955640966e3f77a391b059c31d9d07e69",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

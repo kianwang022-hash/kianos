@@ -95,7 +95,7 @@
         "writing_safe": true
       }
     ],
-    "content_hash": "7c93fcefba4f6840418d6b8148c88cf5b0598f1433a361bb7a96237e072704b1",
+    "content_hash": "a6badaf79f5b637f9ccc89a9c7f59277fcdf3183b455d0fb63da7c24fdd6ab9c",
     "core_concept": {
       "core_clusters": [
         {
@@ -120,6 +120,14 @@
           "pos": "noun",
           "sense_ids": [
             "sense:promise:87733f89ca3f5d9b"
+          ]
+        },
+        {
+          "label_cn": "预示；有望",
+          "label_en": "show signs of likely future success/result",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:promise:1e61185489e554fd"
           ]
         }
       ],
@@ -222,6 +230,39 @@
         "sense_label_en": "signs or potential of future success or good results",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:a7712fc05f5b5edf6352",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:promise:1e61185489e554fd:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "有望有效/成功",
+            "phrase": "promise to be effective/successful"
+          },
+          {
+            "collocation_id": "collocation:cacddb977d715a651f9a",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:promise:1e61185489e554fd:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "预示会有更好的结果",
+            "phrase": "promise better results"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "预示；有望；给人充分理由期待",
+        "definition_en": "to show signs of likely future success or results; to give good reason to expect something",
+        "governing_pattern": "I/T: promise to be/do; promise sth",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:promise:1e61185489e554fd",
+        "sense_label_en": "to show signs of likely future success or results; to give good reason to expect something",
+        "sort_order": 999,
+        "transitivity": "I/T"
       }
     ],
     "verification_summary": {
@@ -269,31 +310,6 @@
       "source_row": 10633,
       "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:promise:1e61185489e554fd",
-      "status": "merged",
-      "merged_into_sense_id": "sense:promise:05d0b6dde03d55fd",
-      "pos": "verb",
-      "definition_cn": "预示，有可能",
-      "definition_en": "to give good reason to expect something",
-      "semantic_key": "b41c8d9116245deb272635d328a644f61e920c2f02d7aa04e400d6148dea4d37",
-      "semantic_key_history": [
-        "5087ca6a1efbd8992fbb6c93704263c2798cf0897b64abcc3b735627c1b406ce"
-      ],
-      "legacy_aliases": [
-        "promise:l2:4"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "promise:l2:4",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 10634,
-      "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -321,8 +337,8 @@
       },
       {
         "sense_id": "sense:promise:1e61185489e554fd",
-        "status": "merged",
-        "merged_into_sense_id": "sense:promise:05d0b6dde03d55fd",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 10634,
         "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json"
       },
@@ -338,6 +354,8 @@
       "collocation:5f3c5c88742bd45a1e03",
       "collocation:730e50643ab027745c84",
       "collocation:7e2ce1bc942cbf08c458",
+      "collocation:a7712fc05f5b5edf6352",
+      "collocation:cacddb977d715a651f9a",
       "collocation:d5d6649240d2f5f388ff"
     ],
     "facts": [
@@ -356,16 +374,6 @@
       {
         "id": "collocation:0c50cd2c16b2c2a823c7",
         "source_row": 1021,
-        "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
-      },
-      {
-        "id": "collocation:5f3c5c88742bd45a1e03",
-        "source_row": 21621,
-        "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
-      },
-      {
-        "id": "collocation:730e50643ab027745c84",
-        "source_row": 21622,
         "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
       },
       {
@@ -391,6 +399,26 @@
       {
         "id": "collocation:e3b075e37535317fbae5",
         "source_row": 19273,
+        "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
+      },
+      {
+        "id": "collocation:5f3c5c88742bd45a1e03",
+        "source_row": 21621,
+        "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
+      },
+      {
+        "id": "collocation:730e50643ab027745c84",
+        "source_row": 21622,
+        "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
+      },
+      {
+        "id": "collocation:a7712fc05f5b5edf6352",
+        "source_row": 21630,
+        "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
+      },
+      {
+        "id": "collocation:cacddb977d715a651f9a",
+        "source_row": 21632,
         "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
       }
     ],
@@ -430,7 +458,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3817-3824.json",
-    "source_content_hash": "e4b3d607989db11a13999bf00f610257872dd2b466971388a1243784ce9cf229",
+    "source_content_hash": "a6badaf79f5b637f9ccc89a9c7f59277fcdf3183b455d0fb63da7c24fdd6ab9c",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

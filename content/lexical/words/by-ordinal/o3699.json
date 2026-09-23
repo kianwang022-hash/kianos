@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "98f502434f2158989f920d98a9068c6ffe18364ba2ea6539c6131171eb0ab95f",
+    "content_hash": "2c948d6980d1151c7d5ed5630f27d4ca8b50c5a3f22ab6b064ff752345dbe7b1",
     "core_concept": {
       "core_clusters": [
         {
@@ -37,6 +37,14 @@
           "sense_ids": [
             "sense:post:e330787d6a6e54c4",
             "sense:post:eb8f34a5115356a0"
+          ]
+        },
+        {
+          "label_cn": "派驻；派任",
+          "label_en": "send or assign someone to a place, job, or duty",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:post:6113bcb95a30e18e"
           ]
         }
       ],
@@ -272,6 +280,39 @@
             "verification_status": "auditor_verified"
           }
         ]
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:c9685198be0bc27445db",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:post:6113bcb95a30e18e:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "把某人派驻到某地/岗位",
+            "phrase": "post sb to + place/post"
+          },
+          {
+            "collocation_id": "collocation:62e01a47e7b72f2fb8b4",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:post:6113bcb95a30e18e:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "被派驻到某地",
+            "phrase": "be posted to + place"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "派驻；派任；安排到某岗位/地点",
+        "definition_en": "to send or assign someone to a particular place, job, or duty",
+        "governing_pattern": "vt. + object",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:post:6113bcb95a30e18e",
+        "sense_label_en": "to send or assign someone to a particular place, job, or duty",
+        "sort_order": 8,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -352,15 +393,24 @@
         "merged_into_sense_id": null,
         "source_row": 10319,
         "source_path": "content/lexical/canonical/senses/shards/o3681-3712.json"
+      },
+      {
+        "sense_id": "sense:post:6113bcb95a30e18e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 10355,
+        "source_path": "content/lexical/canonical/senses/shards/o3681-3712.json"
       }
     ],
     "active_collocations": [
       "collocation:58ae6fa447a05e704dd0",
+      "collocation:62e01a47e7b72f2fb8b4",
       "collocation:63d727aa01387e83e725",
       "collocation:6d011ed764b06e0f19fb",
       "collocation:7a66668c94782d3600c2",
       "collocation:c2ad985e678fdd3cd3f1",
       "collocation:c5b7160bd980457786f8",
+      "collocation:c9685198be0bc27445db",
       "collocation:d96c293832c22f2199c8"
     ],
     "facts": [],
@@ -399,6 +449,16 @@
         "id": "collocation:d96c293832c22f2199c8",
         "source_row": 18390,
         "source_path": "content/lexical/canonical/collocations/shards/o3681-3712.json"
+      },
+      {
+        "id": "collocation:62e01a47e7b72f2fb8b4",
+        "source_row": 21601,
+        "source_path": "content/lexical/canonical/collocations/shards/o3681-3712.json"
+      },
+      {
+        "id": "collocation:c9685198be0bc27445db",
+        "source_row": 21603,
+        "source_path": "content/lexical/canonical/collocations/shards/o3681-3712.json"
       }
     ],
     "exam-mappings": [],
@@ -427,7 +487,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3697-3704.json",
-    "source_content_hash": "d8c8e780951d4e0e1503f46742b1395eb6499f31c86aab047e853590f77826f9",
+    "source_content_hash": "2c948d6980d1151c7d5ed5630f27d4ca8b50c5a3f22ab6b064ff752345dbe7b1",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

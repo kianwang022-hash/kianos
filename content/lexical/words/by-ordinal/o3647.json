@@ -6,8 +6,18 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "5b354c9c4d04adcf16d5c429b5e047785ffe045f9ca44c3a6e1a163576324c88",
+    "constructions": [
+      {
+        "boundary": "figurative termination/support-withdrawal construction; literal electrical unplugging remains compositional",
+        "construction_id": "construction:e94b63b0c908a3fb7362",
+        "definition_en": "to stop an activity or end support/resources for it",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "停止；终止；撤掉支持或资源",
+        "pattern": "pull the plug (on sth)"
+      }
+    ],
+    "content_hash": "2dddc4a738c27a63350a56881e1a5bca73f971b782e5f332ebdbfee09d9706db",
     "core_concept": {
       "core_clusters": [
         {
@@ -78,17 +88,7 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:06cce0207eecff9daf45",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:plug:f6dd25dbf9ec5043:collocation:0"
-            ],
-            "meaning_cn": "拔掉插头；停止，终止",
-            "phrase": "pull the plug"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "插头",
         "definition_en": "an electrical device with pins that connects to a socket",
@@ -212,13 +212,6 @@
   "identity_refs": {
     "senses": [
       {
-        "sense_id": "sense:plug:3ed1bc5d3a271d4a",
-        "status": "active",
-        "merged_into_sense_id": null,
-        "source_row": 10168,
-        "source_path": "content/lexical/canonical/senses/shards/o3617-3648.json"
-      },
-      {
         "sense_id": "sense:plug:5566b4e628465b88",
         "status": "active",
         "merged_into_sense_id": null,
@@ -252,22 +245,23 @@
         "merged_into_sense_id": null,
         "source_row": 10161,
         "source_path": "content/lexical/canonical/senses/shards/o3617-3648.json"
+      },
+      {
+        "sense_id": "sense:plug:3ed1bc5d3a271d4a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 10168,
+        "source_path": "content/lexical/canonical/senses/shards/o3617-3648.json"
       }
     ],
     "active_collocations": [
       "collocation:01953f0e4b520d726ff0",
-      "collocation:06cce0207eecff9daf45",
       "collocation:0ad2342de023858dc09b",
       "collocation:97752650e601f15222a6",
       "collocation:ebe0e3071999175c2b80"
     ],
     "facts": [],
     "collocations": [
-      {
-        "id": "collocation:01953f0e4b520d726ff0",
-        "source_row": 21593,
-        "source_path": "content/lexical/canonical/collocations/shards/o3617-3648.json"
-      },
       {
         "id": "collocation:06cce0207eecff9daf45",
         "source_row": 567,
@@ -286,6 +280,11 @@
       {
         "id": "collocation:ebe0e3071999175c2b80",
         "source_row": 19982,
+        "source_path": "content/lexical/canonical/collocations/shards/o3617-3648.json"
+      },
+      {
+        "id": "collocation:01953f0e4b520d726ff0",
+        "source_row": 21593,
         "source_path": "content/lexical/canonical/collocations/shards/o3617-3648.json"
       }
     ],
@@ -320,7 +319,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3641-3648.json",
-    "source_content_hash": "fb241ceb308bc870c2fdfe88df65baf252afdb7a5b361258af96f477dd374632",
+    "source_content_hash": "2dddc4a738c27a63350a56881e1a5bca73f971b782e5f332ebdbfee09d9706db",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

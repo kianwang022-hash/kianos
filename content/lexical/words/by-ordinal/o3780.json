@@ -6,8 +6,36 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "88610ff91c1ecf2e4dbc8a706bb59104b0b93a1984c7918b91ba1f0b4ab0c919",
+    "constructions": [
+      {
+        "boundary": "publication availability, not generic printed text",
+        "construction_id": "construction:819ced9239ebddf64de2",
+        "definition_en": "currently available in printed/publication form",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "仍在印刷/出版并可正常买到",
+        "pattern": "in print"
+      },
+      {
+        "boundary": "publication availability",
+        "construction_id": "construction:7b0943ba86166d38f09d",
+        "definition_en": "no longer being printed/published and therefore not normally available new",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "已绝版；不再印刷/出版，通常无法买到新品",
+        "pattern": "out of print"
+      },
+      {
+        "boundary": "detailed terms/restrictions, not generic font size",
+        "construction_id": "construction:6ed029b9968f5538a17f",
+        "definition_en": "detailed conditions or restrictions, often less noticeable than the main message",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "小字细则；不显眼的详细条件或限制",
+        "pattern": "the small/fine print"
+      }
+    ],
+    "content_hash": "fe8ecc86b52202c358af495c78cb41c7c4493245cbdbfa16f4f1c11535e6c305",
     "core_concept": {
       "core_clusters": [
         {
@@ -75,26 +103,7 @@
         "transitivity": "vt"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:9f32184c6a6b6c6aaa22",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:print:a7bb818b340b5324:collocation:0"
-            ],
-            "meaning_cn": "已出版；仍在销售",
-            "phrase": "in print"
-          },
-          {
-            "collocation_id": "collocation:f8b747a36f4c4365ff7f",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:print:a7bb818b340b5324:collocation:1"
-            ],
-            "meaning_cn": "小字；细则",
-            "phrase": "small print"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "印刷品；印刷字体",
         "definition_en": "the text or images produced by printing",
@@ -179,10 +188,8 @@
     ],
     "active_collocations": [
       "collocation:85d663782fa8a6d6cafa",
-      "collocation:9f32184c6a6b6c6aaa22",
       "collocation:b20363c7453792f31bd4",
-      "collocation:bd3817f2dca962d2c0bf",
-      "collocation:f8b747a36f4c4365ff7f"
+      "collocation:bd3817f2dca962d2c0bf"
     ],
     "facts": [],
     "collocations": [
@@ -243,7 +250,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3777-3784.json",
-    "source_content_hash": "88610ff91c1ecf2e4dbc8a706bb59104b0b93a1984c7918b91ba1f0b4ab0c919",
+    "source_content_hash": "fe8ecc86b52202c358af495c78cb41c7c4493245cbdbfa16f4f1c11535e6c305",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

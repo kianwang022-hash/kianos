@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "2b770f790288c2095fe69085aefb6b4fa8455e27c4892c803bc0638ce9bc86be",
+    "content_hash": "f16f00c148ede22617f49f0791dc1164f17ae05b36c7a94d9ae158df83264d3a",
     "core_concept": {
       "core_clusters": [
         {
@@ -33,6 +33,22 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o3875-o4124.md",
+      "boundaries": [
+        {
+          "condition": "noun",
+          "note": "REfund",
+          "stress": "initial syllable"
+        },
+        {
+          "condition": "verb",
+          "note": "reFUND",
+          "stress": "second syllable"
+        }
+      ],
+      "type": "same_owner_form_pronunciation_boundary"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -68,6 +84,13 @@
         "definition_en": "money returned to a payer",
         "governing_pattern": "",
         "level": "L1",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "stress_pos_boundary",
+          "note": "noun refund normally has initial stress; verb refund has final stress",
+          "paired_form": "verb",
+          "surface_lemma": "refund"
+        },
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:refund:b4032d95db0a5f00",
@@ -101,6 +124,13 @@
         "definition_en": "pay back money to someone",
         "governing_pattern": "vt. + object",
         "level": "L1",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "stress_pos_boundary",
+          "note": "verb refund has final stress; noun refund normally has initial stress",
+          "paired_form": "noun",
+          "surface_lemma": "refund"
+        },
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:refund:c9d3ec310b6d5dbb",
@@ -126,23 +156,7 @@
     },
     "word": "refund",
     "word_family": [],
-    "word_id": "word:refund",
-    "form_identity": {
-      "authority": "content/lexical/semantic-reconciliation/o3875-o4124.md",
-      "type": "same_owner_form_pronunciation_boundary",
-      "boundaries": [
-        {
-          "condition": "noun",
-          "stress": "initial syllable",
-          "note": "REfund"
-        },
-        {
-          "condition": "verb",
-          "stress": "second syllable",
-          "note": "reFUND"
-        }
-      ]
-    }
+    "word_id": "word:refund"
   },
   "relation_refs": [],
   "reference_senses": [],
@@ -218,7 +232,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4017-4024.json",
-    "source_content_hash": "e5f652824bc703fc471103b2c84c0aa791d5450b9919a0ee43073f6c4e8f1ef8",
+    "source_content_hash": "f16f00c148ede22617f49f0791dc1164f17ae05b36c7a94d9ae158df83264d3a",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

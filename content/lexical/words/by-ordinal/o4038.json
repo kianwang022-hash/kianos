@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "e4981bd3e000e792395ca40d866a8a42dc233a35a0039a309201006b55f25245",
+    "content_hash": "0babec57f2c748a532fe204bfe5f290baa6be551b553f5c3384243b0bb458ab0",
     "core_concept": {
       "core_clusters": [
         {
@@ -34,6 +34,22 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o3875-o4124.md",
+      "boundaries": [
+        {
+          "condition": "noun reject",
+          "note": "REject",
+          "stress": "initial syllable"
+        },
+        {
+          "condition": "verb reject",
+          "note": "reJECT",
+          "stress": "second syllable"
+        }
+      ],
+      "type": "same_owner_form_pronunciation_boundary"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -60,6 +76,13 @@
         "definition_en": "refuse to accept or acknowledge",
         "governing_pattern": "vt. + object",
         "level": "L1",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "stress_pos_boundary",
+          "note": "verb reject normally has final stress; noun reject normally has initial stress",
+          "paired_form": "noun",
+          "surface_lemma": "reject"
+        },
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:reject:8dc2944cdf3d51c7",
@@ -84,6 +107,13 @@
         "definition_en": "refuse entrance or membership",
         "governing_pattern": "vt. + object",
         "level": "L2",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "stress_pos_boundary",
+          "note": "verb reject normally has final stress; noun reject normally has initial stress",
+          "paired_form": "noun",
+          "surface_lemma": "reject"
+        },
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:reject:5a8a15620f2058b0",
@@ -108,6 +138,13 @@
         "definition_en": "a person or thing that has been rejected",
         "governing_pattern": "",
         "level": "L3",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "stress_pos_boundary",
+          "note": "noun reject normally has initial stress; verb reject normally has final stress",
+          "paired_form": "verb",
+          "surface_lemma": "reject"
+        },
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:reject:1e5b017677005001",
@@ -133,23 +170,7 @@
     },
     "word": "reject",
     "word_family": [],
-    "word_id": "word:reject",
-    "form_identity": {
-      "authority": "content/lexical/semantic-reconciliation/o3875-o4124.md",
-      "type": "same_owner_form_pronunciation_boundary",
-      "boundaries": [
-        {
-          "condition": "noun reject",
-          "stress": "initial syllable",
-          "note": "REject"
-        },
-        {
-          "condition": "verb reject",
-          "stress": "second syllable",
-          "note": "reJECT"
-        }
-      ]
-    }
+    "word_id": "word:reject"
   },
   "relation_refs": [],
   "reference_senses": [],
@@ -246,7 +267,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4033-4040.json",
-    "source_content_hash": "2d392c16ded2a6e3b21f0253a7a37c83320f33c2a6d7c425a6cd5f056068fad5",
+    "source_content_hash": "0babec57f2c748a532fe204bfe5f290baa6be551b553f5c3384243b0bb458ab0",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -6,30 +6,41 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "76457a52bcc55b2f047b509d595f30c4b6a3ecf0eafe446fe9270d7b56aba994",
+    "constructions": [
+      {
+        "boundary": "quantifier/determiner construction; not an ordinary adjective before a noun",
+        "construction_id": "construction:28bc0bff7da23939a7e8",
+        "definition_en": "a large amount or number of; more than enough",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "大量的；很多的；足够的",
+        "pattern": "plenty of + noun",
+        "source_sense_id": "sense:plenty:52cd100574d250af"
+      }
+    ],
+    "content_hash": "756fb37cd425687eb0a08b2f74653df7c84ddc66574c67ea9494c7e1c84b93ea",
     "core_concept": {
       "core_clusters": [
         {
           "label_cn": "充足；丰富",
-          "label_en": "a full supply",
+          "label_en": "a full supply; abundance",
           "pos": "noun",
           "sense_ids": [
             "sense:plenty:ed04ff4b90c45b97"
           ]
         },
         {
-          "label_cn": "很多的；足够的",
-          "label_en": "more than enough",
-          "pos": "adjective",
+          "label_cn": "大量的；很多的；足够的",
+          "label_en": "a large amount/number of; more than enough",
+          "pos": "determiner",
           "sense_ids": [
             "sense:plenty:52cd100574d250af"
           ]
         }
       ],
-      "core_meaning_cn": "充足",
-      "core_meaning_en": "a large amount or quantity",
-      "mental_model_cn": "充足",
+      "core_meaning_cn": "充足；大量的",
+      "core_meaning_en": "abundance; a large amount or number of",
+      "mental_model_cn": "充足；大量的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -42,15 +53,6 @@
     "senses": [
       {
         "collocations": [
-          {
-            "collocation_id": "collocation:59769039239ed3a8a8ae",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:plenty:ed04ff4b90c45b97:collocation:0"
-            ],
-            "meaning_cn": "大量的……",
-            "phrase": "plenty of + sth"
-          },
           {
             "collocation_id": "collocation:7bf500c7dbc0f6cf253a",
             "exam_value": "fixed_pattern",
@@ -74,26 +76,16 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:3e55ceaa5df32b79efa8",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:plenty:52cd100574d250af:collocation:0"
-            ],
-            "meaning_cn": "充足的时间",
-            "phrase": "plenty of time"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
-        "definition_cn": "很多的；足够的",
-        "definition_en": "more than enough",
-        "governing_pattern": "",
-        "level": "L2",
+        "definition_cn": "很多的；大量的；足够的",
+        "definition_en": "a large amount or number of; more than enough",
+        "governing_pattern": "plenty of + noun",
+        "level": "L1",
         "needs_human_review": 0,
-        "pos": "adjective",
+        "pos": "determiner",
         "sense_id": "sense:plenty:52cd100574d250af",
-        "sense_label_en": "more than enough",
+        "sense_label_en": "a large amount or number of; more than enough",
         "sort_order": 1,
         "transitivity": "nonverb"
       }
@@ -137,8 +129,6 @@
       }
     ],
     "active_collocations": [
-      "collocation:3e55ceaa5df32b79efa8",
-      "collocation:59769039239ed3a8a8ae",
       "collocation:7bf500c7dbc0f6cf253a"
     ],
     "facts": [],
@@ -195,7 +185,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3641-3648.json",
-    "source_content_hash": "76457a52bcc55b2f047b509d595f30c4b6a3ecf0eafe446fe9270d7b56aba994",
+    "source_content_hash": "756fb37cd425687eb0a08b2f74653df7c84ddc66574c67ea9494c7e1c84b93ea",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
