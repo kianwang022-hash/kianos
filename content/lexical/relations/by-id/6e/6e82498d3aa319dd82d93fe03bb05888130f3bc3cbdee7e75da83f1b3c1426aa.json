@@ -1,0 +1,75 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "deep:semantic_contrast:must:bd8e1771fe5f0841",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:must",
+      "source_ordinal": 3162,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "mustn't = prohibition: do not do it; needn't = absence of necessity: you may do it, but it is unnecessary."
+        ],
+        "boundary": "mustn't = prohibition: do not do it; needn't = absence of necessity: you may do it, but it is unnecessary.",
+        "direction": "C",
+        "learning_note": "mustn't = prohibition: do not do it; needn't = absence of necessity: you may do it, but it is unnecessary.",
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "relation_id": "deep:semantic_contrast:must:bd8e1771fe5f0841",
+        "relation_scope": "sense",
+        "relation_type": "semantic_contrast",
+        "source_expression": "mustn't",
+        "source_sense_id": "sense:must:a12c20ee1fdf503e",
+        "target_expression": "needn't",
+        "target_sense_id": "sense:need:bc81e25cfae65772",
+        "target_word": "need",
+        "task_tags": [
+          "cloze",
+          "writing",
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": true
+      }
+    },
+    {
+      "source_word_id": "word:need",
+      "source_ordinal": 3200,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "mustn't = prohibition: do not do it; needn't = absence of necessity: you may do it, but it is unnecessary."
+        ],
+        "boundary": "mustn't = prohibition: do not do it; needn't = absence of necessity: you may do it, but it is unnecessary.",
+        "direction": "C",
+        "learning_note": "mustn't = prohibition: do not do it; needn't = absence of necessity: you may do it, but it is unnecessary.",
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "reciprocal_entrypoint": true,
+        "relation_id": "deep:semantic_contrast:must:bd8e1771fe5f0841",
+        "relation_scope": "sense",
+        "relation_type": "semantic_contrast",
+        "source_expression": "needn't",
+        "source_sense_id": "sense:need:bc81e25cfae65772",
+        "target_expression": "mustn't",
+        "target_sense_id": "sense:must:a12c20ee1fdf503e",
+        "target_word": "must",
+        "task_tags": [
+          "cloze",
+          "writing",
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": true
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

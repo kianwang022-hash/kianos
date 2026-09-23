@@ -6,8 +6,17 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "d46c7ff39fd3f8fde5756ebcef4542205a26787739eb919fd7542e30fba2afb2",
+    "constructions": [
+      {
+        "boundary": "approximation construction, not literal city-area meaning",
+        "construction_id": "construction:66519608cc0469961927",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "大约；约莫（尤美式；英式常拼 neighbourhood）",
+        "pattern": "in the neighborhood of + number/amount"
+      }
+    ],
+    "content_hash": "23f2cd981b2ffa18e11985d5125492cb3d70c82a0ad5b4c57a56ca0590e491fe",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "城镇中的区域或社区",
@@ -29,15 +38,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:a240eb36cd2016b81d43",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:neighborhood:7f1bb25f018052b4:collocation:0"
-            ],
-            "meaning_cn": "在...附近；大约",
-            "phrase": "in the neighborhood of + sth"
-          },
-          {
             "collocation_id": "collocation:e76cb57e23015f4b0aa9",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -45,6 +45,15 @@
             ],
             "meaning_cn": "社区学校",
             "phrase": "neighborhood school"
+          },
+          {
+            "collocation_id": "collocation:83d9c4d10f3e08c9d267",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:neighborhood:7f1bb25f018052b4:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "在某地附近",
+            "phrase": "in the neighborhood of + place"
           }
         ],
         "confidence": "medium",
@@ -123,8 +132,8 @@
       }
     ],
     "active_collocations": [
+      "collocation:83d9c4d10f3e08c9d267",
       "collocation:8de05cf36981937534eb",
-      "collocation:a240eb36cd2016b81d43",
       "collocation:e76cb57e23015f4b0aa9"
     ],
     "facts": [],
@@ -142,6 +151,11 @@
       {
         "id": "collocation:e76cb57e23015f4b0aa9",
         "source_row": 19613,
+        "source_path": "content/lexical/canonical/collocations/shards/o3201-3232.json"
+      },
+      {
+        "id": "collocation:83d9c4d10f3e08c9d267",
+        "source_row": 21420,
         "source_path": "content/lexical/canonical/collocations/shards/o3201-3232.json"
       }
     ],
@@ -181,7 +195,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3201-3208.json",
-    "source_content_hash": "d46c7ff39fd3f8fde5756ebcef4542205a26787739eb919fd7542e30fba2afb2",
+    "source_content_hash": "23f2cd981b2ffa18e11985d5125492cb3d70c82a0ad5b4c57a56ca0590e491fe",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -6,8 +6,17 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "1c64a2827e75b1761111c68900e065f1f55c9798f1d3b2cf4b2c759a0eb0bdfa",
+    "constructions": [
+      {
+        "construction_id": "construction:9004d147d70f876cbd31",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "刚接触/刚来到，对某事或某地还不熟悉",
+        "pattern": "be new to sth/somewhere",
+        "source_sense_id": "sense:new:508d24808f345ae7"
+      }
+    ],
+    "content_hash": "db530c9e0adf9733d9302d681db81af246e6bca4c2b1883e25fb205fe9fdfc8e",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "新的",
@@ -35,15 +44,6 @@
             ],
             "meaning_cn": "一辆新车",
             "phrase": "a new car"
-          },
-          {
-            "collocation_id": "collocation:f6f84b01aecfa160400a",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:new:b18f5ff941c75c2d:collocation:1"
-            ],
-            "meaning_cn": "对某人/某事不熟悉",
-            "phrase": "new to + sb/sth"
           }
         ],
         "confidence": "medium",
@@ -107,7 +107,17 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:f6f84b01aecfa160400a",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:new:b18f5ff941c75c2d:collocation:1"
+            ],
+            "meaning_cn": "对某人/某事不熟悉",
+            "phrase": "new to + sb/sth"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "陌生的；不熟悉的（常见 new to sb）",
         "definition_en": "unfamiliar or not previously known or experienced by someone",
@@ -248,7 +258,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3217-3224.json",
-    "source_content_hash": "1c64a2827e75b1761111c68900e065f1f55c9798f1d3b2cf4b2c759a0eb0bdfa",
+    "source_content_hash": "db530c9e0adf9733d9302d681db81af246e6bca4c2b1883e25fb205fe9fdfc8e",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

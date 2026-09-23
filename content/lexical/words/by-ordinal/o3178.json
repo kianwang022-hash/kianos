@@ -7,15 +7,16 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "96f05405364b028ff2be6f05d6704f8bff0fde516b8976cbf262424f53c66414",
+    "content_hash": "7230b44498d382819521a8a03af3de876e3facc1a739e2b072298a27aecc8978",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "叙述；故事",
-          "label_en": "a message that tells the particulars of an act or occurrence or course of events",
+          "label_cn": "叙述/故事；解释或呈现事件的叙事框架",
+          "label_en": "a story/account; a framing or explanation of events",
           "pos": "noun",
           "sense_ids": [
-            "sense:narrative:c9570a3a611f5963"
+            "sense:narrative:c9570a3a611f5963",
+            "sense:narrative:169d01fd068c6bbc"
           ]
         },
         {
@@ -87,6 +88,39 @@
         "sense_label_en": "consisting of or characterized by the telling of a story",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:1f033157d01c8b3b9d91",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:narrative:169d01fd068c6bbc:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "构建一种叙事/解释框架",
+            "phrase": "construct a narrative"
+          },
+          {
+            "collocation_id": "collocation:2e94d57927bd5228229b",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:narrative:169d01fd068c6bbc:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "相互竞争的叙事/解释",
+            "phrase": "competing narratives"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "叙事；对一系列事件的特定解释或呈现方式",
+        "definition_en": "a particular way of explaining, presenting, or understanding a series of events",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:narrative:169d01fd068c6bbc",
+        "sense_label_en": "a particular way of explaining, presenting, or understanding a series of events",
+        "sort_order": 2,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -125,9 +159,18 @@
         "merged_into_sense_id": null,
         "source_row": 8846,
         "source_path": "content/lexical/canonical/senses/shards/o3169-3200.json"
+      },
+      {
+        "sense_id": "sense:narrative:169d01fd068c6bbc",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8905,
+        "source_path": "content/lexical/canonical/senses/shards/o3169-3200.json"
       }
     ],
     "active_collocations": [
+      "collocation:1f033157d01c8b3b9d91",
+      "collocation:2e94d57927bd5228229b",
       "collocation:9d4c0e51df841e3ef995",
       "collocation:bbd5ff12490f353ce9b6"
     ],
@@ -141,6 +184,16 @@
       {
         "id": "collocation:bbd5ff12490f353ce9b6",
         "source_row": 15910,
+        "source_path": "content/lexical/canonical/collocations/shards/o3169-3200.json"
+      },
+      {
+        "id": "collocation:1f033157d01c8b3b9d91",
+        "source_row": 21354,
+        "source_path": "content/lexical/canonical/collocations/shards/o3169-3200.json"
+      },
+      {
+        "id": "collocation:2e94d57927bd5228229b",
+        "source_row": 21355,
         "source_path": "content/lexical/canonical/collocations/shards/o3169-3200.json"
       }
     ],
@@ -175,7 +228,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3177-3184.json",
-    "source_content_hash": "96f05405364b028ff2be6f05d6704f8bff0fde516b8976cbf262424f53c66414",
+    "source_content_hash": "7230b44498d382819521a8a03af3de876e3facc1a739e2b072298a27aecc8978",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
