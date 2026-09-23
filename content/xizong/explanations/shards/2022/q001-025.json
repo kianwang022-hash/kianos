@@ -16,14 +16,26 @@
       "它还与滤过HCO₃⁻的回收耦联，但HCO₃⁻并不是以完整分子从管腔直接反向换入细胞。"
     ],
     "transfer_rule": "近端小管排酸先抓Na⁺/H⁺交换。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.肾近端小管分泌H⁺。近端小管管腔膜Na⁺/H⁺交换器以Na⁺内流交换H⁺外排，属于典型反向转运。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "肠刷状缘葡萄糖进入主要通过Na⁺-葡萄糖同向转运，不是反向转运。"
+      },
+      {
+        "option": "A",
+        "reason": "甲状腺滤泡细胞摄碘依赖Na⁺/I⁻同向转运。"
+      }
+    ],
+    "common_failure_node": "把“主动转运”与“反向转运”混为一类；要看两种溶质跨膜方向是否相反。"
   },
   {
     "question_id": "xizong-official-2022-n002",
@@ -42,14 +54,26 @@
       "等长期反而延长，等张期缩短，并不是速度增加。"
     ],
     "transfer_rule": "后负荷↑→缩短速度↓、缩短幅度↓。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.肌肉收缩的长度减小。后负荷增加时必须先建立更大张力，随后缩短速度和缩短程度均下降。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "后负荷越大，等长收缩建立张力的时间应延长而非缩短。"
+      },
+      {
+        "option": "D",
+        "reason": "后负荷增加会降低而非增加缩短速度。"
+      }
+    ],
+    "common_failure_node": "只凭“负荷大→收缩更用力”直觉作答，忽略力-速度与缩短程度关系。"
   },
   {
     "question_id": "xizong-official-2022-n003",
@@ -63,17 +87,32 @@
     "exam_target": "纤维蛋白原与红细胞沉降率",
     "decision_axis": "纤维蛋白原等血浆蛋白增多可降低红细胞间排斥并促进缗钱状叠连，从而使红细胞沉降率加快。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "红细胞沉降速度很大程度取决于红细胞是否形成较大的聚集体/缗钱状。",
+      "纤维蛋白原增加可降低红细胞间排斥并促进聚集，因此沉降加快。",
+      "其余三个选项均不符合这一方向，所以题源答案为D。"
     ],
     "transfer_rule": "ESR↑常与促进红细胞叠连的血浆蛋白↑有关。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.血浆纤维蛋白原增多。纤维蛋白原可降低红细胞间排斥、促进缗钱状聚集，使红细胞更快沉降。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "球蛋白减少会减弱红细胞聚集倾向，不会解释ESR增快。"
+      },
+      {
+        "option": "C",
+        "reason": "白蛋白相对增多通常不促进缗钱状形成。"
+      }
+    ],
+    "common_failure_node": "把所有血浆蛋白变化都看成同方向；真正关键是促进红细胞聚集的蛋白增加。",
+    "source_gap_note": "Current H1/H8只明确冻结免疫球蛋白/M蛋白促进缗钱状并使ESR增快，未形成“纤维蛋白原增多→ESR加快”的精确最小Current owner；Explanation保留，Crosswalk fail-closed。"
   },
   {
     "question_id": "xizong-official-2022-n004",
@@ -92,14 +131,26 @@
       "D抗原属于Rh系统，和ABO的H底座不是一回事。"
     ],
     "transfer_rule": "O型不是“无抗原”，而是无A/B抗原、H抗原保留。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.H抗原。ABO抗原是在H抗原底座上进一步修饰；O型缺乏有效A/B转移酶，因此保留较多H抗原。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "D抗原属于Rh血型系统，不是ABO系统的H前体。"
+      },
+      {
+        "option": "A",
+        "reason": "O型红细胞不表达A抗原。"
+      }
+    ],
+    "common_failure_node": "把ABO与Rh两套血型抗原系统混在一起。"
   },
   {
     "question_id": "xizong-official-2022-n005",
@@ -118,14 +169,26 @@
       "主动脉瓣开放发生在等容收缩结束、快速射血开始时。"
     ],
     "transfer_rule": "半月瓣关闭=等容舒张开始。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.等容舒张期初。心室射血结束后心室压低于主动脉压，主动脉瓣关闭并进入等容舒张。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "快速射血期初对应主动脉瓣刚开放。"
+      },
+      {
+        "option": "C",
+        "reason": "减慢射血期初主动脉瓣仍处于开放状态。"
+      }
+    ],
+    "common_failure_node": "不会用“压力交叉→瓣膜开闭→心动周期时相”这条链定位。"
   },
   {
     "question_id": "xizong-official-2022-n006",
@@ -139,7 +202,9 @@
     "exam_target": "每搏输出量与静脉回流因果关系",
     "decision_axis": "题源把每搏输出量增加与静脉回流增加作固定因果对应，但循环系统中两者受心泵功能、平均充盈压和静脉阻力共同决定，不能将该表述固化为单向普遍因果。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对Current边界 fail-closed。"
+      "大失血会降低平均系统充盈压，突然站立会造成下肢静脉淤血，用力呼气也不属于稳定增加回心血量的通用机制。",
+      "题源把“每搏输出量增加”作为增加静脉回流的答案，利用的是稳态循环中心输出与静脉回流最终相等的关系。",
+      "但这不能安全升级成“SV增加单向导致静脉回流增加”的普遍因果，因此只保留历史答案。"
     ],
     "transfer_rule": "静脉回流与心输出量在稳态相等，但决定机制不能用简单单向因果替代。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -149,7 +214,20 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.每搏输出量增加为题源官方答案；但静脉回流与心输出在稳态下相等不等于“SV增加必然单向导致静脉回流增加”，二者共同受心泵功能、平均系统充盈压和静脉阻力决定。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "大失血降低有效循环血量和平均系统充盈压，静脉回流下降。"
+      },
+      {
+        "option": "D",
+        "reason": "突然站立造成下肢静脉淤血，回心血量下降。"
+      }
+    ],
+    "common_failure_node": "把稳态下“静脉回流=心输出量”的数值关系偷换成单向因果关系。",
+    "source_boundary_note": "题源答案C基于稳态心输出量与静脉回流匹配的考试表达；Current循环模型中静脉回流由平均系统充盈压、右房压和静脉阻力共同决定，不冻结“SV增加→VR增加”的单向普遍因果。"
   },
   {
     "question_id": "xizong-official-2022-n007",
@@ -168,14 +246,26 @@
       "所以最低点不在吸气一开始，也不会拖到呼气阶段。"
     ],
     "transfer_rule": "吸气中期肺泡负压最明显；吸气末回到约0。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.吸气相中期。安静吸气时肺泡压先降至最低，随后随气体进入逐渐回升，吸气末再接近大气压。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "吸气刚开始肺泡压正在下降，尚未达到最低点。"
+      },
+      {
+        "option": "C",
+        "reason": "呼气开始肺泡压转为正值。"
+      }
+    ],
+    "common_failure_node": "只记吸气时肺内压低于大气压，却不会判断最低点的动态时相。"
   },
   {
     "question_id": "xizong-official-2022-n008",
@@ -194,14 +284,26 @@
       "辅脂酶本身不直接水解TAG，也不是负责乳化脂肪的主要分子。"
     ],
     "transfer_rule": "胆盐会干扰脂肪酶贴近脂滴，辅脂酶负责“搭桥”。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.防止胰脂肪酶从脂滴表面清除。辅脂酶帮助胰脂肪酶在胆盐存在时稳定锚定脂滴界面。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "辅脂酶本身不直接水解甘油三酯。"
+      },
+      {
+        "option": "B",
+        "reason": "脂肪乳化主要由胆盐和机械混合作用完成。"
+      }
+    ],
+    "common_failure_node": "把辅助脂肪酶定位的蛋白误认为直接催化脂解的酶。"
   },
   {
     "question_id": "xizong-official-2022-n009",
@@ -220,14 +322,26 @@
       "强交感兴奋和尿路梗阻都会压低GFR；正常自调节范围内单纯收缩压升到150 mmHg并不会线性把GFR推高。"
     ],
     "transfer_rule": "RPF↑可通过减弱滤过分数沿程胶体渗透压上升来支持GFR。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.肾血浆流量增加。在其他条件相近时，RPF增加减慢肾小球毛细血管胶体渗透压上升，有利于维持有效滤过压并增加GFR。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "交感兴奋收缩肾血管并常降低RBF/GFR。"
+      },
+      {
+        "option": "B",
+        "reason": "肾盂结石造成尿路梗阻会升高囊内压、降低GFR。"
+      }
+    ],
+    "common_failure_node": "把系统血压变化直接线性映射成GFR变化，忽略肾自调节和滤过压组成。"
   },
   {
     "question_id": "xizong-official-2022-n010",
@@ -246,14 +360,26 @@
       "它当然也供应髓质血流，但考试问其在浓缩系统中的特色功能时，答案是保梯度。"
     ],
     "transfer_rule": "髓袢建立梯度，直小血管保护梯度。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.保持肾髓质间质的高渗状态。直小血管通过逆流交换减少髓质溶质洗脱，维持浓缩尿所需渗透梯度。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "直小血管会带走重吸收的水和部分溶质，但核心不是“洗走髓质溶质”，而是尽量保存梯度。"
+      },
+      {
+        "option": "D",
+        "reason": "供应髓质血流是一般功能，不是其在尿液浓缩系统中的特色功能。"
+      }
+    ],
+    "common_failure_node": "把“血管运输”理解成单纯带走溶质，忽略逆流交换的保梯度任务。"
   },
   {
     "question_id": "xizong-official-2022-n011",
@@ -272,14 +398,26 @@
       "它不是在被抑制突触后神经元上制造典型IPSP。"
     ],
     "transfer_rule": "突触前抑制的落点=递质释放减少。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.减少突触前神经元的递质释放。轴-轴突触降低突触前末梢Ca²⁺进入和递质释放，从而削弱下游突触效应。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "突触前抑制不要求在被抑制的突触后神经元上形成IPSP。"
+      },
+      {
+        "option": "C",
+        "reason": "增加Cl⁻内流属于典型突触后抑制机制之一，不是这道题的核心。"
+      }
+    ],
+    "common_failure_node": "把突触前抑制与突触后IPSP机制混淆。"
   },
   {
     "question_id": "xizong-official-2022-n012",
@@ -298,14 +436,26 @@
       "逃避、吸吮和翻正反射都需要更复杂的多突触网络。"
     ],
     "transfer_rule": "牵张反射主通路=Ia→α，单突触。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.腱反射。牵张反射核心Ia传入纤维直接兴奋同名肌α运动神经元，属于单突触反射。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "逃避反射需要中间神经元参与，属于多突触反射。"
+      },
+      {
+        "option": "D",
+        "reason": "翻正反射涉及更复杂中枢网络。"
+      }
+    ],
+    "common_failure_node": "把“反射很快”误当成“单突触”；关键是中枢是否只有一个突触。"
   },
   {
     "question_id": "xizong-official-2022-n013",
@@ -324,14 +474,26 @@
       "GPCR、RTK和鸟苷酸环化酶受体主要服务于不能自由过膜的信号。"
     ],
     "transfer_rule": "类固醇激素=胞内/核受体=转录调控。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.核受体。类固醇激素脂溶性强，可进入细胞并结合胞质/核内受体，直接调节基因转录。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "GPCR主要服务多种水溶性激素和递质。"
+      },
+      {
+        "option": "A",
+        "reason": "受体酪氨酸激酶典型如胰岛素/生长因子受体。"
+      }
+    ],
+    "common_failure_node": "按“激素都靠膜受体”作答，忽略脂溶性激素可直接进细胞。"
   },
   {
     "question_id": "xizong-official-2022-n014",
@@ -350,14 +512,26 @@
       "同时GC通常升高血糖、促进外周蛋白分解并维持血管对儿茶酚胺反应，并不是降糖或普遍舒血管。"
     ],
     "transfer_rule": "Cushing/长期GC过量要联想到骨质疏松。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.骨质疏松。长期糖皮质激素过多抑制成骨、促进骨吸收并影响钙代谢，导致骨量下降。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "糖皮质激素倾向升高血糖而非降低。"
+      },
+      {
+        "option": "A",
+        "reason": "肝外组织蛋白质代谢总体更偏分解而非合成增加。"
+      }
+    ],
+    "common_failure_node": "只记GC“抗炎”，忽略其长期全身代谢效应。"
   },
   {
     "question_id": "xizong-official-2022-n015",
@@ -376,14 +550,26 @@
       "游离脂肪酸和肠促胰素等在多数情境下并不是这道题的主要抑制轴。"
     ],
     "transfer_rule": "胰岛素分泌：β₂促，α₂抑。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.交感神经兴奋。交感神经通过β细胞α₂肾上腺素能受体抑制胰岛素分泌，以在应激时保留血糖。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "GIP属于肠促胰素，通常促进葡萄糖依赖性胰岛素分泌。"
+      },
+      {
+        "option": "A",
+        "reason": "游离脂肪酸在多种情境下可促进胰岛素分泌，而非本题主要抑制轴。"
+      }
+    ],
+    "common_failure_node": "把“应激时血糖升高”只归因于糖原分解，而漏掉胰岛素分泌受抑。"
   },
   {
     "question_id": "xizong-official-2022-n016",
@@ -397,17 +583,31 @@
     "exam_target": "子宫内膜周期顺序",
     "decision_axis": "月经周期内子宫内膜依次经历月经期、增生期和分泌期，分别与卵巢激素变化相对应。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "未受精时黄体退化、雌孕激素撤退，内膜功能层脱落形成月经期。",
+      "随后卵泡期雌激素上升使内膜修复并进入增生期。",
+      "排卵后黄体孕激素主导，使内膜从增生型切换为分泌期，因此顺序为A。"
     ],
     "transfer_rule": "内膜周期：月经→增生→分泌。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.月经期—增生期—分泌期。激素撤退先引起月经，随后雌激素主导内膜增生，排卵后孕激素把内膜切换为分泌期。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "分泌期发生在排卵后，不会紧接月经期。"
+      },
+      {
+        "option": "C",
+        "reason": "排卵是卵巢事件，不是子宫内膜三期名称中的独立内膜阶段。"
+      }
+    ],
+    "common_failure_node": "把卵巢周期的“排卵期”混进子宫内膜周期分期。"
   },
   {
     "question_id": "xizong-official-2022-n017",
@@ -426,14 +626,26 @@
       "题目不是在问协同效应或血红素结合本身。"
     ],
     "transfer_rule": "Anfinsen核心：一级结构决定天然构象信息。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.尿素对核糖核酸酶结构的影响。RNase变性后若一级结构未破坏，在适宜条件下可复性恢复活性，说明序列包含折叠信息。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "Hb正协同反映四级结构与变构效应，不直接证明一级序列决定折叠。"
+      },
+      {
+        "option": "D",
+        "reason": "构象病说明构象重要，但不是经典序列→构象实验。"
+      }
+    ],
+    "common_failure_node": "把“结构影响功能”的例子误当成“一级结构决定高级构象”的直接证据。"
   },
   {
     "question_id": "xizong-official-2022-n018",
@@ -452,14 +664,26 @@
       "Tm和GC含量更多反映双链稳定性，不是常规纯度指标。"
     ],
     "transfer_rule": "A260/A280=核酸样品纯度的经典快速指标。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.260 nm/280 nm吸光度比值。核酸在260 nm吸收强、蛋白在280 nm吸收较强，因此该比值常用于粗略判断蛋白污染和核酸纯度。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "Tm主要反映双链核酸稳定性。"
+      },
+      {
+        "option": "D",
+        "reason": "GC含量影响Tm，但不是样品纯度指标。"
+      }
+    ],
+    "common_failure_node": "把核酸稳定性指标与样品纯度指标混为一谈。"
   },
   {
     "question_id": "xizong-official-2022-n019",
@@ -478,14 +702,26 @@
       "NADH积累通常提示还原当量过多并对部分氧化步骤形成抑制，而不是单纯促进。"
     ],
     "transfer_rule": "高ATP偏抑制产能通路；ADP/AMP升高提示能量不足并促进产能。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.ATP/ADP比值影响调节酶活性。能荷状态通过ATP、ADP/AMP调节关键酶，使有氧氧化按能量需求增减。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "NADH积累常提示还原当量过多，并可反馈抑制部分氧化反应，不是单纯促进。"
+      },
+      {
+        "option": "A",
+        "reason": "有氧供给通常抑制无氧糖酵解，方向与题述不符。"
+      }
+    ],
+    "common_failure_node": "不会用能荷解释代谢调节，而只背单个酶。"
   },
   {
     "question_id": "xizong-official-2022-n020",
@@ -504,14 +740,26 @@
       "它不是脂肪酸合成酶辅酶，也不是通过抑制胆固醇转化发挥主要生理作用。"
     ],
     "transfer_rule": "AA→COX：PG/TX；AA→LOX：LT。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.作为慢反应物质的前体。花生四烯酸经脂氧合酶生成白三烯，LTC₄/LTD₄/LTE₄构成经典慢反应物质轴。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "花生四烯酸不是脂肪酸合成酶的辅酶。"
+      },
+      {
+        "option": "C",
+        "reason": "它的主要角色不是抑制胆固醇转化。"
+      }
+    ],
+    "common_failure_node": "不把花生四烯酸与二十碳烷酸介质/白三烯联系起来。"
   },
   {
     "question_id": "xizong-official-2022-n021",
@@ -530,14 +778,26 @@
       "它不是消化道蛋白酶解，也不是多肽链合成步骤。"
     ],
     "transfer_rule": "泛素是“标签”，蛋白酶体是“执行降解”。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.体内蛋白质的降解。蛋白质被多聚泛素标记后可被26S蛋白酶体选择性识别和降解。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "泛素化不是多肽链生物合成步骤。"
+      },
+      {
+        "option": "C",
+        "reason": "消化道蛋白水解由胃肠蛋白酶完成，与泛素-蛋白酶体无关。"
+      }
+    ],
+    "common_failure_node": "看到“蛋白质分解”就混淆胞内选择性降解与消化道蛋白消化。"
   },
   {
     "question_id": "xizong-official-2022-n022",
@@ -556,14 +816,26 @@
       "DHFR把DHF变THF不需要B₁₂；一碳单位不同形式互换主要是叶酸体系内部反应。"
     ],
     "transfer_rule": "B12缺乏会造成甲基叶酸陷阱并影响Met再生。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.N⁵-甲基四氢叶酸的转甲基。甲硫氨酸合成酶以甲基钴胺素为辅酶，将N⁵-甲基THF的甲基转给同型半胱氨酸。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "DHF→THF由二氢叶酸还原酶完成，不需B₁₂。"
+      },
+      {
+        "option": "C",
+        "reason": "不同一碳单位形式互变主要属于叶酸体系内部反应。"
+      }
+    ],
+    "common_failure_node": "把叶酸与B₁₂都参与一碳代谢泛化成“所有一碳反应都直接需要B₁₂”。"
   },
   {
     "question_id": "xizong-official-2022-n023",
@@ -582,14 +854,26 @@
       "其余选项都不是经典嘌呤补救酶缺陷病。"
     ],
     "transfer_rule": "HGPRT↓→补救合成↓→高尿酸；重度=Lesch-Nyhan。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.Lesch-Nyhan综合征。HGPRT缺陷使嘌呤补救合成受损，严重缺陷导致Lesch-Nyhan并伴高尿酸。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "阿尔茨海默病不是HGPRT缺陷病。"
+      },
+      {
+        "option": "D",
+        "reason": "镰状细胞贫血由β珠蛋白结构基因突变导致。"
+      }
+    ],
+    "common_failure_node": "只记Lesch-Nyhan“高尿酸”，不会追到嘌呤补救酶HGPRT。"
   },
   {
     "question_id": "xizong-official-2022-n024",
@@ -608,14 +892,26 @@
       "它和解螺旋酶、常规DNA聚合酶承担的是不同步骤。"
     ],
     "transfer_rule": "primase=DNA模板→RNA primer。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.RNA聚合酶。引物酶以DNA为模板合成短RNA引物，本质上具有DNA依赖的RNA聚合酶活性。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "DNA聚合酶不能从零开始合成，需要已有3′-OH引物。"
+      },
+      {
+        "option": "D",
+        "reason": "解螺旋酶负责打开双链，不负责合成RNA引物。"
+      }
+    ],
+    "common_failure_node": "按“参与DNA复制”就把引物酶误叫DNA聚合酶。"
   },
   {
     "question_id": "xizong-official-2022-n025",
@@ -634,13 +930,25 @@
       "这也是‘核糖体是一种核酶’的经典证据。"
     ],
     "transfer_rule": "肽键形成的催化核心是rRNA，不是核糖体蛋白。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.RNA。核糖体大亚基rRNA构成肽酰转移酶中心，真正催化肽键形成的是RNA。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "DNA不直接承担核糖体肽酰转移催化。"
+      },
+      {
+        "option": "A",
+        "reason": "脂肪酸与该催化中心无关。"
+      }
+    ],
+    "common_failure_node": "知道核糖体含蛋白和RNA，却不会识别肽酰转移中心属于核酶。"
   }
 ]
