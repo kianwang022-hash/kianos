@@ -6,8 +6,25 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "83e82213e128febfa562424dae6804c1154f123d66f014ee835d6cb56ef3fbfd",
+    "constructions": [
+      {
+        "boundary": "several/many; distinct from total-count phrase",
+        "construction_id": "construction:2266e1eae49a7ffc8c91",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "若干；许多，通常接复数谓语",
+        "pattern": "a number of + plural count noun"
+      },
+      {
+        "boundary": "the total count; distinct from a number of",
+        "construction_id": "construction:d4fc70c372ebf00e1be8",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "……的数量/总数，通常接单数谓语",
+        "pattern": "the number of + plural count noun"
+      }
+    ],
+    "content_hash": "986ebffb28855abfc143f1f10ae13cff850e2cc405e7b661bb8bb0cb23e33417",
     "core_concept": {
       "core_clusters": [
         {
@@ -46,15 +63,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:4356934b47fb71838306",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:number:f73529592cbe52de:collocation:0"
-            ],
-            "meaning_cn": "许多；若干",
-            "phrase": "a number of + plural noun"
-          },
-          {
             "collocation_id": "collocation:250383ef91611c350ad3",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -78,15 +86,6 @@
       },
       {
         "collocations": [
-          {
-            "collocation_id": "collocation:d8e7044559ed023a9cdc",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:number:87a2d782cc1c51a6:collocation:0"
-            ],
-            "meaning_cn": "…的数量",
-            "phrase": "the number of + plural noun"
-          },
           {
             "collocation_id": "collocation:b08f912f175a0c3af9c3",
             "exam_value": "usage_example",
@@ -210,14 +209,7 @@
     "word_family": [],
     "word_id": "word:number"
   },
-  "relation_refs": [
-    {
-      "relation_id": "relation:final-standard:amount-number:countability_boundary",
-      "owner_path": "content/lexical/relations/by-id/ec/ecbb8a3ea02fcbbbb0043ad4e2e5372682991c05cb938320a21e8e9088e2e85c.json",
-      "field": "semantic_neighbors",
-      "index": 0
-    }
-  ],
+  "relation_refs": [],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -261,11 +253,9 @@
       "collocation:250383ef91611c350ad3",
       "collocation:2a4f022cc1fb67e4183e",
       "collocation:2d31ecf077b3de61a73c",
-      "collocation:4356934b47fb71838306",
       "collocation:7558fb8a2a79120f8a59",
       "collocation:a87214ac3521410d6662",
-      "collocation:b08f912f175a0c3af9c3",
-      "collocation:d8e7044559ed023a9cdc"
+      "collocation:b08f912f175a0c3af9c3"
     ],
     "facts": [],
     "collocations": [
@@ -336,7 +326,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3273-3280.json",
-    "source_content_hash": "83e82213e128febfa562424dae6804c1154f123d66f014ee835d6cb56ef3fbfd",
+    "source_content_hash": "986ebffb28855abfc143f1f10ae13cff850e2cc405e7b661bb8bb0cb23e33417",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

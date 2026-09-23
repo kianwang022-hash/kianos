@@ -6,8 +6,32 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "b6f76944cb18b6a42aacc66f79b854854af4979fdbc72ffa2d36f02427bdf483",
+    "constructions": [
+      {
+        "boundary": "only / no more than",
+        "construction_id": "construction:e432cafe72e9bd953bb9",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "只有；只不过；无非是",
+        "pattern": "nothing but + noun/phrase"
+      },
+      {
+        "construction_id": "construction:33cef9bdd812218790ff",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "与某人/某事没有关系或牵连",
+        "pattern": "have/be nothing to do with sb/sth"
+      },
+      {
+        "boundary": "concern/business reading",
+        "construction_id": "construction:1f4af6c945ba99bd1276",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "这不关某人的事；不是某人该管的",
+        "pattern": "it's nothing to do with sb"
+      }
+    ],
+    "content_hash": "2ba133f4732e547f2170ec38dd36386b6d5d1505fb194252a6976b51cbf73b76",
     "core_concept": {
       "core_clusters": [
         {
@@ -49,26 +73,7 @@
     "semantic_neighbors": [],
     "senses": [
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:246c5b536cce4a64dc7f",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:nothing:363a8e4fb7845850:collocation:0"
-            ],
-            "meaning_cn": "只有；只不过",
-            "phrase": "nothing but"
-          },
-          {
-            "collocation_id": "collocation:3998e3a10765d808d676",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:nothing:363a8e4fb7845850:collocation:1"
-            ],
-            "meaning_cn": "与……无关",
-            "phrase": "have nothing to do with"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "没有任何东西；没有一件事",
         "definition_en": "not anything; no single thing",
@@ -194,8 +199,6 @@
       }
     ],
     "active_collocations": [
-      "collocation:246c5b536cce4a64dc7f",
-      "collocation:3998e3a10765d808d676",
       "collocation:3e8c637ec4c85bacab0e",
       "collocation:c2d9ce390292016ade14",
       "collocation:c5039e5e1af3dd836995",
@@ -260,7 +263,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3257-3264.json",
-    "source_content_hash": "b6f76944cb18b6a42aacc66f79b854854af4979fdbc72ffa2d36f02427bdf483",
+    "source_content_hash": "2ba133f4732e547f2170ec38dd36386b6d5d1505fb194252a6976b51cbf73b76",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

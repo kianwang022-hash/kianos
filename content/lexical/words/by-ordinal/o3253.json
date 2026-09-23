@@ -7,17 +7,18 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "80a91f3bcf646e1dfb16768b52a715c3d92c29c2fbab92bcb15ed0f0be8e16bc",
+    "content_hash": "ac83e480fd83b25cfe685315b452a0af6dca531a1179b231eb8d45d3ae2ff9f8",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "鼻子；（飞机等的）机头，前端；一小段距离",
-          "label_en": "the part of the face used for smelling and breathing; the front part of an aircraft or other vehicle; a small distance",
+          "label_cn": "鼻子；嗅觉/察觉能力；机头等",
+          "label_en": "the nose; sense/instinct for detecting; front of a vehicle",
           "pos": "noun",
           "sense_ids": [
             "sense:nose:574e48da834a5d74",
             "sense:nose:14827183e11b527e",
-            "sense:nose:f2a644bc6ae2528d"
+            "sense:nose:f2a644bc6ae2528d",
+            "sense:nose:5af405873df414ad"
           ]
         },
         {
@@ -162,6 +163,39 @@
         "sense_label_en": "to pry or search for information",
         "sort_order": 4,
         "transitivity": "vi"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:cb88690cf4147eb64660",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:nose:5af405873df414ad:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "对某事有敏锐嗅觉/判断力",
+            "phrase": "have a good nose for sth"
+          },
+          {
+            "collocation_id": "collocation:8dae44003c266726b68f",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:nose:5af405873df414ad:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "察觉麻烦/商机的敏锐能力",
+            "phrase": "a nose for trouble/business"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "嗅觉；察觉/识别某事的能力",
+        "definition_en": "the sense of smell, or an instinctive ability to detect or recognize something",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:nose:5af405873df414ad",
+        "sense_label_en": "the sense of smell, or an instinctive ability to detect or recognize something",
+        "sort_order": 5,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -221,6 +255,13 @@
         "merged_into_sense_id": null,
         "source_row": 9043,
         "source_path": "content/lexical/canonical/senses/shards/o3233-3264.json"
+      },
+      {
+        "sense_id": "sense:nose:5af405873df414ad",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9072,
+        "source_path": "content/lexical/canonical/senses/shards/o3233-3264.json"
       }
     ],
     "active_collocations": [
@@ -228,7 +269,9 @@
       "collocation:29fd8f6eecb385872763",
       "collocation:4a99b923c4eaf9c295a0",
       "collocation:6a19fc5feda326ce4bd7",
-      "collocation:7f5b1b1916d327ccabe6"
+      "collocation:7f5b1b1916d327ccabe6",
+      "collocation:8dae44003c266726b68f",
+      "collocation:cb88690cf4147eb64660"
     ],
     "facts": [],
     "collocations": [
@@ -255,6 +298,16 @@
       {
         "id": "collocation:7f5b1b1916d327ccabe6",
         "source_row": 10780,
+        "source_path": "content/lexical/canonical/collocations/shards/o3233-3264.json"
+      },
+      {
+        "id": "collocation:8dae44003c266726b68f",
+        "source_row": 21539,
+        "source_path": "content/lexical/canonical/collocations/shards/o3233-3264.json"
+      },
+      {
+        "id": "collocation:cb88690cf4147eb64660",
+        "source_row": 21540,
         "source_path": "content/lexical/canonical/collocations/shards/o3233-3264.json"
       }
     ],
@@ -284,7 +337,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3249-3256.json",
-    "source_content_hash": "80a91f3bcf646e1dfb16768b52a715c3d92c29c2fbab92bcb15ed0f0be8e16bc",
+    "source_content_hash": "ac83e480fd83b25cfe685315b452a0af6dca531a1179b231eb8d45d3ae2ff9f8",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
