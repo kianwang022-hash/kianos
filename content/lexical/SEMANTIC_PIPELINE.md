@@ -19,9 +19,9 @@ same frozen baseline
 ├─ A independent review
 └─ B independent review
         ↓
-both complete
+shared durable completed prefix
         ↓
-C reconcile → apply → targeted verify → merge
+streaming C reconcile → apply → targeted verify → merge
 ```
 
 ## 2. A and B independence
@@ -76,7 +76,7 @@ Routine pronunciation/stress/regional spelling stays background Form unless mate
 
 A and B have separate cursor files: `execution/dual-review-A.json` and `execution/dual-review-B.json`. C has `execution/dual-review-C.json`. This separation is required so A/B can commit concurrently without touching the same state file.
 
-Each lane advances only its own cursor after its durable batch artifact is committed. The other lane's cursor may be used only for completion status; its result files are off-limits for semantic reading until C.
+Each lane advances only its own cursor after its durable batch artifact is committed. The other lane's cursor may be used only for completion status while A/B independence still applies. C may read paired result artifacts only for windows that are already inside the durable shared completed prefix.
 
 A and B may run concurrently all the way to o7946.
 
@@ -101,9 +101,17 @@ Required invariants:
 
 ## 5. C — the only canonical writer
 
-C does not start until both A and B are COMPLETE.
+C uses prefix-gated streaming reconciliation. It may start when both A and B have durably completed the same leading campaign prefix.
 
-C reads the union of A and B findings and works in bounded ordinal windows.
+The eligibility watermark is:
+
+C frontier <= min(A.completed_through, B.completed_through)
+
+A C window is eligible only when the exact A and B review artifacts covering that window are durably committed on their dedicated branches. C reads the union of those paired findings and works in bounded ordinal windows.
+
+For every C closure receipt, freeze the exact A review commit SHA, B review commit SHA, and final C mutation commit. Once C has consumed a review batch, A/B must not silently rewrite that consumed history; any correction requires an explicit correction artifact/commit and bounded C re-reconciliation.
+
+Cross-watermark shared owners fail closed: if a Relation/Form/Identity owner touches any campaign owner beyond the current shared watermark, C may make only the already-safe Word-local mutation and must record the shared-owner action as DEFERRED_CROSS_WATERMARK until the remote endpoint is independently reviewed by both lanes.
 
 C decision rule:
 

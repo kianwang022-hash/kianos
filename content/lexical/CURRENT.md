@@ -52,8 +52,10 @@ frozen semantic baseline
 ├─ A: independent 100/100 review only
 └─ B: independent 100/100 review only
 
-A COMPLETE + B COMPLETE
-→ C: reconcile A ∪ B findings
+A/B independently advance on the frozen baseline
+→ any durable shared completed prefix unlocks C
+→ C frontier <= min(A.completed_through, B.completed_through)
+→ C: reconcile A ∪ B findings for eligible windows
 → canonical mutation only in C
 → rebuild 7,946 Final Learner Objects
 → targeted final readback of changed owners/dependencies

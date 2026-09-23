@@ -12,7 +12,7 @@
   "batch_size": 100,
   "canonical_mutation_policy": "A_AND_B_READ_ONLY_C_ONLY_WRITER",
   "independence_rule": "A_MUST_NOT_READ_B_RESULTS_AND_B_MUST_NOT_READ_A_RESULTS",
-  "completion_rule": "C_MAY_START_ONLY_WHEN_A_AND_B_ARE_COMPLETE",
+  "completion_rule": "C_MAY_RECONCILE_ANY_DURABLE_SHARED_PREFIX_AT_OR_BELOW_MIN_A_B_COMPLETED_THROUGH",
   "lane_state_files": {
     "A": "content/lexical/execution/dual-review-A.json",
     "B": "content/lexical/execution/dual-review-B.json",
@@ -21,5 +21,12 @@
   "legacy_serial_frontier": {
     "file": "content/lexical/execution/live-batch.json",
     "status": "SUPERSEDED_FOR_CURRENT_DUAL_REVIEW_SWEEP"
+  },
+  "streaming_c": {
+    "enabled": true,
+    "frontier_rule": "C_NEXT_WINDOW_END_MUST_BE_LTE_MIN_A_COMPLETED_THROUGH_B_COMPLETED_THROUGH",
+    "input_freeze": "EACH_CLOSURE_RECEIPT_BINDS_EXACT_A_REVIEW_COMMIT_AND_B_REVIEW_COMMIT",
+    "consumed_history_rule": "NO_SILENT_REWRITE_AFTER_C_CONSUMPTION_EXPLICIT_CORRECTION_REQUIRED",
+    "cross_watermark_rule": "DEFER_SHARED_RELATION_FORM_IDENTITY_MUTATION_IF_ANY_CAMPAIGN_ENDPOINT_EXCEEDS_SHARED_WATERMARK"
   }
 }
