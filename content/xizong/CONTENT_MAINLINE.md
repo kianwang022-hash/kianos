@@ -21,6 +21,61 @@ Old Chats, prompts, Issue titles and branch names are provenance, not Current tr
 
 ---
 
+# 0｜ACTIVE MAINLINE TASK — 27 Biochemistry comprehensive rebase
+
+Status: **ACTIVE / DURABLE MAINLINE TASK**
+
+Exact task owner:
+
+`content/xizong/knowledge/learner/xizong-2027-biochemistry-delta-slot.json`
+
+Scope:
+
+```text
+27 Biochemistry follow-along Source
+vs 26 refined explanatory substrate
+vs Current M1–M10 + G1–G5 canonical Knowledge
+→ comprehensive Source rebase
+→ Knowledge / System / cross-System logic reconstruction where needed
+→ Learning / Logic Group / Content revalidation
+→ Visual / Precision / Memory implications
+→ affected official-question → Knowledge relation review
+→ affected learner-facing question explanation review
+→ affected Source-revision / learner-evidence invalidation
+→ final bounded re-acceptance and closeout
+```
+
+Hard rules:
+
+- **27 跟课 is the only continuous first-pass Biochemistry Source**.
+- **26 精编 is explanatory reconstruction substrate**, not a second learner-reading path.
+- Do not merely append 27 facts to 26-shaped Blocks; compare 27 Source, 26 explanation and Current Knowledge semantically.
+- Preserve stable M/G Block/KP identity unless a concrete semantic defect requires change.
+- Revisit System mother model, Block Framework, Logic Groups, KP Core, cross-System relations and source locators when the comparison materially changes them.
+- Official-question **System membership does not automatically reopen** if the question corpus/ownership is unchanged.
+- Reviewed **Question→Knowledge relations and learner-facing explanations must be rechecked wherever changed Knowledge, boundaries, terminology, precision or owner routing can make them stale**.
+- Historical attempts remain historical observations; Current authorization follows Source-revision semantics.
+- Do not reopen unrelated D1–D23 or broad Runtime/Projection work.
+- Missing / ambiguous current-year Source remains fail-closed.
+- Work in bounded batches, but do not declare completion until the completion definition below is closed.
+
+Completion definition:
+
+```text
+S  current 27 Biochemistry Source identity / page locators / gaps verified
+K  M1–M10 + G1–G5 canonical medical Core + System/cross-System logic reaccepted
+L  affected learning order / LG / Source-contact semantics reaccepted
+C  affected learner Content / Precision / Visual / Memory roles reconciled
+Q  affected reviewed Question→Knowledge relations revalidated
+X  affected learner-facing official-question explanations revalidated
+E  source-revision impact on historical learner evidence classified
+A  B scoped acceptance/current owners reconciled and task closed
+```
+
+This task is the current material/content mainline exception. Prior closed B work remains valid outside the bounded Biochemistry impact cone.
+
+---
+
 # 1｜Durable content lanes
 
 Xizong content production has three long-running lanes:
