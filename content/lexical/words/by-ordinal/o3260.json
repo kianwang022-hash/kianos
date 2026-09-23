@@ -6,8 +6,58 @@
   "record": {
     "card_version": "v3",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "99bce85f06c97dbde919a35be2152c0a3e08cc6fb718593192dffc4c070f5402",
+    "constructions": [
+      {
+        "boundary": "notice sb doing sth 注意到某人做",
+        "codex_reviewed": false,
+        "definition_cn": "注意到；察觉到",
+        "definition_en": "to become aware of something by seeing or hearing it",
+        "dimensions": {},
+        "direction": "R+P",
+        "evidence": [
+          {
+            "evidence_id": "evidence:core-card:notice:56304c92f4f0",
+            "evidence_status": "source_checked",
+            "source_labels": [],
+            "source_locator": "notice:l1:1",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/kianos-english-vocabulary-5500.generated.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:constructions:notice:f5cf6757131f8e4e",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": "注意到某人正在做某事",
+        "module": "constructions",
+        "pattern": "notice sb doing sth",
+        "pos": "verb",
+        "presentation_merge": {
+          "merge_id": "presentation-merge:63e7e423081fe02382b1",
+          "metadata_tags": [
+            "cloze",
+            "collocation",
+            "construction",
+            "writing"
+          ],
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:abe82a89ac8fd7c85285"
+        },
+        "priority": "A",
+        "publication_status": "publishable",
+        "shared_definition": null,
+        "source_sense_id": "sense:notice:143e2d034e2a573d",
+        "target_sense_id": null,
+        "target_word": null,
+        "task_tags": [
+          "cloze",
+          "writing"
+        ],
+        "verification_status": "verified",
+        "writing_safe": true
+      }
+    ],
+    "content_hash": "80a4156320005ab7eccd02f3c57f24af4ac8a92be8098caa5bc88b8259554ae0",
     "core_concept": {
       "core_clusters": [
         {
@@ -80,15 +130,6 @@
       },
       {
         "collocations": [
-          {
-            "collocation_id": "collocation:5c76fb1c60a5a2a305a6",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:notice:d46ddb960cdc5c73:collocation:0"
-            ],
-            "meaning_cn": "通知；预告",
-            "phrase": "give notice"
-          },
           {
             "collocation_id": "collocation:5841e78c8dc828bca1e2",
             "exam_value": "fixed_pattern",
@@ -163,6 +204,15 @@
             ],
             "meaning_cn": "在短时间内；临时",
             "phrase": "at short notice"
+          },
+          {
+            "collocation_id": "collocation:5c76fb1c60a5a2a305a6",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:notice:d46ddb960cdc5c73:collocation:0"
+            ],
+            "meaning_cn": "通知；预告",
+            "phrase": "give notice"
           }
         ],
         "confidence": "medium",
@@ -325,8 +375,8 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3257-3264.json",
-    "source_content_hash": "99bce85f06c97dbde919a35be2152c0a3e08cc6fb718593192dffc4c070f5402",
-    "semantic_delta": 1,
+    "source_content_hash": "80a4156320005ab7eccd02f3c57f24af4ac8a92be8098caa5bc88b8259554ae0",
+    "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

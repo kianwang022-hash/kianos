@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "e2017ff3d7fb48a8c02aef72ec35789f736e9c0664fd030fb40dd28b6b8b1a89",
+    "content_hash": "c8d2ae053a1b91fed6e1250c492031c2b45ba354f85068520a4da6ec4923d2b8",
     "core_concept": {
       "core_clusters": [
         {
@@ -40,6 +40,14 @@
           "pos": "verb",
           "sense_ids": [
             "sense:okay:3d3109a9e87b5362"
+          ]
+        },
+        {
+          "label_cn": "好；行；可以；表示同意/确认/承接",
+          "label_en": "okay as agreement, acknowledgement, or discourse transition",
+          "pos": "interjection",
+          "sense_ids": [
+            "sense:okay:6cd4f281fe13813c"
           ]
         }
       ],
@@ -187,6 +195,39 @@
         "sense_label_en": "to approve or agree to something",
         "sort_order": 3,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:36d8aa271fffb89bc184",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:okay:6cd4f281fe13813c:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "好，我们走吧。",
+            "phrase": "Okay, let's go."
+          },
+          {
+            "collocation_id": "collocation:dc1e44c3afd0f3596910",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:okay:6cd4f281fe13813c:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "好，我明白了。",
+            "phrase": "Okay, I understand."
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "好；行；可以（表示同意、确认或承接话题）",
+        "definition_en": "used to express agreement or acceptance, acknowledge what was said, or introduce a response or transition",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "interjection",
+        "sense_id": "sense:okay:6cd4f281fe13813c",
+        "sense_label_en": "used to express agreement or acceptance, acknowledge what was said, or introduce a response or transition",
+        "sort_order": 4,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -239,16 +280,25 @@
         "merged_into_sense_id": null,
         "source_row": 9249,
         "source_path": "content/lexical/canonical/senses/shards/o3329-3360.json"
+      },
+      {
+        "sense_id": "sense:okay:6cd4f281fe13813c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9332,
+        "source_path": "content/lexical/canonical/senses/shards/o3329-3360.json"
       }
     ],
     "active_collocations": [
       "collocation:1e5dd665fdc792a67689",
       "collocation:216169bab6770ec5abc6",
       "collocation:32bf47466c6f51f62b45",
+      "collocation:36d8aa271fffb89bc184",
       "collocation:503a76ffbfaec783f12c",
       "collocation:715b7db12317291bd2b4",
       "collocation:af6572747c4643889ee7",
       "collocation:c3f8fa6030e1802d6e3e",
+      "collocation:dc1e44c3afd0f3596910",
       "collocation:fdca51a8defc4616ce20"
     ],
     "facts": [],
@@ -292,6 +342,16 @@
         "id": "collocation:fdca51a8defc4616ce20",
         "source_row": 21468,
         "source_path": "content/lexical/canonical/collocations/shards/o3329-3360.json"
+      },
+      {
+        "id": "collocation:36d8aa271fffb89bc184",
+        "source_row": 21469,
+        "source_path": "content/lexical/canonical/collocations/shards/o3329-3360.json"
+      },
+      {
+        "id": "collocation:dc1e44c3afd0f3596910",
+        "source_row": 21470,
+        "source_path": "content/lexical/canonical/collocations/shards/o3329-3360.json"
       }
     ],
     "exam-mappings": [],
@@ -325,7 +385,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3329-3336.json",
-    "source_content_hash": "e2017ff3d7fb48a8c02aef72ec35789f736e9c0664fd030fb40dd28b6b8b1a89",
+    "source_content_hash": "c8d2ae053a1b91fed6e1250c492031c2b45ba354f85068520a4da6ec4923d2b8",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

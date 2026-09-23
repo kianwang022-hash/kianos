@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "5e3e3bfd61eff10704ccde16bf153f259455fe73dbc5dd6214b283ce3e6a1028",
+    "content_hash": "12c21f3cad838056014d260f33b3fdc2afb8e3c2557966f41e0b71993f69f8e6",
     "core_concept": {
       "core_clusters": [
         {
@@ -126,15 +126,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:39575ccd216ae8862785",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:nurse:26845096841e5a5f:collocation:0"
-            ],
-            "meaning_cn": "在某处哺乳",
-            "phrase": "nurse at + sth"
-          },
-          {
             "collocation_id": "collocation:ce422687eb0cd8a1f933",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -142,19 +133,37 @@
             ],
             "meaning_cn": "吃母乳",
             "phrase": "nurse at the breast"
+          },
+          {
+            "collocation_id": "collocation:1b773cdaea6e7b3f46f6",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:nurse:26845096841e5a5f:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "给婴儿哺乳",
+            "phrase": "nurse a baby"
+          },
+          {
+            "collocation_id": "collocation:fb623906296c99200926",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:nurse:26845096841e5a5f:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "婴儿吃奶",
+            "phrase": "the baby nurses / nurses at the breast"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "哺乳，喂奶",
-        "definition_en": "to feed a baby from the breast",
-        "governing_pattern": "vi. + at",
-        "level": "L3",
+        "definition_cn": "给婴儿哺乳；（婴儿）吃奶",
+        "definition_en": "to breastfeed a baby; or, of a baby, to drink breast milk",
+        "governing_pattern": "I/T: nurse a baby; the baby nurses / nurses at the breast",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:nurse:26845096841e5a5f",
-        "sense_label_en": "to feed a baby from the breast",
+        "sense_label_en": "to breastfeed a baby; or, of a baby, to drink breast milk",
         "sort_order": 3,
-        "transitivity": "vi"
+        "transitivity": "I/T"
       }
     ],
     "verification_summary": {
@@ -210,12 +219,13 @@
       }
     ],
     "active_collocations": [
+      "collocation:1b773cdaea6e7b3f46f6",
       "collocation:273020947a99ff8591c0",
       "collocation:377567a867d09ee986ce",
-      "collocation:39575ccd216ae8862785",
       "collocation:7015c9567c271d2e7da5",
       "collocation:be07afb3defe7f46660b",
-      "collocation:ce422687eb0cd8a1f933"
+      "collocation:ce422687eb0cd8a1f933",
+      "collocation:fb623906296c99200926"
     ],
     "facts": [],
     "collocations": [
@@ -248,6 +258,16 @@
         "id": "collocation:ce422687eb0cd8a1f933",
         "source_row": 17431,
         "source_path": "content/lexical/canonical/collocations/shards/o3265-3296.json"
+      },
+      {
+        "id": "collocation:1b773cdaea6e7b3f46f6",
+        "source_row": 20930,
+        "source_path": "content/lexical/canonical/collocations/shards/o3265-3296.json"
+      },
+      {
+        "id": "collocation:fb623906296c99200926",
+        "source_row": 20932,
+        "source_path": "content/lexical/canonical/collocations/shards/o3265-3296.json"
       }
     ],
     "exam-mappings": [],
@@ -276,7 +296,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3273-3280.json",
-    "source_content_hash": "5e3e3bfd61eff10704ccde16bf153f259455fe73dbc5dd6214b283ce3e6a1028",
+    "source_content_hash": "12c21f3cad838056014d260f33b3fdc2afb8e3c2557966f41e0b71993f69f8e6",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
