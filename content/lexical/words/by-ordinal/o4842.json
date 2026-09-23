@@ -6,8 +6,18 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "814ec74ec8c7b4a207857d96687bc0814846660e43915d54e6928fb69e1a1813",
+    "constructions": [
+      {
+        "boundary": "phrase associated with evolutionary selection; survival itself names an outcome/condition, not the mechanism of natural selection",
+        "construction_id": "construction:d40e1a7ae2bd86a6b40d",
+        "definition_en": "the idea that organisms better fitted to their environment are more likely to survive/reproduce; the phrase is associated with evolutionary selection",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "适者生存",
+        "pattern": "survival of the fittest"
+      }
+    ],
+    "content_hash": "7e8def0c0d44c129640fa4916a7e26af654cd9adb789614e0a597c33027fd8ab",
     "core_concept": {
       "core_clusters": [
         {
@@ -16,14 +26,13 @@
           "pos": "noun",
           "sense_ids": [
             "sense:survival:8b49ec2fd803572b",
-            "sense:survival:81424ea65fea519d",
             "sense:survival:82a39ad3b3245de7"
           ]
         }
       ],
-      "core_meaning_cn": "生存；幸存；自然选择；适者生存的过程；残存物；遗物",
-      "core_meaning_en": "the state of continuing to live or exist, especially after a difficult or dangerous event; a natural process resulting in the evolution of organisms best adapted to the environment; something that continues to exist from an earlier time",
-      "mental_model_cn": "生存；幸存；自然选择；适者生存的过程；残存物；遗物",
+      "core_meaning_cn": "生存；幸存；残存物",
+      "core_meaning_en": "continued existence or survival; something surviving from an earlier time",
+      "mental_model_cn": "生存；幸存；残存物",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -45,20 +54,6 @@
         "pos": "noun",
         "sense_id": "sense:survival:8b49ec2fd803572b",
         "sense_label_en": "the state of continuing to live or exist, especially after a difficult or dangerous event",
-        "sort_order": 999,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "自然选择；适者生存的过程",
-        "definition_en": "a natural process resulting in the evolution of organisms best adapted to the environment",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:survival:81424ea65fea519d",
-        "sense_label_en": "a natural process resulting in the evolution of organisms best adapted to the environment",
         "sort_order": 999,
         "transitivity": "nonverb"
       },
@@ -97,12 +92,38 @@
     "word_id": "word:survival"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:survival:81424ea65fea519d",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "自然选择；适者生存的过程",
+      "definition_en": "a natural process resulting in the evolution of organisms best adapted to the environment",
+      "semantic_key": "ed1bde8ec15f7eb5d88db2fb02ca4e6a6a3d06169e09f02312cd076ef2314c81",
+      "semantic_key_history": [
+        "8b3157fe4c309fd38b2b8fd6ad7d5344103daa37bd04990c494589c517474034"
+      ],
+      "legacy_aliases": [
+        "survival:l2:2"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "survival:l2:2",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 13756,
+      "source_path": "content/lexical/canonical/senses/shards/o4833-4864.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:survival:81424ea65fea519d",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 13756,
         "source_path": "content/lexical/canonical/senses/shards/o4833-4864.json"
@@ -187,7 +208,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4841-4848.json",
-    "source_content_hash": "814ec74ec8c7b4a207857d96687bc0814846660e43915d54e6928fb69e1a1813",
+    "source_content_hash": "7e8def0c0d44c129640fa4916a7e26af654cd9adb789614e0a597c33027fd8ab",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

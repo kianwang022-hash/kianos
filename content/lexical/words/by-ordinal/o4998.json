@@ -7,21 +7,29 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "81b6bec46106a1c2c51e54a22727c4f6cd7700e5f1b09e2253d13558a3c3759d",
+    "content_hash": "21bf01f30ddccffa459304906b7118e727e8024880fd01a3be4c47def02265ce",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "深思的、考虑周到的；也指体贴他人的",
-          "label_en": "showing careful or reflective thought; also considerate of other people",
+          "label_cn": "深思熟虑的；经过认真思考的",
+          "label_en": "showing careful or reflective thought",
           "pos": "adjective",
           "sense_ids": [
             "sense:thoughtful:227184ada1f557c1"
           ]
+        },
+        {
+          "label_cn": "体贴的；关心他人的",
+          "label_en": "kind and considerate of other people's feelings or needs",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:thoughtful:0094e9d34ef350c6"
+          ]
         }
       ],
-      "core_meaning_cn": "深思的、考虑周到的；也指体贴他人的",
-      "core_meaning_en": "showing careful or reflective thought; also considerate of other people",
-      "mental_model_cn": "深思的、考虑周到的；也指体贴他人的",
+      "core_meaning_cn": "深思熟虑的；体贴的",
+      "core_meaning_en": "carefully reflective; kind and considerate toward others",
+      "mental_model_cn": "深思熟虑的；体贴的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -35,18 +43,27 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:ab0115463638057c8664",
-            "exam_value": "usage_example",
+            "collocation_id": "collocation:1ee12b602ebca46048d5",
+            "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
-              "sense:thoughtful:227184ada1f557c1:collocation:0"
+              "sense:thoughtful:227184ada1f557c1:collocation:streaming-c-checkpoint-o2851-o3050"
             ],
             "meaning_cn": "深思熟虑的分析",
             "phrase": "a thoughtful analysis"
+          },
+          {
+            "collocation_id": "collocation:0fd295e82e654d3d4970",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:thoughtful:227184ada1f557c1:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "经过认真思考的回答",
+            "phrase": "a thoughtful answer"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "深思的、考虑周到的；也指体贴他人的",
-        "definition_en": "showing careful or reflective thought; also considerate of other people",
+        "definition_cn": "深思熟虑的；经过认真思考的",
+        "definition_en": "showing careful, serious, or reflective thought",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
@@ -54,6 +71,39 @@
         "sense_id": "sense:thoughtful:227184ada1f557c1",
         "sense_label_en": "showing careful or reflective thought; also considerate of other people",
         "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:f6c5612e74e4aaa94345",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:thoughtful:0094e9d34ef350c6:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "体贴的朋友/人",
+            "phrase": "a thoughtful friend/person"
+          },
+          {
+            "collocation_id": "collocation:5bc515a4271e87e27d58",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:thoughtful:0094e9d34ef350c6:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "体贴周到的礼物/举动",
+            "phrase": "a thoughtful gift/gesture"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "体贴的；关心他人感受和需要的",
+        "definition_en": "kind and considerate of other people's feelings or needs",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:thoughtful:0094e9d34ef350c6",
+        "sense_label_en": "kind and considerate of other people's feelings or needs",
+        "sort_order": 999,
         "transitivity": "nonverb"
       }
     ],
@@ -78,31 +128,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:thoughtful:0094e9d34ef350c6",
-      "status": "merged",
-      "merged_into_sense_id": "sense:thoughtful:227184ada1f557c1",
-      "pos": "adjective",
-      "definition_cn": "体贴的；关心他人的",
-      "definition_en": "considerate of the feelings or well-being of others",
-      "semantic_key": "fd520cf4332d7615617fb9bd0ed3d22341b46b34a5d62c38a23be9a2f5f64f38",
-      "semantic_key_history": [
-        "3f2f137f5ed3ea8ef37517ff8f585ece510f31df7956fca6e0e8cbb3bedbeb70"
-      ],
-      "legacy_aliases": [
-        "thoughtful:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "thoughtful:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 14201,
-      "source_path": "content/lexical/canonical/senses/shards/o4993-5024.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:thoughtful:8af16cbbb583583d",
       "status": "merged",
@@ -158,8 +183,8 @@
     "senses": [
       {
         "sense_id": "sense:thoughtful:0094e9d34ef350c6",
-        "status": "merged",
-        "merged_into_sense_id": "sense:thoughtful:227184ada1f557c1",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 14201,
         "source_path": "content/lexical/canonical/senses/shards/o4993-5024.json"
       },
@@ -186,7 +211,10 @@
       }
     ],
     "active_collocations": [
-      "collocation:ab0115463638057c8664"
+      "collocation:0fd295e82e654d3d4970",
+      "collocation:1ee12b602ebca46048d5",
+      "collocation:5bc515a4271e87e27d58",
+      "collocation:f6c5612e74e4aaa94345"
     ],
     "facts": [],
     "collocations": [
@@ -213,6 +241,26 @@
       {
         "id": "collocation:ef982f44342a549af2d6",
         "source_row": 20302,
+        "source_path": "content/lexical/canonical/collocations/shards/o4993-5024.json"
+      },
+      {
+        "id": "collocation:0fd295e82e654d3d4970",
+        "source_row": 21549,
+        "source_path": "content/lexical/canonical/collocations/shards/o4993-5024.json"
+      },
+      {
+        "id": "collocation:1ee12b602ebca46048d5",
+        "source_row": 21550,
+        "source_path": "content/lexical/canonical/collocations/shards/o4993-5024.json"
+      },
+      {
+        "id": "collocation:5bc515a4271e87e27d58",
+        "source_row": 21551,
+        "source_path": "content/lexical/canonical/collocations/shards/o4993-5024.json"
+      },
+      {
+        "id": "collocation:f6c5612e74e4aaa94345",
+        "source_row": 21553,
         "source_path": "content/lexical/canonical/collocations/shards/o4993-5024.json"
       }
     ],
@@ -247,7 +295,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4993-5000.json",
-    "source_content_hash": "81b6bec46106a1c2c51e54a22727c4f6cd7700e5f1b09e2253d13558a3c3759d",
+    "source_content_hash": "21bf01f30ddccffa459304906b7118e727e8024880fd01a3be4c47def02265ce",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

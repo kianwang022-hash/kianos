@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "af40b601794150f8ab1eff5bbdead52998e5680b8358279c57b76acaecf52eba",
+    "content_hash": "a53bbfb12a61c3d3380775c467ceabffffa01f5391c117d44d6882a3fa315984",
     "core_concept": {
       "core_clusters": [
         {
@@ -25,6 +25,14 @@
           "sense_ids": [
             "sense:surge:4e7dd9ae40885f17",
             "sense:surge:dee233a9d5425230"
+          ]
+        },
+        {
+          "label_cn": "猛增；急剧上升",
+          "label_en": "to increase or rise suddenly and sharply",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:surge:220c84f9f404b929"
           ]
         }
       ],
@@ -112,6 +120,39 @@
         "sense_label_en": "to move suddenly and powerfully forward",
         "sort_order": 2,
         "transitivity": "vi"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:0cb89062bfa41f0e5131",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:surge:220c84f9f404b929:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "价格/需求/病例数猛增",
+            "phrase": "prices/demand/cases surged"
+          },
+          {
+            "collocation_id": "collocation:33e329ec170d494b093e",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:surge:220c84f9f404b929:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "猛增了/猛增到某数值",
+            "phrase": "surge by/to + amount"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "猛增；急剧上升",
+        "definition_en": "to increase or rise suddenly and sharply",
+        "governing_pattern": "vi.: prices/demand/cases surge; surge by/to + amount",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:surge:220c84f9f404b929",
+        "sense_label_en": "to increase or rise suddenly and sharply",
+        "sort_order": 3,
+        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -157,10 +198,19 @@
         "merged_into_sense_id": null,
         "source_row": 13728,
         "source_path": "content/lexical/canonical/senses/shards/o4801-4832.json"
+      },
+      {
+        "sense_id": "sense:surge:220c84f9f404b929",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 13734,
+        "source_path": "content/lexical/canonical/senses/shards/o4801-4832.json"
       }
     ],
     "active_collocations": [
+      "collocation:0cb89062bfa41f0e5131",
       "collocation:2f9d096bd4324bfcce33",
+      "collocation:33e329ec170d494b093e",
       "collocation:dd7dd8f281fed9ebc1bb",
       "collocation:f33878b70e52f9eec92a"
     ],
@@ -179,6 +229,16 @@
       {
         "id": "collocation:f33878b70e52f9eec92a",
         "source_row": 20599,
+        "source_path": "content/lexical/canonical/collocations/shards/o4801-4832.json"
+      },
+      {
+        "id": "collocation:0cb89062bfa41f0e5131",
+        "source_row": 21476,
+        "source_path": "content/lexical/canonical/collocations/shards/o4801-4832.json"
+      },
+      {
+        "id": "collocation:33e329ec170d494b093e",
+        "source_row": 21477,
         "source_path": "content/lexical/canonical/collocations/shards/o4801-4832.json"
       }
     ],
@@ -208,7 +268,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4825-4832.json",
-    "source_content_hash": "af40b601794150f8ab1eff5bbdead52998e5680b8358279c57b76acaecf52eba",
+    "source_content_hash": "a53bbfb12a61c3d3380775c467ceabffffa01f5391c117d44d6882a3fa315984",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

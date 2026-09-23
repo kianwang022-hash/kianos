@@ -15,7 +15,7 @@
         "pattern": "be tired of sb/sth/doing sth"
       }
     ],
-    "content_hash": "ccdf27d25a628f672cf0f96c6ea7931851e12f3347caeea31682a4214d89008c",
+    "content_hash": "386059d05cf095fe0645e5195598815cc84d63babf0d26f9ec2160e493dac87e",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "感到需要休息或睡眠",
@@ -118,23 +118,49 @@
     "word_family": [
       {
         "boundaries": [
-          "tire is the base verb/noun lexeme; tired is its adjectival/past-participle family member. Keep tyre only as the wheel-noun regional spelling boundary."
+          "tired (fatigued) ↔ tire (make/become weary); unrelated to tire = wheel covering"
         ],
-        "boundary": "tire is the base verb/noun lexeme; tired is its adjectival/past-participle family member. Keep tyre only as the wheel-noun regional spelling boundary.",
-        "direction": "C",
-        "learning_note": "tire is the base verb/noun lexeme; tired is its adjectival/past-participle family member. Keep tyre only as the wheel-noun regional spelling boundary.",
+        "boundary": "tired (fatigued) ↔ tire (make/become weary); unrelated to tire = wheel covering",
+        "collocation_constraints": [
+          "Do not substitute one family member for another without changing grammar."
+        ],
+        "direction": "R",
+        "evidence": [
+          {
+            "evidence_id": "evidence:d9f4838d342757d36dbe",
+            "evidence_status": "source_checked",
+            "evidence_text": "tired",
+            "pdf_page": null,
+            "source_locator": "entries[word=tire].exchange",
+            "source_path": "academic_vocab_builder/output/vocab_5500/source_manifest.json",
+            "source_sha256": "f36be6487ffb22b2c4da60cc2aa7b7cfe3453a1fbefb0129f096588cf83ef5d6",
+            "source_type": "learner_dictionary",
+            "verified_at": "2026-08-13T23:16:58+00:00",
+            "verified_by": "local_rule+deepseek_independent_verification"
+          }
+        ],
+        "family_relation_type": "legacy_unclassified",
         "priority": "A",
-        "publication_status": "codex_reviewed",
-        "relation_id": "relation:horizontal:41d52663fd5ba0960a65",
+        "publication_status": "publishable",
+        "register": "morphological relation",
+        "relation_id": "rel:v3-family:tire:tired",
         "relation_scope": "lexeme",
-        "relation_type": "word_family",
+        "relation_type": "derivational_family",
+        "shared_meaning": "adjective form",
+        "source_expression": "tired",
+        "source_sense_id": "sense:tired:5ac5c2bce97e5a81",
+        "source_sentence": "",
+        "strength_difference": "not a synonym relation",
+        "syntax_constraints": [],
+        "target_expression": "tire",
+        "target_sense_id": "sense:tire:9e619e17300b5244",
+        "target_sentence": "",
         "target_word": "tire",
         "task_tags": [
           "reading",
-          "writing"
+          "cloze"
         ],
-        "verification_status": "verified",
-        "writing_safe": true
+        "verification_status": "verified"
       }
     ],
     "word_id": "word:tired"
@@ -201,7 +227,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5033-5040.json",
-    "source_content_hash": "ccdf27d25a628f672cf0f96c6ea7931851e12f3347caeea31682a4214d89008c",
+    "source_content_hash": "386059d05cf095fe0645e5195598815cc84d63babf0d26f9ec2160e493dac87e",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

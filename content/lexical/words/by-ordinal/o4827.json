@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "c9e596b7e7e1c3011bcb01ffb4a8c45079d2298aa899e56b80a603310bbc24fe",
+    "content_hash": "a3135e26e338b77b8c6ffcd3526507e931ce3a9c2b9ed89bae936f3ce49b9564",
     "core_concept": {
       "core_clusters": [
         {
@@ -17,14 +17,6 @@
           "sense_ids": [
             "sense:supreme:a8987ba787ec5203",
             "sense:supreme:3b33292bd4195eb0"
-          ]
-        },
-        {
-          "label_cn": "至高；霸权",
-          "label_en": "the highest level or authority",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:supreme:f660e8a7900252d1"
           ]
         }
       ],
@@ -106,30 +98,6 @@
         "sense_label_en": "greatest in degree or extreme",
         "sort_order": 1,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:08df64b8dfe550149263",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:supreme:f660e8a7900252d1:collocation:0"
-            ],
-            "meaning_cn": "权力的最高点",
-            "phrase": "the supreme of power"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "至高；霸权",
-        "definition_en": "the highest level or authority",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:supreme:f660e8a7900252d1",
-        "sense_label_en": "the highest level or authority",
-        "sort_order": 2,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -152,7 +120,31 @@
     "word_id": "word:supreme"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:supreme:f660e8a7900252d1",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "至高；霸权",
+      "definition_en": "the highest level or authority",
+      "semantic_key": "01f66985cc2a5f572ed98abdbfcbb7412930827aa4f63c905c9aa374de20718e",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "supreme:l3:3"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "supreme:l3:3",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-08-13T21:08:34+00:00",
+      "source_row": 13717,
+      "source_path": "content/lexical/canonical/senses/shards/o4801-4832.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -171,14 +163,13 @@
       },
       {
         "sense_id": "sense:supreme:f660e8a7900252d1",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 13717,
         "source_path": "content/lexical/canonical/senses/shards/o4801-4832.json"
       }
     ],
     "active_collocations": [
-      "collocation:08df64b8dfe550149263",
       "collocation:1806bc730d2624665bba",
       "collocation:319e902cbcc8702ba0af",
       "collocation:97386d9106cf624a4f5f",
@@ -248,7 +239,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4825-4832.json",
-    "source_content_hash": "c9e596b7e7e1c3011bcb01ffb4a8c45079d2298aa899e56b80a603310bbc24fe",
+    "source_content_hash": "a3135e26e338b77b8c6ffcd3526507e931ce3a9c2b9ed89bae936f3ce49b9564",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

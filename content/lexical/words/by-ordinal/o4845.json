@@ -7,7 +7,7 @@
     "card_version": "v3",
     "confusables": [],
     "constructions": [],
-    "content_hash": "07bdf466f623e019a063cdc301ed490432a2e6f6782268ba4b70cfa2b4f4cff8",
+    "content_hash": "64e1db73b63c6f1fffcca8053df6132b1b5076740a68dff9fb2ab4067acd635b",
     "core_concept": {
       "core_clusters": [
         {
@@ -82,21 +82,12 @@
             ],
             "meaning_cn": "猜想……",
             "phrase": "suspect that + clause"
-          },
-          {
-            "collocation_id": "collocation:1b5f38b375a04c299d27",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:suspect:d08325c48bd0525c:collocation:1"
-            ],
-            "meaning_cn": "怀疑某人做某事",
-            "phrase": "suspect sb of sth"
           }
         ],
         "confidence": "medium",
         "definition_cn": "猜想，觉得",
         "definition_en": "to imagine or believe something to be true or probable",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "suspect sth; suspect that + clause",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
@@ -115,12 +106,21 @@
             ],
             "meaning_cn": "怀疑某人犯罪",
             "phrase": "suspect sb of a crime"
+          },
+          {
+            "collocation_id": "collocation:7f69322e3545a0713eac",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:suspect:419e2679153d5bb5:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "怀疑某人做了某事/犯罪",
+            "phrase": "suspect sb of sth/a crime"
           }
         ],
         "confidence": "medium",
         "definition_cn": "怀疑（有罪）",
         "definition_en": "to believe someone is guilty of a crime",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "suspect sb of sth/a crime",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
@@ -232,8 +232,8 @@
     ],
     "active_collocations": [
       "collocation:01656a8970bb88a48053",
-      "collocation:1b5f38b375a04c299d27",
       "collocation:61d17e5cdd02478a751d",
+      "collocation:7f69322e3545a0713eac",
       "collocation:bfe2cab0bf16c235f534",
       "collocation:e7fe47e568d96c888283"
     ],
@@ -274,6 +274,11 @@
         "id": "collocation:e7fe47e568d96c888283",
         "source_row": 19663,
         "source_path": "content/lexical/canonical/collocations/shards/o4833-4864.json"
+      },
+      {
+        "id": "collocation:7f69322e3545a0713eac",
+        "source_row": 21585,
+        "source_path": "content/lexical/canonical/collocations/shards/o4833-4864.json"
       }
     ],
     "exam-mappings": [],
@@ -312,8 +317,8 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4841-4848.json",
-    "source_content_hash": "07bdf466f623e019a063cdc301ed490432a2e6f6782268ba4b70cfa2b4f4cff8",
-    "semantic_delta": 1,
+    "source_content_hash": "64e1db73b63c6f1fffcca8053df6132b1b5076740a68dff9fb2ab4067acd635b",
+    "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

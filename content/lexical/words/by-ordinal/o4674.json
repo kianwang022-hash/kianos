@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "49c4df83d405665ab4b112117f78958e6d8cba4e236a2bc5a21df152c9bf901e",
+    "content_hash": "ff6198ced56b46446f81265b9f45d67d44017f875414c3e30db438b88dcf9b0e",
     "core_concept": {
       "core_clusters": [
         {
@@ -53,21 +53,12 @@
             ],
             "meaning_cn": "渴望某物；缺乏某物",
             "phrase": "starve for + sth"
-          },
-          {
-            "collocation_id": "collocation:69dc5178728d215bed6d",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:starve:9e3e807fc9c95d19:collocation:0"
-            ],
-            "meaning_cn": "使某人挨饿",
-            "phrase": "starve sb"
           }
         ],
         "confidence": "medium",
         "definition_cn": "挨饿；饿死",
         "definition_en": "to suffer or die because you do not have enough food",
-        "governing_pattern": "vi. + for",
+        "governing_pattern": "vi.: starve; starve to death; figurative starve for sth",
         "level": "L1",
         "needs_human_review": 0,
         "normalized_core": "suffer from hunger / cause someone to suffer from hunger",
@@ -111,11 +102,21 @@
         "transitivity": "vi"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:276e60a8d2ea24746d50",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:starve:9e3e807fc9c95d19:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "使某人挨饿；不给食物使其受苦或死亡",
+            "phrase": "starve sb"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "使挨饿；使饿死",
         "definition_en": "to make someone suffer or die by not giving them food",
-        "governing_pattern": "",
+        "governing_pattern": "vt.: starve sb",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
@@ -172,8 +173,8 @@
     ],
     "active_collocations": [
       "collocation:077218b8d92651331091",
+      "collocation:276e60a8d2ea24746d50",
       "collocation:674f4a54f890be02ccc4",
-      "collocation:69dc5178728d215bed6d",
       "collocation:b762429538ff971defe7",
       "collocation:bacb9f3667db26fca4a7"
     ],
@@ -202,6 +203,11 @@
       {
         "id": "collocation:bacb9f3667db26fca4a7",
         "source_row": 15829,
+        "source_path": "content/lexical/canonical/collocations/shards/o4673-4704.json"
+      },
+      {
+        "id": "collocation:276e60a8d2ea24746d50",
+        "source_row": 21529,
         "source_path": "content/lexical/canonical/collocations/shards/o4673-4704.json"
       }
     ],
@@ -236,7 +242,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4673-4680.json",
-    "source_content_hash": "49c4df83d405665ab4b112117f78958e6d8cba4e236a2bc5a21df152c9bf901e",
+    "source_content_hash": "ff6198ced56b46446f81265b9f45d67d44017f875414c3e30db438b88dcf9b0e",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

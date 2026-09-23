@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "8698b4fc8bc25938cbca208414221196fe8e41fc33424bf4e977d610e520d574",
+    "content_hash": "eecb2ac7d4f7d0bb4f6ff41aec4ba6d985f0513ae459c91384665238a5a5b854",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "悬挂或暂停",
@@ -81,11 +81,21 @@
         "transitivity": "vt"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:1009a73636011cc61e5b",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:suspend:fd568b3a76c850d4:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "使某人停学/停职/暂停履职",
+            "phrase": "suspend sb from school/work/duty"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "使停职，使停学",
         "definition_en": "to bar temporarily from school, office, etc.",
-        "governing_pattern": "suspend sth from sth",
+        "governing_pattern": "vt.: suspend sb from school/work/duty/team/activity; be suspended from sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
@@ -203,6 +213,7 @@
       }
     ],
     "active_collocations": [
+      "collocation:1009a73636011cc61e5b",
       "collocation:7565afc25dd2ad57ec8a",
       "collocation:b1eafe1fe231cc1e87a8",
       "collocation:f890a9175aa2bbe1f737",
@@ -228,6 +239,11 @@
       {
         "id": "collocation:fb19b900f9125064904c",
         "source_row": 21248,
+        "source_path": "content/lexical/canonical/collocations/shards/o4833-4864.json"
+      },
+      {
+        "id": "collocation:1009a73636011cc61e5b",
+        "source_row": 21584,
         "source_path": "content/lexical/canonical/collocations/shards/o4833-4864.json"
       }
     ],
@@ -277,7 +293,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4841-4848.json",
-    "source_content_hash": "8698b4fc8bc25938cbca208414221196fe8e41fc33424bf4e977d610e520d574",
+    "source_content_hash": "eecb2ac7d4f7d0bb4f6ff41aec4ba6d985f0513ae459c91384665238a5a5b854",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

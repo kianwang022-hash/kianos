@@ -6,8 +6,18 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "e1667c68f8e44307f7ac9cb804dfb7a1a186292c0c95e3e9c8ad78f39d3574b8",
+    "constructions": [
+      {
+        "boundary": "lexicalized document phrase; not a data table",
+        "construction_id": "construction:aac2ef7c46b08b8423d7",
+        "definition_en": "a list of sections or chapters and their page numbers, usually near the front of a document or book",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "目录：列出文档/书籍章节、部分及其页码的清单",
+        "pattern": "table of contents"
+      }
+    ],
+    "content_hash": "528805d25940dc3390568809e8ec707dbcb6dcb9a692e172c7e1aad6ef570351",
     "core_concept": {
       "core_clusters": [
         {
@@ -38,7 +48,6 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "relation:horizontal:f7581302ca90524ddb5b",
       "sense:sense:table:0dd581cf46555619"
     ],
     "secondary_senses": [],
@@ -80,15 +89,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:8b5f7796dd83987d75f4",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:table:a3e02b0c6bb650c2:collocation:0"
-            ],
-            "meaning_cn": "目录",
-            "phrase": "a table of contents"
-          },
-          {
             "collocation_id": "collocation:3ab262576224cf35715b",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -127,6 +127,13 @@
         "definition_en": "UK: to formally present a proposal, motion, or issue for discussion",
         "governing_pattern": "vt. + object",
         "level": "L2",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "regional_contronym_boundary",
+          "note": "UK table a proposal/motion = formally present it for discussion; US table a proposal/motion = postpone or suspend consideration",
+          "paired_form": "US table",
+          "surface_lemma": "table"
+        },
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:table:b3de7bb011f05001",
@@ -141,6 +148,13 @@
         "definition_en": "US: to postpone discussion or consideration until later",
         "governing_pattern": "vt. + object",
         "level": "L2",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "regional_contronym_boundary",
+          "note": "US table a proposal/motion = postpone or suspend consideration; UK table a proposal/motion = formally present it for discussion",
+          "paired_form": "UK table",
+          "surface_lemma": "table"
+        },
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:table:0dd581cf46555619",
@@ -168,14 +182,7 @@
     "word_family": [],
     "word_id": "word:table"
   },
-  "relation_refs": [
-    {
-      "relation_id": "relation:horizontal:f7581302ca90524ddb5b",
-      "owner_path": "content/lexical/relations/by-id/e9/e99e1f56568bd2dbf52a6d0101ee77ff34df92f42f2440deef94d5f89285690c.json",
-      "field": "semantic_neighbors",
-      "index": 0
-    }
-  ],
+  "relation_refs": [],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -212,7 +219,6 @@
       "collocation:3ab262576224cf35715b",
       "collocation:3ae990f73334261280eb",
       "collocation:3d6c15be7e27a4adab3a",
-      "collocation:8b5f7796dd83987d75f4",
       "collocation:fd8fa6884f5cde8d8ab3"
     ],
     "facts": [],
@@ -269,7 +275,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4873-4880.json",
-    "source_content_hash": "e1667c68f8e44307f7ac9cb804dfb7a1a186292c0c95e3e9c8ad78f39d3574b8",
+    "source_content_hash": "528805d25940dc3390568809e8ec707dbcb6dcb9a692e172c7e1aad6ef570351",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

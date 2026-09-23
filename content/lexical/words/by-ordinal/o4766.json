@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "ea315f4e51f6fa0df77ab37341e95301a42910dff487f16409bfea2b41d8055c",
+    "content_hash": "339fe6dc9172100cb945d53c12665c47d656ecce91f00164f41bcaaf11bac7dd",
     "core_concept": {
       "core_clusters": [
         {
@@ -52,51 +52,43 @@
             ],
             "meaning_cn": "洪水淹没了村庄。",
             "phrase": "The flood submerged the village."
-          },
-          {
-            "collocation_id": "collocation:1a57718c20bbcc617fe9",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:submerge:45606f066d1d5f9a:collocation:0"
-            ],
-            "meaning_cn": "潜入水中",
-            "phrase": "submerge into the water"
-          },
-          {
-            "collocation_id": "collocation:027227316d751da94b3f",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:submerge:45606f066d1d5f9a:collocation:1"
-            ],
-            "meaning_cn": "潜艇下潜了。",
-            "phrase": "The submarine submerged."
           }
         ],
         "confidence": "medium",
         "definition_cn": "使浸没；淹没",
         "definition_en": "put something completely under water or another liquid",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "vt.: submerge sth in/under liquid; flood/cover sth completely",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:submerge:8913f23b13015472",
         "sense_label_en": "put something completely under water or another liquid",
         "sort_order": 0,
-        "transitivity": "I/T"
+        "transitivity": "vt"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:eb5a5968ccba6745a755",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:submerge:45606f066d1d5f9a:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "潜艇下潜了。",
+            "phrase": "The submarine submerged."
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "潜入水中",
         "definition_en": "go below the surface of water",
-        "governing_pattern": "",
+        "governing_pattern": "vi.: submerge; go below the surface",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:submerge:45606f066d1d5f9a",
         "sense_label_en": "go below the surface of water",
         "sort_order": 999,
-        "transitivity": "vt"
+        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -138,9 +130,8 @@
       }
     ],
     "active_collocations": [
-      "collocation:027227316d751da94b3f",
-      "collocation:1a57718c20bbcc617fe9",
       "collocation:6a1f73f85c9998b5bb99",
+      "collocation:eb5a5968ccba6745a755",
       "collocation:fa975992ee461e121925"
     ],
     "facts": [],
@@ -163,6 +154,11 @@
       {
         "id": "collocation:fa975992ee461e121925",
         "source_row": 21212,
+        "source_path": "content/lexical/canonical/collocations/shards/o4737-4768.json"
+      },
+      {
+        "id": "collocation:eb5a5968ccba6745a755",
+        "source_row": 21610,
         "source_path": "content/lexical/canonical/collocations/shards/o4737-4768.json"
       }
     ],
@@ -197,7 +193,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4761-4768.json",
-    "source_content_hash": "ea315f4e51f6fa0df77ab37341e95301a42910dff487f16409bfea2b41d8055c",
+    "source_content_hash": "339fe6dc9172100cb945d53c12665c47d656ecce91f00164f41bcaaf11bac7dd",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -6,8 +6,18 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "ec04bcf629728d7d9af06762fa02302ca1659640a950c55e88efbdd353952072",
+    "constructions": [
+      {
+        "boundary": "broad idiomatic risk expression; distinct from a literal financial gambling stake",
+        "construction_id": "construction:b84efcc48702a6428b57",
+        "definition_en": "to be at risk of being lost, harmed, or affected, or to put something at such risk",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "处于危险中；使某事面临失去/受损风险；成败攸关",
+        "pattern": "be/put sth at stake"
+      }
+    ],
+    "content_hash": "b74b9a0d6d66c854975bea5b3b2294b76f44708a0d02217b24dfc393de7060c5",
     "core_concept": {
       "core_clusters": [
         {
@@ -71,17 +81,7 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:4826446dcabdf52c39d7",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:stake:26596ca61e6e5a56:collocation:0"
-            ],
-            "meaning_cn": "处于危险中；成败攸关",
-            "phrase": "at stake"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "赌注",
         "definition_en": "the money risked on a gamble",
@@ -227,19 +227,12 @@
       }
     ],
     "active_collocations": [
-      "collocation:4826446dcabdf52c39d7",
       "collocation:4951341190a301be7758",
       "collocation:7b05cbec743c002d4a77",
       "collocation:915666d63d43df72a454",
       "collocation:f949346c570b39122fae"
     ],
-    "facts": [
-      {
-        "id": "deep:constructions:stake:a86b3a114d09fded",
-        "source_row": 1130,
-        "source_path": "content/lexical/canonical/facts/shards/o4641-4672.json"
-      }
-    ],
+    "facts": [],
     "collocations": [
       {
         "id": "collocation:4826446dcabdf52c39d7",
@@ -308,8 +301,8 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4657-4664.json",
-    "source_content_hash": "ec04bcf629728d7d9af06762fa02302ca1659640a950c55e88efbdd353952072",
-    "semantic_delta": 1,
+    "source_content_hash": "b74b9a0d6d66c854975bea5b3b2294b76f44708a0d02217b24dfc393de7060c5",
+    "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

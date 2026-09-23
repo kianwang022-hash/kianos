@@ -6,8 +6,18 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "757138873e91da77af1ddcbad8e7243ba2e15cb2d7f03082dbb1658746232715",
+    "constructions": [
+      {
+        "boundary": "figurative betrayal idiom; literal physical stabbing in the back remains compositional",
+        "construction_id": "construction:f879c22656b5e212478f",
+        "definition_en": "to betray someone, especially someone who trusted you",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "背叛；暗中伤害信任自己的人",
+        "pattern": "stab sb in the back"
+      }
+    ],
+    "content_hash": "8055b8cb5dd6433422e1cac6ea25e62fd1b8e56da09aeff7239a2a6080cc738d",
     "core_concept": {
       "core_clusters": [
         {
@@ -46,15 +56,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:f29fed0e243be733b473",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:stab:136e9fb22aca584f:collocation:0"
-            ],
-            "meaning_cn": "背后捅刀子；背叛",
-            "phrase": "stab someone in the back"
-          },
-          {
             "collocation_id": "collocation:cbb4741ff4761ab29a04",
             "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
@@ -62,12 +63,21 @@
             ],
             "meaning_cn": "刺向某人/某物",
             "phrase": "stab at + sb/sth"
+          },
+          {
+            "collocation_id": "collocation:dc522bccc5cc376d76a3",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:stab:136e9fb22aca584f:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "从背部/胸部刺伤某人（字面）",
+            "phrase": "stab sb in the back/chest"
           }
         ],
         "confidence": "medium",
         "definition_cn": "用利器刺伤",
         "definition_en": "to pierce or wound with a pointed weapon",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: stab sb/sth; stab at sb/sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
@@ -236,8 +246,8 @@
       "collocation:8ea63d12306d37fde69a",
       "collocation:cbb4741ff4761ab29a04",
       "collocation:d16b9bd45860f060aee7",
-      "collocation:e0ac566080dd82a61950",
-      "collocation:f29fed0e243be733b473"
+      "collocation:dc522bccc5cc376d76a3",
+      "collocation:e0ac566080dd82a61950"
     ],
     "facts": [],
     "collocations": [
@@ -264,6 +274,11 @@
       {
         "id": "collocation:f29fed0e243be733b473",
         "source_row": 20558,
+        "source_path": "content/lexical/canonical/collocations/shards/o4641-4672.json"
+      },
+      {
+        "id": "collocation:dc522bccc5cc376d76a3",
+        "source_row": 21527,
         "source_path": "content/lexical/canonical/collocations/shards/o4641-4672.json"
       }
     ],
@@ -303,7 +318,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4641-4648.json",
-    "source_content_hash": "757138873e91da77af1ddcbad8e7243ba2e15cb2d7f03082dbb1658746232715",
+    "source_content_hash": "8055b8cb5dd6433422e1cac6ea25e62fd1b8e56da09aeff7239a2a6080cc738d",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

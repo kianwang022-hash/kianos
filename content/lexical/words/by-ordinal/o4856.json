@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "097181209fdc86c6817af17fb73d677a54c581bdbdf50116ddbd5040aef89557",
+    "content_hash": "3b5a56c702a2d45fcd2b9c3ba4cbe51d2a158f3224e62581727f62a7f0b92841",
     "core_concept": {
       "core_clusters": [
         {
@@ -46,14 +46,13 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:4403957c58d94416c22b",
+            "collocation_id": "collocation:04aa0a233cfe15482ff2",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
-              "sense:sweat:e83e6534261f5fa5:collocation:0"
+              "sense:sweat:e83e6534261f5fa5:collocation:streaming-c-checkpoint-o2851-o3050"
             ],
-            "meaning_cn": "浑身是汗",
-            "phrase": "be covered in sweat",
-            "target_proposed_sense_key": "word:sweat|sense|perspiration"
+            "meaning_cn": "冷管/窗面上的凝结水珠",
+            "phrase": "sweat on a cold pipe/window"
           }
         ],
         "confidence": "medium",
@@ -117,7 +116,18 @@
         "transitivity": "vt"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:4403957c58d94416c22b",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:sweat:e83e6534261f5fa5:collocation:0"
+            ],
+            "meaning_cn": "浑身是汗",
+            "phrase": "be covered in sweat",
+            "target_proposed_sense_key": "word:sweat|sense|perspiration"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "汗；汗水",
         "definition_en": "salty liquid produced by sweat glands on the skin; perspiration",
@@ -194,6 +204,7 @@
       }
     ],
     "active_collocations": [
+      "collocation:04aa0a233cfe15482ff2",
       "collocation:315e6269e7843c5a9b6a",
       "collocation:4403957c58d94416c22b",
       "collocation:efe886e8899ed75d8610"
@@ -213,6 +224,11 @@
       {
         "id": "collocation:efe886e8899ed75d8610",
         "source_row": 20329,
+        "source_path": "content/lexical/canonical/collocations/shards/o4833-4864.json"
+      },
+      {
+        "id": "collocation:04aa0a233cfe15482ff2",
+        "source_row": 21587,
         "source_path": "content/lexical/canonical/collocations/shards/o4833-4864.json"
       }
     ],
@@ -247,7 +263,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4849-4856.json",
-    "source_content_hash": "097181209fdc86c6817af17fb73d677a54c581bdbdf50116ddbd5040aef89557",
+    "source_content_hash": "3b5a56c702a2d45fcd2b9c3ba4cbe51d2a158f3224e62581727f62a7f0b92841",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
