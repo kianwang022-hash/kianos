@@ -6,8 +6,18 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "e8a519d0a2e069fca722a171b88137441d5ae9f3ca2a914256623e28f70c1d5c",
+    "constructions": [
+      {
+        "boundary": "idiomatic heuristic phrase; not a literal thumb meaning",
+        "construction_id": "construction:b33a1d989adb046a1361",
+        "definition_en": "a practical approximate rule based on experience rather than exact theory or calculation",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "经验法则；基于经验而非精确理论/计算的实用近似规则",
+        "pattern": "a rule of thumb"
+      }
+    ],
+    "content_hash": "78692a4b67ce0005377c6a150086d2683ccd85fdafe34647a207404686e7a97c",
     "core_concept": {
       "core_clusters": [
         {
@@ -42,26 +52,7 @@
     "semantic_neighbors": [],
     "senses": [
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:8a8428d9222e9cb586c4",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:thumb:941a63e9e9635e8f:collocation:0"
-            ],
-            "meaning_cn": "经验法则",
-            "phrase": "rule of thumb"
-          },
-          {
-            "collocation_id": "collocation:f23f7737914a624ee7f1",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:thumb:941a63e9e9635e8f:collocation:1"
-            ],
-            "meaning_cn": "搭便车",
-            "phrase": "thumb a ride"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "拇指",
         "definition_en": "the short, thick first digit of the human hand, set lower and apart from the other four",
@@ -117,19 +108,28 @@
             ],
             "meaning_cn": "搭便车",
             "phrase": "thumb for a ride"
+          },
+          {
+            "collocation_id": "collocation:d09c148f6eedecad1d09",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:thumb:be9f1759e0db5f53:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "竖拇指搭便车",
+            "phrase": "thumb a ride"
           }
         ],
         "confidence": "medium",
         "definition_cn": "搭便车",
         "definition_en": "to hitchhike by signaling with the thumb",
-        "governing_pattern": "vi. + for",
+        "governing_pattern": "I/T: thumb for a ride; thumb a ride",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:thumb:be9f1759e0db5f53",
         "sense_label_en": "to hitchhike by signaling with the thumb",
         "sort_order": 2,
-        "transitivity": "vi"
+        "transitivity": "I/T"
       }
     ],
     "verification_summary": {
@@ -180,9 +180,8 @@
     "active_collocations": [
       "collocation:222ca2ca55212529c538",
       "collocation:80660e4ddc2d5163fbb8",
-      "collocation:8a8428d9222e9cb586c4",
       "collocation:a28a77a4679767f18ca2",
-      "collocation:f23f7737914a624ee7f1"
+      "collocation:d09c148f6eedecad1d09"
     ],
     "facts": [],
     "collocations": [
@@ -209,6 +208,11 @@
       {
         "id": "collocation:f23f7737914a624ee7f1",
         "source_row": 20522,
+        "source_path": "content/lexical/canonical/collocations/shards/o4993-5024.json"
+      },
+      {
+        "id": "collocation:d09c148f6eedecad1d09",
+        "source_row": 21552,
         "source_path": "content/lexical/canonical/collocations/shards/o4993-5024.json"
       }
     ],
@@ -243,7 +247,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5009-5016.json",
-    "source_content_hash": "e8a519d0a2e069fca722a171b88137441d5ae9f3ca2a914256623e28f70c1d5c",
+    "source_content_hash": "78692a4b67ce0005377c6a150086d2683ccd85fdafe34647a207404686e7a97c",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

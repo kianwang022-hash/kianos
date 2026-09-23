@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "e31a2b7922d128ccfba448b2601792397ae22ed680aedbf5798ead979a7a70ef",
+    "content_hash": "5d0ed11a41f759ba44dc3f771758a75e23930551ff96fa2f0a35ba37364c3ba5",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "教科书",
@@ -37,13 +37,13 @@
             "phrase": "a history textbook"
           },
           {
-            "collocation_id": "collocation:2db5531ec7bdbae2a24f",
-            "exam_value": "usage_example",
+            "collocation_id": "collocation:e355f824671c8e6340d7",
+            "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
-              "sense:textbook:f10bc9f438e25627:collocation:1"
+              "sense:textbook:f10bc9f438e25627:collocation:streaming-c-checkpoint-o2851-o3050"
             ],
-            "meaning_cn": "典型例子",
-            "phrase": "textbook example"
+            "meaning_cn": "学校教科书",
+            "phrase": "school textbook"
           }
         ],
         "confidence": "medium",
@@ -59,7 +59,17 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:2db5531ec7bdbae2a24f",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:textbook:f10bc9f438e25627:collocation:1"
+            ],
+            "meaning_cn": "典型例子",
+            "phrase": "textbook example"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "典型的；教科书式的；堪称范例的",
         "definition_en": "typical, classic, or an especially clear example of its kind",
@@ -130,7 +140,8 @@
     ],
     "active_collocations": [
       "collocation:2db5531ec7bdbae2a24f",
-      "collocation:bc64c994532d9b97aba4"
+      "collocation:bc64c994532d9b97aba4",
+      "collocation:e355f824671c8e6340d7"
     ],
     "facts": [],
     "collocations": [
@@ -142,6 +153,11 @@
       {
         "id": "collocation:bc64c994532d9b97aba4",
         "source_row": 15957,
+        "source_path": "content/lexical/canonical/collocations/shards/o4929-4960.json"
+      },
+      {
+        "id": "collocation:e355f824671c8e6340d7",
+        "source_row": 21454,
         "source_path": "content/lexical/canonical/collocations/shards/o4929-4960.json"
       }
     ],
@@ -176,7 +192,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4953-4960.json",
-    "source_content_hash": "e31a2b7922d128ccfba448b2601792397ae22ed680aedbf5798ead979a7a70ef",
+    "source_content_hash": "5d0ed11a41f759ba44dc3f771758a75e23930551ff96fa2f0a35ba37364c3ba5",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

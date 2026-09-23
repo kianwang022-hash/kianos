@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "ab073d1b66839a764340b9d75b4a3be1d35a7d9110f4509822050e14c5558358",
+    "content_hash": "314e65984ff76900f11a0d49fab5e40b0b8b8ba78e8bc749463a660872c72726",
     "core_concept": {
       "core_clusters": [
         {
@@ -50,15 +50,6 @@
             ],
             "meaning_cn": "整洁的房间",
             "phrase": "tidy room"
-          },
-          {
-            "collocation_id": "collocation:b1335d7d5a6cf81afb29",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:tidy:bb349239874b583d:collocation:1"
-            ],
-            "meaning_cn": "整理；收拾",
-            "phrase": "tidy up"
           }
         ],
         "confidence": "medium",
@@ -92,19 +83,28 @@
             ],
             "meaning_cn": "整理房间",
             "phrase": "tidy the room"
+          },
+          {
+            "collocation_id": "collocation:fc5ab2146ae8112c6f95",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:tidy:d947aab6e39b5b5a:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "整理；收拾（某处/某物）",
+            "phrase": "tidy up / tidy sth up"
           }
         ],
         "confidence": "medium",
         "definition_cn": "整理；收拾",
         "definition_en": "to make something neat and orderly",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: tidy the room; tidy sth up; tidy up",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:tidy:d947aab6e39b5b5a",
         "sense_label_en": "to make something neat and orderly",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       }
     ],
     "verification_summary": {
@@ -147,9 +147,9 @@
     ],
     "active_collocations": [
       "collocation:4feb410cc9775d5a06b3",
-      "collocation:b1335d7d5a6cf81afb29",
       "collocation:b6202c5cfe4e27bff146",
-      "collocation:bf233580a1ba96543185"
+      "collocation:bf233580a1ba96543185",
+      "collocation:fc5ab2146ae8112c6f95"
     ],
     "facts": [],
     "collocations": [
@@ -171,6 +171,11 @@
       {
         "id": "collocation:bf233580a1ba96543185",
         "source_row": 16171,
+        "source_path": "content/lexical/canonical/collocations/shards/o4993-5024.json"
+      },
+      {
+        "id": "collocation:fc5ab2146ae8112c6f95",
+        "source_row": 21554,
         "source_path": "content/lexical/canonical/collocations/shards/o4993-5024.json"
       }
     ],
@@ -210,7 +215,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5017-5024.json",
-    "source_content_hash": "ab073d1b66839a764340b9d75b4a3be1d35a7d9110f4509822050e14c5558358",
+    "source_content_hash": "314e65984ff76900f11a0d49fab5e40b0b8b8ba78e8bc749463a660872c72726",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
