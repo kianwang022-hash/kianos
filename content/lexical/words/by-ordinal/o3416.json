@@ -7,11 +7,11 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "e3bb15ee1d682884c7bd801a1e72115c6e97a74ed1be73711c3bd6df890268ff",
+    "content_hash": "40595cbee7ab930a624d033841f920d0492c50aafb980bbb740f15de37eba80e",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "彻底检修，翻修",
+          "label_cn": "彻底检修；翻修",
           "label_en": "to examine and repair thoroughly",
           "pos": "verb",
           "sense_ids": [
@@ -19,26 +19,40 @@
           ]
         },
         {
-          "label_cn": "大检修，翻修",
+          "label_cn": "大检修；翻修",
           "label_en": "a thorough examination and repair",
           "pos": "noun",
           "sense_ids": [
             "sense:overhaul:d710c80424ae5f49"
           ]
+        },
+        {
+          "label_cn": "彻底改革；全面整顿",
+          "label_en": "to change a system or process thoroughly",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:overhaul:5b78ebdddc013bcd"
+          ]
+        },
+        {
+          "label_cn": "彻底改革；全面整顿",
+          "label_en": "a major reform of a system or process",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:overhaul:77975779ed694f91"
+          ]
         }
       ],
-      "core_meaning_cn": "彻底检修；大检修",
-      "core_meaning_en": "to examine and repair; a thorough examination and repair",
-      "mental_model_cn": "彻底检修；大检修",
+      "core_meaning_cn": "彻底检修；彻底改革",
+      "core_meaning_en": "to overhaul thoroughly; a major repair or reform",
+      "mental_model_cn": "彻底检修；彻底改革",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [
-      "semantic-reconciliation:o3375-o3624"
-    ],
+    "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -64,14 +78,7 @@
         "sense_id": "sense:overhaul:42548fb8ba0e55d2",
         "sense_label_en": "to examine and repair thoroughly",
         "sort_order": 0,
-        "transitivity": "vt",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "stress_pos_boundary",
-          "surface_lemma": "overhaul",
-          "paired_form": "verb / noun",
-          "note": "Verb overhaul normally has main stress on the second element; noun overhaul normally has main stress on the first element."
-        }
+        "transitivity": "vt"
       },
       {
         "collocations": [
@@ -95,14 +102,55 @@
         "sense_id": "sense:overhaul:d710c80424ae5f49",
         "sense_label_en": "a thorough examination and repair",
         "sort_order": 1,
-        "transitivity": "nonverb",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "stress_pos_boundary",
-          "surface_lemma": "overhaul",
-          "paired_form": "verb / noun",
-          "note": "Verb overhaul normally has main stress on the second element; noun overhaul normally has main stress on the first element."
-        }
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:c5de66401e08dde76cb7",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:overhaul:5b78ebdddc013bcd:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "彻底改革制度/流程",
+            "phrase": "overhaul a system/process"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "彻底改革；全面整顿",
+        "definition_en": "to examine and change a system, process, or organization thoroughly so that it works more effectively",
+        "governing_pattern": "vt. + system/process/organization",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:overhaul:5b78ebdddc013bcd",
+        "sense_label_en": "to examine and change a system, process, or organization thoroughly so that it works more effectively",
+        "sort_order": 2,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:53c9de4e513bdfc7f4a8",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:overhaul:77975779ed694f91:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "对制度的重大改革",
+            "phrase": "a major overhaul of the system"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "彻底改革；全面整顿",
+        "definition_en": "a thorough or major change to a system, process, or organization",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:overhaul:77975779ed694f91",
+        "sense_label_en": "a thorough or major change to a system, process, or organization",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -141,11 +189,27 @@
         "merged_into_sense_id": null,
         "source_row": 9476,
         "source_path": "content/lexical/canonical/senses/shards/o3393-3424.json"
+      },
+      {
+        "sense_id": "sense:overhaul:5b78ebdddc013bcd",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9499,
+        "source_path": "content/lexical/canonical/senses/shards/o3393-3424.json"
+      },
+      {
+        "sense_id": "sense:overhaul:77975779ed694f91",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9500,
+        "source_path": "content/lexical/canonical/senses/shards/o3393-3424.json"
       }
     ],
     "active_collocations": [
       "collocation:08bba4c46e55790caf52",
-      "collocation:89b31228ffcba2d993c0"
+      "collocation:53c9de4e513bdfc7f4a8",
+      "collocation:89b31228ffcba2d993c0",
+      "collocation:c5de66401e08dde76cb7"
     ],
     "facts": [],
     "collocations": [
@@ -157,6 +221,16 @@
       {
         "id": "collocation:89b31228ffcba2d993c0",
         "source_row": 11684,
+        "source_path": "content/lexical/canonical/collocations/shards/o3393-3424.json"
+      },
+      {
+        "id": "collocation:53c9de4e513bdfc7f4a8",
+        "source_row": 21393,
+        "source_path": "content/lexical/canonical/collocations/shards/o3393-3424.json"
+      },
+      {
+        "id": "collocation:c5de66401e08dde76cb7",
+        "source_row": 21394,
         "source_path": "content/lexical/canonical/collocations/shards/o3393-3424.json"
       }
     ],
@@ -181,7 +255,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3409-3416.json",
-    "source_content_hash": "265da658f16297128afbf4d6712aea3ddef7247dae598144ac11543254787063",
+    "source_content_hash": "40595cbee7ab930a624d033841f920d0492c50aafb980bbb740f15de37eba80e",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

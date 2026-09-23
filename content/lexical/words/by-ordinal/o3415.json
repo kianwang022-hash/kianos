@@ -6,8 +6,19 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "81a7bc3adbaac8dc4ba9ed87bd7aeac38a76789a1542ec64cf0941c4ad9e91e5",
+    "constructions": [
+      {
+        "boundary": "figurative/fullness construction distinct from literal spilling",
+        "construction_id": "construction:cb11fb6392d25e13c467",
+        "definition_en": "to be extremely full of something, especially an emotion, quality, or people/things",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "充满；洋溢着",
+        "pattern": "overflow with + sth",
+        "source_sense_id": "sense:overflow:10a8cee526035339"
+      }
+    ],
+    "content_hash": "88274e5c7840388290cf8f15ec42bb2f7ad1b3d49b982270bc613550b2cf09fe",
     "core_concept": {
       "core_clusters": [
         {
@@ -15,8 +26,7 @@
           "label_en": "to flow over the edge or brim; to cause to flow over",
           "pos": "verb",
           "sense_ids": [
-            "sense:overflow:10a8cee526035339",
-            "sense:overflow:5ac758c235fb5bfa"
+            "sense:overflow:10a8cee526035339"
           ]
         },
         {
@@ -37,23 +47,12 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [
-      "semantic-reconciliation:o3375-o3624"
-    ],
+    "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
       {
         "collocations": [
-          {
-            "collocation_id": "collocation:1d4b1b53c806cbb32bf3",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:overflow:10a8cee526035339:collocation:0"
-            ],
-            "meaning_cn": "充满，洋溢",
-            "phrase": "overflow with + sth"
-          },
           {
             "collocation_id": "collocation:0b34c88fc279d0aa83fc",
             "exam_value": "usage_example",
@@ -62,29 +61,7 @@
             ],
             "meaning_cn": "河水漫过了堤岸。",
             "phrase": "The river overflowed its banks."
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "溢出，漫出",
-        "definition_en": "to flow over the edge or brim",
-        "governing_pattern": "vi. + over",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:overflow:10a8cee526035339",
-        "sense_label_en": "to flow over the edge or brim",
-        "sort_order": 0,
-        "transitivity": "vi",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "stress_pos_boundary",
-          "surface_lemma": "overflow",
-          "paired_form": "verb / noun",
-          "note": "Verb overflow normally has main stress on the second element; noun overflow normally has main stress on the first element."
-        }
-      },
-      {
-        "collocations": [
+          },
           {
             "collocation_id": "collocation:bb03fe8cbde2e7b7b043",
             "exam_value": "usage_example",
@@ -96,23 +73,16 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "使溢出，使泛滥",
-        "definition_en": "to cause to flow over",
-        "governing_pattern": "vt. + object",
-        "level": "L2",
+        "definition_cn": "溢出；漫出；漫过边界",
+        "definition_en": "for a container or place to become too full and spill, or for a liquid to flow over an edge, bank, or boundary",
+        "governing_pattern": "I/T: overflow; overflow sth / overflow its banks",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
-        "sense_id": "sense:overflow:5ac758c235fb5bfa",
-        "sense_label_en": "to cause to flow over",
-        "sort_order": 1,
-        "transitivity": "vt",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "stress_pos_boundary",
-          "surface_lemma": "overflow",
-          "paired_form": "verb / noun",
-          "note": "Verb overflow normally has main stress on the second element; noun overflow normally has main stress on the first element."
-        }
+        "sense_id": "sense:overflow:10a8cee526035339",
+        "sense_label_en": "for a container or place to become too full and spill, or for a liquid to flow over an edge, bank, or boundary",
+        "sort_order": 0,
+        "transitivity": "I/T"
       },
       {
         "collocations": [
@@ -145,14 +115,7 @@
         "sense_id": "sense:overflow:f6f08f9ff1fd5060",
         "sense_label_en": "the act of overflowing or the excess liquid",
         "sort_order": 2,
-        "transitivity": "nonverb",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "stress_pos_boundary",
-          "surface_lemma": "overflow",
-          "paired_form": "verb / noun",
-          "note": "Verb overflow normally has main stress on the second element; noun overflow normally has main stress on the first element."
-        }
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -175,7 +138,31 @@
     "word_id": "word:overflow"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:overflow:5ac758c235fb5bfa",
+      "status": "merged",
+      "merged_into_sense_id": "sense:overflow:10a8cee526035339",
+      "pos": "verb",
+      "definition_cn": "使溢出，使泛滥",
+      "definition_en": "to cause to flow over",
+      "semantic_key": "a2e6765d160ec0c297cef149a07704715906170ca6dda7ac981ec0fbccc2298a",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "overflow:l2:2"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "overflow:l2:2",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-23T00:00:00Z",
+      "source_row": 9473,
+      "source_path": "content/lexical/canonical/senses/shards/o3393-3424.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -187,8 +174,8 @@
       },
       {
         "sense_id": "sense:overflow:5ac758c235fb5bfa",
-        "status": "active",
-        "merged_into_sense_id": null,
+        "status": "merged",
+        "merged_into_sense_id": "sense:overflow:10a8cee526035339",
         "source_row": 9473,
         "source_path": "content/lexical/canonical/senses/shards/o3393-3424.json"
       },
@@ -202,7 +189,6 @@
     ],
     "active_collocations": [
       "collocation:0b34c88fc279d0aa83fc",
-      "collocation:1d4b1b53c806cbb32bf3",
       "collocation:5c38c8711b265172df87",
       "collocation:bb03fe8cbde2e7b7b043",
       "collocation:ed1d0ddf2ca9f986a3f2"
@@ -266,7 +252,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3409-3416.json",
-    "source_content_hash": "b4c1da8b31ae96ab3e97b75f875759c21a6d7bb86bd808834c7ea78ff6fc3881",
+    "source_content_hash": "88274e5c7840388290cf8f15ec42bb2f7ad1b3d49b982270bc613550b2cf09fe",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

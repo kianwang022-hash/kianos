@@ -7,11 +7,20 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "c8361d6d9cd3a52a3511a389de6ba6bb173074fb5474cee82432affb439ee4ed",
+    "content_hash": "98b3ca1ea0bcddc10fed12e2ddfe4e6b1f9f9cbfff91d3c5b4d6d04516dc5b04",
     "core_concept": {
-      "core_clusters": [],
+      "core_clusters": [
+        {
+          "label_cn": "我们的",
+          "label_en": "belonging to or associated with the speaker and others, used before a noun",
+          "pos": "determiner",
+          "sense_ids": [
+            "sense:our:6dfafe59ebb651dd"
+          ]
+        }
+      ],
       "core_meaning_cn": "我们的",
-      "core_meaning_en": "belonging to or associated with us",
+      "core_meaning_en": "belonging to or associated with us, used before a noun",
       "mental_model_cn": "我们的",
       "mental_model_en": ""
     },
@@ -46,13 +55,13 @@
         ],
         "confidence": "medium",
         "definition_cn": "我们的",
-        "definition_en": "belonging to or associated with the speaker and one or more other people",
-        "governing_pattern": "",
+        "definition_en": "belonging to or associated with the speaker and one or more other people, used before a noun",
+        "governing_pattern": "our + noun",
         "level": "L1",
         "needs_human_review": 0,
-        "pos": "pronoun",
+        "pos": "determiner",
         "sense_id": "sense:our:6dfafe59ebb651dd",
-        "sense_label_en": "belonging to or associated with the speaker and one or more other people",
+        "sense_label_en": "belonging to or associated with the speaker and one or more other people, used before a noun",
         "sort_order": 0,
         "transitivity": "nonverb"
       }
@@ -76,14 +85,7 @@
     "word_family": [],
     "word_id": "word:our"
   },
-  "relation_refs": [
-    {
-      "relation_id": "relation:confusable:hour|our:pronunciation_overlap",
-      "owner_path": "content/lexical/relations/by-id/dc/dc216947d1b68e585d12371130f7835b311ad70d72f5c95f2f5c7b25fa2a607d.json",
-      "field": "confusables",
-      "index": 0
-    }
-  ],
+  "relation_refs": [],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -133,7 +135,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3385-3392.json",
-    "source_content_hash": "c8361d6d9cd3a52a3511a389de6ba6bb173074fb5474cee82432affb439ee4ed",
+    "source_content_hash": "98b3ca1ea0bcddc10fed12e2ddfe4e6b1f9f9cbfff91d3c5b4d6d04516dc5b04",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

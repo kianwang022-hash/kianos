@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "7f4bed1f45559cd08ea63ed0d1bf309fc3c6bcf163fa6c5e411b9d722cf6063b",
+    "content_hash": "770cd90300e8d364730884f9bdd52354cf834a06fbaf12fa46213ddaf935a6aa",
     "core_concept": {
       "core_clusters": [
         {
@@ -19,42 +19,48 @@
           ]
         },
         {
-          "label_cn": "不在场；外出；暂不可用",
-          "label_en": "not present, at home, or available",
-          "pos": "adjective",
+          "label_cn": "从…里面出去；出自",
+          "label_en": "from inside to outside",
+          "pos": "preposition",
           "sense_ids": [
-            "sense:out:393375c5efa8147b"
+            "sense:out:6c0cf01e24ad5b85"
           ]
         },
         {
-          "label_cn": "熄灭；停止工作",
-          "label_en": "no longer burning, lit, or operating",
+          "label_cn": "出局的",
+          "label_en": "not allowed to continue batting or running in baseball",
           "pos": "adjective",
           "sense_ids": [
-            "sense:out:05b6c134974ed853"
+            "sense:out:fa7a1c0ba9655dba"
           ]
         },
         {
           "label_cn": "揭露；公开",
-          "label_en": "reveal identity/private information",
+          "label_en": "reveal something about somebody's identity or lifestyle",
           "pos": "verb",
           "sense_ids": [
             "sense:out:a596e08bf66b5e26"
           ]
+        },
+        {
+          "label_cn": "出局",
+          "label_en": "a failure by a batter or runner to reach a base safely in baseball",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:out:f63e2a89633e5471"
+          ]
         }
       ],
-      "core_meaning_cn": "向外；不在场；熄灭/停用；揭露",
-      "core_meaning_en": "away/outside; absent/unavailable; extinguished/not operating; disclose",
-      "mental_model_cn": "向外；不在场；熄灭/停用；揭露",
+      "core_meaning_cn": "向外；出局；揭露",
+      "core_meaning_en": "away from the inside or normal state",
+      "mental_model_cn": "向外；出局；揭露",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [
-      "semantic-reconciliation:o3375-o3624"
-    ],
+    "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -101,15 +107,6 @@
             ],
             "meaning_cn": "从窗户出去",
             "phrase": "out of the window"
-          },
-          {
-            "collocation_id": "collocation:f16f646193d0ecfac7d8",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:out:6c0cf01e24ad5b85:collocation:1"
-            ],
-            "meaning_cn": "出故障；次序颠倒",
-            "phrase": "out of order"
           }
         ],
         "confidence": "medium",
@@ -122,30 +119,6 @@
         "sense_id": "sense:out:6c0cf01e24ad5b85",
         "sense_label_en": "from inside to outside",
         "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:2b7a4040eabbfad9fdb6",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:out:fa7a1c0ba9655dba:collocation:0"
-            ],
-            "meaning_cn": "出局",
-            "phrase": "be out"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "出局的",
-        "definition_en": "not allowed to continue batting or running in baseball",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:out:fa7a1c0ba9655dba",
-        "sense_label_en": "not allowed to continue batting or running in baseball",
-        "sort_order": 2,
         "transitivity": "nonverb"
       },
       {
@@ -175,6 +148,30 @@
       {
         "collocations": [
           {
+            "collocation_id": "collocation:2b7a4040eabbfad9fdb6",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:out:fa7a1c0ba9655dba:collocation:0"
+            ],
+            "meaning_cn": "出局",
+            "phrase": "be out"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "出局的",
+        "definition_en": "not allowed to continue batting or running in baseball",
+        "governing_pattern": "",
+        "level": "L3",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:out:fa7a1c0ba9655dba",
+        "sense_label_en": "not allowed to continue batting or running in baseball",
+        "sort_order": 2,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
             "collocation_id": "collocation:6020202627809d534948",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -194,54 +191,6 @@
         "sense_id": "sense:out:f63e2a89633e5471",
         "sense_label_en": "a failure by a batter or runner to reach a base safely in baseball",
         "sort_order": 4,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:f353700638ef142d47f4",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:out:393375c5efa8147b:collocation:forward-o3375-o3624"
-            ],
-            "meaning_cn": "外出/不在场",
-            "phrase": "be out / be out of the office"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "不在场的；外出的；暂时无法提供的",
-        "definition_en": "not at home, not present, or temporarily unavailable",
-        "governing_pattern": "",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:out:393375c5efa8147b",
-        "sense_label_en": "not at home, not present, or temporarily unavailable",
-        "sort_order": 5,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:143db678761dac0cd0dd",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:out:05b6c134974ed853:collocation:forward-o3375-o3624"
-            ],
-            "meaning_cn": "灯灭了/火熄了",
-            "phrase": "the light/fire is out"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "熄灭的；停止工作的",
-        "definition_en": "no longer burning, lit, or operating",
-        "governing_pattern": "",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:out:05b6c134974ed853",
-        "sense_label_en": "no longer burning, lit, or operating",
-        "sort_order": 6,
         "transitivity": "nonverb"
       }
     ],
@@ -265,23 +214,42 @@
     "word_id": "word:out"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:out:393375c5efa8147b",
+      "status": "active",
+      "merged_into_sense_id": null,
+      "pos": "adjective",
+      "definition_cn": "不在场的；外出的；暂时无法提供的",
+      "definition_en": "not at home, not present, or temporarily unavailable",
+      "semantic_key": "c2523d918ae5e3f030fd075c17cc28aa5e70beb76cca83f9ada543b76306886a",
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-09-15T10:35:00Z",
+      "source_row": 9416,
+      "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json",
+      "reference_only": true
+    },
+    {
+      "stable_sense_id": "sense:out:05b6c134974ed853",
+      "status": "active",
+      "merged_into_sense_id": null,
+      "pos": "adjective",
+      "definition_cn": "熄灭的；停止工作的",
+      "definition_en": "no longer burning, lit, or operating",
+      "semantic_key": "9d0d22928a4d8efea2a6ca983be428ace1b0f6dbeab2ad6edd05d41802d0c2bb",
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-09-15T10:35:00Z",
+      "source_row": 9417,
+      "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
-      {
-        "sense_id": "sense:out:05b6c134974ed853",
-        "status": "active",
-        "merged_into_sense_id": null,
-        "source_row": 9417,
-        "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json"
-      },
-      {
-        "sense_id": "sense:out:393375c5efa8147b",
-        "status": "active",
-        "merged_into_sense_id": null,
-        "source_row": 9416,
-        "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json"
-      },
       {
         "sense_id": "sense:out:6c0cf01e24ad5b85",
         "status": "active",
@@ -316,26 +284,32 @@
         "merged_into_sense_id": null,
         "source_row": 9414,
         "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json"
+      },
+      {
+        "sense_id": "sense:out:393375c5efa8147b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9416,
+        "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json"
+      },
+      {
+        "sense_id": "sense:out:05b6c134974ed853",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9417,
+        "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json"
       }
     ],
     "active_collocations": [
-      "collocation:143db678761dac0cd0dd",
       "collocation:2b7a4040eabbfad9fdb6",
       "collocation:590c42e86e48910e62dc",
       "collocation:6020202627809d534948",
       "collocation:7b89ec8ff657835ae9ac",
       "collocation:aa8f89dbd5923d78ebd6",
-      "collocation:c709836aeae1ed6fab2a",
-      "collocation:f16f646193d0ecfac7d8",
-      "collocation:f353700638ef142d47f4"
+      "collocation:c709836aeae1ed6fab2a"
     ],
     "facts": [],
     "collocations": [
-      {
-        "id": "collocation:143db678761dac0cd0dd",
-        "source_row": 21287,
-        "source_path": "content/lexical/canonical/collocations/shards/o3361-3392.json"
-      },
       {
         "id": "collocation:2b7a4040eabbfad9fdb6",
         "source_row": 3693,
@@ -375,6 +349,11 @@
         "id": "collocation:f353700638ef142d47f4",
         "source_row": 21286,
         "source_path": "content/lexical/canonical/collocations/shards/o3361-3392.json"
+      },
+      {
+        "id": "collocation:143db678761dac0cd0dd",
+        "source_row": 21287,
+        "source_path": "content/lexical/canonical/collocations/shards/o3361-3392.json"
       }
     ],
     "exam-mappings": [],
@@ -403,7 +382,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3385-3392.json",
-    "source_content_hash": "5685ba87fc8a8dbc6a1c9c12a8e2a0cad75e2abeae581798bc96f45458a42f6a",
+    "source_content_hash": "770cd90300e8d364730884f9bdd52354cf834a06fbaf12fa46213ddaf935a6aa",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

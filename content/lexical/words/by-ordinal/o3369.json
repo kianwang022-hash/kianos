@@ -7,12 +7,21 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "f997e5a75cc67215661e273d68ce9e76aff2696cc6667c8429b8303d765be860",
+    "content_hash": "28f37597a20b06e6a28b076d334fe1f83ec54967d16b91b429e6960250103547",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "整齐有序的；护理员或勤务兵",
-      "core_meaning_en": "neat and organized; a hospital or military attendant",
-      "mental_model_cn": "整齐有序的；护理员或勤务兵",
+      "core_clusters": [
+        {
+          "label_cn": "整齐的；有秩序的；守纪律的",
+          "label_en": "neat and well-arranged, or peaceful and well-behaved",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:orderly:f0458c7980db5bc1"
+          ]
+        }
+      ],
+      "core_meaning_cn": "整齐的；有秩序的；守纪律的",
+      "core_meaning_en": "neat, organized, or well-behaved",
+      "mental_model_cn": "整齐的；有秩序的；守纪律的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -35,6 +44,20 @@
         "sense_id": "sense:orderly:f0458c7980db5bc1",
         "sense_label_en": "neat and well-arranged, or peaceful and well-behaved",
         "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "护理辅助人员；勤务员",
+        "definition_en": "a hospital attendant or support worker performing non-medical or basic patient-care duties; also a military attendant",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:orderly:ec26f6de01ee5120",
+        "sense_label_en": "a hospital attendant or support worker performing non-medical or basic patient-care duties; also a military attendant",
+        "sort_order": 999,
         "transitivity": "nonverb"
       }
     ],
@@ -83,31 +106,6 @@
       "source_row": 9351,
       "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:orderly:ec26f6de01ee5120",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "护理员；勤务兵",
-      "definition_en": "a hospital attendant or a soldier serving as an officer's messenger",
-      "semantic_key": "1913221b48b6ae374adb7726224c3328301b3187b2e8f9a3c7739beb4d74569a",
-      "semantic_key_history": [
-        "d9a878b16268183b62fa9d2cdbfa3bf710c937858f2ba54bf408a0d942422de5"
-      ],
-      "legacy_aliases": [
-        "orderly:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "orderly:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 9352,
-      "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -121,7 +119,7 @@
       },
       {
         "sense_id": "sense:orderly:ec26f6de01ee5120",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 9352,
         "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json"
@@ -184,7 +182,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3369-3376.json",
-    "source_content_hash": "f997e5a75cc67215661e273d68ce9e76aff2696cc6667c8429b8303d765be860",
+    "source_content_hash": "28f37597a20b06e6a28b076d334fe1f83ec54967d16b91b429e6960250103547",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

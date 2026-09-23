@@ -6,13 +6,49 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "a34730aa49112b137085c52613b9421f56fee507c62ee34780836acbbd045a0f",
+    "constructions": [
+      {
+        "boundary": "ordinary choice sense, not the financial option",
+        "construction_id": "construction:d83d54a235c713397469",
+        "definition_en": "to have no real alternative and therefore have to do something",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "别无选择，只能做某事",
+        "pattern": "have no option but to do sth",
+        "source_sense_id": "sense:option:d759cdd5124b5c2d"
+      }
+    ],
+    "content_hash": "c751caab28cc6a7ef60b90b9216ed2babec80f0fbdfc327ff07230308d63472d",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "选择；选项",
-      "core_meaning_en": "a choice or the right to choose",
-      "mental_model_cn": "选择；选项",
+      "core_clusters": [
+        {
+          "label_cn": "选项；选择",
+          "label_en": "one of several alternatives",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:option:d759cdd5124b5c2d"
+          ]
+        },
+        {
+          "label_cn": "选择权",
+          "label_en": "the right or ability to choose",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:option:b290b1c659a8d461"
+          ]
+        },
+        {
+          "label_cn": "期权",
+          "label_en": "a contractual financial option",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:option:427e072a62075197"
+          ]
+        }
+      ],
+      "core_meaning_cn": "选择；选项；选择权；期权",
+      "core_meaning_en": "a choice or alternative; the right to choose; a financial option",
+      "mental_model_cn": "选择；选项；选择权；期权",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -28,15 +64,6 @@
     "senses": [
       {
         "collocations": [
-          {
-            "collocation_id": "collocation:2f00255898cc555dd279",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:option:d759cdd5124b5c2d:collocation:0"
-            ],
-            "meaning_cn": "别无选择只能做某事",
-            "phrase": "have no option but to do sth"
-          },
           {
             "collocation_id": "collocation:c562b2a6d26cb040ee9d",
             "exam_value": "usage_example",
@@ -81,15 +108,39 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "选择权；期权",
-        "definition_en": "the right to buy or sell property at an agreed price within a stated time",
+        "definition_cn": "期权",
+        "definition_en": "a contractual right to buy or sell an asset at agreed terms within a stated time",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:option:427e072a62075197",
-        "sense_label_en": "the right to buy or sell property at an agreed price within a stated tim",
+        "sense_label_en": "a contractual right to buy or sell an asset at agreed terms within a stated time",
         "sort_order": 1,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:22b3c9e093d0f00b3ee4",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:option:b290b1c659a8d461:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "有选择做某事的权利或可能",
+            "phrase": "have the option to do / of doing"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "选择权；选择的可能性",
+        "definition_en": "the right or ability to choose between alternatives",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:option:b290b1c659a8d461",
+        "sense_label_en": "the right or ability to choose between alternatives",
+        "sort_order": 2,
         "transitivity": "nonverb"
       }
     ],
@@ -169,10 +220,17 @@
         "merged_into_sense_id": null,
         "source_row": 9329,
         "source_path": "content/lexical/canonical/senses/shards/o3329-3360.json"
+      },
+      {
+        "sense_id": "sense:option:b290b1c659a8d461",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9333,
+        "source_path": "content/lexical/canonical/senses/shards/o3329-3360.json"
       }
     ],
     "active_collocations": [
-      "collocation:2f00255898cc555dd279",
+      "collocation:22b3c9e093d0f00b3ee4",
       "collocation:6c801f2fad9b75b2baad",
       "collocation:c562b2a6d26cb040ee9d",
       "collocation:fd4def42b271b146a261"
@@ -203,6 +261,11 @@
       {
         "id": "collocation:fd4def42b271b146a261",
         "source_row": 21431,
+        "source_path": "content/lexical/canonical/collocations/shards/o3329-3360.json"
+      },
+      {
+        "id": "collocation:22b3c9e093d0f00b3ee4",
+        "source_row": 21471,
         "source_path": "content/lexical/canonical/collocations/shards/o3329-3360.json"
       }
     ],
@@ -252,7 +315,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3353-3360.json",
-    "source_content_hash": "a34730aa49112b137085c52613b9421f56fee507c62ee34780836acbbd045a0f",
+    "source_content_hash": "c751caab28cc6a7ef60b90b9216ed2babec80f0fbdfc327ff07230308d63472d",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
