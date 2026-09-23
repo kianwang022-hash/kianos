@@ -1,9 +1,9 @@
 {
   "schema": "kianos.lexical.dual_review_lane.v1",
   "lane": "C",
-  "status": "ACTIVE_PREFIX_GATED",
-  "next_ordinal": 2551,
-  "completed_through": 2550,
+  "status": "ACTIVE_CHECKPOINT",
+  "next_ordinal": 2651,
+  "completed_through": 2650,
   "campaign": "content/lexical/execution/dual-review.json",
   "source_branches": {
     "A": "work/lexical-dual-review-A-20260923",
@@ -17,5 +17,35 @@
   "semantic_window_size_dense": 50,
   "checkpoint_span_default": 500,
   "derived_rebuild_policy": "NO_FULL_REBUILD_PER_WINDOW_FULL_7946_REBUILD_ONCE_PER_CHECKPOINT",
-  "window_read_policy": "READ_ONLY_A_B_CHANGE_BLOCKED_HITS_SKIP_DOUBLE_NO_CHANGE"
+  "window_read_policy": "READ_ONLY_A_B_CHANGE_BLOCKED_HITS_SKIP_DOUBLE_NO_CHANGE",
+  "checkpoint": {
+    "start_ordinal": 2551,
+    "target_end_ordinal": 3050,
+    "semantic_completed_through": 2650,
+    "pending_full_7946_flob_rebuild": true,
+    "windows": [
+      {
+        "range": [
+          2551,
+          2650
+        ],
+        "a_review_commit": "ee5d015663aa8231f7692a3f6fdb965bf19e313c",
+        "b_review_commit": "035e2d2359df02cdddfabb05e5c284b2b5c339c0",
+        "c_mutation_commit": "fc35c3e5e8ced363733e39c910c97fa475183477",
+        "receipt": "content/lexical/semantic-review/dual/C/o2551-o2650.reconcile.json"
+      }
+    ]
+  },
+  "deferred_cross_watermark": [
+    {
+      "source_ordinal": 2567,
+      "remote_ordinal": 5902,
+      "owner": "instalment/installment regional spelling Relation/Form"
+    },
+    {
+      "source_ordinal": 2628,
+      "remote_ordinal": 5246,
+      "owner": "invaluable/valuable semantic Relation"
+    }
+  ]
 }
