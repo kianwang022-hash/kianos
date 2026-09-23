@@ -104,6 +104,18 @@ try {
     'wrong and reconstruction preserved, no delayed mastery manufactured');
   const after = await packet(page);
   check(after.packet.subjects.english.evidence.lexical.chat_state.packet.challenge_session.next_index === 1, 'next automatic packet contains completed Challenge position');
+  await page.locator('[data-challenge-clear]').click();
+  const retryAfterEnd = await page.evaluate(async command => {
+    const { applyPrivateControlCommand } = await import('/src/lib/privateControlRuntime.mjs');
+    const { browserControlCommand } = await import('/src/lib/privateControlCommand.mjs');
+    const current = (await (await fetch('/__kianos-private/control/current')).json()).command;
+    return (await applyPrivateControlCommand(localStorage, current || browserControlCommand(command), { day: command.study_day })).status;
+  }, command);
+  check(retryAfterEnd === 'idempotent' && await page.locator('[data-challenge-complete-panel]').isHidden(), 'ending the completed session survives unchanged command retry');
+  await page.reload({ waitUntil: 'domcontentloaded' }); await page.locator('[data-lexical-tab="repair"]').click();
+  await page.locator('[data-challenge-import-panel]').waitFor({ state: 'visible' });
+  check((await packet(page)).packet.subjects.english.evidence.lexical.chat_state.packet.challenge_session.dismissed === true,
+    'ending the session survives refresh and is explicit in the next Chat packet');
   await goto(page, '/');
   const noon = await planCommand(page, 'tomorrow-noon-003', '午间调整：继续英语', day + 'T00:29:20Z');
   publish(noon); await applied(page, noon.command_id);
@@ -150,8 +162,8 @@ try {
   check(['command_id','command_hash','command_generated_at','status'].every(key => recoveredReceipt[key] === priorReceipt[key]),
     'recovered current instruction has matching successful apply receipt');
   await goto(restored, '/vocabulary/'); await restored.locator('[data-lexical-tab="repair"]').click();
-  await restored.locator('[data-challenge-complete-panel]').waitFor({ state: 'visible' });
-  check(true, 'completed exercise is not resurrected after recovery');
+  await restored.locator('[data-challenge-import-panel]').waitFor({ state: 'visible' });
+  check(await restored.locator('[data-challenge-complete-panel]').isHidden(), 'ended exercise is not resurrected after recovery');
   await restored.screenshot({ path: path.join(out, 'restored.png') }); await restoredCtx.close();
 
   for (const raw of ['{"schema":', JSON.stringify({ schema: 'unknown-version', events: [{ event_id: 'unique' }] })]) {

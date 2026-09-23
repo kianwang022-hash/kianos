@@ -6,7 +6,7 @@ import { publishPrivateControlCommand } from './privateControlStore.mjs';
 import { readLexicalLedger, writeLexicalLedger, emptyLexicalLedger, appendEvidenceEvent, LEXICAL_LEDGER_STORAGE_KEY as ledgerKey } from '../src/lib/lexicalEvidence.mjs';
 import { readLexicalChatState } from '../src/lib/lexicalChatState.mjs';
 import { buildHomeDailyLearningPacket } from '../src/lib/dailyLearningPacketRuntime.mjs';
-import { installLexicalChallengePacket, readLexicalChallengeSession, LEXICAL_CHALLENGE_PACKET_KEY as packetKey, LEXICAL_CHALLENGE_PROGRESS_KEY as progressKey } from '../src/lib/lexicalChallenge.mjs';
+import { installLexicalChallengePacket, readLexicalChallengeSession, dismissLexicalChallengeSession, LEXICAL_CHALLENGE_PACKET_KEY as packetKey, LEXICAL_CHALLENGE_PROGRESS_KEY as progressKey } from '../src/lib/lexicalChallenge.mjs';
 import { applyPrivateControlCommand } from '../src/lib/privateControlRuntime.mjs';
 import { browserControlCommand, CONTROL_LOCAL_RECEIPT_KEY as receiptKey } from '../src/lib/privateControlCommand.mjs';
 import { buildExamChatPlanBasis } from '../src/lib/examChatPlan.mjs';
@@ -112,6 +112,19 @@ await test('restore unreadable progress is retained and blocks replacement', () 
   const before = [...s.map];
   assert.throws(() => installLexicalChallengePacket(s, { ...challenge, generated_at: day + 'T01:45:00Z' }), /UNREADABLE/);
   assert.deepEqual([...s.map], before);
+});
+await test('ending a completed session survives command retry and accepts a genuinely new packet', async () => {
+  const s = new Storage(); await applyPrivateControlCommand(s, command(challenge), { day, now });
+  assert.throws(() => dismissLexicalChallengeSession(s), /NOT_COMPLETE/);
+  const progress = JSON.parse(s.getItem(progressKey)); progress.index = challenge.challenges.length;
+  s.setItem(progressKey, JSON.stringify(progress)); dismissLexicalChallengeSession(s);
+  const before = [...s.map];
+  assert.equal((await applyPrivateControlCommand(s, command(challenge), { day, now })).status, 'idempotent');
+  assert.deepEqual([...s.map], before);
+  assert.equal(readLexicalChatState(s, { now }).packet.challenge_session.dismissed, true);
+  installLexicalChallengePacket(s, { ...challenge, generated_at: day + 'T01:45:00Z' });
+  assert.equal(readLexicalChallengeSession(s).progress.dismissed, undefined);
+  assert.equal(readLexicalChallengeSession(s).progress.index, 0);
 });
 await test('Challenge and Plan share one transaction and plan binds post-command state', async () => {
   const s = new Storage(); const cmd = command(challenge);

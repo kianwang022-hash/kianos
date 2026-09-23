@@ -94,7 +94,7 @@ try {
   await page.locator('[data-challenge-question-panel]').waitFor({ state: 'visible' });
   check((await page.locator('[data-challenge-progress]').innerText()).startsWith('1 / 2'), 'challenge_starts_first_item');
   await page.locator('[data-challenge-choice="right"]').click();
-  check((await page.locator('[data-challenge-feedback]').innerText()).includes('不足以自动退出 Repair'), 'first_weak_correct_keeps_repair');
+  check((await page.locator('[data-challenge-feedback]').innerText()).includes('还不足以单独结束这个 Repair'), 'first_weak_correct_keeps_repair');
   await page.locator('[data-challenge-continue]').click();
   check((await page.locator('[data-challenge-progress]').innerText()).startsWith('2 / 2'), 'challenge_advances_second_item');
 
@@ -119,7 +119,8 @@ try {
   check(ledger?.events?.some((event) => event.challenge_id === 'resume-browser-2' && event.outcome === 'WRONG'), 'resumed_event_preserved_in_ledger');
 
   await page.locator('[data-challenge-clear]').click();
-  check((await storage(page, 'kianos-lexical-challenge-packet-v1')) === null, 'clear_removes_saved_packet');
+  check((await storage(page, 'kianos-lexical-challenge-progress-v1'))?.dismissed === true, 'end_preserves_native_identity_against_command_replay');
+  check(await page.locator('[data-challenge-complete-panel]').isHidden(), 'end_dismisses_completed_session');
   const summary = {
     status: 'PASS', fixture: target, checks,
     content_acceptance_delta: 0,

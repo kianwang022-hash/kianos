@@ -56,6 +56,8 @@ export function readLexicalChallengeSession(storage) {
     if (!record(progress) || progress.packetSignature !== lexicalChallengeSignature(packet)
       || !Number.isInteger(progress.index) || progress.index < 0 || progress.index > packet.challenges.length
       || !['main','reconstruction'].includes(progress.mode) || typeof progress.answered !== 'boolean'
+      || (progress.dismissed !== undefined && typeof progress.dismissed !== 'boolean')
+      || (progress.dismissed === true && progress.index !== packet.challenges.length)
       || !Array.isArray(events)) throw new Error('invalid progress');
     return { packet, progress, events };
   } catch { throw new Error('LEXICAL_CHALLENGE_UNREADABLE_PRESERVE_DATA'); }
@@ -84,4 +86,12 @@ export function installLexicalChallengePacket(storage, value, options = {}) {
   const staged = stageLexicalChallengePacket(storage, value, options);
   commitLearnerStorageChanges(storage, staged.changes);
   return staged;
+}
+
+export function dismissLexicalChallengeSession(storage) {
+  const session = readLexicalChallengeSession(storage);
+  if (!session || session.progress.index !== session.packet.challenges.length) throw new Error('LEXICAL_CHALLENGE_NOT_COMPLETE');
+  // Keep the same native identity so a retry cannot resurrect the dismissed session.
+  commitLearnerStorageChanges(storage, [[LEXICAL_CHALLENGE_PROGRESS_KEY,
+    JSON.stringify({ ...session.progress, dismissed: true })]]);
 }

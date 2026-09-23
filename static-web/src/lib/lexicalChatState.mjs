@@ -96,6 +96,7 @@ export function buildLexicalChatStatePacket({
     next_index: Math.min(Math.max(challengeIndex, 0), challenges.length),
     mode: challengeProgress?.mode || 'main',
     answered: Boolean(challengeProgress?.answered),
+    dismissed: challengeProgress?.dismissed === true,
     current_challenge_id: challengeCurrent?.challenge_id || null,
     current_word: challengeCurrent?.word || null,
     current_target_kind: challengeCurrent?.target_kind || null,

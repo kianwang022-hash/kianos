@@ -94,7 +94,7 @@ const base = import.meta.env.BASE_URL;
     <p data-challenge-complete-summary></p>
     <div>
       <button type="button" class="primary" data-challenge-copy-return>复制结果给 Chat</button>
-      <button type="button" data-challenge-clear>结束并清除本组 Test</button>
+      <button type="button" data-challenge-clear>结束本组 Test</button>
     </div>
   </section>
 </section>
@@ -439,7 +439,7 @@ const base = import.meta.env.BASE_URL;
 <script>
 import {LEXICAL_LEDGER_STORAGE_KEY,appendEvidenceEvent,exportReturnEvents,legacyEventId,repairStateForEvent,serializeLexicalReturnPacketForChat} from '../lib/lexicalEvidence.mjs';
 import {parseLexicalChallengePacketText} from '../lib/lexicalChatState.mjs';
-import { validateLexicalChallengePacket, lexicalChallengeSignature, readLexicalChallengeSession, installLexicalChallengePacket } from '../lib/lexicalChallenge.mjs';
+import { validateLexicalChallengePacket, lexicalChallengeSignature, readLexicalChallengeSession, installLexicalChallengePacket, dismissLexicalChallengeSession } from '../lib/lexicalChallenge.mjs';
   import { learnerWriterReady, commitLearnerStorageChanges } from '../lib/browserLearnerWriter.mjs';
   import { readBrowserLexicalLedger, writeBrowserLexicalLedger, lexicalBrowserStateReadable, showLexicalStateError } from '../lib/lexicalBrowserState.mjs';
   void learnerWriterReady.then(() => {
@@ -631,6 +631,7 @@ if(root instanceof HTMLElement){
     try {
       const saved=readLexicalChallengeSession(localStorage);
       if(!saved)return null;
+      if(saved.progress.dismissed){packet=null;return null;}
       packet=saved.packet;progress=saved.progress;sessionEvents=saved.events;
       return packet;
     } catch { showLexicalStateError(); return null; }
@@ -706,7 +707,7 @@ if(root instanceof HTMLElement){
     window.setTimeout(()=>{button.textContent='复制结果给 Chat'},1200);
   });
   root.querySelector('[data-challenge-clear]')?.addEventListener('click',()=>{
-    try{localStorage.removeItem(PACKET_KEY);localStorage.removeItem(PROGRESS_KEY);localStorage.removeItem(EVENTS_KEY)}catch{}
+    try{dismissLexicalChallengeSession(localStorage)}catch{showLexicalStateError();return;}
     packet=null;
     progress={packetSignature:'',index:0,mode:'main',answered:false,pendingReconstruction:false,lastAnswerEventId:null};
     sessionEvents=[];
