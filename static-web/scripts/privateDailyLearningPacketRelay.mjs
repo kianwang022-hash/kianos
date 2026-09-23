@@ -36,6 +36,8 @@ function materialPacket(value){
     if(evidence&&typeof evidence==='object'&&!Array.isArray(evidence)){
       delete evidence.generated_at;
       delete evidence.exported_at;
+      const lexicalState = evidence.lexical?.chat_state?.packet;
+      if (lexicalState && typeof lexicalState === 'object') delete lexicalState.exported_at;
     }
   }
   return packet;

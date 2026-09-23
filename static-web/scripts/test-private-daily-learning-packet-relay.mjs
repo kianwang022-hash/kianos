@@ -147,6 +147,20 @@ try{
   const degradedRetry=await publishDailyLearningPacket(degraded,{env,home:temp});
   assert.equal(degradedRetry.learner_evidence_ready,false,'idempotent transport must not erase evidence failure');
 
+  const lexical = packet('2026-09-21','2026-09-21T04:00:00.000Z',55,20,35,0,'cc');
+  lexical.subjects.english.evidence = { lexical: { chat_state: { status: 'ready', packet: {
+    exported_at: lexical.generated_at, challenge_session: { next_index: 1, dismissed: false }
+  } } } };
+  assert.equal((await publishDailyLearningPacket(lexical,{env,home:temp})).status,'published');
+  const lexicalRefresh = structuredClone(lexical);
+  lexicalRefresh.generated_at = '2026-09-21T04:05:00.000Z';
+  lexicalRefresh.subjects.english.evidence.lexical.chat_state.packet.exported_at = lexicalRefresh.generated_at;
+  assert.equal((await publishDailyLearningPacket(lexicalRefresh,{env,home:temp})).status,'idempotent',
+    'automatic lexical export timestamp alone must remain a quiet no-op');
+  lexicalRefresh.subjects.english.evidence.lexical.chat_state.packet.challenge_session.dismissed = true;
+  assert.equal((await publishDailyLearningPacket(lexicalRefresh,{env,home:temp})).status,'published',
+    'real native lexical progress changes must still publish');
+
   console.log('PASS Daily Learning Packet relay: current learner_evidence_basis preserved, basis changes publish, one current, one sealed file/day, root-only runtime ref, no stale rollback');
 }finally{
   fs.rmSync(temp,{recursive:true,force:true});
