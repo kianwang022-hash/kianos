@@ -29,6 +29,12 @@ Exact task owner:
 
 `content/xizong/knowledge/learner/xizong-2027-biochemistry-delta-slot.json`
 
+Scoped top-level rule:
+
+`content/xizong/knowledge/learner/BIOCHEMISTRY_CONTRACT.md`
+
+The scoped contract is **CURRENT and locked for execution**. Ordinary 27 Source/Knowledge/question defects do not reopen the contract; they are repaired at the smallest responsible owner.
+
 Scope:
 
 ```text
