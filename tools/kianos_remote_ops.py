@@ -77,9 +77,9 @@ def snapshot(repo: Path, status_limit: int = 60) -> dict[str, object]:
     head = git(repo, "rev-parse", "HEAD")
     branch = git(repo, "branch", "--show-current") or "(detached)"
     upstream = git(repo, "rev-parse", "--abbrev-ref", "--symbolic-full-name", "@{u}")
-    origin_main = git(repo, "rev-parse", "origin/main")
+    cached_origin_main = git(repo, "rev-parse", "origin/main")
     ahead = behind = None
-    if origin_main and head:
+    if cached_origin_main and head:
         counts = git(repo, "rev-list", "--left-right", "--count", "origin/main...HEAD")
         if counts:
             left, right = counts.split()
@@ -90,9 +90,10 @@ def snapshot(repo: Path, status_limit: int = 60) -> dict[str, object]:
         "head": head,
         "branch": branch,
         "upstream": upstream,
-        "origin_main": origin_main,
-        "ahead_of_origin_main": ahead,
-        "behind_origin_main": behind,
+        "cached_origin_main": cached_origin_main,
+        "ahead_of_cached_origin_main": ahead,
+        "behind_cached_origin_main": behind,
+        "remote_ref_note": "cached local origin/main; verify GitHub separately when freshness matters",
         "dirty_count": len(lines),
         "dirty": lines[:status_limit],
         "dirty_truncated": len(lines) > status_limit,
@@ -137,8 +138,7 @@ def packet(args: argparse.Namespace) -> int:
         path = repo_path(repo, value)
         lines = read_text(path)
         if lines is None:
-            chunks.append(f"## FILE {value}\n[unreadable text file]")
-            continue
+            raise SystemExit(f"requested file is missing or not readable UTF-8 text: {value}")
         if len(lines) > args.max_file_lines:
             body = numbered_excerpt(lines, 1, args.max_file_lines)
             body += f"\n[TRUNCATED: {len(lines) - args.max_file_lines} more lines; use --range]"
@@ -152,41 +152,96 @@ def packet(args: argparse.Namespace) -> int:
             start_i, end_i = int(start), int(end)
         except ValueError:
             raise SystemExit(f"invalid --range {spec!r}; expected path:start:end")
+        if start_i < 1 or end_i < start_i:
+            raise SystemExit(f"invalid --range bounds: {spec!r}")
         path = repo_path(repo, value)
         lines = read_text(path)
-        body = "[unreadable text file]" if lines is None else numbered_excerpt(lines, start_i, end_i)
+        if lines is None:
+            raise SystemExit(f"requested range file is missing or not readable UTF-8 text: {value}")
+        body = numbered_excerpt(lines, start_i, end_i)
         chunks.append(f"## RANGE {value}:{start_i}:{end_i}\n{body}")
 
     patterns = [re.compile(item, re.IGNORECASE if args.ignore_case else 0) for item in args.grep]
     if patterns:
-        matches = 0
+        candidates: list[dict[str, object]] = []
+        seen_paths: set[Path] = set()
+        scanned_files = 0
+        total_matching_lines = 0
+
         for scope_value in args.scope or ["."]:
             scope = repo_path(repo, scope_value)
+            if not scope.exists():
+                raise SystemExit(f"grep scope does not exist: {scope_value}")
             for path in iter_text_files(scope):
-                lines = read_text(path)
+                resolved = path.resolve()
+                if resolved != repo and repo not in resolved.parents:
+                    continue
+                if resolved in seen_paths:
+                    continue
+                seen_paths.add(resolved)
+                lines = read_text(resolved)
                 if lines is None:
                     continue
-                windows: list[tuple[int, int]] = []
+                scanned_files += 1
+                match_indices: list[int] = []
+                pattern_hits: set[int] = set()
                 for idx, line in enumerate(lines, start=1):
-                    if any(pattern.search(line) for pattern in patterns):
-                        start = max(1, idx - args.context)
-                        end = min(len(lines), idx + args.context)
-                        if windows and start <= windows[-1][1] + 1:
-                            windows[-1] = (windows[-1][0], max(windows[-1][1], end))
-                        else:
-                            windows.append((start, end))
-                        matches += 1
-                        if matches >= args.max_matches:
-                            break
-                if windows:
-                    rel = path.relative_to(repo)
-                    body = "\n...\n".join(numbered_excerpt(lines, a, b) for a, b in windows)
-                    chunks.append(f"## GREP {rel}\n{body}")
-                if matches >= args.max_matches:
-                    break
-            if matches >= args.max_matches:
+                    hit_ids = [i for i, pattern in enumerate(patterns) if pattern.search(line)]
+                    if hit_ids:
+                        match_indices.append(idx)
+                        pattern_hits.update(hit_ids)
+                if match_indices:
+                    rel = resolved.relative_to(repo)
+                    total_matching_lines += len(match_indices)
+                    candidates.append(
+                        {
+                            "rel": str(rel),
+                            "lines": lines,
+                            "match_indices": match_indices,
+                            "distinct_patterns": len(pattern_hits),
+                            "matching_lines": len(match_indices),
+                        }
+                    )
+
+        candidates.sort(
+            key=lambda item: (
+                -int(item["distinct_patterns"]),
+                -int(item["matching_lines"]),
+                str(item["rel"]),
+            )
+        )
+
+        included_matches = 0
+        files_included = 0
+        for item in candidates:
+            remaining = args.max_matches - included_matches
+            if remaining <= 0:
                 break
-        chunks.append(f"## GREP SUMMARY\nmatches={matches} capped={matches >= args.max_matches}")
+            selected = list(item["match_indices"])[:remaining]
+            lines = list(item["lines"])
+            windows: list[tuple[int, int]] = []
+            for idx in selected:
+                start = max(1, int(idx) - args.context)
+                end = min(len(lines), int(idx) + args.context)
+                if windows and start <= windows[-1][1] + 1:
+                    windows[-1] = (windows[-1][0], max(windows[-1][1], end))
+                else:
+                    windows.append((start, end))
+            body = "\n...\n".join(numbered_excerpt(lines, a, b) for a, b in windows)
+            chunks.append(
+                f"## GREP {item['rel']} "
+                f"[patterns={item['distinct_patterns']}/{len(patterns)} "
+                f"hits={item['matching_lines']}]\n{body}"
+            )
+            included_matches += len(selected)
+            files_included += 1
+
+        chunks.append(
+            "## GREP SUMMARY\n"
+            f"scanned_files={scanned_files} matching_files={len(candidates)} "
+            f"matching_lines={total_matching_lines} included_matching_lines={included_matches} "
+            f"files_included={files_included} capped={included_matches < total_matching_lines}"
+        )
 
     output = "\n\n".join(chunks) or "[empty packet]"
     if len(output) > args.max_chars:

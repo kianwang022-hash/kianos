@@ -42,6 +42,9 @@ class RemoteOpsTests(unittest.TestCase):
         self.assertEqual(payload["branch"], "main")
         self.assertEqual(payload["dirty_count"], 1)
         self.assertTrue(payload["head"])
+        self.assertIn("cached_origin_main", payload)
+        self.assertNotIn("origin_main", payload)
+        self.assertIn("cached local origin/main", payload["remote_ref_note"])
 
     def test_packet_combines_file_range_and_grep(self):
         temp, repo = self.make_repo()
@@ -61,7 +64,37 @@ class RemoteOpsTests(unittest.TestCase):
         self.assertIn("## RANGE notes.txt:2:3", result.stdout)
         self.assertIn("2: needle here", result.stdout)
         self.assertIn("## GREP notes.txt", result.stdout)
-        self.assertIn("matches=1", result.stdout)
+        self.assertIn("matching_lines=1", result.stdout)
+
+    def test_packet_fails_closed_for_missing_explicit_file(self):
+        temp, repo = self.make_repo()
+        self.addCleanup(temp.cleanup)
+        result = self.call("packet", "--repo", str(repo), "--file", "missing.txt")
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("requested file is missing", result.stdout)
+
+    def test_packet_ranks_multi_pattern_files_first(self):
+        temp, repo = self.make_repo()
+        self.addCleanup(temp.cleanup)
+        (repo / "one.txt").write_text("alpha only\n", encoding="utf-8")
+        (repo / "both.txt").write_text("alpha beta\n", encoding="utf-8")
+        result = self.call(
+            "packet", "--repo", str(repo), "--scope", ".",
+            "--grep", "alpha", "--grep", "beta", "--max-matches", "1",
+        )
+        self.assertEqual(result.returncode, 0, result.stdout)
+        first_grep = result.stdout.split("## GREP ", 1)[1].splitlines()[0]
+        self.assertTrue(first_grep.startswith("both.txt "), first_grep)
+        self.assertIn("patterns=2/2", first_grep)
+
+    def test_packet_fails_closed_for_missing_scope(self):
+        temp, repo = self.make_repo()
+        self.addCleanup(temp.cleanup)
+        result = self.call(
+            "packet", "--repo", str(repo), "--scope", "missing-dir", "--grep", "alpha",
+        )
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("grep scope does not exist", result.stdout)
 
     def test_verify_runs_commands_and_keeps_full_logs(self):
         temp, repo = self.make_repo()
