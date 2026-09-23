@@ -11,6 +11,24 @@ This file owns B's current S/K/L/P/R/E/U readiness claims. It does not own medic
 
 ## Gate status
 
+## Current Source-revision exception — Biochemistry M1–M10 / G1–G5
+
+The prior B S/K/L/P/R/E acceptance remains valid historical evidence and remains Current for unaffected D1–D23 scope. A newly arrived authoritative **27 Biochemistry follow-along Source** materially changes the Source basis for all M/G Blocks, whose current Primary Study locators still point to 26.
+
+Therefore, until the bounded reconstruction closes:
+
+```text
+M/G Source rebase  = IN_PROGRESS
+M/G K               = BOUNDED_REOPEN
+M/G L / Content     = FROZEN_FOR_REVALIDATION_BEHIND_K
+M/G P               = PROVISIONAL / preserve existing work
+Runtime broad rebuild= NOT AUTHORIZED
+historical learner evidence = PRESERVE, but Current authorization follows Source-revision status
+```
+
+This does **not** reopen D1–D23, B official-question membership, or the whole B architecture. Stable M/G Block/KP identities are preserved unless the deep comparison finds a concrete semantic reason to change them.
+
+
 ```text
 S  PASS — exact Current official-question membership accepted (1071 qids)
 K  PASS — 38 stable Blocks / 600 stable KPs + accepted System model
@@ -23,7 +41,7 @@ U  UNTESTED — real learner use only
 
 Current allowed conclusion:
 
-> **B Source, Knowledge, Learning, Projection, Runtime and Evidence are accepted. No further B engineering gate remains before real learner use. U remains UNTESTED and can only come from Kian's actual study.**
+> **B remains accepted outside the bounded M/G Biochemistry revision. M1–M10/G1–G5 are temporarily under Source→Knowledge revalidation and must not use the old 26 Source binding as Current learner authorization.**
 
 Dependency-scoped rule:
 
