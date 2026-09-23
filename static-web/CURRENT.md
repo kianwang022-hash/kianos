@@ -12,40 +12,52 @@ The managed macOS Current mirror, private checkpoint path, Daily Learning Packet
 
 Content production remains independent: vocabulary, Xizong explanations/relations/visual assets, English sources, Politics sources, and Skills continue only through their exact content owners.
 
-## Active Home / Steward / Radar UI preview — not shipped
+## Active Home / Steward / Radar design handoff — not shipped
 
-Kian approved the Mac-landscape Home / Steward / Radar / global Dock upgrade on 2026-09-24 and UI work has moved from discussion into an isolated interactive preview.
+Kian approved the broader Home / Steward / Radar / global Dock direction on 2026-09-24. The current task is a **design-led integrated UI implementation**, not a request to reproduce the latest experimental preview.
 
-Current implementation cursor:
-- branch: `work/steward-ui-vnext-20260924`
-- experimental preview branch currently exists; its exact HEAD is implementation-only and **not an accepted UI baseline**
-- preview: `static-web/ui-preview/steward-vnext.html`
-- `main`: **no integrated replacement UI from this preview**
-- preview data: **sample only**, never learner/mail/Health truth
+### Product model
 
-Current product/UI handoff:
-- Home strategic three-subject view remains approved.
-- Steward Today must default to the vertical schedule timeline; Nutrition and Training are Today subviews.
-- Steward Week must use the old Steward interaction model: **one shared time axis + seven full day timetable columns**.
-- Steward Month must be a **real 7-column month calendar** with paging and clickable day details.
-- Review is on-demand, not a persistent tab.
-- Radar remains `需要处理 / 值得知道`.
-- Dock remains floating/draggable with compact pause/record/Today-return interactions.
-- Nutrition retains combination + single-item + gram editing + deterministic macro arithmetic.
-- Training retains actual load/reps/RPE + post-training note and a future Apple Watch/Health projection surface.
+- **Home** → exam strategy and three-subject status.
+- **Steward** → time + reality, expressed at Today / Week / Month zoom levels.
+- **Radar** → filtered external attention.
+- **Subject pages** → actual learner work/evidence.
+- **Dock** → continuity across those surfaces.
 
-The existing preview branch is exploratory and contains abandoned intermediate Week/Month layouts. **Do not treat its latest markup or prior browser-PASS notes as authoritative.** Codex should use the Personal product contract and the earlier Steward Console interaction model as the implementation basis, then produce a newly tested Human Gate candidate.
+### Steward time model
 
-Important Human-Gate decisions already made during preview:
-- UI is high-density and clear; do not create density by shrinking ordinary visible text.
-- Do not expose backend terms/field names when the user only needs the result.
-- A local visual request changes only the named element; preserve unaffected typography/geometry unless Kian explicitly asks otherwise.
-- Dock remains a floating/movable overlay and must not reserve a blank bottom row.
-- Quick record/break surfaces stay compact; optional notes are one-line by default, not large forms.
+The earlier Steward HTML is the interaction reference:
+- Today = vertical day timeline;
+- Week = one shared time axis with seven day columns;
+- Month = a real calendar grid.
 
-[Surface split](https://github.com/kianwang022-hash/kian-personal-os/blob/main/HOME_PROJECTION.md), [execution contract](https://github.com/kianwang022-hash/kian-personal-os/blob/main/exam/STEWARD_CONSOLE_CONTRACT.md), and [Radar / mail semantics](https://github.com/kianwang022-hash/kian-personal-os/blob/main/exam/roles/INTAKE.md) remain the product owners. Reuse native learning, Timer, Resume, private control/checkpoint and Packet interfaces; do not create parallel state owners.
+Treat that as a mental model, not a pixel spec. Codex may improve the visual treatment and interaction details.
 
-**Next:** Codex implements/refactors the UI from the canonical contract, preserving the old Steward Week x7 timetable and Month calendar interaction shape, then runs browser + Mac visual regression before returning a Human Gate candidate. Foreground only what is useful; keep backend analysis details backstage. Only explicit Kian approval advances toward runtime integration or merge to `main`.
+### Design principles
+
+- Mac landscape, Dense Calm, high information density with readable text.
+- Use space and hierarchy before shrinking type.
+- Keep current/next/action obvious.
+- Use progressive disclosure instead of permanent explanatory panels.
+- Keep backend analysis/provenance out of the ordinary foreground.
+- Preserve continuity: quick capture should not interrupt study; Steward should not feel like leaving the current workspace.
+- Plan / actual time / learner evidence / subjective state / Health observations remain distinct even when shown together.
+- Floating Dock should not reserve dead page space.
+
+### Reference sources
+
+- Personal canonical product logic: `exam/STEWARD_CONSOLE_CONTRACT.md`.
+- Earlier interaction reference: Personal `runtime/steward-console/index.html`.
+- Exploratory branch: `work/steward-ui-vnext-20260924`.
+- Existing native KianOS Timer / Resume / subject runtimes remain the semantic owners.
+
+The preview branch contains useful work **and abandoned intermediate ideas**. Salvage it selectively; do not assume latest markup is the intended product.
+
+### Quality bar before Human Gate
+
+Run the real browser journeys and inspect representative Mac-wide screenshots before showing Kian. Basic view leakage, broken navigation, large accidental blank regions, unreadable type and exposed backend helper text should be caught before Human Gate.
+
+No preview or Markdown requirement means the integrated runtime is shipped. Real delivery/readback still needs its own implementation and acceptance.
 
 ## Route from the reported symptom
 
