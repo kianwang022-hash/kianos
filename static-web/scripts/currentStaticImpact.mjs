@@ -29,6 +29,16 @@ function normalizePath(value) {
   return String(value || '').trim().replace(/^\.\//, '');
 }
 
+// The server retains imported modules in memory. Shared browser/server helpers
+// must move with the published site, even when no bridge entrypoint changed.
+export function requiresStaticRuntimeReload(changedPaths = []) {
+  return changedPaths.some((value) => {
+    const file = normalizePath(value);
+    return file.startsWith('static-web/src/lib/')
+      || (file.startsWith('static-web/scripts/') && file.endsWith('.mjs'));
+  });
+}
+
 function requiresLexicalProjection(file) {
   return LEXICAL_PROJECTION_FILES.has(file)
     || LEXICAL_PROJECTION_PREFIXES.some((prefix) => file.startsWith(prefix));

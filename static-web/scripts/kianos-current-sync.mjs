@@ -7,6 +7,7 @@ import { fileURLToPath } from 'node:url';
 
 import {
   classifyStaticBuild,
+  requiresStaticRuntimeReload,
   staticBuildCanReuseFromBase
 } from './currentStaticImpact.mjs';
 import {
@@ -333,11 +334,7 @@ async function syncOnce({ initial = false } = {}) {
       'static-web/package-lock.json',
       'static-web/npm-shrinkwrap.json'
     ].includes(file));
-    const staticRuntimeChanged = changedPaths.some((file) => (
-      file === 'static-web/scripts/kianos-static-server.mjs'
-      || /^static-web\/scripts\/private.*\.mjs$/.test(file)
-      || file === 'static-web/src/lib/englishSessionCatalog.mjs'
-    ));
+    const staticRuntimeChanged = requiresStaticRuntimeReload(changedPaths);
 
     await git(['checkout', '-B', 'main', 'origin/main']);
     await git(['reset', '--hard', 'origin/main']);

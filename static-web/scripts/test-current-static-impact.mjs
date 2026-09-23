@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 
 import {
   classifyStaticBuild,
+  requiresStaticRuntimeReload,
   staticBuildCanReuseFromBase,
   staticBuildPathImpact
 } from './currentStaticImpact.mjs';
@@ -103,6 +104,13 @@ assert.equal(
 
 console.log('STATIC_CURRENT_IMPACT PASS');
 
+for (const file of ['static-web/src/lib/privateControlCommand.mjs',
+  'static-web/src/lib/sharedControlCheckpoint.mjs',
+  'static-web/scripts/privateControlStore.mjs']) {
+  assert.equal(requiresStaticRuntimeReload([file]), true, file);
+}
+assert.equal(requiresStaticRuntimeReload(['content/xizong/explanations/manifest.json', 'CURRENT.md']), false);
+
 assert.equal(classifyStaticBuild(['content/xizong/explanations/manifest.json']).lexical_projection_required, false);
 for (const file of ['content/lexical/words/by-ordinal/o0001.json',
   'content/lexical/relations/by-id/aa/a.json',
@@ -110,3 +118,6 @@ for (const file of ['content/lexical/words/by-ordinal/o0001.json',
   'tools/lexical_build_final_learner_objects.py']) {
   assert.equal(classifyStaticBuild([file]).lexical_projection_required, true, file);
 }
+
+// Keep the process-level regression on the existing Current CI entrypoint.
+await import('./test-current-runtime-reload.mjs');
