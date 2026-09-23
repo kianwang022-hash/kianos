@@ -4148,5 +4148,134 @@
         }
       }
     }
+  },
+  "biochemistry_first_pass_lane": {
+    "status": "CURRENT_DURING_27_REBASE",
+    "scope_blocks": [
+      "M1",
+      "M2",
+      "M3",
+      "M4",
+      "M5",
+      "M6",
+      "M7",
+      "M8",
+      "M9",
+      "M10",
+      "G1",
+      "G2",
+      "G3",
+      "G4",
+      "G5"
+    ],
+    "rationale": "Biochemistry has unusually strong continuous-pathway and information-flow structure. For first-pass Source formation, preserving the current 27 Lecture continuity is more valuable than forcing canonical Block order or interleaving digestive/endocrine Blocks. Canonical Block/KP identity remains unchanged.",
+    "source_rule": {
+      "primary_continuous_source": "27生化跟课版合集【不带导图】.pdf",
+      "execution": "FOLLOW_CURRENT_27_SOURCE_ORDER_END_TO_END",
+      "canonical_mapping": "SHADOW_MAP_SOURCE_SEGMENTS_TO_M1_M10_G1_G5_WITHOUT_FORCING_BLOCK_SWITCHES",
+      "source_precedence": "27 current Source truth > validated 26 explanatory substrate",
+      "second_reader_forbidden": true,
+      "note": "26 refined explanations may be reconstructed into Framework/Logic/KP/Connection, but Kian is not asked to read 26 as a second continuous course."
+    },
+    "route_rule": {
+      "mode": "BIOCHEMISTRY_SOURCE_LANE_LOW_SWITCHING",
+      "interleave_with_digestive_endocrine": false,
+      "cross_system_behavior": "SHOW_JUST_IN_TIME_CONNECTIONS_OR_REACTIVATION_ONLY; DO_NOT_LEAVE_THE_BIOCHEM_SOURCE_LANE_TO_STUDY_ANOTHER_BLOCK_UNLESS_A_TRUE_COMPREHENSION_BLOCKER_EXISTS",
+      "block_readiness_interpretation": "For this lane, existing M/G readiness relations gate Recall/closure and downstream authorization, not permission to encounter an earlier current-Source segment.",
+      "return_behavior": "After the current Biochemistry source lane is complete, run metabolic/information reconstructions and then hand off to digestive/endocrine/organ Blocks through existing readiness/connection owners."
+    },
+    "minimal_prelude": {
+      "role": "NON_CANONICAL_NON_GATING_JUST_IN_TIME_LANGUAGE",
+      "items": [
+        "关键酶 / 不可逆控制点",
+        "ATP/GTP 与高能键",
+        "NADH/FADH2：电子进入呼吸链并支持ATP生成",
+        "NADPH：还原合成 / 抗氧化 / 生物转化接口",
+        "CoA：酰基搬运",
+        "胞浆 vs 线粒体；肝/肌/RBC/脑的组织边界"
+      ],
+      "rule": "Use only the smallest explanation needed to understand the early 27 Source. This is not M1 completion, creates no Memory debt, and is replaced/strengthened when formal M1 material arrives."
+    },
+    "mental_models": {
+      "metabolism": {
+        "label": "物质—能量网络",
+        "coordinates": [
+          "carbon_flow",
+          "ATP_energy",
+          "redox_NADH_FADH2_vs_NADPH",
+          "group_carriers",
+          "compartment",
+          "tissue_state",
+          "fed_fasting_stress"
+        ],
+        "core_hubs": [
+          "G-6-P",
+          "pyruvate",
+          "acetyl-CoA",
+          "oxaloacetate",
+          "TCA",
+          "ATP/GTP",
+          "NADH/FADH2",
+          "NADPH",
+          "CoA",
+          "FH4",
+          "SAM",
+          "PRPP"
+        ]
+      },
+      "information": {
+        "label": "信息生命周期",
+        "spine": [
+          "DNA identity/packaging",
+          "replication",
+          "transcription",
+          "RNA processing",
+          "translation",
+          "expression control",
+          "damage/repair",
+          "oncogene/tumor-suppressor failure",
+          "molecular tools"
+        ]
+      }
+    },
+    "recall_policy": {
+      "local": "Release KP/LG Recall only after the owning current-Source material has actually been encountered and the needed prerequisite language is available.",
+      "cross_block_state_reconstruction": [
+        "fed vs fasting metabolic flow",
+        "mature RBC energy/redox flow",
+        "hypoxia / respiratory-chain inhibition / uncoupling",
+        "diabetes / glucose-utilization failure",
+        "lipid storage vs mobilization",
+        "DNA information-flow / regulation / repair"
+      ],
+      "rule": "Prefer reconstructing state variables and flow over reciting pathway names or Block titles."
+    },
+    "memory_policy": {
+      "target": "HIGH_REUSE_SWITCHES_AND_BOUNDARIES",
+      "examples": [
+        "NADH vs NADPH",
+        "cytosol vs mitochondrion",
+        "liver vs muscle",
+        "mitochondria-present vs absent",
+        "fed vs fasting",
+        "malonyl-CoA ↔ CPT-I",
+        "LPL vs HSL",
+        "LCAT vs ACAT",
+        "HMG-CoA cholesterol vs ketone branch",
+        "reversible vs irreversible control",
+        "substrate-level vs oxidative phosphorylation"
+      ],
+      "anti_rule": "Do not create Memory debt by duplicating whole pathways that can be reconstructed from the mother model."
+    },
+    "question_diagnostic_axes": [
+      "IDENTITY",
+      "DIRECTION",
+      "COMPARTMENT_OR_TISSUE_LOCALIZATION",
+      "PHYSIOLOGIC_STATE",
+      "BOUNDARY_OR_CONFUSABLE",
+      "MECHANISM",
+      "PRECISION"
+    ],
+    "completion_boundary": "Biochemistry first-pass Source continuity can finish before digestive/endocrine interleaving resumes. Completion of the Source lane does not itself equal mastery; canonical Block Recall, cross-Block reconstruction, official questions and delayed evidence remain separate."
   }
 }
