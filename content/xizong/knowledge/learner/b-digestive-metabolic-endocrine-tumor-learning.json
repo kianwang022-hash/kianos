@@ -1415,7 +1415,7 @@
           "G5"
         ]
       },
-      "partition_rationale": "27 Source rebase 后仍保留五个认知任务：蛋白质结构、折叠与变性[STRUCTURE_CAUSAL] → 等电点、蛋白评价与分离/受控降解[PHYSICOCHEMICAL_HANDLING] → 酶身份、催化与调节[ENZYME_MECHANISM_CONTROL] → 酶动力学与抑制比较[KINETIC_PERTURBATION] → 辅因子、维生素与医学酶学[COFACTOR_VITAMIN_MAP]。Source contact 改为3个自然单元，因为27蛋白质/酶/维生素在讲义中彼此不连续且蛋白质/维生素主要以导图+附题出现；LG仍是retrieval/closure，不等于Source段。",
+      "partition_rationale": "M1 keeps five retrieval/closure jobs because they now map 1:1 onto the canonical Knowledge hierarchy: L1 protein identity/conformation → L2 physicochemical handling/turnover → L3 enzyme execution/flux control → L4 kinetics/inhibition → L5 cofactor chemistry/vitamin interfaces. KP identities remain stable. Source order is owned only by biochemistry-27-source-map.json and may cross these layers non-contiguously.",
       "learner_order": [
         "b-m01-lg01",
         "b-m01-lg02",
@@ -1433,7 +1433,8 @@
           "cognitive_job": "STRUCTURE_CAUSAL",
           "goal": "把氨基酸序列、四级结构、稳定力与变性/复性接成“结构为何决定功能”的模型。",
           "closure": "给出一级结构改变、非共价力破坏或变性条件，能预测哪些结构层受损、功能是否丢失以及一级结构是否保留。",
-          "continuity_rationale": "KP01–KP05共同完成“蛋白质结构、折叠与变性”这一STRUCTURE_CAUSAL任务。这是本Block当前学习顺序的第一个闭环任务。后一组“等电点、蛋白评价与分离/降解”切换到不同的PHYSICOCHEMICAL_HANDLING任务。"
+          "continuity_rationale": "KP01–KP05共同完成“蛋白质结构、折叠与变性”这一STRUCTURE_CAUSAL任务。这是本Block当前学习顺序的第一个闭环任务。后一组“等电点、蛋白评价与分离/降解”切换到不同的PHYSICOCHEMICAL_HANDLING任务。",
+          "canonical_layer": "L1"
         },
         "b-m01-lg02": {
           "kp": [
@@ -1444,7 +1445,8 @@
           "cognitive_job": "PHYSICOCHEMICAL_HANDLING",
           "goal": "把pI/电荷、营养学评价、分离方法和蛋白清除视为“如何按理化性质识别/处理蛋白”的技术分类图，并用27 Source的VHL–HIF例把泛素-蛋白酶体连接到受控蛋白降解。",
           "closure": "给出pH与pI、蛋白样品、分离/降解或VHL–HIF场景，能选择电荷方向/技术/降解路径；HIF后续转录调控转交G4，不在M1重建基因调控。",
-          "continuity_rationale": "KP06–KP08共同完成“等电点、蛋白评价与分离/降解”这一PHYSICOCHEMICAL_HANDLING任务。前一组“蛋白质结构、折叠与变性”承担不同的STRUCTURE_CAUSAL任务。后一组“酶身份、催化与调节”切换到不同的ENZYME_MECHANISM_CONTROL任务。"
+          "continuity_rationale": "KP06–KP08共同完成“等电点、蛋白评价与分离/降解”这一PHYSICOCHEMICAL_HANDLING任务。前一组“蛋白质结构、折叠与变性”承担不同的STRUCTURE_CAUSAL任务。后一组“酶身份、催化与调节”切换到不同的ENZYME_MECHANISM_CONTROL任务。",
+          "canonical_layer": "L2"
         },
         "b-m01-lg03": {
           "kp": [
@@ -1455,7 +1457,8 @@
           "cognitive_job": "ENZYME_MECHANISM_CONTROL",
           "goal": "从活性中心/降低活化能接到酶特异性、关键酶和变构/共价等调节，建立代谢通量控制语言。",
           "closure": "给出酶量、活性中心或调节方式变化，能预测反应速率/通量方向，并说明酶不改变平衡点。",
-          "continuity_rationale": "KP09–KP12共同完成“酶身份、催化与调节”这一ENZYME_MECHANISM_CONTROL任务。前一组“等电点、蛋白评价与分离/降解”承担不同的PHYSICOCHEMICAL_HANDLING任务。后一组“酶动力学与抑制比较”切换到不同的KINETIC_PERTURBATION任务。"
+          "continuity_rationale": "KP09–KP12共同完成“酶身份、催化与调节”这一ENZYME_MECHANISM_CONTROL任务。前一组“等电点、蛋白评价与分离/降解”承担不同的PHYSICOCHEMICAL_HANDLING任务。后一组“酶动力学与抑制比较”切换到不同的KINETIC_PERTURBATION任务。",
+          "canonical_layer": "L3"
         },
         "b-m01-lg04": {
           "kp": [
@@ -1466,7 +1469,8 @@
           "cognitive_job": "KINETIC_PERTURBATION",
           "goal": "用Km/Vmax和竞争/非竞争等抑制方式建立“参数怎样变、增加底物能否克服”的比较模型。",
           "closure": "给出Lineweaver/Michaelis参数或抑制剂场景，能判断抑制类型、Km/Vmax方向与底物补偿可能。",
-          "continuity_rationale": "KP13–KP14共同完成“酶动力学与抑制比较”这一KINETIC_PERTURBATION任务。前一组“酶身份、催化与调节”承担不同的ENZYME_MECHANISM_CONTROL任务。后一组“辅因子、维生素与医学酶学”切换到不同的COFACTOR_VITAMIN_MAP任务。"
+          "continuity_rationale": "KP13–KP14共同完成“酶动力学与抑制比较”这一KINETIC_PERTURBATION任务。前一组“酶身份、催化与调节”承担不同的ENZYME_MECHANISM_CONTROL任务。后一组“辅因子、维生素与医学酶学”切换到不同的COFACTOR_VITAMIN_MAP任务。",
+          "canonical_layer": "L4"
         },
         "b-m01-lg05": {
           "kp": [
@@ -1477,47 +1481,96 @@
           "cognitive_job": "COFACTOR_VITAMIN_MAP",
           "goal": "把B族维生素/金属等辅因子按搬运电子、氢或基团的任务挂到关键反应，并保留医学酶学接口。",
           "closure": "给出辅酶/维生素缺乏或某类化学转移任务，能匹配主要辅因子并说明其在后续代谢通路的角色。",
-          "continuity_rationale": "KP15–KP17共同完成“辅因子、维生素与医学酶学”这一COFACTOR_VITAMIN_MAP任务。前一组“酶动力学与抑制比较”承担不同的KINETIC_PERTURBATION任务。这是本Block当前学习顺序的最后一个闭环任务。"
+          "continuity_rationale": "KP15–KP17共同完成“辅因子、维生素与医学酶学”这一COFACTOR_VITAMIN_MAP任务。前一组“酶动力学与抑制比较”承担不同的KINETIC_PERTURBATION任务。这是本Block当前学习顺序的最后一个闭环任务。",
+          "canonical_layer": "L5"
         }
       },
       "source_contact": {
-        "mode": "NATURAL_SOURCE_UNITS",
-        "current_source": "27生化跟课版合集【不带导图】.pdf",
-        "explanatory_substrate": "26生化精编 / 生物化学讲义_AI阅读版(1).md",
-        "rule": "Continuous first-pass contact uses the 27 Source only. 26 refined explanations may shape canonical Framework/KP Core but do not create a second learner Source pass.",
-        "units": [
+        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP",
+        "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
+        "rule": "The Source map alone owns teacher order, page ranges and Source→canonical L/KP mapping. Learning releases retrieval only from canonical layer formation and does not maintain a duplicate M1 Source-unit registry.",
+        "layer_release": [
           {
-            "id": "M1-SU1",
-            "label": "蛋白质结构—理化性质—分离/降解",
-            "locator": "27 PDF P059–P065 / printed P55–P59",
+            "canonical_layer": "L1",
             "releases": [
-              "b-m01-lg01",
-              "b-m01-lg02"
-            ],
-            "note": "Source is mainly mind-map/question/visual form; canonical KP supplies validated explanation after/along Source contact."
-          },
-          {
-            "id": "M1-SU2",
-            "label": "酶机制—调节—动力学—抑制—结合酶—医学酶学",
-            "locator": "27 PDF P081–P089 / printed P74–P82",
-            "releases": [
-              "b-m01-lg03",
-              "b-m01-lg04"
-            ],
-            "primes": [
-              "b-m01-lg05"
+              "b-m01-lg01"
             ]
           },
           {
-            "id": "M1-SU3",
-            "label": "维生素与辅因子总图",
-            "locator": "27 PDF P090–P092 / printed P83–P84",
+            "canonical_layer": "L2",
+            "releases": [
+              "b-m01-lg02"
+            ]
+          },
+          {
+            "canonical_layer": "L3",
+            "releases": [
+              "b-m01-lg03"
+            ]
+          },
+          {
+            "canonical_layer": "L4",
+            "releases": [
+              "b-m01-lg04"
+            ]
+          },
+          {
+            "canonical_layer": "L5",
             "releases": [
               "b-m01-lg05"
             ]
           }
-        ]
-      }
+        ],
+        "block_source_closure": {
+          "checkpoint_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
+          "block": "M1",
+          "after_unit": "BIO27-S14",
+          "after_pdf": 92
+        }
+      },
+      "canonical_hierarchy": {
+        "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M1_蛋白质酶与维生素_学习阅读版_v1_最终执行版.md",
+        "mother_model": "protein executor formation → catalysis → flux control → kinetic perturbation → cofactor chemistry",
+        "layers": {
+          "L1": {
+            "kp": [
+              1,
+              5
+            ],
+            "logic_group": "b-m01-lg01"
+          },
+          "L2": {
+            "kp": [
+              6,
+              8
+            ],
+            "logic_group": "b-m01-lg02"
+          },
+          "L3": {
+            "kp": [
+              9,
+              12
+            ],
+            "logic_group": "b-m01-lg03"
+          },
+          "L4": {
+            "kp": [
+              13,
+              14
+            ],
+            "logic_group": "b-m01-lg04"
+          },
+          "L5": {
+            "kp": [
+              15,
+              17
+            ],
+            "logic_group": "b-m01-lg05"
+          }
+        },
+        "rule": "Knowledge hierarchy owns meaning. Learning consumes L1–L5; it must not create a second content topology."
+      },
+      "learner_order_role": "RETRIEVAL_AND_CLOSURE_ORDER_ONLY_NOT_SOURCE_OR_KNOWLEDGE_AUTHORITY"
     },
     "M2": {
       "first_pass_focus": "葡萄糖怎样经糖酵解、丙酮酸脱氢、TCA 和呼吸链把碳骨架氧化为 CO₂，把电子交给 O₂ 形成 H₂O，并把释放的能量保存为 ATP？缺氧、呼吸链抑制和解偶联为什么产生不同结果？",
