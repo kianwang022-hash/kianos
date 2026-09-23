@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "2d8dd68aff3351050322935b16fcfdbbdaec0ff4d9f0ec2118af97f85a2141e6",
+    "content_hash": "2939beecca10771552ba69b00df3048267e30ccbde0610315c748aab67d8c308",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "拙劣模仿, 作模仿诗文",
@@ -50,7 +50,7 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "打油诗文, 诙谐的模仿诗文, 拙劣的模仿",
+        "definition_cn": "戏仿；滑稽/讽刺性模仿作品",
         "definition_en": "a composition that imitates or misrepresents somebody's style, usually in a humorous way",
         "depth": "full_card",
         "domain_tag": "toefl",
@@ -61,30 +61,6 @@
         "sense_id": "sense:parody:020a8d5070b45943",
         "sense_label_en": "a composition that imitates or misrepresents somebody's style, usually in a humorous way",
         "sort_order": 2,
-        "source_evidence": [
-          {
-            "evidence_id": "source-fact:a1c1962156f8989d20f25d5e",
-            "evidence_status": "source_checked",
-            "role": "external_semantic_auditor",
-            "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
-            "source_type": "learner_dictionary"
-          }
-        ]
-      },
-      {
-        "collocations": [],
-        "confidence": "high",
-        "definition_cn": "打油诗文, 诙谐的模仿诗文, 拙劣的模仿",
-        "definition_en": "humorous or satirical mimicry",
-        "depth": "full_card",
-        "domain_tag": "toefl",
-        "frequency_tag": "toefl",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:parody:f8fa897b5c00511f",
-        "sense_label_en": "humorous or satirical mimicry",
-        "sort_order": 3,
         "source_evidence": [
           {
             "evidence_id": "source-fact:a1c1962156f8989d20f25d5e",
@@ -110,7 +86,24 @@
     "word_id": "word:parody"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:parody:f8fa897b5c00511f",
+      "status": "merged",
+      "merged_into_sense_id": "sense:parody:020a8d5070b45943",
+      "pos": "noun",
+      "definition_cn": "打油诗文, 诙谐的模仿诗文, 拙劣的模仿",
+      "definition_en": "humorous or satirical mimicry",
+      "semantic_key": "04d1ddae72cf75ad60393c08cf3244bc7fc6586389636cdad3c7c21435576e34",
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-08-23T00:00:00+00:00",
+      "source_row": 18498,
+      "source_path": "content/lexical/canonical/senses/shards/o7233-7264.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -129,8 +122,8 @@
       },
       {
         "sense_id": "sense:parody:f8fa897b5c00511f",
-        "status": "active",
-        "merged_into_sense_id": null,
+        "status": "merged",
+        "merged_into_sense_id": "sense:parody:020a8d5070b45943",
         "source_row": 18498,
         "source_path": "content/lexical/canonical/senses/shards/o7233-7264.json"
       }
@@ -159,7 +152,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7241-7248.json",
-    "source_content_hash": "2d8dd68aff3351050322935b16fcfdbbdaec0ff4d9f0ec2118af97f85a2141e6",
+    "source_content_hash": "2939beecca10771552ba69b00df3048267e30ccbde0610315c748aab67d8c308",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
