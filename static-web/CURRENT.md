@@ -18,7 +18,7 @@ Kian approved the Mac-landscape Home / Steward / Radar / global Dock upgrade on 
 
 Current implementation cursor:
 - branch: `work/steward-ui-vnext-20260924`
-- current remote head at this cursor update: `09ce33445a7f5a0c01b8d76a738782ba9e1f727a`
+- current remote head at this cursor update: `6aa84c9848ac436bdc828794c5eaa32207821367`
 - preview: `static-web/ui-preview/steward-vnext.html`
 - `main`: **no integrated replacement UI from this preview**
 - preview data: **sample only**, never learner/mail/Health truth
@@ -35,6 +35,7 @@ Current preview coverage:
 - floating draggable Dock and dense record/break popovers.
 
 Current UI state:
+- Day-view exclusivity browser probe PASS: `今日 → 周 → 月 → 今日` shows exactly one view at a time; persistent Review tab/content count is zero; record/break compact popovers and Today/return state also passed the interaction probe.
 - first unified Mac-wide visual/interaction pass completed across all preview surfaces at 1512×820;
 - current candidate is waiting on explicit Kian UI Human Gate;
 - exact native return/runtime integration and real data delivery remain intentionally unstarted for this candidate.
