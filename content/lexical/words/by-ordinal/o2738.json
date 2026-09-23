@@ -7,16 +7,17 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "4bab641648c47ac197142a372cebf66af3b0b842e972ddc38b0667464faf3649",
+    "content_hash": "e01337e58c69c92e49e6af1553a23b848dffb6640e28e9dc0dd9424c7e234045",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "小羊；羔羊；温顺的人；天真的人",
-          "label_en": "a young sheep; a gentle or innocent person",
+          "label_cn": "羊羔；羊羔肉",
+          "label_en": "a young sheep; also its meat as food",
           "pos": "noun",
           "sense_ids": [
             "sense:lamb:5cbb97a905b45235",
-            "sense:lamb:555106fadf115bf1"
+            "sense:lamb:555106fadf115bf1",
+            "sense:lamb:c9805e4b90d019b2"
           ]
         },
         {
@@ -42,26 +43,7 @@
     "semantic_neighbors": [],
     "senses": [
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:b3feeed91d544704efa8",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:lamb:5cbb97a905b45235:collocation:0"
-            ],
-            "meaning_cn": "羊排",
-            "phrase": "lamb chops"
-          },
-          {
-            "collocation_id": "collocation:6e59d7331153d92464a7",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:lamb:5cbb97a905b45235:collocation:1"
-            ],
-            "meaning_cn": "烤羊肉",
-            "phrase": "roast lamb"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "小羊；羔羊",
         "definition_en": "a young sheep",
@@ -101,6 +83,39 @@
         "sense_label_en": "(of a ewe) to give birth to a lamb",
         "sort_order": 2,
         "transitivity": "vi"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:b3feeed91d544704efa8",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:lamb:5cbb97a905b45235:collocation:0"
+            ],
+            "meaning_cn": "羊排",
+            "phrase": "lamb chops"
+          },
+          {
+            "collocation_id": "collocation:6e59d7331153d92464a7",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:lamb:5cbb97a905b45235:collocation:1"
+            ],
+            "meaning_cn": "烤羊肉",
+            "phrase": "roast lamb"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "羊羔肉；小羊肉",
+        "definition_en": "the meat of a young sheep used as food",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:lamb:c9805e4b90d019b2",
+        "sense_label_en": "the meat of a young sheep used as food",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -145,6 +160,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 7572,
+        "source_path": "content/lexical/canonical/senses/shards/o2721-2752.json"
+      },
+      {
+        "sense_id": "sense:lamb:c9805e4b90d019b2",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 7617,
         "source_path": "content/lexical/canonical/senses/shards/o2721-2752.json"
       }
     ],
@@ -196,7 +218,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2737-2744.json",
-    "source_content_hash": "4bab641648c47ac197142a372cebf66af3b0b842e972ddc38b0667464faf3649",
+    "source_content_hash": "e01337e58c69c92e49e6af1553a23b848dffb6640e28e9dc0dd9424c7e234045",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

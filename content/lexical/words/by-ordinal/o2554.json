@@ -7,12 +7,22 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "0e9b1ab236e1d34e0ae858498b3cbfb3068bbc2689967831bddb9379c1937be4",
+    "content_hash": "eae8fe8e29d2adc4275d55e40fd4922b6f1be30a920e8812c083d2e4ac619d67",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "引入新事物",
-      "core_meaning_en": "the introduction of something new",
-      "mental_model_cn": "引入新事物",
+      "core_clusters": [
+        {
+          "label_cn": "创新过程；创新成果",
+          "label_en": "the process/use of novelty, or a new development",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:innovation:3f0b26d3ae265105",
+            "sense:innovation:7fec84c1cf6136ae"
+          ]
+        }
+      ],
+      "core_meaning_cn": "创新（过程或成果）",
+      "core_meaning_en": "the introduction/use of something new, or a new idea, method, product, or development",
+      "mental_model_cn": "创新（过程或成果）",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -58,6 +68,39 @@
         "sense_label_en": "the act of introducing something new",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:f1ac3181e8d266bf0ba4",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:innovation:7fec84c1cf6136ae:collocation:streaming-c-o2551-o2650"
+            ],
+            "meaning_cn": "某方面的一项创新",
+            "phrase": "an innovation in sth"
+          },
+          {
+            "collocation_id": "collocation:0a8e928d3c5cca47a5f9",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:innovation:7fec84c1cf6136ae:collocation:streaming-c-o2551-o2650"
+            ],
+            "meaning_cn": "技术创新成果",
+            "phrase": "technological innovations"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "创新成果；新方法、新思想或新事物",
+        "definition_en": "a new idea, method, product, design, or other new development",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:innovation:7fec84c1cf6136ae",
+        "sense_label_en": "a new idea, method, product, design, or other new development",
+        "sort_order": 1,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -96,10 +139,19 @@
         "merged_into_sense_id": null,
         "source_row": 7063,
         "source_path": "content/lexical/canonical/senses/shards/o2529-2560.json"
+      },
+      {
+        "sense_id": "sense:innovation:7fec84c1cf6136ae",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 7079,
+        "source_path": "content/lexical/canonical/senses/shards/o2529-2560.json"
       }
     ],
     "active_collocations": [
+      "collocation:0a8e928d3c5cca47a5f9",
       "collocation:cd1870370817db56cb18",
+      "collocation:f1ac3181e8d266bf0ba4",
       "collocation:fdaafa45733c1ef0ecbc"
     ],
     "facts": [
@@ -118,6 +170,16 @@
       {
         "id": "collocation:fdaafa45733c1ef0ecbc",
         "source_row": 21457,
+        "source_path": "content/lexical/canonical/collocations/shards/o2529-2560.json"
+      },
+      {
+        "id": "collocation:0a8e928d3c5cca47a5f9",
+        "source_row": 21609,
+        "source_path": "content/lexical/canonical/collocations/shards/o2529-2560.json"
+      },
+      {
+        "id": "collocation:f1ac3181e8d266bf0ba4",
+        "source_row": 21613,
         "source_path": "content/lexical/canonical/collocations/shards/o2529-2560.json"
       }
     ],
@@ -157,7 +219,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2553-2560.json",
-    "source_content_hash": "0e9b1ab236e1d34e0ae858498b3cbfb3068bbc2689967831bddb9379c1937be4",
+    "source_content_hash": "eae8fe8e29d2adc4275d55e40fd4922b6f1be30a920e8812c083d2e4ac619d67",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

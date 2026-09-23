@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "0874c6831777389afad8fa986085d950dc815cedbeb88b7dbb6a1180221d8317",
+    "content_hash": "263bed450a590f541577af7e671e5a099066f2b0f419679bd75787ed967735f7",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "迁移；移居",
@@ -97,6 +97,39 @@
         "sense_label_en": "to move periodically or seasonally, especially of animals or birds",
         "sort_order": 1,
         "transitivity": "vi"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:dd6864e96d97e73efacc",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:migrate:8b70a872b8f2e865:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "迁移到新系统/云平台",
+            "phrase": "migrate to a new system/cloud"
+          },
+          {
+            "collocation_id": "collocation:c34558783e318881b420",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:migrate:8b70a872b8f2e865:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "把数据从A迁移到B",
+            "phrase": "migrate data from A to B"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "迁移到新系统/平台；迁移数据或软件",
+        "definition_en": "to begin using a new computer/system/platform, or move data/software/content from one system to another",
+        "governing_pattern": "I/T",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:migrate:8b70a872b8f2e865",
+        "sense_label_en": "to begin using a new computer/system/platform, or move data/software/content from one system to another",
+        "sort_order": 2,
+        "transitivity": "I/T"
       }
     ],
     "verification_summary": {
@@ -135,6 +168,13 @@
         "merged_into_sense_id": null,
         "source_row": 8493,
         "source_path": "content/lexical/canonical/senses/shards/o3041-3072.json"
+      },
+      {
+        "sense_id": "sense:migrate:8b70a872b8f2e865",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8566,
+        "source_path": "content/lexical/canonical/senses/shards/o3041-3072.json"
       }
     ],
     "active_collocations": [
@@ -142,6 +182,8 @@
       "collocation:4a47d97cc9796bbef5ac",
       "collocation:67efe497d037561e4b3e",
       "collocation:bf3b16802e3e30388e7d",
+      "collocation:c34558783e318881b420",
+      "collocation:dd6864e96d97e73efacc",
       "collocation:fc249b1260a80308b722"
     ],
     "facts": [],
@@ -169,6 +211,16 @@
       {
         "id": "collocation:fc249b1260a80308b722",
         "source_row": 21334,
+        "source_path": "content/lexical/canonical/collocations/shards/o3041-3072.json"
+      },
+      {
+        "id": "collocation:c34558783e318881b420",
+        "source_row": 21362,
+        "source_path": "content/lexical/canonical/collocations/shards/o3041-3072.json"
+      },
+      {
+        "id": "collocation:dd6864e96d97e73efacc",
+        "source_row": 21363,
         "source_path": "content/lexical/canonical/collocations/shards/o3041-3072.json"
       }
     ],
@@ -208,7 +260,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3041-3048.json",
-    "source_content_hash": "0874c6831777389afad8fa986085d950dc815cedbeb88b7dbb6a1180221d8317",
+    "source_content_hash": "263bed450a590f541577af7e671e5a099066f2b0f419679bd75787ed967735f7",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

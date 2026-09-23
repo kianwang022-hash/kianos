@@ -1,0 +1,68 @@
+{
+  "schema": "kianos.lexical.streaming_c_window_receipt.v1",
+  "status": "WINDOW_CLOSED_ON_CHECKPOINT_BRANCH",
+  "range": [
+    2551,
+    2650
+  ],
+  "shared_watermark_at_start": 4150,
+  "frozen_semantic_baseline": "12766cf94b89bd135016e3213637e31edd19adfe",
+  "input_reviews": {
+    "A": {
+      "branch": "work/lexical-dual-review-A-20260923",
+      "commit_sha": "ee5d015663aa8231f7692a3f6fdb965bf19e313c",
+      "artifact": "content/lexical/semantic-review/dual/A/o2551-o2650.review.md"
+    },
+    "B": {
+      "branch": "work/lexical-dual-review-B-20260923",
+      "commit_sha": "035e2d2359df02cdddfabb05e5c284b2b5c339c0",
+      "artifact": "content/lexical/semantic-review/dual/B/o2551-o2650.review.md"
+    }
+  },
+  "c_mutation_commit": "fc35c3e5e8ced363733e39c910c97fa475183477",
+  "review_policy": "READ_ONLY_A_B_CHANGE_BLOCKED_HITS_SKIP_DOUBLE_NO_CHANGE",
+  "counts": {
+    "window_ordinals": 100,
+    "double_no_change_skipped": 58,
+    "union_hits": 42,
+    "mutated_word_owners": 39,
+    "already_satisfied_no_mutation": 1,
+    "c_adjudicated_preserve_no_mutation": 1,
+    "whole_hit_deferred_cross_watermark": 1
+  },
+  "already_satisfied": [
+    "o2597 intercourse register marking already present on frozen baseline"
+  ],
+  "c_adjudicated_preserve": [
+    "o2646 irrespective: preserve nuanced fixed-construction treatment; do not force categorical adjective POS"
+  ],
+  "deferred_cross_watermark": [
+    {
+      "source": "o2567 instalment",
+      "remote": "o5902 installment",
+      "action": "regional-spelling Relation/Form migration",
+      "status": "DEFERRED_CROSS_WATERMARK",
+      "word_local_action": "rare installation sense moved to Reference"
+    },
+    {
+      "source": "o2628 invaluable",
+      "remote": "o5246 valuable",
+      "action": "reciprocal semantic Relation",
+      "status": "DEFERRED_CROSS_WATERMARK",
+      "word_local_action": "none"
+    }
+  ],
+  "verification": {
+    "natural_owner_build": "PASS",
+    "changed_word_owner_scope": "o2551-o2650 only",
+    "full_flob_rebuild": "DEFERRED_TO_CHECKPOINT",
+    "flob_files_changed": 0,
+    "unrelated_word_owner_drift": false
+  },
+  "next_ordinal": 2651,
+  "checkpoint": {
+    "start": 2551,
+    "target_end": 3050,
+    "pending_full_7946_flob_rebuild": true
+  }
+}

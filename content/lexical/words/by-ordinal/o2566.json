@@ -7,9 +7,18 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "eeb70a124d81f9b50cc8b0e3e0a8fc3ea988e8d09928056636b06c81a5b4dc76",
+    "content_hash": "1f04d756dd0ffc4da88fc6c471960bcaaeb69356c8d8822928a92d38d2d78116",
     "core_concept": {
-      "core_clusters": [],
+      "core_clusters": [
+        {
+          "label_cn": "装置艺术作品",
+          "label_en": "a work of art arranged for a particular space",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:installation:61192e2e1e064f1f"
+          ]
+        }
+      ],
       "core_meaning_cn": "安装或安装的装置",
       "core_meaning_en": "the act of installing or something installed",
       "mental_model_cn": "安装或安装的装置",
@@ -115,6 +124,30 @@
         "sense_label_en": "the act of placing someone in an official position",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:d3e9e60386db202fdc75",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:installation:61192e2e1e064f1f:collocation:streaming-c-o2551-o2650"
+            ],
+            "meaning_cn": "装置艺术作品",
+            "phrase": "art installation"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "装置艺术作品",
+        "definition_en": "a work of art made or arranged for a particular space, often using multiple objects or media",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:installation:61192e2e1e064f1f",
+        "sense_label_en": "a work of art made or arranged for a particular space, often using multiple objects or media",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -200,6 +233,13 @@
         "merged_into_sense_id": null,
         "source_row": 7095,
         "source_path": "content/lexical/canonical/senses/shards/o2561-2592.json"
+      },
+      {
+        "sense_id": "sense:installation:61192e2e1e064f1f",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 7156,
+        "source_path": "content/lexical/canonical/senses/shards/o2561-2592.json"
       }
     ],
     "active_collocations": [
@@ -207,6 +247,7 @@
       "collocation:2e431510533f23dff50a",
       "collocation:398d9c1f216e9f270af0",
       "collocation:3b0945c122ff1ebfa08d",
+      "collocation:d3e9e60386db202fdc75",
       "collocation:f551e9fff1cac51e5693"
     ],
     "facts": [
@@ -241,6 +282,11 @@
         "id": "collocation:f551e9fff1cac51e5693",
         "source_row": 20776,
         "source_path": "content/lexical/canonical/collocations/shards/o2561-2592.json"
+      },
+      {
+        "id": "collocation:d3e9e60386db202fdc75",
+        "source_row": 21597,
+        "source_path": "content/lexical/canonical/collocations/shards/o2561-2592.json"
       }
     ],
     "exam-mappings": [],
@@ -274,7 +320,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2561-2568.json",
-    "source_content_hash": "eeb70a124d81f9b50cc8b0e3e0a8fc3ea988e8d09928056636b06c81a5b4dc76",
+    "source_content_hash": "1f04d756dd0ffc4da88fc6c471960bcaaeb69356c8d8822928a92d38d2d78116",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

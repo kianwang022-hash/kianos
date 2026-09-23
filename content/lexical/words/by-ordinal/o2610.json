@@ -6,8 +6,17 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "856a2d16202b4078b8a146a30611a67a32a414806de2a9b001b3eeabcf15b4d2",
+    "constructions": [
+      {
+        "construction_id": "construction:c43e94c102b4b7674f7a",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "把 A 理解或解释为 B",
+        "pattern": "interpret A as B",
+        "source_sense_id": "sense:interpret:04d9b9035cb308ec"
+      }
+    ],
+    "content_hash": "f0fcb7b5b218b8eb46652cc8788bcbe7573f8d0fbba8451c51da04f1f71a2a82",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "解释或理解某事物的含义",
@@ -112,6 +121,20 @@
         "sense_label_en": "to perform or render a piece of music, a role, etc. in a particular way",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "把……理解/解释为；认为……意味着",
+        "definition_en": "to understand or regard something as having a particular meaning",
+        "governing_pattern": "vt. + object + as",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:interpret:04d9b9035cb308ec",
+        "sense_label_en": "to understand or regard something as having a particular meaning",
+        "sort_order": 3,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -156,6 +179,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 7198,
+        "source_path": "content/lexical/canonical/senses/shards/o2593-2624.json"
+      },
+      {
+        "sense_id": "sense:interpret:04d9b9035cb308ec",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 7239,
         "source_path": "content/lexical/canonical/senses/shards/o2593-2624.json"
       }
     ],
@@ -235,7 +265,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2609-2616.json",
-    "source_content_hash": "856a2d16202b4078b8a146a30611a67a32a414806de2a9b001b3eeabcf15b4d2",
+    "source_content_hash": "f0fcb7b5b218b8eb46652cc8788bcbe7573f8d0fbba8451c51da04f1f71a2a82",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

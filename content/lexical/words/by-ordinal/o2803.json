@@ -12,13 +12,10 @@
         "direction": "R",
         "level": "L2",
         "meaning_cn": "详细地；充分地（亦可指最终/经过很久）",
-        "pattern": "at length",
-        "semantic_attachment": "construction_only",
-        "definition_en": "for a long time or in great detail; in formal/older use, eventually/at last",
-        "boundary": "idiomatic phrase; do not attach to literal measurement length"
+        "pattern": "at length"
       }
     ],
-    "content_hash": "0d6e69a1a67e759e5e6ea2d194c43116b0bf589cbaac24d61f5d031f508f9d8d",
+    "content_hash": "151f7e67a042621cad04c1fa8a9436f5be1ff282843a586e964e072793bfd860",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "从一端到另一端的度量或范围",
@@ -31,8 +28,7 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "construction:construction:ee60ba056bbe7499fd38",
-      "semantic-reconciliation:o2625-o2824"
+      "construction:construction:ee60ba056bbe7499fd38"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -47,17 +43,26 @@
             ],
             "meaning_cn": "桥的长度",
             "phrase": "the length of the bridge"
+          },
+          {
+            "collocation_id": "collocation:76b0b1e7d162fd97c671",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:length:a70d14ec1e16536e:collocation:streaming-c-o2751-o2850"
+            ],
+            "meaning_cn": "一段时间的长度/时长",
+            "phrase": "length of time"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "空间上从一端到另一端的线性范围；固定物体的最长维度",
-        "definition_en": "the linear extent in space from one end to the other; the longest dimension of something that is fixed in place",
+        "definition_cn": "长度；（时间的）持续长度/时长",
+        "definition_en": "the extent of something from end to end or from beginning to end, including spatial length and duration",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:length:a70d14ec1e16536e",
-        "sense_label_en": "the linear extent in space from one end to the other; the longest dimens",
+        "sense_label_en": "the extent of something from end to end or from beginning to end, including spatial length and duration",
         "sort_order": 0,
         "transitivity": "nonverb"
       }
@@ -159,7 +164,8 @@
       }
     ],
     "active_collocations": [
-      "collocation:178ff06b5cc2439beccb"
+      "collocation:178ff06b5cc2439beccb",
+      "collocation:76b0b1e7d162fd97c671"
     ],
     "facts": [],
     "collocations": [
@@ -176,6 +182,11 @@
       {
         "id": "collocation:c7f68a98724df89d027f",
         "source_row": 16909,
+        "source_path": "content/lexical/canonical/collocations/shards/o2785-2816.json"
+      },
+      {
+        "id": "collocation:76b0b1e7d162fd97c671",
+        "source_row": 21525,
         "source_path": "content/lexical/canonical/collocations/shards/o2785-2816.json"
       }
     ],
@@ -215,7 +226,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2801-2808.json",
-    "source_content_hash": "5be4547f06ea048b02b0a9ebdff1f77bb570c7dca64136a50a6ae9962b785037",
+    "source_content_hash": "151f7e67a042621cad04c1fa8a9436f5be1ff282843a586e964e072793bfd860",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

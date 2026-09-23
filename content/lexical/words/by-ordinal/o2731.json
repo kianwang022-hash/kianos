@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "e59dfb4d2787308b018b8e82c5ece151aa122d3d99d54497805a2a8f2ad9dfa8",
+    "content_hash": "a90615949a4441e711e9a61277d1bf374d07671ca3729cbf299588ddbd4a8565",
     "core_concept": {
       "core_clusters": [
         {
@@ -20,12 +20,13 @@
           ]
         },
         {
-          "label_cn": "系带子",
-          "label_en": "to fasten or draw together with a lace; to be fastened with a lace",
+          "label_cn": "系带；掺入/夹杂",
+          "label_en": "to fasten with laces, or to add/intermix something throughout",
           "pos": "verb",
           "sense_ids": [
             "sense:lace:fa9bf6e51d4157e6",
-            "sense:lace:b1dadb7b68c0563b"
+            "sense:lace:b1dadb7b68c0563b",
+            "sense:lace:b1da3e15a468ef40"
           ]
         }
       ],
@@ -137,6 +138,39 @@
         "sense_label_en": "to be fastened with a lace",
         "sort_order": 3,
         "transitivity": "vi"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:bce4ea9a9845e6361fc7",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:lace:b1da3e15a468ef40:collocation:streaming-c-o2651-o2750"
+            ],
+            "meaning_cn": "给某物掺入/加入某物",
+            "phrase": "lace sth with sth"
+          },
+          {
+            "collocation_id": "collocation:210d9c9d3043f8f1d6a2",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:lace:b1da3e15a468ef40:collocation:streaming-c-o2651-o2750"
+            ],
+            "meaning_cn": "夹杂/充满某物",
+            "phrase": "be laced with sth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "掺入；给……加入；使夹杂/充满",
+        "definition_en": "to add a substance to something, or to intersperse/permeate it with something",
+        "governing_pattern": "lace sth with sth; be laced with sth",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:lace:b1da3e15a468ef40",
+        "sense_label_en": "to add a substance to something, or to intersperse/permeate it with something",
+        "sort_order": 4,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -189,13 +223,22 @@
         "merged_into_sense_id": null,
         "source_row": 7557,
         "source_path": "content/lexical/canonical/senses/shards/o2721-2752.json"
+      },
+      {
+        "sense_id": "sense:lace:b1da3e15a468ef40",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 7616,
+        "source_path": "content/lexical/canonical/senses/shards/o2721-2752.json"
       }
     ],
     "active_collocations": [
+      "collocation:210d9c9d3043f8f1d6a2",
       "collocation:457909da26c02ecddcc9",
       "collocation:4ca186b08993c648acc1",
       "collocation:590fa22118c5f30589bd",
-      "collocation:6d7b5c136ecc5e6c5e69"
+      "collocation:6d7b5c136ecc5e6c5e69",
+      "collocation:bce4ea9a9845e6361fc7"
     ],
     "facts": [],
     "collocations": [
@@ -217,6 +260,16 @@
       {
         "id": "collocation:6d7b5c136ecc5e6c5e69",
         "source_row": 9227,
+        "source_path": "content/lexical/canonical/collocations/shards/o2721-2752.json"
+      },
+      {
+        "id": "collocation:210d9c9d3043f8f1d6a2",
+        "source_row": 21513,
+        "source_path": "content/lexical/canonical/collocations/shards/o2721-2752.json"
+      },
+      {
+        "id": "collocation:bce4ea9a9845e6361fc7",
+        "source_row": 21514,
         "source_path": "content/lexical/canonical/collocations/shards/o2721-2752.json"
       }
     ],
@@ -251,7 +304,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2729-2736.json",
-    "source_content_hash": "e59dfb4d2787308b018b8e82c5ece151aa122d3d99d54497805a2a8f2ad9dfa8",
+    "source_content_hash": "a90615949a4441e711e9a61277d1bf374d07671ca3729cbf299588ddbd4a8565",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

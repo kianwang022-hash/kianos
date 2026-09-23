@@ -23,27 +23,32 @@
             "meaning_cn": "适合于某事",
             "phrase": "lend itself to sth"
           }
-        ],
-        "source_sense_id": "sense:lend:68f6526a57c65bda",
-        "boundary": "lend itself to sth/doing = be suitable/open to that use or treatment",
-        "definition_en": "to be suitable for or open to a particular use, interpretation, or treatment"
+        ]
       }
     ],
-    "content_hash": "05e865a158587e161d43f6e3f7f9efaba05064bb6d54a121b74102dfc913dad3",
+    "content_hash": "8d60cd9a5d281abc4ae505fc8ab85805596486d620d90ceac037dc22155bb0ce",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "适合于；易于用于",
-          "label_en": "be suitable/open to a use or treatment",
+          "label_cn": "借出",
+          "label_en": "to give something temporarily, expecting it back",
           "pos": "verb",
           "sense_ids": [
-            "sense:lend:68f6526a57c65bda"
+            "sense:lend:dc61e175c29e577e"
+          ]
+        },
+        {
+          "label_cn": "增添；赋予（某种性质/支持）",
+          "label_en": "to add or give a quality or support",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:lend:010579c3d19c5a8d"
           ]
         }
       ],
-      "core_meaning_cn": "借出；增添",
-      "core_meaning_en": "to give something to someone for a limited time, or to add a quality",
-      "mental_model_cn": "借出；增添",
+      "core_meaning_cn": "借出；增添/赋予；适合",
+      "core_meaning_en": "to give temporarily; to add a quality/support; to be suitable",
+      "mental_model_cn": "借出；增添/赋予；适合",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -51,8 +56,7 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "construction:construction:55369ae7d854b855b942",
-      "semantic-reconciliation:o2625-o2824"
+      "construction:construction:55369ae7d854b855b942"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -122,20 +126,6 @@
         "sense_label_en": "to add a quality to something",
         "sort_order": 1,
         "transitivity": "vt"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "适合；易于用于或接受某种处理",
-        "definition_en": "to be suitable for something or open to a particular use, interpretation, or treatment",
-        "governing_pattern": "lend itself to sth/doing sth",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:lend:68f6526a57c65bda",
-        "sense_label_en": "to be suitable for something or open to a particular use, interpretation, or treatment",
-        "sort_order": 2,
-        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -157,15 +147,32 @@
     "word_family": [],
     "word_id": "word:lend"
   },
-  "relation_refs": [
+  "relation_refs": [],
+  "reference_senses": [
     {
-      "relation_id": "relation:final-standard:borrow-lend:direction_boundary",
-      "owner_path": "content/lexical/relations/by-id/54/54bb9dd2fca895ee4a8209dc94164c243a6e8a342d1338af25d82d2a72c6f74b.json",
-      "field": "semantic_neighbors",
-      "index": 0
+      "stable_sense_id": "sense:lend:68f6526a57c65bda",
+      "status": "active",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "适合；易于用于或接受某种处理",
+      "definition_en": "to be suitable for something or open to a particular use, interpretation, or treatment",
+      "semantic_key": "e87b12dade871bf5b43d63c30164c252990b7df4b56e4614cccdd8d20b9b123f",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "lend:l3:3"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "lend:l3:3",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-15T09:05:00Z",
+      "source_row": 7769,
+      "source_path": "content/lexical/canonical/senses/shards/o2785-2816.json",
+      "reference_only": true
     }
   ],
-  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -250,7 +257,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2801-2808.json",
-    "source_content_hash": "b9f79b17b954164b14f92d8c9f3160bac930884f8ca8685ece9127925e2a8512",
+    "source_content_hash": "8d60cd9a5d281abc4ae505fc8ab85805596486d620d90ceac037dc22155bb0ce",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

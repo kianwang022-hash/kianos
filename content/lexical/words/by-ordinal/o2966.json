@@ -6,8 +6,16 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "b9c4dbc1b149f4a918ca4ba5447e3edf002c703806d3191ace449ad70f87cd86",
+    "constructions": [
+      {
+        "construction_id": "construction:bae104e4a6e151bbcbe4",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "marry sb 不用 to/with；get/be married to sb 使用 to",
+        "pattern": "marry sb vs get/be married to sb"
+      }
+    ],
+    "content_hash": "c77cd4ca555b27590696ba71fab18a736fb235fa2b45d2d30a098215d4500cad",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "成为某人的配偶",
@@ -59,26 +67,26 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:f4ea5ff3b22dd5f7c077",
-            "exam_value": "fixed_pattern",
+            "collocation_id": "collocation:1885d9314ac3db01fe9b",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
-              "sense:marry:35477cc29e525ab2:collocation:0"
+              "sense:marry:35477cc29e525ab2:collocation:streaming-c-checkpoint-o2851-o3050"
             ],
-            "meaning_cn": "与某人结婚",
-            "phrase": "marry sb"
+            "meaning_cn": "他们于2010年结婚",
+            "phrase": "They married in 2010."
           }
         ],
         "confidence": "medium",
-        "definition_cn": "结婚",
-        "definition_en": "to get married",
-        "governing_pattern": "vt. + object",
-        "level": "L2",
+        "definition_cn": "结婚；成婚",
+        "definition_en": "to get married; to enter into marriage",
+        "governing_pattern": "vi.",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:marry:35477cc29e525ab2",
-        "sense_label_en": "to get married",
+        "sense_label_en": "to get married; to enter into marriage",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -120,9 +128,9 @@
       }
     ],
     "active_collocations": [
+      "collocation:1885d9314ac3db01fe9b",
       "collocation:2258ffd6512c7904d732",
-      "collocation:69a78c5c23f53c4f9a65",
-      "collocation:f4ea5ff3b22dd5f7c077"
+      "collocation:69a78c5c23f53c4f9a65"
     ],
     "facts": [],
     "collocations": [
@@ -139,6 +147,11 @@
       {
         "id": "collocation:f4ea5ff3b22dd5f7c077",
         "source_row": 20742,
+        "source_path": "content/lexical/canonical/collocations/shards/o2945-2976.json"
+      },
+      {
+        "id": "collocation:1885d9314ac3db01fe9b",
+        "source_row": 21481,
         "source_path": "content/lexical/canonical/collocations/shards/o2945-2976.json"
       }
     ],
@@ -173,7 +186,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2961-2968.json",
-    "source_content_hash": "b9c4dbc1b149f4a918ca4ba5447e3edf002c703806d3191ace449ad70f87cd86",
+    "source_content_hash": "c77cd4ca555b27590696ba71fab18a736fb235fa2b45d2d30a098215d4500cad",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

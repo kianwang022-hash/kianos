@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "8a13315a7281a1c1c831121808fd7c3a5dd20ca2be42654f8931c66eed0dea47",
+    "content_hash": "59d29c3bf4ccf34f85d4f26d4eb3c1feda9ba217796d945efd154ec3935eeb5c",
     "core_concept": {
       "core_clusters": [
         {
@@ -17,6 +17,14 @@
           "sense_ids": [
             "sense:marine:85465e349fd95139",
             "sense:marine:fa81f9ccac555a21"
+          ]
+        },
+        {
+          "label_cn": "海洋的；Marine（美国海军陆战队员）",
+          "label_en": "marine/sea-related; Marine as a U.S. Marine Corps member",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:marine:c05916f9e2e15ff5"
           ]
         }
       ],
@@ -50,6 +58,11 @@
         "definition_en": "a member of the United States Marine Corps",
         "governing_pattern": "",
         "level": "L2",
+        "lexical_identity_overlay": {
+          "canonical_surface": "Marine",
+          "identity_type": "case_sensitive_sense",
+          "note": "capitalize when naming a U.S. Marine"
+        },
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:marine:85465e349fd95139",
@@ -64,6 +77,11 @@
         "definition_en": "of or relating to the sea or ocean, especially marine life or the marine environment",
         "governing_pattern": "",
         "level": "L1",
+        "lexical_identity_overlay": {
+          "canonical_surface": "marine",
+          "identity_type": "case_sensitive_sense",
+          "note": "generic sea/marine adjective is lowercase"
+        },
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:marine:c05916f9e2e15ff5",
@@ -226,7 +244,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2953-2960.json",
-    "source_content_hash": "8a13315a7281a1c1c831121808fd7c3a5dd20ca2be42654f8931c66eed0dea47",
+    "source_content_hash": "59d29c3bf4ccf34f85d4f26d4eb3c1feda9ba217796d945efd154ec3935eeb5c",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

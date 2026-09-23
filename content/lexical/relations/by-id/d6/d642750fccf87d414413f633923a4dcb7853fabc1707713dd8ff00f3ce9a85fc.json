@@ -3,14 +3,14 @@
   "relation_id": "deep:semantic_contrast:innovation:671bc518f92f4377",
   "canonical_record": null,
   "fact_record": {
-    "boundary": "innovation强调引入新事物，invention强调发明成果",
+    "boundary": "innovation 可指创新过程/采用新方法，也可指一项创新成果；invention 更强调创造此前不存在的装置、方法或事物",
     "codex_disposition": "strict_automatic_publish",
     "codex_disposition_status": "resolved",
     "content": {
       "shared_definition": "a creation (a new device or process) resulting from study and experimentation",
       "shared_synset": "03587827-n",
-      "source_definition": "the act of introducing something new",
-      "source_sense_id": "sense:innovation:3f0b26d3ae265105",
+      "source_definition": "a new idea, method, product, design, or other new development",
+      "source_sense_id": "sense:innovation:7fec84c1cf6136ae",
       "target_definition": "a new device or process resulting from study and experimentation",
       "target_sense_id": "sense:invention:4b50e0a210685ba3",
       "target_word": "invention"
@@ -59,8 +59,8 @@
     "selection_rank": 3,
     "semantic_stage_a": {
       "relation_class": "partial_overlap",
-      "source_definition": "the act of introducing something new",
-      "source_sense_id": "sense:innovation:3f0b26d3ae265105",
+      "source_definition": "a new idea, method, product, design, or other new development",
+      "source_sense_id": "sense:innovation:7fec84c1cf6136ae",
       "target_definition": "a new device or process resulting from study and experimentation",
       "target_sense_id": "sense:invention:4b50e0a210685ba3"
     },
@@ -72,7 +72,7 @@
       "translation_or_exam_competition": true
     },
     "source_grounded": true,
-    "source_sense_id": "sense:innovation:3f0b26d3ae265105",
+    "source_sense_id": "sense:innovation:7fec84c1cf6136ae",
     "target_sense_id": "sense:invention:4b50e0a210685ba3",
     "target_word": "invention",
     "task_tags": [
@@ -95,7 +95,7 @@
       "field": "semantic_neighbors",
       "index": 0,
       "payload": {
-        "boundary": "innovation强调引入新事物，invention强调发明成果",
+        "boundary": "innovation 可指创新过程/采用新方法，也可指一项创新成果；invention 更强调创造此前不存在的装置、方法或事物",
         "codex_reviewed": false,
         "definition_cn": null,
         "definition_en": null,
@@ -131,7 +131,7 @@
         "priority": "A",
         "publication_status": "publishable",
         "shared_definition": "a creation (a new device or process) resulting from study and experimentation",
-        "source_sense_id": "sense:innovation:3f0b26d3ae265105",
+        "source_sense_id": "sense:innovation:7fec84c1cf6136ae",
         "target_sense_id": "sense:invention:4b50e0a210685ba3",
         "target_word": "invention",
         "task_tags": [
@@ -140,64 +140,10 @@
         "verification_status": "verified",
         "writing_safe": false
       }
-    },
-    {
-      "source_word_id": "word:invention",
-      "source_ordinal": 2631,
-      "field": "semantic_neighbors",
-      "index": 0,
-      "payload": {
-        "boundary": "innovation强调引入新事物，invention强调发明成果",
-        "codex_reviewed": false,
-        "definition_cn": null,
-        "definition_en": null,
-        "dimensions": {
-          "certainty": "高",
-          "collocation": "innovation in technology",
-          "core_meaning": "创新",
-          "exam_trap": "innovation与invention辨析",
-          "register": "中性",
-          "semantic_prosody": "积极",
-          "strength": "高",
-          "syntax": "名词",
-          "writing_safety": "安全"
-        },
-        "direction": "C",
-        "evidence": [
-          {
-            "evidence_id": "evidence:oewn:03587827-n",
-            "evidence_status": "source_checked",
-            "source_locator": "03587827-n",
-            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
-            "source_type": "learner_dictionary"
-          }
-        ],
-        "fact_id": "deep:semantic_contrast:innovation:671bc518f92f4377",
-        "family_sources": [],
-        "label_en": null,
-        "level": null,
-        "meaning_cn": null,
-        "module": "semantic_contrast",
-        "pattern": null,
-        "pos": null,
-        "priority": "A",
-        "publication_status": "publishable",
-        "shared_definition": "a creation (a new device or process) resulting from study and experimentation",
-        "source_sense_id": "sense:invention:4b50e0a210685ba3",
-        "target_sense_id": "sense:innovation:3f0b26d3ae265105",
-        "target_word": "innovation",
-        "task_tags": [
-          "reading"
-        ],
-        "verification_status": "verified",
-        "writing_safe": false,
-        "reciprocal_entrypoint": true
-      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0,
-    "last_semantic_authority": "content/lexical/semantic-reconciliation/o2425-o2624.md"
+    "semantic_delta": 0
   }
 }

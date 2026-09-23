@@ -140,12 +140,15 @@ read only A/B CHANGE or BLOCKED hits
 → durable window commit on the active C checkpoint branch
 ```
 
-Do not rebuild all 7,946 Final Learner Objects for every semantic window. Default execution is ~100 ordinals per semantic window (shrink to ~50 only for unusually dense disagreement), accumulating roughly 500 eligible ordinals on one C checkpoint branch. At the checkpoint boundary, rebuild exactly 7,946 FLOB once, run global validators once, then merge the checkpoint. Earlier full rebuilds require a real dependency/validator reason.
+Default execution is ~100 ordinals per semantic window. A checkpoint may use a batched-apply fast path: each window first freezes an immutable C decision manifest covering every A/B CHANGE/BLOCKED hit; canonical mutations for those decided windows may then be applied together at the checkpoint boundary. This is allowed only within the same active C checkpoint branch, with exact A/B commits frozen per manifest, cross-watermark shared owners deferred, and no semantic decision left implicit.
+
+C semantic closure is complete when the pending manifests are applied, changed Natural Owners/dependencies read back correctly, the Natural Owner audit passes, bounded canonical validators pass, and the checkpoint receipt is durable. Final Learner Objects are derived website assets and are **not** a C merge/cursor gate.
+
+After canonical merge, the website build pipeline materializes exactly 7,946 Final Learner Objects from current Natural Owners before Astro build. A projection/build failure is an engineering/deployment defect to repair without rolling back or freezing already-valid C semantic truth.
 
 Targeted final readback must verify:
 - every changed Word/Relation/Form owner;
 - required remote anchors/dependencies;
-- final learner projection for changed objects;
 - no unrelated semantic drift.
 
 C does not clean unrelated historical repository debt.

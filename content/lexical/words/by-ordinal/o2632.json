@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "3802f246ebcd03283cadfbe42dea2d08cdd722242b18f8700f05a978159e7d2d",
+    "content_hash": "b01711fb6e44fd20895bd5ca93a6d625045dd2d950b6756244f22f3b3cc6bdd4",
     "core_concept": {
       "core_clusters": [
         {
@@ -28,9 +28,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "存货清单或盘存",
-      "core_meaning_en": "a detailed list of items in stock, or the act of making such a list",
-      "mental_model_cn": "存货清单或盘存",
+      "core_meaning_cn": "存货/库存；存货清单/盘点",
+      "core_meaning_en": "goods held in stock; a detailed list or count of stock",
+      "mental_model_cn": "存货/库存；存货清单/盘点",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -78,14 +78,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "存货价值",
-        "definition_en": "the value of a firm's current assets including raw materials, work in progress, and finished goods",
+        "definition_cn": "存货的账面价值",
+        "definition_en": "the accounting value of goods and materials a business holds in stock",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:inventory:cf2dad40663f562c",
-        "sense_label_en": "the value of a firm's current assets including raw materials, work in pr",
+        "sense_label_en": "the accounting value of goods and materials a business holds in stock",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -112,6 +112,30 @@
         "sense_label_en": "make or include in an itemized record or report",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:d952aead218f62d56dcf",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:inventory:a5db0b99f2696588:collocation:streaming-c-o2551-o2650"
+            ],
+            "meaning_cn": "现有库存",
+            "phrase": "inventory on hand"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "存货；库存",
+        "definition_en": "goods and materials that a business holds in stock for sale, production, or use",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:inventory:a5db0b99f2696588",
+        "sense_label_en": "goods and materials that a business holds in stock for sale, production, or use",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -157,12 +181,20 @@
         "merged_into_sense_id": null,
         "source_row": 7257,
         "source_path": "content/lexical/canonical/senses/shards/o2625-2656.json"
+      },
+      {
+        "sense_id": "sense:inventory:a5db0b99f2696588",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 7320,
+        "source_path": "content/lexical/canonical/senses/shards/o2625-2656.json"
       }
     ],
     "active_collocations": [
       "collocation:1e93b3e5166ac3e9f8f2",
       "collocation:7d31160aba16502a331b",
-      "collocation:b445661491861d5ca3a7"
+      "collocation:b445661491861d5ca3a7",
+      "collocation:d952aead218f62d56dcf"
     ],
     "facts": [],
     "collocations": [
@@ -179,6 +211,11 @@
       {
         "id": "collocation:b445661491861d5ca3a7",
         "source_row": 15278,
+        "source_path": "content/lexical/canonical/collocations/shards/o2625-2656.json"
+      },
+      {
+        "id": "collocation:d952aead218f62d56dcf",
+        "source_row": 21390,
         "source_path": "content/lexical/canonical/collocations/shards/o2625-2656.json"
       }
     ],
@@ -208,7 +245,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2625-2632.json",
-    "source_content_hash": "3802f246ebcd03283cadfbe42dea2d08cdd722242b18f8700f05a978159e7d2d",
+    "source_content_hash": "b01711fb6e44fd20895bd5ca93a6d625045dd2d950b6756244f22f3b3cc6bdd4",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

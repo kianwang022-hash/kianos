@@ -1,0 +1,34 @@
+{
+  "schema": "kianos.lexical.streaming_c_window_receipt.v1",
+  "status": "STAGED_CHECKPOINT_PENDING_FULL_REBUILD",
+  "range": [
+    2551,
+    2650
+  ],
+  "semantic_baseline_sha": "12766cf94b89bd135016e3213637e31edd19adfe",
+  "shared_watermark_at_reconcile": 4150,
+  "a_review_commit": "ee5d015663aa8231f7692a3f6fdb965bf19e313c",
+  "b_review_commit": "035e2d2359df02cdddfabb05e5c284b2b5c339c0",
+  "c_mutation_commit": "bbbc98d5cc4289e9acf185ea39d77f2e746645f0",
+  "changed_word_ordinals": [],
+  "changed_word_count": 0,
+  "full_flob_rebuild_run": false,
+  "targeted_checks": {
+    "no_word_beyond_shared_watermark": true,
+    "no_full_flob_rebuild": true
+  },
+  "deferred_cross_watermark": [
+    {
+      "local_ordinal": 2567,
+      "remote_ordinal": 5902,
+      "dependency": "instalment ↔ installment Form/Identity migration",
+      "status": "DEFERRED_CROSS_WATERMARK"
+    },
+    {
+      "local_ordinal": 2628,
+      "remote_ordinal": 5246,
+      "dependency": "invaluable ↔ valuable decision relation",
+      "status": "DEFERRED_CROSS_WATERMARK"
+    }
+  ]
+}

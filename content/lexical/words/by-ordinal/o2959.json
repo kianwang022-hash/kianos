@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "3027aa3d15a098ee96e2a21c0a44bd7b64724dd38321a637171a6d4824be12f5",
+    "content_hash": "7d5528bc2e0d7c54f65ccb460ae83c76186a23b84889e0f439f736d8002ef728",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "处于边缘的；极小的；勉强够的",
@@ -66,15 +66,6 @@
             ],
             "meaning_cn": "微小的改进",
             "phrase": "marginal improvement"
-          },
-          {
-            "collocation_id": "collocation:c7ea74ffafa586f23e32",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:marginal:80047e4857b759dd:collocation:1"
-            ],
-            "meaning_cn": "边际成本",
-            "phrase": "marginal cost"
           }
         ],
         "confidence": "medium",
@@ -87,6 +78,48 @@
         "sense_id": "sense:marginal:80047e4857b759dd",
         "sense_label_en": "very small in amount or effect; barely adequate",
         "sort_order": 1,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:c7ea74ffafa586f23e32",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:marginal:80047e4857b759dd:collocation:1"
+            ],
+            "meaning_cn": "边际成本",
+            "phrase": "marginal cost"
+          },
+          {
+            "collocation_id": "collocation:e697f4a41226b737624b",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:marginal:80fd7acba1d87e1e:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "边际收益",
+            "phrase": "marginal benefit"
+          },
+          {
+            "collocation_id": "collocation:44039ead3bb8e0fe7bdb",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:marginal:80fd7acba1d87e1e:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "边际增加",
+            "phrase": "marginal increase"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "边际的；增加一个单位所带来的额外变化的",
+        "definition_en": "relating to the additional change, cost, benefit, or output from one extra unit",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:marginal:80fd7acba1d87e1e",
+        "sense_label_en": "relating to the additional change, cost, benefit, or output from one extra unit",
+        "sort_order": 2,
         "transitivity": "nonverb"
       }
     ],
@@ -126,12 +159,21 @@
         "merged_into_sense_id": null,
         "source_row": 8244,
         "source_path": "content/lexical/canonical/senses/shards/o2945-2976.json"
+      },
+      {
+        "sense_id": "sense:marginal:80fd7acba1d87e1e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8301,
+        "source_path": "content/lexical/canonical/senses/shards/o2945-2976.json"
       }
     ],
     "active_collocations": [
+      "collocation:44039ead3bb8e0fe7bdb",
       "collocation:c7ea74ffafa586f23e32",
       "collocation:da67f84a9dfc14d761ff",
       "collocation:e5ee0cd229293f00d5ed",
+      "collocation:e697f4a41226b737624b",
       "collocation:fcd7ef31bef8c5e5c7e2"
     ],
     "facts": [],
@@ -154,6 +196,16 @@
       {
         "id": "collocation:fcd7ef31bef8c5e5c7e2",
         "source_row": 21384,
+        "source_path": "content/lexical/canonical/collocations/shards/o2945-2976.json"
+      },
+      {
+        "id": "collocation:44039ead3bb8e0fe7bdb",
+        "source_row": 21483,
+        "source_path": "content/lexical/canonical/collocations/shards/o2945-2976.json"
+      },
+      {
+        "id": "collocation:e697f4a41226b737624b",
+        "source_row": 21485,
         "source_path": "content/lexical/canonical/collocations/shards/o2945-2976.json"
       }
     ],
@@ -188,7 +240,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2953-2960.json",
-    "source_content_hash": "3027aa3d15a098ee96e2a21c0a44bd7b64724dd38321a637171a6d4824be12f5",
+    "source_content_hash": "7d5528bc2e0d7c54f65ccb460ae83c76186a23b84889e0f439f736d8002ef728",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

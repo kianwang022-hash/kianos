@@ -13,11 +13,11 @@ Fresh Chat entry:
 5. form the union of findings;
 6. adjudicate only hit/disagreement owners and required dependencies;
 7. emit exact final mutation package;
-8. apply fail-closed to canonical owners only;
-9. targeted readback of changed owners/dependencies;
-10. commit the semantic window on the active C checkpoint branch;
-11. after roughly 500 eligible ordinals, rebuild exactly 7,946 FLOB once and run global validators once;
-12. merge that checkpoint through the normal authorized path, with receipts binding exact A/B review commits and C window commits.
+8. freeze an exact C decision manifest for every CHANGE/BLOCKED hit;
+9. either apply that window immediately, or use the checkpoint-batched fast path and defer its canonical writes within the same active checkpoint branch;
+10. at checkpoint boundary, apply all pending decision manifests fail-closed, run targeted readback, and require Natural Owner/canonical validators to pass;
+11. seal the checkpoint receipt and advance C from canonical truth; Final Learner Objects are not a semantic closure gate;
+12. merge through the normal authorized path. Website build then materializes exactly 7,946 Final Learner Objects before Astro build.
 
 Streaming safety rules:
 
@@ -36,7 +36,7 @@ C rules:
 - Both CHANGE, different targets → adjudicate the disagreement.
 - BLOCKED → resolve evidence/identity before writing.
 
-C validates the final state of every changed object and necessary dependency, including learner projection.
+C validates the final semantic state of every changed object and necessary dependency. Learner projection is derived during website build and may fail independently without invalidating an already-passed semantic checkpoint.
 
 C must not clean unrelated historical repo debt or restart broad review.
 

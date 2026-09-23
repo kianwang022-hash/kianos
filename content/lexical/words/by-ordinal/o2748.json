@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "4a637803a455fc086920736ca89681eef3cf9314b496f52eda4e05852c132eda",
+    "content_hash": "bf8b8809a97123dd5cf23f00a07651f65660ddc498be9e6765d5272d804c947f",
     "core_concept": {
       "core_clusters": [
         {
@@ -80,24 +80,33 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:2b69b68ebef782495b72",
-            "exam_value": "usage_example",
+            "collocation_id": "collocation:0965ef2f23b09894e8a0",
+            "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
-              "sense:lapse:0993496b57c6538a:collocation:0"
+              "sense:lapse:0993496b57c6538a:collocation:streaming-c-o2651-o2750"
             ],
-            "meaning_cn": "时间间隔",
-            "phrase": "a lapse in time"
+            "meaning_cn": "一段时间的流逝/间隔",
+            "phrase": "a lapse of time"
+          },
+          {
+            "collocation_id": "collocation:0992516fbceccc3d126a",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:lapse:0993496b57c6538a:collocation:streaming-c-o2651-o2750"
+            ],
+            "meaning_cn": "经过一段……时间之后",
+            "phrase": "after a lapse of + period"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "中断；间隔",
-        "definition_en": "a break or interval in the occurrence of something",
+        "definition_cn": "一段时间的流逝；时间间隔",
+        "definition_en": "the passage of a period of time; an interval between events",
         "governing_pattern": "",
-        "level": "L1",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:lapse:0993496b57c6538a",
-        "sense_label_en": "a break or interval in the occurrence of something",
+        "sense_label_en": "the passage of a period of time; an interval between events",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -283,7 +292,8 @@
       }
     ],
     "active_collocations": [
-      "collocation:2b69b68ebef782495b72",
+      "collocation:0965ef2f23b09894e8a0",
+      "collocation:0992516fbceccc3d126a",
       "collocation:315fa502f1443dac8a4d",
       "collocation:3d63bfd91d655e85ebec",
       "collocation:3f6272bd9a5626b7b828",
@@ -339,6 +349,16 @@
         "id": "collocation:d7ce346d981b89944666",
         "source_row": 18250,
         "source_path": "content/lexical/canonical/collocations/shards/o2721-2752.json"
+      },
+      {
+        "id": "collocation:0965ef2f23b09894e8a0",
+        "source_row": 21511,
+        "source_path": "content/lexical/canonical/collocations/shards/o2721-2752.json"
+      },
+      {
+        "id": "collocation:0992516fbceccc3d126a",
+        "source_row": 21512,
+        "source_path": "content/lexical/canonical/collocations/shards/o2721-2752.json"
       }
     ],
     "exam-mappings": [],
@@ -367,7 +387,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2745-2752.json",
-    "source_content_hash": "4a637803a455fc086920736ca89681eef3cf9314b496f52eda4e05852c132eda",
+    "source_content_hash": "bf8b8809a97123dd5cf23f00a07651f65660ddc498be9e6765d5272d804c947f",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

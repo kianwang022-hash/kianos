@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "a000963ce4312892d4ae5c82d14aac2a53bc7746c3ee81a9eb5fdb84ba57311d",
+    "content_hash": "79846f6705de18d8130749a2ab5e7d6c16790628be0f644f98c6849c4f751ea6",
     "core_concept": {
       "core_clusters": [
         {
@@ -17,6 +17,14 @@
           "sense_ids": [
             "sense:joy:6d6f18b6a40f55d7",
             "sense:joy:d4d7a261833850b2"
+          ]
+        },
+        {
+          "label_cn": "喜悦；快乐；令人高兴的人或事",
+          "label_en": "great happiness or pleasure; also a source of great pleasure",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:joy:e2d7bd2601b65f84"
           ]
         }
       ],
@@ -94,6 +102,30 @@
         "sense_label_en": "to feel joy",
         "sort_order": 1,
         "transitivity": "vi"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:faa897eeb7a643149c1b",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:joy:54609453243551b3:collocation:streaming-c-o2651-o2750"
+            ],
+            "meaning_cn": "做/使用/观看起来令人愉快",
+            "phrase": "a joy to do/use/watch"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "乐事；令人高兴的人或事",
+        "definition_en": "a person, thing, or experience that gives great pleasure",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:joy:54609453243551b3",
+        "sense_label_en": "a person, thing, or experience that gives great pleasure",
+        "sort_order": 999,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -116,38 +148,12 @@
     "word_id": "word:joy"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:joy:54609453243551b3",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "乐事，令人高兴的人或事",
-      "definition_en": "something or someone that provides a source of happiness",
-      "semantic_key": "34626d869801cae75f14d7c812b5cb392047956ce61cc22a5a5dd93ea5e12fd7",
-      "semantic_key_history": [
-        "d3383db8a95745aa25d6732913b37c6a7db3425a31a52aeeb555a2f9ea8dc8c5"
-      ],
-      "legacy_aliases": [
-        "joy:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "joy:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 7387,
-      "source_path": "content/lexical/canonical/senses/shards/o2657-2688.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:joy:54609453243551b3",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 7387,
         "source_path": "content/lexical/canonical/senses/shards/o2657-2688.json"
@@ -176,7 +182,8 @@
     ],
     "active_collocations": [
       "collocation:1c99304515fda81fe012",
-      "collocation:e25a74af0f065e929da4"
+      "collocation:e25a74af0f065e929da4",
+      "collocation:faa897eeb7a643149c1b"
     ],
     "facts": [],
     "collocations": [
@@ -203,6 +210,11 @@
       {
         "id": "collocation:e25a74af0f065e929da4",
         "source_row": 19146,
+        "source_path": "content/lexical/canonical/collocations/shards/o2657-2688.json"
+      },
+      {
+        "id": "collocation:faa897eeb7a643149c1b",
+        "source_row": 21331,
         "source_path": "content/lexical/canonical/collocations/shards/o2657-2688.json"
       }
     ],
@@ -242,7 +254,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2673-2680.json",
-    "source_content_hash": "a000963ce4312892d4ae5c82d14aac2a53bc7746c3ee81a9eb5fdb84ba57311d",
+    "source_content_hash": "79846f6705de18d8130749a2ab5e7d6c16790628be0f644f98c6849c4f751ea6",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

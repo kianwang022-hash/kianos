@@ -6,10 +6,28 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "4e8cb95dd27f0ce00f9fe6712a5f9a10b27ef0bbff9a724b76a87f815bc11d79",
+    "constructions": [
+      {
+        "construction_id": "construction:51a3e914e35b14d25bd0",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "做某事是某人的职责",
+        "pattern": "it is sb's job to do sth",
+        "source_sense_id": "sense:job:58cdfef44dd05a84"
+      }
+    ],
+    "content_hash": "6a492f6d9a6ae594069b2d0d7754a73e41e9bfaec51197975873b74c03068eee",
     "core_concept": {
-      "core_clusters": [],
+      "core_clusters": [
+        {
+          "label_cn": "工作/职位；任务；职责",
+          "label_en": "a paid position, a task, or a duty/responsibility",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:job:58cdfef44dd05a84"
+          ]
+        }
+      ],
       "core_meaning_cn": "工作，任务",
       "core_meaning_en": "a task or piece of work, especially one's occupation",
       "mental_model_cn": "工作，任务",
@@ -49,6 +67,20 @@
         "sense_id": "sense:job:f626883ce7d58fea",
         "sense_label_en": "paid work or a position of employment",
         "sort_order": 2,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "职责；责任；该做的事",
+        "definition_en": "a duty or responsibility that someone is expected to carry out",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:job:58cdfef44dd05a84",
+        "sense_label_en": "a duty or responsibility that someone is expected to carry out",
+        "sort_order": 999,
         "transitivity": "nonverb"
       }
     ],
@@ -95,31 +127,6 @@
       ],
       "updated_at": "2026-09-09T00:00:00Z",
       "source_row": 7359,
-      "source_path": "content/lexical/canonical/senses/shards/o2657-2688.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:job:58cdfef44dd05a84",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "职责，责任",
-      "definition_en": "the responsibility to do something",
-      "semantic_key": "abc62ebb124e408eeda51265768f8947541d9350d993d32714da056aa6673376",
-      "semantic_key_history": [
-        "b1f086cc42980ccc76114ccbc1ea6f34b241c2f42dfd6f44d298170f4a0e040b"
-      ],
-      "legacy_aliases": [
-        "job:l2:4"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "job:l2:4",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 7360,
       "source_path": "content/lexical/canonical/senses/shards/o2657-2688.json",
       "reference_only": true
     },
@@ -185,7 +192,7 @@
       },
       {
         "sense_id": "sense:job:58cdfef44dd05a84",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 7360,
         "source_path": "content/lexical/canonical/senses/shards/o2657-2688.json"
@@ -289,7 +296,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2665-2672.json",
-    "source_content_hash": "4e8cb95dd27f0ce00f9fe6712a5f9a10b27ef0bbff9a724b76a87f815bc11d79",
+    "source_content_hash": "6a492f6d9a6ae594069b2d0d7754a73e41e9bfaec51197975873b74c03068eee",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -7,9 +7,18 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "c456e69abdd2ee62c8733a560ac7423e831e7ba63371bd4965f025a5ae5e9278",
+    "content_hash": "2b73ba660a63946d4e77678ce52a8c86d98037c550e223b51568d5e83b675a59",
     "core_concept": {
-      "core_clusters": [],
+      "core_clusters": [
+        {
+          "label_cn": "机械装置；机制/运作方式",
+          "label_en": "a mechanical arrangement; an abstract system/process by which something works",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:mechanism:7ffef575341e8139"
+          ]
+        }
+      ],
       "core_meaning_cn": "机制；机械装置",
       "core_meaning_en": "a system of parts working together; a process or technique",
       "mental_model_cn": "机制；机械装置",
@@ -84,6 +93,39 @@
         "sense_label_en": "a natural object resembling a machine in structure or function",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:a308a0e2c1172b448712",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:mechanism:7ffef575341e8139:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "锁定机构",
+            "phrase": "locking mechanism"
+          },
+          {
+            "collocation_id": "collocation:19e07c4d08e3ec6e03f2",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:mechanism:7ffef575341e8139:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "钟表的机械机构",
+            "phrase": "the mechanism of a clock"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "机械装置；机构；机件组合",
+        "definition_en": "a set or arrangement of moving parts that work together in a machine or device",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:mechanism:7ffef575341e8139",
+        "sense_label_en": "a set or arrangement of moving parts that work together in a machine or device",
+        "sort_order": 2,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -129,11 +171,20 @@
         "merged_into_sense_id": null,
         "source_row": 8370,
         "source_path": "content/lexical/canonical/senses/shards/o2977-3008.json"
+      },
+      {
+        "sense_id": "sense:mechanism:7ffef575341e8139",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8393,
+        "source_path": "content/lexical/canonical/senses/shards/o2977-3008.json"
       }
     ],
     "active_collocations": [
+      "collocation:19e07c4d08e3ec6e03f2",
       "collocation:39c81400d6052d1933d0",
-      "collocation:79724ff4e8a3aeb521a4"
+      "collocation:79724ff4e8a3aeb521a4",
+      "collocation:a308a0e2c1172b448712"
     ],
     "facts": [],
     "collocations": [
@@ -155,6 +206,16 @@
       {
         "id": "collocation:a006f2931f0f1ddda04f",
         "source_row": 13608,
+        "source_path": "content/lexical/canonical/collocations/shards/o2977-3008.json"
+      },
+      {
+        "id": "collocation:19e07c4d08e3ec6e03f2",
+        "source_row": 21292,
+        "source_path": "content/lexical/canonical/collocations/shards/o2977-3008.json"
+      },
+      {
+        "id": "collocation:a308a0e2c1172b448712",
+        "source_row": 21296,
         "source_path": "content/lexical/canonical/collocations/shards/o2977-3008.json"
       }
     ],
@@ -194,7 +255,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2993-3000.json",
-    "source_content_hash": "c456e69abdd2ee62c8733a560ac7423e831e7ba63371bd4965f025a5ae5e9278",
+    "source_content_hash": "2b73ba660a63946d4e77678ce52a8c86d98037c550e223b51568d5e83b675a59",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
