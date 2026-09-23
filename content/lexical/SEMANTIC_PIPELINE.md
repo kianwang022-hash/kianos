@@ -155,6 +155,17 @@ C does not clean unrelated historical repository debt.
 
 If C discovers a genuinely new material semantic issue that neither A nor B found, record `DUAL_REVIEW_MISS` and resolve only that bounded owner/dependency scope. Do not trigger a third full-catalog review.
 
+
+### 6A. Hot-path verification budget
+
+A normal ~100-owner C window is a semantic production unit, not a full-system acceptance event.
+
+Per window, run only bounded Natural Owner/dependency readback plus changed-owner QA. Do not run a full Direct Render audit, full Current-owner lineage scan, full duplicate scan, full Final Learner Object rebuild, Astro build, or browser acceptance.
+
+A C checkpoint (normally the grouped multi-window landing boundary) changes `content/lexical/execution/dual-review-C.json`. That checkpoint PR triggers exactly one consolidated `Lexical Checkpoint Audit`, which owns the repository-wide lexical consistency scan for that checkpoint. The same full scans are not repeated after merge.
+
+Website/FLOB delivery remains downstream engineering: merged semantic truth is authoritative even while Current performs its background projection/build.
+
 ## 7. Ruler change
 
 If the semantic ruler materially changes while A/B are still sweeping, do not silently continue with mixed standards.

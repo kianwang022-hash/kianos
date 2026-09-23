@@ -3,16 +3,8 @@ name: LexicalOS Current Runtime
 on:
   workflow_dispatch:
   push:
-    branches:
-      - main
+    branches: [main]
     paths:
-      - 'LEARNING_ACCEPTANCE.md'
-      - 'content/lexical/**'
-      - '!content/lexical/words/by-ordinal/**'
-      - '!content/lexical/relations/by-id/**'
-      - '!content/lexical/canonical/**'
-      - '!content/lexical/execution/**'
-      - '!content/lexical/semantic-review/**'
       - 'static-web/package.json'
       - 'static-web/astro.config.mjs'
       - 'static-web/src/layouts/**'
@@ -23,6 +15,8 @@ on:
       - 'static-web/src/lib/current.mjs'
       - 'static-web/src/lib/lexical*.mjs'
       - 'static-web/src/components/Lexical*.astro'
+      - 'static-web/src/components/Vocabulary*.astro'
+      - 'static-web/src/components/EnglishLexicalLookupBridge.astro'
       - 'static-web/src/pages/vocabulary.astro'
       - 'static-web/src/pages/vocabulary/**'
       - 'static-web/src/pages/lexical.astro'
@@ -31,13 +25,6 @@ on:
       - '.github/workflows/lexical-runtime.yml'
   pull_request:
     paths:
-      - 'LEARNING_ACCEPTANCE.md'
-      - 'content/lexical/**'
-      - '!content/lexical/words/by-ordinal/**'
-      - '!content/lexical/relations/by-id/**'
-      - '!content/lexical/canonical/**'
-      - '!content/lexical/execution/**'
-      - '!content/lexical/semantic-review/**'
       - 'static-web/package.json'
       - 'static-web/astro.config.mjs'
       - 'static-web/src/layouts/**'
@@ -48,6 +35,8 @@ on:
       - 'static-web/src/lib/current.mjs'
       - 'static-web/src/lib/lexical*.mjs'
       - 'static-web/src/components/Lexical*.astro'
+      - 'static-web/src/components/Vocabulary*.astro'
+      - 'static-web/src/components/EnglishLexicalLookupBridge.astro'
       - 'static-web/src/pages/vocabulary.astro'
       - 'static-web/src/pages/vocabulary/**'
       - 'static-web/src/pages/lexical.astro'

@@ -123,3 +123,26 @@ Natural Owners remain semantic truth. Final Learner Objects are derived learner 
 Read `execution/dual-review.json` plus the requested lane state file, then obey that lane's role file and `next_ordinal`.
 
 Do not infer progress from Chat memory, old BF branches, `live-batch.json`, or the legacy board.
+
+
+---
+
+## Hot-path delivery contract
+
+The active semantic sweep uses a deliberately thin production path.
+
+Per ~100-owner C semantic window:
+
+```text
+A/B hit union
+→ C bounded decision/mutation
+→ Natural Owner targeted readback
+→ Lexical Content Fast QA / changed-owner dependency validation
+→ durable window commit
+```
+
+Do not run full-catalog Direct Render, Current-owner lineage, duplicate, Functional First, FLOB materialization, Astro build, or browser acceptance per window.
+
+At the C checkpoint boundary, after the exact checkpoint cursor/receipt is durable, run the single consolidated `Lexical Checkpoint Audit` once. Then open/merge one checkpoint PR.
+
+After merge, Current independently follows `main`, incrementally derives Final Learner Objects, performs the required background static build, and atomically switches the learner site. Semantic production may continue without waiting for that build unless a real deployment defect is reported.

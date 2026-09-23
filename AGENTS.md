@@ -561,3 +561,29 @@ Hard rules:
 10. **User updates stay outcome-level.** Report real findings, phase transitions and blockers. Do not narrate every low-level fetch, commit, workflow status or retry.
 
 Exception: a safety-critical or identity-sensitive mutation may require smaller fail-closed steps. Even then, minimize repeated remote calls and keep durable receipts in GitHub.
+
+
+---
+
+## Hot-path verification budget
+
+Routine content production must optimize for bounded correctness, not repository-wide reassurance.
+
+For canonical content changes:
+
+```text
+exact owner read
+→ bounded mutation
+→ changed-owner / dependency QA
+→ durable commit
+→ continue production
+```
+
+Hard rules:
+
+- GitHub is the default repository truth and write surface; do not route ordinary GitHub reads/writes through Remote Desktop Commander.
+- Remote is reserved for local-only capability: worktrees, localhost, builds, processes, binary/local files, or a bounded local executor.
+- A routine semantic window must not run full-repository audits, full learner-object materialization, full Astro builds, or browser acceptance unless the exact current owner declares that window a checkpoint or a renderer/runtime defect requires it.
+- Long validators run once at their declared checkpoint. Do not duplicate the same proof in Chat, Remote, PR CI, and post-merge CI.
+- Website delivery follows merged `main` asynchronously through Current. Content production does not wait for Current/Astro completion before beginning the next independent semantic window.
+- If a cheap targeted validator and a historical full validator disagree about whether the full validator belongs on the hot path, the current domain owner decides; historical workflow existence is not authority.
