@@ -8,22 +8,34 @@
       "blob_sha": "94bc2c1dd1ee0bfaf18749bd109b4c666ed5d924",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "急性弥漫性增生性肾炎颗粒荧光",
-    "decision_axis": "免疫复合物沉积造成颗粒状免疫荧光，链球菌感染后急性肾炎是经典例子。",
+    "exam_target": "感染后急性弥漫性增生性肾小球肾炎的颗粒状IF",
+    "decision_axis": "免疫复合物沿GBM和系膜不规则沉积，免疫荧光呈颗粒状；急性链球菌感染后肾炎是经典代表。",
     "reasoning_chain": [
-      "感染后急性弥漫性增生性肾炎属于免疫复合物型肾炎，免疫荧光呈颗粒状沉积。",
-      "因此选B。",
-      "抗GBM型Ⅰ型RPGN呈线状，MCD通常没有这种颗粒免疫沉积。"
+      "颗粒状IF提示免疫复合物型肾小球损伤。",
+      "急性弥漫性增生性肾小球肾炎典型属于感染后免疫复合物肾炎。",
+      "因此选B。"
     ],
-    "transfer_rule": "颗粒状IF=immune-complex pattern。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "IF速配：免疫复合物→颗粒；抗GBM→线性；pauci-immune→少或无沉积。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.急性弥漫性增生性肾小球肾炎。Current urinary B9明确其免疫复合物沉积呈颗粒状IF。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "Ⅰ型RPGN为抗GBM抗体病，典型呈线性IF。"
+      },
+      {
+        "option": "A",
+        "reason": "微小病变病IF通常阴性或无特异沉积。"
+      }
+    ],
+    "common_failure_node": "只按“肾炎都能有免疫沉积”作答，未用颗粒/线性/pauci-immune分型。"
   },
   {
     "question_id": "xizong-official-2024-n127",
@@ -34,22 +46,34 @@
       "blob_sha": "94bc2c1dd1ee0bfaf18749bd109b4c666ed5d924",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "Ⅰ型RPGN线性荧光",
-    "decision_axis": "抗GBM抗体沿肾小球基底膜连续结合，形成线性免疫荧光。",
+    "exam_target": "Ⅰ型RPGN抗GBM病的线性IF",
+    "decision_axis": "抗GBM抗体沿肾小球基底膜连续结合，免疫荧光形成平滑线性分布。",
     "reasoning_chain": [
-      "Ⅰ型快速进行性肾小球肾炎由抗GBM抗体介导，免疫荧光典型呈沿GBM线状分布。",
-      "因此选C。",
-      "免疫复合物型肾炎更常呈颗粒状。"
+      "线性IF首先提示抗GBM抗体直接结合基底膜。",
+      "Ⅰ型RPGN就是抗GBM型。",
+      "因此选C。"
     ],
-    "transfer_rule": "线性IF→anti-GBM型RPGN。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "线性IF≈抗GBM；颗粒≈免疫复合物；少沉积≈ANCA相关pauci-immune。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.Ⅰ型快速进行性肾小球肾炎。抗GBM抗体沿GBM连续结合形成线性免疫荧光。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "感染后急性肾炎属于免疫复合物沉积，典型颗粒状。"
+      },
+      {
+        "option": "D",
+        "reason": "急性肾盂肾炎是间质/肾盂感染，不以肾小球线性IF为特征。"
+      }
+    ],
+    "common_failure_node": "把“新月体”当作一种固定IF图形，忘记RPGN需按病因分Ⅰ/Ⅱ/Ⅲ型。"
   },
   {
     "question_id": "xizong-official-2024-n128",
@@ -60,22 +84,34 @@
       "blob_sha": "94bc2c1dd1ee0bfaf18749bd109b4c666ed5d924",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "结节病BAL特点",
-    "decision_axis": "肺结节病BAL常见淋巴细胞增多，活动期可见CD4/CD8比值升高。",
+    "exam_target": "结节病BAL淋巴细胞增多",
+    "decision_axis": "肺结节病的BAL常见淋巴细胞比例增加，活动期可伴CD4/CD8比值升高，但BAL不是单独确诊依据。",
     "reasoning_chain": [
-      "结节病是以非干酪性肉芽肿为核心的间质性肺病，BAL常表现为淋巴细胞增多并偏CD4。",
-      "因此选B。",
-      "中性粒细胞为主更偏IPF等其他纤维化/炎症模式。"
+      "结节病属于肉芽肿性间质性肺病。",
+      "其BAL常呈淋巴细胞性炎症模式。",
+      "因此选B。"
     ],
-    "transfer_rule": "sarcoidosis BAL=lymphocytosis。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "ILD BAL只作支持：结节病偏淋巴细胞；IPF可偏中性粒/嗜酸，但最终仍看HRCT/组织。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.淋巴细胞比例增加。Current R8明确结节病BAL常见淋巴细胞增多。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "中性粒细胞增多更常见于IPF等纤维化性ILD模式。"
+      },
+      {
+        "option": "C",
+        "reason": "肺泡巨噬细胞本来就是BAL主要细胞，单纯比例增加不是结节病经典辨识点。"
+      }
+    ],
+    "common_failure_node": "把所有间质性肺病BAL都理解成同一种炎细胞模式。"
   },
   {
     "question_id": "xizong-official-2024-n129",
@@ -86,22 +122,34 @@
       "blob_sha": "94bc2c1dd1ee0bfaf18749bd109b4c666ed5d924",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "IPF的BAL特点",
-    "decision_axis": "IPF的BAL可见中性粒细胞等增加，但不是特异诊断依据，应结合HRCT。",
+    "exam_target": "IPF的BAL中性粒细胞增多",
+    "decision_axis": "IPF BAL可见中性粒细胞（并可伴嗜酸细胞）增加，但其诊断价值有限，HRCT/UIP模式更关键。",
     "reasoning_chain": [
-      "IPF的BAL并不是淋巴细胞主导，Current Study更强调中性粒细胞等比例增加。",
-      "因此选A。",
-      "结节病才是典型淋巴细胞/CD4增多方向。"
+      "题目与结节病BAL形成对照。",
+      "IPF并非典型淋巴细胞主导。",
+      "Current R8保存IPF BAL中性粒细胞增加接口，因此选A。"
     ],
-    "transfer_rule": "IPF诊断核心=临床+HRCT。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "BAL细胞谱是辅助鉴别，不要用它替代IPF的HRCT/UIP证据链。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.中性粒细胞比例增加。Current R8保留IPF BAL可见中性粒细胞增多的Study特点。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "显著淋巴细胞增多更支持结节病、HP等其他ILD方向。"
+      },
+      {
+        "option": "D",
+        "reason": "嗜碱性粒细胞并非IPF BAL经典主导细胞。"
+      }
+    ],
+    "common_failure_node": "把“间质炎症”简单等同淋巴细胞增多。"
   },
   {
     "question_id": "xizong-official-2024-n130",
@@ -112,22 +160,34 @@
       "blob_sha": "94bc2c1dd1ee0bfaf18749bd109b4c666ed5d924",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "亚硝酸盐中毒发绀",
-    "decision_axis": "亚硝酸盐氧化Hb形成高铁Hb，有效携氧下降并发绀。",
+    "exam_target": "亚硝酸盐中毒高铁血红蛋白导致发绀",
+    "decision_axis": "亚硝酸盐将Hb中Fe²⁺氧化为Fe³⁺形成高铁Hb，降低有效携氧能力并造成发绀。",
     "reasoning_chain": [
-      "亚硝酸盐可把Fe²⁺氧化成Fe³⁺，形成高铁血红蛋白并降低有效携氧。",
-      "临床可出现难以用普通氧合解释的发绀，因此选A。",
-      "皮肤樱桃红更偏CO中毒。"
+      "高铁Hb不能正常结合/释放氧。",
+      "血液颜色和组织氧输送异常导致皮肤黏膜发绀。",
+      "Current F1 KP05明确保存该配对，因此选A。"
     ],
-    "transfer_rule": "亚硝酸盐→methemoglobinemia→cyanosis。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "中毒皮色速配：亚硝酸盐/苯胺/硝基苯→高铁Hb→发绀；CO→樱桃红。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.发绀。Current F1 KP05明确亚硝酸盐可形成高铁血红蛋白并出现发绀。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "发红更经典见CO相关樱桃红等特定中毒。"
+      },
+      {
+        "option": "D",
+        "reason": "黄疸提示胆红素增高/肝损伤，不是亚硝酸盐主要皮色改变。"
+      }
+    ],
+    "common_failure_node": "把所有“缺氧性中毒”都想成皮肤苍白，而不识别高铁Hb发绀。"
   },
   {
     "question_id": "xizong-official-2024-n131",
@@ -138,20 +198,34 @@
       "blob_sha": "94bc2c1dd1ee0bfaf18749bd109b4c666ed5d924",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "四氯化碳中毒黄疸",
-    "decision_axis": "CCl4造成严重肝细胞损伤和脂肪变，肝功能受损可黄疸。",
+    "exam_target": "四氯化碳中毒肝损伤与黄疸",
+    "decision_axis": "四氯化碳可造成严重肝细胞损伤和脂肪变，胆红素处理受损后出现黄疸。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "CCl4是经典肝毒性化学物。",
+      "肝细胞损伤可导致胆红素代谢/排泄障碍。",
+      "Current F1 KP05直接把四氯化碳列入黄染毒物，因此选D。"
     ],
-    "transfer_rule": "CCl4经典靶器官=肝。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "中毒皮色要回机制：CCl4/毒蕈/鱼胆→肝损伤→黄疸；高铁Hb→发绀。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.黄疸。Current F1 KP05明确四氯化碳通过肝损伤可出现黄染。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "发绀更典型对应高铁血红蛋白等携氧异常。"
+      },
+      {
+        "option": "B",
+        "reason": "樱桃红等红色改变更典型与CO等中毒相关。"
+      }
+    ],
+    "common_failure_node": "把毒物皮肤颜色当作纯记忆表，不联系靶器官和血红蛋白机制。"
   },
   {
     "question_id": "xizong-official-2024-n132",
@@ -162,20 +236,35 @@
       "blob_sha": "94bc2c1dd1ee0bfaf18749bd109b4c666ed5d924",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "肝脏供血来源",
-    "decision_axis": "门静脉提供肝脏大部分血流量，肝动脉血流较少但氧含量高。",
+    "exam_target": "肝脏血流量主要来自门静脉的教材口径",
+    "decision_axis": "经典生理学中门静脉承担肝脏大部分血流量，肝动脉承担较少但富氧的血流；Current项目没有单一正式KP冻结这一精确比例轴。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "肝脏具有门静脉和肝动脉双重入流。",
+      "门静脉汇集胃肠道、脾等回流，血流量占比更大。",
+      "按题源问“供血主要来源”选择D。"
     ],
-    "transfer_rule": "肝血流量主要来自portal vein。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "肝双重血供要分“血流量贡献”和“氧供贡献”，不要把门静脉血流多等同于氧含量高。",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.门静脉。按2024题源与经典生理口径，门静脉提供肝脏大部分血流量。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "肝动脉血流量较少但氧含量高，不能与门静脉的大流量角色混淆。"
+      },
+      {
+        "option": "B",
+        "reason": "肝静脉是肝脏流出通道，不是主要入流供血来源。"
+      }
+    ],
+    "common_failure_node": "把“供血量”和“供氧”两个题轴混成一个结论。",
+    "source_gap_note": "Current Xizong A1–F Knowledge未找到单一Primary KP完整冻结“肝血流量主要来自门静脉”这一通用生理比例规则；Explanation保留题源知识，Crosswalk fail-closed。"
   },
   {
     "question_id": "xizong-official-2024-n133",
@@ -186,20 +275,36 @@
       "blob_sha": "94bc2c1dd1ee0bfaf18749bd109b4c666ed5d924",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "肝脏供氧来源",
-    "decision_axis": "肝动脉虽血流量较少但氧含量高，对肝供氧贡献很大；题源按“主要供氧”选择肝动脉。",
+    "exam_target": "肝动脉富氧血对肝氧供的重要贡献的题源口径",
+    "decision_axis": "题源将“肝脏供氧主要来源”归为肝动脉；现实肝氧输送由门静脉与肝动脉共同承担，贡献受血流和氧含量影响，不能把该单选表述外推成绝对现代生理规则。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "肝动脉血流量虽小于门静脉，但氧含量高。",
+      "经典考试常把“供血量大”与“富氧供氧”分开考。",
+      "按正式题源答案选择A，同时保留生理边界。"
     ],
-    "transfer_rule": "肝双重血供：门静脉量大，肝动脉氧浓度高。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "肝双重入流：门静脉偏大流量，肝动脉偏高氧含量；精确氧供比例不可用单一口诀代替。",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.肝动脉为2024正式题源答案，强调其富氧血对肝氧供的重要贡献。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "门静脉虽提供大部分血流量，但血氧含量低于肝动脉；不能用“血流量最多”直接回答“供氧主要”。"
+      },
+      {
+        "option": "B",
+        "reason": "肝静脉是出流血管，不承担入流供氧。"
+      }
+    ],
+    "common_failure_node": "把“门静脉血流最多”直接推出“门静脉一定供氧最多”，或反过来把肝动脉口径写成绝对比例。",
+    "source_boundary_note": "现代肝氧输送由肝动脉与门静脉共同贡献，具体比例并非固定常数；本题保留教材化考试答案，不升级为跨场景绝对规则。",
+    "source_gap_note": "Current Xizong A1–F Knowledge没有单一Primary KP完整冻结“肝动脉为主要供氧来源”的精确通用表述；Crosswalk fail-closed。"
   },
   {
     "question_id": "xizong-official-2024-n134",
@@ -210,22 +315,34 @@
       "blob_sha": "94bc2c1dd1ee0bfaf18749bd109b4c666ed5d924",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "Charcot三联征",
-    "decision_axis": "右上腹痛、寒战高热和黄疸是急性胆管炎经典Charcot三联征。",
+    "exam_target": "Charcot三联征识别急性化脓性胆管炎",
+    "decision_axis": "右上腹痛、寒战高热和黄疸构成Charcot三联征，是急性胆管炎经典识别组合。",
     "reasoning_chain": [
-      "Charcot三联征由右上腹痛、发热寒战和黄疸组成，是急性胆管炎的经典组合。",
-      "因此选B。",
-      "急性胆囊炎一般没有典型黄疸三联，胰腺炎和阑尾炎也不走这条胆道感染路径。"
+      "三联征对应胆道梗阻基础上的感染。",
+      "急性胆囊炎一般不以黄疸为核心。",
+      "Current D19 KP15明确保存Charcot三联征，因此选B。"
     ],
-    "transfer_rule": "Charcot triad=RUQ pain+fever+jaundice。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "Charcot=痛+热+黄；再加休克和神经精神异常形成Reynolds五联征。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.急性化脓性胆管炎。Current D19 KP15明确Charcot三联征属于急性胆管炎。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "急性胆囊炎以右上腹痛、发热和Murphy征为主，黄疸并非典型核心。"
+      },
+      {
+        "option": "C",
+        "reason": "重症胰腺炎可有休克/腹痛，但不定义为Charcot三联征。"
+      }
+    ],
+    "common_failure_node": "只记三个症状，不知道它们共同定位胆管感染与梗阻。"
   },
   {
     "question_id": "xizong-official-2024-n135",
@@ -236,22 +353,34 @@
       "blob_sha": "94bc2c1dd1ee0bfaf18749bd109b4c666ed5d924",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "Cullen征",
-    "decision_axis": "脐周皮下瘀斑即Cullen征，可见于重症出血坏死性胰腺炎等。",
+    "exam_target": "Cullen征提示重症出血坏死性胰腺炎",
+    "decision_axis": "脐周皮下瘀斑为Cullen征，可见于腹腔/腹膜后出血，经典考试场景为重症出血坏死性急性胰腺炎。",
     "reasoning_chain": [
-      "Cullen征是脐周皮下瘀斑，提示腹膜后/腹腔出血性渗出向皮下扩散。",
-      "在这些选项中最经典见于重症急性胰腺炎，选C。",
-      "它是重症出血性胰腺炎的警报体征之一。"
+      "Cullen征是脐周瘀斑。",
+      "重症胰腺炎可发生出血、酶性组织坏死并向腹壁扩散。",
+      "Current D20保留该严重征象接口，因此选C。"
     ],
-    "transfer_rule": "Cullen/Grey Turner提示重症腹腔/腹膜后出血。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "Cullen=脐周瘀斑；Grey-Turner=侧腹瘀斑；二者提示严重腹腔/腹膜后出血，胰腺炎是经典场景。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.重症急性胰腺炎。Cullen征是重症出血坏死性胰腺炎经典体征之一。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "急性胆囊炎的典型体征是Murphy征。"
+      },
+      {
+        "option": "D",
+        "reason": "化脓性阑尾炎不以脐周皮下瘀斑为特征。"
+      }
+    ],
+    "common_failure_node": "把所有腹部皮肤体征混在一起，未区分Murphy、Cullen、Grey-Turner。"
   },
   {
     "question_id": "xizong-official-2024-n136",
@@ -262,22 +391,30 @@
       "blob_sha": "94bc2c1dd1ee0bfaf18749bd109b4c666ed5d924",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "凝血酶正反馈",
-    "decision_axis": "凝血酶可活化V、VIII、XI放大凝血；XIII活化主要稳定纤维蛋白。",
+    "exam_target": "凝血酶对Ⅴ、Ⅷ、Ⅺ的正反馈放大",
+    "decision_axis": "凝血酶不仅把纤维蛋白原转为纤维蛋白，还通过活化Ⅴ、Ⅷ、Ⅺ形成正反馈，快速放大Xa和凝血酶生成；XIIIa主要负责纤维蛋白交联稳定。",
     "reasoning_chain": [
-      "凝血酶不仅把纤维蛋白原变成纤维蛋白，还会反馈激活多种上游凝血因子，放大凝血。",
-      "FⅤ、FⅧ、FⅪ都属于这种正反馈放大，A、B、C正确。",
-      "FⅩⅢa参与纤维蛋白交联稳定，但题源不把它列入这里的正反馈放大项。"
+      "FⅤa增强凝血酶原酶复合物。",
+      "FⅧa增强内源性FX酶复合物，FⅪa继续上游放大。",
+      "Current B4明确保存V/VIII/XI正反馈；XIII活化是稳定纤维蛋白而非本题放大轴，因此选ABC。"
     ],
-    "transfer_rule": "thrombin放大V/VIII/XI。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "凝血酶“既产纤维蛋白又放大自己”：正反馈记V、VIII、XI；XIII看纤维蛋白交联稳定。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "ABC.凝血酶可活化FⅤ、FⅧ和FⅪ，形成凝血级联正反馈放大。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "凝血酶也能活化XIII，但XIIIa主要交联稳定纤维蛋白，不属于本题所强调的凝血级联正反馈放大节点。"
+      }
+    ],
+    "common_failure_node": "看到“凝血酶能活化XIII”就把所有被凝血酶活化的因子都算作正反馈放大。"
   },
   {
     "question_id": "xizong-official-2024-n137",
@@ -288,22 +425,34 @@
       "blob_sha": "94bc2c1dd1ee0bfaf18749bd109b4c666ed5d924",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "结区心肌0期Ca2+内流",
-    "decision_axis": "窦房结P细胞和房室结细胞为慢反应细胞，0期主要依赖L型Ca2+内流。",
+    "exam_target": "窦房结和房室结慢反应动作电位0期Ca²⁺内流",
+    "decision_axis": "窦房结P细胞和房室结细胞属于慢反应细胞，0期主要由L型Ca²⁺内流形成；心房肌和浦肯野属于快反应组织，0期主要Na⁺内流。",
     "reasoning_chain": [
-      "窦房结P细胞和房室结细胞属于慢反应细胞，0期去极化主要依赖L型Ca²⁺内流。",
-      "因此A、C正确。",
-      "心房肌和浦肯野细胞的0期主要依赖快速Na⁺内流。"
+      "先把心肌分为慢反应与快反应。",
+      "结区细胞0期上升依赖Ca²⁺通道。",
+      "因此A、C正确。"
     ],
-    "transfer_rule": "慢反应细胞0期=Ca2+。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "心肌0期：窦房结/房室结→Ca²⁺；房室肌、浦肯野→快速Na⁺。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "AC.窦房结P细胞和房室结细胞的0期去极化主要依赖Ca²⁺内流。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "心房肌属于快反应细胞，0期主要由快速Na⁺内流。"
+      },
+      {
+        "option": "D",
+        "reason": "浦肯野细胞同样属于快反应组织，0期主要Na⁺内流。"
+      }
+    ],
+    "common_failure_node": "把“所有心肌动作电位0期都由Na⁺”当成统一规则。"
   },
   {
     "question_id": "xizong-official-2024-n138",
@@ -315,21 +464,24 @@
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
     "exam_target": "胃十二指肠黏膜保护介质",
-    "decision_axis": "前列环素、生长抑素、EGF、CGRP等可通过改善血流、抑酸或促进修复参与黏膜保护。",
+    "decision_axis": "前列环素/前列腺素、生长抑素、EGF和CGRP可通过改善黏膜血流、抑酸、促进黏液/碳酸氢盐或修复等参与黏膜防御。",
     "reasoning_chain": [
-      "胃十二指肠黏膜防御不是单一黏液层，而是血流、HCO₃⁻、修复和多种局部介质共同维持。",
-      "前列环素、生长抑素、EGF和CGRP都可参与黏膜保护，因此A、B、C、D均正确。",
-      "这题考的是‘多层防御网络’，不是某一种抑酸药。"
+      "黏膜保护是血流、屏障、分泌和修复共同作用。",
+      "四项分别可在不同层面增强防御或降低酸损伤。",
+      "Current D2 KP12把这些介质纳入保护网络，因此全选。"
     ],
-    "transfer_rule": "黏膜防御=黏液/HCO3-+血流+修复+局部介质。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "胃黏膜防御不要只背“黏液+HCO₃⁻”；还包括血流、前列腺素/感觉神经介质和上皮修复。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "ABCD.前列环素、生长抑素、EGF和CGRP均可参与胃十二指肠黏膜保护。",
+    "valuable_distractors": [],
+    "common_failure_node": "把“抑酸”误当成黏膜保护的唯一机制，从而漏掉血流和修复介质。"
   },
   {
     "question_id": "xizong-official-2024-n139",
@@ -340,20 +492,31 @@
       "blob_sha": "94bc2c1dd1ee0bfaf18749bd109b4c666ed5d924",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "快速产热激素",
-    "decision_axis": "儿茶酚胺可快速促进代谢产热；题源同时纳入生长激素，应按教材时间效应理解。",
+    "exam_target": "快速短时产热激素的题源组合",
+    "decision_axis": "正式题源把生长激素、肾上腺素和去甲肾上腺素归入起效较快、持续较短的产热激素，而甲状腺激素作用较慢且持久；Current相关知识分散在D22/D23等多个owner，缺少单一整题owner。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "儿茶酚胺可迅速提高代谢与产热。",
+      "甲状腺激素通过转录等机制起效较慢、作用持久，因此B不选。",
+      "题源同时将GH纳入快速产热组，正式答案为ACD。"
     ],
-    "transfer_rule": "急性产热优先联想交感-儿茶酚胺。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "产热题先分时间尺度：儿茶酚胺快；甲状腺激素慢而持久；旧Study对GH的分类按题源保留。",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "ACD.按2024正式题源，生长激素、肾上腺素和去甲肾上腺素属于较快而较短的产热激素组合。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "甲状腺激素促进基础代谢和产热，但起效较慢、持续时间较长。"
+      }
+    ],
+    "common_failure_node": "只按“能不能提高代谢”作答，没有读取题干的“起效快、持续短”时间轴。",
+    "source_gap_note": "Current D22/D23分别拥有儿茶酚胺与GH相关效应，但没有一个单一Current KP完整承载ACD三项组合及其时间分类；不拼接多owner制造relation。"
   },
   {
     "question_id": "xizong-official-2024-n140",
@@ -364,20 +527,30 @@
       "blob_sha": "94bc2c1dd1ee0bfaf18749bd109b4c666ed5d924",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "阿托品生理效应",
-    "decision_axis": "阿托品阻断M受体，可致汗液减少、散瞳和心率加快，但不阻断Nm受体。",
+    "exam_target": "阿托品M受体阻断效应",
+    "decision_axis": "阿托品阻断M受体，使汗腺分泌减少、瞳孔括约肌/睫状肌M作用受阻而散瞳，并解除心迷走效应使心率加快；骨骼肌终板为N2受体，不被阿托品阻断。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "汗腺虽由交感神经支配，但节后递质ACh作用于M受体，故阿托品可闭汗。",
+      "眼部M受体阻断导致散瞳；心脏M受体阻断导致心率加快。",
+      "骨骼肌Nm/N2不受M阻断，因此D错误，选ABC。"
     ],
-    "transfer_rule": "atropine=antimuscarinic。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "阿托品=抗M：干、红、热、散瞳、心率快；骨骼肌终板N受体不受影响。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "ABC.闭汗、瞳孔扩大和心率加快均可由M受体阻断解释；骨骼肌松弛不是阿托品作用。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "骨骼肌神经肌接头使用N2/Nm受体，阿托品不阻断该受体。"
+      }
+    ],
+    "common_failure_node": "把“胆碱能受体阻断”当成M和N都阻断，误认为阿托品会直接松弛骨骼肌。"
   },
   {
     "question_id": "xizong-official-2024-n141",
@@ -388,20 +561,31 @@
       "blob_sha": "94bc2c1dd1ee0bfaf18749bd109b4c666ed5d924",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "内分泌性骨质疏松",
-    "decision_axis": "皮质醇、甲状腺激素或PTH长期过多均可导致骨量下降。",
+    "exam_target": "皮质醇、甲状腺激素和PTH过多与骨质疏松",
+    "decision_axis": "长期高皮质醇、甲状腺激素过多和PTH过多都可增加骨吸收/抑制骨形成并降低骨量；雌激素过多不是经典骨质疏松病因。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "高皮质醇降低成骨并影响钙代谢。",
+      "甲亢加速骨转换，PTH持续过多促进骨吸收。",
+      "因此题源选择BCD。"
     ],
-    "transfer_rule": "骨质疏松要查内分泌继发原因。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "内分泌性骨量下降常见于库欣、甲亢、甲旁亢；雌激素缺乏而非过多才是常见骨质疏松因素。",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "BCD.皮质醇、甲状腺激素和PTH长期过多均可造成骨量下降；雌激素过多不是经典原因。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "骨质疏松更经典与雌激素缺乏相关，而不是雌激素分泌过多。"
+      }
+    ],
+    "common_failure_node": "把“任何激素紊乱都能导致骨质疏松”泛化，忽略激素方向。",
+    "source_gap_note": "Current D21/D22/D23分别承载甲状腺、皮质醇和PTH骨效应，但没有单一最小owner完整覆盖BCD三项正确答案；不做跨Block拼接关系。"
   },
   {
     "question_id": "xizong-official-2024-n142",
@@ -412,22 +596,34 @@
       "blob_sha": "94bc2c1dd1ee0bfaf18749bd109b4c666ed5d924",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "血红素合成调节酶",
-    "decision_axis": "ALA合酶是血红素合成限速酶；亚铁螯合酶参与最后一步。",
+    "exam_target": "血红素合成的ALA合酶与亚铁螯合酶",
+    "decision_axis": "ALA合酶催化血红素合成第一步并是关键调节/限速酶；亚铁螯合酶催化Fe²⁺插入原卟啉Ⅸ的最后一步。",
     "reasoning_chain": [
-      "血红素合成调节首先看限速入口ALA合酶，同时末端亚铁螯合酶也是合成链的重要调节点。",
-      "因此B、C正确。",
-      "血红素加氧酶负责分解血红素，谷胱甘肽还原酶负责抗氧化。"
+      "血红素加氧酶属于血红素分解。",
+      "ALA合酶决定入口，亚铁螯合酶完成终末合成。",
+      "Current M10 KP02/KP03保存这两端，因此选BC。"
     ],
-    "transfer_rule": "heme synthesis抓ALA synthase和ferrochelatase。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "血红素合成抓“两头”：ALA synthase开头限速，ferrochelatase最后插铁。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "BC.ALA合酶和亚铁螯合酶均参与血红素合成，并分别位于关键入口和终末插铁步骤。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "血红素加氧酶参与血红素分解生成胆绿素等，不属于合成。"
+      },
+      {
+        "option": "D",
+        "reason": "谷胱甘肽还原酶属于抗氧化GSH循环。"
+      }
+    ],
+    "common_failure_node": "把“与血红素有关的酶”都归入合成通路。"
   },
   {
     "question_id": "xizong-official-2024-n143",
@@ -438,22 +634,30 @@
       "blob_sha": "94bc2c1dd1ee0bfaf18749bd109b4c666ed5d924",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "蛋白质-蛋白质相互作用技术",
-    "decision_axis": "酵母双杂交、co-IP、GST pull-down均可研究蛋白互作；ChIP主要研究蛋白-DNA。",
+    "exam_target": "蛋白质-蛋白质相互作用实验技术",
+    "decision_axis": "酵母双杂交、co-IP和GST pull-down都可检测蛋白互作；ChIP主要用于蛋白-DNA/染色质结合。",
     "reasoning_chain": [
-      "研究蛋白质-蛋白质相互作用常用酵母双杂交、免疫共沉淀和GST pull-down。",
-      "因此A、B、C正确。",
-      "ChIP主要研究DNA与蛋白质在染色质上的相互作用，不是纯蛋白-蛋白检测。"
+      "Y2H可在细胞内报告蛋白互作。",
+      "co-IP和GST pull-down分别通过共沉淀/亲和拉下验证蛋白结合。",
+      "ChIP富集的是蛋白结合的染色质DNA，因此ABC正确。"
     ],
-    "transfer_rule": "PPI methods=Y2H/co-IP/pull-down。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "互作实验先问对象：蛋白-蛋白→Y2H/co-IP/pull-down；蛋白-DNA→ChIP/EMSA等。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "ABC.酵母双杂交、免疫共沉淀和GST pull-down均可研究蛋白质-蛋白质相互作用。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "ChIP核心是检测细胞内蛋白与特定DNA/染色质区域的结合。"
+      }
+    ],
+    "common_failure_node": "看到“沉淀”技术就都当作蛋白-蛋白互作实验，忽略ChIP沉淀后分析的是DNA。"
   },
   {
     "question_id": "xizong-official-2024-n144",
@@ -464,22 +668,30 @@
       "blob_sha": "94bc2c1dd1ee0bfaf18749bd109b4c666ed5d924",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "启动子结构分析方法",
-    "decision_axis": "启动子可通过测序、生信预测及核酸-蛋白相互作用实验分析。",
+    "exam_target": "基因启动子结构分析方法",
+    "decision_axis": "启动子结构可通过PCR/测序获得序列，通过生物信息学预测调控元件，并用核酸-蛋白相互作用技术验证转录因子结合；标签蛋白沉淀本身不是启动子结构分析主线。",
     "reasoning_chain": [
-      "启动子结构分析需要回答序列长什么样、哪些蛋白结合、以及哪些位点可能存在。",
-      "PCR结合测序、核酸-蛋白相互作用技术和生物信息学预测都能回答这些问题，因此A、B、D正确。",
-      "标签蛋白质沉淀主要不是启动子结构本身的分析工具。"
+      "序列层需要PCR/测序。",
+      "功能元件可先用生信预测，再用DNA-蛋白结合实验验证。",
+      "GST等标签蛋白沉淀更偏蛋白互作，因此选ABD。"
     ],
-    "transfer_rule": "promoter研究=序列+转录因子结合证据。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "启动子研究三层：序列获取→in silico motif预测→DNA-蛋白结合/功能验证。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "ABD.PCR结合测序、核酸-蛋白质相互作用技术和生物信息学预测都可用于启动子结构/调控元件分析。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "标签蛋白质沉淀主要用于蛋白质相互作用或纯化，不直接完成启动子DNA结构分析。"
+      }
+    ],
+    "common_failure_node": "把所有分子生物学“pull-down/沉淀”技术都认为能直接分析启动子。"
   },
   {
     "question_id": "xizong-official-2024-n145",
@@ -490,22 +702,30 @@
       "blob_sha": "94bc2c1dd1ee0bfaf18749bd109b4c666ed5d924",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "细胞周期抑制分子",
-    "decision_axis": "RB、p53和p16均可抑制细胞周期进展；EGF属于促增殖信号。",
+    "exam_target": "RB、p53、p16抑制细胞周期",
+    "decision_axis": "RB、p53和p16均属于抑癌/细胞周期制动轴，可通过限制G1/S推进等抑制增殖；EGF是促增殖生长因子。",
     "reasoning_chain": [
-      "RB限制E2F推动细胞周期，p53可诱导停滞/修复或凋亡，p16抑制CDK4/6并维持RB刹车。",
-      "因此A、B、C都有细胞周期抑制作用。",
-      "EGF是促生长信号，不属于抑癌检查点分子。"
+      "RB限制E2F，p16抑制CDK4/6，p53可经p21等形成检查点。",
+      "三者都能抑制细胞周期推进。",
+      "EGF激活促生长信号，方向相反，因此ABC正确。"
     ],
-    "transfer_rule": "RB/p53/p16=cell-cycle brake。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "细胞周期“刹车”：RB/p53/p16；生长因子如EGF更偏“油门”。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "ABC.RB、p53和p16均具有细胞周期抑制作用；EGF促进增殖信号。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "EGF通过受体酪氨酸激酶等促进细胞生长和增殖，不是细胞周期抑制分子。"
+      }
+    ],
+    "common_failure_node": "把“肿瘤相关分子”不分方向地混在一起记。"
   },
   {
     "question_id": "xizong-official-2024-n146",
@@ -516,22 +736,25 @@
       "blob_sha": "94bc2c1dd1ee0bfaf18749bd109b4c666ed5d924",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "生物转化结合反应",
-    "decision_axis": "Ⅱ相生物转化常与葡萄糖醛酸、硫酸、乙酰基或甘氨酸等结合，提高水溶性。",
+    "exam_target": "Ⅱ相生物转化常见结合基团",
+    "decision_axis": "Ⅱ相结合反应常把葡萄糖醛酸、硫酸、乙酰基或甘氨酸等接到化合物上，提高极性/促进清除。",
     "reasoning_chain": [
-      "Ⅱ相生物转化通过结合反应提高分子水溶性和排泄性。",
-      "葡萄糖醛酸、硫酸根、乙酰基和甘氨酰基都属于常见结合基团，因此A、B、C、D全选。",
-      "判断关键是‘结合基团’而不是Ⅰ相氧化还原酶。"
+      "题目列出的四种都是经典结合反应供体/基团。",
+      "它们分别对应葡萄糖醛酸化、硫酸化、乙酰化和氨基酸结合。",
+      "Current M10 KP12完整保存，因此全选。"
     ],
-    "transfer_rule": "phase II=conjugation。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "生物转化Ⅱ相=“结合”：葡萄糖醛酸、硫酸、乙酰、甲基、甘氨酸/GSH等。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "ABCD.葡萄糖醛酸基、硫酸根、乙酰基和甘氨酰基均可参与Ⅱ相生物转化结合反应。",
+    "valuable_distractors": [],
+    "common_failure_node": "把“乙酰化”误当成与蛋白翻译后修饰同义而排除其解毒代谢角色。"
   },
   {
     "question_id": "xizong-official-2024-n147",
@@ -542,22 +765,34 @@
       "blob_sha": "94bc2c1dd1ee0bfaf18749bd109b4c666ed5d924",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "甘油二酯途径合成磷脂",
-    "decision_axis": "磷脂酰胆碱和磷脂酰乙醇胺可由DAG与活化头基结合合成。",
+    "exam_target": "DAG途径合成PC与PE",
+    "decision_axis": "DAG与活化的胆碱或乙醇胺头基结合，可生成磷脂酰胆碱（卵磷脂）和磷脂酰乙醇胺（脑磷脂）；PI和心磷脂更多走CDP-DAG路线。",
     "reasoning_chain": [
-      "甘油磷脂合成可走DAG途径和CDP-DAG途径。",
-      "卵磷脂和脑磷脂主要走DAG途径，因此A、B正确；肌醇磷脂和心磷脂更偏CDP-DAG路线。",
-      "把头基种类挂回合成路线即可。"
+      "Current M6将甘油磷脂分成DAG和CDP-DAG两条主合成线。",
+      "PC、PE归DAG路径。",
+      "PI、心磷脂归CDP-DAG路径，因此选AB。"
     ],
-    "transfer_rule": "DAG route经典产物=PC/PE。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "磷脂合成：DAG路→PC/PE；CDP-DAG路→PI/PG/心磷脂。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "AB.卵磷脂和脑磷脂可通过甘油二酯途径合成。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "磷脂酰肌醇主要属于CDP-DAG途径。"
+      },
+      {
+        "option": "D",
+        "reason": "心磷脂同样来自CDP-DAG相关路径。"
+      }
+    ],
+    "common_failure_node": "只背磷脂名字，不按两条合成路线分组。"
   },
   {
     "question_id": "xizong-official-2024-n148",
@@ -568,22 +803,34 @@
       "blob_sha": "94bc2c1dd1ee0bfaf18749bd109b4c666ed5d924",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "原癌基因辨析",
-    "decision_axis": "RAS和MYC是原癌基因；PTEN和RB属于抑癌基因。",
+    "exam_target": "RAS和MYC属于原癌基因",
+    "decision_axis": "RAS编码小GTP酶、MYC编码转录因子，均属于经典原癌基因；PTEN和RB属于抑癌基因。",
     "reasoning_chain": [
-      "RAS和MYC都是经典原癌基因，激活后可推动细胞生长和增殖。",
-      "因此A、B正确。",
-      "PTEN和RB属于抑癌基因，功能丢失才促进肿瘤。"
+      "RAS/MYC正常状态参与生长与增殖信号。",
+      "获得功能或过度表达可促进肿瘤发生。",
+      "PTEN、RB失活则属于抑癌基因通路，因此选AB。"
     ],
-    "transfer_rule": "oncogene gain-of-function；tumor suppressor loss-of-function。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "原癌基因常是“油门”获得功能；抑癌基因常是“刹车”丢失功能。RAS/MYC vs PTEN/RB是高频配对。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "AB.RAS和MYC均为经典原癌基因；PTEN和RB是抑癌基因。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "PTEN负调控PI3K-AKT等信号，属于抑癌基因。"
+      },
+      {
+        "option": "D",
+        "reason": "RB限制G1/S转换，是经典抑癌基因。"
+      }
+    ],
+    "common_failure_node": "只按“癌症里经常突变”判断原癌/抑癌，不看正常功能方向。"
   },
   {
     "question_id": "xizong-official-2024-n149",
@@ -594,20 +841,31 @@
       "blob_sha": "94bc2c1dd1ee0bfaf18749bd109b4c666ed5d924",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "炎性渗出液作用",
-    "decision_axis": "渗出液可稀释毒素、带入抗体补体和纤维蛋白，帮助杀菌并限制扩散；也可导致粘连。",
+    "exam_target": "炎性渗出液的防御作用",
+    "decision_axis": "炎性渗出液可稀释毒素、带入抗体/补体等体液防御成分，并通过纤维蛋白等限制病原扩散；但也可促进机化和粘连，不是“预防粘连”。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "液体外渗可降低局部毒性物质浓度。",
+      "血浆蛋白和免疫成分进入组织有助病原清除。",
+      "纤维蛋白可形成局部屏障限制扩散；渗出后机化反而可能造成粘连，所以选ABC。"
     ],
-    "transfer_rule": "炎性渗出有防御作用也有组织后果。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "炎性渗出既有利也有害：稀释/防御/局限感染，但过多可压迫、机化、粘连。",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "ABC.炎性渗出可稀释毒素、携带杀菌/免疫成分并限制细菌扩散；它不能预防粘连，反而可能促进粘连。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "富纤维蛋白渗出后若机化可形成粘连，因此“预防粘连”方向相反。"
+      }
+    ],
+    "common_failure_node": "只把炎性渗出视为“坏事”，或反过来误认为纤维蛋白屏障能防止后续粘连。",
+    "source_gap_note": "Current项目未找到单一正式Primary KP完整承载炎性渗出液“稀释毒素+杀菌+限制扩散+可致粘连”四轴；Explanation保留基础病理知识，Crosswalk fail-closed。"
   },
   {
     "question_id": "xizong-official-2024-n150",
@@ -618,19 +876,33 @@
       "blob_sha": "94bc2c1dd1ee0bfaf18749bd109b4c666ed5d924",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "肉芽肿性炎疾病",
-    "decision_axis": "结核形成典型肉芽肿；伤寒可形成以巨噬细胞增生为主的伤寒小结。",
+    "exam_target": "结核与伤寒均可形成肉芽肿性/肉芽肿样病变",
+    "decision_axis": "结核形成典型慢性干酪性肉芽肿；伤寒中巨噬细胞聚集形成伤寒小结，Current H23称急性肉芽肿/急性增生性炎；阿米巴和菌痢不是该基本病变。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "结核的经典组织学身份是干酪性肉芽肿。",
+      "Current H23 KP03明确伤寒细胞聚集成伤寒小结，并称急性肉芽肿，同时与结核对比。",
+      "因此A、B正确。"
     ],
-    "transfer_rule": "肉芽肿先看巨噬细胞聚集及病因。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "“肉芽肿”不是只等于结核：伤寒小结可作为急性肉芽肿特殊例；要继续看细胞组成和坏死类型。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "AB.结核病形成典型干酪性肉芽肿；伤寒可形成由伤寒细胞聚集的伤寒小结（急性肉芽肿）。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "阿米巴病典型组织损害以溶组织性坏死和烧瓶样溃疡等为主，不以肉芽肿为基本病变。"
+      },
+      {
+        "option": "D",
+        "reason": "细菌性痢疾以黏膜纤维素性/假膜性炎和浅表地图状溃疡为主。"
+      }
+    ],
+    "common_failure_node": "把“肉芽肿”机械等同慢性结核结节，漏掉伤寒小结这一特殊急性增生性病变。"
   }
 ]
