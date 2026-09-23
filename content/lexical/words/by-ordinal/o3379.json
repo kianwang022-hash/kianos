@@ -7,7 +7,7 @@
     "card_version": "v3",
     "confusables": [],
     "constructions": [],
-    "content_hash": "977fec8de928aa73a00b82ebb1948e23c1c39ef0d5d43601db6fd2607f3ef908",
+    "content_hash": "b833ebcee95aac614d781d9548697b69f1460c24d84dbed31cad104757d11049",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "方向；定位；取向",
@@ -16,14 +16,13 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": false,
+    "needs_delta_review": true,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
       "deep:deep:word_family:orientation:73fdb9ae6f20c495",
       "relation:deep:word_family:orientation:73fdb9ae6f20c495",
-      "sense:sense:orientation:f2605cb0fc26528d",
-      "semantic-reconciliation:o3375-o3624"
+      "sense:sense:orientation:f2605cb0fc26528d"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -77,7 +76,18 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:4dbdfb8f9fe0317dd208",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:orientation:c99400e37737559a:collocation:0"
+            ],
+            "meaning_cn": "迎新活动；入职培训",
+            "phrase": "orientation program",
+            "target_proposed_sense_key": "word:orientation|sense|introductory_training"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "适应；定位",
         "definition_en": "the act of orienting; a person's awareness of self with regard to position and time and place and personal relationships",
@@ -91,18 +101,7 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:4dbdfb8f9fe0317dd208",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:orientation:c99400e37737559a:collocation:0"
-            ],
-            "meaning_cn": "迎新活动；入职培训",
-            "phrase": "orientation program",
-            "target_proposed_sense_key": "word:orientation|sense|introductory_training"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "岗前培训；入职/入学介绍；适应性培训",
         "definition_en": "training or information that introduces someone to a new job, course, organization, or situation",
@@ -124,6 +123,30 @@
             "verification_status": "auditor_verified"
           }
         ]
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:6d7044bc293fb7a62aaf",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:orientation:ad66464683a6ba2e:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "性取向",
+            "phrase": "sexual orientation"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "性取向",
+        "definition_en": "the pattern or fact of being sexually or romantically attracted to people of a particular gender or more than one gender",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:orientation:ad66464683a6ba2e",
+        "sense_label_en": "the pattern or fact of being sexually or romantically attracted to people of a particular gender or more than one gender",
+        "sort_order": 4,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -216,10 +239,18 @@
         "merged_into_sense_id": null,
         "source_row": 9382,
         "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json"
+      },
+      {
+        "sense_id": "sense:orientation:ad66464683a6ba2e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9418,
+        "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json"
       }
     ],
     "active_collocations": [
       "collocation:4dbdfb8f9fe0317dd208",
+      "collocation:6d7044bc293fb7a62aaf",
       "collocation:9982cf40b587b9f4aed4",
       "collocation:e44d733d759959bff4b5"
     ],
@@ -244,6 +275,11 @@
       {
         "id": "collocation:e44d733d759959bff4b5",
         "source_row": 19327,
+        "source_path": "content/lexical/canonical/collocations/shards/o3361-3392.json"
+      },
+      {
+        "id": "collocation:6d7044bc293fb7a62aaf",
+        "source_row": 21288,
         "source_path": "content/lexical/canonical/collocations/shards/o3361-3392.json"
       }
     ],
@@ -283,7 +319,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3377-3384.json",
-    "source_content_hash": "4ed734e7c516abe7c56da142a0aa6a131ebffe95e5b431f63f27bd1b83df018e",
+    "source_content_hash": "b833ebcee95aac614d781d9548697b69f1460c24d84dbed31cad104757d11049",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

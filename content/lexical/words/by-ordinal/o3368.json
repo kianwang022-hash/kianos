@@ -6,32 +6,75 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "f18e363df543ebe85a7307101a62ae1a932a838df616045227d6718f09a97efe",
+    "constructions": [
+      {
+        "boundary": "purpose construction",
+        "construction_id": "construction:58625f9b0f728dec2f8e",
+        "definition_en": "for the purpose of doing something",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "为了；以便",
+        "pattern": "in order to + infinitive",
+        "source_sense_id": "sense:order:577ac013a49856e4"
+      },
+      {
+        "boundary": "lexicalized construction; technical/sequence/behavior readings depend on context",
+        "construction_id": "construction:a17678b9a89b9e3f9caf",
+        "definition_en": "not working correctly; not in the correct sequence; chiefly BrE informal, inappropriate or unacceptable",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "出故障；次序不对；（英式非正式）行为不当",
+        "pattern": "out of order",
+        "source_sense_id": "sense:order:577ac013a49856e4"
+      }
+    ],
+    "content_hash": "886caa5614eec5953738db650e04336b4f80eab25b14b6e9c56707b88f0a817d",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "命令；次序，顺序；订单",
-          "label_en": "a command given by a superior that must be obeyed; a degree in a continuum of size or quantity; a commercial document used to request someone to supply something",
+          "label_cn": "命令",
+          "label_en": "a command that must be obeyed",
           "pos": "noun",
           "sense_ids": [
-            "sense:order:81c83ba4b89a5630",
-            "sense:order:577ac013a49856e4",
+            "sense:order:81c83ba4b89a5630"
+          ]
+        },
+        {
+          "label_cn": "顺序；秩序",
+          "label_en": "sequence, arrangement, or organized order",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:order:577ac013a49856e4"
+          ]
+        },
+        {
+          "label_cn": "订单",
+          "label_en": "a request for goods, food, or services",
+          "pos": "noun",
+          "sense_ids": [
             "sense:order:7f2e7607d60b5820"
           ]
         },
         {
-          "label_cn": "命令；订购；订货",
-          "label_en": "give an order to; request something to be made or supplied; place an order",
+          "label_cn": "订购；下单",
+          "label_en": "to request goods, food, or services to be supplied",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:order:ffad803668555128"
+          ]
+        },
+        {
+          "label_cn": "命令",
+          "label_en": "to command someone to do something",
           "pos": "verb",
           "sense_ids": [
             "sense:order:8e7011caed4b5ed1"
           ]
         }
       ],
-      "core_meaning_cn": "把人或事物按一定次序排列或组织",
-      "core_meaning_en": "sequence, arrangement, or organized order",
-      "mental_model_cn": "把人或事物按一定次序排列或组织",
+      "core_meaning_cn": "命令；顺序/秩序；订单/订购",
+      "core_meaning_en": "a command; sequence or organized order; a commercial order; to order",
+      "mental_model_cn": "命令；顺序/秩序；订单/订购",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -92,15 +135,6 @@
             "phrase": "in order"
           },
           {
-            "collocation_id": "collocation:99a1e8837dea84f8428e",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:order:577ac013a49856e4:collocation:1"
-            ],
-            "meaning_cn": "次序颠倒；出故障",
-            "phrase": "out of order"
-          },
-          {
             "collocation_id": "collocation:f21924d030983351de29",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -124,20 +158,6 @@
         "usage_note": "order here means arrangement, sequence, or orderliness; it is not a magnitude continuum."
       },
       {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "订购；下订单",
-        "definition_en": "to place an order",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:order:e55bda7c9bde5349",
-        "sense_label_en": "to place an order",
-        "sort_order": 1,
-        "transitivity": "vt"
-      },
-      {
         "collocations": [
           {
             "collocation_id": "collocation:1e21757b79f5bda7bf3a",
@@ -150,30 +170,30 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "订单",
-        "definition_en": "a commercial document used to request someone to supply something",
+        "definition_cn": "订单；订购",
+        "definition_en": "a request for goods, food, or services to be supplied",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:order:7f2e7607d60b5820",
-        "sense_label_en": "a commercial document used to request someone to supply something",
+        "sense_label_en": "a request for goods, food, or services to be supplied",
         "sort_order": 2,
         "transitivity": "nonverb"
       },
       {
         "collocations": [],
         "confidence": "medium",
-        "definition_cn": "订购；要求供应",
-        "definition_en": "to request something to be made or supplied",
-        "governing_pattern": "",
-        "level": "L2",
+        "definition_cn": "订购；下单；要求供应",
+        "definition_en": "to ask for goods, food, or services to be supplied; to place an order",
+        "governing_pattern": "I/T: order sth; order from sb/place",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:order:ffad803668555128",
-        "sense_label_en": "to request something to be made or supplied",
+        "sense_label_en": "to ask for goods, food, or services to be supplied; to place an order",
         "sort_order": 2,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       },
       {
         "collocations": [
@@ -247,7 +267,7 @@
         "priority": "A",
         "publication_status": "publishable",
         "shared_definition": null,
-        "source_sense_id": "sense:order:81c83ba4b89a5630",
+        "source_sense_id": "sense:order:577ac013a49856e4",
         "target_sense_id": "sense:orderly:f0458c7980db5bc1",
         "target_word": "orderly",
         "task_tags": [
@@ -260,7 +280,33 @@
     "word_id": "word:order"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:order:e55bda7c9bde5349",
+      "status": "merged",
+      "merged_into_sense_id": "sense:order:ffad803668555128",
+      "pos": "verb",
+      "definition_cn": "订购；下订单",
+      "definition_en": "to place an order",
+      "semantic_key": "e4823b4f4fb9802377041077660d92712c9981b3257c1893f563b44d949b316e",
+      "semantic_key_history": [
+        "8ed1bde3065a4fb818eef84cb2001e94179a91dd1b105bcb0199789d6cfde435"
+      ],
+      "legacy_aliases": [
+        "order:l3:6"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "order:l3:6",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-23T00:00:00Z",
+      "source_row": 9349,
+      "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -293,8 +339,8 @@
       },
       {
         "sense_id": "sense:order:e55bda7c9bde5349",
-        "status": "active",
-        "merged_into_sense_id": null,
+        "status": "merged",
+        "merged_into_sense_id": "sense:order:ffad803668555128",
         "source_row": 9349,
         "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json"
       },
@@ -311,7 +357,6 @@
       "collocation:1e21757b79f5bda7bf3a",
       "collocation:40cc02cae44ecfcccfd9",
       "collocation:52e57b39ccb17d7ab962",
-      "collocation:99a1e8837dea84f8428e",
       "collocation:d643ed454b9a88057f45",
       "collocation:f21924d030983351de29"
     ],
@@ -395,8 +440,8 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3361-3368.json",
-    "source_content_hash": "f18e363df543ebe85a7307101a62ae1a932a838df616045227d6718f09a97efe",
-    "semantic_delta": 1,
+    "source_content_hash": "886caa5614eec5953738db650e04336b4f80eab25b14b6e9c56707b88f0a817d",
+    "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

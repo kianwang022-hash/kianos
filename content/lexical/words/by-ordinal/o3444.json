@@ -7,88 +7,36 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "42c8612c8a8a1b1f9c43cdf55e2f44d4ecc43cfaef449c8fa834ca7318da9981",
+    "content_hash": "f8a57190547381af284a9e83414e0bba7a7601171a803fbe38b8f41c4150076b",
     "core_concept": {
-      "core_clusters": [
-        {
-          "label_cn": "短桨；桨",
-          "label_en": "short oar for canoe/small boat",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:paddle:31f8486cbaff5e75"
-          ]
-        },
-        {
-          "label_cn": "用桨划船",
-          "label_en": "propel a boat with a paddle",
-          "pos": "verb",
-          "sense_ids": [
-            "sense:paddle:d35675e705c35a09"
-          ]
-        }
-      ],
-      "core_meaning_cn": "桨；划桨",
-      "core_meaning_en": "a paddle; to paddle a boat",
-      "mental_model_cn": "桨；划桨",
+      "core_clusters": [],
+      "core_meaning_cn": "桨，划桨",
+      "core_meaning_en": "a short oar used to propel a boat, or the action of using it",
+      "mental_model_cn": "桨，划桨",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [
-      "semantic-reconciliation:o3375-o3624"
-    ],
+    "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:bbe75f66f5398d6bc383",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:paddle:31f8486cbaff5e75:collocation:forward-o3375-o3624"
-            ],
-            "meaning_cn": "独木舟桨",
-            "phrase": "a canoe paddle"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
-        "definition_cn": "短桨；桨",
-        "definition_en": "a short light oar used without an oarlock to propel a canoe or small boat",
-        "governing_pattern": "",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:paddle:31f8486cbaff5e75",
-        "sense_label_en": "a short light oar used without an oarlock to propel a canoe or small boat",
-        "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:314bb688946ef3a3e557",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:paddle:d35675e705c35a09:collocation:forward-o3375-o3624"
-            ],
-            "meaning_cn": "划独木舟/划过湖面",
-            "phrase": "paddle a canoe / paddle across the lake"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "用桨划船",
-        "definition_en": "to move or propel a canoe or small boat through water using a paddle",
-        "governing_pattern": "vi. / vt.",
-        "level": "L1",
+        "definition_cn": "涉水；戏水（尤英式）",
+        "definition_en": "chiefly BrE, to walk or wade with bare feet in shallow water, especially for pleasure",
+        "governing_pattern": "vi.: paddle in/at + shallow water",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
-        "sense_id": "sense:paddle:d35675e705c35a09",
-        "sense_label_en": "to move or propel a canoe or small boat through water using a paddle",
-        "sort_order": 1,
-        "transitivity": "vt/vi"
+        "sense_id": "sense:paddle:401c3898b3895f74",
+        "sense_label_en": "chiefly BrE, to walk or wade with bare feet in shallow water, especially for pleasure",
+        "sort_order": 999,
+        "transitivity": "vt",
+        "usage_note": "Chiefly BrE."
       }
     ],
     "verification_summary": {
@@ -113,27 +61,27 @@
   "relation_refs": [],
   "reference_senses": [
     {
-      "stable_sense_id": "sense:paddle:401c3898b3895f74",
-      "status": "deprecated",
+      "stable_sense_id": "sense:paddle:31f8486cbaff5e75",
+      "status": "active",
       "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "涉水，戏水",
-      "definition_en": "walk with bare feet in shallow water",
-      "semantic_key": "3e1358747378b49f29bc0a143992ac49fb7051ae03612201c3bda678b137cd92",
+      "pos": "noun",
+      "definition_cn": "短桨；桨",
+      "definition_en": "a short light oar used without an oarlock to propel a canoe or small boat",
+      "semantic_key": "0096f7a51bdbbda66448a08cb1b81574b96c9e91510856f26a666f45d6270661",
       "semantic_key_history": [
-        "5e95e94d81218d2ed9f39d4b2abfe00fd68940dce441f6643ce61fa22bf4dccb"
+        "5faddb1137c10a5a3ff3cacd5a1f24fcabe7db247bd2c13b71e1ce8bde1b62c1"
       ],
       "legacy_aliases": [
-        "paddle:l2:3"
+        "paddle:l1:1"
       ],
       "legacy_alias_history": [
         {
-          "legacy_sense_id": "paddle:l2:3",
+          "legacy_sense_id": "paddle:l1:1",
           "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
         }
       ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 9548,
+      "updated_at": "2026-09-15T10:50:00Z",
+      "source_row": 9547,
       "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json",
       "reference_only": true
     },
@@ -209,6 +157,31 @@
       "source_row": 9551,
       "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json",
       "reference_only": true
+    },
+    {
+      "stable_sense_id": "sense:paddle:d35675e705c35a09",
+      "status": "active",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "用桨划船",
+      "definition_en": "to move or propel a canoe or small boat through water using a paddle",
+      "semantic_key": "ed121ebd9818dc33d5d78533f8e9f7de772f485bdc26e3fce4127aaec2def3c8",
+      "semantic_key_history": [
+        "3a62a5989d2f19e020ce2142f81de0bcbd7eea6362e81be03a11337802923a08"
+      ],
+      "legacy_aliases": [
+        "paddle:l1:2"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "paddle:l1:2",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-15T10:50:00Z",
+      "source_row": 9552,
+      "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json",
+      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -222,7 +195,7 @@
       },
       {
         "sense_id": "sense:paddle:401c3898b3895f74",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 9548,
         "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json"
@@ -256,20 +229,12 @@
         "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json"
       }
     ],
-    "active_collocations": [
-      "collocation:314bb688946ef3a3e557",
-      "collocation:bbe75f66f5398d6bc383"
-    ],
+    "active_collocations": [],
     "facts": [],
     "collocations": [
       {
         "id": "collocation:06dd377154b7fc4ed4ab",
         "source_row": 570,
-        "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
-      },
-      {
-        "id": "collocation:314bb688946ef3a3e557",
-        "source_row": 21604,
         "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
       },
       {
@@ -293,13 +258,18 @@
         "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
       },
       {
+        "id": "collocation:cc304a35266c510c2d88",
+        "source_row": 17253,
+        "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
+      },
+      {
         "id": "collocation:bbe75f66f5398d6bc383",
         "source_row": 21603,
         "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
       },
       {
-        "id": "collocation:cc304a35266c510c2d88",
-        "source_row": 17253,
+        "id": "collocation:314bb688946ef3a3e557",
+        "source_row": 21604,
         "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
       }
     ],
@@ -324,7 +294,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3441-3448.json",
-    "source_content_hash": "98422b5b6ccc225adbd16086184536e231621fbc3c0b4396174d316f512c508e",
+    "source_content_hash": "f8a57190547381af284a9e83414e0bba7a7601171a803fbe38b8f41c4150076b",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
