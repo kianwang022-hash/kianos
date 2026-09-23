@@ -1,69 +1,60 @@
 # KianOS Website Current
 
-Role: thin website engineering router. Root [CURRENT](../CURRENT.md) owns cross-program routing; this file stores no subject progress, learner facts or second control plane. Normal study does not start here.
+Role: thin website engineering router. Root [CURRENT](../CURRENT.md) owns cross-program routing; this file stores no subject progress, learner facts, duplicated acceptance ledger, or second control plane. Normal study does not start here.
 
 ## Current state
 
-The existing subject surfaces and shared shell are landed. Broad UI construction remains closed. Native evidence, durable recovery, source-aware Resume and the bounded local worker were integrated through [PR #732](https://github.com/kianwang022-hash/kianos/pull/732). Its scope and proof are recorded once in [the integration receipt](L1_SHARED_RUNTIME_CLOSURE.md).
+The shared shell and existing subject surfaces are landed. Broad UI construction remains closed; reopen only for a concrete learner-visible defect, platform change, or explicit new need.
 
-Current closure work is limited to usable context routing, proven-safe cleanup and specific remaining interaction gaps. Do not restart the subject audits or treat older PASS narratives as current acceptance.
+Accepted shared-runtime provenance lives in [L1_SHARED_RUNTIME_CLOSURE.md](L1_SHARED_RUNTIME_CLOSURE.md) and Git history. Do not copy old PRs, workflow runs, candidate SHAs, or historical PASS narratives back into this cursor.
 
-Content production remains independent: vocabulary upgrades, Xizong explanations, Visual assets and reviewed relations continue with their Chat-owned content owners. This engineering closure does not declare those frontiers complete.
+The managed macOS Current mirror, private checkpoint path, Daily Learning Packet relay, private control path, and External Reading source are active operational surfaces. Their live truth comes from [Current doctor](scripts/kianos-current-doctor.mjs) and the exact runtime owner, never a status copied here.
 
-### Bounded Freeze repairs — merged
+Content production remains independent: vocabulary, Xizong explanations/relations/visual assets, English sources, Politics sources, and Skills continue only through their exact content owners.
 
-[PR #754](https://github.com/kianwang022-hash/kianos/pull/754) merged as `c0742a003ae0d806c73fc67a23750cefe821cddd` on 2026-09-22 and was read back. It contains all seven authorized code repairs: normal private handoff; malformed English seal/result preservation; unknown Xizong quantities; native score/receipt recovery; exclusive browser writes with ownership-aware rollback; and crash-safe watcher acquisition. The write owner is ephemeral, not a second learner store or a strategy engine. Explicit blanks and legitimate zero remain legal.
-
-[The affected integration run](https://github.com/kianwang022-hash/kianos/actions/runs/35676415909) passed on candidate `fe2ff9b7be206c3181dcc56702cb0eab03eea19b` / test merge `2b0bf449ba8c19f5c3f39dfadd466db3743d6497`: 27 focused native integrity tests, existing native/control/checkpoint/Forecast interfaces, full build, normal whole-paper journey, four actual-page corruption/recovery/two-page journeys, cross-subject browser regression, and isolated watcher/execution-policy tests. Native foreground focus was separately observed before the two-page tests; no DOM focus predicate or application protection was weakened. The later cursor/diagnostic cleanup and merge preserve the tested native and browser-test blobs. Detailed proof and remaining CI distinctions stay on that PR, not a second tracker.
-
-Next: no further speculative code repair for these seven findings; reopen only for contrary evidence or an explicit new need. Existing broader source/content/legacy-fixture failures are not silently green and do not authorize content rewrites. Installed Mac, actual private relay, old/new already-open pages and fresh-Chat behavior remain separately NOT_PROVEN; this is not Final Freeze PASS. No learner migration, data reset, real-record mutation or deployment operation was performed. Any later deployment verification uses the existing doctor/relay owners below, not another audit lane.
-
-## Start from the reported symptom
+## Route from the reported symptom
 
 | Need | Exact first owner | Read further only if needed |
 | --- | --- | --- |
-| Website did not update / will not open | [Current doctor](scripts/kianos-current-doctor.mjs), read-only `--json` | [sync/build owner](scripts/kianos-current-sync.mjs), then [static server](scripts/kianos-static-server.mjs) |
-| Chat cannot see current learner facts | [private Packet builder](scripts/privateDailyLearningPacket.mjs) | [Packet relay](scripts/privateDailyLearningPacketRelay.mjs), then the affected subject adapter |
-| Plan seems unrealistic / a prediction is unclear | [Chat planning boundary, section 0](../EXAM_ORCHESTRATOR_CONTRACT.md) | Actual subject Packet first; [Xizong workload owner](src/lib/xizongForecastModel.mjs) or [English estimate utility](src/lib/englishForecastModel.mjs) only when the disputed output actually uses it |
-| Chat instruction did not apply / receipt differs | [control runtime](src/lib/privateControlRuntime.mjs) | [control relay](scripts/privateControlRelaySync.mjs), then the exact command/native operation |
-| Yesterday's state did not recover / one subject is corrupt | [checkpoint runtime](src/lib/privateCheckpointRuntime.mjs) | [subject checkpoint adapters](src/lib/privateSubjectCheckpoints.mjs), [browser write ownership](src/lib/browserLearnerWriter.mjs), then only the affected native owner |
-| English source changed / Resume differs | [English session owner](src/lib/englishSessionControl.mjs) | [source identity owner](src/lib/englishSourceTruth.mjs) and [Resume surface](src/components/EnglishResume.astro) |
-| English whole-paper score or progress | [native exam session](src/lib/englishExamSession.mjs) | [exam surface](src/pages/english-exam/[id].astro) |
-| Xizong past attempts became stale | [native question evidence](src/lib/xizongQuestionAttempts.mjs) | [semantic source revisions](src/lib/xizongQuestions.mjs), then the affected native consumer |
-| Bounded Codex task did not run | [watcher](scripts/codex-issue-watcher.mjs) | Exact approved Issue plus [execution rules](../AGENTS.md); installer only for an installation defect |
-| Material learner-facing layout change | Exact subject/surface owner below | [CSS ownership](UI_CSS_OWNERSHIP_CLOSURE.md), then real preview and Kian's visual decision |
+| Site did not update / will not open | [Current doctor](scripts/kianos-current-doctor.mjs) | [sync/build](scripts/kianos-current-sync.mjs) → [static server](scripts/kianos-static-server.mjs) |
+| Chat cannot see learner facts | [private Packet builder](scripts/privateDailyLearningPacket.mjs) | Packet relay → affected subject adapter |
+| Plan/prediction seems wrong | [Exam Orchestrator](../EXAM_ORCHESTRATOR_CONTRACT.md) | actual subject Packet → exact Forecast owner only when used |
+| Chat instruction did not apply | [control runtime](src/lib/privateControlRuntime.mjs) | control relay → exact command/native operation |
+| State did not recover / one subject corrupt | [checkpoint runtime](src/lib/privateCheckpointRuntime.mjs) | affected subject checkpoint adapter / browser write owner |
+| English Source / Resume differs | [English session owner](src/lib/englishSessionControl.mjs) | source identity → Resume surface |
+| English whole-paper score/progress | [native exam session](src/lib/englishExamSession.mjs) | exact exam surface |
+| Xizong attempts became stale | [native question evidence](src/lib/xizongQuestionAttempts.mjs) | semantic source revision → affected consumer |
+| Bounded Codex task did not run | [watcher](scripts/codex-issue-watcher.mjs) | exact Issue + AGENTS execution boundary |
+| Material learner-facing layout change | exact surface owner | Presentation/CSS authority → representative browser proof |
 
-For a known symptom, find its owner in two or three precise reads. Further source/state reads may be necessary to answer the actual question; this is not a claim that every daily review fits in three reads. History is for resolving a specific conflict, not ordinary continuation.
-
-## Subject and content ownership
+## Subject and ownership boundary
 
 | Subject | Current owner | Engineering boundary |
 | --- | --- | --- |
-| English | [English Current](../content/english/CURRENT.md) | Use existing native surfaces; no broad rebuild |
-| Xizong | [Xizong Current](../content/xizong/CURRENT.md) | Content follows its declared live authority; no second evidence model |
-| Politics | [Politics Current](../content/politics/CURRENT.md) | Stop touching unless a concrete new defect is reproduced |
-| Vocabulary | [Lexical Current](../content/lexical/CURRENT.md) | Preserve the active content frontier; do not mirror its cursor here |
-| Skills | [Skills Current](../content/skills/CURRENT.md) | One generic renderer; new ordinary Skills are Content-only changes |
+| English | [English Current](../content/english/CURRENT.md) | preserve native surfaces; no broad rebuild |
+| Xizong | [Xizong Current](../content/xizong/CURRENT.md) | follow its live content authority; no second evidence model |
+| Politics | [Politics Current](../content/politics/CURRENT.md) | reopen only for a concrete defect/new Source |
+| Vocabulary | [Lexical Current](../content/lexical/CURRENT.md) | preserve active content frontier; do not mirror its cursor |
+| Skills | [Skills Current](../content/skills/CURRENT.md) | generic renderer; ordinary new Skills are Content-only |
 
-Chat owns interpretation and plans. GitHub owns canonical content and durable rules. The website executes through subject-native owners; private Runtime preserves learner facts and transports instructions/receipts. Shared transport must not become a scoring or strategy owner.
+Chat interprets and plans. GitHub owns canonical content and durable rules. Subject-native Runtime owns evidence semantics; private Runtime preserves learner facts and transports instructions/receipts. Shared transport must not become scoring or strategy authority.
 
-## Runtime and background boundaries
+## Runtime boundaries
 
-The managed local site builds into an immutable staging slot at background priority while the previous slot remains live, then atomically switches the `dist` link without restarting the static server for ordinary repository/content updates. A conservative build-impact gate reuses the active static slot only for explicit runtime/control-only changes (`.github/**`, `tools/**`, `static-web/scripts/**`, and a small exact engineering-doc allowlist); reuse is legal only when the active build already proves the exact pre-update local SHA, so a failed/stale Content build can never be blessed by a later control-only commit. Content, `static-web/src/**`, `static-web/public/**`, package inputs, every unknown path, and every unproven base fail closed to a full static rebuild. One previous slot is retained for old hashed `/_astro/` assets. Exact Current runtime-owner code changes may perform one controlled process/server reload so new runtime code actually takes effect. Its live SHA and health come from `/__kianos-current.json` and the doctor, never a copied value here. Source code being merged is distinct from the local site actually serving it.
+- Current builds into immutable static slots at background priority; ordinary updates switch `dist` atomically without restarting the learner server.
+- One previous slot is retained for old hashed `/_astro/` assets.
+- The build-impact gate may reuse the active static slot only for explicitly non-static changes, and only when that slot proves the exact pre-update base SHA. Unknown paths or an unproven/stale base fail closed to a full build.
+- Exact Current runtime-owner changes may perform one controlled process/server reload so new process code actually takes effect.
+- Heavy checkpoint→Daily Packet projection/publish runs in an isolated child process; Packet work must not block the learner HTTP event loop.
+- Relay failure must not roll back local learner saving. A receipt proves an instruction applied, not that learning occurred.
+- Live SHA, health, relay state, and source readiness come from runtime readback/doctor, not this file.
 
-There is one Daily Learning Packet path. Its heavy checkpoint→Packet projection/publish step runs in an isolated child process so packet work cannot block the learner HTTP event loop. Private Personal transport uses `runtime/kianos-learning/current.json` and bounded daily snapshots; relay failure must not roll back local saving. Receipt means instruction applied, not learning completed. Manual export remains a recovery option, not the normal daily ritual.
+## Remaining boundaries / stop
 
-The installed watcher is an on-demand executor: idle checks spend no model call; an unchanged task body gets at most one attempt, with claim identity, timeout and exact result checks. It has no automatic Cloud fallback or hourly model retry loop. Current operational rules are in [AGENTS](../AGENTS.md), not a duplicate policy here.
+Real-U, missing/unpublished Source, current-year authority, and authentic-modality limits remain with their native owners. Engineering proof never manufactures learner progress or missing Source truth.
 
-## Remaining acceptance boundaries
+Project instruction deployment and fresh-Chat teaching behavior remain owned by Personal OS; do not mirror them here.
 
-- Kian approved direct display of accepted whole-paper reference-score ranges and one-click entry into an available new Source version with old records preserved. Only substantive strategy/plan changes require Chat judgment; these interactions remain with the native owners routed above.
-- Project instruction installation truth lives only in Personal `PROJECT_PROMPT_DEPLOYMENT.md`. Actual fresh-Chat teaching, natural archive and later recovery must be observed in use; text tests do not prove model behavior.
-- Existing main failures in old A1/A2 source-text assertions, Politics locator expectations and Lexical projection checks are classified in the integration receipt. They are not silently marked green, and are not permission to rewrite content.
-- Real-U, missing/unpublished Source and authentic-modality limits remain with their native owners. No generated score, fixture or engineering receipt replaces them.
+Stop after the bounded user-visible/runtime defect is repaired and its affected interface is proven. Do not restart broad UI audits, old Freeze programs, or historical acceptance work merely because provenance exists.
 
-## Stop / reopen
-
-Stop when the bounded user-visible defect is repaired and its affected interface is proven. Reopen for a concrete failure, new Source, platform change or explicit user need. Material visual/product choices require Kian's decision; Production hosting and real learner-state mutation need separate authorization.
-
-Do not add historical closure narratives, duplicated child cursors, a new global tracker or another maturity checklist here. Git history and the linked receipt preserve implementation provenance.
+Keep this router thin. If normal diagnosis starts requiring history archaeology or many unrelated reads, repair the routing/owner defect instead of adding another tracker.
