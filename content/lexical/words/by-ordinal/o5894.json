@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "179ad79fc8e404e31667a2343cebb63beaf629996ea6c23517e90f68a2f7a374",
+    "content_hash": "67d64827be9a27fa09175780118434f0f1a7166d9e61ba7f375826c15d13b31a",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "勤勉的；刻苦的",
@@ -26,7 +26,7 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "勤勉的；刻苦的",
+        "definition_cn": "勤劳的；勤勉的；刻苦的",
         "definition_en": "characterized by hard work and perseverance",
         "depth": "full_card",
         "domain_tag": "cet6",
@@ -37,37 +37,6 @@
         "sense_id": "sense:industrious:77c175061dd65568",
         "sense_label_en": "characterized by hard work and perseverance",
         "sort_order": 1,
-        "source_evidence": [
-          {
-            "evidence_id": "source-fact:ecdict:a02f02aa99e7c4b99e56",
-            "evidence_status": "source_checked",
-            "role": "external_semantic_auditor",
-            "source_path": "external_semantic_auditor://cet6/1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf",
-            "source_type": "learner_dictionary"
-          },
-          {
-            "evidence_id": "source-fact:wiktionary-wiktextract:4cc80e38a7750c9328eb",
-            "evidence_status": "source_checked",
-            "role": "external_semantic_auditor",
-            "source_path": "external_semantic_auditor://cet6/1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf",
-            "source_type": "learner_dictionary"
-          }
-        ]
-      },
-      {
-        "collocations": [],
-        "confidence": "high",
-        "definition_cn": "勤勉的；刻苦的",
-        "definition_en": "working hard to promote an enterprise",
-        "depth": "full_card",
-        "domain_tag": "cet6",
-        "frequency_tag": "cet6",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:industrious:f6d97ac97d2e5f52",
-        "sense_label_en": "working hard to promote an enterprise",
-        "sort_order": 2,
         "source_evidence": [
           {
             "evidence_id": "source-fact:ecdict:a02f02aa99e7c4b99e56",
@@ -100,7 +69,24 @@
     "word_id": "word:industrious"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:industrious:f6d97ac97d2e5f52",
+      "status": "merged",
+      "merged_into_sense_id": "sense:industrious:77c175061dd65568",
+      "pos": "adjective",
+      "definition_cn": "勤勉的；刻苦的",
+      "definition_en": "working hard to promote an enterprise",
+      "semantic_key": "12f43ba1eb147a399a61bc95a19a4164c9bc472bc9c3d3dd2c5a86d1d5a89dda",
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-08-22T21:34:23+00:00",
+      "source_row": 16255,
+      "source_path": "content/lexical/canonical/senses/shards/o5889-5920.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -112,8 +98,8 @@
       },
       {
         "sense_id": "sense:industrious:f6d97ac97d2e5f52",
-        "status": "active",
-        "merged_into_sense_id": null,
+        "status": "merged",
+        "merged_into_sense_id": "sense:industrious:77c175061dd65568",
         "source_row": 16255,
         "source_path": "content/lexical/canonical/senses/shards/o5889-5920.json"
       }
@@ -142,7 +128,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5889-5896.json",
-    "source_content_hash": "179ad79fc8e404e31667a2343cebb63beaf629996ea6c23517e90f68a2f7a374",
+    "source_content_hash": "67d64827be9a27fa09175780118434f0f1a7166d9e61ba7f375826c15d13b31a",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
