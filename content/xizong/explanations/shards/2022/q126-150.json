@@ -16,14 +16,22 @@
       "它反映急性肾小球毛细血管炎症和出血，而不是慢性瘢痕萎缩。"
     ],
     "transfer_rule": "急性增生性GN大体可记蚤咬肾。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.蚤咬肾。急性弥漫性增生性肾小球肾炎可见肾脏轻度肿大、表面散在点状出血。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "固缩肾属于慢性肾实质瘢痕萎缩。"
+      }
+    ],
+    "common_failure_node": "把急性肾炎和慢性终末期肾病大体形态混淆。"
   },
   {
     "question_id": "xizong-official-2022-n127",
@@ -42,14 +50,22 @@
       "这和急性肾盂肾炎的化脓性炎症形态不同。"
     ],
     "transfer_rule": "慢性肾盂肾炎=不规则瘢痕+肾盏变形。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.瘢痕肾。慢性肾盂肾炎反复感染和纤维化造成不规则皮质瘢痕、肾盂肾盏变形。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "蚤咬肾更典型于急性肾小球肾炎。"
+      }
+    ],
+    "common_failure_node": "看到“慢性肾病”就只选固缩肾，不区分不规则瘢痕和均匀萎缩。"
   },
   {
     "question_id": "xizong-official-2022-n128",
@@ -73,7 +89,16 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.替格瑞洛为题源答案；氯吡格雷低反应时可考虑其他P2Y12抑制剂，但Current选择需结合ACS/PCI、出血风险及药物/基因策略。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "比伐卢定是抗凝药，不是P2Y12受体抑制剂替代。"
+      }
+    ],
+    "common_failure_node": "把“氯吡格雷抵抗”固定成无条件换替格瑞洛。",
+    "source_boundary_note": "题源固定氯吡格雷低反应后改替格瑞洛；Current抗血小板选择需结合ACS/PCI、出血风险和检测策略，不冻结统一切换。"
   },
   {
     "question_id": "xizong-official-2022-n129",
@@ -97,7 +122,16 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.左西孟旦为题源答案；急性左心衰正性肌力药使用应由低灌注、血压和病因决定，不把血压正常写成固定适应证。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "伊伐布雷定主要用于特定慢性心衰/窦性心率场景，不是急性泵衰竭通用药。"
+      }
+    ],
+    "common_failure_node": "把单个药物旧适应证表当成现代急性心衰路径。",
+    "source_boundary_note": "题源固定急性左心衰血压正常时选左西孟旦；Current正性肌力药需按低灌注、血压和病因严格选择。"
   },
   {
     "question_id": "xizong-official-2022-n130",
@@ -116,14 +150,26 @@
       "明显肌束震颤、肌无力等烟碱样表现通常提示神经肌接头受累更重。"
     ],
     "transfer_rule": "有机磷按M样、N样和中枢症状分层识别。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.肌纤维颤动。轻度有机磷中毒以M样症状为主，明显肌束震颤属于N样神经肌接头受累、通常提示更重。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "出汗流涎属于毒蕈碱样分泌增多。"
+      },
+      {
+        "option": "B",
+        "reason": "腹痛腹泻属于M样胃肠平滑肌/腺体效应。"
+      }
+    ],
+    "common_failure_node": "把M样和N样胆碱能表现混在一起。"
   },
   {
     "question_id": "xizong-official-2022-n131",
@@ -142,14 +188,22 @@
       "这类表现和M样分泌增多、瞳孔缩小属于不同受体层。"
     ],
     "transfer_rule": "肌束震颤=有机磷N样症状。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.肌纤维颤动。N型受体在神经肌接头过度兴奋可先出现肌束震颤，随后无力甚至麻痹。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "咳嗽气促更多来自M样支气管分泌/痉挛及呼吸肌受累等综合机制。"
+      }
+    ],
+    "common_failure_node": "不会按受体层级分类有机磷症状。"
   },
   {
     "question_id": "xizong-official-2022-n132",
@@ -168,14 +222,22 @@
       "判断关键是梗阻点在肝窦之后。"
     ],
     "transfer_rule": "肝静脉流出道梗阻=Budd-Chiari=肝后型。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.肝后型。Budd-Chiari由肝静脉/肝段下腔静脉流出道梗阻造成，阻力位于肝窦之后。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "窦前型更典型如血吸虫门管区纤维化。"
+      }
+    ],
+    "common_failure_node": "只按“都发生在肝脏”而不定位阻力在窦前/窦后。"
   },
   {
     "question_id": "xizong-official-2022-n133",
@@ -193,14 +255,22 @@
       "因此属于窦前型门静脉高压，选C；门静脉主干阻塞更偏肝前型，肝静脉或右心回流障碍才是肝后型。"
     ],
     "transfer_rule": "血吸虫性肝纤维化抓窦前阻力。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.窦前型。血吸虫病造成门管区和门静脉小分支周围纤维化，阻力位于肝窦之前。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "肝后型是肝静脉/右心流出障碍。"
+      }
+    ],
+    "common_failure_node": "把血吸虫性肝病也归为肝细胞性/窦后阻力。"
   },
   {
     "question_id": "xizong-official-2022-n134",
@@ -219,14 +289,22 @@
       "若伴无痛性胆囊肿大和体重下降，支持度更高。"
     ],
     "transfer_rule": "无痛进行性黄疸→胰头/远端胆道恶性梗阻优先。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.胰头癌。进行性、无痛性梗阻性黄疸尤其伴胆囊肿大时高度提示胰头恶性梗阻。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "胆总管结石更常黄疸波动并伴胆绞痛/感染。"
+      }
+    ],
+    "common_failure_node": "不会用“疼不疼+是否进行性”区分肿瘤性和结石性梗阻。"
   },
   {
     "question_id": "xizong-official-2022-n135",
@@ -245,14 +323,22 @@
       "肿瘤性远端梗阻更偏持续、进行性加重。"
     ],
     "transfer_rule": "痛性/波动性黄疸优先结石；无痛进行性更警惕肿瘤。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.胆总管结石。结石移动使梗阻程度变化，因此黄疸可波动并常伴疼痛。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "胰头癌更偏无痛、持续进行性黄疸。"
+      }
+    ],
+    "common_failure_node": "只看黄疸位置，不利用时间模式。"
   },
   {
     "question_id": "xizong-official-2022-n136",
@@ -271,14 +357,26 @@
       "所以A、B正确。"
     ],
     "transfer_rule": "负反馈=闭环+纠偏+稳态。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、B正确。负反馈是闭环纠偏系统，并围绕工作点/调定点维持变量；它有纠偏功能且比正反馈常见。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "负反馈的核心恰恰是减少偏差。"
+      },
+      {
+        "option": "D",
+        "reason": "生理调节中负反馈远比正反馈常见。"
+      }
+    ],
+    "common_failure_node": "把负反馈与正反馈的“放大 vs 稳定”方向记反。"
   },
   {
     "question_id": "xizong-official-2022-n137",
@@ -297,14 +395,17 @@
       "所以A、B、C、D均正确；最稳的区分法是把它和动作电位逐项对照。"
     ],
     "transfer_rule": "局部电位=等级性、可总和、无全或无和不应期。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、B、C、D均正确。局部电位非全或无、作电紧张性衰减扩布、无不应期并可发生时间/空间总和。",
+    "valuable_distractors": [],
+    "common_failure_node": "全选题为了寻找干扰项而错误否定局部电位真实特征。"
   },
   {
     "question_id": "xizong-official-2022-n138",
@@ -323,14 +424,22 @@
       "判断时要按功能而不是只背一个名称。"
     ],
     "transfer_rule": "胃运动三抓：容受、紧张、蠕动。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、B、D正确。胃运动包括紧张性收缩、蠕动和容受性舒张；分节运动更典型于小肠混合。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "分节运动不是胃的经典主要运动形式。"
+      }
+    ],
+    "common_failure_node": "把整个胃肠道的运动形式混成一张表。"
   },
   {
     "question_id": "xizong-official-2022-n139",
@@ -349,14 +458,26 @@
       "寒战的目的不是产生有效外部机械功，而是把能量更多转成热。"
     ],
     "transfer_rule": "冷刺激→肌张力↑→寒战产热。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、D正确。寒战前先有肌张力增加，随后屈肌和伸肌快速、不协调收缩，能量主要转成热而不是外功。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "寒战目的是产热，不形成有效外界机械功。"
+      },
+      {
+        "option": "C",
+        "reason": "新生儿更依赖棕色脂肪非寒战产热。"
+      }
+    ],
+    "common_failure_node": "把寒战产热和非寒战产热人群/机制混淆。"
   },
   {
     "question_id": "xizong-official-2022-n140",
@@ -375,14 +496,26 @@
       "鼓膜和听小骨链不是骨传导的必要路径。"
     ],
     "transfer_rule": "骨传导直接到耳蜗，不依赖鼓膜听骨链。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、D正确。骨传导由颅骨振动直接传至耳蜗骨壁/内耳液体，绕过常规听骨链。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "听骨链属于空气传导的中耳环节。"
+      },
+      {
+        "option": "B",
+        "reason": "圆窗膜参与内耳液体压力释放，但不是题源骨传导主结构。"
+      }
+    ],
+    "common_failure_node": "把骨传导误认为仍必须经过中耳听骨链。"
   },
   {
     "question_id": "xizong-official-2022-n141",
@@ -399,14 +532,23 @@
       "按题干与选项，依据上述判断轴确定题源答案。"
     ],
     "transfer_rule": "非联合学习经典=习惯化和敏感化；LTP更侧重突触可塑性机制。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、B、D为题源答案；Current N10明确非联合型学习只有习惯化、敏感化，并特别注明LTP不是“非联合型学习第三类”，因此题源D与Current冲突。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "条件反射属于联合型学习，Current与题源均不把它列为非联合型。"
+      }
+    ],
+    "common_failure_node": "为服从旧答案，把LTP这种突触可塑性机制硬归成非联合学习类别。",
+    "source_conflict_note": "题源把LTP列为非联合型学习；Current N10 KP01明确“非联合型=习惯化+敏感化”，并特别注明LTP不是第三类，存在直接冲突。"
   },
   {
     "question_id": "xizong-official-2022-n142",
@@ -425,14 +567,26 @@
       "酶改变的是速率，不改变反应的热力学终点。"
     ],
     "transfer_rule": "酶降活化能，不改ΔG和平衡常数。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B、D正确。活化能就是反应物从基态到过渡态需要跨越的自由能能垒。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "底物总自由能不是活化能本身。"
+      },
+      {
+        "option": "C",
+        "reason": "底物到产物的总自由能差是ΔG，不等于活化能。"
+      }
+    ],
+    "common_failure_node": "把反应热力学ΔG和动力学活化能混淆。"
   },
   {
     "question_id": "xizong-official-2022-n143",
@@ -451,14 +605,26 @@
       "可逆近似平衡步骤通常不是主要调控关口。"
     ],
     "transfer_rule": "关键酶常=低活性+不可逆/远离平衡+受调控。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、D正确。关键调节酶通常催化远离平衡的单向/方向性步骤，并以较低通量活性控制代谢速度。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "别构调节是调控方式，不决定整个代谢“类型”。"
+      },
+      {
+        "option": "C",
+        "reason": "化学修饰不决定代谢发生部位。"
+      }
+    ],
+    "common_failure_node": "把关键酶的调控方式和其“方向/速度控制”概念混淆。"
   },
   {
     "question_id": "xizong-official-2022-n144",
@@ -477,14 +643,22 @@
       "羟脯氨酸主要在翻译后由脯氨酸羟化形成，不是常规直接编码进入。"
     ],
     "transfer_rule": "羟脯氨酸是翻译后修饰，不是直接编码掺入。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B、C、D正确。Cys、Met常规编码进入多肽，硒代半胱氨酸可经特殊重编码直接掺入；羟脯氨酸主要翻译后形成。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "羟脯氨酸一般由多肽中脯氨酸残基翻译后羟化形成。"
+      }
+    ],
+    "common_failure_node": "把“最终存在于蛋白”误认为“翻译时直接编码掺入”。"
   },
   {
     "question_id": "xizong-official-2022-n145",
@@ -503,14 +677,17 @@
       "红细胞Hb是主来源，但不是唯一来源。"
     ],
     "transfer_rule": "胆红素来源广于红细胞Hb。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、B、C、D均可作为血红素来源并生成胆红素。血红蛋白是主来源，但肌红蛋白、过氧化氢酶/过氧化物酶等也含铁卟啉。",
+    "valuable_distractors": [],
+    "common_failure_node": "只记衰老RBC-Hb主来源，就错误排除其他血红素蛋白。"
   },
   {
     "question_id": "xizong-official-2022-n146",
@@ -527,14 +704,23 @@
       "按题干与选项，依据上述判断轴确定题源答案。"
     ],
     "transfer_rule": "A/D最典型通过核受体调控基因表达。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、B、C为题源答案。维生素A/视黄酸和维生素D活性代谢物可经核受体直接调控转录；题源还将维生素E纳入基因调节作用，但Current没有完整冻结这一三项集合。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "维生素K主要与γ-羧化等功能相关，不属于题源转录调控答案。"
+      }
+    ],
+    "common_failure_node": "因为A/D核受体机制明确，就把题源维生素E也无证据并入同一个Current owner。",
+    "source_gap_note": "Current明确维生素A/D核受体调转录，但未在单一最小owner完整冻结题源“A+B+C（含维生素E）”组合。"
   },
   {
     "question_id": "xizong-official-2022-n147",
@@ -553,14 +739,17 @@
       "核心要分清PCR负责扩增，其他功能来自与后续技术组合。"
     ],
     "transfer_rule": "PCR本质是扩增；具体应用常需和RT/qPCR/测序等结合。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、B、C、D均可作为PCR相关工作流用途：RT/qPCR检测表达，PCR产物用于变异分析/克隆，并可结合定点突变技术。",
+    "valuable_distractors": [],
+    "common_failure_node": "把PCR本体“扩增DNA”误理解成它不能参与更大的分子实验工作流。"
   },
   {
     "question_id": "xizong-official-2022-n148",
@@ -579,14 +768,26 @@
       "这与化脓性炎或肉芽肿性炎的组织反应不同。"
     ],
     "transfer_rule": "假膜性炎经典：白喉与菌痢。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B、D正确。细菌性痢疾与白喉都可形成黏膜表面纤维蛋白、坏死组织和炎细胞构成的假膜。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "绒毛心是纤维素性心包炎，不属于黏膜假膜性炎。"
+      },
+      {
+        "option": "C",
+        "reason": "大叶性肺炎为肺泡纤维素性炎，不是黏膜假膜。"
+      }
+    ],
+    "common_failure_node": "把“纤维素性炎”与“假膜性炎”完全等同。"
   },
   {
     "question_id": "xizong-official-2022-n149",
@@ -603,14 +804,23 @@
       "按题干与选项，依据上述判断轴确定题源答案。"
     ],
     "transfer_rule": "primary=先天/遗传；AIDS=secondary/acquired。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、B、C为题源答案；A可对应Bruton/低丙种球蛋白血症，但Current H13未把慢性黏膜皮肤念珠菌病和毛细血管扩张性共济失调同时冻结为同一原发免疫缺陷列表。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "AIDS属于获得性/继发性免疫缺陷。"
+      }
+    ],
+    "common_failure_node": "用“医学上属于原发免疫缺陷”填补Current未冻结的具体病名集合。",
+    "source_gap_note": "Current H13冻结Bruton/DiGeorge/SCID/CGD原型，但未完整冻结慢性黏膜皮肤念珠菌病与毛细血管扩张性共济失调这一题源集合。"
   },
   {
     "question_id": "xizong-official-2022-n150",
@@ -629,13 +839,25 @@
       "部位决定溃疡更容易向腹腔穿破还是侵蚀邻近血管出血。"
     ],
     "transfer_rule": "十二指肠球部前壁更易穿孔；后壁更易出血/穿透。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、B正确。消化性溃疡自由穿孔常见于十二指肠球部前壁和胃小弯侧/前壁方向。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "十二指肠球部后壁更经典与大血管侵蚀出血相连。"
+      },
+      {
+        "option": "C",
+        "reason": "胃大弯不是经典常见穿孔部位。"
+      }
+    ],
+    "common_failure_node": "把“常见溃疡部位”和“最易出血/穿孔部位”混为一谈。"
   }
 ]
