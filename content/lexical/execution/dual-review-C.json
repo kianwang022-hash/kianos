@@ -1,12 +1,16 @@
 {
   "schema": "kianos.lexical.dual_review_lane.v1",
   "lane": "C",
-  "status": "WAITING_FOR_A_B_COMPLETE",
+  "status": "ACTIVE_PREFIX_GATED",
   "next_ordinal": 2551,
   "completed_through": 2550,
   "campaign": "content/lexical/execution/dual-review.json",
   "source_branches": {
     "A": "work/lexical-dual-review-A-20260923",
     "B": "work/lexical-dual-review-B-20260923"
-  }
+  },
+  "eligibility_rule": "NEXT_WINDOW_END_LTE_MIN_A_COMPLETED_THROUGH_B_COMPLETED_THROUGH",
+  "input_freeze_rule": "CLOSURE_RECEIPT_BINDS_EXACT_A_AND_B_REVIEW_COMMITS",
+  "cross_watermark_rule": "DEFER_SHARED_OWNER_IF_ANY_CAMPAIGN_ENDPOINT_EXCEEDS_SHARED_WATERMARK",
+  "consumed_history_rule": "EXPLICIT_CORRECTION_REQUIRED_NO_SILENT_REWRITE"
 }
