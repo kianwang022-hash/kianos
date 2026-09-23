@@ -57,11 +57,11 @@ const payload = JSON.stringify({
             <strong class="xzpResultMode">即时</strong>
           </div>
           <details class="xzpHoldout" data-holdout-control>
-            <summary><span>整卷保留</span><b data-holdout-current>未设置</b></summary>
+            <summary><span>整卷保留（可选）</span><b data-holdout-current>未设置</b></summary>
             <div>
               <label for={`xzp-holdout-${system.systemId}`}>保留年份</label>
               <div>
-                <input id={`xzp-holdout-${system.systemId}`} data-holdout-input inputmode="numeric" placeholder="例如 2025, 2026" />
+                <input id={`xzp-holdout-${system.systemId}`} data-holdout-input inputmode="numeric" placeholder="2025, 2026；留空=不保护" />
                 <button type="button" data-save-holdout>保存</button>
               </div>
             </div>
@@ -633,7 +633,8 @@ const payload = JSON.stringify({
     const letters = (value) => (String(value || '').toUpperCase().match(/[A-Z]/g) || []).sort();
     const same = (a, b) => a.length === b.length && a.every((value, index) => value === b[index]);
     const eligibleYears = new Set((data.years || []).map(Number));
-    const normalizeHoldout = (value) => [...new Set((Array.isArray(value) ? value : []).map(Number).filter((year) => eligibleYears.has(year)))].sort((a,b)=>a-b);
+    const optionalHoldoutYears = new Set([2025, 2026]);
+    const normalizeHoldout = (value) => [...new Set((Array.isArray(value) ? value : []).map(Number).filter((year) => eligibleYears.has(year) && optionalHoldoutYears.has(year)))].sort((a,b)=>a-b);
     holdoutYears = normalizeHoldout(holdoutYears);
 
     const eligibleQuestions = () => data.questions.filter((q) => !holdoutYears.includes(Number(q.year)));
@@ -1193,12 +1194,9 @@ const payload = JSON.stringify({
     const parseHoldout = () => normalizeHoldout(String(holdoutInput.value || '').split(/[,，\\s]+/).filter(Boolean));
     saveHoldout.addEventListener('click', () => {
       const selected = parseHoldout();
-      if (!selected.length) {
-        holdoutCurrent.textContent = '至少保留一套';
-        return;
-      }
       holdoutYears = selected;
       writeJson(holdoutKey, holdoutYears);
+      holdoutCurrent.textContent = holdoutYears.length ? holdoutYears.join('、') : '未设置';
       root.querySelector('[data-holdout-control]')?.removeAttribute('open');
       moreMenu?.removeAttribute('open');
       renderQuestion();
