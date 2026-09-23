@@ -11,7 +11,9 @@
     "exam_target": "小肠出血检查旧选择",
     "decision_axis": "题源把胶囊内镜列为小肠出血最有价值检查；Current检查路径要结合活动性出血、稳定性及是否需要即时介入，不能固定为单一首选。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对现行检查路径 fail-closed。"
+      "题目问小肠出血部位和病因的辅助检查。",
+      "胶囊内镜能覆盖大部分小肠黏膜，题源因此选C。",
+      "但活动性大出血时CTA/血管造影/介入等路径会改变，Current仓库没有单一owner固定“最佳”，所以fail-closed。"
     ],
     "transfer_rule": "仅保留题源/Study边界；小肠出血检查按出血状态和介入需求选择。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -21,7 +23,20 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.胶囊内镜为题源官方答案；它可直接观察常规胃镜/结肠镜难以覆盖的小肠黏膜，但Current小肠出血路径需结合活动性出血、稳定性与是否需要即时治疗。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "胃镜和结肠镜主要覆盖上消化道和结肠，无法完整观察大部分小肠。"
+      },
+      {
+        "option": "A",
+        "reason": "钡剂造影对小肠黏膜出血病因的敏感性有限。"
+      }
+    ],
+    "common_failure_node": "把“胶囊内镜能看小肠”升级成所有小肠出血场景的固定最佳首选。",
+    "source_boundary_note": "题源固定“胶囊内镜最佳”；Current检查顺序需结合活动性出血、血流动力学稳定性及即时介入需求，不升级为统一Current首选。"
   },
   {
     "question_id": "xizong-official-2020-n052",
@@ -40,14 +55,30 @@
       "IBS不应有脓血便；慢性菌痢缺少病原学支持且抗菌治疗无效；Crohn更偏节段性、全层病变并常累及末端回肠。"
     ],
     "transfer_rule": "UC抓连续、黏膜层、直肠起始和血性腹泻。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.溃疡性结肠炎。长期反复黏液脓血便、左下腹痛，病原培养阴性且抗菌无效，符合UC慢性连续性结肠炎模式。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "IBS不应出现持续黏液脓血便。"
+      },
+      {
+        "option": "C",
+        "reason": "慢性菌痢缺少病原学证据且抗菌治疗无效。"
+      },
+      {
+        "option": "D",
+        "reason": "Crohn更偏节段性、全层病变并常累及末端回肠。"
+      }
+    ],
+    "common_failure_node": "看到腹泻就按感染或IBS处理，忽略脓血便这一器质性炎症红旗。"
   },
   {
     "question_id": "xizong-official-2020-n053",
@@ -66,14 +97,26 @@
       "ACEI/ARB或CCB可用于后续降压，但题目问的是容量依赖性急性肾炎高血压的首选。"
     ],
     "transfer_rule": "急性肾炎高压+水肿先判断容量负荷。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.利尿剂。急性肾炎高血压常由GFR下降后的水钠潴留/容量负荷驱动，利尿可同时减轻水肿和血压。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "ACEI可用于部分肾病高血压，但本题急性容量负荷场景先处理水钠潴留。"
+      },
+      {
+        "option": "C",
+        "reason": "CCB能降压但不直接纠正容量过多。"
+      }
+    ],
+    "common_failure_node": "只按“高血压药物表”选药，不先判断这次高血压由容量负荷驱动。"
   },
   {
     "question_id": "xizong-official-2020-n054",
@@ -87,17 +130,36 @@
     "exam_target": "AML FAB M2旧分型",
     "decision_axis": "题源按FAB形态学体系把伴一定成熟的急性髓系白血病归为M2；Current AML分类更依赖遗传/分子异常和现行WHO/ICC框架。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对旧分型体系 fail-closed。"
+      "题目明确要求FAB分型。",
+      "原始粒细胞71%，同时可见早幼粒及其他成熟粒细胞，说明已有部分粒系分化。",
+      "按Current H9保留的FAB表，原粒占NEC 30%–89%对应M2，所以选B。"
     ],
     "transfer_rule": "仅保留题源/FAB边界；不得用M2旧分类覆盖Current AML分类。",
-    "mapping_decision": "NO_SAFE_MATCH",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.M₂型。按题源FAB体系，原始粒细胞71%、并已有一定粒系成熟，符合AML M2“急粒部分分化”。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "M1要求原粒细胞占比更高、成熟粒系更少。"
+      },
+      {
+        "option": "C",
+        "reason": "M3以异常早幼粒细胞占显著比例为核心。"
+      },
+      {
+        "option": "D",
+        "reason": "M4要求粒系与单核系均达到相应比例。"
+      }
+    ],
+    "common_failure_node": "用现行WHO/ICC分类去否定题目明确要求的FAB形态学考试语言。",
+    "source_boundary_note": "Current H9将AML M0–M7 FAB保留为考试识别语言；relation只承接该题源分型，不升级为现代AML最终分类体系。"
   },
   {
     "question_id": "xizong-official-2020-n055",
@@ -111,17 +173,32 @@
     "exam_target": "Somogyi效应旧口径",
     "decision_axis": "题源用夜间低血糖后清晨高血糖解释Somogyi效应；该概念在现代糖尿病管理中的普遍性和诊断价值有限，不能作为Current固定解释。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对现代证据边界 fail-closed。"
+      "清晨高血糖必须先看夜间曲线。",
+      "本例凌晨2点血糖仅2.9，明确存在夜间低血糖。",
+      "随后空腹高血糖按Current Study归为Somogyi反跳，因此选B。"
     ],
     "transfer_rule": "仅保留题源/Study时代边界；清晨高血糖需依连续血糖等实际证据判因。",
-    "mapping_decision": "NO_SAFE_MATCH",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.Somogyi效应。凌晨2点已低血糖2.9 mmol/L，随后空腹血糖反跳升高，符合Current D8保留的“夜间低血糖后反跳”考试模式。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "黎明现象通常夜间不低血糖，而在凌晨后半段开始升高。"
+      },
+      {
+        "option": "C",
+        "reason": "若睡前胰岛素不足，整夜血糖往往持续偏高而不是先低到2.9。"
+      }
+    ],
+    "common_failure_node": "只看清晨高血糖就加大夜间胰岛素，未先检查夜间是否低血糖。",
+    "source_boundary_note": "Current D8 KP22明确保留Somogyi作为考试曲线识别：夜间<3.9后反跳；relation限于这一Study规则。"
   },
   {
     "question_id": "xizong-official-2020-n056",
@@ -140,14 +217,26 @@
       "RA、AS和银屑病关节炎都属于炎症性关节病谱系，病理主轴不同。"
     ],
     "transfer_rule": "OA=退变性关节病。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.骨关节炎。OA以关节软骨退变、软骨下骨改变和骨赘为核心，是典型退行性关节病。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "RA属于免疫介导的炎症性关节炎。"
+      },
+      {
+        "option": "B",
+        "reason": "强直性脊柱炎属于脊柱关节炎谱系，不以退行性软骨病变为主。"
+      }
+    ],
+    "common_failure_node": "把所有慢性关节病都归为“风湿=炎症性”，忽略OA属于退行性疾病。"
   },
   {
     "question_id": "xizong-official-2020-n057",
@@ -161,7 +250,9 @@
     "exam_target": "肝硬化静脉曲张出血比例旧统计",
     "decision_axis": "题源采用固定流行病学比例描述肝硬化上消化道出血来源；该比例受人群和时代影响，不宜升级为Current精确数字。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对固定流行病学数字 fail-closed。"
+      "题目考固定比例记忆。",
+      "题源答案为20%～25%。",
+      "Current不应把这类人群/时代依赖数字作为永久知识，因此Explanation保留、Crosswalk fail-closed。"
     ],
     "transfer_rule": "仅保留题源统计边界；理解肝硬化中静脉曲张是重要出血来源即可。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -171,7 +262,16 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.20%～25%为题源官方固定流行病学比例；比例受人群、时代和诊疗结构影响，不冻结为Current数字。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "26%～30%不是本题题源口径。"
+      }
+    ],
+    "common_failure_node": "把历史流行病学比例当成跨时代恒定值。",
+    "source_boundary_note": "肝硬化曲张静脉破裂占上消化道大出血的固定比例受人群与时代影响；不升级为Current精确数字。"
   },
   {
     "question_id": "xizong-official-2020-n058",
@@ -185,17 +285,36 @@
     "exam_target": "乳腺癌危险因素辨析",
     "decision_axis": "长期雌激素暴露、家族遗传等可增加乳腺癌风险；哺乳总体并非促进乳腺癌发生的经典因素。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "E12明确冻结初潮早、绝经晚、晚育/不育等乳腺癌风险方向。",
+      "题源把哺乳列为“不属于促发因素”的答案。",
+      "Current仓库未明确冻结哺乳这一反向判断，因此答案保留但不建立relation。"
     ],
     "transfer_rule": "乳腺癌风险抓激素暴露、遗传、生殖史等，不把哺乳当促进因素。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.哺乳。初潮早、绝经晚、初产年龄大均增加累积激素暴露/延迟生育相关风险；哺乳不是题源所列促发因素。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "初潮早延长生殖期激素暴露。"
+      },
+      {
+        "option": "B",
+        "reason": "绝经晚同样延长激素暴露。"
+      },
+      {
+        "option": "D",
+        "reason": "晚育/初产年龄大是Current E12明确风险方向。"
+      }
+    ],
+    "common_failure_node": "因为Current E12风险清单没有“哺乳”，就把列表缺项当成显式保护效应证据。",
+    "source_gap_note": "Current E12 KP04明确正向风险因素，但未显式冻结“哺乳不是促发因素/保护因素”这一反向结论；不通过列表缺项制造relation。"
   },
   {
     "question_id": "xizong-official-2020-n059",
@@ -214,14 +333,26 @@
       "B超积液或CT肠管扩张只能提供支持或帮助寻找病因，不能替代腹膜刺激征这个临床本体。"
     ],
     "transfer_rule": "腹膜炎诊断先看临床腹膜刺激征。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.症状和体征。急性弥漫性腹膜炎的本体是持续腹痛加压痛、反跳痛、腹肌紧张等腹膜刺激征。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "腹腔积液缺乏特异性，只是支持信息。"
+      },
+      {
+        "option": "D",
+        "reason": "肠管扩张可反映麻痹性肠梗阻等后果，不能替代腹膜刺激征。"
+      }
+    ],
+    "common_failure_node": "过度依赖影像，反而忽略急腹症首先靠临床腹膜刺激征识别。"
   },
   {
     "question_id": "xizong-official-2020-n060",
@@ -240,14 +371,22 @@
       "粪石也是常见梗阻原因，但题目特意限定青少年，年龄线索把答案推向淋巴滤泡增生。"
     ],
     "transfer_rule": "年轻人阑尾腔梗阻常联想淋巴滤泡增生。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.阑尾淋巴滤泡组织增生致阑尾梗阻。青少年淋巴组织丰富，感染后增生更易阻塞阑尾腔。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "粪石也可致梗阻，但题目特意限定青少年，年龄线索更指向淋巴滤泡增生。"
+      }
+    ],
+    "common_failure_node": "只背成人常见粪石，不利用年龄改变阑尾梗阻病因权重。"
   },
   {
     "question_id": "xizong-official-2020-n061",
@@ -261,17 +400,31 @@
     "exam_target": "正常胆汁分泌量",
     "decision_axis": "题源教材口径下成人每日胆汁分泌量约800～1200 mL，属于生理学精确记忆点。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "Current D19直接给出日胆汁量。",
+      "肝脏每日分泌胆汁约800～1200 mL。",
+      "因此选B。"
     ],
     "transfer_rule": "成人胆汁日量记约0.8～1.2 L。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.800～1200 ml。Current D19 KP02明确保留成人肝脏每日胆汁分泌约800～1200 mL。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "200～600 ml低于Current Study日胆汁量范围。"
+      },
+      {
+        "option": "C",
+        "reason": "1300～1700 ml高于Current Study范围。"
+      }
+    ],
+    "common_failure_node": "把胆囊储存量、餐后排出量与肝脏全天胆汁生成量混在一起。"
   },
   {
     "question_id": "xizong-official-2020-n062",
@@ -290,14 +443,26 @@
       "胆囊切除留给达到高危门槛者；保胆息肉摘除和药物“溶解息肉”都不是这道题的标准处理。"
     ],
     "transfer_rule": "胆囊息肉处理看大小、增长、症状和恶变高危因素。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.观察，定期复查。0.6 cm、无症状、无高危特征的胆囊息肉样病变按Current Study进入低危随访。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "胆囊切除留给达到高危门槛或有症状/增长等情况。"
+      },
+      {
+        "option": "D",
+        "reason": "熊去氧胆酸并非“溶解息肉”的标准处理。"
+      }
+    ],
+    "common_failure_node": "看到“息肉”就直接手术，忽略大小、症状和高危特征分层。"
   },
   {
     "question_id": "xizong-official-2020-n063",
@@ -316,14 +481,26 @@
       "张力性气胸、开放性气胸和需要处理的血胸都存在胸膜腔急症源控制接口，不能按同一保守逻辑处理。"
     ],
     "transfer_rule": "创伤性窒息先支持治疗并评估合并伤。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.创伤性窒息。其治疗以解除压迫、维持呼吸循环、处理合并伤等支持治疗为主，通常不需针对胸膜腔本身手术。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "张力性气胸需紧急减压/引流。"
+      },
+      {
+        "option": "D",
+        "reason": "开放性气胸需要封闭伤口并处理胸膜腔。"
+      }
+    ],
+    "common_failure_node": "把所有胸部创伤都理解成必须开胸手术；许多急症是引流/支持而非开胸。"
   },
   {
     "question_id": "xizong-official-2020-n064",
@@ -337,17 +514,32 @@
     "exam_target": "高渗液体识别",
     "decision_axis": "5%碳酸氢钠的渗透压明显高于血浆，属于高渗液体；判断应比较溶液有效渗透浓度。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "渗透压取决于溶液中有效溶质粒子浓度。",
+      "5% NaHCO₃为高浓度电解质溶液且解离产生多个粒子，渗透压明显高于血浆。",
+      "因此题源选C；但Current没有精确冻结这四种制剂的对照表。"
     ],
     "transfer_rule": "高渗/等渗判断看颗粒浓度，不看名称。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.5%碳酸氢钠溶液。其溶质粒子浓度明显高于血浆，属于高渗液；其余题源选项更接近等渗/常用平衡液体范畴。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "Ringer液属于常用等渗晶体液。"
+      },
+      {
+        "option": "B",
+        "reason": "5%葡萄糖初始渗透压近等渗，但葡萄糖代谢后表现为自由水效应；不属于本题高渗答案。"
+      }
+    ],
+    "common_failure_node": "只根据“百分浓度数字大”判断渗透压，而不考虑分子量、电离粒子数与有效渗透浓度。",
+    "source_gap_note": "Current仅有等渗/高渗液的一般接口，未冻结“5%碳酸氢钠、1.87%乳酸钠、Ringer、5%葡萄糖”四项精确比较，不建立relation。"
   },
   {
     "question_id": "xizong-official-2020-n065",
@@ -366,14 +558,26 @@
       "反过来，没有特有体征也不能排除不完全、嵌插或某些特殊部位骨折。"
     ],
     "transfer_rule": "骨折诊断避免人为诱发骨擦音/异常活动。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.检查可疑骨折病人时主动诱发骨擦音/骨擦感是错误做法，可能加重软组织和神经血管损伤。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "无特有体征不能排除不完全、嵌插或深部骨折。"
+      },
+      {
+        "option": "A",
+        "reason": "畸形、反常活动和骨擦音/骨擦感属于经典骨折特有体征。"
+      }
+    ],
+    "common_failure_node": "为了“查出骨擦音”反复活动骨折端，造成医源性二次损伤。"
   },
   {
     "question_id": "xizong-official-2020-n066",
@@ -392,14 +596,26 @@
       "其余三类也都可发生骨转移，但不是本题的最高频答案。"
     ],
     "transfer_rule": "骨转移常见来源包括乳腺、前列腺、肺、肾、甲状腺等。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.乳腺癌。乳腺癌是常见骨转移实体瘤来源之一，题源/Current Study在给定选项中以其最常见。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "前列腺癌同样高度倾向骨转移，且常成骨性，但本题Current Source比较答案为乳腺癌。"
+      },
+      {
+        "option": "D",
+        "reason": "肾癌可骨转移但频率不及题源所列乳腺癌。"
+      }
+    ],
+    "common_failure_node": "把“最常见骨转移来源”与“最典型成骨/溶骨表现”混成一个问题。"
   },
   {
     "question_id": "xizong-official-2020-n067",
@@ -418,14 +634,26 @@
       "仅管型石膏固定、开窗换药再大量抗生素不能去除死骨这个持续感染源，所以D是不考虑的方案。"
     ],
     "transfer_rule": "慢性骨髓炎核心是清除死骨和无活力组织。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.石膏固定、开窗换药并大量抗生素不能去除死骨这一持续感染源；慢性骨髓炎有死骨/窦道时治疗主轴是清创去死骨。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "去除死骨并用肌瓣消灭死腔符合源控制方向。"
+      },
+      {
+        "option": "B",
+        "reason": "抗生素骨水泥珠链可作为清创后局部抗感染/死腔处理的一种Study策略。"
+      }
+    ],
+    "common_failure_node": "把抗生素用量加大当成可以替代死骨清除和病灶清创。"
   },
   {
     "question_id": "xizong-official-2020-n068",
@@ -444,14 +672,26 @@
       "吸气性更偏上气道阻塞；混合性或心源性呼吸困难都不能解释这个过敏诱发、反复喘息的典型哮喘背景。"
     ],
     "transfer_rule": "哮喘/COPD气道阻塞→呼气性呼吸困难。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.呼气性呼吸困难。哮喘发作以小气道痉挛和呼气受限为主，表现为呼气延长和喘鸣。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "吸气性呼吸困难更提示上气道阻塞。"
+      },
+      {
+        "option": "D",
+        "reason": "题干有明确过敏诱发、季节性反复喘息，不支持心源性呼吸困难。"
+      }
+    ],
+    "common_failure_node": "不从气道阻塞部位判断呼吸困难类型，只按严重程度选“混合性”。"
   },
   {
     "question_id": "xizong-official-2020-n069",
@@ -470,14 +710,22 @@
       "在重症哮喘里“PaCO₂不低反高”不是好转，而是通气失败的警报。"
     ],
     "transfer_rule": "哮喘发作中PaCO₂由低转正常/高是恶化信号。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.PaO₂下降、PaCO₂升高。重症哮喘出现CO₂潴留提示呼吸肌疲劳和通气泵失败，是危重信号。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "哮喘早期可低氧并低PaCO₂，但意识模糊和重度发作更提示通气衰竭阶段。"
+      }
+    ],
+    "common_failure_node": "把PaCO₂从低变“正常/升高”误认为病情好转；重症哮喘中这是疲劳警报。"
   },
   {
     "question_id": "xizong-official-2020-n070",
@@ -496,14 +744,26 @@
       "肺动脉瓣、三尖瓣和主动脉瓣狭窄的杂音部位和时期都不符合这组心尖舒张期特征。"
     ],
     "transfer_rule": "心尖舒张期隆隆样杂音先想MS。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.二尖瓣狭窄。心尖区舒张期隆隆样杂音、左侧卧位更明显，是MS典型听诊组合。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "主动脉瓣狭窄为胸骨右缘收缩期喷射性杂音并向颈部传导。"
+      },
+      {
+        "option": "C",
+        "reason": "三尖瓣狭窄更靠胸骨左下缘并受吸气影响。"
+      }
+    ],
+    "common_failure_node": "只记“狭窄=舒张期/收缩期”而不结合瓣膜位置和血流时相。"
   },
   {
     "question_id": "xizong-official-2020-n071",
@@ -522,14 +782,26 @@
       "若瓣叶严重钙化僵硬，S1反而可减弱；题干年轻、典型MS体征更符合前者。"
     ],
     "transfer_rule": "MS经典体征可有S1亢进+开瓣音。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.心尖部第一心音增强。瓣叶仍有活动度的二尖瓣狭窄常出现拍击样S₁亢进。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "严重钙化僵硬的二尖瓣可使S₁减弱，但年轻典型MS病例更符合增强。"
+      },
+      {
+        "option": "D",
+        "reason": "第二心音逆分裂不是本题MS的典型伴随体征。"
+      }
+    ],
+    "common_failure_node": "把“瓣膜病=心音减弱”泛化，不考虑狭窄瓣叶关闭时张力。"
   },
   {
     "question_id": "xizong-official-2020-n072",
@@ -543,7 +815,9 @@
     "exam_target": "共享瓣膜病题子问缺失",
     "decision_axis": "当前Question记录只保留共享病例与选项，未保留足以恢复具体子问的问法；虽有正式答案C，但无法安全确定其判断轴。",
     "reasoning_chain": [
-      "共享题干不足以独立恢复子问语义，按题源答案保留并 fail-closed。"
+      "共享病例只保留MS体征与四个变化选项。",
+      "具体询问对象没有保存在Question Truth。",
+      "因此只保留官方答案C，不建立Current relation。"
     ],
     "transfer_rule": "仅保留题源/Question Truth边界；不得凭选项反推缺失子问。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -553,7 +827,16 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.舒张晚期消失为题源官方答案；共享病例缺失具体子问，无法确认是在问杂音时相、房颤后变化还是其他现象，因此不反推Current规则。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "在具体子问缺失时不能仅凭“无变化/消失”选项安全恢复比较轴。"
+      }
+    ],
+    "common_failure_node": "用官方答案C反向猜子问内容，制造不存在的题干语义。",
+    "source_gap_note": "共享病例的原子问文字缺失，无法安全恢复“舒张晚期消失”具体指代的生理/听诊变量。"
   },
   {
     "question_id": "xizong-official-2020-n073",
@@ -572,14 +855,26 @@
       "哮喘更强调可变/可逆气流受限；ILD是限制性通气障碍，支扩则以反复感染和大量脓痰等结构性支气管病为主。"
     ],
     "transfer_rule": "COPD=危险暴露+慢性症状+持续气流受限。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.慢性阻塞性肺疾病。长期吸烟、慢性咳痰、桶状胸和支扩后FEV₁/FVC 61%共同证明持续性气流受限。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "哮喘更强调可变、可逆性气流受限。"
+      },
+      {
+        "option": "D",
+        "reason": "间质性肺病主要表现限制性通气障碍和弥散问题。"
+      }
+    ],
+    "common_failure_node": "只凭“喘息”选哮喘，不看长期吸烟及支扩后仍持续阻塞。"
   },
   {
     "question_id": "xizong-official-2020-n074",
@@ -598,14 +893,26 @@
       "不要用FEV₁/FVC的61%直接当作严重度百分比；它负责定性，不负责分级。"
     ],
     "transfer_rule": "GOLD 2肺功能：FEV₁约50%～79%预计值。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.阻塞性通气功能障碍，中度。FEV₁/FVC用于定性阻塞，FEV₁ 52%pred按题源/Current Study落在GOLD 2中度范围。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "轻度需要更高的FEV₁%pred。"
+      },
+      {
+        "option": "D",
+        "reason": "重度通常FEV₁%pred更低。"
+      }
+    ],
+    "common_failure_node": "用FEV₁/FVC的61%直接当严重度分级，而不是看FEV₁占预计值。"
   },
   {
     "question_id": "xizong-official-2020-n075",
@@ -619,7 +926,9 @@
     "exam_target": "COPD旧LAMA单药起始治疗",
     "decision_axis": "题源按当年分组选择LAMA单药作为稳定期首选；Current COPD起始治疗已更多使用双支气管扩张等分层策略，不能直接升级。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对现行指南边界 fail-closed。"
+      "病例已确诊中度持续性气流受限且近1年无急性加重。",
+      "题源按当时分组选择LAMA单药。",
+      "Current治疗框架已更新，因此保留题源答案但不建立正向relation。"
     ],
     "transfer_rule": "仅保留题源/Study时代边界；Current治疗按现行GOLD分组。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -629,6 +938,19 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.应用LAMA为题源2019/2020-era COPD稳定期分组口径答案；Current COPD起始治疗已按症状/急性加重风险及双支扩等策略更新，不能固定为单药LAMA首选。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "无感染征象时不常规使用抗生素。"
+      },
+      {
+        "option": "C",
+        "reason": "ICS+LABA是否使用需结合急性加重史、嗜酸粒细胞等，不能从本题直接统一推出。"
+      }
+    ],
+    "common_failure_node": "把历史GOLD分组下LAMA单药首选背成所有现代稳定期COPD患者统一起始方案。",
+    "source_boundary_note": "题源按旧COPD分组选择LAMA单药；Current起始治疗更多依据症状与急性加重风险并常使用双支气管扩张，故不升级为统一Current首选。"
   }
 ]
