@@ -18,7 +18,7 @@ Kian approved the Mac-landscape Home / Steward / Radar / global Dock upgrade on 
 
 Current implementation cursor:
 - branch: `work/steward-ui-vnext-20260924`
-- current remote head at this cursor update: `d0687912c295ae739de7afb2b9f737687cd0c0f7`
+- current remote head at this cursor update: `e27f6f5d92f045c217d75620622f80ffbd5b17cf`
 - preview: `static-web/ui-preview/steward-vnext.html`
 - `main`: **no integrated replacement UI from this preview**
 - preview data: **sample only**, never learner/mail/Health truth
@@ -28,14 +28,15 @@ Current preview coverage:
 - Steward Today timeline;
 - Nutrition combination + single-item + grams + deterministic macro arithmetic;
 - Training actuals + future Apple Watch/Health display slot;
+- Steward Week plan-vs-observed and seven-day allocation view;
+- Steward Month phase / Gate / commitment / coarse-history view;
+- Steward Review future-useful decision view without readiness/efficiency scoring;
 - Radar `需要处理 / 值得知道`;
 - floating draggable Dock and dense record/break popovers.
 
 Still incomplete:
-- Week;
-- Month;
-- Review;
-- final unified Mac-wide visual/interaction pass across Home / Today / Radar / Dock;
+- final unified Mac-wide visual/interaction pass across all preview surfaces;
+- explicit Kian UI Human Gate;
 - exact native return/runtime integration and real data delivery.
 
 Important Human-Gate decisions already made during preview:
