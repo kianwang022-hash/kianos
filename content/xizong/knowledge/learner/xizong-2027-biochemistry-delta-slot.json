@@ -1,6 +1,6 @@
 {
   "schema": "kianos.xizong.future_source_slot.v1",
-  "status": "DELTA_REVIEWED_CANONICAL_UPGRADES_PENDING",
+  "status": "DELTA_REVIEW_INTEGRATED_WITH_FAIL_CLOSED_CONFLICTS",
   "slot_id": "xizong-2027-biochemistry-delta",
   "source_cycle": "27考研",
   "domain": "Biochemistry",
@@ -192,7 +192,7 @@
       "received_at": "2026-09-24",
       "markdown_snapshot": "content/xizong/source-snapshots/27/生物化学讲义_AI阅读版_27跟课_UnifiedSource_v1.md"
     },
-    "action_now": "RUN_PRESERVE_UPDATE_NEW_RETIRE_CONFLICT_REVIEW_AGAINST_CURRENT_M1_M10_G1_G5",
+    "action_now": "USE_UPDATED_CURRENT_ASSETS; KEEP_M3_NADPH_WORDING_CONFLICT_AND_G5_EXACT_GLYPH_FAIL_CLOSED",
     "delta_audit": "content/xizong/source-snapshots/27/XIZONG_27_生化外科_Source_Delta_Audit_2026-09-24.md",
     "delta_summary": {
       "preserve": "M1-M10/G1-G5 topology and most current Core",
@@ -206,5 +206,31 @@
       ],
       "retire": []
     }
+  },
+  "delta_review": {
+    "reviewed_at": "2026-09-24",
+    "source_snapshot": "content/xizong/source-snapshots/27/生物化学讲义_AI阅读版_27跟课_UnifiedSource_v1.md",
+    "classes": {
+      "PRESERVE": [
+        "M1-M10/G1-G5 Block and KP identity/topology",
+        "existing D8 diabetes drug-mechanism core",
+        "M3 PPP→NADPH→GSH and NADH-vs-NADPH core",
+        "G4 prokaryotic polycistron/eukaryotic monocistron core",
+        "G5 SOS repair core"
+      ],
+      "UPDATE": [
+        "D8: 西格列他钠 Source Precision",
+        "D8: GKA 多格列艾汀 Source Precision",
+        "G4: HIF–VHL degradation / hypoxia→EPO enhancer bridge",
+        "G5: eukaryotic low-fidelity/translesion-polymerase group boundary"
+      ],
+      "NEW": [],
+      "RETIRE": [],
+      "CONFLICT": [
+        "M3/Source wording: 'NADPH只能进行生物转化，不能进行生物氧化' conflicts with same-source PPP/GSH usage and Current Core; do not literalize into canonical medical truth",
+        "G5 exact handwritten first Greek polymerase glyph remains ξ/ζ ambiguous in current OCR/image readback; exact recall stays visual-source-bound"
+      ]
+    },
+    "topology_change": false
   }
 }
