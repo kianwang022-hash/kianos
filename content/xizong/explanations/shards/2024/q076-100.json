@@ -8,22 +8,34 @@
       "blob_sha": "153f5179c54d95fbc9f32f847460122048801cd5",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "心脏压塞体征",
-    "decision_axis": "心脏压塞可表现颈静脉怒张、低血压、心音低钝和奇脉，脉压往往变窄。",
+    "exam_target": "心脏压塞的Beck三联征与奇脉",
+    "decision_axis": "低血压、颈静脉怒张、心音低钝加上明显奇脉，说明心包内压升高限制心室舒张充盈，最符合心脏压塞。",
     "reasoning_chain": [
-      "颈静脉怒张、低血压/窄脉压、心音低远，再加吸气时脉搏消失提示奇脉，形成心脏压塞典型血流动力学图景。",
-      "因此选C。",
-      "全心衰也可水肿和颈静脉怒张，但不能像大量心包积液那样解释心音低远与奇脉。"
+      "BP 90/80 mmHg提示脉压极窄。",
+      "颈静脉怒张和外周水肿提示静脉回流受阻。",
+      "心音低钝、心界扩大且深吸气脉搏消失（奇脉）共同指向心包积液压塞，因此选C。"
     ],
-    "transfer_rule": "Beck三联征+奇脉提示压塞。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "心包压塞高频组合：低血压/脉压窄 + JVP升高 + 心音低 + 奇脉；本质是舒张充盈受限。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.心脏压塞。颈静脉怒张、低血压/脉压变窄、心音低钝和奇脉构成典型压塞图景。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "全心衰可有颈静脉怒张和水肿，但明显奇脉、心音低钝及大心影更支持心包压塞。"
+      },
+      {
+        "option": "B",
+        "reason": "呼吸衰竭不能统一解释脉压极窄、颈静脉怒张和心音低钝。"
+      }
+    ],
+    "common_failure_node": "被慢支病史和下肢水肿锚定肺心病/心衰，忽略奇脉这一高价值压塞体征。"
   },
   {
     "question_id": "xizong-official-2024-n077",
@@ -34,22 +46,34 @@
       "blob_sha": "153f5179c54d95fbc9f32f847460122048801cd5",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "渗出性心包炎与压塞",
-    "decision_axis": "心包积液快速或大量增加可升高心包内压，限制心室舒张充盈并造成心脏压塞。",
+    "exam_target": "大量心包积液/渗出性心包炎导致压塞",
+    "decision_axis": "心界向两侧扩大、心音低钝并出现压塞体征，说明心包腔大量积液；在给定病因选项中渗出性心包炎最符合。",
     "reasoning_chain": [
-      "心界明显向两侧扩大、心音低远、奇脉和右心充盈受限说明大量心包积液已影响舒张。",
-      "因此最符合渗出性心包炎/心包积液背景，选B。",
-      "COPD和扩张型心肌病不能解释这一整套心包压塞体征。"
+      "N076已定位为心脏压塞。",
+      "心脏压塞需要心包腔压力升高，常由大量或快速心包积液造成。",
+      "心界明显扩大和心音低钝进一步支持大量心包积液，因此选B。"
     ],
-    "transfer_rule": "压塞关键不只量，更看积液速度和心包顺应性。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "心包积液量/增长速度决定压塞风险；大心影+低心音+JVP高要优先考虑心包积液。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.渗出性心包炎。大量心包积液可造成心影增大、心音低钝并进一步形成心脏压塞。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "扩张型心肌病可致全心扩大和心衰，但不能很好解释奇脉和典型压塞血流动力学。"
+      },
+      {
+        "option": "D",
+        "reason": "酒精性心肌病本质仍是心肌泵衰竭，不是心包腔压力升高。"
+      }
+    ],
+    "common_failure_node": "看到长期饮酒和“大心脏”就选酒精性心肌病，忽略心包压塞的专属体征。"
   },
   {
     "question_id": "xizong-official-2024-n078",
@@ -60,22 +84,34 @@
       "blob_sha": "153f5179c54d95fbc9f32f847460122048801cd5",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "心包积液超声心动图",
-    "decision_axis": "超声心动图能直接显示心包积液及右房/右室舒张期塌陷等压塞征象。",
+    "exam_target": "心包积液/压塞首选超声心动图",
+    "decision_axis": "超声心动图可直接显示心包积液量、分布及右房/右室舒张期塌陷等压塞血流动力学征象，是最直接检查。",
     "reasoning_chain": [
-      "怀疑大量心包积液并压塞时，最直接检查是超声心动图。",
-      "它能显示心包液体量、心腔受压和右房/右室舒张期塌陷等血流动力学证据，因此选A。",
-      "X线只能看到心影增大，不能直接判断压塞生理。"
+      "临床已高度怀疑心包积液和压塞。",
+      "需要既看液体又评估对心脏充盈的影响。",
+      "超声可床旁完成并动态评价，因此选A。"
     ],
-    "transfer_rule": "心包积液/压塞首看超声血流动力学证据。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "疑心包积液/压塞：超声回答“有没有液体、多少、是否压迫”；X线只能间接看心影。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.超声心动图。可直接显示心包积液并评估右心受压等压塞征象。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "胸片可见心影增大，但不能直接判断血流动力学压塞。"
+      },
+      {
+        "option": "D",
+        "reason": "CT可显示心包液体和解剖，但急诊血流动力学评价不如超声直接、便捷。"
+      }
+    ],
+    "common_failure_node": "把“影像更清楚”误等于“临床第一选择”，忽略床旁超声的动态血流动力学价值。"
   },
   {
     "question_id": "xizong-official-2024-n079",
@@ -86,22 +122,34 @@
       "blob_sha": "153f5179c54d95fbc9f32f847460122048801cd5",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "乙肝肝硬化基础上的HCC",
-    "decision_axis": "慢性HBV/肝硬化背景下出现肝脏质硬不规则肿块，应高度怀疑肝细胞癌。",
+    "exam_target": "慢性HBV背景下肝细胞癌识别",
+    "decision_axis": "慢性乙肝/肝硬化高危背景，出现消瘦、右上腹痛、硬质肝大和肝内5cm占位，应首先考虑HCC。",
     "reasoning_chain": [
-      "长期HBV背景、消瘦、肝区痛、肝大质硬并出现局灶性肝内占位，首先考虑HCC。",
-      "因此选B。",
-      "肝脓肿更偏急性感染中毒，肝囊肿也不符合慢性肝病+硬质肝大。"
+      "HBV 20年是HCC的重要高危背景。",
+      "消瘦、肝硬质增大和黄疸提示慢性肝病基础上的恶性进展。",
+      "B超发现肝内5cm实质性低回声占位，因此选B。"
     ],
-    "transfer_rule": "肝硬化+新肿块→先排HCC。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "HCC识别先看高危肝病背景，再看新发占位、肝大硬、消耗症状及AFP/动态增强证据。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.原发性肝癌。慢性HBV背景上出现硬质肝大、消瘦和5cm肝内占位高度支持HCC。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "肝脓肿通常有更明显感染毒血症和脓肿影像特征，且HBV长期背景更支持HCC。"
+      },
+      {
+        "option": "A",
+        "reason": "酒精性肝病可造成肝硬化，但不能单独解释新出现的5cm局灶占位。"
+      }
+    ],
+    "common_failure_node": "因为有低热和压痛就直接选肝脓肿，忽略HBV高危背景和硬质占位。"
   },
   {
     "question_id": "xizong-official-2024-n080",
@@ -112,22 +160,34 @@
       "blob_sha": "153f5179c54d95fbc9f32f847460122048801cd5",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "HCC影像学评估",
-    "decision_axis": "多期增强CT可评估HCC典型动脉期强化和门静脉/延迟期洗脱，并用于分期。",
+    "exam_target": "HCC多期增强CT评估",
+    "decision_axis": "多期增强CT能观察HCC典型动脉期强化、门静脉/延迟期洗脱，同时评估肿瘤范围和血管受累。",
     "reasoning_chain": [
-      "超声已发现肝占位后，增强CT能进一步看动脉期强化和门静脉/延迟期洗脱等HCC影像特征，并评估范围。",
-      "因此选A。",
-      "PET-CT不是这一步常规首选，平片和核素扫描也不能提供同等解剖与血供信息。"
+      "B超已发现肝内占位，需要进一步定性和分期。",
+      "HCC有特征性血供改变，多期增强影像最有价值。",
+      "给定选项中增强CT最直接，因此选A。"
     ],
-    "transfer_rule": "HCC影像抓动脉期高强化+洗脱。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "高危肝病+肝占位：进入动态增强CT/MRI；看动脉强化和后期洗脱，不靠普通平片。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.腹部增强CT。多期增强CT可评价HCC特征性强化模式并帮助分期。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "PET-CT不是本题HCC局灶定性与常规分期的首选影像。"
+      },
+      {
+        "option": "C",
+        "reason": "腹部X线平片无法有效定性肝实质占位。"
+      }
+    ],
+    "common_failure_node": "把“肿瘤就做PET-CT”当通用规则，忽略HCC的动态增强影像特点。"
   },
   {
     "question_id": "xizong-official-2024-n081",
@@ -138,22 +198,34 @@
       "blob_sha": "153f5179c54d95fbc9f32f847460122048801cd5",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "AFP的HCC提示价值",
-    "decision_axis": "AFP升高可支持HCC，但敏感性和特异性有限，不能脱离影像和临床背景单独确诊。",
+    "exam_target": "AFP作为HCC肿瘤标志物的支持价值",
+    "decision_axis": "AFP升高可支持HCC诊断和监测，但敏感性/特异性均有限，需与动态增强影像和临床背景联合。",
     "reasoning_chain": [
-      "HCC高危患者出现肝占位时，AFP是经典肿瘤标志物辅助证据之一。",
-      "因此四项中最有针对性的血液检查是AFP，选B。",
-      "转氨酶和胆红素反映肝功能/损伤，不是HCC特异性肿瘤标志。"
+      "题干已高度怀疑HCC。",
+      "四项实验室检查中AFP与HCC最直接相关。",
+      "ALT/AST和胆红素主要反映肝细胞损伤/胆汁淤积，白细胞偏感染，因此选B。"
     ],
-    "transfer_rule": "AFP是支持证据，不是单独诊断门槛。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "AFP是HCC支持证据，不是“阳性即确诊/阴性即排除”；最终要和高危背景、影像结合。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.血清AFP。AFP是HCC常用肿瘤标志物，可提供诊断支持和随访价值。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "ALT/AST反映肝细胞损伤程度，缺乏HCC特异性。"
+      },
+      {
+        "option": "A",
+        "reason": "白细胞计数更适合评价感染炎症，不是HCC特异标志。"
+      }
+    ],
+    "common_failure_node": "把AFP当成绝对诊断标准，忽略部分HCC AFP正常、其他疾病也可升高。"
   },
   {
     "question_id": "xizong-official-2024-n082",
@@ -164,22 +236,34 @@
       "blob_sha": "153f5179c54d95fbc9f32f847460122048801cd5",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "肾病综合征识别",
-    "decision_axis": "大量蛋白尿、低白蛋白血症、水肿和高脂血症构成肾病综合征核心。",
+    "exam_target": "大量蛋白尿和水肿识别肾病综合征",
+    "decision_axis": "尿蛋白4.6g/d已达到大量蛋白尿，伴明显全身水肿；该临床综合征首先归入肾病综合征。",
     "reasoning_chain": [
-      "尿蛋白4.6 g/d、明显水肿而血压正常，红细胞不多，首先满足大量蛋白漏出的肾病综合征模式。",
-      "因此选D。",
-      "肾炎综合征更强调血尿、高血压和肾炎性尿沉渣。"
+      "24小时尿蛋白>3.5g属于大量蛋白尿。",
+      "明显眼睑及双下肢水肿符合低白蛋白/钠水潴留后果。",
+      "少量镜下血尿不否定肾病综合征，因此选D。"
     ],
-    "transfer_rule": "肾综四联：大量蛋白尿+低白蛋白+水肿+高脂。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "肾病综合征先抓大量蛋白尿，再补低白蛋白、水肿和高脂血症；少量血尿可共存。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.肾病综合征。4.6g/d大量蛋白尿合并明显水肿符合肾病综合征核心框架。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "急性肾炎更突出血尿、高血压和肾功能/容量问题，通常不是以大量蛋白尿为主。"
+      },
+      {
+        "option": "B",
+        "reason": "急进性肾炎需要短期肾功能快速恶化等证据，题干未给。"
+      }
+    ],
+    "common_failure_node": "看到镜下RBC就自动归入肾炎综合征，忽略蛋白尿量级。"
   },
   {
     "question_id": "xizong-official-2024-n083",
@@ -190,22 +274,34 @@
       "blob_sha": "153f5179c54d95fbc9f32f847460122048801cd5",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "肾病综合征低白蛋白",
-    "decision_axis": "大量尿蛋白丢失导致血清白蛋白降低，是肾病综合征诊断和水肿机制的重要环节。",
+    "exam_target": "肾病综合征需确认低白蛋白血症",
+    "decision_axis": "大量尿蛋白丢失导致血清白蛋白下降，是肾病综合征定义和水肿机制的重要组成，因此下一步最有价值是血清白蛋白。",
     "reasoning_chain": [
-      "肾病综合征的核心证据链还需要证明低白蛋白血症。",
-      "因此下一步最有价值的是血清白蛋白，选A。",
-      "肌酐评估肾功能，但不能替代低白蛋白这个综合征定义轴。"
+      "已经有大量蛋白尿和明显水肿。",
+      "要把肾病综合征证据闭环，需要确认低白蛋白血症。",
+      "因此四项中选A。"
     ],
-    "transfer_rule": "大量蛋白尿后要看albumin。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "大量蛋白尿病例若问“补哪项完成NS证据”，优先查血清白蛋白。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.血清白蛋白。低白蛋白血症是肾病综合征核心组成，也解释明显水肿。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "肌酐评价肾功能，但不能替代肾病综合征的低白蛋白证据。"
+      },
+      {
+        "option": "D",
+        "reason": "腹部B超不能完成肾病综合征的实验室定义。"
+      }
+    ],
+    "common_failure_node": "把“肾病就先查肌酐”当成所有题型的固定答案，没有读题的诊断缺口。"
   },
   {
     "question_id": "xizong-official-2024-n084",
@@ -216,22 +312,34 @@
       "blob_sha": "153f5179c54d95fbc9f32f847460122048801cd5",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "成人肾病综合征病理诊断",
-    "decision_axis": "成人新发肾病综合征常需结合病因线索考虑肾活检，以明确肾小球病理类型。",
+    "exam_target": "成人新发肾病综合征肾活检明确病理类型",
+    "decision_axis": "成人肾病综合征病因和病理谱广，肾活检可直接明确肾小球病理类型并指导后续治疗与预后判断。",
     "reasoning_chain": [
-      "年轻成人首次出现肾病综合征，需要进一步确定具体肾小球病理类型。",
-      "肾活检可用LM/IF/EM完成病理分类，因此选A。",
-      "IVP、CT和肾图不能替代肾小球组织学定型。"
+      "患者20岁成人，新发大量蛋白尿。",
+      "仅靠尿蛋白量无法区分MCD、FSGS、膜性等病理类型。",
+      "肾活检提供LM/IF/EM证据，因此选A。"
     ],
-    "transfer_rule": "成人肾综治疗前常需先明确病理/继发病因。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "成人NS若病因不明，核心病理分型工具是肾活检；泌尿系造影/CT不回答肾小球病理。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.肾活检。成人新发肾病综合征常需依靠肾活检明确肾小球病理类型。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "静脉肾盂造影主要评价泌尿道形态，不诊断肾小球病理。"
+      },
+      {
+        "option": "C",
+        "reason": "普通腹部CT无法替代肾活检的LM/IF/EM分型。"
+      }
+    ],
+    "common_failure_node": "把“肾脏疾病影像”与“肾小球病理分型”混为一谈。"
   },
   {
     "question_id": "xizong-official-2024-n085",
@@ -242,22 +350,35 @@
       "blob_sha": "153f5179c54d95fbc9f32f847460122048801cd5",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "多发性骨髓瘤M蛋白类型",
-    "decision_axis": "多发性骨髓瘤最常见的单克隆免疫球蛋白类型为IgG。",
+    "exam_target": "多发性骨髓瘤最常见M蛋白为IgG",
+    "decision_axis": "Current H8明确MM总体最常见免疫球蛋白类型为IgG；即使有轻度肾功能异常，也不能越过总体基率直接选IgD。",
     "reasoning_chain": [
-      "多发性骨髓瘤最常见的单克隆免疫球蛋白类型是IgG。",
-      "因此选A。",
-      "IgD和单纯轻链型均可见，但频率低得多；IgE极罕见。"
+      "血清蛋白电泳单峰已确认M蛋白方向。",
+      "Current H8 KP10明确“MM最常见仍是IgG”。",
+      "Cr 134仅轻度升高，不足以把类型改判为IgD，因此选A。"
     ],
-    "transfer_rule": "MM M蛋白常见IgG，其次IgA。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "MM分型先记总体IgG最常见；“IgD更易肾损”是Source-bound关联，不能倒推所有肾损MM都是IgD。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.IgG型。Current H8明确IgG是多发性骨髓瘤最常见M蛋白类型。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "Current Study虽提示IgD更易伴肾损害，但总体频率仍远低于IgG。"
+      },
+      {
+        "option": "D",
+        "reason": "轻链型存在，但不是总体最常见类型。"
+      }
+    ],
+    "common_failure_node": "看到肌酐升高就越过基率选IgD，忽略“关联更强”不等于“最常见”。",
+    "source_boundary_note": "Current H8保留“MM最常见IgG；IgD更易肾损害”的Source-bound考试口径，二者需同时理解。"
   },
   {
     "question_id": "xizong-official-2024-n086",
@@ -268,20 +389,35 @@
       "blob_sha": "153f5179c54d95fbc9f32f847460122048801cd5",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "多发性骨髓瘤旧Durie-Salmon分期",
-    "decision_axis": "题源使用Durie-Salmon旧分期；Current多采用ISS/R-ISS等现代分层，旧固定分期不能升级为Current规则。",
+    "exam_target": "多发性骨髓瘤Durie-SalmonⅢA分期",
+    "decision_axis": "Current H8完整保留D-S分期：Hb<85g/L任一高负荷条件即Ⅲ期；Cr<177μmol/L属于A亚型。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断；涉及Current治疗、法律、阈值或旧分类时不向canonical泛化。"
+      "Hb 80g/L低于85g/L，满足D-SⅢ期高负荷条件。",
+      "Cr 134μmol/L低于177μmol/L，属于A亚型。",
+      "两轴合并得到Ⅲ期A亚型，选C。"
     ],
-    "transfer_rule": "保留题源分期，不替代Current骨髓瘤分层。",
-    "mapping_decision": "NO_SAFE_MATCH",
+    "transfer_rule": "D-S先分I/II/III肿瘤负荷，再单独用肾功能分A/B；III任一高负荷条件即可触发。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.Ⅲ期A亚型。Hb 80g/L触发Ⅲ期，Cr 134μmol/L符合A亚型。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "Hb已低于Ⅲ期阈值，不能留在Ⅱ期。"
+      },
+      {
+        "option": "D",
+        "reason": "B亚型要求Cr≥177μmol/L或相应Ccr下降，本例Cr 134。"
+      }
+    ],
+    "common_failure_node": "把数字分期与A/B亚型混成同一条轴，或认为必须多项同时达到Ⅲ期。",
+    "source_boundary_note": "Durie-Salmon属于传统分期体系，但Current H8将其作为明确Study Source继续保留；relation只表示考试Current，不等同现代临床只采用D-S。"
   },
   {
     "question_id": "xizong-official-2024-n087",
@@ -292,20 +428,35 @@
       "blob_sha": "153f5179c54d95fbc9f32f847460122048801cd5",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "多发性骨髓瘤旧化疗药物选择",
-    "decision_axis": "骨髓瘤治疗已高度依赖移植适应性、细胞遗传风险和新型药物方案，旧题固定药物选择不宜泛化。",
+    "exam_target": "自体移植候选MM诱导期避免美法仑",
+    "decision_axis": "Current H8 KP14明确：计划自体造血干细胞移植者诱导阶段不宜使用美法仑，因为会抑制骨髓并影响干细胞储备/动员。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断；涉及Current治疗、法律、阈值或旧分类时不向canonical泛化。"
+      "题目明确患者宜行自体造血干细胞移植。",
+      "硼替佐米、来那度胺、地塞米松均可构成Current Study诱导接口。",
+      "美法仑具有骨髓毒性，Current明确移植候选诱导期避免，因此选B。"
     ],
-    "transfer_rule": "MM治疗按Current风险和移植适应性分层。",
-    "mapping_decision": "NO_SAFE_MATCH",
+    "transfer_rule": "MM治疗先问“是否移植候选”；计划采集自体干细胞时不要在诱导期先用美法仑。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.美法仑。Current H8 KP14明确移植候选者诱导阶段不宜选美法仑，以避免骨髓/干细胞储备受损。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "硼替佐米是Current Study移植候选诱导方案VD的组成之一。"
+      },
+      {
+        "option": "C",
+        "reason": "来那度胺可与地塞米松组成Current Study RD诱导接口。"
+      }
+    ],
+    "common_failure_node": "只记“不适合移植者MVP含美法仑”，却忘记移植候选诱导期的相反边界。",
+    "source_boundary_note": "本题严格承接Current H8当前Study方案；现实MM诱导组合会随指南、可及药物和移植策略更新。"
   },
   {
     "question_id": "xizong-official-2024-n088",
@@ -316,22 +467,36 @@
       "blob_sha": "153f5179c54d95fbc9f32f847460122048801cd5",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "青年肥胖糖尿病分型",
-    "decision_axis": "青年、肥胖、GADA阴性并有家族史更支持2型糖尿病，但仍需结合胰岛功能和家族遗传模式鉴别MODY等。",
+    "exam_target": "青年肥胖、GADA阴性糖尿病的宽泛2型表型分类",
+    "decision_axis": "患者已达到糖尿病诊断，BMI约27.9、无酮症、GADA阴性且有家族史；在T1/T2/前期的宽泛分类题中最符合T2DM表型。",
     "reasoning_chain": [
-      "24岁但体重偏高、起病缓慢、无酮症且GADA阴性，更符合胰岛素抵抗主导的2型糖尿病。",
-      "因此选C。",
-      "免疫介导1型糖尿病更常有自身抗体、胰岛素绝对缺乏和更强酮症倾向。"
+      "FPG 9.2mmol/L、HbA1c 8.1%已达到糖尿病范围，不是糖尿病前期。",
+      "无酮症、GADA阴性，不支持典型免疫介导T1DM。",
+      "偏胖和家族聚集更像T2DM表型，因此该小题选C。"
     ],
-    "transfer_rule": "年轻糖尿病不能只凭年龄，结合肥胖、自抗体、C肽和家族史。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "糖尿病分型不能只看年龄：先看酮症/抗体/体型/家族史/β细胞功能；宽泛T2表型和特殊单基因病因可以在不同题轴上并存。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.2型糖尿病。在本题T1/T2的宽泛临床表型比较中，偏胖、无酮症、GADA阴性和家族史更支持T2DM。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "GADA阴性、无酮症且无明显绝对胰岛素缺乏表现，不支持典型免疫介导T1DM。"
+      },
+      {
+        "option": "D",
+        "reason": "FPG 9.2和HbA1c 8.1%已越过糖尿病诊断阈值。"
+      }
+    ],
+    "common_failure_node": "把“年轻”机械等同T1DM，或者因为后续MODY答案而误以为本题宽泛表型分类必须同样选MODY。",
+    "source_conflict_note": "2024该题组两份回忆答案PDF曾将N088误标B；canonical经主原卷教学注释和解析链校正为C。Current Explanation遵循VERIFIED_CORRECTED Question Truth。",
+    "source_boundary_note": "N088考宽泛临床表型分类；同组N090进一步问特殊病因类型时可识别MODY。两题题轴不同，不构成医学矛盾。"
   },
   {
     "question_id": "xizong-official-2024-n089",
@@ -342,20 +507,35 @@
       "blob_sha": "153f5179c54d95fbc9f32f847460122048801cd5",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "青年2型糖尿病起始治疗旧固定方案",
-    "decision_axis": "题源涉及具体首选药物/胰岛素方案；Current起始治疗应按高血糖程度、症状、合并症和个体目标决定。",
+    "exam_target": "稳定新诊断年轻糖尿病不应机械首选胰岛素",
+    "decision_axis": "题目问“不适当”。患者无酮症、无明显消瘦/危象，FPG 9.2、HbA1c 8.1，未达到Current D8中“新诊断HbA1c≥9%或FPG≥11.1短期强化”等必须优先胰岛素入口。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断；涉及Current治疗、法律、阈值或旧分类时不向canonical泛化。"
+      "生活方式干预属于所有糖尿病管理基础。",
+      "Current Study可根据表型选择二甲双胍等口服药，MODY某些亚型也可对磺脲类敏感。",
+      "本例没有Current胰岛素强制适应证，因此“首选胰岛素治疗”是不适当项，选D。"
     ],
-    "transfer_rule": "T2DM治疗不能用旧单选题固化统一起始方案。",
-    "mapping_decision": "NO_SAFE_MATCH",
+    "transfer_rule": "先问是否有必须胰岛素的门槛：T1、危象、明显分解代谢、严重高血糖/特殊状态；否则稳定T2表型先生活方式并按个体化口服药路径。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.首选胰岛素治疗。Current D8 KP21所列强制/优先胰岛素入口在本例均不成立，因此把胰岛素作为首选不适当。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "生活方式干预是Current糖尿病综合管理基础。"
+      },
+      {
+        "option": "C",
+        "reason": "二甲双胍是Current T2DM一线/联合基础药物之一，尤其适合胰岛素抵抗明显者。"
+      }
+    ],
+    "common_failure_node": "看到年龄24岁就自动把患者按T1DM处理，忽略GADA、酮症和高血糖严重度。",
+    "source_conflict_note": "2024该题组两份回忆答案PDF曾误标B；canonical经主原卷解析校正为D，题干实际问“不适当的是”。"
   },
   {
     "question_id": "xizong-official-2024-n090",
@@ -366,20 +546,34 @@
       "blob_sha": "153f5179c54d95fbc9f32f847460122048801cd5",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "MODY鉴别",
-    "decision_axis": "年轻起病、明显家族聚集、胰岛自身抗体阴性且不典型肥胖/胰岛素抵抗时应考虑MODY。",
+    "exam_target": "年轻、多代家族史、抗体阴性的MODY识别",
+    "decision_axis": "Current D8 KP01明确MODY特征：<25岁、常染色体显性多代家族史、自身抗体多阴性、无酮症倾向，病例高度吻合。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "24岁起病符合年轻发病。",
+      "患者、父亲、祖母连续三代糖尿病，符合常染色体显性家族聚集线索。",
+      "GADA阴性且无酮症，更支持MODY而非LADA，因此选B。"
     ],
-    "transfer_rule": "多代早发糖尿病+抗体阴性→想MODY。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "MODY入口：<25岁 + 三代/多代AD家族史 + 抗体阴性 + 无酮症/早期不依赖胰岛素。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.MODY。年轻起病、连续多代家族史、GADA阴性和无酮症与Current D8 KP01的MODY特征高度一致。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "LADA属于成人缓慢进展的自身免疫性糖尿病，通常需要自身抗体支持。"
+      },
+      {
+        "option": "C",
+        "reason": "线粒体糖尿病更强调母系遗传及神经性耳聋等线索，本例是父系连续家族史。"
+      }
+    ],
+    "common_failure_node": "把“年轻+家族史”都归T2DM，不进一步识别单基因常显遗传模式。"
   },
   {
     "question_id": "xizong-official-2024-n091",
@@ -390,20 +584,34 @@
       "blob_sha": "153f5179c54d95fbc9f32f847460122048801cd5",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "SLE识别",
-    "decision_axis": "口腔溃疡、关节痛、血细胞减少并抗Sm等自身抗体阳性，支持系统性红斑狼疮。",
+    "exam_target": "口腔溃疡、关节症状、血小板减少和anti-Sm阳性的SLE",
+    "decision_axis": "育龄女性多系统表现加ANA阳性、anti-Sm高特异标记，构成SLE诊断闭环；RF阳性并不等于RA。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "口腔溃疡、关节痛和血小板25×10⁹/L提示多系统自身免疫。",
+      "ANA用于筛查，anti-Sm在Current H16中是SLE高特异标记。",
+      "关节无红肿侵蚀，且RF可在SLE中阳性，因此选D。"
     ],
-    "transfer_rule": "SLE看多系统受累+特异自身抗体。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "SLE诊断看“器官组合+抗体角色”：ANA敏感筛查，Sm高特异；RF阳性不能单独把病例拉向RA。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.系统性红斑狼疮。口腔溃疡、关节症状、严重血小板减少与anti-Sm高特异阳性共同支持SLE。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "RF并不特异于RA，本例缺乏典型持续侵蚀性滑膜炎，反而有SLE特异抗体和血液受累。"
+      },
+      {
+        "option": "C",
+        "reason": "ITP可解释血小板减少，但不能统一解释口腔溃疡、关节症状及anti-Sm/ANA异常。"
+      }
+    ],
+    "common_failure_node": "被RF阳性单项锚定RA，忽略anti-Sm特异性和多系统组合。"
   },
   {
     "question_id": "xizong-official-2024-n092",
@@ -414,20 +622,35 @@
       "blob_sha": "153f5179c54d95fbc9f32f847460122048801cd5",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "SLE血小板减少治疗",
-    "decision_axis": "题源给出具体糖皮质激素治疗；Current方案取决于血小板水平、出血风险、器官受累及既往治疗。",
+    "exam_target": "SLE严重血小板减少的糖皮质激素治疗入口",
+    "decision_axis": "Plt 25×10⁹/L并有皮肤出血点，属于明显/严重血小板减少；Current H16把严重血小板减少性紫癜列入狼疮危象入口，糖皮质激素是系统控制主轴。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断；涉及Current治疗、法律、阈值或旧分类时不向canonical泛化。"
+      "病例已确诊SLE，当前危险是显著血小板减少和出血表现。",
+      "单纯NSAID或对症治疗不能控制免疫介导的严重血液受累。",
+      "Current H16 KP20明确严重血小板减少性紫癜进入大剂量GC治疗入口，因此在选项中选B。"
     ],
-    "transfer_rule": "免疫性血小板减少治疗按严重度与Current方案分层。",
-    "mapping_decision": "NO_SAFE_MATCH",
+    "transfer_rule": "SLE治疗按器官严重度分层；明显血液系统损害不能只对症，严重血小板减少进入系统糖皮质激素/免疫抑制路径。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.应用糖皮质激素。Current H16对严重血小板减少性紫癜明确给出大剂量糖皮质激素治疗入口。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "NSAID只能缓解关节痛，不能处理Plt 25×10⁹/L的免疫性血小板减少。"
+      },
+      {
+        "option": "C",
+        "reason": "IVIG可用于特定危重/难治场景，但Current本题主轴首先是SLE系统性糖皮质激素治疗。"
+      }
+    ],
+    "common_failure_node": "只盯关节痛选择NSAID，忽略血小板25和出血点才是当前最危险变量。",
+    "source_boundary_note": "本题只确认“严重SLE血小板减少进入糖皮质激素治疗主轴”；具体剂量、是否冲击及联合方案需按器官严重度和Current临床方案个体化。"
   },
   {
     "question_id": "xizong-official-2024-n093",
@@ -438,20 +661,35 @@
       "blob_sha": "153f5179c54d95fbc9f32f847460122048801cd5",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "腹部闭合伤旧腹腔穿刺路径",
-    "decision_axis": "题源把腹腔穿刺作为关键检查；现代创伤流程更依赖FAST和增强CT并按血流动力学稳定性分流。",
+    "exam_target": "腹部闭合伤Current Study的诊断性腹腔穿刺",
+    "decision_axis": "Current D13 KP14明确保存Lecture口径：腹腔穿刺是腹部损伤首选/金标准检查，可快速发现不凝血；同时Current强调血流动力学不稳者不能为检查延误复苏和探查。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断；涉及Current治疗、法律、阈值或旧分类时不向canonical泛化。"
+      "BP 75/40、P 130和淡漠提示重度失血性休克。",
+      "移动性浊音和腹膜刺激征提示腹腔内液体/损伤。",
+      "在本题无FAST选项的Study框架中，腹腔穿刺可快速证实腹腔积血，因此选C。"
     ],
-    "transfer_rule": "闭合腹伤先按稳定性选择FAST/CT/手术路径。",
-    "mapping_decision": "NO_SAFE_MATCH",
+    "transfer_rule": "腹部创伤先看稳定性：不稳→复苏+迅速判断探查；当前Lecture若问快速诊断并提供穿刺，则保留腹腔穿刺Study接口。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.腹腔穿刺。Current D13 KP14明确将其保留为腹部损伤Study首选/高阳性率检查，可快速证实腹腔内出血。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "血流动力学极不稳定时转运CT可能延误救治；稳定患者才更适合进一步CT定位。"
+      },
+      {
+        "option": "D",
+        "reason": "腹腔动脉造影耗时且非该不稳定患者的首个诊断动作。"
+      }
+    ],
+    "common_failure_node": "用现代FAST知识直接判历史题答案错误，或者反过来把腹腔穿刺外推为现代所有不稳定腹部创伤的固定首选。",
+    "source_boundary_note": "官方Source已标注现代实践 caveat：当前创伤更常床旁FAST/eFAST并迅速手术；本relation只承接D13明确保留的Lecture/考试腹腔穿刺口径。"
   },
   {
     "question_id": "xizong-official-2024-n094",
@@ -462,22 +700,34 @@
       "blob_sha": "153f5179c54d95fbc9f32f847460122048801cd5",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "腹部闭合伤肝脾破裂",
-    "decision_axis": "外伤后失血性休克、移动性浊音和腹膜刺激征提示腹腔实质器官破裂出血。",
+    "exam_target": "腹部闭合伤失血性休克提示肝脾实质脏器破裂",
+    "decision_axis": "上腹外伤后极度低血压、移动性浊音阳性提示大量腹腔内出血；实质脏器中肝脾破裂最符合。",
     "reasoning_chain": [
-      "高能量上腹外伤后很快出现失血性休克、移动性浊音和弥漫腹膜刺激征，提示腹腔内大量出血。",
-      "最常见且最符合的是肝脾实质脏器破裂，选A。",
-      "单纯小肠或胃破裂更偏消化液污染和腹膜炎，不一定造成如此迅速的大量失血。"
+      "P 130、BP75/40是重度失血性休克。",
+      "移动性浊音阳性提示腹腔大量液体，创伤背景下优先考虑血液。",
+      "肝脾等实质脏器破裂最易造成快速大量出血，因此选A。"
     ],
-    "transfer_rule": "闭合腹伤+休克+腹腔积液→先想肝脾破裂。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "腹部创伤：实质脏器→出血/休克轴；空腔脏器→污染/腹膜炎轴，二者可重叠。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.肝脾破裂。严重失血性休克与腹腔积血最符合肝脾等实质脏器破裂。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "小肠破裂更突出消化液/细菌污染和腹膜炎，通常不是最典型早期大量失血源。"
+      },
+      {
+        "option": "D",
+        "reason": "腹膜后血肿可致失血，但移动性浊音阳性提示腹膜腔内积液更突出。"
+      }
+    ],
+    "common_failure_node": "看到肌紧张就只考虑空腔脏器穿孔，忽略移动性浊音和休克所指向的大量出血。"
   },
   {
     "question_id": "xizong-official-2024-n095",
@@ -488,22 +738,34 @@
       "blob_sha": "153f5179c54d95fbc9f32f847460122048801cd5",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "腹腔大出血的手术指征",
-    "decision_axis": "血流动力学不稳定并有进行性腹腔出血/腹膜炎时需紧急手术控制出血。",
+    "exam_target": "血流动力学不稳定腹部损伤的急诊剖腹探查",
+    "decision_axis": "抗休克背景下持续低血压并有腹膜刺激征/腹腔出血证据，当前D13明确进入急诊剖腹探查，不应继续观察。",
     "reasoning_chain": [
-      "患者已经休克并有弥漫性腹膜刺激征，说明存在进行性腹腔内出血/脏器破裂且血流动力学不稳定。",
-      "此时需要急诊剖腹探查和止血，选B。",
-      "不能为了CT、介入或腹腔镜而延误开放性源控制。"
+      "患者已处于明显休克。",
+      "全腹压痛肌紧张和移动性浊音提示持续腹腔内病变。",
+      "Current D13“不稳或进行性恶化→复苏+探查”，因此选B。"
     ],
-    "transfer_rule": "创伤决策首看hemodynamic stability。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "腹部创伤真正决定动作的是血流动力学：不稳定+持续出血/腹膜炎→尽快源控制/探查。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.急诊剖腹探查。休克合并明确腹腔内出血/腹膜刺激征，需要紧急手术控制致命病灶。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "如此严重休克和腹膜征不能仅保守观察。"
+      },
+      {
+        "option": "C",
+        "reason": "介入适用于部分选择性稳定/可控制出血场景，本例需迅速全面探查和源控制。"
+      }
+    ],
+    "common_failure_node": "为了“微创”或继续影像而延误不稳定创伤患者的源控制。"
   },
   {
     "question_id": "xizong-official-2024-n096",
@@ -514,22 +776,34 @@
       "blob_sha": "153f5179c54d95fbc9f32f847460122048801cd5",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "充盈性尿失禁",
-    "decision_axis": "长期下尿路梗阻导致膀胱过度充盈，可出现尿潴留基础上的溢出性尿失禁。",
+    "exam_target": "BPH慢性尿潴留导致充溢性尿失禁",
+    "decision_axis": "长期出口梗阻使膀胱过度充盈，残余尿不断增加，膀胱内压超过尿道阻力时发生持续滴沥，即充溢性尿失禁。",
     "reasoning_chain": [
-      "长期前列腺增生样梗阻导致膀胱长期过度充盈、残余尿增多，最终出现不自主滴尿。",
-      "这种‘排不净后满出来’属于充溢性尿失禁，选D。",
-      "它不同于急迫性逼尿肌过度活动和压力性腹压漏尿。"
+      "5年排尿等待、尿线不成线提示长期排出梗阻。",
+      "前列腺增大支持BPH出口阻力。",
+      "尿液不自主滴出发生在慢性尿潴留背景，因此选D。"
     ],
-    "transfer_rule": "BPH+膀胱过度充盈+滴沥=overflow。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "充溢性尿失禁=“装太满后溢出来”；先找尿潴留/出口梗阻，不要只看“不自主漏尿”。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.充溢性尿失禁。长期BPH梗阻造成慢性尿潴留和膀胱过度充盈，继而出现滴沥性溢出。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "急迫性尿失禁以强烈尿意后不能延迟排尿为主，不以长期梗阻和残余尿为核心。"
+      },
+      {
+        "option": "C",
+        "reason": "压力性尿失禁多在咳嗽、喷嚏、腹压增加时漏尿，常见于盆底支持不足。"
+      }
+    ],
+    "common_failure_node": "看到“尿频+漏尿”就选急迫性尿失禁，漏看长期梗阻和尿潴留主线。"
   },
   {
     "question_id": "xizong-official-2024-n097",
@@ -540,22 +814,34 @@
       "blob_sha": "153f5179c54d95fbc9f32f847460122048801cd5",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "良性前列腺增生",
-    "decision_axis": "老年男性进行性排尿困难、尿线细和残余尿增多典型支持BPH。",
+    "exam_target": "老年男性进行性下尿路梗阻识别BPH",
+    "decision_axis": "老年男性长期进行性尿等待、尿线细/不成线、残余尿和前列腺增大，是良性前列腺增生典型表现。",
     "reasoning_chain": [
-      "老年男性进行性排尿困难、尿等待、尿线细弱，直肠指诊前列腺增大且中间沟变浅，典型提示BPH。",
-      "因此选B。",
-      "前列腺癌更关注结节、质硬不对称等恶性体征。"
+      "年龄75岁符合BPH高发人群。",
+      "症状以排尿等待、尿线弱、慢性潴留为主。",
+      "DRE示前列腺增大、中间沟变浅，因此选B。"
     ],
-    "transfer_rule": "老年LUTS先区分BPH、肿瘤、神经源性。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "BPH抓排尿期症状+储尿期症状+前列腺增大；前列腺癌不能仅靠“前列腺大”诊断。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.良性前列腺增生。老年男性进行性排尿困难和前列腺增大是典型BPH组合。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "前列腺癌更需结节、质硬、PSA/影像/病理等证据，单凭对称性增大和LUTS不足。"
+      },
+      {
+        "option": "A",
+        "reason": "慢性前列腺炎常伴会阴不适、疼痛等，不是本题长期机械性梗阻主轴。"
+      }
+    ],
+    "common_failure_node": "把老年男性所有下尿路症状都直接归前列腺癌，忽略BPH基率和DRE模式。"
   },
   {
     "question_id": "xizong-official-2024-n098",
@@ -566,22 +852,34 @@
       "blob_sha": "153f5179c54d95fbc9f32f847460122048801cd5",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "急性结石性胆囊炎",
-    "decision_axis": "右上腹痛、发热、Murphy征及胆囊壁增厚并结石，符合急性胆囊炎。",
+    "exam_target": "急性结石性胆囊炎识别",
+    "decision_axis": "持续右上腹痛、发热、明显压痛，B超见胆囊显著增大、壁厚0.6cm并有3cm结石，符合急性结石性胆囊炎。",
     "reasoning_chain": [
-      "右上腹痛、发热、胆囊明显增大、壁增厚并见大结石，且没有黄疸，最符合急性结石性胆囊炎。",
-      "因此选B。",
-      "胆管炎通常要有胆道梗阻/黄疸线索，胰腺炎则以持续上腹痛和胰腺证据为主。"
+      "症状和体征定位胆囊区炎症。",
+      "胆囊增大、壁增厚和腔内结石提供影像闭环。",
+      "无明显黄疸且总胆管仅轻度宽，不以胆管炎为主，因此选B。"
     ],
-    "transfer_rule": "胆囊炎=RUQ痛+发热+Murphy+影像炎症。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "急性胆囊炎：持续RUQ痛+发热/Murphy+胆囊壁厚/肿大/结石；明显寒战黄疸再想胆管炎。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.急性胆囊炎。右上腹持续疼痛、发热和超声胆囊壁增厚伴结石最符合急性结石性胆囊炎。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "急性胆管炎更典型为胆道梗阻基础上的寒战高热和黄疸。"
+      },
+      {
+        "option": "A",
+        "reason": "淀粉酶轻度升高并不等于急性胰腺炎，题干胆囊炎证据更完整。"
+      }
+    ],
+    "common_failure_node": "看到淀粉酶升高就自动选胰腺炎，忽略轻度非特异升高和强胆囊证据。"
   },
   {
     "question_id": "xizong-official-2024-n099",
@@ -592,12 +890,14 @@
       "blob_sha": "153f5179c54d95fbc9f32f847460122048801cd5",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "高危急性胆囊炎经皮引流",
-    "decision_axis": "题源固定选择经皮胆囊引流；Current高危患者是否引流及后续手术时机需按严重度、手术风险和指南决定。",
+    "exam_target": "高龄高风险急性胆囊炎的PTGD历史题源选择",
+    "decision_axis": "官方题源因高龄、肺心病和明显急性胆囊炎，把PTGD作为急性期减压/控制感染首选；Current D19只保存“>3天或炎症重/风险高先保守控制、择期手术”，未把PTGD固定为统一首选。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断；涉及Current治疗、法律、阈值或旧分类时不向canonical泛化。"
+      "病程5天、年龄78岁且合并肺心病，急诊开腹风险较高。",
+      "题源用经皮经肝胆囊穿刺引流实现胆囊减压和感染控制，因此官方答案C。",
+      "但Current D19没有建立“这类病例必须/首选PTGD”的稳定规则，故Explanation保留历史答案而Crosswalk fail-closed。"
     ],
-    "transfer_rule": "高危胆囊炎处理需Current风险分层，不固化PTGD。",
+    "transfer_rule": "高风险胆囊炎急性期先考虑控制感染和减压/源控制；具体经皮引流还是手术需按严重度、可操作性和Current规范选择。",
     "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
@@ -605,7 +905,21 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.PTGD为2024正式题源答案，用于高龄高风险患者急性期胆囊减压和感染控制；但不外推为Current唯一首选。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "高龄并肺心病且炎症已5天，题源认为急诊开腹手术风险较高。"
+      },
+      {
+        "option": "D",
+        "reason": "单纯保守治疗可能不足以完成胆囊减压/源控制，但是否必须经皮引流需按Current个体化判断。"
+      }
+    ],
+    "common_failure_node": "把“高风险先控制炎症”机械翻译成“所有人都PTGD”，或反过来用现代术式差异否认历史官方答案。",
+    "source_boundary_note": "官方Source使用历史术语PTGD；现代可见PTGBD/PTGBA等不同表述和策略。Current D19没有冻结其为本类患者统一首选。",
+    "source_gap_note": "Current D19 KP10只明确“>3天或炎症重/风险高先保守控制、择期手术”，未明确该情境下固定PTGD，因此没有安全Question→KP关系。"
   },
   {
     "question_id": "xizong-official-2024-n100",
@@ -617,20 +931,32 @@
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
     "exam_target": "细菌性肝脓肿识别",
-    "decision_axis": "高热寒战、肝区疼痛/叩击痛和肝内低回声占位符合肝脓肿。",
+    "decision_axis": "寒战高热、持续右上腹痛、肝区叩痛和肝内8×6cm低回声占位构成典型细菌性肝脓肿图景。",
     "reasoning_chain": [
-      "寒战高热、右上腹持续痛、肝区叩痛和肝内巨大低回声区，首先定位为肝实质化脓性感染。",
-      "因此选D。",
-      "急性胆囊炎和胆管炎病变空间主要在胆囊/胆道，不会直接形成这么大的肝内占位性脓腔。"
+      "寒战高热和WBC升高提示明显细菌感染。",
+      "肝区叩痛把感染定位到肝脏。",
+      "超声见较大肝内低回声区，与脓肿高度一致，因此选D。"
     ],
-    "transfer_rule": "高热+肝区痛+肝内液性占位→肝脓肿。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "肝脓肿抓“三件套”：高热寒战+肝区痛/叩痛+肝内液化占位；再用B超/CT和穿刺培养确认。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.肝脓肿。高热寒战、肝区叩痛和肝内较大低回声占位共同支持细菌性肝脓肿。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "急性胆囊炎疼痛定位胆囊并有Murphy征/胆囊炎性影像，本例主要占位在肝右叶。"
+      },
+      {
+        "option": "C",
+        "reason": "肝癌可有肝占位，但寒战高热和明显白细胞升高更支持脓肿。"
+      }
+    ],
+    "common_failure_node": "看到老年人肝内占位就先选肿瘤，忽略强烈感染和肝区痛证据。"
   }
 ]
