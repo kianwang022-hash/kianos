@@ -7,12 +7,12 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "9ecae48c8d8288eddb05db1a7b70dadd905442fd6007758a638aff1b93359859",
+    "content_hash": "a27a6066fb3962501cc005743174cc8b588456d3eebe46e0dca142cd985e53af",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "减轻；救济",
-      "core_meaning_en": "alleviation of distress or burden; assistance in time of difficulty",
-      "mental_model_cn": "减轻；救济",
+      "core_meaning_cn": "缓解；宽慰；救济",
+      "core_meaning_en": "alleviation; emotional relief; assistance in difficulty",
+      "mental_model_cn": "缓解；宽慰；救济",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -160,6 +160,39 @@
         "sense_label_en": "the variations in elevation of the earth's surface",
         "sort_order": 4,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:b477b312a6a3d0a2d95a",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:relief:768f941feaa578df:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "止痛；疼痛缓解",
+            "phrase": "pain relief"
+          },
+          {
+            "collocation_id": "collocation:9af741d96857d8056eb8",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:relief:768f941feaa578df:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "疼痛/症状/压力的缓解",
+            "phrase": "relief from pain/symptoms/stress"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "缓解；减轻（疼痛、不适、压力或问题）",
+        "definition_en": "the reduction or easing of pain, discomfort, pressure, or a problem",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:relief:768f941feaa578df",
+        "sense_label_en": "the reduction or easing of pain, discomfort, pressure, or a problem",
+        "sort_order": 5,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -219,6 +252,13 @@
         "merged_into_sense_id": null,
         "source_row": 11318,
         "source_path": "content/lexical/canonical/senses/shards/o4033-4064.json"
+      },
+      {
+        "sense_id": "sense:relief:768f941feaa578df",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 11355,
+        "source_path": "content/lexical/canonical/senses/shards/o4033-4064.json"
       }
     ],
     "active_collocations": [
@@ -226,7 +266,9 @@
       "collocation:35f92440403fbfd1c0f7",
       "collocation:4f9f3139e0afbd2dfa10",
       "collocation:85db549e0e3a4c664189",
+      "collocation:9af741d96857d8056eb8",
       "collocation:a146f59dc5e6425f1a06",
+      "collocation:b477b312a6a3d0a2d95a",
       "collocation:c65be9d2dbd2a39b5390",
       "collocation:e664605612c616ba1621"
     ],
@@ -265,6 +307,16 @@
       {
         "id": "collocation:e664605612c616ba1621",
         "source_row": 19518,
+        "source_path": "content/lexical/canonical/collocations/shards/o4033-4064.json"
+      },
+      {
+        "id": "collocation:9af741d96857d8056eb8",
+        "source_row": 21605,
+        "source_path": "content/lexical/canonical/collocations/shards/o4033-4064.json"
+      },
+      {
+        "id": "collocation:b477b312a6a3d0a2d95a",
+        "source_row": 21606,
         "source_path": "content/lexical/canonical/collocations/shards/o4033-4064.json"
       }
     ],
@@ -309,7 +361,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4049-4056.json",
-    "source_content_hash": "9ecae48c8d8288eddb05db1a7b70dadd905442fd6007758a638aff1b93359859",
+    "source_content_hash": "a27a6066fb3962501cc005743174cc8b588456d3eebe46e0dca142cd985e53af",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

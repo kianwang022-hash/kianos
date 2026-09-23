@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "3524e9aa27ec22c645cba1a08982417e600a75227ffab8c292505dc2e47cdb99",
+    "content_hash": "4fd0138d8000aac54a77024a2af6831d86f79814dccce8880a8f3d93e242e53d",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "偿还；回报",
@@ -33,15 +33,6 @@
             ],
             "meaning_cn": "偿还贷款",
             "phrase": "repay a loan"
-          },
-          {
-            "collocation_id": "collocation:faf0b10cbb22ff99eb86",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:repay:20882418538e5307:collocation:1"
-            ],
-            "meaning_cn": "为某事报答某人",
-            "phrase": "repay sb for + sth"
           }
         ],
         "confidence": "medium",
@@ -54,7 +45,8 @@
         "sense_id": "sense:repay:20882418538e5307",
         "sense_label_en": "to pay back (money) to someone",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "financial repayment: repay a loan/debt/money; repay sb the money"
       },
       {
         "collocations": [
@@ -66,6 +58,15 @@
             ],
             "meaning_cn": "报答好意",
             "phrase": "repay kindness"
+          },
+          {
+            "collocation_id": "collocation:f6b5331e68dad6d30784",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:repay:f172a5b249c85471:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "因某事报答/补偿某人",
+            "phrase": "repay sb for sth"
           }
         ],
         "confidence": "medium",
@@ -78,7 +79,8 @@
         "sense_id": "sense:repay:f172a5b249c85471",
         "sense_label_en": "to do something for someone in return for something they have done for y",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "return kindness/help or compensate someone: repay sb for sth"
       }
     ],
     "verification_summary": {
@@ -122,7 +124,7 @@
     "active_collocations": [
       "collocation:77ab44c1215d3443764e",
       "collocation:ecf7e78a9cad1ffb8fed",
-      "collocation:faf0b10cbb22ff99eb86"
+      "collocation:f6b5331e68dad6d30784"
     ],
     "facts": [],
     "collocations": [
@@ -139,6 +141,11 @@
       {
         "id": "collocation:faf0b10cbb22ff99eb86",
         "source_row": 21237,
+        "source_path": "content/lexical/canonical/collocations/shards/o4065-4096.json"
+      },
+      {
+        "id": "collocation:f6b5331e68dad6d30784",
+        "source_row": 21610,
         "source_path": "content/lexical/canonical/collocations/shards/o4065-4096.json"
       }
     ],
@@ -168,7 +175,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4073-4080.json",
-    "source_content_hash": "3524e9aa27ec22c645cba1a08982417e600a75227ffab8c292505dc2e47cdb99",
+    "source_content_hash": "4fd0138d8000aac54a77024a2af6831d86f79814dccce8880a8f3d93e242e53d",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
