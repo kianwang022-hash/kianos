@@ -32,13 +32,27 @@ jobs:
           set -euo pipefail
           git fetch --prune origin '+refs/heads/*:refs/remotes/origin/*'
 
+          branch_has_open_pr() {
+            local branch="$1"
+            local count
+            count="$(gh pr list --repo "$GITHUB_REPOSITORY" --head "$branch" --state open --json number --jq 'length' 2>/dev/null || true)"
+            if [[ ! "$count" =~ ^[0-9]+$ ]]; then
+              echo "Protecting branch because open-PR state could not be proven: $branch"
+              return 0
+            fi
+            (( count > 0 ))
+          }
+
           delete_branch() {
             local branch="$1"
             [[ -z "$branch" || "$branch" == "main" || "$branch" == "HEAD" ]] && return 0
-            if git ls-remote --exit-code --heads origin "$branch" >/dev/null 2>&1; then
-              echo "Retiring branch: $branch"
-              git push origin --delete "$branch"
+            git show-ref --verify --quiet "refs/remotes/origin/$branch" || return 0
+            if branch_has_open_pr "$branch"; then
+              echo "Protecting open-PR branch: $branch"
+              return 0
             fi
+            echo "Retiring branch: $branch"
+            git push origin --delete "$branch"
           }
 
           if [[ -f .github/retired-branches.txt ]]; then
@@ -69,11 +83,16 @@ jobs:
               issue="${BASH_REMATCH[1]}"
               state="$(gh issue view "$issue" --repo "$GITHUB_REPOSITORY" --json state,stateReason --jq '.state + ":" + (.stateReason // "")' 2>/dev/null || true)"
               [[ "$state" == "CLOSED:COMPLETED" ]] || continue
-              merged_count="$(gh pr list --repo "$GITHUB_REPOSITORY" --head "$branch" --state merged --json number --jq 'length' 2>/dev/null || echo 0)"
-              [[ "$merged_count" =~ ^[0-9]+$ ]] || merged_count=0
-              if (( merged_count > 0 )); then
-                echo "Retiring completed Codex task branch: $branch (Issue #$issue)"
+              branch_head="$(git rev-parse "origin/$branch")"
+              merged_json="$(gh pr list --repo "$GITHUB_REPOSITORY" --head "$branch" --state merged --json number,headRefOid 2>/dev/null || true)"
+              [[ -n "$merged_json" ]] || continue
+              exact_merged_head_count="$(printf '%s' "$merged_json" | jq --arg head "$branch_head" '[.[] | select(.headRefOid == $head)] | length' 2>/dev/null || echo 0)"
+              [[ "$exact_merged_head_count" =~ ^[0-9]+$ ]] || exact_merged_head_count=0
+              if (( exact_merged_head_count > 0 )); then
+                echo "Retiring completed Codex task branch with exact merged head: $branch (Issue #$issue)"
                 delete_branch "$branch"
+              else
+                echo "Protecting Codex branch with post-merge or unproven head: $branch"
               fi
             fi
           done < <(git for-each-ref --format='%(refname:short)' refs/remotes/origin/)

@@ -25,6 +25,7 @@ CURRENT_PATHS = [
     "content/xizong/knowledge/systems/a1-circulation/CURRENT.md",
     "content/xizong/knowledge/systems/a2-respiratory/CURRENT.md",
     "content/lexical/CURRENT.md",
+    "content/skills/CURRENT.md",
     "content/politics/CURRENT.md",
     "content/politics/learning/marxism/CURRENT.md",
     "content/politics/learning/history/CURRENT.md",
@@ -34,6 +35,12 @@ PARENT_ROUTER_PATHS = {
     "content/english/CURRENT.md",
     "content/xizong/CURRENT.md",
     "content/politics/CURRENT.md",
+    "content/skills/CURRENT.md",
+}
+
+ROUTER_ONLY_CURRENT_PATHS = {
+    "CURRENT.md",
+    "content/skills/CURRENT.md",
 }
 
 ACCEPTANCE_PATHS = [
@@ -69,6 +76,7 @@ MANIFEST_PATHS = [
     "content/english/manifest.json",
     "content/xizong/knowledge/manifest.json",
     "content/lexical/manifest.json",
+    "content/skills/manifest.json",
     "content/politics/manifest.json",
 ]
 
@@ -134,15 +142,19 @@ def audit_current(relative: str) -> None:
 
     lowered = text.lower()
     checks += 1
-    if "current" not in lowered or "work cursor" not in lowered:
+    role_ok = "current" in lowered and (
+        "work cursor" in lowered or (relative in ROUTER_ONLY_CURRENT_PATHS and "routing entry" in lowered)
+    )
+    if not role_ok:
         fail("CURRENT_ROLE_MISSING", relative)
 
     checks += 1
-    if "next" not in lowered:
+    next_ok = "next" in lowered or (relative in ROUTER_ONLY_CURRENT_PATHS and "reopen" in lowered)
+    if not next_ok:
         fail("CURRENT_NEXT_ACTION_MISSING", relative)
 
     checks += 1
-    if not any(token in lowered for token in ("learner truth", "private learner", "learner progress")):
+    if not any(token in lowered for token in ("learner truth", "private learner", "learner progress", "learner state")):
         fail("CURRENT_LEARNER_BOUNDARY_MISSING", relative)
 
     for token in FORBIDDEN_CURRENT_TOKENS:
