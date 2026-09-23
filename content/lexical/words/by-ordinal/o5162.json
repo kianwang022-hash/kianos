@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "623f3d4e93c5ff50f06e17327f2010f449c3b74425a482cdf76c4675f320b575",
+    "content_hash": "25b2ca76e2919ebda1258928877a0db10cee910a6ab8813294b79b075a998bfb",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "业务量或活动量，或一种小酥饼",
@@ -33,15 +33,6 @@
             ],
             "meaning_cn": "年营业额",
             "phrase": "annual turnover"
-          },
-          {
-            "collocation_id": "collocation:79a98325f8d547093243",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:turnover:bdbfa94bb73d57f3:collocation:1"
-            ],
-            "meaning_cn": "周转率；流动率",
-            "phrase": "turnover rate"
           }
         ],
         "confidence": "medium",
@@ -75,6 +66,15 @@
             ],
             "meaning_cn": "高流动率",
             "phrase": "high turnover"
+          },
+          {
+            "collocation_id": "collocation:c45b1e09a507e5065a36",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:turnover:cb7e8b10067d524f:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "员工流动率",
+            "phrase": "staff/employee turnover rate"
           }
         ],
         "confidence": "medium",
@@ -99,6 +99,15 @@
             ],
             "meaning_cn": "存货周转率",
             "phrase": "inventory turnover"
+          },
+          {
+            "collocation_id": "collocation:8589915e26f28c2fa01d",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:turnover:8ef68fe95e135165:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "存货周转率/周转比率",
+            "phrase": "inventory turnover rate/ratio"
           }
         ],
         "confidence": "medium",
@@ -193,9 +202,10 @@
     "active_collocations": [
       "collocation:0e74a73b305e91b8fef0",
       "collocation:789944ebd11a785ab73f",
-      "collocation:79a98325f8d547093243",
+      "collocation:8589915e26f28c2fa01d",
       "collocation:891de6719ec9ee6751fc",
       "collocation:aedceba49570d9b8d9d6",
+      "collocation:c45b1e09a507e5065a36",
       "collocation:f215486785c0e40befb7"
     ],
     "facts": [],
@@ -229,6 +239,16 @@
         "id": "collocation:f215486785c0e40befb7",
         "source_row": 20512,
         "source_path": "content/lexical/canonical/collocations/shards/o5153-5184.json"
+      },
+      {
+        "id": "collocation:8589915e26f28c2fa01d",
+        "source_row": 21322,
+        "source_path": "content/lexical/canonical/collocations/shards/o5153-5184.json"
+      },
+      {
+        "id": "collocation:c45b1e09a507e5065a36",
+        "source_row": 21323,
+        "source_path": "content/lexical/canonical/collocations/shards/o5153-5184.json"
       }
     ],
     "exam-mappings": [],
@@ -257,7 +277,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5161-5168.json",
-    "source_content_hash": "623f3d4e93c5ff50f06e17327f2010f449c3b74425a482cdf76c4675f320b575",
+    "source_content_hash": "25b2ca76e2919ebda1258928877a0db10cee910a6ab8813294b79b075a998bfb",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "fdc5904c9a314ab908f551a36d34570ad05feea312885868bf511521ad5cb8d1",
+    "content_hash": "6eb7786fb5b933d0614d777d57f85067b09d9fd658f7861dc16186bf59ed2557",
     "core_concept": {
       "core_clusters": [
         {
@@ -43,18 +43,28 @@
     "semantic_neighbors": [],
     "senses": [
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:24a59d6c620276999890",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:tug:0b34e924ed41555e:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "用力反复拉扯某物",
+            "phrase": "tug at/on sth"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "用力拉",
         "definition_en": "pull hard",
-        "governing_pattern": "",
+        "governing_pattern": "I/T: tug sth; tug at/on sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:tug:0b34e924ed41555e",
         "sense_label_en": "pull hard",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       },
       {
         "collocations": [
@@ -182,6 +192,7 @@
       }
     ],
     "active_collocations": [
+      "collocation:24a59d6c620276999890",
       "collocation:34cf5f69f6bfdbfec30d",
       "collocation:7a16b42f1c4d39a31abb",
       "collocation:94c4258636364a93742f"
@@ -201,6 +212,11 @@
       {
         "id": "collocation:94c4258636364a93742f",
         "source_row": 12647,
+        "source_path": "content/lexical/canonical/collocations/shards/o5121-5152.json"
+      },
+      {
+        "id": "collocation:24a59d6c620276999890",
+        "source_row": 21408,
         "source_path": "content/lexical/canonical/collocations/shards/o5121-5152.json"
       }
     ],
@@ -235,7 +251,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5145-5152.json",
-    "source_content_hash": "fdc5904c9a314ab908f551a36d34570ad05feea312885868bf511521ad5cb8d1",
+    "source_content_hash": "6eb7786fb5b933d0614d777d57f85067b09d9fd658f7861dc16186bf59ed2557",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

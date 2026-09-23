@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "540816668c07cbe1d50a403d4e326d63fb1f82d2c8fa9a6ddf5eb0ca0f78591c",
+    "content_hash": "eba953bc2adbabadcdfa6f3073e0db086ff3306b4a4f4e1cac5823c3f4ad00cb",
     "core_concept": {
       "core_clusters": [
         {
@@ -15,8 +15,7 @@
           "label_en": "to strongly encourage someone to do something; to make a strong request or demand",
           "pos": "verb",
           "sense_ids": [
-            "sense:urge:416b7e38e7785250",
-            "sense:urge:d209329369ff5fab"
+            "sense:urge:416b7e38e7785250"
           ]
         },
         {
@@ -70,7 +69,7 @@
         "confidence": "medium",
         "definition_cn": "力劝，敦促",
         "definition_en": "to strongly encourage someone to do something",
-        "governing_pattern": "vt. + sb to do sth",
+        "governing_pattern": "urge sb to do sth; urge that + clause; urge sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
@@ -111,30 +110,6 @@
         "sense_label_en": "a strong restless desire",
         "sort_order": 1,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:0cd948087274205f39a0",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:urge:d209329369ff5fab:collocation:0"
-            ],
-            "meaning_cn": "强烈要求某物",
-            "phrase": "urge for + sth"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "强烈要求",
-        "definition_en": "to make a strong request or demand",
-        "governing_pattern": "vi. + for",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:urge:d209329369ff5fab",
-        "sense_label_en": "to make a strong request or demand",
-        "sort_order": 2,
-        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -157,7 +132,31 @@
     "word_id": "word:urge"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:urge:d209329369ff5fab",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "强烈要求",
+      "definition_en": "to make a strong request or demand",
+      "semantic_key": "237fa5ea9be064957972a3d57be7d22089d855b86832385be29e24010c03498d",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "urge:l2:3"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "urge:l2:3",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-08-13T21:08:34+00:00",
+      "source_row": 14895,
+      "source_path": "content/lexical/canonical/senses/shards/o5217-5248.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -176,14 +175,13 @@
       },
       {
         "sense_id": "sense:urge:d209329369ff5fab",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 14895,
         "source_path": "content/lexical/canonical/senses/shards/o5217-5248.json"
       }
     ],
     "active_collocations": [
-      "collocation:0cd948087274205f39a0",
       "collocation:1447b52a3138508bb007",
       "collocation:665858dd82e6b4d3c54d",
       "collocation:99c1e01f4d01ee927bd3",
@@ -269,8 +267,8 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5225-5232.json",
-    "source_content_hash": "540816668c07cbe1d50a403d4e326d63fb1f82d2c8fa9a6ddf5eb0ca0f78591c",
-    "semantic_delta": 1,
+    "source_content_hash": "eba953bc2adbabadcdfa6f3073e0db086ff3306b4a4f4e1cac5823c3f4ad00cb",
+    "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }
