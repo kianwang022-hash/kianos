@@ -210,7 +210,7 @@ Source control is now conditional rather than universal. Planned surgery/anesthe
 
 Preserved boundaries:
 
-- F1/F2/F3/F4/F9 exact Source gaps remain fail-closed;
+- F1/F2/F3/F9 exact semantic Source gaps remain fail-closed; F4 first-day fluid-formula gap is closed by 27 refined Source;
 - F6/F8 verified Source rebind closures remain closed;
 - external shock/airway/renal/liver/infection/NMJ/tumor truth remains with its real owner;
 - S2 exact official-question membership is CLOSED at 70 qids; exact Question→KP remains separate;
@@ -263,7 +263,7 @@ Preserved:
 - low-switching default route as guidance only;
 - F9 ownership-first `INTEGRATION_PRIMARY`;
 - two non-gating PSRs;
-- exact F1/F2/F3/F4/F9 Source gaps and external-owner boundaries;
+- exact F1/F2/F3/F9 semantic Source gaps and external-owner boundaries; F4 formula Precision is now Source-verified;
 - S2 official-question membership is CLOSED at 70 qids; Question→Block/LG/KP is not implied.
 
 ---
@@ -308,7 +308,7 @@ Projection/Runtime/Evidence leakage      = PASS
 
 Preserved fail-closed truth:
 
-- F1/F2/F3/F4/F9 exact Source gaps;
+- F1/F2/F3/F9 exact semantic Source gaps; F4 first-day formula gap closed;
 - F5 Current-Study hypertension conflict;
 - 10 visual-required LGs remain Source-owned;
 - F6 1–4 d vs 2–7 d and F8 P270 verified Source closures remain closed;
