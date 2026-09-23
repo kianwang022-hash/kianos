@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 
 import {
   classifyStaticBuild,
+  staticBuildCanReuseFromBase,
   staticBuildPathImpact
 } from './currentStaticImpact.mjs';
 
@@ -70,6 +71,32 @@ assert.deepEqual(
     build_paths: [],
     reusable_paths: []
   }
+);
+
+assert.equal(
+  staticBuildCanReuseFromBase({ state: 'synced', sha: 'base-a' }, 'base-a'),
+  true,
+  'SYNCED_BASE_MAY_REUSE'
+);
+assert.equal(
+  staticBuildCanReuseFromBase({ state: 'synced', sha: 'older' }, 'base-a'),
+  false,
+  'STALE_BUILD_MUST_NOT_BE_BLESSED_BY_CONTROL_ONLY_COMMIT'
+);
+assert.equal(
+  staticBuildCanReuseFromBase({ state: 'degraded', sha: 'base-a' }, 'base-a'),
+  false,
+  'DEGRADED_BASE_MUST_REBUILD'
+);
+assert.equal(
+  staticBuildCanReuseFromBase(null, 'base-a'),
+  false,
+  'MISSING_BUILD_PROOF_MUST_REBUILD'
+);
+assert.equal(
+  staticBuildCanReuseFromBase({ state: 'synced', sha: 'base-a' }, ''),
+  false,
+  'MISSING_BASE_SHA_MUST_REBUILD'
 );
 
 console.log('STATIC_CURRENT_IMPACT PASS');
