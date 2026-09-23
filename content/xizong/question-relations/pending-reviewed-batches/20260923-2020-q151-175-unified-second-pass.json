@@ -1,0 +1,21 @@
+[
+  {
+    "question_id": "xizong-official-2020-n160",
+    "system_id": "respiratory",
+    "block_id": "respiratory-r11",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2020/q151-175.json",
+      "question_truth_blob_sha": "4272600c86d9da0cec01716aea971b49d1e04645",
+      "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "a0a2ee65d44057dddb3207b461025ec480afa48f"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent SECOND_PASS solve: Current R11 explicitly preserves lung-cancer histologic incidence as adenocarcinoma > squamous carcinoma > small-cell carcinoma, while large-cell carcinoma is not in the common top-three set. The exact knowledge is distributed across R11, so the smallest safe owner is Block-level."
+    }
+  }
+]
