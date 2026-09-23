@@ -129,17 +129,18 @@ C is the only role allowed to mutate canonical Word / Relation / Form truth duri
 
 ## 6. C closure and verification
 
-For each bounded C landing window:
+For each bounded C semantic window:
 
 ```text
-reconcile A ∪ B
+read only A/B CHANGE or BLOCKED hits
+→ reconcile A ∪ B findings
 → exact final mutation package
-→ fail-closed apply
-→ rebuild exactly 7,946 FLOB
-→ targeted final readback
-→ validators
-→ merge
+→ fail-closed canonical apply
+→ targeted readback of changed owners/dependencies
+→ durable window commit on the active C checkpoint branch
 ```
+
+Do not rebuild all 7,946 Final Learner Objects for every semantic window. Default execution is ~100 ordinals per semantic window (shrink to ~50 only for unusually dense disagreement), accumulating roughly 500 eligible ordinals on one C checkpoint branch. At the checkpoint boundary, rebuild exactly 7,946 FLOB once, run global validators once, then merge the checkpoint. Earlier full rebuilds require a real dependency/validator reason.
 
 Targeted final readback must verify:
 - every changed Word/Relation/Form owner;
