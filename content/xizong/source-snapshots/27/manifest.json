@@ -6,13 +6,40 @@
   "rule": "Original PDF is highest-fidelity visual Source. Markdown snapshots are backup/diff artifacts, not medical Knowledge owners.",
   "assets": [
     {
+      "subject": "Physiology",
+      "source_name": "27精编生理合集【带导图】.pdf",
+      "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123",
+      "pdf_pages": 438,
+      "snapshot_path": "content/xizong/source-snapshots/27/生理学讲义_AI阅读版_27精编_UnifiedSource_v1.md",
+      "snapshot_git_commit": "0210b7f21502e4dbeaedd6eb28253e442ae0231f",
+      "role": "CURRENT_27_PRIMARY_SOURCE_SNAPSHOT"
+    },
+    {
+      "subject": "Pathology",
+      "source_name": "27病理精编版合集【不带导图】.pdf",
+      "source_sha256": "7b41f26673fbb562519ac57bb419c2ec82a88c63b5d538a77aaff2e46428dc3f",
+      "pdf_pages": 195,
+      "snapshot_path": "content/xizong/source-snapshots/27/病理学讲义_AI阅读版_27精编_UnifiedSource_v1.md",
+      "snapshot_git_commit": "a64ef8bcb2a65d11a103c7f52254dfad0f5603ef",
+      "role": "CURRENT_27_PRIMARY_SOURCE_SNAPSHOT"
+    },
+    {
+      "subject": "Internal Medicine",
+      "source_name": "27内科精编版合集【带导图】.pdf",
+      "source_sha256": "4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939",
+      "pdf_pages": 478,
+      "snapshot_path": "content/xizong/source-snapshots/27/内科学讲义_AI阅读版_27精编_UnifiedSource_v2.md",
+      "snapshot_git_commit": "741663438c93da8ff9aa33001ee31065e2c569cd",
+      "role": "CURRENT_27_PRIMARY_SOURCE_SNAPSHOT"
+    },
+    {
       "subject": "Biochemistry",
       "source_name": "27生化跟课版合集【不带导图】.pdf",
       "source_sha256": "17d991896f0edea0b2e1274fdee76862998a1f3bd0c4bad03155bf9e4b27ce1c",
       "pdf_pages": 170,
       "snapshot_path": "content/xizong/source-snapshots/27/生物化学讲义_AI阅读版_27跟课_UnifiedSource_v1.md",
       "snapshot_git_commit": "6adc6e8e10a15ac56e8de4540a34b5cd2a9a6c4a",
-      "role": "CURRENT_YEAR_SOURCE_DELTA_INPUT"
+      "role": "CURRENT_27_FOLLOW_ALONG_SOURCE_DELTA_INPUT"
     },
     {
       "subject": "Surgery",
@@ -21,12 +48,18 @@
       "pdf_pages": 285,
       "snapshot_path": "content/xizong/source-snapshots/27/外科学讲义_AI阅读版_27精编_UnifiedSource_v1.md",
       "snapshot_git_commit": "cf5fdde67bc8ff3ad9e97e6fd94d82aef9eac697",
-      "role": "CURRENT_YEAR_REFINED_SOURCE_DELTA_INPUT"
+      "role": "CURRENT_27_REFINED_SOURCE_DELTA_INPUT"
     }
   ],
   "delta_audit": {
     "path": "content/xizong/source-snapshots/27/XIZONG_27_生化外科_Source_Delta_Audit_2026-09-24.md",
     "date": "2026-09-24",
     "result": "BOUNDED_DELTA_INTEGRATED_NO_TOPOLOGY_REBUILD"
+  },
+  "coverage": {
+    "subjects_expected": 5,
+    "subjects_backed_up": 5,
+    "status": "COMPLETE_CURRENT_27_SOURCE_SNAPSHOT_SET",
+    "caveat": "Biochemistry currently has 27 follow-along Source, not a 27 refined/annotated Source."
   }
 }
