@@ -10,6 +10,10 @@
     "current:doctor": "node static-web/scripts/kianos-current-doctor.mjs",
     "current:open": "node static-web/scripts/kianos-current-open.mjs",
     "current:backup": "node static-web/scripts/kianos-current-backup.mjs",
-    "current:restore": "node static-web/scripts/kianos-current-restore.mjs"
+    "current:restore": "node static-web/scripts/kianos-current-restore.mjs",
+    "remote:snapshot": "python3 tools/kianos_remote_ops.py snapshot",
+    "remote:packet": "python3 tools/kianos_remote_ops.py packet",
+    "remote:verify": "python3 tools/kianos_remote_ops.py verify",
+    "test:remote-ops": "python3 -m unittest tools/test_kianos_remote_ops.py"
   }
 }
