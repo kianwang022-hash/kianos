@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "888bfdd4940960543291c75006032d8fe7cb918438d109b5b617bf88dea91738",
+    "content_hash": "ed2e0ee81374baaabd3d92a124485d402abc06fb931e1063b04dad307488925c",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "海峡",
@@ -16,6 +16,22 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "C semantic reconciliation o6151-o6250",
+      "boundaries": [
+        {
+          "condition": "narrow sea passage",
+          "note": "singular noun for a narrow sea passage",
+          "surface": "strait"
+        },
+        {
+          "condition": "figurative difficulty",
+          "note": "ordinary figurative form is plural, especially in dire/desperate straits",
+          "surface": "straits"
+        }
+      ],
+      "type": "number_and_lexicalized_plural_boundary"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -155,12 +171,19 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "困境；窘境",
+        "definition_cn": "困境；窘境（通常用复数 straits）",
         "definition_en": "a difficult or troubled situation, especially in the plural",
         "depth": "full_card",
         "domain_tag": "cet6",
         "frequency_tag": "cet6",
         "level": "L2",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "lexicalized_plural_surface",
+          "note": "figurative difficulty is ordinarily plural straits, especially in dire/desperate straits; singular strait is the sea-passage noun",
+          "paired_form": "strait",
+          "surface_lemma": "straits"
+        },
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:strait:27700d5ac0bc5f8d",
@@ -338,7 +361,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6161-6168.json",
-    "source_content_hash": "888bfdd4940960543291c75006032d8fe7cb918438d109b5b617bf88dea91738",
+    "source_content_hash": "ed2e0ee81374baaabd3d92a124485d402abc06fb931e1063b04dad307488925c",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
