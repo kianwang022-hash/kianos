@@ -10,10 +10,10 @@ This file does not own medical Core, Xizong Learning semantics, Acceptance Truth
 ## Work Cursor
 
 **Scope:** B — Digestive / Metabolic / Endocrine / Tumor  
-**Active / earliest unresolved eligible gate:** `K — bounded M1–M10/G1–G5 Biochemistry Source rebase + Knowledge reconstruction`.  
+**Active / earliest unresolved eligible gate:** `K — bounded M2–M4 carbohydrate/energy Source→Knowledge hierarchy rebase`.  
 **S status:** PASS — exact Current B official-question membership accepted at 1071 qids.  
-**K status:** **BOUNDED_REOPEN — M/G only**; D1–D23 remain accepted. Current Biochemistry first-pass Source is being rebased from 26 refined to 27 follow-along while preserving validated 26 explanatory reconstruction inside canonical Knowledge.  
-**L status:** previous PASS remains historical evidence; **affected M/G Learning is frozen for revalidation behind K**.  
+**K status:** **BOUNDED_REOPEN — M/G only**; D1–D23 remain accepted. **M1 is Current after canonical hierarchy reconstruction + direct 27 Source mapping**; M2–M10/G1–G5 remain inside the bounded reopen.  
+**L status:** previous PASS remains historical evidence; **M1 Learning now consumes the canonical L1–L5 hierarchy directly**; remaining affected M/G Learning stays frozen behind K.  
 **P status:** previous PASS preserved; affected M/G Projection is provisional until K/L revalidation.  
 **R status:** previous PASS preserved; no broad Runtime rebuild is authorized.  
 **E status:** previous PASS preserved; stale/current learner evidence must follow Source-revision semantics once affected Block revisions land.  
@@ -31,7 +31,7 @@ Phase 6  Fresh independent L acceptance                PASS
 
 Learning construction / acceptance task: GitHub Issue `#135` — completed.
 
-**Next action:** complete the Biochemistry deep comparison in bounded batches across M1–M10/G1–G5: 27 current Source vs 26 refined explanatory substrate vs Current canonical Blocks. Rebind accepted Block Source locators to 27, repair only real semantic/logic deltas, then revalidate affected M/G Learning/Content. D1–D23 and unrelated B product/runtime work stay closed.
+**Next action:** rebase **M2–M4 carbohydrate/energy** into the same pattern now proven on M1: current 27 Source → canonical Knowledge hierarchy → direct Source mapping → Learning consumption. Do not touch website/UI. D1–D23 and unrelated B product/runtime work stay closed.
 
 ---
 
@@ -39,7 +39,7 @@ Learning construction / acceptance task: GitHub Issue `#135` — completed.
 
 - Current learner Source decision: **27 跟课 is the only continuous first-pass Biochemistry Source**.
 - 26 精编 is retained as **explanatory reconstruction substrate**, not a second learner reading path.
-- All 15 Current M1–M10/G1–G5 Block owners still carry 26-based Primary Study / Source locators, so this is a real Source revision, not a cosmetic delta.
+- Initial audit found all 15 M/G Blocks on the old 26 Source basis. **M1 is now rebuilt on the 27 Source with a 5-layer canonical hierarchy and direct Source→Knowledge→Learning mapping**; M2–M10/G1–G5 remain under bounded rebase.
 - Stable Block/KP identity is presumed preserved until deep comparison proves otherwise; no split/merge/renumber for symmetry.
 - Valid 26 explanation should live in Framework / Logic Group / KP Core or cross-System relation when useful; invalid/conflicting explanation is not grandfathered merely because it was in 26.
 
