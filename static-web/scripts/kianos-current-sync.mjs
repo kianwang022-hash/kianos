@@ -5,6 +5,13 @@ import { spawn, execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { fileURLToPath } from 'node:url';
 
+import {
+  adoptLegacyDist,
+  isAtomicServingLink,
+  promoteStagedBuild,
+  resolveServedRoot
+} from './currentStaticSlots.mjs';
+
 const execFileAsync = promisify(execFile);
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(scriptDir, '../..');
@@ -14,18 +21,20 @@ const staticServerPath = path.join(webRoot, 'scripts', 'kianos-static-server.mjs
 const statusPath = path.join(webRoot, 'public', '__kianos-current.json');
 const distPath = path.join(webRoot, 'dist');
 const stagePath = path.join(webRoot, '.current-build-next');
-const backupPath = path.join(webRoot, '.current-build-prev');
+const previousPath = path.join(webRoot, '.current-build-prev');
+const buildsPath = path.join(webRoot, '.current-builds');
 const intervalMs = Math.max(3000, Number(process.env.KIANOS_SYNC_INTERVAL_MS || 8000));
 const host = process.env.KIANOS_HOST || '127.0.0.1';
 const port = String(process.env.KIANOS_PORT || '4321');
 const npmBin = process.env.KIANOS_NPM_BIN || 'npm';
 const oneShot = process.env.KIANOS_SYNC_ONCE === '1';
 const skipAstro = process.env.KIANOS_SKIP_ASTRO === '1';
+const buildNice = Math.max(0, Math.min(20, Number(process.env.KIANOS_BUILD_NICE || 10)));
 
 let site = null;
 let stopping = false;
 let syncing = false;
-let restartingSite = false;
+let reloadingSite = false;
 let lastNetworkError = '';
 let lastKnownSha = '';
 let lastSyncHealthy = true;
@@ -95,33 +104,63 @@ async function npmInstall() {
 }
 
 function recoverStaticDirectories() {
-  if (!fs.existsSync(distPath) && fs.existsSync(backupPath)) {
-    fs.renameSync(backupPath, distPath);
-  } else if (fs.existsSync(distPath) && fs.existsSync(backupPath)) {
-    fs.rmSync(backupPath, { recursive: true, force: true });
+  let dist = null;
+  let previous = null;
+  try { dist = fs.lstatSync(distPath); } catch {}
+  try { previous = fs.lstatSync(previousPath); } catch {}
+
+  if (!dist && previous?.isDirectory()) {
+    fs.renameSync(previousPath, distPath);
+    return;
   }
+  if (dist && previous?.isDirectory()) {
+    fs.rmSync(previousPath, { recursive: true, force: true });
+  }
+}
+
+function ensureAtomicServingLayout(sha) {
+  let dist = null;
+  try { dist = fs.lstatSync(distPath); } catch {}
+  if (!dist || dist.isSymbolicLink()) return resolveServedRoot(distPath);
+  if (site) throw new Error('STATIC_ATOMIC_LAYOUT_MIGRATION_REQUIRES_STOPPED_SITE');
+
+  const built = readBuiltStatus(distPath);
+  return adoptLegacyDist({
+    distPath,
+    previousPath,
+    buildsRoot: buildsPath,
+    sha: built?.sha || sha || 'legacy'
+  });
 }
 
 async function buildStatic(sha, extra = {}) {
   fs.rmSync(stagePath, { recursive: true, force: true });
   writeStatus('building', sha, extra);
-  log(`building static Current ${String(sha).slice(0, 8)} while the previous site remains available`);
-  await runChild(npmBin, ['run', 'build', '--', '--outDir', stagePath], { label: 'Astro static build' });
+  log(
+    'building static Current ' + String(sha).slice(0, 8)
+    + ' at background priority while the previous site remains available'
+  );
+  const args = [npmBin, 'run', 'build', '--', '--outDir', stagePath];
+  if (buildNice > 0 && process.platform !== 'win32' && fs.existsSync('/usr/bin/nice')) {
+    await runChild('/usr/bin/nice', ['-n', String(buildNice), ...args], { label: 'Astro static build' });
+  } else {
+    await runChild(npmBin, args.slice(1), { label: 'Astro static build' });
+  }
   writeBuiltStatus(stagePath, sha, extra);
 }
 
-function promoteStaticBuild() {
-  if (!fs.existsSync(stagePath)) throw new Error('STATIC_BUILD_STAGE_MISSING');
-  fs.rmSync(backupPath, { recursive: true, force: true });
-  const hadDist = fs.existsSync(distPath);
-  if (hadDist) fs.renameSync(distPath, backupPath);
-  try {
-    fs.renameSync(stagePath, distPath);
-  } catch (error) {
-    if (!fs.existsSync(distPath) && fs.existsSync(backupPath)) fs.renameSync(backupPath, distPath);
-    throw error;
-  }
-  fs.rmSync(backupPath, { recursive: true, force: true });
+function promoteStaticBuild(sha) {
+  const promoted = promoteStagedBuild({
+    distPath,
+    previousPath,
+    stagePath,
+    buildsRoot: buildsPath,
+    sha
+  });
+  log(
+    'atomically switched static Current to ' + String(sha).slice(0, 8)
+    + (promoted.previousRoot ? '; previous slot retained for old assets' : '')
+  );
 }
 
 function startSite() {
@@ -129,7 +168,7 @@ function startSite() {
   if (!fs.existsSync(staticServerPath)) {
     throw new Error(`KianOS static server missing at ${staticServerPath}`);
   }
-  if (!fs.existsSync(path.join(distPath, 'index.html'))) {
+  if (!resolveServedRoot(distPath)) {
     throw new Error('STATIC_CURRENT_BUILD_MISSING');
   }
   log(`starting prebuilt Current site on http://${host}:${port}`);
@@ -137,14 +176,15 @@ function startSite() {
     staticServerPath,
     '--host', host,
     '--port', port,
-    '--root', distPath
+    '--root', distPath,
+    '--fallback-root', previousPath
   ], {
     cwd: webRoot,
     stdio: 'inherit',
     env: process.env
   });
   site.once('exit', (code, signal) => {
-    const expected = stopping || restartingSite;
+    const expected = stopping || reloadingSite;
     site = null;
     if (!expected) {
       warn(`Current static server stopped unexpectedly (${signal || code}); restarting in 1200ms`);
@@ -173,28 +213,33 @@ async function stopSite() {
   site = null;
 }
 
+async function reloadSite() {
+  if (!site || stopping) return;
+  reloadingSite = true;
+  try {
+    await stopSite();
+  } finally {
+    reloadingSite = false;
+  }
+  if (!stopping && !site) startSite();
+}
+
 async function ensureStaticBuild(sha, extra = {}) {
   if (skipAstro) return false;
   recoverStaticDirectories();
-  const built = readBuiltStatus();
-  if (built?.state === 'synced' && built?.sha === sha && fs.existsSync(path.join(distPath, 'index.html'))) {
+  ensureAtomicServingLayout(sha);
+
+  const activeRoot = resolveServedRoot(distPath);
+  const built = activeRoot ? readBuiltStatus(activeRoot) : null;
+  if (built?.state === 'synced' && built?.sha === sha && activeRoot) {
     return false;
   }
 
   await buildStatic(sha, extra);
-  const wasServing = Boolean(site);
-  if (wasServing) {
-    restartingSite = true;
-    await stopSite();
+  if (!isAtomicServingLink(distPath) && fs.existsSync(distPath)) {
+    ensureAtomicServingLayout(sha);
   }
-  try {
-    promoteStaticBuild();
-  } finally {
-    restartingSite = false;
-    if (wasServing && !stopping && !site) {
-      try { startSite(); } catch (error) { warn(error.stack || error.message); }
-    }
-  }
+  promoteStaticBuild(sha);
   return true;
 }
 
@@ -231,6 +276,18 @@ async function syncOnce({ initial = false } = {}) {
     const fetched = await git(['rev-parse', 'origin/main']);
     const changed = await git(['diff', '--name-only', local, fetched]);
     const changedPaths = changed ? changed.split('\n').filter(Boolean) : [];
+    const syncRuntimeChanged = changedPaths.some((file) => [
+      'static-web/scripts/kianos-current-sync.mjs',
+      'static-web/scripts/currentStaticSlots.mjs',
+      'static-web/package.json',
+      'static-web/package-lock.json',
+      'static-web/npm-shrinkwrap.json'
+    ].includes(file));
+    const staticRuntimeChanged = changedPaths.some((file) => (
+      file === 'static-web/scripts/kianos-static-server.mjs'
+      || /^static-web\/scripts\/private.*\.mjs$/.test(file)
+      || file === 'static-web/src/lib/englishSessionCatalog.mjs'
+    ));
 
     await git(['checkout', '-B', 'main', 'origin/main']);
     await git(['reset', '--hard', 'origin/main']);
@@ -248,6 +305,17 @@ async function syncOnce({ initial = false } = {}) {
     lastSyncHealthy = true;
     writeStatus('synced', fetched, { changed_paths: changedPaths.length });
     log(`synced ${changedPaths.length} changed path(s); static Current is ${fetched.slice(0, 8)}`);
+
+    if (!oneShot && syncRuntimeChanged) {
+      log('Current sync runtime changed; restarting the LaunchAgent-managed process after successful handoff');
+      stopping = true;
+      await stopSite();
+      process.exit(0);
+    }
+    if (!oneShot && staticRuntimeChanged && site) {
+      log('Current static runtime owner changed; performing one controlled server reload');
+      await reloadSite();
+    }
     return true;
   } catch (error) {
     lastSyncHealthy = false;
@@ -257,7 +325,7 @@ async function syncOnce({ initial = false } = {}) {
       lastNetworkError = message;
     }
     writeStatus('degraded', lastKnownSha);
-    if (!site && !stopping && fs.existsSync(path.join(distPath, 'index.html'))) {
+    if (!site && !stopping && resolveServedRoot(distPath)) {
       try { startSite(); } catch (startError) { warn(startError.stack || startError.message); }
     }
     return false;

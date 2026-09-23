@@ -16,6 +16,8 @@ const arg = (name, fallback) => {
 const host = arg('host', process.env.KIANOS_HOST || '127.0.0.1');
 const port = Number(arg('port', process.env.KIANOS_PORT || 4321));
 const root = path.resolve(arg('root', process.env.KIANOS_STATIC_ROOT || 'dist'));
+const fallbackRootArg = arg('fallback-root', process.env.KIANOS_STATIC_FALLBACK_ROOT || '');
+const fallbackRoot = fallbackRootArg ? path.resolve(fallbackRootArg) : '';
 const currentStatusPath = path.resolve(
   process.env.KIANOS_CURRENT_STATUS_PATH || path.join(process.cwd(), 'public', '__kianos-current.json')
 );
@@ -23,7 +25,18 @@ const currentStatusPath = path.resolve(
 if (!Number.isInteger(port) || port < 1 || port > 65535) {
   throw new Error('KIANOS_STATIC_PORT_INVALID');
 }
-if (!fs.existsSync(path.join(root, 'index.html'))) {
+function resolvedRoot(configuredRoot) {
+  if (!configuredRoot) return null;
+  try {
+    const real = fs.realpathSync(configuredRoot);
+    const stat = fs.statSync(path.join(real, 'index.html'));
+    return stat.isFile() ? real : null;
+  } catch {
+    return null;
+  }
+}
+
+if (!resolvedRoot(root)) {
   throw new Error('KIANOS_STATIC_ROOT_INVALID:' + root);
 }
 
@@ -53,23 +66,23 @@ const MIME = new Map([
   ['.webm', 'video/webm']
 ]);
 
-function safeRelative(pathname) {
+function safeRelative(pathname, activeRoot) {
   let decoded;
   try { decoded = decodeURIComponent(pathname); }
   catch { return null; }
   if (decoded.includes('\0')) return null;
   const relative = decoded.replace(/^\/+/, '').replace(/\/+$/, '');
-  const target = path.resolve(root, relative || '.');
-  const rel = path.relative(root, target);
+  const target = path.resolve(activeRoot, relative || '.');
+  const rel = path.relative(activeRoot, target);
   if (rel.startsWith('..' + path.sep) || path.isAbsolute(rel)) return null;
   return relative;
 }
 
-function resolveStatic(pathname) {
-  const relative = safeRelative(pathname);
+function resolveStatic(pathname, activeRoot) {
+  const relative = safeRelative(pathname, activeRoot);
   if (relative == null) return null;
 
-  const base = path.resolve(root, relative || '.');
+  const base = path.resolve(activeRoot, relative || '.');
   const candidates = [];
   if (!relative || pathname.endsWith('/')) {
     candidates.push(path.join(base, 'index.html'));
@@ -174,10 +187,26 @@ function staticFallback(req, res) {
   const url = new URL(req.url || '/', 'http://127.0.0.1');
   if (url.pathname === '/__kianos-current.json') return sendCurrentStatus(req, res);
 
-  const resolved = resolveStatic(url.pathname);
+  const activeRoot = resolvedRoot(root);
+  if (!activeRoot) {
+    res.statusCode = 503;
+    res.setHeader('content-type', 'text/plain; charset=utf-8');
+    res.setHeader('cache-control', 'no-store');
+    return res.end('Current build unavailable');
+  }
+
+  const resolved = resolveStatic(url.pathname, activeRoot);
   if (resolved) return sendFile(req, res, url.pathname, resolved);
 
-  const notFound = resolveStatic('/404.html');
+  if (url.pathname.startsWith('/_astro/')) {
+    const previousRoot = resolvedRoot(fallbackRoot);
+    if (previousRoot && previousRoot !== activeRoot) {
+      const previous = resolveStatic(url.pathname, previousRoot);
+      if (previous) return sendFile(req, res, url.pathname, previous);
+    }
+  }
+
+  const notFound = resolveStatic('/404.html', activeRoot);
   if (notFound) return sendFile(req, res, '/404.html', notFound, { status: 404 });
   res.statusCode = 404;
   res.setHeader('content-type', 'text/plain; charset=utf-8');
@@ -219,7 +248,11 @@ for (const bridge of [
 }
 
 server.listen(port, host, () => {
-  console.log('KianOS static runtime listening on http://' + host + ':' + port + ' · root=' + root);
+  console.log(
+    'KianOS static runtime listening on http://' + host + ':' + port
+    + ' · root=' + root
+    + (fallbackRoot ? ' · fallback=' + fallbackRoot : '')
+  );
 });
 
 const shutdown = () => {
