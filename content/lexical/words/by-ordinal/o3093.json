@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "22547e18d48f21e992f53faa304650806df42704a19c13d90b587aee3d150802",
+    "content_hash": "fd284fb749b86a2ace93360c1e3e52dc2ec829bb4e533d0a046d47a0f593e31c",
     "core_concept": {
       "core_clusters": [
         {
@@ -28,11 +28,12 @@
           ]
         },
         {
-          "label_cn": "嘲笑或讥讽的行为",
-          "label_en": "the act of mocking or ridiculing",
+          "label_cn": "模拟考试；较低层的嘲笑行为",
+          "label_en": "practice exams, chiefly BrE; lower-layer act of mocking",
           "pos": "noun",
           "sense_ids": [
-            "sense:mock:e2c52b6dff0f5ae7"
+            "sense:mock:e2c52b6dff0f5ae7",
+            "sense:mock:997152526404fb59"
           ]
         }
       ],
@@ -59,15 +60,6 @@
             ],
             "meaning_cn": "嘲笑某人",
             "phrase": "mock someone"
-          },
-          {
-            "collocation_id": "collocation:844260cad882b238acc4",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:mock:e3e3b594728254b2:collocation:1"
-            ],
-            "meaning_cn": "嘲笑",
-            "phrase": "mock at"
           }
         ],
         "confidence": "medium",
@@ -171,6 +163,30 @@
         "sense_label_en": "the act of mocking or ridiculing",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:e66576058aec9207b4cc",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:mock:997152526404fb59:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "参加模拟考试",
+            "phrase": "sit/take your mocks"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "模拟考试（正式考试前的练习考试，尤英式；常用复数 mocks）",
+        "definition_en": "practice examinations taken before the real exams, chiefly British English and often plural mocks",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:mock:997152526404fb59",
+        "sense_label_en": "practice examinations taken before the real exams, chiefly British English and often plural mocks",
+        "sort_order": 4,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -223,6 +239,13 @@
         "merged_into_sense_id": null,
         "source_row": 8616,
         "source_path": "content/lexical/canonical/senses/shards/o3073-3104.json"
+      },
+      {
+        "sense_id": "sense:mock:997152526404fb59",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8651,
+        "source_path": "content/lexical/canonical/senses/shards/o3073-3104.json"
       }
     ],
     "active_collocations": [
@@ -231,8 +254,8 @@
       "collocation:33a5468c1148e4309f91",
       "collocation:34f8052e71a35727dac8",
       "collocation:5927a7b841cade40cac2",
-      "collocation:844260cad882b238acc4",
-      "collocation:cbc2a4b8f232da5b4dd7"
+      "collocation:cbc2a4b8f232da5b4dd7",
+      "collocation:e66576058aec9207b4cc"
     ],
     "facts": [],
     "collocations": [
@@ -270,6 +293,11 @@
         "id": "collocation:cbc2a4b8f232da5b4dd7",
         "source_row": 17208,
         "source_path": "content/lexical/canonical/collocations/shards/o3073-3104.json"
+      },
+      {
+        "id": "collocation:e66576058aec9207b4cc",
+        "source_row": 21143,
+        "source_path": "content/lexical/canonical/collocations/shards/o3073-3104.json"
       }
     ],
     "exam-mappings": [],
@@ -303,7 +331,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3089-3096.json",
-    "source_content_hash": "22547e18d48f21e992f53faa304650806df42704a19c13d90b587aee3d150802",
+    "source_content_hash": "fd284fb749b86a2ace93360c1e3e52dc2ec829bb4e533d0a046d47a0f593e31c",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
