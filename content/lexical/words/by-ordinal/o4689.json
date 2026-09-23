@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "a1202506a435475acbb2aa5293a249465fce54cf58fcb63cb2bc9813d5ffbbf8",
+    "content_hash": "d718612df6c84a35e16f71cb196ad44e4d6a1748d9c172688bbab937982ef23c",
     "core_concept": {
       "core_clusters": [
         {
@@ -27,6 +27,14 @@
           "pos": "noun",
           "sense_ids": [
             "sense:steal:3f927feafdb559cd"
+          ]
+        },
+        {
+          "label_cn": "便宜货；超值的东西",
+          "label_en": "informal: an unusually good bargain",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:steal:2d99b96e4d171c66"
           ]
         }
       ],
@@ -176,17 +184,7 @@
         "transitivity": "vt"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:c1b27036d5d265eab569",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:steal:3f927feafdb559cd:collocation:0"
-            ],
-            "meaning_cn": "这个价格真便宜",
-            "phrase": "a steal at this price"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "偷窃；偷垒",
         "definition_en": "an act of stealing, especially a stolen base",
@@ -197,6 +195,30 @@
         "sense_id": "sense:steal:3f927feafdb559cd",
         "sense_label_en": "an act of stealing, especially a stolen base",
         "sort_order": 4,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:50f15dc86ba0030049ad",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:steal:2d99b96e4d171c66:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "这个价格非常划算",
+            "phrase": "a steal at this price"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "便宜货；非常划算的东西/价格",
+        "definition_en": "informal: a bargain; something obtained for an exceptionally low price compared with its value",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:steal:2d99b96e4d171c66",
+        "sense_label_en": "informal: a bargain; something obtained for an exceptionally low price compared with its value",
+        "sort_order": 5,
         "transitivity": "nonverb"
       }
     ],
@@ -257,14 +279,21 @@
         "merged_into_sense_id": null,
         "source_row": 13315,
         "source_path": "content/lexical/canonical/senses/shards/o4673-4704.json"
+      },
+      {
+        "sense_id": "sense:steal:2d99b96e4d171c66",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 13375,
+        "source_path": "content/lexical/canonical/senses/shards/o4673-4704.json"
       }
     ],
     "active_collocations": [
       "collocation:38310c16db7ce9df5994",
+      "collocation:50f15dc86ba0030049ad",
       "collocation:61572b799234ca0425b0",
       "collocation:bc2f73dea2b9d1921a66",
       "collocation:bce5e70252f8220a2318",
-      "collocation:c1b27036d5d265eab569",
       "collocation:d1aca4a5c6411d8ea98a",
       "collocation:ecdb1e892030003c7c60",
       "collocation:f0efaf7d0619f59d1758",
@@ -316,6 +345,11 @@
         "id": "collocation:f807e166b0b546554a7a",
         "source_row": 21002,
         "source_path": "content/lexical/canonical/collocations/shards/o4673-4704.json"
+      },
+      {
+        "id": "collocation:50f15dc86ba0030049ad",
+        "source_row": 21530,
+        "source_path": "content/lexical/canonical/collocations/shards/o4673-4704.json"
       }
     ],
     "exam-mappings": [],
@@ -354,7 +388,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4689-4696.json",
-    "source_content_hash": "a1202506a435475acbb2aa5293a249465fce54cf58fcb63cb2bc9813d5ffbbf8",
+    "source_content_hash": "d718612df6c84a35e16f71cb196ad44e4d6a1748d9c172688bbab937982ef23c",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

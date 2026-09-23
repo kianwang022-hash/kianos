@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "0f067b8c0ec56b93691a71ee5b9a67f2da2afd6af205d8c568782fb49b512948",
+    "content_hash": "e66be216b8b5eac2bcc2c6e206bbe8b584eb30120ae88394bd0662d9d182d9f0",
     "core_concept": {
       "core_clusters": [
         {
@@ -44,15 +44,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:f4c8391a28e2857f0310",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:stoop:ab6e3cbc51145f20:collocation:0"
-            ],
-            "meaning_cn": "屈尊做某事；堕落到做某事",
-            "phrase": "stoop to + sth"
-          },
-          {
             "collocation_id": "collocation:9939f71515124ba382f4",
             "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
@@ -65,7 +56,7 @@
         "confidence": "medium",
         "definition_cn": "弯腰；俯身",
         "definition_en": "to bend the top half of the body forward and down",
-        "governing_pattern": "vi. + to",
+        "governing_pattern": "vi.: stoop; stoop down",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
@@ -77,15 +68,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:1a6bb110310832ed2bce",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:stoop:de34bcfabe3e59f3:collocation:0"
-            ],
-            "meaning_cn": "屈尊做某事；堕落到做某事",
-            "phrase": "stoop to + sth"
-          },
-          {
             "collocation_id": "collocation:e31fca5e506e6fcf416f",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -93,6 +75,15 @@
             ],
             "meaning_cn": "堕落到作弊",
             "phrase": "stoop to cheating"
+          },
+          {
+            "collocation_id": "collocation:e99a8e7de537e992048c",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:stoop:de34bcfabe3e59f3:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "屈尊/堕落到做某事",
+            "phrase": "stoop to sth/doing sth"
           }
         ],
         "confidence": "medium",
@@ -178,11 +169,10 @@
       }
     ],
     "active_collocations": [
-      "collocation:1a6bb110310832ed2bce",
       "collocation:9939f71515124ba382f4",
       "collocation:e31fca5e506e6fcf416f",
       "collocation:e6311bf4e78bca1f2872",
-      "collocation:f4c8391a28e2857f0310"
+      "collocation:e99a8e7de537e992048c"
     ],
     "facts": [],
     "collocations": [
@@ -209,6 +199,11 @@
       {
         "id": "collocation:f4c8391a28e2857f0310",
         "source_row": 20727,
+        "source_path": "content/lexical/canonical/collocations/shards/o4705-4736.json"
+      },
+      {
+        "id": "collocation:e99a8e7de537e992048c",
+        "source_row": 21505,
         "source_path": "content/lexical/canonical/collocations/shards/o4705-4736.json"
       }
     ],
@@ -248,7 +243,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4713-4720.json",
-    "source_content_hash": "0f067b8c0ec56b93691a71ee5b9a67f2da2afd6af205d8c568782fb49b512948",
+    "source_content_hash": "e66be216b8b5eac2bcc2c6e206bbe8b584eb30120ae88394bd0662d9d182d9f0",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

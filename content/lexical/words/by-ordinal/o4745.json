@@ -57,7 +57,7 @@
         "writing_safe": true
       }
     ],
-    "content_hash": "300bd0363b85a57413bffd9a74adc0fcaf9f54ef771894e1c7c9ebcb18d794bc",
+    "content_hash": "d9008e4951637eb50fd6f4904654242114dd8628c0c1cb08e36379fad854feab",
     "core_concept": {
       "core_clusters": [
         {
@@ -75,6 +75,14 @@
           "sense_ids": [
             "sense:strip:38752787452850b4",
             "sense:strip:a2dbc7e379fb57b4"
+          ]
+        },
+        {
+          "label_cn": "脱衣服；脱去衣物",
+          "label_en": "to take off one's clothes, partly or completely",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:strip:4df95538ee8b53e2"
           ]
         }
       ],
@@ -135,6 +143,39 @@
         "sense_label_en": "to take away property or rights from someone",
         "sort_order": 999,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:b27675c7e29b0e12ecc5",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:strip:4df95538ee8b53e2:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "脱掉衣服",
+            "phrase": "strip off"
+          },
+          {
+            "collocation_id": "collocation:54654d0e294b2f789809",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:strip:4df95538ee8b53e2:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "脱到只剩……",
+            "phrase": "strip down to + clothing"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "脱衣服；脱去衣物",
+        "definition_en": "to take off one's clothes, partly or completely",
+        "governing_pattern": "I/T: strip; strip off; strip down to sth; strip sb",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:strip:4df95538ee8b53e2",
+        "sense_label_en": "to take off one's clothes, partly or completely",
+        "sort_order": 999,
+        "transitivity": "I/T"
       }
     ],
     "verification_summary": {
@@ -184,31 +225,6 @@
       "reference_only": true
     },
     {
-      "stable_sense_id": "sense:strip:4df95538ee8b53e2",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "脱衣服",
-      "definition_en": "to take off one's clothes",
-      "semantic_key": "9cece1a814ec6d4f3de4982f678fa60ebbc0f966f04270c03dd83f126a815a43",
-      "semantic_key_history": [
-        "9cd9a91e611ff11aa4dc3b5b2da0627687d89eda63d44529956dd1c3d44eb5a7"
-      ],
-      "legacy_aliases": [
-        "strip:l2:6"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "strip:l2:6",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 13510,
-      "source_path": "content/lexical/canonical/senses/shards/o4737-4768.json",
-      "reference_only": true
-    },
-    {
       "stable_sense_id": "sense:strip:c652e3117da55f48",
       "status": "deprecated",
       "merged_into_sense_id": null,
@@ -252,7 +268,7 @@
       },
       {
         "sense_id": "sense:strip:4df95538ee8b53e2",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 13510,
         "source_path": "content/lexical/canonical/senses/shards/o4737-4768.json"
@@ -279,7 +295,10 @@
         "source_path": "content/lexical/canonical/senses/shards/o4737-4768.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:54654d0e294b2f789809",
+      "collocation:b27675c7e29b0e12ecc5"
+    ],
     "facts": [
       {
         "id": "deep:constructions:strip:956f6507e4b1bf11",
@@ -347,6 +366,16 @@
         "id": "collocation:f021b0f4157918da79d7",
         "source_row": 20343,
         "source_path": "content/lexical/canonical/collocations/shards/o4737-4768.json"
+      },
+      {
+        "id": "collocation:54654d0e294b2f789809",
+        "source_row": 21606,
+        "source_path": "content/lexical/canonical/collocations/shards/o4737-4768.json"
+      },
+      {
+        "id": "collocation:b27675c7e29b0e12ecc5",
+        "source_row": 21607,
+        "source_path": "content/lexical/canonical/collocations/shards/o4737-4768.json"
       }
     ],
     "exam-mappings": [],
@@ -390,7 +419,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4745-4752.json",
-    "source_content_hash": "300bd0363b85a57413bffd9a74adc0fcaf9f54ef771894e1c7c9ebcb18d794bc",
+    "source_content_hash": "d9008e4951637eb50fd6f4904654242114dd8628c0c1cb08e36379fad854feab",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

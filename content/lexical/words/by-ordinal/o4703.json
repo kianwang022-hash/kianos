@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "73d00911e01e4e893f4e40d8e86fe2fa11c886dfad4db8466a8683eaf55326b2",
+    "content_hash": "661b68795e00a5143701e53443300e76eb339afdbac8c8a71caa32c98e41ffc7",
     "core_concept": {
       "core_clusters": [
         {
@@ -16,8 +16,7 @@
           "pos": "verb",
           "sense_ids": [
             "sense:stimulate:aa5293ad9125521d",
-            "sense:stimulate:8d55dc1667b65fab",
-            "sense:stimulate:4504ff2c369857c9"
+            "sense:stimulate:8d55dc1667b65fab"
           ]
         }
       ],
@@ -90,30 +89,6 @@
         "sense_label_en": "to cause to be alert and energetic",
         "sort_order": 1,
         "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:b874bff89a44375c49c0",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:stimulate:4504ff2c369857c9:collocation:0"
-            ],
-            "meaning_cn": "促使...，刺激...",
-            "phrase": "stimulate to + sth"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "起刺激作用",
-        "definition_en": "to act as a stimulant",
-        "governing_pattern": "vi. + to",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:stimulate:4504ff2c369857c9",
-        "sense_label_en": "to act as a stimulant",
-        "sort_order": 2,
-        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -136,13 +111,37 @@
     "word_id": "word:stimulate"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:stimulate:4504ff2c369857c9",
+      "status": "merged",
+      "merged_into_sense_id": "sense:stimulate:aa5293ad9125521d",
+      "pos": "verb",
+      "definition_cn": "起刺激作用",
+      "definition_en": "to act as a stimulant",
+      "semantic_key": "12ecb2e3e8803eacd560c7b37cc226863cbb654b3bf15f3141713b85b91a454f",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "stimulate:l2:3"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "stimulate:l2:3",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-08-13T21:08:34+00:00",
+      "source_row": 13368,
+      "source_path": "content/lexical/canonical/senses/shards/o4673-4704.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:stimulate:4504ff2c369857c9",
-        "status": "active",
-        "merged_into_sense_id": null,
+        "status": "merged",
+        "merged_into_sense_id": "sense:stimulate:aa5293ad9125521d",
         "source_row": 13368,
         "source_path": "content/lexical/canonical/senses/shards/o4673-4704.json"
       },
@@ -164,8 +163,7 @@
     "active_collocations": [
       "collocation:0d0e84ef27158bacc535",
       "collocation:117e01c056a79eec92fb",
-      "collocation:8ff94fdbd7c53407fcbc",
-      "collocation:b874bff89a44375c49c0"
+      "collocation:8ff94fdbd7c53407fcbc"
     ],
     "facts": [],
     "collocations": [
@@ -231,7 +229,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4697-4704.json",
-    "source_content_hash": "73d00911e01e4e893f4e40d8e86fe2fa11c886dfad4db8466a8683eaf55326b2",
+    "source_content_hash": "661b68795e00a5143701e53443300e76eb339afdbac8c8a71caa32c98e41ffc7",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

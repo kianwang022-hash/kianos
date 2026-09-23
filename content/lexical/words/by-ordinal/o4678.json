@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "7574e16aaa391b25136a860d2ef2919a160c460b7caaffece2f7676e730ed802",
+    "content_hash": "f6e1eb045a7ff17b2539b16d7decd806695bd9c72bddc8adb59b19d799662b9a",
     "core_concept": {
       "core_clusters": [
         {
@@ -26,6 +26,14 @@
             "sense:static:ce43a7c47e195357",
             "sense:static:70bbcc11dbf15433"
           ]
+        },
+        {
+          "label_cn": "静电的",
+          "label_en": "relating to electric charge at rest",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:static:cffdb0e466eac8b9"
+          ]
         }
       ],
       "core_meaning_cn": "静态的；静电",
@@ -43,15 +51,6 @@
     "senses": [
       {
         "collocations": [
-          {
-            "collocation_id": "collocation:f0fb829e36fece3cf14a",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:static:bc9d2178a16c503f:collocation:0"
-            ],
-            "meaning_cn": "静电",
-            "phrase": "static electricity"
-          },
           {
             "collocation_id": "collocation:0ed6d35cf6cd4a646299",
             "exam_value": "usage_example",
@@ -121,6 +120,30 @@
         "sense_label_en": "angry criticism",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:a9d44f109087690330a6",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:static:cffdb0e466eac8b9:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "静电",
+            "phrase": "static electricity"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "静电的；与静止电荷有关的",
+        "definition_en": "relating to electric charge at rest; electrostatic",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:static:cffdb0e466eac8b9",
+        "sense_label_en": "relating to electric charge at rest; electrostatic",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -166,13 +189,20 @@
         "merged_into_sense_id": null,
         "source_row": 13283,
         "source_path": "content/lexical/canonical/senses/shards/o4673-4704.json"
+      },
+      {
+        "sense_id": "sense:static:cffdb0e466eac8b9",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 13374,
+        "source_path": "content/lexical/canonical/senses/shards/o4673-4704.json"
       }
     ],
     "active_collocations": [
       "collocation:0ed6d35cf6cd4a646299",
       "collocation:6e13939545a6a8a72d84",
       "collocation:7ee21d87f1a27f8a70be",
-      "collocation:f0fb829e36fece3cf14a"
+      "collocation:a9d44f109087690330a6"
     ],
     "facts": [],
     "collocations": [
@@ -194,6 +224,11 @@
       {
         "id": "collocation:f0fb829e36fece3cf14a",
         "source_row": 20412,
+        "source_path": "content/lexical/canonical/collocations/shards/o4673-4704.json"
+      },
+      {
+        "id": "collocation:a9d44f109087690330a6",
+        "source_row": 21531,
         "source_path": "content/lexical/canonical/collocations/shards/o4673-4704.json"
       }
     ],
@@ -233,7 +268,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4673-4680.json",
-    "source_content_hash": "7574e16aaa391b25136a860d2ef2919a160c460b7caaffece2f7676e730ed802",
+    "source_content_hash": "f6e1eb045a7ff17b2539b16d7decd806695bd9c72bddc8adb59b19d799662b9a",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
