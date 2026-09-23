@@ -11,7 +11,9 @@ on:
       - "static-web/scripts/privateExternalReadingBridge.mjs"
       - "static-web/scripts/privateControlBridge.mjs"
       - "static-web/scripts/kianos-static-server.mjs"
+      - "static-web/scripts/currentStaticImpact.mjs"
       - "static-web/scripts/currentStaticSlots.mjs"
+      - "static-web/scripts/test-current-static-impact.mjs"
       - "static-web/scripts/test-current-static-slots.mjs"
       - "static-web/scripts/test-current-static-runtime.mjs"
       - "static-web/package.json"
@@ -34,7 +36,9 @@ jobs:
         run: |
           node --check scripts/kianos-current-sync.mjs
           node --check scripts/kianos-static-server.mjs
+          node --check scripts/currentStaticImpact.mjs
           node --check scripts/currentStaticSlots.mjs
+          node --check scripts/test-current-static-impact.mjs
           node --check scripts/test-current-static-slots.mjs
           node --check scripts/privateLearnerBridge.mjs
           node --check scripts/privateDailyLearningPacketRelayWorker.mjs
@@ -42,6 +46,8 @@ jobs:
           node --check scripts/privateExternalReadingBridge.mjs
           node --check scripts/privateControlBridge.mjs
           node --check scripts/test-current-static-runtime.mjs
+      - name: Verify Current build-impact gate
+        run: node scripts/test-current-static-impact.mjs
       - name: Build staging Current and promote
         run: |
           rm -rf .current-build-next dist
