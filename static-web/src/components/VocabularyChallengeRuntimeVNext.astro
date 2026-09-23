@@ -94,7 +94,7 @@ const base = import.meta.env.BASE_URL;
     <p data-challenge-complete-summary></p>
     <div>
       <button type="button" class="primary" data-challenge-copy-return>复制结果给 Chat</button>
-      <button type="button" data-challenge-clear>结束并清除本组 Test</button>
+      <button type="button" data-challenge-clear>结束本组 Test</button>
     </div>
   </section>
 </section>
@@ -437,10 +437,13 @@ const base = import.meta.env.BASE_URL;
   }
 </style>
 <script>
-import {LEXICAL_LEDGER_STORAGE_KEY,appendEvidenceEvent,emptyLexicalLedger,exportReturnEvents,legacyEventId,normalizeLexicalLedger,repairStateForEvent,serializeLexicalReturnPacketForChat} from '../lib/lexicalEvidence.mjs';
+import {LEXICAL_LEDGER_STORAGE_KEY,appendEvidenceEvent,exportReturnEvents,legacyEventId,repairStateForEvent,serializeLexicalReturnPacketForChat} from '../lib/lexicalEvidence.mjs';
 import {parseLexicalChallengePacketText} from '../lib/lexicalChatState.mjs';
-  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+import { validateLexicalChallengePacket, lexicalChallengeSignature, readLexicalChallengeSession, installLexicalChallengePacket, dismissLexicalChallengeSession } from '../lib/lexicalChallenge.mjs';
+  import { learnerWriterReady, commitLearnerStorageChanges } from '../lib/browserLearnerWriter.mjs';
+  import { readBrowserLexicalLedger, writeBrowserLexicalLedger, lexicalBrowserStateReadable, showLexicalStateError } from '../lib/lexicalBrowserState.mjs';
   void learnerWriterReady.then(() => {
+  if (!lexicalBrowserStateReadable()) return;
 
 const root=document.querySelector('[data-vocab-challenge-runtime]');
 if(root instanceof HTMLElement){
@@ -449,10 +452,10 @@ if(root instanceof HTMLElement){
   const repairPanel=root.closest('[data-lexical-panel="repair"]');
   const isRepairVisible=()=>repairPanel instanceof HTMLElement&&!repairPanel.hidden;
   const importPanel=root.querySelector('[data-challenge-import-panel]'),questionPanel=root.querySelector('[data-challenge-question-panel]'),completePanel=root.querySelector('[data-challenge-complete-panel]'),packetInput=root.querySelector('[data-challenge-packet-input]'),importStatus=root.querySelector('[data-challenge-import-status]'),status=root.querySelector('[data-challenge-status]'),resumeButton=root.querySelector('[data-challenge-resume]'),continueButton=root.querySelector('[data-challenge-continue]'),feedback=root.querySelector('[data-challenge-feedback]'),issueButton=root.querySelector('[data-challenge-question-issue]'),choiceButtons=[...root.querySelectorAll('[data-challenge-choice]')],currentKind=root.querySelector('[data-challenge-current-kind]'),currentDemand=root.querySelector('[data-challenge-demand]'),currentDemandWrap=root.querySelector('[data-challenge-demand-wrap]'),openWord=root.querySelector('[data-challenge-open-word]'),sessionStrip=root.querySelector('[data-challenge-session-strip]'),waitingTitle=root.querySelector('[data-challenge-waiting-title]'),waitingCopy=root.querySelector('[data-challenge-waiting-copy]'),emptyLearn=root.querySelector('[data-challenge-empty-learn]'),manualTools=root.querySelector('[data-challenge-manual-tools]'),chatLoad=root.querySelector('[data-challenge-chat-load]'),chatLoadButton=root.querySelector('[data-challenge-chat-load-button]'),chatLoadStatus=root.querySelector('[data-challenge-chat-load-status]'),chatPaste=root.querySelector('[data-challenge-chat-paste]'),chatPasteInput=root.querySelector('[data-challenge-chat-paste-input]'),chatPasteStart=root.querySelector('[data-challenge-chat-paste-start]'),chatPasteCancel=root.querySelector('[data-challenge-chat-paste-cancel]');
-  const readJson=(key,fallback)=>{try{return JSON.parse(localStorage.getItem(key)||'null')||fallback}catch{return fallback}},saveJson=(key,value)=>{try{localStorage.setItem(key,JSON.stringify(value))}catch{}},readLedger=()=>normalizeLexicalLedger(readJson(LEXICAL_LEDGER_STORAGE_KEY,emptyLexicalLedger())),saveLedger=(ledger)=>saveJson(LEXICAL_LEDGER_STORAGE_KEY,ledger),eventId=(prefix)=>`${prefix}:${globalThis.crypto?.randomUUID?.()||`${Date.now()}-${Math.random().toString(36).slice(2)}`}`,localDay=()=>new Date().toLocaleDateString('en-CA'),eventLocalDay=(iso)=>{const d=new Date(iso);return Number.isNaN(d.getTime())?'':d.toLocaleDateString('en-CA')};
+  const readJson=(key,fallback)=>{try{return JSON.parse(localStorage.getItem(key)||'null')||fallback}catch{return fallback}},saveJson=(key,value)=>{try{commitLearnerStorageChanges(localStorage,[[key,JSON.stringify(value)]])}catch(error){showLexicalStateError();throw error}},readLedger=()=>readBrowserLexicalLedger(),saveLedger=(ledger)=>writeBrowserLexicalLedger(ledger),eventId=(prefix)=>`${prefix}:${globalThis.crypto?.randomUUID?.()||`${Date.now()}-${Math.random().toString(36).slice(2)}`}`,localDay=()=>new Date().toLocaleDateString('en-CA'),eventLocalDay=(iso)=>{const d=new Date(iso);return Number.isNaN(d.getTime())?'':d.toLocaleDateString('en-CA')};
   const debugMode=new URLSearchParams(location.search).get('debug')==='1';
   let packet=null,progress={packetSignature:'',index:0,mode:'main',answered:false,pendingReconstruction:false,lastAnswerEventId:null},sessionEvents=[];
-  const validateQuestion=(q)=>{if(!q||typeof q.stem!=='string'||!q.stem.trim()||!Array.isArray(q.options)||q.options.length<2||q.options.length>4)return false;const keys=q.options.map((o)=>o?.key);return !keys.some((k)=>!['left','up','right','down'].includes(k))&&new Set(keys).size===keys.length&&keys.includes(q.correct_key)},validatePacket=(value)=>{if(value?.schema!=='kianos.lexical.challenge_packet.v1')return 'schema 必须是 kianos.lexical.challenge_packet.v1';if(!Array.isArray(value.challenges)||!value.challenges.length)return 'challenges 不能为空';for(const item of value.challenges){if(!item?.challenge_id||!item?.word_id||!Number.isInteger(Number(item.ordinal))||!item?.target_kind)return 'Challenge identity 不完整';if(item.question_type!=='spatial_choice'||!validateQuestion(item))return `Challenge ${item.challenge_id||''} 不是有效 spatial_choice`;if(item.reconstruction&&!validateQuestion(item.reconstruction))return `Challenge ${item.challenge_id||''} reconstruction 无效`}return ''},signature=(value)=>`${value?.study_day||''}|${value?.generated_at||''}|${value?.challenges?.map((x)=>x.challenge_id).join(',')||''}`,currentItem=()=>packet?.challenges?.[progress.index]||null,currentQuestion=()=>{const item=currentItem();return progress.mode==='reconstruction'?item?.reconstruction:item},saveProgress=()=>saveJson(PROGRESS_KEY,progress),saveEvents=()=>saveJson(EVENTS_KEY,sessionEvents),setActive=(active)=>root.setAttribute('data-challenge-active',String(Boolean(active)));
+  const validatePacket=(value)=>{try{validateLexicalChallengePacket(value);return ''}catch(error){return error.message}},signature=lexicalChallengeSignature,currentItem=()=>packet?.challenges?.[progress.index]||null,currentQuestion=()=>{const item=currentItem();return progress.mode==='reconstruction'?item?.reconstruction:item},saveProgress=()=>saveJson(PROGRESS_KEY,progress),saveEvents=()=>saveJson(EVENTS_KEY,sessionEvents),setActive=(active)=>root.setAttribute('data-challenge-active',String(Boolean(active)));
   const targetKindLabel=(kind)=>({
     core:'Core / Word Feel',
     sense:'Sense',
@@ -467,6 +470,7 @@ if(root instanceof HTMLElement){
   const demandLabel=(demand)=>({recognition:'识别',discrimination:'区分',production:'产出'}[String(demand||'')]||String(demand||''));
   const repairCountNode=document.querySelector('.lexicalRepairHeader [data-lexical-repair-count]');
   const syncWaitingState=()=>{
+    if(document.querySelector('[data-lexical-state-error]'))return;
     const count=Number(repairCountNode?.textContent||0);
     if(waitingTitle)waitingTitle.textContent=count>0?'等待 Chat 准备下一组练习':'当前没有需要处理的 Repair';
     if(waitingCopy)waitingCopy.textContent=count>0
@@ -486,7 +490,18 @@ if(root instanceof HTMLElement){
   }
   window.addEventListener('kianos:lexical-evidence-changed',syncWaitingState);
   const migrateLegacyTargets=()=>{let ledger=readLedger();for(let i=0;i<localStorage.length;i+=1){const key=localStorage.key(i)||'';if(!key.startsWith(WORD_PREFIX))continue;const state=readJson(key,null);if(!state?.meta||!state?.repairTargets)continue;for(const target of Object.values(state.repairTargets)){const e={word_id:state.meta.word_id,ordinal:Number(state.meta.ordinal),word:state.meta.word||null,target_kind:target.target_kind||'lexical',target_id:target.target_id||null,target_locator:target.target_locator||null,target_revision:target.target_id?null:(target.target_revision||state.meta.source_hash||null),source:'depth_plus',outcome:'ADDED',observed_at:target.observed_at||state.lastSeenAt||new Date().toISOString()};e.event_id=`migration:${legacyEventId(e)}`;ledger=appendEvidenceEvent(ledger,e).ledger}}saveLedger(ledger)};if(!(new URLSearchParams(location.search).has('lookup')||new URLSearchParams(location.search).get('from')==='english'))migrateLegacyTargets();
-  const baseEvent=(item)=>{const quality=item.evidence_quality||{};return {event_id:eventId(progress.mode==='reconstruction'?'reconstruction':'challenge'),word_id:item.word_id,ordinal:Number(item.ordinal),word:item.word||null,target_kind:item.target_kind,target_id:item.target_id||null,target_locator:item.target_locator||null,target_revision:item.target_revision||quality.target_revision||null,challenge_id:item.challenge_id,source_task_id:item.source_task_id||null,context_id:item.context_id||item.challenge_id,demand:item.demand||quality.demand||null,assistance:progress.mode==='reconstruction'?'assisted':(quality.assistance||item.assistance||null),context_novelty:progress.mode==='reconstruction'?'repeated':(quality.context_novelty||item.context_novelty||null),delayed:progress.mode==='reconstruction'?false:(quality.delayed===true||item.delayed===true),question_valid:true,observed_at:new Date().toISOString()}},pushEvent=(item,source,outcome,extra={})=>{const event={...baseEvent(item),source,outcome,...extra},result=appendEvidenceEvent(readLedger(),event);saveLedger(result.ledger);window.dispatchEvent(new CustomEvent('kianos:lexical-evidence-changed'));sessionEvents.push(event);saveEvents();return {event,ledger:result.ledger}},cacheKey=(item)=>item.target_id||`${item.target_kind}:${item.target_locator||''}`;
+  const baseEvent=(item)=>{const quality=item.evidence_quality||{};return {event_id:eventId(progress.mode==='reconstruction'?'reconstruction':'challenge'),word_id:item.word_id,ordinal:Number(item.ordinal),word:item.word||null,target_kind:item.target_kind,target_id:item.target_id||null,target_locator:item.target_locator||null,target_revision:item.target_revision||quality.target_revision||null,challenge_id:item.challenge_id,source_task_id:item.source_task_id||null,context_id:item.context_id||item.challenge_id,demand:item.demand||quality.demand||null,assistance:progress.mode==='reconstruction'?'assisted':(quality.assistance||item.assistance||null),context_novelty:progress.mode==='reconstruction'?'repeated':(quality.context_novelty||item.context_novelty||null),delayed:progress.mode==='reconstruction'?false:(quality.delayed===true||item.delayed===true),question_valid:true,observed_at:new Date().toISOString()}},pushEvent=(item,source,outcome,extra={})=>{
+    const event={...baseEvent(item),source,outcome,...extra},result=appendEvidenceEvent(readLedger(),event);
+    const nextEvents=[...sessionEvents,event];
+    const nextProgress=outcome==='QUESTION_ISSUE'?progress:{...progress,answered:true,lastAnswerEventId:event.event_id,
+      pendingReconstruction:outcome==='WRONG'&&progress.mode==='main'&&Boolean(item.reconstruction)};
+    try{commitLearnerStorageChanges(localStorage,[[LEXICAL_LEDGER_STORAGE_KEY,JSON.stringify(result.ledger)],
+      [EVENTS_KEY,JSON.stringify(nextEvents)],[PROGRESS_KEY,JSON.stringify(nextProgress)]])}
+    catch(error){showLexicalStateError();throw error}
+    sessionEvents=nextEvents;progress=nextProgress;
+    window.dispatchEvent(new CustomEvent('kianos:lexical-evidence-changed'));
+    return {event,ledger:result.ledger}
+  },cacheKey=(item)=>item.target_id||`${item.target_kind}:${item.target_locator||''}`;
   const syncLegacyCache=(item,active,at)=>{const key=`${WORD_PREFIX}${item.word_id}`,state=readJson(key,{revealed:false,repairTargets:{},lastSeenAt:'',meta:{word_id:item.word_id,ordinal:Number(item.ordinal),word:item.word||null,source_hash:item.target_revision||null}});if(!state.repairTargets||typeof state.repairTargets!=='object')state.repairTargets={};if(active)state.repairTargets[cacheKey(item)]={target_kind:item.target_kind,target_id:item.target_id||null,target_locator:item.target_locator||null,target_revision:item.target_revision||item.evidence_quality?.target_revision||null,label:item.word||item.target_id||item.target_locator||item.target_kind,source:'evidence_reducer',outcome:'ADDED',observed_at:at};else delete state.repairTargets[cacheKey(item)];state.lastSeenAt=at;state.meta={...state.meta,word_id:item.word_id,ordinal:Number(item.ordinal),word:item.word||state.meta?.word||null};saveJson(key,state)},reconcile=(item,event,ledger)=>{const derived=repairStateForEvent(ledger,event);if(!derived)return 'unresolved';if(derived.state==='ACTIVE')syncLegacyCache(item,true,event.observed_at);if(derived.state==='DORMANT')syncLegacyCache(item,false,event.observed_at);return derived.state};
   const renderOptions=(q)=>{
     const byKey=new Map((q?.options||[]).map((o)=>[o.key,o]));
@@ -541,6 +556,11 @@ if(root instanceof HTMLElement){
     renderOptions(q);
     renderSessionStrip();
     status.textContent=(progress.index+1)+' / '+packet.challenges.length;
+    if(progress.answered){
+      const event=sessionEvents.find(row=>row.event_id===progress.lastAnswerEventId);
+      if(!event){showLexicalStateError();return;}
+      presentAnswer(item,q,event,readLedger());
+    }
   };
 
   const advance=()=>{
@@ -561,15 +581,16 @@ if(root instanceof HTMLElement){
     saveProgress();
   };
   const answer=(key)=>{
+    if(!lexicalBrowserStateReadable())return;
     if(progress.answered)return;
     const item=currentItem(),q=currentQuestion();
     if(!item||!q||!q.options.some((o)=>o.key===key))return;
-    progress.answered=true;
-    saveProgress();
     const correct=key===q.correct_key,source=progress.mode==='reconstruction'?'reconstruction':'challenge',pushed=pushEvent(item,source,correct?'CORRECT':'WRONG',{selected_key:key,correct_key:q.correct_key,question_trace:{stem:q.stem,options:q.options.map((o)=>({key:o.key,text:o.text}))}});
-    progress.lastAnswerEventId=pushed.event.event_id;
-    saveProgress();
-    const derived=reconcile(item,pushed.event,pushed.ledger);
+    reconcile(item,pushed.event,pushed.ledger);
+    presentAnswer(item,q,pushed.event,pushed.ledger);
+  };
+  const presentAnswer=(item,q,event,ledger)=>{
+    const key=event.selected_key,correct=key===q.correct_key,derived=repairStateForEvent(ledger,event)?.state;
     root.dataset.challengeOutcome=correct?'correct':'wrong';
     choiceButtons.forEach((b)=>{
       const k=b.getAttribute('data-challenge-choice');
@@ -607,30 +628,22 @@ if(root instanceof HTMLElement){
     renderSessionStrip();
   }
   const hydrateSavedPacket=()=>{
-    const saved=readJson(PACKET_KEY,null);
-    if(!saved||validatePacket(saved))return null;
-    const savedProgress=readJson(PROGRESS_KEY,null),savedEvents=readJson(EVENTS_KEY,[]);
-    packet=saved;
-    progress=savedProgress?.packetSignature===signature(saved)
-      ? savedProgress
-      : {packetSignature:signature(saved),index:0,mode:'main',answered:false,pendingReconstruction:false,lastAnswerEventId:null};
-    sessionEvents=Array.isArray(savedEvents)?savedEvents:[];
-    return saved;
+    try {
+      const saved=readLexicalChallengeSession(localStorage);
+      if(!saved)return null;
+      if(saved.progress.dismissed){packet=null;return null;}
+      packet=saved.packet;progress=saved.progress;sessionEvents=saved.events;
+      return packet;
+    } catch { showLexicalStateError(); return null; }
   };
 
   const startPacket=(value,reset=true)=>{
-    const error=validatePacket(value);
-    if(error){importStatus.textContent=error;return;}
-    packet=value;
-    saveJson(PACKET_KEY,packet);
-    const sig=signature(packet);
-    if(reset||progress.packetSignature!==sig){
-      progress={packetSignature:sig,index:0,mode:'main',answered:false,pendingReconstruction:false,lastAnswerEventId:null};
-      sessionEvents=[];
-      saveProgress();
-      saveEvents();
-    }
+    if(!lexicalBrowserStateReadable())return false;
+    try { installLexicalChallengePacket(localStorage,value); }
+    catch(error){showLexicalStateError();if(importStatus)importStatus.textContent='练习未替换，原记录已保留。';return false;}
+    if(!hydrateSavedPacket())return false;
     renderQuestion();
+    return true;
   };
 
   const openRepairSession=()=>{
@@ -658,7 +671,7 @@ if(root instanceof HTMLElement){
       if(chatLoadStatus)chatLoadStatus.textContent='这份练习无法开始，请让 Chat 重新生成。';
       return false;
     }
-    startPacket(value,true);
+    if(!startPacket(value,true))return false;
     if(chatPaste instanceof HTMLElement)chatPaste.hidden=true;
     if(chatLoadStatus)chatLoadStatus.textContent='已载入，开始作答。';
     return true;
@@ -694,7 +707,7 @@ if(root instanceof HTMLElement){
     window.setTimeout(()=>{button.textContent='复制结果给 Chat'},1200);
   });
   root.querySelector('[data-challenge-clear]')?.addEventListener('click',()=>{
-    try{localStorage.removeItem(PACKET_KEY);localStorage.removeItem(PROGRESS_KEY);localStorage.removeItem(EVENTS_KEY)}catch{}
+    try{dismissLexicalChallengeSession(localStorage)}catch{showLexicalStateError();return;}
     packet=null;
     progress={packetSignature:'',index:0,mode:'main',answered:false,pendingReconstruction:false,lastAnswerEventId:null};
     sessionEvents=[];
@@ -721,6 +734,13 @@ if(root instanceof HTMLElement){
     const tab=event?.detail?.tab||'';
     if(tab==='repair')openRepairSession();
     else setActive(false);
+  });
+
+  window.addEventListener('kianos:lexical-challenge-updated',()=>{
+    const saved=hydrateSavedPacket();
+    if(saved&&isRepairVisible())renderQuestion();
+    else if(saved&&status)status.textContent=saved.challenges.length+' tests ready';
+    window.dispatchEvent(new CustomEvent('kianos:lexical-evidence-changed'));
   });
 
   window.addEventListener('storage',(event)=>{

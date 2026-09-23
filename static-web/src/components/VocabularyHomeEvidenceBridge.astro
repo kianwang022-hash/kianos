@@ -10,8 +10,6 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
   import {
     LEXICAL_LEDGER_STORAGE_KEY,
     compileRepairTargets,
-    emptyLexicalLedger,
-    normalizeLexicalLedger,
     reconcileEvidenceIdentity
   } from '../lib/lexicalEvidence.mjs';
   import {
@@ -21,6 +19,7 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
   } from '../lib/lexicalSettings.mjs';
   import { buildLexicalChatStatePacket, serializeLexicalChatStateForChat } from '../lib/lexicalChatState.mjs';
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  import { readBrowserLexicalLedger, writeBrowserLexicalLedger, lexicalBrowserStateReadable } from '../lib/lexicalBrowserState.mjs';
   const copyTextRobust = async (text) => {
     if (navigator.clipboard?.writeText && window.isSecureContext) {
       try { await navigator.clipboard.writeText(text); return true; } catch {}
@@ -46,6 +45,7 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
   // Copying/exporting state is safe even when another KianOS tab owns the write lock
   // or the browser cannot provide Web Locks/BroadcastChannel.
   const bindReadOnlyHandoff = () => {
+    if (!lexicalBrowserStateReadable()) return;
     const bridge = document.querySelector('[data-lexical-home-evidence-bridge]');
     const home = document.querySelector('[data-lexical-home]');
     if (!(bridge instanceof HTMLElement) || !(home instanceof HTMLElement)) return;
@@ -57,7 +57,7 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
       try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; } catch { return fallback; }
     };
     const readLedger = () => reconcileEvidenceIdentity(
-      normalizeLexicalLedger(readJson(LEXICAL_LEDGER_STORAGE_KEY, emptyLexicalLedger())),
+      readBrowserLexicalLedger(),
       lineage
     ).ledger;
 
@@ -115,6 +115,7 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
   bindReadOnlyHandoff();
 
   void learnerWriterReady.then(() => {
+  if (!lexicalBrowserStateReadable()) return;
 
 
   const bridge = document.querySelector('[data-lexical-home-evidence-bridge]');
@@ -129,11 +130,10 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
     const readJson = (key, fallback) => {
       try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; } catch { return fallback; }
     };
-    const saveJson = (key, value) => { try { localStorage.setItem(key, JSON.stringify(value)); } catch {} };
-    const rawLedger = normalizeLexicalLedger(readJson(LEXICAL_LEDGER_STORAGE_KEY, emptyLexicalLedger()));
+    const rawLedger = readBrowserLexicalLedger();
     const reconciled = reconcileEvidenceIdentity(rawLedger, lineage).ledger;
-    if(!(new URLSearchParams(location.search).has('lookup')||new URLSearchParams(location.search).get('from')==='english'))saveJson(LEXICAL_LEDGER_STORAGE_KEY, reconciled);
-    const readLedger = () => normalizeLexicalLedger(readJson(LEXICAL_LEDGER_STORAGE_KEY, reconciled));
+    if(!(new URLSearchParams(location.search).has('lookup')||new URLSearchParams(location.search).get('from')==='english'))writeBrowserLexicalLedger(reconciled);
+    const readLedger = () => readBrowserLexicalLedger();
     const localStudyDay = () => new Date().toLocaleDateString('en-CA');
     const eventLocalDay = (iso) => {
       const date = new Date(iso);

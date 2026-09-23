@@ -42,6 +42,22 @@ export function assertLexicalLedgerReadable(ledger) {
   return ledger;
 }
 
+// Absence is a first visit. Existing unreadable bytes are never an empty ledger.
+export function readLexicalLedger(storage) {
+  const raw = storage.getItem(LEXICAL_LEDGER_STORAGE_KEY);
+  if (raw === null) return emptyLexicalLedger();
+  try { return assertLexicalLedgerReadable(JSON.parse(raw)); }
+  catch { throw new Error('LEXICAL_LEDGER_UNREADABLE_PRESERVE_DATA'); }
+}
+
+export function writeLexicalLedger(storage, ledger) {
+  readLexicalLedger(storage);
+  assertLexicalLedgerReadable(ledger);
+  const raw = JSON.stringify(ledger);
+  if (storage.getItem(LEXICAL_LEDGER_STORAGE_KEY) !== raw) storage.setItem(LEXICAL_LEDGER_STORAGE_KEY, raw);
+  if (storage.getItem(LEXICAL_LEDGER_STORAGE_KEY) !== raw) throw new Error('LEXICAL_LEDGER_SAVE_UNVERIFIED');
+}
+
 export function normalizeLexicalLedger(value) {
   if (!value || typeof value !== 'object' || value.schema !== LEXICAL_LEDGER_SCHEMA) return emptyLexicalLedger();
   return {
@@ -542,4 +558,3 @@ export function serializeLexicalReturnPacketForChat(packet) {
     JSON.stringify(packet, null, 2)
   ].join('\n');
 }
-

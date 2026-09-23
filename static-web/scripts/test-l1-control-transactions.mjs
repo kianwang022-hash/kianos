@@ -26,6 +26,7 @@ async function runtime({fetchImpl,writeSession,validatePlan}={}){
   const sandbox={console,Date,fetch:fetchImpl||(async(url,opts)=>url.endsWith('/receipt')?receiptResponse(opts.body):{ok:true,json:async()=>({collections:[]})}),window:{dispatchEvent:noop},document:{querySelector:()=>({textContent:'[{"object_id":"synthetic-object"}]'})},CustomEvent:class{constructor(type,opts){this.type=type;this.detail=opts?.detail;}}};
   const context=vm.createContext(sandbox);
   const modules={
+    './lexicalChallenge.mjs':{stageLexicalChallengePacket:()=>({changes:[]}),lexicalChallengePacketMatches:()=>true},
     './browserLearnerWriter.mjs':{assertLearnerStorageWritable:()=>{},commitLearnerStorageChanges},
     './privateControlCommand.mjs':{CONTROL_LOCAL_RECEIPT_KEY:receiptKey,CONTROL_RECEIPT_SCHEMA:'kianos.control-receipt.v1',validateBrowserControlCommand:clone,validateControlReceipt:value=>{if(value?.schema!=='kianos.control-receipt.v1')throw new Error('INVALID_RECEIPT');return clone(value);}},
     './englishSessionControl.mjs':{ENGLISH_SESSION_KEY:sessionKey,writeEnglishSessionInstruction:(storage,value)=>{calls++;if(writeSession)writeSession(storage,value);else storage.setItem(sessionKey,JSON.stringify(value));}},

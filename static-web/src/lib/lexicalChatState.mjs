@@ -2,10 +2,15 @@ import {
   compileRepairTargets,
   emptyLexicalLedger,
   exportReturnEvents,
+  readLexicalLedger,
+  LEXICAL_LEDGER_STORAGE_KEY,
   normalizeLexicalLedger
 } from './lexicalEvidence.mjs';
 import {
   introducedCountForDay,
+  LEXICAL_ROUTING_STORAGE_KEY,
+  LEXICAL_INTAKE_STORAGE_KEY,
+  LEXICAL_SETTINGS_STORAGE_KEY,
   introducedTotal,
   localLexicalDay,
   normalizeLexicalIntake,
@@ -13,11 +18,13 @@ import {
   normalizeLexicalSettings,
   sameDayLexicalRevisits
 } from './lexicalSettings.mjs';
+import { readLexicalChallengeSession } from './lexicalChallenge.mjs';
 
 export const LEXICAL_CHAT_STATE_SCHEMA = 'kianos.lexical.chat_state.v1';
 
 const routeName = (value) => String(value || '').toUpperCase();
 const eventDay = (iso) => localLexicalDay(iso);
+const record = value => value !== null && typeof value === 'object' && !Array.isArray(value);
 
 function compactRoutingEvent(event) {
   if (!event || typeof event !== 'object') return null;
@@ -89,6 +96,7 @@ export function buildLexicalChatStatePacket({
     next_index: Math.min(Math.max(challengeIndex, 0), challenges.length),
     mode: challengeProgress?.mode || 'main',
     answered: Boolean(challengeProgress?.answered),
+    dismissed: challengeProgress?.dismissed === true,
     current_challenge_id: challengeCurrent?.challenge_id || null,
     current_word: challengeCurrent?.word || null,
     current_target_kind: challengeCurrent?.target_kind || null,
@@ -126,7 +134,8 @@ export function buildLexicalChatStatePacket({
         known: routeCounts.KNOWN,
         mastered: routeCounts.MASTERED
       },
-      same_day_revisit: revisits,
+      same_day_revisit: revisits.slice(0, 80),
+      truncated_revisit_count: Math.max(0, revisits.length - 80),
       recent_judgments: recent
     },
     repair: {
@@ -135,9 +144,57 @@ export function buildLexicalChatStatePacket({
       active_targets: repairPreview,
       truncated_target_count: Math.max(0, repairTargets.length - repairPreview.length)
     },
-    today_evidence: todayEvidence,
+    today_evidence: todayEvidence.slice(-60),
+    today_evidence_count: todayEvidence.length,
+    truncated_today_evidence_count: Math.max(0, todayEvidence.length - 60),
     challenge_session: challengeSession
   };
+}
+
+// The browser clipboard and private Daily Packet consume the same native view.
+// This is a projection, never another stored learner snapshot.
+export function readLexicalChatState(storage, { now = Date.now() } = {}) {
+  const keys = [LEXICAL_LEDGER_STORAGE_KEY, LEXICAL_ROUTING_STORAGE_KEY, LEXICAL_INTAKE_STORAGE_KEY,
+    LEXICAL_SETTINGS_STORAGE_KEY, 'kianos-vocabulary-last-ordinal', 'kianos-lexical-challenge-packet-v1',
+    'kianos-lexical-challenge-progress-v1', 'kianos-lexical-challenge-events-v1'];
+  if (!keys.some(key => storage.getItem(key) !== null)) return { status: 'missing', packet: null };
+  try {
+    const read = (key, schema = null) => {
+      const raw = storage.getItem(key);
+      if (raw === null) return null;
+      const value = JSON.parse(raw);
+      if (!record(value) || (schema && value.schema !== schema)) throw new Error('LEXICAL_STATE_UNREADABLE');
+      return value;
+    };
+    const ledger = readLexicalLedger(storage);
+    const routing = read(LEXICAL_ROUTING_STORAGE_KEY, 'kianos.lexical.card_routing.v1');
+    const intake = read(LEXICAL_INTAKE_STORAGE_KEY, 'kianos.lexical.intake.v1');
+    const settings = read(LEXICAL_SETTINGS_STORAGE_KEY, 'kianos.lexical.settings.v1');
+    if (routing && (!Array.isArray(routing.history) || !record(routing.latest_by_word)
+      || [...routing.history, ...Object.values(routing.latest_by_word)].some(row => !record(row) || !row.word_id
+        || !['UNKNOWN','FUZZY','KNOWN','MASTERED'].includes(routeName(row.route))))) throw new Error('LEXICAL_ROUTING_UNREADABLE');
+    if (intake && !record(intake.introduced)) throw new Error('LEXICAL_INTAKE_UNREADABLE');
+    if (settings && (!Number.isInteger(settings.daily_new_limit) || settings.daily_new_limit < 1)) throw new Error('LEXICAL_SETTINGS_UNREADABLE');
+    const ordinalRaw = storage.getItem('kianos-vocabulary-last-ordinal');
+    const ordinal = ordinalRaw === null ? null : Number(ordinalRaw);
+    if (ordinal !== null && (!Number.isInteger(ordinal) || ordinal < 1)) throw new Error('LEXICAL_CURSOR_UNREADABLE');
+    const cursorEvent = Object.values(routing?.latest_by_word || {}).find(row => row?.ordinal === ordinal);
+    const challenge = readLexicalChallengeSession(storage);
+    const packet = buildLexicalChatStatePacket({ ledger, routing, intake, settings,
+      cursor: ordinal === null ? null : { ordinal, word_id: cursorEvent?.word_id || null, word: cursorEvent?.word || null },
+      challengePacket: challenge?.packet, challengeProgress: challenge?.progress,
+      challengeEvents: challenge?.events || [], now });
+    packet.availability = {
+      ledger: storage.getItem(LEXICAL_LEDGER_STORAGE_KEY) === null ? 'missing' : 'ready',
+      routing: routing ? 'ready' : 'missing', intake: intake ? 'ready' : 'missing'
+    };
+    if (packet.availability.ledger === 'missing') {
+      packet.repair = { status: 'unknown', active_target_count: null, active_targets: [] };
+    }
+    return { status: 'ready', packet };
+  } catch {
+    return { status: 'unreadable', packet: null, semantics: 'UNREADABLE_PRIVATE_STATE_IS_UNKNOWN_NOT_ZERO' };
+  }
 }
 
 export function serializeLexicalChatStateForChat(packet) {
@@ -150,12 +207,12 @@ export function serializeLexicalChatStateForChat(packet) {
     '',
     'HOW TO READ IT',
     '- Read the embedded chat_instruction and semantics first. Coverage is traversal, not mastery; same-day revisit is not debt; Repair contains exact evidence-backed targets.',
-    '- If GitHub access is available, read kianwang022-hash/kianos@main AGENTS.md, then content/lexical/CURRENT.md, then only the exact Current owner/contract needed for the target.',
+    '- Continue learning from this private state. Read content/lexical/LEARNING_CONTRACT.md or exact Word owners only when needed; engineering CURRENT is not the learning entry.',
     '- Missing evidence quality stays unknown. Do not turn whole-card Unknown/Fuzzy alone into durable Repair.',
     '',
     'WHAT CHAT SHOULD DO',
     '- Explain the current vocabulary state in normal language and choose only a small useful action.',
-    '- If a Repair test is useful, return one kianos.lexical.challenge_packet.v1 JSON object compatible with content/lexical/learner/packet-contract.json.',
+    '- If a Repair test is useful, deliver one kianos.lexical.challenge_packet.v1 through the existing private control operation lexical.challenge; verify the apply receipt. Follow content/lexical/learner/packet-contract.json. Manual paste is a fallback when delivery is unavailable.',
     '- If no generated test is useful, answer normally; a structured return is not mandatory.',
     '',
     'LEXICAL_CHAT_STATE_JSON',
@@ -183,4 +240,3 @@ export function parseLexicalChallengePacketText(input) {
   }
   throw new Error('LEXICAL_CHALLENGE_IMPORT_INVALID');
 }
-

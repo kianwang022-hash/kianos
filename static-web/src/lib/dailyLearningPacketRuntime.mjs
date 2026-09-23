@@ -30,6 +30,7 @@ function englishEvidencePresent(packet) {
   if (Array.isArray(packet.inventory) && packet.inventory.length) return true;
   if (record(packet.resume) && packet.resume.status && packet.resume.status !== 'missing') return true;
   if (packet.exam_session) return true;
+  if (packet.lexical?.chat_state?.status && packet.lexical.chat_state.status !== 'missing') return true;
   return Object.values(packet.tasks || {}).some((row) => {
     if (!record(row)) return false;
     return Boolean(
@@ -124,6 +125,7 @@ export function buildHomeDailyLearningPacket({
 
   try {
     const english = buildEnglishEvidencePacket(storage, { day, now, catalog: englishCatalog });
+    if (english.lexical?.chat_state?.status === 'unreadable') warnings.push('lexical:LEXICAL_STATE_UNREADABLE_PRESERVE_DATA');
     if (englishEvidencePresent(english)) {
       packet = attachDailySubjectPacket(packet, 'english', english);
       coverage.english = 'attached';

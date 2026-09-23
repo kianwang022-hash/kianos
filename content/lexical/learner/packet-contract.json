@@ -43,6 +43,8 @@
   },
   "challenge_packet": {
     "schema": "kianos.lexical.challenge_packet.v1",
+    "private_delivery": "Use the existing lexical.challenge private control operation; payload is this packet and study_day matches the envelope. An unchanged retry preserves answers and position. Manual paste is an unavailable-relay fallback.",
+    "automatic_state": "subjects.english.evidence.lexical.chat_state in the private Daily Learning Packet; respect status, availability and truncation.",
     "required_top_level": ["schema", "study_day", "generated_at", "challenges"],
     "challenge_required": ["challenge_id", "word_id", "ordinal", "target_kind", "question_type", "stem", "options", "correct_key"],
     "challenge_fields": {

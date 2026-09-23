@@ -2,6 +2,7 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { validateLexicalChallengePacket } from '../src/lib/lexicalChallenge.mjs';
 import {
   CONTROL_BROWSER_SCHEMA,
   browserControlCommand,
@@ -76,6 +77,9 @@ export function publishPrivateControlCommand(input,{
   generatedDir=resolveEnglishGeneratedDir()
 }={}){
   const command=validateControlCommand(input);
+  for(const operation of command.operations){
+    if(operation.kind==='lexical.challenge')validateLexicalChallengePacket(operation.payload,{day:command.study_day});
+  }
   const commandHash=hash(command);
   const p=pathsFor(privateDir);
   const existingSource=readJson(p.source);

@@ -1,3 +1,4 @@
+import { stageLexicalChallengePacket, lexicalChallengePacketMatches } from './lexicalChallenge.mjs';
 import { assertLearnerStorageWritable, commitLearnerStorageChanges } from './browserLearnerWriter.mjs';
 import {
   CONTROL_LOCAL_RECEIPT_KEY,
@@ -153,6 +154,8 @@ function appliedReceipt(storage,command){
 }
 
 function receiptNativeEffectPresent(storage,command){
+  const lexical=command.operations.find(op=>op.kind==='lexical.challenge');
+  if(lexical && !lexicalChallengePacketMatches(storage,lexical.payload))return false;
   const score=command.operations.find(op=>op.kind==='english.exam_score_return');
   if(!score)return true;
   const native=inspectEnglishExamSession(storage);
@@ -169,6 +172,7 @@ export async function applyPrivateControlCommand(storage,input,{day=localDay(),n
     return{status:'idempotent',command,receipt_saved:receiptSaved};
   }
 
+  const lexicalOp=command.operations.find(op=>op.kind==='lexical.challenge')||null;
   const englishOp=command.operations.find(op=>op.kind==='english.session')||null;
   const englishScoreOp=command.operations.find(op=>op.kind==='english.exam_score_return')||null;
   const xizongSessionOp=command.operations.find(op=>op.kind==='xizong.session')||null;
@@ -190,6 +194,10 @@ export async function applyPrivateControlCommand(storage,input,{day=localDay(),n
   assertLearnerStorageWritable(storage);
   if(planOp)validateExamChatPlanAgainstStorage(shadow,planOp.payload,day);
 
+  if(lexicalOp){
+    const staged=stageLexicalChallengePacket(shadow,lexicalOp.payload,{day});
+    for(const [key,raw] of staged.changes)shadow.setItem(key,raw);
+  }
   if(englishOp){
     writeEnglishSessionInstruction(shadow,englishOp.payload,day,{catalog:englishCatalog,now});
   }
@@ -248,6 +256,7 @@ export async function applyPrivateControlCommand(storage,input,{day=localDay(),n
   commitShadow(storage,shadow,keys);
   const receiptSaved=await saveReceipt(receipt);
 
+  if(lexicalOp)window.dispatchEvent(new CustomEvent('kianos:lexical-challenge-updated'));
   if(englishOp||englishScoreOp)window.dispatchEvent(new CustomEvent('kianos:english-session-updated',{
     detail:{schema:(englishOp||englishScoreOp).payload?.schema||null,session_id:(englishOp||englishScoreOp).payload?.session_id||null}
   }));
