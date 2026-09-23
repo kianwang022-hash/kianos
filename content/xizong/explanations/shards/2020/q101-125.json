@@ -11,7 +11,9 @@
     "exam_target": "直肠癌共享病例子问缺失",
     "decision_axis": "当前记录只保留共享直肠癌病例，正式答案指向肝转移，但题干本身未保留对应后续病情/子问条件，无法安全恢复判断轴。",
     "reasoning_chain": [
-      "共享题干不足以独立恢复子问语义，按题源答案保留并 fail-closed。"
+      "当前Question Truth只证明直肠中分化腺癌，且当时肝肺未见转移。",
+      "官方答案A说明原题应有未保留的后续肝脏子问或影像信息。",
+      "决定性信息缺失时只能保留历史答案，不能建立Current诊断relation。"
     ],
     "transfer_rule": "仅保留题源/Question Truth边界；不得凭答案补造缺失病情。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -21,7 +23,16 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.直肠癌肝转移为题源官方答案；但当前Question Truth只保留初次直肠癌病例，并明确“肝肺未见转移”，缺少后续肝占位/复发子问，不能从既往病史反向制造转移证据。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "在没有肝病灶影像/病理时，也不能仅凭直肠癌史排除原发性肝癌。"
+      }
+    ],
+    "common_failure_node": "把官方答案A当成证据，自动补出题干里并不存在的“肝占位”。",
+    "source_gap_note": "共享病例缺少决定性肝脏子问/影像证据；不从官方答案反推不存在的“肝转移灶”。"
   },
   {
     "question_id": "xizong-official-2020-n102",
@@ -35,7 +46,9 @@
     "exam_target": "直肠癌肝转移术式共享题边界",
     "decision_axis": "题源答案为左肝切除，但当前记录缺少决定肝转移部位、数量和可切除性的完整子问信息，不能安全恢复现代手术决策。",
     "reasoning_chain": [
-      "共享题干不足以独立恢复子问语义，按题源答案保留并 fail-closed。"
+      "题源答案提示原病例应有局限左肝转移的后续信息。",
+      "当前Question Truth没有保存这些肝脏证据。",
+      "因此保留B但不建立Current术式relation。"
     ],
     "transfer_rule": "仅保留题源/Study边界；肝转移切除需完整影像和可切除性信息。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -45,7 +58,16 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.左半肝切除术为题源官方答案；当前记录没有保存肝转移灶位置、数量、肝外病灶和剩余肝体积等决定可切除性的关键信息。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "介入治疗是否合适同样依赖病灶分布、可切除性和系统治疗背景，不能仅凭残存病例决定。"
+      }
+    ],
+    "common_failure_node": "把“结直肠癌肝转移可手术”偷换成“固定做左半肝切除”。",
+    "source_gap_note": "共享病例缺少肝转移灶部位/数量、可切除性和剩余肝体积等关键信息；固定术式不升级。"
   },
   {
     "question_id": "xizong-official-2020-n103",
@@ -59,17 +81,31 @@
     "exam_target": "前臂双骨折识别",
     "decision_axis": "前臂挤压伤后明显畸形、肿胀及骨性异常提示桡尺骨同时骨折，需同时评估神经血管与筋膜室。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "高能量碾压造成明显前臂成角畸形，首先考虑骨性连续性破坏。",
+      "前臂尺桡骨共同承担长度与旋转，高能量损伤常同时骨折。",
+      "Current O6把前臂双骨折作为独立模型，因此选D。"
     ],
     "transfer_rule": "前臂高能量伤要把桡骨、尺骨和筋膜室一起评估。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.尺、桡骨骨折。高能量碾压伤后前臂明显肿胀、疼痛并出现成角畸形，最符合前臂双骨折。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "单纯尺骨骨折不能完整解释明显前臂成角畸形，且高能量碾压应高度警惕双骨损伤。"
+      },
+      {
+        "option": "C",
+        "reason": "单纯桡骨骨折同理，需同时评估尺骨。"
+      }
+    ],
+    "common_failure_node": "只按单根骨头猜诊断，忽略前臂是尺桡骨共同维持长度和旋转的双骨结构。"
   },
   {
     "question_id": "xizong-official-2020-n104",
@@ -83,7 +119,9 @@
     "exam_target": "前臂骨折共享子问缺失",
     "decision_axis": "当前Question记录保留病例与选项，但未保留具体问法；正式答案B无法说明是在问禁忌证、治疗选择还是其他判断，不能安全解释。",
     "reasoning_chain": [
-      "共享题干不足以独立恢复子问语义，按题源答案保留并 fail-closed。"
+      "病例保留了高能量前臂损伤，但具体子问未保存。",
+      "官方答案B“稳定性骨折”本身无法从残存题干确定对应判断轴。",
+      "因此只保留题源答案并fail-closed。"
     ],
     "transfer_rule": "仅保留题源/Question Truth边界；不得根据答案反推缺失子问。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -93,7 +131,16 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.稳定性骨折为题源官方答案；但当前Question Truth缺失具体问法，无法判断是在问某种处理禁忌、手法复位适应证还是其他分类。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "神经血管损伤是需要重点排查的并发症，但在缺失子问时不能判断它为何不是答案。"
+      }
+    ],
+    "common_failure_node": "根据选项内容自行补造“题目在问什么”。",
+    "source_gap_note": "共享病例具体子问缺失，无法安全恢复“稳定性骨折”所对应的比较问题。"
   },
   {
     "question_id": "xizong-official-2020-n105",
@@ -107,7 +154,9 @@
     "exam_target": "前臂骨折共享子问缺失",
     "decision_axis": "正式答案指向骨筋膜室综合征，但当前记录缺失具体子问，无法确认是在问最危险并发症、当前诊断还是后续观察点。",
     "reasoning_chain": [
-      "共享题干不足以独立恢复子问语义，按题源答案保留并 fail-closed。"
+      "高能量碾压、明显肿胀使筋膜室综合征具有医学合理性。",
+      "但Question Truth没有保留具体子问。",
+      "因此官方B保留，Crosswalk不制造推测出来的relation。"
     ],
     "transfer_rule": "仅保留题源/Question Truth边界；高能量前臂伤需警惕筋膜室综合征。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -117,7 +166,16 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.骨筋膜室综合征为题源官方答案；前臂高能量碾压确实需警惕筋膜室综合征，但当前子问缺失，无法确定是在问最危险并发症、观察重点还是现时诊断。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "神经损伤同样可能合并高能量前臂骨折，缺失子问时不能安全比较题意。"
+      }
+    ],
+    "common_failure_node": "因为骨筋膜室综合征“很危险”，就反推原题一定在问最危险并发症。",
+    "source_gap_note": "共享病例缺失具体子问；不能把医学上“应警惕筋膜室综合征”反推成原题完整语义。"
   },
   {
     "question_id": "xizong-official-2020-n106",
@@ -136,14 +194,26 @@
       "骨肉瘤通常侵袭性强、疼痛并伴破坏性骨膜反应；骨巨细胞瘤更偏骨端，骨样骨瘤则常以夜间痛和小瘤巢为线索。"
     ],
     "transfer_rule": "骨软骨瘤抓青少年、干骺端、骨性外生。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.骨软骨瘤。青少年长骨干骺端无痛性骨性突起，并且皮质和髓腔与母骨连续，是骨软骨瘤典型影像身份。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "骨肉瘤更常疼痛、破坏性生长并伴侵袭性骨膜反应。"
+      },
+      {
+        "option": "D",
+        "reason": "骨巨细胞瘤更偏骨骺/骨端、年龄更大且为溶骨性病变。"
+      }
+    ],
+    "common_failure_node": "看到“骨性肿物”就按恶性肿瘤处理，忽略与母骨皮质/髓腔连续这一高特异征。"
   },
   {
     "question_id": "xizong-official-2020-n107",
@@ -162,14 +232,22 @@
       "出现持续疼痛、快速增长或压迫等情况时才进入切除评估，而不是一开始就做根治性手术或放化疗。"
     ],
     "transfer_rule": "骨软骨瘤是否手术看症状、压迫、快速生长和恶变风险。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.不需治疗，观察。稳定、无症状、无快速增长或神经血管压迫的骨软骨瘤通常观察随访。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "切除用于疼痛、快速增大、压迫或恶变风险等情况，不是所有无症状病灶都手术。"
+      }
+    ],
+    "common_failure_node": "把“发现骨肿瘤”自动等同于必须切除。"
   },
   {
     "question_id": "xizong-official-2020-n108",
@@ -183,17 +261,28 @@
     "exam_target": "医学人文与紧急救助",
     "decision_axis": "面对生命危险首先积极救治体现患者利益优先和救死扶伤，是医学专业人文责任的核心表现。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "面对生命危险首先积极救治体现患者利益优先和救死扶伤，是医学专业人文责任的核心表现。",
+      "按题源伦理比较轴选择A。",
+      "Current Xizong Knowledge没有独立医学人文/伦理最小owner，因此Explanation保留、Crosswalk fail-closed。"
     ],
     "transfer_rule": "紧急医疗首先围绕保护生命和患者利益。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.救死扶伤。医生在公共场所面对突发危及生命事件立即实施急救并衔接后续救治，题源将其归于“救死扶伤”。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "“见义勇为”是一般社会道德表述；本题强调医学职业的人道主义救治责任。"
+      }
+    ],
+    "common_failure_node": "因为人文/伦理概念稳定，就把它硬塞进没有对应owner的临床Knowledge Block。",
+    "source_gap_note": "Current Xizong Knowledge尚无独立医学人文/伦理owner；不为覆盖率制造临床KP映射。"
   },
   {
     "question_id": "xizong-official-2020-n109",
@@ -207,17 +296,32 @@
     "exam_target": "医患沟通恰当表达",
     "decision_axis": "有效沟通应清楚说明治疗要求和后果，避免贬低、威胁或否定患者理解能力；题源选择相对尊重且具体的表达。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "有效沟通应清楚说明治疗要求和后果，避免贬低、威胁或否定患者理解能力；题源选择相对尊重且具体的表达。",
+      "按题源伦理比较轴选择B。",
+      "Current Xizong Knowledge没有独立医学人文/伦理最小owner，因此Explanation保留、Crosswalk fail-closed。"
     ],
     "transfer_rule": "沟通要尊重、具体、可执行，不用羞辱或威胁。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.按要求服药，否则达不到治疗效果。该表达虽然直接，但提供了具体治疗要求及不依从可能影响疗效的信息，较其他贬低、威胁或推诿表述更恰当。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "贬低患者理解能力，破坏尊重与合作。"
+      },
+      {
+        "option": "D",
+        "reason": "以拒绝后续医疗相威胁，不属于恰当沟通。"
+      }
+    ],
+    "common_failure_node": "因为人文/伦理概念稳定，就把它硬塞进没有对应owner的临床Knowledge Block。",
+    "source_gap_note": "Current Xizong Knowledge尚无独立医学人文/伦理owner；不为覆盖率制造临床KP映射。"
   },
   {
     "question_id": "xizong-official-2020-n110",
@@ -231,17 +335,28 @@
     "exam_target": "术中扩大手术范围与知情同意",
     "decision_axis": "术中发现非紧急的额外病变时，若拟扩大原计划手术范围，应尽可能重新完成适当授权/同意，而不能把原手术同意无限外推。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "术中发现非紧急的额外病变时，若拟扩大原计划手术范围，应尽可能重新完成适当授权/同意，而不能把原手术同意无限外推。",
+      "按题源伦理比较轴选择D。",
+      "Current Xizong Knowledge没有独立医学人文/伦理最小owner，因此Explanation保留、Crosswalk fail-closed。"
     ],
     "transfer_rule": "知情同意具有范围边界；非紧急额外操作需另行授权。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.立即沟通并取得书面同意后切除。术中发现非紧急额外病变、拟扩大手术范围时，应尽可能重新取得适当授权，而不能无限外推原手术同意。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "仅口头通知家属不足以完成题源所要求的扩大手术范围授权。"
+      }
+    ],
+    "common_failure_node": "因为人文/伦理概念稳定，就把它硬塞进没有对应owner的临床Knowledge Block。",
+    "source_gap_note": "Current Xizong Knowledge尚无独立医学人文/伦理owner；不为覆盖率制造临床KP映射。"
   },
   {
     "question_id": "xizong-official-2020-n111",
@@ -255,7 +370,9 @@
     "exam_target": "SARS时期公共卫生处置旧法规",
     "decision_axis": "题源按2003年SARS时期的报告与隔离流程作答；具体报告主体、隔离权限和程序属于时代性公共卫生规范，不能直接升级为Current操作规则。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对法规时代边界 fail-closed。"
+      "题源按2003年SARS时期公共卫生处置框架选择A。",
+      "现代传染病报告与密接管理受现行法律、疾病分类和公共卫生制度约束。",
+      "因此只保留历史考试答案，不建立Current法规relation。"
     ],
     "transfer_rule": "仅保留题源/历史法规边界；现实传染病处置按现行法定流程。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -265,7 +382,16 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.立即报告疾控中心，并暂时隔离患者家属为2003年SARS题源答案；报告主体、密接管理和隔离程序属于时代性公共卫生规范。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "“自行回家隔离”不能替代依法依规的公共卫生管理。"
+      }
+    ],
+    "common_failure_node": "把2003年SARS应急流程直接当成今天任何传染病的统一操作模板。",
+    "source_boundary_note": "2003年SARS时期的报告与隔离流程属于时代性公共卫生规则；现实执行应以现行法律和疾控规范为准。"
   },
   {
     "question_id": "xizong-official-2020-n112",
@@ -279,17 +405,32 @@
     "exam_target": "传染病报告与保密例外",
     "decision_axis": "患者隐私原则并非绝对；依法必须进行的传染病公共卫生报告可构成法定保密例外。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "患者隐私原则并非绝对；依法必须进行的传染病公共卫生报告可构成法定保密例外。",
+      "按题源伦理比较轴选择C。",
+      "Current Xizong Knowledge没有独立医学人文/伦理最小owner，因此Explanation保留、Crosswalk fail-closed。"
     ],
     "transfer_rule": "保密义务存在依法报告等明确例外，但具体程序看现行法规。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.将麻疹患者的信息上报相关部门。依法进行传染病公共卫生报告可构成保密义务的法定例外。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "单位领导没有当然获得患者病理诊断的权限。"
+      },
+      {
+        "option": "D",
+        "reason": "向探视同事披露梅毒信息不构成正当保密例外。"
+      }
+    ],
+    "common_failure_node": "因为人文/伦理概念稳定，就把它硬塞进没有对应owner的临床Knowledge Block。",
+    "source_gap_note": "Current Xizong Knowledge尚无独立医学人文/伦理owner；不为覆盖率制造临床KP映射。"
   },
   {
     "question_id": "xizong-official-2020-n113",
@@ -303,17 +444,32 @@
     "exam_target": "知情同意本质",
     "decision_axis": "知情同意要求医务人员提供充分信息和专业建议，由有能力的患者基于自身价值作出授权或拒绝决定。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "知情同意要求医务人员提供充分信息和专业建议，由有能力的患者基于自身价值作出授权或拒绝决定。",
+      "按题源伦理比较轴选择D。",
+      "Current Xizong Knowledge没有独立医学人文/伦理最小owner，因此Explanation保留、Crosswalk fail-closed。"
     ],
     "transfer_rule": "信息由医生提供，决定权属于患者。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.提供信息和建议并获得患者授权。知情同意不仅是信息告知，还包括理解、自愿选择以及对医疗行为的授权或拒绝。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "知情同意的核心不是医疗防御或免责。"
+      },
+      {
+        "option": "C",
+        "reason": "主动提供关键信息是医方义务，不能把责任倒给患者。"
+      }
+    ],
+    "common_failure_node": "因为人文/伦理概念稳定，就把它硬塞进没有对应owner的临床Knowledge Block。",
+    "source_gap_note": "Current Xizong Knowledge尚无独立医学人文/伦理owner；不为覆盖率制造临床KP映射。"
   },
   {
     "question_id": "xizong-official-2020-n114",
@@ -327,17 +483,28 @@
     "exam_target": "纽伦堡法典首要原则",
     "decision_axis": "《纽伦堡法典》把受试者自愿同意置于核心位置，强调参与研究必须建立在自由、知情和有能力同意基础上。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "《纽伦堡法典》把受试者自愿同意置于核心位置，强调参与研究必须建立在自由、知情和有能力同意基础上。",
+      "按题源伦理比较轴选择B。",
+      "Current Xizong Knowledge没有独立医学人文/伦理最小owner，因此Explanation保留、Crosswalk fail-closed。"
     ],
     "transfer_rule": "纽伦堡法典最经典关键词=自愿同意。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.受试者自愿同意绝对必要。《纽伦堡法典》第一条把受试者自愿同意置于核心位置。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "充分动物实验等也是重要要求，但不是第一条核心表述。"
+      }
+    ],
+    "common_failure_node": "因为人文/伦理概念稳定，就把它硬塞进没有对应owner的临床Knowledge Block。",
+    "source_gap_note": "Current Xizong Knowledge尚无独立医学人文/伦理owner；不为覆盖率制造临床KP映射。"
   },
   {
     "question_id": "xizong-official-2020-n115",
@@ -351,7 +518,9 @@
     "exam_target": "医疗事故等级旧法规口径",
     "decision_axis": "题源依据当时医疗事故分级规范选择等级；具体法律名称、等级标准和责任认定可能更新，不能作为Current法务规则。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对法规更新 fail-closed。"
+      "题源按旧条例分级选择D。",
+      "现行医疗损害责任与伤残评价框架并不能由该旧等级直接替代。",
+      "因此只保留历史考试口径。"
     ],
     "transfer_rule": "仅保留题源/法规时代边界；现实认定以现行法律规范为准。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -361,7 +530,16 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.造成患者中度残疾、器官组织损伤导致严重功能障碍为题源旧《医疗事故处理条例》二级医疗事故答案。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "轻度残疾、一般功能障碍在旧体系中对应较低等级。"
+      }
+    ],
+    "common_failure_node": "把旧医疗事故行政分级直接当成现行医疗损害责任和伤残评定体系。",
+    "source_boundary_note": "该题属于旧《医疗事故处理条例》分级口径；现行法律责任与伤残评定需另行核对。"
   },
   {
     "question_id": "xizong-official-2020-n116",
@@ -380,14 +558,22 @@
       "脑和心血管受直接交感缩血管影响相对少，更依赖局部代谢和自身调节。"
     ],
     "transfer_rule": "皮肤血管交感缩血管支配密度高。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.皮肤血管。交感缩血管神经在不同血管床分布不均，Current B2明确皮肤血管支配最丰富。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "脑血管直接交感缩血管支配相对少，更依赖局部代谢和自身调节。"
+      }
+    ],
+    "common_failure_node": "把所有器官血管都按同样密度接受交感支配。"
   },
   {
     "question_id": "xizong-official-2020-n117",
@@ -406,14 +592,22 @@
       "脑血流控制的主轴仍是局部代谢和自身调节，不要机械套全身交感收缩模式。"
     ],
     "transfer_rule": "脑血流调节优先想局部代谢/自身调节。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.脑血管。脑血流主要受局部代谢/自身调节控制，直接交感缩血管支配处于较低水平。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "皮肤血管恰恰是交感缩血管支配最丰富的血管床之一。"
+      }
+    ],
+    "common_failure_node": "上一题记住“皮肤最多”后，不会做同一分布梯度的反向题。"
   },
   {
     "question_id": "xizong-official-2020-n118",
@@ -432,14 +626,26 @@
       "Broca区损伤偏表达困难，角回更偏阅读书写网络。"
     ],
     "transfer_rule": "听得到但听不懂→语言理解区。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.颞上回后部。听力正常却不能理解口语，定位于优势半球听觉语言理解区域/Wernicke相关区。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "Broca区损伤更偏语言表达困难。"
+      },
+      {
+        "option": "D",
+        "reason": "角回更偏阅读、书写等视觉语言网络。"
+      }
+    ],
+    "common_failure_node": "把“听不懂”误认为听觉通路本身损伤，忽略纯语言理解障碍。"
   },
   {
     "question_id": "xizong-official-2020-n119",
@@ -458,14 +664,22 @@
       "感觉性语言障碍才更偏颞上回后部/Wernicke相关区域。"
     ],
     "transfer_rule": "懂但说不出→Broca运动性语言区。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.Broca区。理解基本保留、发音器官无障碍，但不能组织并输出语言，符合运动性失语。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "颞上回后部损伤更偏感觉性失语/听觉语言理解障碍。"
+      }
+    ],
+    "common_failure_node": "把发音器官正常却说不出话误诊为构音障碍。"
   },
   {
     "question_id": "xizong-official-2020-n120",
@@ -484,14 +698,26 @@
       "HGPRT属于嘌呤补救合成，尿苷/胞苷激酶偏嘧啶补救；它们不是这条从头合成主入口。"
     ],
     "transfer_rule": "嘌呤从头合成关键酶联想PRPP酰胺转移酶。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.酰胺转移酶。谷氨酰胺-PRPP酰胺转移酶催化嘌呤从头合成的重要承诺步骤。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "HGPRT属于嘌呤补救合成。"
+      },
+      {
+        "option": "D",
+        "reason": "尿苷/胞苷激酶偏嘧啶补救。"
+      }
+    ],
+    "common_failure_node": "不区分从头合成与补救合成的酶。"
   },
   {
     "question_id": "xizong-official-2020-n121",
@@ -505,17 +731,28 @@
     "exam_target": "嘧啶从头合成调节酶",
     "decision_axis": "题源教材把天冬氨酸氨基甲酰转移酶列为嘧啶从头合成的重要调节酶；需与哺乳动物CPSⅡ调控框架区分。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "题源选择ATCase作为嘧啶从头合成主要关键酶。",
+      "Current M9明确区分物种：哺乳动物以CPS-II为关键入口，细菌对应ATCase。",
+      "因此历史答案保留，但不能建立人体Current正向relation。"
     ],
     "transfer_rule": "该题按题源教材的嘧啶调节酶口径掌握，并注意物种/教材差异。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.天冬氨酸氨基甲酰基转移酶为题源官方答案；但Current M9明确：哺乳动物嘧啶从头合成以CPS-II为关键入口，ATCase是细菌对应。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "“酰胺转移酶”对应嘌呤从头合成的关键承诺步骤，不是哺乳动物嘧啶入口。"
+      }
+    ],
+    "common_failure_node": "为了服从旧答案，把细菌ATCase调控规则静默套到人体嘧啶从头合成。",
+    "source_conflict_note": "2019/2020题源选择ATCase；Current M9 KP06明确“哺乳动物以CPS-II为关键入口，细菌对应ATCase”，存在物种口径冲突。"
   },
   {
     "question_id": "xizong-official-2020-n122",
@@ -534,14 +771,26 @@
       "CM主要走外源性膳食脂质，HDL则负责逆向胆固醇运输。"
     ],
     "transfer_rule": "LDL：肝→外周。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.LDL。肝输出VLDL后逐步形成LDL，LDL把胆固醇递送到外周组织。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "HDL主要承担外周胆固醇回收到肝的逆向运输。"
+      },
+      {
+        "option": "A",
+        "reason": "CM主要运输膳食来源外源性脂质。"
+      }
+    ],
+    "common_failure_node": "把VLDL“肝源”误等同于“它就是主要向外周送胆固醇的终末颗粒”。"
   },
   {
     "question_id": "xizong-official-2020-n123",
@@ -560,14 +809,22 @@
       "LDL是向外周送胆固醇，不是把外周胆固醇回收到肝。"
     ],
     "transfer_rule": "HDL：外周→肝。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.HDL。HDL从外周组织接受胆固醇并将其带回肝，完成逆向胆固醇运输。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "LDL方向相反，主要向外周组织递送胆固醇。"
+      }
+    ],
+    "common_failure_node": "把LDL和HDL运输方向记反。"
   },
   {
     "question_id": "xizong-official-2020-n124",
@@ -586,14 +843,26 @@
       "巨噬细胞更多参与后续清除与慢性炎症，嗜酸性粒细胞更偏寄生虫/过敏，淋巴细胞更偏病毒或慢性免疫反应。"
     ],
     "transfer_rule": "急性化脓性细菌炎症→中性粒细胞。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.中性粒细胞。急性细菌性尤其化脓性炎症早期以中性粒细胞快速募集最典型。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "巨噬细胞更多参与后续清除和慢性炎症。"
+      },
+      {
+        "option": "C",
+        "reason": "嗜酸性粒细胞更偏寄生虫和过敏。"
+      }
+    ],
+    "common_failure_node": "只记“炎症都有白细胞”，不按病原和时相区分主要效应细胞。"
   },
   {
     "question_id": "xizong-official-2020-n125",
@@ -607,16 +876,31 @@
     "exam_target": "寄生虫感染炎症细胞",
     "decision_axis": "寄生虫感染和部分过敏反应常伴嗜酸性粒细胞增多和组织浸润。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "寄生虫抗原常驱动Th2/IL-5相关嗜酸性粒细胞反应。",
+      "题源据此选择C。",
+      "Current仓库没有一个最小通用KP完整承接“所有寄生虫感染早期主要渗出细胞”这一总论命题，因此fail-closed。"
     ],
     "transfer_rule": "寄生虫/过敏→嗜酸性粒细胞。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.嗜酸性粒细胞。寄生虫感染常诱导嗜酸性粒细胞增多和组织浸润，是经典考试配对。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "中性粒细胞更典型于急性细菌性化脓性炎。"
+      },
+      {
+        "option": "D",
+        "reason": "淋巴细胞更常见于病毒感染和多种慢性免疫炎症。"
+      }
+    ],
+    "common_failure_node": "因为Current某些寄生虫Block出现嗜酸反应，就把一般“寄生虫感染早期主要渗出细胞”硬归给某一个器官/病种KP。",
+    "source_gap_note": "Current感染/寄生虫内容只在具体病种中分散出现嗜酸反应，缺少通用“寄生虫感染早期嗜酸性粒细胞”最小owner。"
   }
 ]
