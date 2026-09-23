@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "c5cac3df6213a4cb5e839ac0741858fd9e6cb3263603d17ef5e31dde2e69c4a3",
+    "content_hash": "d6b083ad96764adc949f7398024eff19ceaa850e21d6230ccc14ab3cadb45ffa",
     "core_concept": {
       "core_clusters": [
         {
@@ -15,7 +15,6 @@
           "label_en": "to say that you will not do or accept something; to say no to something",
           "pos": "verb",
           "sense_ids": [
-            "sense:refuse:35164db5dcec5749",
             "sense:refuse:35164db5dcec5749"
           ]
         },
@@ -26,6 +25,14 @@
           "sense_ids": [
             "sense:refuse:28b9d83e89f65cb2"
           ]
+        },
+        {
+          "label_cn": "废物；垃圾",
+          "label_en": "waste or rubbish material",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:refuse:5655724779c9509a"
+          ]
         }
       ],
       "core_meaning_cn": "拒绝；废物",
@@ -34,6 +41,22 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o3875-o4124.md",
+      "boundaries": [
+        {
+          "condition": "verb refuse",
+          "note": "decline/reject",
+          "pronunciation": "/rɪˈfjuːz/"
+        },
+        {
+          "condition": "noun refuse",
+          "note": "waste/rubbish",
+          "pronunciation": "/ˈrefjuːs/"
+        }
+      ],
+      "type": "same_owner_form_pronunciation_boundary"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -79,8 +102,15 @@
         "confidence": "medium",
         "definition_cn": "拒绝，谢绝",
         "definition_en": "to say that you will not do or accept something",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "refuse sth; refuse to do sth",
         "level": "L1",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "stress_pos_boundary",
+          "note": "verb refuse is /rɪˈfjuːz/ with final stress; noun/adjective refuse is /ˈref.juːs/ with initial stress",
+          "paired_form": "noun/adjective",
+          "surface_lemma": "refuse"
+        },
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:refuse:35164db5dcec5749",
@@ -105,6 +135,13 @@
         "definition_en": "thrown away as worthless",
         "governing_pattern": "",
         "level": "L3",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "stress_pos_boundary",
+          "note": "noun/adjective refuse is /ˈref.juːs/ with initial stress; verb refuse is /rɪˈfjuːz/ with final stress",
+          "paired_form": "verb",
+          "surface_lemma": "refuse"
+        },
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:refuse:28b9d83e89f65cb2",
@@ -119,6 +156,13 @@
         "definition_en": "waste material",
         "governing_pattern": "",
         "level": "L2",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "stress_pos_boundary",
+          "note": "noun/adjective refuse is /ˈref.juːs/ with initial stress; verb refuse is /rɪˈfjuːz/ with final stress",
+          "paired_form": "verb",
+          "surface_lemma": "refuse"
+        },
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:refuse:5655724779c9509a",
@@ -144,23 +188,7 @@
     },
     "word": "refuse",
     "word_family": [],
-    "word_id": "word:refuse",
-    "form_identity": {
-      "authority": "content/lexical/semantic-reconciliation/o3875-o4124.md",
-      "type": "same_owner_form_pronunciation_boundary",
-      "boundaries": [
-        {
-          "condition": "verb refuse",
-          "pronunciation": "/rɪˈfjuːz/",
-          "note": "decline/reject"
-        },
-        {
-          "condition": "noun refuse",
-          "pronunciation": "/ˈrefjuːs/",
-          "note": "waste/rubbish"
-        }
-      ]
-    }
+    "word_id": "word:refuse"
   },
   "relation_refs": [
     {
@@ -302,8 +330,8 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4017-4024.json",
-    "source_content_hash": "5c6adfebc0612a84cde84001e6e61ef99227d02ea18aa753023a8c37283358e4",
-    "semantic_delta": 1,
+    "source_content_hash": "d6b083ad96764adc949f7398024eff19ceaa850e21d6230ccc14ab3cadb45ffa",
+    "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

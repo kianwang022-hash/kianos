@@ -46,7 +46,7 @@
         "writing_safe": false
       }
     ],
-    "content_hash": "fb6c8dc4b7f7fe0276ddc5dd7e73fd6b4b0b3cb5cbc2c1799fee678f4935c8be",
+    "content_hash": "d6aa4d83c182a862b92ead8d383baf8c68c0ae0e869d977d258ebd8cf2b1bd01",
     "core_concept": {
       "core_clusters": [
         {
@@ -60,12 +60,13 @@
           ]
         },
         {
-          "label_cn": "登记；注册；表达；显示",
-          "label_en": "to record formally; to enroll; to express or show a feeling or opinion",
+          "label_cn": "登记/注册；表达/显示；意识到/注意到",
+          "label_en": "register/enroll; express/show; realize or consciously notice",
           "pos": "verb",
           "sense_ids": [
             "sense:register:846b23227b5b5faa",
-            "sense:register:1ed57a37f1985131"
+            "sense:register:1ed57a37f1985131",
+            "sense:register:5f8f827503845890"
           ]
         }
       ],
@@ -137,14 +138,14 @@
         "confidence": "medium",
         "definition_cn": "登记；注册",
         "definition_en": "to record formally; to enroll",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: register sth; register for sth; register with an authority/organization",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:register:846b23227b5b5faa",
         "sense_label_en": "to record formally; to enroll",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       },
       {
         "collocations": [
@@ -209,7 +210,17 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:c1ada412f57e938fe143",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:register:5f8f827503845890:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "起初我没有意识到/反应过来",
+            "phrase": "It didn't register at first."
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "意识到；注意到",
         "definition_en": "to realize, notice, or become consciously aware of something",
@@ -308,6 +319,7 @@
       "collocation:1d0c1f530d8e66cf7784",
       "collocation:6f59b239965aec3435b8",
       "collocation:6fc6d757b15f6e307dab",
+      "collocation:c1ada412f57e938fe143",
       "collocation:c4818258f9a3d9a5b677",
       "collocation:fffa7e550f7391dfc2bc"
     ],
@@ -347,6 +359,11 @@
       {
         "id": "collocation:fffa7e550f7391dfc2bc",
         "source_row": 21626,
+        "source_path": "content/lexical/canonical/collocations/shards/o4001-4032.json"
+      },
+      {
+        "id": "collocation:c1ada412f57e938fe143",
+        "source_row": 21628,
         "source_path": "content/lexical/canonical/collocations/shards/o4001-4032.json"
       }
     ],
@@ -391,8 +408,8 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4025-4032.json",
-    "source_content_hash": "9c78577be4e0cd53c59d70d994fee8c5d1a94cd736fe88e5ae74f8eab87a4866",
-    "semantic_delta": 1,
+    "source_content_hash": "d6aa4d83c182a862b92ead8d383baf8c68c0ae0e869d977d258ebd8cf2b1bd01",
+    "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

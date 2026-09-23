@@ -6,8 +6,29 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "e3d9a87e788d3ec18cf7de47473c7078918a69f7aa5536fe30b254b9f7b0427d",
+    "constructions": [
+      {
+        "boundary": "past-action remorse/sadness",
+        "construction_id": "construction:8ac7fe883722c918a486",
+        "definition_en": "to feel sorry about an action or event that already happened",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "后悔已经发生或做过的事",
+        "pattern": "regret doing/having done sth",
+        "source_sense_id": "sense:regret:c7aee84a5ad15912"
+      },
+      {
+        "boundary": "formal/polite present-time formula for unwelcome information",
+        "construction_id": "construction:0d7466830acaa7dedcd6",
+        "definition_en": "a formal or polite formula introducing bad or unwelcome information now",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "遗憾地告知/说明（正式或礼貌地引出坏消息）",
+        "pattern": "regret to say/inform/announce/tell ...",
+        "source_sense_id": "sense:regret:18fcecbbfcb555e2"
+      }
+    ],
+    "content_hash": "303cda03ad5a796e112787cb7d28f27dcfca35cbf12a5636873ae5c23a62b42d",
     "core_concept": {
       "core_clusters": [
         {
@@ -65,7 +86,7 @@
         "confidence": "medium",
         "definition_cn": "后悔，对…感到遗憾",
         "definition_en": "to feel sorry or sad about something you have done or failed to do",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "regret sth; regret doing/having done sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
@@ -131,7 +152,7 @@
         "confidence": "medium",
         "definition_cn": "（礼貌地）表示歉意",
         "definition_en": "to say or write in a polite way that you are sorry about something",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "regret to say/inform/announce/tell; regret sth such as the inconvenience",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
@@ -263,7 +284,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4025-4032.json",
-    "source_content_hash": "e3d9a87e788d3ec18cf7de47473c7078918a69f7aa5536fe30b254b9f7b0427d",
+    "source_content_hash": "303cda03ad5a796e112787cb7d28f27dcfca35cbf12a5636873ae5c23a62b42d",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

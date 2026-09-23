@@ -22,16 +22,17 @@
         "pattern": "read between the lines"
       }
     ],
-    "content_hash": "a64d7b79744d1cc2e17b0cd0cf050e06aac7265721ee2cc1d208d9ac2a758116",
+    "content_hash": "d31e8b9991b697c102317cedabf2b7ec6b5ab747a9a7c87070539a757f4338b8",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "阅读；读懂；理解，解读",
-          "label_en": "look at and understand written words; interpret or understand in a particular way",
+          "label_cn": "阅读；读懂/解读；显示/标明",
+          "label_en": "read/understand text; interpret; show or state information",
           "pos": "verb",
           "sense_ids": [
             "sense:read:cb13f22a2dae588e",
-            "sense:read:5fc5840510c75f0e"
+            "sense:read:5fc5840510c75f0e",
+            "sense:read:3e0f17eb40279685"
           ]
         },
         {
@@ -49,6 +50,22 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o3875-o4124.md",
+      "boundaries": [
+        {
+          "condition": "base/present tense",
+          "note": "read in the base form and present tense",
+          "pronunciation": "/riːd/"
+        },
+        {
+          "condition": "past tense/past participle",
+          "note": "same spelling, different tense-conditioned pronunciation",
+          "pronunciation": "/red/"
+        }
+      ],
+      "type": "same_owner_form_pronunciation_boundary"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -77,6 +94,13 @@
         "definition_en": "look at and understand written words",
         "governing_pattern": "vt. + object",
         "level": "L1",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "irregular_tense_pronunciation",
+          "note": "base/present read is pronounced /riːd/; past and past participle read keep the spelling read but are pronounced /red/",
+          "paired_form": "read (past/past participle)",
+          "surface_lemma": "read"
+        },
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:read:cb13f22a2dae588e",
@@ -101,6 +125,13 @@
         "definition_en": "interpret or understand in a particular way",
         "governing_pattern": "vt. + object",
         "level": "L2",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "irregular_tense_pronunciation",
+          "note": "base/present read is pronounced /riːd/; past and past participle read keep the spelling read but are pronounced /red/",
+          "paired_form": "read (past/past participle)",
+          "surface_lemma": "read"
+        },
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:read:5fc5840510c75f0e",
@@ -139,6 +170,13 @@
         "definition_en": "to show, state, or indicate information, as on a sign, display, or instrument",
         "governing_pattern": "",
         "level": "L2",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "irregular_tense_pronunciation",
+          "note": "base/present read is pronounced /riːd/; past and past participle read keep the spelling read but are pronounced /red/",
+          "paired_form": "read (past/past participle)",
+          "surface_lemma": "read"
+        },
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:read:3e0f17eb40279685",
@@ -164,35 +202,12 @@
     },
     "word": "read",
     "word_family": [],
-    "word_id": "word:read",
-    "form_identity": {
-      "authority": "content/lexical/semantic-reconciliation/o3875-o4124.md",
-      "type": "same_owner_form_pronunciation_boundary",
-      "boundaries": [
-        {
-          "condition": "base/present tense",
-          "pronunciation": "/riːd/",
-          "note": "read in the base form and present tense"
-        },
-        {
-          "condition": "past tense/past participle",
-          "pronunciation": "/red/",
-          "note": "same spelling, different tense-conditioned pronunciation"
-        }
-      ]
-    }
+    "word_id": "word:read"
   },
   "relation_refs": [],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
-      {
-        "sense_id": "sense:read:3e0f17eb40279685",
-        "status": "active",
-        "merged_into_sense_id": null,
-        "source_row": 11083,
-        "source_path": "content/lexical/canonical/senses/shards/o3937-3968.json"
-      },
       {
         "sense_id": "sense:read:5fc5840510c75f0e",
         "status": "active",
@@ -213,6 +228,13 @@
         "merged_into_sense_id": null,
         "source_row": 11039,
         "source_path": "content/lexical/canonical/senses/shards/o3937-3968.json"
+      },
+      {
+        "sense_id": "sense:read:3e0f17eb40279685",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 11083,
+        "source_path": "content/lexical/canonical/senses/shards/o3937-3968.json"
       }
     ],
     "active_collocations": [
@@ -223,11 +245,6 @@
     "facts": [],
     "collocations": [
       {
-        "id": "collocation:0c97141db76a9af9b871",
-        "source_row": 21600,
-        "source_path": "content/lexical/canonical/collocations/shards/o3937-3968.json"
-      },
-      {
         "id": "collocation:0cd70d36459048a44648",
         "source_row": 1064,
         "source_path": "content/lexical/canonical/collocations/shards/o3937-3968.json"
@@ -235,6 +252,11 @@
       {
         "id": "collocation:91abb1904365042de145",
         "source_row": 12380,
+        "source_path": "content/lexical/canonical/collocations/shards/o3937-3968.json"
+      },
+      {
+        "id": "collocation:0c97141db76a9af9b871",
+        "source_row": 21600,
         "source_path": "content/lexical/canonical/collocations/shards/o3937-3968.json"
       }
     ],
@@ -264,7 +286,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3953-3960.json",
-    "source_content_hash": "be71f667642d5eeb728abfb6d1ff6d1742ce20cfb0ae82da1d779b8c84676c7f",
+    "source_content_hash": "d31e8b9991b697c102317cedabf2b7ec6b5ab747a9a7c87070539a757f4338b8",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

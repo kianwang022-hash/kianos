@@ -8,17 +8,28 @@
     "confusables": [],
     "constructions": [
       {
+        "boundary": "chiefly BrE employment redundancy, not generic extra/repetitive information",
         "construction_id": "construction:147d495a19b88c08044e",
+        "definition_en": "BrE: to lose one's job because the position is no longer needed",
         "direction": "R+P",
         "level": "L1",
         "meaning_cn": "被裁员；因岗位不再需要而失业",
         "pattern": "be made redundant",
-        "definition_en": "BrE: to lose one's job because the position is no longer needed"
+        "source_sense_id": "sense:redundant:2668cd4a9d4fd975"
       }
     ],
-    "content_hash": "d66a95bafeabdcd15bc0f9c410de16beb83c747796216314c8449c17b9599768",
+    "content_hash": "e9f39cb7cd83334126b4cc5d9fe134c614b0656f5e24efd16b47f91e54d6eb2d",
     "core_concept": {
-      "core_clusters": [],
+      "core_clusters": [
+        {
+          "label_cn": "（英）岗位冗余；被裁员的",
+          "label_en": "chiefly BrE employment redundancy",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:redundant:2668cd4a9d4fd975"
+          ]
+        }
+      ],
       "core_meaning_cn": "多余的；冗余的",
       "core_meaning_en": "more than is needed, desired, or required",
       "mental_model_cn": "多余的；冗余的",
@@ -44,15 +55,6 @@
             ],
             "meaning_cn": "冗余信息",
             "phrase": "redundant information"
-          },
-          {
-            "collocation_id": "collocation:a381b1840031d9a036d6",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:redundant:e524529457d957bf:collocation:1"
-            ],
-            "meaning_cn": "被裁员的工人",
-            "phrase": "redundant workers"
           }
         ],
         "confidence": "medium",
@@ -89,6 +91,30 @@
         "sense_id": "sense:redundant:9677dad240945911",
         "sense_label_en": "repetition of same sense in different words",
         "sort_order": 1,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:a381b1840031d9a036d6",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:redundant:e524529457d957bf:collocation:1"
+            ],
+            "meaning_cn": "被裁员的工人",
+            "phrase": "redundant workers"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "（岗位）不再需要的；（人）因岗位取消而被裁的（尤英式）",
+        "definition_en": "chiefly BrE: of a job, no longer needed; of a worker, having lost a job because the position is no longer needed",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:redundant:2668cd4a9d4fd975",
+        "sense_label_en": "chiefly BrE: of a job, no longer needed; of a worker, having lost a job because the position is no longer needed",
+        "sort_order": 2,
         "transitivity": "nonverb"
       }
     ],
@@ -127,6 +153,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 11187,
+        "source_path": "content/lexical/canonical/senses/shards/o4001-4032.json"
+      },
+      {
+        "sense_id": "sense:redundant:2668cd4a9d4fd975",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 11266,
         "source_path": "content/lexical/canonical/senses/shards/o4001-4032.json"
       }
     ],
@@ -184,7 +217,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4001-4008.json",
-    "source_content_hash": "6be08270b901efb7d4dc47618b93bb6973ea2c52cede05df695d88df74b00c77",
+    "source_content_hash": "e9f39cb7cd83334126b4cc5d9fe134c614b0656f5e24efd16b47f91e54d6eb2d",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
