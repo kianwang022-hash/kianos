@@ -11,12 +11,12 @@
     "exam_target": "直肠癌术后肝转移识别",
     "decision_axis": "既往直肠癌手术后出现肝占位时，结直肠癌经门静脉系统转移至肝是常见复发模式，题源答案为肝转移癌。",
     "reasoning_chain": [
-      "既往直肠癌已建立高风险原发灶背景。",
-      "结直肠静脉回流经门静脉进入肝，肝是常见血行转移首站。",
-      "因此术后新发肝占位首先考虑肝转移癌，选D。"
+      "当前Question Truth只保留既往直肠癌手术、左下腹造口和肛门已不存在，这只能证明既往直肠癌手术史，并没有保存任何肝占位影像或复发检查结果。",
+      "官方答案D“肝转移癌”说明原题应有未保留的肝脏子问或检查上下文。",
+      "缺少决定性肝脏证据时，不能仅凭直肠癌既往史把一个未描述的肝病变Current确诊为转移癌，因此保留历史答案但Crosswalk fail-closed。"
     ],
     "transfer_rule": "有消化道恶性肿瘤史的新发肝占位先评估转移性病变。",
-    "mapping_decision": "REVIEWED",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
@@ -24,19 +24,19 @@
       "learner_state_included": false,
       "old_explanation_inherited": false
     },
-    "correct_option_reason": "D.肝转移癌。既往直肠癌术后出现肝占位，结直肠静脉血经门静脉首先到肝，肝是常见血行转移首站。",
+    "correct_option_reason": "D.肝转移癌为题源官方答案；但当前Question Truth缺少肝占位本身的影像/检查信息，无法安全重建诊断链。",
     "valuable_distractors": [
       {
         "option": "A",
-        "reason": "原发性肝癌需要独立的肝癌病因/影像证据，不能仅由既往直肠癌史解释。"
+        "reason": "直肠癌确实常转移至肝，但既往肿瘤史不能在没有肝病灶证据时单独排除原发性肝癌。"
       },
       {
         "option": "B",
-        "reason": "肝血管瘤属于良性血管性病变，与结直肠癌复发路径不符。"
+        "reason": "肝血管瘤是常见良性占位；缺少影像特征时不能仅凭既往直肠癌史排除。"
       }
     ],
-    "common_failure_node": "看到肝占位就先报原发性肝癌，忽略既往结直肠癌和门静脉转移路径。",
-    "source_gap_note": "共享病例/子问的决定性信息未完整保留在当前Question Truth；官方答案保留，但不能从残缺上下文反向制造Current诊断或处置链。"
+    "common_failure_node": "看见“既往直肠癌”就把Question Truth里并未描述的肝占位自动补出来，再反推成转移癌。",
+    "source_gap_note": "共享病例缺少决定性肝脏子问/检查证据；官方答案保留，但不能从残缺上下文反向制造“术后新发肝占位”的Current事实。"
   },
   {
     "question_id": "xizong-official-2019-n102",
