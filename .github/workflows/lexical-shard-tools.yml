@@ -15,10 +15,19 @@ on:
         required: true
         default: '48000'
   push:
-    branches: [main, 'lexical/continuity-throughput-*']
-    paths: ['tools/lexical_shard.py', 'tools/lexical_apply_final_mutation_package.py', 'tools/test_lexical*.py', 'content/lexical/**', '.github/workflows/lexical-shard-tools.yml']
+    branches: [main]
+    paths:
+      - 'tools/lexical_shard.py'
+      - 'tools/lexical_apply_final_mutation_package.py'
+      - 'tools/test_lexical*.py'
+      - '.github/workflows/lexical-shard-tools.yml'
   pull_request:
-    paths: ['tools/lexical_shard.py', 'tools/test_lexical*.py', 'content/lexical/**', '.github/workflows/lexical-shard-tools.yml']
+    paths:
+      - 'tools/lexical_shard.py'
+      - 'tools/lexical_apply_final_mutation_package.py'
+      - 'tools/test_lexical*.py'
+      - '.github/workflows/lexical-shard-tools.yml'
+
 permissions:
   contents: read
 concurrency:

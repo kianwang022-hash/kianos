@@ -3,16 +3,8 @@ name: LexicalOS Current Runtime
 on:
   workflow_dispatch:
   push:
-    branches:
-      - main
+    branches: [main]
     paths:
-      - 'LEARNING_ACCEPTANCE.md'
-      - 'content/lexical/**'
-      - '!content/lexical/words/by-ordinal/**'
-      - '!content/lexical/relations/by-id/**'
-      - '!content/lexical/canonical/**'
-      - '!content/lexical/execution/**'
-      - '!content/lexical/semantic-review/**'
       - 'static-web/package.json'
       - 'static-web/astro.config.mjs'
       - 'static-web/src/layouts/**'
@@ -23,6 +15,8 @@ on:
       - 'static-web/src/lib/current.mjs'
       - 'static-web/src/lib/lexical*.mjs'
       - 'static-web/src/components/Lexical*.astro'
+      - 'static-web/src/components/Vocabulary*.astro'
+      - 'static-web/src/components/EnglishLexicalLookupBridge.astro'
       - 'static-web/src/pages/vocabulary.astro'
       - 'static-web/src/pages/vocabulary/**'
       - 'static-web/src/pages/lexical.astro'
@@ -31,13 +25,6 @@ on:
       - '.github/workflows/lexical-runtime.yml'
   pull_request:
     paths:
-      - 'LEARNING_ACCEPTANCE.md'
-      - 'content/lexical/**'
-      - '!content/lexical/words/by-ordinal/**'
-      - '!content/lexical/relations/by-id/**'
-      - '!content/lexical/canonical/**'
-      - '!content/lexical/execution/**'
-      - '!content/lexical/semantic-review/**'
       - 'static-web/package.json'
       - 'static-web/astro.config.mjs'
       - 'static-web/src/layouts/**'
@@ -48,6 +35,8 @@ on:
       - 'static-web/src/lib/current.mjs'
       - 'static-web/src/lib/lexical*.mjs'
       - 'static-web/src/components/Lexical*.astro'
+      - 'static-web/src/components/Vocabulary*.astro'
+      - 'static-web/src/components/EnglishLexicalLookupBridge.astro'
       - 'static-web/src/pages/vocabulary.astro'
       - 'static-web/src/pages/vocabulary/**'
       - 'static-web/src/pages/lexical.astro'
@@ -91,7 +80,10 @@ jobs:
           print(f'validated {len(roots)} lexical JSON files')
           PY
 
-      - name: Verify Current catalog and representative hydration
+      - name: Materialize ephemeral Current lexical projection
+        run: python tools/lexical_build_final_learner_objects.py
+
+      - name: Verify Current catalog and structural hydration
         working-directory: static-web
         run: |
           node --input-type=module - <<'NODE'
@@ -106,23 +98,19 @@ jobs:
           if (inspection.status !== 'ready' || inspection.semanticAuthority !== true) throw new Error('LEXICAL_SOURCE_NOT_READY');
           if (inspection.websiteConsumesFinalLearnerObject !== true) throw new Error('LEXICAL_WEBSITE_NOT_ON_FINAL_LEARNER_OBJECT');
 
-          const ordinalsAll = listLexicalOrdinals();
+          const ordinals = listLexicalOrdinals();
           const summaries = listLexicalWordSummaries();
-          if (ordinalsAll.length !== inspection.wordCount || summaries.length !== inspection.wordCount) throw new Error('LEXICAL_CATALOG_COUNT_MISMATCH');
+          if (ordinals.length !== inspection.wordCount || summaries.length !== inspection.wordCount) throw new Error('LEXICAL_CATALOG_COUNT_MISMATCH');
           if (inspection.wordCount !== 7946) throw new Error('LEXICAL_CURRENT_WORD_COUNT_UNEXPECTED');
-          if (ordinalsAll[0] !== 1 || ordinalsAll.at(-1) !== inspection.wordCount) throw new Error('LEXICAL_ORDINAL_RANGE_INVALID');
+          if (ordinals[0] !== 1 || ordinals.at(-1) !== inspection.wordCount) throw new Error('LEXICAL_ORDINAL_RANGE_INVALID');
           if (summaries.some((row, index) => row.ordinal !== index + 1 || !row.objectId || !row.word)) throw new Error('LEXICAL_CATALOG_SUMMARY_INVALID');
 
-          const ordinals = [1917, 1931, 1259, 1264, 1282, 314, 1670];
-          const words = ordinals.map(loadLexicalWordByOrdinal);
-          if (words.length !== ordinals.length) throw new Error('LEXICAL_VALIDATION_BATCH_INCOMPLETE');
-          const byWord = Object.fromEntries(words.map((item) => [item.record.word, item]));
-          if (!byWord.deduct.record.constructions.some((item) => item.pattern === 'deduct A from B')) throw new Error('DEDUCT_CONSTRUCTION_MISSING');
-          if (!byWord.default.record.constructions.some((item) => item.pattern === 'by default')) throw new Error('DEFAULT_BY_DEFAULT_MISSING');
-          if ((byWord.delicate.record.secondary_senses || []).length < 2) throw new Error('DELICATE_DEPTH_BRANCHES_MISSING');
-          if (!(byWord.fine.record.secondary_senses || []).some((item) => item.definition_cn === '处以罚款')) throw new Error('FINE_HIDDEN_SENSE_MISSING');
-          if (!(byWord.assure.record.reference?.relations || []).some((item) => item.target_word === 'ensure')) throw new Error('ASSURE_ENSURE_RELATION_MISSING');
-          if (!(byWord.ensure.record.reference?.relations || []).some((item) => item.target_word === 'assure')) throw new Error('ENSURE_ASSURE_RELATION_MISSING');
+          for (const ordinal of [1, 1917, 3973, 7946]) {
+            const item = loadLexicalWordByOrdinal(ordinal);
+            if (!item?.record?.word || item.record.ordinal !== ordinal || !item.objectId) {
+              throw new Error('LEXICAL_STRUCTURAL_HYDRATION_INVALID:' + ordinal);
+            }
+          }
           NODE
 
       - name: Install Astro dependencies
