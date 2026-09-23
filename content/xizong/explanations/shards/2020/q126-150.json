@@ -16,14 +16,22 @@
       "前体T细胞肿瘤则更常见纵隔/胸腺区肿块，更容易以淋巴瘤形式出现。"
     ],
     "transfer_rule": "前体B细胞肿瘤儿童常见，白血病表现更常见。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.前体B细胞肿瘤。儿童前体B淋巴母细胞肿瘤更常以骨髓/外周血受累为主，呈白血病表型。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "前体T细胞肿瘤更常形成胸腺/纵隔肿块，较常以淋巴瘤形式出现。"
+      }
+    ],
+    "common_failure_node": "把“B/T前体肿瘤”只按免疫表型背，不记典型临床呈现方式。"
   },
   {
     "question_id": "xizong-official-2020-n127",
@@ -42,14 +50,22 @@
       "这和前体B细胞肿瘤更常白血病化的方向正好形成一组对照。"
     ],
     "transfer_rule": "T淋巴母细胞肿瘤→青少年+前纵隔。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.前体T细胞肿瘤。青少年T淋巴母细胞肿瘤常形成纵隔/胸腺区肿块，因此更常呈淋巴瘤形式。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "前体B细胞肿瘤在儿童更常以白血病形式累及骨髓和外周血。"
+      }
+    ],
+    "common_failure_node": "不会把N126/N127作为一组“B偏白血病、T偏纵隔淋巴瘤”的反向题。"
   },
   {
     "question_id": "xizong-official-2020-n128",
@@ -68,14 +84,26 @@
       "心肌炎更偏心肌损伤/泵衰与心律失常；心脏压塞的核心则是积液造成舒张受限和低输出。"
     ],
     "transfer_rule": "心包炎胸痛常前倾缓解，摩擦音与心动同步。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.急性心包炎。持续锐痛向肩放射并伴胸骨左缘粗糙抓刮样心包摩擦音，是典型组合。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "心肌炎更强调心肌损伤、心律失常或泵功能受损，而非典型心包摩擦音。"
+      },
+      {
+        "option": "D",
+        "reason": "心脏压塞核心是积液造成舒张受限与低输出。"
+      }
+    ],
+    "common_failure_node": "把所有病毒后胸痛都归心肌炎，不区分摩擦音这一心包特异线索。"
   },
   {
     "question_id": "xizong-official-2020-n129",
@@ -94,14 +122,26 @@
       "心包炎更强调锐痛和摩擦音；感染性心内膜炎需要菌血症/瓣膜赘生物轴。"
     ],
     "transfer_rule": "病毒前驱感染+新发心脏症状→警惕心肌炎。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.急性心肌炎。病毒样前驱感染后出现心悸、胸闷、S₃奔马律和肺底湿啰音，提示心肌泵功能受损。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "急性心包炎更典型为锐痛、体位/呼吸相关及摩擦音。"
+      },
+      {
+        "option": "C",
+        "reason": "感染性心内膜炎需要菌血症、赘生物或瓣膜相关证据。"
+      }
+    ],
+    "common_failure_node": "只凭“感染后心脏症状”选心包炎，不看心衰/泵衰线索。"
   },
   {
     "question_id": "xizong-official-2020-n130",
@@ -115,17 +155,31 @@
     "exam_target": "硝基苯中毒高铁血红蛋白血症",
     "decision_axis": "硝基苯可氧化血红蛋白形成高铁血红蛋白，使氧携带障碍并出现明显发绀。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "硝基苯属于可造成高铁血红蛋白血症的毒物。",
+      "高铁血红蛋白不能正常携氧，皮肤和黏膜出现发绀。",
+      "Current F1 KP05明确冻结该考试配对，因此选C。"
     ],
     "transfer_rule": "氧化剂中毒+发绀要想到高铁血红蛋白血症。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.皮肤、黏膜发绀。硝基苯可形成高铁血红蛋白，使血红蛋白失去正常携氧能力并出现明显发绀。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "黄染更提示肝损伤/胆红素升高，不是硝基苯高铁血红蛋白血症的主色泽。"
+      },
+      {
+        "option": "D",
+        "reason": "苍白更偏贫血或末梢灌注不足。"
+      }
+    ],
+    "common_failure_node": "看到“中毒+缺氧”就把所有颜色异常都当成苍白，而不识别高铁Hb发绀。"
   },
   {
     "question_id": "xizong-official-2020-n131",
@@ -139,17 +193,28 @@
     "exam_target": "毒蕈中毒固定表现旧口径",
     "decision_axis": "题源把“毒蕈中毒”笼统与黄疸相连，但不同毒蘑菇毒素可分别造成胃肠、神经、肝肾等不同综合征，不能作为统一Current表现。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对毒物种类差异 fail-closed。"
+      "题源按毒蕈中毒的肝损伤型考试口径选择黄染。",
+      "Current F1 KP05同样保留毒蕈与黄疸/肝损伤方向的配对。",
+      "因此可正向映射，但只承接该Study识别，不扩成所有毒蘑菇统一表现。"
     ],
     "transfer_rule": "仅保留题源/Study边界；毒蕈中毒应按具体毒素综合征判断。",
-    "mapping_decision": "NO_SAFE_MATCH",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.皮肤、巩膜黄染。Current F1 KP05保留“毒蕈→肝损伤/黄疸方向”这一考试配对。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "发绀在Current F1更偏亚硝酸盐、苯胺、硝基苯等高铁血红蛋白方向。"
+      }
+    ],
+    "common_failure_node": "把“毒蕈”理解成所有毒蘑菇都具有完全相同临床综合征。",
+    "source_boundary_note": "“毒蕈中毒”临床综合征随毒素种类而异；本relation仅承接Current F1明确保留的肝损伤/黄疸考试配对。"
   },
   {
     "question_id": "xizong-official-2020-n132",
@@ -163,7 +228,9 @@
     "exam_target": "未出血静脉曲张旧保守处理",
     "decision_axis": "题源对肝硬化食管胃底静脉曲张未出血病例选择“保守治疗”；Current需按曲张静脉大小和高危征评估NSBB或内镜预防，不能统一观察。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对Current一级预防边界 fail-closed。"
+      "题干为肝硬化中重度静脉曲张、尚无出血史。",
+      "题源给出C保守治疗。",
+      "Current需要进一步按高危特征决定药物/内镜一级预防，因此历史答案保留但不建立Current relation。"
     ],
     "transfer_rule": "仅保留题源/Study时代边界；Current按出血风险决定一级预防。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -173,7 +240,20 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.保守治疗为题源官方答案；对中重度食管胃底静脉曲张未出血患者，Current一级预防需结合高危征、NSBB或内镜策略，不能统一理解为“只观察”。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "分流术并非无出血高危曲张的一般一级预防首选。"
+      },
+      {
+        "option": "D",
+        "reason": "TIPS通常保留给难治性/反复出血等特定场景。"
+      }
+    ],
+    "common_failure_node": "把历史“无出血=保守观察”当成现代门静脉高压一级预防规则。",
+    "source_boundary_note": "题源“保守治疗”不能代表Current未出血中重度静脉曲张的统一一级预防策略。"
   },
   {
     "question_id": "xizong-official-2020-n133",
@@ -192,14 +272,26 @@
       "分流/断流大手术在这种严重肝功能不全背景下并不是当前这道题的优先路径。"
     ],
     "transfer_rule": "难治性曲张静脉出血要想到降门压救援TIPS。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.TIPS。Child-Pugh C、反复大出血且球囊压迫后仍持续出血，需要救援性降门静脉压并可作为移植桥接。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "大手术分流在严重肝功能不全背景下风险高，且本题有更合适的TIPS救援接口。"
+      },
+      {
+        "option": "C",
+        "reason": "持续大量出血已不适合仅保守治疗。"
+      }
+    ],
+    "common_failure_node": "看到球囊压迫暂时止血就停止决策，忽略持续出血和移植等待背景。"
   },
   {
     "question_id": "xizong-official-2020-n134",
@@ -213,17 +305,32 @@
     "exam_target": "Horner综合征",
     "decision_axis": "颈交感通路受损典型出现同侧瞳孔缩小、上睑轻度下垂和面部少汗，构成Horner综合征。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "颈交感通路受损后交感支配下降。",
+      "典型出现上睑下垂、瞳孔缩小、眼球内陷/无汗。",
+      "Current R11 KP12明确冻结Horner四联，因此选A。"
     ],
     "transfer_rule": "Horner=miosis+ptosis+anhidrosis。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.Horner综合征。同侧上睑下垂、瞳孔缩小、眼球内陷（并可伴无汗）是颈交感通路损伤的经典组合。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "Mirizzi综合征是胆囊颈/胆囊管结石压迫肝总管。"
+      },
+      {
+        "option": "C",
+        "reason": "Budd-Chiari综合征是肝静脉流出道阻塞。"
+      }
+    ],
+    "common_failure_node": "只背综合征名字，不把Horner四联与颈交感损伤绑定。",
+    "source_boundary_note": "本relation只承接Horner综合征的体征身份；不把题目自动解释为Pancoast瘤等某一特定病因。"
   },
   {
     "question_id": "xizong-official-2020-n135",
@@ -242,14 +349,22 @@
       "这和普通胆总管结石位于管腔内不同，关键是“胆囊侧结石外压肝总管”。"
     ],
     "transfer_rule": "Mirizzi=胆囊颈/胆囊管结石外压胆总管系统。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.Mirizzi综合征。胆囊颈或胆囊管结石嵌顿并外压肝总管造成狭窄/梗阻，是经典定义。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "Budd-Chiari是肝静脉流出道阻塞，不是胆道压迫。"
+      }
+    ],
+    "common_failure_node": "把Mirizzi误认为胆总管管腔内结石；关键是胆囊侧结石“外压”肝总管。"
   },
   {
     "question_id": "xizong-official-2020-n136",
@@ -263,17 +378,32 @@
     "exam_target": "受体酪氨酸激酶配体",
     "decision_axis": "胰岛素受体和多种生长因子受体具有受体酪氨酸激酶活性；题源所列胰岛素与NGF符合此类信号特点。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "题源选择胰岛素和NGF作为RTK配体。",
+      "Current D7明确胰岛素受体为RTK，但NGF只在其他神经内容中零散出现，未形成同一最小Current owner。",
+      "因此Explanation保留AD，Crosswalk fail-closed。"
     ],
     "transfer_rule": "RTK常见配体包括胰岛素和多种生长因子。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、D为题源答案。胰岛素受体是受体酪氨酸激酶；NGF也通过Trk类RTK传导，但Current仓库没有一个最小owner同时明确冻结“胰岛素+NGF”这组配体。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "肾上腺素主要作用于α/β GPCR。"
+      },
+      {
+        "option": "C",
+        "reason": "乙酰胆碱作用于配体门控离子通道或毒蕈碱GPCR。"
+      }
+    ],
+    "common_failure_node": "看到Current D7明确胰岛素RTK，就把未在同一Current owner冻结的NGF一起硬映。",
+    "source_gap_note": "Current只明确冻结胰岛素RTK；NGF—Trk这一配体-受体关系未在同一最小Current owner中完整冻结。"
   },
   {
     "question_id": "xizong-official-2020-n137",
@@ -292,14 +422,22 @@
       "膜超极化主要是EDHF-K⁺通道通路的典型机制，不应把它当作NO的主要答案，因此B不选。"
     ],
     "transfer_rule": "NO核心=舒血管+cGMP+抗血小板。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、C、D正确。NO经sGC-cGMP-PKG降低平滑肌胞质Ca²⁺、舒张血管，并抑制血小板黏附/聚集和血管平滑肌增殖。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "膜超极化是EDHF-K⁺通道通路的经典机制，不是本题NO主轴。"
+      }
+    ],
+    "common_failure_node": "把NO和EDHF都归成“内皮舒张因子”后，不区分下游机制。"
   },
   {
     "question_id": "xizong-official-2020-n138",
@@ -313,17 +451,31 @@
     "exam_target": "气胸对呼吸循环影响",
     "decision_axis": "胸膜腔积气使肺受压、吸气机械负担增加，并可因胸腔压力升高影响静脉回流和淋巴回流。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "正常胸腔负压可降低吸气阻力并促进静脉血、淋巴回流。",
+      "气胸使负压丢失，因此吸气机械负担增加、回流受阻。",
+      "Current R1 KP09明确这两条功能，因此B、D正确。"
     ],
     "transfer_rule": "气胸既影响肺扩张，也可影响回心血量。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B、D正确。气胸破坏胸膜腔负压，使肺扩张更困难、吸气阻力增加，并削弱胸腔负压促进静脉与淋巴回流的作用。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "Current R1明确气胸不会使呼气阻力增加。"
+      },
+      {
+        "option": "A",
+        "reason": "气胸不是肺气肿的致病机制。"
+      }
+    ],
+    "common_failure_node": "只把气胸理解成“肺塌陷”，漏掉胸腔负压同时服务吸气与静脉/淋巴回流。"
   },
   {
     "question_id": "xizong-official-2020-n139",
@@ -342,14 +494,26 @@
       "肠-胃反射总体是十二指肠对胃排空的抑制性反馈；促胃液素在这道题的当前Source口径下不作为主要促进项。"
     ],
     "transfer_rule": "胃排空要同时看胃本身促进因素与十二指肠抑制反馈。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C、D正确。胃扩张可通过迷走-迷走反射和壁内神经丛短反射增强胃运动、促进胃排空。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "肠-胃反射是十二指肠对胃排空的抑制性反馈。"
+      },
+      {
+        "option": "A",
+        "reason": "按本题Current Source，促胃液素不作为主要促排空答案。"
+      }
+    ],
+    "common_failure_node": "把所有胃肠激素/反射都默认成促进胃排空。"
   },
   {
     "question_id": "xizong-official-2020-n140",
@@ -368,14 +532,17 @@
       "要点不是死背部位，而是理解“近端产氨/排铵 + 远端扩散捕获 + 净排酸/新生碱”。"
     ],
     "transfer_rule": "铵排泄=NH3捕获H+→NH4+。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、B、C、D均正确。近端以NH₄⁺分泌为重要形式，远端/集合管以NH₃扩散—H⁺捕获形成NH₄⁺，与净排酸及新生HCO₃⁻紧密耦联。",
+    "valuable_distractors": [],
+    "common_failure_node": "多选全对题为了找陷阱而错误否定某个真实环节。"
   },
   {
     "question_id": "xizong-official-2020-n141",
@@ -394,14 +561,26 @@
       "单纯α运动神经元兴奋使梭外肌缩短，若没有γ共激活，反而会让肌梭变松。"
     ],
     "transfer_rule": "Ia放电反映肌梭伸展；γ活动可提高肌梭敏感性。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B、D正确。被动牵拉肌肉或γ运动神经元兴奋都会拉紧肌梭感受区，使Ia传入放电增加。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "单纯梭外肌收缩会使肌梭变松；若无γ共激活，Ia放电不会因此增加。"
+      },
+      {
+        "option": "C",
+        "reason": "α运动神经元支配梭外肌，不是直接收缩梭内纤维。"
+      }
+    ],
+    "common_failure_node": "把α-γ共同激活的生理情形误成“α兴奋本身就一定增加Ia”。"
   },
   {
     "question_id": "xizong-official-2020-n142",
@@ -420,14 +599,22 @@
       "D环复制主要是线粒体DNA的特殊复制方式，不属于这里问的核染色体DNA常规模式。"
     ],
     "transfer_rule": "核DNA复制：半保留+半不连续+双向。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、B、C正确。真核核染色体DNA复制具有半保留、半不连续、双向复制；D环复制主要用于线粒体DNA。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "D环复制是线粒体DNA的特殊复制方式，不是核染色体常规方式。"
+      }
+    ],
+    "common_failure_node": "把“真核细胞里存在的复制方式”误等同于“真核染色体DNA的复制方式”。"
   },
   {
     "question_id": "xizong-official-2020-n143",
@@ -446,14 +633,26 @@
       "终止密码和poly(A)切割信号属于翻译终止/3′端加工，不是内含子剪接位点。"
     ],
     "transfer_rule": "剪接经典记5'GU—3'AG。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、B正确。典型真核前体mRNA内含子5′剪接位点以GU开始，3′剪接位点以AG结束。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "终止密码属于翻译终止层。"
+      },
+      {
+        "option": "D",
+        "reason": "AAUAAA是3′端切割/加尾信号，不是内含子剪接位点。"
+      }
+    ],
+    "common_failure_node": "把剪接、翻译终止和poly(A)加工三个RNA处理层混在一起。"
   },
   {
     "question_id": "xizong-official-2020-n144",
@@ -467,17 +666,28 @@
     "exam_target": "蛋白磷酸化残基",
     "decision_axis": "丝氨酸、苏氨酸和酪氨酸侧链均含羟基，是经典蛋白激酶磷酸化位点。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "题源选择Ser、Thr、Tyr。",
+      "Current G3明确“磷酸化”属于翻译后修饰，但没有冻结具体三种常见残基清单。",
+      "因此答案保留而Crosswalk fail-closed。"
     ],
     "transfer_rule": "蛋白磷酸化经典Ser/Thr/Tyr。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、B、C正确。Ser、Thr、Tyr侧链含羟基，是经典蛋白激酶磷酸化残基；Phe缺少可磷酸化羟基。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "苯丙氨酸侧链不含羟基，不属于经典Ser/Thr/Tyr蛋白磷酸化位点。"
+      }
+    ],
+    "common_failure_node": "因为Current G3有“磷酸化属于翻译后修饰”，就认为它已冻结具体Ser/Thr/Tyr残基清单。",
+    "source_gap_note": "Current G3未冻结Ser/Thr/Tyr作为常见磷酸化残基的精确列表。"
   },
   {
     "question_id": "xizong-official-2020-n145",
@@ -496,14 +706,22 @@
       "脯氨酸富含结构域更常作为转录激活域等蛋白相互作用模块，并不是这题列出的经典DNA结合结构。"
     ],
     "transfer_rule": "转录因子常见DNA结合/二聚结构要成组掌握。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、B、D正确。锌指、螺旋-环-螺旋和亮氨酸拉链是经典转录因子DNA结合/二聚化相关结构。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "脯氨酸富含结构域更常作为转录激活/蛋白相互作用区域，不是本题经典DNA结合模体。"
+      }
+    ],
+    "common_failure_node": "把所有转录因子结构域都当成DNA结合结构域。"
   },
   {
     "question_id": "xizong-official-2020-n146",
@@ -517,17 +735,28 @@
     "exam_target": "中度重复序列",
     "decision_axis": "SINE和LINE均为散在重复序列，在基因组中存在大量拷贝，属于题源所指中度重复DNA。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "题源把SINE、LINE归入中度重复序列。",
+      "Current G1 KP10只明确其属于重复序列分类的MI-D识别项，没有完整冻结“中度/高度重复”四项表。",
+      "因此Explanation保留AB，Crosswalk fail-closed。"
     ],
     "transfer_rule": "散在重复序列常见LINE、SINE。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、B为题源答案。SINE和LINE属于大量散在重复序列；但Current G1只把LINE/SINE等重复序列分类列入MI-D，并未明确冻结“中度重复”这一四项分类表。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "卫星DNA属于高度重复序列的经典方向，不是题源所列中度重复答案。"
+      }
+    ],
+    "common_failure_node": "用模型常识补齐Current未冻结的重复序列层级分类。",
+    "source_gap_note": "Current G1 KP10只将LINE/SINE等归入重复序列MI-D，没有明确冻结本题“中度重复序列”完整分类轴。"
   },
   {
     "question_id": "xizong-official-2020-n147",
@@ -546,14 +775,17 @@
       "不要把“结合型”误当成“次级胆汁酸”。"
     ],
     "transfer_rule": "初级胆汁酸由肝合成，再与甘氨酸/牛磺酸结合。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、B、C、D均正确。胆酸、鹅脱氧胆酸是初级胆汁酸，它们与甘氨酸/牛磺酸结合后仍属于初级来源的结合型胆汁酸。",
+    "valuable_distractors": [],
+    "common_failure_node": "把“结合型胆汁酸”误当成“次级胆汁酸”。"
   },
   {
     "question_id": "xizong-official-2020-n148",
@@ -567,17 +799,32 @@
     "exam_target": "细胞内脂肪变性",
     "decision_axis": "肾小管上皮和心肌细胞等实质细胞内出现脂滴属于脂肪变；间质脂肪组织增多属于脂肪浸润而非细胞内脂肪变。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "题源要求一般病理层面的脂肪变形态比较。",
+      "Current各器官Block只零散冻结肝细胞/心肌等脂肪变接口，没有单一最小owner完整承接肾小管+心肌+脂肪浸润比较。",
+      "因此Explanation完整保留，Crosswalk fail-closed。"
     ],
     "transfer_rule": "脂肪变=实质细胞内脂滴；脂肪浸润=间质脂肪细胞增多。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B、C正确。肾小管上皮细胞和心肌细胞内出现脂滴属于实质细胞内脂肪变；细胞间脂肪增多属于脂肪浸润。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "心肌细胞间出现脂肪细胞属于间质脂肪浸润/脂肪组织增多，不是心肌细胞内脂肪变。"
+      },
+      {
+        "option": "D",
+        "reason": "细胞水肿伴红染颗粒并非脂滴蓄积的形态。"
+      }
+    ],
+    "common_failure_node": "把“组织里出现脂肪”统一叫脂肪变，忽略脂肪变必须是实质细胞内脂滴。",
+    "source_gap_note": "本题跨肾小管、心肌与间质脂肪浸润的一般病理比较；Current没有单一最小owner完整承接。"
   },
   {
     "question_id": "xizong-official-2020-n149",
@@ -591,17 +838,27 @@
     "exam_target": "肿瘤性增殖特点",
     "decision_axis": "肿瘤性增殖具有相对自主性、与机体需求不协调及持续/无限增殖潜能，多由单克隆异常细胞扩增形成。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "肿瘤本质是基因失控后的单克隆异常增殖。",
+      "其生长相对自主、与机体需求不协调，并可持续增殖。",
+      "Current O9 KP01明确冻结这些核心特征，因此A、C、D正确。"
     ],
     "transfer_rule": "肿瘤增殖=相对自主、失协调、持续。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、C、D正确。肿瘤性增殖与机体需求不协调，具有相对自主性和持续/无限增殖潜能，通常起源于单克隆异常细胞。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "肿瘤通常为单克隆起源，后续可产生亚克隆异质性，并非“多克隆性增生”。"
+      }
+    ],
+    "common_failure_node": "把肿瘤内部异质性误认为肿瘤从一开始就是多克隆起源。"
   },
   {
     "question_id": "xizong-official-2020-n150",
@@ -620,13 +877,16 @@
       "这题考的是从上皮到腺体再到管壁的整层慢性损伤，而不是只背一个Reid指数。"
     ],
     "transfer_rule": "慢支病理核心是黏液分泌装置增生+慢性炎症+壁重塑。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、B、C、D均正确。慢性支气管炎可见纤毛上皮脱落、鳞状化生、黏液腺/杯状细胞增生，并可伴软骨等管壁结构变性萎缩。",
+    "valuable_distractors": [],
+    "common_failure_node": "只背黏液腺增生/Reid指数，漏掉上皮和管壁的完整慢性损伤谱。"
   }
 ]
