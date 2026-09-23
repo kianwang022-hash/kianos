@@ -2,8 +2,8 @@
   "schema": "kianos.lexical.dual_review_lane.v1",
   "lane": "C",
   "status": "CHECKPOINT_IN_PROGRESS",
-  "next_ordinal": 2751,
-  "completed_through": 2750,
+  "next_ordinal": 2851,
+  "completed_through": 2850,
   "campaign": "content/lexical/execution/dual-review.json",
   "source_branches": {
     "A": "work/lexical-dual-review-A-20260923",
@@ -21,7 +21,7 @@
   "checkpoint": {
     "start_ordinal": 2551,
     "target_end_ordinal": 3050,
-    "semantic_completed_through": 2750,
+    "semantic_completed_through": 2850,
     "pending_full_7946_flob_rebuild": true,
     "windows": [
       {
@@ -43,6 +43,16 @@
         "b_review_commit": "d60a1e0ef8eec76be9514b13e2e19aba0cc34df6",
         "c_mutation_commit": "3d0b37eb7dcb2b96a71e20cd43339064a20f451a",
         "receipt": "content/lexical/semantic-review/dual/C/o2651-o2750.reconcile.json"
+      },
+      {
+        "range": [
+          2751,
+          2850
+        ],
+        "a_review_commit": "cae115cb0c3fe46471237a01d98e9a42e8750c0a",
+        "b_review_commit": "cf4ed4556a06e849f459007d7eca5cc9e3ac4c5a",
+        "c_mutation_commit": "d4637ee2aae1419401cc5de6d8bcbe8c9918f749",
+        "receipt": "content/lexical/execution/mutation-receipts/dual-review-c-o2751-o2850.json"
       }
     ]
   },
@@ -66,15 +76,21 @@
       "source_ordinal": 2708,
       "remote_ordinal": 5560,
       "owner": "kilometre/kilometer regional spelling Relation/Form"
+    },
+    {
+      "source_ordinal": 2827,
+      "remote_ordinal": 5935,
+      "owner": "light/lighter Form/Identity relation"
     }
   ],
   "active_checkpoint_branch": "work/lexical-c-checkpoint-o2551-o3050-20260923",
   "checkpoint_start_ordinal": 2551,
   "checkpoint_target_through": 3050,
-  "checkpoint_staged_through": 2750,
+  "checkpoint_staged_through": 2850,
   "checkpoint_full_rebuild_pending": true,
   "window_receipts": [
     "content/lexical/execution/mutation-receipts/dual-review-c-o2551-o2650.json",
-    "content/lexical/execution/mutation-receipts/dual-review-c-o2651-o2750.json"
+    "content/lexical/execution/mutation-receipts/dual-review-c-o2651-o2750.json",
+    "content/lexical/execution/mutation-receipts/dual-review-c-o2751-o2850.json"
   ]
 }
