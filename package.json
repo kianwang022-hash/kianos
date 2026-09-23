@@ -14,6 +14,8 @@
     "remote:snapshot": "python3 tools/kianos_remote_ops.py snapshot",
     "remote:packet": "python3 tools/kianos_remote_ops.py packet",
     "remote:verify": "python3 tools/kianos_remote_ops.py verify",
-    "test:remote-ops": "python3 -m unittest tools/test_kianos_remote_ops.py"
+    "test:remote-ops": "python3 -m unittest tools/test_kianos_remote_ops.py",
+    "repo:doctor": "python3 tools/kianos_repo_doctor.py",
+    "test:repo-doctor": "python3 -m unittest tools/test_kianos_repo_doctor.py"
   }
 }

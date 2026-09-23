@@ -1,192 +1,71 @@
 # Politics Current
 
 Role: **Politics engineering Work Cursor + subject router**
-Parent: root `CURRENT.md`
+Parent: root CURRENT.md
 
-This file does not own Source, Knowledge, Learning semantics, Acceptance Truth, learner progress or shared platform policy. A bare learner continuation remains LEARN unless the conversation explicitly establishes engineering work.
+This file does not own Source, Knowledge, Learning semantics, Acceptance Truth, learner progress, or Shared Platform policy. A bare Politics continuation remains LEARN unless the conversation explicitly establishes engineering work.
 
-Shared-platform routing is inherited from `AUTHORITY_INHERITANCE_CONTRACT.md` and machine-registered in `AUTHORITY_OWNERSHIP.json`. This lane consumes shared Shell / navigation / Current Delivery from the registered upstream owner; it does not become their durable owner.
+Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and machine-registered in AUTHORITY_OWNERSHIP.json; Politics consumes those owners and does not become their durable owner.
 
-## Current state / actual restart point
+## Current state
 
-### Whole-cycle maturity closure — CLOSED
+- Whole-cycle maturity engineering is **CLOSED** at the shared mother-standard SYSTEM_LOGIC_ACCEPTED boundary. Current package: MATURITY_PACKAGE.md; fresh independent result: MATURITY_FRESH_INDEPENDENT_AUDIT.md.
+- Audited first-round learner paths are **CLOSED**. Exact path-level Acceptance Truth lives in ACCEPTANCE.md; do not reproduce its evidence ledger here.
+- KIAN_SPECIFIC_CALIBRATED remains **REAL-U gated**. Synthetic/browser proof does not become learner progress.
+- Current-year exact formulations, current affairs, Xiao8/Xiao4 and final Mock authority remain **Source gated** until the real annual Source arrives.
+- Cross-day Memory evidence is already supported. Xiao1000 Wrong/Uncertain Review is already durable enough for normal use.
+- Fixed Politics-only spaced-repetition cadence, mastery/priority score, second recovery stack, and second scheduler remain rejected architecture; do not recreate them without contrary real-use evidence.
 
-Politics whole-cycle maturity engineering is closed at the shared mother-standard `SYSTEM_LOGIC_ACCEPTED` boundary.
+### Next
 
-Durable maturity owners:
-
-- package: `MATURITY_PACKAGE.md`;
-- final independent audit: `MATURITY_FRESH_INDEPENDENT_AUDIT.md`;
-- shared acceptance bar: root `EXAM_SUBJECT_MATURITY_STANDARD.md`;
-- historical implementation provenance: PR **#638** only; the branch is not a continuation owner.
-
-Final independent freeze result:
-
-- audit: `content/politics/MATURITY_FRESH_INDEPENDENT_AUDIT.md`;
-- verdict: **PASS**;
-- sealed candidate: `audit/politics-maturity-freeze-20260921-v6`;
-- candidate SHA: `2e5545ca018a50c5049c75b754f757421dcbb6fe`;
-- shared standard SHA: `31ae8ee54857b896de7dab341f493d884f4b591b`;
-- result branch commit: `323acc617ce3752407d64af909b09f7cf0403b82`.
-
-Current mother-standard execution state:
-
-```text
-M0 Ownership correction                         DONE
-M1 Single Politics Maturity Package             DONE
-M2 Reconcile stale Analysis/material status     DONE
-M3 Analysis-bank + evidence identity proof       DONE
-M4 Forecast decision-flip/adversarial closure   DONE
-M5 Full lifecycle + Fresh Chat/No-Website       DONE
-M6 Final Fresh Independent Audit v6              PASS
-M7 SYSTEM_LOGIC_ACCEPTED                         YES · sealed candidate only
-M8 KIAN_SPECIFIC_CALIBRATED                     NO · REAL-U GATED
-M9 current-year annual sources                  SOURCE GATED
-M10 authentic final modality                    REAL-U / MOCK GATED
-```
-
-The shared Exam Subject Maturity Standard remains the upstream acceptance bar only; it does not become a Politics continuation cursor.
-
-Broad Politics maturity engineering stops here. Normal continuation is real study, real annual Source ingestion, authentic-modality calibration, or the smallest exact owner reopened by a concrete decision-changing defect.
-
-
-**Politics Final Learner Acceptance — CLOSED for audited first-round paths**
-
-- Landed: PR #486 → `main` merge `d180b0b913b63085ab0bd8c30dcdeadb1c64dc9f`
-- Execution brief: `FINAL_LEARNER_ACCEPTANCE_BRIEF.md`
-- Result owner: `ACCEPTANCE.md`
-- Final tested `main` head: `d180b0b913b63085ab0bd8c30dcdeadb1c64dc9f`
-- Fresh Linux + real macOS proof: workflow `35405553121` PASS
-- Functional First: workflow `35405553183` PASS
-- Kian Mac Human Gate: PASS on 2026-09-19
-
-Independent Learning judgment, concrete source/content/runtime repairs, fresh browser failure tests and bounded five-subject regression are complete and landed. `ACCEPTANCE.md` owns the final path-level result. The remaining `PARTIAL` boundary is whole-exam/platform scope, not a request to reopen accepted first-round Politics semantics.
-
-### Current result, without duplicating the evidence ledger
-
-First-round Learning model re-accepted; the repaired bounded first-round execution paths have fresh technical proof. Full Politics-wide closure is not claimed. See `ACCEPTANCE.md` for exact path-level results and historical reconciliation.
-
-### Human Gate A — ACCEPTED
-
-A real Mac defect squeezed long directed sequences into unreadable narrow CJK columns. The candidate keeps canonical labels/order/relation text and body font size while stacking long sequences vertically in the existing stage.
-
-Owner: `static-web/src/components/PoliticsExplicitSurfacePlan.astro`.
-Proof: `static-web/scripts/test-politics-sequence-readability.mjs`; macOS artifacts `sequence-readable-start.png` and `sequence-readable-end.png`, compared with the pre-repair Marxism C01 Unit 2 capture.
-
-**Kian accepted this changed long-sequence geometry on 2026-09-19 after direct before/after Mac review.** The acceptance covers the visible layout change only; it does not manufacture learner U or close shared Return/durability limits.
-
-### Architecture+ subject-native closure — 2026-09-20
-
-A bounded Architecture+ pass was run **after** the pre-build self-attack correction. The result is intentionally small:
-
-- **Cross-day Memory continuity: LANDED** via PR #595 / `b2d5ebe`.
-  - raw Recall history remains private learner truth;
-  - Daily Packet now carries a bounded Current-bound Memory history profile;
-  - yesterday's `FORGOT / FUZZY / STABLE` can inform a fresh Chat;
-  - deleted / changed Memory candidates fail closed as stale history;
-  - Chat still chooses today's Memory plan.
-- **Xiao1000 Wrong / Uncertain cross-day Review: already sufficient.**
-  - Current Review reconstructs outstanding problems from durable attempt/latest-outcome evidence;
-  - no second review ledger or due scheduler is justified.
-- **Fixed Politics spaced-repetition cadence: REJECTED.**
-  - no learner-facing D1/D3/D7 contract;
-  - elapsed time is evidence only; Chat owns today's selection.
-- **Politics mastery / priority score: REJECTED.**
-  - Recall labels are evidence, not mastery;
-  - first-round question counts / frequency / backend pending state do not own attention.
-- **Politics-only Recovery / second scheduler: REJECTED.**
-  - cross-day capacity / COMPRESS / subject allocation belongs to the upstream Exam Control / Steward;
-  - Politics owns only its subject-native learning and evidence semantics.
-- **Analysis foundation + durable evidence: CLOSED in the Politics maturity owner (#638).**
-  - reusable Analysis task/rubric/evidence semantics exist;
-  - current-year exact formulations/current affairs remain Source-gated;
-  - no dedicated Analysis Website or second learner-state system is justified.
-
-A storage-scale self-attack also measured the Current 115-candidate Memory catalog and 91-day append-only Recall growth. The normal selective 10–20 recalls/day envelope projects to roughly 0.7–1.4 MiB of raw Recall evidence; profile build cost remains small. The diagnostic probe therefore concluded **DO NOT REDESIGN storage**. Reopen only if real telemetry shows materially larger event volume / storage pressure.
-
-Net result:
-
-```text
-first-round mainline + Xiao1000 Review
-+ source-grounded Chat-planned Memory
-+ cross-day Memory evidence
-+ Chat-primary Analysis foundation
-→ sufficient for normal use
-
-real study
-→ Real U / Forecast recalibration / bounded repair only
-
-real 2027 Source arrives
-→ reopen only the affected current-year Source / current-affairs / Mock owner
-```
-
-Do not recreate a generic Politics Remember engine, frequency ranker, mastery score, fixed cadence, or second scheduler.
-
-### Normal next state after final acceptance
-
-Politics first-round engineering and the shared platform dependencies it needed are landed. Typed Politics diagnosis Return/import and shared private checkpoint recovery were subsequently closed through the shared platform lane and final cross-subject regression.
-
-Normal continuation is therefore:
-
-```text
 real Politics study
-→ concrete learner-visible / source / content defect
-→ reopen the smallest exact owner
-```
+→ real annual Source / authentic-modality evidence / concrete defect
+→ reopen only the smallest exact owner
 
-Do not reopen first-round Politics semantics, redo the initial audit model, or build a Politics-only second handoff/recovery stack.
+Broad maturity construction, first-round re-auditing, and speculative Politics-only infrastructure are not Current work.
 
-### Separate real limits — not first-round content rebuilding
+## Stable learning roles
 
-- **Later Source:** Analysis structure/evidence is prepared, but current-year exact formulations, current affairs, Xiao8/Xiao4 and final Mock authority remain Source-gated. Historical material remains geometry/provenance only where annual truth is required.
-- **U:** all newly audited learner paths remain `UNTESTED` until Kian actually uses them. Synthetic test evidence is not private learner progress.
-
-These limits remain explicit even after visual approval. First-round readiness must not be inflated into whole-exam readiness.
-
-## Stable role boundaries
-
-```text
-Suyi       useful framework / cross-check input, not a second course
+Suyi       framework / cross-check input, not a second course
 Chengfeng  continuous first-round mainline on original iPad / MarginNote
 Xiao1000   verification in the single formal Workbench
 KianOS     orientation / selective presentation / verification / Review / Resume
-Chat       learner-triggered batch diagnosis and smallest justified follow-up
-```
+Chat       learner-triggered diagnosis and smallest justified follow-up
 
-Exact semantics remain in `LEARNING_CONTRACT.md` and `INTERACTION_CONTRACT.md`.
-
-Wrong/Uncertain records private evidence and permits continuation. Chengfeng is the correct source owner when repair is actually warranted, not a mandatory immediate detour. Stable Natural Unit identity does not require one sitting; checkpoint is genuinely optional. Whole-question first-ready must include decisive cross-Unit dependencies, not merely a partial hit.
-
-First-round exact discrimination does not automatically create permanent Memory debt. `REFERENCE_ONLY` stays non-teaching. Missing semantic or source support is not permission to guess.
-
-## Surface Mapping boundary
-
-```text
-canonical Content / Learning semantics
--> explicit Politics Surface Mapping when needed
--> renderer/runtime
-```
-
-Mapping preserves content-owned relation type, text, grouping, zones and state payload. It is not a new Knowledge owner. UI owns geometry, triggers and styling, not causal/chronological/hierarchical invention. Each subject retains its genuine cognition; no common card/flow grammar is imposed.
+Exact semantics live in LEARNING_CONTRACT.md and INTERACTION_CONTRACT.md. Wrong/Uncertain is private evidence and permits continuation; repair returns to Chengfeng only when actually warranted. Stable Natural Unit identity does not require one sitting.
 
 ## Subject router
 
 | Scope | Work Cursor | Acceptance Truth |
 | --- | --- | --- |
-| Marxism | `learning/marxism/CURRENT.md` | `learning/marxism/ACCEPTANCE.md` |
-| History | `learning/history/CURRENT.md` | `learning/history/ACCEPTANCE.md` |
-| Mao | `learning/mao/CURRENT.md` | `learning/mao/ACCEPTANCE.md` |
-| Xi | `learning/xi/CURRENT.md` | `learning/xi/ACCEPTANCE.md` |
-| Ethics-Law | `learning/ethics-law/CURRENT.md` | `learning/ethics-law/ACCEPTANCE.md` |
+| Marxism | learning/marxism/CURRENT.md | learning/marxism/ACCEPTANCE.md |
+| History | learning/history/CURRENT.md | learning/history/ACCEPTANCE.md |
+| Mao | learning/mao/CURRENT.md | learning/mao/ACCEPTANCE.md |
+| Xi | learning/xi/CURRENT.md | learning/xi/ACCEPTANCE.md |
+| Ethics-Law | learning/ethics-law/CURRENT.md | learning/ethics-law/ACCEPTANCE.md |
 
 A blocker in one subject does not freeze independent siblings.
 
-## Normal entry / containment
+## Route by need
 
-Content work: exact subject/Natural Unit -> canonical Content owner -> only required Contract.
-Visual work: shared `static-web/PRESENTATION_CONTRACT.md` -> exact accepted Politics surface -> material Human Gate only when changed.
-Runtime work: `SYSTEM_CONTRACT.md` -> exact runtime/evidence owner -> targeted proof.
+- Content / Natural Unit → exact subject cursor → canonical Content owner → only required Contract.
+- Learning semantics → LEARNING_CONTRACT.md; interaction/runtime semantics → INTERACTION_CONTRACT.md or exact native owner.
+- Maturity / annual Source / authentic-modality question → MATURITY_PACKAGE.md → exact affected owner.
+- Visual → root static-web/PRESENTATION_CONTRACT.md → exact accepted Politics surface; material geometry changes still require the appropriate Human Gate.
+- Runtime / evidence → root SYSTEM_CONTRACT.md → exact native runtime/evidence owner.
+- Accepted first-round result → ACCEPTANCE.md.
 
-Fresh Chats should read this cursor plus the narrow result/owner required for the current learner or defect question, not old Chat summaries or broad CI history. There is no active Politics maturity-construction branch after the v6 PASS.
+## Stable boundaries
 
-Normal continuation is real study and concrete-defect maintenance. More possible architecture or richer source detail is not by itself a reason to expand engineering.
+- Raw Recall history remains private learner truth; bounded cross-day profiles are evidence, not mastery scores.
+- Elapsed time is evidence only; Chat owns today's Memory selection and subject allocation.
+- Analysis structure/evidence may exist before current-year wording; annual truth remains Source gated.
+- Surface Mapping may preserve content-owned relation type/text/grouping/state, but UI may not invent political semantics.
+- Shared Shell, navigation, Current Delivery, recovery, and cross-subject scheduling remain shared-platform/upstream responsibilities.
+- Missing Source support is not permission to guess.
+
+## Fresh-Chat / stop
+
+Fresh Chats should read this cursor and only the narrow result/owner needed for the learner or defect question. Old PRs, sealed candidate SHAs, screenshots, and historical audit branches are provenance, not continuation.
+
+Stop after the bounded effect is proven. Reopen for real study evidence, a real annual Source, a concrete learner-visible/content/runtime defect, or an explicit fresh independent re-acceptance request.

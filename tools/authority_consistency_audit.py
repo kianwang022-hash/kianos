@@ -91,6 +91,28 @@ def audit_current_routing(registry: dict) -> None:
     if not isinstance(lane_work_cursors, dict):
         return
 
+    if root_current.is_file():
+        root_value = text(root_current)
+        routed_lanes = {
+            lane: route
+            for route, lane in re.findall(
+                r"\((content/([^/]+)/(?:CURRENT\.md|CONTENT_MAINLINE\.md))\)",
+                root_value,
+            )
+        }
+        for lane, route in routed_lanes.items():
+            check(
+                lane in lane_work_cursors,
+                "ROOT_CURRENT_LANE_UNREGISTERED",
+                f"{lane}:{route}",
+            )
+        for lane, cursor in lane_work_cursors.items():
+            check(
+                lane in routed_lanes,
+                "REGISTERED_LANE_MISSING_ROOT_ROUTE",
+                f"{lane}:{cursor}",
+            )
+
     # Shared-platform terms are allowed in a lane Current only as a route to the
     # registered upstream owner/current writer. A subject Current must never turn
     # a temporary Chat assignment into durable ownership.
