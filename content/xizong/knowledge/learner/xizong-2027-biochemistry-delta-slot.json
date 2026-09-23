@@ -1,6 +1,6 @@
 {
   "schema": "kianos.xizong.future_source_slot.v1",
-  "status": "BLOCKED_UNTIL_27_SOURCE",
+  "status": "SOURCE_ARRIVED_DELTA_REVIEW_PENDING",
   "slot_id": "xizong-2027-biochemistry-delta",
   "source_cycle": "27考研",
   "domain": "Biochemistry",
@@ -176,9 +176,17 @@
     "authority": "Forecast does not decide whether the source is admitted and does not choose the next System."
   },
   "current_state": {
-    "source_present": false,
+    "source_present": true,
     "current_year_delta_known": false,
     "exact_workload_minutes": null,
-    "action_now": "WAIT_FOR_27_SOURCE_WHILE_USING_CURRENT_BASELINE"
+    "source_identity": {
+      "source_cycle": "27考研",
+      "visible_name_or_source_id": "27生化跟课版合集【不带导图】.pdf",
+      "version_or_revision": "27跟课版",
+      "content_hash_or_equivalent_stable_identity": "sha256:17d991896f0edea0b2e1274fdee76862998a1f3bd0c4bad03155bf9e4b27ce1c",
+      "received_at": "2026-09-24",
+      "markdown_snapshot": "content/xizong/source-snapshots/27/生物化学讲义_AI阅读版_27跟课_UnifiedSource_v1.md"
+    },
+    "action_now": "RUN_PRESERVE_UPDATE_NEW_RETIRE_CONFLICT_REVIEW_AGAINST_CURRENT_M1_M10"
   }
 }
