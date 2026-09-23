@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "18522f7e2bffc25c0c5215e438feba2194543b268537a208f8dfcf5474fb14d0",
+    "content_hash": "35335365113469fbc049ca7a93455709723907a75ff01c7076b18d58bf5642da",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "分解；(使)腐烂",
@@ -26,11 +26,12 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "分解；(使)腐烂",
-        "definition_en": "separate (substances) into constituent elements or parts",
+        "definition_cn": "分解；使分解；（有机物）腐烂、分解",
+        "definition_en": "to break down into constituent parts, or to decay naturally",
         "depth": "full_card",
         "domain_tag": "cet6",
         "frequency_tag": "cet6",
+        "governing_pattern": "I/T: decompose sth; sth decompose(s)",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
@@ -59,45 +60,8 @@
             "source_path": "external_semantic_auditor://cet6/1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf",
             "source_type": "learner_dictionary"
           }
-        ]
-      },
-      {
-        "collocations": [],
-        "confidence": "high",
-        "definition_cn": "分解；(使)腐烂",
-        "definition_en": "break down",
-        "depth": "full_card",
-        "domain_tag": "cet6",
-        "frequency_tag": "cet6",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:decompose:0a6d09369ac7509d",
-        "sense_label_en": "break down",
-        "sort_order": 2,
-        "source_evidence": [
-          {
-            "evidence_id": "source-fact:ecdict:21d49d004f6c524214ef",
-            "evidence_status": "source_checked",
-            "role": "external_semantic_auditor",
-            "source_path": "external_semantic_auditor://cet6/1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf",
-            "source_type": "learner_dictionary"
-          },
-          {
-            "evidence_id": "source-fact:wiktionary-wiktextract:1cd1d19a063732998703",
-            "evidence_status": "source_checked",
-            "role": "external_semantic_auditor",
-            "source_path": "external_semantic_auditor://cet6/1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf",
-            "source_type": "learner_dictionary"
-          },
-          {
-            "evidence_id": "source-fact:wiktionary-wiktextract:a5071ee13b9cb1c23337",
-            "evidence_status": "source_checked",
-            "role": "external_semantic_auditor",
-            "source_path": "external_semantic_auditor://cet6/1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf",
-            "source_type": "learner_dictionary"
-          }
-        ]
+        ],
+        "transitivity": "I/T"
       }
     ],
     "verification_summary": {
@@ -114,13 +78,30 @@
     "word_id": "word:decompose"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:decompose:0a6d09369ac7509d",
+      "status": "merged",
+      "merged_into_sense_id": "sense:decompose:80922c1c76585761",
+      "pos": "verb",
+      "definition_cn": "分解；(使)腐烂",
+      "definition_en": "break down",
+      "semantic_key": "22fcf439e4585fc4ed7a54d03f6ff66bcaaa2aa95a5112625acd0a647097b113",
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-08-22T21:34:23+00:00",
+      "source_row": 16022,
+      "source_path": "content/lexical/canonical/senses/shards/o5729-5760.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:decompose:0a6d09369ac7509d",
-        "status": "active",
-        "merged_into_sense_id": null,
+        "status": "merged",
+        "merged_into_sense_id": "sense:decompose:80922c1c76585761",
         "source_row": 16022,
         "source_path": "content/lexical/canonical/senses/shards/o5729-5760.json"
       },
@@ -156,7 +137,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5745-5752.json",
-    "source_content_hash": "18522f7e2bffc25c0c5215e438feba2194543b268537a208f8dfcf5474fb14d0",
+    "source_content_hash": "35335365113469fbc049ca7a93455709723907a75ff01c7076b18d58bf5642da",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
