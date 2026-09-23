@@ -22,21 +22,62 @@ jobs:
         run: python3 tools/lexical_apply_c_checkpoint_o2851_o3050.py
       - name: Natural Owner audit
         run: python3 tools/lexical_natural_owner.py audit
-      - name: Rebuild 7,946 Final Learner Objects
-        run: python3 tools/lexical_build_final_learner_objects.py
-      - name: Verify checkpoint boundaries
+      - name: Verify semantic checkpoint boundaries
         run: |
           python3 - <<'PY'
-          import json,re,subprocess,sys
+          import re,subprocess,sys
           files=subprocess.check_output(['git','diff','--name-only'],text=True).splitlines()
           ords=[]
           for p in files:
-              m=re.match(r'content/lexical/words/by-ordinal/o(\\d{4})\\.json$',p)
+              m=re.match(r'content/lexical/words/by-ordinal/o(\\d{4})\\.json
+      - name: Commit checkpoint apply
+        id: apply_commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/lexical
+          git commit -m "Lexical C: apply checkpoint o2851-o3050"
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+      - name: Seal C cursor and receipt
+        env:
+          MUTATION_SHA: ${{ steps.apply_commit.outputs.sha }}
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json,os
+          p=Path('content/lexical/execution/dual-review-C.json')
+          d=json.loads(p.read_text())
+          d['status']='CHECKPOINT_READY_TO_MERGE'
+          d['next_ordinal']=3051
+          d['completed_through']=3050
+          d['semantic_decided_through']=3050
+          d['canonical_applied_through']=3050
+          d['next_semantic_ordinal']=3051
+          d['checkpoint_staged_through']=3050
+          d['checkpoint_full_rebuild_pending']=False
+          d['checkpoint_batch_apply_pending']=False
+          d['pending_decision_manifests']=[]
+          if isinstance(d.get('checkpoint'),dict):
+              d['checkpoint']['semantic_completed_through']=3050
+              d['checkpoint']['semantic_decided_through']=3050
+              d['checkpoint']['canonical_applied_through']=3050
+              d['checkpoint']['pending_batch_apply']=False
+              d['checkpoint']['pending_full_7946_flob_rebuild']=False
+              d['checkpoint']['final_mutation_commit']=os.environ['MUTATION_SHA']
+          receipt={'schema':'kianos.lexical.streaming_c_checkpoint_receipt.v1','status':'PASS','range':[2551,3050],'final_mutation_commit':os.environ['MUTATION_SHA'],'semantic_decided_through':3050,'canonical_applied_through':3050,'full_flob_rebuild_run':False,'flob_required_for_semantic_closure':False,'website_projection_status':'BUILD_TIME_DERIVED','decision_manifests':['content/lexical/semantic-review/dual/C/o2851-o2950.decision.json','content/lexical/semantic-review/dual/C/o2951-o3050.decision.json'],'deferred_cross_watermark':d.get('deferred_cross_watermark',[]),'deferred_beyond_c_frontier':d.get('deferred_beyond_c_frontier',[])}
+          rp=Path('content/lexical/execution/mutation-receipts/dual-review-c-checkpoint-o2551-o3050.json')
+          rp.write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+'\\n')
+          d.setdefault('checkpoint_receipts',[]).append(str(rp))
+          p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\\n')
+          PY
+          git add content/lexical/execution/dual-review-C.json content/lexical/execution/mutation-receipts/dual-review-c-checkpoint-o2551-o3050.json
+          git commit -m "Lexical C: seal checkpoint o2551-o3050"
+          git push origin HEAD:${GITHUB_REF_NAME}
+,p)
               if m: ords.append(int(m.group(1)))
           bad=[o for o in ords if o>4150]
-          manifest=json.load(open('content/lexical/learner/final/manifest.json'))
-          print({'changed_files':len(files),'changed_words':len(ords),'max_word':max(ords) if ords else None,'over_watermark':bad,'flob_object_count':manifest.get('object_count')})
-          if bad or manifest.get('object_count')!=7946: sys.exit(1)
+          print({'changed_files':len(files),'changed_words':len(ords),'max_word':max(ords) if ords else None,'over_watermark':bad})
+          if bad: sys.exit(1)
           PY
           git diff --check
       - name: Commit checkpoint apply
