@@ -208,7 +208,7 @@ Fresh re-audit accepted:
 - external-owner negative space;
 - `121 KP → 40 LG → 9 Block Recall → 2 non-gating PSR → final F reconstruction`.
 
-S2 exact official-question membership remains UNTESTED. No question membership was inferred.
+S2 exact official-question membership is CLOSED at 70 qids after external-owner repair. This does not infer Question→Block/LG/KP mapping.
 
 
 ## Content acceptance — PASS_AFTER_BOUNDED_REPAIR / CLOSED
@@ -264,7 +264,6 @@ Preserved fail-closed truth:
 - F1 selected poison-manifestation mappings;
 - F2 delayed-neuropathy / rebound wording;
 - F3 delayed-primary / secondary-closure taxonomy and chemical-gas wording conflict;
-- F4 complete first-day burn-fluid formula / intraday distribution;
 - F5 hypertension threshold conflict;
 - F7 no invented complete modern difficult-airway / monitoring / MAC / extubation curriculum;
 - F9 complete laparoscopy complication list;
@@ -292,10 +291,10 @@ Content PASS_AFTER_BOUNDED_REPAIR
 
 Separate boundaries remain:
 
-- S2 exact official F System question membership = UNTESTED;
+- S2 exact official F System question membership = CLOSED / 70 qids; precise Question→Knowledge routing remains separate;
 - P Projection = eligible / UNTESTED;
 - R Runtime = frozen behind P;
 - E Evidence = frozen behind R;
 - U learner use = NO_CLAIM.
 
-Per program sequencing, closing F Content completes the D → E → F medical-content construction lane. The deferred exact official System-question membership backlog may now resume without treating accepted Content as question-scope evidence.
+Per program sequencing, the D → E → F medical-content construction lane and the A1–F exact System-question membership completion lane are both closed for the current corpus. Future source deltas reopen only the smallest responsible owner; accepted Content still does not imply finer Question→Knowledge routing.
