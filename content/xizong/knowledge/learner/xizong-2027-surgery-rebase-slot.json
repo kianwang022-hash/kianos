@@ -1,0 +1,117 @@
+{
+  "schema": "kianos.xizong.future_source_slot.v1",
+  "status": "COMPREHENSIVE_SOURCE_REBASE_PREPARED_AND_STARTED",
+  "slot_id": "xizong-2027-surgery-rebase",
+  "source_cycle": "27考研",
+  "domain": "Surgery",
+  "purpose": "Comprehensively rebase all Current Xizong knowledge and dependent learning assets that consume Surgery onto the 27 refined Source, rather than treating the prior bounded delta as full absorption. Preserve stable canonical identity unless source comparison demonstrates a semantic defect.",
+  "source_identity": {
+    "source_cycle": "27考研",
+    "visible_name_or_source_id": "27外科精编版【带导图】.pdf",
+    "version_or_revision": "27精编版",
+    "content_hash_or_equivalent_stable_identity": "sha256:523cc9111b69f7eb77b928234d2e86f7e2ba9949e962eac2c5a240219b5cd9a0",
+    "received_at": "2026-09-24",
+    "pdf_pages": 285,
+    "markdown_snapshot": "content/xizong/source-snapshots/27/外科学讲义_AI阅读版_27精编_UnifiedSource_v1.md"
+  },
+  "owner_boundary": {
+    "task_owner": "content/xizong/knowledge/learner/xizong-2027-surgery-rebase-slot.json",
+    "source_map": "content/xizong/knowledge/learner/surgery-27-source-map.json",
+    "canonical_medical_owners": [
+      "A1 circulation",
+      "A2 respiratory",
+      "A3 urinary",
+      "B digestive-metabolic-endocrine-tumor",
+      "C hematology-immunity-infection",
+      "D neuro-sensory-motor-orthopedics",
+      "E reproductive-breast",
+      "F remaining-clinical"
+    ],
+    "rule": "This slot is only a durable rebase cursor. It owns no medical truth. Current System/Block/KP owners remain canonical."
+  },
+  "source_precedence": {
+    "current_primary": "27外科精编版【带导图】.pdf",
+    "historical_secondary": "27 外科跟课合集改.pdf / legacy 外科学讲义_AI阅读版.md",
+    "rule": "27 refined Source is Current source truth for Surgery. Historical follow-along material is provenance/explanatory substrate only and must not remain the Current Primary Study binding after each affected block closes."
+  },
+  "comparison_contract": {
+    "classes": [
+      "PRESERVE",
+      "UPDATE",
+      "NEW",
+      "RETIRE",
+      "CONFLICT"
+    ],
+    "rules": [
+      "compare 27 refined Source against the exact Current canonical owner, not against chat memory",
+      "preserve stable Block/KP identity unless a concrete semantic defect requires change",
+      "rebind stale follow-along/legacy Surgery Source locators even when medical Core is PRESERVE",
+      "decision-relevant ambiguous visual/table/wording remains fail-closed",
+      "do not mechanically copy all refined-side explanatory notes into canonical Knowledge",
+      "do not reopen official System-question membership unless owner/corpus evidence changes"
+    ]
+  },
+  "impact_cone": {
+    "source_map_units": 38,
+    "systems": [
+      "A1",
+      "A2",
+      "A3",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+    ],
+    "downstream_when_changed": [
+      "System mother model / cross-System interfaces",
+      "Block Framework / KP Core / Source locators",
+      "Learning Logic / Logic Groups / Source-contact semantics",
+      "Content / Precision / Visual / Memory / Repair cues",
+      "reviewed Question→Knowledge relations",
+      "learner-facing official-question explanations",
+      "source-revision interpretation of historical learner evidence",
+      "scoped CURRENT / ACCEPTANCE"
+    ]
+  },
+  "completion_definition": {
+    "S": "27 refined Source identity, 38-unit source map, page locators, visual/exact gaps verified",
+    "K": "all Surgery-consuming canonical Blocks/KPs and affected System/cross-System logic reaccepted",
+    "L": "affected learning order, LG and Source-contact semantics reaccepted",
+    "C": "affected Content/Precision/Visual/Memory/Repair roles reconciled",
+    "Q": "affected reviewed Question→Knowledge relations revalidated; membership only if evidence changes",
+    "X": "affected learner-facing question explanations revalidated",
+    "E": "historical learner evidence classified PRESERVE/MIGRATE/STALE/INVALID where source revision matters",
+    "A": "affected scoped CURRENT/ACCEPTANCE owners reconciled and task closed"
+  },
+  "current_state": {
+    "source_present": true,
+    "current_year_delta_known": true,
+    "prior_bounded_delta_receipt": "content/xizong/source-snapshots/27/XIZONG_27_生化外科_Source_Delta_Audit_2026-09-24.md",
+    "prior_bounded_delta_interpretation": "Useful first-pass delta only; not proof of comprehensive Surgery absorption.",
+    "source_map_status": "BUILT_38_SOURCE_UNITS",
+    "first_batch": {
+      "scope": [
+        "SUR27-U01",
+        "SUR27-U02",
+        "SUR27-U03",
+        "SUR27-U04"
+      ],
+      "label": "neck / esophagus / breast / thorax",
+      "status": "SOURCE_BINDING_AUDIT_STARTED",
+      "verified_stale_current_bindings": [
+        "B:D21 still names 外科学讲义_AI阅读版.md and 27跟课 Source-local pages",
+        "B:D23 still names 外科学讲义_AI阅读版.md and reports surgery_visual_gate gap",
+        "B:D9 still binds 外科学讲义_AI阅读版.md",
+        "B:D11 still binds 外科学讲义_AI阅读版.md",
+        "A2:R10 still names 27 外科跟课合集改.pdf as Primary Study",
+        "A2:R11 still names 27 外科跟课合集改.pdf as Primary Study"
+      ],
+      "next_action": "Deep compare SUR27-U01-U04 against B:D21/D23/D9/D11, E:E10-E14 and A2:R10/R11; close source rebind + semantic delta before moving to abdominal units."
+    },
+    "concurrency": {
+      "active_biochemistry_rebase": true,
+      "rule": "Proceed on disjoint owners; refresh and serialize any shared B system/learning/manifest or shared question/explanation manifest write."
+    }
+  }
+}
