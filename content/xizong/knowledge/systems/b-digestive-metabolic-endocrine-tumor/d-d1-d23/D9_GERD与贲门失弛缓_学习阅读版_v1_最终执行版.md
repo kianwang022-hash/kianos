@@ -8,7 +8,7 @@ version: v1
 status: FINAL_EXECUTION
 primary_sources:
   - 内科学讲义_AI阅读版.md
-  - 外科学讲义_AI阅读版.md
+  - 27外科精编版【带导图】.pdf｜PDF P015–P018
 recall_sources:
   - D2_口腔食管与胃_推进抗反流储存排空与胃酸_学习阅读版_v1_最终执行版.md
 outline_ownership:
@@ -47,7 +47,7 @@ first_pass_question_probe: PENDING_LECTUREQUESTION_BINDING
 ### Study 主范围
 
 - `内科学讲义_AI阅读版.md`：书页 P78–82《胃食管反流病》；
-- `外科学讲义_AI阅读版.md`：书页 P12–13《食管疾病》中贲门失弛缓症；
+- `27外科精编版【带导图】.pdf`：PDF P015–P018《食管疾病》，贲门失弛缓症与鸟嘴征/Heller术原图可核对；
 - `D2`：LES 正常高压区、VIP / NO 介导松弛、ACh 等促进收缩，只作 Recall。
 
 ### Outline Primary
@@ -78,7 +78,7 @@ IM-U032提出“GERD患者睡前几小时禁食”，但当前AI-readable Lectur
 
 ```text
 SOURCE_BOUNDARY｜D9-SB01
-当前Source只完整支持贲门失弛缓的“下2/3肌间神经丛受损→LES不能松弛→间歇性吞咽困难→鸟嘴征→Heller术”链；不静默扩写完整测压标准、分型和全部非手术治疗。
+当前 27 精编 Source 支持贲门失弛缓的“下2/3肌间神经丛受损→LES不能松弛→间歇性吞咽困难→鸟嘴征→Heller术”链；不静默扩写完整测压标准、分型和全部非手术治疗。
 ```
 
 ```text
@@ -88,7 +88,7 @@ LA分级按当前Study保留：A＜5mm，B至少一处＞5mm，C融合且＜75%�
 
 ```text
 VISUAL_SOURCE_GAP｜D9-VG01
-LES正常控制图、RE/NERD/Barrett内镜图、LA分级图、鸟嘴征及Heller术图在Project原Lecture中有视觉入口；当前容器未挂载全部外科原页图像。本文件保留回图门禁，不假装完成全部视觉核对。
+LES正常控制图、RE/NERD/Barrett内镜图、LA分级图继续回各自 Primary Source；27外科精编 PDF P015–P016 的食管癌/失弛缓造影与 Heller 术图已核验可用。视觉关系仍以原页为最高保真证据，不从机械转写猜图。
 ```
 
 ---
@@ -100,7 +100,7 @@ Framework Orientation
 → Recall D2：正常LES“先松后紧”
 → 内科P78–79：GERD定义、三层故障与症状
 → 内科P80–82：并发症、检查、分级与治疗
-→ 外科P12–13：贲门失弛缓机制—鸟嘴征—Heller术
+→ 27外科精编 PDF P015–P016：贲门失弛缓机制—鸟嘴征—Heller术
 → Framework Reconstruction
 → KP Active Recall
 → Outline Quick Check（低压力、按需）
@@ -599,7 +599,7 @@ external_medical_expansion = 0
 silent_source_correction = 0
 source_gap_open = D9-SG01
 source_boundary_open = D9-SB01,D9-SB02
-visual_source_gap_open = D9-VG01
+visual_source_gate = VERIFIED_27_REFINED_SOURCE_PAGE_AVAILABLE
 ```
 
 ---
