@@ -518,13 +518,10 @@ D / E / F medical-content construction = CLOSED
 Scoped D / E / F Projection may proceed independently when prioritized
 
 Questions:
-deferred exact official System-question membership completion = next program priority
-E scoped Projection may proceed independently downstream only when it does not consume F semantic attention
-D scoped Projection may proceed independently downstream only when it does not consume F semantic attention
-
-Questions:
-Crosswalk C2 batches
-+ bounded official System-scope tasks
+exact official System-question membership lane = CLOSED for the current corpus
+Question SECOND_PASS / Crosswalk current-corpus review = CLOSED
+reopen only for a real defect, authoritative Source change, or explicit new corpus
+D / E scoped Projection may proceed independently only when deliberately prioritized; they are downstream product work, not unfinished question-review work
 
 Visual:
 small high-value reviewed batches on already-stable owners
