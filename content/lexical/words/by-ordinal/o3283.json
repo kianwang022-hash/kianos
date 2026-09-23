@@ -7,9 +7,18 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "e2f7847e02320f235e7f9a40d21e7bccba24d4f7d7c3cabade24d9a3c96b7fd5",
+    "content_hash": "0527585c22319042396d9e879aa57eebe91c6032cf990e39be8ce1745dace2ad",
     "core_concept": {
-      "core_clusters": [],
+      "core_clusters": [
+        {
+          "label_cn": "坚果；螺母；狂热爱好者",
+          "label_en": "a nut; a metal nut; an informal enthusiast",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:nut:5ed76728b27b65ee"
+          ]
+        }
+      ],
       "core_meaning_cn": "坚果或金属紧固件",
       "core_meaning_en": "a hard-shelled fruit or a metal fastener",
       "mental_model_cn": "坚果或金属紧固件",
@@ -49,6 +58,48 @@
         "sense_id": "sense:nut:87a6121fb9775270",
         "sense_label_en": "a small metal block with a hole for screwing onto a bolt",
         "sort_order": 1,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:15a4c046d3237532d7f6",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:nut:5ed76728b27b65ee:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "健身狂热爱好者",
+            "phrase": "a fitness nut"
+          },
+          {
+            "collocation_id": "collocation:095d7eb99e05272fc6ac",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:nut:5ed76728b27b65ee:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "健康迷",
+            "phrase": "a health nut"
+          },
+          {
+            "collocation_id": "collocation:ce45e882abac5cda0b75",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:nut:5ed76728b27b65ee:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "电脑迷",
+            "phrase": "a computer nut"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "痴迷者；狂热爱好者（非正式，有时带贬义）",
+        "definition_en": "a person extremely enthusiastic or obsessed with a particular thing, informal",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:nut:5ed76728b27b65ee",
+        "sense_label_en": "a person extremely enthusiastic or obsessed with a particular thing, informal",
+        "sort_order": 2,
         "transitivity": "nonverb"
       }
     ],
@@ -153,9 +204,20 @@
         "merged_into_sense_id": null,
         "source_row": 9119,
         "source_path": "content/lexical/canonical/senses/shards/o3265-3296.json"
+      },
+      {
+        "sense_id": "sense:nut:5ed76728b27b65ee",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9148,
+        "source_path": "content/lexical/canonical/senses/shards/o3265-3296.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:095d7eb99e05272fc6ac",
+      "collocation:15a4c046d3237532d7f6",
+      "collocation:ce45e882abac5cda0b75"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -181,6 +243,21 @@
       {
         "id": "collocation:cea1fd156f154009a127",
         "source_row": 17467,
+        "source_path": "content/lexical/canonical/collocations/shards/o3265-3296.json"
+      },
+      {
+        "id": "collocation:095d7eb99e05272fc6ac",
+        "source_row": 20928,
+        "source_path": "content/lexical/canonical/collocations/shards/o3265-3296.json"
+      },
+      {
+        "id": "collocation:15a4c046d3237532d7f6",
+        "source_row": 20929,
+        "source_path": "content/lexical/canonical/collocations/shards/o3265-3296.json"
+      },
+      {
+        "id": "collocation:ce45e882abac5cda0b75",
+        "source_row": 20931,
         "source_path": "content/lexical/canonical/collocations/shards/o3265-3296.json"
       }
     ],
@@ -215,7 +292,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3281-3288.json",
-    "source_content_hash": "e2f7847e02320f235e7f9a40d21e7bccba24d4f7d7c3cabade24d9a3c96b7fd5",
+    "source_content_hash": "0527585c22319042396d9e879aa57eebe91c6032cf990e39be8ce1745dace2ad",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

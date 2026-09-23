@@ -6,8 +6,74 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "84ea961537e36a5c91c56cadce2cdc651108d2d4a68e767dfa02a9e6b95d4ffc",
+    "constructions": [
+      {
+        "boundary": "offer to do(主动提出做)",
+        "codex_reviewed": false,
+        "definition_cn": "主动提出；表示愿意",
+        "definition_en": "to say that you are willing to do something",
+        "dimensions": {},
+        "direction": "R+P",
+        "evidence": [
+          {
+            "evidence_id": "evidence:core-card:offer:7258a2ae15e9",
+            "evidence_status": "source_checked",
+            "source_labels": [],
+            "source_locator": "offer:l1:2",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/kianos-english-vocabulary-5500.generated.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:constructions:offer:c1cc59d5808b50ec",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": "主动提出做某事",
+        "module": "constructions",
+        "pattern": "offer to do",
+        "pos": "verb",
+        "presentation_merge": {
+          "merge_id": "presentation-merge:86f91ed1a685dcf9047f",
+          "metadata_tags": [
+            "cloze",
+            "collocation",
+            "construction",
+            "writing"
+          ],
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:d32b22b2cb7c00347248"
+        },
+        "priority": "A",
+        "publication_status": "publishable",
+        "shared_definition": null,
+        "source_sense_id": "sense:offer:cbeb7ebf21975377",
+        "target_sense_id": null,
+        "target_word": null,
+        "task_tags": [
+          "cloze",
+          "writing"
+        ],
+        "verification_status": "verified",
+        "writing_safe": true
+      },
+      {
+        "construction_id": "construction:c3e5f4b84bfdd9933acd",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "把某物提供给某人接受/考虑",
+        "pattern": "offer sb sth / offer sth to sb",
+        "source_sense_id": "sense:offer:ec31d64f2b1e5829"
+      },
+      {
+        "construction_id": "construction:d1c563bac47430aadf7b",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "主动提出/表示愿意做某事",
+        "pattern": "offer to do sth",
+        "source_sense_id": "sense:offer:cbeb7ebf21975377"
+      }
+    ],
+    "content_hash": "dad1efebe98efdd4057b6e18d4c043bcbc31b27ad7fe3334356d247aac16421e",
     "core_concept": {
       "core_clusters": [
         {
@@ -70,7 +136,7 @@
         "confidence": "medium",
         "definition_cn": "提供；提出",
         "definition_en": "to present something for someone to accept or reject",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "offer sb sth; offer sth to sb",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
@@ -94,14 +160,14 @@
         "confidence": "medium",
         "definition_cn": "主动提出；表示愿意",
         "definition_en": "to say that you are willing to do something",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "offer to do sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:offer:cbeb7ebf21975377",
         "sense_label_en": "to say that you are willing to do something",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "vi"
       },
       {
         "collocations": [
@@ -318,8 +384,8 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3321-3328.json",
-    "source_content_hash": "84ea961537e36a5c91c56cadce2cdc651108d2d4a68e767dfa02a9e6b95d4ffc",
-    "semantic_delta": 1,
+    "source_content_hash": "dad1efebe98efdd4057b6e18d4c043bcbc31b27ad7fe3334356d247aac16421e",
+    "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

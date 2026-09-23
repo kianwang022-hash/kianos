@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "3076609b90fb4e60f57adb8928d812ce3be83e890f3e9a236393855034833cad",
+    "content_hash": "1c4055a383e230ee5266931ca121895cb2ea2c67e26cc8b2042db6a72c2f4267",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "观察；注意",
@@ -162,26 +162,35 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:b7e230f79d149fa4dc41",
+            "collocation_id": "collocation:f10cf30ee11b095ac380",
             "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
-              "sense:observe:0f65621f3ff85469:collocation:0"
+              "sense:observe:0f65621f3ff85469:collocation:streaming-c-checkpoint-o2851-o3050"
             ],
-            "meaning_cn": "就某事评论",
-            "phrase": "observe on + sth"
+            "meaning_cn": "指出/评论说……",
+            "phrase": "observe that + clause"
+          },
+          {
+            "collocation_id": "collocation:f54e4bcd0be1ac77d49b",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:observe:0f65621f3ff85469:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "“……”，他评论道",
+            "phrase": "“...,” he observed"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "评论；评述",
-        "definition_en": "to make a comment",
-        "governing_pattern": "vi. + on/upon",
-        "level": "L3",
+        "definition_cn": "说；评论；指出（正式）",
+        "definition_en": "to say or remark something, especially as an observation",
+        "governing_pattern": "observe that + clause; direct speech + he/she observed",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:observe:0f65621f3ff85469",
-        "sense_label_en": "to make a comment",
+        "sense_label_en": "to say or remark something, especially as an observation",
         "sort_order": 4,
-        "transitivity": "vi"
+        "transitivity": "I/T"
       }
     ],
     "verification_summary": {
@@ -247,8 +256,9 @@
       "collocation:146bb953c4580e4083bf",
       "collocation:1db32702813ec9fc2508",
       "collocation:b742b248eb345e793bce",
-      "collocation:b7e230f79d149fa4dc41",
-      "collocation:d2cffb5b11bbb769b632"
+      "collocation:d2cffb5b11bbb769b632",
+      "collocation:f10cf30ee11b095ac380",
+      "collocation:f54e4bcd0be1ac77d49b"
     ],
     "facts": [
       {
@@ -281,6 +291,16 @@
       {
         "id": "collocation:d2cffb5b11bbb769b632",
         "source_row": 17814,
+        "source_path": "content/lexical/canonical/collocations/shards/o3297-3328.json"
+      },
+      {
+        "id": "collocation:f10cf30ee11b095ac380",
+        "source_row": 21568,
+        "source_path": "content/lexical/canonical/collocations/shards/o3297-3328.json"
+      },
+      {
+        "id": "collocation:f54e4bcd0be1ac77d49b",
+        "source_row": 21569,
         "source_path": "content/lexical/canonical/collocations/shards/o3297-3328.json"
       }
     ],
@@ -325,7 +345,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3297-3304.json",
-    "source_content_hash": "3076609b90fb4e60f57adb8928d812ce3be83e890f3e9a236393855034833cad",
+    "source_content_hash": "1c4055a383e230ee5266931ca121895cb2ea2c67e26cc8b2042db6a72c2f4267",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
