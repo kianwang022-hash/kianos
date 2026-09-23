@@ -10,13 +10,13 @@ This file does not own medical Core, Xizong Learning semantics, Acceptance Truth
 ## Work Cursor
 
 **Scope:** B — Digestive / Metabolic / Endocrine / Tumor  
-**Active / earliest unresolved eligible gate:** `U — Real Learner Use only`.  
+**Active / earliest unresolved eligible gate:** `K — bounded M1–M10/G1–G5 Biochemistry Source rebase + Knowledge reconstruction`.  
 **S status:** PASS — exact Current B official-question membership accepted at 1071 qids.  
-**K status:** PASS — 38 stable Blocks / 600 stable KPs + accepted System model.  
-**L status:** PASS — fresh independent Phase-6 acceptance complete.  
-**P status:** PASS — fresh revalidated on PR #643 candidate `c980bf28e6ae2c8a048cf0a63f65ae68a467784a`.  
-**R status:** PASS — B shared Runtime browser journey passed on PR #643 run `35523372900`.  
-**E status:** PASS — executed B official-question / unified Repair / stale-version Evidence browser journey at candidate `fc06c948507432f47d847c03f9c291ec4e63847b`.  
+**K status:** **BOUNDED_REOPEN — M/G only**; D1–D23 remain accepted. Current Biochemistry first-pass Source is being rebased from 26 refined to 27 follow-along while preserving validated 26 explanatory reconstruction inside canonical Knowledge.  
+**L status:** previous PASS remains historical evidence; **affected M/G Learning is frozen for revalidation behind K**.  
+**P status:** previous PASS preserved; affected M/G Projection is provisional until K/L revalidation.  
+**R status:** previous PASS preserved; no broad Runtime rebuild is authorized.  
+**E status:** previous PASS preserved; stale/current learner evidence must follow Source-revision semantics once affected Block revisions land.  
 **U:** UNTESTED — real learner validation only.
 
 ```text
@@ -31,9 +31,17 @@ Phase 6  Fresh independent L acceptance                PASS
 
 Learning construction / acceptance task: GitHub Issue `#135` — completed.
 
-**Next action:** no new B engineering build. Use B through the normal learner mainline when scheduled and collect **Real Learner U**: actual Source-contact friction, Recall, W/U, Repair compression, delayed stability and question throughput. Reopen P/R/E only on concrete contradictory learner/browser evidence or Current owner change.
+**Next action:** complete the Biochemistry deep comparison in bounded batches across M1–M10/G1–G5: 27 current Source vs 26 refined explanatory substrate vs Current canonical Blocks. Rebind accepted Block Source locators to 27, repair only real semantic/logic deltas, then revalidate affected M/G Learning/Content. D1–D23 and unrelated B product/runtime work stay closed.
 
 ---
+
+## Current bounded Biochemistry revision
+
+- Current learner Source decision: **27 跟课 is the only continuous first-pass Biochemistry Source**.
+- 26 精编 is retained as **explanatory reconstruction substrate**, not a second learner reading path.
+- All 15 Current M1–M10/G1–G5 Block owners still carry 26-based Primary Study / Source locators, so this is a real Source revision, not a cosmetic delta.
+- Stable Block/KP identity is presumed preserved until deep comparison proves otherwise; no split/merge/renumber for symmetry.
+- Valid 26 explanation should live in Framework / Logic Group / KP Core or cross-System relation when useful; invalid/conflicting explanation is not grandfathered merely because it was in 26.
 
 ## Frozen Knowledge substrate
 
