@@ -9,10 +9,84 @@
   "demand": "建立高精力自我调节能力：主动判断低能量/低效率原因，完成瞬时恢复，并在日、周、长期尺度管理恢复和高精力 baseline。",
   "guide": "guide.md",
   "current_asset": "u1-state-diagnosis",
+  "cognition_model": "EXPAND_RECONSTRUCT_VERIFY_COMPRESS_TRANSFER_USE",
+  "units": [
+    {
+      "id": "u1",
+      "title": "U1 · 状态诊断",
+      "capability": "C1 状态诊断",
+      "order": 10,
+      "next_unit": "u2",
+      "assets": {
+        "learn": "u1-state-diagnosis",
+        "reconstruct": "u1-reconstruct",
+        "verify": "u1-verify",
+        "compression": "u1-compression",
+        "transfer": "u1-transfer"
+      }
+    },
+    {
+      "id": "u2",
+      "title": "U2 · 瞬时恢复",
+      "capability": "C2 瞬时恢复",
+      "order": 20,
+      "next_unit": "u3",
+      "assets": {
+        "learn": "u2-acute-recovery",
+        "reconstruct": "u2-reconstruct",
+        "verify": "u2-verify",
+        "compression": "u2-compression",
+        "transfer": "u2-transfer"
+      }
+    },
+    {
+      "id": "u3",
+      "title": "U3 · 日内精力配置",
+      "capability": "C3 日内精力配置",
+      "order": 30,
+      "next_unit": "u4",
+      "assets": {
+        "learn": "u3-day-energy",
+        "reconstruct": "u3-reconstruct",
+        "verify": "u3-verify",
+        "compression": "u3-compression",
+        "transfer": "u3-transfer"
+      }
+    },
+    {
+      "id": "u4",
+      "title": "U4 · 周尺度恢复",
+      "capability": "C4 周尺度负荷 / 恢复",
+      "order": 40,
+      "next_unit": "u5",
+      "assets": {
+        "learn": "u4-week-recovery",
+        "reconstruct": "u4-reconstruct",
+        "verify": "u4-verify",
+        "compression": "u4-compression",
+        "transfer": "u4-transfer"
+      }
+    },
+    {
+      "id": "u5",
+      "title": "U5 · 长期 baseline",
+      "capability": "C5 长期高精力 baseline",
+      "order": 50,
+      "next_unit": null,
+      "assets": {
+        "learn": "u5-baseline",
+        "reconstruct": "u5-reconstruct",
+        "verify": "u5-verify",
+        "compression": "u5-compression",
+        "transfer": "u5-transfer"
+      }
+    }
+  ],
   "assets": [
     {
       "id": "guide",
       "kind": "guide",
+      "stage": "orientation",
       "title": "总 Guide",
       "label": "先建立整张地图",
       "path": "guide.md",
@@ -22,7 +96,9 @@
     },
     {
       "id": "u1-state-diagnosis",
-      "kind": "unit",
+      "unit_id": "u1",
+      "kind": "learn",
+      "stage": "learn",
       "title": "U1 · 状态诊断",
       "label": "为什么我现在低能量 / 低效率？",
       "path": "units/u1-state-diagnosis.md",
@@ -31,22 +107,394 @@
       "completable": true
     },
     {
+      "id": "u1-reconstruct",
+      "unit_id": "u1",
+      "kind": "reconstruct",
+      "stage": "reconstruct",
+      "title": "U1 · 主动重建",
+      "label": "不回看，自己重建判断模型",
+      "path": "reconstruct/u1-state-diagnosis.md",
+      "order": 11,
+      "learner_visible": false,
+      "completable": true
+    },
+    {
       "id": "u1-verify",
+      "unit_id": "u1",
       "kind": "verify",
-      "title": "U1 · Verify",
+      "stage": "verify",
+      "title": "U1 · 独立验证",
       "label": "独立判断真实情境",
       "path": "verify/u1-state-diagnosis.md",
+      "order": 12,
+      "learner_visible": false,
+      "protected": true,
+      "chat_review": true,
+      "completable": false
+    },
+    {
+      "id": "u1-compression",
+      "unit_id": "u1",
+      "kind": "compression",
+      "stage": "compression",
+      "title": "U1 · 压缩",
+      "label": "压成一屏可调用模型",
+      "path": "compression/u1-state-diagnosis.md",
+      "order": 13,
+      "learner_visible": false,
+      "provisional": true,
+      "completable": true
+    },
+    {
+      "id": "u1-transfer",
+      "unit_id": "u1",
+      "kind": "transfer",
+      "stage": "transfer",
+      "title": "U1 · 换情境迁移",
+      "label": "换情境仍能判断",
+      "path": "transfer/u1-state-diagnosis.md",
+      "order": 14,
+      "learner_visible": false,
+      "protected": true,
+      "chat_review": true,
+      "completable": false
+    },
+    {
+      "id": "u2-acute-recovery",
+      "unit_id": "u2",
+      "kind": "learn",
+      "stage": "learn",
+      "title": "U2 · 瞬时恢复",
+      "label": "现在第一步该做什么？",
+      "path": "units/u2-acute-recovery.md",
       "order": 20,
       "learner_visible": true,
+      "completable": true
+    },
+    {
+      "id": "u2-reconstruct",
+      "unit_id": "u2",
+      "kind": "reconstruct",
+      "stage": "reconstruct",
+      "title": "U2 · 主动重建",
+      "label": "重建动作选择逻辑",
+      "path": "reconstruct/u2-acute-recovery.md",
+      "order": 21,
+      "learner_visible": false,
+      "completable": true
+    },
+    {
+      "id": "u2-verify",
+      "unit_id": "u2",
+      "kind": "verify",
+      "stage": "verify",
+      "title": "U2 · 独立验证",
+      "label": "为真实状态选择第一动作",
+      "path": "verify/u2-acute-recovery.md",
+      "order": 22,
+      "learner_visible": false,
       "protected": true,
+      "chat_review": true,
+      "completable": false
+    },
+    {
+      "id": "u2-compression",
+      "unit_id": "u2",
+      "kind": "compression",
+      "stage": "compression",
+      "title": "U2 · 压缩",
+      "label": "第一动作路由器",
+      "path": "compression/u2-acute-recovery.md",
+      "order": 23,
+      "learner_visible": false,
+      "provisional": true,
+      "completable": true
+    },
+    {
+      "id": "u2-transfer",
+      "unit_id": "u2",
+      "kind": "transfer",
+      "stage": "transfer",
+      "title": "U2 · 换情境迁移",
+      "label": "工具冲突与现实约束",
+      "path": "transfer/u2-acute-recovery.md",
+      "order": 24,
+      "learner_visible": false,
+      "protected": true,
+      "chat_review": true,
+      "completable": false
+    },
+    {
+      "id": "u3-day-energy",
+      "unit_id": "u3",
+      "kind": "learn",
+      "stage": "learn",
+      "title": "U3 · 日内精力配置",
+      "label": "把高认知任务放进对的状态窗口",
+      "path": "units/u3-day-energy.md",
+      "order": 30,
+      "learner_visible": true,
+      "completable": true
+    },
+    {
+      "id": "u3-reconstruct",
+      "unit_id": "u3",
+      "kind": "reconstruct",
+      "stage": "reconstruct",
+      "title": "U3 · 主动重建",
+      "label": "重建日内资源配置模型",
+      "path": "reconstruct/u3-day-energy.md",
+      "order": 31,
+      "learner_visible": false,
+      "completable": true
+    },
+    {
+      "id": "u3-verify",
+      "unit_id": "u3",
+      "kind": "verify",
+      "stage": "verify",
+      "title": "U3 · 独立验证",
+      "label": "动态排一天的任务",
+      "path": "verify/u3-day-energy.md",
+      "order": 32,
+      "learner_visible": false,
+      "protected": true,
+      "chat_review": true,
+      "completable": false
+    },
+    {
+      "id": "u3-compression",
+      "unit_id": "u3",
+      "kind": "compression",
+      "stage": "compression",
+      "title": "U3 · 压缩",
+      "label": "日内操作模型",
+      "path": "compression/u3-day-energy.md",
+      "order": 33,
+      "learner_visible": false,
+      "provisional": true,
+      "completable": true
+    },
+    {
+      "id": "u3-transfer",
+      "unit_id": "u3",
+      "kind": "transfer",
+      "stage": "transfer",
+      "title": "U3 · 换情境迁移",
+      "label": "现实变化下重排",
+      "path": "transfer/u3-day-energy.md",
+      "order": 34,
+      "learner_visible": false,
+      "protected": true,
+      "chat_review": true,
+      "completable": false
+    },
+    {
+      "id": "u4-week-recovery",
+      "unit_id": "u4",
+      "kind": "learn",
+      "stage": "learn",
+      "title": "U4 · 周尺度恢复",
+      "label": "识别累积负荷而不是每天重新解释自己",
+      "path": "units/u4-week-recovery.md",
+      "order": 40,
+      "learner_visible": true,
+      "completable": true
+    },
+    {
+      "id": "u4-reconstruct",
+      "unit_id": "u4",
+      "kind": "reconstruct",
+      "stage": "reconstruct",
+      "title": "U4 · 主动重建",
+      "label": "重建趋势判断模型",
+      "path": "reconstruct/u4-week-recovery.md",
+      "order": 41,
+      "learner_visible": false,
+      "completable": true
+    },
+    {
+      "id": "u4-verify",
+      "unit_id": "u4",
+      "kind": "verify",
+      "stage": "verify",
+      "title": "U4 · 独立验证",
+      "label": "判断局部波动 vs 多日 mismatch",
+      "path": "verify/u4-week-recovery.md",
+      "order": 42,
+      "learner_visible": false,
+      "protected": true,
+      "chat_review": true,
+      "completable": false
+    },
+    {
+      "id": "u4-compression",
+      "unit_id": "u4",
+      "kind": "compression",
+      "stage": "compression",
+      "title": "U4 · 压缩",
+      "label": "周趋势路由器",
+      "path": "compression/u4-week-recovery.md",
+      "order": 43,
+      "learner_visible": false,
+      "provisional": true,
+      "completable": true
+    },
+    {
+      "id": "u4-transfer",
+      "unit_id": "u4",
+      "kind": "transfer",
+      "stage": "transfer",
+      "title": "U4 · 换情境迁移",
+      "label": "换指标、换情境仍能判断趋势",
+      "path": "transfer/u4-week-recovery.md",
+      "order": 44,
+      "learner_visible": false,
+      "protected": true,
+      "chat_review": true,
+      "completable": false
+    },
+    {
+      "id": "u5-baseline",
+      "unit_id": "u5",
+      "kind": "learn",
+      "stage": "learn",
+      "title": "U5 · 长期 baseline",
+      "label": "让高质量精力越来越像默认状态",
+      "path": "units/u5-baseline.md",
+      "order": 50,
+      "learner_visible": true,
+      "completable": true
+    },
+    {
+      "id": "u5-reconstruct",
+      "unit_id": "u5",
+      "kind": "reconstruct",
+      "stage": "reconstruct",
+      "title": "U5 · 主动重建",
+      "label": "重建长期底盘与优先级",
+      "path": "reconstruct/u5-baseline.md",
+      "order": 51,
+      "learner_visible": false,
+      "completable": true
+    },
+    {
+      "id": "u5-verify",
+      "unit_id": "u5",
+      "kind": "verify",
+      "stage": "verify",
+      "title": "U5 · 独立验证",
+      "label": "从多个可优化变量中找 bottleneck",
+      "path": "verify/u5-baseline.md",
+      "order": 52,
+      "learner_visible": false,
+      "protected": true,
+      "chat_review": true,
+      "completable": false
+    },
+    {
+      "id": "u5-compression",
+      "unit_id": "u5",
+      "kind": "compression",
+      "stage": "compression",
+      "title": "U5 · 压缩",
+      "label": "长期底盘模型",
+      "path": "compression/u5-baseline.md",
+      "order": 53,
+      "learner_visible": false,
+      "provisional": true,
+      "completable": true
+    },
+    {
+      "id": "u5-transfer",
+      "unit_id": "u5",
+      "kind": "transfer",
+      "stage": "transfer",
+      "title": "U5 · 换情境迁移",
+      "label": "多个缺口与优化过头",
+      "path": "transfer/u5-baseline.md",
+      "order": 54,
+      "learner_visible": false,
+      "protected": true,
+      "chat_review": true,
+      "completable": false
+    },
+    {
+      "id": "real-use",
+      "kind": "field",
+      "stage": "real_use",
+      "title": "真实调用",
+      "label": "只保留真正有信息量的现实调用",
+      "path": "field/real-use.md",
+      "order": 80,
+      "learner_visible": false,
+      "completable": false
+    },
+    {
+      "id": "calibration",
+      "kind": "field",
+      "stage": "calibration",
+      "title": "个人校准",
+      "label": "把通用模型压成你的个人先验",
+      "path": "field/calibration.md",
+      "order": 81,
+      "learner_visible": false,
+      "completable": false
+    },
+    {
+      "id": "escalation",
+      "kind": "reference",
+      "stage": "reference",
+      "title": "医疗升级边界",
+      "label": "什么时候停止把问题当作生产力优化",
+      "path": "field/escalation.md",
+      "order": 82,
+      "learner_visible": true,
+      "completable": false
+    },
+    {
+      "id": "skill-compression",
+      "kind": "compression",
+      "stage": "skill_compression",
+      "title": "High Energy · 总压缩",
+      "label": "整项 Skill 的最终压缩候选",
+      "path": "compression/skill-operating-model.md",
+      "order": 90,
+      "learner_visible": false,
+      "provisional": true,
       "completable": false
     }
   ],
   "source_reviews": [
     {
       "id": "u1-source-review",
+      "unit_id": "u1",
       "title": "U1 Source Review",
       "path": "source-review/u1-state-diagnosis.md"
+    },
+    {
+      "id": "u2-source-review",
+      "unit_id": "u2",
+      "title": "U2 Source Review",
+      "path": "source-review/u2-acute-recovery.md"
+    },
+    {
+      "id": "u3-source-review",
+      "unit_id": "u3",
+      "title": "U3 Source Review",
+      "path": "source-review/u3-day-energy.md"
+    },
+    {
+      "id": "u4-source-review",
+      "unit_id": "u4",
+      "title": "U4 Source Review",
+      "path": "source-review/u4-week-recovery.md"
+    },
+    {
+      "id": "u5-source-review",
+      "unit_id": "u5",
+      "title": "U5 Source Review",
+      "path": "source-review/u5-baseline.md"
     }
   ],
   "capability_map": [
@@ -58,26 +506,6 @@
     "C6 个体自证 / calibration",
     "C7 医疗升级边界"
   ],
-  "next_planned": [
-    {
-      "id": "u2-acute-recovery",
-      "title": "U2 · 瞬时恢复",
-      "status": "PLANNED"
-    },
-    {
-      "id": "u3-day-energy",
-      "title": "U3 · 日内精力配置",
-      "status": "PLANNED"
-    },
-    {
-      "id": "u4-week-recovery",
-      "title": "U4 · 周尺度恢复",
-      "status": "PLANNED"
-    },
-    {
-      "id": "u5-baseline",
-      "title": "U5 · 长期高精力 baseline",
-      "status": "PLANNED"
-    }
-  ]
+  "next_planned": [],
+  "learning_design": "LEARNING_DESIGN.md"
 }

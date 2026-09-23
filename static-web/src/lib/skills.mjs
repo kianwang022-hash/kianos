@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { marked } from 'marked';
+import crypto from 'node:crypto';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(here, '../../..');
@@ -30,14 +31,29 @@ function resolveWithin(root, relative, label) {
 function normalizeAsset(asset) {
   return {
     id: String(asset?.id || ''),
+    unit_id: String(asset?.unit_id || ''),
     kind: String(asset?.kind || 'unit'),
+    stage: String(asset?.stage || asset?.kind || 'unit'),
     title: String(asset?.title || ''),
     label: String(asset?.label || ''),
     path: String(asset?.path || ''),
     order: Number(asset?.order || 0),
     learner_visible: asset?.learner_visible !== false,
     protected: asset?.protected === true,
+    chat_review: asset?.chat_review === true,
+    provisional: asset?.provisional === true,
     completable: asset?.completable === true
+  };
+}
+
+function normalizeUnit(unit) {
+  return {
+    id: String(unit?.id || ''),
+    title: String(unit?.title || ''),
+    capability: String(unit?.capability || ''),
+    order: Number(unit?.order || 0),
+    next_unit: unit?.next_unit == null ? null : String(unit.next_unit),
+    assets: { ...(unit?.assets || {}) }
   };
 }
 
@@ -52,7 +68,19 @@ function validateSkillManifest(input, expectedId) {
     ids.add(asset.id);
   }
   if (input.current_asset && !ids.has(String(input.current_asset))) throw new Error('SKILL_CURRENT_ASSET_UNKNOWN:' + expectedId);
-  return { ...input, assets: assets.sort((a,b) => a.order - b.order) };
+  const units = Array.isArray(input.units) ? input.units.map(normalizeUnit).sort((a,b) => a.order - b.order) : [];
+  const unitIds = new Set();
+  for (const unit of units) {
+    if (!unit.id || !unit.title || unitIds.has(unit.id)) throw new Error('SKILL_UNIT_INVALID:' + expectedId + ':' + unit.id);
+    unitIds.add(unit.id);
+    for (const [stage, assetId] of Object.entries(unit.assets || {})) {
+      if (!assetId || !ids.has(String(assetId))) throw new Error('SKILL_UNIT_ASSET_UNKNOWN:' + expectedId + ':' + unit.id + ':' + stage);
+      const asset = assets.find((row) => row.id === String(assetId));
+      if (asset?.unit_id && asset.unit_id !== unit.id) throw new Error('SKILL_UNIT_ASSET_MISMATCH:' + expectedId + ':' + unit.id + ':' + stage);
+    }
+  }
+  for (const unit of units) if (unit.next_unit && !unitIds.has(unit.next_unit)) throw new Error('SKILL_UNIT_NEXT_UNKNOWN:' + expectedId + ':' + unit.id);
+  return { ...input, assets: assets.sort((a,b) => a.order - b.order), units };
 }
 
 export function loadSkillLibrary() {
@@ -79,7 +107,8 @@ export function listSkills() {
     portfolioState: String(row.portfolio_state || row.manifest.portfolio_state || ''),
     status: String(row.manifest.status || ''),
     currentAsset: String(row.manifest.current_asset || ''),
-    assets: row.manifest.assets.filter((asset) => asset.learner_visible)
+    assets: row.manifest.assets.filter((asset) => asset.learner_visible),
+    units: row.manifest.units || []
   }));
 }
 
@@ -94,7 +123,8 @@ export function loadSkill(skillId) {
     status: String(row.manifest.status || ''),
     manifest: row.manifest,
     skillRoot: row.skillRoot,
-    assets: row.manifest.assets.filter((asset) => asset.learner_visible)
+    assets: row.manifest.assets.filter((asset) => asset.learner_visible),
+    units: row.manifest.units || []
   };
 }
 
@@ -115,4 +145,28 @@ export function listSkillAssetRoutes() {
 
 export function skillAssetHref(base, skillId, assetId) {
   return base + 'skills/' + encodeURIComponent(skillId) + '/' + encodeURIComponent(assetId) + '/';
+}
+
+
+export function skillUnitForAsset(skill, assetId) {
+  const asset = skill.assets.find((item) => item.id === assetId);
+  if (!asset?.unit_id) return null;
+  return (skill.units || []).find((unit) => unit.id === asset.unit_id) || null;
+}
+
+export function skillUnitFingerprint(skillId, unitId) {
+  const skill = loadSkill(skillId);
+  const unit = (skill.units || []).find((row) => row.id === unitId);
+  if (!unit) throw new Error('SKILL_UNIT_NOT_FOUND:' + skillId + ':' + unitId);
+  const hash = crypto.createHash('sha256');
+  hash.update(JSON.stringify({ skill_id:skill.id, unit }));
+  const assetIds = Object.values(unit.assets || {}).map(String);
+  for (const assetId of assetIds) {
+    const asset = skill.manifest.assets.find((row) => row.id === assetId);
+    if (!asset) throw new Error('SKILL_UNIT_ASSET_NOT_FOUND:' + assetId);
+    hash.update('\n' + asset.id + '\n' + readUtf8(resolveWithin(skill.skillRoot, asset.path, asset.id)));
+  }
+  const review = (skill.manifest.source_reviews || []).find((row) => String(row?.unit_id || '') === unitId);
+  if (review?.path) hash.update('\nsource-review\n' + readUtf8(resolveWithin(skill.skillRoot, review.path, unitId + ':source-review')));
+  return 'hu-' + hash.digest('hex').slice(0, 16);
 }

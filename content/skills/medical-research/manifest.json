@@ -1,0 +1,54 @@
+{
+  "schema": "kianos.skill.manifest.v1",
+  "id": "medical-research",
+  "title": "医学科研与科学实践",
+  "kicker": "Medical Research & Scientific Practice",
+  "description": "把科学问题、研究设计、测量、统计与因果、数据分析、伦理、可重复性、写作发表和团队协作连成一套能真正产生可靠医学证据的科研能力。",
+  "status": "READY",
+  "portfolio_state": "CORE",
+  "demand": "建立支持硕博科研与循证专业工作的科学能力：能从临床或生物医学问题形成可研究问题，选择合适设计与测量，理解偏倚、混杂和统计不确定性，正确解释数据，维护伦理与可重复性，并把结果写成透明、可审查、可复现的科学产出。",
+  "guide": "framework.md",
+  "current_asset": "framework",
+  "units": [
+    {"id":"u1","title":"U1 · 科学问题、文献定位与研究方案","capability":"C1 从真实知识缺口形成可回答问题、estimand 和 protocol，而不是从能做的分析倒推问题","order":10,"next_unit":"u2","assets":{"learn":"u1-question-protocol"}},
+    {"id":"u2","title":"U2 · 研究设计、偏倚与因果","capability":"C2 根据问题选择随机 / 观察 / 诊断 / 预测等设计，并识别选择、信息、混杂与时间相关偏倚","order":20,"next_unit":"u3","assets":{"learn":"u2-design-causal"}},
+    {"id":"u3","title":"U3 · 测量、数据与研究操作","capability":"C3 把概念变成可靠变量和 outcome，管理数据质量、缺失、版本、代码与研究流程","order":30,"next_unit":"u4","assets":{"learn":"u3-measurement-data"}},
+    {"id":"u4","title":"U4 · 生物统计与结果解释","capability":"C4 用 effect size、uncertainty、model assumptions、multiplicity 和 prediction / causation 边界解释分析","order":40,"next_unit":"u5","assets":{"learn":"u4-statistics-interpretation"}},
+    {"id":"u5","title":"U5 · 临床研究、伦理与可重复性","capability":"C5 理解 trial protocol、registration、participant protection、reporting、reproducibility 和 deviation 管理","order":50,"next_unit":"u6","assets":{"learn":"u5-ethics-reproducibility"}},
+    {"id":"u6","title":"U6 · 科学写作、图表与同行评议","capability":"C6 把方法、结果、不确定性和局限透明写出，选择正确 reporting guideline，并能审稿而不被叙事带走","order":60,"next_unit":"u7","assets":{"learn":"u6-writing-peer-review"}},
+    {"id":"u7","title":"U7 · 科研项目、协作与 AI 验证","capability":"C7 管理问题、里程碑、作者责任、代码 / 数据交接和 AI-assisted workflow，同时保留必须由研究者真正掌握的科学核心（Native Core）","order":70,"next_unit":null,"assets":{"learn":"u7-project-ai"}}
+  ],
+  "assets": [
+    {"id":"framework","kind":"guide","stage":"orientation","title":"总框架","label":"先建立从科学问题到可复核证据的整张地图","path":"framework.md","order":0,"learner_visible":true,"completable":false},
+    {"id":"u1-question-protocol","unit_id":"u1","kind":"learn","stage":"learn","title":"U1 · 科学问题、文献定位与研究方案","label":"先明确要知道什么，再决定搜什么、测什么、分析什么","path":"units/u1-question-protocol.md","order":10,"learner_visible":true,"completable":false},
+    {"id":"u2-design-causal","unit_id":"u2","kind":"learn","stage":"learn","title":"U2 · 研究设计、偏倚与因果","label":"设计不是方法名，而是你怎样让比较接近真正想回答的问题","path":"units/u2-design-causal.md","order":20,"learner_visible":true,"completable":false},
+    {"id":"u3-measurement-data","unit_id":"u3","kind":"learn","stage":"learn","title":"U3 · 测量、数据与研究操作","label":"数据不是自然掉进表格里；定义、采集、清理和版本本身就是科学过程","path":"units/u3-measurement-data.md","order":30,"learner_visible":true,"completable":false},
+    {"id":"u4-statistics-interpretation","unit_id":"u4","kind":"learn","stage":"learn","title":"U4 · 生物统计与结果解释","label":"统计工具服务问题，不用 p 值和复杂模型替代效应与不确定性的判断","path":"units/u4-statistics-interpretation.md","order":40,"learner_visible":true,"completable":false},
+    {"id":"u5-ethics-reproducibility","unit_id":"u5","kind":"learn","stage":"learn","title":"U5 · 临床研究、伦理与可重复性","label":"研究价值必须建立在参与者保护、透明 protocol、注册和可追溯流程之上","path":"units/u5-ethics-reproducibility.md","order":50,"learner_visible":true,"completable":false},
+    {"id":"u6-writing-peer-review","unit_id":"u6","kind":"learn","stage":"learn","title":"U6 · 科学写作、图表与同行评议","label":"写作不是包装结果，而是把别人复核你的推理所需的信息交出来","path":"units/u6-writing-peer-review.md","order":60,"learner_visible":true,"completable":false},
+    {"id":"u7-project-ai","unit_id":"u7","kind":"learn","stage":"learn","title":"U7 · 科研项目、协作与 AI 验证","label":"让工具大幅提速，但让问题、设计、解释、责任和验证仍然有人真正拥有","path":"units/u7-project-ai.md","order":70,"learner_visible":true,"completable":false}
+  ],
+  "capability_map": [
+    "C1 问题：knowledge gap / PICO / estimand / literature position / protocol",
+    "C2 设计：RCT / observational / diagnostic / prediction / bias / confounding / causal target",
+    "C3 数据：measurement / validity / outcome / missingness / cleaning / provenance / code-data versioning",
+    "C4 统计：effect size / CI / p value / multiplicity / model assumptions / prediction vs causation",
+    "C5 科研治理：ethics / consent / registration / deviations / reproducibility / transparency",
+    "C6 输出：reporting guideline / figures / writing / peer review / limitations / publication judgment",
+    "C7 执行：project management / collaboration / authorship / AI-assisted analysis-drafting-validation"
+  ],
+  "source_reviews":[
+    {"id":"whole-book-source-review","title":"Medical Research Source Review","path":"source-review.md"}
+  ],
+  "related_skill_candidates":[
+    {"id":"information-research","relation":"Information Research 负责检索与评价现有证据；本 Skill 负责从问题设计研究并产生新证据"},
+    {"id":"medicine-clinical","relation":"Medicine / Clinical Judgment 使用证据服务患者层判断；本 Skill 负责证据生产和研究解释"},
+    {"id":"ai-native","relation":"AI-native 负责工具、代码、workflow 和 eval；本 Skill 定义科研任务里哪些环节可以自动化以及如何保持科学验证"},
+    {"id":"english-global","relation":"English 负责英文论文、会议和写作执行；本 Skill 负责科学内容、方法和发表判断"}
+  ],
+  "next_planned":[
+    "Framework + U1–U7 + whole-book Source Review 已完成并通过 bounded self-attack",
+    "question-after-data / design-name theater / p-value worship / causal overclaim / model-complexity / reproducibility / reporting-guideline / publication-status / authorship / AI laundering 已完成最小修复",
+    "READY and registered；以后只因真实 learner question、material content defect、durable Source change、real research-project evidence 或真实课题产生的方法需求 reopen"
+  ]
+}

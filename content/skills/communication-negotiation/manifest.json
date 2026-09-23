@@ -1,0 +1,54 @@
+{
+  "schema": "kianos.skill.manifest.v1",
+  "id": "communication-negotiation",
+  "title": "沟通、谈判与社会资本",
+  "kicker": "Communication, Negotiation & Social Capital",
+  "description": "把清晰表达、倾听、说服、谈判、冲突修复、信任和关系网络连成一套可真实调用的人际能力，同时保留尊重、自主与长期关系边界。",
+  "status": "READY",
+  "portfolio_state": "CORE",
+  "demand": "建立不能被 AI 代替的人际能力：能把复杂问题讲清楚、听懂真实意图、提出好问题、谈判而不被单一立场绑住、处理冲突与边界、建立可靠关系，并长期维护有信息与信任价值的社会网络。",
+  "guide": "framework.md",
+  "current_asset": "framework",
+  "units": [
+    {"id":"u1","title":"U1 · 清晰表达与结构化解释","capability":"C1 把复杂内容压成对方能理解、记住并行动的表达","order":10,"next_unit":"u2","assets":{"learn":"u1-clear-expression"}},
+    {"id":"u2","title":"U2 · 倾听、提问与理解修复","capability":"C2 用高质量倾听、提问、复述与 conversation repair 建立共享理解","order":20,"next_unit":"u3","assets":{"learn":"u2-listening-questions"}},
+    {"id":"u3","title":"U3 · 说服、论证与伦理影响","capability":"C3 区分信息、框架、证据、利益与心理机制，在不操纵对方的前提下提高说服质量","order":30,"next_unit":"u4","assets":{"learn":"u3-persuasion-ethics"}},
+    {"id":"u4","title":"U4 · 谈判与价值创造","capability":"C4 用 BATNA、reservation point、利益、议题交换和可验证承诺进行谈判","order":40,"next_unit":"u5","assets":{"learn":"u4-negotiation"}},
+    {"id":"u5","title":"U5 · 冲突、边界与关系修复","capability":"C5 在真实冲突里表达需求和边界，处理误解、责任、道歉与修复","order":50,"next_unit":"u6","assets":{"learn":"u5-conflict-boundaries"}},
+    {"id":"u6","title":"U6 · 信任、社会判断与可靠性","capability":"C6 通过行为一致性、上下文判断、激励理解和信号校准建立并保护信任","order":60,"next_unit":"u7","assets":{"learn":"u6-trust-social-judgment"}},
+    {"id":"u7","title":"U7 · 网络、合作与领导接口","capability":"C7 维护强弱关系、专业网络、导师关系、转介绍与团队协作，而不把关系工具化","order":70,"next_unit":null,"assets":{"learn":"u7-network-leadership"}}
+  ],
+  "assets": [
+    {"id":"framework","kind":"guide","stage":"orientation","title":"总框架","label":"先建立从表达、理解到关系和合作的整张地图","path":"framework.md","order":0,"learner_visible":true,"completable":false},
+    {"id":"u1-clear-expression","unit_id":"u1","kind":"learn","stage":"learn","title":"U1 · 清晰表达与结构化解释","label":"不是说得多，而是让对方真正得到你想传递的东西","path":"units/u1-clear-expression.md","order":10,"learner_visible":true,"completable":false},
+    {"id":"u2-listening-questions","unit_id":"u2","kind":"learn","stage":"learn","title":"U2 · 倾听、提问与理解修复","label":"先确认自己真的理解了，而不是只等着轮到自己说","path":"units/u2-listening-questions.md","order":20,"learner_visible":true,"completable":false},
+    {"id":"u3-persuasion-ethics","unit_id":"u3","kind":"learn","stage":"learn","title":"U3 · 说服、论证与伦理影响","label":"提高对方理解和自主判断，不靠操纵与信息遮蔽","path":"units/u3-persuasion-ethics.md","order":30,"learner_visible":true,"completable":false},
+    {"id":"u4-negotiation","unit_id":"u4","kind":"learn","stage":"learn","title":"U4 · 谈判与价值创造","label":"先知道自己的替代方案和底线，再一起找可交换价值","path":"units/u4-negotiation.md","order":40,"learner_visible":true,"completable":false},
+    {"id":"u5-conflict-boundaries","unit_id":"u5","kind":"learn","stage":"learn","title":"U5 · 冲突、边界与关系修复","label":"面对真正分歧，不逃避、不攻击，也不牺牲必要边界","path":"units/u5-conflict-boundaries.md","order":50,"learner_visible":true,"completable":false},
+    {"id":"u6-trust-social-judgment","unit_id":"u6","kind":"learn","stage":"learn","title":"U6 · 信任、社会判断与可靠性","label":"把信任建立在长期可观察行为，而不是标签和第一印象","path":"units/u6-trust-social-judgment.md","order":60,"learner_visible":true,"completable":false},
+    {"id":"u7-network-leadership","unit_id":"u7","kind":"learn","stage":"learn","title":"U7 · 网络、合作与领导接口","label":"让关系网络支持合作和机会，但不把人降维成资源","path":"units/u7-network-leadership.md","order":70,"learner_visible":true,"completable":false}
+  ],
+  "capability_map": [
+    "C1 表达：结构 / 简洁 / 解释 / 写作 / 演示 / 受众匹配",
+    "C2 理解：倾听 / 提问 / 复述 / 澄清 / 对话修复",
+    "C3 影响：论证 / 框架 / 说服 / 自主 / 伦理",
+    "C4 谈判：BATNA / 底线条件 / interests / ZOPA / 议题交换",
+    "C5 冲突：需求 / 边界 / 责任 / 道歉 / 修复",
+    "C6 社会判断：情境 / 激励 / 信任 / 声誉 / 地位校准",
+    "C7 关系网络：强关系 / 弱关系 / mentorship / 转介绍 / 协作 / leadership"
+  ],
+  "source_reviews":[
+    {"id":"whole-book-source-review","title":"Communication / Negotiation Source Review","path":"source-review.md"}
+  ],
+  "related_skill_candidates":[
+    {"id":"decision-quality","relation":"Decision 负责重要关系或谈判中的最终取舍；本 Skill 负责沟通、理解与协商过程"},
+    {"id":"information-research","relation":"Research 负责事实和证据真假；本 Skill 负责如何把信息可靠地传达、质询并形成共享理解"},
+    {"id":"business-product","relation":"Business 需要销售和客户沟通接口；复杂说服、谈判、关系维护由本 Skill 深化"},
+    {"id":"english-global","relation":"English 负责跨语言表达与互动；本 Skill 提供跨语言也适用的人际沟通结构"}
+  ],
+  "next_planned":[
+    "Framework + U1–U7 + whole-book Source Review 已完成并通过 bounded self-attack",
+    "manipulation / charisma / listening ritual / BATNA overformalization / conflict universalism / apology reset / trust score / relationship instrumentalization 已完成最小修复",
+    "READY and registered；以后只因真实 learner question、material content defect、durable Source change 或 real interaction evidence reopen；不把真实关系变成强制记录和优化对象"
+  ]
+}

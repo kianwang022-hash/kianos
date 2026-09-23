@@ -3,80 +3,200 @@ import SkillsBase from '../../../layouts/SkillsBase.astro';
 import { listSkillAssetRoutes, loadSkillAsset, skillAssetHref } from '../../../lib/skills.mjs';
 
 export function getStaticPaths() {
-  return listSkillAssetRoutes().map((route) => ({
-    params: { skill: route.skillId, asset: route.assetId }
-  }));
+  return listSkillAssetRoutes().map((route) => ({ params: { skill: route.skillId, asset: route.assetId } }));
 }
 
 const base = import.meta.env.BASE_URL;
 const skillId = Astro.params.skill;
 const assetId = Astro.params.asset;
 const { skill, asset, html } = loadSkillAsset(skillId, assetId);
-const index = skill.assets.findIndex((item) => item.id === asset.id);
-const previous = index > 0 ? skill.assets[index - 1] : null;
-const next = index >= 0 && index < skill.assets.length - 1 ? skill.assets[index + 1] : null;
-const isVerify = asset.kind === 'verify' || asset.protected;
+const visible = skill.assets;
+const currentIndex = visible.findIndex((row) => row.id === asset.id);
+const prev = currentIndex > 0 ? visible[currentIndex - 1] : null;
+const next = currentIndex >= 0 && currentIndex < visible.length - 1 ? visible[currentIndex + 1] : null;
+const unitOrder = new Map((skill.units || []).map((unit, index) => [unit.id, index + 1]));
+const navLabel = (item) => item.stage === 'orientation'
+  ? '总览'
+  : item.stage === 'reference'
+    ? '参考'
+    : item.unit_id && unitOrder.has(item.unit_id)
+      ? 'U' + unitOrder.get(item.unit_id)
+      : '学习';
+const mode = asset.stage === 'orientation'
+  ? ['总览','先建立整张地图；不用背原句。']
+  : asset.stage === 'reference'
+    ? ['参考','需要时再看，不是额外课程。']
+    : ['学习','专心看内容；有真实疑问再回 Chat。'];
 ---
-<SkillsBase title={asset.title} kicker={skill.title + ' · ' + asset.kind.toUpperCase()} description={asset.label || skill.subtitle}>
-  <nav class="skillBreadcrumb" aria-label="Skill navigation">
-    <a href={base + 'skills/'}>Skills</a>
-    <span>›</span>
-    <a href={base + 'skills/' + skill.id + '/'}>{skill.title}</a>
-    <span>›</span>
-    <strong>{asset.title}</strong>
-  </nav>
+<SkillsBase title={asset.title} kicker={skill.title + ' · ' + mode[0]} description={asset.label || skill.subtitle}>
+  <div class="skillReaderLayout">
+    <aside class="skillReaderNav">
+      <a class="skillReaderBack" href={base + 'skills/'}>← 全部 Skills</a>
+      <div class="skillReaderNavTitle">
+        <span>{skill.manifest.kicker || 'Skill'}</span>
+        <strong>{skill.title}</strong>
+      </div>
 
-  {isVerify && (
-    <aside class="skillVerifyBanner">
-      <strong>Protected Verify</strong>
-      <p>这是独立验证面。若要保留 clean evidence，先完成学习正文，再在不回看的情况下作答。</p>
+      <nav aria-label="Skill 阅读目录">
+        {visible.map((item) => (
+          <a
+            class={'skillReaderNavItem ' + (item.id === asset.id ? 'is-current' : '')}
+            href={skillAssetHref(base, skill.id, item.id)}
+            data-skill-reader-link
+            data-target-asset={item.id}
+            aria-current={item.id === asset.id ? 'page' : undefined}
+          >
+            <span>{navLabel(item)}</span>
+            <strong>{item.title.replace(/^U\d+\s*·\s*/, '')}</strong>
+          </a>
+        ))}
+      </nav>
+
+      <div class="skillReaderNavFoot">
+        <a href={base + 'skills/' + skill.id + '/'}>学习地图</a>
+        <p>网站只负责阅读和继续位置；深入互动都在 Chat。</p>
+      </div>
     </aside>
-  )}
 
-  <article class={'skillReader ' + (isVerify ? 'skillReaderVerify' : '')} data-skill-reader data-skill-id={skill.id} data-asset-id={asset.id} data-completable={asset.completable ? 'true' : 'false'}>
-    <div class="skillMarkdown" set:html={html} />
-  </article>
+    <main class="skillReaderMain">
+      <nav class="skillBreadcrumb" aria-label="Skill navigation">
+        <a href={base + 'skills/'}>Skills</a><span>›</span>
+        <a href={base + 'skills/' + skill.id + '/'}>{skill.title}</a><span>›</span>
+        <strong>{asset.title}</strong>
+      </nav>
 
-  <footer class="skillReaderFooter">
-    <div class="skillReaderProgress" data-skill-progress-label>本页尚未记录</div>
-    {asset.completable && <button type="button" class="skillReadButton" data-skill-complete>标记已读</button>}
-    <nav>
-      {previous ? <a href={skillAssetHref(base, skill.id, previous.id)}>← {previous.title}</a> : <span />}
-      {next ? <a href={skillAssetHref(base, skill.id, next.id)}>{next.title} →</a> : <a href={base + 'skills/' + skill.id + '/'}>返回学习地图</a>}
-    </nav>
-  </footer>
+      <aside class={'skillReaderMode skillReaderMode-' + asset.stage}>
+        <span>{mode[0]}</span><p>{mode[1]}</p>
+      </aside>
+
+      <article
+        class="skillReader"
+        data-skill-reader
+        data-skill-id={skill.id}
+        data-asset-id={asset.id}
+      >
+        <div class="skillMarkdown" set:html={html} />
+      </article>
+
+      <footer class="skillReaderFooter">
+        <nav class="skillReaderPager">
+          {prev ? <a href={skillAssetHref(base, skill.id, prev.id)} data-skill-reader-link data-target-asset={prev.id}>← {prev.title}</a> : <span></span>}
+          {next ? <a href={skillAssetHref(base, skill.id, next.id)} data-skill-reader-link data-target-asset={next.id}>{next.title} →</a> : <a href={base + 'skills/' + skill.id + '/'}>返回学习地图 →</a>}
+        </nav>
+      </footer>
+    </main>
+  </div>
 </SkillsBase>
 
 <script>
-  import { recordSkillAssetVisit, setSkillAssetCompleted, skillProgressFor } from '../../../lib/skillRuntimeClient.mjs';
   import { learnerWriterReady } from '../../../lib/browserLearnerWriter.mjs';
+  import { recordSkillAssetVisit } from '../../../lib/skillRuntimeClient.mjs';
 
-  void learnerWriterReady.then(() => {
-  const reader = document.querySelector('[data-skill-reader]');
-  if (reader instanceof HTMLElement) {
+  const readerCache = new Map();
+
+  const currentReader = () => document.querySelector('[data-skill-reader]');
+
+  const recordCurrentVisit = () => {
+    const reader = currentReader();
+    if (!(reader instanceof HTMLElement)) return;
     const skillId = reader.dataset.skillId || '';
     const assetId = reader.dataset.assetId || '';
-    recordSkillAssetVisit(skillId, assetId);
+    if (skillId && assetId) recordSkillAssetVisit(skillId, assetId);
+  };
 
-    const label = document.querySelector('[data-skill-progress-label]');
-    const button = document.querySelector('[data-skill-complete]');
-
-    const render = () => {
-      const state = skillProgressFor(skillId);
-      const done = state.completed.includes(assetId);
-      if (label instanceof HTMLElement) label.textContent = done ? '已标记读完 · 不代表掌握' : '已记录到访';
-      if (button instanceof HTMLButtonElement) button.textContent = done ? '取消已读' : '标记已读';
-      if (button instanceof HTMLButtonElement) button.dataset.done = done ? 'true' : 'false';
-    };
-
-    render();
-    if (button instanceof HTMLButtonElement) {
-      button.addEventListener('click', () => {
-        const state = skillProgressFor(skillId);
-        setSkillAssetCompleted(skillId, assetId, !state.completed.includes(assetId));
-        render();
-      });
+  const fetchReaderDocument = async (url) => {
+    const key = url.href;
+    if (readerCache.has(key)) return readerCache.get(key);
+    const pending = fetch(key, {
+      headers: { 'X-KianOS-Skill-Reader': 'partial' }
+    }).then(async (response) => {
+      if (!response.ok) throw new Error('SKILL_READER_NAV_HTTP_' + response.status);
+      const html = await response.text();
+      return new DOMParser().parseFromString(html, 'text/html');
+    });
+    readerCache.set(key, pending);
+    try {
+      return await pending;
+    } catch (error) {
+      readerCache.delete(key);
+      throw error;
     }
-  }
+  };
+
+  const syncReaderNav = (url) => {
+    const targetPath = url.pathname;
+    for (const link of document.querySelectorAll('[data-skill-reader-link]')) {
+      if (!(link instanceof HTMLAnchorElement)) continue;
+      const current = new URL(link.href, location.href).pathname === targetPath;
+      link.classList.toggle('is-current', current);
+      if (link.classList.contains('skillReaderNavItem')) {
+        if (current) link.setAttribute('aria-current', 'page');
+        else link.removeAttribute('aria-current');
+      }
+    }
+  };
+
+  const swapReaderMain = async (href, { historyMode = 'push' } = {}) => {
+    const url = new URL(href, location.href);
+    if (url.origin !== location.origin) return false;
+
+    const currentMain = document.querySelector('.skillReaderMain');
+    if (!(currentMain instanceof HTMLElement)) return false;
+
+    currentMain.setAttribute('aria-busy', 'true');
+    try {
+      const parsed = await fetchReaderDocument(url);
+      const nextMain = parsed.querySelector('.skillReaderMain');
+      if (!(nextMain instanceof HTMLElement)) return false;
+      const nextMainClone = nextMain.cloneNode(true);
+      if (!(nextMainClone instanceof HTMLElement)) return false;
+
+      currentMain.replaceWith(nextMainClone);
+      if (parsed.title) document.title = parsed.title;
+      syncReaderNav(url);
+
+      if (historyMode === 'push') {
+        history.pushState({ kianosSkillReader: true }, '', url.pathname + url.search + url.hash);
+      }
+
+      window.scrollTo({ top: 0, behavior: 'auto' });
+      await learnerWriterReady;
+      recordCurrentVisit();
+      return true;
+    } finally {
+      document.querySelector('.skillReaderMain')?.removeAttribute('aria-busy');
+    }
+  };
+
+  document.addEventListener('click', (event) => {
+    if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+    const link = target.closest('[data-skill-reader-link]');
+    if (!(link instanceof HTMLAnchorElement)) return;
+    event.preventDefault();
+    void swapReaderMain(link.href).then((ok) => {
+      if (!ok) location.href = link.href;
+    }).catch(() => {
+      location.href = link.href;
+    });
   });
+
+  document.addEventListener('pointerover', (event) => {
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+    const link = target.closest('[data-skill-reader-link]');
+    if (!(link instanceof HTMLAnchorElement)) return;
+    const url = new URL(link.href, location.href);
+    if (url.origin !== location.origin || readerCache.has(url.href)) return;
+    void fetchReaderDocument(url).catch(() => {});
+  }, { passive: true });
+
+  window.addEventListener('popstate', () => {
+    void swapReaderMain(location.href, { historyMode: 'none' }).then((ok) => {
+      if (!ok) location.reload();
+    }).catch(() => location.reload());
+  });
+
+  void learnerWriterReady.then(recordCurrentVisit);
 </script>

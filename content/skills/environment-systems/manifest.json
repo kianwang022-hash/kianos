@@ -1,0 +1,54 @@
+{
+  "schema": "kianos.skill.manifest.v1",
+  "id": "environment-systems",
+  "title": "个人环境与系统素养",
+  "kicker": "Personal Environment & Systems Literacy",
+  "description": "把家庭与工作空间、设备生态、网络、文件、存储、备份、隐私、安全、维护和故障恢复连成低摩擦个人环境能力。",
+  "status": "READY",
+  "portfolio_state": "CORE_SUPPORT",
+  "demand": "建立足以设计和维护自己物理 / 数字环境的实用系统素养：能定义需求、选择设备与连接方式、组织文件和存储、建立可恢复备份、理解家庭网络和基础安全、管理软件与账户生命周期，并让空间、光线、设备和行为互相支持，而不是成为专业 IT 管理员。",
+  "guide": "framework.md",
+  "current_asset": "framework",
+  "units": [
+    {"id":"u1","title":"U1 · 需求、环境与系统边界","capability":"C1 从任务、空间、行为和故障后果定义环境需求，而不是先买设备或搭复杂系统","order":10,"next_unit":"u2","assets":{"learn":"u1-needs-boundaries"}},
+    {"id":"u2","title":"U2 · 设备生态、计算与连接","capability":"C2 判断电脑、显示、移动设备、外设和生态兼容性的真实 trade-off，并保留可迁移性","order":20,"next_unit":"u3","assets":{"learn":"u2-devices-computing"}},
+    {"id":"u3","title":"U3 · 网络、连接与家庭服务","capability":"C3 理解路由、Wi-Fi、局域网、带宽、延迟、覆盖、设备暴露和基础故障定位","order":30,"next_unit":"u4","assets":{"learn":"u3-network-connectivity"}},
+    {"id":"u4","title":"U4 · 文件、存储、备份与数字记忆","capability":"C4 用清晰 owner、命名、同步、备份、恢复测试和长期可读性管理重要数字资产","order":40,"next_unit":"u5","assets":{"learn":"u4-files-backups"}},
+    {"id":"u5","title":"U5 · 账户、隐私、安全与权限","capability":"C5 用密码管理、MFA、最小权限、更新、敏感数据边界和恢复渠道降低个人数字风险","order":50,"next_unit":"u6","assets":{"learn":"u5-security-privacy"}},
+    {"id":"u6","title":"U6 · 维护、故障定位与恢复","capability":"C6 用最小复现、分层定位、变更记录、rollback 和 recovery plan 处理常见个人系统故障","order":60,"next_unit":"u7","assets":{"learn":"u6-maintenance-recovery"}},
+    {"id":"u7","title":"U7 · 空间、光线、行为与低摩擦系统","capability":"C7 让桌面、照明、收纳、娱乐、健身和设备位置支持目标行为，并控制维护与注意力成本","order":70,"next_unit":null,"assets":{"learn":"u7-environment-behavior"}}
+  ],
+  "assets": [
+    {"id":"framework","kind":"guide","stage":"orientation","title":"总框架","label":"先建立从需求到设备、数据、安全和物理环境的整张个人系统地图","path":"framework.md","order":0,"learner_visible":true,"completable":false},
+    {"id":"u1-needs-boundaries","unit_id":"u1","kind":"learn","stage":"learn","title":"U1 · 需求、环境与系统边界","label":"先知道自己真正要完成什么，再决定买什么和搭什么","path":"units/u1-needs-boundaries.md","order":10,"learner_visible":true,"completable":false},
+    {"id":"u2-devices-computing","unit_id":"u2","kind":"learn","stage":"learn","title":"U2 · 设备生态、计算与连接","label":"设备应该减少摩擦，而不是把人锁进不断升级和兼容问题","path":"units/u2-devices-computing.md","order":20,"learner_visible":true,"completable":false},
+    {"id":"u3-network-connectivity","unit_id":"u3","kind":"learn","stage":"learn","title":"U3 · 网络、连接与家庭服务","label":"知道网络慢、断、覆盖差和设备暴露分别可能在哪一层","path":"units/u3-network-connectivity.md","order":30,"learner_visible":true,"completable":false},
+    {"id":"u4-files-backups","unit_id":"u4","kind":"learn","stage":"learn","title":"U4 · 文件、存储、备份与数字记忆","label":"重要文件不是“存在某处”就安全，而是要能找到、能恢复、能长期打开","path":"units/u4-files-backups.md","order":40,"learner_visible":true,"completable":false},
+    {"id":"u5-security-privacy","unit_id":"u5","kind":"learn","stage":"learn","title":"U5 · 账户、隐私、安全与权限","label":"优先守住身份、账户和敏感数据，不追复杂安全表演","path":"units/u5-security-privacy.md","order":50,"learner_visible":true,"completable":false},
+    {"id":"u6-maintenance-recovery","unit_id":"u6","kind":"learn","stage":"learn","title":"U6 · 维护、故障定位与恢复","label":"系统故障先定位层级、保住数据和可回滚性，再动手修","path":"units/u6-maintenance-recovery.md","order":60,"learner_visible":true,"completable":false},
+    {"id":"u7-environment-behavior","unit_id":"u7","kind":"learn","stage":"learn","title":"U7 · 空间、光线、行为与低摩擦系统","label":"让环境默认支持工作、健康、恢复和娱乐，而不是每天重新布置意志力","path":"units/u7-environment-behavior.md","order":70,"learner_visible":true,"completable":false}
+  ],
+  "capability_map": [
+    "C1 需求：task / context / constraints / maintenance / failure consequence / buy-build-service boundary",
+    "C2 设备：compute / display / peripherals / ecosystem / compatibility / portability / lifecycle",
+    "C3 网络：router / Wi-Fi / LAN / bandwidth / latency / coverage / exposure / troubleshooting",
+    "C4 数据：file ownership / naming / sync / storage / backup / restore / format longevity / inventory",
+    "C5 安全：password manager / MFA / updates / permissions / recovery / privacy / sensitive-data flow",
+    "C6 运维：change / diagnosis / logs / rollback / recovery / replacement / maintenance schedule",
+    "C7 环境：workspace / lighting / storage / entertainment / fitness space / environment × behavior"
+  ],
+  "source_reviews":[
+    {"id":"whole-book-source-review","title":"Personal Environment / Systems Source Review","path":"source-review.md"}
+  ],
+  "related_skill_candidates":[
+    {"id":"ai-native","relation":"AI-native 负责构建、自动化、代码和技术系统的深层能力；本 Skill 只保留个人设备 / 网络 / 数据 / 恢复的实用控制面"},
+    {"id":"health-physical","relation":"Health 负责人体工学、身体负荷和健康边界；本 Skill 负责空间 / 设备 / 光线 / 收纳如何支持这些需求"},
+    {"id":"design-aesthetic","relation":"Design 负责视觉 / 空间质量判断；本 Skill 负责环境的功能、维护、连接、设备和系统可靠性"},
+    {"id":"information-research","relation":"Research 负责采购 / 技术事实的 current-first 验证；本 Skill 负责什么规格真正改变环境决策"}
+  ],
+  "next_planned":[
+    "Framework + U1–U7 + whole-book Source Review 已完成并通过 bounded self-attack",
+    "gear fetish / ecosystem lock-in / bandwidth worship / sync=backup / cloud=backup / folder overengineering / security theater / smart-home complexity / backup-never-tested / permission sprawl / sysadmin scope creep 已完成最小修复",
+    "READY and registered；以后只因真实 learner question、material content defect、durable Source change 或 real device / network / data / environment evidence reopen；具体设备、OS、安全和云服务 current-first"
+  ]
+}

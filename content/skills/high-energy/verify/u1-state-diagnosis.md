@@ -1,45 +1,36 @@
 
-# U1 Verify｜状态诊断
+# U1 独立验证｜状态诊断
 
-Status: PROTECTED VERIFICATION ASSET  
-Rule: 在完成 attempt 前不要寻找“标准答案”。
+先独立完成，不回看总览或 U1 正文。
 
-Purpose:
-
-> 测试 Kian 能否使用判别证据识别低能量状态，而不是记住几个标签。
-
-这不是医学诊断测试。
-
----
-
-## Attempt instructions
+目标不是猜标签，而是看你能不能用证据做出可行动的判断。这不是医学诊断测试。
 
 每个场景只回答：
 
 ~~~
-Leading hypothesis:
-Key evidence:
-Main alternative:
-First reversible action:
-What would confirm/refute it:
+最可能解释：
+最关键证据：
+主要备选解释：
+第一验证动作：
+什么结果会支持 / 推翻当前判断：
 ~~~
-
-如果希望保留 clean evidence，作答时不要回看 Guide。
 
 ---
 
 ## V1
 
-昨晚睡眠大致和平时一样，起床感觉正常。
+昨晚比平时少睡了约 40 分钟，但起床和上午都正常。
 
-连续约两小时做高密度推理和主动回忆后：
+下午连续约两小时做高密度推理和主动回忆后：
 
 - 不打哈欠；
 - 眼皮不沉；
-- 没有想睡觉；
+- 没有明显想睡觉；
 - 开始反复重读；
 - 信息整合明显变慢；
 - 聊天或做简单家务仍然正常。
+
+不要因为“昨晚少睡”这一条就直接定性；给出最可能解释和主要备选。
 
 ---
 
@@ -112,8 +103,6 @@ What would confirm/refute it:
 
 ---
 
-# STOP
+# 到这里先停止
 
-先提交回答。
-
-评分、Repair 和 changed-context transfer 由 Chat 单独进行，不放在 learner-visible 文件里。
+先提交自己的回答。判定、最小修复和后续换情境迁移由 Chat 处理；这里不放答案。
