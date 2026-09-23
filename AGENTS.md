@@ -329,6 +329,44 @@ If a known-scope task routinely needs broad repository search, history archaeolo
 
 ---
 
+### Remote Desktop Commander: batch mechanical work, keep judgment in Chat
+
+Remote is a local execution transport, not a second semantic owner.
+
+Use it only when the task needs local truth or local capability: worktrees, files, localhost/runtime, binary material, bulk mechanical transforms, validators, builds, or a bounded local executor. Public-web research should stay on Web when Web can do it; GitHub remains canonical for repository truth.
+
+Default operating shape:
+
+```text
+Chat / Sol decides what must be understood or changed
+→ one bounded Remote evidence/snapshot phase
+→ Chat / Sol makes semantic decisions
+→ one bounded Remote apply phase when needed
+→ one bounded Remote verify/readback phase
+```
+
+Do not turn one bounded phase into a long series of tiny Remote calls when the same mechanical work can be safely bundled. In particular:
+
+- prefer one repo snapshot over separate HEAD / branch / status / upstream / worktree queries;
+- prefer one bounded evidence packet over repeated grep/read/grep/read loops;
+- compose coherent content/mutation batches in Chat before writing instead of write-per-unit;
+- reuse existing materializers, validators, QA and build commands instead of creating another runner framework;
+- start a long local process once. Use a long blocking read or one later status read; do not busy-poll PID / `ps` / temp files every few seconds;
+- keep full logs on disk and return compact status/tails first. Read full logs only for a failure or a real diagnostic need;
+- after an interrupted Chat, inspect current Git/local state and recent Remote call history when available before repeating a mutating action.
+
+Thin helpers exist only to reduce transport chatter:
+
+```bash
+npm run remote:snapshot -- --repo <worktree>
+npm run remote:packet -- --repo <worktree> [--file PATH] [--range PATH:START:END] [--scope DIR --grep REGEX]
+npm run remote:verify -- --repo <worktree> --cmd '<existing validator/build command>' [--cmd '...']
+```
+
+These helpers may collect, execute and summarize. They must not decide medical meaning, learner state, product policy, acceptance, task priority, or whether a semantic relation is safe.
+
+Use a helper only when it is cheaper than the direct operation. One simple local command should remain one simple local command.
+
 # 3｜Truth boundaries
 
 Keep these distinct:
