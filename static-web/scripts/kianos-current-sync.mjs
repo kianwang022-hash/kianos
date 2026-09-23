@@ -5,7 +5,10 @@ import { spawn, execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { fileURLToPath } from 'node:url';
 
-import { classifyStaticBuild } from './currentStaticImpact.mjs';
+import {
+  classifyStaticBuild,
+  staticBuildCanReuseFromBase
+} from './currentStaticImpact.mjs';
 import {
   adoptLegacyDist,
   isAtomicServingLink,
@@ -225,17 +228,24 @@ async function reloadSite() {
   if (!stopping && !site) startSite();
 }
 
-function reuseStaticBuild(sha, extra = {}) {
+function reuseStaticBuild(sha, { baseSha = '', ...extra } = {}) {
   if (skipAstro) return false;
   recoverStaticDirectories();
   ensureAtomicServingLayout(sha);
   const activeRoot = resolveServedRoot(distPath);
   if (!activeRoot) return false;
   const prior = readBuiltStatus(activeRoot);
+  if (!staticBuildCanReuseFromBase(prior, baseSha)) {
+    log(
+      'static build reuse refused; active build does not prove base '
+      + String(baseSha || '').slice(0, 8)
+    );
+    return false;
+  }
   writeBuiltStatus(activeRoot, sha, {
     ...extra,
     reused_static_build: true,
-    reused_from_sha: String(prior?.sha || '')
+    reused_from_sha: String(prior.sha || '')
   });
   return true;
 }
@@ -322,6 +332,7 @@ async function syncOnce({ initial = false } = {}) {
     let staticBuild = 'rebuilt';
     if (!skipAstro && !buildDecision.required) {
       const reused = reuseStaticBuild(fetched, {
+        baseSha: local,
         changed_paths: changedPaths.length,
         build_impact_paths: 0
       });

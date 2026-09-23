@@ -39,6 +39,15 @@ export function staticBuildPathImpact(value) {
   return { file, requires_build: true, reason: 'unknown-or-static-input' };
 }
 
+export function staticBuildCanReuseFromBase(priorStatus, baseSha) {
+  const expected = String(baseSha || '').trim();
+  return Boolean(
+    expected
+    && priorStatus?.state === 'synced'
+    && String(priorStatus?.sha || '').trim() === expected
+  );
+}
+
 export function classifyStaticBuild(changedPaths = []) {
   const rows = [...new Set(
     (Array.isArray(changedPaths) ? changedPaths : [])
