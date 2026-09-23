@@ -1,5 +1,8 @@
 name: Xizong Explanations Fast QA
 
+permissions:
+  contents: read
+
 on:
   workflow_dispatch:
   push:
@@ -35,9 +38,3 @@ jobs:
 
       - name: Validate explanation store against Question Truth
         run: node scripts/validate-xizong-explanations-fast.mjs
-
-      - name: Install dependencies
-        run: npm install --no-audit --no-fund
-
-      - name: Build Astro without unrelated Lexical projection
-        run: npm run build:astro

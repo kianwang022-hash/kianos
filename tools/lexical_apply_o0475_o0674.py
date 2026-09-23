@@ -50,6 +50,12 @@ def load(path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 def dump(path, value, compact=False):
+    if path.exists():
+        previous = path.read_text(encoding="utf-8")
+        if stable(json.loads(previous)) == stable(value):
+            return
+        # A small semantic edit must not compact an entire existing shard.
+        compact = "\n" not in previous.rstrip("\n")
     path.write_text((stable(value) if compact else json.dumps(value, ensure_ascii=False, indent=2)) + "\n", encoding="utf-8")
 
 def find_row(root, ordinal):

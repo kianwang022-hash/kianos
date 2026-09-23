@@ -89,6 +89,14 @@ for (const batchPath of files) {
   }
 }
 
+// Pending batches are staging, not published relation truth. CI validates them
+// read-only; the content worker runs this once at the approved checkpoint and
+// commits shards, manifest and cursor together with the reviewed decisions.
+if (process.argv.includes('--check')) {
+  console.log(`XIZONG_REVIEWED_BATCHES_CHECK_PASS:${files.length}:${seenPending.size}`);
+  process.exit(0);
+}
+
 for (const [relativeShard, incoming] of grouped) {
   const absoluteShard = path.join(ownerRoot, relativeShard);
   fs.mkdirSync(path.dirname(absoluteShard), { recursive: true });

@@ -58,6 +58,20 @@ SECOND_PASS is semantic review, not a reason to accumulate repository history.
 - After an accepted merge, the next year / year-group starts again from fresh `main`.
 - Existing concurrent branches are not force-rebased merely to satisfy this rule; apply it at the next safe checkpoint and never overwrite another worker's live write-set.
 
+At the reviewed checkpoint, run the existing materializer and manifest sync once
+before the single content commit:
+
+```sh
+node static-web/scripts/apply-xizong-crosswalk-reviewed-batches.mjs
+node static-web/scripts/sync-xizong-question-relations-manifest.mjs --write
+```
+
+Commit the affected relation shards, manifest and cursor together. Pending batches
+are staging decisions and do not claim learner-visible relations until that
+checkpoint. CI is read-only and never pushes an extra materialization commit.
+Full integration/browser QA remains available through the explicit workflow
+checkpoint; ordinary explanation/decision batches use content validation.
+
 The website and CI must treat explanation-only changes as Xizong content deltas. They do not require rebuilding Lexical Final Learner Objects.
 
 ## Truth boundary

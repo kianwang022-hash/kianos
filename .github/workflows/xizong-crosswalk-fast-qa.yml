@@ -27,7 +27,7 @@ on:
       - '.github/workflows/xizong-crosswalk-fast-qa.yml'
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: xizong-crosswalk-fast-${{ github.ref }}
@@ -50,43 +50,12 @@ jobs:
           node-version: '22'
       - name: Validate single-pass throughput materializer
         run: node scripts/validate-xizong-crosswalk-throughput.mjs
-      - name: Materialize pending reviewed Crosswalk batches
-        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
-        run: node scripts/apply-xizong-crosswalk-reviewed-batches.mjs
-      - name: Synchronize reviewed relation manifest
-        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
-        run: node scripts/sync-xizong-question-relations-manifest.mjs --write
-      - name: Commit materialized Crosswalk truth and cursor
-        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
-        working-directory: ${{ github.workspace }}
-        run: |
-          if ! git diff --quiet -- content/xizong/question-relations; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add -A content/xizong/question-relations
-            git commit -m "chore(xizong): materialize reviewed Crosswalk batch"
-            git push origin HEAD:${{ github.event.pull_request.head.ref }}
-          fi
-      - name: Determine periodic full-regression gate
-        id: cadence
-        run: |
-          if [ "${{ github.event_name }}" != "pull_request" ]; then
-            echo "full_regression=false" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-          node - <<'NODE' >> "$GITHUB_OUTPUT"
-          const fs = require('fs');
-          const c = JSON.parse(fs.readFileSync('../content/xizong/question-relations/continuation.json', 'utf8')).last_growth;
-          const before = Number(c?.reviewed_relation_count_before || 0);
-          const after = Number(c?.reviewed_relation_count_after || before);
-          const full = Math.floor(after / 50) > Math.floor(before / 50);
-          console.log(`full_regression=${full}`);
-          console.log(`before=${before}`);
-          console.log(`after=${after}`);
-          NODE
+      - name: Validate staged reviewed decisions without writing
+        run: node scripts/apply-xizong-crosswalk-reviewed-batches.mjs --check
       - name: Validate relation manifest synchronization
         run: node scripts/sync-xizong-question-relations-manifest.mjs --check
       - name: Install dependencies
+        if: github.event_name == 'workflow_dispatch'
         run: npm install --no-audit --no-fund
       - name: Validate reviewed Question Crosswalk
         run: node scripts/validate-xizong-question-crosswalk.mjs
@@ -104,10 +73,11 @@ jobs:
             static-web/.qa/xizong-crosswalk-review-queue.json
             static-web/.qa/xizong-kp-lookup-index.json
           if-no-files-found: error
-      - name: Build Astro
-        run: npm run build:astro
-      - name: Periodic full Xizong contract regression
-        if: steps.cadence.outputs.full_regression == 'true'
+      - name: Build Astro at explicit integration checkpoint
+        if: github.event_name == 'workflow_dispatch'
+        run: npm run build
+      - name: Explicit checkpoint full Xizong contract regression
+        if: github.event_name == 'workflow_dispatch'
         run: |
           node scripts/validate-xizong-current-owners.mjs
           node scripts/validate-xizong-learning-owner-lifecycle.mjs
@@ -126,14 +96,19 @@ jobs:
           node scripts/validate-xizong-a3-runtime.mjs
           node scripts/validate-xizong-a3-evidence.mjs
           node scripts/validate-xizong-source-visuals.mjs
-      - name: Periodic browser Runtime journey
-        if: steps.cadence.outputs.full_regression == 'true'
+      - name: Install checkpoint browser
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Checkpoint browser Runtime journey
+        if: github.event_name == 'workflow_dispatch'
         run: node scripts/test-xizong-a1-browser-journey.mjs
-      - name: Periodic browser Evidence journey
-        if: steps.cadence.outputs.full_regression == 'true'
+      - name: Checkpoint browser Evidence journey
+        if: github.event_name == 'workflow_dispatch'
         run: node scripts/test-xizong-a1-evidence-journey.mjs
       - name: Upload periodic browser evidence
-        if: always() && steps.cadence.outputs.full_regression == 'true'
+        if: always() && github.event_name == 'workflow_dispatch'
         uses: actions/upload-artifact@v4
         with:
           name: xizong-crosswalk-periodic-browser-evidence

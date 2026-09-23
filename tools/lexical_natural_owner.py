@@ -57,6 +57,8 @@ def load_json(path: Path) -> Any:
 
 def dump_json(path: Path, value: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
+    if path.exists() and stable_json(load_json(path)) == stable_json(value):
+        return
     path.write_text(json.dumps(value, ensure_ascii=False, indent=2, sort_keys=False) + "\n", encoding="utf-8")
 
 
