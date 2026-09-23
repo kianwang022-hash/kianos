@@ -21,6 +21,99 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
   } from '../lib/lexicalSettings.mjs';
   import { buildLexicalChatStatePacket, serializeLexicalChatStateForChat } from '../lib/lexicalChatState.mjs';
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  const copyTextRobust = async (text) => {
+    if (navigator.clipboard?.writeText && window.isSecureContext) {
+      try { await navigator.clipboard.writeText(text); return true; } catch {}
+    }
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.setAttribute('readonly', '');
+    textarea.style.position = 'fixed';
+    textarea.style.left = '-9999px';
+    textarea.style.top = '0';
+    document.body.appendChild(textarea);
+    textarea.focus();
+    textarea.select();
+    let copied = false;
+    try { copied = Boolean(document.execCommand?.('copy')); } catch {}
+    textarea.remove();
+    if (copied) return true;
+    window.prompt('复制学习状态给 Chat', text);
+    return false;
+  };
+
+  // Read-only handoff must not depend on learner-writer ownership.
+  // Copying/exporting state is safe even when another KianOS tab owns the write lock
+  // or the browser cannot provide Web Locks/BroadcastChannel.
+  const bindReadOnlyHandoff = () => {
+    const bridge = document.querySelector('[data-lexical-home-evidence-bridge]');
+    const home = document.querySelector('[data-lexical-home]');
+    if (!(bridge instanceof HTMLElement) || !(home instanceof HTMLElement)) return;
+
+    let rows = [];
+    try { rows = JSON.parse(bridge.querySelector('[data-lexical-evidence-catalog]')?.textContent || '[]'); } catch {}
+    const lineage = rows.flatMap((row) => Array.isArray(row?.senseLineage) ? row.senseLineage : []);
+    const readJson = (key, fallback) => {
+      try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; } catch { return fallback; }
+    };
+    const readLedger = () => reconcileEvidenceIdentity(
+      normalizeLexicalLedger(readJson(LEXICAL_LEDGER_STORAGE_KEY, emptyLexicalLedger())),
+      lineage
+    ).ledger;
+
+    const currentPacket = () => {
+      const lastOrdinalRaw = Number(localStorage.getItem('kianos-vocabulary-last-ordinal') || 1);
+      const lastOrdinal = Number.isInteger(lastOrdinalRaw) && lastOrdinalRaw >= 1 ? lastOrdinalRaw : 1;
+      const cursorRow = rows.find((row) => Number(row.ordinal) === lastOrdinal) || rows[0] || null;
+      return buildLexicalChatStatePacket({
+        ledger: readLedger(),
+        routing: readJson(LEXICAL_ROUTING_STORAGE_KEY, null),
+        intake: readJson(LEXICAL_INTAKE_STORAGE_KEY, null),
+        settings: readJson(LEXICAL_SETTINGS_STORAGE_KEY, null),
+        cursor: cursorRow ? { word_id: cursorRow.objectId, ordinal: Number(cursorRow.ordinal), word: cursorRow.word } : null,
+        challengePacket: readJson('kianos-lexical-challenge-packet-v1', null),
+        challengeProgress: readJson('kianos-lexical-challenge-progress-v1', null),
+        challengeEvents: readJson('kianos-lexical-challenge-events-v1', []),
+        now: new Date()
+      });
+    };
+
+    const renderReadOnlyHandoff = () => {
+      const packet = currentPacket();
+      const handoff = home.querySelector('[data-lexical-handoff]');
+      const summary = home.querySelector('[data-lexical-return-summary]');
+      const hasState = packet.coverage.introduced_total > 0
+        || packet.routing.latest_total > 0
+        || packet.repair.active_target_count > 0
+        || packet.today_evidence.length > 0
+        || Boolean(packet.challenge_session);
+      if (handoff instanceof HTMLElement) handoff.hidden = !hasState;
+      if (summary) summary.textContent = hasState
+        ? `已进入 ${packet.coverage.introduced_total} 词 · 今日 ${packet.coverage.today_new} 新词 · ${packet.routing.same_day_revisit.length} 个同日待重学 · ${packet.repair.active_target_count} 个 Repair`
+        : '';
+
+      const copyButton = home.querySelector('[data-lexical-copy-return]');
+      if (copyButton instanceof HTMLButtonElement) {
+        copyButton.disabled = !hasState;
+        if (!copyButton.dataset.readOnlyCopyBound) {
+          copyButton.dataset.readOnlyCopyBound = 'true';
+          copyButton.addEventListener('click', async () => {
+            const text = serializeLexicalChatStateForChat(currentPacket());
+            const copied = await copyTextRobust(text);
+            copyButton.textContent = copied ? '已复制' : '请手动复制';
+            window.setTimeout(() => { copyButton.textContent = '复制学习状态给 Chat'; }, 1400);
+          });
+        }
+      }
+    };
+
+    renderReadOnlyHandoff();
+    window.addEventListener('kianos:lexical-evidence-changed', renderReadOnlyHandoff);
+    window.addEventListener('storage', renderReadOnlyHandoff);
+  };
+
+  bindReadOnlyHandoff();
+
   void learnerWriterReady.then(() => {
 
 
@@ -124,9 +217,9 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
       copyButton.addEventListener('click', async () => {
         const packet = currentPacket();
         const text = serializeLexicalChatStateForChat(packet);
-        try { await navigator.clipboard.writeText(text); copyButton.textContent = '已复制'; }
-        catch { window.prompt('复制学习状态给 Chat', text); }
-        window.setTimeout(() => { copyButton.textContent = '复制学习状态给 Chat'; }, 1200);
+        const copied = await copyTextRobust(text);
+        copyButton.textContent = copied ? '已复制' : '请手动复制';
+        window.setTimeout(() => { copyButton.textContent = '复制学习状态给 Chat'; }, 1400);
       });
     }
 
