@@ -195,7 +195,7 @@
   },
   "question_reuse": {
     "scope": "OFFICIAL_KIANOS_QUESTION_RUNTIME_ONLY; Lecture-attached TTSX is governed by lecture_attached_ttsx and is not silently promoted into this attempt model.",
-    "principle": "正式题不是一次性资产；同一道题在不同轮次承担不同任务。",
+    "principle": "正式真题首先是知识与解题资产，不是一次性测试耗材；同一道题在不同轮次承担不同任务。Freshness 只影响证据解释，不默认封锁学习价值。",
     "first_pass": "按 System 做覆盖性全量 sweep，主要作为知识覆盖探针：会不会、错在哪里、哪个 KP/边界没建立。",
     "second_pass": "重复使用正式题做解题突破：决定性条件、干扰项、条件变化、鉴别、病例与跨系统调用。",
     "second_pass_execution": {
@@ -215,8 +215,12 @@
     "fast_rule": "正确且理由清楚快速通过；正确但蒙的记 Uncertain；错误记 Wrong。深挖优先留给 Wrong / Uncertain。",
     "mapping_safety": "Runtime 只能使用显式 reviewed Question→Knowledge relation；不得根据标题相似、页码、Block membership 或模型猜测自动绑定。",
     "full_paper_holdout": {
-      "required": true,
-      "rule": "保留一小组完整试卷不在一轮按 System 拆碎，用于后续整卷诊断；具体 paper IDs 由 learner 明确指定后再锁定，Runtime 不得自动消费。"
+      "required": false,
+      "optional_years": [
+        2025,
+        2026
+      ],
+      "rule": "整卷保护是可选的，不得阻塞按 System 使用真题。当前最多可选择保留 2025 / 2026 用于较完整的整卷诊断；也可以完全不保留。除 2025 / 2026 外的历史真题默认作为学习资产开放使用。"
     },
     "priority_rule": "Official true questions remain the primary reusable learning/verification asset even after prior attempts. Reuse is expected across passes when it tests coverage, decisive conditions, distractors, condition changes, cases, speed or compressed retrieval. Prior exposure lowers freshness, not intrinsic learning value.",
     "ai_transfer_probe": {
