@@ -135,6 +135,11 @@ try{
     /OLDER_THAN_REMOTE_CURRENT/
   );
 
+  const nativeUnknown={...d2b,generated_at:'2026-09-21T02:30:00.000Z',coverage:{xizong:'unknown',english:'attached',politics:'attached'}};
+  const unknownPublish=await publishDailyLearningPacket(nativeUnknown,{env,home:temp});
+  assert.equal(unknownPublish.learner_evidence_ready,true,'honest native unknown with a valid basis supports provisional planning');
+  assert.equal(unknownPublish.coverage.xizong,'unknown','readiness must never manufacture observations');
+
   const degraded={...d2b,generated_at:'2026-09-21T03:00:00.000Z',learner_evidence_basis:null,coverage:{xizong:'unavailable',english:'attached',politics:'attached'}};
   const degradedPublish=await publishDailyLearningPacket(degraded,{env,home:temp});
   assert.equal(degradedPublish.state,'ready','transport succeeds even when evidence is partial');

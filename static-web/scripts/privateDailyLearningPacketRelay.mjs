@@ -47,10 +47,12 @@ function materiallyEqual(a,b){
 
 // A successful Git push proves transport only. Report evidence separately from
 // the exact packet accepted by the relay, without re-projecting in the server.
+// Native UNKNOWN is a valid absence of observations, not failed transport or
+// reconstruction. Preserve that coverage; never promote it to attached.
 function evidenceStatus(packet){
   return {
-    learner_evidence_ready: Boolean(packet.learner_evidence_basis)
-      && ['xizong','english','politics'].every(subject=>packet.coverage?.[subject]==='attached'),
+    learner_evidence_ready: Boolean(packet.learner_evidence_basis) && !packet.warnings?.length
+      && ['xizong','english','politics'].every(subject=>['attached','unknown'].includes(packet.coverage?.[subject])),
     coverage: packet.coverage || null,
     generated_at: packet.generated_at
   };

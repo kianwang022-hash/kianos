@@ -198,7 +198,7 @@ if (siteOk) {
       const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
       learnerEvidenceReady = relay.learner_evidence_ready === true && relay.study_day === today;
       record(learnerEvidenceReady ? 'PASS' : 'WARN', 'Learner evidence for current-day planning',
-        learnerEvidenceReady ? 'current-day basis and subject evidence attached' :
+        learnerEvidenceReady ? `current-day valid basis · coverage=${JSON.stringify(relay.coverage)} · unknown remains unknown` :
           `unavailable or stale · day=${relay.study_day || 'unknown'} · coverage=${JSON.stringify(relay.coverage || {})} · healthy native learning remains available`);
     } else if (relay.state === 'missing' && relay.reason === 'private-checkpoint-missing') {
       record('WARN', 'Daily Learning Packet relay', 'not exercised · no local learner checkpoint yet');
