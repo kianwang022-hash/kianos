@@ -16,14 +16,26 @@
       "B超/CT能显示腹水和结构，但不能像腹水分析那样直接回答其性质。"
     ],
     "transfer_rule": "腹水病例先用腹水分析建立病因方向，再按需要活检/培养。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.腹腔穿刺腹水检查。结核病史、低热、腹壁柔韧感和腹水提示结核性腹膜炎，腹水分析能直接评价渗出性质及结核倾向。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "B超能确认腹水和结构，但不能直接定性腹水。"
+      },
+      {
+        "option": "B",
+        "reason": "CT可提供腹膜/淋巴结等影像线索，仍不能替代腹水分析。"
+      }
+    ],
+    "common_failure_node": "过度依赖影像，而忽略腹水本身就是可直接取样的病理液体。"
   },
   {
     "question_id": "xizong-official-2021-n052",
@@ -42,14 +54,22 @@
       "这比单纯低白蛋白或单一ADH/醛固酮升高更接近第一故障层。"
     ],
     "transfer_rule": "nephritic水肿主要看GFR↓→钠水潴留。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.肾小球滤过率下降。急性肾炎使GFR下降，钠水排泄减少，容量扩张导致水肿和高血压。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "低白蛋白不是这类急性肾炎水肿的第一故障层。"
+      }
+    ],
+    "common_failure_node": "看到水肿就先套低胶体渗透压，忽略急性肾炎的容量潴留机制。"
   },
   {
     "question_id": "xizong-official-2021-n053",
@@ -68,14 +88,22 @@
       "Hb和RBC数量需要更长时间积累，MCV恢复也更慢。"
     ],
     "transfer_rule": "补铁疗效早期看Ret，后续看Hb。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.Ret。有效补铁后骨髓红系生成最先恢复，网织红细胞先升，Hb随后逐渐增加。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "Hb需要新生成红细胞积累后才明显上升。"
+      }
+    ],
+    "common_failure_node": "只盯Hb，不会用Ret判断治疗早期骨髓反应。"
   },
   {
     "question_id": "xizong-official-2021-n054",
@@ -89,17 +117,28 @@
     "exam_target": "Cushing术后激素替代固定时长",
     "decision_axis": "题源给出单侧肾上腺腺瘤切除后糖皮质激素替代6个月至1年以上；HPA轴恢复时间个体差异很大，不能把固定时长升级为Current规则。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对替代疗程 fail-closed。"
+      "Cushing综合征长期高皮质醇会抑制HPA轴和对侧肾上腺功能。",
+      "切除自主分泌的单侧肾上腺病灶后，需要等待HPA轴逐步恢复。",
+      "Current D22 KP13保留半年至1年或以上的Study疗程，因此选D。"
     ],
     "transfer_rule": "仅保留题源/Study边界；术后激素减停依据HPA轴恢复评估。",
-    "mapping_decision": "NO_SAFE_MATCH",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.6个月至1年或以上。Current D22 KP13明确保留单侧肾上腺皮质瘤/癌切除后较长期糖皮质激素替代，常半年至1年或以上。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "2个月往往不足以覆盖被长期抑制的对侧肾上腺/HPA轴恢复过程。"
+      }
+    ],
+    "common_failure_node": "把单侧切除误认为剩余肾上腺可以立即恢复正常，无需长期替代。",
+    "source_boundary_note": "该relation承接Current D22明确写入的Study疗程，不代表现实每位患者固定按同一时长停药；实际需依据HPA轴恢复评估。"
   },
   {
     "question_id": "xizong-official-2021-n055",
@@ -118,14 +157,26 @@
       "蝶形红斑偏SLE，腮腺肿大偏干燥综合征。"
     ],
     "transfer_rule": "Behçet经典联想口腔溃疡+生殖器溃疡+眼炎+pathergy。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.针刺反应。针刺后局部出现红肿或脓疱样反应是Behçet病经典特征体征。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "蝶形红斑更典型于SLE。"
+      },
+      {
+        "option": "B",
+        "reason": "腮腺肿大更偏干燥综合征等。"
+      }
+    ],
+    "common_failure_node": "把多个自身免疫病的标志性皮肤/腺体体征混在一起。"
   },
   {
     "question_id": "xizong-official-2021-n056",
@@ -144,14 +195,26 @@
       "IgA血管炎和SLE/RA相关血管炎走的是免疫复合物或继发自身免疫损伤轴。"
     ],
     "transfer_rule": "AAV经典包括MPA、GPA、EGPA。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.显微镜下多血管炎。MPA属于ANCA相关小血管炎，经典与MPO-ANCA/p-ANCA相关。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "IgA血管炎属于免疫复合物型。"
+      },
+      {
+        "option": "C",
+        "reason": "SLE相关血管炎也不属于经典ANCA相关血管炎组。"
+      }
+    ],
+    "common_failure_node": "只要是小血管炎就归入ANCA相关。"
   },
   {
     "question_id": "xizong-official-2021-n057",
@@ -165,17 +228,31 @@
     "exam_target": "术前准备原则",
     "decision_axis": "糖尿病患者术前需要合理控制血糖，但并非必须将血糖降至完全正常才可手术；应结合手术紧急程度和代谢状态管理。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "术前糖尿病管理目标是避免严重高低血糖和代谢失代偿。",
+      "Current F5 KP07明确维持轻度升高范围，不要求强行正常化。",
+      "因此D错误。"
     ],
     "transfer_rule": "围术期目标是降低风险，不是机械追求完全正常化。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.糖尿病病人术前须将血糖控制到正常才能手术，是错误表述。Current F5明确不要求强行降至完全正常，以免低血糖。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "Current F5保留继续降压药、防止戒断/反跳这一稳定原则。"
+      },
+      {
+        "option": "C",
+        "reason": "严重肾功能损害在有效透析和优化后并非绝对不能手术。"
+      }
+    ],
+    "common_failure_node": "把“术前优化”理解成所有指标必须完全正常才允许手术。"
   },
   {
     "question_id": "xizong-official-2021-n058",
@@ -189,7 +266,9 @@
     "exam_target": "全肠外营养旧适应证集合",
     "decision_axis": "题源把重症急性胰腺炎等列为需要TPN的场景；Current重症胰腺炎更强调尽早肠内营养，TPN仅在肠内无法满足时使用，旧集合不能升级。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对现代营养支持边界 fail-closed。"
+      "题源要求从旧TPN适应证集合中选“不需要”的胆囊造瘘术后。",
+      "Current重症急性胰腺炎营养策略已经改变，优先肠内营养。",
+      "因此题源D保留，但整组比较不能升级成Current relation。"
     ],
     "transfer_rule": "仅保留题源/Study时代边界；能用胃肠道时优先肠内营养。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -199,7 +278,16 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.胆囊造瘘术后为题源答案；但题源把重症急性胰腺炎列入需要TPN的旧集合，而Current更强调尽早肠内营养，只有EN不能满足时才考虑PN。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "短肠综合征在肠道吸收能力不足时确可需要PN。"
+      }
+    ],
+    "common_failure_node": "把旧“重症胰腺炎=TPN”口径静默当成Current营养策略。",
+    "source_boundary_note": "题源把重症急性胰腺炎作为TPN适应证；Current营养支持优先早期EN，PN仅在EN不可行/不足时补充，存在时代边界。"
   },
   {
     "question_id": "xizong-official-2021-n059",
@@ -213,17 +301,31 @@
     "exam_target": "脐部皮节定位",
     "decision_axis": "脐部皮肤感觉经典对应T10脊髓节段，是麻醉平面和神经定位常用体表标志。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "麻醉平面用稳定体表标志定位。",
+      "Current F8表明确T10=脐。",
+      "因此选C。"
     ],
     "transfer_rule": "乳头T4、剑突T6、脐T10。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.T10。Current F8 KP13明确体表麻醉平面：T10对应脐部。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "T8对应肋弓附近。"
+      },
+      {
+        "option": "D",
+        "reason": "T12更接近耻骨联合上方/腹股沟平面。"
+      }
+    ],
+    "common_failure_node": "只背脊髓节段序号，不建立体表空间标志。"
   },
   {
     "question_id": "xizong-official-2021-n060",
@@ -242,14 +344,22 @@
       "胃底折叠术主要解决GERD，不是失弛缓本体的首要结构处理。"
     ],
     "transfer_rule": "achalasia=鸟嘴征→Heller肌切开是经典术式。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.食管下段、贲门部肌层切开术。鸟嘴样狭窄、食管扩张和长期吞咽困难提示贲门失弛缓，经典Heller肌切开术处理LES不松弛。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "胃底折叠术主要解决GERD抗反流问题，不是失弛缓的本体治疗。"
+      }
+    ],
+    "common_failure_node": "把所有食管下端疾病都套胃底折叠术。"
   },
   {
     "question_id": "xizong-official-2021-n061",
@@ -263,17 +373,31 @@
     "exam_target": "乳腺癌血行转移",
     "decision_axis": "乳腺癌可在较早阶段发生血行播散，并非只有晚期才出现；转移路径包括直接入血和经淋巴-静脉交通进入血循环。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "乳腺癌扩散并非严格先淋巴、后血道。",
+      "Current E12明确血道转移可在早期发生。",
+      "因此C错误。"
     ],
     "transfer_rule": "肿瘤血行转移不是“晚期专属”事件。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.血行转移只发生在肿瘤晚期，是错误表述。Current E12 KP18明确乳腺癌血道转移可在早期发生。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "癌细胞可经淋巴-静脉交通进入血循环。"
+      },
+      {
+        "option": "D",
+        "reason": "骨、肺、肝等是Current Study保留的常见远处转移部位。"
+      }
+    ],
+    "common_failure_node": "把“癌先淋巴”误学成“早期绝不会血行转移”。"
   },
   {
     "question_id": "xizong-official-2021-n062",
@@ -287,17 +411,31 @@
     "exam_target": "结肠癌可切除肝转移",
     "decision_axis": "原发结肠癌合并单个可切除肝转移且无其他明显转移时，原发灶和肝转移灶均可纳入根治性切除策略。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "题干为单个2 cm肝左外叶转移、无明显腹腔淋巴结或其他转移。",
+      "Current D15 KP12明确局限可切除肝转移可与结肠癌根治术同步处理。",
+      "因此选B。"
     ],
     "transfer_rule": "寡转移不等于只能全身化疗，先判断是否可根治切除。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.结肠癌根治联合肝左外叶切除术。单个局限、可切除肝转移且无其他明显转移时，可将原发灶和肝转移灶纳入根治性切除。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "只切原发灶会遗留已知可切除肝转移。"
+      },
+      {
+        "option": "C",
+        "reason": "若病灶明确可切除且条件合适，不必默认只能全身化疗。"
+      }
+    ],
+    "common_failure_node": "看到“有肝转移”就一律认为失去根治性手术机会。"
   },
   {
     "question_id": "xizong-official-2021-n063",
@@ -316,14 +454,22 @@
       "胆总管结石更常有疼痛/炎症和胆囊未必持续无痛性增大。"
     ],
     "transfer_rule": "无痛黄疸+胆囊肿大→胰头/远端胆道恶性梗阻。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.胰头癌。进行性无痛黄疸、灰白便、直接胆红素升高和无痛肿大胆囊构成Courvoisier征。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "胆总管结石更常伴胆绞痛/胆管炎，胆囊也不一定持续无痛性增大。"
+      }
+    ],
+    "common_failure_node": "看到梗阻性黄疸就只想结石，不利用无痛、进行性和大无痛胆囊。"
   },
   {
     "question_id": "xizong-official-2021-n064",
@@ -342,14 +488,26 @@
       "关键是从‘有没有血运损害’而不是‘有没有梗阻’来判断。"
     ],
     "transfer_rule": "绞窄看持续剧痛、腹膜征、血便、休克。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.腹胀。绞窄性肠梗阻的高价值信号是持续剧痛、腹膜刺激征、血性物和早期休克；单纯腹胀缺乏特异性。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "早期休克提示肠壁缺血坏死和体液丢失，可见于绞窄。"
+      },
+      {
+        "option": "D",
+        "reason": "血便/血性肠内容物支持血运障碍。"
+      }
+    ],
+    "common_failure_node": "把“所有肠梗阻共有表现”误当成“绞窄性特异表现”。"
   },
   {
     "question_id": "xizong-official-2021-n065",
@@ -363,17 +521,31 @@
     "exam_target": "发育性髋关节脱位体征",
     "decision_axis": "站立前婴儿发育性髋关节脱位可用Ortolani弹入试验判断可复位的脱位髋；摇摆步态属于站立行走后表现。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "Current O12把DDH明确分站立前和站立后。",
+      "站立前依赖皮纹、短缩及Ortolani/Barlow等检查。",
+      "因此选D。"
     ],
     "transfer_rule": "婴儿DDH查Ortolani/Barlow，走路后才看跛行。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.Ortolani弹入试验阳性。站立前婴儿DDH可通过Ortolani/Barlow等弹入弹出试验发现可复位/不稳定髋。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "摇摆式跛行属于站立行走后的表现。"
+      },
+      {
+        "option": "B",
+        "reason": "骨盆挤压试验用于骨盆骨折，不是DDH。"
+      }
+    ],
+    "common_failure_node": "不按年龄阶段选择DDH体征，把行走后步态表现提前套到婴儿。"
   },
   {
     "question_id": "xizong-official-2021-n066",
@@ -387,7 +559,9 @@
     "exam_target": "经皮腰椎间盘切除旧适应证",
     "decision_axis": "题源把特定“脱出型”列为经皮腰椎间盘切除适应证；经皮/内镜技术和适应证随术式演进明显，不能据此形成Current固定分型规则。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对现代术式适应证 fail-closed。"
+      "题源按旧术式表选择脱出型。",
+      "Current O4只冻结腰突分型和一般治疗分流，不冻结这一特定经皮切除术的固定适应证。",
+      "因此保留C但不建立relation。"
     ],
     "transfer_rule": "仅保留题源/Study时代边界；Current术式按影像、神经压迫和具体技术评估。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -397,7 +571,16 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.脱出型为题源官方答案；经皮腰椎间盘切除/内镜术式与适应证持续演进，不能把“某分型=固定适应证”升级为Current规则。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "膨出型通常不以侵入性髓核摘除作为固定首选。"
+      }
+    ],
+    "common_failure_node": "把旧微创术式适应证表当成现代所有经皮/内镜技术的统一分型。",
+    "source_boundary_note": "题源经皮腰椎间盘切除术适应证属于旧技术口径；Current O4未冻结“脱出型=固定适应证”。"
   },
   {
     "question_id": "xizong-official-2021-n067",
@@ -411,17 +594,28 @@
     "exam_target": "骨盆骨折泌尿系并发伤",
     "decision_axis": "骨盆骨折可损伤后尿道，尤其男性骨盆环高能量损伤时应警惕尿道损伤和泌尿系出血。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "骨盆骨折可损伤盆腔泌尿和直肠结构。",
+      "题源把尿道损伤列为最常见答案。",
+      "Current O3只冻结并发症清单和尿道处理接口，没有频率排序，因此fail-closed。"
     ],
     "transfer_rule": "骨盆骨折+尿道口血/排尿困难先排尿道损伤。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.尿道损伤为题源官方答案。Current O3明确骨盆骨折可合并后尿道、膀胱、直肠等损伤，但未冻结“尿道损伤最常见”的排序。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "膀胱损伤也是Current O3明确列出的骨盆骨折伴随损伤之一。"
+      }
+    ],
+    "common_failure_node": "因为Current列出了尿道损伤，就自动补出“最常见”这一未冻结排序。",
+    "source_gap_note": "Current O3 KP08列出后尿道、膀胱、直肠等伴随损伤，但未冻结“尿道损伤最常见”这一频率结论。"
   },
   {
     "question_id": "xizong-official-2021-n068",
@@ -435,7 +629,9 @@
     "exam_target": "消化道穿孔共享子问缺失",
     "decision_axis": "当前记录只有溃疡病史共享病例和体征选项，正式答案为肝浊音界消失，但缺少具体问法，无法安全判断是在问特异体征还是诊断依据。",
     "reasoning_chain": [
-      "共享题干不足以独立恢复子问语义，按题源答案保留并 fail-closed。"
+      "病例背景支持消化性溃疡急性穿孔。",
+      "肝浊音界消失可由膈下游离气体造成。",
+      "但原子问文字缺失，无法确认比较轴，故只保留答案D。"
     ],
     "transfer_rule": "仅保留题源边界；肝浊音界消失可提示膈下游离气体。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -445,7 +641,20 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.肝浊音界消失为题源官方答案；长期空腹痛后突发持续上腹剧痛提示溃疡穿孔，游离气体可使肝浊音界消失，但当前共享题缺少具体子问。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "心率加快可见于急腹症应激，特异性低。"
+      },
+      {
+        "option": "B",
+        "reason": "上腹压痛同样不够特异。"
+      }
+    ],
+    "common_failure_node": "从答案D反推题目一定在问“最有特异性的体征”，制造未保存的子问。",
+    "source_gap_note": "共享病例具体子问缺失，无法安全恢复“肝浊音界消失”在原题中对应的比较问题。"
   },
   {
     "question_id": "xizong-official-2021-n069",
@@ -464,14 +673,22 @@
       "穿孔后很快进入化学性腹膜炎，疼痛性质从节律性转成突然、持续、弥漫。"
     ],
     "transfer_rule": "溃疡史+突发刀割样腹痛→先想穿孔。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.消化道穿孔。长期空腹痛提示溃疡背景，突然持续剧烈上腹痛并加重高度提示急性游离穿孔。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "急性胰腺炎也可剧痛，但缺少典型诱因/酶学背景，且既往溃疡节律更强。"
+      }
+    ],
+    "common_failure_node": "不利用既往空腹痛的溃疡病史，单凭“上腹痛”在多个急腹症间猜。"
   },
   {
     "question_id": "xizong-official-2021-n070",
@@ -490,14 +707,22 @@
       "甲减虽可皮肤干燥，但不能解释长期月经过多与贫血主轴；风湿热和结核更不匹配。"
     ],
     "transfer_rule": "育龄女性缺铁先找月经过多等慢性失血。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.缺铁性贫血。长期频繁、量多月经提供慢性失血来源，乏力、苍白和高动力性收缩期杂音符合贫血。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "甲减可有乏力皮肤干燥，但不能解释长期月经过多造成的慢性失血主轴。"
+      }
+    ],
+    "common_failure_node": "被皮肤干燥带到甲减，忽略最直接的长期月经失血。"
   },
   {
     "question_id": "xizong-official-2021-n071",
@@ -511,17 +736,31 @@
     "exam_target": "缺铁性贫血匙状甲",
     "decision_axis": "长期缺铁可出现上皮组织营养障碍，典型体征包括匙状甲、舌炎和口角炎等。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "Current H3 KP09明确列出匙状/勺状/反甲。",
+      "病例已是典型慢性失血性缺铁背景。",
+      "因此选C。"
     ],
     "transfer_rule": "缺铁体征经典记koilonychia匙状甲。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.匙状甲。组织缺铁可导致外胚叶营养障碍，匙状/勺状甲是经典体征。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "杵状指更常提示慢性低氧、肺心疾病等。"
+      },
+      {
+        "option": "B",
+        "reason": "爪形手属于神经/肌腱失衡等问题。"
+      }
+    ],
+    "common_failure_node": "只记缺铁的小细胞血象，不记组织铁缺乏的外胚叶表现。"
   },
   {
     "question_id": "xizong-official-2021-n072",
@@ -535,17 +774,28 @@
     "exam_target": "缺铁性贫血血象辨析",
     "decision_axis": "缺铁可见红细胞大小不等、反应性血小板增多且白细胞可正常；镰形红细胞属于血红蛋白病而非缺铁。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "题源要选“不属于缺铁”的D。",
+      "Current H3明确把镰刀形红细胞归于镰状细胞病。",
+      "但其余三项的完整组合未在同一最小owner中冻结，因此Explanation保留、Crosswalk fail-closed。"
     ],
     "transfer_rule": "缺铁血象是小细胞低色素，不产生镰形细胞。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.出现镰形红细胞为题源错误项。镰形红细胞属于镰状细胞病而非缺铁性贫血；但Current H3未完整冻结本题其余三项“大小不等、血小板可高、WBC可正常”的组合。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "缺铁涂片可有明显大小不等。"
+      }
+    ],
+    "common_failure_node": "只凭“镰形红细胞不是缺铁”就制造一个覆盖整组四项的正向relation。",
+    "source_gap_note": "Current H3未在单一KP完整冻结IDA的“大小不等 + 血小板可增高 + 白细胞可正常”三项集合。"
   },
   {
     "question_id": "xizong-official-2021-n073",
@@ -564,14 +814,26 @@
       "结核性胸水更常以淋巴细胞为主，恶性和类风湿胸水也不符合这组急性化脓性证据。"
     ],
     "transfer_rule": "脓胸抓感染症状+中性粒细胞性胸水+高LDH。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.脓胸。高热、剧烈胸痛、中性粒细胞为主的高细胞胸水及极高LDH支持急性化脓性胸腔感染。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "结核性胸水更常淋巴细胞为主。"
+      },
+      {
+        "option": "D",
+        "reason": "类风湿胸水可低糖低pH，但本例急性感染性表型更强。"
+      }
+    ],
+    "common_failure_node": "因既往RA就锚定类风湿胸膜炎，忽略胸水细胞分类与急性感染证据。"
   },
   {
     "question_id": "xizong-official-2021-n074",
@@ -585,17 +847,27 @@
     "exam_target": "脓胸病原学检查",
     "decision_axis": "怀疑细菌性脓胸时，胸水细菌培养及药敏可直接明确病原并指导抗菌方案。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "同一病例已经高度提示急性脓胸。",
+      "Current R10 KP12明确写类肺炎性胸腔积液病原最可靠证据为胸水细菌培养+药敏。",
+      "因此选B。"
     ],
     "transfer_rule": "感染性胸水要留培养，最好在抗菌药前获取。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.胸水细菌培养＋药敏试验。疑似脓胸时，它可直接明确病原并指导抗菌方案。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "结核菌培养服务结核性胸膜炎方向，本例中性粒细胞性化脓证据更强。"
+      }
+    ],
+    "common_failure_node": "只看ADA升高就转向结核，不综合中性粒细胞、LDH和急性高热。"
   },
   {
     "question_id": "xizong-official-2021-n075",
@@ -614,13 +886,25 @@
       "全身化疗、抗结核或加大免疫抑制都没有处理这个化脓性胸膜腔感染本体。"
     ],
     "transfer_rule": "脓胸治疗=抗感染+源控制/引流。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.胸腔积液引流。脓胸除抗菌外关键是充分引流实现源控制并促进肺复张。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "抗结核治疗不符合该急性化脓性胸水模式。"
+      },
+      {
+        "option": "D",
+        "reason": "增加免疫抑制会恶化未控制的感染风险。"
+      }
+    ],
+    "common_failure_node": "只加抗生素而不处理脓腔源控制。"
   }
 ]
