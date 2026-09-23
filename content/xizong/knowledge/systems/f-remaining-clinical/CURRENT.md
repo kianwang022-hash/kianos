@@ -15,7 +15,7 @@ This file owns work cursor only. It does not own medical Core, Learning semantic
 **Lane-A role:** **MEDICAL CONTENT CLOSED / DOWNSTREAM HANDOFF**  
 **Stable Current identity:** **9 Blocks / 121 canonical KP**  
 **Active gate:** **Content Realization / Optimization — PASS_AFTER_BOUNDED_REPAIR / CLOSED**  
-**Source state:** **S1 PASS after approved Source rebind; bounded unresolved exact fields remain explicit / fail-closed**  
+**Source state:** **S1 PASS after approved Source rebind + 27 refined delta integration; F4 burn-fluid formula gap closed, remaining bounded gaps explicit / fail-closed**  
 **Learning state:** **L PASS_AFTER_BOUNDED_REPAIR**  
 **Earliest eligible next action:** **Program handoff: F exact official-question membership is closed; scoped F Projection remains eligible / UNTESTED, while this Content/Material chat returns to the next material gap**  
 **Downstream:** P Projection eligible / UNTESTED; R/E remain frozen behind P/R respectively; no learner-use claim
@@ -137,12 +137,13 @@ Opaque File-Library object IDs are intentionally not persisted. Durable provenan
    - original-page review required for severity / atropinization and related Study-specific mappings.
 
 3. **F3 — Asepsis + open wound initial care**
-   - surgery book P228 / 27-follow PDF P283;
-   - original page absent; delayed-primary / secondary-closure taxonomy remains Source-limited and one Source conflict remains explicit.
+   - 27 refined surgery PDF P282–P283 / book P228 is now available for original-page visual review;
+   - delayed-primary / secondary-closure taxonomy remains Source-limited and one Source conflict remains explicit.
 
-4. **F4 — Burns**
-   - surgery book P200–202 / PDF P248–250;
-   - **first-24h complete fluid coefficient / body-weight–area formula / half-day distribution remains visual-only Source Gap**.
+4. **F4 — Burns — 27 refined delta CLOSED**
+   - 27 refined surgery PDF P247–P249 / book P200–202 is now available;
+   - the prior first-24h coefficient / weight–area / intraday-distribution gap is closed from visual Source;
+   - Current Study precision now includes 1.5 ml/kg/% + 2000 ml 5% glucose, crystal:colloid 2:1 (source notes 1:1 for extensive deep burns), first 8h half / next 16h half, and second-day crystal/colloid half.
 
 5. **F6 — Postoperative recovery / incision / complications — REBOUND / CLOSED**
    - surgery book P211–215 / PDF P262–266;
@@ -153,8 +154,8 @@ Opaque File-Library object IDs are intentionally not persisted. Durable provenan
    - P270 nerve-block complication matrix was re-read from the approved original PDF and is no longer a Source-reading gap; exact visual pairing remains original-Source-owned.
 
 7. **F9 — Laparoscopy + surface lesions**
-   - surgery book P229–230 / PDF P284–285;
-   - laparoscopy complication list remains Source-reading gap.
+   - 27 refined surgery PDF P283–P285 / book P228–230 is now available for visual review;
+   - the complete laparoscopy complication list still remains a semantic Source-reading gap; the new Source only states CO₂-pneumoperitoneum-related complications without a stable full list.
 
 Remaining exact gaps belong to Current exam Source, so they stay explicit and must not be repaired from model prior. They do not prevent System-level Source closure because their authority, scope and failure behavior are now explicit enough for Knowledge reconstruction to proceed fail-closed.
 
