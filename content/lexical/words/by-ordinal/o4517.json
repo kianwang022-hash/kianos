@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "87a01cd6297afb98ebf756335ebbf32dea4056b06ac6cc032e766fcaf991aa5f",
+    "content_hash": "2e1dd854c3e6eb3e5f5927e9fc2717a70388dce781c6b5e46d5117f9da78e3c7",
     "core_concept": {
       "core_clusters": [
         {
@@ -189,18 +189,28 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:1c08e69ff5530de350b3",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:snap:2d1cc4719aed0441:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "厉声斥责/没好气地对某人说",
+            "phrase": "snap at sb"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "厉声说、没好气地回答",
         "definition_en": "to speak or respond sharply or angrily",
-        "governing_pattern": "vi. + at",
+        "governing_pattern": "vi.: snap at sb; snap back",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:snap:2d1cc4719aed0441",
         "sense_label_en": "to speak or respond sharply or angrily",
         "sort_order": 6,
-        "transitivity": "vt"
+        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -278,6 +288,7 @@
     ],
     "active_collocations": [
       "collocation:181eb8a853b079bf6389",
+      "collocation:1c08e69ff5530de350b3",
       "collocation:3117e99957124161af66",
       "collocation:3ef68c606422ffef40db",
       "collocation:8f42e4a06860dc35019e",
@@ -314,6 +325,11 @@
       {
         "id": "collocation:d354173e906f49c67803",
         "source_row": 17861,
+        "source_path": "content/lexical/canonical/collocations/shards/o4513-4544.json"
+      },
+      {
+        "id": "collocation:1c08e69ff5530de350b3",
+        "source_row": 21503,
         "source_path": "content/lexical/canonical/collocations/shards/o4513-4544.json"
       }
     ],
@@ -353,7 +369,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4513-4520.json",
-    "source_content_hash": "87a01cd6297afb98ebf756335ebbf32dea4056b06ac6cc032e766fcaf991aa5f",
+    "source_content_hash": "2e1dd854c3e6eb3e5f5927e9fc2717a70388dce781c6b5e46d5117f9da78e3c7",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -6,8 +6,19 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "b14ac531f12b2f712f24ea81eafd7596c9541dad8f1fb5dd4c20bcaa4c752e2f",
+    "constructions": [
+      {
+        "boundary": "verb construction; not a soldier-noun collocation",
+        "construction_id": "construction:7bb8cdf715e2baec5474",
+        "definition_en": "to continue doing something despite difficulty, fatigue, or discouragement",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "尽管困难、疲劳或受挫仍继续做下去",
+        "pattern": "soldier on",
+        "source_sense_id": "sense:soldier:02a918546830590f"
+      }
+    ],
+    "content_hash": "95342c2b37a7ef2d8fae7b41a83fe0673d473d04b428979ef687085e66a2bf28",
     "core_concept": {
       "core_clusters": [
         {
@@ -50,15 +61,6 @@
             ],
             "meaning_cn": "勇敢的士兵",
             "phrase": "a brave soldier"
-          },
-          {
-            "collocation_id": "collocation:d63e2272d04926e20883",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:soldier:96f58815a2165032:collocation:1"
-            ],
-            "meaning_cn": "坚持到底；继续奋斗",
-            "phrase": "soldier on"
           }
         ],
         "confidence": "medium",
@@ -76,12 +78,12 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:2082f4d0180bf80aaa18",
+            "collocation_id": "collocation:7d196a600179fc020542",
             "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
-              "sense:soldier:02a918546830590f:collocation:0"
+              "sense:soldier:02a918546830590f:collocation:streaming-c-checkpoint-o2851-o3050"
             ],
-            "meaning_cn": "坚持到底；继续奋斗",
+            "meaning_cn": "尽管困难、疲劳或受挫仍继续坚持",
             "phrase": "soldier on"
           }
         ],
@@ -137,9 +139,8 @@
       }
     ],
     "active_collocations": [
-      "collocation:2082f4d0180bf80aaa18",
-      "collocation:bff4ad57bd30a3329676",
-      "collocation:d63e2272d04926e20883"
+      "collocation:7d196a600179fc020542",
+      "collocation:bff4ad57bd30a3329676"
     ],
     "facts": [],
     "collocations": [
@@ -156,6 +157,11 @@
       {
         "id": "collocation:d63e2272d04926e20883",
         "source_row": 18127,
+        "source_path": "content/lexical/canonical/collocations/shards/o4513-4544.json"
+      },
+      {
+        "id": "collocation:7d196a600179fc020542",
+        "source_row": 21506,
         "source_path": "content/lexical/canonical/collocations/shards/o4513-4544.json"
       }
     ],
@@ -185,7 +191,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4537-4544.json",
-    "source_content_hash": "b14ac531f12b2f712f24ea81eafd7596c9541dad8f1fb5dd4c20bcaa4c752e2f",
+    "source_content_hash": "95342c2b37a7ef2d8fae7b41a83fe0673d473d04b428979ef687085e66a2bf28",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

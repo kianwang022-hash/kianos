@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "d8b1179ec1080ceea61edc9982e49a2539c753569378f7fe86467b9fbfe720a1",
+    "content_hash": "2285f39035e95bc6941616498a5c80e3e3d644bd47035e551e9300efe3609c66",
     "core_concept": {
       "core_clusters": [
         {
@@ -44,15 +44,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:7e079c6595ced63e3613",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:sob:6e023aad48415709:collocation:0"
-            ],
-            "meaning_cn": "哭诉某事",
-            "phrase": "sob out + sth"
-          },
-          {
             "collocation_id": "collocation:2d30730d654fe72960f2",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -65,7 +56,7 @@
         "confidence": "medium",
         "definition_cn": "啜泣，呜咽",
         "definition_en": "to cry noisily while taking short, sudden breaths",
-        "governing_pattern": "vi. + out",
+        "governing_pattern": "vi.: sob; sob uncontrollably",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
@@ -77,15 +68,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:4ee96dcd4d3ab11898a6",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:sob:7b9be71c83065eb3:collocation:0"
-            ],
-            "meaning_cn": "哭诉某事",
-            "phrase": "sob out + sth"
-          },
-          {
             "collocation_id": "collocation:0e34670823b5b22a5be3",
             "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
@@ -93,6 +75,15 @@
             ],
             "meaning_cn": "哭诉自己的悲伤",
             "phrase": "sob out one's grief"
+          },
+          {
+            "collocation_id": "collocation:b04cda446def32395797",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:sob:7b9be71c83065eb3:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "抽泣着说出某事",
+            "phrase": "sob out + sth"
           }
         ],
         "confidence": "medium",
@@ -180,9 +171,8 @@
     "active_collocations": [
       "collocation:0e34670823b5b22a5be3",
       "collocation:2d30730d654fe72960f2",
-      "collocation:4ee96dcd4d3ab11898a6",
-      "collocation:7e079c6595ced63e3613",
-      "collocation:9c8b1a797e24b7e69977"
+      "collocation:9c8b1a797e24b7e69977",
+      "collocation:b04cda446def32395797"
     ],
     "facts": [],
     "collocations": [
@@ -209,6 +199,11 @@
       {
         "id": "collocation:9c8b1a797e24b7e69977",
         "source_row": 13329,
+        "source_path": "content/lexical/canonical/collocations/shards/o4513-4544.json"
+      },
+      {
+        "id": "collocation:b04cda446def32395797",
+        "source_row": 21508,
         "source_path": "content/lexical/canonical/collocations/shards/o4513-4544.json"
       }
     ],
@@ -243,7 +238,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4529-4536.json",
-    "source_content_hash": "d8b1179ec1080ceea61edc9982e49a2539c753569378f7fe86467b9fbfe720a1",
+    "source_content_hash": "2285f39035e95bc6941616498a5c80e3e3d644bd47035e551e9300efe3609c66",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
