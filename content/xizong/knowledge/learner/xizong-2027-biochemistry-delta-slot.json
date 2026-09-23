@@ -196,7 +196,7 @@
       "received_at": "2026-09-24",
       "markdown_snapshot": "content/xizong/source-snapshots/27/生物化学讲义_AI阅读版_27跟课_UnifiedSource_v1.md"
     },
-    "action_now": "M1_CANONICAL_HIERARCHY_AND_DIRECT_MAPPING_CURRENT; NEXT_BOUNDED_BATCH=M2–M4_SOURCE→KNOWLEDGE_HIERARCHY_REBASE",
+    "action_now": "M1_CANONICAL_HIERARCHY_REBASE_CLOSED; NEXT=M2–M4_CARBOHYDRATE_ENERGY_CANONICAL_HIERARCHY_REBASE_UNDER_BIOCHEMISTRY_CONTRACT",
     "delta_audit": "content/xizong/source-snapshots/27/XIZONG_27_生化外科_Source_Delta_Audit_2026-09-24.md",
     "delta_summary": {
       "preserve": "M1–M10 + G1–G5 topology and most Current Core",
@@ -231,7 +231,7 @@
       ],
       "key_finding": "Initial audit found the M/G branch on the old 26 Source basis. M1 has now been reconstructed as a 5-layer canonical Knowledge hierarchy and the 27 Source map points directly to those layers/KPs; M2–M10/G1–G5 remain in the bounded rebase.",
       "batch_M1_protein_enzyme_vitamin": {
-        "status": "CURRENT_AFTER_CANONICAL_HIERARCHY_RECONSTRUCTION_AND_DIRECT_MAPPING",
+        "status": "CLOSED_AFTER_CANONICAL_HIERARCHY_REBASE_AND_DIRECT_MAPPING",
         "current_source": {
           "pdf": "27生化跟课版合集【不带导图】.pdf",
           "protein": "PDF P059–P065 / printed P55–P59",
@@ -285,7 +285,30 @@
           "source_to_knowledge": "27 Source units map directly to M1 L1–L5/KP; teacher order remains Source authority",
           "knowledge_to_learning": "each M1 Logic Group consumes exactly one canonical layer; Learning no longer keeps a duplicate local M1 Source-unit registry"
         },
-        "acceptance_result": "READY_FOR_SCOPED_M1_ACCEPTANCE_READBACK; overall M2–M10/G1–G5 bounded reopen remains active."
+        "acceptance_result": "READY_FOR_SCOPED_M1_ACCEPTANCE_READBACK; overall M2–M10/G1–G5 bounded reopen remains active.",
+        "canonical_hierarchy": {
+          "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M1_蛋白质酶与维生素_学习阅读版_v1_最终执行版.md",
+          "shape": "1 mother model → L1–L5 → 17 stable KPs",
+          "layers": {
+            "L1": "protein identity and conformation / KP01–KP05",
+            "L2": "protein physicochemical handling and turnover / KP06–KP08",
+            "L3": "enzyme execution mechanism and flux control / KP09–KP12",
+            "L4": "kinetic readout and inhibition perturbation / KP13–KP14",
+            "L5": "cofactor chemistry and vitamin interfaces / KP15–KP17"
+          },
+          "rule": "Core / Boundary / Precision / Connection are organized inside the canonical hierarchy; learner support and website presentation consume this truth rather than defining it."
+        },
+        "direct_mapping": {
+          "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
+          "source_to_knowledge": [
+            "BIO27-S09 → M1 L1/L2",
+            "BIO27-S13 → M1 L3/L4 + L5 support/prime",
+            "BIO27-S14 → M1 L5 primary completion"
+          ],
+          "learning_owner": "content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json",
+          "learning_mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP",
+          "website_rule": "Existing website mapping consumes GitHub canonical content/mappings; no static-web content fork or manual UI rewrite is required for ordinary M1 content updates."
+        }
       },
       "mapping_skeleton": "BUILT_22_SOURCE_UNITS"
     },
