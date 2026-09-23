@@ -43,6 +43,12 @@ jobs:
             (( count > 0 ))
           }
 
+          merged_main_prs="$(gh pr list --repo "$GITHUB_REPOSITORY" --base main --state merged --limit 1000 --json headRefName,headRefOid,baseRefName 2>/dev/null || true)"
+          if ! printf '%s' "$merged_main_prs" | jq -e 'type == "array"' >/dev/null 2>&1; then
+            echo "Merged-main PR inventory unavailable; generic squash cleanup will fail closed."
+            merged_main_prs='[]'
+          fi
+
           delete_branch() {
             local branch="$1"
             [[ -z "$branch" || "$branch" == "main" || "$branch" == "HEAD" ]] && return 0
@@ -70,6 +76,23 @@ jobs:
             branch="${remote_ref#origin/}"
             [[ "$branch" == "main" || "$branch" == "HEAD" ]] && continue
             if git merge-base --is-ancestor "origin/$branch" origin/main; then
+              delete_branch "$branch"
+            fi
+          done < <(git for-each-ref --format='%(refname:short)' refs/remotes/origin/)
+
+          # Generic squash-merged branches are safe only when the live branch head
+          # exactly equals a merged PR head whose base is main. Codex branches keep
+          # their stricter Issue-completion lifecycle below.
+          git fetch --prune origin '+refs/heads/*:refs/remotes/origin/*'
+          while IFS= read -r remote_ref; do
+            branch="${remote_ref#origin/}"
+            [[ "$branch" == "main" || "$branch" == "HEAD" ]] && continue
+            [[ "$branch" =~ ^codex/issue[0-9]+- ]] && continue
+            branch_head="$(git rev-parse "origin/$branch")"
+            exact_main_count="$(printf '%s' "$merged_main_prs" | jq --arg branch "$branch" --arg head "$branch_head" '[.[] | select(.baseRefName == "main" and .headRefName == $branch and .headRefOid == $head)] | length' 2>/dev/null || echo 0)"
+            [[ "$exact_main_count" =~ ^[0-9]+$ ]] || exact_main_count=0
+            if (( exact_main_count > 0 )); then
+              echo "Retiring exact-head squash-merged main branch: $branch"
               delete_branch "$branch"
             fi
           done < <(git for-each-ref --format='%(refname:short)' refs/remotes/origin/)
