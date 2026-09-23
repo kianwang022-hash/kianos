@@ -13,11 +13,11 @@ Fresh Chat entry:
 5. form the union of findings;
 6. adjudicate only hit/disagreement owners and required dependencies;
 7. emit exact final mutation package;
-8. apply fail-closed to canonical owners only;
-9. targeted readback of changed owners/dependencies;
-10. commit the semantic window on the active C checkpoint branch;
-11. after roughly 500 eligible ordinals, rebuild exactly 7,946 FLOB once and run global validators once;
-12. merge that checkpoint through the normal authorized path, with receipts binding exact A/B review commits and C window commits.
+8. freeze an exact C decision manifest for every CHANGE/BLOCKED hit;
+9. either apply that window immediately, or use the checkpoint-batched fast path and defer its canonical writes within the same active checkpoint branch;
+10. at checkpoint boundary, apply all pending decision manifests fail-closed and run targeted readback;
+11. rebuild exactly 7,946 FLOB once and run global validators once;
+12. merge that checkpoint through the normal authorized path, with receipts binding exact A/B review commits, C decision manifests, and final mutation commit.
 
 Streaming safety rules:
 

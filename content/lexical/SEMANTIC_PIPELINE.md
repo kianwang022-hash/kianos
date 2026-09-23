@@ -140,7 +140,7 @@ read only A/B CHANGE or BLOCKED hits
 → durable window commit on the active C checkpoint branch
 ```
 
-Do not rebuild all 7,946 Final Learner Objects for every semantic window. Default execution is ~100 ordinals per semantic window (shrink to ~50 only for unusually dense disagreement), accumulating roughly 500 eligible ordinals on one C checkpoint branch. At the checkpoint boundary, rebuild exactly 7,946 FLOB once, run global validators once, then merge the checkpoint. Earlier full rebuilds require a real dependency/validator reason.
+Do not rebuild all 7,946 Final Learner Objects for every semantic window. Default execution is ~100 ordinals per semantic window. A checkpoint may use a batched-apply fast path: each window first freezes an immutable C decision manifest covering every A/B CHANGE/BLOCKED hit; canonical mutations for those decided windows may then be applied together at the checkpoint boundary. This is allowed only within the same active C checkpoint branch, with exact A/B commits frozen per manifest, cross-watermark shared owners deferred, and no semantic decision left implicit. At the checkpoint boundary, apply all pending manifests, run targeted readback, rebuild exactly 7,946 FLOB once, run global validators once, then merge the checkpoint.
 
 Targeted final readback must verify:
 - every changed Word/Relation/Form owner;

@@ -1,7 +1,7 @@
 {
   "schema": "kianos.lexical.dual_review_lane.v1",
   "lane": "C",
-  "status": "CHECKPOINT_IN_PROGRESS",
+  "status": "CHECKPOINT_DECISIONS_READY_FOR_BATCH_APPLY",
   "next_ordinal": 2851,
   "completed_through": 2850,
   "campaign": "content/lexical/execution/dual-review.json",
@@ -54,6 +54,13 @@
         "c_mutation_commit": "d4637ee2aae1419401cc5de6d8bcbe8c9918f749",
         "receipt": "content/lexical/execution/mutation-receipts/dual-review-c-o2751-o2850.json"
       }
+    ],
+    "semantic_decided_through": 3050,
+    "canonical_applied_through": 2850,
+    "pending_batch_apply": true,
+    "decision_manifests": [
+      "content/lexical/semantic-review/dual/C/o2851-o2950.decision.json",
+      "content/lexical/semantic-review/dual/C/o2951-o3050.decision.json"
     ]
   },
   "deferred_cross_watermark": [
@@ -81,16 +88,47 @@
       "source_ordinal": 2827,
       "remote_ordinal": 5935,
       "owner": "light/lighter Form/Identity relation"
+    },
+    {
+      "source_ordinal": 2855,
+      "remote_ordinal": 5564,
+      "owner": "litre/liter Form/Identity relation"
+    },
+    {
+      "source_ordinal": 2949,
+      "remote_ordinal": 7134,
+      "owner": "manoeuvre/maneuver Form/Identity relation"
+    },
+    {
+      "source_ordinal": 2967,
+      "remote_ordinal": 5960,
+      "owner": "marvelous/marvellous Form/Identity relation"
     }
   ],
   "active_checkpoint_branch": "work/lexical-c-checkpoint-o2551-o3050-20260923",
   "checkpoint_start_ordinal": 2551,
   "checkpoint_target_through": 3050,
-  "checkpoint_staged_through": 2850,
+  "checkpoint_staged_through": 3050,
   "checkpoint_full_rebuild_pending": true,
   "window_receipts": [
     "content/lexical/execution/mutation-receipts/dual-review-c-o2551-o2650.json",
     "content/lexical/execution/mutation-receipts/dual-review-c-o2651-o2750.json",
     "content/lexical/execution/mutation-receipts/dual-review-c-o2751-o2850.json"
+  ],
+  "semantic_decided_through": 3050,
+  "canonical_applied_through": 2850,
+  "next_semantic_ordinal": 3051,
+  "checkpoint_batch_apply_pending": true,
+  "pending_decision_manifests": [
+    "content/lexical/semantic-review/dual/C/o2851-o2950.decision.json",
+    "content/lexical/semantic-review/dual/C/o2951-o3050.decision.json"
+  ],
+  "deferred_beyond_c_frontier": [
+    {
+      "source_ordinal": 2935,
+      "remote_ordinal": 3068,
+      "owner": "majority/minority sense-bound relation",
+      "reason": "remote owner within shared watermark but beyond current C checkpoint/frontier"
+    }
   ]
 }
