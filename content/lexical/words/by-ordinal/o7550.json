@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "9758b89c39e41ad5030d188f5ea02c897904b9407ce5de2237d3f5ff1a3e0acc",
+    "content_hash": "0b2ac889adba5f67bcfd68f799cdf8533ff1c0c7158419c803a6700b4f5d8bff",
     "core_concept": {
       "core_clusters": [
         {
@@ -25,6 +25,22 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "C semantic reconciliation o7451-o7550",
+      "boundaries": [
+        {
+          "condition": "adjective",
+          "note": "bad-tempered, resentful, and often silent/withdrawn",
+          "surface": "sulky"
+        },
+        {
+          "condition": "historical noun",
+          "note": "a light two-wheeled one-person horse-drawn vehicle",
+          "surface": "sulky"
+        }
+      ],
+      "type": "same_surface_pos_lexeme_boundary"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -41,6 +57,13 @@
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
         "level": "L3",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "same_surface_pos_boundary",
+          "note": "historical noun = one-person two-wheeled horse-drawn vehicle; not a nominalized mood",
+          "paired_form": "sulky adjective",
+          "surface_lemma": "sulky"
+        },
         "needs_human_review": 0,
         "pos": "noun",
         "register": "historical",
@@ -64,6 +87,13 @@
         "definition_en": "bad-tempered, resentful, and often silent or withdrawn because one is annoyed",
         "governing_pattern": "",
         "level": "L1",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "same_surface_pos_boundary",
+          "note": "adjective = resentful/bad-tempered; distinct from historical carriage noun",
+          "paired_form": "sulky noun",
+          "surface_lemma": "sulky"
+        },
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:sulky:da7db0f5c8a5c6df",
@@ -128,7 +158,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7545-7552.json",
-    "source_content_hash": "9758b89c39e41ad5030d188f5ea02c897904b9407ce5de2237d3f5ff1a3e0acc",
+    "source_content_hash": "0b2ac889adba5f67bcfd68f799cdf8533ff1c0c7158419c803a6700b4f5d8bff",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
