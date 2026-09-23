@@ -16,14 +16,26 @@
       "房扑更典型为规则锯齿样F波；室上速通常规则而快速。"
     ],
     "transfer_rule": "房颤分类先看是否自行终止及持续时间。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.阵发性心房颤动。P波消失、形态不等f波和RR间期绝对不齐先锁定房颤；每次持续1～2小时并自行缓解符合阵发性房颤。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "房扑更典型为较规则的锯齿样F波，房室传导比例可固定或变化。"
+      },
+      {
+        "option": "A",
+        "reason": "阵发性室上速通常节律规则，不符合RR绝对不齐。"
+      }
+    ],
+    "common_failure_node": "看到“发作性心悸”就先报PSVT，没有先读ECG节律身份。"
   },
   {
     "question_id": "xizong-official-2020-n077",
@@ -42,14 +54,26 @@
       "高血压、冠心病或糖尿病都不能同时解释这组高代谢表现。"
     ],
     "transfer_rule": "新发房颤要排甲亢等可逆病因。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.甲状腺功能亢进症。消瘦、多汗、食欲好、睡眠差、手颤叠加房颤，构成甲亢高代谢与心血管表型。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "高血压可与房颤共存，但不能解释明显高代谢症状。"
+      },
+      {
+        "option": "B",
+        "reason": "冠心病也不能把消瘦、多汗、手颤和食欲好串成一条病因链。"
+      }
+    ],
+    "common_failure_node": "只按年龄和血压寻找房颤常见心血管病因，漏掉可逆的甲亢诱因。"
   },
   {
     "question_id": "xizong-official-2020-n078",
@@ -73,7 +97,20 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.治疗原发病为题源官方答案；甲亢确实需要治疗，但Current房颤管理还必须独立评估卒中风险、心室率/节律及血流动力学，不能简化为只治原发病。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "是否使用洋地黄类控制心室率需结合具体临床状态，不能仅凭该题残存信息作为统一首选。"
+      },
+      {
+        "option": "D",
+        "reason": "有症状的快速房颤不能笼统“观察”。"
+      }
+    ],
+    "common_failure_node": "把“纠正可逆诱因”偷换成“房颤本身不需独立管理”。",
+    "source_boundary_note": "2019/2020题源把继发于甲亢的房颤治疗简化为“治疗原发病”；Current仍需并行评估抗凝、心室率/节律和血流动力学，因此不建立正向relation。"
   },
   {
     "question_id": "xizong-official-2020-n079",
@@ -92,14 +129,26 @@
       "肝脓肿通常有感染表现；血管瘤也不符合这种硬而不规则肝大。"
     ],
     "transfer_rule": "HCC判断要把肝病背景与占位影像整合。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.原发性肝癌。慢性HBV背景叠加肝区胀痛、食欲下降和质硬不规则肝大，高度支持HCC。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "肝脓肿通常有更明显感染表现，如发热寒战和炎症指标升高。"
+      },
+      {
+        "option": "D",
+        "reason": "肝血管瘤通常不能解释质硬、表面不规则的肿瘤性肝大。"
+      }
+    ],
+    "common_failure_node": "看到肝占位/肝大就只做器官定位，不结合HBV这一高权重病因背景。"
   },
   {
     "question_id": "xizong-official-2020-n080",
@@ -123,7 +172,20 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.AFP持续升高>400 ng/ml为题源官方答案；该阈值可提高HCC提示度，但Current不能把AFP单一固定阈值作为独立确诊标准。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "ALT/AST升高反映肝细胞损伤，缺乏HCC特异性。"
+      },
+      {
+        "option": "D",
+        "reason": "白细胞/中性粒升高更偏感染炎症轴。"
+      }
+    ],
+    "common_failure_node": "把AFP阈值当成“超过即确诊HCC”，忽略高危背景与动态增强影像。",
+    "source_boundary_note": "题源采用AFP持续>400 ng/ml的旧诊断支持阈值；Current HCC诊断更依赖高危背景与典型影像，AFP不能单独作为确定诊断标准。"
   },
   {
     "question_id": "xizong-official-2020-n081",
@@ -147,7 +209,20 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.肝穿刺病理学检查为题源官方答案；Current高危患者若动态增强影像呈典型HCC特征，很多场景可非侵入性诊断，活检并非一律必要。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "超声可用于筛查和初步发现肝占位，但不能单独完成HCC定性。"
+      },
+      {
+        "option": "B",
+        "reason": "多期增强CT是Current HCC影像诊断的重要路径，不能简单视为次要。"
+      }
+    ],
+    "common_failure_node": "把“病理是金标准”机械等同于“所有疑似HCC都必须先穿刺”。",
+    "source_boundary_note": "题源把肝穿刺病理列为必要检查；Current典型高危HCC可依赖规范动态增强影像诊断，活检用于影像不典型或需要组织学确认的场景。"
   },
   {
     "question_id": "xizong-official-2020-n082",
@@ -166,14 +241,26 @@
       "肾炎综合征更强调血尿、高血压和肾炎性尿沉渣，而本例红细胞很少、蛋白漏出最突出。"
     ],
     "transfer_rule": "nephrotic=大量蛋白尿+低白蛋白+水肿+高脂血症。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.肾病综合征。大量蛋白尿、低白蛋白血症、水肿和高脂血症构成经典四联。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "急性肾炎综合征更强调血尿、高血压和肾炎性尿沉渣。"
+      },
+      {
+        "option": "B",
+        "reason": "急进性肾炎通常伴快速肾功能恶化及明显肾炎性证据。"
+      }
+    ],
+    "common_failure_node": "只看到水肿就报“肾炎”，没有先用蛋白尿量和血尿定位肾病综合征。"
   },
   {
     "question_id": "xizong-official-2020-n083",
@@ -192,14 +279,26 @@
       "其他三类更容易带出明显肾炎性证据。"
     ],
     "transfer_rule": "MCD=光镜近正常+足突融合+激素敏感。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.微小病变型肾病。青少年典型肾病综合征、几乎无血尿和高血压，最符合MCD。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "毛细血管内增生性肾炎更偏肾炎综合征。"
+      },
+      {
+        "option": "C",
+        "reason": "系膜毛细血管性肾炎常有血尿、补体异常等肾炎性线索。"
+      }
+    ],
+    "common_failure_node": "只按“青少年肾病”选疾病，不利用尿沉渣清洁这一高价值轴。"
   },
   {
     "question_id": "xizong-official-2020-n084",
@@ -218,14 +317,26 @@
       "环磷酰胺并非这种典型初治MCD的第一步。"
     ],
     "transfer_rule": "儿童典型MCD/原发肾病综合征先想激素敏感。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.醋酸泼尼松。典型儿童/青少年MCD对糖皮质激素敏感，Current Study保留其作为传统初始治疗。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "环磷酰胺通常不作为典型初治MCD第一步。"
+      },
+      {
+        "option": "D",
+        "reason": "辛伐他汀不能替代对原发肾病综合征病理过程的治疗。"
+      }
+    ],
+    "common_failure_node": "看到高脂血症就优先降脂，忽略本题治疗目标是原发肾小球病。"
   },
   {
     "question_id": "xizong-official-2020-n085",
@@ -244,14 +355,26 @@
       "地中海贫血虽也可小细胞，但题干已有明确慢性失血背景。"
     ],
     "transfer_rule": "缺铁贫血=慢性失血常见+MCV/MCHC下降。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.缺铁性贫血。长期月经过多提供慢性失血源，MCV/MCH/MCHC下降构成小细胞低色素性贫血。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "地中海贫血也可小细胞，但题干已有明确长期失血原因。"
+      },
+      {
+        "option": "D",
+        "reason": "巨幼细胞贫血应为大细胞性。"
+      }
+    ],
+    "common_failure_node": "只看到小细胞就选地贫，不结合慢性失血病因。"
   },
   {
     "question_id": "xizong-official-2020-n086",
@@ -270,14 +393,26 @@
       "血红蛋白电泳偏地贫，叶酸/B12偏巨幼贫，Ret主要看近期生成反应。"
     ],
     "transfer_rule": "缺铁确认重点看铁蛋白等铁代谢指标。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.血清铁、铁蛋白测定。铁蛋白反映储备铁，血清铁反映循环可利用铁，可直接支持缺铁。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "血红蛋白电泳主要用于地中海贫血等血红蛋白病鉴别。"
+      },
+      {
+        "option": "D",
+        "reason": "叶酸/B₁₂检测用于大细胞/巨幼贫评估。"
+      }
+    ],
+    "common_failure_node": "选择检查时不先问“我要证明的是铁缺乏本身，还是鉴别另一个贫血病因”。"
   },
   {
     "question_id": "xizong-official-2020-n087",
@@ -296,14 +431,26 @@
       "本例已经给出2年月经过多，妇科失血评估的病因价值最高。"
     ],
     "transfer_rule": "诊断缺铁后要继续找失血源。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.详细月经情况及妇科检查。育龄女性缺铁必须继续寻找慢性失血源，本例月经过多已是最直接线索。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "家族史更服务地中海贫血等遗传性小细胞贫血鉴别。"
+      },
+      {
+        "option": "A",
+        "reason": "饮食史有价值，但在明确月经过多背景下病因优先级较低。"
+      }
+    ],
+    "common_failure_node": "缺铁诊断成立后就停止，不继续追失铁原因。"
   },
   {
     "question_id": "xizong-official-2020-n088",
@@ -322,14 +469,26 @@
       "其他选项无法把全身低代谢表现串起来。"
     ],
     "transfer_rule": "甲减抓低代谢+黏液性水肿。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.甲状腺功能减退症。畏寒、乏力、表情淡漠、皮肤干燥、记忆减退、跟腱反射迟钝构成典型低代谢表型；心包积液可解释心界大和心音遥远。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "结核性心包炎可造成积液，但不能解释完整全身低代谢表型。"
+      },
+      {
+        "option": "B",
+        "reason": "扩张型心肌病也不能解释畏寒、皮肤干燥和反射迟钝。"
+      }
+    ],
+    "common_failure_node": "被心脏体征带偏，只处理心包积液/心衰而忽略其上游甲减。"
   },
   {
     "question_id": "xizong-official-2020-n089",
@@ -348,14 +507,26 @@
       "NT-proBNP、T-SPOT和ENA谱分别指向其他诊断轴。"
     ],
     "transfer_rule": "抗体看病因，TSH/FT4看功能。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.TPOAb。怀疑自身免疫性甲状腺炎导致甲减时，TPOAb是有针对性的病因学抗体。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "NT-proBNP反映心衰负荷，不回答甲减病因。"
+      },
+      {
+        "option": "D",
+        "reason": "ENA谱主要用于系统性自身免疫病鉴别。"
+      }
+    ],
+    "common_failure_node": "把“自身免疫性病因”泛化成任意自身抗体检查。"
   },
   {
     "question_id": "xizong-official-2020-n090",
@@ -374,14 +545,26 @@
       "利尿剂只能处理部分水肿，不能替代激素缺乏治疗。"
     ],
     "transfer_rule": "甲减治疗核心=L-T4替代。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.口服左甲状腺素。甲减的根本治疗是补回缺失的甲状腺激素，老年/心血管病患者需低剂量起始逐步调整。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "利尿剂只能处理部分液体潴留，不能纠正甲状腺激素缺乏。"
+      },
+      {
+        "option": "A",
+        "reason": "糖皮质激素不是一般原发性甲减的基础替代治疗。"
+      }
+    ],
+    "common_failure_node": "只处理水肿/心包积液等下游表现，不处理激素缺乏本身。"
   },
   {
     "question_id": "xizong-official-2020-n091",
@@ -400,14 +583,26 @@
       "SLE和RA不能像干燥综合征这样把持续口干眼干作为核心腺体表现。"
     ],
     "transfer_rule": "Sjögren抓干燥症状+SSA/SSB。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.干燥综合征。持续口眼干、进固体食物需饮水送服、关节痛和轻度血细胞减少构成典型Sjögren多系统表型。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "SLE可有口腔和关节表现，但持续口眼干/外分泌腺功能下降更支持Sjögren。"
+      },
+      {
+        "option": "D",
+        "reason": "糖尿病多饮并不能解释明显眼干、口腔干燥和关节症状。"
+      }
+    ],
+    "common_failure_node": "把“口干”误当成口渴，忽略唾液腺分泌减少的功能性描述。"
   },
   {
     "question_id": "xizong-official-2020-n092",
@@ -426,14 +621,26 @@
       "Sm更偏SLE，RF可阳性但特异性不足，空腹血糖用于排除糖尿病。"
     ],
     "transfer_rule": "Sjögren抗体联想SSA/SSB。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.抗SSA、抗SSB抗体。anti-SSA/Ro和anti-SSB/La是Sjögren的主要自身抗体。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "anti-Sm更特异于SLE。"
+      },
+      {
+        "option": "C",
+        "reason": "RF在Sjögren可阳性，但特异性低于SSA/SSB。"
+      }
+    ],
+    "common_failure_node": "只因为RF与风湿免疫病相关就优先选RF，忽略疾病特异抗体。"
   },
   {
     "question_id": "xizong-official-2020-n093",
@@ -452,14 +659,26 @@
       "残石和下段肿瘤应能提供相应梗阻证据。"
     ],
     "transfer_rule": "胆总管囊性扩张要区分先天性囊肿与继发梗阻。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.先天性胆管扩张症。胆总管直径约5 cm、无残石和远端梗阻、肝内胆管不扩张，符合肝外先天性胆管扩张模式。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "残余结石应在造影中有相应充盈缺损/梗阻证据。"
+      },
+      {
+        "option": "B",
+        "reason": "下段肿瘤应导致远端梗阻证据，而非单纯巨大肝外胆管扩张。"
+      }
+    ],
+    "common_failure_node": "看到既往胆石史就把任何术后胆管扩张都归因于残石。"
   },
   {
     "question_id": "xizong-official-2020-n094",
@@ -478,14 +697,26 @@
       "拔T管观察或单纯胆道镜取石都不够。"
     ],
     "transfer_rule": "胆总管囊肿原则=切除病变+胆道重建。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.肝外胆管切除、胆肠吻合术。先天性肝外胆管扩张的Current Study原则是切除异常扩张胆管并行Roux-en-Y等胆肠重建。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "单纯胆道镜取石不能消除异常胆管本体及其感染/癌变风险。"
+      },
+      {
+        "option": "D",
+        "reason": "拔管观察不能处理先天性扩张病变。"
+      }
+    ],
+    "common_failure_node": "把“胆管里没有石头”误理解成不需要处理异常扩张胆管。"
   },
   {
     "question_id": "xizong-official-2020-n095",
@@ -509,7 +740,20 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.不需特殊处理，可手术为题源官方答案；Current围术期高血压/糖尿病管理需结合手术风险、血压血糖水平、药物和靶器官状态个体化，不能固化成“无需处理”。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "也不能把所有患者都机械要求降到130/90才手术。"
+      },
+      {
+        "option": "B",
+        "reason": "围术期血糖目标不是简单把空腹血糖降至6.1这一单点阈值。"
+      }
+    ],
+    "common_failure_node": "把旧考试单一数值门槛/“无需处理”直接当现代围术期规则。",
+    "source_boundary_note": "题源按旧围术期口径选择D；Current应综合手术风险、血压/血糖控制、并发症与药物方案，不建立固定“无需特殊处理即可手术”relation。"
   },
   {
     "question_id": "xizong-official-2020-n096",
@@ -533,7 +777,16 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.穿刺置管引流为题源官方答案；当前共享病例未保存具体子问条件，无法知道是在处理何种术后/胆道/局部并发症，因此不能反推Current操作指征。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "在子问缺失时，不能仅凭“手术引流”与“穿刺引流”二选一恢复临床场景。"
+      }
+    ],
+    "common_failure_node": "从操作答案A反向补造一个并不存在的脓肿/积液诊断。",
+    "source_gap_note": "共享病例具体子问及触发穿刺引流的病变信息缺失；官方答案保留，但不建立Current relation。"
   },
   {
     "question_id": "xizong-official-2020-n097",
@@ -552,14 +805,26 @@
       "甲状腺癌更常见无痛性快速增大；亚甲炎和桥本也不符合既有结节突然囊性增大的局部事件。"
     ],
     "transfer_rule": "甲状腺结节突然痛性增大先想囊内出血。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.囊内出血。既有结节突然疼痛并快速增大、呈囊实性，Current D21明确把“痛性迅速增大”作为结甲囊内出血的经典反例。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "恶性结节更常为无痛性快速增大，并需结合硬、固定、淋巴结及超声高危征。"
+      },
+      {
+        "option": "C",
+        "reason": "亚急性甲状腺炎通常是弥漫/不对称炎症疼痛，不是既有单个结节短期囊性增大。"
+      }
+    ],
+    "common_failure_node": "一看到结节短期变大就自动判恶变，忽略“疼痛”把概率推向囊内出血。"
   },
   {
     "question_id": "xizong-official-2020-n098",
@@ -576,14 +841,27 @@
       "按题干与选项，依据上述判断轴确定题源答案。"
     ],
     "transfer_rule": "先判断是否压迫、持续出血或恶性风险，再决定干预。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.对症治疗为题源官方答案；Current D21明确承接囊内出血识别，但未冻结“对症治疗优先于穿刺/其他处理”的统一治疗规则。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "穿刺抽液在部分症状性囊性结节中可有诊断或缓解作用，不能仅凭现存Current知识将其统一判错。"
+      },
+      {
+        "option": "B",
+        "reason": "是否手术需结合压迫、恶性风险、复发和结节范围。"
+      }
+    ],
+    "common_failure_node": "把“诊断明确为囊内出血”误当成“Current已拥有固定治疗顺序”。",
+    "source_gap_note": "Current D21 KP19/KP22明确“囊内出血→痛性迅速增大”的识别，但没有冻结本题四选一的统一治疗优先级；不建立relation。"
   },
   {
     "question_id": "xizong-official-2020-n099",
@@ -607,7 +885,20 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.右叶全切、左叶次全切除术为题源官方答案；当前记录缺少完整子问，且现代甲状腺切除范围依病变侧别、性质、压迫/恶性风险等决定，不能升级固定术式。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "单侧全切是否足够取决于对侧病变与具体手术目标。"
+      },
+      {
+        "option": "D",
+        "reason": "双叶次全切同样不是Current可以脱离完整病情统一推出的术式。"
+      }
+    ],
+    "common_failure_node": "从官方术式反推病变分布和手术指征，制造缺失上下文。",
+    "source_gap_note": "共享病例子问/术式指征不完整，且题源固定切除范围属于旧外科口径；Current按病变范围与风险个体化选择，不建立relation。"
   },
   {
     "question_id": "xizong-official-2020-n100",
@@ -631,6 +922,19 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.Dixon术为题源官方答案；距肛缘7 cm、无远处转移在旧口径支持保肛前切除，但Current保肛可行性还需MRI分期、括约肌/提肛肌关系、CRM、新辅助治疗等。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "Miles是否必要不能只由肛缘距离决定，关键看括约肌/提肛肌受侵及安全切缘。"
+      },
+      {
+        "option": "D",
+        "reason": "Hartmann更多用于特定急诊/高风险吻合场景，不是该题常规根治答案。"
+      }
+    ],
+    "common_failure_node": "只背“距肛缘几厘米选某术式”，忽略现代直肠癌局部分期与切缘评估。",
+    "source_boundary_note": "题源按距肛缘等旧手术口径选择Dixon；Current术式需结合MRI局部分期、括约肌关系、CRM、新辅助与患者因素，不建立固定术式relation。"
   }
 ]
