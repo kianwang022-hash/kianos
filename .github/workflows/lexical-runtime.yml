@@ -80,6 +80,9 @@ jobs:
           print(f'validated {len(roots)} lexical JSON files')
           PY
 
+      - name: Materialize ephemeral Current lexical projection
+        run: python tools/lexical_build_final_learner_objects.py
+
       - name: Verify Current catalog and representative hydration
         working-directory: static-web
         run: |
