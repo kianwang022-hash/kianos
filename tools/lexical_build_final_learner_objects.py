@@ -54,19 +54,30 @@ def hydrate_relations(owner: dict[str, Any], record: dict[str, Any]) -> tuple[di
         owner_path = str(ref.get("owner_path") or "")
         if not field or not isinstance(index, int) or not relation_id or not owner_path:
             raise RuntimeError(f"FINAL_LEARNER_RELATION_REF_INVALID:{owner.get('word_id')}")
-        relation = load(ROOT / owner_path)
-        if relation.get("relation_id") != relation_id:
+        relation_path = ROOT / owner_path
+        relation = load(relation_path) if relation_path.exists() else None
+        if relation is not None and relation.get("relation_id") != relation_id:
             raise RuntimeError(f"FINAL_LEARNER_RELATION_ID_MISMATCH:{relation_id}")
         view = next((
-            v for v in relation.get("word_views") or []
+            v for v in ((relation or {}).get("word_views") or [])
             if v.get("source_word_id") == owner.get("word_id")
             and v.get("field") == field
             and int(v.get("index", -1)) == index
         ), None)
-        if not isinstance((view or {}).get("payload"), dict):
-            raise RuntimeError(f"FINAL_LEARNER_RELATION_VIEW_MISSING:{relation_id}:{owner.get('word_id')}")
-        paths.add(owner_path)
-        by_field.setdefault(field, []).append((index, clone(view["payload"])))
+        payload = (view or {}).get("payload")
+        if not isinstance(payload, dict):
+            inline_rows = record.get(field) or []
+            inline_payload = inline_rows[index] if 0 <= index < len(inline_rows) else None
+            inline_relation_id = (
+                str((inline_payload or {}).get("relation_id") or (inline_payload or {}).get("fact_id") or "")
+                if isinstance(inline_payload, dict) else ""
+            )
+            if not isinstance(inline_payload, dict) or (inline_relation_id and inline_relation_id != relation_id):
+                raise RuntimeError(f"FINAL_LEARNER_RELATION_VIEW_MISSING:{relation_id}:{owner.get('word_id')}")
+            payload = inline_payload
+        if relation_path.exists():
+            paths.add(owner_path)
+        by_field.setdefault(field, []).append((index, clone(payload)))
     for field, rows in by_field.items():
         rows.sort(key=lambda x: x[0])
         out[field] = [payload for _, payload in rows]
