@@ -19,65 +19,14 @@
   "derived_rebuild_policy": "NO_C_CHECKPOINT_FLOB_REBUILD; FINAL_LEARNER_OBJECTS_BUILD_TIME_DERIVED; PR907_CHANGED_OWNER_INCREMENTAL_QA",
   "window_read_policy": "READ_ONLY_A_B_CHANGE_BLOCKED_HITS_SKIP_DOUBLE_NO_CHANGE",
   "checkpoint": {
-    "start_ordinal": 4051,
-    "target_end_ordinal": 4550,
+    "start_ordinal": 4551,
+    "target_end_ordinal": 5050,
     "semantic_completed_through": 4550,
     "semantic_decided_through": 4550,
     "canonical_applied_through": 4550,
     "pending_batch_apply": false,
     "pending_full_7946_flob_rebuild": false,
-    "windows": [
-      {
-        "range": [
-          4051,
-          4150
-        ],
-        "a_review_commit": "90e7482e1615319f9cb07a76737d12a7f0f09a24",
-        "b_review_commit": "80df7a2b073bb53689429358f17567e66aab0a2f",
-        "c_mutation_commit": "e1d81e5656415fa07998b17aa7c715ff698d3f7c",
-        "decision_manifest": "content/lexical/semantic-review/dual/C/o4051-o4150.decision.json"
-      },
-      {
-        "range": [
-          4151,
-          4250
-        ],
-        "a_review_commit": "90e7482e1615319f9cb07a76737d12a7f0f09a24",
-        "b_review_commit": "80df7a2b073bb53689429358f17567e66aab0a2f",
-        "c_mutation_commit": "73766e6d67297fce97724a2e3b80864afb8b8679",
-        "decision_manifest": "content/lexical/semantic-review/dual/C/o4151-o4250.decision.json"
-      },
-      {
-        "range": [
-          4251,
-          4350
-        ],
-        "a_review_commit": "90e7482e1615319f9cb07a76737d12a7f0f09a24",
-        "b_review_commit": "80df7a2b073bb53689429358f17567e66aab0a2f",
-        "c_mutation_commit": "68ef7c12c162bb0dab529e5d8c4d315f56a7485d",
-        "decision_manifest": "content/lexical/semantic-review/dual/C/o4251-o4350.decision.json"
-      },
-      {
-        "range": [
-          4351,
-          4450
-        ],
-        "a_review_commit": "90e7482e1615319f9cb07a76737d12a7f0f09a24",
-        "b_review_commit": "80df7a2b073bb53689429358f17567e66aab0a2f",
-        "c_mutation_commit": "c6364c5ef",
-        "decision_manifest": "content/lexical/semantic-review/dual/C/o4351-o4450.decision.json"
-      },
-      {
-        "range": [
-          4451,
-          4550
-        ],
-        "a_review_commit": "90e7482e1615319f9cb07a76737d12a7f0f09a24",
-        "b_review_commit": "80df7a2b073bb53689429358f17567e66aab0a2f",
-        "c_mutation_commit": "65412cde8fe0df9b070611413bc181833c97e1c5",
-        "decision_manifest": "content/lexical/semantic-review/dual/C/o4451-o4550.decision.json"
-      }
-    ]
+    "windows": []
   },
   "deferred_cross_watermark": [
     {
@@ -127,8 +76,8 @@
     }
   ],
   "active_checkpoint_branch": null,
-  "checkpoint_start_ordinal": 4051,
-  "checkpoint_target_through": 4550,
+  "checkpoint_start_ordinal": 4551,
+  "checkpoint_target_through": 5050,
   "checkpoint_staged_through": 4550,
   "checkpoint_full_rebuild_pending": false,
   "window_receipts": [
@@ -160,6 +109,7 @@
   "checkpoint_receipts": [
     "content/lexical/execution/mutation-receipts/dual-review-c-checkpoint-o2551-o3050.json",
     "content/lexical/execution/mutation-receipts/dual-review-c-checkpoint-o3051-o3550.json",
-    "content/lexical/execution/mutation-receipts/dual-review-c-checkpoint-o3551-o4050.json"
+    "content/lexical/execution/mutation-receipts/dual-review-c-checkpoint-o3551-o4050.json",
+    "content/lexical/execution/mutation-receipts/dual-review-c-checkpoint-o4051-o4550.json"
   ]
 }
