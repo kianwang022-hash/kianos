@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "7341b1249c029403594ed770c4e5b569070533aa62b702ecd84c3e9a4cce8cb9",
+    "content_hash": "b8c6349ae03a1bbe37385e0a62c2dbdd49ff1c2de67c9b57f6ef15639937d6ba",
     "core_concept": {
       "core_clusters": [
         {
@@ -109,10 +109,21 @@
         "transitivity": "vt"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:e5281c05596ac929d9a5",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:trash:e1ca18668a6559cd:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "严厉批评/痛斥提案、电影或对手",
+            "phrase": "trash a proposal/movie/opponent"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "严厉批评；贬损；痛斥",
         "definition_en": "to criticize someone or something very severely or express a totally negative opinion",
+        "governing_pattern": "vt.: trash a proposal/movie/opponent",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
@@ -130,7 +141,8 @@
             "source_operation_sha256": "71a9a2814e69927ab1330b996be5cc7bcb99e159190d2686ff1cab4b21213f16",
             "verification_status": "auditor_verified"
           }
-        ]
+        ],
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -182,7 +194,8 @@
       "collocation:0f0a5414de28a4b53724",
       "collocation:2b0d6372db3a530929bd",
       "collocation:8a07503c9091993cfd71",
-      "collocation:e156785e4d9dbd6faa4b"
+      "collocation:e156785e4d9dbd6faa4b",
+      "collocation:e5281c05596ac929d9a5"
     ],
     "facts": [],
     "collocations": [
@@ -204,6 +217,11 @@
       {
         "id": "collocation:e156785e4d9dbd6faa4b",
         "source_row": 19053,
+        "source_path": "content/lexical/canonical/collocations/shards/o5089-5120.json"
+      },
+      {
+        "id": "collocation:e5281c05596ac929d9a5",
+        "source_row": 21475,
         "source_path": "content/lexical/canonical/collocations/shards/o5089-5120.json"
       }
     ],
@@ -233,7 +251,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5105-5112.json",
-    "source_content_hash": "7341b1249c029403594ed770c4e5b569070533aa62b702ecd84c3e9a4cce8cb9",
+    "source_content_hash": "b8c6349ae03a1bbe37385e0a62c2dbdd49ff1c2de67c9b57f6ef15639937d6ba",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

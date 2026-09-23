@@ -6,8 +6,18 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "b15b75ba21ee135ea8735cc5b08d43bd6d34c717a4c771390c9be4085935478f",
+    "constructions": [
+      {
+        "boundary": "road vehicle powered by overhead electric wires; not a rail trolley/tram",
+        "construction_id": "construction:0957e0c86af41441cb8b",
+        "definition_en": "a road vehicle powered by overhead electric wires and running on ordinary roads, not rails",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "无轨电车：由道路上方电线供电、在普通道路上行驶而非沿铁轨行驶的公共车辆",
+        "pattern": "trolleybus / trolley bus"
+      }
+    ],
+    "content_hash": "879ea5c705a3d669506ad9b23dd0db67cae9ea90f4e9ac0cb55bfd0c6e81535a",
     "core_concept": {
       "core_clusters": [
         {
@@ -45,15 +55,6 @@
     "senses": [
       {
         "collocations": [
-          {
-            "collocation_id": "collocation:0bba982aa232ed29d62a",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:trolley:ecab8fdd3a2a5e81:collocation:0"
-            ],
-            "meaning_cn": "无轨电车",
-            "phrase": "trolley bus"
-          },
           {
             "collocation_id": "collocation:2bd1885ed10c99e8f227",
             "exam_value": "usage_example",
@@ -251,7 +252,6 @@
       }
     ],
     "active_collocations": [
-      "collocation:0bba982aa232ed29d62a",
       "collocation:1abe42a1dd72c1d8b77a",
       "collocation:2bd1885ed10c99e8f227",
       "collocation:95b700baa395c4bb4228",
@@ -329,7 +329,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5129-5136.json",
-    "source_content_hash": "b15b75ba21ee135ea8735cc5b08d43bd6d34c717a4c771390c9be4085935478f",
+    "source_content_hash": "879ea5c705a3d669506ad9b23dd0db67cae9ea90f4e9ac0cb55bfd0c6e81535a",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
