@@ -5,7 +5,7 @@
     "ordinal": 3841,
     "word": "prospect",
     "source_owner_path": "content/lexical/words/by-ordinal/o3841.json",
-    "source_fingerprint": "298dcf81ab9a12551466dc5169b7d3ed66bfad549fb5d5957ddb94271166363a",
+    "source_fingerprint": "1045ab69e600db4d1a7cd64257a0a0a825d79e913b90c530b861eed37a791991",
     "sense_lineage": [
       {
         "word_id": "word:prospect",
@@ -97,7 +97,7 @@
         "id": "sense:prospect:fadbb4f3274353f8",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + for",
+        "governing_pattern": "I/T: prospect for gold/minerals; prospect an area",
         "definition_cn": "寻找；勘探",
         "definition_en": "search for something desirable",
         "note": "",
@@ -694,19 +694,11 @@
     "ordinal": 3848,
     "word": "protest",
     "source_owner_path": "content/lexical/words/by-ordinal/o3848.json",
-    "source_fingerprint": "210978d825f3414e6eadd0a339eebb081cb49543733a99965199b88ea92c3bf4",
-    "sense_lineage": [
-      {
-        "word_id": "word:protest",
-        "target_kind": "sense",
-        "from_target_id": "sense:protest:0a881ccb0bf0520b",
-        "status": "deprecated",
-        "to_target_id": null
-      }
-    ],
+    "source_fingerprint": "407405fe87805880ef6f9a28f852844ab888480607bd67a35e77f3e569bdff7f",
+    "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V",
+        "2V",
         "1N"
       ],
       "density": "rich"
@@ -730,7 +722,15 @@
         "definition_cn": "抗议；反对",
         "definition_en": "a strong complaint or disagreement, often public",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "noun often has initial stress; verb often shifts stress later, with dialect/usage variation",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "noun often has initial stress; verb often shifts stress later, with dialect/usage variation"
+          }
+        },
         "usage": [
           {
             "id": "collocation:7d6a842f7da4857cff41",
@@ -756,7 +756,15 @@
         "definition_cn": "抗议；反对",
         "definition_en": "to express strong disagreement or objection, especially publicly",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "verb often shifts stress later; noun often has initial stress; variation exists",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "verb often shifts stress later; noun often has initial stress; variation exists"
+          }
+        },
         "usage": [
           {
             "id": "collocation:cb08d74d964d018e61bc",
@@ -778,60 +786,43 @@
           "target_locator": "record.senses[1]",
           "target_label": "抗议；反对"
         }
-      }
-    ],
-    "secondary_senses": [],
-    "constructions": [
+      },
       {
-        "id": "deep:constructions:protest:975e16abb4c37ca4",
-        "source_locator": "record.constructions[0]",
-        "pattern": "protest + that clause",
-        "lines": [
+        "id": "sense:protest:0a881ccb0bf0520b",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "protest that + clause",
+        "definition_cn": "断言；坚称；申明",
+        "definition_en": "to declare or insist strongly that something is true, especially in response to an accusation, objection, or unwanted situation",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
           {
-            "text": "断言…",
-            "lang": "cn"
-          },
-          {
-            "text": "断言；申明",
-            "lang": "cn"
-          },
-          {
-            "text": "protest that 从句 断言…",
-            "lang": "cn"
-          },
-          {
-            "text": "to declare or assert firmly",
-            "lang": "en"
+            "id": "collocation:750ced324d8a1f505fee",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "protest that + clause",
+            "meaning_cn": "断言/坚称……",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:750ced324d8a1f505fee",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "protest that + clause"
+            }
           }
         ],
         "repair": {
-          "target_kind": "construction",
-          "target_id": "deep:constructions:protest:975e16abb4c37ca4",
-          "target_locator": "record.constructions[0]",
-          "target_label": "protest + that clause"
+          "target_kind": "sense",
+          "target_id": "sense:protest:0a881ccb0bf0520b",
+          "target_locator": "record.senses[2]",
+          "target_label": "断言；坚称；申明"
         }
       }
     ],
+    "secondary_senses": [],
+    "constructions": [],
     "reference": {
-      "confusables": [
-        {
-          "title": "protest ↔ protest noun ↔ protest verb",
-          "target_word": "protest noun ↔ protest verb",
-          "lines": [
-            {
-              "text": "protest noun typically has initial stress; protest verb often shifts stress to the second syllable in standard dictionary pronunciation; variation exists.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "confusable:horizontal:25e8053a35c2a0909c8f",
-            "target_locator": "record.confusables[0]",
-            "target_label": "protest ↔ protest noun ↔ protest verb"
-          }
-        }
-      ],
+      "confusables": [],
       "relations": [],
       "form": {
         "boundary": "",
@@ -1913,7 +1904,7 @@
     "ordinal": 3857,
     "word": "provoke",
     "source_owner_path": "content/lexical/words/by-ordinal/o3857.json",
-    "source_fingerprint": "07d4bf0cf5c60affcd22d3e432130ec9f9870d10c34aa12af1bf3410b2d789c0",
+    "source_fingerprint": "3d85b4d53e8df58d288c663de2f5b5362c4fbd2546e8e06b38544943437c2617",
     "sense_lineage": [
       {
         "word_id": "word:provoke",
@@ -1930,13 +1921,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "激起，激怒",
+      "summary_cn": "引起反应/影响；也可激怒或挑衅",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "激起，激怒"
+        "target_label": "引起反应/影响；也可激怒或挑衅"
       }
     },
     "senses": [
@@ -1945,8 +1936,8 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "vt. + sb / vt. + sth",
-        "definition_cn": "激怒，挑衅",
-        "definition_en": "to cause a reaction, especially anger",
+        "definition_cn": "引起；激起；招致；激怒/挑衅",
+        "definition_en": "to cause a reaction, feeling, discussion, criticism, response, or other effect, often a strong or negative one",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1992,7 +1983,7 @@
           "target_kind": "sense",
           "target_id": "sense:provoke:f9daebec7f3159b7",
           "target_locator": "record.senses[0]",
-          "target_label": "激怒，挑衅"
+          "target_label": "引起；激起；招致；激怒/挑衅"
         }
       }
     ],
@@ -2531,7 +2522,7 @@
     "ordinal": 3864,
     "word": "publication",
     "source_owner_path": "content/lexical/words/by-ordinal/o3864.json",
-    "source_fingerprint": "c203cf0de08b7ca59d031791e325b3ce40c7b5f7046b2ede58d013a10292ce9f",
+    "source_fingerprint": "dcb2fa3fd7948ee2d611e8370546c3fb1bff54a5ef572387d26daf50bdd9c42a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2655,14 +2646,24 @@
       "form": null,
       "family": [
         {
-          "target_word": "public",
+          "target_word": "publish",
           "lines": [
             {
-              "text": "public 公共的；公众",
-              "lang": "cn"
+              "text": "publication as an issued/published work ↔ publish as issuing/making a work available",
+              "lang": "en"
             }
           ],
           "source_locator": "record.word_family[0]"
+        },
+        {
+          "target_word": "publish",
+          "lines": [
+            {
+              "text": "publication as making information public ↔ publish as making information public",
+              "lang": "en"
+            }
+          ],
+          "source_locator": "record.word_family[1]"
         }
       ]
     }
@@ -2890,7 +2891,7 @@
     "ordinal": 3867,
     "word": "puff",
     "source_owner_path": "content/lexical/words/by-ordinal/o3867.json",
-    "source_fingerprint": "ac825f415e011cc9468aa6e45819521a7e63a198dd59893939aeca0eaa8245ae",
+    "source_fingerprint": "0e8ad5e42a6def1608e4f19a70b946facb5c8eafd74b4494677ac265e81cba36",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2940,7 +2941,7 @@
         "id": "sense:puff:acd82ee888b95f39",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: puff smoke / puff out smoke; puff on a cigarette/pipe",
         "definition_cn": "一阵阵地吹/喷；抽一口（烟）",
         "definition_en": "to emit, blow, draw, or take something in short puffs, including taking a puff of smoke",
         "note": "Smoking use belongs with taking/drawing a puff, not with the breathe-heavily sense.",
@@ -3484,19 +3485,12 @@
     "ordinal": 3870,
     "word": "pump",
     "source_owner_path": "content/lexical/words/by-ordinal/o3870.json",
-    "source_fingerprint": "3464f6646b263d9b95de558fa248d60b9a5081b129ebdd3124cafac39c485ca2",
+    "source_fingerprint": "e5c66547bcf6d613b1539dc9bdbad7a6b75e25eef574f33a1dbe579e75f4531c",
     "sense_lineage": [
       {
         "word_id": "word:pump",
         "target_kind": "sense",
         "from_target_id": "sense:pump:3aa6881515ad5d03",
-        "status": "deprecated",
-        "to_target_id": null
-      },
-      {
-        "word_id": "word:pump",
-        "target_kind": "sense",
-        "from_target_id": "sense:pump:42618a88cf065ff4",
         "status": "deprecated",
         "to_target_id": null
       },
@@ -3517,7 +3511,7 @@
     ],
     "recall_map": {
       "parts": [
-        "1V",
+        "2V",
         "1N"
       ],
       "density": "rich"
@@ -3584,6 +3578,37 @@
           "target_locator": "record.senses[1]",
           "target_label": "用泵抽送；打气"
         }
+      },
+      {
+        "id": "sense:pump:42618a88cf065ff4",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "vt.: pump sb for information/details",
+        "definition_cn": "盘问；追问以获取信息",
+        "definition_en": "to question someone persistently in order to obtain information or details",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:6963a200fe65705c6175",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "pump sb for information/details",
+            "meaning_cn": "追问某人以获取信息/细节",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:6963a200fe65705c6175",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "pump sb for information/details"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:pump:42618a88cf065ff4",
+          "target_locator": "record.senses[2]",
+          "target_label": "盘问；追问以获取信息"
+        }
       }
     ],
     "secondary_senses": [],
@@ -3601,7 +3626,7 @@
     "ordinal": 3871,
     "word": "punch",
     "source_owner_path": "content/lexical/words/by-ordinal/o3871.json",
-    "source_fingerprint": "8b13073480527e9d2151272e14001ab057a710f44a3d0468200d13dc159c3a26",
+    "source_fingerprint": "17323a7648639465be828e5848f0b7e00750299c0cbe233158d45e7a68cfbe46",
     "sense_lineage": [
       {
         "word_id": "word:punch",
@@ -3633,7 +3658,7 @@
         "id": "sense:punch:490b0e36c9ae5e12",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: punch sb; punch at sb",
         "definition_cn": "用拳猛击",
         "definition_en": "to strike with the fist",
         "note": "",
@@ -4721,7 +4746,7 @@
     "ordinal": 3880,
     "word": "purpose",
     "source_owner_path": "content/lexical/words/by-ordinal/o3880.json",
-    "source_fingerprint": "6f730eb6e5a3434e11a9e2b62a22f46bf4d79194c026d50c7e772df2503c444b",
+    "source_fingerprint": "5bfa37202592a360d439171ae05be6ebe9dd58673cd3418c998b0756d13ac262",
     "sense_lineage": [
       {
         "word_id": "word:purpose",
@@ -4837,6 +4862,14 @@
           {
             "text": "故意地；有意地",
             "lang": "cn"
+          },
+          {
+            "text": "intentional action; contrast by accident",
+            "lang": "en"
+          },
+          {
+            "text": "intentionally or deliberately, not accidentally",
+            "lang": "en"
           }
         ],
         "repair": {
@@ -5161,7 +5194,7 @@
     "ordinal": 3883,
     "word": "pursuit",
     "source_owner_path": "content/lexical/words/by-ordinal/o3883.json",
-    "source_fingerprint": "c28dabd165346f20bb589fede85a28c1f06f9f0fdb3f33dcbbf2b28ea653ad56",
+    "source_fingerprint": "55699161971b81897dc18dd888bba4a746c9737c2d07a4cdc8f8d84553735c5e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5189,21 +5222,7 @@
         "definition_en": "the act of pursuing in an effort to overtake or capture",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:c0838497bae6161511aa",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "in pursuit of + sth",
-            "meaning_cn": "追求某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c0838497bae6161511aa",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "in pursuit of + sth"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:pursuit:ddcdf24e95dc52d1",
@@ -5273,7 +5292,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:fa80897b4683fa92c2a2",
+        "source_locator": "record.constructions[0]",
+        "pattern": "in pursuit of sb/sth",
+        "lines": [
+          {
+            "text": "追赶/追捕某人某物；追求目标、知识、幸福等",
+            "lang": "cn"
+          },
+          {
+            "text": "physical chase when the target is someone/something being caught; abstract goal-seeking when the target is an aim/knowledge/happiness",
+            "lang": "en"
+          },
+          {
+            "text": "physically chasing/trying to catch someone or something, or abstractly trying to achieve or obtain a desired goal",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:fa80897b4683fa92c2a2",
+          "target_locator": "record.constructions[0]",
+          "target_label": "in pursuit of sb/sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6111,7 +6156,7 @@
     "ordinal": 3889,
     "word": "qualify",
     "source_owner_path": "content/lexical/words/by-ordinal/o3889.json",
-    "source_fingerprint": "49a0a0eb74b804c5fe5c768aebe7c8ca58d13f740f9d53a500441fc684de62a5",
+    "source_fingerprint": "7226ce674e62d415f52e73ce5692adca90f3f72ec0c908ca77286989912b2d0e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6134,7 +6179,7 @@
         "id": "sense:qualify:5e16172b1e115dfe",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "qualify for sth; qualify as sth; qualify sb for sth/to do sth",
         "definition_cn": "取得资格；符合条件",
         "definition_en": "to have or achieve the conditions needed for something",
         "note": "",
@@ -6176,7 +6221,7 @@
         "id": "sense:qualify:06ffb2e303405be0",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vt.: qualify a claim/statement/conclusion",
         "definition_cn": "限定；修正某说法",
         "definition_en": "to add detail that makes a statement less general or less absolute",
         "note": "",
@@ -6210,7 +6255,7 @@
         "id": "sense:qualify:785201bdce035c98",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vi. + as: qualify as a doctor/professional",
         "definition_cn": "经培训取得资质",
         "definition_en": "to gain the training or certification needed for a role",
         "note": "",
@@ -6715,7 +6760,7 @@
     "ordinal": 3895,
     "word": "quarantine",
     "source_owner_path": "content/lexical/words/by-ordinal/o3895.json",
-    "source_fingerprint": "9f9acbf9a505863992fe6799b2e5d0cf791f003bd0b1e00668e08082a43c5308",
+    "source_fingerprint": "c5bcb1d0a84e9ce48fc2bc04d8595c254f49cddfc67e73b67b5f435a306426e3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7046,7 +7091,7 @@
     "ordinal": 3898,
     "word": "quarter",
     "source_owner_path": "content/lexical/words/by-ordinal/o3898.json",
-    "source_fingerprint": "4ed55c04021b4c626673e9498e2a9abb12fe56e88562329b8f0548bf7f47b3f3",
+    "source_fingerprint": "e1b6f284ab3918770f06afa375a2403c80e82a6b76f7161d31817fb8b0df17eb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7181,9 +7226,9 @@
             "repair": null
           },
           {
-            "id": "collocation:29add7de0d2f8373bf77",
+            "id": "collocation:027f0670447287e10c64",
             "source_locator": "record.senses[2].collocations[1]",
-            "phrase": "quarter report",
+            "phrase": "quarterly report",
             "meaning_cn": "季度报告",
             "kind": "usage_example",
             "repair": null
@@ -7918,11 +7963,11 @@
     "ordinal": 3903,
     "word": "question",
     "source_owner_path": "content/lexical/words/by-ordinal/o3903.json",
-    "source_fingerprint": "84c1dbc10481057489f0e9fbb015300498d079eb45626aef127fc3f69c092ec3",
+    "source_fingerprint": "a02e1ea3af630a149b43154b79000942898f2ec8b769bb3bb9a0df068bbdf760",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(1+1)V",
+        "1V",
         "2N"
       ],
       "density": "rich"
@@ -8043,22 +8088,7 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:question:2ca9fbdabdb1e2b9",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "询问，审问，怀疑",
-        "definition_en": "to ask questions of; to express doubt about",
-        "pattern": "question作动词，表示询问、怀疑",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:question:2ca9fbdabdb1e2b9",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "询问，审问，怀疑"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [
       {
         "id": "construction:383ab730aa923923bb21",

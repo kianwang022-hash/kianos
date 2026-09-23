@@ -5,7 +5,7 @@
     "ordinal": 2881,
     "word": "look",
     "source_owner_path": "content/lexical/words/by-ordinal/o2881.json",
-    "source_fingerprint": "626e16640ffc3640f82301dd72123a58a837b9555c4539e6c7ab201b5cec6b87",
+    "source_fingerprint": "26de32258aebb45e0de3b6d84644c663946f0ea8b111ce0ffd4579301a25f5ea",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -208,16 +208,8 @@
         "pattern": "look into sth",
         "lines": [
           {
-            "text": "调查；研究……",
+            "text": "调查；研究…",
             "lang": "cn"
-          },
-          {
-            "text": "phrasal extension: investigate/examine",
-            "lang": "en"
-          },
-          {
-            "text": "to investigate or examine something",
-            "lang": "en"
           }
         ],
         "repair": {
@@ -233,16 +225,8 @@
         "pattern": "look to sb/sth for sth / to do sth",
         "lines": [
           {
-            "text": "指望；依靠……",
+            "text": "指望；依靠…",
             "lang": "cn"
-          },
-          {
-            "text": "phrasal extension: rely on/seek help from",
-            "lang": "en"
-          },
-          {
-            "text": "to rely on or seek help, guidance, or support from someone/something",
-            "lang": "en"
           }
         ],
         "repair": {
@@ -250,6 +234,74 @@
           "target_id": "construction:556635fdc28ef8e76de9",
           "target_locator": "record.constructions[1]",
           "target_label": "look to sb/sth for sth / to do sth"
+        }
+      },
+      {
+        "id": "construction:fa4c4dce677ef99627b0",
+        "source_locator": "record.constructions[2]",
+        "pattern": "look for sb/sth",
+        "lines": [
+          {
+            "text": "寻找某人/某物",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:fa4c4dce677ef99627b0",
+          "target_locator": "record.constructions[2]",
+          "target_label": "look for sb/sth"
+        }
+      },
+      {
+        "id": "construction:76b8eb46c288d1b078bd",
+        "source_locator": "record.constructions[3]",
+        "pattern": "look after sb/sth",
+        "lines": [
+          {
+            "text": "照顾；照看",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:76b8eb46c288d1b078bd",
+          "target_locator": "record.constructions[3]",
+          "target_label": "look after sb/sth"
+        }
+      },
+      {
+        "id": "construction:f578ebabd4dd89ee7d1d",
+        "source_locator": "record.constructions[4]",
+        "pattern": "look forward to sth/doing sth",
+        "lines": [
+          {
+            "text": "期待某事/做某事（to为介词）",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:f578ebabd4dd89ee7d1d",
+          "target_locator": "record.constructions[4]",
+          "target_label": "look forward to sth/doing sth"
+        }
+      },
+      {
+        "id": "construction:182159d45a4dfa495a1c",
+        "source_locator": "record.constructions[5]",
+        "pattern": "look like sb/sth / look like + clause",
+        "lines": [
+          {
+            "text": "看起来像；似乎",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:182159d45a4dfa495a1c",
+          "target_locator": "record.constructions[5]",
+          "target_label": "look like sb/sth / look like + clause"
         }
       }
     ],
@@ -755,7 +807,7 @@
     "ordinal": 2885,
     "word": "loosen",
     "source_owner_path": "content/lexical/words/by-ordinal/o2885.json",
-    "source_fingerprint": "07f9798631f431b66a8d456d5a2e142580bf028a30fd3e4e5f007ccab9079a56",
+    "source_fingerprint": "bf45ebc5a169a3745c92cc1cdf8ec5aa8fc6a0c3667d8e526ec872f2bf5b8121",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -843,7 +895,7 @@
         "id": "sense:loosen:f3075e9d356c5153",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vi.",
         "definition_cn": "变松；松弛",
         "definition_en": "to become less tight, firm, fixed, or strict",
         "note": "",
@@ -1089,7 +1141,7 @@
     "ordinal": 2888,
     "word": "lose",
     "source_owner_path": "content/lexical/words/by-ordinal/o2888.json",
-    "source_fingerprint": "7801e0752aface1bb0f081f3f82d3471c0412a0283ce7746fa0c60f6fe668ef7",
+    "source_fingerprint": "fbccadf91838e0d00786b672836586bea34456284359a735ef835a9957748cdf",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1318,7 +1370,29 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:c9270b99e16b14b3d33c",
+        "source_locator": "record.constructions[0]",
+        "pattern": "lose to sb/team",
+        "lines": [
+          {
+            "text": "输给某人/某队；被该对手击败",
+            "lang": "cn"
+          },
+          {
+            "text": "intransitive defeat use; contrast lose a game/match/election",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:c9270b99e16b14b3d33c",
+          "target_locator": "record.constructions[0]",
+          "target_label": "lose to sb/team"
+        }
+      }
+    ],
     "reference": {
       "confusables": [
         {
@@ -1514,7 +1588,7 @@
     "ordinal": 2890,
     "word": "lot",
     "source_owner_path": "content/lexical/words/by-ordinal/o2890.json",
-    "source_fingerprint": "1e7f40053557f6aa9e21ab8274b7a60007eecb50894a1876a55c14c62537ecca",
+    "source_fingerprint": "d7f86fd0ea56de3b17fd14ed04daa2477a8e5073b6d0dae49cd593ff9c0389bb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1626,21 +1700,7 @@
         "definition_en": "one's fate or fortune",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:c206b6ded5e93e6cb533",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "cast lots",
-            "meaning_cn": "抽签",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c206b6ded5e93e6cb533",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "cast lots"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:lot:0293319562745da3",
@@ -1707,7 +1767,25 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:52b7b8158e8007a7656b",
+        "source_locator": "record.constructions[0]",
+        "pattern": "draw/cast lots",
+        "lines": [
+          {
+            "text": "抽签；用随机方式作选择/决定",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:52b7b8158e8007a7656b",
+          "target_locator": "record.constructions[0]",
+          "target_label": "draw/cast lots"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -2096,7 +2174,7 @@
     "ordinal": 2894,
     "word": "love",
     "source_owner_path": "content/lexical/words/by-ordinal/o2894.json",
-    "source_fingerprint": "53d515f364dd292c5ef724e7800692eff987963a41a6c883adbdb44ffe00e3fe",
+    "source_fingerprint": "e2c6bd1074c898e996e5bdc6a2f7a823931ddff479a91f067ae7427c1399186e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2165,8 +2243,8 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "爱；热爱",
-        "definition_en": "to feel deep affection for someone",
+        "definition_cn": "爱；热爱；非常喜欢（人、事物或活动）",
+        "definition_en": "to feel deep affection for someone, or to like or enjoy a person, thing, or activity very much",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2201,7 +2279,7 @@
           "target_kind": "sense",
           "target_id": "sense:love:aadabd57a5ca546b",
           "target_locator": "record.senses[1]",
-          "target_label": "爱；热爱"
+          "target_label": "爱；热爱；非常喜欢（人、事物或活动）"
         }
       },
       {
@@ -2263,7 +2341,25 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:dc6920d713d32d83cfa8",
+        "source_locator": "record.constructions[0]",
+        "pattern": "would love sth / would love to do sth",
+        "lines": [
+          {
+            "text": "非常想要某物/非常愿意做某事；也用于礼貌表达强烈意愿",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:dc6920d713d32d83cfa8",
+          "target_locator": "record.constructions[0]",
+          "target_label": "would love sth / would love to do sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -2460,7 +2556,7 @@
     "ordinal": 2897,
     "word": "low",
     "source_owner_path": "content/lexical/words/by-ordinal/o2897.json",
-    "source_fingerprint": "49b78ac4e65e09af41d80c461e03f1782bfd6bcfe6bcd5b9c74c475372d40da6",
+    "source_fingerprint": "eb704fbde5b8088c3a7a0a94ae93f000e913d13e67c262aef11545a9b512a9fd",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2490,7 +2586,15 @@
         "definition_cn": "低的；矮的",
         "definition_en": "not high; below the usual level",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "lower is also a stable Word owner",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "lower is also a stable Word owner"
+          }
+        },
         "usage": [
           {
             "id": "collocation:1d804f1de359d4dfcab2",
@@ -2618,13 +2722,7 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": [
-        {
-          "target_word": "",
-          "lines": [],
-          "source_locator": "record.word_family[0]"
-        }
-      ]
+      "family": []
     }
   },
   {
@@ -2633,7 +2731,7 @@
     "ordinal": 2898,
     "word": "lower",
     "source_owner_path": "content/lexical/words/by-ordinal/o2898.json",
-    "source_fingerprint": "40f49541de12d7fa5aade12a853ab58ffcda223a071073b5b28097b34d03fce9",
+    "source_fingerprint": "4bca019049944429edb3396cbb2551a4ca751dd77614843c93311b9c37adfe9d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2643,13 +2741,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "使向下移动或使减少",
+      "summary_cn": "较低的；使降低/放下",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "使向下移动或使减少"
+        "target_label": "较低的；使降低/放下"
       }
     },
     "senses": [
@@ -2778,7 +2876,15 @@
         "definition_cn": "较低的；下级的",
         "definition_en": "situated below something else, or of less rank or degree",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "also retained as an independent stable Word owner",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[3].lexical_identity_overlay",
+            "target_label": "also retained as an independent stable Word owner"
+          }
+        },
         "usage": [
           {
             "id": "collocation:1cc7f131e35cc882cb7c",
@@ -3763,7 +3869,7 @@
     "ordinal": 2909,
     "word": "lunch",
     "source_owner_path": "content/lexical/words/by-ordinal/o2909.json",
-    "source_fingerprint": "6b62fa02afae583f6b49f8d14f91d9632059a83bd47ee6189ba87ab876b24a56",
+    "source_fingerprint": "7296b08d149c53876cc3ae0e096953576853f260065596a2e80a9b9f4a3a67bb",
     "sense_lineage": [
       {
         "word_id": "word:lunch",
@@ -3781,13 +3887,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "午餐",
+      "summary_cn": "午餐；吃午餐",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "午餐"
+        "target_label": "午餐；吃午餐"
       }
     },
     "senses": [
@@ -4050,7 +4156,7 @@
     "ordinal": 2912,
     "word": "luxury",
     "source_owner_path": "content/lexical/words/by-ordinal/o2912.json",
-    "source_fingerprint": "6f955cab33a91384e6b6caa7f1ca51788fa7cb35c0fa073bd62a5749232757ba",
+    "source_fingerprint": "381c256d6678cdf11b161516ae6725b1f762cd3f6fea902695b1bec6a5d6cceb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4079,24 +4185,7 @@
         "definition_en": "something that is an indulgence rather than a necessity",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:da429f45b4f97d4c0a3d",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "luxury goods",
-            "meaning_cn": "奢侈品",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:d924f210f09ac84e76a5",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "a life of luxury",
-            "meaning_cn": "奢侈的生活",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:luxury:36a1ad6be98e5262",
@@ -4119,6 +4208,14 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "live in luxury",
             "meaning_cn": "过奢侈的生活",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:d924f210f09ac84e76a5",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "a life of luxury",
+            "meaning_cn": "奢侈的生活",
             "kind": "usage_example",
             "repair": null
           }
@@ -4147,6 +4244,14 @@
             "meaning_cn": "豪华酒店",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:da429f45b4f97d4c0a3d",
+            "source_locator": "record.senses[2].collocations[1]",
+            "phrase": "luxury goods",
+            "meaning_cn": "奢侈品",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -4172,7 +4277,7 @@
     "ordinal": 2913,
     "word": "lyric",
     "source_owner_path": "content/lexical/words/by-ordinal/o2913.json",
-    "source_fingerprint": "23f93b8b4aed36a85f14902533d7fc22c810973106a8bbeb8c7b72df5e28d1a5",
+    "source_fingerprint": "546dd8910ead3874c2e76b10df0e54e8c8def46131a4a1696581ca474796f560",
     "sense_lineage": [
       {
         "word_id": "word:lyric",
@@ -4180,17 +4285,11 @@
         "from_target_id": "sense:lyric:4472abcb1b0c5d4b",
         "status": "deprecated",
         "to_target_id": null
-      },
-      {
-        "word_id": "word:lyric",
-        "target_kind": "sense",
-        "from_target_id": "sense:lyric:48e2cd63780c5991",
-        "status": "deprecated",
-        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
+        "1A",
         "2N"
       ],
       "density": "rich"
@@ -4239,6 +4338,50 @@
           "target_locator": "record.senses[1]",
           "target_label": "抒情诗"
         }
+      },
+      {
+        "id": "sense:lyric:48e2cd63780c5991",
+        "source_locator": "record.senses[2]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "抒情的；抒情诗的",
+        "definition_en": "expressing personal emotion in a songlike or poetic way; relating to lyric poetry",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:b08998c39b0cd2f6f5c3",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "lyric poetry",
+            "meaning_cn": "抒情诗",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:b08998c39b0cd2f6f5c3",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "lyric poetry"
+            }
+          },
+          {
+            "id": "collocation:c589084fa297b3085b1a",
+            "source_locator": "record.senses[2].collocations[1]",
+            "phrase": "lyric poem",
+            "meaning_cn": "抒情诗篇",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:c589084fa297b3085b1a",
+              "target_locator": "record.senses[2].collocations[1]",
+              "target_label": "lyric poem"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:lyric:48e2cd63780c5991",
+          "target_locator": "record.senses[2]",
+          "target_label": "抒情的；抒情诗的"
+        }
       }
     ],
     "secondary_senses": [],
@@ -4256,7 +4399,7 @@
     "ordinal": 2914,
     "word": "machine",
     "source_owner_path": "content/lexical/words/by-ordinal/o2914.json",
-    "source_fingerprint": "43aeb95de27fae083dbb895a19d126bb65d920eddce19767f69c10b9d661fce4",
+    "source_fingerprint": "a60499b16c5f9642955e449634c9b6d468e8fc8315c25093cbfe6569ced6bc1f",
     "sense_lineage": [
       {
         "word_id": "word:machine",
@@ -4264,17 +4407,11 @@
         "from_target_id": "sense:machine:007838b0589e5141",
         "status": "deprecated",
         "to_target_id": null
-      },
-      {
-        "word_id": "word:machine",
-        "target_kind": "sense",
-        "from_target_id": "sense:machine:9795ae4c4e055ba3",
-        "status": "deprecated",
-        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
+        "1V",
         "2N"
       ],
       "density": "rich"
@@ -4322,6 +4459,32 @@
           "target_id": "sense:machine:f961e8486cfa589d",
           "target_locator": "record.senses[1]",
           "target_label": "机构；组织"
+        }
+      },
+      {
+        "id": "sense:machine:9795ae4c4e055ba3",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "",
+        "definition_cn": "用机器加工/制造",
+        "definition_en": "to make, shape, or finish something by machine",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:81f7ab53f232acbc08e4",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "machine a metal part",
+            "meaning_cn": "用机器加工金属零件",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:machine:9795ae4c4e055ba3",
+          "target_locator": "record.senses[2]",
+          "target_label": "用机器加工/制造"
         }
       }
     ],
@@ -4427,7 +4590,7 @@
     "ordinal": 2916,
     "word": "mad",
     "source_owner_path": "content/lexical/words/by-ordinal/o2916.json",
-    "source_fingerprint": "9ed6fc9dc3f256e81d72c20b59f0da6536cce6968d130fb508795e3564dc53a8",
+    "source_fingerprint": "bc42a52c807cd2284e5d2a8c9d8af68d48a5cef581f0a436b4fbad3f121c6e9e",
     "sense_lineage": [
       {
         "word_id": "word:mad",
@@ -4444,13 +4607,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "精神错乱或非常生气",
+      "summary_cn": "生气的；愚蠢/疯狂的；（旧式且可能冒犯）精神失常的",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "精神错乱或非常生气"
+        "target_label": "生气的；愚蠢/疯狂的；（旧式且可能冒犯）精神失常的"
       }
     },
     "senses": [
@@ -4461,7 +4624,7 @@
         "governing_pattern": "",
         "definition_cn": "生气的；恼火的",
         "definition_en": "very angry",
-        "note": "",
+        "note": "angry use is informal; mad at/with sb",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -4504,7 +4667,7 @@
         "governing_pattern": "",
         "definition_cn": "疯狂的；精神错乱的",
         "definition_en": "mentally ill; insane",
-        "note": "traditional mental-state use; register and sensitivity boundary applies.",
+        "note": "Use cautiously when interpreting older/informal source context.",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -4516,7 +4679,25 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:c8285d3e699c1de2fc8b",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be mad about sb/sth",
+        "lines": [
+          {
+            "text": "非常喜欢；着迷（非正式，尤英式）",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:c8285d3e699c1de2fc8b",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be mad about sb/sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4964,7 +5145,7 @@
     "ordinal": 2922,
     "word": "magnetic",
     "source_owner_path": "content/lexical/words/by-ordinal/o2922.json",
-    "source_fingerprint": "c9f514f8233b602b9866ab2ea4fd3c0e0f672e1b1126c7be4521455e424d0094",
+    "source_fingerprint": "5c8ce5996a6d43f1a8e35d21ade878cab58a8f1af05bd5647875ffc6044fb541",
     "sense_lineage": [
       {
         "word_id": "word:magnetic",
@@ -4990,7 +5171,7 @@
     ],
     "recall_map": {
       "parts": [
-        "2A"
+        "1A"
       ],
       "density": "rich"
     },
@@ -5042,37 +5223,6 @@
           "target_id": "sense:magnetic:8223284c86d05905",
           "target_locator": "record.senses[0]",
           "target_label": "磁的，磁性的"
-        }
-      },
-      {
-        "id": "sense:magnetic:c7dc4021073ac915",
-        "source_locator": "record.senses[1]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "有强烈吸引力的；有魅力的",
-        "definition_en": "powerfully attractive, compelling, or charismatic",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:93ab1d66369f2990f7c9",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "magnetic personality/appeal",
-            "meaning_cn": "极有魅力的个性/吸引力",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:93ab1d66369f2990f7c9",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "magnetic personality/appeal"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:magnetic:c7dc4021073ac915",
-          "target_locator": "record.senses[1]",
-          "target_label": "有强烈吸引力的；有魅力的"
         }
       }
     ],
@@ -5284,15 +5434,8 @@
     "ordinal": 2925,
     "word": "magnitude",
     "source_owner_path": "content/lexical/words/by-ordinal/o2925.json",
-    "source_fingerprint": "d942938b17907bd452a5b33d570a22d9549aeffe095ba3d09d88f7cba2554e91",
+    "source_fingerprint": "8c0b9340243b364fce77dee1812c8cb7aa11dfb87d820b10973bc3c9f10c1ad0",
     "sense_lineage": [
-      {
-        "word_id": "word:magnitude",
-        "target_kind": "sense",
-        "from_target_id": "sense:magnitude:312ea134948d5002",
-        "status": "merged",
-        "to_target_id": "sense:magnitude:dfbb3bd7e2aa55ef"
-      },
       {
         "word_id": "word:magnitude",
         "target_kind": "sense",
@@ -5310,7 +5453,7 @@
     ],
     "recall_map": {
       "parts": [
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
@@ -5330,8 +5473,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "巨大；重大",
-        "definition_en": "the great size or extent of something",
+        "definition_cn": "大小；程度；量级；重要性",
+        "definition_en": "the size, extent, degree, or importance of something",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5342,13 +5485,38 @@
             "meaning_cn": "问题的严重性",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:acf5e784f68073e8dad2",
+            "source_locator": "record.senses[0].collocations[1]",
+            "phrase": "earthquake magnitude",
+            "meaning_cn": "地震震级",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:magnitude:dfbb3bd7e2aa55ef",
           "target_locator": "record.senses[0]",
-          "target_label": "巨大；重大"
+          "target_label": "大小；程度；量级；重要性"
+        }
+      },
+      {
+        "id": "sense:magnitude:312ea134948d5002",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "星等（天文学，亮度尺度）",
+        "definition_en": "astronomical magnitude, a measure of apparent or absolute brightness",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:magnitude:312ea134948d5002",
+          "target_locator": "record.senses[1]",
+          "target_label": "星等（天文学，亮度尺度）"
         }
       }
     ],
@@ -5436,7 +5604,7 @@
     "ordinal": 2927,
     "word": "maiden",
     "source_owner_path": "content/lexical/words/by-ordinal/o2927.json",
-    "source_fingerprint": "f9b8cf1acd19b5f9002450a90d7efb7231fcc2ad6767a3ca14165c61e36eda95",
+    "source_fingerprint": "ba765ac3aa0224b87db3e9568cd48e3db18cfa15ea4feb22a637f826531f6e77",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5457,34 +5625,8 @@
     },
     "senses": [
       {
-        "id": "sense:maiden:57252cf8969a52d0",
-        "source_locator": "record.senses[0]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "少女；未婚女子；处女",
-        "definition_en": "a young unmarried woman, especially a virgin",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:14fd935448bbf1387051",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "a maiden lady",
-            "meaning_cn": "未婚女子",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:maiden:57252cf8969a52d0",
-          "target_locator": "record.senses[0]",
-          "target_label": "少女；未婚女子；处女"
-        }
-      },
-      {
         "id": "sense:maiden:b1f9e917fab15690",
-        "source_locator": "record.senses[1]",
+        "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "初次的；首次的",
@@ -5495,8 +5637,34 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:maiden:b1f9e917fab15690",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[0]",
           "target_label": "初次的；首次的"
+        }
+      },
+      {
+        "id": "sense:maiden:57252cf8969a52d0",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "少女；未婚女子；处女",
+        "definition_en": "a young unmarried woman, especially a virgin",
+        "note": "Young unmarried woman/virgin use is literary or old-fashioned.",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:14fd935448bbf1387051",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "a maiden lady",
+            "meaning_cn": "未婚女子",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:maiden:57252cf8969a52d0",
+          "target_locator": "record.senses[1]",
+          "target_label": "少女；未婚女子；处女"
         }
       },
       {
@@ -5564,7 +5732,7 @@
     "ordinal": 2928,
     "word": "mail",
     "source_owner_path": "content/lexical/words/by-ordinal/o2928.json",
-    "source_fingerprint": "3166d8aeb4daae181ad06f021c965afeb51aad5d7a83f9226adc0150b84b19e0",
+    "source_fingerprint": "c65410ff102a1c231735a8e476d27e10a0371a49a5be2de0aa47d89d80ec8618",
     "sense_lineage": [
       {
         "word_id": "word:mail",
@@ -5589,13 +5757,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "邮件",
+      "summary_cn": "邮件；邮政系统；邮寄",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "邮件"
+        "target_label": "邮件；邮政系统；邮寄"
       }
     },
     "senses": [
@@ -5710,7 +5878,7 @@
     "ordinal": 2929,
     "word": "main",
     "source_owner_path": "content/lexical/words/by-ordinal/o2929.json",
-    "source_fingerprint": "6d54631f7a348f46cc72e760f966d4190a9e5a6fe114f0a7552063c9d7da34d6",
+    "source_fingerprint": "8f0306cc8cc92d0e5a6fb1dd8d39d4008b80d6304363f5fc255e77cac23a45a1",
     "sense_lineage": [
       {
         "word_id": "word:main",
@@ -5728,13 +5896,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "主要的；干线",
+      "summary_cn": "主要的；主管线/干线",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "主要的；干线"
+        "target_label": "主要的；主管线/干线"
       }
     },
     "senses": [
@@ -6223,13 +6391,13 @@
     "ordinal": 2934,
     "word": "major",
     "source_owner_path": "content/lexical/words/by-ordinal/o2934.json",
-    "source_fingerprint": "ba22a4ab21badb48fee66c2745efa6e0560a85ea1e38aeb4d3d25b088f39f099",
+    "source_fingerprint": "59753cc90cf030e7095c3cb2f5b1c566925531099127970d54992afec2439ea0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
         "1A",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
@@ -6289,21 +6457,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:d8e6fdb7c93de741c55d",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "major in + subject",
-            "meaning_cn": "主修某科目",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:d8e6fdb7c93de741c55d",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "major in + subject"
-            }
-          },
-          {
             "id": "collocation:3d2fcbaf16f750edb2c2",
-            "source_locator": "record.senses[1].collocations[1]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "English major",
             "meaning_cn": "英语专业学生",
             "kind": "usage_example",
@@ -6364,6 +6519,32 @@
           "target_locator": "record.senses[3]",
           "target_label": "陆军少校"
         }
+      },
+      {
+        "id": "sense:major:a24e87f200b115a5",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "主修某专业的学生",
+        "definition_en": "a student whose principal field of study is a specified subject",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:2ca599c7736da44e2a57",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "an English major",
+            "meaning_cn": "英语专业学生",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:major:a24e87f200b115a5",
+          "target_locator": "record.senses[4]",
+          "target_label": "主修某专业的学生"
+        }
       }
     ],
     "secondary_senses": [],
@@ -6392,7 +6573,7 @@
     "ordinal": 2935,
     "word": "majority",
     "source_owner_path": "content/lexical/words/by-ordinal/o2935.json",
-    "source_fingerprint": "134d05895996fd66dd1a8affd8cc6e8c3b2cb60449537535357c7cee1a3ed09d",
+    "source_fingerprint": "9a86dbf18dd01a317f57e49bc1ed0dc7987a4f153744091938fd7794e51fd59c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6509,9 +6690,13 @@
       "confusables": [],
       "relations": [
         {
-          "title": "majority ↔ majority ↔ minority",
-          "target_word": "majority ↔ minority",
+          "title": "majority ↔ minority",
+          "target_word": "minority",
           "lines": [
+            {
+              "text": "majority = the greater number/part; minority = the smaller number/part. This antonym is sense-bound to the quantitative branches and does not automatically extend to ethnic-group, legal-age, adjective, or other senses.",
+              "lang": "en"
+            },
             {
               "text": "Sense-bound quantitative contrast only; do not treat all majority/minority senses as exact antonyms.",
               "lang": "en"
@@ -6522,7 +6707,7 @@
             "target_kind": "relation",
             "target_id": "relation:horizontal:1d9906d8c06f40c2e9bc",
             "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "majority ↔ majority ↔ minority"
+            "target_label": "majority ↔ minority"
           }
         }
       ],
@@ -6727,7 +6912,7 @@
     "ordinal": 2937,
     "word": "male",
     "source_owner_path": "content/lexical/words/by-ordinal/o2937.json",
-    "source_fingerprint": "bbf8810a427c78b9cbb2112ef4ba11f38d7af6871e02e64167a4a497e840b31e",
+    "source_fingerprint": "24cf17a97e82fccd6c22516dacb1cb4fa97b360e47c0ced8625502a9b5932853",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6752,25 +6937,16 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "男人；雄性动物",
-        "definition_en": "a person or animal of the sex that cannot have babies",
+        "definition_cn": "男性；雄性个体",
+        "definition_en": "a male person or animal; an individual of the sex typically associated with male reproductive characteristics",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:00571d4d05b51b4230ee",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "a male nurse",
-            "meaning_cn": "男护士",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:male:72b8188c36465b6e",
           "target_locator": "record.senses[0]",
-          "target_label": "男人；雄性动物"
+          "target_label": "男性；雄性个体"
         }
       },
       {
@@ -6779,7 +6955,7 @@
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "男性的；雄性的",
-        "definition_en": "of the sex that produces sperm",
+        "definition_en": "relating to male persons/animals or the sex typically associated with sperm production and male reproductive characteristics",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6788,6 +6964,14 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "male voice",
             "meaning_cn": "男声",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:00571d4d05b51b4230ee",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "a male nurse",
+            "meaning_cn": "男护士",
             "kind": "usage_example",
             "repair": null
           }
@@ -6803,44 +6987,8 @@
     "secondary_senses": [],
     "constructions": [],
     "reference": {
-      "confusables": [
-        {
-          "title": "male ↔ mail",
-          "target_word": "mail",
-          "lines": [
-            {
-              "text": "mail 指邮件；male 指男性或雄性",
-              "lang": "cn"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "deep:confusables:mail:0d29e81cabd72171",
-            "target_locator": "record.confusables[0]",
-            "target_label": "male ↔ mail"
-          }
-        }
-      ],
-      "relations": [
-        {
-          "title": "male ↔ masculine",
-          "target_word": "masculine",
-          "lines": [
-            {
-              "text": "male/female primarily classify sex or biological/reproductive categories and can also describe people/animals by sex; masculine/feminine usually describe qualities/forms culturally or grammatically associated with men/women. Domain-sensitive; not an identity slogan.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:9dff75b9b20726c3f65f",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "male ↔ masculine"
-          }
-        }
-      ],
+      "confusables": [],
+      "relations": [],
       "form": null,
       "family": []
     }
@@ -7012,18 +7160,11 @@
     "ordinal": 2940,
     "word": "man",
     "source_owner_path": "content/lexical/words/by-ordinal/o2940.json",
-    "source_fingerprint": "c76519b1a6fb99982bd49ad7106f3e5a4477c310320278537091884e94d8b96c",
-    "sense_lineage": [
-      {
-        "word_id": "word:man",
-        "target_kind": "sense",
-        "from_target_id": "sense:man:7d4b8ad5d26f589f",
-        "status": "deprecated",
-        "to_target_id": null
-      }
-    ],
+    "source_fingerprint": "977efd551a7e8de74be8ac42ee4229bedbe2b6396e3fd6ba67a167c0da4f085c",
+    "sense_lineage": [],
     "recall_map": {
       "parts": [
+        "1V",
         "2N"
       ],
       "density": "rich"
@@ -7072,7 +7213,7 @@
         "governing_pattern": "",
         "definition_cn": "人类",
         "definition_en": "human beings collectively; the human race",
-        "note": "Generic man meaning humanity is reading-relevant, especially in older/formal expressions, but neutral current writing often prefers humanity, humankind, human beings, or people.",
+        "note": "For current neutral/inclusive production, humanity, humankind, human beings, or people is often safer.",
         "identity_overlay": null,
         "usage": [
           {
@@ -7089,6 +7230,32 @@
           "target_id": "sense:man:bcf5c751a2c05b7b",
           "target_locator": "record.senses[1]",
           "target_label": "人类"
+        }
+      },
+      {
+        "id": "sense:man:7d4b8ad5d26f589f",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "",
+        "definition_cn": "给……配备人员；值守/操作（岗位、设备等）",
+        "definition_en": "to staff, crew, or operate a post, station, or piece of equipment",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:09137ec6d85ed26448d2",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "man the desk/phones",
+            "meaning_cn": "值守服务台/接听电话",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:man:7d4b8ad5d26f589f",
+          "target_locator": "record.senses[2]",
+          "target_label": "给……配备人员；值守/操作（岗位、设备等）"
         }
       }
     ],

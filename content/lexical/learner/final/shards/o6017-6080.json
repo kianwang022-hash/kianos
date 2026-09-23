@@ -5,7 +5,7 @@
     "ordinal": 6017,
     "word": "outlaw",
     "source_owner_path": "content/lexical/words/by-ordinal/o6017.json",
-    "source_fingerprint": "282eb92c63e96dc515d6afff9356ebdc60cda355b5c948e9f584eca4bf3977b1",
+    "source_fingerprint": "6a8d6b02f0024eb5e6e6ff8ea010d1dfcabf47436791d96231704567fef683bd",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -15,13 +15,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "罪犯；亡命之徒",
+      "summary_cn": "罪犯/亡命之徒；宣布为非法/取缔",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "罪犯；亡命之徒"
+        "target_label": "罪犯/亡命之徒；宣布为非法/取缔"
       }
     },
     "senses": [
@@ -75,7 +75,7 @@
     "ordinal": 6018,
     "word": "oyster",
     "source_owner_path": "content/lexical/words/by-ordinal/o6018.json",
-    "source_fingerprint": "b35a191e62b4118a7e075463b631d53e37221b1cdb4e44677a88331a55d5d8ae",
+    "source_fingerprint": "cd6800ec1289a671d269ee343bda8837215cf6c875c8650e8070cbad24b092ed",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -117,7 +117,7 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "牡蛎；蚝；沉默者",
+        "definition_cn": "采牡蛎；挖牡蛎",
         "definition_en": "gather oysters, dig oysters",
         "note": "Specialist/lower verb meaning to gather oysters.",
         "identity_overlay": null,
@@ -126,7 +126,7 @@
           "target_kind": "sense",
           "target_id": "sense:oyster:f9c216931ece55fd",
           "target_locator": "record.senses[1]",
-          "target_label": "牡蛎；蚝；沉默者"
+          "target_label": "采牡蛎；挖牡蛎"
         }
       }
     ],
@@ -319,7 +319,7 @@
     "ordinal": 6022,
     "word": "paralysis",
     "source_owner_path": "content/lexical/words/by-ordinal/o6022.json",
-    "source_fingerprint": "54a75e53fc88776f7963ab44bd1c8bd8a0d139f2f11136487f4ef0a6ad9bee46",
+    "source_fingerprint": "7390b6d3057cbfcae45654bce96f4c4a6fd92eb4c6683cf26dde61cd92c80b1e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -343,7 +343,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "麻痹；停顿；瘫痪",
+        "definition_cn": "麻痹；瘫痪；身体部位失去运动能力",
         "definition_en": "loss of the ability to move a body part",
         "note": "",
         "identity_overlay": null,
@@ -352,7 +352,7 @@
           "target_kind": "sense",
           "target_id": "sense:paralysis:3d7b26bd5bd15ffc",
           "target_locator": "record.senses[0]",
-          "target_label": "麻痹；停顿；瘫痪"
+          "target_label": "麻痹；瘫痪；身体部位失去运动能力"
         }
       },
       {
@@ -388,7 +388,7 @@
     "ordinal": 6023,
     "word": "paralyze",
     "source_owner_path": "content/lexical/words/by-ordinal/o6023.json",
-    "source_fingerprint": "eedae87d7031440067460181b08e9e0c0d5d2dd21aa890598735dd5a3e7bec88",
+    "source_fingerprint": "9fabb88a3642013ae70b5146135ac18ed006cff2939b4341e8d434b3adb7cd02",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -415,7 +415,15 @@
         "definition_cn": "使瘫痪；使麻痹",
         "definition_en": "make powerless and unable to function",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "paralyze is the common AmE spelling; paralyse is the common BrE spelling; same verb identity",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "paralyze is the common AmE spelling; paralyse is the common BrE spelling; same verb identity"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -432,7 +440,15 @@
         "definition_cn": "使身体或身体部位瘫痪、不能活动",
         "definition_en": "to cause a person or body part to become paralyzed and unable to move",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "paralyze is the common AmE spelling; paralyse is the common BrE spelling; same verb identity",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "paralyze is the common AmE spelling; paralyse is the common BrE spelling; same verb identity"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -446,25 +462,7 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "paralyze ↔ paralyse",
-          "target_word": "paralyse",
-          "lines": [
-            {
-              "text": "paralyze is the common AmE spelling and paralyse the common BrE spelling; preserve physical paralysis as prototypical and keep figurative/system inability branches aligned.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:234fb7cdf574b4f0ede1",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "paralyze ↔ paralyse"
-          }
-        }
-      ],
+      "relations": [],
       "form": null,
       "family": []
     }
@@ -838,7 +836,7 @@
     "ordinal": 6028,
     "word": "pedlar",
     "source_owner_path": "content/lexical/words/by-ordinal/o6028.json",
-    "source_fingerprint": "e694da0bd71ca212865d4732eaf8d61ea60ab0b73ce2c77d18a2e35317a21adc",
+    "source_fingerprint": "2eb31733b58423070534155969654a34aedaaa9115974d2b640970227104241b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -847,13 +845,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "沿街叫卖的小贩；(流言)传播者；兜售者；传播谎言、毒品、观点等的人",
+      "summary_cn": "沿街小贩/流动商贩；兜售或传播某物的人",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "沿街叫卖的小贩；(流言)传播者；兜售者；传播谎言、毒品、观点等的人"
+        "target_label": "沿街小贩/流动商贩；兜售或传播某物的人"
       }
     },
     "senses": [
@@ -862,7 +860,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "沿街叫卖的小贩；(流言)传播者",
+        "definition_cn": "沿街叫卖的小贩；流动商贩",
         "definition_en": "someone who travels about selling his wares (as on the streets or at carnivals)",
         "note": "",
         "identity_overlay": null,
@@ -871,7 +869,7 @@
           "target_kind": "sense",
           "target_id": "sense:pedlar:31a324d107595f41",
           "target_locator": "record.senses[0]",
-          "target_label": "沿街叫卖的小贩；(流言)传播者"
+          "target_label": "沿街叫卖的小贩；流动商贩"
         }
       },
       {
@@ -2562,7 +2560,7 @@
     "ordinal": 6055,
     "word": "precipitate",
     "source_owner_path": "content/lexical/words/by-ordinal/o6055.json",
-    "source_fingerprint": "47bea322b484d592a4459fbaa8572ee8532e93e03bf115c48a4a5b9a853013ec",
+    "source_fingerprint": "15a436c0af08f651837bc7b60e0fdaa57921026cd6c29affd86510b2d2c36f63",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2591,7 +2589,15 @@
         "definition_cn": "促成；使突然发生",
         "definition_en": "to cause an event or situation to happen suddenly or sooner than expected",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "verb precipitate uses the verb ending with /-teɪt/; adjective/noun precipitate use a reduced /-tət/-type ending, accent-aware",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "verb precipitate uses the verb ending with /-teɪt/; adjective/noun precipitate use a reduced /-tət/-type ending, accent-aware"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -2608,7 +2614,15 @@
         "definition_cn": "仓促的；轻率的",
         "definition_en": "done too quickly and without enough thought; hasty",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "adjective/noun precipitate use a reduced /-tət/-type ending; verb precipitate uses /-teɪt/, accent-aware",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "adjective/noun precipitate use a reduced /-tət/-type ending; verb precipitate uses /-teɪt/, accent-aware"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -2625,7 +2639,15 @@
         "definition_cn": "沉淀物",
         "definition_en": "a solid substance that separates from a liquid during a chemical process",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "adjective/noun precipitate use a reduced /-tət/-type ending; verb precipitate uses /-teɪt/, accent-aware",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[2].lexical_identity_overlay",
+            "target_label": "adjective/noun precipitate use a reduced /-tət/-type ending; verb precipitate uses /-teɪt/, accent-aware"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -2642,7 +2664,15 @@
         "definition_cn": "使沉淀；从溶液中析出固体",
         "definition_en": "chemistry: to cause a dissolved substance to separate from a solution as a solid, or to form a precipitate",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "verb precipitate uses the verb ending with /-teɪt/; adjective/noun precipitate use a reduced /-tət/-type ending, accent-aware",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[3].lexical_identity_overlay",
+            "target_label": "verb precipitate uses the verb ending with /-teɪt/; adjective/noun precipitate use a reduced /-tət/-type ending, accent-aware"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -3118,7 +3148,7 @@
     "ordinal": 6062,
     "word": "primate",
     "source_owner_path": "content/lexical/words/by-ordinal/o6062.json",
-    "source_fingerprint": "148c569876cec9710119958b816ea97dd9e68b905fb66cb654f529fe0a5c4639",
+    "source_fingerprint": "b740f43b09e3f89c1700637f9961f66639655649dcddef96af4a66f9ade8a1f6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3127,13 +3157,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "大主教；灵长目动物",
+      "summary_cn": "灵长目动物；灵长类",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "大主教；灵长目动物"
+        "target_label": "灵长目动物；灵长类"
       }
     },
     "senses": [
@@ -3142,7 +3172,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "大主教；灵长目动物",
+        "definition_cn": "灵长目动物；灵长类",
         "definition_en": "any placental mammal of the order Primates; has good eyesight and flexible hands and feet",
         "note": "",
         "identity_overlay": null,
@@ -3151,7 +3181,7 @@
           "target_kind": "sense",
           "target_id": "sense:primate:b8b4a4c81e805b38",
           "target_locator": "record.senses[0]",
-          "target_label": "大主教；灵长目动物"
+          "target_label": "灵长目动物；灵长类"
         }
       },
       {
@@ -3558,7 +3588,7 @@
     "ordinal": 6069,
     "word": "provocative",
     "source_owner_path": "content/lexical/words/by-ordinal/o6069.json",
-    "source_fingerprint": "7a1b9c1f21b9d71a273f5b2e27335e98ac5f6f71c8cb1f980e29709d30b85f6b",
+    "source_fingerprint": "38828f83e494172b5baa2067e101d1e8e828a7a9a20f8d131b7ebb29cea50721",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3582,7 +3612,7 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "激发感情的；挑拨的；刺激的",
+        "definition_cn": "挑衅的；引发强烈反应/争议的；发人深思的",
         "definition_en": "serving or tending to provoke, excite, or stimulate; stimulating discussion or exciting controversy",
         "note": "",
         "identity_overlay": null,
@@ -3591,7 +3621,7 @@
           "target_kind": "sense",
           "target_id": "sense:provocative:09b87bbad4ee5832",
           "target_locator": "record.senses[0]",
-          "target_label": "激发感情的；挑拨的；刺激的"
+          "target_label": "挑衅的；引发强烈反应/争议的；发人深思的"
         }
       },
       {
@@ -3599,7 +3629,7 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "激发感情的；挑拨的；刺激的",
+        "definition_cn": "挑逗性的；性感而撩人的",
         "definition_en": "exciting sexual desire",
         "note": "",
         "identity_overlay": null,
@@ -3608,7 +3638,7 @@
           "target_kind": "sense",
           "target_id": "sense:provocative:683d8a0bab3d5469",
           "target_locator": "record.senses[1]",
-          "target_label": "激发感情的；挑拨的；刺激的"
+          "target_label": "挑逗性的；性感而撩人的"
         }
       }
     ],
@@ -3835,7 +3865,7 @@
     "ordinal": 6074,
     "word": "puppy",
     "source_owner_path": "content/lexical/words/by-ordinal/o6074.json",
-    "source_fingerprint": "69a127870adc9d74bf56cb4ee99b617c72502209e9b36052cbae96dcf294b5c5",
+    "source_fingerprint": "5d5705105591317689116db67e1a2e71aae7ae7b72db1645d4a1c12eb1a36eb5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3876,7 +3906,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "小狗；小动物；自负的年轻人",
+        "definition_cn": "没经验的年轻人；毛头小子（语体依语境）",
         "definition_en": "an inexperienced young person",
         "note": "Dated or insulting person-use; not neutral learner-main vocabulary.",
         "identity_overlay": null,
@@ -3885,7 +3915,7 @@
           "target_kind": "sense",
           "target_id": "sense:puppy:52799981b7a2528b",
           "target_locator": "record.senses[1]",
-          "target_label": "小狗；小动物；自负的年轻人"
+          "target_label": "没经验的年轻人；毛头小子（语体依语境）"
         }
       }
     ],
@@ -3904,7 +3934,7 @@
     "ordinal": 6075,
     "word": "pyjamas",
     "source_owner_path": "content/lexical/words/by-ordinal/o6075.json",
-    "source_fingerprint": "4ad8cc90baae43fe1a352a86db53419ed82e05dedaf72d443bb6b9bcbca22233",
+    "source_fingerprint": "700f3dd37407db97357aaa8db9a46ca3166caad17479a45157fc36bb7424ee0b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3931,7 +3961,15 @@
         "definition_cn": "睡衣；睡裤",
         "definition_en": "loose-fitting clothes, usually a jacket or top and trousers, worn for sleeping",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "ordinary use takes plural agreement; count one set as a pair of pyjamas, not a regular singular *a pyjama for the whole outfit",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "ordinary use takes plural agreement; count one set as a pair of pyjamas, not a regular singular *a pyjama for the whole outfit"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",

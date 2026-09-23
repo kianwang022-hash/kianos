@@ -2130,7 +2130,7 @@
     "ordinal": 5135,
     "word": "trolley",
     "source_owner_path": "content/lexical/words/by-ordinal/o5135.json",
-    "source_fingerprint": "db66f549797fbb8299c84d6e2e5bea6d7146984ba8af4d11265c7f125d9b1600",
+    "source_fingerprint": "852129498c3b124daddeb8cb475d6cb5d1d90a9db9a86361acc916fddc890de6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2161,21 +2161,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:0bba982aa232ed29d62a",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "trolley bus",
-            "meaning_cn": "无轨电车",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:0bba982aa232ed29d62a",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "trolley bus"
-            }
-          },
-          {
             "id": "collocation:2bd1885ed10c99e8f227",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "take a trolley",
             "meaning_cn": "乘坐电车",
             "kind": "usage_example",
@@ -2326,7 +2313,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:0957e0c86af41441cb8b",
+        "source_locator": "record.constructions[0]",
+        "pattern": "trolleybus / trolley bus",
+        "lines": [
+          {
+            "text": "无轨电车：由道路上方电线供电、在普通道路上行驶而非沿铁轨行驶的公共车辆",
+            "lang": "cn"
+          },
+          {
+            "text": "road vehicle powered by overhead electric wires; not a rail trolley/tram",
+            "lang": "en"
+          },
+          {
+            "text": "a road vehicle powered by overhead electric wires and running on ordinary roads, not rails",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:0957e0c86af41441cb8b",
+          "target_locator": "record.constructions[0]",
+          "target_label": "trolleybus / trolley bus"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -2523,11 +2536,11 @@
     "ordinal": 5137,
     "word": "tropic",
     "source_owner_path": "content/lexical/words/by-ordinal/o5137.json",
-    "source_fingerprint": "043f4db4c3b90a3bbece9203f1a040682f5a559abedda291c939b6a839e1a294",
+    "source_fingerprint": "c6e22c0468724ebc3366b75227841c7b4ad93de305f02c353498f725a324b31c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
@@ -2550,7 +2563,15 @@
         "definition_cn": "回归线",
         "definition_en": "either of two parallels of latitude about 23.5 degrees north and south of the equator",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "Tropic of Cancer/Capricorn are capitalized named lines; lowercase the tropics refers to the tropical regions",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "Tropic of Cancer/Capricorn are capitalized named lines; lowercase the tropics refers to the tropical regions"
+          }
+        },
         "usage": [
           {
             "id": "collocation:0244f2afb252218c8bf1",
@@ -2584,6 +2605,45 @@
           "target_id": "sense:tropic:08c2ff2da2a55ba2",
           "target_locator": "record.senses[0]",
           "target_label": "回归线"
+        }
+      },
+      {
+        "id": "sense:tropic:ce0732d10d5b7450",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "热带地区",
+        "definition_en": "the regions of the Earth between the Tropic of Cancer and the Tropic of Capricorn",
+        "note": "",
+        "identity_overlay": {
+          "text": "lowercase the tropics = tropical regions; named Tropic of Cancer/Capricorn is capitalized",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "lowercase the tropics = tropical regions; named Tropic of Cancer/Capricorn is capitalized"
+          }
+        },
+        "usage": [
+          {
+            "id": "collocation:673de2f1d72398466a1f",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "the tropics",
+            "meaning_cn": "热带地区",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:673de2f1d72398466a1f",
+              "target_locator": "record.senses[1].collocations[0]",
+              "target_label": "the tropics"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:tropic:ce0732d10d5b7450",
+          "target_locator": "record.senses[1]",
+          "target_label": "热带地区"
         }
       }
     ],
@@ -2701,7 +2761,7 @@
     "ordinal": 5139,
     "word": "trouble",
     "source_owner_path": "content/lexical/words/by-ordinal/o5139.json",
-    "source_fingerprint": "c80e7932ca43a03a859d9897a6aaeafd3ff0b338e08e288c7706e459ce110722",
+    "source_fingerprint": "cc2c62584906703a5695c214a7170b94817ba688c978168a9d86a731ad41fc4f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2829,19 +2889,6 @@
               "target_locator": "record.senses[2].collocations[0]",
               "target_label": "trouble sb with sth"
             }
-          },
-          {
-            "id": "collocation:82e4c3dd4da245ef2aa4",
-            "source_locator": "record.senses[2].collocations[1]",
-            "phrase": "trouble to do sth",
-            "meaning_cn": "费心做某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:82e4c3dd4da245ef2aa4",
-              "target_locator": "record.senses[2].collocations[1]",
-              "target_label": "trouble to do sth"
-            }
           }
         ],
         "repair": {
@@ -2881,7 +2928,7 @@
         "id": "sense:trouble:59dd244fb5b05ec8",
         "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "formal/usually negative: trouble to do sth",
         "definition_cn": "费心，费力",
         "definition_en": "to make the effort to do something",
         "note": "",
@@ -2944,6 +2991,31 @@
           "target_id": "construction:458c7998ec6dfceb150f",
           "target_locator": "record.constructions[1]",
           "target_label": "have trouble with sth"
+        }
+      },
+      {
+        "id": "construction:85af362193091c925c5c",
+        "source_locator": "record.constructions[2]",
+        "pattern": "trouble to do sth",
+        "lines": [
+          {
+            "text": "费心做某事（正式/常用于否定）",
+            "lang": "cn"
+          },
+          {
+            "text": "effort branch; distinct from transitive trouble sb with sth",
+            "lang": "en"
+          },
+          {
+            "text": "formal, often negative: to make the effort to do something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:85af362193091c925c5c",
+          "target_locator": "record.constructions[2]",
+          "target_label": "trouble to do sth"
         }
       }
     ],
@@ -3656,7 +3728,7 @@
     "ordinal": 5145,
     "word": "trust",
     "source_owner_path": "content/lexical/words/by-ordinal/o5145.json",
-    "source_fingerprint": "179e0a0e89b87bdf3b3f46bb3c57c53d18116d37875b0d6adde772fde8bdc054",
+    "source_fingerprint": "7c6e790a1287a2f9b3a639cd0b5583206d6cfefacb0a6caee961b01dd4cce8d6",
     "sense_lineage": [
       {
         "word_id": "word:trust",
@@ -3719,7 +3791,7 @@
         "id": "sense:trust:a29f6821ddc25c71",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: trust sb; trust sb with sth; trust sb to do sth; trust in sb/sth",
         "definition_cn": "信任，信赖",
         "definition_en": "to believe that someone is honest and will not harm you",
         "note": "",
@@ -4531,7 +4603,7 @@
     "ordinal": 5151,
     "word": "tug",
     "source_owner_path": "content/lexical/words/by-ordinal/o5151.json",
-    "source_fingerprint": "8df959ab380e43ac4e6aee535361ca703096510daa43f6f3f4494abbd0488e19",
+    "source_fingerprint": "d2ff4da8fa8615db54de3f7f01cbc9ebcdd19699b447757f76b82fdbed2d1fd8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4555,12 +4627,26 @@
         "id": "sense:tug:0b34e924ed41555e",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "I/T: tug sth; tug at/on sth",
         "definition_cn": "用力拉",
         "definition_en": "pull hard",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:24a59d6c620276999890",
+            "source_locator": "record.senses[0].collocations[0]",
+            "phrase": "tug at/on sth",
+            "meaning_cn": "用力反复拉扯某物",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:24a59d6c620276999890",
+              "target_locator": "record.senses[0].collocations[0]",
+              "target_label": "tug at/on sth"
+            }
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:tug:0b34e924ed41555e",
@@ -4791,7 +4877,7 @@
     "ordinal": 5153,
     "word": "tumble",
     "source_owner_path": "content/lexical/words/by-ordinal/o5153.json",
-    "source_fingerprint": "d3f938553ed538e2ae54e9ac194cfe703b136e55a38f2a2085e7477295a20b42",
+    "source_fingerprint": "daac8b8f6b5eca5be883b11ae91bd414448f497a124ac6ee83f515ecdd660e6c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4920,12 +5006,26 @@
         "id": "sense:tumble:0e139db192ee52a5",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vi.: prices/values/shares/temperatures tumble",
         "definition_cn": "暴跌；骤降",
         "definition_en": "to fall sharply and suddenly in amount, price, value, or level",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:2fc35cd790dd0596f43f",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "prices/shares tumbled",
+            "meaning_cn": "价格/股价暴跌",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:2fc35cd790dd0596f43f",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "prices/shares tumbled"
+            }
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:tumble:0e139db192ee52a5",
@@ -5039,7 +5139,7 @@
     "ordinal": 5155,
     "word": "tune",
     "source_owner_path": "content/lexical/words/by-ordinal/o5155.json",
-    "source_fingerprint": "9c7805c94644f2068222f41ee9f00b382b7548f29c96a6ff045f159b56fafd52",
+    "source_fingerprint": "070d6be84795974da0adf5f47ccc67e700942c8c2f3fd76ca3c2d7ee88e8b0f6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5146,21 +5246,7 @@
         "definition_en": "the adjustment of a radio receiver or other circuit to a required frequency",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:04d24324d00fbc62e3d4",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "tune in to + sth",
-            "meaning_cn": "收听，收看",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:04d24324d00fbc62e3d4",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "tune in to + sth"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:tune:dddf20d1b881531d",
@@ -5206,7 +5292,7 @@
         "id": "sense:tune:9dd70794c78855e7",
         "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vi. + with: be in tune with sth",
         "definition_cn": "协调、一致；合拍",
         "definition_en": "to be in harmony or accord",
         "note": "",
@@ -5230,6 +5316,14 @@
           {
             "text": "与…协调/一致",
             "lang": "cn"
+          },
+          {
+            "text": "harmony/accord branch",
+            "lang": "en"
+          },
+          {
+            "text": "to be in harmony, agreement, or accord with something",
+            "lang": "en"
           }
         ],
         "repair": {
@@ -5237,6 +5331,31 @@
           "target_id": "construction:ca6eafbcccaaf7c31079",
           "target_locator": "record.constructions[0]",
           "target_label": "be in tune with sth"
+        }
+      },
+      {
+        "id": "construction:db4c800e07df4c93b61c",
+        "source_locator": "record.constructions[1]",
+        "pattern": "tune in (to sth)",
+        "lines": [
+          {
+            "text": "收听/收看；调到某频道/频率；关注",
+            "lang": "cn"
+          },
+          {
+            "text": "broadcast/frequency selection or attention; not the noun “tuning/adjustment”",
+            "lang": "en"
+          },
+          {
+            "text": "to select a broadcast/channel or frequency, or to pay attention to a broadcast/topic",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:db4c800e07df4c93b61c",
+          "target_locator": "record.constructions[1]",
+          "target_label": "tune in (to sth)"
         }
       }
     ],
@@ -6002,7 +6121,7 @@
     "ordinal": 5162,
     "word": "turnover",
     "source_owner_path": "content/lexical/words/by-ordinal/o5162.json",
-    "source_fingerprint": "a51e374e367caa6a2a76a37833ca22b4b6b8e8ee117166e95e314312cecab8fa",
+    "source_fingerprint": "616353339876efc6ae13f45115a453b7c14731e4ff41551d0de58a03cc90e5ae",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6036,14 +6155,6 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "annual turnover",
             "meaning_cn": "年营业额",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:79a98325f8d547093243",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "turnover rate",
-            "meaning_cn": "周转率；流动率",
             "kind": "usage_example",
             "repair": null
           }
@@ -6080,6 +6191,19 @@
             "meaning_cn": "高流动率",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:c45b1e09a507e5065a36",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "staff/employee turnover rate",
+            "meaning_cn": "员工流动率",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:c45b1e09a507e5065a36",
+              "target_locator": "record.senses[1].collocations[2]",
+              "target_label": "staff/employee turnover rate"
+            }
           }
         ],
         "repair": {
@@ -6106,6 +6230,19 @@
             "meaning_cn": "存货周转率",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:8589915e26f28c2fa01d",
+            "source_locator": "record.senses[2].collocations[1]",
+            "phrase": "inventory turnover rate/ratio",
+            "meaning_cn": "存货周转率/周转比率",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:8589915e26f28c2fa01d",
+              "target_locator": "record.senses[2].collocations[1]",
+              "target_label": "inventory turnover rate/ratio"
+            }
           }
         ],
         "repair": {
@@ -7745,7 +7882,7 @@
     "ordinal": 5178,
     "word": "umbrella",
     "source_owner_path": "content/lexical/words/by-ordinal/o5178.json",
-    "source_fingerprint": "504b5655e78af27f77a2ce0a5c07f80f77839523ac6ac42804c17eb105a68e1b",
+    "source_fingerprint": "5d5a8cd36a6a43639dd50a92ca0e73178341e47e855db968f47c98da5950b43f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7783,19 +7920,6 @@
             "meaning_cn": "打开伞",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:f30e0cc535f7c0d37e7e",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "under the umbrella of",
-            "meaning_cn": "在…的保护下",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:f30e0cc535f7c0d37e7e",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "under the umbrella of"
-            }
           }
         ],
         "repair": {
@@ -7883,7 +8007,21 @@
         "definition_en": "an encompassing organization, category, framework, or system of protection",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:ee69d2ab31b3ac0cede3",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "under the umbrella of sth",
+            "meaning_cn": "在某个总括性组织、类别、框架或保护体系之下",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:ee69d2ab31b3ac0cede3",
+              "target_locator": "record.senses[4].collocations[0]",
+              "target_label": "under the umbrella of sth"
+            }
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:umbrella:4181789ad9710271",
@@ -7902,6 +8040,14 @@
           {
             "text": "在某个总括性组织、类别或体系之下",
             "lang": "cn"
+          },
+          {
+            "text": "figurative framework/category branch, not literal physical umbrella",
+            "lang": "en"
+          },
+          {
+            "text": "within a broader organization, category, framework, or system of protection",
+            "lang": "en"
           }
         ],
         "repair": {

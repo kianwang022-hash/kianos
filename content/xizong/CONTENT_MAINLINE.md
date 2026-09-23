@@ -342,21 +342,19 @@ F System membership is closed. No Question→Block/LG/KP mapping was inferred.
 ## B2｜Question → Knowledge Crosswalk
 
 Durable owner: `content/xizong/question-relations/`  
-Stage: `C2_BROAD_BASIC_COVERAGE`  
-Batch cursor: `content/xizong/question-relations/continuation.json`
+Stage: `CLOSED_CURRENT_CORPUS`
+Final current-corpus state: **3043 REVIEWED / 707 NO_SAFE_MATCH / 0 NEEDS** across 3750 official questions.
 
-Restart:
+Reopen only when a real defect, authoritative Source/Knowledge change, or explicit new corpus requires a bounded review:
 
 ```text
 question-relations/README.md
-→ CALIBRATION.md
-→ THROUGHPUT_V2.md
-→ manifest.json
-→ continuation.json
-→ next evidence-driven review packet
+→ exact affected Question Truth / Current Knowledge owner
+→ smallest bounded semantic review
+→ manifest / continuation reconciliation only if the corpus actually changes
 ```
 
-Rules remain: REVIEWED rows only are positive mapping truth; no linear frontier; no inferred target; missing mapping is legal; exact Current owner review is required. Ordinary batch progress belongs to `continuation.json`, not this file.
+Rules remain: REVIEWED rows only are positive mapping truth; no inferred target; missing mapping remains legal; exact Current owner review is required. `continuation.json` now records the closed final integration reconciliation and is provenance, not an active batch cursor.
 
 ---
 
@@ -606,7 +604,7 @@ D exact official-question membership = PASS_AFTER_BOUNDED_REPAIR / 355 qids
 E exact official-question membership = PASS_AFTER_CROSS_SYSTEM_OWNER_REPAIR / 83 qids
 F exact official-question membership = PASS_AFTER_EXTERNAL_OWNER_REPAIR / 70 qids
 → A1–F exact System-question membership completion lane CLOSED
-+ Crosswalk C2 continuous reviewed batches
++ Crosswalk current-corpus review CLOSED: 3043 REVIEWED / 707 NO_SAFE_MATCH / 0 NEEDS
 
 LATE-STAGE MATERIAL
 26 cycle baseline = absorbed / year-pinned / topic-role indexed

@@ -4,8 +4,9 @@ import { fileURLToPath } from 'node:url';
 
 const webRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const src = path.join(webRoot, 'src');
-const basePath = path.join(src, 'layouts', 'Base.astro');
+const basePath = path.join(src, 'layouts', 'LexicalBase.astro');
 const pagePath = path.join(src, 'pages', 'vocabulary', '[ordinal].astro');
+const clozePagePath = path.join(src, 'pages', 'cloze', '[id].astro');
 const ownerPath = path.join(src, 'styles', 'lexical-presentation.css');
 const runtimePath = path.join(src, 'components', 'VocabularyWordRuntime.astro');
 const errors = [];
@@ -13,20 +14,22 @@ const errors = [];
 const read = (file) => fs.readFileSync(file, 'utf8');
 const base = read(basePath);
 const page = read(pagePath);
+const clozePage = read(clozePagePath);
 const owner = read(ownerPath);
 const runtime = read(runtimePath);
 const fail = (message) => errors.push(message);
 
-if (!base.includes("import '../styles/lexical-presentation.css';")) fail('Base must import lexical-presentation.css');
-if (!base.includes("import '../styles/english-cloze-polish.css';")) fail('English Cloze polish must stay separated from Lexical');
+if (!base.includes("import '../styles/lexical-presentation.css';")) fail('LexicalBase must import lexical-presentation.css');
+if (!clozePage.includes("import '../../styles/english-cloze-vertical.css';")) fail('English Cloze vertical polish must stay route-local and separated from Lexical');
 if (base.includes('responsive-guards.css')) fail('retired responsive-guards.css is still active');
 if (base.includes('lexical-card-polish.css')) fail('retired lexical-card-polish.css is still active');
 if (fs.existsSync(path.join(src, 'styles', 'responsive-guards.css'))) fail('retired responsive-guards.css still exists');
 if (fs.existsSync(path.join(src, 'styles', 'lexical-card-polish.css'))) fail('retired lexical-card-polish.css still exists');
 
-const viewportIndex = base.indexOf("import '../styles/viewport-workspaces.css';");
+const foundationIndex = base.indexOf("import '../styles/shared-visual-foundation.css';");
+const compositionIndex = base.indexOf("import '../styles/shared-workspace-composition.css';");
 const lexicalIndex = base.indexOf("import '../styles/lexical-presentation.css';");
-if (viewportIndex < 0 || lexicalIndex < viewportIndex) fail('Lexical final owner must load after shared viewport baseline');
+if (foundationIndex < 0 || compositionIndex < foundationIndex || lexicalIndex < compositionIndex) fail('Lexical final owner must load after current shared visual/composition baseline');
 
 if (/<style(?:\s|>)/i.test(page)) fail('vocabulary/[ordinal].astro must not own visual CSS');
 if (!owner.includes('--lexical-serif:var(--study-serif)')) fail('Lexical must consume the shared editorial serif role');
@@ -67,5 +70,5 @@ console.log(JSON.stringify({
   visual_owner: 'static-web/src/styles/lexical-presentation.css',
   route_css: 'none',
   retired_layers: ['responsive-guards.css', 'lexical-card-polish.css'],
-  preserved_non_lexical_split: 'english-cloze-polish.css'
+  preserved_non_lexical_split: 'english-cloze-vertical.css'
 }, null, 2));

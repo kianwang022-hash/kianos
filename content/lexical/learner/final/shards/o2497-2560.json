@@ -6279,7 +6279,7 @@
     "ordinal": 2553,
     "word": "innocent",
     "source_owner_path": "content/lexical/words/by-ordinal/o2553.json",
-    "source_fingerprint": "5928d6f0aae977f2ad423c67824390a8dbcbe7f5074133c99237d877f089e8ce",
+    "source_fingerprint": "e4631b4409e12cf530d869c3148fb8a161b178807251d425d8067bddb4f606d5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6289,13 +6289,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "无罪的；天真的",
+      "summary_cn": "无罪/无辜；天真/无邪",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "无罪的；天真的"
+        "target_label": "无罪/无辜；天真/无邪"
       }
     },
     "senses": [
@@ -6304,8 +6304,8 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "无罪的，清白的",
-        "definition_en": "not guilty of a crime or offense",
+        "definition_cn": "无罪的；无辜的；未参与或不对过错负责的",
+        "definition_en": "not guilty or responsible for wrongdoing; not involved in a harmful event",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6329,13 +6329,29 @@
             "meaning_cn": "申辩无罪",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:cf6311675da7f440ccbe",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "innocent victim",
+            "meaning_cn": "无辜的受害者",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:060aed070a9e403d56a4",
+            "source_locator": "record.senses[0].collocations[3]",
+            "phrase": "innocent bystander",
+            "meaning_cn": "无辜的旁观者",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:innocent:48bee9550a4354b7",
           "target_locator": "record.senses[0]",
-          "target_label": "无罪的，清白的"
+          "target_label": "无罪的；无辜的；未参与或不对过错负责的"
         }
       },
       {
@@ -6432,22 +6448,22 @@
     "ordinal": 2554,
     "word": "innovation",
     "source_owner_path": "content/lexical/words/by-ordinal/o2554.json",
-    "source_fingerprint": "191a8a5ee5f36952e8cff17a7ea7e70b370f6373afaf6b99c790ab54ed8ddcef",
+    "source_fingerprint": "32c40ee084a6e6496b586a9a040e9af81c3c8a2f5c706bb4840a0e60d26018b6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "引入新事物",
+      "summary_cn": "创新（过程或成果）",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "引入新事物"
+        "target_label": "创新（过程或成果）"
       }
     },
     "senses": [
@@ -6489,6 +6505,45 @@
           "target_locator": "record.senses[0]",
           "target_label": "创新，改革"
         }
+      },
+      {
+        "id": "sense:innovation:7fec84c1cf6136ae",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "创新成果；新方法、新思想或新事物",
+        "definition_en": "a new idea, method, product, design, or other new development",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:f1ac3181e8d266bf0ba4",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "an innovation in sth",
+            "meaning_cn": "某方面的一项创新",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:f1ac3181e8d266bf0ba4",
+              "target_locator": "record.senses[1].collocations[0]",
+              "target_label": "an innovation in sth"
+            }
+          },
+          {
+            "id": "collocation:0a8e928d3c5cca47a5f9",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "technological innovations",
+            "meaning_cn": "技术创新成果",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:innovation:7fec84c1cf6136ae",
+          "target_locator": "record.senses[1]",
+          "target_label": "创新成果；新方法、新思想或新事物"
+        }
       }
     ],
     "secondary_senses": [],
@@ -6501,7 +6556,7 @@
           "target_word": "invention",
           "lines": [
             {
-              "text": "innovation强调引入新事物，invention强调发明成果",
+              "text": "innovation 可指创新过程/采用新方法，也可指一项创新成果；invention 更强调创造此前不存在的装置、方法或事物",
               "lang": "cn"
             },
             {
@@ -6597,7 +6652,7 @@
     "ordinal": 2556,
     "word": "input",
     "source_owner_path": "content/lexical/words/by-ordinal/o2556.json",
-    "source_fingerprint": "ae85f868e7d9e690d8870e9c32ebac5026649598c57f93175f69374157ceadea",
+    "source_fingerprint": "8e294bce3e3885a03f9dd9fc3c7610e0cace077c8cdf30b38c25da73f3f1366f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6607,13 +6662,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "输入；投入",
+      "summary_cn": "输入；投入；意见/信息",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "输入；投入"
+        "target_label": "输入；投入；意见/信息"
       }
     },
     "senses": [
@@ -6622,8 +6677,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "输入；投入；输入物",
-        "definition_en": "something that is put into a system or process, such as data or resources",
+        "definition_cn": "输入；投入；提供的意见或信息",
+        "definition_en": "something contributed to a system, process, discussion, or decision, including data, resources, ideas, information, or advice",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6647,13 +6702,39 @@
             "meaning_cn": "数据输入",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:cbc1ba545aa1d51ef7ec",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "input from sb",
+            "meaning_cn": "来自某人的意见或信息",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:cbc1ba545aa1d51ef7ec",
+              "target_locator": "record.senses[0].collocations[2]",
+              "target_label": "input from sb"
+            }
+          },
+          {
+            "id": "collocation:84200716815290ee5c69",
+            "source_locator": "record.senses[0].collocations[3]",
+            "phrase": "input on sth",
+            "meaning_cn": "关于某事的意见或信息",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:84200716815290ee5c69",
+              "target_locator": "record.senses[0].collocations[3]",
+              "target_label": "input on sth"
+            }
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:input:822cc1fffffd5892",
           "target_locator": "record.senses[0]",
-          "target_label": "输入；投入；输入物"
+          "target_label": "输入；投入；提供的意见或信息"
         }
       },
       {
@@ -6788,7 +6869,7 @@
     "ordinal": 2558,
     "word": "insert",
     "source_owner_path": "content/lexical/words/by-ordinal/o2558.json",
-    "source_fingerprint": "4d496630e306ff75284f18732f19996652759d0329e803841fd78976f1d74325",
+    "source_fingerprint": "376de94afcc3601cbc32751884ee77637bc6c4532738094dfad3020288948041",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6878,8 +6959,8 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "插页",
-        "definition_en": "a folded section placed between the leaves of another publication",
+        "definition_cn": "插入物；（报刊、包装等的）插页或夹页",
+        "definition_en": "something inserted into something else, especially a separate sheet or section included in a publication or package",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6896,7 +6977,7 @@
           "target_kind": "sense",
           "target_id": "sense:insert:97c1ea97637f5610",
           "target_locator": "record.senses[2]",
-          "target_label": "插页"
+          "target_label": "插入物；（报刊、包装等的）插页或夹页"
         }
       }
     ],
@@ -6915,12 +6996,12 @@
     "ordinal": 2559,
     "word": "inside",
     "source_owner_path": "content/lexical/words/by-ordinal/o2559.json",
-    "source_fingerprint": "a6e3b3f78a9bae733758b8530dbbb23a6d64230d752cac7a8937e65e09a98369",
+    "source_fingerprint": "198c82953104ea8d352b296b8b52cbe3ba821f3729f02c6bea6bc4ead56699b8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1A",
-        "2N",
+        "2A",
+        "1N",
         "1ADV",
         "1PREP"
       ],
@@ -6969,96 +7050,18 @@
         }
       },
       {
-        "id": "sense:inside:e6adaaca228a56cf",
+        "id": "sense:inside:b92ba0d2a25a5a1e",
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "内部的，户内的",
-        "definition_en": "located on the inner side or within a building",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:3f87bd3d22dca0a46f02",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "inside pocket",
-            "meaning_cn": "内袋",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:inside:e6adaaca228a56cf",
-          "target_locator": "record.senses[1]",
-          "target_label": "内部的，户内的"
-        }
-      },
-      {
-        "id": "sense:inside:500b1e103ff2518e",
-        "source_locator": "record.senses[2]",
-        "pos": "adverb",
-        "governing_pattern": "",
-        "definition_cn": "在里面",
-        "definition_en": "in or into the inner part",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:e47bb1a30dd342791808",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "go inside",
-            "meaning_cn": "走进去",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:inside:500b1e103ff2518e",
-          "target_locator": "record.senses[2]",
-          "target_label": "在里面"
-        }
-      },
-      {
-        "id": "sense:inside:27ef294a78175b0f",
-        "source_locator": "record.senses[3]",
-        "pos": "preposition",
-        "governing_pattern": "",
-        "definition_cn": "在……之内",
-        "definition_en": "within the boundaries or limits of something",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:dced3bbb36785fe594ae",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "inside the box",
-            "meaning_cn": "在盒子里",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:inside:27ef294a78175b0f",
-          "target_locator": "record.senses[3]",
-          "target_label": "在……之内"
-        }
-      },
-      {
-        "id": "sense:inside:b92ba0d2a25a5a1e",
-        "source_locator": "record.senses[4]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "内幕，内部消息",
-        "definition_en": "information or knowledge that is not publicly known",
+        "definition_cn": "内部掌握的；内幕的；非公开的",
+        "definition_en": "known by, available to, or coming from insiders; not publicly known",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:b4f4d6f27d10b04b3b7e",
-            "source_locator": "record.senses[4].collocations[0]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "inside information",
             "meaning_cn": "内部消息",
             "kind": "usage_example",
@@ -7068,8 +7071,86 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:inside:b92ba0d2a25a5a1e",
+          "target_locator": "record.senses[1]",
+          "target_label": "内部掌握的；内幕的；非公开的"
+        }
+      },
+      {
+        "id": "sense:inside:e6adaaca228a56cf",
+        "source_locator": "record.senses[2]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "内部的，户内的",
+        "definition_en": "located on the inner side or within a building",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:3f87bd3d22dca0a46f02",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "inside pocket",
+            "meaning_cn": "内袋",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:inside:e6adaaca228a56cf",
+          "target_locator": "record.senses[2]",
+          "target_label": "内部的，户内的"
+        }
+      },
+      {
+        "id": "sense:inside:500b1e103ff2518e",
+        "source_locator": "record.senses[3]",
+        "pos": "adverb",
+        "governing_pattern": "",
+        "definition_cn": "在里面",
+        "definition_en": "in or into the inner part",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:e47bb1a30dd342791808",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "go inside",
+            "meaning_cn": "走进去",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:inside:500b1e103ff2518e",
+          "target_locator": "record.senses[3]",
+          "target_label": "在里面"
+        }
+      },
+      {
+        "id": "sense:inside:27ef294a78175b0f",
+        "source_locator": "record.senses[4]",
+        "pos": "preposition",
+        "governing_pattern": "",
+        "definition_cn": "在……之内",
+        "definition_en": "within the boundaries or limits of something",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:dced3bbb36785fe594ae",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "inside the box",
+            "meaning_cn": "在盒子里",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:inside:27ef294a78175b0f",
           "target_locator": "record.senses[4]",
-          "target_label": "内幕，内部消息"
+          "target_label": "在……之内"
         }
       }
     ],

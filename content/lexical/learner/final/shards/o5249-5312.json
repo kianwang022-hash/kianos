@@ -298,7 +298,7 @@
     "ordinal": 5252,
     "word": "vapor",
     "source_owner_path": "content/lexical/words/by-ordinal/o5252.json",
-    "source_fingerprint": "4be46c9592f7df11f7e4a0f5d6b322bf9f985d59415aee21d518f741dfd6d724",
+    "source_fingerprint": "d8dce82473afaa99d12422feb3bb9a5cf36dfbc3c89cab43240426581cf3ec70",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -385,18 +385,9 @@
         "governing_pattern": "vt. + object",
         "definition_cn": "使蒸发",
         "definition_en": "to cause to become vapor",
-        "note": "",
+        "note": "Causative verb vapor is rare/technical; ordinary current English usually uses vaporize. Do not treat vaporize as an example of the headword vapor.",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:67248ef4ef6536ac59a8",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "vaporize the liquid",
-            "meaning_cn": "使液体蒸发",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:vapor:e3b4b9c1dc2f5c3b",
@@ -3143,7 +3134,7 @@
     "ordinal": 5276,
     "word": "verse",
     "source_owner_path": "content/lexical/words/by-ordinal/o5276.json",
-    "source_fingerprint": "f9099a0dd64b8f816326e9aec46c50679ca02afa150b9037e61ba57d07af83b7",
+    "source_fingerprint": "d2c039d6f42a23c3f1b172ae640af98a2a2183514b6fb91fa3c6d72151ed90a8",
     "sense_lineage": [
       {
         "word_id": "word:verse",
@@ -3273,6 +3264,14 @@
           {
             "text": "精通、熟悉某领域；在某方面有丰富知识或经验",
             "lang": "cn"
+          },
+          {
+            "text": "lexicalized participial adjective/form versed; separate from poetry noun/verb verse",
+            "lang": "en"
+          },
+          {
+            "text": "to be knowledgeable or experienced in a subject",
+            "lang": "en"
           }
         ],
         "repair": {
@@ -3614,7 +3613,7 @@
     "ordinal": 5280,
     "word": "very",
     "source_owner_path": "content/lexical/words/by-ordinal/o5280.json",
-    "source_fingerprint": "d7f528eb2366fd4d90f8a28e883798219968bbe5909581a4cd9c04be888aa3bf",
+    "source_fingerprint": "562fc1782b4d34abe46ec26ff6e723e8498b779d8193a02578bddff9cb5dceeb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3713,11 +3712,11 @@
           "target_word": "real",
           "lines": [
             {
-              "text": "real means actual/genuine; very is primarily an intensifier of degree.",
+              "text": "real as a degree adverb = very/extremely, usually informal; very is the neutral standard degree intensifier",
               "lang": "en"
             },
             {
-              "text": "used to give emphasis",
+              "text": "used to intensify degree",
               "lang": "en"
             }
           ],
@@ -3858,7 +3857,7 @@
     "ordinal": 5282,
     "word": "vest",
     "source_owner_path": "content/lexical/words/by-ordinal/o5282.json",
-    "source_fingerprint": "5afd6a875988ff87055e1b42ab8484c91c6deeea5a4b518839c62805ba0921ab",
+    "source_fingerprint": "4aea3ab90bb5badb03819159c4a6d364f3e44f23d06dbbe430cbbc8b53102023",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4055,11 +4054,11 @@
           "target_word": "invest",
           "lines": [
             {
-              "text": "vest 授予 vs invest 授予；vest 侧重权利归属",
-              "lang": "cn"
+              "text": "vest and formal invest can both confer/assign authority or rights; vest foregrounds legal/formal placement or belonging of authority/property/rights",
+              "lang": "en"
             },
             {
-              "text": "provide with power and authority",
+              "text": "to confer or place authority, power, rights, or responsibilities",
               "lang": "en"
             }
           ],
@@ -4608,7 +4607,7 @@
     "ordinal": 5288,
     "word": "vice",
     "source_owner_path": "content/lexical/words/by-ordinal/o5288.json",
-    "source_fingerprint": "4ee7a5f90a364f1d7e6654a862d654487cf26230ecc922cda9614a1b870c7dd3",
+    "source_fingerprint": "aedc53801e25805be2cc3663c593d596beadc0e763749d304f5bb71f2a2d3afc",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4744,17 +4743,12 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:29a31270c09c208c6c05",
+            "id": "collocation:1edd4401a4bace211d7f",
             "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "vice president",
-            "meaning_cn": "副总统；副总裁",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:29a31270c09c208c6c05",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "vice president"
-            }
+            "phrase": "appointed vice Smith",
+            "meaning_cn": "被任命替代 Smith（正式用法）",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -4766,7 +4760,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:8f95825a4e7aafce7979",
+        "source_locator": "record.constructions[0]",
+        "pattern": "vice- + title/office",
+        "lines": [
+          {
+            "text": "副职；职位级别仅次于正职，如 vice president / vice chair",
+            "lang": "cn"
+          },
+          {
+            "text": "bound combining/prefixal form vice- = deputy/next in rank; distinct from formal preposition vice = in place of",
+            "lang": "en"
+          },
+          {
+            "text": "a bound combining form meaning deputy or next in rank to, as in vice president or vice chair",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:8f95825a4e7aafce7979",
+          "target_locator": "record.constructions[0]",
+          "target_label": "vice- + title/office"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6556,7 +6576,7 @@
     "ordinal": 5305,
     "word": "virtue",
     "source_owner_path": "content/lexical/words/by-ordinal/o5305.json",
-    "source_fingerprint": "aaf6ad32e7dcc751ce2a75e237f8bbaaa76e9921c09b98140911994a6523b30d",
+    "source_fingerprint": "1e1b1ee9db6cb59c5244d54dbf78e0e8a8431cd5e841e1420c5bf771e49f446e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6586,21 +6606,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:97da32c3b3d22a400e29",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "by virtue of",
-            "meaning_cn": "凭借；由于",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:97da32c3b3d22a400e29",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "by virtue of"
-            }
-          },
-          {
             "id": "collocation:00d7a9d736ee13225159",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "a man of virtue",
             "meaning_cn": "有德之人",
             "kind": "usage_example",
@@ -6681,7 +6688,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:33de6383be8c8aa6e94f",
+        "source_locator": "record.constructions[0]",
+        "pattern": "by virtue of sth",
+        "lines": [
+          {
+            "text": "由于；凭借；因为",
+            "lang": "cn"
+          },
+          {
+            "text": "formal causal/basis expression, distinct from moral excellence",
+            "lang": "en"
+          },
+          {
+            "text": "because of; by reason of; on the basis of",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:33de6383be8c8aa6e94f",
+          "target_locator": "record.constructions[0]",
+          "target_label": "by virtue of sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7094,7 +7127,7 @@
     "ordinal": 5310,
     "word": "visit",
     "source_owner_path": "content/lexical/words/by-ordinal/o5310.json",
-    "source_fingerprint": "7b979e7603e57008da962ffc586eee52878a72ada0800a7e42382b04bb6d60d1",
+    "source_fingerprint": "ae7499e319e5bb68b5fdb4d3e5fbf61c773a8a2fe6efc5353d2d63f119c89d47",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7179,9 +7212,9 @@
         "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "vi. + with",
-        "definition_cn": "做客，逗留",
-        "definition_en": "to stay with someone as a guest",
-        "note": "",
+        "definition_cn": "（主要美式）与某人交谈、相聚或社交",
+        "definition_en": "mainly AmE: to spend time talking or socializing with someone",
+        "note": "visit with sb commonly means spend time talking/socializing with them, not simply stay as a guest",
         "identity_overlay": null,
         "usage": [
           {
@@ -7202,7 +7235,7 @@
           "target_kind": "sense",
           "target_id": "sense:visit:2e9861f01e6b5a5e",
           "target_locator": "record.senses[2]",
-          "target_label": "做客，逗留"
+          "target_label": "（主要美式）与某人交谈、相聚或社交"
         }
       }
     ],

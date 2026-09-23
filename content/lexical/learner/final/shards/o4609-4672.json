@@ -936,7 +936,7 @@
     "ordinal": 4616,
     "word": "spill",
     "source_owner_path": "content/lexical/words/by-ordinal/o4616.json",
-    "source_fingerprint": "ae171e5a2e33a95428113b146e1096cc9d5977e7102984e1cf77c22259ab9fbd",
+    "source_fingerprint": "15a259cd5da15e4a45aba002c6ad27bad43b0799e768b0df758e842297e50bda",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -973,19 +973,6 @@
             "meaning_cn": "洒了牛奶",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:8cf81296d3708ac15c78",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "spill out of + sth",
-            "meaning_cn": "从某物中溢出",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:8cf81296d3708ac15c78",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "spill out of + sth"
-            }
           }
         ],
         "repair": {
@@ -1030,6 +1017,27 @@
               "target_locator": "record.senses[1].collocations[1]",
               "target_label": "spill over"
             }
+          },
+          {
+            "id": "collocation:8cf81296d3708ac15c78",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "spill out of + sth",
+            "meaning_cn": "从某物中溢出",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:8cf81296d3708ac15c78",
+              "target_locator": "record.senses[1].collocations[2]",
+              "target_label": "spill out of + sth"
+            }
+          },
+          {
+            "id": "collocation:81783f63c09fdfd03707",
+            "source_locator": "record.senses[1].collocations[3]",
+            "phrase": "people spilled out of the building",
+            "meaning_cn": "人群从楼里涌出",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -1160,7 +1168,7 @@
     "ordinal": 4617,
     "word": "spin",
     "source_owner_path": "content/lexical/words/by-ordinal/o4617.json",
-    "source_fingerprint": "e805455bd476c4bd6dcdcaea10f1c7d659ca8da20d42d43a20db8206826b930a",
+    "source_fingerprint": "02cb48b5fa1c0ab5dc3ea9ef0fc8ac343549154317d26540f3687c0e68ed94e8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1184,9 +1192,9 @@
         "id": "sense:spin:ef7a6dec9cca58f2",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "I/T",
-        "definition_cn": "使旋转",
-        "definition_en": "to make something turn around quickly",
+        "governing_pattern": "I/T: the wheel spins; spin the wheel",
+        "definition_cn": "快速旋转；使……快速旋转",
+        "definition_en": "to turn rapidly around an axis, or to cause something to turn rapidly",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1216,7 +1224,7 @@
           "target_kind": "sense",
           "target_id": "sense:spin:ef7a6dec9cca58f2",
           "target_locator": "record.senses[0]",
-          "target_label": "使旋转"
+          "target_label": "快速旋转；使……快速旋转"
         }
       },
       {
@@ -1790,23 +1798,23 @@
     "ordinal": 4620,
     "word": "spirit",
     "source_owner_path": "content/lexical/words/by-ordinal/o4620.json",
-    "source_fingerprint": "9fe4879b85df8015c0b3966e7df3075540074f2957c62330a8ccc608dded0a39",
+    "source_fingerprint": "8f1dccc7c1f761098626a1072c42aa71fdf93ee4ab6a0fa49c0432431470dd05",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
-        "5N"
+        "6N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "精神，心灵，灵魂；氛围，风气；幽灵，精灵；烈酒；情绪、精神状态、士气或热情",
+      "summary_cn": "精神/心灵；氛围；精神实质/本意",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "精神，心灵，灵魂；氛围，风气；幽灵，精灵；烈酒；情绪、精神状态、士气或热情"
+        "target_label": "精神/心灵；氛围；精神实质/本意"
       }
     },
     "senses": [
@@ -1968,6 +1976,50 @@
           "target_id": "sense:spirit:8d61751b7d9082f7",
           "target_locator": "record.senses[5]",
           "target_label": "情绪、精神状态、士气或热情"
+        }
+      },
+      {
+        "id": "sense:spirit:74882d33575c0265",
+        "source_locator": "record.senses[6]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "精神实质；本意；原则",
+        "definition_en": "the underlying intention, principle, or essential meaning behind words, rules, laws, or actions",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:1ef76624d983a66da7e3",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "the spirit of the law/agreement",
+            "meaning_cn": "法律/协议的精神、本意",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:1ef76624d983a66da7e3",
+              "target_locator": "record.senses[6].collocations[0]",
+              "target_label": "the spirit of the law/agreement"
+            }
+          },
+          {
+            "id": "collocation:92264e71885b2fc7c306",
+            "source_locator": "record.senses[6].collocations[1]",
+            "phrase": "the letter and the spirit",
+            "meaning_cn": "字面条文与精神实质",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:92264e71885b2fc7c306",
+              "target_locator": "record.senses[6].collocations[1]",
+              "target_label": "the letter and the spirit"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:spirit:74882d33575c0265",
+          "target_locator": "record.senses[6]",
+          "target_label": "精神实质；本意；原则"
         }
       }
     ],
@@ -2745,7 +2797,7 @@
     "ordinal": 4626,
     "word": "split",
     "source_owner_path": "content/lexical/words/by-ordinal/o4626.json",
-    "source_fingerprint": "6d7a0c65a957fd68a29a49236a8a1a6639b5047294f16af4c86dc017d54b71d4",
+    "source_fingerprint": "c18ed8efebab3adb21986731160c16b78c8d41fd152b57d926d31b004d0485ca",
     "sense_lineage": [
       {
         "word_id": "word:split",
@@ -2777,7 +2829,7 @@
         "id": "sense:split:767e7e01aeb4522f",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: split the wood/bill; split into two groups; the group split",
         "definition_cn": "劈开；切开；使分裂",
         "definition_en": "to divide or separate something into parts",
         "note": "",
@@ -2874,7 +2926,7 @@
     "ordinal": 4627,
     "word": "spoil",
     "source_owner_path": "content/lexical/words/by-ordinal/o4627.json",
-    "source_fingerprint": "f2ba9b66b0bb947b86ded25b3b44d73c6832428a2611f13b26b4ff7154611be1",
+    "source_fingerprint": "45d376a6b7b7570f45d789b19dacb9c2e724643251a0b68ebe8d680e52e58bac",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3027,8 +3079,8 @@
           "target_word": "indulge",
           "lines": [
             {
-              "text": "在纵容义相关；spoil强调宠坏结果，indulge强调满足其欲望",
-              "lang": "cn"
+              "text": "spoil foregrounds the damaging result of overindulgence; indulge sb foregrounds gratifying or being over-lenient toward the person",
+              "lang": "en"
             },
             {
               "text": "treat with excessive indulgence",
@@ -3115,7 +3167,7 @@
     "ordinal": 4629,
     "word": "sponge",
     "source_owner_path": "content/lexical/words/by-ordinal/o4629.json",
-    "source_fingerprint": "121b204277f46b66cb803a64af8a3c824453cceb0f97181b4e04f0ec4a7536b9",
+    "source_fingerprint": "7ce67c08cfa1a2e8f50b866c579e69ea961a4b6a39670f61f885f6a5efe01912",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3308,7 +3360,7 @@
         "id": "sense:sponge:669b8770b7b75b5f",
         "source_locator": "record.senses[5]",
         "pos": "verb",
-        "governing_pattern": "vi. + up",
+        "governing_pattern": "vt./phrasal transitive: sponge up sth",
         "definition_cn": "海绵般吸收",
         "definition_en": "absorb like a sponge",
         "note": "",
@@ -3679,7 +3731,7 @@
     "ordinal": 4633,
     "word": "sport",
     "source_owner_path": "content/lexical/words/by-ordinal/o4633.json",
-    "source_fingerprint": "e23a7934e18b54e19b8ef218f0664b94bb97637d8ffe5f76682c73d92d2f5035",
+    "source_fingerprint": "ba328bce06fb6d7999c0d78af8b59111948f26d8faec1e3825d679f9580f5e9e",
     "sense_lineage": [
       {
         "word_id": "word:sport",
@@ -3757,7 +3809,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:6633f7cce53046d0f5e0",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be a good sport / be a sport",
+        "lines": [
+          {
+            "text": "有风度；经得起玩笑或失败；爽快配合/帮忙",
+            "lang": "cn"
+          },
+          {
+            "text": "phrase-level social behavior; does not reactivate a broad standalone person sense",
+            "lang": "en"
+          },
+          {
+            "text": "to behave good-naturedly and fairly in an awkward, teasing, losing, or inconvenient situation; also used to ask someone to cooperate",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:6633f7cce53046d0f5e0",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be a good sport / be a sport"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4495,7 +4573,7 @@
     "ordinal": 4639,
     "word": "spring",
     "source_owner_path": "content/lexical/words/by-ordinal/o4639.json",
-    "source_fingerprint": "8671fd56a48048930af5f16cd524ce42196608772c6483761eec86e9ea4a9f4b",
+    "source_fingerprint": "6bb10c9efc91975d17f396e7016c252278f7abc076489e8607089cb9c877ed58",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4537,14 +4615,6 @@
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "in spring"
             }
-          },
-          {
-            "id": "collocation:1535f23fd07828e255bb",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "spring festival",
-            "meaning_cn": "春节",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -4735,7 +4805,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:c378bb2b68ab0a9c3b38",
+        "source_locator": "record.constructions[0]",
+        "pattern": "Spring Festival",
+        "lines": [
+          {
+            "text": "春节；中国农历新年节庆的专名",
+            "lang": "cn"
+          },
+          {
+            "text": "capitalization-sensitive proper holiday name; lowercase spring festival can be a generic festival held in spring",
+            "lang": "en"
+          },
+          {
+            "text": "the proper holiday name Spring Festival, referring to the Chinese/Lunar New Year celebration",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:c378bb2b68ab0a9c3b38",
+          "target_locator": "record.constructions[0]",
+          "target_label": "Spring Festival"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4862,7 +4958,7 @@
     "ordinal": 4641,
     "word": "sprout",
     "source_owner_path": "content/lexical/words/by-ordinal/o4641.json",
-    "source_fingerprint": "bbab1a4abf8446f71055336e610fd01640dac57c832bc9b6872855b83e71a5f5",
+    "source_fingerprint": "8cd73734c70bab9958a96022ed355f150cc85ed61e376d5ceab3258087dfdcbe",
     "sense_lineage": [
       {
         "word_id": "word:sprout",
@@ -4894,7 +4990,7 @@
         "id": "sense:sprout:8d777a277c1a5939",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vi.: a seed/plant sprouts; shoots/hair sprout",
         "definition_cn": "长芽，抽条",
         "definition_en": "put forth or grow sprouts or shoots",
         "note": "",
@@ -5235,7 +5331,7 @@
     "ordinal": 4644,
     "word": "square",
     "source_owner_path": "content/lexical/words/by-ordinal/o4644.json",
-    "source_fingerprint": "d8c92d46ad37945fc8be0b8f0373c3c312bc0d7ccaf1c1ea1bca574287961780",
+    "source_fingerprint": "51423995274b7f5775adaed2bb17c8c376206c21109e28f669f08dc96c9f1587",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5403,19 +5499,6 @@
             "meaning_cn": "将这个数平方",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:49b3602fc7d903cfedef",
-            "source_locator": "record.senses[5].collocations[1]",
-            "phrase": "square with + sth",
-            "meaning_cn": "与……一致",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:49b3602fc7d903cfedef",
-              "target_locator": "record.senses[5].collocations[1]",
-              "target_label": "square with + sth"
-            }
           }
         ],
         "repair": {
@@ -5429,12 +5512,26 @@
         "id": "sense:square:6807d0f396f01eaa",
         "source_locator": "record.senses[6]",
         "pos": "verb",
-        "governing_pattern": "vi. + with",
+        "governing_pattern": "vi. + with: square with sth",
         "definition_cn": "与……一致、相符或相容",
         "definition_en": "to be consistent, compatible, or in agreement with something",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:49b3602fc7d903cfedef",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "square with + sth",
+            "meaning_cn": "与……一致",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:49b3602fc7d903cfedef",
+              "target_locator": "record.senses[6].collocations[0]",
+              "target_label": "square with + sth"
+            }
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:square:6807d0f396f01eaa",
@@ -5453,6 +5550,14 @@
           {
             "text": "与事实、证据或另一说法一致/相符",
             "lang": "cn"
+          },
+          {
+            "text": "consistency branch only, not make-square/square-a-number",
+            "lang": "en"
+          },
+          {
+            "text": "to be consistent, compatible, or in agreement with something",
+            "lang": "en"
           }
         ],
         "repair": {
@@ -5750,7 +5855,7 @@
     "ordinal": 4647,
     "word": "stab",
     "source_owner_path": "content/lexical/words/by-ordinal/o4647.json",
-    "source_fingerprint": "0484a9f68a7b8432609db2b2e00016d4b5b3e0e485d7837647038b912c28af04",
+    "source_fingerprint": "5b37c2afd05270c589a43e52def275cdee4a4c0b633d204c3fd335a2f8c467e5",
     "sense_lineage": [
       {
         "word_id": "word:stab",
@@ -5782,37 +5887,32 @@
         "id": "sense:stab:136e9fb22aca584f",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: stab sb/sth; stab at sb/sth",
         "definition_cn": "用利器刺伤",
         "definition_en": "to pierce or wound with a pointed weapon",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:f29fed0e243be733b473",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "stab someone in the back",
-            "meaning_cn": "背后捅刀子；背叛",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:f29fed0e243be733b473",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "stab someone in the back"
-            }
-          },
-          {
             "id": "collocation:cbb4741ff4761ab29a04",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "stab at + sb/sth",
             "meaning_cn": "刺向某人/某物",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:cbb4741ff4761ab29a04",
-              "target_locator": "record.senses[0].collocations[1]",
+              "target_locator": "record.senses[0].collocations[0]",
               "target_label": "stab at + sb/sth"
             }
+          },
+          {
+            "id": "collocation:dc522bccc5cc376d76a3",
+            "source_locator": "record.senses[0].collocations[1]",
+            "phrase": "stab sb in the back/chest",
+            "meaning_cn": "从背部/胸部刺伤某人（字面）",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -5912,7 +6012,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:f879c22656b5e212478f",
+        "source_locator": "record.constructions[0]",
+        "pattern": "stab sb in the back",
+        "lines": [
+          {
+            "text": "背叛；暗中伤害信任自己的人",
+            "lang": "cn"
+          },
+          {
+            "text": "figurative betrayal idiom; literal physical stabbing in the back remains compositional",
+            "lang": "en"
+          },
+          {
+            "text": "to betray someone, especially someone who trusted you",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:f879c22656b5e212478f",
+          "target_locator": "record.constructions[0]",
+          "target_label": "stab sb in the back"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7405,7 +7531,7 @@
     "ordinal": 4660,
     "word": "stake",
     "source_owner_path": "content/lexical/words/by-ordinal/o4660.json",
-    "source_fingerprint": "5ba502bf9bf2f3b7c2d74e76ff806edc11f82381dc88ac37dc89fc0f0147d298",
+    "source_fingerprint": "f61e5b6a47f3093632f5ce767721c04756c92d334a875a087c9cbba890b7e9ba",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7460,21 +7586,7 @@
         "definition_en": "the money risked on a gamble",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:4826446dcabdf52c39d7",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "at stake",
-            "meaning_cn": "处于危险中；成败攸关",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:4826446dcabdf52c39d7",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "at stake"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:stake:26596ca61e6e5a56",
@@ -7577,7 +7689,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:b84efcc48702a6428b57",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be/put sth at stake",
+        "lines": [
+          {
+            "text": "处于危险中；使某事面临失去/受损风险；成败攸关",
+            "lang": "cn"
+          },
+          {
+            "text": "broad idiomatic risk expression; distinct from a literal financial gambling stake",
+            "lang": "en"
+          },
+          {
+            "text": "to be at risk of being lost, harmed, or affected, or to put something at such risk",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:b84efcc48702a6428b57",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be/put sth at stake"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7849,7 +7987,7 @@
     "ordinal": 4663,
     "word": "stall",
     "source_owner_path": "content/lexical/words/by-ordinal/o4663.json",
-    "source_fingerprint": "2e78dc0cade46ca9a61d43d2b4d08e790da8d1a1f0c4fc1ac85d7819f57927df",
+    "source_fingerprint": "f59c8ff1715fac32a3bf20cabdbfefbd974a7576e0013556f8b0c8828b3c9e45",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7925,7 +8063,7 @@
         "id": "sense:stall:556d9f5e68e855f7",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "I/T: progress/negotiations stall; stall a decision/process; stall for time",
         "definition_cn": "停顿；拖延；支吾",
         "definition_en": "to stop or cause to stop making progress; to delay",
         "note": "",
@@ -8046,7 +8184,7 @@
     "ordinal": 4664,
     "word": "stamp",
     "source_owner_path": "content/lexical/words/by-ordinal/o4664.json",
-    "source_fingerprint": "deb63eb44520e956b6b27a2352aa69b26cdd05d1b49046014d3893449822611b",
+    "source_fingerprint": "9f3ac5b05683a8466f407c846cd651b7e39ba0dc2d0673240600a4a44e205072",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8143,7 +8281,7 @@
         "id": "sense:stamp:4b57386c9b0f561a",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + on",
+        "governing_pattern": "I/T: stamp on sth; stamp one's foot/feet",
         "definition_cn": "跺脚",
         "definition_en": "to bring down one's foot heavily on the ground",
         "note": "",
@@ -8304,7 +8442,7 @@
     "ordinal": 4665,
     "word": "stance",
     "source_owner_path": "content/lexical/words/by-ordinal/o4665.json",
-    "source_fingerprint": "e2c9347c33d482e9263b28a190c1aba899fc89c83b94faea023364735067db6e",
+    "source_fingerprint": "24c90c4e4e54d72d7f37fa49973e7be57613d3dbd06f3cd92d82dcdeffaa70be",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8384,7 +8522,25 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [],
+      "relations": [
+        {
+          "title": "stance ↔ position",
+          "target_word": "position",
+          "lines": [
+            {
+              "text": "position and stance are near-paraphrases only in the opinion/viewpoint sense.",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:horizontal:467b0989341eb3ad718e",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "stance ↔ position"
+          }
+        }
+      ],
       "form": null,
       "family": []
     }
@@ -9026,7 +9182,7 @@
     "ordinal": 4670,
     "word": "star",
     "source_owner_path": "content/lexical/words/by-ordinal/o4670.json",
-    "source_fingerprint": "668378627833e5b3ba05d43c78e13399a6ef7c64fe9e8b7212f1ef74706c09b3",
+    "source_fingerprint": "60a36c26971ff885f53c1c12564ab546a2d293c96a31a3455317d687a1572b0f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9057,16 +9213,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:b2960d33770cb17abad2",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "a shooting star",
-            "meaning_cn": "流星",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
             "id": "collocation:ea5df1ceaca3450d982c",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "the North Star",
             "meaning_cn": "北极星",
             "kind": "usage_example",
@@ -9207,7 +9355,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:4d3263af78b2df03fdc3",
+        "source_locator": "record.constructions[0]",
+        "pattern": "shooting star",
+        "lines": [
+          {
+            "text": "流星：小型天体进入大气层时发光形成的明亮轨迹，并非真正的恒星",
+            "lang": "cn"
+          },
+          {
+            "text": "lexicalized astronomy term; not literally a star",
+            "lang": "en"
+          },
+          {
+            "text": "a meteor: a bright streak caused by a small object glowing or burning as it enters the atmosphere",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:4d3263af78b2df03fdc3",
+          "target_locator": "record.constructions[0]",
+          "target_label": "shooting star"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],

@@ -358,7 +358,7 @@
     "ordinal": 2947,
     "word": "mankind",
     "source_owner_path": "content/lexical/words/by-ordinal/o2947.json",
-    "source_fingerprint": "637383fe1425274dbb13670cbe6161979421eaf2c1f5b1b6a300f447da6f48a5",
+    "source_fingerprint": "5d8c51b161a1d20413a143daee1ca205d6594233c6b61430fed86d655b77d449",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -384,7 +384,7 @@
         "governing_pattern": "",
         "definition_cn": "作为一个群体的所有人类",
         "definition_en": "all human beings considered as a group",
-        "note": "",
+        "note": "In current neutral/inclusive prose, humankind, humanity, or human beings is often preferred.",
         "identity_overlay": null,
         "usage": [
           {
@@ -416,29 +416,7 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "mankind ↔ humanity",
-          "target_word": "humanity",
-          "lines": [
-            {
-              "text": "只在人类整体义接近；humanity另有人性或人道义",
-              "lang": "cn"
-            },
-            {
-              "text": "all of the living human inhabitants of the earth",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "deep:semantic_contrast:humanity:7a332d44d115bcb9",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "mankind ↔ humanity"
-          }
-        }
-      ],
+      "relations": [],
       "form": null,
       "family": []
     }
@@ -1185,7 +1163,7 @@
     "ordinal": 2953,
     "word": "many",
     "source_owner_path": "content/lexical/words/by-ordinal/o2953.json",
-    "source_fingerprint": "38cf25c3abe6bd55600162692d2bf07e0a45beca17d8545ee6574408e95d2efb",
+    "source_fingerprint": "616c04dcfa026a1be487ba636c41fe37bd5c1659865816c89ca183a0e4fa978f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1267,7 +1245,29 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:a2b1dde26520cebb2694",
+        "source_locator": "record.constructions[0]",
+        "pattern": "many a + singular count noun (+ singular verb)",
+        "lines": [
+          {
+            "text": "许多；很多（正式/书面；形式上接单数名词和单数谓语）",
+            "lang": "cn"
+          },
+          {
+            "text": "compare many students are vs many a student is",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:a2b1dde26520cebb2694",
+          "target_locator": "record.constructions[0]",
+          "target_label": "many a + singular count noun (+ singular verb)"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1539,7 +1539,7 @@
     "ordinal": 2956,
     "word": "marble",
     "source_owner_path": "content/lexical/words/by-ordinal/o2956.json",
-    "source_fingerprint": "7bc14a23530ea17205733d42368db2a1e39fc954574da455d9e7aa5e8157bc41",
+    "source_fingerprint": "e427c0b5de8f82e691659eca8820e4262e6ac0fdb2f2dd4b44a48eebe1d8cda9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1666,7 +1666,7 @@
     "ordinal": 2957,
     "word": "march",
     "source_owner_path": "content/lexical/words/by-ordinal/o2957.json",
-    "source_fingerprint": "b8f8769e8fc33ff1eab12dc7424dc8b98cc2a2b962db3e968f97d2f1b77df336",
+    "source_fingerprint": "2c40ce382420c8e8d4990db061fc2726145a1f665b35b5d7c788162c193bdc45",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1695,12 +1695,12 @@
         "definition_en": "the third month of the year",
         "note": "",
         "identity_overlay": {
-          "text": "Month name is capitalized as March; lowercase march is the ordinary movement noun/verb.",
+          "text": "month is capitalized",
           "repair": {
             "target_kind": "form_identity",
             "target_id": null,
             "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "Month name is capitalized as March; lowercase march is the ordinary movement noun/verb."
+            "target_label": "month is capitalized"
           }
         },
         "usage": [
@@ -1741,7 +1741,15 @@
         "definition_cn": "行军，前进",
         "definition_en": "to walk with regular steps, especially as a group",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "ordinary lexical branches are lowercase except sentence-initial capitalization",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "ordinary lexical branches are lowercase except sentence-initial capitalization"
+          }
+        },
         "usage": [
           {
             "id": "collocation:c051cbacbf0f337a1182",
@@ -1785,7 +1793,15 @@
         "definition_cn": "行军，行进；稳步前进",
         "definition_en": "the act of marching; a steady advance",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "ordinary lexical branches are lowercase except sentence-initial capitalization",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[2].lexical_identity_overlay",
+            "target_label": "ordinary lexical branches are lowercase except sentence-initial capitalization"
+          }
+        },
         "usage": [
           {
             "id": "collocation:e8b83155259e79d93f0d",
@@ -2075,11 +2091,11 @@
     "ordinal": 2959,
     "word": "marginal",
     "source_owner_path": "content/lexical/words/by-ordinal/o2959.json",
-    "source_fingerprint": "1a628acd2a00fc10ad8c49e98329949c836f2e7eb2fdae4867eefe283ef34dd7",
+    "source_fingerprint": "7f005efb5e50a1d45cefb4a5df575c277bdd9426f65237e529a507dd5bdef73a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2A"
+        "3A"
       ],
       "density": "rich"
     },
@@ -2145,19 +2161,6 @@
             "meaning_cn": "微小的改进",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:c7ea74ffafa586f23e32",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "marginal cost",
-            "meaning_cn": "边际成本",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c7ea74ffafa586f23e32",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "marginal cost"
-            }
           }
         ],
         "repair": {
@@ -2165,6 +2168,63 @@
           "target_id": "sense:marginal:80047e4857b759dd",
           "target_locator": "record.senses[1]",
           "target_label": "微小的；最低限度的"
+        }
+      },
+      {
+        "id": "sense:marginal:80fd7acba1d87e1e",
+        "source_locator": "record.senses[2]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "边际的；增加一个单位所带来的额外变化的",
+        "definition_en": "relating to the additional change, cost, benefit, or output from one extra unit",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:c7ea74ffafa586f23e32",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "marginal cost",
+            "meaning_cn": "边际成本",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:c7ea74ffafa586f23e32",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "marginal cost"
+            }
+          },
+          {
+            "id": "collocation:e697f4a41226b737624b",
+            "source_locator": "record.senses[2].collocations[1]",
+            "phrase": "marginal benefit",
+            "meaning_cn": "边际收益",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:e697f4a41226b737624b",
+              "target_locator": "record.senses[2].collocations[1]",
+              "target_label": "marginal benefit"
+            }
+          },
+          {
+            "id": "collocation:44039ead3bb8e0fe7bdb",
+            "source_locator": "record.senses[2].collocations[2]",
+            "phrase": "marginal increase",
+            "meaning_cn": "边际增加",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:44039ead3bb8e0fe7bdb",
+              "target_locator": "record.senses[2].collocations[2]",
+              "target_label": "marginal increase"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:marginal:80fd7acba1d87e1e",
+          "target_locator": "record.senses[2]",
+          "target_label": "边际的；增加一个单位所带来的额外变化的"
         }
       }
     ],
@@ -2183,7 +2243,7 @@
     "ordinal": 2960,
     "word": "marine",
     "source_owner_path": "content/lexical/words/by-ordinal/o2960.json",
-    "source_fingerprint": "5ee3c6b1dea4fb861e66016f39c1605ed2f99a4c4b05f12b119d101e6588c735",
+    "source_fingerprint": "3a8c768820b72364b50c3ec40399cd7f92e91ba78cd0f671ee860695a4927a56",
     "sense_lineage": [
       {
         "word_id": "word:marine",
@@ -2219,7 +2279,15 @@
         "definition_cn": "美国海军陆战队士兵",
         "definition_en": "a member of the United States Marine Corps",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "capitalize when naming a U.S. Marine",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "capitalize when naming a U.S. Marine"
+          }
+        },
         "usage": [
           {
             "id": "collocation:3137ce1384d1099dbc3d",
@@ -2245,7 +2313,15 @@
         "definition_cn": "海的；海产的；海洋的",
         "definition_en": "of or relating to the sea or ocean, especially marine life or the marine environment",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "generic sea/marine adjective is lowercase",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "generic sea/marine adjective is lowercase"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -2379,11 +2455,11 @@
     "ordinal": 2962,
     "word": "mark",
     "source_owner_path": "content/lexical/words/by-ordinal/o2962.json",
-    "source_fingerprint": "77d40e1d097adfcdb3f06df191c66baab3d412bfd2faeb54fe55787e5ec5fdaf",
+    "source_fingerprint": "530011412a6faf26c506cb3dd38a3e12ed7437d79aa9baea7afea8e6996b1a85",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V",
+        "3V",
         "3N"
       ],
       "density": "rich"
@@ -2478,16 +2554,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:23ea829a2e024ceb5407",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "mark the answer",
-            "meaning_cn": "给答案打分",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
             "id": "collocation:7693c8265fda49788694",
-            "source_locator": "record.senses[2].collocations[1]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "mark the spot",
             "meaning_cn": "标记地点",
             "kind": "usage_example",
@@ -2542,6 +2610,58 @@
           "target_id": "sense:mark:f4a4a0c3187c5c37",
           "target_locator": "record.senses[4]",
           "target_label": "标志着；表明；显示"
+        }
+      },
+      {
+        "id": "sense:mark:412e6802f3d1fdb9",
+        "source_locator": "record.senses[5]",
+        "pos": "verb",
+        "governing_pattern": "",
+        "definition_cn": "批改；评分",
+        "definition_en": "to assess and give a grade or score to schoolwork, an exam, or an answer",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:23ea829a2e024ceb5407",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "mark the answer",
+            "meaning_cn": "给答案打分",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:acaba85f9fb3177e93ae",
+            "source_locator": "record.senses[5].collocations[1]",
+            "phrase": "mark an exam",
+            "meaning_cn": "批改考试",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:acaba85f9fb3177e93ae",
+              "target_locator": "record.senses[5].collocations[1]",
+              "target_label": "mark an exam"
+            }
+          },
+          {
+            "id": "collocation:1b2fa5c612c4191666f9",
+            "source_locator": "record.senses[5].collocations[2]",
+            "phrase": "mark a paper/assignment",
+            "meaning_cn": "批改试卷/作业",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:1b2fa5c612c4191666f9",
+              "target_locator": "record.senses[5].collocations[2]",
+              "target_label": "mark a paper/assignment"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:mark:412e6802f3d1fdb9",
+          "target_locator": "record.senses[5]",
+          "target_label": "批改；评分"
         }
       }
     ],
@@ -2842,7 +2962,7 @@
     "ordinal": 2966,
     "word": "marry",
     "source_owner_path": "content/lexical/words/by-ordinal/o2966.json",
-    "source_fingerprint": "d3ae3b358561514a92eda7d8f20be2840039fcdd7d11b296d5888dba1f582f38",
+    "source_fingerprint": "1a36ddf034a8b985f344aae41a1835ed5665ae37a6819d694caa896ce8e50846",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2904,36 +3024,49 @@
         "id": "sense:marry:35477cc29e525ab2",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "结婚",
-        "definition_en": "to get married",
+        "governing_pattern": "vi.",
+        "definition_cn": "结婚；成婚",
+        "definition_en": "to get married; to enter into marriage",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:f4ea5ff3b22dd5f7c077",
+            "id": "collocation:1885d9314ac3db01fe9b",
             "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "marry sb",
-            "meaning_cn": "与某人结婚",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:f4ea5ff3b22dd5f7c077",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "marry sb"
-            }
+            "phrase": "They married in 2010.",
+            "meaning_cn": "他们于2010年结婚",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:marry:35477cc29e525ab2",
           "target_locator": "record.senses[1]",
-          "target_label": "结婚"
+          "target_label": "结婚；成婚"
         }
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:bae104e4a6e151bbcbe4",
+        "source_locator": "record.constructions[0]",
+        "pattern": "marry sb vs get/be married to sb",
+        "lines": [
+          {
+            "text": "marry sb 不用 to/with；get/be married to sb 使用 to",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:bae104e4a6e151bbcbe4",
+          "target_locator": "record.constructions[0]",
+          "target_label": "marry sb vs get/be married to sb"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -2947,7 +3080,7 @@
     "ordinal": 2967,
     "word": "marvelous",
     "source_owner_path": "content/lexical/words/by-ordinal/o2967.json",
-    "source_fingerprint": "ad778045c21b96cb42c7744bdaef5ec2c6f7d48fcfbad9edd432606f89579d40",
+    "source_fingerprint": "ebcbc448c17d6f0bf78411312af3bc4e8ad6535e8d876b3815dc0646a5b05275",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2974,7 +3107,15 @@
         "definition_cn": "了不起的；极好的",
         "definition_en": "extremely good or wonderful",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "marvelous is the common AmE spelling; marvellous is the common BrE spelling; same adjective",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "marvelous is the common AmE spelling; marvellous is the common BrE spelling; same adjective"
+          }
+        },
         "usage": [
           {
             "id": "collocation:a0fd513d537d965b36f1",
@@ -3000,7 +3141,15 @@
         "definition_cn": "令人惊异的",
         "definition_en": "causing great surprise or wonder",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "marvelous is the common AmE spelling; marvellous is the common BrE spelling; same adjective",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "marvelous is the common AmE spelling; marvellous is the common BrE spelling; same adjective"
+          }
+        },
         "usage": [
           {
             "id": "collocation:a83baa1956e3289ba3f4",
@@ -3023,25 +3172,7 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "marvelous ↔ marvellous",
-          "target_word": "marvellous",
-          "lines": [
-            {
-              "text": "marvellous is the common BrE spelling and marvelous the common AmE spelling; preserve both stable owners as regional spelling equivalents.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:bb99df473523c55435cc",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "marvelous ↔ marvellous"
-          }
-        }
-      ],
+      "relations": [],
       "form": null,
       "family": []
     }
@@ -3271,7 +3402,7 @@
     "ordinal": 2970,
     "word": "mask",
     "source_owner_path": "content/lexical/words/by-ordinal/o2970.json",
-    "source_fingerprint": "7620a7dafcd5e674bfa299f0db72401eb07bef3699c7c4e25ed1ccc449e9f532",
+    "source_fingerprint": "3ff0e3eec2a19974d557c5e9e2936bacba0ee7d76da9fb928f97c85edfd0ae20",
     "sense_lineage": [
       {
         "word_id": "word:mask",
@@ -3283,19 +3414,19 @@
     ],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "面具/遮盖物；遮盖或掩饰",
+      "summary_cn": "遮盖物，掩饰",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "面具/遮盖物；遮盖或掩饰"
+        "target_label": "遮盖物，掩饰"
       }
     },
     "senses": [
@@ -3314,14 +3445,6 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "wear a mask",
             "meaning_cn": "戴口罩/面具",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:38f026e0e32a41d377ba",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "surgical mask",
-            "meaning_cn": "外科口罩",
             "kind": "usage_example",
             "repair": null
           }
@@ -3381,6 +3504,14 @@
             "meaning_cn": "防护面罩",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:38f026e0e32a41d377ba",
+            "source_locator": "record.senses[2].collocations[1]",
+            "phrase": "surgical mask",
+            "meaning_cn": "外科口罩",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -3388,37 +3519,6 @@
           "target_id": "sense:mask:26a3dea47b185fb9",
           "target_locator": "record.senses[2]",
           "target_label": "戴在脸上的防护罩"
-        }
-      },
-      {
-        "id": "sense:mask:9bb60421fb805d20",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "掩饰；隐藏；使不易察觉",
-        "definition_en": "to conceal, hide, or prevent something from being noticed or recognized",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:622129450134d5b00970",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "mask the smell/problem/effect",
-            "meaning_cn": "掩盖气味/问题/影响",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:622129450134d5b00970",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "mask the smell/problem/effect"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:mask:9bb60421fb805d20",
-          "target_locator": "record.senses[3]",
-          "target_label": "掩饰；隐藏；使不易察觉"
         }
       }
     ],
@@ -3437,7 +3537,7 @@
     "ordinal": 2971,
     "word": "mass",
     "source_owner_path": "content/lexical/words/by-ordinal/o2971.json",
-    "source_fingerprint": "035650870b08a005373bf4a4626ac93eb42c2d99c3b3c900f9503abd061b8620",
+    "source_fingerprint": "7e8007d23b296403903e666fc3197d93b081148941890000ff7bbba6616c4f6f",
     "sense_lineage": [
       {
         "word_id": "word:mass",
@@ -3488,14 +3588,6 @@
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "a mass of + sth"
             }
-          },
-          {
-            "id": "collocation:ccef1aa68f526a6cb6bf",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "mass production",
-            "meaning_cn": "大规模生产",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -3585,6 +3677,14 @@
             "source_locator": "record.senses[3].collocations[1]",
             "phrase": "mass communication",
             "meaning_cn": "大众传播",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:ccef1aa68f526a6cb6bf",
+            "source_locator": "record.senses[3].collocations[2]",
+            "phrase": "mass production",
+            "meaning_cn": "大规模生产",
             "kind": "usage_example",
             "repair": null
           }
@@ -5361,7 +5461,7 @@
     "ordinal": 2983,
     "word": "mature",
     "source_owner_path": "content/lexical/words/by-ordinal/o2983.json",
-    "source_fingerprint": "155c631b0f9ab5b3d95640afe588aee52c19051827d1821f73859ec0c5232248",
+    "source_fingerprint": "34744e33180a57b158f2e6df0f3927f395e937b80ce33e4fdbf843afe5e0280c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5390,16 +5490,7 @@
         "definition_en": "fully grown or developed",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:912a7545ec463e9c4d0d",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "mature student",
-            "meaning_cn": "成年学生",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:mature:333a5180334d5da9",
@@ -5509,7 +5600,25 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:d7838404567ceec83d70",
+        "source_locator": "record.constructions[0]",
+        "pattern": "mature student",
+        "lines": [
+          {
+            "text": "年龄高于通常大学入学年龄的大学/学院学生（尤英式）",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:d7838404567ceec83d70",
+          "target_locator": "record.constructions[0]",
+          "target_label": "mature student"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5632,7 +5741,7 @@
     "ordinal": 2985,
     "word": "may",
     "source_owner_path": "content/lexical/words/by-ordinal/o2985.json",
-    "source_fingerprint": "31084b7b3cbb1955958db727b5d1e8bf9f411af2f251572c0780551ccfc092d4",
+    "source_fingerprint": "bf931e2e72a87bd1346bf08d1c0451373d853cf40e8aad97dce1bd550f09af72",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5660,7 +5769,15 @@
         "definition_cn": "可以；可能",
         "definition_en": "used to express possibility or permission",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "modal is lowercase except normal sentence-initial capitalization",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "modal is lowercase except normal sentence-initial capitalization"
+          }
+        },
         "usage": [
           {
             "id": "collocation:ca931f20b5335f3106d3",
@@ -5700,12 +5817,12 @@
         "definition_en": "the month following April and preceding June",
         "note": "",
         "identity_overlay": {
-          "text": "case_sensitive_lexeme",
+          "text": "month is capitalized",
           "repair": {
             "target_kind": "form_identity",
             "target_id": null,
             "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "case_sensitive_lexeme"
+            "target_label": "month is capitalized"
           }
         },
         "usage": [
@@ -5732,7 +5849,29 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:08bcd5c19607964717f5",
+        "source_locator": "record.constructions[0]",
+        "pattern": "may as well + base verb",
+        "lines": [
+          {
+            "text": "不妨；还是……为好；反正可以……",
+            "lang": "cn"
+          },
+          {
+            "text": "reasonable/easiest choice when no better alternative is apparent",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:08bcd5c19607964717f5",
+          "target_locator": "record.constructions[0]",
+          "target_label": "may as well + base verb"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6124,24 +6263,24 @@
     "ordinal": 2991,
     "word": "mean",
     "source_owner_path": "content/lexical/words/by-ordinal/o2991.json",
-    "source_fingerprint": "9f4d53ac4b308321ddfb7089b82f88d82dc59ba857265fef6be4a0d654716dec",
+    "source_fingerprint": "48de441d447df9f80e7516ff04492f7c416d32772099fd5a1b33a8af7d92960a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3V",
+        "4V",
         "(2+1)A",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "意思是/意味着；刻薄的；平均的；平均数",
+      "summary_cn": "意思是，意味着；平均的",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "意思是/意味着；刻薄的；平均的；平均数"
+        "target_label": "意思是，意味着；平均的"
       }
     },
     "senses": [
@@ -6156,28 +6295,15 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:35a206144e9ddad3a0ea",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "mean to do sth",
-            "meaning_cn": "打算做某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:35a206144e9ddad3a0ea",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "mean to do sth"
-            }
-          },
-          {
             "id": "collocation:b076747683f42ca9d862",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "mean + that-clause",
             "meaning_cn": "意思是……",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:b076747683f42ca9d862",
-              "target_locator": "record.senses[0].collocations[1]",
+              "target_locator": "record.senses[0].collocations[0]",
               "target_label": "mean + that-clause"
             }
           }
@@ -6190,8 +6316,39 @@
         }
       },
       {
-        "id": "sense:mean:950e964b21775a76",
+        "id": "sense:mean:d65dc91078395439",
         "source_locator": "record.senses[1]",
+        "pos": "verb",
+        "governing_pattern": "vt. + object",
+        "definition_cn": "表示……的意思",
+        "definition_en": "denote or connote",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:6d16af33bbd9f38b19b9",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "mean + sth",
+            "meaning_cn": "意思是……",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:6d16af33bbd9f38b19b9",
+              "target_locator": "record.senses[1].collocations[0]",
+              "target_label": "mean + sth"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:mean:d65dc91078395439",
+          "target_locator": "record.senses[1]",
+          "target_label": "表示……的意思"
+        }
+      },
+      {
+        "id": "sense:mean:950e964b21775a76",
+        "source_locator": "record.senses[2]",
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "平均的；中间的",
@@ -6202,39 +6359,8 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:mean:950e964b21775a76",
-          "target_locator": "record.senses[1]",
-          "target_label": "平均的；中间的"
-        }
-      },
-      {
-        "id": "sense:mean:d65dc91078395439",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "表示……的意思",
-        "definition_en": "denote or connote",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:6d16af33bbd9f38b19b9",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "mean + sth",
-            "meaning_cn": "意思是……",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:6d16af33bbd9f38b19b9",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "mean + sth"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:mean:d65dc91078395439",
           "target_locator": "record.senses[2]",
-          "target_label": "表示……的意思"
+          "target_label": "平均的；中间的"
         }
       },
       {
@@ -6315,6 +6441,45 @@
           "target_locator": "record.senses[5]",
           "target_label": "平均数，中间"
         }
+      },
+      {
+        "id": "sense:mean:ae19ae892e5f5180",
+        "source_locator": "record.senses[6]",
+        "pos": "verb",
+        "governing_pattern": "vt. + to do",
+        "definition_cn": "打算；意欲",
+        "definition_en": "to intend or plan to do something",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:35a206144e9ddad3a0ea",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "mean to do sth",
+            "meaning_cn": "打算做某事",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:35a206144e9ddad3a0ea",
+              "target_locator": "record.senses[6].collocations[0]",
+              "target_label": "mean to do sth"
+            }
+          },
+          {
+            "id": "collocation:c3cc4c559a74c4de5fb6",
+            "source_locator": "record.senses[6].collocations[1]",
+            "phrase": "I didn't mean to ...",
+            "meaning_cn": "我不是故意/并没打算……",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:mean:ae19ae892e5f5180",
+          "target_locator": "record.senses[6]",
+          "target_label": "打算；意欲"
+        }
       }
     ],
     "secondary_senses": [
@@ -6333,7 +6498,25 @@
         }
       }
     ],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:b22b48f5db0f6a2a9848",
+        "source_locator": "record.constructions[1]",
+        "pattern": "mean doing sth",
+        "lines": [
+          {
+            "text": "意味着/需要做某事；作为结果或要求会涉及做某事",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:b22b48f5db0f6a2a9848",
+          "target_locator": "record.constructions[1]",
+          "target_label": "mean doing sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6347,7 +6530,7 @@
     "ordinal": 2992,
     "word": "meaning",
     "source_owner_path": "content/lexical/words/by-ordinal/o2992.json",
-    "source_fingerprint": "1be6d9d3a82e9b12374e3ad8db59cd8ce00eca80c40c9ae7a46e77cd5d88939e",
+    "source_fingerprint": "7d45c44bb8c00c0d7ac87ecc7a45e7253670dc426237c0c89be35029d6c23ae6",
     "sense_lineage": [
       {
         "word_id": "word:meaning",
@@ -6419,10 +6602,10 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:f532148aaa6bf622e387",
+            "id": "collocation:958875986423c02ed615",
             "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "with good meaning",
-            "meaning_cn": "好意地",
+            "phrase": "the meaning behind his actions/words",
+            "meaning_cn": "他行为/言语背后的意图",
             "kind": "usage_example",
             "repair": null
           }
@@ -6450,7 +6633,7 @@
     "ordinal": 2993,
     "word": "means",
     "source_owner_path": "content/lexical/words/by-ordinal/o2993.json",
-    "source_fingerprint": "87bc12d0d5e76078557e9ba5428f042ee463fa73e5a81d91593a93ab6ee5655a",
+    "source_fingerprint": "6af1e2513c864da2e5d00115d1942af812e8a0f7b57511103d33c60254b8fdd1",
     "sense_lineage": [
       {
         "word_id": "word:means",
@@ -6534,8 +6717,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "财产，收入",
-        "definition_en": "considerable capital (wealth or income)",
+        "definition_cn": "财力；可支配的金钱/资源",
+        "definition_en": "money or resources available to someone",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6551,13 +6734,52 @@
               "target_locator": "record.senses[1].collocations[0]",
               "target_label": "live within one's means"
             }
+          },
+          {
+            "id": "collocation:831f732fe68ad01366c2",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "within/beyond one's means",
+            "meaning_cn": "量入为出/超出经济能力",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:831f732fe68ad01366c2",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "within/beyond one's means"
+            }
+          },
+          {
+            "id": "collocation:0ec933cb3e240a9fa304",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "have the means to do sth",
+            "meaning_cn": "有能力/财力做某事",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:0ec933cb3e240a9fa304",
+              "target_locator": "record.senses[1].collocations[2]",
+              "target_label": "have the means to do sth"
+            }
+          },
+          {
+            "id": "collocation:7f3e02d066d5af149ca5",
+            "source_locator": "record.senses[1].collocations[3]",
+            "phrase": "a person of means",
+            "meaning_cn": "有财力的人",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:7f3e02d066d5af149ca5",
+              "target_locator": "record.senses[1].collocations[3]",
+              "target_label": "a person of means"
+            }
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:means:e3041c7f06915845",
           "target_locator": "record.senses[1]",
-          "target_label": "财产，收入"
+          "target_label": "财力；可支配的金钱/资源"
         }
       }
     ],
@@ -6978,7 +7200,7 @@
     "ordinal": 2997,
     "word": "meat",
     "source_owner_path": "content/lexical/words/by-ordinal/o2997.json",
-    "source_fingerprint": "2a417536808dfde39eb4a2a121b74ba5983df217493ed4015c4663482457cb2d",
+    "source_fingerprint": "4d4633ba1d3de8d15fc14bdc705f32a48ad2af559454b03f1fff1110a6aeca7b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7014,14 +7236,6 @@
             "meaning_cn": "红肉",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:2dc740b0feb5e7961599",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "meat and potatoes",
-            "meaning_cn": "肉和土豆；基本部分",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -7033,7 +7247,25 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:b643c0b1d069de21d8ec",
+        "source_locator": "record.constructions[0]",
+        "pattern": "the meat and potatoes of sth",
+        "lines": [
+          {
+            "text": "核心内容；基本组成部分；实质（非正式，尤美式）",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:b643c0b1d069de21d8ec",
+          "target_locator": "record.constructions[0]",
+          "target_label": "the meat and potatoes of sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7245,11 +7477,11 @@
     "ordinal": 3000,
     "word": "mechanism",
     "source_owner_path": "content/lexical/words/by-ordinal/o3000.json",
-    "source_fingerprint": "9d0d591a5a155369af9ec7e06f25fc5297bb8fede714dcfcdbee4afe17488525",
+    "source_fingerprint": "bb70800b15a51ab6baf65b9299b4f57418c879d2cbf12393aa96e8ae1199e565",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3N"
+        "4N"
       ],
       "density": "rich"
     },
@@ -7336,6 +7568,50 @@
           "target_id": "sense:mechanism:8688cad71f515dfa",
           "target_locator": "record.senses[2]",
           "target_label": "（自然界的）机械结构"
+        }
+      },
+      {
+        "id": "sense:mechanism:7ffef575341e8139",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "机械装置；机构；机件组合",
+        "definition_en": "a set or arrangement of moving parts that work together in a machine or device",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:a308a0e2c1172b448712",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "locking mechanism",
+            "meaning_cn": "锁定机构",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:a308a0e2c1172b448712",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "locking mechanism"
+            }
+          },
+          {
+            "id": "collocation:19e07c4d08e3ec6e03f2",
+            "source_locator": "record.senses[3].collocations[1]",
+            "phrase": "the mechanism of a clock",
+            "meaning_cn": "钟表的机械机构",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:19e07c4d08e3ec6e03f2",
+              "target_locator": "record.senses[3].collocations[1]",
+              "target_label": "the mechanism of a clock"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:mechanism:7ffef575341e8139",
+          "target_locator": "record.senses[3]",
+          "target_label": "机械装置；机构；机件组合"
         }
       }
     ],

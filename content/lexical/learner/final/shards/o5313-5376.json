@@ -845,7 +845,7 @@
     "ordinal": 5320,
     "word": "void",
     "source_owner_path": "content/lexical/words/by-ordinal/o5320.json",
-    "source_fingerprint": "664fb8b408f57db9ae392004acda44a8f813d8fcf53dc9100dee571d9e62337b",
+    "source_fingerprint": "1b0cdf4c57b2c15bfd1bcefb7469368b60ad1a3b3b29724a959dbefea72b7049",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -883,19 +883,6 @@
             "meaning_cn": "填补空虚",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:bac82ed1f1c560da35c9",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "void of",
-            "meaning_cn": "缺乏；没有",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:bac82ed1f1c560da35c9",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "void of"
-            }
           }
         ],
         "repair": {
@@ -909,12 +896,39 @@
         "id": "sense:void:81aed3effde553c1",
         "source_locator": "record.senses[1]",
         "pos": "adjective",
-        "governing_pattern": "",
+        "governing_pattern": "adjective: be void of sth",
         "definition_cn": "空的；空无的",
         "definition_en": "containing nothing; empty",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:bac82ed1f1c560da35c9",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "void of",
+            "meaning_cn": "缺乏；没有",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:bac82ed1f1c560da35c9",
+              "target_locator": "record.senses[1].collocations[0]",
+              "target_label": "void of"
+            }
+          },
+          {
+            "id": "collocation:c7687852f7befcc396a7",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "be void of sth",
+            "meaning_cn": "完全没有；缺乏某物",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:c7687852f7befcc396a7",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "be void of sth"
+            }
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:void:81aed3effde553c1",
@@ -2945,7 +2959,7 @@
     "ordinal": 5338,
     "word": "wake",
     "source_owner_path": "content/lexical/words/by-ordinal/o5338.json",
-    "source_fingerprint": "94a4b8f0834c374697ac4081fbac793259cc6b91851c29d4bc7450c0ad0efe49",
+    "source_fingerprint": "06b82221c14cfbf962b7948f4a262298ae82da1fa59a6cc6ff8d2854e3fc3c06",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3036,21 +3050,7 @@
         "definition_en": "the track of waves left by a moving ship",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:17384ef263cf55afcfd2",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "in the wake of + sth",
-            "meaning_cn": "紧随某事之后",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:17384ef263cf55afcfd2",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "in the wake of + sth"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:wake:b3df0c5f2e4652f0",
@@ -3095,6 +3095,14 @@
           {
             "text": "在……之后；常含因……而发生之意",
             "lang": "cn"
+          },
+          {
+            "text": "figurative consequence/aftermath construction; distinct from literal ship waves/track",
+            "lang": "en"
+          },
+          {
+            "text": "following as a consequence or aftermath of something",
+            "lang": "en"
           }
         ],
         "repair": {
@@ -3612,7 +3620,7 @@
     "ordinal": 5342,
     "word": "wander",
     "source_owner_path": "content/lexical/words/by-ordinal/o5342.json",
-    "source_fingerprint": "5a9f2ca9a509daba5ce6413e553debbf3783bf22d0e8c14b7e32c1075dd127d7",
+    "source_fingerprint": "9b2a3a0467a7d4b2f899c1011c1bfe62c7e5bf8ec89c3641cab2f5833950c09e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3635,7 +3643,7 @@
         "id": "sense:wander:43d1f637316856f3",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + through/around",
+        "governing_pattern": "I/T: wander through/around a place; wander the streets/countryside",
         "definition_cn": "漫步，闲逛",
         "definition_en": "to walk slowly around or to a place, often without a clear direction or purpose",
         "note": "",
@@ -3795,7 +3803,7 @@
     "ordinal": 5343,
     "word": "want",
     "source_owner_path": "content/lexical/words/by-ordinal/o5343.json",
-    "source_fingerprint": "4572fa600d9af0aa35721c4b78dfb7bf37db1845d8ea963e6105dbd29a3c0772",
+    "source_fingerprint": "581be5c7f4fb311d1c825f722846cd92c85361e47bde1c1f9157762632d2f99e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3863,7 +3871,7 @@
         "id": "sense:want:e67e8843f8e95a8e",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "formal/literary: want for sth; want for nothing; not want for anything",
         "definition_cn": "缺少；缺乏",
         "definition_en": "be without or deficient in",
         "note": "",
@@ -3880,6 +3888,19 @@
               "target_id": "collocation:91bafc017e56cada38d2",
               "target_locator": "record.senses[1].collocations[0]",
               "target_label": "want for + sth"
+            }
+          },
+          {
+            "id": "collocation:fe3060fb90507a2040bd",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "want for nothing",
+            "meaning_cn": "什么也不缺",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:fe3060fb90507a2040bd",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "want for nothing"
             }
           }
         ],
@@ -6366,12 +6387,12 @@
     "ordinal": 5362,
     "word": "wave",
     "source_owner_path": "content/lexical/words/by-ordinal/o5362.json",
-    "source_fingerprint": "f02c8bbe8a3ad1e1519a1706c6d98091e87304e8434dae9bbe11ae84f79c40bd",
+    "source_fingerprint": "389afd642ea370b71d8cb209fd7fd4ae1324029f3522b0862db280f79392eb5d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "3V",
-        "3N"
+        "4N"
       ],
       "density": "rich"
     },
@@ -6408,14 +6429,6 @@
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "a wave of + sth"
             }
-          },
-          {
-            "id": "collocation:47a5c9e9c21355c47b99",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "sound wave",
-            "meaning_cn": "声波",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -6571,6 +6584,37 @@
           "target_id": "sense:wave:6c3c3e1e0e44527b",
           "target_locator": "record.senses[5]",
           "target_label": "挥舞，挥动"
+        }
+      },
+      {
+        "id": "sense:wave:e68aa3c04d350332",
+        "source_locator": "record.senses[6]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "波；传播能量的扰动或振荡",
+        "definition_en": "a disturbance or oscillation that travels through space or a medium and transfers energy",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:4483e6b0587ac21ef47f",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "radio/light wave",
+            "meaning_cn": "无线电波/光波",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:4483e6b0587ac21ef47f",
+              "target_locator": "record.senses[6].collocations[0]",
+              "target_label": "radio/light wave"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:wave:e68aa3c04d350332",
+          "target_locator": "record.senses[6]",
+          "target_label": "波；传播能量的扰动或振荡"
         }
       }
     ],
@@ -7164,7 +7208,7 @@
     "ordinal": 5367,
     "word": "wealth",
     "source_owner_path": "content/lexical/words/by-ordinal/o5367.json",
-    "source_fingerprint": "a02234f354f59f40f4e08e6a643cbccfcd82887726898f0067d4c62d91334275",
+    "source_fingerprint": "3378606dbece2d2db28a1db2c6aaf4a691c3397eaef18e8c624d6a12a7a548df",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7200,14 +7244,6 @@
             "meaning_cn": "积累财富",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:6baae608e1fb979549fb",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "wealth of information",
-            "meaning_cn": "丰富的信息",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -7222,8 +7258,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "大量；丰富",
-        "definition_en": "an abundance of material possessions and resources",
+        "definition_cn": "大量；丰富；充裕",
+        "definition_en": "a large amount or rich abundance of something, including information, experience, knowledge, or resources",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7234,13 +7270,34 @@
             "meaning_cn": "丰富的经验",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:6baae608e1fb979549fb",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "wealth of information",
+            "meaning_cn": "丰富的信息",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:9886267b1da236ddcbd3",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "a wealth of information/experience",
+            "meaning_cn": "丰富的信息/经验",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:9886267b1da236ddcbd3",
+              "target_locator": "record.senses[1].collocations[2]",
+              "target_label": "a wealth of information/experience"
+            }
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:wealth:7084bf38c43c5074",
           "target_locator": "record.senses[1]",
-          "target_label": "大量；丰富"
+          "target_label": "大量；丰富；充裕"
         }
       }
     ],
@@ -7419,7 +7476,7 @@
     "ordinal": 5370,
     "word": "wear",
     "source_owner_path": "content/lexical/words/by-ordinal/o5370.json",
-    "source_fingerprint": "b3ecfdd7784b1d3c80cfc83aeb603b1f6715074a4d1e44c432bee045ba24febc",
+    "source_fingerprint": "a7a07874847eae2431c6e524074d8776d8906fe0fe316da724cd666cc6b81047",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7613,7 +7670,7 @@
         "id": "sense:wear:0a2a6db4142d9dcb",
         "source_locator": "record.senses[6]",
         "pos": "verb",
-        "governing_pattern": "wear off",
+        "governing_pattern": "phrasal intransitive: wear off",
         "definition_cn": "（效果、感觉等）逐渐消失",
         "definition_en": "for an effect or feeling to gradually disappear",
         "note": "",
@@ -7651,6 +7708,10 @@
           {
             "text": "（药效、感觉、影响等）逐渐消失",
             "lang": "cn"
+          },
+          {
+            "text": "for an effect, feeling, drug action, novelty, etc. to gradually disappear",
+            "lang": "en"
           }
         ],
         "repair": {
@@ -7691,7 +7752,7 @@
     "ordinal": 5371,
     "word": "weary",
     "source_owner_path": "content/lexical/words/by-ordinal/o5371.json",
-    "source_fingerprint": "bd5311082683b458580142f2fa4fb04f076fe4733003f7bdd9ef4d7198919851",
+    "source_fingerprint": "49c258ee50a59d40c28306258a98e2fccbee3f20666a0a635b713e4e09ad0bc9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7722,23 +7783,18 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:f2629af45f1cc3fd804b",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "weary of + sth",
-            "meaning_cn": "对…感到厌倦",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:f2629af45f1cc3fd804b",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "weary of + sth"
-            }
-          },
-          {
             "id": "collocation:76cbc4c8815b4145a68d",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "a weary smile",
             "meaning_cn": "疲惫的笑容",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:8b1de59b6f330eaa95f2",
+            "source_locator": "record.senses[0].collocations[1]",
+            "phrase": "a weary traveller",
+            "meaning_cn": "疲惫的旅人",
             "kind": "usage_example",
             "repair": null
           }
@@ -7761,16 +7817,16 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:2faf2b94890b80cf74b8",
+            "id": "collocation:ecdf5723d8d93eb5d400",
             "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "weary of + sth",
-            "meaning_cn": "对…感到厌倦",
+            "phrase": "weary of sth",
+            "meaning_cn": "对某事感到厌倦",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
-              "target_id": "collocation:2faf2b94890b80cf74b8",
+              "target_id": "collocation:ecdf5723d8d93eb5d400",
               "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "weary of + sth"
+              "target_label": "weary of sth"
             }
           }
         ],
@@ -7821,21 +7877,7 @@
         "definition_en": "become tired or bored with something",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:2ddf65777f7579a03614",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "weary of + sth",
-            "meaning_cn": "对…感到厌倦",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:2ddf65777f7579a03614",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "weary of + sth"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:weary:0b73ed2422475c0b",
@@ -8166,7 +8208,7 @@
     "ordinal": 5374,
     "word": "web",
     "source_owner_path": "content/lexical/words/by-ordinal/o5374.json",
-    "source_fingerprint": "f034ae11c8b026ab68bd4af88f2398336d2cd06036b63e0c8d1818f117a67a80",
+    "source_fingerprint": "ac20cf982ab32464598f98161a563e153841fd21a3c9c51618e57de066201f3f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8227,14 +8269,6 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "web of lies",
             "meaning_cn": "谎言的网络",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:7e6c7a2f0bea0efc41a2",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "World Wide Web",
-            "meaning_cn": "万维网",
             "kind": "usage_example",
             "repair": null
           }
@@ -8312,7 +8346,29 @@
         "definition_en": "the World Wide Web: the interconnected system of online pages and resources",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:7e6c7a2f0bea0efc41a2",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "World Wide Web",
+            "meaning_cn": "万维网",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:50d37f1ab08d2df442ab",
+            "source_locator": "record.senses[4].collocations[1]",
+            "phrase": "the World Wide Web / the Web",
+            "meaning_cn": "万维网",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:50d37f1ab08d2df442ab",
+              "target_locator": "record.senses[4].collocations[1]",
+              "target_label": "the World Wide Web / the Web"
+            }
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:web:98f2b1da6a890cde",

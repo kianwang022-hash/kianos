@@ -710,7 +710,7 @@
     "ordinal": 4807,
     "word": "sunday",
     "source_owner_path": "content/lexical/words/by-ordinal/o4807.json",
-    "source_fingerprint": "83fb99dc3725e0b833af093d915e7879907eac8c3be36ef408b279f55efe9878",
+    "source_fingerprint": "622bbe08208607e9ada6bdac5eab04da02fcb4269fd444f91c6ec409e1589103",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -739,7 +739,15 @@
         "definition_cn": "星期日",
         "definition_en": "the day of the week after Saturday and before Monday",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "Sunday is the canonical capitalized day name and derived ordinary uses such as Sunday morning/Sunday driver; lowercase is nonstandard or style-specific",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "Sunday is the canonical capitalized day name and derived ordinary uses such as Sunday morning/Sunday driver; lowercase is nonstandard or style-specific"
+          }
+        },
         "usage": [
           {
             "id": "collocation:58f9b5cb53d1d3e2600b",
@@ -778,7 +786,15 @@
         "definition_cn": "星期日的；业余的",
         "definition_en": "of or relating to Sunday; amateur",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "Sunday is the canonical capitalized day name and derived ordinary uses such as Sunday morning/Sunday driver; lowercase is nonstandard or style-specific",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "Sunday is the canonical capitalized day name and derived ordinary uses such as Sunday morning/Sunday driver; lowercase is nonstandard or style-specific"
+          }
+        },
         "usage": [
           {
             "id": "collocation:d8117b2ff103a48a3acf",
@@ -804,7 +820,15 @@
         "definition_cn": "度星期日",
         "definition_en": "spend Sunday",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "Sunday is the canonical capitalized day name and derived ordinary uses such as Sunday morning/Sunday driver; lowercase is nonstandard or style-specific",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[2].lexical_identity_overlay",
+            "target_label": "Sunday is the canonical capitalized day name and derived ordinary uses such as Sunday morning/Sunday driver; lowercase is nonstandard or style-specific"
+          }
+        },
         "usage": [
           {
             "id": "collocation:1c04e00258df4edd79cf",
@@ -1947,7 +1971,7 @@
     "ordinal": 4818,
     "word": "supersonic",
     "source_owner_path": "content/lexical/words/by-ordinal/o4818.json",
-    "source_fingerprint": "04eee4ab5894ade67dd2f0d5bcfca38a3d9a74179e6f2fbfec50d62a06ebb2e3",
+    "source_fingerprint": "dae84527c23c4d00179466eb7bcb7dbd334e6423459d1e10db1d4e6c05203e39",
     "sense_lineage": [
       {
         "word_id": "word:supersonic",
@@ -2024,7 +2048,7 @@
           "target_word": "ultrasonic",
           "lines": [
             {
-              "text": "supersonic = faster than the speed of sound; ultrasonic = sound with frequency above human hearing. Current supersonic L2 incorrectly defines ultrasonic and must be removed/corrected, then add the cross-word contrast.",
+              "text": "supersonic = faster than the speed of sound; ultrasonic = sound frequency above the range of human hearing",
               "lang": "en"
             }
           ],
@@ -2555,7 +2579,7 @@
     "ordinal": 4824,
     "word": "support",
     "source_owner_path": "content/lexical/words/by-ordinal/o4824.json",
-    "source_fingerprint": "ad648c3734c40424313f1ba9ddf9c86d788d0328b0cbb19f2ae14daa571a9922",
+    "source_fingerprint": "ae22143b1da83086e98663e74b0c68439cb263a3a66c23b53b546e4f0735ab14",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2709,7 +2733,7 @@
         "id": "sense:support:3634d77028575765",
         "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vt.: evidence/data/results support a claim/conclusion/theory",
         "definition_cn": "支持；佐证（观点、结论、理论）",
         "definition_en": "to provide evidence or facts that make a claim, conclusion, or theory more credible",
         "note": "",
@@ -3110,12 +3134,19 @@
     "ordinal": 4827,
     "word": "supreme",
     "source_owner_path": "content/lexical/words/by-ordinal/o4827.json",
-    "source_fingerprint": "3c550fbf977d3ded0ba6fd4dd8f80537b8679f995ff1708da35d275d9748cc6a",
-    "sense_lineage": [],
+    "source_fingerprint": "9eb5264b19fe383c4979d884f6afd68671693f42479a98cded5043c881311d1f",
+    "sense_lineage": [
+      {
+        "word_id": "word:supreme",
+        "target_kind": "sense",
+        "from_target_id": "sense:supreme:f660e8a7900252d1",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2A",
-        "1N"
+        "2A"
       ],
       "density": "rich"
     },
@@ -3201,32 +3232,6 @@
           "target_id": "sense:supreme:3b33292bd4195eb0",
           "target_locator": "record.senses[1]",
           "target_label": "极端的；最大的"
-        }
-      },
-      {
-        "id": "sense:supreme:f660e8a7900252d1",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "至高；霸权",
-        "definition_en": "the highest level or authority",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:08df64b8dfe550149263",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "the supreme of power",
-            "meaning_cn": "权力的最高点",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:supreme:f660e8a7900252d1",
-          "target_locator": "record.senses[2]",
-          "target_label": "至高；霸权"
         }
       }
     ],
@@ -3669,11 +3674,11 @@
     "ordinal": 4830,
     "word": "surge",
     "source_owner_path": "content/lexical/words/by-ordinal/o4830.json",
-    "source_fingerprint": "c3d7d24011a319e3c6cbad461aa2d2748b8b02c3d5de60949f7f2da865a73734",
+    "source_fingerprint": "76790fccb48323403ca9087e929babd764d83dadf91746c1a911dcbe0ba5b0b2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V",
+        "3V",
         "1N"
       ],
       "density": "rich"
@@ -3780,6 +3785,50 @@
           "target_id": "sense:surge:dee233a9d5425230",
           "target_locator": "record.senses[2]",
           "target_label": "猛冲，涌动"
+        }
+      },
+      {
+        "id": "sense:surge:220c84f9f404b929",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "vi.: prices/demand/cases surge; surge by/to + amount",
+        "definition_cn": "猛增；急剧上升",
+        "definition_en": "to increase or rise suddenly and sharply",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:0cb89062bfa41f0e5131",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "prices/demand/cases surged",
+            "meaning_cn": "价格/需求/病例数猛增",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:0cb89062bfa41f0e5131",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "prices/demand/cases surged"
+            }
+          },
+          {
+            "id": "collocation:33e329ec170d494b093e",
+            "source_locator": "record.senses[3].collocations[1]",
+            "phrase": "surge by/to + amount",
+            "meaning_cn": "猛增了/猛增到某数值",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:33e329ec170d494b093e",
+              "target_locator": "record.senses[3].collocations[1]",
+              "target_label": "surge by/to + amount"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:surge:220c84f9f404b929",
+          "target_locator": "record.senses[3]",
+          "target_label": "猛增；急剧上升"
         }
       }
     ],
@@ -4643,7 +4692,7 @@
     "ordinal": 4838,
     "word": "surround",
     "source_owner_path": "content/lexical/words/by-ordinal/o4838.json",
-    "source_fingerprint": "ca3e10988c7fbdd9a7600ff5ab228ea14cd44674ea90968aefceca953fcf49fc",
+    "source_fingerprint": "8eac1b8ca67cad5cf558e5be1d20f3ce75128ee0fef3571728f3ef02a262386b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4707,25 +4756,30 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "围绕物，周围",
-        "definition_en": "something that surrounds, such as a border or surrounding area",
+        "definition_cn": "围框；围边；包围某物的边框/材料",
+        "definition_en": "a border, frame, or material that surrounds something",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:c97af3a7d9790c6516f1",
+            "id": "collocation:be544050aab85d5fd9bf",
             "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "the surrounding area",
-            "meaning_cn": "周围地区",
-            "kind": "usage_example",
-            "repair": null
+            "phrase": "a fireplace surround",
+            "meaning_cn": "壁炉围框",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:be544050aab85d5fd9bf",
+              "target_locator": "record.senses[1].collocations[0]",
+              "target_label": "a fireplace surround"
+            }
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:surround:91329078042b5c85",
           "target_locator": "record.senses[1]",
-          "target_label": "围绕物，周围"
+          "target_label": "围框；围边；包围某物的边框/材料"
         }
       }
     ],
@@ -5069,22 +5123,30 @@
     "ordinal": 4842,
     "word": "survival",
     "source_owner_path": "content/lexical/words/by-ordinal/o4842.json",
-    "source_fingerprint": "315339572e8437e0485b1311cc7c62bd5e41c881f0e834748ce87e2a5a8cabd6",
-    "sense_lineage": [],
+    "source_fingerprint": "bd244c9cf55853a308055421b66501b2352b3bc73108e1974ec672e757f32086",
+    "sense_lineage": [
+      {
+        "word_id": "word:survival",
+        "target_kind": "sense",
+        "from_target_id": "sense:survival:81424ea65fea519d",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "生存；幸存；自然选择；适者生存的过程；残存物；遗物",
+      "summary_cn": "生存；幸存；残存物",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "生存；幸存；自然选择；适者生存的过程；残存物；遗物"
+        "target_label": "生存；幸存；残存物"
       }
     },
     "senses": [
@@ -5106,25 +5168,8 @@
         }
       },
       {
-        "id": "sense:survival:81424ea65fea519d",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "自然选择；适者生存的过程",
-        "definition_en": "a natural process resulting in the evolution of organisms best adapted to the environment",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:survival:81424ea65fea519d",
-          "target_locator": "record.senses[1]",
-          "target_label": "自然选择；适者生存的过程"
-        }
-      },
-      {
         "id": "sense:survival:82a39ad3b3245de7",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "残存物；遗物",
@@ -5135,13 +5180,39 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:survival:82a39ad3b3245de7",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[1]",
           "target_label": "残存物；遗物"
         }
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:d40e1a7ae2bd86a6b40d",
+        "source_locator": "record.constructions[0]",
+        "pattern": "survival of the fittest",
+        "lines": [
+          {
+            "text": "适者生存",
+            "lang": "cn"
+          },
+          {
+            "text": "phrase associated with evolutionary selection; survival itself names an outcome/condition, not the mechanism of natural selection",
+            "lang": "en"
+          },
+          {
+            "text": "the idea that organisms better fitted to their environment are more likely to survive/reproduce; the phrase is associated with evolutionary selection",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:d40e1a7ae2bd86a6b40d",
+          "target_locator": "record.constructions[0]",
+          "target_label": "survival of the fittest"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5155,7 +5226,7 @@
     "ordinal": 4843,
     "word": "survive",
     "source_owner_path": "content/lexical/words/by-ordinal/o4843.json",
-    "source_fingerprint": "769cbf8fe1e81860252de139cad905524d387e1408b7318e83e97bc17b84d849",
+    "source_fingerprint": "2db4933d59dc7c5d1e70b39fe7bf66ceed241ef89b2bbb06cd420ca63be96e6b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5178,7 +5249,7 @@
         "id": "sense:survive:328e7aee6e5658c9",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi.",
+        "governing_pattern": "I/T: survive on sth; survive an accident/disaster",
         "definition_cn": "幸存；存活；继续存在",
         "definition_en": "to continue to live or exist, especially after danger, destruction, or a difficult situation",
         "note": "",
@@ -5374,7 +5445,7 @@
     "ordinal": 4845,
     "word": "suspect",
     "source_owner_path": "content/lexical/words/by-ordinal/o4845.json",
-    "source_fingerprint": "fa5ee5a092558671754c08b09459cc5cb0bb1434dd930679920bb10bdc842099",
+    "source_fingerprint": "19779b63080a844464ef6808ac4609405811dee657efb7bf69415ac8cd2ade9f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5399,7 +5470,7 @@
         "id": "sense:suspect:d08325c48bd0525c",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "suspect sth; suspect that + clause",
         "definition_cn": "猜想，觉得",
         "definition_en": "to imagine or believe something to be true or probable",
         "note": "",
@@ -5417,19 +5488,6 @@
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "suspect that + clause"
             }
-          },
-          {
-            "id": "collocation:1b5f38b375a04c299d27",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "suspect sb of sth",
-            "meaning_cn": "怀疑某人做某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:1b5f38b375a04c299d27",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "suspect sb of sth"
-            }
           }
         ],
         "repair": {
@@ -5443,7 +5501,7 @@
         "id": "sense:suspect:419e2679153d5bb5",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "suspect sb of sth/a crime",
         "definition_cn": "怀疑（有罪）",
         "definition_en": "to believe someone is guilty of a crime",
         "note": "",
@@ -5460,6 +5518,19 @@
               "target_id": "collocation:bfe2cab0bf16c235f534",
               "target_locator": "record.senses[1].collocations[0]",
               "target_label": "suspect sb of a crime"
+            }
+          },
+          {
+            "id": "collocation:7f69322e3545a0713eac",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "suspect sb of sth/a crime",
+            "meaning_cn": "怀疑某人做了某事/犯罪",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:7f69322e3545a0713eac",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "suspect sb of sth/a crime"
             }
           }
         ],
@@ -5559,7 +5630,7 @@
     "ordinal": 4846,
     "word": "suspend",
     "source_owner_path": "content/lexical/words/by-ordinal/o4846.json",
-    "source_fingerprint": "be8a1f04c82d3f13d640bdab8fe252cf9ae04aa7fd0ab5385e95ef44293f77ba",
+    "source_fingerprint": "6c32a2078630013710360b7326daefc47711b01ff68fba46e68c871578b8086b",
     "sense_lineage": [
       {
         "word_id": "word:suspend",
@@ -5650,12 +5721,26 @@
         "id": "sense:suspend:fd568b3a76c850d4",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "suspend sth from sth",
+        "governing_pattern": "vt.: suspend sb from school/work/duty/team/activity; be suspended from sth",
         "definition_cn": "使停职，使停学",
         "definition_en": "to bar temporarily from school, office, etc.",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:1009a73636011cc61e5b",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "suspend sb from school/work/duty",
+            "meaning_cn": "使某人停学/停职/暂停履职",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:1009a73636011cc61e5b",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "suspend sb from school/work/duty"
+            }
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:suspend:fd568b3a76c850d4",
@@ -6300,7 +6385,7 @@
     "ordinal": 4851,
     "word": "swamp",
     "source_owner_path": "content/lexical/words/by-ordinal/o4851.json",
-    "source_fingerprint": "402f9d9f24375eb991c73a5ec3597f79203d5143a02ced6c708ff9dfa12a3b7e",
+    "source_fingerprint": "d34aee3993f124f562ff0b0ec545fe49856042e41757d4a03736458a6d0cf619",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6368,19 +6453,6 @@
               "target_locator": "record.senses[1].collocations[0]",
               "target_label": "swamp + sth"
             }
-          },
-          {
-            "id": "collocation:e0dec3d7fc0390e0bfd1",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "be swamped with + sth",
-            "meaning_cn": "被某物淹没（如工作、请求）",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:e0dec3d7fc0390e0bfd1",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "be swamped with + sth"
-            }
           }
         ],
         "repair": {
@@ -6399,16 +6471,7 @@
         "definition_en": "a situation fraught with difficulties and imponderables",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:b74787c77617935a586e",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "be swamped with work",
-            "meaning_cn": "被工作淹没",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:swamp:db322f2380e35854",
@@ -6420,12 +6483,26 @@
         "id": "sense:swamp:639caf8cdca05d94",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vt.: swamp sb/system/place with/by sth; be swamped with/by sth",
         "definition_cn": "使不堪重负；使应接不暇；大量涌入",
         "definition_en": "to overwhelm a person, system, or place with more work, demand, information, or other things than can be dealt with easily",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:6e824099db762879cd18",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "be swamped with work/requests",
+            "meaning_cn": "被工作/请求压得应接不暇",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:6e824099db762879cd18",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "be swamped with work/requests"
+            }
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:swamp:639caf8cdca05d94",
@@ -6444,6 +6521,14 @@
           {
             "text": "被大量…压得应接不暇；被…淹没",
             "lang": "cn"
+          },
+          {
+            "text": "figurative overload branch, not literal flooding",
+            "lang": "en"
+          },
+          {
+            "text": "to be overwhelmed by more work, demand, information, or other things than can be handled easily",
+            "lang": "en"
           }
         ],
         "repair": {
@@ -6924,7 +7009,7 @@
     "ordinal": 4855,
     "word": "swear",
     "source_owner_path": "content/lexical/words/by-ordinal/o4855.json",
-    "source_fingerprint": "1aa7858b1d1857d2b38d94757cbe3362da65d15a25d5db7d9b9b52f0a9ebcbed",
+    "source_fingerprint": "59eed01aa63395a4bf6b0a3e4fea69ce0e0156163bc59c16a50ffe389ac164bc",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7018,7 +7103,7 @@
         "id": "sense:swear:c94e15e10df85404",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: swear in court; swear under oath; swear for/against sb; swear that + clause; swear an oath",
         "definition_cn": "宣誓作证；在法庭上宣誓",
         "definition_en": "to make a deposition; to declare under oath",
         "note": "",
@@ -7091,7 +7176,7 @@
     "ordinal": 4856,
     "word": "sweat",
     "source_owner_path": "content/lexical/words/by-ordinal/o4856.json",
-    "source_fingerprint": "0412b6b039232eb8748cf7bd96f38309bab78bd8ca795ffce2be31711d02c01b",
+    "source_fingerprint": "dd1f6565252e09bc7de5c8999b7f750a5eed824251602a108a02f47adea8efce",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7122,10 +7207,10 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:4403957c58d94416c22b",
+            "id": "collocation:04aa0a233cfe15482ff2",
             "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "be covered in sweat",
-            "meaning_cn": "浑身是汗",
+            "phrase": "sweat on a cold pipe/window",
+            "meaning_cn": "冷管/窗面上的凝结水珠",
             "kind": "usage_example",
             "repair": null
           }
@@ -7203,7 +7288,16 @@
         "definition_en": "salty liquid produced by sweat glands on the skin; perspiration",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:4403957c58d94416c22b",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "be covered in sweat",
+            "meaning_cn": "浑身是汗",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:sweat:e2abc1383f735978",
@@ -7296,7 +7390,7 @@
     "ordinal": 4858,
     "word": "sweep",
     "source_owner_path": "content/lexical/words/by-ordinal/o4858.json",
-    "source_fingerprint": "495ca958da258aefe58e9a61ada329f62e39f9609d13241792bca560eeee77d6",
+    "source_fingerprint": "45020078db4e34ea863854a684e840c7ee72bb0ed4c0ff541d58b56fbc8d7d31",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7366,21 +7460,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:0011a3c9c0d110183ce0",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "sweep across + sth",
-            "meaning_cn": "席卷…",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:0011a3c9c0d110183ce0",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "sweep across + sth"
-            }
-          },
-          {
             "id": "collocation:e77b0e2c71c0ec4a75ce",
-            "source_locator": "record.senses[1].collocations[1]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "sweep the country",
             "meaning_cn": "风靡全国",
             "kind": "usage_example",
@@ -7415,6 +7496,19 @@
               "target_id": "collocation:3bc60268d02b7b1317c1",
               "target_locator": "record.senses[2].collocations[0]",
               "target_label": "sweep through + sth"
+            }
+          },
+          {
+            "id": "collocation:0011a3c9c0d110183ce0",
+            "source_locator": "record.senses[2].collocations[1]",
+            "phrase": "sweep across + sth",
+            "meaning_cn": "席卷…",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:0011a3c9c0d110183ce0",
+              "target_locator": "record.senses[2].collocations[1]",
+              "target_label": "sweep across + sth"
             }
           }
         ],
@@ -8263,7 +8357,7 @@
     "ordinal": 4864,
     "word": "switch",
     "source_owner_path": "content/lexical/words/by-ordinal/o4864.json",
-    "source_fingerprint": "12f57266cd6d4622e19e747a2600e1ec9b2abacf4b76233521fd40f30f208777",
+    "source_fingerprint": "69558a86057c312fffadfc0a243e40518ecf8943e75a662200df2ee55faf7c25",
     "sense_lineage": [
       {
         "word_id": "word:switch",
@@ -8275,6 +8369,13 @@
       {
         "word_id": "word:switch",
         "target_kind": "sense",
+        "from_target_id": "sense:switch:7805fa495bbb5bbd",
+        "status": "merged",
+        "to_target_id": "sense:switch:09618a95fa3c5b45"
+      },
+      {
+        "word_id": "word:switch",
+        "target_kind": "sense",
         "from_target_id": "sense:switch:98c4221b3af85428",
         "status": "merged",
         "to_target_id": "sense:switch:c60efabd57955168"
@@ -8282,7 +8383,7 @@
     ],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "1N"
       ],
       "density": "rich"
@@ -8341,9 +8442,9 @@
         "id": "sense:switch:09618a95fa3c5b45",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "转变；切换",
-        "definition_en": "to change from one thing to another",
+        "governing_pattern": "I/T: switch to/from sth; switch jobs/channels; switch sth from A to B; switch A and B",
+        "definition_cn": "转变；切换；转换",
+        "definition_en": "to change from one thing, state, activity, job, channel, or system to another, or to change an object/choice in this way",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -8351,24 +8452,7 @@
           "target_kind": "sense",
           "target_id": "sense:switch:09618a95fa3c5b45",
           "target_locator": "record.senses[1]",
-          "target_label": "转变；切换"
-        }
-      },
-      {
-        "id": "sense:switch:7805fa495bbb5bbd",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "转换；变换",
-        "definition_en": "to change from one state or activity to another",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:switch:7805fa495bbb5bbd",
-          "target_locator": "record.senses[2]",
-          "target_label": "转换；变换"
+          "target_label": "转变；切换；转换"
         }
       }
     ],

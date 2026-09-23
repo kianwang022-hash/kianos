@@ -1,6 +1,6 @@
 {
   "schema": "kianos.lexical.dual_independent_review_campaign.v1",
-  "status": "ACTIVE",
+  "status": "COMPLETE",
   "created_at": "2026-09-23",
   "semantic_baseline_sha": "12766cf94b89bd135016e3213637e31edd19adfe",
   "ruler_baseline_sha": "12766cf94b89bd135016e3213637e31edd19adfe",
@@ -28,5 +28,14 @@
     "input_freeze": "EACH_CLOSURE_RECEIPT_BINDS_EXACT_A_REVIEW_COMMIT_AND_B_REVIEW_COMMIT",
     "consumed_history_rule": "NO_SILENT_REWRITE_AFTER_C_CONSUMPTION_EXPLICIT_CORRECTION_REQUIRED",
     "cross_watermark_rule": "DEFER_SHARED_RELATION_FORM_IDENTITY_MUTATION_IF_ANY_CAMPAIGN_ENDPOINT_EXCEEDS_SHARED_WATERMARK"
-  }
+  },
+  "completed_at": "2026-09-23",
+  "completed_through": 7946,
+  "final_next_ordinal": 7947,
+  "final_checkpoint_receipt": "content/lexical/execution/mutation-receipts/dual-review-c-checkpoint-o7551-o7946.json",
+  "final_review_commits": {
+    "A": "90e7482e1615319f9cb07a76737d12a7f0f09a24",
+    "B": "80df7a2b073bb53689429358f17567e66aab0a2f"
+  },
+  "review_evidence_archived_to_main": true
 }

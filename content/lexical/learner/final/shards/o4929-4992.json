@@ -1563,7 +1563,7 @@
     "ordinal": 4941,
     "word": "term",
     "source_owner_path": "content/lexical/words/by-ordinal/o4941.json",
-    "source_fingerprint": "725c346317fbc4f95ec304780a21ab7078567d478544952c6f05c8bba6ae853a",
+    "source_fingerprint": "d1185edac645a4be6c47e943faca0425f422ab064f362e298bc7b95f8570351c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1668,14 +1668,6 @@
             "meaning_cn": "条款和条件",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:ca7ba6424e67a0e6789a",
-            "source_locator": "record.senses[2].collocations[1]",
-            "phrase": "come to terms with",
-            "meaning_cn": "妥协；接受",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -1769,6 +1761,31 @@
           "target_id": "construction:cc4d105cc48ba8bceda3",
           "target_locator": "record.constructions[0]",
           "target_label": "in terms of sth"
+        }
+      },
+      {
+        "id": "construction:e4ee7258340e7c34d73c",
+        "source_locator": "record.constructions[1]",
+        "pattern": "come to terms with sth",
+        "lines": [
+          {
+            "text": "逐渐接受并学会面对（通常是不愉快的事实、损失或处境）",
+            "lang": "cn"
+          },
+          {
+            "text": "psychological acceptance/dealing construction; distinct from negotiated terms and conditions",
+            "lang": "en"
+          },
+          {
+            "text": "to gradually accept and learn to deal with a difficult or unpleasant fact or situation",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:e4ee7258340e7c34d73c",
+          "target_locator": "record.constructions[1]",
+          "target_label": "come to terms with sth"
         }
       }
     ],
@@ -2904,7 +2921,7 @@
     "ordinal": 4950,
     "word": "testify",
     "source_owner_path": "content/lexical/words/by-ordinal/o4950.json",
-    "source_fingerprint": "5783e6f927eb59a42f4962a256d0aaa8fa8653640845e61b47eabc924d4cfd80",
+    "source_fingerprint": "6f789e7bbb69f44ab40db8c1f6d8e1b349b888decc3a052a67612206b09cba0b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2927,7 +2944,7 @@
         "id": "sense:testify:a0046009d0d45b51",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + to",
+        "governing_pattern": "vi.: testify in court; testify for/against sb; testify before a court/committee; testify under oath",
         "definition_cn": "作证",
         "definition_en": "to give testimony in a court of law",
         "note": "",
@@ -3007,6 +3024,10 @@
           {
             "text": "作证/证明…",
             "lang": "cn"
+          },
+          {
+            "text": "to state as true, including in testimony, that something is the case",
+            "lang": "en"
           }
         ],
         "repair": {
@@ -3024,6 +3045,10 @@
           {
             "text": "证明/表明…",
             "lang": "cn"
+          },
+          {
+            "text": "to serve as evidence of or indicate something",
+            "lang": "en"
           }
         ],
         "repair": {
@@ -3316,7 +3341,7 @@
     "ordinal": 4953,
     "word": "textbook",
     "source_owner_path": "content/lexical/words/by-ordinal/o4953.json",
-    "source_fingerprint": "3ff95c8243658f7c82a637e5e90677e42f4951666c679443da3bc63b6f775f35",
+    "source_fingerprint": "e12e1021feee2e1cad9798d41f91e0d8391fe91f38b3025811b12e034f13297c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3355,12 +3380,17 @@
             "repair": null
           },
           {
-            "id": "collocation:2db5531ec7bdbae2a24f",
+            "id": "collocation:e355f824671c8e6340d7",
             "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "textbook example",
-            "meaning_cn": "典型例子",
-            "kind": "usage_example",
-            "repair": null
+            "phrase": "school textbook",
+            "meaning_cn": "学校教科书",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:e355f824671c8e6340d7",
+              "target_locator": "record.senses[0].collocations[1]",
+              "target_label": "school textbook"
+            }
           }
         ],
         "repair": {
@@ -3379,7 +3409,16 @@
         "definition_en": "typical, classic, or an especially clear example of its kind",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:2db5531ec7bdbae2a24f",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "textbook example",
+            "meaning_cn": "典型例子",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:textbook:6af3c9b92b755a64",
@@ -3749,7 +3788,7 @@
     "ordinal": 4957,
     "word": "thank",
     "source_owner_path": "content/lexical/words/by-ordinal/o4957.json",
-    "source_fingerprint": "5dcac57bd5e61f14a75a29619f43964c5be95252e508e73c575b6746fbfd6791",
+    "source_fingerprint": "8b702b9d010337231a8cbe7a20a3ae58d0b1c58fee884bda7e174f9e683c64af",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3824,21 +3863,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:3867a7bd12d374e5ba39",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "thanks to + sb/sth",
-            "meaning_cn": "多亏，由于",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:3867a7bd12d374e5ba39",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "thanks to + sb/sth"
-            }
-          },
-          {
             "id": "collocation:b259c7291920f388d86e",
-            "source_locator": "record.senses[1].collocations[1]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "give thanks",
             "meaning_cn": "表示感谢",
             "kind": "usage_example",
@@ -3879,6 +3905,31 @@
           "target_locator": "record.constructions[0]",
           "target_label": "vt. + sb + for + sth"
         }
+      },
+      {
+        "id": "construction:7211706eda2cd25ae6c9",
+        "source_locator": "record.constructions[1]",
+        "pattern": "thanks to sb/sth",
+        "lines": [
+          {
+            "text": "由于；多亏；因为",
+            "lang": "cn"
+          },
+          {
+            "text": "causal construction; often credits a positive cause but can be ironic or describe an unwanted cause",
+            "lang": "en"
+          },
+          {
+            "text": "because of; owing to, often but not exclusively with positive evaluation",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:7211706eda2cd25ae6c9",
+          "target_locator": "record.constructions[1]",
+          "target_label": "thanks to sb/sth"
+        }
       }
     ],
     "reference": {
@@ -3894,7 +3945,7 @@
     "ordinal": 4958,
     "word": "thanksgiving",
     "source_owner_path": "content/lexical/words/by-ordinal/o4958.json",
-    "source_fingerprint": "d2cef5fef578ff115d7caf60006e9ec8772415009730778343256852062c153a",
+    "source_fingerprint": "6288246e3bcca6a5a706e9539845c6f9b73d230704adfa7ca1532f8e18ee503e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3921,7 +3972,15 @@
         "definition_cn": "感恩节",
         "definition_en": "a public holiday in the US and Canada for giving thanks",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "Thanksgiving / Thanksgiving Day is the named US/Canadian holiday and is capitalized",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "Thanksgiving / Thanksgiving Day is the named US/Canadian holiday and is capitalized"
+          }
+        },
         "usage": [
           {
             "id": "collocation:9119fe901ee3f1870074",
@@ -3960,7 +4019,15 @@
         "definition_cn": "感恩；感谢",
         "definition_en": "the expression of gratitude, especially to God",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "lowercase thanksgiving = the act/expression of giving thanks, especially to God; capitalized Thanksgiving = the holiday",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "lowercase thanksgiving = the act/expression of giving thanks, especially to God; capitalized Thanksgiving = the holiday"
+          }
+        },
         "usage": [
           {
             "id": "collocation:ab2f11f530f02f778fe5",
@@ -6033,7 +6100,7 @@
     "ordinal": 4978,
     "word": "these",
     "source_owner_path": "content/lexical/words/by-ordinal/o4978.json",
-    "source_fingerprint": "b04fe7232edea1de6016c4caa361d45b5dcaa8ab8704c0402bcc28db5d941516",
+    "source_fingerprint": "ef76e450e4b611a106fe4dc647064f973c56252b11f8d4d61a990d0aa23e4481",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6064,30 +6131,12 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:15b46bc68cc4129ebd0c",
+            "id": "collocation:789757849df5319a2186",
             "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "these days",
-            "meaning_cn": "如今，现在",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:15b46bc68cc4129ebd0c",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "these days"
-            }
-          },
-          {
-            "id": "collocation:e2b6135835993eca4fea",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "one of these days",
-            "meaning_cn": "总有一天",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:e2b6135835993eca4fea",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "one of these days"
-            }
+            "phrase": "These are mine.",
+            "meaning_cn": "这些是我的。",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -6106,7 +6155,34 @@
         "definition_en": "demonstrative determiner used before a plural noun",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:15b46bc68cc4129ebd0c",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "these days",
+            "meaning_cn": "如今，现在",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:15b46bc68cc4129ebd0c",
+              "target_locator": "record.senses[1].collocations[0]",
+              "target_label": "these days"
+            }
+          },
+          {
+            "id": "collocation:e2b6135835993eca4fea",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "one of these days",
+            "meaning_cn": "总有一天",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:e2b6135835993eca4fea",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "one of these days"
+            }
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:these:d5410d4d15bff3b7",
@@ -7035,7 +7111,7 @@
     "ordinal": 4986,
     "word": "think",
     "source_owner_path": "content/lexical/words/by-ordinal/o4986.json",
-    "source_fingerprint": "21282062f6a9763e63e93367e802c8ce83097c5846fe79e380f8b9fd029483b3",
+    "source_fingerprint": "79ec301ff4ead01c869bf3853821588716b57284dcfb809ab69886072c7bf1e3",
     "sense_lineage": [
       {
         "word_id": "word:think",
@@ -7077,7 +7153,15 @@
         "definition_cn": "思考；考虑",
         "definition_en": "to use the mind to consider something",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "think → thought → thought (irregular simple past and past participle); thought also exists independently as a noun lexeme",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "think → thought → thought (irregular simple past and past participle); thought also exists independently as a noun lexeme"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -7094,7 +7178,15 @@
         "definition_cn": "认为；以为",
         "definition_en": "to have an opinion or belief about something",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "think → thought → thought (irregular simple past and past participle); thought also exists independently as a noun lexeme",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "think → thought → thought (irregular simple past and past participle); thought also exists independently as a noun lexeme"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -7200,18 +7292,7 @@
           "target_label": ""
         }
       },
-      "family": [
-        {
-          "target_word": "thought",
-          "lines": [
-            {
-              "text": "thought is the irregular past/past participle of think and also an independent noun lexeme.",
-              "lang": "en"
-            }
-          ],
-          "source_locator": "record.word_family[0]"
-        }
-      ]
+      "family": []
     }
   },
   {

@@ -1276,7 +1276,7 @@
     "ordinal": 4878,
     "word": "table",
     "source_owner_path": "content/lexical/words/by-ordinal/o4878.json",
-    "source_fingerprint": "c71dec5e9e8cf43121f9a274010f05f42a4090680e761856f938d03ad1c41930",
+    "source_fingerprint": "5e691aa9e9d50246d9355b26b72314e718dbc49464883d91d8a25e928ac94359",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1341,16 +1341,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:8b5f7796dd83987d75f4",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "a table of contents",
-            "meaning_cn": "目录",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
             "id": "collocation:3ab262576224cf35715b",
-            "source_locator": "record.senses[1].collocations[1]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "periodic table",
             "meaning_cn": "元素周期表",
             "kind": "usage_example",
@@ -1372,7 +1364,15 @@
         "definition_cn": "（英）正式提交讨论",
         "definition_en": "UK: to formally present a proposal, motion, or issue for discussion",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "UK table a proposal/motion = formally present it for discussion; US table a proposal/motion = postpone or suspend consideration",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[2].lexical_identity_overlay",
+            "target_label": "UK table a proposal/motion = formally present it for discussion; US table a proposal/motion = postpone or suspend consideration"
+          }
+        },
         "usage": [
           {
             "id": "collocation:3ae990f73334261280eb",
@@ -1398,7 +1398,15 @@
         "definition_cn": "（美）搁置；延期讨论",
         "definition_en": "US: to postpone discussion or consideration until later",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "US table a proposal/motion = postpone or suspend consideration; UK table a proposal/motion = formally present it for discussion",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[3].lexical_identity_overlay",
+            "target_label": "US table a proposal/motion = postpone or suspend consideration; UK table a proposal/motion = formally present it for discussion"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -1409,28 +1417,36 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:aac2ef7c46b08b8423d7",
+        "source_locator": "record.constructions[0]",
+        "pattern": "table of contents",
+        "lines": [
+          {
+            "text": "目录：列出文档/书籍章节、部分及其页码的清单",
+            "lang": "cn"
+          },
+          {
+            "text": "lexicalized document phrase; not a data table",
+            "lang": "en"
+          },
+          {
+            "text": "a list of sections or chapters and their page numbers, usually near the front of a document or book",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:aac2ef7c46b08b8423d7",
+          "target_locator": "record.constructions[0]",
+          "target_label": "table of contents"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "table ↔ table ↔ table",
-          "target_word": "table ↔ table",
-          "lines": [
-            {
-              "text": "table a proposal: UK = formally present it for discussion; US = postpone/suspend consideration. Current senses are correctly split; add an explicit regional contrast to prevent opposite interpretation.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:f7581302ca90524ddb5b",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "table ↔ table ↔ table"
-          }
-        }
-      ],
+      "relations": [],
       "form": null,
       "family": []
     }
@@ -1562,7 +1578,7 @@
     "ordinal": 4880,
     "word": "taboo",
     "source_owner_path": "content/lexical/words/by-ordinal/o4880.json",
-    "source_fingerprint": "15304dc0039a72f240c4310f5e0ab14a4f831cd16ef85b44f4f0c73d63d57e75",
+    "source_fingerprint": "1d7e7d2d80bb9698541a5a6f49bb8cfd11a28622e510c9cada568ef5b7283890",
     "sense_lineage": [
       {
         "word_id": "word:taboo",
@@ -1570,20 +1586,14 @@
         "from_target_id": "sense:taboo:016b3681c1ce50a3",
         "status": "deprecated",
         "to_target_id": null
-      },
-      {
-        "word_id": "word:taboo",
-        "target_kind": "sense",
-        "from_target_id": "sense:taboo:fa5510a53c4b5c63",
-        "status": "deprecated",
-        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
+        "1A",
         "1N"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
       "summary_cn": "禁忌；由社会、宗教、习俗等形成的禁止或强烈避讳",
@@ -1611,6 +1621,37 @@
           "target_id": "sense:taboo:8fa4ad6e2d3b5e2d",
           "target_locator": "record.senses[0]",
           "target_label": "禁忌；由社会、宗教、习俗等形成的禁止或强烈避讳"
+        }
+      },
+      {
+        "id": "sense:taboo:fa5510a53c4b5c63",
+        "source_locator": "record.senses[1]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "禁忌的；忌讳的；被社会、宗教或习俗强烈禁止/回避的",
+        "definition_en": "prohibited or strongly avoided by social, religious, or customary convention",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:a0422d9f48320da613da",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "taboo subject/topic/practice",
+            "meaning_cn": "禁忌话题/做法",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:a0422d9f48320da613da",
+              "target_locator": "record.senses[1].collocations[0]",
+              "target_label": "taboo subject/topic/practice"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:taboo:fa5510a53c4b5c63",
+          "target_locator": "record.senses[1]",
+          "target_label": "禁忌的；忌讳的；被社会、宗教或习俗强烈禁止/回避的"
         }
       }
     ],
@@ -2786,7 +2827,7 @@
     "ordinal": 4889,
     "word": "talk",
     "source_owner_path": "content/lexical/words/by-ordinal/o4889.json",
-    "source_fingerprint": "73653253cfa2c4a0691f893395eba301bc1d2ade2c0089523f6fc5957231dfd8",
+    "source_fingerprint": "ad386dfbe6f84371dcec58d6d38c97ae6a2a505dbf10d2708a6d4ca1adcc082c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2849,7 +2890,7 @@
         "id": "sense:talk:3741d7b241a55430",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi.; usually talk about sth rather than *talk sth",
+        "governing_pattern": "I/T: talk about sth; restricted bare objects: talk business/politics/shop",
         "definition_cn": "讨论；谈论",
         "definition_en": "to discuss something",
         "note": "",
@@ -3163,7 +3204,7 @@
     "ordinal": 4891,
     "word": "tame",
     "source_owner_path": "content/lexical/words/by-ordinal/o4891.json",
-    "source_fingerprint": "3fdf9978907f891e7ce1bc1cb985a1f52d8d10bfa032554e92b56db5153f659c",
+    "source_fingerprint": "13a62a499b2837b2000a2fcb5b2efe11e6924aa97e4c606743c227d85eedf198",
     "sense_lineage": [
       {
         "word_id": "word:tame",
@@ -3221,7 +3262,7 @@
         "id": "sense:tame:528e7a6b798d54b0",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: tame a wild animal; an animal tames/becomes tame; tame easily",
         "definition_cn": "驯服，制服",
         "definition_en": "make tame or subdue",
         "note": "",
@@ -3641,7 +3682,7 @@
     "ordinal": 4894,
     "word": "tangle",
     "source_owner_path": "content/lexical/words/by-ordinal/o4894.json",
-    "source_fingerprint": "69da27210a2ba2e456e14798df834da2d7339f0a374506d066a5f75218a918a0",
+    "source_fingerprint": "60999c055e8ec94a56756b92098d058342e37b955d7d49aa63ba2ed5d0e9254a",
     "sense_lineage": [
       {
         "word_id": "word:tangle",
@@ -3743,19 +3784,6 @@
               "target_locator": "record.senses[1].collocations[1]",
               "target_label": "tangle one's hair"
             }
-          },
-          {
-            "id": "collocation:5b27cfb2f945c2803fde",
-            "source_locator": "record.senses[1].collocations[2]",
-            "phrase": "tangle with + sth",
-            "meaning_cn": "与某物缠结在一起",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:5b27cfb2f945c2803fde",
-              "target_locator": "record.senses[1].collocations[2]",
-              "target_label": "tangle with + sth"
-            }
           }
         ],
         "repair": {
@@ -3821,6 +3849,19 @@
             "meaning_cn": "与法律发生纠葛；触犯法律",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:5b27cfb2f945c2803fde",
+            "source_locator": "record.senses[3].collocations[2]",
+            "phrase": "tangle with + sth",
+            "meaning_cn": "与某物缠结在一起",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:5b27cfb2f945c2803fde",
+              "target_locator": "record.senses[3].collocations[2]",
+              "target_label": "tangle with + sth"
+            }
           }
         ],
         "repair": {
@@ -3846,7 +3887,7 @@
     "ordinal": 4895,
     "word": "tank",
     "source_owner_path": "content/lexical/words/by-ordinal/o4895.json",
-    "source_fingerprint": "67051f3f4eb8d7a07bcdd82978bd6b9dfc618f477ac423e0f931b2f8fbbdbf67",
+    "source_fingerprint": "7c5d2a8a831af9cbe63194dbca99859cfa4345ece40c1b0f0d7b8fe5ed2fd962",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3982,7 +4023,7 @@
         "id": "sense:tank:d49e19378f7e891a",
         "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "prices/ratings/sales tank",
+        "governing_pattern": "vi.: prices/sales/ratings tank",
         "definition_cn": "暴跌、失败或表现很差",
         "definition_en": "to fall sharply, fail, or perform very badly",
         "note": "",
@@ -4097,7 +4138,7 @@
     "ordinal": 4897,
     "word": "tap",
     "source_owner_path": "content/lexical/words/by-ordinal/o4897.json",
-    "source_fingerprint": "f8bbe1da95a364e3bfcda3264f3518a51a9b30180eb991436ba5c1b277cf632d",
+    "source_fingerprint": "d371e07576d42de34560b1c573dac001883c18a2b3cf452002bbd61644b9afce",
     "sense_lineage": [
       {
         "word_id": "word:tap",
@@ -4129,7 +4170,7 @@
         "id": "sense:tap:cdf4e85287ae5fdf",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: tap sb on the shoulder; tap the table; tap on/at sth",
         "definition_cn": "轻拍，轻敲",
         "definition_en": "to strike lightly with a slight sound",
         "note": "",
@@ -4293,7 +4334,7 @@
     "ordinal": 4898,
     "word": "tape",
     "source_owner_path": "content/lexical/words/by-ordinal/o4898.json",
-    "source_fingerprint": "fed6ef5abe468352f1b530566b6267c7094b0299b0b28a40d41aaf9f6fd41487",
+    "source_fingerprint": "a615d8d3f9b10d5c90f4edd01fd1181c13ccdb772338cc015079c255de79e0d0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4328,14 +4369,6 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "adhesive tape",
             "meaning_cn": "胶带",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:49d2dd02c8423c4b808c",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "tape measure",
-            "meaning_cn": "卷尺",
             "kind": "usage_example",
             "repair": null
           }
@@ -4422,6 +4455,14 @@
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "measure with a tape",
             "meaning_cn": "用卷尺测量",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:49d2dd02c8423c4b808c",
+            "source_locator": "record.senses[3].collocations[1]",
+            "phrase": "tape measure",
+            "meaning_cn": "卷尺",
             "kind": "usage_example",
             "repair": null
           }
@@ -4862,12 +4903,12 @@
     "ordinal": 4902,
     "word": "taste",
     "source_owner_path": "content/lexical/words/by-ordinal/o4902.json",
-    "source_fingerprint": "fd0a5cd7fe937f74433578400cc2e673c444207046e7035ded1fdf3d799b4ebb",
+    "source_fingerprint": "c66aade68ca8978a9496a892513d6491b2c9b67d18324d7c6ecd70b3f1f56f67",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "4N"
+        "5N"
       ],
       "density": "rich"
     },
@@ -4893,21 +4934,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:99d3cb1415e5fca270d7",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "have a taste for sth",
-            "meaning_cn": "对某物有爱好",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:99d3cb1415e5fca270d7",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "have a taste for sth"
-            }
-          },
-          {
             "id": "collocation:01f866a0d5a9a2247cf0",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "a taste of honey",
             "meaning_cn": "蜂蜜的味道",
             "kind": "usage_example",
@@ -5070,6 +5098,50 @@
           "target_id": "sense:taste:06e3ccc43de05937",
           "target_locator": "record.senses[5]",
           "target_label": "有……味道"
+        }
+      },
+      {
+        "id": "sense:taste:c9f176400a7758f9",
+        "source_locator": "record.senses[6]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "爱好；喜好；兴趣",
+        "definition_en": "a liking, preference, or developed interest in something",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:9e548d409191bfbfae15",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "have a taste for sth",
+            "meaning_cn": "爱好/喜欢某事物",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:9e548d409191bfbfae15",
+              "target_locator": "record.senses[6].collocations[0]",
+              "target_label": "have a taste for sth"
+            }
+          },
+          {
+            "id": "collocation:8ca2549d05fe3950957d",
+            "source_locator": "record.senses[6].collocations[1]",
+            "phrase": "develop a taste for jazz/spicy food/luxury",
+            "meaning_cn": "逐渐喜欢爵士乐/辛辣食物/奢华事物",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:8ca2549d05fe3950957d",
+              "target_locator": "record.senses[6].collocations[1]",
+              "target_label": "develop a taste for jazz/spicy food/luxury"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:taste:c9f176400a7758f9",
+          "target_locator": "record.senses[6]",
+          "target_label": "爱好；喜好；兴趣"
         }
       }
     ],
@@ -5533,7 +5605,7 @@
     "ordinal": 4906,
     "word": "teach",
     "source_owner_path": "content/lexical/words/by-ordinal/o4906.json",
-    "source_fingerprint": "67de8f6b0ef7f567a4fa12d2bcce7c5e055e3b9600263a3532cb42d815abe124",
+    "source_fingerprint": "fe922d2403f0fbed8b5f90e735781eba562e92319a409983a78ab1487c56af12",
     "sense_lineage": [
       {
         "word_id": "word:teach",
@@ -5564,7 +5636,7 @@
         "id": "sense:teach:0d372b5d3e7152a3",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vt.: teach sb sth; teach sth to sb; teach sb to do sth",
         "definition_cn": "教，讲授",
         "definition_en": "to give someone knowledge or skills",
         "note": "",
@@ -5581,7 +5653,7 @@
         "id": "sense:teach:1ac53f8fa00954c1",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vi.: teach at/in + school/institution; work as a teacher",
         "definition_cn": "教书，教学",
         "definition_en": "to work as a teacher",
         "note": "",
@@ -5859,7 +5931,7 @@
     "ordinal": 4909,
     "word": "tear",
     "source_owner_path": "content/lexical/words/by-ordinal/o4909.json",
-    "source_fingerprint": "3699e5463766e0f8d5091330609e9eb11ce1c2f764e4c6d6c8663e113e814a34",
+    "source_fingerprint": "d57f0cc2637fa8a1687063d6546d7490afcdc346185d1eccb147bfb6ef1296fb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5883,11 +5955,19 @@
         "id": "sense:tear:0b8cdcef9eb25b2e",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "I/T: tear the paper; the paper tears easily",
         "definition_cn": "撕破；撕裂",
         "definition_en": "pull something apart by force",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "tear meaning rip/split (verb or noun) differs in pronunciation from tear = drop from the eye /tɪə(r)/",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "tear meaning rip/split (verb or noun) differs in pronunciation from tear = drop from the eye /tɪə(r)/"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -5904,7 +5984,15 @@
         "definition_cn": "眼泪；泪滴",
         "definition_en": "a drop of liquid from the eye",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "eye-liquid tear /tɪə(r)/ differs in pronunciation from rip/split tear /tɛə(r)/",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "eye-liquid tear /tɪə(r)/ differs in pronunciation from rip/split tear /tɛə(r)/"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -5921,7 +6009,15 @@
         "definition_cn": "裂缝；破洞",
         "definition_en": "a hole or split caused by tearing",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "tear meaning rip/split (verb or noun) differs in pronunciation from tear = drop from the eye /tɪə(r)/",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[2].lexical_identity_overlay",
+            "target_label": "tear meaning rip/split (verb or noun) differs in pronunciation from tear = drop from the eye /tɪə(r)/"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -5934,11 +6030,19 @@
         "id": "sense:tear:24e3e5257a5c599d",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vi. + adv./prep.: tear down/along the road",
         "definition_cn": "飞奔；疾驰",
         "definition_en": "move very quickly",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "tear meaning rip/split (verb or noun) differs in pronunciation from tear = drop from the eye /tɪə(r)/",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[3].lexical_identity_overlay",
+            "target_label": "tear meaning rip/split (verb or noun) differs in pronunciation from tear = drop from the eye /tɪə(r)/"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -6638,7 +6742,7 @@
     "ordinal": 4917,
     "word": "telegraph",
     "source_owner_path": "content/lexical/words/by-ordinal/o4917.json",
-    "source_fingerprint": "5cc6c4e60b45ba5a0d6158e6a613dc7eea3c1dcdf5753f6d969e40d049e8c3df",
+    "source_fingerprint": "9b77125759d685094f13fb56b8fd27b01c1472b8eb2bff1df21a4d3012cfeddf",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6669,12 +6773,30 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:63eeee32cfc9d7b21039",
+            "id": "collocation:4e2bcce5066450d00647",
             "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "send a telegraph",
-            "meaning_cn": "发电报",
-            "kind": "usage_example",
-            "repair": null
+            "phrase": "use the telegraph",
+            "meaning_cn": "使用电报系统/电报机",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:4e2bcce5066450d00647",
+              "target_locator": "record.senses[0].collocations[0]",
+              "target_label": "use the telegraph"
+            }
+          },
+          {
+            "id": "collocation:c38a7caed00a6a14eedf",
+            "source_locator": "record.senses[0].collocations[1]",
+            "phrase": "send a message by telegraph",
+            "meaning_cn": "通过电报发送消息",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:c38a7caed00a6a14eedf",
+              "target_locator": "record.senses[0].collocations[1]",
+              "target_label": "send a message by telegraph"
+            }
           }
         ],
         "repair": {
@@ -7750,7 +7872,7 @@
     "ordinal": 4924,
     "word": "temperature",
     "source_owner_path": "content/lexical/words/by-ordinal/o4924.json",
-    "source_fingerprint": "731d8222fb0ed499c6083ec69521f416e4e54fad612d175db715787057ae18c6",
+    "source_fingerprint": "576d9420e587b7b984f5c8e4521b88d4fc2779ec3e4918b9b49aad57d8206f85",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7808,9 +7930,9 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "热度, 发烧",
-        "definition_en": "the somatic sensation of cold or heat",
-        "note": "",
+        "definition_cn": "发烧；体温异常升高（尤其英式用法）",
+        "definition_en": "especially BrE: an abnormally high body temperature; a fever",
+        "note": "have a temperature = have a fever / have an abnormally high body temperature",
         "identity_overlay": null,
         "usage": [
           {
@@ -7826,7 +7948,7 @@
           "target_kind": "sense",
           "target_id": "sense:temperature:b03e774494825415",
           "target_locator": "record.senses[1]",
-          "target_label": "热度, 发烧"
+          "target_label": "发烧；体温异常升高（尤其英式用法）"
         }
       }
     ],

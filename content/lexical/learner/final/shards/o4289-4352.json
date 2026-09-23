@@ -392,7 +392,7 @@
     "ordinal": 4293,
     "word": "score",
     "source_owner_path": "content/lexical/words/by-ordinal/o4293.json",
-    "source_fingerprint": "114f9097fecb626cd36cadda4aa2de6601ff7229a3915b6b866c610399f1c45b",
+    "source_fingerprint": "5e330a51f70500e7971daa593c7a5bf6a6328b32fc1f93e38edd64ce4acd5e6f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -450,7 +450,7 @@
         "id": "sense:score:58271db3252f54cb",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: the team scored; score a goal; score 18 out of 20",
         "definition_cn": "在比赛或考试中得分",
         "definition_en": "to gain points or goals in a game or test",
         "note": "",
@@ -600,7 +600,7 @@
     "ordinal": 4294,
     "word": "scorn",
     "source_owner_path": "content/lexical/words/by-ordinal/o4294.json",
-    "source_fingerprint": "68e855dcfc80681822dbe8c70201a752c45348fa88ab239598c2e0e479ff4458",
+    "source_fingerprint": "ee3a4644efa66c3fbf09392750b50bc9506663dd484b3f0fe3addb43ce7e008c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -715,7 +715,7 @@
         "id": "sense:scorn:0c914b65c3575631",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + to do",
+        "governing_pattern": "formal/literary: scorn to do sth",
         "definition_cn": "不屑做",
         "definition_en": "to refuse to do something because you think it is not good enough",
         "note": "formal/literary: scorn to do sth = refuse to do because you consider it beneath you",
@@ -766,7 +766,7 @@
     "ordinal": 4295,
     "word": "scout",
     "source_owner_path": "content/lexical/words/by-ordinal/o4295.json",
-    "source_fingerprint": "24e24b15eaf8ce1845abe6c22c154231e4ee360a809ce6f325c7f8cca96a3c86",
+    "source_fingerprint": "11220788b1db4545c7f20baed67f9f39ee09b822982fb4eefd0151a2686078e2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -790,7 +790,7 @@
         "id": "sense:scout:df9e656a2376516e",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + for",
+        "governing_pattern": "I/T: scout around for sth; scout sth out",
         "definition_cn": "侦察，搜索（以获取信息）",
         "definition_en": "to explore an area to obtain information, often with a specific goal",
         "note": "",
@@ -924,7 +924,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:c560a31acfdf95379170",
+        "source_locator": "record.constructions[0]",
+        "pattern": "scout sth out",
+        "lines": [
+          {
+            "text": "侦察/调查某地或选项；摸清情况",
+            "lang": "cn"
+          },
+          {
+            "text": "transitive phrasal frame",
+            "lang": "en"
+          },
+          {
+            "text": "to investigate a place or option and find useful information about it",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:c560a31acfdf95379170",
+          "target_locator": "record.constructions[0]",
+          "target_label": "scout sth out"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1122,12 +1148,12 @@
     "ordinal": 4297,
     "word": "scrap",
     "source_owner_path": "content/lexical/words/by-ordinal/o4297.json",
-    "source_fingerprint": "ce4b30edeaa185ea104a4e2770866f19a3b8cbc3c228f024915a7160641f56b4",
+    "source_fingerprint": "1b6d0933f12ca9edc9c7aa225fa781f9249c1089eea49f88a055d8d0a6ffbd96",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
@@ -1223,6 +1249,50 @@
           "target_id": "sense:scrap:098fa37f94155ec1",
           "target_locator": "record.senses[2]",
           "target_label": "打架；争吵"
+        }
+      },
+      {
+        "id": "sense:scrap:cb1e675a566bfd84",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "废旧材料；废料（尤指可回收金属）",
+        "definition_en": "old or used material, especially metal, collected for reuse or recycling",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:c98d8955674c604fd085",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "scrap metal",
+            "meaning_cn": "废金属",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:c98d8955674c604fd085",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "scrap metal"
+            }
+          },
+          {
+            "id": "collocation:95336a075b81af502ac9",
+            "source_locator": "record.senses[3].collocations[1]",
+            "phrase": "sell sth for scrap",
+            "meaning_cn": "把某物当废料卖掉",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:95336a075b81af502ac9",
+              "target_locator": "record.senses[3].collocations[1]",
+              "target_label": "sell sth for scrap"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:scrap:cb1e675a566bfd84",
+          "target_locator": "record.senses[3]",
+          "target_label": "废旧材料；废料（尤指可回收金属）"
         }
       }
     ],
@@ -1875,7 +1945,7 @@
     "ordinal": 4301,
     "word": "screen",
     "source_owner_path": "content/lexical/words/by-ordinal/o4301.json",
-    "source_fingerprint": "a594fe3f9e2e0ff8a09cdfb61207b1c9f744f72752cfbbd3018c58993b19f909",
+    "source_fingerprint": "0efe1b1fb4563c535751cd7969cd8b834386e4b24cb895acd835f02b98f9aaad",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1964,7 +2034,7 @@
         "id": "sense:screen:845942f1f1065318",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: screen applicants/patients; screen sb for sth; screen for a disease/condition",
         "definition_cn": "筛选，甄别",
         "definition_en": "to examine or test people or things to see if they are suitable or safe",
         "note": "",
@@ -2003,7 +2073,7 @@
         "id": "sense:screen:d5e5865779fe543f",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "screen sb/sth from sth",
         "definition_cn": "遮蔽，掩护",
         "definition_en": "to protect or hide something from view",
         "note": "",
@@ -3238,12 +3308,12 @@
     "ordinal": 4310,
     "word": "season",
     "source_owner_path": "content/lexical/words/by-ordinal/o4310.json",
-    "source_fingerprint": "9fbcd05347d1ef0e5c2a81f789437c5b1b7e263717008ff8ebacee54ab5bc774",
+    "source_fingerprint": "bf7a9200cefcd0d69cf8064729135ecf4e048a16088086e8b3f730d964818292",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
@@ -3301,6 +3371,19 @@
             "meaning_cn": "假日季",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:688cb319ee89fcf0d4e4",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "football season",
+            "meaning_cn": "足球赛季",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:688cb319ee89fcf0d4e4",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "football season"
+            }
           }
         ],
         "repair": {
@@ -3360,6 +3443,37 @@
           "target_id": "sense:season:cf78a9c6e79453f7",
           "target_locator": "record.senses[3]",
           "target_label": "变干燥"
+        }
+      },
+      {
+        "id": "sense:season:741d825db2bb62f0",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（尤美式）电视剧/节目的一季",
+        "definition_en": "mainly AmE: one set of episodes or programmes in a television series",
+        "note": "BrE often uses series where AmE uses season for a set of episodes",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:cbfb3616a0e761bb9953",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "season three",
+            "meaning_cn": "第三季",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:cbfb3616a0e761bb9953",
+              "target_locator": "record.senses[4].collocations[0]",
+              "target_label": "season three"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:season:741d825db2bb62f0",
+          "target_locator": "record.senses[4]",
+          "target_label": "（尤美式）电视剧/节目的一季"
         }
       }
     ],
@@ -3547,7 +3661,7 @@
     "ordinal": 4312,
     "word": "second",
     "source_owner_path": "content/lexical/words/by-ordinal/o4312.json",
-    "source_fingerprint": "28a2efaded8422cfaf57aca424eeb44a8af15a4a8e3cf8a03e574bdff1776fa6",
+    "source_fingerprint": "b09543cf73a0a78fd72490433339ec5d61441c97f12e49e5c638aa705d03e5f7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3624,17 +3738,44 @@
         "id": "sense:second:ff9d42a02dde5c79",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "支持；当助手",
-        "definition_en": "to support or assist someone, especially in a duel or debate",
+        "governing_pattern": "vt.: second a motion/proposal; second sb; I’ll second that",
+        "definition_cn": "支持；附议；协助",
+        "definition_en": "to formally support a motion or proposal so it can be discussed or voted on; more generally to support or assist someone",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:b5de87dd6faee8ac384b",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "second a motion/proposal",
+            "meaning_cn": "附议动议/提案",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:b5de87dd6faee8ac384b",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "second a motion/proposal"
+            }
+          },
+          {
+            "id": "collocation:1b7dfdff271bceba5e46",
+            "source_locator": "record.senses[3].collocations[1]",
+            "phrase": "I'll second that",
+            "meaning_cn": "我赞同/支持这一点",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:1b7dfdff271bceba5e46",
+              "target_locator": "record.senses[3].collocations[1]",
+              "target_label": "I'll second that"
+            }
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:second:ff9d42a02dde5c79",
           "target_locator": "record.senses[3]",
-          "target_label": "支持；当助手"
+          "target_label": "支持；附议；协助"
         }
       }
     ],
@@ -4204,7 +4345,7 @@
     "ordinal": 4318,
     "word": "secure",
     "source_owner_path": "content/lexical/words/by-ordinal/o4318.json",
-    "source_fingerprint": "3be94a0496ee9816c2584dd688c8a2a7b0db9059ad1731398a97bdf6d452dd03",
+    "source_fingerprint": "b6e7ff7ac842d5ced327c1c5e1eb7bebe5c18572f9579ab95aee50af0f0b7727",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4345,12 +4486,26 @@
         "id": "sense:secure:92d3f561c0e0540b",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "secure sth to/with sth",
         "definition_cn": "固定；系牢；扣紧",
         "definition_en": "to fasten or attach something firmly so that it cannot move or come loose",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:bb9dce7b2e83a9e764fe",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "secure sth to/with sth",
+            "meaning_cn": "把某物牢固固定在/用……固定",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:bb9dce7b2e83a9e764fe",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "secure sth to/with sth"
+            }
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:secure:92d3f561c0e0540b",
@@ -4537,19 +4692,11 @@
     "ordinal": 4320,
     "word": "see",
     "source_owner_path": "content/lexical/words/by-ordinal/o4320.json",
-    "source_fingerprint": "d7c63078d252bd12734b573f9a748441e2a57560eaa7db0261a0695d5e7576cf",
-    "sense_lineage": [
-      {
-        "word_id": "word:see",
-        "target_kind": "sense",
-        "from_target_id": "sense:see:301ce679766b508c",
-        "status": "deprecated",
-        "to_target_id": null
-      }
-    ],
+    "source_fingerprint": "bd692287bb98022368015fb2f313a6ff6a3a76eb7353a764ef267fe71ee466ab",
+    "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "5V",
+        "6V",
         "1N"
       ],
       "density": "rich"
@@ -4573,7 +4720,15 @@
         "definition_cn": "看见",
         "definition_en": "to perceive with the eyes",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "see (base/present) → saw (simple past) → seen (past participle); cutting-tool saw is a separate lexical identity",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "see (base/present) → saw (simple past) → seen (past participle); cutting-tool saw is a separate lexical identity"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -4666,6 +4821,50 @@
           "target_locator": "record.senses[5]",
           "target_label": "主教职位；主教教座"
         }
+      },
+      {
+        "id": "sense:see:301ce679766b508c",
+        "source_locator": "record.senses[6]",
+        "pos": "verb",
+        "governing_pattern": "vt.: see sb/sth as sth",
+        "definition_cn": "认为；看待；视为",
+        "definition_en": "to consider or regard someone or something in a particular way",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:3053054d7e7cbb222294",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "see sb/sth as sth",
+            "meaning_cn": "把某人/某事视为……",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:3053054d7e7cbb222294",
+              "target_locator": "record.senses[6].collocations[0]",
+              "target_label": "see sb/sth as sth"
+            }
+          },
+          {
+            "id": "collocation:6cb39dfb70b694016c62",
+            "source_locator": "record.senses[6].collocations[1]",
+            "phrase": "see yourself as ...",
+            "meaning_cn": "把自己看作……",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:6cb39dfb70b694016c62",
+              "target_locator": "record.senses[6].collocations[1]",
+              "target_label": "see yourself as ..."
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:see:301ce679766b508c",
+          "target_locator": "record.senses[6]",
+          "target_label": "认为；看待；视为"
+        }
       }
     ],
     "secondary_senses": [],
@@ -4743,6 +4942,31 @@
           "target_id": "construction:af189d7273ef55b79439",
           "target_locator": "record.constructions[2]",
           "target_label": "see if/whether + clause"
+        }
+      },
+      {
+        "id": "construction:aae174bc9926f9f7a2de",
+        "source_locator": "record.constructions[3]",
+        "pattern": "as I see it",
+        "lines": [
+          {
+            "text": "依我看；在我看来",
+            "lang": "cn"
+          },
+          {
+            "text": "viewpoint expression",
+            "lang": "en"
+          },
+          {
+            "text": "in my view; as I understand or regard the situation",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:aae174bc9926f9f7a2de",
+          "target_locator": "record.constructions[3]",
+          "target_label": "as I see it"
         }
       }
     ],
@@ -5033,7 +5257,7 @@
     "ordinal": 4323,
     "word": "seem",
     "source_owner_path": "content/lexical/words/by-ordinal/o4323.json",
-    "source_fingerprint": "54781028b7fbb216169615dd37fe55cab977df114750aff9e706a8495beb0863",
+    "source_fingerprint": "2d6377119c756235127e82886b3ab5270ace965e7bf3283ad6e5cf193811e23f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5056,7 +5280,7 @@
         "id": "sense:seem:347df06f23395914",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + to be / vi. + like",
+        "governing_pattern": "seem + adjective/noun; seem to be + adjective/noun; seem to do/be doing; seem like + noun/expression; it seems (that) + clause; seem as if/as though + clause",
         "definition_cn": "似乎；好像",
         "definition_en": "to appear to be something",
         "note": "",
@@ -5086,6 +5310,45 @@
               "target_id": "collocation:40581dbe41e87a87ab8c",
               "target_locator": "record.senses[0].collocations[1]",
               "target_label": "seem like + sth"
+            }
+          },
+          {
+            "id": "collocation:af88d82fd6b941ba7771",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "seem + adjective",
+            "meaning_cn": "似乎/看起来……",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:af88d82fd6b941ba7771",
+              "target_locator": "record.senses[0].collocations[2]",
+              "target_label": "seem + adjective"
+            }
+          },
+          {
+            "id": "collocation:ae1465e5686ba5bb1268",
+            "source_locator": "record.senses[0].collocations[3]",
+            "phrase": "it seems (that) + clause",
+            "meaning_cn": "似乎……",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:ae1465e5686ba5bb1268",
+              "target_locator": "record.senses[0].collocations[3]",
+              "target_label": "it seems (that) + clause"
+            }
+          },
+          {
+            "id": "collocation:891953d5a379974b7e94",
+            "source_locator": "record.senses[0].collocations[4]",
+            "phrase": "seem as if/as though + clause",
+            "meaning_cn": "好像……",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:891953d5a379974b7e94",
+              "target_locator": "record.senses[0].collocations[4]",
+              "target_label": "seem as if/as though + clause"
             }
           }
         ],
@@ -5285,7 +5548,7 @@
     "ordinal": 4326,
     "word": "segregate",
     "source_owner_path": "content/lexical/words/by-ordinal/o4326.json",
-    "source_fingerprint": "aa8c36db6c28e7084ccf615293898cb1ce93289a0c1f5ec8e963a6f58e15edb4",
+    "source_fingerprint": "01f8a56fd79ae77d12c831a93654416da89e3f662a8b9b45bb6d2534bb72b8ac",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5326,14 +5589,6 @@
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "segregate people by race"
             }
-          },
-          {
-            "id": "collocation:01448dc5e01c9ebe33b6",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "segregate patients",
-            "meaning_cn": "隔离病人",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -5358,6 +5613,14 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "segregate waste for recycling",
             "meaning_cn": "将垃圾分类以便回收",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:01448dc5e01c9ebe33b6",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "segregate patients",
+            "meaning_cn": "隔离病人",
             "kind": "usage_example",
             "repair": null
           }
@@ -5411,7 +5674,7 @@
     "ordinal": 4327,
     "word": "seize",
     "source_owner_path": "content/lexical/words/by-ordinal/o4327.json",
-    "source_fingerprint": "24fde7e504bc3ff55b141b50e6539835ce49069af669ced4a83d6d47c12bcff9",
+    "source_fingerprint": "e8e18cc6d9d02fcefc034b71abf855737c9974b186d77c93a88254ff654c15d7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5452,14 +5715,6 @@
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "seize + sb/sth"
             }
-          },
-          {
-            "id": "collocation:0acd8dc036d5437d8152",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "seize the opportunity",
-            "meaning_cn": "抓住机会",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -5524,6 +5779,27 @@
               "target_id": "collocation:e6dccdf8a16d8d8157ad",
               "target_locator": "record.senses[2].collocations[0]",
               "target_label": "seize the day"
+            }
+          },
+          {
+            "id": "collocation:0acd8dc036d5437d8152",
+            "source_locator": "record.senses[2].collocations[1]",
+            "phrase": "seize the opportunity",
+            "meaning_cn": "抓住机会",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:7409f81ae2da03331fdd",
+            "source_locator": "record.senses[2].collocations[2]",
+            "phrase": "seize the chance",
+            "meaning_cn": "抓住机会",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:7409f81ae2da03331fdd",
+              "target_locator": "record.senses[2].collocations[2]",
+              "target_label": "seize the chance"
             }
           }
         ],
@@ -5778,7 +6054,7 @@
     "ordinal": 4330,
     "word": "selection",
     "source_owner_path": "content/lexical/words/by-ordinal/o4330.json",
-    "source_fingerprint": "a619e084434ebb1b93b2f5ebd91e5d9ac45be228ca728ad678c62a7a557dd852",
+    "source_fingerprint": "1972bc161e0b7a6287aa8bc087733e0a74a90f0601f1b16b5ebe5c94d0ba791b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5812,14 +6088,6 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "make a selection",
             "meaning_cn": "做出选择",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:969c171c519dcf915364",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "natural selection",
-            "meaning_cn": "自然选择",
             "kind": "usage_example",
             "repair": null
           }
@@ -5872,7 +6140,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:e3432538ca420880f5ab",
+        "source_locator": "record.constructions[0]",
+        "pattern": "natural selection",
+        "lines": [
+          {
+            "text": "自然选择：更适应环境的生物个体在世代中更可能存活并繁殖，从而使相关特征更常见",
+            "lang": "cn"
+          },
+          {
+            "text": "lexicalized biology process, not ordinary human choosing",
+            "lang": "en"
+          },
+          {
+            "text": "the process by which better-adapted organisms tend to survive and reproduce more successfully across generations",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:e3432538ca420880f5ab",
+          "target_locator": "record.constructions[0]",
+          "target_label": "natural selection"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [
@@ -6893,7 +7187,7 @@
     "ordinal": 4340,
     "word": "senior",
     "source_owner_path": "content/lexical/words/by-ordinal/o4340.json",
-    "source_fingerprint": "f3439fc9f346b78a0f7693636d6e4502dbb7f017db22bf32f7d0640f1138e06e",
+    "source_fingerprint": "af32b3cc14f3cef403bff248d978b54078d9c146f4814327636087d36669db9f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6958,10 +7252,10 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:9644a53ecb593249b231",
+            "id": "collocation:18523dc648b8c93751e4",
             "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "college senior",
-            "meaning_cn": "大学四年级学生",
+            "phrase": "my senior at work",
+            "meaning_cn": "工作中职位比我高的人",
             "kind": "usage_example",
             "repair": null
           }
@@ -7190,7 +7484,7 @@
     "ordinal": 4342,
     "word": "sense",
     "source_owner_path": "content/lexical/words/by-ordinal/o4342.json",
-    "source_fingerprint": "d193002b87616c7fad455eec5db259971d9f5e272b3ca4855a7af2e6fc8f1411",
+    "source_fingerprint": "51401a5b7dc0580c4c14023f5fd27ee0c7d40fa2c3e3b4ecafe06da4530280dc",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7450,8 +7744,8 @@
           "target_word": "sensible",
           "lines": [
             {
-              "text": "sense 感觉 vs sensible 明智的",
-              "lang": "cn"
+              "text": "sense (judgment/appreciation, as in common/good sense) → sensible (wise/reasonable)",
+              "lang": "en"
             }
           ],
           "source_locator": "record.word_family[0]"
@@ -7993,7 +8287,7 @@
     "ordinal": 4347,
     "word": "separate",
     "source_owner_path": "content/lexical/words/by-ordinal/o4347.json",
-    "source_fingerprint": "cd7dc24e91148fe17eb9c0adf0d38684267c9111fe9b809894197d77b6405c10",
+    "source_fingerprint": "e0989ed8659e347631933a018218d6c59ad6069155963a80ed0cc2db14632cb5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8022,7 +8316,15 @@
         "definition_cn": "使事物或人彼此分开",
         "definition_en": "to cause things or people to be apart from each other",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "verb separate ends with /-reɪt/; adjective (and noun) separate has a reduced final syllable",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "verb separate ends with /-reɪt/; adjective (and noun) separate has a reduced final syllable"
+          }
+        },
         "usage": [
           {
             "id": "collocation:9e0286c59772b32b2f58",
@@ -8061,7 +8363,15 @@
         "definition_cn": "独立的；不与其他相连的",
         "definition_en": "forming a unit by itself; not joined to something else",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "adjective (and noun) separate has a reduced final syllable; verb separate ends with /-reɪt/",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "adjective (and noun) separate has a reduced final syllable; verb separate ends with /-reɪt/"
+          }
+        },
         "usage": [
           {
             "id": "collocation:5c097a7668326ea6e1f5",
@@ -8095,7 +8405,15 @@
         "definition_cn": "分开；脱离",
         "definition_en": "to move apart or become divided",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "verb separate ends with /-reɪt/; adjective (and noun) separate has a reduced final syllable",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[2].lexical_identity_overlay",
+            "target_label": "verb separate ends with /-reɪt/; adjective (and noun) separate has a reduced final syllable"
+          }
+        },
         "usage": [
           {
             "id": "collocation:cd3054affe3d143a0ff6",
@@ -8134,7 +8452,15 @@
         "definition_cn": "区分；辨别",
         "definition_en": "to distinguish between two or more things",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "verb separate ends with /-reɪt/; adjective (and noun) separate has a reduced final syllable",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[3].lexical_identity_overlay",
+            "target_label": "verb separate ends with /-reɪt/; adjective (and noun) separate has a reduced final syllable"
+          }
+        },
         "usage": [
           {
             "id": "collocation:985f08f593bc1ecc7c0d",
@@ -8160,7 +8486,15 @@
         "definition_cn": "可与其它衣服搭配穿的单件衣服",
         "definition_en": "a piece of clothing that can be worn with others to form an outfit",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "adjective (and noun) separate has a reduced final syllable; verb separate ends with /-reɪt/",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[4].lexical_identity_overlay",
+            "target_label": "adjective (and noun) separate has a reduced final syllable; verb separate ends with /-reɪt/"
+          }
+        },
         "usage": [
           {
             "id": "collocation:ce2faa8d6714527e7617",
@@ -8433,7 +8767,7 @@
     "ordinal": 4350,
     "word": "serial",
     "source_owner_path": "content/lexical/words/by-ordinal/o4350.json",
-    "source_fingerprint": "4876d791adbc34586868e6a3ca8fad5167c7ee8567765ef20b0b409f1ebbdac2",
+    "source_fingerprint": "93a7524f5c89ec4fdf9704fbfa9091e8ead6465f685cdb23af6db83f1c5838f0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8566,6 +8900,10 @@
           "target_word": "series",
           "lines": [
             {
+              "text": "serial is related to series in the series-related adjective sense; independent serial noun/technical senses are not mechanically interchangeable with series",
+              "lang": "en"
+            },
+            {
               "text": "serial is transparently related to series ('in/relating to a series'), while serial's independent noun/technical senses remain separate.",
               "lang": "en"
             }
@@ -8581,7 +8919,7 @@
     "ordinal": 4351,
     "word": "series",
     "source_owner_path": "content/lexical/words/by-ordinal/o4351.json",
-    "source_fingerprint": "e6b649add7dca72eb191517d57c87f3c239f2d28b567f907bbf51be056af1a84",
+    "source_fingerprint": "a19f0ee6620f9147dc839f0caddb947574254cc0d9d633ee45815f9b140de19f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8608,7 +8946,15 @@
         "definition_cn": "一系列，连续",
         "definition_en": "a number of similar things coming one after another",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "series has the same surface form in singular and plural: a/one series; two/several series; agreement follows intended number/context",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "series has the same surface form in singular and plural: a/one series; two/several series; agreement follows intended number/context"
+          }
+        },
         "usage": [
           {
             "id": "collocation:ef5a438692ca78b077e9",
@@ -8639,7 +8985,15 @@
         "definition_cn": "丛书，系列节目",
         "definition_en": "a set of books or programs published or broadcast regularly",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "series has the same surface form in singular and plural: a/one series; two/several series; agreement follows intended number/context",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "series has the same surface form in singular and plural: a/one series; two/several series; agreement follows intended number/context"
+          }
+        },
         "usage": [
           {
             "id": "collocation:1272cd466628292b02d3",
@@ -8665,7 +9019,15 @@
         "definition_cn": "串联",
         "definition_en": "in electronics, a connection of components in a line",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "series has the same surface form in singular and plural: a/one series; two/several series; agreement follows intended number/context",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[2].lexical_identity_overlay",
+            "target_label": "series has the same surface form in singular and plural: a/one series; two/several series; agreement follows intended number/context"
+          }
+        },
         "usage": [
           {
             "id": "collocation:1e99b0d0347a141ceab5",

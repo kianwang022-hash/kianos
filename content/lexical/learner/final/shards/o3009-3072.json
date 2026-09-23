@@ -5,7 +5,7 @@
     "ordinal": 3009,
     "word": "meet",
     "source_owner_path": "content/lexical/words/by-ordinal/o3009.json",
-    "source_fingerprint": "a406533d89024aa305ec932605ff054791c357204552ebc4754c4feb86edd658",
+    "source_fingerprint": "433f6ecccb5cea48ad4c75a96a6dbfca7756b416082a33fc57f28f7ba438cbe4",
     "sense_lineage": [
       {
         "word_id": "word:meet",
@@ -44,9 +44,9 @@
         "id": "sense:meet:b72a3ee9a352528c",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "遇见，碰见",
-        "definition_en": "to come into the presence of someone by chance or arrangement",
+        "governing_pattern": "I/T: meet sb; meet at/in + place/time",
+        "definition_cn": "遇见；会面；集合",
+        "definition_en": "to come together with someone, by chance or arrangement, or for a meeting",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -68,7 +68,7 @@
           "target_kind": "sense",
           "target_id": "sense:meet:b72a3ee9a352528c",
           "target_locator": "record.senses[0]",
-          "target_label": "遇见，碰见"
+          "target_label": "遇见；会面；集合"
         }
       },
       {
@@ -820,7 +820,7 @@
     "ordinal": 3017,
     "word": "memorial",
     "source_owner_path": "content/lexical/words/by-ordinal/o3017.json",
-    "source_fingerprint": "5dbf308e67789ece8ddc435867a248a8bf37ddf4e0115cb083fe834d8b6514dd",
+    "source_fingerprint": "c133d659b6d5c90f2333562644d682021e6130b5f5a6d1e04468e4185ff383c9",
     "sense_lineage": [
       {
         "word_id": "word:memorial",
@@ -838,13 +838,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "纪念的事物",
+      "summary_cn": "纪念碑/纪念物；纪念的",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "纪念的事物"
+        "target_label": "纪念碑/纪念物；纪念的"
       }
     },
     "senses": [
@@ -1068,7 +1068,7 @@
     "ordinal": 3019,
     "word": "menace",
     "source_owner_path": "content/lexical/words/by-ordinal/o3019.json",
-    "source_fingerprint": "5e1f02551b9c9e7564e83c48a73b6bb7224bb7ad35f099f4ef6ccf8ce59c3011",
+    "source_fingerprint": "63eee99d12ef1ee47b59073aca4b0650711e09565ec426ced1db4981c40464fb",
     "sense_lineage": [
       {
         "word_id": "word:menace",
@@ -1093,13 +1093,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "威胁；危险",
+      "summary_cn": "威胁；危险的人或物；威胁某人/某物",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "威胁；危险"
+        "target_label": "威胁；危险的人或物；威胁某人/某物"
       }
     },
     "senses": [
@@ -1197,7 +1197,7 @@
     "ordinal": 3020,
     "word": "mend",
     "source_owner_path": "content/lexical/words/by-ordinal/o3020.json",
-    "source_fingerprint": "68d4800fd4fbf88a85e057de2789c65954a12370eb2a4b087eb50327cd3041fd",
+    "source_fingerprint": "938688f0eb153c81677c596eda99b3087beb5caf1e9798ca87951c59df4a3633",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1305,7 +1305,25 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:a85c25e2eff72e690e78",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be on the mend",
+        "lines": [
+          {
+            "text": "正在康复；正在好转",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:a85c25e2eff72e690e78",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be on the mend"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1946,7 +1964,7 @@
     "ordinal": 3027,
     "word": "mercury",
     "source_owner_path": "content/lexical/words/by-ordinal/o3027.json",
-    "source_fingerprint": "801f0645624cc814a5640021c8e19a5576ac35016858a76b8c660393a19fdaaf",
+    "source_fingerprint": "750e8d71cc62aa36fca206ad407711c1653ab695f29aab364e4fb3da83e67cb8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1973,7 +1991,15 @@
         "definition_cn": "汞；水银",
         "definition_en": "a heavy silvery metallic element, liquid at ordinary temperatures",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "chemical element is lowercase",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "chemical element is lowercase"
+          }
+        },
         "usage": [
           {
             "id": "collocation:e102bd7b594aba761ca6",
@@ -2005,12 +2031,12 @@
         "definition_en": "the smallest planet and the nearest to the sun",
         "note": "",
         "identity_overlay": {
-          "text": "case_sensitive_lexeme",
+          "text": "planet/deity is capitalized",
           "repair": {
             "target_kind": "form_identity",
             "target_id": null,
             "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "case_sensitive_lexeme"
+            "target_label": "planet/deity is capitalized"
           }
         },
         "usage": [
@@ -2039,12 +2065,12 @@
         "definition_en": "in Roman mythology, the messenger of Jupiter and god of commerce",
         "note": "",
         "identity_overlay": {
-          "text": "case_sensitive_lexeme",
+          "text": "planet/deity is capitalized",
           "repair": {
             "target_kind": "form_identity",
             "target_id": null,
             "target_locator": "record.senses[2].lexical_identity_overlay",
-            "target_label": "case_sensitive_lexeme"
+            "target_label": "planet/deity is capitalized"
           }
         },
         "usage": [
@@ -2206,7 +2232,7 @@
     "ordinal": 3029,
     "word": "mere",
     "source_owner_path": "content/lexical/words/by-ordinal/o3029.json",
-    "source_fingerprint": "8ef97932fea97e8e257d552f9947b34d660908cc0168468cdbda4bf62339aae1",
+    "source_fingerprint": "8cef057d62afe6c87b57d89f18f5dca0bc612cf452f7619db536aed64c9071ce",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2216,13 +2242,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "仅仅；小湖",
+      "summary_cn": "仅仅的；只不过的",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "仅仅；小湖"
+        "target_label": "仅仅的；只不过的"
       }
     },
     "senses": [
@@ -2734,7 +2760,7 @@
     "ordinal": 3034,
     "word": "mess",
     "source_owner_path": "content/lexical/words/by-ordinal/o3034.json",
-    "source_fingerprint": "394afdf5df4a1b8aa785113062858b3a72419334a9dae5ab246e936d64de6441",
+    "source_fingerprint": "63c075add05a28c02e87b21783891d1259222bca47f72537a376ba809186490d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2759,8 +2785,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "混乱，杂乱",
-        "definition_en": "a state of confusion and disorderliness",
+        "definition_cn": "混乱；杂乱；糟糕/棘手的局面",
+        "definition_en": "a state of confusion, disorder, or a problematic situation",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2795,7 +2821,7 @@
           "target_kind": "sense",
           "target_id": "sense:mess:7b45e7a7bca051f4",
           "target_locator": "record.senses[0]",
-          "target_label": "混乱，杂乱"
+          "target_label": "混乱；杂乱；糟糕/棘手的局面"
         }
       },
       {
@@ -2835,21 +2861,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:c6b8f2bb81598277381a",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "mess up + sth",
-            "meaning_cn": "弄乱，弄糟",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c6b8f2bb81598277381a",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "mess up + sth"
-            }
-          },
-          {
             "id": "collocation:37893b2d0973f937fdf1",
-            "source_locator": "record.senses[2].collocations[1]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "mess the room up",
             "meaning_cn": "把房间弄乱",
             "kind": "usage_example",
@@ -2896,7 +2909,42 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:69d9fb5db614d114cea3",
+        "source_locator": "record.constructions[0]",
+        "pattern": "make a mess of sth",
+        "lines": [
+          {
+            "text": "把某事搞砸；做得很差",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:69d9fb5db614d114cea3",
+          "target_locator": "record.constructions[0]",
+          "target_label": "make a mess of sth"
+        }
+      },
+      {
+        "id": "construction:9af995a97fe122cfb955",
+        "source_locator": "record.constructions[1]",
+        "pattern": "mess sth up / mess up",
+        "lines": [
+          {
+            "text": "搞砸；弄错；犯错；处理得很差",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:9af995a97fe122cfb955",
+          "target_locator": "record.constructions[1]",
+          "target_label": "mess sth up / mess up"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -3644,7 +3692,7 @@
     "ordinal": 3042,
     "word": "metropolitan",
     "source_owner_path": "content/lexical/words/by-ordinal/o3042.json",
-    "source_fingerprint": "e2b9f470adb17a9a62cc469a5f08122d875c623ef286776c9f27b9d68c8a13e0",
+    "source_fingerprint": "f3b92617ed2eec35c1780ed0c23bb555acc1d99a9c5ba334ea5e943d5ab7ee68",
     "sense_lineage": [
       {
         "word_id": "word:metropolitan",
@@ -3669,13 +3717,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "与大都市或其居民相关的",
+      "summary_cn": "大都市的；大都市居民；（较低层）宗主国的",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "与大都市或其居民相关的"
+        "target_label": "大都市的；大都市居民；（较低层）宗主国的"
       }
     },
     "senses": [
@@ -4104,7 +4152,7 @@
     "ordinal": 3047,
     "word": "might",
     "source_owner_path": "content/lexical/words/by-ordinal/o3047.json",
-    "source_fingerprint": "39a959eef5fa682825a96ce657ddab925594e234b7d855d9e60c26aa8f7102f7",
+    "source_fingerprint": "a78ebcb7b5637c68ffca881cbdf88c6b4dced5c7ca37e76c8af29805bcf662e1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4133,16 +4181,7 @@
         "definition_en": "used to express possibility or permission",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:2a32ad1fb1a6eb867fa7",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "might as well",
-            "meaning_cn": "倒不如，不妨",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:might:5e5222a70a6752dc",
@@ -4183,7 +4222,29 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:25af923bcb8b7cc5982e",
+        "source_locator": "record.constructions[0]",
+        "pattern": "might as well + base verb",
+        "lines": [
+          {
+            "text": "不妨；还是……为好；反正可以……",
+            "lang": "cn"
+          },
+          {
+            "text": "reasonable choice when no strong reason favors an alternative",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:25af923bcb8b7cc5982e",
+          "target_locator": "record.constructions[0]",
+          "target_label": "might as well + base verb"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4197,11 +4258,11 @@
     "ordinal": 3048,
     "word": "migrate",
     "source_owner_path": "content/lexical/words/by-ordinal/o3048.json",
-    "source_fingerprint": "a3aba64e5905bb3da6970da7c16fd1119a187f91e2e6b64f1f4781bf463a9487",
+    "source_fingerprint": "fcb4ac33ccd348266b7207836d9338b079de141896d7494669eebf503fc7df43",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V"
+        "3V"
       ],
       "density": "rich"
     },
@@ -4305,6 +4366,50 @@
           "target_id": "sense:migrate:2ffab4e04c8b5ead",
           "target_locator": "record.senses[1]",
           "target_label": "（动物或鸟类）定期或季节性迁徙"
+        }
+      },
+      {
+        "id": "sense:migrate:8b70a872b8f2e865",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "I/T",
+        "definition_cn": "迁移到新系统/平台；迁移数据或软件",
+        "definition_en": "to begin using a new computer/system/platform, or move data/software/content from one system to another",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:dd6864e96d97e73efacc",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "migrate to a new system/cloud",
+            "meaning_cn": "迁移到新系统/云平台",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:dd6864e96d97e73efacc",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "migrate to a new system/cloud"
+            }
+          },
+          {
+            "id": "collocation:c34558783e318881b420",
+            "source_locator": "record.senses[2].collocations[1]",
+            "phrase": "migrate data from A to B",
+            "meaning_cn": "把数据从A迁移到B",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:c34558783e318881b420",
+              "target_locator": "record.senses[2].collocations[1]",
+              "target_label": "migrate data from A to B"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:migrate:8b70a872b8f2e865",
+          "target_locator": "record.senses[2]",
+          "target_label": "迁移到新系统/平台；迁移数据或软件"
         }
       }
     ],
@@ -5307,7 +5412,7 @@
     "ordinal": 3058,
     "word": "mind",
     "source_owner_path": "content/lexical/words/by-ordinal/o3058.json",
-    "source_fingerprint": "2e05e1dbc5f8e3ca3a17b888362592611cd91e08d36957749f13ea4740534dd9",
+    "source_fingerprint": "5c0012f27dffade6df248ea311f37af01f7a011303bdc7250cf2eb56e5168221",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5461,14 +5566,6 @@
             "meaning_cn": "注意间隙",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:8b927d2a6565fd798bf3",
-            "source_locator": "record.senses[3].collocations[1]",
-            "phrase": "mind your own business",
-            "meaning_cn": "管好你自己的事",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -5506,7 +5603,29 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:f286abe908b0717e402c",
+        "source_locator": "record.constructions[1]",
+        "pattern": "mind your own business",
+        "lines": [
+          {
+            "text": "别打听或干涉别人的私事；管好你自己的事",
+            "lang": "cn"
+          },
+          {
+            "text": "informal idiom; can sound rude",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:f286abe908b0717e402c",
+          "target_locator": "record.constructions[1]",
+          "target_label": "mind your own business"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6040,7 +6159,7 @@
     "ordinal": 3063,
     "word": "minimise",
     "source_owner_path": "content/lexical/words/by-ordinal/o3063.json",
-    "source_fingerprint": "39d039d0d7a847271476b95ea2dd59b4c0d207076300af9340446b641d643bdb",
+    "source_fingerprint": "e243a020c3929ce3400f2aa5a9baf9ef828b10006d8650a621440b337724ee4a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6067,7 +6186,15 @@
         "definition_cn": "使减到最少，使降到最低限度",
         "definition_en": "reduce something to the smallest possible amount or degree",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "minimise is the common BrE spelling; minimize is the common AmE spelling; same reduce/play-down lexeme",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "minimise is the common BrE spelling; minimize is the common AmE spelling; same reduce/play-down lexeme"
+          }
+        },
         "usage": [
           {
             "id": "collocation:28a63e944da465583f51",
@@ -6106,7 +6233,15 @@
         "definition_cn": "极度轻视，贬低",
         "definition_en": "represent something as less important than it really is",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "minimise is the common BrE spelling; minimize is the common AmE spelling; same reduce/play-down lexeme",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "minimise is the common BrE spelling; minimize is the common AmE spelling; same reduce/play-down lexeme"
+          }
+        },
         "usage": [
           {
             "id": "collocation:0f7f0504fcb68a32a42d",
@@ -6134,25 +6269,7 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "minimise ↔ minimize",
-          "target_word": "minimize",
-          "lines": [
-            {
-              "text": "minimize is the common AmE spelling and minimise the common BrE spelling; preserve both stable owners for the same reduce/play-down semantic space.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:0827b8d5430073309225",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "minimise ↔ minimize"
-          }
-        }
-      ],
+      "relations": [],
       "form": null,
       "family": []
     }
@@ -6163,7 +6280,7 @@
     "ordinal": 3064,
     "word": "minimum",
     "source_owner_path": "content/lexical/words/by-ordinal/o3064.json",
-    "source_fingerprint": "68fdb61185a49c2b4f1b9cc048f638e9fafee2c04e2c836b5b8ecaf00a5b07c6",
+    "source_fingerprint": "fa8dcb742fc55e27dd7b1cdee85276a70fb0a4fb36b251cb47f90b5d603cb8bb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6192,16 +6309,7 @@
         "definition_en": "the smallest possible quantity",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:45e19991d727f71b1053",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "minimum wage",
-            "meaning_cn": "最低工资",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:minimum:104645deff8c5328",
@@ -6224,6 +6332,14 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "minimum requirement",
             "meaning_cn": "最低要求",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:45e19991d727f71b1053",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "minimum wage",
+            "meaning_cn": "最低工资",
             "kind": "usage_example",
             "repair": null
           }
@@ -6687,7 +6803,7 @@
     "ordinal": 3068,
     "word": "minority",
     "source_owner_path": "content/lexical/words/by-ordinal/o3068.json",
-    "source_fingerprint": "f2f178411543410f3eeb5626e5bb3283e89a553803dbc77076a79b80a263e205",
+    "source_fingerprint": "9e68d59719a75e7ed81fc0a74dcca174f3e43ccb1bb1b6526add13d4b88bcbf8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6812,6 +6928,10 @@
           "title": "minority ↔ majority",
           "target_word": "majority",
           "lines": [
+            {
+              "text": "majority = the greater number/part; minority = the smaller number/part. This antonym is sense-bound to the quantitative branches and does not automatically extend to ethnic-group, legal-age, adjective, or other senses.",
+              "lang": "en"
+            },
             {
               "text": "Sense-bound quantitative contrast only; do not treat all majority/minority senses as exact antonyms.",
               "lang": "en"
@@ -6972,7 +7092,7 @@
     "ordinal": 3070,
     "word": "minute",
     "source_owner_path": "content/lexical/words/by-ordinal/o3070.json",
-    "source_fingerprint": "ab848c36feb835c5a3956857e27f36a1d3467a53aaef98e84596525c12443577",
+    "source_fingerprint": "27021fefa7f9ea3a8688e79adebe3b93544511d57788d83e29cf1db7c2535243",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7002,12 +7122,12 @@
         "definition_en": "a unit of time equal to 60 seconds or 1/60th of an hour",
         "note": "",
         "identity_overlay": {
-          "text": "noun minute (time unit) /ˈmɪnɪt/ versus adjective minute (extremely small) /maɪˈnjuːt/; preserve one Word owner.",
+          "text": "noun/verb minute is /ˈmɪnɪt/; adjective minute meaning extremely small/detailed is /maɪˈnjuːt/ (US also /maɪˈnuːt/)",
           "repair": {
             "target_kind": "form_identity",
             "target_id": null,
             "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "noun minute (time unit) /ˈmɪnɪt/ versus adjective minute (extremely small) /maɪˈnjuːt/; preserve one Word owner."
+            "target_label": "noun/verb minute is /ˈmɪnɪt/; adjective minute meaning extremely small/detailed is /maɪˈnjuːt/ (US also /maɪˈnuːt/)"
           }
         },
         "usage": [
@@ -7043,7 +7163,15 @@
         "definition_cn": "角分，角度单位",
         "definition_en": "a unit of angular distance equal to a 60th of a degree",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "noun/verb minute is /ˈmɪnɪt/; adjective minute meaning extremely small/detailed is /maɪˈnjuːt/ (US also /maɪˈnuːt/)",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "noun/verb minute is /ˈmɪnɪt/; adjective minute meaning extremely small/detailed is /maɪˈnjuːt/ (US also /maɪˈnuːt/)"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -7053,26 +7181,73 @@
         }
       },
       {
-        "id": "sense:minute:08349d58c3365b4b",
+        "id": "sense:minute:c7d7e08581985e99",
         "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "会议记录；会议纪要（通常用复数 minutes）",
+        "definition_en": "the official written record of what was said or decided at a meeting",
+        "note": "",
+        "identity_overlay": {
+          "text": "noun/verb minute is /ˈmɪnɪt/; adjective minute meaning extremely small/detailed is /maɪˈnjuːt/ (US also /maɪˈnuːt/)",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[2].lexical_identity_overlay",
+            "target_label": "noun/verb minute is /ˈmɪnɪt/; adjective minute meaning extremely small/detailed is /maɪˈnjuːt/ (US also /maɪˈnuːt/)"
+          }
+        },
+        "usage": [
+          {
+            "id": "collocation:6498145c636904a03028",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "take minutes",
+            "meaning_cn": "做会议记录",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:4fb510b0d484a29b33d8",
+            "source_locator": "record.senses[2].collocations[1]",
+            "phrase": "take/keep the minutes",
+            "meaning_cn": "做/保存会议记录",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:4fb510b0d484a29b33d8",
+              "target_locator": "record.senses[2].collocations[1]",
+              "target_label": "take/keep the minutes"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:minute:c7d7e08581985e99",
+          "target_locator": "record.senses[2]",
+          "target_label": "会议记录；会议纪要（通常用复数 minutes）"
+        }
+      },
+      {
+        "id": "sense:minute:08349d58c3365b4b",
+        "source_locator": "record.senses[3]",
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "微小的",
         "definition_en": "extremely small",
         "note": "",
         "identity_overlay": {
-          "text": "noun minute (time unit) /ˈmɪnɪt/ versus adjective minute (extremely small) /maɪˈnjuːt/; preserve one Word owner.",
+          "text": "adjective minute meaning extremely small/detailed contrasts with noun/verb /ˈmɪnɪt/",
           "repair": {
             "target_kind": "form_identity",
             "target_id": null,
-            "target_locator": "record.senses[2].lexical_identity_overlay",
-            "target_label": "noun minute (time unit) /ˈmɪnɪt/ versus adjective minute (extremely small) /maɪˈnjuːt/; preserve one Word owner."
+            "target_locator": "record.senses[3].lexical_identity_overlay",
+            "target_label": "adjective minute meaning extremely small/detailed contrasts with noun/verb /ˈmɪnɪt/"
           }
         },
         "usage": [
           {
             "id": "collocation:62f54fb750014260efa3",
-            "source_locator": "record.senses[2].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "minute details",
             "meaning_cn": "微小的细节",
             "kind": "usage_example",
@@ -7082,34 +7257,8 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:minute:08349d58c3365b4b",
-          "target_locator": "record.senses[2]",
-          "target_label": "微小的"
-        }
-      },
-      {
-        "id": "sense:minute:c7d7e08581985e99",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "备忘录；笔记",
-        "definition_en": "a short note or memorandum",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:6498145c636904a03028",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "take minutes",
-            "meaning_cn": "做会议记录",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:minute:c7d7e08581985e99",
           "target_locator": "record.senses[3]",
-          "target_label": "备忘录；笔记"
+          "target_label": "微小的"
         }
       },
       {
@@ -7120,7 +7269,15 @@
         "definition_cn": "详细的；细致的",
         "definition_en": "characterized by painstaking care and detailed examination",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "adjective minute meaning extremely small/detailed contrasts with noun/verb /ˈmɪnɪt/",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[4].lexical_identity_overlay",
+            "target_label": "adjective minute meaning extremely small/detailed contrasts with noun/verb /ˈmɪnɪt/"
+          }
+        },
         "usage": [
           {
             "id": "collocation:7d5cc82bf61da6be10e7",
@@ -7143,10 +7300,18 @@
         "source_locator": "record.senses[5]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "记录；摘录",
-        "definition_en": "to record or note something",
+        "definition_cn": "把会议或议事过程正式记录下来",
+        "definition_en": "to make an official written record of a meeting or proceedings",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "noun/verb minute is /ˈmɪnɪt/; adjective minute meaning extremely small/detailed is /maɪˈnjuːt/ (US also /maɪˈnuːt/)",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[5].lexical_identity_overlay",
+            "target_label": "noun/verb minute is /ˈmɪnɪt/; adjective minute meaning extremely small/detailed is /maɪˈnjuːt/ (US also /maɪˈnuːt/)"
+          }
+        },
         "usage": [
           {
             "id": "collocation:9bccda80ac5e259eb8ed",
@@ -7161,7 +7326,7 @@
           "target_kind": "sense",
           "target_id": "sense:minute:a58496a5169155d4",
           "target_locator": "record.senses[5]",
-          "target_label": "记录；摘录"
+          "target_label": "把会议或议事过程正式记录下来"
         }
       }
     ],

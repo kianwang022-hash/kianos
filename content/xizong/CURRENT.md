@@ -11,7 +11,7 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 
 - Final learner acceptance engineering is **CLOSED / RETIRED**. Exact result: ACCEPTANCE.md.
 - Broad D/E/F medical-content construction and A1-F exact System-question membership are closed in CONTENT_MAINLINE.md; do not duplicate their status here.
-- Reviewed Question → Knowledge work and explicit question SECOND_PASS work may continue only through their dedicated owners. Missing mapping remains legal.
+- Unified Question SECOND_PASS and reviewed Question → Knowledge Crosswalk are **CLOSED** for the current 2005–2026 corpus: 3750/3750 rich explanations, 3043 REVIEWED relations, 707 legal NO_SAFE_MATCH, 0 NEEDS. Reopen only for a real defect, authoritative Source change, or explicit new corpus.
 - Subject maturity cursor is **Stage B — first-pass learner capability / Real-U acquisition**. MATURITY_PACKAGE.md owns the 270-protect / 275-working-score control path.
 - Real learner U remains private real-use truth and is not manufactured by engineering proof.
 - Known Source limit: B1 KP03 still references two authoritative original PNGs whose bytes are unavailable. Keep those figures UPSTREAM_SOURCE_MISSING; never generate or substitute them.

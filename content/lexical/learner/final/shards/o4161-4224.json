@@ -5,11 +5,11 @@
     "ordinal": 4161,
     "word": "rich",
     "source_owner_path": "content/lexical/words/by-ordinal/o4161.json",
-    "source_fingerprint": "8d4996244d65103159e9e4113d1c9c4db991b01266cb9917d8ba986a4e963425",
+    "source_fingerprint": "c3250ed026e1676530159830fd0af44cbb360c7b3d1d073971248de59c0ebd4f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "4A"
+        "5A"
       ],
       "density": "rich"
     },
@@ -148,6 +148,50 @@
           "target_locator": "record.senses[3]",
           "target_label": "多产的；丰产的"
         }
+      },
+      {
+        "id": "sense:rich:2660dc0b3f303995",
+        "source_locator": "record.senses[4]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "（食物）油腻浓厚的；含大量黄油、奶油、蛋、油或糖的",
+        "definition_en": "of food, containing a lot of butter, cream, eggs, oil, sugar, etc.; heavy and strongly flavored",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:c1843e3c429acc7f66b2",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "a rich sauce",
+            "meaning_cn": "浓厚油润的酱汁",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:c1843e3c429acc7f66b2",
+              "target_locator": "record.senses[4].collocations[0]",
+              "target_label": "a rich sauce"
+            }
+          },
+          {
+            "id": "collocation:d5bf41e05d623391e40f",
+            "source_locator": "record.senses[4].collocations[1]",
+            "phrase": "a rich dessert",
+            "meaning_cn": "浓郁油腻的甜点",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:d5bf41e05d623391e40f",
+              "target_locator": "record.senses[4].collocations[1]",
+              "target_label": "a rich dessert"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:rich:2660dc0b3f303995",
+          "target_locator": "record.senses[4]",
+          "target_label": "（食物）油腻浓厚的；含大量黄油、奶油、蛋、油或糖的"
+        }
       }
     ],
     "secondary_senses": [],
@@ -263,15 +307,8 @@
     "ordinal": 4163,
     "word": "riddle",
     "source_owner_path": "content/lexical/words/by-ordinal/o4163.json",
-    "source_fingerprint": "2f490540a680c97b45ef741fc2df34a55766e79049fd661161e18bc86b8b7dfd",
+    "source_fingerprint": "b19b43b2558adcad2824b7744ea8f111786f4b5e4f44ad16396283321e078b83",
     "sense_lineage": [
-      {
-        "word_id": "word:riddle",
-        "target_kind": "sense",
-        "from_target_id": "sense:riddle:5965f5f31ac0541e",
-        "status": "deprecated",
-        "to_target_id": null
-      },
       {
         "word_id": "word:riddle",
         "target_kind": "sense",
@@ -282,9 +319,10 @@
     ],
     "recall_map": {
       "parts": [
-        "1N"
+        "1V",
+        "2N"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
       "summary_cn": "谜语、谜题；另有次级动词义",
@@ -302,8 +340,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "谜；谜语",
-        "definition_en": "a difficult problem",
+        "definition_cn": "谜团；难解的问题",
+        "definition_en": "a difficult problem or mystery that is hard to explain or solve",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -311,12 +349,86 @@
           "target_kind": "sense",
           "target_id": "sense:riddle:4412bd84f05e5ee1",
           "target_locator": "record.senses[0]",
-          "target_label": "谜；谜语"
+          "target_label": "谜团；难解的问题"
+        }
+      },
+      {
+        "id": "sense:riddle:978642f433bbfcad",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "谜语；谜题",
+        "definition_en": "a question, statement, or puzzle whose answer is difficult, clever, or amusing to work out",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:496416116062b6f16431",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "solve a riddle",
+            "meaning_cn": "解谜语",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:496416116062b6f16431",
+              "target_locator": "record.senses[1].collocations[0]",
+              "target_label": "solve a riddle"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:riddle:978642f433bbfcad",
+          "target_locator": "record.senses[1]",
+          "target_label": "谜语；谜题"
+        }
+      },
+      {
+        "id": "sense:riddle:5965f5f31ac0541e",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "vt.: riddle sth with sth; be riddled with sth",
+        "definition_cn": "使布满孔洞；使充斥/充满（尤指问题、错误等）",
+        "definition_en": "to fill something with many holes or with many undesirable things or problems",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:riddle:5965f5f31ac0541e",
+          "target_locator": "record.senses[2]",
+          "target_label": "使布满孔洞；使充斥/充满（尤指问题、错误等）"
         }
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:2346da318d8973bcddc6",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be riddled with sth",
+        "lines": [
+          {
+            "text": "充斥着；布满",
+            "lang": "cn"
+          },
+          {
+            "text": "passive/result construction; often problems, errors, holes, disease",
+            "lang": "en"
+          },
+          {
+            "text": "to be full of many undesirable things, problems, or holes",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:2346da318d8973bcddc6",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be riddled with sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -330,7 +442,7 @@
     "ordinal": 4164,
     "word": "ride",
     "source_owner_path": "content/lexical/words/by-ordinal/o4164.json",
-    "source_fingerprint": "c40a63d9f7081dbe6aaa5da1caefbdf9e5d73f4d90221aa75738a275e2c2e47e",
+    "source_fingerprint": "d38d36586db6e2587fb598a4d7a5737065c8536808f210c861f3bee318c63c19",
     "sense_lineage": [
       {
         "word_id": "word:ride",
@@ -362,7 +474,7 @@
         "id": "sense:ride:453a97f561f55642",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: ride a horse/bike; ride on a horse/bike",
         "definition_cn": "骑（马、自行车等）",
         "definition_en": "sit on and control an animal or bicycle",
         "note": "",
@@ -413,7 +525,7 @@
         "id": "sense:ride:a4e9c621e46b5bf9",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "I/T: ride in/on a vehicle; especially AmE ride the bus/train",
         "definition_cn": "乘坐（车、船等）",
         "definition_en": "travel in or on a vehicle",
         "note": "",
@@ -1510,11 +1622,11 @@
     "ordinal": 4172,
     "word": "ring",
     "source_owner_path": "content/lexical/words/by-ordinal/o4172.json",
-    "source_fingerprint": "498fa990f591ed194d55e9bf2e04eb4c1ab171c3003d1ad2cfe1240b0af328cc",
+    "source_fingerprint": "37fec24b7fc55754140c003a3334c044bd69add08a62df6d093ddd538635c7de",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3V",
+        "4V",
         "4N"
       ],
       "density": "rich"
@@ -1739,6 +1851,50 @@
           "target_locator": "record.senses[6]",
           "target_label": "电话；一次电话通话"
         }
+      },
+      {
+        "id": "sense:ring:18124f210541eae3",
+        "source_locator": "record.senses[7]",
+        "pos": "verb",
+        "governing_pattern": "I/T: ring sb; ring sb up; ring later",
+        "definition_cn": "给……打电话；打电话",
+        "definition_en": "to telephone or call someone, especially in British English",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:f2eaba5e7da3493abf48",
+            "source_locator": "record.senses[7].collocations[0]",
+            "phrase": "ring sb",
+            "meaning_cn": "给某人打电话",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:f2eaba5e7da3493abf48",
+              "target_locator": "record.senses[7].collocations[0]",
+              "target_label": "ring sb"
+            }
+          },
+          {
+            "id": "collocation:466425215ad07158c377",
+            "source_locator": "record.senses[7].collocations[1]",
+            "phrase": "ring sb up",
+            "meaning_cn": "给某人打电话",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:466425215ad07158c377",
+              "target_locator": "record.senses[7].collocations[1]",
+              "target_label": "ring sb up"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:ring:18124f210541eae3",
+          "target_locator": "record.senses[7]",
+          "target_label": "给……打电话；打电话"
+        }
       }
     ],
     "secondary_senses": [],
@@ -1756,7 +1912,7 @@
     "ordinal": 4173,
     "word": "riot",
     "source_owner_path": "content/lexical/words/by-ordinal/o4173.json",
-    "source_fingerprint": "afd929af6e6945424f19f6b1faf83d9c2f05f8dd03e50026948ee2416169fa5b",
+    "source_fingerprint": "ca2c777b03487c0b02de3eefa626156e04c46d56cbc21acbfdcb83b7fae39b27",
     "sense_lineage": [
       {
         "word_id": "word:riot",
@@ -1805,7 +1961,7 @@
         "id": "sense:riot:96b1061053b95551",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vi.: people/crowds riot",
         "definition_cn": "参与暴乱",
         "definition_en": "to take part in a violent public disturbance",
         "note": "",
@@ -1834,7 +1990,7 @@
     "ordinal": 4174,
     "word": "rip",
     "source_owner_path": "content/lexical/words/by-ordinal/o4174.json",
-    "source_fingerprint": "84cb795f5d0a1c301ee2587846fc89793963d7eb1e51d3d2868b5ef2dc4bd540",
+    "source_fingerprint": "f9dc051dde303a62cba9ca7396fbb2a375eaa4d7509042a6cda5e31a6f4a8e47",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1933,21 +2089,7 @@
         "definition_en": "to move violently or rush",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:7676b7704eb8bab2d51f",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "rip into + sth",
-            "meaning_cn": "冲入某处",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:7676b7704eb8bab2d51f",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "rip into + sth"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:rip:f73a500a9db55dd6",
@@ -2040,7 +2182,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:814d64e00283ddc991d4",
+        "source_locator": "record.constructions[0]",
+        "pattern": "rip into sb/sth",
+        "lines": [
+          {
+            "text": "猛烈抨击；严厉斥责；狠狠攻击",
+            "lang": "cn"
+          },
+          {
+            "text": "figurative attack/criticism construction; distinct from physical rushing into a place",
+            "lang": "en"
+          },
+          {
+            "text": "to attack, criticize, or rebuke someone or something forcefully",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:814d64e00283ddc991d4",
+          "target_locator": "record.constructions[0]",
+          "target_label": "rip into sb/sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -2054,7 +2222,7 @@
     "ordinal": 4175,
     "word": "ripe",
     "source_owner_path": "content/lexical/words/by-ordinal/o4175.json",
-    "source_fingerprint": "cdcf386926bdbd2a5d9951ca0f541ea6669dac2720902f672440210eba21e395",
+    "source_fingerprint": "d09a6b478322ff52dcb112c7d92e005022c7de93ced3a2ad215c0c459561b0be",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2090,19 +2258,6 @@
             "meaning_cn": "成熟的水果",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:258b28a2c8269a6aadd9",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "ripe for + sth",
-            "meaning_cn": "时机成熟，适合某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:258b28a2c8269a6aadd9",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "ripe for + sth"
-            }
           }
         ],
         "repair": {
@@ -2129,6 +2284,19 @@
             "meaning_cn": "变革时机成熟",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:258b28a2c8269a6aadd9",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "ripe for + sth",
+            "meaning_cn": "时机成熟，适合某事",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:258b28a2c8269a6aadd9",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "ripe for + sth"
+            }
           }
         ],
         "repair": {
@@ -2180,7 +2348,7 @@
     "ordinal": 4176,
     "word": "rise",
     "source_owner_path": "content/lexical/words/by-ordinal/o4176.json",
-    "source_fingerprint": "ca7b9c232c3b2ed75b1ac1b90abe8e84642cebfdb25c30116d51c1160e48ca81",
+    "source_fingerprint": "be56a1ce0d918cb270ced57f99018434bf32e68dcd18312dcdc207e9dcdedd2c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2208,7 +2376,15 @@
         "definition_cn": "上升；升起",
         "definition_en": "to move upward",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "rise (move upward): past tense rose; rose as the flower/color word is a separate lexical identity",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "rise (move upward): past tense rose; rose as the flower/color word is a separate lexical identity"
+          }
+        },
         "usage": [
           {
             "id": "collocation:fceab22113ccab80ae51",
@@ -2402,7 +2578,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:74818765f5e9174e8ea3",
+        "source_locator": "record.constructions[0]",
+        "pattern": "give rise to sth",
+        "lines": [
+          {
+            "text": "引起；导致；使某事发生/产生",
+            "lang": "cn"
+          },
+          {
+            "text": "causation construction, not literal upward movement",
+            "lang": "en"
+          },
+          {
+            "text": "to cause something, especially a situation or problem, to happen or exist",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:74818765f5e9174e8ea3",
+          "target_locator": "record.constructions[0]",
+          "target_label": "give rise to sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [
         {
@@ -3691,7 +3893,7 @@
     "ordinal": 4188,
     "word": "rock",
     "source_owner_path": "content/lexical/words/by-ordinal/o4188.json",
-    "source_fingerprint": "b5ae43015d7ce28b850e396da5a2ab5d4af41461946f4dfafa022dd02d1845a9",
+    "source_fingerprint": "25362b6ee81f28b495b4322deb019e12089d01857b1c8ef6f5f635427c066c17",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3853,7 +4055,7 @@
         "id": "sense:rock:d39a99bb96d3588c",
         "source_locator": "record.senses[5]",
         "pos": "verb",
-        "governing_pattern": "vi.",
+        "governing_pattern": "vi.: rock back and forth/from side to side",
         "definition_cn": "摇摆；晃动",
         "definition_en": "to move back and forth or from side to side",
         "note": "",
@@ -4714,7 +4916,7 @@
     "ordinal": 4195,
     "word": "roof",
     "source_owner_path": "content/lexical/words/by-ordinal/o4195.json",
-    "source_fingerprint": "42830442887ade7b92802c3ce0175721784e0b90856abcff3f7ef5751eb5692c",
+    "source_fingerprint": "0f865175041997071dc95e1d6f938f418df32abba8c6298eca359062bf0c97f4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4749,14 +4951,6 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "on the roof",
             "meaning_cn": "在屋顶上",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:7b10d7e5fdf92cc2dc61",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "roof of the mouth",
-            "meaning_cn": "上颚",
             "kind": "usage_example",
             "repair": null
           }
@@ -4822,7 +5016,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:7a15e7df49be988a1d61",
+        "source_locator": "record.constructions[0]",
+        "pattern": "the roof of the/your mouth",
+        "lines": [
+          {
+            "text": "上颚；口腔内侧的上表面",
+            "lang": "cn"
+          },
+          {
+            "text": "fixed body-part extension, not a building roof",
+            "lang": "en"
+          },
+          {
+            "text": "the upper inside surface of the mouth",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:7a15e7df49be988a1d61",
+          "target_locator": "record.constructions[0]",
+          "target_label": "the roof of the/your mouth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5062,7 +5282,7 @@
     "ordinal": 4197,
     "word": "root",
     "source_owner_path": "content/lexical/words/by-ordinal/o4197.json",
-    "source_fingerprint": "e48175c9593d632d82b0a2379314f2a1cbb253ca3ae4049febf8349f31678cc7",
+    "source_fingerprint": "4bd6a8f9d7695c8f49a7458593197ec04ae339a9e93dad13e590c433546046f2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5262,6 +5482,31 @@
           "target_locator": "record.constructions[0]",
           "target_label": "be rooted in sth"
         }
+      },
+      {
+        "id": "construction:54fa90393f88e0de9c63",
+        "source_locator": "record.constructions[1]",
+        "pattern": "root for sb/sth",
+        "lines": [
+          {
+            "text": "支持某人/某队；希望其成功",
+            "lang": "cn"
+          },
+          {
+            "text": "mainly AmE support construction; not botanical root",
+            "lang": "en"
+          },
+          {
+            "text": "to support someone or something and want them to succeed",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:54fa90393f88e0de9c63",
+          "target_locator": "record.constructions[1]",
+          "target_label": "root for sb/sth"
+        }
       }
     ],
     "reference": {
@@ -5373,7 +5618,7 @@
     "ordinal": 4199,
     "word": "rose",
     "source_owner_path": "content/lexical/words/by-ordinal/o4199.json",
-    "source_fingerprint": "0b06f1ef425da1410aad722dac1f14f3fe60f2eb0bc595ed20a38ea992fd1bc5",
+    "source_fingerprint": "57f64fae13b78e277b85202002fc8bd04773f905c2153088ce07ba75a26b3565",
     "sense_lineage": [
       {
         "word_id": "word:rose",
@@ -5392,13 +5637,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "玫瑰、蔷薇或玫瑰色；rose=rise过去式属于 Form/inflection truth而非语义分支",
+      "summary_cn": "玫瑰、蔷薇或玫瑰色；另需识别 rose 也是 rise 的过去式",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "玫瑰、蔷薇或玫瑰色；rose=rise过去式属于 Form/inflection truth而非语义分支"
+        "target_label": "玫瑰、蔷薇或玫瑰色；另需识别 rose 也是 rise 的过去式"
       }
     },
     "senses": [
@@ -5515,14 +5760,6 @@
               "target_locator": "record.senses[2].collocations[0]",
               "target_label": "rose-colored glasses"
             }
-          },
-          {
-            "id": "collocation:d472c7f98b1a34416e9f",
-            "source_locator": "record.senses[2].collocations[1]",
-            "phrase": "a rose garden",
-            "meaning_cn": "一个玫瑰园",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -5576,20 +5813,7 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "rose ↔ rose",
-          "target_word": "rose",
-          "lines": [],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:ae37499e057d4bb914dc",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "rose ↔ rose"
-          }
-        }
-      ],
+      "relations": [],
       "form": null,
       "family": []
     }
@@ -5831,7 +6055,7 @@
     "ordinal": 4201,
     "word": "rotate",
     "source_owner_path": "content/lexical/words/by-ordinal/o4201.json",
-    "source_fingerprint": "565bffc90cfaadc79976234b4baa3f69d2e400dbd1ee72566724150654da2b89",
+    "source_fingerprint": "a20819148aec7ff3746d3c33f42b52f52537f92f5b9b81d55b6ea1a58bdcd243",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5926,10 +6150,10 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:7904de24b4b15a16004b",
+            "id": "collocation:8a34b6ab15ebd14eb7f9",
             "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "rotate shifts",
-            "meaning_cn": "轮班",
+            "phrase": "staff/team members rotate through roles",
+            "meaning_cn": "员工/成员轮流担任不同角色",
             "kind": "usage_example",
             "repair": null
           }
@@ -5956,6 +6180,14 @@
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "rotate crops",
             "meaning_cn": "轮作",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:7904de24b4b15a16004b",
+            "source_locator": "record.senses[3].collocations[1]",
+            "phrase": "rotate shifts",
+            "meaning_cn": "轮班",
             "kind": "usage_example",
             "repair": null
           }
@@ -7069,7 +7301,7 @@
     "ordinal": 4209,
     "word": "row",
     "source_owner_path": "content/lexical/words/by-ordinal/o4209.json",
-    "source_fingerprint": "5b4428db86e5af264bd6f9e722d9cb98dc66bf0794ccfc012ada8854a5d2e825",
+    "source_fingerprint": "13b338c0a51fe8efb87e4d8247fee3e0c6c828cac73405a36ffe043c5921e507",
     "sense_lineage": [
       {
         "word_id": "word:row",
@@ -7081,7 +7313,7 @@
     ],
     "recall_map": {
       "parts": [
-        "1V",
+        "2V",
         "2N"
       ],
       "density": "rich"
@@ -7140,7 +7372,7 @@
         "id": "sense:row:95b218aabf4c5b9f",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "I/T: row a boat; row across/on the lake",
         "definition_cn": "划船",
         "definition_en": "to propel a boat with oars",
         "note": "",
@@ -7168,6 +7400,45 @@
           "target_id": "sense:row:2250c8db5d4355be",
           "target_locator": "record.senses[2]",
           "target_label": "争吵，吵闹"
+        }
+      },
+      {
+        "id": "sense:row:17262aa0f0b9a602",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "vi.: row with sb; row about/over sth",
+        "definition_cn": "争吵；吵架",
+        "definition_en": "to argue noisily, especially in British English",
+        "note": "",
+        "identity_overlay": {
+          "text": "row meaning quarrel is /raʊ/; line/rowing row is /roʊ/ (AmE) or /rəʊ/ (BrE)",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[3].lexical_identity_overlay",
+            "target_label": "row meaning quarrel is /raʊ/; line/rowing row is /roʊ/ (AmE) or /rəʊ/ (BrE)"
+          }
+        },
+        "usage": [
+          {
+            "id": "collocation:2de004456e52eb424b59",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "row with sb about/over sth",
+            "meaning_cn": "与某人因某事争吵",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:2de004456e52eb424b59",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "row with sb about/over sth"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:row:17262aa0f0b9a602",
+          "target_locator": "record.senses[3]",
+          "target_label": "争吵；吵架"
         }
       }
     ],
@@ -7757,7 +8028,7 @@
     "ordinal": 4214,
     "word": "rubbish",
     "source_owner_path": "content/lexical/words/by-ordinal/o4214.json",
-    "source_fingerprint": "1d4c956a1beb96879f6752edd557d3828c4146c45b44ed00d8f80bfcbc3e10e8",
+    "source_fingerprint": "e245f47929869e53e83219d767ce25160119a524546ab10f700eaa33f8130023",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7794,14 +8065,6 @@
             "meaning_cn": "垃圾桶",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:04c2c27a74c0212159af",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "a load of rubbish",
-            "meaning_cn": "一派胡言",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -7826,6 +8089,14 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "talk rubbish",
             "meaning_cn": "说废话",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:04c2c27a74c0212159af",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "a load of rubbish",
+            "meaning_cn": "一派胡言",
             "kind": "usage_example",
             "repair": null
           }
@@ -8166,7 +8437,7 @@
     "ordinal": 4218,
     "word": "rule",
     "source_owner_path": "content/lexical/words/by-ordinal/o4218.json",
-    "source_fingerprint": "906f586aed6bf195443f3ab303fbba9a78c6c4202c5296bca2879f659a3ddf74",
+    "source_fingerprint": "d8c30dd122b62e3f931ae1865542f34cc4061039bd96a58f6817e41330321bb8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8241,7 +8512,7 @@
         "id": "sense:rule:8db1e8e544d356ca",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "rule that + clause; rule on sth; rule for/against sb",
         "definition_cn": "裁决，裁定",
         "definition_en": "decide officially",
         "note": "",
@@ -8288,7 +8559,33 @@
         }
       }
     ],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:9ca751e0feb4740d6c25",
+        "source_locator": "record.constructions[0]",
+        "pattern": "rule out sb/sth / rule sb/sth out",
+        "lines": [
+          {
+            "text": "排除；排除……的可能性；不予考虑",
+            "lang": "cn"
+          },
+          {
+            "text": "idiomatic exclusion; distinct from official adjudication",
+            "lang": "en"
+          },
+          {
+            "text": "to exclude or eliminate someone or something from consideration or possibility",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:9ca751e0feb4740d6c25",
+          "target_locator": "record.constructions[0]",
+          "target_label": "rule out sb/sth / rule sb/sth out"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -8529,7 +8826,7 @@
     "ordinal": 4221,
     "word": "run",
     "source_owner_path": "content/lexical/words/by-ordinal/o4221.json",
-    "source_fingerprint": "300cfffb6a2dfc90051ae8964c1ba4c31445079ec81413600519f4d9d0b25b37",
+    "source_fingerprint": "00a8a3b7f8990c2e5dd433b1b7354ec33bd7a85eb66a4704b7b1421cd77686c5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8579,7 +8876,7 @@
         "id": "sense:run:846c002056cf5bea",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "vt.: run/manage a business, organization, service, or operation",
         "definition_cn": "经营；管理",
         "definition_en": "to manage or operate something",
         "note": "",
@@ -8688,7 +8985,7 @@
         "id": "sense:run:8a02f36626405160",
         "source_locator": "record.senses[5]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "I/T: a machine/program/system runs; run a program/test; run on electricity/software",
         "definition_cn": "运行；操作；使运转",
         "definition_en": "to operate, control, or cause a machine, program, system, or process to function",
         "note": "",

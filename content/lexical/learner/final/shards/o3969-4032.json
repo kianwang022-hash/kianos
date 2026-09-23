@@ -5,7 +5,7 @@
     "ordinal": 3969,
     "word": "reason",
     "source_owner_path": "content/lexical/words/by-ordinal/o3969.json",
-    "source_fingerprint": "7abda6efe1d400f5bd9a8801f8efc1c99ff3f2d55e5ae82f5da14d602291de9c",
+    "source_fingerprint": "79dfde8ee8c453a80d0737e06d08b2e7ee2e16a0ef07dda7f25e87ba62918d80",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -99,26 +99,12 @@
         "id": "sense:reason:54694daefeef519e",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + with",
+        "governing_pattern": "vi.: reason from/about sth; reason sth out where explicitly supported",
         "definition_cn": "推理；思考",
         "definition_en": "to think logically in order to form a conclusion",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:7ddfb9c0b3d051cda881",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "reason with + sb",
-            "meaning_cn": "与某人理论；劝导某人",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:7ddfb9c0b3d051cda881",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "reason with + sb"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:reason:54694daefeef519e",
@@ -130,7 +116,7 @@
         "id": "sense:reason:16a44112c0f451e9",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: reason with sb; reason sb into/out of sth",
         "definition_cn": "说服；劝说",
         "definition_en": "to persuade someone using logical arguments",
         "note": "",
@@ -147,6 +133,19 @@
               "target_id": "collocation:f8293f7e8f30ff56d844",
               "target_locator": "record.senses[3].collocations[0]",
               "target_label": "reason sb into/out of + sth"
+            }
+          },
+          {
+            "id": "collocation:7ddfb9c0b3d051cda881",
+            "source_locator": "record.senses[3].collocations[1]",
+            "phrase": "reason with + sb",
+            "meaning_cn": "与某人理论；劝导某人",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:7ddfb9c0b3d051cda881",
+              "target_locator": "record.senses[3].collocations[1]",
+              "target_label": "reason with + sb"
             }
           }
         ],
@@ -402,7 +401,7 @@
     "ordinal": 3972,
     "word": "rebel",
     "source_owner_path": "content/lexical/words/by-ordinal/o3972.json",
-    "source_fingerprint": "fc40c41cca5caccb331c4a6405fcac0441013786b42a2a83d90b2930aa3e5ff9",
+    "source_fingerprint": "8d7f43ce3385bc7cc0308b1c37ad3deb94ed1a4efc238c3bf230e4744b5ab1df",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -431,7 +430,15 @@
         "definition_cn": "反叛者",
         "definition_en": "a person who opposes or fights against authority",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "noun/adjective rebel normally has initial stress; verb rebel has final stress",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "noun/adjective rebel normally has initial stress; verb rebel has final stress"
+          }
+        },
         "usage": [
           {
             "id": "collocation:94c57f9206034d101f54",
@@ -457,7 +464,15 @@
         "definition_cn": "造反；反抗",
         "definition_en": "fight against authority or established customs",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "verb rebel has final stress; noun/adjective rebel normally has initial stress",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "verb rebel has final stress; noun/adjective rebel normally has initial stress"
+          }
+        },
         "usage": [
           {
             "id": "collocation:ce9fc1cd7e8d91d9ac9f",
@@ -488,7 +503,15 @@
         "definition_cn": "反抗的",
         "definition_en": "defying authority",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "noun/adjective rebel normally has initial stress; verb rebel has final stress",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[2].lexical_identity_overlay",
+            "target_label": "noun/adjective rebel normally has initial stress; verb rebel has final stress"
+          }
+        },
         "usage": [
           {
             "id": "collocation:80b9f4e7dee976ab7a8e",
@@ -510,25 +533,7 @@
     "secondary_senses": [],
     "constructions": [],
     "reference": {
-      "confusables": [
-        {
-          "title": "rebel ↔ adjective/rebel noun ↔ rebel verb",
-          "target_word": "adjective/rebel noun ↔ rebel verb",
-          "lines": [
-            {
-              "text": "rebel noun/adjective /ˈrebəl/; rebel verb /rɪˈbel/.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "confusable:horizontal:5a0876d7a6d20ade013a",
-            "target_locator": "record.confusables[0]",
-            "target_label": "rebel ↔ adjective/rebel noun ↔ rebel verb"
-          }
-        }
-      ],
+      "confusables": [],
       "relations": [],
       "form": null,
       "family": []
@@ -762,7 +767,7 @@
     "ordinal": 3975,
     "word": "recede",
     "source_owner_path": "content/lexical/words/by-ordinal/o3975.json",
-    "source_fingerprint": "e16d0244e6b27fdcfb2a0fdf57b42b128e4e95e035a9299a7c3e4a87f8bbc1ca",
+    "source_fingerprint": "c35b38f179f35218042ed9c1679c31480367d312ddb0cbafcfc48730d2bc8ad6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -841,7 +846,7 @@
         "id": "sense:recede:ec7d7ab342765d73",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vi.: recede; recede from sth",
         "definition_cn": "后退，退却",
         "definition_en": "to move back or away from a previous position",
         "note": "",
@@ -870,7 +875,7 @@
     "ordinal": 3976,
     "word": "receipt",
     "source_owner_path": "content/lexical/words/by-ordinal/o3976.json",
-    "source_fingerprint": "dceca2730191f050471395700b6189c645c57443783cb03a3f3d49d857d1a105",
+    "source_fingerprint": "817cb3ff9fd69cf987b84940d29f0388bd19fd54b7971053fd3551cb7ab06652",
     "sense_lineage": [
       {
         "word_id": "word:receipt",
@@ -901,13 +906,13 @@
       "density": "light"
     },
     "word_feel": {
-      "summary_cn": "收到或付款的凭证",
+      "summary_cn": "收据；收到或付款的凭证",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "收到或付款的凭证"
+        "target_label": "收据；收到或付款的凭证"
       }
     },
     "senses": [
@@ -916,8 +921,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "收据，发票",
-        "definition_en": "a written or printed statement that money or goods have been received",
+        "definition_cn": "收据；收条；收到/付款凭证",
+        "definition_en": "a written or printed statement acknowledging that money or goods have been received",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -925,7 +930,7 @@
           "target_kind": "sense",
           "target_id": "sense:receipt:7827576b619e58eb",
           "target_locator": "record.senses[0]",
-          "target_label": "收据，发票"
+          "target_label": "收据；收条；收到/付款凭证"
         }
       }
     ],
@@ -1497,7 +1502,7 @@
     "ordinal": 3982,
     "word": "recipient",
     "source_owner_path": "content/lexical/words/by-ordinal/o3982.json",
-    "source_fingerprint": "40f77fdce3bce8e38fc9a38876190d778736c92dbe1f65347e93ca6f35e08bc9",
+    "source_fingerprint": "79daa0e27f189b5f9ccdb208cc1ba7a36a944845cfc3e7bdc646c489bd17880d",
     "sense_lineage": [
       {
         "word_id": "word:recipient",
@@ -2167,30 +2172,22 @@
     "ordinal": 3988,
     "word": "recognise",
     "source_owner_path": "content/lexical/words/by-ordinal/o3988.json",
-    "source_fingerprint": "6da77f6c24d66c953df5821fcbb07b62865edcc6df38224f018b2f6beb62e3ef",
-    "sense_lineage": [
-      {
-        "word_id": "word:recognise",
-        "target_kind": "sense",
-        "from_target_id": "sense:recognise:f0b79362d1c152ee",
-        "status": "deprecated",
-        "to_target_id": null
-      }
-    ],
+    "source_fingerprint": "2c95e2a5503f3b4d0be9fa720c481d1e093f42afc4d2c0dbb2f540934b52383e",
+    "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "5V"
+        "6V"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "认出；承认",
+      "summary_cn": "认出；意识到；承认/认可",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "认出；承认"
+        "target_label": "认出；意识到；承认/认可"
       }
     },
     "senses": [
@@ -2202,7 +2199,15 @@
         "definition_cn": "认出，识别",
         "definition_en": "perceive to be the same; identify from previous encounters",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "recognise and recognize are regional spelling variants of the same lexeme; recognise is common BrE, recognize common AmE",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "recognise and recognize are regional spelling variants of the same lexeme; recognise is common BrE, recognize common AmE"
+          }
+        },
         "usage": [
           {
             "id": "collocation:9b09da16a0de8d3874a0",
@@ -2241,7 +2246,15 @@
         "definition_cn": "认识到，意识到",
         "definition_en": "be fully aware or cognizant of",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "recognise and recognize are regional spelling variants of the same lexeme; recognise is common BrE, recognize common AmE",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "recognise and recognize are regional spelling variants of the same lexeme; recognise is common BrE, recognize common AmE"
+          }
+        },
         "usage": [
           {
             "id": "collocation:496e0a3db4032b393b4d",
@@ -2280,7 +2293,15 @@
         "definition_cn": "赏识，赞赏",
         "definition_en": "show approval or appreciation of",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "recognise and recognize are regional spelling variants of the same lexeme; recognise is common BrE, recognize common AmE",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[2].lexical_identity_overlay",
+            "target_label": "recognise and recognize are regional spelling variants of the same lexeme; recognise is common BrE, recognize common AmE"
+          }
+        },
         "usage": [
           {
             "id": "collocation:5a89c41c5b11ee0ac19d",
@@ -2311,7 +2332,15 @@
         "definition_cn": "打招呼，致意",
         "definition_en": "express greetings upon meeting someone",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "recognise and recognize are regional spelling variants of the same lexeme; recognise is common BrE, recognize common AmE",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[3].lexical_identity_overlay",
+            "target_label": "recognise and recognize are regional spelling variants of the same lexeme; recognise is common BrE, recognize common AmE"
+          }
+        },
         "usage": [
           {
             "id": "collocation:b7f373e1ce17791b133d",
@@ -2337,7 +2366,15 @@
         "definition_cn": "感谢，致谢",
         "definition_en": "express obligation, thanks, or gratitude for",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "recognise and recognize are regional spelling variants of the same lexeme; recognise is common BrE, recognize common AmE",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[4].lexical_identity_overlay",
+            "target_label": "recognise and recognize are regional spelling variants of the same lexeme; recognise is common BrE, recognize common AmE"
+          }
+        },
         "usage": [
           {
             "id": "collocation:5bc7a70cd5075a548fd3",
@@ -2354,61 +2391,64 @@
           "target_locator": "record.senses[4]",
           "target_label": "感谢，致谢"
         }
+      },
+      {
+        "id": "sense:recognise:f0b79362d1c152ee",
+        "source_locator": "record.senses[5]",
+        "pos": "verb",
+        "governing_pattern": "vt.: recognise sb/sth as sth",
+        "definition_cn": "承认；认可；正式认定",
+        "definition_en": "to acknowledge or accept someone/something as having a stated status, identity, authority, right, validity, or importance",
+        "note": "",
+        "identity_overlay": {
+          "text": "recognise and recognize are regional spelling variants of the same lexeme; recognise is common BrE, recognize common AmE",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[5].lexical_identity_overlay",
+            "target_label": "recognise and recognize are regional spelling variants of the same lexeme; recognise is common BrE, recognize common AmE"
+          }
+        },
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:recognise:f0b79362d1c152ee",
+          "target_locator": "record.senses[5]",
+          "target_label": "承认；认可；正式认定"
+        }
       }
     ],
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "deep:constructions:recognise:b12cfafee1d3963d",
+        "id": "construction:ff1e3caba9ca6ea58d0b",
         "source_locator": "record.constructions[0]",
-        "pattern": "recognise sb as sth",
+        "pattern": "recognise sb/sth as sth",
         "lines": [
           {
-            "text": "承认某人为某物",
+            "text": "承认；认可；正式认定为…",
             "lang": "cn"
           },
           {
-            "text": "承认，认可",
-            "lang": "cn"
+            "text": "formal/status/authority/validity recognition; distinct from identifying a familiar face",
+            "lang": "en"
           },
           {
-            "text": "recognise sb as sth 承认",
-            "lang": "cn"
-          },
-          {
-            "text": "accept (someone) to be what is claimed or accept his power and authority",
+            "text": "to acknowledge or accept someone or something as having a stated status, authority, identity, right, or validity",
             "lang": "en"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "deep:constructions:recognise:b12cfafee1d3963d",
+          "target_id": "construction:ff1e3caba9ca6ea58d0b",
           "target_locator": "record.constructions[0]",
-          "target_label": "recognise sb as sth"
+          "target_label": "recognise sb/sth as sth"
         }
       }
     ],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "recognise ↔ recognize",
-          "target_word": "recognize",
-          "lines": [
-            {
-              "text": "recognize and recognise are regional spelling variants; preserve both stable Word owners and exact-spelling lookups.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:ab2de6c1cb84bc2ae171",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "recognise ↔ recognize"
-          }
-        }
-      ],
+      "relations": [],
       "form": null,
       "family": [
         {
@@ -2648,7 +2688,7 @@
     "ordinal": 3991,
     "word": "recommend",
     "source_owner_path": "content/lexical/words/by-ordinal/o3991.json",
-    "source_fingerprint": "52e0106fd6afc47d02db406389da2e7c10891c41df0b296eead6d2e2a081e32b",
+    "source_fingerprint": "31b1db7ed0ae0600f600d3f6083c4448799a1272ad225705fe918b2a0e9aea96",
     "sense_lineage": [
       {
         "word_id": "word:recommend",
@@ -2679,7 +2719,7 @@
         "id": "sense:recommend:2a480cd40e6c507d",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "recommend sth to sb; recommend sb for sth; recommend doing sth; recommend that + clause",
         "definition_cn": "推荐；建议",
         "definition_en": "to suggest a person, thing, or course of action as good, suitable, or advisable",
         "note": "",
@@ -2792,7 +2832,7 @@
     "ordinal": 3992,
     "word": "reconcile",
     "source_owner_path": "content/lexical/words/by-ordinal/o3992.json",
-    "source_fingerprint": "fca51b5facf994ed96aad530fc85dafe539c7e911afdbaecca08e8483cfe2dd6",
+    "source_fingerprint": "551550905923b2675ddae252f48866276cdd3410173b15be425882143679ce5c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2815,26 +2855,12 @@
         "id": "sense:reconcile:38279ce9a11354a2",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "reconcile A with B",
         "definition_cn": "使一致，调和",
         "definition_en": "to make two things compatible or consistent",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:243b12efc2e957435532",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "reconcile + sb to + sth",
-            "meaning_cn": "使某人顺从于某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:243b12efc2e957435532",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "reconcile + sb to + sth"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:reconcile:38279ce9a11354a2",
@@ -2846,7 +2872,7 @@
         "id": "sense:reconcile:a06c8a0d0fac55cb",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "reconcile A and B; reconcile with sb; be reconciled with sb",
         "definition_cn": "使和解，使和好",
         "definition_en": "to make people become friends again after an argument",
         "note": "",
@@ -2877,12 +2903,26 @@
         "id": "sense:reconcile:9af3fcf051c1534d",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "reconcile sb/oneself to sth; be reconciled to sth",
         "definition_cn": "使顺从，使接受",
         "definition_en": "to make someone accept an unpleasant situation",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:243b12efc2e957435532",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "reconcile + sb to + sth",
+            "meaning_cn": "使某人顺从于某事",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:243b12efc2e957435532",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "reconcile + sb to + sth"
+            }
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:reconcile:9af3fcf051c1534d",
@@ -2901,6 +2941,10 @@
           {
             "text": "调和A与B；使A与B一致",
             "lang": "cn"
+          },
+          {
+            "text": "to make two ideas, facts, accounts, or requirements compatible",
+            "lang": "en"
           }
         ],
         "repair": {
@@ -2918,6 +2962,10 @@
           {
             "text": "使自己接受/顺从于某种不愉快现实",
             "lang": "cn"
+          },
+          {
+            "text": "to accept an unpleasant or difficult situation",
+            "lang": "en"
           }
         ],
         "repair": {
@@ -2941,7 +2989,7 @@
     "ordinal": 3993,
     "word": "record",
     "source_owner_path": "content/lexical/words/by-ordinal/o3993.json",
-    "source_fingerprint": "f3c2138a0278182c7d91e56d408bb8f522c62ecf4dc5062c501eb8655c46304c",
+    "source_fingerprint": "6cd5fbd9d26d6ec7b4e625d344741b57f9d6aa97605a5467e2f968aa3a64cb07",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2970,7 +3018,15 @@
         "definition_cn": "记录，记载",
         "definition_en": "to write down or store information for future use",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "verb record has second-syllable stress; noun/adjective record normally has first-syllable stress",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "verb record has second-syllable stress; noun/adjective record normally has first-syllable stress"
+          }
+        },
         "usage": [
           {
             "id": "collocation:dec6b8a5a2ce0735021e",
@@ -3009,7 +3065,15 @@
         "definition_cn": "记录，档案",
         "definition_en": "a written account of something that has happened",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "noun/adjective record normally has first-syllable stress; verb record has second-syllable stress",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "noun/adjective record normally has first-syllable stress; verb record has second-syllable stress"
+          }
+        },
         "usage": [
           {
             "id": "collocation:617963cd1ee232f372c8",
@@ -3048,7 +3112,15 @@
         "definition_cn": "最高纪录",
         "definition_en": "the best achievement or performance in a sport or activity",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "noun/adjective record normally has first-syllable stress; verb record has second-syllable stress",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[2].lexical_identity_overlay",
+            "target_label": "noun/adjective record normally has first-syllable stress; verb record has second-syllable stress"
+          }
+        },
         "usage": [
           {
             "id": "collocation:b2a870d6ba8b151cde57",
@@ -3082,7 +3154,15 @@
         "definition_cn": "录音，录像",
         "definition_en": "to store sound or images on a device",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "verb record has second-syllable stress; noun/adjective record normally has first-syllable stress",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[3].lexical_identity_overlay",
+            "target_label": "verb record has second-syllable stress; noun/adjective record normally has first-syllable stress"
+          }
+        },
         "usage": [
           {
             "id": "collocation:6a475774a832b6b43c26",
@@ -3108,7 +3188,15 @@
         "definition_cn": "唱片",
         "definition_en": "a thin round piece of plastic with music on it",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "noun/adjective record normally has first-syllable stress; verb record has second-syllable stress",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[4].lexical_identity_overlay",
+            "target_label": "noun/adjective record normally has first-syllable stress; verb record has second-syllable stress"
+          }
+        },
         "usage": [
           {
             "id": "collocation:b8bf96d01eb022e4ce8e",
@@ -3134,7 +3222,15 @@
         "definition_cn": "创纪录的",
         "definition_en": "being the highest or best ever achieved",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "noun/adjective record normally has first-syllable stress; verb record has second-syllable stress",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[5].lexical_identity_overlay",
+            "target_label": "noun/adjective record normally has first-syllable stress; verb record has second-syllable stress"
+          }
+        },
         "usage": [
           {
             "id": "collocation:94bf1769423bc7eb11aa",
@@ -3168,7 +3264,15 @@
         "definition_cn": "过往表现；履历；历史记录",
         "definition_en": "the known past actions, behaviour, achievements, successes, or failures of a person or organization",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "noun/adjective record normally has first-syllable stress; verb record has second-syllable stress",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[6].lexical_identity_overlay",
+            "target_label": "noun/adjective record normally has first-syllable stress; verb record has second-syllable stress"
+          }
+        },
         "usage": [
           {
             "id": "collocation:c14c8710c9c0e7858d6d",
@@ -3210,7 +3314,15 @@
         "definition_cn": "显示；录得；取得（读数、结果、盈亏、涨跌等）",
         "definition_en": "to show, register, or report a particular reading, result, amount, profit/loss, rise, or fall",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "verb record has second-syllable stress; noun/adjective record normally has first-syllable stress",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[7].lexical_identity_overlay",
+            "target_label": "verb record has second-syllable stress; noun/adjective record normally has first-syllable stress"
+          }
+        },
         "usage": [
           {
             "id": "collocation:98740d20455c6adc1d80",
@@ -4547,7 +4659,7 @@
     "ordinal": 4004,
     "word": "reduce",
     "source_owner_path": "content/lexical/words/by-ordinal/o4004.json",
-    "source_fingerprint": "59f404e08ebf296e6ff1b7a4eea69288772457b4e08b52756aa2ad3eb2525228",
+    "source_fingerprint": "54f67c8c516c354dc4e6640de49121d0eae34c863160150e06eda99e896b04d3",
     "sense_lineage": [
       {
         "word_id": "word:reduce",
@@ -4650,6 +4762,14 @@
           {
             "text": "使A沦为/降至B；被迫处于B状态",
             "lang": "cn"
+          },
+          {
+            "text": "literal simplification/reduction or figurative worsening/state change; do not revive broad historical weaken/humble senses",
+            "lang": "en"
+          },
+          {
+            "text": "to make something smaller or simpler into a specified form; figuratively to force someone or something into a worse, weaker, or more basic state",
+            "lang": "en"
           }
         ],
         "repair": {
@@ -4794,11 +4914,11 @@
     "ordinal": 4006,
     "word": "redundant",
     "source_owner_path": "content/lexical/words/by-ordinal/o4006.json",
-    "source_fingerprint": "e3bf7b1d4e4dab0b0ce943e0fbe8acc962b35c7d8fd020d624873a0a31103260",
+    "source_fingerprint": "c05ca052df0490ec875b15d699af9cdddbf82f9df58ec0a9fb6e1c3f0af2e816",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2A"
+        "3A"
       ],
       "density": "rich"
     },
@@ -4828,14 +4948,6 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "redundant information",
             "meaning_cn": "冗余信息",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:a381b1840031d9a036d6",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "redundant workers",
-            "meaning_cn": "被裁员的工人",
             "kind": "usage_example",
             "repair": null
           }
@@ -4872,6 +4984,32 @@
           "target_locator": "record.senses[1]",
           "target_label": "赘述的；重复的"
         }
+      },
+      {
+        "id": "sense:redundant:2668cd4a9d4fd975",
+        "source_locator": "record.senses[2]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "（岗位）不再需要的；（人）因岗位取消而被裁的（尤英式）",
+        "definition_en": "chiefly BrE: of a job, no longer needed; of a worker, having lost a job because the position is no longer needed",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:a381b1840031d9a036d6",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "redundant workers",
+            "meaning_cn": "被裁员的工人",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:redundant:2668cd4a9d4fd975",
+          "target_locator": "record.senses[2]",
+          "target_label": "（岗位）不再需要的；（人）因岗位取消而被裁的（尤英式）"
+        }
       }
     ],
     "secondary_senses": [],
@@ -4884,6 +5022,10 @@
           {
             "text": "被裁员；因岗位不再需要而失业",
             "lang": "cn"
+          },
+          {
+            "text": "chiefly BrE employment redundancy, not generic extra/repetitive information",
+            "lang": "en"
           },
           {
             "text": "BrE: to lose one's job because the position is no longer needed",
@@ -4911,7 +5053,7 @@
     "ordinal": 4007,
     "word": "reed",
     "source_owner_path": "content/lexical/words/by-ordinal/o4007.json",
-    "source_fingerprint": "01697600f275756010eb7e40f4096072d20660c9b2782d4f8ae639c14e4da87b",
+    "source_fingerprint": "be8160c58e38ff4da987fc7900e499d5c41e3dc79a07e5565c80feec55dc3308",
     "sense_lineage": [
       {
         "word_id": "word:reed",
@@ -4928,13 +5070,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "芦苇；簧片",
+      "summary_cn": "芦苇；乐器簧片",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "芦苇；簧片"
+        "target_label": "芦苇；乐器簧片"
       }
     },
     "senses": [
@@ -5019,7 +5161,7 @@
     "ordinal": 4008,
     "word": "reel",
     "source_owner_path": "content/lexical/words/by-ordinal/o4008.json",
-    "source_fingerprint": "b7067320684689f350da6ccc11c76c011c59282d72f83eba3ee48df862f6d4c0",
+    "source_fingerprint": "3a6d4bbb67f5f1505294f0ad910f5282837746aa287a53f399533ccbfb657f34",
     "sense_lineage": [
       {
         "word_id": "word:reel",
@@ -5037,13 +5179,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "卷轴或缠绕装置；缠绕；蹒跚或旋转",
+      "summary_cn": "钓鱼绕线轮；蹒跚/眩晕；卷绕",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "卷轴或缠绕装置；缠绕；蹒跚或旋转"
+        "target_label": "钓鱼绕线轮；蹒跚/眩晕；卷绕"
       }
     },
     "senses": [
@@ -5713,11 +5855,11 @@
     "ordinal": 4012,
     "word": "reflect",
     "source_owner_path": "content/lexical/words/by-ordinal/o4012.json",
-    "source_fingerprint": "72f1b2bc990716ea7bca69baf645481b6a9300466f2201e9a597affebf420dc8",
+    "source_fingerprint": "066f7194269c3071cf68e9d6a07832338fa6b70de3d629e071d65ece477bece6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(3+1)V"
+        "3V"
       ],
       "density": "rich"
     },
@@ -5850,22 +5992,7 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:reflect:e98a5f8be9d18ce9",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "反映；显示",
-        "definition_en": "to show or be a sign of a particular situation or feeling",
-        "pattern": "reflect + sth 反映",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:reflect:e98a5f8be9d18ce9",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "反映；显示"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
@@ -5893,18 +6020,7 @@
         }
       ],
       "form": null,
-      "family": [
-        {
-          "target_word": "reflective",
-          "lines": [
-            {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
-              "lang": "cn"
-            }
-          ],
-          "source_locator": "record.word_family[0]"
-        }
-      ]
+      "family": []
     }
   },
   {
@@ -6475,7 +6591,7 @@
     "ordinal": 4018,
     "word": "refuge",
     "source_owner_path": "content/lexical/words/by-ordinal/o4018.json",
-    "source_fingerprint": "3c9eabe137139c711e8d2acbea55411bf13eed1c7bd825a6208c9c91ac910adb",
+    "source_fingerprint": "a79cc0919a6a412d3b0d835b8abd2c04484f98501218dc666997ea7de125f46d",
     "sense_lineage": [
       {
         "word_id": "word:refuge",
@@ -6493,13 +6609,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "躲避危险的庇护所",
+      "summary_cn": "避难所；庇护",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "躲避危险的庇护所"
+        "target_label": "避难所；庇护"
       }
     },
     "senses": [
@@ -6538,7 +6654,21 @@
         "definition_en": "a shelter from danger or hardship",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:8795255ed8020c7ab366",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "seek/take refuge",
+            "meaning_cn": "寻求/获得庇护",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:8795255ed8020c7ab366",
+              "target_locator": "record.senses[1].collocations[0]",
+              "target_label": "seek/take refuge"
+            }
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:refuge:8ec0d427742c5282",
@@ -6641,7 +6771,7 @@
     "ordinal": 4020,
     "word": "refund",
     "source_owner_path": "content/lexical/words/by-ordinal/o4020.json",
-    "source_fingerprint": "ba88b7e831e0c4bab0bfa827c033e9a2c20428a6c3c8ccaac008380cbe0e6179",
+    "source_fingerprint": "99c8d0271b503e4904ccb5a6d20dacaa1e234b937c1545cece4885282aa6b0c4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6669,7 +6799,15 @@
         "definition_cn": "退款",
         "definition_en": "money returned to a payer",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "noun refund normally has initial stress; verb refund has final stress",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "noun refund normally has initial stress; verb refund has final stress"
+          }
+        },
         "usage": [
           {
             "id": "collocation:4c319d0e54f5ea8ef249",
@@ -6708,7 +6846,15 @@
         "definition_cn": "退还；偿还",
         "definition_en": "pay back money to someone",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "verb refund has final stress; noun refund normally has initial stress",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "verb refund has final stress; noun refund normally has initial stress"
+          }
+        },
         "usage": [
           {
             "id": "collocation:e29b646c3ed2ec094e5f",
@@ -6894,7 +7040,7 @@
     "ordinal": 4022,
     "word": "refuse",
     "source_owner_path": "content/lexical/words/by-ordinal/o4022.json",
-    "source_fingerprint": "9d0c6539d16f5ed64a92744a94ad126e39223e11101ddaefe03a02586373baba",
+    "source_fingerprint": "d9ab9b0d12c79a314e2caa7a2981cc3e20b20e0885e1dba2fcc662dec1d2ce27",
     "sense_lineage": [
       {
         "word_id": "word:refuse",
@@ -6927,11 +7073,19 @@
         "id": "sense:refuse:35164db5dcec5749",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "refuse sth; refuse to do sth",
         "definition_cn": "拒绝，谢绝",
         "definition_en": "to say that you will not do or accept something",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "verb refuse is /rɪˈfjuːz/ with final stress; noun/adjective refuse is /ˈref.juːs/ with initial stress",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "verb refuse is /rɪˈfjuːz/ with final stress; noun/adjective refuse is /ˈref.juːs/ with initial stress"
+          }
+        },
         "usage": [
           {
             "id": "collocation:79b0d47f60604c039e80",
@@ -6983,7 +7137,15 @@
         "definition_cn": "扔掉的，无用的",
         "definition_en": "thrown away as worthless",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "noun/adjective refuse is /ˈref.juːs/ with initial stress; verb refuse is /rɪˈfjuːz/ with final stress",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "noun/adjective refuse is /ˈref.juːs/ with initial stress; verb refuse is /rɪˈfjuːz/ with final stress"
+          }
+        },
         "usage": [
           {
             "id": "collocation:6e46ed44d8aafd4e1577",
@@ -7009,7 +7171,15 @@
         "definition_cn": "废物，垃圾",
         "definition_en": "waste material",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "noun/adjective refuse is /ˈref.juːs/ with initial stress; verb refuse is /rɪˈfjuːz/ with final stress",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[2].lexical_identity_overlay",
+            "target_label": "noun/adjective refuse is /ˈref.juːs/ with initial stress; verb refuse is /rɪˈfjuːz/ with final stress"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -7428,7 +7598,7 @@
     "ordinal": 4026,
     "word": "regardless",
     "source_owner_path": "content/lexical/words/by-ordinal/o4026.json",
-    "source_fingerprint": "5af0695cdd73584acca015f5619a68fe2261099e48fba298f0dba4708ab294b7",
+    "source_fingerprint": "ff6e3beebe3ff64932c47677d8990a9e8b90b8228bab2e4a99f463cebee5df3f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7484,6 +7654,14 @@
           {
             "text": "不管；不顾；无论",
             "lang": "cn"
+          },
+          {
+            "text": "regardless of + noun/wh-clause; distinct from bare regardless = anyway/in spite of everything",
+            "lang": "en"
+          },
+          {
+            "text": "without being affected by or taking account of that factor; despite it",
+            "lang": "en"
           }
         ],
         "repair": {
@@ -7620,7 +7798,7 @@
     "ordinal": 4028,
     "word": "region",
     "source_owner_path": "content/lexical/words/by-ordinal/o4028.json",
-    "source_fingerprint": "b1f5a5093ee77fecbe16f978cf16ec30e4b1e9552a1a01f2932edff55d5ada05",
+    "source_fingerprint": "cca50666d1b54a222d128f5b2d52f86327d4e89682b7d649cdce54a5995d5a0e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7650,21 +7828,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:d7acc6a1e45aee798d74",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "in the region of + sth",
-            "meaning_cn": "大约；在……左右",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:d7acc6a1e45aee798d74",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "in the region of + sth"
-            }
-          },
-          {
             "id": "collocation:b77aa93728c5110eaa67",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "autonomous region",
             "meaning_cn": "自治区",
             "kind": "usage_example",
@@ -7732,7 +7897,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:2ef651ffb3352f96f601",
+        "source_locator": "record.constructions[0]",
+        "pattern": "in the region of + number/amount",
+        "lines": [
+          {
+            "text": "大约；在…左右",
+            "lang": "cn"
+          },
+          {
+            "text": "approximate-number construction; geographic in the region of X remains compositional when X is a place",
+            "lang": "en"
+          },
+          {
+            "text": "approximately; roughly around an amount",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:2ef651ffb3352f96f601",
+          "target_locator": "record.constructions[0]",
+          "target_label": "in the region of + number/amount"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7746,7 +7937,7 @@
     "ordinal": 4029,
     "word": "register",
     "source_owner_path": "content/lexical/words/by-ordinal/o4029.json",
-    "source_fingerprint": "f081e7ee449c3463ef9073613ebd34b498d9402aafc9c0b6b612cae9a8b98b67",
+    "source_fingerprint": "cb50e7e223d634a9288d63b53e21d7d4eeade7e4cd2484de536234a1d768952e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7796,7 +7987,7 @@
         "id": "sense:register:846b23227b5b5faa",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: register sth; register for sth; register with an authority/organization",
         "definition_cn": "登记；注册",
         "definition_en": "to record formally; to enroll",
         "note": "",
@@ -7909,7 +8100,16 @@
         "definition_en": "to realize, notice, or become consciously aware of something",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:c1ada412f57e938fe143",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "It didn't register at first.",
+            "meaning_cn": "起初我没有意识到/反应过来",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:register:5f8f827503845890",
@@ -7963,7 +8163,7 @@
     "ordinal": 4030,
     "word": "regret",
     "source_owner_path": "content/lexical/words/by-ordinal/o4030.json",
-    "source_fingerprint": "5becb7141c77f3960d870c7f4e0b09868cb7d241b19b83a4a42d96f124189456",
+    "source_fingerprint": "383fa676ce19351570b84130fa01ea64c233788be5dac0252a7bd7ab40907b59",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7987,7 +8187,7 @@
         "id": "sense:regret:c7aee84a5ad15912",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "regret sth; regret doing/having done sth",
         "definition_cn": "后悔，对…感到遗憾",
         "definition_en": "to feel sorry or sad about something you have done or failed to do",
         "note": "",
@@ -8065,7 +8265,7 @@
         "id": "sense:regret:18fcecbbfcb555e2",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "regret to say/inform/announce/tell; regret sth such as the inconvenience",
         "definition_cn": "（礼貌地）表示歉意",
         "definition_en": "to say or write in a polite way that you are sorry about something",
         "note": "",
@@ -8097,7 +8297,58 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:8ac7fe883722c918a486",
+        "source_locator": "record.constructions[0]",
+        "pattern": "regret doing/having done sth",
+        "lines": [
+          {
+            "text": "后悔已经发生或做过的事",
+            "lang": "cn"
+          },
+          {
+            "text": "past-action remorse/sadness",
+            "lang": "en"
+          },
+          {
+            "text": "to feel sorry about an action or event that already happened",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:8ac7fe883722c918a486",
+          "target_locator": "record.constructions[0]",
+          "target_label": "regret doing/having done sth"
+        }
+      },
+      {
+        "id": "construction:0d7466830acaa7dedcd6",
+        "source_locator": "record.constructions[1]",
+        "pattern": "regret to say/inform/announce/tell ...",
+        "lines": [
+          {
+            "text": "遗憾地告知/说明（正式或礼貌地引出坏消息）",
+            "lang": "cn"
+          },
+          {
+            "text": "formal/polite present-time formula for unwelcome information",
+            "lang": "en"
+          },
+          {
+            "text": "a formal or polite formula introducing bad or unwelcome information now",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:0d7466830acaa7dedcd6",
+          "target_locator": "record.constructions[1]",
+          "target_label": "regret to say/inform/announce/tell ..."
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
