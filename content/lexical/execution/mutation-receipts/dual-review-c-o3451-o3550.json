@@ -1,0 +1,106 @@
+{
+  "schema": "kianos.lexical.streaming_c_window_receipt.v1",
+  "status": "PASS",
+  "range": [
+    3451,
+    3550
+  ],
+  "semantic_baseline_sha": "12766cf94b89bd135016e3213637e31edd19adfe",
+  "shared_watermark_at_reconcile": 7946,
+  "a_review_commit": "90e7482e1615319f9cb07a76737d12a7f0f09a24",
+  "b_review_commit": "80df7a2b073bb53689429358f17567e66aab0a2f",
+  "c_mutation_commit": "65ff089f6eff3a3db4301d1747f42424dba1c090",
+  "decision_manifest": "content/lexical/semantic-review/dual/C/o3451-o3550.decision.json",
+  "semantic_decided_through": 3550,
+  "canonical_applied_through": 3550,
+  "natural_owner_audit": "PASS",
+  "lineage_audit": {
+    "broken_lineage_count": 0,
+    "missing_k_record_count": 0,
+    "broken_source_pointer_count": 0
+  },
+  "targeted_readback": "PASS",
+  "incremental_projection_qa": {
+    "status": "PASS",
+    "validated_words": 30,
+    "changed_paths": 53,
+    "writes": 0,
+    "mode": "PR907_CHANGED_OWNER_AND_REVERSE_RELATION_DEPENDANT"
+  },
+  "direct_render_audit": {
+    "global_status": "BLOCKED",
+    "baseline_blocker_counts": {
+      "invalid_relation_refs": 0,
+      "stale_or_nonlearner_relation_refs": 0,
+      "retired_current_relation_owners": 0,
+      "explicit_word_local_relation_owners": 0,
+      "learner_array_status_leaks": 47,
+      "active_secondary_duplicates": 94,
+      "frontend_semantic_judgment_hits": 0,
+      "word_manifest_count_mismatch": 0,
+      "relation_manifest_count_mismatch": 0
+    },
+    "after_blocker_counts": {
+      "invalid_relation_refs": 0,
+      "stale_or_nonlearner_relation_refs": 0,
+      "retired_current_relation_owners": 0,
+      "explicit_word_local_relation_owners": 0,
+      "learner_array_status_leaks": 45,
+      "active_secondary_duplicates": 92,
+      "frontend_semantic_judgment_hits": 0,
+      "word_manifest_count_mismatch": 0,
+      "relation_manifest_count_mismatch": 0
+    },
+    "changed_owner_new_status_leaks": 0,
+    "note": "Global BLOCKED status is pre-existing catalog-wide projection debt. This window improves learner_array_status_leaks 47→45, active_secondary_duplicates 94→92, exact construction/collocation surface duplicates 108→106, and preserves relation manifest closure while removing one obsolete regional-spelling Relation owner."
+  },
+  "remote_dependency_ordinals": [
+    6023
+  ],
+  "relation_form_rehomes": [
+    "relation:horizontal:234fb7cdf574b4f0ede1 paralyse↔paralyze"
+  ],
+  "noop_ordinals": [],
+  "owner_canonical_drift_reconciled": [
+    3451,
+    3453,
+    3458,
+    3462,
+    3463,
+    3472,
+    3477,
+    3478,
+    3482,
+    3485,
+    3488,
+    3489,
+    3490,
+    3492,
+    3500,
+    3510,
+    3511,
+    3513,
+    3514,
+    3515,
+    3521,
+    3522,
+    3528,
+    3531,
+    3535,
+    3536,
+    3547,
+    3548,
+    3549,
+    6023
+  ],
+  "implementation_cleanup": [
+    "reconciled changed Natural Owners back into the compatibility canonical word mirror instead of rebuilding Current from stale pre-cutover bundles",
+    "repaired invalid party merged lineage and reactivated legal/group/verb senses",
+    "removed stale empty Core clusters on participant and passage",
+    "removed presentation-merge-only pay attention / pay a visit duplicate constructions while preserving authoritative collocations",
+    "removed active-secondary duplicates on pattern, perfect, and perform where a stable active Sense now owns the meaning",
+    "re-homed paralyse↔paralyze regional spelling from semantic Relation to Form/Identity on both endpoints"
+  ],
+  "flob_required_for_semantic_closure": false,
+  "full_flob_rebuild_run": false
+}
