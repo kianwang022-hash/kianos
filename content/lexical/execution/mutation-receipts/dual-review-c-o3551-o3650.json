@@ -1,0 +1,75 @@
+{
+  "schema": "kianos.lexical.streaming_c_window_receipt.v1",
+  "status": "PASS",
+  "range": [
+    3551,
+    3650
+  ],
+  "semantic_baseline_sha": "12766cf94b89bd135016e3213637e31edd19adfe",
+  "shared_watermark_at_reconcile": 7946,
+  "a_review_commit": "90e7482e1615319f9cb07a76737d12a7f0f09a24",
+  "b_review_commit": "80df7a2b073bb53689429358f17567e66aab0a2f",
+  "c_mutation_commit": "bd5f78736f613b22506d4b4b2e573f6976165cb9",
+  "decision_manifest": "content/lexical/semantic-review/dual/C/o3551-o3650.decision.json",
+  "semantic_decided_through": 3650,
+  "canonical_applied_through": 3650,
+  "natural_owner_audit": "PASS",
+  "lineage_audit": {
+    "broken_lineage_count": 0,
+    "missing_k_record_count": 0,
+    "broken_source_pointer_count": 0
+  },
+  "targeted_readback": "PASS",
+  "incremental_projection_qa": {
+    "status": "PASS",
+    "validated_words": 26,
+    "changed_paths": 45,
+    "writes": 0,
+    "mode": "PR907_CHANGED_OWNER_AND_REVERSE_RELATION_DEPENDANT"
+  },
+  "direct_render_audit": {
+    "global_status": "BLOCKED",
+    "baseline_blocker_counts": {
+      "invalid_relation_refs": 0,
+      "stale_or_nonlearner_relation_refs": 0,
+      "retired_current_relation_owners": 0,
+      "explicit_word_local_relation_owners": 0,
+      "learner_array_status_leaks": 45,
+      "active_secondary_duplicates": 92,
+      "frontend_semantic_judgment_hits": 0,
+      "word_manifest_count_mismatch": 0,
+      "relation_manifest_count_mismatch": 0
+    },
+    "after_blocker_counts": {
+      "invalid_relation_refs": 0,
+      "stale_or_nonlearner_relation_refs": 0,
+      "retired_current_relation_owners": 0,
+      "explicit_word_local_relation_owners": 0,
+      "learner_array_status_leaks": 45,
+      "active_secondary_duplicates": 90,
+      "frontend_semantic_judgment_hits": 0,
+      "word_manifest_count_mismatch": 0,
+      "relation_manifest_count_mismatch": 0
+    },
+    "changed_owner_new_status_leaks": 0,
+    "note": "Global BLOCKED remains pre-existing catalog-wide derived/projection debt. This window improves active_secondary_duplicates 92→90, reduces words_requiring_web_judgment_if_unfixed 129→127, and preserves exact Relation manifest closure while removing one obsolete spelling Relation."
+  },
+  "remote_dependency_ordinals": [
+    7278
+  ],
+  "relation_form_rehomes": [
+    "relation:horizontal:f4af27caec887ba4bbe1 plough↔plow"
+  ],
+  "noop_ordinals": [
+    3601
+  ],
+  "implementation_cleanup": [
+    "used Current Natural Owners as semantic authority and synchronized only hit/dependency compatibility mirrors",
+    "removed active-secondary duplicate residue on permit and picture",
+    "normalized stale Core attachments on period, piece, pitch, plane, plateau, platform and plant",
+    "corrected stale content hash / compatibility-mirror metadata for the already-correct Pilgrim owner without semantic change",
+    "re-homed plough↔plow regional spelling from semantic Relation to Form/Identity on both endpoints"
+  ],
+  "flob_required_for_semantic_closure": false,
+  "full_flob_rebuild_run": false
+}
