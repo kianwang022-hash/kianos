@@ -7,31 +7,45 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "761f88ce2d414a9508997f149f3147d4c33e46145b2e932d16d4b35cc469293f",
+    "content_hash": "85c207771dc2e8bc15b1482ddd4f923d3dbae5412201662df2288b1b0cf2ac56",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "范围；幅度；山脉；牧场；射击场",
-          "label_en": "the limits within which something operates or varies; a series of mountains or hills; a large area of open land for grazing; a place for shooting practice",
+          "label_cn": "范围；幅度",
+          "label_en": "the limits within which something operates or varies",
           "pos": "noun",
           "sense_ids": [
-            "sense:range:794dd9b196c45aa0",
-            "sense:range:be15fe01140d577b",
-            "sense:range:b8475d9a79fe56e5"
+            "sense:range:3d74721533585b12"
           ]
         },
         {
-          "label_cn": "排列；把……分类；漫游；徘徊",
-          "label_en": "to arrange or put in a row or order; to wander or roam over an area",
+          "label_cn": "一系列；多种",
+          "label_en": "a set or variety of different things of the same general type",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:range:b47adbb1f48abb56"
+          ]
+        },
+        {
+          "label_cn": "山脉",
+          "label_en": "a series of mountains or hills",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:range:794dd9b196c45aa0"
+          ]
+        },
+        {
+          "label_cn": "在一定范围内变化/延伸",
+          "label_en": "to vary or extend between specified limits",
           "pos": "verb",
           "sense_ids": [
-            "sense:range:6b87a85855be5111"
+            "sense:range:fd1493a076caf392"
           ]
         }
       ],
-      "core_meaning_cn": "范围或一系列",
-      "core_meaning_en": "the extent or scope of something, or a series of things",
-      "mental_model_cn": "范围或一系列",
+      "core_meaning_cn": "范围；一系列/多种；山脉；（动词）在范围内变化",
+      "core_meaning_en": "limits/extent; a set or variety; a mountain range; to vary between limits",
+      "mental_model_cn": "范围；一系列/多种；山脉；（动词）在范围内变化",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -167,6 +181,39 @@
         "sense_label_en": "to vary or extend between specified limits",
         "sort_order": 5,
         "transitivity": "vi"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:5609db4665239baf110b",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:range:b47adbb1f48abb56:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "多种产品/选择",
+            "phrase": "a wide/broad range of products/options"
+          },
+          {
+            "collocation_id": "collocation:4a85a349a2de58004cdf",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:range:b47adbb1f48abb56:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "一系列技能",
+            "phrase": "a range of skills"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "一系列；多种；范围内的一组",
+        "definition_en": "a set or variety of different things of the same general type",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:range:b47adbb1f48abb56",
+        "sense_label_en": "a set or variety of different things of the same general type",
+        "sort_order": 6,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -266,10 +313,19 @@
         "merged_into_sense_id": null,
         "source_row": 11081,
         "source_path": "content/lexical/canonical/senses/shards/o3937-3968.json"
+      },
+      {
+        "sense_id": "sense:range:b47adbb1f48abb56",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 11084,
+        "source_path": "content/lexical/canonical/senses/shards/o3937-3968.json"
       }
     ],
     "active_collocations": [
       "collocation:0975cf9fd21b9f89fa81",
+      "collocation:4a85a349a2de58004cdf",
+      "collocation:5609db4665239baf110b",
       "collocation:8eff54d049b38e5a490c",
       "collocation:d659f645706292f16c8b",
       "collocation:e38af8dabeb6e2995818"
@@ -297,11 +353,6 @@
         "source_path": "content/lexical/canonical/collocations/shards/o3937-3968.json"
       },
       {
-        "id": "collocation:8eff54d049b38e5a490c",
-        "source_row": 21597,
-        "source_path": "content/lexical/canonical/collocations/shards/o3937-3968.json"
-      },
-      {
         "id": "collocation:8f44449f0f01fb873f56",
         "source_row": 12159,
         "source_path": "content/lexical/canonical/collocations/shards/o3937-3968.json"
@@ -314,6 +365,21 @@
       {
         "id": "collocation:e38af8dabeb6e2995818",
         "source_row": 19255,
+        "source_path": "content/lexical/canonical/collocations/shards/o3937-3968.json"
+      },
+      {
+        "id": "collocation:8eff54d049b38e5a490c",
+        "source_row": 21597,
+        "source_path": "content/lexical/canonical/collocations/shards/o3937-3968.json"
+      },
+      {
+        "id": "collocation:4a85a349a2de58004cdf",
+        "source_row": 21602,
+        "source_path": "content/lexical/canonical/collocations/shards/o3937-3968.json"
+      },
+      {
+        "id": "collocation:5609db4665239baf110b",
+        "source_row": 21603,
         "source_path": "content/lexical/canonical/collocations/shards/o3937-3968.json"
       }
     ],
@@ -363,7 +429,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3937-3944.json",
-    "source_content_hash": "6a660213ba342f6172e5b448f6e664fcdd71d6724ac5a01c867f6f0a4420e622",
+    "source_content_hash": "85c207771dc2e8bc15b1482ddd4f923d3dbae5412201662df2288b1b0cf2ac56",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

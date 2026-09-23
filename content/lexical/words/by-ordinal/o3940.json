@@ -7,24 +7,26 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "4049d205c89d710482fac7bbbc29f0aadfc4dbff839674b09b9d0c7d5d08e7e7",
+    "content_hash": "7e7e9ef98efd1e8872dfa2231dfe42d3a855a57f69570f5bfe62fd1570ea10fd",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "轻敲；拍击；说唱音乐",
-          "label_en": "a gentle blow; genre of African-American music of the 1980s and 1990s in which rhyming lyrics are chanted to a musical accompaniment",
+          "label_cn": "轻敲/拍击；说唱音乐",
+          "label_en": "a light/sharp knock; rap music",
           "pos": "noun",
           "sense_ids": [
-            "sense:rap:e02d96ac31d55402"
+            "sense:rap:e02d96ac31d55402",
+            "sense:rap:d89a7099da685d3d"
           ]
         },
         {
-          "label_cn": "敲击；拍打；交谈；闲聊",
-          "label_en": "strike sharply; talk volubly",
+          "label_cn": "敲击；说唱；（较低层）交谈",
+          "label_en": "to rap/knock; perform rap; lower-layer talk",
           "pos": "verb",
           "sense_ids": [
             "sense:rap:3dc12a128e9057ff",
-            "sense:rap:379435373b79502f"
+            "sense:rap:379435373b79502f",
+            "sense:rap:c87115d2d68325cf"
           ]
         }
       ],
@@ -82,14 +84,14 @@
         "confidence": "medium",
         "definition_cn": "敲击；拍打",
         "definition_en": "strike sharply",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: rap the table/door; rap on the door",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:rap:3dc12a128e9057ff",
         "sense_label_en": "strike sharply",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       },
       {
         "collocations": [
@@ -128,6 +130,30 @@
         "sense_label_en": "genre of African-American music of the 1980s and 1990s in which rhyming lyrics are chanted to a musical accompaniment",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:0bad74b53fda67877465",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:rap:c87115d2d68325cf:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "在这首歌/音轨中说唱",
+            "phrase": "rap on the track"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "说唱；以节奏方式唱/念说唱歌词",
+        "definition_en": "to perform rap or deliver lyrics rhythmically over a beat",
+        "governing_pattern": "vi.",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:rap:c87115d2d68325cf",
+        "sense_label_en": "to perform rap or deliver lyrics rhythmically over a beat",
+        "sort_order": 4,
+        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -180,9 +206,17 @@
         "merged_into_sense_id": null,
         "source_row": 10994,
         "source_path": "content/lexical/canonical/senses/shards/o3937-3968.json"
+      },
+      {
+        "sense_id": "sense:rap:c87115d2d68325cf",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 11085,
+        "source_path": "content/lexical/canonical/senses/shards/o3937-3968.json"
       }
     ],
     "active_collocations": [
+      "collocation:0bad74b53fda67877465",
       "collocation:1c5af49bb51be9b813c2",
       "collocation:7d6d344b2af662f24d2e",
       "collocation:d60a22246e1d6dfea5af"
@@ -207,6 +241,11 @@
       {
         "id": "collocation:d60a22246e1d6dfea5af",
         "source_row": 18106,
+        "source_path": "content/lexical/canonical/collocations/shards/o3937-3968.json"
+      },
+      {
+        "id": "collocation:0bad74b53fda67877465",
+        "source_row": 21601,
         "source_path": "content/lexical/canonical/collocations/shards/o3937-3968.json"
       }
     ],
@@ -241,7 +280,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3937-3944.json",
-    "source_content_hash": "e55ba60dad7af96b8c3d8c56d9d18021a9c135b026f20406a95673b8f916d617",
+    "source_content_hash": "7e7e9ef98efd1e8872dfa2231dfe42d3a855a57f69570f5bfe62fd1570ea10fd",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

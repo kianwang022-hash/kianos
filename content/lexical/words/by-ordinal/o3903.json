@@ -22,15 +22,16 @@
         "pattern": "be out of the question"
       }
     ],
-    "content_hash": "afbbfe8b13b0059b75336173e66292828487c954c1c3af6b05a10df79c85b0d4",
+    "content_hash": "bb7badec27e55677236e7a4734f6c005e1aa8d9de6873f6c68bf610397e93203",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "问题，询问",
-          "label_en": "a sentence or phrase used to ask for information",
+          "label_cn": "问题/询问；议题/需要考虑解决的事项",
+          "label_en": "a question asked for information; a matter or issue needing consideration or resolution",
           "pos": "noun",
           "sense_ids": [
-            "sense:question:b676ef4ce4815bad"
+            "sense:question:b676ef4ce4815bad",
+            "sense:question:4719c29f584a7eb3"
           ]
         },
         {
@@ -59,45 +60,7 @@
       "deep:deep:secondary_senses:question:2ca9fbdabdb1e2b9",
       "semantic-reconciliation:o3875-o4124"
     ],
-    "secondary_senses": [
-      {
-        "boundary": "question作动词，表示询问、怀疑",
-        "codex_reviewed": false,
-        "definition_cn": "询问，审问，怀疑",
-        "definition_en": "to ask questions of; to express doubt about",
-        "dimensions": {},
-        "direction": "R",
-        "evidence": [
-          {
-            "evidence_id": "evidence:core-card:question:e3b1993bc65f",
-            "evidence_status": "source_checked",
-            "source_labels": [],
-            "source_locator": "question:l1:2",
-            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/kianos-english-vocabulary-5500.generated.json",
-            "source_type": "learner_dictionary"
-          }
-        ],
-        "fact_id": "deep:secondary_senses:question:2ca9fbdabdb1e2b9",
-        "family_sources": [],
-        "label_en": "to ask questions of; to express doubt about",
-        "level": "L1",
-        "meaning_cn": null,
-        "module": "secondary_senses",
-        "pattern": null,
-        "pos": "verb",
-        "priority": "A",
-        "publication_status": "publishable",
-        "shared_definition": null,
-        "source_sense_id": "sense:question:1ab143a4d5ba548a",
-        "target_sense_id": null,
-        "target_word": null,
-        "task_tags": [
-          "reading"
-        ],
-        "verification_status": "verified",
-        "writing_safe": false
-      }
-    ],
+    "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
       {
@@ -229,17 +192,17 @@
         "source_path": "content/lexical/canonical/senses/shards/o3873-3904.json"
       },
       {
-        "sense_id": "sense:question:4719c29f584a7eb3",
-        "status": "active",
-        "merged_into_sense_id": null,
-        "source_row": 10868,
-        "source_path": "content/lexical/canonical/senses/shards/o3873-3904.json"
-      },
-      {
         "sense_id": "sense:question:b676ef4ce4815bad",
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10859,
+        "source_path": "content/lexical/canonical/senses/shards/o3873-3904.json"
+      },
+      {
+        "sense_id": "sense:question:4719c29f584a7eb3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 10868,
         "source_path": "content/lexical/canonical/senses/shards/o3873-3904.json"
       }
     ],
@@ -274,11 +237,6 @@
         "source_path": "content/lexical/canonical/collocations/shards/o3873-3904.json"
       },
       {
-        "id": "collocation:2d0fcbc12b41e6659a25",
-        "source_row": 21564,
-        "source_path": "content/lexical/canonical/collocations/shards/o3873-3904.json"
-      },
-      {
         "id": "collocation:9421ef88c65d0eb355c9",
         "source_row": 12590,
         "source_path": "content/lexical/canonical/collocations/shards/o3873-3904.json"
@@ -286,6 +244,11 @@
       {
         "id": "collocation:97341ef56096ab63dc08",
         "source_row": 12879,
+        "source_path": "content/lexical/canonical/collocations/shards/o3873-3904.json"
+      },
+      {
+        "id": "collocation:2d0fcbc12b41e6659a25",
+        "source_row": 21564,
         "source_path": "content/lexical/canonical/collocations/shards/o3873-3904.json"
       }
     ],
@@ -315,8 +278,8 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3897-3904.json",
-    "source_content_hash": "24c44e94c479f5f3ea4befc23ad10573792dfdde84f723ccd9c79a2b75189d77",
-    "semantic_delta": 1,
+    "source_content_hash": "bb7badec27e55677236e7a4734f6c005e1aa8d9de6873f6c68bf610397e93203",
+    "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

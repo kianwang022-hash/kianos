@@ -6,16 +6,36 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "a5d0c79371a494d373da9f7f960971e864b5c9fba531890474213554a2d8637e",
+    "constructions": [
+      {
+        "boundary": "idiomatic competitive-life expression, not literal rat biology",
+        "construction_id": "construction:ce72bbe11aa27b895f4d",
+        "definition_en": "a competitive way of life or work in which people struggle continuously for success",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "激烈竞争、疲于奔命的生活/工作环境",
+        "pattern": "rat race"
+      },
+      {
+        "boundary": "suspicion idiom, not literal smell",
+        "construction_id": "construction:2d4e8c521d04530ae4a8",
+        "definition_en": "to suspect that something is wrong or dishonest",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "觉得可疑；察觉有诈或不诚实",
+        "pattern": "smell a rat"
+      }
+    ],
+    "content_hash": "ea2ad12d8f508c026213b813f663c2053b5256b62958bf129cf519197ca57f40",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "老鼠；叛徒，卑鄙的人",
-          "label_en": "a small animal with a long tail, similar to a mouse but larger; a person who betrays their friends or group",
+          "label_cn": "老鼠；叛徒/出卖同伴的人",
+          "label_en": "a rat; a person who betrays companions or a group",
           "pos": "noun",
           "sense_ids": [
-            "sense:rat:3b92466510ba57db"
+            "sense:rat:3b92466510ba57db",
+            "sense:rat:a1aa3c63905b5e2f"
           ]
         }
       ],
@@ -35,26 +55,7 @@
     "semantic_neighbors": [],
     "senses": [
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:990a3c9ca87aff8e0391",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:rat:3b92466510ba57db:collocation:0"
-            ],
-            "meaning_cn": "激烈竞争",
-            "phrase": "rat race"
-          },
-          {
-            "collocation_id": "collocation:47ec6e67ec3eac8efab4",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:rat:3b92466510ba57db:collocation:1"
-            ],
-            "meaning_cn": "感到可疑",
-            "phrase": "smell a rat"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "老鼠",
         "definition_en": "a small animal with a long tail, similar to a mouse but larger",
@@ -185,8 +186,6 @@
       }
     ],
     "active_collocations": [
-      "collocation:47ec6e67ec3eac8efab4",
-      "collocation:990a3c9ca87aff8e0391",
       "collocation:d29f37a33f664be00e61"
     ],
     "facts": [],
@@ -212,13 +211,13 @@
         "source_path": "content/lexical/canonical/collocations/shards/o3937-3968.json"
       },
       {
-        "id": "collocation:d29f37a33f664be00e61",
-        "source_row": 21598,
+        "id": "collocation:ff9529044b6f8952b415",
+        "source_row": 21596,
         "source_path": "content/lexical/canonical/collocations/shards/o3937-3968.json"
       },
       {
-        "id": "collocation:ff9529044b6f8952b415",
-        "source_row": 21596,
+        "id": "collocation:d29f37a33f664be00e61",
+        "source_row": 21598,
         "source_path": "content/lexical/canonical/collocations/shards/o3937-3968.json"
       }
     ],
@@ -258,7 +257,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3945-3952.json",
-    "source_content_hash": "a6228993d2d6472778a74968937305f11c5751c599a290ffbb9db2af468a666d",
+    "source_content_hash": "ea2ad12d8f508c026213b813f663c2053b5256b62958bf129cf519197ca57f40",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
