@@ -1,0 +1,51 @@
+{
+  "schema": "kianos.lexical.streaming_c_decision_manifest.v1",
+  "status": "DECIDED_FOR_IMMEDIATE_APPLY",
+  "range": [
+    7751,
+    7850
+  ],
+  "semantic_baseline_sha": "12766cf94b89bd135016e3213637e31edd19adfe",
+  "shared_watermark_at_reconcile": 7946,
+  "a_review_commit": "90e7482e1615319f9cb07a76737d12a7f0f09a24",
+  "b_review_commit": "80df7a2b073bb53689429358f17567e66aab0a2f",
+  "anomaly_count": 5,
+  "decisions": [
+    {
+      "ordinal": 7758,
+      "word": "cultural",
+      "disposition": "APPLY",
+      "final_decision": "tighten cultural to group ways/traditions/ideas"
+    },
+    {
+      "ordinal": 7786,
+      "word": "exploitation",
+      "disposition": "APPLY",
+      "final_decision": "split exploitation negative/social from resource-development use"
+    },
+    {
+      "ordinal": 7793,
+      "word": "founder",
+      "disposition": "APPLY",
+      "final_decision": "fix both founder self-failure verbs to vi"
+    },
+    {
+      "ordinal": 7849,
+      "word": "misinterpret",
+      "disposition": "APPLY",
+      "final_decision": "tighten misinterpret to wrong interpretation"
+    },
+    {
+      "ordinal": 7850,
+      "word": "misinterpretation",
+      "disposition": "APPLY",
+      "final_decision": "tighten misinterpretation to wrong interpretation"
+    }
+  ],
+  "dependency_mutations": [],
+  "flob_required_for_semantic_closure": false,
+  "implementation_notes": [
+    "Current Natural Owner remains semantic authority.",
+    "No per-window full-catalog audit and no full FLOB rebuild."
+  ]
+}

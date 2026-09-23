@@ -7,12 +7,29 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "ff0bf1acf599f598efb0ced41cbd19c47d4961f15fafcb24324270de4f46e242",
+    "content_hash": "9572e25f840b33ae5b91263645477f9322d3175b9310b6e2dd33efb72412f966",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "剥削；利用；开发",
-      "core_meaning_en": "the act of using someone or something unfairly for advantage, or of developing a resource for use",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "剥削；不公平利用他人/处境谋利",
+          "label_en": "unfair use of people or situations for advantage",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:exploitation:7143fd7f21a8519f"
+          ]
+        },
+        {
+          "label_cn": "开发；利用（资源）",
+          "label_en": "development or use of resources",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:exploitation:0171e2c9cfd32c58"
+          ]
+        }
+      ],
+      "core_meaning_cn": "剥削；资源开发/利用",
+      "core_meaning_en": "unfair exploitation of people/situations; development or use of resources",
+      "mental_model_cn": "剥削；资源开发/利用",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,8 +43,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "剥削；利用；开发",
-        "definition_en": "the act of using someone or something unfairly for advantage, or of developing a resource for use",
+        "definition_cn": "剥削；不公平利用他人/处境谋利",
+        "definition_en": "the unfair use of a person, group, vulnerability, or situation for advantage or profit",
         "depth": "full_card",
         "domain_tag": "academic_awl",
         "frequency_tag": "academic_awl",
@@ -52,7 +69,23 @@
             "source_path": "external_semantic_auditor://academic_awl/fd250c689c1582ea2ec101948034f9e3dd17042bae230551f04f4a6c397ae890",
             "source_type": "learner_dictionary"
           }
-        ]
+        ],
+        "usage_note": "People/vulnerability contexts normally carry the negative unfair-use sense."
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "开发；利用（资源）",
+        "definition_en": "the development or use of a natural, economic, or technical resource",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:exploitation:0171e2c9cfd32c58",
+        "sense_label_en": "the development or use of a natural, economic, or technical resource",
+        "sort_order": 1,
+        "transitivity": "nonverb",
+        "usage_note": "Resource exploitation can be technical/neutral or evaluatively contested depending context."
       }
     ],
     "verification_summary": {
@@ -77,6 +110,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 19338,
+        "source_path": "content/lexical/canonical/senses/shards/o7777-7808.json"
+      },
+      {
+        "sense_id": "sense:exploitation:0171e2c9cfd32c58",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 19365,
         "source_path": "content/lexical/canonical/senses/shards/o7777-7808.json"
       }
     ],
@@ -104,7 +144,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7785-7792.json",
-    "source_content_hash": "ff0bf1acf599f598efb0ced41cbd19c47d4961f15fafcb24324270de4f46e242",
+    "source_content_hash": "9572e25f840b33ae5b91263645477f9322d3175b9310b6e2dd33efb72412f966",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

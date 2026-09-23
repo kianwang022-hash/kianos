@@ -1,0 +1,39 @@
+{
+  "schema": "kianos.lexical.streaming_c_decision_manifest.v1",
+  "status": "DECIDED_FOR_IMMEDIATE_APPLY",
+  "range": [
+    7851,
+    7946
+  ],
+  "semantic_baseline_sha": "12766cf94b89bd135016e3213637e31edd19adfe",
+  "shared_watermark_at_reconcile": 7946,
+  "a_review_commit": "90e7482e1615319f9cb07a76737d12a7f0f09a24",
+  "b_review_commit": "80df7a2b073bb53689429358f17567e66aab0a2f",
+  "anomaly_count": 3,
+  "decisions": [
+    {
+      "ordinal": 7861,
+      "word": "participatory",
+      "disposition": "APPLY",
+      "final_decision": "correct participatory learner-facing wording"
+    },
+    {
+      "ordinal": 7911,
+      "word": "stabilize",
+      "disposition": "APPLY",
+      "final_decision": "make stabilize I/T for causative and self-change"
+    },
+    {
+      "ordinal": 7945,
+      "word": "visibility",
+      "disposition": "APPLY",
+      "final_decision": "split physical visibility from public-profile visibility"
+    }
+  ],
+  "dependency_mutations": [],
+  "flob_required_for_semantic_closure": false,
+  "implementation_notes": [
+    "Current Natural Owner remains semantic authority.",
+    "Final semantic window; no per-window full-catalog audit and no full FLOB rebuild."
+  ]
+}
