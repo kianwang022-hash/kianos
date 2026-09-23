@@ -11,8 +11,9 @@
       "index": 0,
       "payload": {
         "boundaries": [
-          "Sense-bound quantitative contrast only; do not treat all majority/minority senses as exact antonyms."
+          "majority = the greater number/part; minority = the smaller number/part. This antonym is sense-bound to the quantitative branches and does not automatically extend to ethnic-group, legal-age, adjective, or other senses."
         ],
+        "boundary": "majority = the greater number/part; minority = the smaller number/part. This antonym is sense-bound to the quantitative branches and does not automatically extend to ethnic-group, legal-age, adjective, or other senses.",
         "codex_reviewed": false,
         "direction": "C",
         "evidence": [
@@ -25,20 +26,20 @@
             "source_type": "external_horizontal_audit"
           }
         ],
-        "learning_note": "Sense-bound quantitative contrast only; do not treat all majority/minority senses as exact antonyms.",
+        "learning_note": "majority = the greater number/part; minority = the smaller number/part. This antonym is sense-bound to the quantitative branches and does not automatically extend to ethnic-group, legal-age, adjective, or other senses.",
         "members": [
           {
             "word_id": "word:majority"
           }
         ],
-        "priority": "B",
-        "publication_status": "publishable",
+        "priority": "A",
+        "publication_status": "codex_reviewed",
         "relation_id": "relation:horizontal:1d9906d8c06f40c2e9bc",
-        "relation_note": "Sense-bound quantitative contrast only; do not treat all majority/minority senses as exact antonyms.",
-        "relation_scope": "lexeme",
+        "relation_note": "majority = the greater number/part; minority = the smaller number/part. This antonym is sense-bound to the quantitative branches and does not automatically extend to ethnic-group, legal-age, adjective, or other senses.",
+        "relation_scope": "sense",
         "relation_type": "antonym",
         "sense_ids": [],
-        "shared_meaning": "Sense-bound quantitative contrast only; do not treat all majority/minority senses as exact antonyms.",
+        "shared_meaning": "majority = the greater number/part; minority = the smaller number/part. This antonym is sense-bound to the quantitative branches and does not automatically extend to ethnic-group, legal-age, adjective, or other senses.",
         "source_evidence_objects": [
           {
             "canonical_members": [
@@ -60,16 +61,16 @@
           }
         ],
         "source_expression": "majority",
-        "source_sense_id": null,
-        "target_expression": "majority ↔ minority",
-        "target_sense_id": null,
+        "source_sense_id": "sense:majority:9f0f5f73c0a95879",
+        "target_expression": "minority",
+        "target_sense_id": "sense:minority:dcb6b234bad3534b",
         "target_sense_ids": [],
-        "target_word": null,
+        "target_word": "minority",
         "task_tags": [
           "reading"
         ],
         "verification_status": "verified",
-        "writing_safe": false
+        "writing_safe": true
       }
     },
     {
@@ -79,8 +80,9 @@
       "index": 0,
       "payload": {
         "boundaries": [
-          "Sense-bound quantitative contrast only; do not treat all majority/minority senses as exact antonyms."
+          "majority = the greater number/part; minority = the smaller number/part. This antonym is sense-bound to the quantitative branches and does not automatically extend to ethnic-group, legal-age, adjective, or other senses."
         ],
+        "boundary": "majority = the greater number/part; minority = the smaller number/part. This antonym is sense-bound to the quantitative branches and does not automatically extend to ethnic-group, legal-age, adjective, or other senses.",
         "codex_reviewed": false,
         "direction": "C",
         "evidence": [
@@ -93,20 +95,21 @@
             "source_type": "external_horizontal_audit"
           }
         ],
-        "learning_note": "Sense-bound quantitative contrast only; do not treat all majority/minority senses as exact antonyms.",
+        "learning_note": "majority = the greater number/part; minority = the smaller number/part. This antonym is sense-bound to the quantitative branches and does not automatically extend to ethnic-group, legal-age, adjective, or other senses.",
         "members": [
           {
             "word_id": "word:majority"
           }
         ],
-        "priority": "B",
-        "publication_status": "publishable",
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "reciprocal_entrypoint": true,
         "relation_id": "relation:horizontal:1d9906d8c06f40c2e9bc",
-        "relation_note": "Sense-bound quantitative contrast only; do not treat all majority/minority senses as exact antonyms.",
-        "relation_scope": "lexeme",
+        "relation_note": "majority = the greater number/part; minority = the smaller number/part. This antonym is sense-bound to the quantitative branches and does not automatically extend to ethnic-group, legal-age, adjective, or other senses.",
+        "relation_scope": "sense",
         "relation_type": "antonym",
         "sense_ids": [],
-        "shared_meaning": "Sense-bound quantitative contrast only; do not treat all majority/minority senses as exact antonyms.",
+        "shared_meaning": "majority = the greater number/part; minority = the smaller number/part. This antonym is sense-bound to the quantitative branches and does not automatically extend to ethnic-group, legal-age, adjective, or other senses.",
         "source_evidence_objects": [
           {
             "canonical_members": [
@@ -127,24 +130,22 @@
             }
           }
         ],
-        "source_expression": "majority ↔ minority",
-        "source_sense_id": null,
+        "source_expression": "minority",
+        "source_sense_id": "sense:minority:dcb6b234bad3534b",
         "target_expression": "majority",
-        "target_sense_id": null,
+        "target_sense_id": "sense:majority:9f0f5f73c0a95879",
         "target_sense_ids": [],
         "target_word": "majority",
         "task_tags": [
           "reading"
         ],
         "verification_status": "verified",
-        "writing_safe": false,
-        "reciprocal_entrypoint": true
+        "writing_safe": true
       }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0,
-    "last_semantic_authority": "content/lexical/semantic-reconciliation/o2825-o3024.md"
+    "semantic_delta": 0
   }
 }
