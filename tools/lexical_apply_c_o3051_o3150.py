@@ -95,6 +95,8 @@ def apply(s):
     for sid in ("sense:minute:08349d58c3365b4b","sense:minute:780ef9cf59205d7c"):
         h.overlay(s,3070,sid,adj_overlay)
 
+    h.put(s,3081,"sense:mission:63d5644544f75c7e",cn="使命；宗旨；核心目标",en="the main purpose or aim that a person or organization is trying to achieve",pos="noun",level="L1")
+    h.coreadd(s,3081,"sense:mission:63d5644544f75c7e","noun","使命；宗旨；特殊任务；传教团","a purpose or aim; a special assignment; a missionary organization")
     h.move(s,3081,"mission statement","sense:mission:63d5644544f75c7e")
     h.put(s,3082,"sense:missionary:9ee3b4c935465eb9",cn="传教士",en="a person sent to promote or spread a religion, often in another place or country and sometimes doing educational, medical, or charitable work",level="L1")
     h.rmphrase(s,3082,"missionary position")
