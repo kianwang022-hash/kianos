@@ -16,14 +16,26 @@
       "单链DNA/RNA或双链RNA都不是常规克隆质粒的结构身份。"
     ],
     "transfer_rule": "质粒抓环状、双链、可独立复制。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.环状双链DNA分子。典型质粒是能在宿主细胞内独立维持/复制的小型环状双链DNA。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "常规克隆质粒不是环状单链DNA。"
+      },
+      {
+        "option": "D",
+        "reason": "双链RNA不构成典型质粒载体。"
+      }
+    ],
+    "common_failure_node": "把所有“环状核酸”都当成质粒，忽略双链DNA这一核心身份。"
   },
   {
     "question_id": "xizong-official-2022-n027",
@@ -42,14 +54,26 @@
       "激素反应元件是DNA序列，不是受体本身；RTK和EGF则属于膜上信号系统。"
     ],
     "transfer_rule": "胞内受体=配体激活的转录调控蛋白。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.转录因子。胞内/核受体与脂溶性配体结合后直接识别DNA反应元件并调控转录。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "激素反应元件是DNA顺式序列，不是受体本身。"
+      },
+      {
+        "option": "C",
+        "reason": "受体酪氨酸激酶属于膜受体。"
+      }
+    ],
+    "common_failure_node": "把受体和它结合的DNA反应元件混为一物。"
   },
   {
     "question_id": "xizong-official-2022-n028",
@@ -68,14 +92,26 @@
       "ALA脱水酶和亚铁整合酶不是这个PLP依赖步骤。"
     ],
     "transfer_rule": "血红素合成第一步ALA synthase需要B6/PLP。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.ALA合酶。血红素合成第一步由ALA合酶催化，并需要PLP/维生素B₆。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "ALA脱水酶不是PLP依赖的首步酶。"
+      },
+      {
+        "option": "C",
+        "reason": "亚铁整合酶负责末端把Fe²⁺插入原卟啉IX。"
+      }
+    ],
+    "common_failure_node": "只记B6参与氨基酸代谢，漏掉ALA合酶这一血红素入口。"
   },
   {
     "question_id": "xizong-official-2022-n029",
@@ -89,17 +125,31 @@
     "exam_target": "DIC透明血栓",
     "decision_axis": "DIC时微循环内广泛形成以纤维蛋白为主要成分的微血栓，病理上常称透明血栓。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "DIC本质是全身性凝血激活。",
+      "Current B12 KP04明确“毛细血管内纤维蛋白微血栓”。",
+      "这对应透明血栓，因此选A。"
     ],
     "transfer_rule": "DIC微循环血栓=纤维蛋白性透明血栓。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.透明血栓。DIC时微循环广泛形成以纤维蛋白为主的微血栓，病理上称透明血栓。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "白色血栓更典型见于高速动脉/心腔，以血小板为主。"
+      },
+      {
+        "option": "C",
+        "reason": "红色血栓更偏静脉淤滞背景，富含红细胞和纤维蛋白。"
+      }
+    ],
+    "common_failure_node": "把所有血栓都按宏观白/红/混合分类，忘记DIC微循环的透明微血栓。"
   },
   {
     "question_id": "xizong-official-2022-n030",
@@ -113,17 +163,31 @@
     "exam_target": "肿瘤分期依据",
     "decision_axis": "肿瘤分期主要描述肿瘤的解剖学扩展程度，包括原发灶范围、区域淋巴结和远处转移，而分级更偏向组织学分化。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "Current O9 KP05明确区分分级与分期。",
+      "分期看T/N/M的解剖扩展程度。",
+      "因此选A。"
     ],
     "transfer_rule": "stage看范围；grade看分化。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.肿瘤生长范围和播散程度。分期描述原发灶局部范围、区域淋巴结和远处转移；分化和核分裂属于分级。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "分化程度主要用于组织学分级。"
+      },
+      {
+        "option": "B",
+        "reason": "核分裂象多寡也是恶性度/分级指标。"
+      }
+    ],
+    "common_failure_node": "把“肿瘤越坏”笼统理解成“分期越晚”。"
   },
   {
     "question_id": "xizong-official-2022-n031",
@@ -142,14 +206,26 @@
       "这是大叶性肺炎纤维素性渗出后期的典型机化结局。"
     ],
     "transfer_rule": "纤维素渗出清除不全→机化→肉质变。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.肺炎链球菌引起的大叶性肺炎。肺泡内纤维蛋白性渗出若不能完全吸收，可被肉芽组织机化形成肺肉质变。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "小叶性肺炎更偏细支气管周围化脓性炎。"
+      },
+      {
+        "option": "B",
+        "reason": "病毒性间质性肺炎并非这道“纤维蛋白渗出机化”典型来源。"
+      }
+    ],
+    "common_failure_node": "不把肺肉质变与“大叶性肺炎纤维素渗出机化”连起来。"
   },
   {
     "question_id": "xizong-official-2022-n032",
@@ -163,17 +239,28 @@
     "exam_target": "前列腺癌成骨性骨转移",
     "decision_axis": "前列腺癌骨转移经典表现为成骨性/硬化性改变，而许多其他实体瘤更常表现为溶骨性或混合性。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "Current B13明确前列腺癌具有成骨性骨转移接口。",
+      "题源进一步要求“血道转移最常见部位”，答案C。",
+      "仓库未明确冻结这一频率排序，因此只保留题源答案。"
     ],
     "transfer_rule": "成骨性转移经典联想前列腺癌。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.骨为题源答案。前列腺癌具有显著骨转移倾向且常表现成骨性病变；但Current B13只冻结骨转移身份/影像接口，没有明确冻结“血道转移最常见部位=骨”的排序。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "肝可为多种实体瘤血道转移部位，但不是题源前列腺癌经典答案。"
+      }
+    ],
+    "common_failure_node": "从“前列腺癌常骨转移”直接推到“最常见部位”的频率结论。",
+    "source_gap_note": "Current urinary B13 KP13明确前列腺癌成骨性骨转移，但未冻结“血道转移最常见部位为骨”这一排序。"
   },
   {
     "question_id": "xizong-official-2022-n033",
@@ -187,17 +274,32 @@
     "exam_target": "骨母细胞瘤良恶性判断",
     "decision_axis": "骨母细胞瘤属于良性但可局部侵袭的骨肿瘤；骨肉瘤等属于恶性骨肿瘤。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "题源考骨母细胞瘤的良性身份。",
+      "Current骨肿瘤Block未找到稳定最小KP明确冻结osteoblastoma这一低频病种。",
+      "因此Explanation保留，Crosswalk fail-closed。"
     ],
     "transfer_rule": "名称带“母细胞瘤”不等于必然恶性，需记具体实体。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.骨母细胞瘤。骨母细胞瘤属于良性、可局部侵袭性骨肿瘤；其余三项“母细胞瘤”在题源中均属恶性肿瘤。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "髓母细胞瘤属于恶性中枢神经系统胚胎性肿瘤。"
+      },
+      {
+        "option": "D",
+        "reason": "神经母细胞瘤属于恶性胚胎性肿瘤。"
+      }
+    ],
+    "common_failure_node": "看到“母细胞瘤”后按词尾机械判断良恶性。",
+    "source_gap_note": "Current骨肿瘤Knowledge未找到明确冻结“骨母细胞瘤为良性肿瘤”的最小owner。"
   },
   {
     "question_id": "xizong-official-2022-n034",
@@ -211,17 +313,32 @@
     "exam_target": "纤维化主要效应细胞",
     "decision_axis": "组织纤维化的核心效应细胞是成纤维细胞/肌成纤维细胞，它们合成胶原和其他细胞外基质成分。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "损伤后肉芽组织中成纤维细胞增殖并产生ECM和胶原。",
+      "这是瘢痕纤维性修复的核心执行层。",
+      "Current只有多个器官Block零散提到成纤维细胞/纤维化，缺少一般修复总论owner。"
     ],
     "transfer_rule": "纤维化=成纤维细胞活化+ECM沉积。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.成纤维细胞。纤维性修复的核心效应细胞是成纤维细胞/肌成纤维细胞，其合成胶原和其他ECM。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "纤维细胞更偏成熟静息结缔组织细胞，不是活跃修复期核心合成者。"
+      },
+      {
+        "option": "B",
+        "reason": "内皮细胞主要负责新生血管。"
+      }
+    ],
+    "common_failure_node": "把肉芽组织所有细胞都视为“最重要修复细胞”，忽略胶原/ECM来源。",
+    "source_gap_note": "Current Knowledge未建立一般病理“纤维性修复核心效应细胞=成纤维细胞”的单一最小owner。"
   },
   {
     "question_id": "xizong-official-2022-n035",
@@ -235,7 +352,9 @@
     "exam_target": "中毒性细菌性痢疾病理旧口径",
     "decision_axis": "题源采用旧教材对“中毒性细菌性痢疾”的病理分类和表述；该实体的现代临床分类与机制表达已变化，不宜固化为Current规则。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对Current边界 fail-closed。"
+      "题源使用“中毒性细菌性痢疾=滤泡性肠炎”旧口径。",
+      "Current H23只保留菌痢溃疡/假膜等稳态病理接口。",
+      "因此历史B保留但不建立relation。"
     ],
     "transfer_rule": "仅保留题源/历史教材边界。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -245,7 +364,16 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.滤泡性肠炎为题源旧教材答案。中毒性细菌性痢疾的现代临床/病理表述与旧分型不同，不宜冻结为Current统一规则。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "假膜性肠炎是细菌性痢疾一般病理中的经典接口，但题源对“中毒型”另用旧分型表述。"
+      }
+    ],
+    "common_failure_node": "把旧教材分型直接当成现代病理分类。",
+    "source_boundary_note": "“中毒性细菌性痢疾—滤泡性肠炎”属于旧教材分类口径；Current不冻结为统一病理规则。"
   },
   {
     "question_id": "xizong-official-2022-n036",
@@ -259,17 +387,31 @@
     "exam_target": "多发性骨髓瘤细胞来源",
     "decision_axis": "多发性骨髓瘤属于浆细胞恶性克隆性肿瘤，常伴单克隆免疫球蛋白或轻链异常。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "Current H8 KP01明确MM第一身份是浆细胞来源恶性克隆。",
+      "题干“不成熟浆细胞组成”直接落在该身份轴。",
+      "因此选D。"
     ],
     "transfer_rule": "myeloma=浆细胞肿瘤。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.骨髓瘤。多发性骨髓瘤是浆细胞来源的恶性克隆性肿瘤，肿瘤细胞可呈不同成熟度的异常浆细胞。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "滤泡性淋巴瘤来源于生发中心B细胞，不是浆细胞肿瘤。"
+      },
+      {
+        "option": "C",
+        "reason": "Burkitt淋巴瘤也是成熟B细胞肿瘤。"
+      }
+    ],
+    "common_failure_node": "把所有B细胞谱系肿瘤都当成“浆细胞组成”。"
   },
   {
     "question_id": "xizong-official-2022-n037",
@@ -288,14 +430,22 @@
       "这两个癌蛋白共同把持续高危HPV感染推向高级别上皮内病变和宫颈癌。"
     ],
     "transfer_rule": "HPV：E6→p53，E7→Rb。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.E6和E7。高危HPV E6促进p53失活，E7抑制Rb，解除细胞周期检查点并驱动宫颈癌变。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "E4/E5不是高危HPV致癌的两个核心癌蛋白。"
+      }
+    ],
+    "common_failure_node": "只记HPV型号，不记E6/p53和E7/Rb两条致癌链。"
   },
   {
     "question_id": "xizong-official-2022-n038",
@@ -314,14 +464,26 @@
       "这是滤泡癌和乳头状癌完全不同的病理判定轴。"
     ],
     "transfer_rule": "滤泡癌诊断抓包膜/血管侵犯。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.包膜侵犯。滤泡癌与滤泡腺瘤形态可非常接近，诊断癌的关键是包膜和/或血管侵犯。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "单纯细胞异型不足以诊断滤泡癌。"
+      },
+      {
+        "option": "D",
+        "reason": "切面出血可见于多种病变，缺乏特异性。"
+      }
+    ],
+    "common_failure_node": "企图只凭细胞异型区别滤泡腺瘤与癌。"
   },
   {
     "question_id": "xizong-official-2022-n039",
@@ -340,14 +502,22 @@
       "这是一条高频远处淋巴转移路径。"
     ],
     "transfer_rule": "胃癌远处淋巴转移经典点=左锁骨上Virchow结。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.胃。左锁骨上Virchow结是腹腔恶性肿瘤尤其胃癌的经典远处淋巴转移表现。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "大肠癌也可转移，但Virchow结与胃癌配对最经典。"
+      }
+    ],
+    "common_failure_node": "把左锁骨上结节只理解成“任何癌都可能”，不利用经典淋巴路径。"
   },
   {
     "question_id": "xizong-official-2022-n040",
@@ -361,7 +531,9 @@
     "exam_target": "矽肺旧分期最早病变",
     "decision_axis": "题源沿用旧教材矽肺分期并把肺门淋巴结改变作为早期定位；现代尘肺影像与分期体系不同，不能升级为Current统一规则。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对Current边界 fail-closed。"
+      "题源沿用旧版矽肺分期。",
+      "Current R8保留硅结节病理和职业暴露，但不冻结这套“Ⅰ期主要肺门淋巴结”的旧分期。",
+      "因此历史A保留。"
     ],
     "transfer_rule": "仅保留题源/历史分期边界。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -371,7 +543,16 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.病变主要在肺门淋巴结为题源旧矽肺分期答案。现代尘肺影像/分期体系和职业病诊断标准已变化。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "双肺散在结节可见于更进展尘肺，但题源I期采用旧定位口径。"
+      }
+    ],
+    "common_failure_node": "把旧教材I/II/III期定位表直接当成Current职业病诊断规则。",
+    "source_boundary_note": "题源使用旧版肺硅沉着病分期；Current尘肺影像/分期体系已变化，不升级旧I期定位规则。"
   },
   {
     "question_id": "xizong-official-2022-n041",
@@ -385,17 +566,31 @@
     "exam_target": "系统性红斑狼疮识别",
     "decision_axis": "蝶形红斑、关节症状、血细胞减少和肾脏受累组合高度提示系统性红斑狼疮。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "Current H16 KP18强调SLE要用器官组合闭环。",
+      "本题同时命中皮肤、关节、血液和肾脏。",
+      "因此选C。"
     ],
     "transfer_rule": "SLE常跨皮肤、关节、血液、肾脏多系统。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.系统性红斑狼疮。年轻女性、面颊红斑、关节痛、血细胞减少和蛋白尿形成典型多系统SLE组合。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "成人Still病更典型高热、关节炎和鲑红色皮疹，不解释蛋白尿+细胞减少+蝶形红斑组合。"
+      },
+      {
+        "option": "D",
+        "reason": "感染性心内膜炎需菌血症、瓣膜赘生物等证据。"
+      }
+    ],
+    "common_failure_node": "被持续低热带到感染病，忽略皮肤—血液—肾多系统自身免疫组合。"
   },
   {
     "question_id": "xizong-official-2022-n042",
@@ -409,7 +604,9 @@
     "exam_target": "频繁叹气与神经症旧术语",
     "decision_axis": "题源使用“神经衰弱/神经症”等旧式诊断语言解释频繁叹气，该术语体系与现行精神医学分类不一致，不能升级为Current诊断规则。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对Current边界 fail-closed。"
+      "题源用“神经官能症”解释叹气样呼吸。",
+      "现代精神医学分类和功能性呼吸症状表述已变化。",
+      "因此只保留历史D，不建立Current relation。"
     ],
     "transfer_rule": "仅保留题源/历史术语边界。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -419,7 +616,16 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.神经官能症为题源旧术语答案。频繁叹气样呼吸可见于功能性/焦虑相关过度通气，但“神经官能症”不属于现行规范诊断名称。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "巴比妥中毒更偏中枢抑制和呼吸抑制。"
+      }
+    ],
+    "common_failure_node": "把旧精神医学术语当成现代可直接使用的诊断标签。",
+    "source_boundary_note": "“神经官能症”属于旧式诊断语言；Current精神医学分类不再以该术语作为统一诊断。"
   },
   {
     "question_id": "xizong-official-2022-n043",
@@ -438,14 +644,22 @@
       "静息时未用支扩剂的比值、激发试验或单独RV/TLC都不能替代这个诊断接口。"
     ],
     "transfer_rule": "COPD诊断抓支扩后持续气流受限。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.支气管扩张剂后FEV₁/FVC<0.70。Current COPD Study用支扩后持续低比值确认持续性气流受限。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "未支扩静息比值不能排除可逆性气流受限。"
+      }
+    ],
+    "common_failure_node": "把诊断持续气流受限和评估严重度的肺功能指标混淆。"
   },
   {
     "question_id": "xizong-official-2022-n044",
@@ -464,14 +678,26 @@
       "标志物更多是辅助信息，不是分期主工具。"
     ],
     "transfer_rule": "肿瘤标志物可辅助，不能替代影像病理分期。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.肿瘤标志物。NSCLC分期依靠TNM解剖范围及影像/病理证据，血清肿瘤标志物不能替代分期。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "胸部CT直接参与T/N评估。"
+      },
+      {
+        "option": "D",
+        "reason": "胸水细胞学阳性可直接影响M分期。"
+      }
+    ],
+    "common_failure_node": "把“肿瘤相关检查”都认为具有相同分期价值。"
   },
   {
     "question_id": "xizong-official-2022-n045",
@@ -490,14 +716,26 @@
       "但真实诊断仍需结合ADA、微生物学或胸膜病理，不能只凭淋巴细胞比例单独定案。"
     ],
     "transfer_rule": "淋巴细胞性渗出胸水提示TB等病因，不等于单凭细胞分类确诊。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.结核性胸膜炎。年轻患者淋巴细胞为主的渗出性胸水应高度考虑结核性胸膜炎，仍需ADA/微生物学/病理确认。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "脓胸通常中性粒细胞为主、炎症程度更高。"
+      },
+      {
+        "option": "D",
+        "reason": "类肺炎性胸水也更常以中性粒细胞性急性炎症为主。"
+      }
+    ],
+    "common_failure_node": "只看发热胸痛，不利用胸水细胞分类完成方向性鉴别。"
   },
   {
     "question_id": "xizong-official-2022-n046",
@@ -511,7 +749,9 @@
     "exam_target": "支原体肺炎抗菌药切换",
     "decision_axis": "题源在大环内酯失败后固定选择喹诺酮类；现实用药需结合年龄、耐药、病情严重度及当地指南，不能固化为统一下一步。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对Current边界 fail-closed。"
+      "题源按当时支原体肺炎抗菌策略选择左氧氟沙星。",
+      "Current用药需结合耐药、年龄和严重度。",
+      "因此保留D但不建立Current处方relation。"
     ],
     "transfer_rule": "支原体无细胞壁，药物选择需覆盖非典型病原并按指南调整。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -521,7 +761,20 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.左氧氟沙星为题源答案。大环内酯治疗失败后抗菌药切换受年龄、耐药、疾病严重度及当地指南影响，不能固定为统一下一步。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "支原体无细胞壁，青霉素无效。"
+      },
+      {
+        "option": "C",
+        "reason": "头孢呋辛同样针对细胞壁，对支原体无效。"
+      }
+    ],
+    "common_failure_node": "从“阿奇霉素无效”直接背固定替代药，不结合耐药和指南情境。",
+    "source_boundary_note": "题源“大环内酯失败→左氧氟沙星”属于情境化抗菌策略；Current需结合耐药、年龄和当地指南。"
   },
   {
     "question_id": "xizong-official-2022-n047",
@@ -540,14 +793,26 @@
       "单一冠脉分布的节段性室壁运动减弱更提示缺血性心肌损伤，因此C是不符合项。"
     ],
     "transfer_rule": "DCM=大心腔+弥漫低动力；局灶区域异常更先想缺血等。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.左室壁节段运动减弱。DCM典型是多腔扩大和弥漫性收缩功能下降，节段性异常更提示缺血性心肌病。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "LVEF≤40%符合DCM收缩功能下降。"
+      },
+      {
+        "option": "D",
+        "reason": "左室舒张末内径增大符合心腔扩张。"
+      }
+    ],
+    "common_failure_node": "看到任何室壁运动异常就认为都符合DCM，不区分弥漫与节段。"
   },
   {
     "question_id": "xizong-official-2022-n048",
@@ -566,14 +831,22 @@
       "若进一步出现低血压和明显舒张受限，就要警惕心脏压塞；本题先识别的是心包积液总体表型。"
     ],
     "transfer_rule": "压塞经典抓低压+JVD+心音低，结合脉压和影像。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.心包积液。颈静脉怒张、心音遥远、窄脉压和心影扩大构成大量心包积液/压塞警报。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "DCM可心界扩大和心衰，但不能很好解释心音遥远与窄脉压/心包体征组合。"
+      }
+    ],
+    "common_failure_node": "只看心衰表现，忽略心包腔积液造成的特异物理体征。"
   },
   {
     "question_id": "xizong-official-2022-n049",
@@ -587,17 +860,31 @@
     "exam_target": "BNP与心衰",
     "decision_axis": "BNP/NT-proBNP反映心室壁张力和心衰负荷，属于心衰生物标志物，并不是特异的心肌细胞坏死标志物。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "Current B11 KP12明确BNP由心室壁牵张释放，增高与心衰严重度/预后相关。",
+      "本题问PCI后心脏功能而非再确认坏死。",
+      "因此选C。"
     ],
     "transfer_rule": "心肌坏死看肌钙蛋白；壁张力/心衰看BNP。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.脑钠肽。BNP反映心室壁牵张和心衰负荷，更适合评估急性心梗后当前心功能/心衰程度；肌钙蛋白、CK-MB主要反映坏死。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "肌钙蛋白用于心肌损伤/坏死诊断和动态，而非直接量化泵功能。"
+      },
+      {
+        "option": "B",
+        "reason": "CK-MB同样更偏心肌坏死标志物。"
+      }
+    ],
+    "common_failure_node": "把“心肌梗死后的血液指标”都当成心功能指标。"
   },
   {
     "question_id": "xizong-official-2022-n050",
@@ -616,13 +903,25 @@
       "食管憩室炎和Mallory-Weiss撕裂不是GERD的典型并发症；‘食管癌’也不能直接当作常规并发症项来替代Barrett。"
     ],
     "transfer_rule": "慢性GERD→Barrett化生→腺癌风险升高。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.Barrett食管。长期GERD可使远端食管鳞状上皮发生肠型柱状化生，形成Barrett食管。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "Mallory-Weiss综合征是呕吐/干呕相关黏膜撕裂，不是GERD典型并发症。"
+      },
+      {
+        "option": "C",
+        "reason": "食管憩室炎不是GERD的典型并发症。"
+      }
+    ],
+    "common_failure_node": "把任何食管疾病都列为GERD并发症。"
   }
 ]
