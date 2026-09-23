@@ -8,22 +8,34 @@
       "blob_sha": "9973d10dfdbfa513ba793965bc0dd68bb7ac2fd0",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "TodaniⅠ型胆总管囊肿",
-    "decision_axis": "TodaniⅠ型以肝外胆管梭形或囊状扩张为主要特征。",
+    "exam_target": "TodaniⅠ型先天性胆管扩张症识别",
+    "decision_axis": "胆总管显著囊状/梭形扩张而肝内胆管不扩张，符合以肝外胆管扩张为主的TodaniⅠ型。",
     "reasoning_chain": [
-      "胆总管呈巨大囊状扩张而肝内胆管不扩张，说明病变局限在肝外胆管。",
-      "按先天性胆管扩张症分型，这最符合Ⅰ型，选A。",
-      "关键不是单看直径，而是看扩张位于肝外、是否累及肝内胆管以及有无憩室/十二指肠壁内段特征。"
+      "B超已确认胆总管直径显著增大。",
+      "肝内胆管未见扩张，病变主要局限于肝外胆道。",
+      "Current D19 KP21将这种肝外胆总管囊状/梭形扩张归入Ⅰ型，因此选A。"
     ],
-    "transfer_rule": "肝外胆总管弥漫扩张首先联想TodaniⅠ型。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "先天性胆管扩张分型先看“肝外、肝内还是两者同时受累”；单纯肝外胆总管明显扩张优先Ⅰ型。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.Ⅰ型。以肝外胆总管囊状或梭形扩张为主、肝内胆管不扩张，符合TodaniⅠ型。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "Ⅳ型强调多发胆管扩张并可同时累及肝内外胆道，与本题肝内胆管不扩张不符。"
+      },
+      {
+        "option": "B",
+        "reason": "Ⅱ型更偏胆总管憩室样局灶外突，而不是整个胆总管5cm级显著扩张。"
+      }
+    ],
+    "common_failure_node": "只看到“先天性胆管扩张”就背分型编号，未先用肝内/肝外受累范围做定位。"
   },
   {
     "question_id": "xizong-official-2023-n102",
@@ -34,22 +46,34 @@
       "blob_sha": "9973d10dfdbfa513ba793965bc0dd68bb7ac2fd0",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "先天性胆管扩张的根治原则",
-    "decision_axis": "经典根治是切除扩张的肝外胆管并行胆肠重建，目的在于解除淤滞并降低后续并发症。",
+    "exam_target": "先天性胆管扩张症的根治性切除与胆肠重建",
+    "decision_axis": "Current D19 KP21的根治轴是切除扩张胆管并重建胆汁引流，而不是单纯囊肿-消化道内引流。",
     "reasoning_chain": [
-      "Ⅰ型先天性胆管扩张症的根治目标不是单纯引流，而是切除异常扩张胆管，降低反复感染、结石和癌变风险。",
-      "因此应行囊肿切除并胆肠Roux-en-Y重建，选B。",
-      "单纯囊肿-肠道吻合保留了病变胆管本体，不是Current Study的根治方向。"
+      "Ⅰ型病变为肝外胆管扩张。",
+      "单纯囊肿内引流会保留病变胆管，不能充分处理淤滞、炎症和长期并发症风险。",
+      "切除囊肿后行胆肠Roux-en-Y重建符合Current根治原则，因此选B。"
     ],
-    "transfer_rule": "胆总管囊肿不是单纯引流，核心是病变胆管切除+重建。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "先天性胆管扩张治疗记“切除病变胆管 + 胆肠重建”，不要把单纯内引流当根治。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.囊肿切除，胆肠Roux-en-Y吻合术。其同时去除扩张病变并重建胆汁通路，符合根治原则。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "囊肿-十二指肠吻合属于保留病变囊壁的内引流思路，不是Current根治主轴。"
+      },
+      {
+        "option": "C",
+        "reason": "单纯囊肿-空肠吻合仍保留扩张胆管本身。"
+      }
+    ],
+    "common_failure_node": "把“能引流胆汁”误等同“根治”，忽略病变胆管本身需要切除。"
   },
   {
     "question_id": "xizong-official-2023-n103",
@@ -60,20 +84,34 @@
       "blob_sha": "9973d10dfdbfa513ba793965bc0dd68bb7ac2fd0",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "颈椎神经根牵拉试验",
-    "decision_axis": "Eaton/臂丛牵拉类试验通过牵拉神经根诱发或加重上肢放射痛，支持颈神经根受累。",
+    "exam_target": "神经根型颈椎病的Eaton牵拉试验",
+    "decision_axis": "Current O4明确Eaton和Spurling阳性是神经根型颈椎病的根性诱发体征；在症状、影像之外，它提供更具定位价值的神经根证据。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "患者有颈肩痛、右手桡侧感觉减退和C5-6退变，提示颈神经根受累。",
+      "Eaton试验通过牵拉臂丛/神经根诱发放射症状，是Current O4 KP09的神经根型入口体征。",
+      "因此四项中最具有诊断支持价值的是D。"
     ],
-    "transfer_rule": "颈神经根病看颈肩臂放射痛+神经根牵拉/压迫征。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "神经根型颈椎病：根性放射痛/皮节异常 + Eaton或Spurling阳性；普通颈痛和活动受限特异性较低。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.Eaton试验（+）。Current O4将Eaton、Spurling列为神经根型颈椎病的典型根性诱发体征。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "颈肩部疼痛常见但特异性低，可见于多种颈肩疾病。"
+      },
+      {
+        "option": "B",
+        "reason": "颈部活动受限同样缺乏神经根定位特异性。"
+      }
+    ],
+    "common_failure_node": "把常见症状当成最有诊断价值的证据，忽略根性诱发试验的定位意义。"
   },
   {
     "question_id": "xizong-official-2023-n104",
@@ -84,20 +122,34 @@
       "blob_sha": "9973d10dfdbfa513ba793965bc0dd68bb7ac2fd0",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "胸廓出口综合征鉴别",
-    "decision_axis": "上肢神经血管受压症状需与颈神经根病、肩周疾病等鉴别，胸廓出口综合征是重要方向。",
+    "exam_target": "神经根型颈椎病与胸廓出口综合征鉴别",
+    "decision_axis": "Current O4 KP10明确把胸廓出口综合征列为神经根型颈椎病的主要鉴别疾病之一。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "病例表现为上肢麻木和颈肩痛，需要与其他上肢神经血管压迫综合征鉴别。",
+      "胸廓出口综合征可造成上肢神经/血管受压症状，临床可与颈神经根病相似。",
+      "Current O4明确列入神经根型颈椎病主要鉴别，因此选B。"
     ],
-    "transfer_rule": "上肢麻痛不只看颈椎，也要区分神经根与胸廓出口。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "颈肩痛+上肢麻木不要只想颈椎：需区分神经根、胸廓出口、周围神经卡压和肩关节疾病。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.胸廓出口综合征。Current O4明确将其列为神经根型颈椎病的重要鉴别。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "肩周炎可造成肩痛和活动受限，也是鉴别方向，但题源此项选择聚焦能模拟上肢神经受压症状的胸廓出口综合征。"
+      },
+      {
+        "option": "C",
+        "reason": "ALS以进行性运动神经元损害为主，不符合本题局限根性疼痛、感觉异常和诱发征。"
+      }
+    ],
+    "common_failure_node": "只凭“上肢麻木”做病名匹配，而没有按根性分布、感觉受累和诱发征区分层级。"
   },
   {
     "question_id": "xizong-official-2023-n105",
@@ -108,20 +160,35 @@
       "blob_sha": "9973d10dfdbfa513ba793965bc0dd68bb7ac2fd0",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "颈椎病推拿按摩旧治疗表述",
-    "decision_axis": "颈椎病是否适合手法治疗取决于分型、脊髓受压和操作风险；不能从旧题固化为通用安全方案。",
+    "exam_target": "神经根型颈椎病的Current Study保守治疗",
+    "decision_axis": "本病例有根性症状和Eaton/Spurling阳性，符合神经根型颈椎病；Current O4 KP06明确其Study首选保守治疗包括按摩和颌枕带牵引。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断；涉及Current治疗、法律、阈值或旧分类时不向canonical泛化。"
+      "根性体征明确，未给出脊髓型长束征、步态或二便红旗。",
+      "Current O4将神经根型颈椎病的首选方向定义为保守治疗。",
+      "在本题选项中颈部按摩/推拿符合这一Study口径，因此按官方答案选B。"
     ],
-    "transfer_rule": "涉及颈椎手法操作必须按Current禁忌证和分型判断。",
-    "mapping_decision": "NO_SAFE_MATCH",
+    "transfer_rule": "颈椎病治疗先分型：神经根型多先保守；脊髓型则是手术方向，且Current明确禁按摩/普通牵引。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.颈部按摩和推拿。按Current O4的Study口径，神经根型颈椎病首选保守治疗，可包括按摩和颌枕带牵引。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "手术通常留给保守失败或存在明确手术指征者；本题未给脊髓型红旗。"
+      },
+      {
+        "option": "D",
+        "reason": "NSAIDs可作为对症保守治疗的一部分，但本题Source选择B，且Current O4明确保存按摩/牵引的Study接口。"
+      }
+    ],
+    "common_failure_node": "不先区分神经根型和脊髓型，就把“颈椎病都能按摩”或“颈椎病都不能按摩”绝对化。",
+    "source_boundary_note": "此处仅承接Current O4明确保留的神经根型颈椎病Study治疗口径；若存在脊髓受压、长束征或其他禁忌，Current O4明确禁止按摩/普通牵引。"
   },
   {
     "question_id": "xizong-official-2023-n106",
@@ -132,22 +199,34 @@
       "blob_sha": "9973d10dfdbfa513ba793965bc0dd68bb7ac2fd0",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "肱骨干骨折桡神经损伤",
-    "decision_axis": "桡神经绕肱骨干行走，损伤可导致伸腕、伸指障碍和相应感觉缺失。",
+    "exam_target": "肱骨干中下1/3骨折合并桡神经损伤",
+    "decision_axis": "桡神经贴近肱骨干中下段走行，损伤后伸腕和伸指系统受累，可出现垂腕、垂指。",
     "reasoning_chain": [
-      "肱骨中下1/3骨折最需要警惕桡神经损伤。",
-      "桡神经支配腕、指伸肌，受损后典型出现垂腕并伴伸指无力，因此选B。",
-      "屈腕屈指主要由正中/尺神经系统承担，不是这处骨折的典型缺损。"
+      "骨折部位是肱骨中下1/3，为桡神经高风险区。",
+      "Current O5 KP09明确桡神经高位损伤影响伸腕、伸指。",
+      "因此预计伸腕与伸指均丧失，选B。"
     ],
-    "transfer_rule": "肱骨干骨折+垂腕=先想桡神经。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "肱骨干中下段骨折先查桡神经：伸腕、伸指和手背桡侧感觉。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.伸腕、伸指功能均丧失。肱骨中下1/3骨折可损伤桡神经，高位桡神经运动障碍典型累及伸腕和伸指。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "若仅桡神经深支受损可出现伸指突出而伸腕部分保留，但本题是肱骨干中下段较高位风险。"
+      },
+      {
+        "option": "C",
+        "reason": "屈腕、屈指主要由正中/尺神经系统承担，不是桡神经主要运动功能。"
+      }
+    ],
+    "common_failure_node": "把桡神经深支损伤的“伸指障碍而部分伸腕保留”套到肱骨干高位桡神经损伤。"
   },
   {
     "question_id": "xizong-official-2023-n107",
@@ -158,20 +237,35 @@
       "blob_sha": "9973d10dfdbfa513ba793965bc0dd68bb7ac2fd0",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "开放性肱骨骨折合并神经损伤手术策略",
-    "decision_axis": "题源给出固定的切开复位、神经探查和钢板方案；Current手术指征及固定方式需结合开放伤分级、神经状态和软组织条件。",
+    "exam_target": "肱骨中下1/3骨折伴桡神经体征的手术处理Study口径",
+    "decision_axis": "Current O5 KP15明确保存该病例型：肱骨中下1/3骨折出现桡神经体征时，可进入切开复位、神经探查与接骨板固定方向。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断；涉及Current治疗、法律、阈值或旧分类时不向canonical泛化。"
+      "N106已提示该部位需警惕桡神经损伤。",
+      "Current O5的创伤处理链要求记录神经/血运并稳定骨性结构；对该Study病例明确给出神经探查接口。",
+      "题源C“切开复位+神经探查+接骨板固定”与Current保存路径一致，因此选C。"
     ],
-    "transfer_rule": "保留“开放伤合并神经损伤需评估探查”原则，不固化单一术式。",
-    "mapping_decision": "NO_SAFE_MATCH",
+    "transfer_rule": "骨折伴神经损伤处理不能只看骨折固定：先评估血供/神经，特定创伤情境进入探查修复，同时稳定骨性结构。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.切开复位，神经探查，接骨板固定。Current O5 KP15明确将“肱骨中下1/3骨折出现桡神经体征”保留为可进入该处理方向的Study病例。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "髓内钉可作为某些肱骨干骨折固定方式，但题源这一伴桡神经体征的Study处理链强调神经探查与接骨板固定。"
+      },
+      {
+        "option": "A",
+        "reason": "单纯牵引复位不能完成题源所要求的神经探查。"
+      }
+    ],
+    "common_failure_node": "只根据骨折固定器械选方案，忽略题干真正增加的决策变量是伴随桡神经损伤。",
+    "source_boundary_note": "Current O5明确把这一具体Study病例保留为切开复位、神经探查和接骨板固定方向；它不等同于所有闭合性肱骨干骨折合并桡神经麻痹都必须立即探查。"
   },
   {
     "question_id": "xizong-official-2023-n108",
@@ -182,20 +276,35 @@
       "blob_sha": "9973d10dfdbfa513ba793965bc0dd68bb7ac2fd0",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "医学专业训练属性",
-    "decision_axis": "医学专业要求系统教育、临床训练、持续学习和专业责任，因此“无需系统训练”不成立。",
+    "exam_target": "医学专业性的系统训练属性",
+    "decision_axis": "Current humanities H1-K1明确：医学专业性由系统训练、持续胜任、公共责任、患者利益和专业规范共同构成，因此“医学专业不需要系统训练”错误。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "题干考医学专业/专业精神的基本属性。",
+      "专业身份不是仅靠职业称谓，而建立在系统教育训练、胜任力和共同体规范之上。",
+      "因此A否认系统训练，是不正确叙述。"
     ],
-    "transfer_rule": "医学专业性=系统训练+专业规范+公共责任。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "医学专业精神题先抓五个核心：系统训练、持续胜任、患者利益、公共责任、专业规范。",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.医学专业不需要经过系统的训练。Current humanities H1-K1恰恰把系统训练列为医学专业性的基础组成，因此该项错误。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "专业共同体自律属于维持专业规范和社会信任的重要机制。"
+      },
+      {
+        "option": "D",
+        "reason": "严格准入与持续胜任共同服务于专业诚信和公共信任。"
+      }
+    ],
+    "common_failure_node": "把“医学专业”理解成普通职业标签，漏掉系统训练与持续胜任这一进入专业共同体的基础。",
+    "source_gap_note": "Current clinical-humanities owner can calibrate this Explanation, but its authority boundary explicitly excludes Question→KP relations; therefore no A1–F clinical relation is manufactured."
   },
   {
     "question_id": "xizong-official-2023-n109",
@@ -206,20 +315,35 @@
       "blob_sha": "9973d10dfdbfa513ba793965bc0dd68bb7ac2fd0",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "患者自主权与不必要治疗",
-    "decision_axis": "患者有权拒绝或质疑不必要的医疗干预，医生不能把“服从医生”当作绝对义务。",
+    "exam_target": "患者义务的边界：不包括服从不必要治疗",
+    "decision_axis": "患者应诚实提供就医信息、对已自主同意的合理治疗进行配合，并承担防止传染病传播等相应责任；但不存在“必须遵循不必要治疗”的绝对义务。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "患者义务不能反向取消患者自主权和合理医疗边界。",
+      "A、B、C分别对应诚实、合作和公共卫生责任。",
+      "D要求患者服从“即使不必要”的治疗，违反合理医疗与自主决定边界，因此选D。"
     ],
-    "transfer_rule": "医患关系中患者具有自主决策权。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "患者义务不是“绝对服从医生”；合作义务以合理、已知情同意的医疗行为为前提。",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.患者负有遵循即使是不必要的治疗的义务。患者并无接受不必要医疗干预的绝对义务，因此该项不属于患者义务。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "如实提供病史和就医信息是有效诊疗的重要合作义务。"
+      },
+      {
+        "option": "C",
+        "reason": "传染病患者承担防止疾病传播的公共卫生责任具有明确伦理基础，具体法定义务需按现行规范核对。"
+      }
+    ],
+    "common_failure_node": "把“患者配合治疗”无限外推成“医生提出什么都必须接受”。",
+    "source_gap_note": "Current clinical-humanities owner can calibrate this Explanation, but its authority boundary explicitly excludes Question→KP relations; therefore no A1–F clinical relation is manufactured."
   },
   {
     "question_id": "xizong-official-2023-n110",
@@ -230,20 +354,35 @@
       "blob_sha": "9973d10dfdbfa513ba793965bc0dd68bb7ac2fd0",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "医患信托关系",
-    "decision_axis": "医患关系建立在专业能力不对称背景下的信任与受托责任上。",
+    "exam_target": "知识不对称背景下的医患信托关系",
+    "decision_axis": "Current humanities H2-K1明确：医学知识不对称使患者把健康利益托付给医务人员，医患关系核心是专业受托与信任，而非普通消费关系。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "题干直接强调医学知识拥有不平等和患者脆弱、依赖。",
+      "患者相信医生胜任并把患者利益置于首位，正是受托责任的核心。",
+      "因此该关系定义为信托关系，选B。"
     ],
-    "transfer_rule": "医生的专业权力伴随受托义务。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "看到“知识不对称 + 患者利益托付 + 专业胜任/忠实义务”，优先锁定信托/受托关系。",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.信托关系。Current humanities H2-K1明确以专业受托与信任概括知识不对称下的医患关系。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "医患互动可以包含服务交换，但不能简化为普通消费关系，因为存在专业受托责任。"
+      },
+      {
+        "option": "C",
+        "reason": "患者可能存在依赖，但“依附关系”没有表达医生对患者利益负有的专业受托义务。"
+      }
+    ],
+    "common_failure_node": "只看到“患者依赖医生”就选依附关系，忽略题干反复强调的信任与受托责任。",
+    "source_gap_note": "Current clinical-humanities owner can calibrate this Explanation, but its authority boundary explicitly excludes Question→KP relations; therefore no A1–F clinical relation is manufactured."
   },
   {
     "question_id": "xizong-official-2023-n111",
@@ -254,20 +393,35 @@
       "blob_sha": "9973d10dfdbfa513ba793965bc0dd68bb7ac2fd0",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "医疗器械不良事件沟通责任",
-    "decision_axis": "出现植入物断裂等事件时应调查原因、如实告知并处理，不能简单归咎产品而拒绝责任沟通。",
+    "exam_target": "医疗器械事件后的专业沟通与责任处理",
+    "decision_axis": "植入物断裂后应先倾听、调查事实并根据证据厘清责任和方案；不能未经调查就单方面归因于产品质量并拒绝医院处理。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "钢板断裂的原因可能涉及器械、手术、骨愈合、负荷等多个环节。",
+      "适当处置应包括倾听患者、核实事实、解释并形成后续解决方案。",
+      "D在原因未查明前直接外推“质量问题且医院不负责”，既跳过调查又关闭沟通，因此是不恰当处理。"
     ],
-    "transfer_rule": "并发事件先事实调查与充分告知，避免推诿。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "医疗纠纷沟通先“听—查—解释—处置”，不要在事实未明时先甩责或做绝对责任承诺。",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.告知属于钢板质量问题，医院不负责处理。原因尚未查明时直接归因并拒绝处理，不符合负责任的医疗事件沟通。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "倾听抱怨并解释安抚有助于降低冲突并获取事件信息。"
+      },
+      {
+        "option": "B",
+        "reason": "详细调查钢板断裂的相关情况是判断原因与责任的前提。"
+      }
+    ],
+    "common_failure_node": "把沟通题误做成“谁最终承担法律责任”的实体法判断，忽略题目实际考的是事件发生后的专业处置过程。",
+    "source_gap_note": "Current clinical-humanities owner can calibrate this Explanation, but its authority boundary explicitly excludes Question→KP relations; therefore no A1–F clinical relation is manufactured."
   },
   {
     "question_id": "xizong-official-2023-n112",
@@ -278,20 +432,35 @@
       "blob_sha": "9973d10dfdbfa513ba793965bc0dd68bb7ac2fd0",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "医学研究中的隐私例外",
-    "decision_axis": "经合规授权并去标识化使用病例资料，可在保护隐私前提下服务科研。",
+    "exam_target": "医疗保密与已授权匿名化研究信息",
+    "decision_axis": "Current humanities H3-K2把患者隐私和保密列为基本义务；在有合规授权且信息匿名化的研究场景，可在保护隐私前提下使用相关资料。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "保险公司、雇主和媒体不能仅凭请求就获得可识别患者的医疗信息。",
+      "D同时具备“已授权”和“匿名化”两个降低隐私风险的条件。",
+      "因此在四项中D最能得到伦理学辩护。"
     ],
-    "transfer_rule": "研究利用患者资料要有授权、最小必要和隐私保护。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "医疗信息披露先查：是否有患者授权/法定例外、是否最小必要、能否去标识化。",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.向同事提供已授权的匿名化医学研究信息。相较其他未经授权的可识别信息披露，该情形同时满足授权与去标识化边界。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "保险公司提出要求本身并不等于患者授权，不能据此提供“任何”可识别医疗信息。"
+      },
+      {
+        "option": "C",
+        "reason": "媒体请求不构成突破患者保密义务的当然理由。"
+      }
+    ],
+    "common_failure_node": "把“对方有业务需要”误当成“自动拥有医疗信息访问权”。",
+    "source_gap_note": "Current clinical-humanities owner can calibrate this Explanation, but its authority boundary explicitly excludes Question→KP relations; therefore no A1–F clinical relation is manufactured."
   },
   {
     "question_id": "xizong-official-2023-n113",
@@ -302,20 +471,35 @@
       "blob_sha": "9973d10dfdbfa513ba793965bc0dd68bb7ac2fd0",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "知情同意的实质",
-    "decision_axis": "知情同意不是签字本身，而是充分信息、理解、自愿和授权的过程。",
+    "exam_target": "知情同意的实质而非签字文件",
+    "decision_axis": "Current humanities H3-K1明确：知情同意由充分信息、理解、自愿和授权构成，签字只是可能的形式，而不是同意权本身。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "A体现尊重自主，属于知情同意的伦理基础。",
+      "C要求说明预期获益和可能风险，属于充分告知。",
+      "D强调坦诚交流过程，符合知情同意实质；只有B把同意缩减为签字文件，因此选B。"
     ],
-    "transfer_rule": "知情同意=信息+理解+自愿+决定，不等于一张签字纸。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "知情同意=信息充分 + 理解 + 自愿 + 授权；签字是证据/形式，不等于整个过程。",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.知情同意权是获得患者对治疗同意的签字文件。Current humanities明确签字只是可能形式，不能替代完整知情同意过程。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "预期获益与风险属于患者做出自主决定所必需的核心信息。"
+      },
+      {
+        "option": "D",
+        "reason": "知情同意本质上是持续的医患沟通过程，而不是一次文书动作。"
+      }
+    ],
+    "common_failure_node": "把“有签字”直接等同“已经完成有效知情同意”。",
+    "source_gap_note": "Current clinical-humanities owner can calibrate this Explanation, but its authority boundary explicitly excludes Question→KP relations; therefore no A1–F clinical relation is manufactured."
   },
   {
     "question_id": "xizong-official-2023-n114",
@@ -326,20 +510,35 @@
       "blob_sha": "9973d10dfdbfa513ba793965bc0dd68bb7ac2fd0",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "临床试验风险-获益",
-    "decision_axis": "伦理上研究风险必须与预期获益和知识价值相称，并尽可能降低可避免风险。",
+    "exam_target": "临床试验的合理风险-获益比",
+    "decision_axis": "Current humanities H3-K3明确：临床研究需科学有效、风险最小化并维持合理风险-获益比；研究并不保证受试者直接获益，受试者也可自主退出。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "临床试验的伦理正当性不能建立在“每位受试者必须直接受益”上。",
+      "风险必须被尽量降低，并与可能获益及知识价值相称。",
+      "因此C“收益风险比应该合理”是正确表述。"
     ],
-    "transfer_rule": "研究伦理先看风险最小化与合理风险-获益比。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "研究伦理四步：自愿同意、科学有效、风险最小化、风险-获益合理；受试者退出不以说明理由为条件。",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.临床试验设计收益风险比应该合理。Current humanities H3-K3明确将合理风险-获益作为研究伦理核心要求。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "临床研究的目的包括产生可推广知识，并不要求每位受试者都获得直接治疗利益。"
+      },
+      {
+        "option": "D",
+        "reason": "受试者的自愿参与包含撤回权，不能以“必须提出理由”作为退出前提。"
+      }
+    ],
+    "common_failure_node": "把临床研究误当成治疗服务，从而错误要求受试者必须直接获益。",
+    "source_gap_note": "Current clinical-humanities owner can calibrate this Explanation, but its authority boundary explicitly excludes Question→KP relations; therefore no A1–F clinical relation is manufactured."
   },
   {
     "question_id": "xizong-official-2023-n115",
@@ -350,12 +549,14 @@
       "blob_sha": "9973d10dfdbfa513ba793965bc0dd68bb7ac2fd0",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "《医师法》法律责任",
-    "decision_axis": "本题涉及现行法律责任和责任类型，具体结论必须以当前法条及适用情形为准。",
+    "exam_target": "非医师行医造成死亡的历史题源法律责任",
+    "decision_axis": "正式题源答案为依法追究刑事责任；Current humanities H4要求法律题版本优先，且责任类型等精确字段必须对照正确年份/当前法源核对，不能仅凭历史单选题升级为Current法律规则。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断；涉及Current治疗、法律、阈值或旧分类时不向canonical泛化。"
+      "题干明确行为人并非医师，却实施人工流产并造成患者死亡。",
+      "按2023正式题源及其《医师法》设问，官方答案为D。",
+      "但Current H4-K2把“责任类型”列为必须逐条核对现行法源的精确字段；当前压缩层未给出该具体情形的完整法条要件，因此Crosswalk fail-closed。"
     ],
-    "transfer_rule": "法律题只保留题源事实，Current需核对现行法条。",
+    "transfer_rule": "卫生法题先锁法律版本和行为构成；罚款数额、责任类型、期限等精确结论必须回到对应现行法源，不靠旧题外推。",
     "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
@@ -363,7 +564,21 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.依法追究刑事责任为本题正式答案；Explanation保留该历史考试结论，但不把它自动升级为当前所有“非医师行医”情形的统一责任规则。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "警告属于行政责任层面的轻处分表述，不能覆盖题干“非医师实施手术并导致死亡”的题源严重情境。"
+      },
+      {
+        "option": "A",
+        "reason": "单纯教育显然不足以对应题源所设严重后果。"
+      }
+    ],
+    "common_failure_node": "记住一个旧法律题答案后，在法律版本、行为要件和后果不同的病例里继续机械套用。",
+    "source_boundary_note": "Current humanities H4-K1/H4-K2明确要求法律版本优先，并把责任类型列为必须由正确当前法源核验的精确字段；此处只保留2023官方答案，不声明其可无条件外推到Current所有案件。",
+    "source_gap_note": "Current clinical-humanities owner can calibrate this Explanation, but its authority boundary explicitly excludes Question→KP relations; therefore no A1–F clinical relation is manufactured."
   },
   {
     "question_id": "xizong-official-2023-n116",
@@ -375,20 +590,33 @@
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
     "exam_target": "舒张压与外周阻力",
-    "decision_axis": "外周阻力增大使舒张期动脉血流外泄变慢，舒张压升高尤其明显。",
+    "decision_axis": "舒张期动脉压主要受外周阻力和心率等影响；外周阻力增大使舒张期血液向外周流出减慢，因此舒张压升高更明显。",
     "reasoning_chain": [
-      "总外周阻力增加会减慢舒张期动脉血液向外周的流出，使舒张末仍保留更多动脉内血量。",
-      "因此舒张压上升最明显，选A；心输出量和循环血量增加更偏同时抬高收缩压或平均动脉压。"
+      "舒张期没有心室射血维持主动脉压力，动脉血靠弹性回缩向外周流出。",
+      "外周阻力增大时，舒张期血液外泄速度下降。",
+      "因此舒张末仍保留更高压力，选A。"
     ],
-    "transfer_rule": "舒张压主要受外周阻力和心率影响。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "外周阻力↑最典型推高舒张压；大动脉顺应性下降则更突出收缩压↑和脉压增大。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.外周阻力增加。外周阻力增大使舒张期血液流出减慢，舒张压上升尤其明显。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "主动脉和大动脉硬化主要降低缓冲能力，更典型导致收缩压升高和脉压增大。"
+      },
+      {
+        "option": "B",
+        "reason": "心输出量增加可抬高动脉压，但不是“主要导致舒张压上升”的经典决定轴。"
+      }
+    ],
+    "common_failure_node": "把影响平均动脉压的因素都当成对收缩压、舒张压作用相同。"
   },
   {
     "question_id": "xizong-official-2023-n117",
@@ -399,21 +627,34 @@
       "blob_sha": "9973d10dfdbfa513ba793965bc0dd68bb7ac2fd0",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "大动脉弹性与脉压",
-    "decision_axis": "大动脉硬化使收缩期缓冲能力下降，收缩压升高、舒张压可下降，脉压增大。",
+    "exam_target": "大动脉硬化导致脉压增大",
+    "decision_axis": "大动脉顺应性下降后，收缩期不能有效缓冲搏出量，收缩压更高；舒张期弹性回缩减弱，因而脉压增大。",
     "reasoning_chain": [
-      "主动脉和大动脉硬化使Windkessel缓冲作用下降：收缩期不易扩张，收缩压升高；舒张期弹性回缩变差，舒张压可下降。",
-      "两者共同使脉压增大，因此选C。"
+      "脉压=收缩压−舒张压。",
+      "主动脉和大动脉硬化使Windkessel缓冲作用减弱。",
+      "结果表现为收缩压上升更明显、脉压扩大，因此选C。"
     ],
-    "transfer_rule": "老年大动脉硬化常表现脉压增宽。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "脉压增大优先想到每搏量增加或大动脉顺应性下降；老年动脉硬化是经典场景。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.主动脉和大动脉硬化。顺应性下降使收缩期压力峰值更高并减弱舒张期回缩，典型导致脉压增大。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "外周阻力增加更突出舒张压升高，未必造成典型脉压扩大。"
+      },
+      {
+        "option": "D",
+        "reason": "循环血量增加主要通过回心血量和心输出量影响血压，并不是本题脉压增大的最典型机制。"
+      }
+    ],
+    "common_failure_node": "只记“血压高”而不分收缩压、舒张压和脉压各自的主要决定因素。"
   },
   {
     "question_id": "xizong-official-2023-n118",
@@ -424,22 +665,34 @@
       "blob_sha": "9973d10dfdbfa513ba793965bc0dd68bb7ac2fd0",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "1,25-(OH)2D3的钙磷效应",
-    "decision_axis": "活性维生素D促进肠道钙、磷吸收，总体使血钙和血磷升高。",
+    "exam_target": "1,25-(OH)₂-D₃使血钙血磷均升高",
+    "decision_axis": "活性维生素D促进肠道钙、磷共同吸收，并参与骨/肾钙磷平衡，总体考试效应是血钙和血磷均升高。",
     "reasoning_chain": [
-      "1,25-(OH)₂-D₃可促进肠道钙、磷吸收，并参与骨和肾对钙磷平衡的调节，净效应可使血钙、血磷都升高。",
-      "因此选B。",
-      "PTH虽然升高血钙，但会促进肾排磷，所以表现为升钙降磷。"
+      "题目同时要求“血钙↑、血磷↑”。",
+      "PTH虽升高血钙，但通过肾排磷使血磷下降。",
+      "1,25-(OH)₂-D₃增强肠道钙磷吸收，符合两者均升高，因此选B。"
     ],
-    "transfer_rule": "活性VitD=升钙+升磷。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "钙磷口诀：PTH=钙↑磷↓；活性Vit D=钙↑磷↑。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.1,25-(OH)₂-D₃。活性维生素D促进钙、磷肠道吸收，Current D23保留的净效应为血钙和血磷均升高。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "PTH提高血钙但降低肾小管磷重吸收，故血磷下降。"
+      },
+      {
+        "option": "D",
+        "reason": "生长激素不是本题经典钙磷双升调节激素。"
+      }
+    ],
+    "common_failure_node": "只记“PTH和维生素D都升钙”，忘记两者对血磷方向相反。"
   },
   {
     "question_id": "xizong-official-2023-n119",
@@ -450,22 +703,34 @@
       "blob_sha": "9973d10dfdbfa513ba793965bc0dd68bb7ac2fd0",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "PTH的钙磷效应",
-    "decision_axis": "PTH提高血钙，同时减少肾小管磷重吸收使血磷下降。",
+    "exam_target": "PTH使血钙升高、血磷降低",
+    "decision_axis": "PTH通过骨、肾及活性维生素D轴升高血钙，同时抑制近端肾小管磷重吸收、增加尿磷排泄，使血磷下降。",
     "reasoning_chain": [
-      "PTH通过骨、肾和维生素D轴升高血钙，同时减少肾小管磷重吸收、促进排磷。",
-      "因此其典型净效应是血钙升高、血磷降低，选A。",
-      "这与钙三醇常使钙磷同向升高形成高频对照。"
+      "目标组合是“钙↑、磷↓”。",
+      "PTH促进肾钙重吸收并促进磷排泄。",
+      "因此其净效应符合题意，选A。"
     ],
-    "transfer_rule": "PTH=升钙、降磷。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "PTH最具辨识度的组合是“升钙、降磷”，降磷关键来自肾小管排磷增加。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.甲状旁腺素。PTH升高血钙，同时减少肾小管磷重吸收、增加磷排泄，使血磷下降。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "1,25-(OH)₂-D₃促进钙磷共同吸收，考试净效应是血钙、血磷均升高。"
+      },
+      {
+        "option": "C",
+        "reason": "甲状腺素不是钙↑磷↓这一经典调节组合的主要激素。"
+      }
+    ],
+    "common_failure_node": "把PTH与活性维生素D对磷的效应混淆。"
   },
   {
     "question_id": "xizong-official-2023-n120",
@@ -476,21 +741,34 @@
       "blob_sha": "9973d10dfdbfa513ba793965bc0dd68bb7ac2fd0",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "糖异生中间物",
-    "decision_axis": "果糖-6-磷酸位于糖异生从果糖-1,6-二磷酸向葡萄糖-6-磷酸的中间环节。",
+    "exam_target": "糖异生中的果糖-6-磷酸",
+    "decision_axis": "糖异生从果糖-1,6-二磷酸经果糖-1,6-二磷酸酶生成果糖-6-磷酸，再异构为葡萄糖-6-磷酸，因此F6P是重要中间产物。",
     "reasoning_chain": [
-      "糖异生在绕过PFK-1不可逆步骤时，果糖-1,6-二磷酸经果糖-1,6-二磷酸酶变为果糖-6-磷酸，再走向葡萄糖-6-磷酸。",
-      "所以F6P是糖异生的重要中间产物，选C；6-磷酸葡萄糖酸和磷酸戊糖属于PPP，UDPG更典型属于糖原合成。"
+      "糖异生逆向经过多步糖酵解可逆反应，并绕过不可逆步骤。",
+      "果糖-1,6-二磷酸绕过PFK-1后生成果糖-6-磷酸。",
+      "四个选项中C直接位于糖异生主链，因此选C。"
     ],
-    "transfer_rule": "糖异生与糖酵解大部分步骤可逆，关键绕行点另记。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "区分通路标志物：F6P/G6P属于糖酵解-糖异生交汇；6-磷酸葡萄糖酸/磷酸戊糖偏PPP；UDP-葡萄糖偏糖原合成。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.果糖-6-磷酸。它位于糖异生由果糖-1,6-二磷酸向葡萄糖-6-磷酸转换的主链中。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "6-磷酸葡萄糖酸是磷酸戊糖途径氧化阶段中间物。"
+      },
+      {
+        "option": "D",
+        "reason": "UDP-葡萄糖是糖原合成的活化葡萄糖供体。"
+      }
+    ],
+    "common_failure_node": "把所有“糖代谢中间物”混在一起背，没有按具体通路定位。"
   },
   {
     "question_id": "xizong-official-2023-n121",
@@ -501,21 +779,34 @@
       "blob_sha": "9973d10dfdbfa513ba793965bc0dd68bb7ac2fd0",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "糖原合成中UDP-葡萄糖",
-    "decision_axis": "UDP-葡萄糖是糖原合酶直接利用的活化葡萄糖供体。",
+    "exam_target": "糖原合成中的UDP-葡萄糖",
+    "decision_axis": "糖原合成先把葡萄糖-1-磷酸活化为UDP-葡萄糖，后者作为糖原合酶直接使用的葡萄糖供体。",
     "reasoning_chain": [
-      "糖原合成时G1P先活化为UDP-葡萄糖，后者是糖原合酶直接使用的葡萄糖供体。",
-      "因此选D；这组共享选项里F6P对应上一题的糖异生。"
+      "糖原延长需要“活化的葡萄糖”而不是游离葡萄糖。",
+      "UDP-葡萄糖承担活化供体角色。",
+      "因此D是糖原合成的重要中间产物。"
     ],
-    "transfer_rule": "糖原合成的直接糖基供体=UDP-glucose。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "糖原合成记“G1P→UDP-Glc→糖原”；UDP-Glc是直接供糖单位。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.尿苷二磷酸葡萄糖。UDP-葡萄糖是糖原合酶延长糖原链时使用的活化葡萄糖供体。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "果糖-6-磷酸更属于糖酵解/糖异生交汇，不是糖原链延长的活化供体。"
+      },
+      {
+        "option": "B",
+        "reason": "磷酸戊糖属于磷酸戊糖途径产物。"
+      }
+    ],
+    "common_failure_node": "只记糖原合成从G6P开始，却漏掉真正进入糖原合酶前必须形成UDP-葡萄糖。"
   },
   {
     "question_id": "xizong-official-2023-n122",
@@ -526,22 +817,34 @@
       "blob_sha": "9973d10dfdbfa513ba793965bc0dd68bb7ac2fd0",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "酮体利用关键酶",
-    "decision_axis": "肝外组织利用酮体需要琥珀酰CoA:乙酰乙酸CoA转移酶；肝缺乏该酶所以产酮而不利用酮体。",
+    "exam_target": "酮体利用的琥珀酰CoA转硫酶",
+    "decision_axis": "肝外组织利用乙酰乙酸需要琥珀酰CoA:乙酰乙酸CoA转移酶（SCOT/转硫酶）将其活化；肝缺乏该酶，所以能产酮而不能利用酮体。",
     "reasoning_chain": [
-      "酮体在肝外组织利用时，需要先把乙酰乙酸活化为乙酰乙酰CoA。",
-      "这一过程依赖琥珀酰CoA转硫酶，因此选D。",
-      "肝缺乏该酶，所以肝负责生成酮体却不能利用自身产生的酮体。"
+      "题目问“酮体分解/利用”而不是生成。",
+      "HMG-CoA合酶和裂解酶主要参与肝内酮体生成。",
+      "SCOT把乙酰乙酸转为乙酰乙酰CoA，是利用关键，因此选D。"
     ],
-    "transfer_rule": "肝能产酮不能用酮；关键缺thiophorase。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "酮体：肝生成靠HMG-CoA synthase/lyase；肝外利用靠SCOT，肝缺SCOT。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.琥珀酰CoA转硫酶。它是肝外组织利用乙酰乙酸的关键酶，肝脏缺乏该酶。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "HMG-CoA合酶参与酮体生成，不是肝外酮体利用的关键酶。"
+      },
+      {
+        "option": "B",
+        "reason": "HMG-CoA裂解酶同样属于酮体生成方向。"
+      }
+    ],
+    "common_failure_node": "把“产酮”和“用酮”两个方向的酶放在同一列表里死记。"
   },
   {
     "question_id": "xizong-official-2023-n123",
@@ -552,22 +855,34 @@
       "blob_sha": "9973d10dfdbfa513ba793965bc0dd68bb7ac2fd0",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "胆固醇合成限速酶",
-    "decision_axis": "HMG-CoA还原酶催化HMG-CoA生成甲羟戊酸，是胆固醇合成关键限速步骤。",
+    "exam_target": "胆固醇合成限速酶HMG-CoA还原酶",
+    "decision_axis": "HMG-CoA还原酶催化HMG-CoA生成甲羟戊酸，是内源性胆固醇合成的关键限速步骤。",
     "reasoning_chain": [
-      "胆固醇从乙酰CoA合成时，HMG-CoA还原为甲羟戊酸是关键限速步骤。",
-      "因此内源性胆固醇合成的关键酶是HMG-CoA还原酶，选C。",
-      "HMG-CoA合酶/裂解酶更常与酮体生成链一起考。"
+      "HMG-CoA是胆固醇和酮体通路的共同上游节点。",
+      "胆固醇方向需要把HMG-CoA还原为甲羟戊酸。",
+      "该反应由HMG-CoA还原酶催化并限速，因此选C。"
     ],
-    "transfer_rule": "胆固醇合成限速酶=HMG-CoA reductase。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "HMG-CoA分叉：还原酶→胆固醇；裂解酶→酮体。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.HMG-CoA还原酶。它催化HMG-CoA生成甲羟戊酸，是胆固醇合成的关键限速酶。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "HMG-CoA裂解酶走向酮体生成，不是胆固醇合成。"
+      },
+      {
+        "option": "D",
+        "reason": "琥珀酰CoA转硫酶参与酮体利用。"
+      }
+    ],
+    "common_failure_node": "只看到“HMG-CoA”三个选项就混淆胆固醇合成和酮体代谢的分叉酶。"
   },
   {
     "question_id": "xizong-official-2023-n124",
@@ -578,22 +893,34 @@
       "blob_sha": "9973d10dfdbfa513ba793965bc0dd68bb7ac2fd0",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "动脉粥样硬化泡沫细胞",
-    "decision_axis": "泡沫细胞由吞噬脂质的巨噬细胞和平滑肌细胞形成，是脂纹和早期粥样病变的重要成分。",
+    "exam_target": "动脉粥样硬化中的泡沫细胞",
+    "decision_axis": "动脉粥样硬化早期脂纹由摄取修饰脂蛋白的巨噬细胞及部分平滑肌细胞形成泡沫细胞，是经典组织学成分。",
     "reasoning_chain": [
-      "动脉粥样硬化早期，巨噬细胞和平滑肌细胞可吞噬脂质形成泡沫细胞。",
-      "因此选D。",
-      "Aschoff细胞属于风湿热，心衰细胞见慢性肺淤血，多核巨细胞多见异物/肉芽肿反应。"
+      "题目要求把特征性细胞与疾病配对。",
+      "粥样硬化病灶中巨噬细胞摄取脂质后胞质充满脂滴，形成泡沫细胞。",
+      "因此选D。"
     ],
-    "transfer_rule": "早期粥样硬化抓泡沫细胞。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "病理细胞配对：粥样硬化→泡沫细胞；风湿性心肌炎→Aschoff细胞；慢性肺淤血→心衰细胞。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.泡沫细胞。吞噬脂质的巨噬细胞/平滑肌细胞形成泡沫细胞，是动脉粥样硬化尤其早期脂纹的重要组成。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "Aschoff细胞属于风湿性心肌炎相关病理。"
+      },
+      {
+        "option": "B",
+        "reason": "心衰细胞是慢性肺淤血时含铁血黄素巨噬细胞。"
+      }
+    ],
+    "common_failure_node": "把不同章节的“特殊命名细胞”混为一组记忆，缺少疾病-细胞固定配对。"
   },
   {
     "question_id": "xizong-official-2023-n125",
@@ -604,19 +931,33 @@
       "blob_sha": "9973d10dfdbfa513ba793965bc0dd68bb7ac2fd0",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "异物巨细胞来源",
-    "decision_axis": "缝线等异物可诱导巨噬细胞融合形成异物型多核巨细胞。",
+    "exam_target": "手术缝线周围的异物型多核巨细胞",
+    "decision_axis": "Current H24 KP13明确：手术缝线等异物可诱导异物巨细胞反应；其本质是巨噬细胞融合形成多核巨细胞。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "缝线属于难以被单个巨噬细胞吞噬清除的外源异物。",
+      "慢性异物反应可使多个巨噬细胞融合形成异物型多核巨细胞。",
+      "Current H24 KP13直接列出手术缝线作为该类病因，因此选C。"
     ],
-    "transfer_rule": "异物肉芽肿核心细胞来自单核-巨噬系统。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "遇到大块/持续异物：巨噬细胞聚集并融合→异物型多核巨细胞；不要仅凭“多核”误认Langhans巨细胞。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.多核巨细胞。Current H24 KP13明确把手术缝线列为异物巨细胞的典型诱因。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "Aschoff细胞与风湿性心肌炎相关，不是缝线异物反应。"
+      },
+      {
+        "option": "D",
+        "reason": "泡沫细胞的核心是胞质内脂质积聚，典型见于动脉粥样硬化等。"
+      }
+    ],
+    "common_failure_node": "看到“巨细胞”只想到结核Langhans巨细胞，忽略异物巨细胞由病因背景决定。"
   }
 ]
