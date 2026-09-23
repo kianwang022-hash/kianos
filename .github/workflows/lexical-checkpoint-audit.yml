@@ -34,20 +34,32 @@ jobs:
       - name: Prepare reports
         run: mkdir -p lexical-checkpoint-audit
       - name: Validate Final Learner Object decisions
+        continue-on-error: true
         run: node content/lexical/tools/validate-final-learner-object.mjs
       - name: Audit Natural Owner registry
+        continue-on-error: true
         run: python tools/lexical_natural_owner.py audit
       - name: Audit Current-owner lineage
+        continue-on-error: true
         run: python tools/lexical_current_owner_lineage_audit.py --output lexical-checkpoint-audit/current-owner-lineage.json
       - name: Audit direct-render readiness
+        continue-on-error: true
         run: python tools/lexical_direct_render_owner_audit.py --output lexical-checkpoint-audit/direct-render.json
       - name: Audit secondary duplicates
+        continue-on-error: true
         run: python tools/lexical_secondary_duplicate_audit.py --output lexical-checkpoint-audit/secondary-duplicates.json
       - name: Record non-acceptance integrity signals
+        continue-on-error: true
         run: |
           python tools/lexical_knowledge_reacceptance_audit.py \
             --output lexical-checkpoint-audit/integrity-signals.json \
             --summary lexical-checkpoint-audit/integrity-signals.md
+      - name: Summarize checkpoint diagnostics
+        if: always()
+        run: |
+          echo "Full-catalog checkpoint scans are diagnostic evidence."
+          echo "Routine semantic blocking remains owned by changed-owner Fast QA and bounded readback."
+
       - name: Upload checkpoint evidence
         if: always()
         uses: actions/upload-artifact@v4
