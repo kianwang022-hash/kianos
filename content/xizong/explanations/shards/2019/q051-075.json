@@ -16,14 +16,26 @@
       "它并非不出血或不穿孔；疼痛节律也常不典型，不能机械套普通十二指肠溃疡的空腹痛。"
     ],
     "transfer_rule": "靠近幽门的溃疡要特别想到出口梗阻。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.易发生幽门梗阻。幽门管邻近胃出口，炎症、水肿和瘢痕更容易造成出口狭窄。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "幽门管溃疡并不因位置特殊而“不易穿孔”。"
+      },
+      {
+        "option": "D",
+        "reason": "特殊部位溃疡疼痛节律可不典型，不能机械套十二指肠溃疡的空腹痛。"
+      }
+    ],
+    "common_failure_node": "把幽门管溃疡按普通胃/十二指肠溃疡疼痛节律背诵，忽略“靠近出口→易梗阻”的解剖轴。"
   },
   {
     "question_id": "xizong-official-2019-n052",
@@ -42,14 +54,26 @@
       "DKA通常还要有高糖、酮症和深快呼吸等证据；题干也没有支持AKI或卒中的局灶线索。"
     ],
     "transfer_rule": "肝硬化+消化道出血+意识改变，先想HE。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.肝性脑病。慢性肝病背景上大量消化道出血后迅速出现躁动和意识障碍，血液蛋白在肠道分解增加含氮负荷，是典型诱因。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "DKA还应有明显高血糖、酮症和代谢性酸中毒证据；题干首先给出的是肝硬化和上消化道出血链。"
+      },
+      {
+        "option": "D",
+        "reason": "急性脑血管病通常更期待局灶性神经功能缺损，题干未提供。"
+      }
+    ],
+    "common_failure_node": "看到患者有糖尿病和高血压史就被既往病史锚定，忽略“肝硬化+消化道出血+意识改变”的强因果链。"
   },
   {
     "question_id": "xizong-official-2019-n053",
@@ -63,7 +87,8 @@
     "exam_target": "尿路感染复发旧时间定义",
     "decision_axis": "题源以停药6周内再次出现同一大肠埃希菌定义复发；现代文献对relapse/reinfection常用时间窗并不统一且可更短，固定6周不升级。",
     "reasoning_chain": [
-      "按题源正式答案保留，并对时间阈值fail-closed。"
+      "题源以停药6周内再次出现同一大肠埃希菌定义复发；现代文献对relapse/reinfection常用时间窗并不统一且可更短，固定6周不升级。",
+      "A.停药6周内、菌株仍为大肠埃希菌，是2019题源对“复发”的固定判据；Current不把这一6周阈值升级为统一现代定义。"
     ],
     "transfer_rule": "仅保留“同一菌株短期再现偏复发”的方向，不固化6周阈值。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -73,7 +98,20 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.停药6周内、菌株仍为大肠埃希菌，是2019题源对“复发”的固定判据；Current不把这一6周阈值升级为统一现代定义。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "短时间内换成不同菌种更偏再感染而非同一病原持续/复燃。"
+      },
+      {
+        "option": "C",
+        "reason": "同一菌种但在题源6周后出现，不符合该题当年的“复发”时间定义。"
+      }
+    ],
+    "common_failure_node": "把历史教材的固定6周阈值当成现代所有指南统一使用的relapse定义。",
+    "source_boundary_note": "2019题源用“停药6周内同一菌株”界定复发；Current对relapse/reinfection时间窗和分型并非统一固定6周，本题仅保留历史考试判据。"
   },
   {
     "question_id": "xizong-official-2019-n054",
@@ -92,14 +130,26 @@
       "地中海贫血、PNH和温抗体型AIHA的治疗主轴并不都是以脾切除为首选。"
     ],
     "transfer_rule": "HS溶血场所在脾，脾切除可纠正溶血但不纠正膜缺陷。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.遗传性球形红细胞增多症。异常红细胞主要在脾内被清除，切脾能显著减少血管外溶血，是经典疗效最明确的手术治疗。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "PNH是补体介导的血管内溶血，治疗主轴不是切脾。"
+      },
+      {
+        "option": "D",
+        "reason": "温抗体AIHA可在部分难治病例考虑脾切除，但并非题目所问“首选且疗效最佳”的经典病种。"
+      }
+    ],
+    "common_failure_node": "只记“脾脏会破坏红细胞”就把所有溶血性贫血都套成切脾首选。"
   },
   {
     "question_id": "xizong-official-2019-n055",
@@ -118,14 +168,26 @@
       "甲状腺危象通常有高热和明显高代谢；感染性休克、食物中毒也不能解释长期多尿消瘦和典型酸中毒呼吸。"
     ],
     "transfer_rule": "DKA抓高糖背景+脱水+Kussmaul呼吸+意识改变。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.糖尿病酮症酸中毒。青年、长期多尿消瘦和既往高血糖，加上应激后脱水、低血压、嗜睡及Kussmaul深快呼吸，构成典型DKA。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "感染可诱发DKA，但感染性休克本身不能解释半年多尿消瘦和典型深快酸中毒呼吸。"
+      },
+      {
+        "option": "A",
+        "reason": "甲状腺危象通常有高热、明显高代谢和甲亢背景，本题证据不符。"
+      }
+    ],
+    "common_failure_node": "把诱发事件（胃肠炎/感染）误当成主诊断，忽略长期糖尿病线索和酸中毒呼吸。"
   },
   {
     "question_id": "xizong-official-2019-n056",
@@ -144,14 +206,26 @@
       "所以A、B、D都把RF或anti-CCP的敏感性/特异性方向说反了。"
     ],
     "transfer_rule": "RA实验室：anti-CCP更特异，RF更不专一。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.抗CCP抗体有助于RA早期诊断。ACPA/anti-CCP可较早出现且特异性高，是RA重要诊断与风险证据。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "RF阴性不能排除RA，存在血清阴性RA。"
+      },
+      {
+        "option": "B",
+        "reason": "anti-CCP通常比RF更具特异性，不能把方向说反。"
+      }
+    ],
+    "common_failure_node": "把“RF常用”误记成“RF最特异且阴性即可排除”。"
   },
   {
     "question_id": "xizong-official-2019-n057",
@@ -170,14 +244,26 @@
       "清创、包扎和镇痛都重要，但不能优先于大面积烧伤的循环复苏；口服烧伤饮料只是在无法建立静脉通道时的替代。"
     ],
     "transfer_rule": "大面积烧伤转运优先ABC+液体通路。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.建立静脉通道并输液。70%大面积烧伤且需长途转运，最优先是先建立可靠复苏通路并开始液体复苏，防止烧伤休克。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "清创和包扎重要，但不能优先于大面积烧伤的循环复苏。"
+      },
+      {
+        "option": "B",
+        "reason": "镇痛不能替代补液复苏和循环稳定。"
+      }
+    ],
+    "common_failure_node": "把创面看起来最直观的处理放在循环复苏之前。"
   },
   {
     "question_id": "xizong-official-2019-n058",
@@ -196,14 +282,26 @@
       "亚急性甲状腺炎常疼痛且有病毒前驱；甲状腺癌更偏局灶硬结/不规则；单纯性甲状腺肿不解释这种自身免疫性甲减方向。"
     ],
     "transfer_rule": "桥本=无痛硬韧弥漫肿+甲减/TPOAb。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.慢性淋巴细胞性甲状腺炎。无痛、弥漫、质硬韧的甲状腺肿大伴T3/T4下降趋势，典型指向桥本甲状腺炎。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "亚急性甲状腺炎通常有明显颈前疼痛、压痛及炎症背景。"
+      },
+      {
+        "option": "D",
+        "reason": "甲状腺癌更常表现为局灶性可疑结节、硬结或侵袭征，而非对称弥漫无痛肿大。"
+      }
+    ],
+    "common_failure_node": "只因“甲状腺硬”就跳到癌症，未结合弥漫性、无痛和甲减方向。"
   },
   {
     "question_id": "xizong-official-2019-n059",
@@ -222,14 +320,26 @@
       "关键不是“有静脉曲张就一定肾癌”，而是右侧、平卧不消失并合并无痛血尿这一组合。"
     ],
     "transfer_rule": "成年人新发、右侧或平卧不消退的精索静脉曲张要排上游占位。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.肾癌。新发右侧精索静脉曲张且平卧不消失提示肾静脉/下腔静脉回流受阻，再叠加无痛性血尿，应高度警惕肾癌或癌栓。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "原发性精索静脉曲张多见左侧，且平卧后常减轻；新发右侧且不消失是继发性红旗。"
+      },
+      {
+        "option": "D",
+        "reason": "膀胱癌可致无痛血尿，但不能很好解释右侧持续精索静脉曲张。"
+      }
+    ],
+    "common_failure_node": "把精索静脉曲张当作独立泌尿问题，漏掉“右侧+平卧不消失”的继发性肿瘤红旗。"
   },
   {
     "question_id": "xizong-official-2019-n060",
@@ -243,7 +353,8 @@
     "exam_target": "断流术优点旧外科口径",
     "decision_axis": "题源认为脾切除+贲门周围血管离断术可止血、脑病率较低但不能改善肝功能；现代门脉高压治疗策略已显著改变，不把该术式优劣固化为Current。",
     "reasoning_chain": [
-      "按题源正式答案保留，并对现代门脉高压治疗fail-closed。"
+      "题源认为脾切除+贲门周围血管离断术可止血、脑病率较低但不能改善肝功能；现代门脉高压治疗策略已显著改变，不把该术式优劣固化为Current。",
+      "D.术后肝功能改善，是题源所问“不被普遍认可”的优点。断流术主要解决曲张静脉出血风险，并不能逆转肝硬化本身。"
     ],
     "transfer_rule": "仅保留题源/Study时代边界；不得据此生成Current术式选择。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -253,7 +364,20 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.术后肝功能改善，是题源所问“不被普遍认可”的优点。断流术主要解决曲张静脉出血风险，并不能逆转肝硬化本身。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "断流术在题源体系下可取得较满意止血效果。"
+      },
+      {
+        "option": "C",
+        "reason": "与分流术相比，题源通常强调断流术不增加门体分流，术后脑病发生率相对较低。"
+      }
+    ],
+    "common_failure_node": "把“控制门脉高压并发症”偷换成“改善基础肝功能”；同时把旧术式优缺点表当成Current固定决策规则。",
+    "source_boundary_note": "脾切除+贲门周围血管离断术的“手术打击/止血/脑病率”等优缺点属于旧外科考试框架；现代门静脉高压出血二级预防与救治策略已变化，不把该表升级为Current统一决策规则。"
   },
   {
     "question_id": "xizong-official-2019-n061",
@@ -272,14 +396,26 @@
       "张力性气胸是高压持续推移，不是这种随呼吸往返摆动；普通闭合性气胸和进行性血胸也不形成该典型机制。"
     ],
     "transfer_rule": "纵隔扑动经典见开放性气胸。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.开放性气胸。胸膜腔与外界相通后，吸呼气两侧胸腔压力差反复变化，可使纵隔随呼吸往返摆动。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "张力性气胸是患侧持续正压把纵隔推向对侧，不是典型随呼吸往返的纵隔扑动。"
+      },
+      {
+        "option": "B",
+        "reason": "闭合性气胸没有持续开放胸壁破口，缺少产生典型纵隔扑动的机制。"
+      }
+    ],
+    "common_failure_node": "把“纵隔移位”与“纵隔扑动”混为一谈；前者可持续，后者强调随呼吸往返。"
   },
   {
     "question_id": "xizong-official-2019-n062",
@@ -298,14 +434,26 @@
       "只有出现症状、并发症或明确高危因素时，才把胆囊切除提到前面。"
     ],
     "transfer_rule": "无症状胆囊结石多数观察，手术看症状或特定高危因素。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.随访观察。偶然发现的小型无症状胆囊结石且无高危特征时，Current Study默认不做预防性手术。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "仅因“有结石”并不足以构成胆囊切除指征；需症状、并发症或特定高危因素。"
+      },
+      {
+        "option": "C",
+        "reason": "口服溶石并不是无症状胆囊结石的常规首选。"
+      }
+    ],
+    "common_failure_node": "把影像学发现本身当成必须治疗的疾病，而不看症状和风险。"
   },
   {
     "question_id": "xizong-official-2019-n063",
@@ -324,14 +472,26 @@
       "判断轴是有无血运损害和腹膜刺激征，而不是只看疝块能否还纳。"
     ],
     "transfer_rule": "绞窄坏死先处理肠管和污染，疝修补要考虑感染风险。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.切除坏死肠管、高位结扎疝囊。不可还纳疝伴发热、局部显著压痛和腹膜刺激征提示绞窄、坏死；污染场景需先处理坏死肠管并避免常规一期修补。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "存在绞窄坏死/腹膜刺激征时严禁手法复位，以免坏死肠段回纳腹腔。"
+      },
+      {
+        "option": "C",
+        "reason": "污染术野下一期疝修补会增加感染风险，题源选择高位结扎疝囊。"
+      }
+    ],
+    "common_failure_node": "只看到“嵌顿疝”就尝试复位，忽略发热、肌紧张等绞窄坏死证据。"
   },
   {
     "question_id": "xizong-official-2019-n064",
@@ -345,7 +505,8 @@
     "exam_target": "Perthes试验旧静脉功能检查",
     "decision_axis": "题源用Perthes试验判断深静脉是否通畅并据此评估浅静脉曲张手术；Current实际评估主要依赖静脉双工超声，不将体格试验升级为现代关键检查。",
     "reasoning_chain": [
-      "按题源正式答案保留，并对检查路径更新fail-closed。"
+      "题源用Perthes试验判断深静脉是否通畅并据此评估浅静脉曲张手术；Current实际评估主要依赖静脉双工超声，不将体格试验升级为现代关键检查。",
+      "C.Perthes试验为2019题源答案；传统上用其判断深静脉通畅性，以评估浅静脉曲张手术条件，但Current关键评估已以静脉双工超声等影像为主。"
     ],
     "transfer_rule": "仅保留经典体征题源口径；Current术前评估优先现代血管超声。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -355,7 +516,21 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.Perthes试验为2019题源答案；传统上用其判断深静脉通畅性，以评估浅静脉曲张手术条件，但Current关键评估已以静脉双工超声等影像为主。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "Pratt试验传统上更多用于交通静脉功能评估，并不是题源所问的深静脉通畅关键试验。"
+      },
+      {
+        "option": "B",
+        "reason": "Trendelenburg试验主要评价大隐静脉瓣膜/交通支功能，不能替代深静脉通畅评估。"
+      }
+    ],
+    "common_failure_node": "把传统体格试验名称背成现代术前关键检查，忽略Current静脉超声已承担主要解剖与血流评估。",
+    "source_conflict_note": "2019题源以Perthes试验作为判断深静脉通畅、决定浅静脉曲张能否手术的关键检查；Current术前评估主要依赖静脉双工超声，不能把传统体格试验升级为现代关键检查。",
+    "source_boundary_note": "保留Perthes试验的历史考试识别角色；现实手术决策需结合静脉双工超声对深静脉通畅、反流及血栓等进行评估。"
   },
   {
     "question_id": "xizong-official-2019-n065",
@@ -374,14 +549,26 @@
       "Cobb角主要看脊柱侧弯，Pauwels角用于股骨颈骨折剪切/压缩力方向，Codman三角是骨膜反应影像征。"
     ],
     "transfer_rule": "大转子上移看Bryant三角。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.Bryant三角。通过髂前上棘与大转子的几何关系可判断大转子是否上移，是髋部损伤的经典体格测量。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "Cobb角主要用于脊柱侧弯测量。"
+      },
+      {
+        "option": "D",
+        "reason": "Pauwels角用于股骨颈骨折受力/骨折线倾斜度分析。"
+      }
+    ],
+    "common_failure_node": "把骨科各类“角/三角”只按名称记忆，不对应具体解剖问题。"
   },
   {
     "question_id": "xizong-official-2019-n066",
@@ -400,14 +587,26 @@
       "这个数字属于肱骨髁上骨折的解剖基础；过小或过大的范围都不符合正常前倾角。"
     ],
     "transfer_rule": "该题作为骨科精确角度记忆点保留。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.30°～50°。这是题源/Current Study中肱骨干轴线与肱骨髁轴线正常前倾角的范围。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "10°～20°低于本题所用正常前倾角范围。"
+      },
+      {
+        "option": "D",
+        "reason": "大于50°超出正常范围。"
+      }
+    ],
+    "common_failure_node": "把肱骨前倾角与提携角、颈干角等其他骨科角度混淆。"
   },
   {
     "question_id": "xizong-official-2019-n067",
@@ -426,14 +625,26 @@
       "粘连性肩关节囊炎可有主动/被动活动受限，但不能解释这组三联退变影像；RA和肩袖损伤也缺少相应证据。"
     ],
     "transfer_rule": "OA影像抓间隙窄+硬化/囊变+骨赘。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.肩关节骨关节炎。关节间隙变窄、软骨下骨囊变和边缘骨赘构成典型退行性OA影像组合。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "粘连性肩关节囊炎可致主动/被动活动受限，但不以骨赘、软骨下囊变这组退行性影像为核心。"
+      },
+      {
+        "option": "D",
+        "reason": "肩袖损伤需结合肌腱功能/影像，不能解释典型OA骨性改变。"
+      }
+    ],
+    "common_failure_node": "看到肩关节活动受限就直接报“冻结肩”，忽略X线已经给出的退变三联征。"
   },
   {
     "question_id": "xizong-official-2019-n068",
@@ -452,14 +663,26 @@
       "规则锯齿样F波更应想到房扑，不要把房扑F波和房颤f波混淆。"
     ],
     "transfer_rule": "房颤=房律乱、室律绝对不齐；房扑=F波更规则。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.可见规律f波，是错误描述。房颤P波消失、RR绝对不规则，基线f波细小且不规则；规律锯齿样F波更提示房扑。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "P波消失是房颤的典型心电图表现。"
+      },
+      {
+        "option": "C",
+        "reason": "RR间期绝对不等是房颤最关键节律特点之一。"
+      }
+    ],
+    "common_failure_node": "把房扑规则F波和房颤不规则f波混成同一个“房性波”。"
   },
   {
     "question_id": "xizong-official-2019-n069",
@@ -478,14 +701,26 @@
       "房颤没有有效房缩，因此不会产生典型S4；心界扩大取决于基础结构性心脏病，不是房颤本身的必有体征。"
     ],
     "transfer_rule": "房颤查体抓绝对不齐+脉搏短绌。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.心律完全不整。房颤房室传导不规则，听诊最典型为心律绝对不齐，并常伴第一心音强弱不等、脉搏短绌。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "第四心音依赖有效心房收缩，房颤时没有协调房缩，通常不产生S4。"
+      },
+      {
+        "option": "B",
+        "reason": "心界扩大取决于基础结构性心脏病，并非房颤本身必有体征。"
+      }
+    ],
+    "common_failure_node": "把基础心脏病的体征当成房颤本身的特异体征。"
   },
   {
     "question_id": "xizong-official-2019-n070",
@@ -504,14 +739,26 @@
       "心衰可以因快速心室率或基础病发生，但不是这题所考的房颤血栓栓塞主轴。"
     ],
     "transfer_rule": "房颤长期风险核心看卒中/系统栓塞。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.脑栓塞。房颤造成左房尤其左心耳血流淤滞和血栓形成，脱落进入体循环后脑栓塞/缺血性卒中是最重要并发症。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "左房血栓进入体循环，不会通常进入肺动脉造成肺栓塞；肺栓塞多来自静脉系统。"
+      },
+      {
+        "option": "A",
+        "reason": "心衰可并存，但本题考的是房颤最典型血栓栓塞风险。"
+      }
+    ],
+    "common_failure_node": "把动脉系统栓塞和静脉系统肺栓塞的血栓来源混淆。"
   },
   {
     "question_id": "xizong-official-2019-n071",
@@ -530,14 +777,26 @@
       "肝脏通常表现为肝缘整体改变；肾脏与胰腺也不符合这种随呼吸易触及的无痛性胆囊增大形态。"
     ],
     "transfer_rule": "黄疸+无痛肿大胆囊=远端胆道恶性梗阻线索。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.胆囊。无痛进行性黄疸伴右上腹光滑、无痛、随呼吸移动的包块，是扩张胆囊的Courvoisier征。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "肝脏增大通常表现为肝缘整体下移/质地变化，而非一个光滑胆囊样包块。"
+      },
+      {
+        "option": "D",
+        "reason": "胰腺深在腹膜后，通常不能形成这种随呼吸移动、易触及的右上腹包块。"
+      }
+    ],
+    "common_failure_node": "识别出胰头癌背景后直接把触及包块叫“胰腺”，忽略Courvoisier征的包块实际上是胆囊。"
   },
   {
     "question_id": "xizong-official-2019-n072",
@@ -556,14 +815,26 @@
       "肝癌、胆囊癌和肾癌都不能像胰头癌这样同时解释典型进行性黄疸与Courvoisier征。"
     ],
     "transfer_rule": "胰头癌经典=无痛黄疸+胆囊肿大。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.胰头癌。胰头肿瘤压迫远端胆总管可造成进行性无痛梗阻性黄疸，并使胆囊扩张形成Courvoisier征。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "胆囊癌可引起胆道梗阻，但本题“无痛黄疸+无痛扩张胆囊”更典型指向远端胆总管/胰头阻塞。"
+      },
+      {
+        "option": "A",
+        "reason": "肝癌不典型形成Courvoisier征。"
+      }
+    ],
+    "common_failure_node": "只抓“黄疸+胆囊包块”而不按梗阻部位反推病变来源。"
   },
   {
     "question_id": "xizong-official-2019-n073",
@@ -582,14 +853,26 @@
       "胸片透亮度增加可见过度充气，但真正决定诊断的是发作性、可变性和哮鸣音这一组合。"
     ],
     "transfer_rule": "哮喘抓发作性、可逆性、哮鸣音。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.支气管哮喘。长期发作性咳嗽、喘息、哮鸣音、无吸烟史和可变性病程最符合哮喘。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "COPD更典型为持续气流受限、吸烟/危险暴露背景，症状可波动但不像本例长期明显发作性。"
+      },
+      {
+        "option": "D",
+        "reason": "左心衰常伴湿啰音、心脏基础病和肺淤血证据，本题不符。"
+      }
+    ],
+    "common_failure_node": "看到胸片透亮度增加就直接诊断COPD，忽略发作性和无吸烟史。"
   },
   {
     "question_id": "xizong-official-2019-n074",
@@ -608,14 +891,26 @@
       "所以这题不是问“哪些检查有用”，而是问哪个检查最直接证明哮喘的核心生理特征。"
     ],
     "transfer_rule": "哮喘功能证据看可变/可逆气流受限。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.肺功能及支气管舒张试验。它能客观证明可变性/可逆性气流受限，是本病例最直接的功能学确认手段。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "总IgE可支持过敏背景，但不能单独确诊哮喘。"
+      },
+      {
+        "option": "B",
+        "reason": "CT可排除结构性肺病，但不是证明可逆气流受限的首选。"
+      }
+    ],
+    "common_failure_node": "把过敏标志或影像异常当成哮喘核心诊断证据，忽略可变性气流受限需要功能学证明。"
   },
   {
     "question_id": "xizong-official-2019-n075",
@@ -634,13 +929,25 @@
       "题目考的是控制病程的抗炎治疗，而不是只在发作时短暂扩张气道。"
     ],
     "transfer_rule": "哮喘长期控制必须含ICS策略。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.吸入糖皮质激素。哮喘本质是慢性气道炎症，ICS是控制气道炎症、降低发作风险的核心治疗。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "LAMA可在特定患者作为加用支气管扩张治疗，但不能替代ICS的基础抗炎地位。"
+      },
+      {
+        "option": "B",
+        "reason": "抗生素仅在有明确细菌感染证据时使用，并非哮喘常规控制治疗。"
+      }
+    ],
+    "common_failure_node": "只关注支气管痉挛而忽略哮喘的核心病理是气道炎症。"
   }
 ]
