@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "7de06b36adeed5c86e1919a8bba4018728101231965d84e4d8e8a34e9f33a36a",
+    "content_hash": "ca9e0b5e8e3b69ac8458ac3228f11bd19315d1559c2ef6a683d123f69889cb42",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "似乎；好像",
@@ -45,12 +45,39 @@
             ],
             "meaning_cn": "好像...",
             "phrase": "seem like + sth"
+          },
+          {
+            "collocation_id": "collocation:af88d82fd6b941ba7771",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:seem:347df06f23395914:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "似乎/看起来……",
+            "phrase": "seem + adjective"
+          },
+          {
+            "collocation_id": "collocation:ae1465e5686ba5bb1268",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:seem:347df06f23395914:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "似乎……",
+            "phrase": "it seems (that) + clause"
+          },
+          {
+            "collocation_id": "collocation:891953d5a379974b7e94",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:seem:347df06f23395914:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "好像……",
+            "phrase": "seem as if/as though + clause"
           }
         ],
         "confidence": "medium",
         "definition_cn": "似乎；好像",
         "definition_en": "to appear to be something",
-        "governing_pattern": "vi. + to be / vi. + like",
+        "governing_pattern": "seem + adjective/noun; seem to be + adjective/noun; seem to do/be doing; seem like + noun/expression; it seems (that) + clause; seem as if/as though + clause",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
@@ -93,6 +120,9 @@
     ],
     "active_collocations": [
       "collocation:40581dbe41e87a87ab8c",
+      "collocation:891953d5a379974b7e94",
+      "collocation:ae1465e5686ba5bb1268",
+      "collocation:af88d82fd6b941ba7771",
       "collocation:f2d95d3701dd1fbbf6a6"
     ],
     "facts": [
@@ -111,6 +141,21 @@
       {
         "id": "collocation:f2d95d3701dd1fbbf6a6",
         "source_row": 20575,
+        "source_path": "content/lexical/canonical/collocations/shards/o4321-4352.json"
+      },
+      {
+        "id": "collocation:891953d5a379974b7e94",
+        "source_row": 21518,
+        "source_path": "content/lexical/canonical/collocations/shards/o4321-4352.json"
+      },
+      {
+        "id": "collocation:ae1465e5686ba5bb1268",
+        "source_row": 21519,
+        "source_path": "content/lexical/canonical/collocations/shards/o4321-4352.json"
+      },
+      {
+        "id": "collocation:af88d82fd6b941ba7771",
+        "source_row": 21520,
         "source_path": "content/lexical/canonical/collocations/shards/o4321-4352.json"
       }
     ],
@@ -140,8 +185,8 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4321-4328.json",
-    "source_content_hash": "7de06b36adeed5c86e1919a8bba4018728101231965d84e4d8e8a34e9f33a36a",
-    "semantic_delta": 1,
+    "source_content_hash": "ca9e0b5e8e3b69ac8458ac3228f11bd19315d1559c2ef6a683d123f69889cb42",
+    "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

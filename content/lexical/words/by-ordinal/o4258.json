@@ -6,8 +6,19 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "081c930ffb30e7c5e3397bdbf2ab31a76b3f99f170e163e913b0d3e212e230f8",
+    "constructions": [
+      {
+        "boundary": "market-supply saturation, not literal wetness",
+        "construction_id": "construction:96ddfc9adb3f8ba8ed6e",
+        "definition_en": "to supply so much of a product or service that demand is effectively filled or exceeded",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "使市场供给过剩/饱和，使需求被充分满足甚至超过",
+        "pattern": "saturate the market",
+        "source_sense_id": "sense:saturate:e2fc1532e5585dfc"
+      }
+    ],
+    "content_hash": "39902ba4b77afd2f4703d809788fc4672cae204fdd60a14a17c04c6d72b61871",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "使完全浸透、充满或达到饱和；可延伸到市场/科学语境",
@@ -24,11 +35,21 @@
     "semantic_neighbors": [],
     "senses": [
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:d4ebc90d36658f56472f",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:saturate:e2fc1532e5585dfc:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "被……完全浸透/充满；达到饱和",
+            "phrase": "be saturated with sth"
+          }
+        ],
         "confidence": "medium",
-        "definition_cn": "使浸透，使饱和",
-        "definition_en": "to make something completely wet or full, so that no more can be absorbed",
-        "governing_pattern": "",
+        "definition_cn": "使完全浸透、充满或达到饱和，使其不能再吸收/容纳更多",
+        "definition_en": "to fill, soak, or supply something completely so that no more can be absorbed, added, or effectively taken up",
+        "governing_pattern": "vt.: saturate sth; be saturated with sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
@@ -134,7 +155,9 @@
         "source_path": "content/lexical/canonical/senses/shards/o4257-4288.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:d4ebc90d36658f56472f"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -155,6 +178,11 @@
       {
         "id": "collocation:fffdd02685b72538cae5",
         "source_row": 21627,
+        "source_path": "content/lexical/canonical/collocations/shards/o4257-4288.json"
+      },
+      {
+        "id": "collocation:d4ebc90d36658f56472f",
+        "source_row": 21635,
         "source_path": "content/lexical/canonical/collocations/shards/o4257-4288.json"
       }
     ],
@@ -189,7 +217,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4257-4264.json",
-    "source_content_hash": "081c930ffb30e7c5e3397bdbf2ab31a76b3f99f170e163e913b0d3e212e230f8",
+    "source_content_hash": "39902ba4b77afd2f4703d809788fc4672cae204fdd60a14a17c04c6d72b61871",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

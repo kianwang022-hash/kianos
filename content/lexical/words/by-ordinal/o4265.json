@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "a710235aedd196439634daeb11806951fd25dcacab39ce12b53c09b247d79251",
+    "content_hash": "226e450df2583f91a1ef1f869ebf09760916a5e75f5c53eac95a70fa42a2c184",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "储蓄、存下的钱；复数 savings 常指积蓄",
@@ -40,18 +40,36 @@
     "semantic_neighbors": [],
     "senses": [
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:02ede188696b782f06a4",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:saving:ceeb4ce27fac5bf5:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "个人/毕生积蓄",
+            "phrase": "personal/life savings"
+          }
+        ],
         "confidence": "medium",
-        "definition_cn": "存款，储蓄",
-        "definition_en": "an amount of money that you have saved",
+        "definition_cn": "积蓄；储蓄的钱（通常用复数 savings）",
+        "definition_en": "money kept for future use, normally expressed in the plural savings",
         "governing_pattern": "",
         "level": "L1",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "number_usage_boundary",
+          "note": "plural savings normally means accumulated saved money; singular a saving means an amount/reduction saved",
+          "paired_form": "a saving",
+          "surface_lemma": "savings"
+        },
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:saving:ceeb4ce27fac5bf5",
         "sense_label_en": "an amount of money that you have saved",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "For accumulated banked money, the ordinary form is plural savings: personal/life savings; My savings are ..."
       },
       {
         "collocations": [],
@@ -79,6 +97,39 @@
         "sense_id": "sense:saving:ffcd9645bd1c51a9",
         "sense_label_en": "except for; apart from",
         "sort_order": 2,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:feddb36c9857bda9d1f0",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:saving:ab2d4368b4775125:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "节省50美元",
+            "phrase": "a saving of $50"
+          },
+          {
+            "collocation_id": "collocation:411ab4f242e953b2c557",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:saving:ab2d4368b4775125:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "实现节省；降低开支",
+            "phrase": "make savings"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "节省额；省下的费用/用量",
+        "definition_en": "an amount not spent or used; a reduction in cost or use",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:saving:ab2d4368b4775125",
+        "sense_label_en": "an amount not spent or used; a reduction in cost or use",
+        "sort_order": 3,
         "transitivity": "nonverb"
       }
     ],
@@ -125,9 +176,20 @@
         "merged_into_sense_id": null,
         "source_row": 11960,
         "source_path": "content/lexical/canonical/senses/shards/o4257-4288.json"
+      },
+      {
+        "sense_id": "sense:saving:ab2d4368b4775125",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 12029,
+        "source_path": "content/lexical/canonical/senses/shards/o4257-4288.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:02ede188696b782f06a4",
+      "collocation:411ab4f242e953b2c557",
+      "collocation:feddb36c9857bda9d1f0"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -148,6 +210,21 @@
       {
         "id": "collocation:c13427f671250baabb28",
         "source_row": 16330,
+        "source_path": "content/lexical/canonical/collocations/shards/o4257-4288.json"
+      },
+      {
+        "id": "collocation:02ede188696b782f06a4",
+        "source_row": 21629,
+        "source_path": "content/lexical/canonical/collocations/shards/o4257-4288.json"
+      },
+      {
+        "id": "collocation:411ab4f242e953b2c557",
+        "source_row": 21632,
+        "source_path": "content/lexical/canonical/collocations/shards/o4257-4288.json"
+      },
+      {
+        "id": "collocation:feddb36c9857bda9d1f0",
+        "source_row": 21637,
         "source_path": "content/lexical/canonical/collocations/shards/o4257-4288.json"
       }
     ],
@@ -190,7 +267,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4265-4272.json",
-    "source_content_hash": "a710235aedd196439634daeb11806951fd25dcacab39ce12b53c09b247d79251",
+    "source_content_hash": "226e450df2583f91a1ef1f869ebf09760916a5e75f5c53eac95a70fa42a2c184",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
