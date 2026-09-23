@@ -1,0 +1,148 @@
+{
+  "schema": "kianos.lexical.preclosed_targeted_cleanup_receipt.v1",
+  "status": "VALIDATED_READY_FOR_MERGE",
+  "authority": {
+    "user_instruction": "directly write the o0001-o2550 targeted cleanup; explicitly outside the A/B sweep",
+    "scope_override": "explicit bounded reopen of previously closed o0001-o2550 only",
+    "current_main": "f7534b268b1ae729ca8556fcb2b01f5f277b741b"
+  },
+  "scope": [
+    1,
+    2550
+  ],
+  "changed_word_ordinals": [
+    186,
+    227,
+    713,
+    1364,
+    1593,
+    1723,
+    1792,
+    1854,
+    2140
+  ],
+  "changed_word_count": 9,
+  "before_sha256": {
+    "186": "3c3970c21b9e11ce4d206e22450652ea1a163bd4d8872a562b3c196c30756918",
+    "227": "4becd9bac05bed97e270e43854f6083d97fb29f23eb5d7c1ad6b6777eb1959b0",
+    "713": "783850c5534cdecefd7b5e4645402c7f6e1acf4229f9e67ae8a723373af1dba8",
+    "1364": "47d087dcb8e3067cf7b27f8b596fb5edaf8a10e494a404546b5f7f273dbaa4e4",
+    "1593": "145b4c57498bc76d324054b83bd10f2cf4fa45fe85995893c29146801efaac10",
+    "1723": "1c945d096a62816fc1bc8f7cc331c20422b46dcfdc39692ccccb4ef07a35172c",
+    "1792": "f3045e4023074c11be24dc38b23c8967a74aa6fe241d0be5548f1f6cad301bc7",
+    "1854": "21b9f1e7fb1fbe7ba86e609a1f999fe53e57951e33c9ce123280635315264d3d",
+    "2140": "08923e60e1bac69c29592113bbd6ec6378f21c7295f254d0e06693e8bef55ad7"
+  },
+  "shared_relation_owners_deferred": [
+    {
+      "relation_id": "relation:horizontal:b30658ff03c6d90c700a",
+      "reason": "shared with campaign owner o5654 analogue; old-side o0186 Form identity landed, Relation re-home deferred to C"
+    },
+    {
+      "relation_id": "relation:horizontal:f27e3c5d419bc3c615cd",
+      "reason": "shared with campaign owner o6353 appall; old-side o0227 Form identity landed, Relation re-home deferred to C"
+    }
+  ],
+  "semantic_changes": [
+    "o0186 analog: add regional/sense-bounded spelling Form identity",
+    "o0227 appal: add spelling-variant Form identity",
+    "o0713 catch: remove reference-only sense from Core",
+    "o1364 dictate: merge duplicate dictation sense into one I/T active branch",
+    "o1593 electric: re-anchor Family from deprecated to active electric sense",
+    "o1723 ethnic: re-anchor Family source and exact ethnicity target",
+    "o1792 expense: correct at the expense of semantics and anchor to active sense",
+    "o1854 familiar: correct familiar with semantics/directionality and anchor to active sense",
+    "o2140 glamor: materialize already-active verb sense into record.senses"
+  ],
+  "validation": {
+    "changed_owner_json_parse": "PASS",
+    "changed_owner_core_sense_closure": "PASS",
+    "changed_owner_construction_source_closure": "PASS",
+    "changed_owner_family_source_closure": "PASS",
+    "preclosed_postwrite_scan": {
+      "stats": {
+        "construction_nonactive": 1
+      },
+      "examples": {
+        "construction_nonactive": [
+          [
+            2,
+            "abandon",
+            "with abandon",
+            "sense:abandon:87c58c73293a5bd3",
+            "deprecated"
+          ]
+        ]
+      }
+    },
+    "final_learner_object_count": 7946,
+    "final_learner_manifest_sha256": "7cca570ba83ed0ba7a47feade4e189646275e3f77d149424a71a844201524671",
+    "current_owner_lineage": {
+      "broken_lineage_count": 0,
+      "missing_k_record_count": 0,
+      "broken_source_pointer_count": 0
+    },
+    "direct_render_audit": {
+      "baseline_status": "BLOCKED",
+      "after_status": "BLOCKED",
+      "baseline_blocker_counts": {
+        "invalid_relation_refs": 0,
+        "stale_or_nonlearner_relation_refs": 0,
+        "retired_current_relation_owners": 0,
+        "explicit_word_local_relation_owners": 0,
+        "learner_array_status_leaks": 35,
+        "active_secondary_duplicates": 96,
+        "frontend_semantic_judgment_hits": 0,
+        "word_manifest_count_mismatch": 0,
+        "relation_manifest_count_mismatch": 1
+      },
+      "after_blocker_counts": {
+        "invalid_relation_refs": 0,
+        "stale_or_nonlearner_relation_refs": 0,
+        "retired_current_relation_owners": 0,
+        "explicit_word_local_relation_owners": 0,
+        "learner_array_status_leaks": 35,
+        "active_secondary_duplicates": 96,
+        "frontend_semantic_judgment_hits": 0,
+        "word_manifest_count_mismatch": 0,
+        "relation_manifest_count_mismatch": 1
+      },
+      "blocker_counts_unchanged": true,
+      "changed_owner_findings": {
+        "learner_array_status_leaks": [
+          {
+            "ordinal": 1792,
+            "word_id": "word:expense",
+            "field": "constructions",
+            "index": 0,
+            "object_id": "deep:constructions:expense:fbee5b4d864f085f",
+            "reasons": [
+              "presentation_merge:collocation:4244045c4d0c1cc14b43"
+            ]
+          },
+          {
+            "ordinal": 1854,
+            "word_id": "word:familiar",
+            "field": "constructions",
+            "index": 0,
+            "object_id": "deep:constructions:familiar:c68d4bee8afa5ce5",
+            "reasons": [
+              "presentation_merge:collocation:523f8eaff64a9260acbe"
+            ]
+          },
+          {
+            "ordinal": 2140,
+            "word_id": "word:glamor",
+            "field": "constructions",
+            "index": 0,
+            "object_id": "deep:constructions:glamor:6cddc0725a5595c0",
+            "reasons": [
+              "presentation_merge:collocation:b2e2b33261cb8a578788"
+            ]
+          }
+        ]
+      },
+      "note": "global direct-render audit remains blocked by pre-existing catalog-wide debt; targeted cleanup does not change global blocker counts"
+    }
+  }
+}

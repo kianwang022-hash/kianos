@@ -1865,11 +1865,19 @@
     "ordinal": 1364,
     "word": "dictate",
     "source_owner_path": "content/lexical/words/by-ordinal/o1364.json",
-    "source_fingerprint": "edb32b8079570b1acce4b0120df3b49e65756e3da017fd7cd5fcb8fa12ea9980",
-    "sense_lineage": [],
+    "source_fingerprint": "7fbc69de1af865b5f20057a48476f10485524329b93550983801ba9955f284a2",
+    "sense_lineage": [
+      {
+        "word_id": "word:dictate",
+        "target_kind": "sense",
+        "from_target_id": "sense:dictate:546034b9e9d455ee",
+        "status": "merged",
+        "to_target_id": "sense:dictate:e04b1257aace5b6d"
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3V",
+        "2V",
         "1N"
       ],
       "density": "rich"
@@ -1889,7 +1897,7 @@
         "id": "sense:dictate:e04b1257aace5b6d",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: dictate sth to sb; dictate to sb",
         "definition_cn": "口述；听写",
         "definition_en": "to say words aloud for someone else to write down or record",
         "note": "",
@@ -1906,6 +1914,19 @@
               "target_id": "collocation:5ab93f07c924ab521334",
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "dictate a letter to sb"
+            }
+          },
+          {
+            "id": "collocation:4c6112a2bb9bf81d430e",
+            "source_locator": "record.senses[0].collocations[1]",
+            "phrase": "dictate to sb",
+            "meaning_cn": "向某人口述",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:4c6112a2bb9bf81d430e",
+              "target_locator": "record.senses[0].collocations[1]",
+              "target_label": "dictate to sb"
             }
           }
         ],
@@ -1948,39 +1969,8 @@
         }
       },
       {
-        "id": "sense:dictate:546034b9e9d455ee",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vi. + to",
-        "definition_cn": "口述；听写",
-        "definition_en": "to speak aloud for recording or transcription",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:4c6112a2bb9bf81d430e",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "dictate to sb",
-            "meaning_cn": "向某人口述",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:4c6112a2bb9bf81d430e",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "dictate to sb"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:dictate:546034b9e9d455ee",
-          "target_locator": "record.senses[2]",
-          "target_label": "口述；听写"
-        }
-      },
-      {
         "id": "sense:dictate:827ce54cc28e5723",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "命令；指令",
@@ -1990,14 +1980,14 @@
         "usage": [
           {
             "id": "collocation:ccf2872917ff387d2e1f",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "dictates of conscience",
             "meaning_cn": "良心的驱使",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:ccf2872917ff387d2e1f",
-              "target_locator": "record.senses[3].collocations[0]",
+              "target_locator": "record.senses[2].collocations[0]",
               "target_label": "dictates of conscience"
             }
           }
@@ -2005,7 +1995,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:dictate:827ce54cc28e5723",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "命令；指令"
         }
       }

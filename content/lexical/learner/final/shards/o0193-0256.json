@@ -3822,7 +3822,7 @@
     "ordinal": 227,
     "word": "appal",
     "source_owner_path": "content/lexical/words/by-ordinal/o0227.json",
-    "source_fingerprint": "2225c22c448cef43d216a6e663a49823971b84e7d92bbb82eee2b3fdaba93f11",
+    "source_fingerprint": "3b2ee8ad12e8f86fc566336b20496cd05dea177634cc1e7d5b40470870817bfa",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3909,7 +3909,28 @@
           }
         }
       ],
-      "form": null,
+      "form": {
+        "boundary": "appal and appall are spelling variants of the same verb. Preserve both stable exact-spelling Word owners.",
+        "boundaries": [
+          {
+            "surface": "appal",
+            "condition": "spelling variant",
+            "note": "same verb identity as appall"
+          },
+          {
+            "surface": "appall",
+            "condition": "spelling variant",
+            "note": "same verb identity as appal"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "appal and appall are spelling variants of the same verb. Preserve both stable exact-spelling Word owners."
+        }
+      },
       "family": []
     }
   },

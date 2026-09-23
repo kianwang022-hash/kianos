@@ -7197,7 +7197,7 @@
     "ordinal": 186,
     "word": "analog",
     "source_owner_path": "content/lexical/words/by-ordinal/o0186.json",
-    "source_fingerprint": "2eeae55bae26b23c4e8e38d71b92a84248783714cca877fdb97a11fec427c219",
+    "source_fingerprint": "b9d2ee35391438b0716eaae63ff233c1435a5d6cc69c6c9b48fd5f5cd7c31273",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7333,7 +7333,28 @@
           }
         }
       ],
-      "form": null,
+      "form": {
+        "boundary": "analog and analogue are spelling variants across overlapping noun/adjective senses; regional and technical conventions vary. Preserve both exact-spelling Word owners.",
+        "boundaries": [
+          {
+            "surface": "analog",
+            "condition": "regional/technical spelling variant; often AmE",
+            "note": "same lexical identity where senses overlap"
+          },
+          {
+            "surface": "analogue",
+            "condition": "regional spelling variant; often BrE",
+            "note": "same lexical identity where senses overlap; technical conventions vary"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "analog and analogue are spelling variants across overlapping noun/adjective senses; regional and technical conventions vary. Preserve both exact-spelling Word owners."
+        }
+      },
       "family": []
     }
   },
