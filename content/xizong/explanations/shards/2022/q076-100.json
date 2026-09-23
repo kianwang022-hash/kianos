@@ -16,14 +16,27 @@
       "决定性变化是症状模式变坏，而不是仅有固定劳力诱发。"
     ],
     "transfer_rule": "ACS中是否有心肌坏死证据决定UA与NSTEMI区分。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "B.不稳定型心绞痛。近1月发作阈值下降、频率/持续时间增加，属于进行性心绞痛模式；无坏死标志物信息时题源归UA。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "稳定型心绞痛应在相近活动量下规律诱发，近期模式不应明显恶化。"
+      },
+      {
+        "option": "C",
+        "reason": "NSTEMI需要心肌坏死标志物升高等证据。"
+      }
+    ],
+    "common_failure_node": "只看“活动诱发且硝酸甘油可缓解”就沿用稳定型心绞痛标签。"
   },
   {
     "question_id": "xizong-official-2022-n077",
@@ -40,14 +53,28 @@
       "按题干与选项，依据上述判断轴确定题源答案。"
     ],
     "transfer_rule": "CCS分级看什么强度活动会诱发心绞痛。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "B.Ⅱ级为题源CCS活动分级答案；题干较快步行或上两层楼可诱发胸痛，按旧/Source CCS口径落Ⅱ级。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "Ⅰ级通常只有剧烈或快速、长时间活动才诱发，不符合当前阈值下降。"
+      },
+      {
+        "option": "C",
+        "reason": "Ⅲ级意味着普通日常活动已明显受限，诱发阈值更低。"
+      }
+    ],
+    "common_failure_node": "把不稳定性症状和CCS稳定心绞痛功能分级混成同一轴。",
+    "source_gap_note": "Current B6仅把CCS分级列入MI-D，并未冻结具体活动阈值—级别表；不为题源Ⅱ级制造Current relation。"
   },
   {
     "question_id": "xizong-official-2022-n078",
@@ -70,8 +97,22 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "C.PCI术为题源官方答案；Current不稳定型心绞痛/ACS的侵入策略需按缺血风险、肌钙蛋白、ECG和临床稳定性分层，不是所有病例固定PCI。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "无STEMI/明确血栓溶栓适应证时不能机械溶栓。"
+      },
+      {
+        "option": "B",
+        "reason": "硝酸酯可缓解症状但不能替代风险分层与必要的再血管化。"
+      }
+    ],
+    "common_failure_node": "把“ACS=PCI”写成无条件固定动作。",
+    "source_boundary_note": "题源直接选择PCI；Current ACS侵入策略需按风险、cTn、ECG和稳定性分层，不冻结为所有UA统一PCI。"
   },
   {
     "question_id": "xizong-official-2022-n079",
@@ -90,14 +131,27 @@
       "诊断先确认胰腺炎本体，再追病因。"
     ],
     "transfer_rule": "上腹痛向背放射+胰酶↑=胰腺炎；再根据胆石等找病因。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "C.急性胰腺炎。胆石背景、持续上腹痛向腰背放射并伴呕吐，是典型胆源性胰腺炎入口。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "胃溃疡疼痛通常不以持续向背部放射并进行性加重为主。"
+      },
+      {
+        "option": "D",
+        "reason": "心梗可上腹痛，但胆石背景和胰腺症状链更强。"
+      }
+    ],
+    "common_failure_node": "只看到上腹痛做胃病鉴别，不抓背部放射和胆石病因线索。"
   },
   {
     "question_id": "xizong-official-2022-n080",
@@ -120,8 +174,18 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "A.血、尿淀粉酶为题源官方答案；Current急性胰腺炎更偏血脂肪酶等证据，且“最有价值”受发病时相和任务影响。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "腹部B超更适合胆石/胆道病因筛查，不能单独完成胰腺炎生化确证。"
+      }
+    ],
+    "common_failure_node": "把旧“淀粉酶最重要”写成现代不随时相变化的固定检查排序。",
+    "source_boundary_note": "题源固定“血、尿淀粉酶最有价值”；Current诊断更重血脂肪酶及任务/时相，旧检查排序不升级。"
   },
   {
     "question_id": "xizong-official-2022-n081",
@@ -144,8 +208,18 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "B.禁食、补液为题源官方答案；Current支持液体复苏，但强调尽早恢复口服/肠内营养，不把长期禁食固化为统一治疗。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "镇痛是急性胰腺炎支持治疗的重要组成，不能因题源未选就误认为不需要。"
+      }
+    ],
+    "common_failure_node": "把历史“禁食”策略机械扩展成所有胰腺炎患者长期NPO。",
+    "source_boundary_note": "题源固定“禁食、补液”；Current强调个体化复苏并尽早恢复口服/肠内营养，不冻结长期禁食。"
   },
   {
     "question_id": "xizong-official-2022-n082",
@@ -164,14 +238,23 @@
       "单纯膀胱炎通常没有明显全身反应和肾区体征。"
     ],
     "transfer_rule": "尿路刺激征+发热/肾区痛=上尿路感染。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "D.急性肾盂肾炎。发热、尿路刺激征、肾区叩击痛和白细胞管型提示上尿路/肾实质感染。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "单纯膀胱炎通常无明显发热、肾区叩痛和白细胞管型。"
+      }
+    ],
+    "common_failure_node": "只按尿频尿急尿痛定位膀胱，忽略上尿路证据。"
   },
   {
     "question_id": "xizong-official-2022-n083",
@@ -188,14 +271,28 @@
       "按题干与选项，依据上述判断轴确定题源答案。"
     ],
     "transfer_rule": "尿路感染经验抗菌药要覆盖常见肠杆菌，不按呼吸道大环内酯思路选药。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "C.罗红霉素为题源“不适用”答案。急性肾盂肾炎常见病原为肠杆菌科，Current Study常用β-内酰胺和喹诺酮等；大环内酯并非常规经验方案。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "环丙沙星属于题源/Current常见喹诺酮类UTI药物。"
+      },
+      {
+        "option": "D",
+        "reason": "头孢呋辛属于β-内酰胺类，可在合适药敏/场景使用。"
+      }
+    ],
+    "common_failure_node": "因为某药“抗菌谱广”就默认能用于所有尿路感染。",
+    "source_gap_note": "Current K8只明确β-内酰胺、喹诺酮等常用UTI药和特定禁忌，未显式冻结“罗红霉素=该题唯一不适用药”这一四项比较。"
   },
   {
     "question_id": "xizong-official-2022-n084",
@@ -218,8 +315,18 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "C.10～14天为题源旧疗程答案。Current疗程随药物、复杂程度、宿主和病原学而变，不能冻结统一时长。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "3～5天更接近部分简单下尿路感染短疗程，不能直接套急性肾盂肾炎。"
+      }
+    ],
+    "common_failure_node": "把感染部位不同的抗菌疗程混成一张固定数字表。",
+    "source_boundary_note": "题源固定10～14天；Current肾盂肾炎疗程随药物、复杂程度、病原和宿主而变化。"
   },
   {
     "question_id": "xizong-official-2022-n085",
@@ -238,14 +345,27 @@
       "急性白血病的核心是分化停在较早阶段并快速扩增。"
     ],
     "transfer_rule": "急性白血病三类表现：骨髓衰竭+浸润+原始细胞增多。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "B.急性白血病。贫血、发热感染、出血伴外周原始细胞30%构成典型急性白血病模式。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "再障不会出现外周原始细胞30%的克隆性增多。"
+      },
+      {
+        "option": "D",
+        "reason": "霍奇金淋巴瘤不以外周血大量原始细胞为典型。"
+      }
+    ],
+    "common_failure_node": "看到淋巴结肿大就优先选淋巴瘤，忽略原始细胞和骨髓衰竭三联。"
   },
   {
     "question_id": "xizong-official-2022-n086",
@@ -264,14 +384,23 @@
       "它不是特异到单独确诊，但在相应血象背景下价值很高。"
     ],
     "transfer_rule": "血液肿瘤体检中胸骨压痛提示骨髓增殖活跃。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "C.胸骨压痛。急性白血病骨髓内异常细胞大量增殖可造成活跃骨髓部位压痛，胸骨最经典。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "贫血可有睑结膜苍白，但题目问更有白血病特征的体征。"
+      }
+    ],
+    "common_failure_node": "把白血病体征都理解为贫血/出血的非特异后果。"
   },
   {
     "question_id": "xizong-official-2022-n087",
@@ -290,14 +419,23 @@
       "后续还要结合流式免疫分型和遗传学完成现代分型。"
     ],
     "transfer_rule": "疑白血病→骨髓检查是核心入口。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "A.骨髓细胞学检查。它直接观察和计数原始细胞，是急性白血病诊断/初步分类基础。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "淋巴结活检可用于淋巴瘤等，但不能替代本题急性白血病骨髓证据。"
+      }
+    ],
+    "common_failure_node": "已经看到外周原始细胞却不进入骨髓证据层。"
   },
   {
     "question_id": "xizong-official-2022-n088",
@@ -316,14 +454,23 @@
       "TPOAb/TGAb可见于其他自身免疫甲状腺病，病因指向不如TRAb直接。"
     ],
     "transfer_rule": "Graves最特异性抗体联想TRAb。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "D.TRAb阳性。弥漫性甲状腺肿和甲亢背景下，TRAb直接支持Graves病。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "TPOAb可见于多种自身免疫甲状腺病，特异性较低。"
+      }
+    ],
+    "common_failure_node": "把TPOAb/TgAb/TRAb都当成同等Graves特异。"
   },
   {
     "question_id": "xizong-official-2022-n089",
@@ -342,14 +489,23 @@
       "这是抗甲状腺药必须记住的危险门禁。"
     ],
     "transfer_rule": "MMI/PTU严重不良反应要记粒细胞缺乏。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "C.甲巯咪唑引起的粒细胞减少。抗甲状腺药少见但严重的不良反应是粒细胞缺乏，发热咽痛需立即警惕。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "Graves疾病本身不是这类严重粒细胞缺乏的典型原因。"
+      }
+    ],
+    "common_failure_node": "用药后咽痛发热仍只按感染处理，不先查血常规。"
   },
   {
     "question_id": "xizong-official-2022-n090",
@@ -372,8 +528,18 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "A.换用PTU为题源旧答案；甲巯咪唑相关粒细胞缺乏后，同类硫脲药存在交叉严重不良反应风险，不能机械换药。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "停用致病药是严重药物性粒细胞缺乏的重要原则，题源未选并不代表Current应继续使用。"
+      }
+    ],
+    "common_failure_node": "把“换同类药”当成安全避开严重药物不良反应的方法。",
+    "source_conflict_note": "题源在甲巯咪唑相关粒细胞缺乏后换PTU；Current严重硫脲类不良反应存在交叉风险，不宜机械换同类药。"
   },
   {
     "question_id": "xizong-official-2022-n091",
@@ -392,14 +558,23 @@
       "RA病理本体是慢性增生性滑膜炎，后续可形成血管翳并破坏软骨骨。"
     ],
     "transfer_rule": "RA抓对称小关节+晨僵+持续性滑膜炎。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "A.类风湿关节炎。对称性MCP/PIP/腕关节炎、晨僵>1小时和皮下结节是典型组合。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "SLE关节炎通常非侵蚀性，皮下类风湿结节也不典型。"
+      }
+    ],
+    "common_failure_node": "只看到女性+关节痛就宽泛选SLE，不抓RA小关节和晨僵模式。"
   },
   {
     "question_id": "xizong-official-2022-n092",
@@ -418,14 +593,27 @@
       "RF有帮助但特异性更低，不能把两者当成同一层级。"
     ],
     "transfer_rule": "RA特异性更强的抗体优先想anti-CCP。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "D.血清抗CCP抗体。anti-CCP对RA特异性高并可早期出现。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "ESR反映炎症活动但不特异于RA。"
+      },
+      {
+        "option": "A",
+        "reason": "抗Sm更特异于SLE。"
+      }
+    ],
+    "common_failure_node": "把活动度指标当成疾病特异诊断标志物。"
   },
   {
     "question_id": "xizong-official-2022-n093",
@@ -444,14 +632,23 @@
       "严重时若再出现休克和意识障碍，就进入更危险的化脓性胆管炎层级。"
     ],
     "transfer_rule": "Charcot三联征=胆管炎。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "C.急性胆管炎。右上腹痛、寒战高热、黄疸构成Charcot三联征，且胆总管扩张支持胆道梗阻感染。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "急性胆囊炎常Murphy征阳性，且不典型出现黄疸/胆总管扩张。"
+      }
+    ],
+    "common_failure_node": "只看右上腹痛发热就选胆囊炎，忽略黄疸和胆管扩张。"
   },
   {
     "question_id": "xizong-official-2022-n094",
@@ -474,8 +671,18 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "B.MRCP为题源官方答案；Current急性胆管炎尤其重症需同时考虑诊断和胆道减压，ERCP等治疗路径可能更关键，不能固定检查顺序。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "ERCP具有诊断和治疗价值，在需要紧急减压时可能优先级更高。"
+      }
+    ],
+    "common_failure_node": "把“无创检查好”绝对化为所有急性胆管炎下一步都MRCP。",
+    "source_boundary_note": "题源固定MRCP；Current急性胆管炎需结合严重度和胆道减压需求，ERCP等治疗性路径可能优先。"
   },
   {
     "question_id": "xizong-official-2022-n095",
@@ -494,14 +701,23 @@
       "实质脏器破裂主要造成出血，不会天然产生膈下游离气体。"
     ],
     "transfer_rule": "腹外伤+游离气=优先空腔脏器穿孔。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "D.肠破裂。腹部钝伤后腹膜刺激征并有肝浊音界缩小/游离气体线索，提示空腔脏器穿孔。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "脾破裂主要造成腹腔出血，不产生游离气体。"
+      }
+    ],
+    "common_failure_node": "把所有腹部创伤都优先按实质脏器出血处理。"
   },
   {
     "question_id": "xizong-official-2022-n096",
@@ -524,8 +740,18 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "D.腹腔穿刺为题源旧创伤检查答案；现代路径更多依血流动力学分层、FAST和CT，诊断性腹腔穿刺/灌洗不再是统一关键步骤。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "床旁超声/FAST在现代不稳定腹部创伤中常具有更直接角色。"
+      }
+    ],
+    "common_failure_node": "把旧创伤检查算法当成Current固定顺序。",
+    "source_boundary_note": "题源采用诊断性腹腔穿刺旧算法；Current腹部创伤更多按血流动力学稳定性使用FAST/CT并及时源控制。"
   },
   {
     "question_id": "xizong-official-2022-n097",
@@ -544,14 +770,23 @@
       "这是一种先威胁气道、后讨论病因的围术期急症。"
     ],
     "transfer_rule": "甲状腺术后呼吸困难先排颈部血肿压迫气道。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "D.创面血肿。甲状腺术后短时间切口饱满并呼吸困难，首先警惕压迫性颈部血肿。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "声带麻痹可呼吸困难，但不能解释切口迅速饱满。"
+      }
+    ],
+    "common_failure_node": "只按呼吸困难做神经并发症鉴别，忽略颈部体积变化。"
   },
   {
     "question_id": "xizong-official-2022-n098",
@@ -570,14 +805,23 @@
       "不能为了等完整影像或转运而延误气道减压。"
     ],
     "transfer_rule": "威胁气道的颈部血肿：先解除压迫保气道。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "C.立即拆线敞开切口。压迫性颈部血肿威胁气道时必须先解除压迫，不能等影像。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "B超不能以延误气道减压为代价。"
+      }
+    ],
+    "common_failure_node": "先完善检查再处理气道威胁。"
   },
   {
     "question_id": "xizong-official-2022-n099",
@@ -596,14 +840,23 @@
       "只做表面观察无法解决持续出血来源。"
     ],
     "transfer_rule": "减压解决眼前气道，探查止血解决出血源。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "B.手术探查止血。紧急减压后仍需重新探查并彻底控制出血源。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "仅吸氧观察不能解决持续出血。"
+      }
+    ],
+    "common_failure_node": "把“拆线减压”误认为已经完成最终止血。"
   },
   {
     "question_id": "xizong-official-2022-n100",
@@ -622,13 +875,26 @@
       "这是滑动疝最关键的解剖概念。"
     ],
     "transfer_rule": "疝囊壁有脏器参与=滑动性疝。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "B.滑动疝。腹膜后脏器本身构成疝囊壁的一部分，右侧可由盲肠参与。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "Littre疝指疝内容物含Meckel憩室。"
+      },
+      {
+        "option": "C",
+        "reason": "Richter疝仅嵌顿肠壁一部分。"
+      }
+    ],
+    "common_failure_node": "按疝内容物名字猜，不抓“脏器构成疝囊壁”这一解剖定义。"
   }
 ]

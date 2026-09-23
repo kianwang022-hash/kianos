@@ -1,1 +1,175 @@
-[{"question_id":"xizong-official-2016-n176","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2016/q176-200.json","blob_sha":"b50336ed11efe5129a8730b377524569aed7f2fd","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"重症急性胰腺炎并发症","decision_axis":"重症胰腺炎可出现感染性局部并发症、假性囊肿、出血及腹腔间隔室综合征等。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"重症胰腺炎可出现感染性局部并发症、假性囊肿、出血及腹腔间隔室综合征等。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2016-n177","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2016/q176-200.json","blob_sha":"b50336ed11efe5129a8730b377524569aed7f2fd","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"肝移植对门静脉高压和肝硬化的作用","decision_axis":"成功肝移植可去除硬化肝和门静脉高压病理基础，改善脾亢和曲张静脉出血风险，但不能保证终身无肿瘤。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"成功肝移植可去除硬化肝和门静脉高压病理基础，改善脾亢和曲张静脉出血风险，但不能保证终身无肿瘤。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2016-n178","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2016/q176-200.json","blob_sha":"b50336ed11efe5129a8730b377524569aed7f2fd","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"特殊人群急性阑尾炎手术时机","decision_axis":"儿童、老年和妊娠期阑尾炎进展风险高，通常需积极早期手术；阑尾周围包块需区别处理。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"儿童、老年和妊娠期阑尾炎进展风险高，通常需积极早期手术；阑尾周围包块需区别处理。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2016-n179","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2016/q176-200.json","blob_sha":"b50336ed11efe5129a8730b377524569aed7f2fd","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"髌骨骨折治疗原则","decision_axis":"治疗强调恢复关节面、尽量保留髌骨并在稳定固定后早期活动，避免长期屈曲固定。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"治疗强调恢复关节面、尽量保留髌骨并在稳定固定后早期活动，避免长期屈曲固定。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2016-n180","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2016/q176-200.json","blob_sha":"b50336ed11efe5129a8730b377524569aed7f2fd","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"严重腰肌劳损的旧治疗组合","decision_axis":"题源包含卧床、腰围和局部激素封闭等传统组合；现代处理强调尽早活动和个体化镇痛康复，不保留固定套餐。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"题源包含卧床、腰围和局部激素封闭等传统组合；现代处理强调尽早活动和个体化镇痛康复，不保留固定套餐。 仅保留题源/Study边界；不得据此反向改写Current canonical。","mapping_decision":"NO_SAFE_MATCH","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}}]
+[
+  {
+    "question_id": "xizong-official-2016-n176",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2016/q176-200.json",
+      "blob_sha": "b50336ed11efe5129a8730b377524569aed7f2fd",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "重症急性胰腺炎局部与全身并发症及旧“胰腺脓肿”术语",
+    "decision_axis": "重症胰腺炎可出现感染性坏死/包裹性坏死、假性囊肿、出血和腹腔间隔室综合征；题源“胰腺脓肿”属于旧Atlanta分类术语，现代分类更强调感染性坏死/WON。",
+    "reasoning_chain": [
+      "严重胰酶自我消化可破坏血管造成出血，也可形成局部液体/坏死集合。",
+      "假性囊肿可在较晚期形成；大量液体、肠麻痹和腹胀还可导致腹腔内高压/ACS。",
+      "2016题源把“胰腺脓肿”也作为并发症，因此A、B、C、D官方全选；Current应把A翻译到感染性坏死/感染集合的现代分类。"
+    ],
+    "transfer_rule": "Current重症胰腺炎局部集合用APFC/假囊/ANC/WON；感染性坏死、出血和ACS是关键并发症。",
+    "mapping_decision": "NO_SAFE_MATCH",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2016"
+    },
+    "correct_option_reason": "按2016题源A、B、C、D均正确；现代术语层面A需要更新解释。",
+    "valuable_distractors": [],
+    "common_failure_node": "把旧“胰腺脓肿”继续当成现代Atlanta独立分类，或反过来因术语更新就否认感染性局部并发症本身。",
+    "source_boundary_note": "现代修订Atlanta分类不再把“pancreatic abscess/胰腺脓肿”作为独立标准类别，更多归入感染性坏死/包裹性坏死等集合；题源A保留历史评分但不原样升级为Current。"
+  },
+  {
+    "question_id": "xizong-official-2016-n177",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2016/q176-200.json",
+      "blob_sha": "b50336ed11efe5129a8730b377524569aed7f2fd",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "肝移植同时处理肝硬化与门脉高压，但不能保证HCC永不复发",
+    "decision_axis": "成功肝移植替换硬化肝并重建门静脉循环，可解除肝硬化及其门脉高压基础，从而改善脾亢和曲张静脉出血风险；但HCC仍有复发可能。",
+    "reasoning_chain": [
+      "移植不是只切除肿瘤，而是把整个硬化肝替换掉，因此A成立。",
+      "门脉高压病理基础被纠正后，脾亢和食管胃底静脉曲张压力可随之改善，所以B、C成立。",
+      "即使符合移植标准，肝癌仍存在微转移/复发风险，因此D“不会再发生”过于绝对。"
+    ],
+    "transfer_rule": "肝移植可同时解决肿瘤所在肝与肝硬化/门脉高压，但肿瘤学随访仍不可取消。",
+    "mapping_decision": "NO_SAFE_MATCH",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2016"
+    },
+    "correct_option_reason": "A、B、C是肝移植可获得的主要获益；D把复发风险错误写成绝对为零。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "移植能显著改善肿瘤与肝硬化基础，但不能保证HCC终身零复发。"
+      }
+    ],
+    "common_failure_node": "把“根治性治疗机会”理解成“未来绝对不可能复发”。",
+    "source_gap_note": "Current D18拥有肝移植的大边界，D17拥有门脉高压后果，但没有单一Current relation完整承接A/B/C三项跨Block获益，因此本题不强建relation。"
+  },
+  {
+    "question_id": "xizong-official-2016-n178",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2016/q176-200.json",
+      "blob_sha": "b50336ed11efe5129a8730b377524569aed7f2fd",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "特殊人群急性阑尾炎与阑尾周围包块的处理分流",
+    "decision_axis": "儿童、老年和妊娠期阑尾炎症状可不典型但病程进展/穿孔风险高，应积极早期手术；右下腹已形成包块更提示阑尾周围脓肿，应先保守/引流再择期处理。",
+    "reasoning_chain": [
+      "特殊人群的共同陷阱是“症状不重≠病变不重”，因此儿童、老年和孕妇都不宜因表现轻而拖延。",
+      "Current D14明确把这些人群放在应尽早手术的高风险入口。",
+      "若右下腹已触及包块，则处理逻辑转为阑尾周围脓肿，不能一律急诊切阑尾，所以A、B、C正确。"
+    ],
+    "transfer_rule": "阑尾炎先看是不是特殊人群，再看是否已形成包块/脓肿；后者会改变手术时机。",
+    "mapping_decision": "REVIEWED",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2016"
+    },
+    "correct_option_reason": "A、B、C符合特殊人群早期手术原则；D提示包块/脓肿，需不同处理路径。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "阑尾周围包块常先抗感染、穿刺/置管等，待炎症控制后再考虑间期阑尾切除。"
+      }
+    ],
+    "common_failure_node": "记住“阑尾炎一般手术”后忽略阑尾周围包块这一重要例外。"
+  },
+  {
+    "question_id": "xizong-official-2016-n179",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2016/q176-200.json",
+      "blob_sha": "b50336ed11efe5129a8730b377524569aed7f2fd",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "髌骨骨折治疗目标：关节面、伸膝装置与早期功能",
+    "decision_axis": "髌骨是膝关节面和伸膝装置的重要组成，治疗强调尽量恢复关节面匹配、保留髌骨功能，在固定足够稳定后尽早进行功能活动；固定时通常保持膝伸直而非屈曲。",
+    "reasoning_chain": [
+      "髌骨骨折是关节内损伤，首先要尽量恢复关节面平整，减少创伤性关节炎。",
+      "髌骨又属于伸膝装置，应尽可能保留；只有严重粉碎无法重建时才考虑部分/全切。",
+      "稳定固定后早期活动有利功能恢复，因此A、B、C正确；D屈曲位固定不符合常规力学。"
+    ],
+    "transfer_rule": "髌骨骨折三目标：关节面尽量复位、髌骨尽量保留、稳定后尽早功能恢复。",
+    "mapping_decision": "REVIEWED",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2016"
+    },
+    "correct_option_reason": "A、B、C符合髌骨骨折的结构与功能目标；D错误，保守固定通常是膝伸直位。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "屈膝会增加髌股关节/骨折分离张力，常规保守固定采用伸直位。"
+      }
+    ],
+    "common_failure_node": "把髌骨当普通骨块，只想到“固定住”，忘了关节面匹配和伸膝功能。"
+  },
+  {
+    "question_id": "xizong-official-2016-n180",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2016/q176-200.json",
+      "blob_sha": "b50336ed11efe5129a8730b377524569aed7f2fd",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "严重腰肌劳损旧治疗套餐与现代活动导向",
+    "decision_axis": "题源把卧床+腰围、理疗和压痛点激素封闭列为可用措施，并明确两种NSAID不应联用；现代非特异性/慢性腰痛更强调维持活动、运动与个体化多模式治疗，腰围和常规注射并非普遍推荐。",
+    "reasoning_chain": [
+      "C联合两种NSAID会增加胃肠、肾和心血管不良反应而通常不增加足够疗效，因此明显不合理。",
+      "2016题源据传统骨科康复口径保留A卧床/腰围、B物理治疗和D局部封闭。",
+      "Current O11只稳定支持理疗、短期单一NSAID及反复激素使用的边界；WHO现代慢性腰痛指南更强调教育、运动等，不常规推荐腰围，因此ABD只保留历史题源身份。"
+    ],
+    "transfer_rule": "Current腰痛管理优先教育、保持/恢复活动和运动，药物短期个体化；避免NSAID叠加，支具/注射不作常规默认。",
+    "mapping_decision": "NO_SAFE_MATCH",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2016"
+    },
+    "correct_option_reason": "按2016题源A、B、D正确；Current最稳的迁移点是理疗/运动与避免联合两种NSAID，不把卧床腰围+激素封闭当固定套餐。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "两种NSAID联合通常增加毒性而缺乏足够额外获益，Current O11明确不建议。"
+      }
+    ],
+    "common_failure_node": "把旧教材“可采用”理解成今天所有慢性腰痛都应按固定套餐处理。",
+    "source_conflict_note": "WHO 2023慢性原发性腰痛指南强调教育、运动和部分物理/心理干预，并不建议大多数人常规使用腰围/支具；2016题源ABD不作为现代固定治疗组合，因此不建Current relation。"
+  }
+]

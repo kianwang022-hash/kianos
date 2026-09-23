@@ -16,14 +16,27 @@
       "淀粉样间质更偏髓样癌；乳头状癌可以较早淋巴转移，但预后并不能简单由“有无局部淋巴结转移”这一项单独决定。"
     ],
     "transfer_rule": "乳头状甲状腺癌诊断抓核：毛玻璃、核沟、假包涵体。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "A、D正确。甲状腺乳头状癌的经典核身份包括毛玻璃样核、核沟和核内假包涵体。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "淀粉样间质更典型于甲状腺髓样癌。"
+      },
+      {
+        "option": "B",
+        "reason": "乳头状癌可较早淋巴转移，但预后不能简单由局部淋巴结转移一项单独决定。"
+      }
+    ],
+    "common_failure_node": "把转移方式或间质特征压过乳头状癌最稳定的核形态身份。"
   },
   {
     "question_id": "xizong-official-2021-n152",
@@ -42,14 +55,23 @@
       "蜘蛛痣主要来自肝功能减退后的激素代谢异常，不是门静脉压力本身直接造成。"
     ],
     "transfer_rule": "门脉高压三联想：脾大、侧支循环、腹水/消化道淤血。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "A、B、D正确。门脉高压直接导致淤血性脾大、食管胃底静脉曲张和胃肠静脉淤血水肿。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "蜘蛛痣主要来自肝功能减退后的激素代谢异常，不是门静脉压力本身直接造成。"
+      }
+    ],
+    "common_failure_node": "把肝硬化所有体征都归因于门静脉高压。"
   },
   {
     "question_id": "xizong-official-2021-n153",
@@ -63,17 +85,33 @@
     "exam_target": "细胞内玻璃样变性",
     "decision_axis": "Mallory小体和Russell小体均是细胞内嗜酸性蛋白性物质聚集的经典例子，可归入细胞内玻璃样变性。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "题源把Mallory小体和Russell小体归为细胞内玻璃样变。",
+      "Current只在D17等器官模块零散冻结Mallory小体，Russell小体和一般病理分类未形成单一最小owner。",
+      "因此Explanation保留BC，Crosswalk fail-closed。"
     ],
     "transfer_rule": "Mallory在肝细胞；Russell在浆细胞。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "B、C正确。Mallory小体和Russell小体都是细胞内嗜酸性蛋白性聚集物，可归入细胞内玻璃样变性。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "Aschoff小体属于风湿性肉芽肿样病变。"
+      },
+      {
+        "option": "D",
+        "reason": "Apoptosis小体属于程序性细胞死亡形态。"
+      }
+    ],
+    "common_failure_node": "看到各器官Current里零散出现Mallory小体或玻璃样变，就硬拼成一般病理“细胞内玻璃样变”统一owner。",
+    "source_gap_note": "本题为一般病理“细胞内玻璃样变”分类，Current只有器官级零散接口，没有单一最小owner完整承接Mallory+Russell双轴。"
   },
   {
     "question_id": "xizong-official-2021-n154",
@@ -87,17 +125,29 @@
     "exam_target": "支气管扩张抗铜绿假单胞菌用药",
     "decision_axis": "题源将头孢他啶、头孢吡肟、环丙沙星等作为抗铜绿假单胞菌选择；现实经验用药需结合严重度、既往培养和当地耐药谱，不能固化为统一处方。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对Current边界 fail-closed。"
+      "患者有长期支扩、反复住院和急性脓痰加重，需要评估铜绿假单胞菌风险。",
+      "Current R6 KP09明确列出头孢他啶、头孢吡肟和环丙沙星为抗假单胞菌选择，并排除厄他培南。",
+      "因此A、B、D正确。"
     ],
     "transfer_rule": "仅保留药物抗菌谱知识；临床经验治疗按病情和微生物学证据选择。",
-    "mapping_decision": "NO_SAFE_MATCH",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "A、B、D正确。Current R6 KP09明确把头孢他啶、头孢吡肟和环丙沙星列为支扩急性感染中抗铜绿假单胞菌可选药，并明确厄他培南不能机械选。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "厄他培南缺乏可靠铜绿假单胞菌活性，Current R6明确列为本节不能机械选。"
+      }
+    ],
+    "common_failure_node": "只记“碳青霉烯都很强”就误把厄他培南也当作抗假单胞菌药。",
+    "source_boundary_note": "该relation承接Current R6的考试药谱；现实经验用药仍应结合既往培养、严重度和当地耐药谱。"
   },
   {
     "question_id": "xizong-official-2021-n155",
@@ -111,17 +161,28 @@
     "exam_target": "预激综合征心电图",
     "decision_axis": "典型预激综合征可见PR间期缩短、δ波和QRS增宽，并伴继发性ST-T改变。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "旁路提前激动部分心室。",
+      "Current B10 KP06明确冻结短PR、δ波、QRS增宽和继发性ST-T改变。",
+      "因此A、B、D正确。"
     ],
     "transfer_rule": "WPW三抓：PR短、delta波、QRS宽。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "A、B、D正确。典型WPW可见PR<0.12 s、QRS起始部δ波/粗钝并伴继发性ST-T改变，T波常与QRS主波方向相反。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "QT间期延长不是典型预激综合征的核心ECG特征。"
+      }
+    ],
+    "common_failure_node": "只记“短PR+δ波”，漏掉继发性复极异常。"
   },
   {
     "question_id": "xizong-official-2021-n156",
@@ -135,17 +196,29 @@
     "exam_target": "上消化道出血病因",
     "decision_axis": "消化性溃疡、胃癌及食管憩室等病变均可造成上消化道出血。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "题源考上消化道出血病因集合。",
+      "PUD和胃癌分别由D10/D11承接，食管憩室炎属于另一器官接口。",
+      "没有单一最小Current owner完整承接A、B、C，因此不制造relation。"
     ],
     "transfer_rule": "判断上消化道出血先按解剖位置和病变是否可破坏黏膜/血管。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "A、B、C为题源答案。食管憩室炎、消化性溃疡和胃癌均可引起上消化道出血，但三个正确项分散在不同器官/病理owner。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "慢性萎缩性胃炎本身不是题源所列典型上消化道出血病因。"
+      }
+    ],
+    "common_failure_node": "为了覆盖多选题，把食管、溃疡和胃癌三个独立病因硬拼成一个虚构Primary。",
+    "source_gap_note": "正确项横跨食管、消化性溃疡和胃癌不同Current owner，没有单一最小KP完整承接。"
   },
   {
     "question_id": "xizong-official-2021-n157",
@@ -164,14 +237,23 @@
       "慢性肾衰并不是所有肾病综合征共同、直接的典型并发症，更多取决于原发病长期进展。"
     ],
     "transfer_rule": "肾病综合征并发症抓感染、血栓、AKI和代谢异常。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "A、C、D正确。肾病综合征可并发AKI、肾静脉血栓等高凝事件，并伴明显蛋白和脂质代谢紊乱。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "慢性肾衰更多取决于原发肾病长期进展，不是所有肾病综合征共同直接并发症。"
+      }
+    ],
+    "common_failure_node": "把长期疾病结局与综合征的典型直接并发症混在一起。"
   },
   {
     "question_id": "xizong-official-2021-n158",
@@ -190,14 +272,23 @@
       "非结合胆红素升高只能说明红细胞破坏增加，也可见于血管外溶血，特异性较差。"
     ],
     "transfer_rule": "血管内溶血特征：血浆游离Hb↑、Hb尿、含铁血黄素尿。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "A、B、C正确。血浆游离Hb升高、血红蛋白尿和Rous试验阳性都更特异支持血管内溶血。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "非结合胆红素升高在血管内、外溶血均可见，特异性较差。"
+      }
+    ],
+    "common_failure_node": "只要“溶血会升胆红素”就把UCB当成血管内溶血特异指标。"
   },
   {
     "question_id": "xizong-official-2021-n159",
@@ -211,7 +302,9 @@
     "exam_target": "继发高血压伴低钾病因旧组合",
     "decision_axis": "题源组合中含原发性醛固酮增多症和嗜铬细胞瘤，但后者并非典型低钾病因，且选项分类本身存在边界问题，不能安全固化。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对Current边界 fail-closed。"
+      "原醛的高血压+低钾由醛固酮过多直接解释。",
+      "题源还选嗜铬细胞瘤，但Current D22并不把低钾作为其典型核心表现。",
+      "同时Liddle虽高血压低钾却并非肾上腺疾病，说明题目分类轴本身特殊；故fail-closed。"
     ],
     "transfer_rule": "低钾性高血压应按肾素-醛固酮轴和具体病因系统判断。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -220,8 +313,18 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "A、D为题源官方答案；原发性醛固酮增多症典型高血压低钾，但嗜铬细胞瘤并不是稳定的低钾病因，题源组合不能安全升级。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "Liddle综合征本身可高血压低钾，但它不是肾上腺疾病，暴露了题目分类轴的特殊边界。"
+      }
+    ],
+    "common_failure_node": "为了服从AD答案，把嗜铬细胞瘤误学成典型低钾性高血压病因。",
+    "source_conflict_note": "题源把嗜铬细胞瘤列入“肾上腺疾病导致高血压低钾”组合，但Current并不把低钾作为嗜铬细胞瘤典型核心表现；不建立正向relation。"
   },
   {
     "question_id": "xizong-official-2021-n160",
@@ -235,7 +338,9 @@
     "exam_target": "胆道疾病并发症宽泛旧口径",
     "decision_axis": "题目把多类胆道疾病的并发症混合成宽泛集合，缺少具体疾病、阶段与条件，无法生成可迁移的安全Current规则。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对Current边界 fail-closed。"
+      "题源把多类胆道疾病并发症合并为一个全选集合。",
+      "Current D19分别按胆石、感染、狭窄、肝脓肿和癌变风险建模。",
+      "没有一个最小owner支持“胆道疾病普遍四项全有”，因此fail-closed。"
     ],
     "transfer_rule": "胆道并发症应回到具体病变与梗阻/感染机制判断。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -244,8 +349,13 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "A、B、C、D为题源答案。癌变、狭窄、出血和肝脓肿都可见于某些胆道疾病，但具体并发症依赖胆石、胆管炎、胆道狭窄等原发病与病程。",
+    "valuable_distractors": [],
+    "common_failure_node": "把“胆道疾病”这个宽泛集合误学成任何胆道病都同时有四种并发症。",
+    "source_gap_note": "题干“胆道疾病”范围过宽，四项并发症分属不同病种/阶段；不升级为统一Current并发症列表。"
   },
   {
     "question_id": "xizong-official-2021-n161",
@@ -259,7 +369,9 @@
     "exam_target": "肝癌破裂出血治疗选择",
     "decision_axis": "肝癌破裂出血可涉及介入栓塞、手术及其他止血手段，但具体选择高度依赖血流动力学、肝功能和肿瘤可切除性，不能固化为题源固定组合。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对Current边界 fail-closed。"
+      "肝癌破裂出血先处理休克并控制出血。",
+      "介入栓塞、手术或非手术策略都有适应场景。",
+      "Current治疗高度分层，无法用一个最小owner承接题源ABC全组合，因此fail-closed。"
     ],
     "transfer_rule": "现实处理先稳定循环，再按肝功能、肿瘤范围和介入/手术条件分层。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -268,8 +380,18 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "A、B、C为题源答案。肝癌破裂出血可采用手术、肝动脉栓塞或非手术复苏止血策略，但具体选择取决于血流动力学、肝功能和肿瘤可切除性。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "放射治疗不是急性破裂出血的即时止血主路径。"
+      }
+    ],
+    "common_failure_node": "把题源可用手段集合误学成所有破裂肝癌患者均可任意三选一。",
+    "source_boundary_note": "肝癌破裂出血的手术/介入/保守选择高度依赖循环状态、Child-Pugh和可切除性；题源ABC组合不升级为统一Current规则。"
   },
   {
     "question_id": "xizong-official-2021-n162",
@@ -288,14 +410,23 @@
       "一旦浸润到浆膜层就已越过早期胃癌深度边界，所以C不选。"
     ],
     "transfer_rule": "早期胃癌看深度，不看有无局部淋巴结转移。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "A、B、D正确。早期胃癌按浸润深度定义为局限于黏膜/黏膜下层，不因有无局部淋巴结转移而改变；微小/小胃癌属于特殊大小描述。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "浸润达浆膜层已明显越过早期胃癌深度边界。"
+      }
+    ],
+    "common_failure_node": "把“早期”误解成必须没有淋巴结转移，而不是按局部浸润深度定义。"
   },
   {
     "question_id": "xizong-official-2021-n163",
@@ -309,7 +440,9 @@
     "exam_target": "男性急性尿潴留病因旧集合",
     "decision_axis": "题源列举男性急性尿潴留常见病因但选项边界和覆盖不完整，且病因排序受年龄和临床情境影响，无法安全固化为统一Current列表。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对Current边界 fail-closed。"
+      "急性尿潴留可来自出口梗阻、尿道狭窄/结石等。",
+      "题源选择A、B、C。",
+      "Current相关知识分散在BPH、尿道损伤/狭窄和结石模块，且并未冻结统一频率列表，因此fail-closed。"
     ],
     "transfer_rule": "急性尿潴留按梗阻、药物/神经、感染炎症等机制分层找病因。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -318,8 +451,18 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "A、B、C为题源答案。BPH、尿道狭窄和尿路结石均可造成男性急性尿潴留；但“常见原因”排序受年龄、病变部位和临床情境影响，Current未冻结该完整列表。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "前列腺炎可在特定情况下造成排尿困难/潴留，题源将其排除本身也提示列表不是一般病理全集。"
+      }
+    ],
+    "common_failure_node": "把题源选择题清单当成所有男性急性尿潴留病因的完整Current列表。",
+    "source_gap_note": "题源为病因集合题，Current owner分散且频率/纳入边界未统一冻结；不制造跨owner relation。"
   },
   {
     "question_id": "xizong-official-2021-n164",
@@ -338,14 +481,23 @@
       "前纵韧带位于椎体和椎间盘前方，是脊柱韧带结构，不属于椎间盘自身组成。"
     ],
     "transfer_rule": "椎间盘三部分：髓核、纤维环、软骨终板。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "B、C、D正确。椎间盘由软骨终板、髓核和纤维环共同构成；前纵韧带位于椎体与椎间盘前方，不属于椎间盘本体。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "前纵韧带是脊柱韧带结构，不是椎间盘组成。"
+      }
+    ],
+    "common_failure_node": "把与椎间盘紧贴的韧带误当成椎间盘本身。"
   },
   {
     "question_id": "xizong-official-2021-n165",
@@ -359,7 +511,9 @@
     "exam_target": "类风湿关节炎1987分类标准",
     "decision_axis": "题源采用1987 ACR类风湿关节炎分类标准及其持续时间要求；当前临床更常使用2010 ACR/EULAR分类标准，不能升级为Current唯一标准。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对Current边界 fail-closed。"
+      "题源明确采用旧1987 ACR持续时间条目。",
+      "现代分类更常使用2010 ACR/EULAR关节受累、血清学、急性期反应和症状持续时间评分。",
+      "因此保留ABC历史答案但不建立Current relation。"
     ],
     "transfer_rule": "仅保留题源/历史标准边界；Current分类按现行ACR/EULAR标准。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -368,7 +522,17 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "A、B、C为题源1987 ACR类风湿关节炎分类标准答案；Current临床更常采用2010 ACR/EULAR评分标准，不把旧持续6周条目作为唯一Current规则。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "关节畸形可见于长期RA，但不是题源旧分类标准中的该项。"
+      }
+    ],
+    "common_failure_node": "把旧分类标准逐条背诵成现代唯一诊断标准。",
+    "source_boundary_note": "题源使用1987 ACR分类标准；Current更常使用2010 ACR/EULAR标准，旧条目不升级为现代唯一诊断规则。"
   }
 ]

@@ -58,6 +58,7 @@ function normalizeReviewedRow(row) {
     primaryKpId: String(row.primary_kp_id || ''),
     supportingKpIds: [...new Set((Array.isArray(row.supporting_kp_ids) ? row.supporting_kp_ids : []).map(String).filter(Boolean))],
     reviewedBridgeTargetRefs: Array.isArray(row.reviewed_bridge_target_refs) ? row.reviewed_bridge_target_refs : [],
+    knowledgeOwnerPath: String(row?.provenance?.knowledge_path || ''),
     reviewStatus: 'REVIEWED'
   };
 }
@@ -142,11 +143,22 @@ function canonicalKpAliasMap(block) {
   return aliases;
 }
 
+function normalizeRelationBlockId(system, blockId) {
+  const raw = String(blockId || '').trim();
+  if (!raw || system?.canonicalId !== 'B') return raw;
+  const metabolic = raw.match(/^(?:dme-)?([dmg])0*(\d{1,2})$/i);
+  if (metabolic) return `${metabolic[1].toUpperCase()}${Number(metabolic[2])}`;
+  const digestive = raw.match(/^digestive-d0*(\d{1,2})$/i);
+  if (digestive) return `D${Number(digestive[1])}`;
+  return raw;
+}
+
 function targetBlock(sourceSystemId, blockId) {
   const registry = systemRegistry();
   const system = registry.aliases.get(String(sourceSystemId || '')) || null;
   if (!system || !blockId) return null;
-  const blockMeta = system.blocks.find((block) => block.blockId === blockId);
+  const resolvedBlockId = normalizeRelationBlockId(system, blockId);
+  const blockMeta = system.blocks.find((block) => block.blockId === resolvedBlockId);
   if (!blockMeta) return null;
 
   const cacheKey = `${system.systemId}:${blockMeta.blockId}`;
@@ -160,11 +172,50 @@ function targetBlock(sourceSystemId, blockId) {
   return target;
 }
 
+function currentOwnerFallback(row) {
+  const relativePath = String(row?.knowledgeOwnerPath || '');
+  if (!relativePath || !relativePath.startsWith('content/xizong/knowledge/')) return null;
+  if (!fs.existsSync(absolute(relativePath))) return null;
+  const source = readText(relativePath);
+  const frontmatter = source.match(/^---\s*\n([\s\S]*?)\n---\s*\n?/);
+  const header = frontmatter?.[1] || '';
+  const title = String(header.match(/^title:\s*(.+)$/m)?.[1] || '').trim();
+  const declaredBlockId = String(header.match(/^block_id:\s*(.+)$/m)?.[1] || row.blockId || '').trim();
+  const currentSystemId = relativePath.includes('/systems/c-hematology-immunity-infection/')
+    ? 'hematology-immunity-infection'
+    : relativePath.includes('/systems/d-neuro-sensory-motor-orthopedics/')
+      ? 'neuro-sensory-motor-orthopedics'
+      : relativePath.includes('/systems/e-reproductive-breast/')
+        ? 'reproductive-breast'
+        : relativePath.includes('/systems/f-remaining-clinical/')
+          ? 'remaining-clinical'
+          : relativePath.includes('/overlays/o9-tumor-general/')
+            ? 'global-oncology-overlay'
+            : String(row.sourceSystemId || '');
+  return {
+    ...row,
+    systemId: currentSystemId,
+    blockSlug: '',
+    blockLabel: declaredBlockId || row.blockId,
+    blockTitle: title,
+    targetStatus: 'BLOCK_ONLY',
+    primaryRuntimeKpId: '',
+    primaryKpDisplayId: '',
+    primaryKpTitle: '',
+    supportingRuntimeKpIds: [],
+    resolvedLogicGroupId: '',
+    logicGroupLabel: '',
+    knowledgePath: '',
+    currentOwnerOnly: true,
+    projectionAvailable: false
+  };
+}
+
 function projectRelation(row) {
   if (!row) return null;
   const target = targetBlock(row.sourceSystemId, row.blockId);
   if (!target) {
-    return {
+    return currentOwnerFallback(row) || {
       ...row,
       systemId: '',
       blockSlug: '',

@@ -16,14 +16,27 @@
       "关键不是‘通用性’或‘摆动性’，而是连续、固定阅读框架一旦错位就会一路影响后续编码。"
     ],
     "transfer_rule": "非3n插入/缺失→reading frame整体改变。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "C.连续性。遗传密码连续、非重叠地按三联体读取；插入或缺失非3倍数碱基会让后续阅读框整体移位。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "通用性描述密码子在不同生物间的共享性，不解释移码。"
+      },
+      {
+        "option": "D",
+        "reason": "摆动性涉及反密码子第三位配对灵活性。"
+      }
+    ],
+    "common_failure_node": "把“密码特点”都混在一起，不抓移码真正依赖固定连续阅读框。"
   },
   {
     "question_id": "xizong-official-2023-n027",
@@ -42,14 +55,27 @@
       "这题要按‘抓DNA的结构’和‘招募转录机器的结构’分开。"
     ],
     "transfer_rule": "DNA结合区与转录激活区是转录因子两个不同功能模块。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "D.富含谷氨酰胺结构域。它可作为转录激活域招募转录机器；锌指、HLH、亮氨酸拉链更偏DNA结合或二聚化。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "锌指常作为DNA结合结构域。"
+      },
+      {
+        "option": "C",
+        "reason": "亮氨酸拉链主要参与二聚化和DNA结合。"
+      }
+    ],
+    "common_failure_node": "不会区分转录因子的DNA结合域与激活域。"
   },
   {
     "question_id": "xizong-official-2023-n028",
@@ -72,8 +98,22 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "B.凝胶迁移变动分析为题源官方答案；但EMSA本质是体外核酸-蛋白结合迁移实验，“体内相互作用”更典型由ChIP等技术回答。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "酵母双杂交主要研究蛋白-蛋白相互作用。"
+      },
+      {
+        "option": "C",
+        "reason": "Western blot检测蛋白表达/大小，不直接回答DNA-蛋白占位。"
+      }
+    ],
+    "common_failure_node": "把“能看DNA-蛋白结合”直接等同“能测体内占位”。",
+    "source_conflict_note": "题源称EMSA“用于分析体内DNA-蛋白相互作用”；EMSA本质为体外结合迁移实验，Current不能沿用“体内”表述。"
   },
   {
     "question_id": "xizong-official-2023-n029",
@@ -90,14 +130,28 @@
       "按题干与选项，依据上述判断轴确定题源答案。"
     ],
     "transfer_rule": "局部陈旧出血→巨噬细胞含铁血黄素沉积。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "D.含铁血黄素。巨噬细胞吞噬红细胞/血红蛋白后分解血红素，铁可储存为铁蛋白并聚集形成含铁血黄素。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "脂褐素主要是长期氧化损伤/脂质过氧化残余，不是吞噬Hb后形成。"
+      },
+      {
+        "option": "B",
+        "reason": "黑色素由黑色素细胞合成。"
+      }
+    ],
+    "common_failure_node": "把所有棕黄色色素都按颜色记忆，不按来源区分。",
+    "source_gap_note": "Current仅冻结含铁血黄素主要位于单核-巨噬系统等接口，未建立一般病理“巨噬细胞内形成色素”的最小Primary。"
   },
   {
     "question_id": "xizong-official-2023-n030",
@@ -114,14 +168,28 @@
       "按题干与选项，依据上述判断轴确定题源答案。"
     ],
     "transfer_rule": "渗出/坏死物清除不全→肉芽组织长入→机化。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "A.肺脓肿。脓液和坏死组织若不能完全清除，肉芽组织可长入并纤维化，形成机化/瘢痕。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "脑梗死液化坏死后更典型形成囊腔，不按纤维性机化修复。"
+      },
+      {
+        "option": "C",
+        "reason": "Barrett食管属于上皮化生，不是机化。"
+      }
+    ],
+    "common_failure_node": "把“任何坏死都机化”当作通则，忽略组织修复方式差异。",
+    "source_gap_note": "Current没有一般病理“肺脓肿最易机化”最小owner；器官Block也未明确冻结该比较题。"
   },
   {
     "question_id": "xizong-official-2023-n031",
@@ -138,14 +206,28 @@
       "按题干与选项，依据上述判断轴确定题源答案。"
     ],
     "transfer_rule": "层状结构/心腔附壁或球形血栓常归混合血栓。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "D.混合血栓。心腔内长期形成、层状生长的球形血栓包含血小板/纤维蛋白与红细胞等不同成分，归混合血栓。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "白色血栓以血小板为主，多见高剪切环境，不符合球形层状心腔血栓。"
+      },
+      {
+        "option": "A",
+        "reason": "红色血栓更偏静脉淤滞、富红细胞。"
+      }
+    ],
+    "common_failure_node": "只按血栓所在位置机械分类，不看层状混合成分。",
+    "source_gap_note": "Current B4有血栓成分与结局，但未明确冻结“左房球形血栓=混合血栓”的最小题级owner。"
   },
   {
     "question_id": "xizong-official-2023-n032",
@@ -164,14 +246,23 @@
       "左侧Virchow结才是胃癌等腹腔恶性肿瘤的经典高频联想。"
     ],
     "transfer_rule": "右锁骨上偏胸腔；左Virchow偏腹腔。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "D.肺。右锁骨上淋巴结腺癌转移更应优先考虑胸腔原发灶，肺是经典来源；左侧Virchow结才更经典联想胃癌等腹腔肿瘤。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "胃癌更经典转移至左锁骨上Virchow淋巴结。"
+      }
+    ],
+    "common_failure_node": "记住“锁骨上淋巴结=胃癌”却不区分左右侧回流。"
   },
   {
     "question_id": "xizong-official-2023-n033",
@@ -190,14 +281,27 @@
       "不要把FSGS的节段硬化、新月体或明显系膜增生套进MCD。"
     ],
     "transfer_rule": "MCD：LM近正常，EM足突融合。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "D.基本正常。微小病变肾病光镜下肾小球通常接近正常，电镜才见足突广泛融合。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "局灶节段性硬化属于FSGS。"
+      },
+      {
+        "option": "C",
+        "reason": "新月体提示RPGN等严重肾小球损伤。"
+      }
+    ],
+    "common_failure_node": "只因患者有肾病综合征就期待光镜一定有明显病变。"
   },
   {
     "question_id": "xizong-official-2023-n034",
@@ -216,14 +320,27 @@
       "这题考的是‘同一疾病里不同表现属于哪条机制链’。"
     ],
     "transfer_rule": "肝硬化要分两条链：肝功能不全 vs 门脉高压。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "C.脾大。肝硬化脾大主要由门静脉高压导致脾静脉淤血，不是肝细胞功能不全的直接表现。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "出血倾向可由凝血因子合成减少等肝功能不全造成。"
+      },
+      {
+        "option": "D",
+        "reason": "蜘蛛痣与激素代谢障碍相关。"
+      }
+    ],
+    "common_failure_node": "把肝硬化所有表现都归到同一“肝功能不全”机制。"
   },
   {
     "question_id": "xizong-official-2023-n035",
@@ -240,14 +357,28 @@
       "按题干与选项，依据上述判断轴确定题源答案。"
     ],
     "transfer_rule": "肿瘤良恶性需记具体实体，不按中文后缀判断。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "D.骨母细胞瘤。骨母细胞瘤属于良性但可局部侵袭的成骨性骨肿瘤；其余三个题源选项均属恶性胚胎性肿瘤。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "神经母细胞瘤属于恶性儿童肿瘤。"
+      },
+      {
+        "option": "C",
+        "reason": "肾母细胞瘤/Wilms瘤属于恶性儿童肿瘤。"
+      }
+    ],
+    "common_failure_node": "看到“母细胞瘤”就一律判恶性。",
+    "source_gap_note": "Current骨肿瘤Knowledge未找到明确冻结“骨母细胞瘤为良性”的最小owner。"
   },
   {
     "question_id": "xizong-official-2023-n036",
@@ -261,17 +392,27 @@
     "exam_target": "假幽门腺化生与慢性萎缩性胃炎",
     "decision_axis": "胃底腺萎缩后可出现假幽门腺化生等再生性改变，是慢性萎缩性胃炎的常见病理表现之一。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "胃体/胃底正常应以胃底腺为主；出现大量假幽门腺化生说明原有腺体萎缩并被化生性腺体替代。",
+      "这正是慢性萎缩性胃炎的病理特征，选B；浅表性胃炎不以腺体萎缩和化生为核心。"
     ],
     "transfer_rule": "慢性萎缩性胃炎可见腺体减少+化生。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "B.慢性萎缩性胃炎。胃体黏膜出现大量假幽门腺化生提示原有胃底腺萎缩并被化生性腺体替代。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "慢性浅表性胃炎不以腺体明显萎缩/化生为核心。"
+      }
+    ],
+    "common_failure_node": "只看“慢性胃炎”四字，不利用腺体萎缩与化生的病理层级。"
   },
   {
     "question_id": "xizong-official-2023-n037",
@@ -294,8 +435,18 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "C.髓样癌为题源答案。髓样癌来源于C细胞、分泌降钙素，但明显低钙血症并不是稳定、典型的Current临床表现。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "乳头状癌不是降钙素分泌肿瘤。"
+      }
+    ],
+    "common_failure_node": "把“肿瘤分泌降钙素”直接推成“患者必然低钙”。",
+    "source_boundary_note": "髓样甲状腺癌可分泌降钙素，但明显低钙不是Current稳定典型表现；不把题源固定关联升级。"
   },
   {
     "question_id": "xizong-official-2023-n038",
@@ -314,14 +465,23 @@
       "化脓性骨髓炎的脓肿通常炎症更急、更热、更痛，病理节奏不同。"
     ],
     "transfer_rule": "TB脓肿=“冷”——局部炎症热征不突出。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "B.骨结核。骨关节结核慢性进展，可形成红热不明显的寒性脓肿。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "急性化脓性骨髓炎的脓肿通常局部炎症更明显。"
+      }
+    ],
+    "common_failure_node": "把“有脓肿”都当作化脓菌感染，忽略结核寒性脓肿。"
   },
   {
     "question_id": "xizong-official-2023-n039",
@@ -335,17 +495,27 @@
     "exam_target": "宫颈息肉性质",
     "decision_axis": "宫颈息肉通常是慢性炎症和局部反应性增生形成的良性病变，并非典型上皮性肿瘤。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "宫颈息肉常见于慢性宫颈炎背景，是炎症刺激导致的局部黏膜反应性/增生性病变。",
+      "它本身不等同于良性肿瘤、癌前病变或原位癌，因此选D。"
     ],
     "transfer_rule": "宫颈息肉多为炎症/反应性良性病变。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "D.炎性病变。宫颈息肉多是慢性炎症背景下的反应性/增生性病变，本身不等于肿瘤或癌前病变。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "宫颈息肉不能仅因“息肉”名称就归为真性良性肿瘤。"
+      }
+    ],
+    "common_failure_node": "按病名后缀“息肉”机械判断为肿瘤。"
   },
   {
     "question_id": "xizong-official-2023-n040",
@@ -364,14 +534,23 @@
       "真正进入恶性轴的关键门槛是间质浸润，而不是单纯看到乳头或异型。"
     ],
     "transfer_rule": "borderline tumor核心=异型/增生有，但无破坏性间质浸润。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "C.生物学行为介于良性与恶性之间。交界性浆液性肿瘤可有上皮增生和异型，但缺乏破坏性间质浸润。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "由两个胚层组成描述的是某些畸胎瘤概念，不是交界性浆液性肿瘤定义。"
+      }
+    ],
+    "common_failure_node": "把“交界性”理解成两种组织混合，而非良恶性行为边界。"
   },
   {
     "question_id": "xizong-official-2023-n041",
@@ -394,8 +573,18 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "C.有机磷农药中毒为题源答案；但“先意识障碍后发热”的时序不是Current可迁移诊断规则。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "乙脑常以发热、神经系统症状演变，时序并不能靠一句固定表述区分。"
+      }
+    ],
+    "common_failure_node": "用单一症状先后顺序替代病因、暴露史和综合体征。",
+    "source_gap_note": "“意识障碍先于发热”的时序不是Current中毒/感染鉴别的稳定可迁移规则。"
   },
   {
     "question_id": "xizong-official-2023-n042",
@@ -418,8 +607,18 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "A.呼吸频率>30次/分为题源重度急性哮喘阈值之一；Current严重度需综合呼吸、氧合、说话能力、意识和PEF等，且阈值会随指南更新。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "PEF 65%通常不足以单独定义重度发作。"
+      }
+    ],
+    "common_failure_node": "把一个生命体征阈值当成所有版本指南的唯一严重度标准。",
+    "source_boundary_note": "题源采用固定哮喘急性发作严重度阈值；Current需多指标综合，且阈值受指南版本影响。"
   },
   {
     "question_id": "xizong-official-2023-n043",
@@ -442,8 +641,22 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "B.肺穿刺活检见肉芽肿为题源官方答案；但肉芽肿并不特异于结核，Current确证更依赖病原学/分子学并结合病理。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "痰抗酸染色阳性提示分枝杆菌，但还需结合核酸/培养等提高确证力。"
+      },
+      {
+        "option": "D",
+        "reason": "IGRA只能证明免疫学感染证据，不能区分活动性结核。"
+      }
+    ],
+    "common_failure_node": "把“肉芽肿”当成结核特异确诊证据。",
+    "source_conflict_note": "题源把肺穿刺肉芽肿作为最有助确诊结核的证据；Current认为肉芽肿非特异，活动性结核确证优先病原学/分子证据并结合病理。"
   },
   {
     "question_id": "xizong-official-2023-n044",
@@ -457,17 +670,28 @@
     "exam_target": "支原体无细胞壁",
     "decision_axis": "肺炎支原体缺乏细胞壁，因此β-内酰胺类等以细胞壁为靶点的抗菌药天然无效。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "肺炎支原体没有细胞壁，β-内酰胺类依赖抑制细胞壁合成，因此没有有效靶点。",
+      "大环内酯、四环素和喹诺酮类可作为治疗选择，所以“不适用”的是D。",
+      "看到Mycoplasma先抓“无细胞壁→β-lactam无效”。"
     ],
     "transfer_rule": "Mycoplasma no cell wall→β-lactam无靶点。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "D.β-内酰胺类。肺炎支原体无细胞壁，β-内酰胺以细胞壁合成为靶点，因此天然无效。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "大环内酯类可用于支原体感染。"
+      }
+    ],
+    "common_failure_node": "忘记Mycoplasma“无细胞壁”这一决定性结构特征。"
   },
   {
     "question_id": "xizong-official-2023-n045",
@@ -490,8 +714,18 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "D.射频消融+起搏器为题源答案；Current房颤合并明显缓慢心率/黑朦需先明确症状-心动过缓相关性、药物因素和节律/起搏指征，不能固定为单一路径。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "单纯胺碘酮转复可能进一步加重缓慢心率风险。"
+      }
+    ],
+    "common_failure_node": "看到房颤+长间歇就直接套“消融+起搏”固定套餐。",
+    "source_boundary_note": "题源把房颤伴缓慢心率/黑朦固定路由至“射频消融+起搏器”；Current需先确认缓慢心率症状相关性、药物和节律策略。"
   },
   {
     "question_id": "xizong-official-2023-n046",
@@ -510,14 +744,23 @@
       "硝酸酯会进一步降低前负荷，在低血压右室梗死中反而可能使循环更差。"
     ],
     "transfer_rule": "RV infarct低压先想preload不足，但补液需看肺淤血和血流动力学。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "B.静脉补液。右室梗死低血压常因左室前负荷不足，在无明显肺淤血时可谨慎补液。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "硝酸甘油会降低前负荷，低血压右室梗死中可能恶化循环。"
+      }
+    ],
+    "common_failure_node": "把左室梗死常用药机械套到右室前负荷依赖状态。"
   },
   {
     "question_id": "xizong-official-2023-n047",
@@ -536,14 +779,23 @@
       "BNP反映心室壁张力/心衰负荷，两种疾病都可升高，鉴别力较弱。"
     ],
     "transfer_rule": "troponin反映急性心肌损伤，不等于特定病因。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "B.心肌损伤标志物。急性心肌炎更可能出现正在发生的心肌细胞损伤和肌钙蛋白升高；慢性DCM可无明显急性损伤标志。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "BNP两者都可因心室壁牵张升高，鉴别力有限。"
+      }
+    ],
+    "common_failure_node": "把反映“心衰负荷”的指标误当成反映“急性炎症损伤”的指标。"
   },
   {
     "question_id": "xizong-official-2023-n048",
@@ -566,8 +818,18 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "C.白天≥135/85或夜间≥120/70为题源ABPM阈值；Current诊断阈值随指南/场景更新，不冻结为唯一标准。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "140/90更接近传统诊室血压阈值，不是题源ABPM答案。"
+      }
+    ],
+    "common_failure_node": "把诊室、家庭、动态血压阈值混为一套。",
+    "source_boundary_note": "题源使用特定ABPM阈值；Current高血压诊断阈值随测量场景和指南版本更新。"
   },
   {
     "question_id": "xizong-official-2023-n049",
@@ -586,14 +848,23 @@
       "黏膜保护剂或促动力药可作为特定情境补充，但不替代核心抑酸。"
     ],
     "transfer_rule": "GERD主药理轴=acid suppression。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "B.奥美拉唑。反酸、烧心且平卧加重符合GERD，药物治疗核心是PPI强效抑酸。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "H₂受体阻滞剂也能抑酸，但整体抑酸效力通常弱于PPI。"
+      }
+    ],
+    "common_failure_node": "只按“能抑酸”选药，不区分GERD核心一线抑酸强度。"
   },
   {
     "question_id": "xizong-official-2023-n050",
@@ -612,13 +883,26 @@
       "ADA、LDH和白细胞更多帮助识别结核、感染或肿瘤等腹水性质。"
     ],
     "transfer_rule": "SAAG高→portal hypertension axis。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "D.血清-腹水清蛋白梯度。SAAG高提示门静脉高压机制，是腹水病因分层的关键指标。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "ADA更用于结核性腹水等鉴别。"
+      },
+      {
+        "option": "C",
+        "reason": "白细胞计数用于感染评估，不能直接回答门脉高压机制。"
+      }
+    ],
+    "common_failure_node": "把腹水所有化验都当成同等病因诊断价值。"
   }
 ]

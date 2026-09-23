@@ -8,22 +8,35 @@
       "blob_sha": "fb063c120232b9e80d536f6a76fcf63185f919b9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "慢性肺心病形态改变",
-    "decision_axis": "长期肺动脉高压可使肺动脉段突出并导致右心室肥厚。",
+    "exam_target": "慢性肺源性心脏病的右心和肺动脉形态改变",
+    "decision_axis": "慢性肺动脉高压使肺动脉段/圆锥膨隆并造成右心室压力负荷性肥厚，乳头肌和肉柱可增粗；不是左室肥厚扩张主轴。",
     "reasoning_chain": [
-      "慢性肺心病长期右室压力负荷会形成右室向心性肥厚，乳头肌和肉柱也随之增粗。",
-      "肺动脉高压还可使肺动脉圆锥膨隆，因此A、C正确。",
-      "病变主轴在右心，不是左室肥厚或左室扩大。"
+      "慢性肺心病的血流动力学核心是肺动脉高压。",
+      "长期右室后负荷增加导致右室肥厚，右室肉柱/乳头肌增粗。",
+      "肺动脉段可突出，因此A、C正确。"
     ],
-    "transfer_rule": "慢性肺高压→右室肥厚。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "慢性肺心病看右心：肺动脉高压→右室肥厚/扩张；左室改变不是定义性主轴。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "AC.肺动脉圆锥显著膨隆、右心室乳头肌及肉柱显著增粗，均符合慢性肺动脉高压和右室肥厚的形态改变。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "左心室壁增厚不是慢性肺心病的典型直接改变。"
+      },
+      {
+        "option": "D",
+        "reason": "左心室扩大同样不属于慢性肺心病的定义性形态主轴。"
+      }
+    ],
+    "common_failure_node": "把“心衰”统一理解成左心扩大，忽略肺心病是右心压力负荷疾病。"
   },
   {
     "question_id": "xizong-official-2023-n152",
@@ -34,20 +47,32 @@
       "blob_sha": "fb063c120232b9e80d536f6a76fcf63185f919b9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "心肌细胞坏死相关疾病",
-    "decision_axis": "题源把多种导致心肌损伤的疾病并列；应按具体病理机制理解，而不要把所有选项泛化为同一坏死模式。",
+    "exam_target": "多种疾病中的心肌坏死题源组合",
+    "decision_axis": "病毒性心肌炎可直接造成心肌细胞损伤坏死；肺动脉狭窄和扩张型心肌病可伴压力/结构性心肌损害，但题源把不同机制并列为同一“心肌坏死”组合，Current没有单一最小owner完整承载ACD。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "A病毒性心肌炎可有心肌细胞变性坏死和炎细胞浸润。",
+      "严重肺动脉狭窄可造成右室长期压力负荷与缺血性损害；扩张型心肌病可见心肌细胞变性/坏死与纤维化。",
+      "主动脉粥样硬化本身并不等同冠脉闭塞导致的心肌坏死，因此题源选A、C、D。"
     ],
-    "transfer_rule": "保留题源病理关联，具体疾病按机制区分。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "“心肌坏死”要按直接炎症、缺血或长期负荷损伤分别理解，不要把所有心血管病都视为同一坏死机制。",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "ACD.按正式题源，病毒性心肌炎、肺动脉狭窄和扩张性心肌病可伴心肌细胞坏死/损伤；主动脉粥样硬化本身不是这一组的直接对应项。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "主动脉粥样硬化不等同于冠状动脉急性闭塞，不能仅凭“粥样硬化”推出心肌坏死。"
+      }
+    ],
+    "common_failure_node": "看到“粥样硬化”就自动联想到心肌梗死，忽略病变解剖位置和直接机制。",
+    "source_gap_note": "Current循环系统不同Block分别覆盖心肌炎/负荷/心肌病，但没有单一Question→KP owner完整承载本题ACD三种不同机制的组合；不拼接多Block制造整题关系。"
   },
   {
     "question_id": "xizong-official-2023-n153",
@@ -58,22 +83,26 @@
       "blob_sha": "fb063c120232b9e80d536f6a76fcf63185f919b9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "结直肠癌高危病变",
-    "decision_axis": "FAP、长期溃疡性结肠炎、绒毛状腺瘤等均可显著增加结直肠癌风险。",
+    "exam_target": "结直肠癌的癌前/高风险病变",
+    "decision_axis": "FAP、长期溃疡性结肠炎、幼年性息肉病及绒毛状腺瘤均可显著增加结直肠癌风险。",
     "reasoning_chain": [
-      "大肠癌风险可由遗传性息肉综合征、慢性炎症和腺瘤性病变多条路径提高。",
-      "FAP、长期UC、幼年性息肉病和绒毛状腺瘤都属于Current Source列出的癌前/高风险背景，因此A、B、C、D均可选。",
-      "这题考的是‘哪些背景增加癌变风险’，不是把它们当成同一种病理机制。"
+      "遗传性多发息肉综合征可显著提高癌变风险。",
+      "长期炎症性结肠炎可经炎症-异型增生-癌路径进展。",
+      "绒毛状腺瘤癌变风险较高，因此四项均属于题源高风险/癌前范畴。"
     ],
-    "transfer_rule": "结直肠癌高危：遗传腺瘤病+慢性炎症+高级别腺瘤性病变。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "结直肠癌高危分三类：遗传息肉综合征、长期炎症、腺瘤尤其绒毛/高级别异型增生。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "ABCD.FAP、溃疡性结肠炎、幼年性息肉病和绒毛状腺瘤均可增加大肠癌风险，Current D15保存这一高危轴。",
+    "valuable_distractors": [],
+    "common_failure_node": "把“癌前病变”狭义理解为单个腺瘤，而漏掉遗传性息肉综合征和长期炎症性结肠病。"
   },
   {
     "question_id": "xizong-official-2023-n154",
@@ -84,20 +113,36 @@
       "blob_sha": "fb063c120232b9e80d536f6a76fcf63185f919b9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "COPD突发胸痛的气胸",
-    "decision_axis": "COPD患者突发胸痛、呼吸困难并单侧呼吸音减弱，应警惕继发性自发性气胸。",
+    "exam_target": "COPD患者突发胸痛呼吸困难时警惕继发性气胸",
+    "decision_axis": "慢性肺病患者突然左胸痛、呼吸困难并单侧呼吸音减低，首先应识别继发性自发性气胸；题源允许胸片/心电图评估和吸氧，但Current R10并未以单一KP完整保存AB这一组合。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "长期咳嗽咳痰提示COPD基础。",
+      "今晨突然胸痛、呼吸困难和左侧呼吸音减低高度提示气胸。",
+      "胸片有助确诊；同时可给予氧支持并进行心电图鉴别急性胸痛，故官方答案为A、B。"
     ],
-    "transfer_rule": "COPD急变+单侧呼吸音↓=先排气胸。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "COPD突发胸痛+单侧呼吸音下降先排气胸；影像确认同时评估氧合和循环，避免直接上无创正压通气。",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "AB.胸片和心电图检查、吸氧。胸片可确认气胸，心电图可协助急性胸痛鉴别；低氧时可吸氧。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "未处理气胸时正压通气可能加重胸膜腔压力，不能把NIV作为本题常规首步。"
+      },
+      {
+        "option": "C",
+        "reason": "镇静可抑制呼吸、掩盖病情，并不能解决突发气胸的病理问题。"
+      }
+    ],
+    "common_failure_node": "把COPD急性加重惯性地套入NIV，而忽略“突发胸痛+单侧呼吸音下降”已经提示气胸。",
+    "source_gap_note": "Current R10明确拥有气胸识别和胸片确诊，但未以单一最小owner完整保存本题“胸片+心电图检查并吸氧”的AB组合；Explanation完整保留，Crosswalk fail-closed。"
   },
   {
     "question_id": "xizong-official-2023-n155",
@@ -108,20 +153,32 @@
       "blob_sha": "fb063c120232b9e80d536f6a76fcf63185f919b9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "急性左心衰竭旧固定药物组合",
-    "decision_axis": "题源列举固定的急性心衰药物组合；Current急性心衰用药需按血压、灌注、容量状态及病因决定。",
+    "exam_target": "急性左心衰/肺水肿的急性药物功能分类",
+    "decision_axis": "Current B11 KP15明确把奈西立肽列为按血压选择的扩血管药，把左西孟旦和毛花苷丙列入按灌注场景选择的正性肌力药；伊伐布雷定用于特定慢性HFrEF而非急性心衰。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断；涉及Current治疗、法律、阈值或旧分类时不向canonical泛化。"
+      "急性左心衰用药必须先看淤血、血压和灌注，不是固定套餐。",
+      "在Current Study药物表中，奈西立肽属于扩血管，左西孟旦和毛花苷丙属于正性肌力方向。",
+      "伊伐布雷定明确不用于急性心衰，因此官方ACD可被Current完整解释。"
     ],
-    "transfer_rule": "保留血流动力学分型原则，不固化旧药单。",
-    "mapping_decision": "NO_SAFE_MATCH",
+    "transfer_rule": "急性心衰药按目标选：利尿降容量、扩管减负荷、正性肌力保灌注；慢性降心率/抗重构药不能机械搬进急性期。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "ACD.毛花苷C/丙类强心苷、奈西立肽、左西孟旦均在Current B11急性心衰药物功能表中有对应应用方向；伊伐布雷定不用于急性心衰。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "伊伐布雷定用于特定窦性心律慢性HFrEF控心率，Current B11明确急性心衰不用。"
+      }
+    ],
+    "common_failure_node": "背“心衰药物名单”而不区分急性救治与慢性结局治疗，也不看血压/灌注前提。",
+    "source_boundary_note": "ACD表示这些药物可在特定急性心衰场景中使用，不等于所有急性肺水肿患者都应同时或常规使用；Current B11要求按血压、淤血和灌注选择。"
   },
   {
     "question_id": "xizong-official-2023-n156",
@@ -132,20 +189,32 @@
       "blob_sha": "fb063c120232b9e80d536f6a76fcf63185f919b9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "有机磷中毒洗胃液旧细则",
-    "decision_axis": "题源涉及特定农药与洗胃液的历史细则；Current中毒处置应按毒物、时间、气道保护和现行中毒指南决定。",
+    "exam_target": "有机磷中毒2% NaHCO₃洗胃的Source-bound农药配对",
+    "decision_axis": "Current F2 KP06直接保存2023题：2% NaHCO₃可用于对硫磷、敌敌畏、乐果，敌百虫遇碱可转为毒性更强的敌敌畏，因此排除B。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断；涉及Current治疗、法律、阈值或旧分类时不向canonical泛化。"
+      "口服有机磷去污需先考虑气道保护并选择合适洗胃液。",
+      "敌百虫遇碱可转化为敌敌畏，所以禁用2% NaHCO₃。",
+      "Current F2明确固定2023本题的A、C、D配对，因此选ACD。"
     ],
-    "transfer_rule": "中毒处置不能把旧洗胃配方泛化为Current规则。",
-    "mapping_decision": "NO_SAFE_MATCH",
+    "transfer_rule": "有机磷洗胃特例：敌百虫禁碱；对硫磷禁强氧化剂高锰酸钾。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "ACD.对硫磷、敌敌畏、乐果可按Current F2保存的2023 Study口径使用2% NaHCO₃；敌百虫禁用碱性洗胃液。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "敌百虫在碱性环境可转为毒性更强的敌敌畏，因此2% NaHCO₃为禁忌。"
+      }
+    ],
+    "common_failure_node": "记“有机磷都能用碳酸氢钠洗胃”，漏掉敌百虫这一经典化学转化例外。",
+    "source_boundary_note": "洗胃本身必须先评估气道保护、腐蚀性/误吸风险和时机；本题农药-洗胃液配对属于Current F2明确保存的Study细则，不泛化成所有真实中毒场景的固定操作。"
   },
   {
     "question_id": "xizong-official-2023-n157",
@@ -156,20 +225,35 @@
       "blob_sha": "fb063c120232b9e80d536f6a76fcf63185f919b9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "膀胱刺激征",
-    "decision_axis": "尿频、尿急、尿痛是典型膀胱刺激征。",
+    "exam_target": "尿路刺激征：尿急与尿痛",
+    "decision_axis": "典型尿路/膀胱刺激征为尿频、尿急、尿痛；尿潴留和排尿困难属于排空障碍，不是经典刺激征。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "刺激征反映膀胱/尿路黏膜炎症导致频繁、急迫和疼痛性排尿。",
+      "选项中尿急、尿痛符合。",
+      "尿潴留和排尿困难描述排出受阻或排空失败，因此选B、C。"
     ],
-    "transfer_rule": "下尿路刺激症状=频、急、痛。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "尿路刺激征固定三联：尿频、尿急、尿痛；排尿困难/尿潴留另走梗阻或神经膀胱。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "BC.尿急和尿痛属于典型尿路刺激征；经典还包括尿频。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "尿潴留是膀胱排空障碍，不属于经典刺激征。"
+      },
+      {
+        "option": "D",
+        "reason": "排尿困难更提示出口梗阻或排尿功能障碍。"
+      }
+    ],
+    "common_failure_node": "把所有“排尿不舒服”都归入刺激征，忽略刺激症状与排空症状分类。"
   },
   {
     "question_id": "xizong-official-2023-n158",
@@ -180,22 +264,35 @@
       "blob_sha": "fb063c120232b9e80d536f6a76fcf63185f919b9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "凝血试验定位",
-    "decision_axis": "APTT延长而TT正常提示问题多在内源性凝血途径而非纤维蛋白原转化阶段。",
+    "exam_target": "APTT延长而TT正常的凝血因子定位",
+    "decision_axis": "APTT反映内源性和共同途径，TT反映凝血酶将纤维蛋白原转为纤维蛋白的终末步骤；V或IX因子缺乏可延长APTT而TT仍正常。",
     "reasoning_chain": [
-      "TT主要看纤维蛋白原转为纤维蛋白这一末端环节；若TT正常，说明末端纤维蛋白形成仍可进行。",
-      "FⅤ缺乏可使共同通路受损并延长APTT，FⅨ缺乏则延长内源通路APTT，因此A、C正确。",
-      "FⅦ缺乏主要延长PT，纤维蛋白原减少则会使TT异常。"
+      "IX因子属于内源性途径，缺乏会延长APTT。",
+      "V因子属于共同途径，也会影响APTT。",
+      "VII因子主要影响PT；纤维蛋白原减少会延长TT，因此选A、C。"
     ],
-    "transfer_rule": "凝血筛查先用PT/APTT/TT定位环节。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "凝血筛查定位：VII→PT；VIII/IX/XI/XII→APTT；V/X/II→PT和APTT；纤维蛋白原/凝血酶问题→TT。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "AC.Ⅴ因子缺乏和Ⅸ因子缺乏都可使APTT延长，而纤维蛋白原转化环节完整时TT可正常。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "Ⅶ因子属于外源性途径，主要导致PT延长。"
+      },
+      {
+        "option": "D",
+        "reason": "纤维蛋白原减少直接影响凝血酶时间，TT通常会延长。"
+      }
+    ],
+    "common_failure_node": "只把APTT理解为“内源途径”，漏掉共同途径因子V、X、II也会影响APTT。"
   },
   {
     "question_id": "xizong-official-2023-n159",
@@ -206,20 +303,36 @@
       "blob_sha": "fb063c120232b9e80d536f6a76fcf63185f919b9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "DKA胰岛素/碳酸氢盐旧阈值",
-    "decision_axis": "DKA补液、胰岛素及碱治疗的具体阈值和剂量会随指南更新；旧题中的固定bolus和pH阈值不应升级为Current方案。",
+    "exam_target": "DKA旧胰岛素负荷量与补碱阈值的Current冲突",
+    "decision_axis": "正式题源答案CD包含“先静推10–20U再0.1U/kg·h”和“pH<7.1、HCO₃⁻<5补碱”；Current D8保留的是直接小剂量RI静滴0.1U/kg·h、血糖13.9后补糖、仅pH≤6.9考虑补碱，因此不能把CD升级为Current关系。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断；涉及Current治疗、法律、阈值或旧分类时不向canonical泛化。"
+      "Current D8治疗主轴仍是先补液，再小剂量普通RI静脉滴注。",
+      "但Current并未保留题源C的固定10–20U静脉负荷量。",
+      "Current补碱阈值为pH≤6.9，而题源D给pH<7.1且HCO₃⁻<5；所以保留官方CD但标记Current冲突。"
     ],
-    "transfer_rule": "DKA核心是补液+胰岛素+电解质监测，具体阈值按现行指南。",
+    "transfer_rule": "DKA数字题必须服从项目Current Study：RI 0.1U/kg·h、13.9mmol/L后补糖、补碱仅极重酸中毒；不要用旧真题阈值覆盖Current。",
     "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "CD.为2023正式答案；但其中胰岛素负荷量和补碱阈值与Current D8现行Study口径不完全一致，因此只保留历史题源结论。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "DKA补液需按脱水、循环和持续监测调整，Current D8不以“前4小时固定2000ml”作为普适规则。"
+      },
+      {
+        "option": "B",
+        "reason": "Current D8把加糖阈值保存为13.9mmol/L，而非16.7mmol/L。"
+      }
+    ],
+    "common_failure_node": "把不同年代DKA的精确剂量/阈值拼成一个方案，忽略Current已冻结的Study数字。",
+    "source_conflict_note": "2023官方答案CD与Current D8存在两处实质差异：Current不要求固定10–20U静脉负荷量；补碱门槛为pH≤6.9，而题源D使用pH<7.1/HCO₃⁻<5。历史答案保留，Crosswalk按NO_SAFE_MATCH。"
   },
   {
     "question_id": "xizong-official-2023-n160",
@@ -230,20 +343,33 @@
       "blob_sha": "fb063c120232b9e80d536f6a76fcf63185f919b9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "胆囊结石手术适应证旧阈值",
-    "decision_axis": "无症状胆囊结石/息肉/瓷化胆囊等手术阈值和风险分层会随指南演化。",
+    "exam_target": "无症状胆囊结石预防性胆囊切除的旧精确阈值",
+    "decision_axis": "Current D19保留“无症状通常观察，高危时考虑预防性LC”的类别，并列大结石、瓷化胆囊、息肉等；但3cm和1cm等精确门槛被明确放入MI-D，不能从当前主KP直接升级。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断；涉及Current治疗、法律、阈值或旧分类时不向canonical泛化。"
+      "A、C、D均属于传统高危预防性手术场景：大结石、较大息肉、瓷化胆囊。",
+      "Current D19确认这些高危类别存在，但没有在主KP冻结题源的3cm/1cm精确阈值。",
+      "B“无症状儿童胆囊结石”也不能仅凭年龄自动推导手术，因此保留官方ACD但不建关系。"
     ],
-    "transfer_rule": "胆囊预防性手术不能仅凭旧固定直径阈值。",
+    "transfer_rule": "无症状胆囊结石默认观察；是否预防性LC看高危特征。遇具体尺寸阈值必须回到当前已核对Source，不靠旧题记忆。",
     "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "ACD.为2023正式答案：大结石、合并较大息肉样病变和瓷性胆囊属于题源手术指征；Current D19只安全保留高危类别，不冻结这里的全部精确阈值。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "无症状儿童胆囊结石不能仅凭“儿童”这一条件自动得出胆囊切除指征。"
+      }
+    ],
+    "common_failure_node": "把旧题的3cm/1cm数字当成跨版本永恒阈值，或把所有无症状结石都推向手术。",
+    "source_boundary_note": "Current D19明确将无症状胆囊结石预防LC的完整指征和胆囊息肉尺寸门槛留在MI-D；本题精确阈值不升级为Current主干规则。",
+    "source_gap_note": "Current D19主KP可支持“大结石/瓷化胆囊/息肉”为高危类别，但不足以完整承载本题所有精确尺寸条件，因此Crosswalk fail-closed。"
   },
   {
     "question_id": "xizong-official-2023-n161",
@@ -254,22 +380,31 @@
       "blob_sha": "fb063c120232b9e80d536f6a76fcf63185f919b9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "急性阑尾炎体征",
-    "decision_axis": "Rovsing征、腰大肌试验和闭孔内肌试验可帮助提示阑尾位置及局部腹膜刺激。",
+    "exam_target": "急性阑尾炎Rovsing、Psoas、Obturator体征",
+    "decision_axis": "Rovsing征、腰大肌试验和闭孔内肌试验均可作为急性阑尾炎的阳性体征，并可帮助判断阑尾位置。",
     "reasoning_chain": [
-      "急性阑尾炎的定位体征包括Rovsing征、Psoas征和Obturator征。",
-      "因此A、C、D正确。",
-      "Cullen征是腹腔/腹膜后出血相关体征，不属于阑尾炎常用定位试验。"
+      "Rovsing征通过左下腹加压诱发右下腹痛，提示局部腹膜刺激。",
+      "Psoas征偏后位/腰大肌邻近阑尾刺激，Obturator征偏盆位阑尾。",
+      "Cullen征是脐周瘀斑，不属于阑尾炎体征，因此选A、C、D。"
     ],
-    "transfer_rule": "阑尾炎特殊体征用于辅助定位，不替代整体诊断。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "阑尾特殊体征：Rovsing通用提示；Psoas偏后位；Obturator偏盆位。Cullen/Grey-Turner是出血性胰腺炎等腹膜后出血线索。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "ACD.Rovsing征、Psoas征和Obturator征均可见于急性阑尾炎。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "Cullen征是脐周皮下瘀斑，经典与腹腔/腹膜后出血相关，不是阑尾炎定位体征。"
+      }
+    ],
+    "common_failure_node": "只按英文人名死记体征，未把每个体征对应的解剖刺激机制连起来。"
   },
   {
     "question_id": "xizong-official-2023-n162",
@@ -280,22 +415,32 @@
       "blob_sha": "fb063c120232b9e80d536f6a76fcf63185f919b9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "急性肠系膜缺血影像旧策略",
-    "decision_axis": "题源使用选择性血管造影等旧路径；Current急性肠系膜缺血通常优先快速CTA并依病因处理。",
+    "exam_target": "肠系膜上动脉栓塞的症征不符与血管造影",
+    "decision_axis": "Current D14 KP10明确保留：突发剧烈腹痛而早期腹部体征较轻；栓塞并非必然位于SMA根部；选择性腹腔动脉造影有助确诊。",
     "reasoning_chain": [
-      "肠系膜上动脉栓塞经典表现是突发剧烈腹痛，但早期腹部体征相对轻，即‘症征不符’。",
-      "选择性腹部血管造影在Current Study仍保留为明确血管阻塞的诊断接口，因此A、B、D正确。",
-      "栓子并不必然停在SMA根部，常在分支口等解剖狭窄处受阻，所以C不选。"
+      "急性肠系膜缺血早期最典型是“症重征轻”，所以A、B正确。",
+      "Current D14明确不把SMA根部作为栓塞必然部位，因此C错误。",
+      "Current Lecture仍保存选择性血管造影有助确诊，因此D正确。"
     ],
-    "transfer_rule": "怀疑肠系膜缺血要抢时间，Current影像路径以现行急诊方案为准。",
-    "mapping_decision": "NO_SAFE_MATCH",
+    "transfer_rule": "急性肠系膜缺血先抓“剧烈腹痛+早期体征轻”；现代急诊优先快速血管成像，但题源的血管造影“有助确诊”并不等于必须首选。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "ABD.剧烈腹痛、早期体征轻和选择性血管造影有助确诊均被Current D14保存；“多发生在SMA根部”不是Current规则。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "Current D14明确提示栓塞常在较细分支，不把SMA根部作为必然或最常定位。"
+      }
+    ],
+    "common_failure_node": "把“血管造影有助诊断”误读成“现代首选检查”，或把栓塞位置机械固定在SMA根部。",
+    "source_boundary_note": "Current D14保留Lecture的选择性血管造影诊断接口；真实现代急性肠系膜缺血通常强调快速CTA优先，二者不应混写成同一“首选”结论。"
   },
   {
     "question_id": "xizong-official-2023-n163",
@@ -306,20 +451,32 @@
       "blob_sha": "fb063c120232b9e80d536f6a76fcf63185f919b9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "肛裂临床特征旧表述",
-    "decision_axis": "题源部分表述与现代典型肛裂特征不完全一致，不能据此生成新的统一规则。",
+    "exam_target": "肛裂的典型人群、位置与三联征中的题源异常表述",
+    "decision_axis": "Current D15 KP16明确：青壮年便秘多见、后正中线好发、可伴前哨痔和肛乳头肥大；但题源把“腹胀便秘”作为常见表现并纳入正确项，Current并未把腹胀作为肛裂典型表现。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断；涉及Current治疗、法律、阈值或旧分类时不向canonical泛化。"
+      "B“青中年”与Current“青壮年便秘多见”一致。",
+      "C的前哨痔和肛乳头肥大属于经典肛裂三联征。",
+      "A说前正中为多数，与Current后正中好发冲突；D中的便秘是重要背景，但“腹胀便秘”为常见表现的组合并非Current典型描述，因此保留官方BCD而不升级。"
     ],
-    "transfer_rule": "肛裂核心看排便痛、便血、裂口及前哨痔等。",
+    "transfer_rule": "肛裂核心识别：便秘背景、排便周期性剧痛+鲜血、后正中、前哨痔+肛乳头肥大；不要把一般胃肠症状替代肛管局部特征。",
     "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "BCD.为2023正式答案；B、C与Current D15一致，但D“常表现为腹胀便秘”不能由Current肛裂模型完整支持，因此历史答案与Current知识需分开。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "Current D15明确肛裂好发后正中线，而不是“大多数前正中线”。"
+      }
+    ],
+    "common_failure_node": "看到“便秘与肛裂相关”就顺带接受“腹胀”也是典型肛裂表现，混淆诱因/背景与核心症状。",
+    "source_conflict_note": "Current D15 KP16支持青壮年、便秘背景、后正中线和肛裂-前哨痔-肛乳头肥大三联征，但不支持把“腹胀便秘”整体作为肛裂常见典型表现。官方BCD保留，Crosswalk fail-closed。"
   },
   {
     "question_id": "xizong-official-2023-n164",
@@ -330,20 +487,37 @@
       "blob_sha": "fb063c120232b9e80d536f6a76fcf63185f919b9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "骨巨细胞瘤放疗旧策略",
-    "decision_axis": "骨巨细胞瘤治疗方式取决于部位、Campanacci分级、可切除性和复发风险，旧题中的固定放疗策略不宜泛化。",
+    "exam_target": "骨巨细胞瘤组织学与放疗/化疗Source冲突",
+    "decision_axis": "Current O16确认A的组织学和放疗后肉瘤变风险，但同一Source一处写手术困难可放疗/化疗，另一处又写化疗无效，已登记SOURCE_CONFLICT；因此官方AD不能整体升级为Current关系。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断；涉及Current治疗、法律、阈值或旧分类时不向canonical泛化。"
+      "骨巨细胞瘤由单核基质细胞和多核巨细胞构成，A正确。",
+      "典型影像为骨端偏心膨胀性溶骨，通常无明显骨膜反应，所以B错误。",
+      "局部疼痛肿胀可影响邻近关节活动，C“关节活动不受限”并不稳妥。",
+      "D中的放疗肉瘤变风险被Current保留，但“放化疗”中的化疗角色在Source内部冲突，因此官方AD仅保留为题源。"
     ],
-    "transfer_rule": "GCT治疗按部位和可切除性分层，不固化旧术式/放疗。",
+    "transfer_rule": "骨巨细胞瘤：20–40岁、骨端偏心、膨胀性溶骨/肥皂泡、通常无骨膜反应、单核基质细胞+多核巨细胞；治疗以手术为核心。",
     "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "AD.为2023正式答案。A的组织学完全符合Current O16；D中的放疗恶变风险可解释，但“可放化疗”与同Source“化疗无效”存在内部冲突，不能升级成稳定Current规则。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "骨巨细胞瘤典型为骨端偏心膨胀性溶骨，Current O16强调通常无明显骨膜反应。"
+      },
+      {
+        "option": "C",
+        "reason": "病变邻近关节端，疼痛和肿胀可影响关节活动，“不受限”不是可靠固定特征。"
+      }
+    ],
+    "common_failure_node": "只因为D后半句“放疗易肉瘤变”正确，就忽略前半句把化疗角色也一起绑定进来。",
+    "source_conflict_note": "Current O16已显式登记：同一Source既有“脊柱手术困难可放疗/化疗”，又有“化疗无效”，化疗角色不能安全统一；因此保留2023官方AD但不建立Current relation。"
   },
   {
     "question_id": "xizong-official-2023-n165",
@@ -354,21 +528,30 @@
       "blob_sha": "fb063c120232b9e80d536f6a76fcf63185f919b9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "关节畸形疾病辨析",
-    "decision_axis": "杵状指、尺偏、天鹅颈等分别提示不同系统疾病；Heberden结节更符合骨关节炎。",
+    "exam_target": "骨关节炎与其他疾病的手部畸形鉴别",
+    "decision_axis": "Heberden结节是远端指间关节骨关节炎经典表现；杵状指、尺偏和天鹅颈畸形分别更提示其他系统疾病/炎症性关节病。",
     "reasoning_chain": [
-      "OA的手部典型骨性结节包括DIP的Heberden结节。",
-      "尺侧偏斜和天鹅颈样畸形更偏RA，杵状指也不属于OA畸形，因此题问‘不符合OA’时选A、C、D。",
-      "把OA的骨性结节和RA的炎症性手畸形分开，是这题的决定轴。"
+      "题目问“不符合骨关节炎”的畸形。",
+      "Heberden结节是OA典型DIP骨性结节，所以B不能选。",
+      "杵状指非OA特征；尺侧偏斜和天鹅颈畸形更典型类风湿关节炎，因此A、C、D正确。"
     ],
-    "transfer_rule": "关节/手指畸形要按特征性形态回链疾病。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "手部畸形速配：OA→Heberden/Bouchard；RA→尺偏、天鹅颈/纽扣花；杵状指→肺/心等系统性病因。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2023"
+    },
+    "correct_option_reason": "ACD.杵状指、手指尺侧偏斜和天鹅颈样畸形都不符合典型骨关节炎；Heberden结节是OA经典表现。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "Heberden结节发生于DIP，是手部骨关节炎的经典体征。"
+      }
+    ],
+    "common_failure_node": "把所有手指外形异常都归为“关节炎畸形”，没有区分OA、RA和杵状指。"
   }
 ]

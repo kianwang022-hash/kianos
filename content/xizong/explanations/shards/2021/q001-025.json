@@ -11,17 +11,33 @@
     "exam_target": "内环境定义",
     "decision_axis": "内环境特指细胞外液，不包括细胞内液，因此“全部体液都是内环境”的表述错误。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "人体体液包括细胞内液和细胞外液。",
+      "内环境只指细胞外液，是细胞与外界交换的直接媒介。",
+      "因此把“全部体液”都称为内环境错误，选A。"
     ],
     "transfer_rule": "内环境=细胞外液。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "A.机体内的全部液体。内环境特指细胞外液，是细胞直接生活的液体环境，不包括细胞内液。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "细胞外液正是细胞赖以生存的直接环境。"
+      },
+      {
+        "option": "C",
+        "reason": "稳态调节使内环境理化性质维持相对稳定而非完全恒定。"
+      }
+    ],
+    "common_failure_node": "把“体液”与“内环境”当成同义词。",
+    "source_gap_note": "一般“内环境/稳态”概念当前主要由P0/System Guide承接，没有可投影的最小Current KP。"
   },
   {
     "question_id": "xizong-official-2021-n002",
@@ -35,17 +51,33 @@
     "exam_target": "静息电位偏离K平衡电位",
     "decision_axis": "静息膜对K+通透性最高但仍有少量Na+漏入，因此实测静息电位通常比K+平衡电位略不负。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "静息时K⁺通透性占主导，所以Vm接近EK。",
+      "同时仍有少量Na⁺内漏，其内向电流把膜电位拉向更正方向。",
+      "因此Vm略小于K平衡电位的绝对值，选A。"
     ],
     "transfer_rule": "静息电位接近但不等于EK，因仍有Na等离子通透。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "A.在钾外流背景上存在少量钠内流。静息膜对K⁺通透性最高，但仍存在少量Na⁺漏入，使实测静息电位比EK略不负。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "Na⁺-K⁺泵有轻度生电作用，但不是“静息电位略小于K平衡电位”的主要解释。"
+      },
+      {
+        "option": "C",
+        "reason": "Cl⁻并不是本题偏离EK的主要决定因素。"
+      }
+    ],
+    "common_failure_node": "只记“静息电位≈K平衡电位”，忘记膜对Na⁺并非绝对不通。",
+    "source_gap_note": "Current神经/循环Block有离子驱动力接口，但未形成“静息电位略偏离EK由Na漏入解释”的最小可投影owner。"
   },
   {
     "question_id": "xizong-official-2021-n003",
@@ -64,14 +96,23 @@
       "决定方向的不是通道“只偏爱Na⁺”，而是开放后两种离子的驱动力不对称。"
     ],
     "transfer_rule": "EPP=非选择性阳离子通道开放，但净效应Na内流占优。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "D.静息时Na⁺内向驱动力大于K⁺外向驱动力。终板ACh受体为非选择性阳离子通道，净电流方向由电化学驱动力决定。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "ACh受体并非只对Na⁺通透；K⁺也可通过。"
+      }
+    ],
+    "common_failure_node": "把净Na内流错误解释为“通道只偏爱Na”。"
   },
   {
     "question_id": "xizong-official-2021-n004",
@@ -90,14 +131,27 @@
       "经典血友病A才是FⅧ缺陷；Vit K缺乏影响多种凝血因子，PF₄也不是本病根因。"
     ],
     "transfer_rule": "vWD核心=vWF异常→黏附障碍。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "C.vWF缺陷。vWF数量/功能异常导致血小板黏附障碍，并可降低FⅧ稳定性。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "FⅧ缺陷是经典血友病A，不是vWD的原发缺陷。"
+      },
+      {
+        "option": "D",
+        "reason": "维生素K缺乏会影响多种凝血因子。"
+      }
+    ],
+    "common_failure_node": "把vWD与血友病A都涉及FⅧ而混为一病。"
   },
   {
     "question_id": "xizong-official-2021-n005",
@@ -111,17 +165,32 @@
     "exam_target": "压力容积环收缩性",
     "decision_axis": "心肌收缩性增强会使收缩末压力-容积关系ESPVR斜率增大，在相同负荷下收缩末容积更小。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "ESPVR斜率是心室收缩性的核心坐标。",
+      "收缩性增强时同样负荷下收缩更彻底，ESV下降并向左移。",
+      "因此环向左扩大且ESPVR斜率增大对应D。"
     ],
     "transfer_rule": "ESPVR斜率↑=收缩性↑。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "D.心肌收缩能力增强。收缩性增强使ESPVR斜率增大、ESV左移，PV环向左并变宽。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "前负荷增加主要使EDV右移，不会使ESPVR斜率增大。"
+      },
+      {
+        "option": "B",
+        "reason": "后负荷增加通常使ESV右移、环变窄。"
+      }
+    ],
+    "common_failure_node": "只看“环变宽”就选前负荷增加，忽略ESPVR斜率是收缩性的特异线索。"
   },
   {
     "question_id": "xizong-official-2021-n006",
@@ -135,17 +204,32 @@
     "exam_target": "直立后回心血量变化",
     "decision_axis": "突然站立时重力使血液暂时淤积于下肢静脉，静脉回流和心排量下降，可引起短暂头晕。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "突然站立使低垂部静脉压力升高并暂时储血。",
+      "回心血量、EDV与心排量下降。",
+      "脑灌注短暂下降，出现头晕眼黑，所以选B。"
     ],
     "transfer_rule": "站立瞬间先发生回心血量下降，再由压力感受器反射补偿。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "B.静脉回流减少。长期卧床后突然站立，下肢静脉因重力扩张淤血，中央回心量下降，短暂脑灌注不足。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "总循环血量并未在瞬间真正减少，首先变化的是血液分布。"
+      },
+      {
+        "option": "C",
+        "reason": "心肌泵功能不是突然站立时的第一故障层。"
+      }
+    ],
+    "common_failure_node": "把“脑灌注下降”直接归因于总血容量减少，不看重力导致的静脉容量重新分布。"
   },
   {
     "question_id": "xizong-official-2021-n007",
@@ -164,14 +248,27 @@
       "做题要分清‘为什么缺氧更明显’与‘机体怎样感知缺氧’。"
     ],
     "transfer_rule": "V/Q mismatch是低氧常见机制，外围感受器反应是后果。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "D.外周化学感受器对缺氧敏感、对CO₂潴留易适应属于缺氧后的调节反应，不是V/Q异常为何主要表现低氧的原因。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "CO₂扩散能力强有助解释V/Q失调时CO₂潴留相对不突出。"
+      },
+      {
+        "option": "C",
+        "reason": "氧解离曲线上段平坦限制高V/Q单位对低V/Q单位的氧合代偿。"
+      }
+    ],
+    "common_failure_node": "把“低氧的继发感知”与“低氧形成机制”混在一起。"
   },
   {
     "question_id": "xizong-official-2021-n008",
@@ -190,14 +287,27 @@
       "因此不能说术后完全没有胆汁，也不能说以后绝不会再发生胆道结石。"
     ],
     "transfer_rule": "胆囊不是产胆汁器官，肝才是。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "D.影响脂肪性食物的消化。胆囊切除后肝仍持续分泌胆汁，但失去储存、浓缩和餐后集中排放。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "胆囊切除并不能保证以后绝无胆道结石。"
+      },
+      {
+        "option": "B",
+        "reason": "肝脏胆汁分泌仍持续存在，并非明显减少。"
+      }
+    ],
+    "common_failure_node": "把胆囊误认为胆汁生成器官。"
   },
   {
     "question_id": "xizong-official-2021-n009",
@@ -216,14 +326,27 @@
       "糖和脂肪在这一比较中两者基本一致。"
     ],
     "transfer_rule": "蛋白质物理热价与生理热价不同，原因在含氮终产物。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "B.蛋白质。蛋白质体内含氮部分以尿素等排出，未完全氧化，所以生理热价低于物理热价。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "糖类在此比较中物理热价与生理热价基本一致。"
+      },
+      {
+        "option": "C",
+        "reason": "脂肪同样可近似完全氧化。"
+      }
+    ],
+    "common_failure_node": "不区分体外完全燃烧与人体实际氧化利用。"
   },
   {
     "question_id": "xizong-official-2021-n010",
@@ -237,17 +360,32 @@
     "exam_target": "等渗盐水与尿液",
     "decision_axis": "口服适量等渗盐水主要扩充细胞外液，渗透压变化小，正常调节下尿液渗透特征不会像纯水负荷或高渗负荷那样显著改变。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "饮清水会稀释血浆、抑制ADH并形成明显水利尿。",
+      "等量生理盐水主要扩充细胞外液而不造成同样的低渗刺激。",
+      "Current K4明确写“等量生理盐水不会出现同样水利尿”，所以选C。"
     ],
     "transfer_rule": "水负荷看渗透压，等渗负荷主要看容量。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "C.一次性饮生理盐水1000 mL。等渗盐水不显著降低血浆晶体渗透压，因此不会像等量清水那样抑制ADH并产生明显水利尿。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "大量清水使渗透压下降、ADH下降，尿量明显增加。"
+      },
+      {
+        "option": "B",
+        "reason": "糖水可引起不同的渗透/代谢响应，不是本题“无明显改变”答案。"
+      }
+    ],
+    "common_failure_node": "把“喝了1升液体”一律推成相同尿量变化，忽略渗透压是ADH的重要控制量。"
   },
   {
     "question_id": "xizong-official-2021-n011",
@@ -266,14 +404,23 @@
       "它不是直接激动受体，也不是单纯模拟ACh。"
     ],
     "transfer_rule": "MG对症改善经典靠AChE抑制。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "B.抑制胆碱酯酶。新斯的明延长ACh在神经肌接头的作用时间，提高有效突触传递。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "它不是直接激动烟碱型ACh受体通道。"
+      }
+    ],
+    "common_failure_node": "把“最终终板电位增大”当成药物直接靶点，而非胆碱酯酶抑制的下游结果。"
   },
   {
     "question_id": "xizong-official-2021-n012",
@@ -292,14 +439,23 @@
       "重点是‘内淋巴电化学环境’受损，而不是简单说直接损伤听神经。"
     ],
     "transfer_rule": "袢利尿剂重要不良反应之一是耳毒性。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "C.阻碍内淋巴中高钾形成。袢利尿剂干扰血管纹离子转运，破坏耳蜗高K⁺内淋巴和内耳电化学环境。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "并非主要通过直接阻断听神经动作电位传导。"
+      }
+    ],
+    "common_failure_node": "把耳毒性简单归为“毛细胞直接毒死”，忽略血管纹离子环境。"
   },
   {
     "question_id": "xizong-official-2021-n013",
@@ -313,7 +469,9 @@
     "exam_target": "左旋多巴与震颤旧绝对表述",
     "decision_axis": "题源把静止性震颤列为左旋多巴“不能缓解”的症状，但临床震颤对左旋多巴反应具有个体差异，绝对不能缓解的表述不宜升级。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对绝对疗效表述 fail-closed。"
+      "左旋多巴可改善帕金森病的运动迟缓和肌强直等多巴胺缺乏症状。",
+      "题源把静止性震颤列为不能缓解。",
+      "该绝对表述不适合作为Current统一疗效规则，因此保留官方B但不建立relation。"
     ],
     "transfer_rule": "仅保留题源/Study边界；帕金森症状对左旋多巴反应程度可不同。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -322,8 +480,22 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "B.静止性震颤为题源官方答案；但把震颤写成左旋多巴“不能缓解”过于绝对，实际反应存在个体差异。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "动作缓慢是左旋多巴典型可改善的运动症状。"
+      },
+      {
+        "option": "C",
+        "reason": "肌强直通常也可对多巴胺能治疗有反应。"
+      }
+    ],
+    "common_failure_node": "把旧教材中的相对疗效差异背成绝对“无效”。",
+    "source_boundary_note": "“静止性震颤不能被左旋多巴缓解”属于旧绝对疗效口径；Current学习不将其冻结为普遍规则。"
   },
   {
     "question_id": "xizong-official-2021-n014",
@@ -342,14 +514,27 @@
       "侏儒症方向通常相反，糖尿病本身也不会形成这一特异组合。"
     ],
     "transfer_rule": "评价慢性GH过多常看IGF-1。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "D.肢端肥大症。GH长期过多会促使IGF-1持续升高，IGF-1是反映长期GH作用的重要指标。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "垂体性侏儒症的GH/IGF-1方向通常相反。"
+      },
+      {
+        "option": "C",
+        "reason": "糖尿病本身不产生这种特异IGF-1升高模式。"
+      }
+    ],
+    "common_failure_node": "看到“生长因子升高”只联想到生长发育，不放回GH-IGF轴。"
   },
   {
     "question_id": "xizong-official-2021-n015",
@@ -363,17 +548,33 @@
     "exam_target": "双侧肾上腺切除后激素缺乏",
     "decision_axis": "双侧肾上腺切除会造成肾上腺皮质激素尤其糖皮质激素和盐皮质激素缺乏，若不替代可危及生命。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "双侧肾上腺切除会完全丢失肾上腺皮质来源的糖皮质激素和盐皮质激素。",
+      "这些激素维持血管反应、糖代谢和钠水容量稳态；缺乏时可危及生命。",
+      "Current D22明确双侧肾上腺切除后需终身激素替代，因此选C。"
     ],
     "transfer_rule": "肾上腺皮质激素是双侧切除后必须替代的关键。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "C.缺乏肾上腺皮质激素。双侧肾上腺切除同时失去糖皮质激素和盐皮质激素，若不替代可迅速出现严重循环与代谢失衡。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "肾上腺髓质儿茶酚胺并非双侧切除后快速死亡的主要原因，交感神经末梢仍可提供儿茶酚胺作用。"
+      },
+      {
+        "option": "D",
+        "reason": "AngⅡ来自RAAS，并不因切除肾上腺本身消失。"
+      }
+    ],
+    "common_failure_node": "把“肾上腺”整体当成一个激素源，不区分皮质激素是生存必需、髓质激素可由交感系统部分替代。",
+    "source_boundary_note": "Current D22 KP13以“双侧肾上腺切除后终身补激素”承接生存必需性；relation不扩展为完整Addison诊疗。"
   },
   {
     "question_id": "xizong-official-2021-n016",
@@ -387,17 +588,32 @@
     "exam_target": "妊娠期主要雌激素",
     "decision_axis": "妊娠期胎盘-胎儿单位大量生成雌三醇，经典生理学中雌三醇是妊娠期重要雌激素。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "妊娠期激素来源发生胎盘接力。",
+      "胎盘与胎儿共同利用前体合成大量雌三醇。",
+      "Current SR5 KP06明确“E3=胎盘主要雌激素”，所以选C。"
     ],
     "transfer_rule": "妊娠雌激素经典联想雌三醇。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "C.雌三醇。妊娠期胎儿—胎盘单位共同合成E3，Current SR5明确E3是胎盘主要雌激素。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "雌酮不是Current Study所列妊娠期胎盘主要雌激素。"
+      },
+      {
+        "option": "B",
+        "reason": "雌二醇在非孕期重要，但本题妊娠胎盘主成分为E3。"
+      }
+    ],
+    "common_failure_node": "把非孕期最主要雌激素E2机械套到妊娠期。"
   },
   {
     "question_id": "xizong-official-2021-n017",
@@ -416,14 +632,23 @@
       "模体不同于完整独立折叠的结构域，也不是单纯一级结构或β转角。"
     ],
     "transfer_rule": "leucine zipper=结构基序/二聚化模块。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "C.模体。亮氨酸拉链是重复出现的结构基序，常帮助转录因子二聚化。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "结构域通常是可相对独立折叠并承担功能的更大结构单元。"
+      }
+    ],
+    "common_failure_node": "把“有特定功能的局部结构”都叫结构域。"
   },
   {
     "question_id": "xizong-official-2021-n018",
@@ -442,14 +667,23 @@
       "它强调底物之间的有效接近，不是酶与辅酶、抑制剂或酶自身基团简单‘靠得近’。"
     ],
     "transfer_rule": "酶催化不仅靠化学基团，也靠底物邻近和正确取向。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "A.底物在酶活性中心相互接近。邻近/定向效应把反应基团置于有利距离和取向，提高有效碰撞概率。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "酶与辅酶靠近不是该术语的核心定义。"
+      }
+    ],
+    "common_failure_node": "按字面把“邻近”理解成任何两种分子靠近，而不限定反应底物。"
   },
   {
     "question_id": "xizong-official-2021-n019",
@@ -468,14 +702,23 @@
       "它不同于呼吸链复合体Ⅰ～Ⅳ抑制剂，作用层在ATP合酶本身。"
     ],
     "transfer_rule": "寡霉素→ATP synthase F0质子通道。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "D.c亚基。寡霉素阻断F₀部分质子通道，经典靶点位于c环/亚基区域，阻止H⁺回流和ATP合成。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "β亚基承担F₁催化位点，不是寡霉素经典结合靶点。"
+      }
+    ],
+    "common_failure_node": "只记“抑制ATP合酶”而不会定位F₀质子通道。"
   },
   {
     "question_id": "xizong-official-2021-n020",
@@ -494,14 +737,23 @@
       "这条循环同时解决肌肉氮运输和碳骨架回收。"
     ],
     "transfer_rule": "肌肉运氮到肝经典靠丙氨酸。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "D.丙氨酸-葡萄糖循环。肌肉把氨基氮转给丙酮酸形成丙氨酸，经血送肝处理氮并回收碳骨架。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "乳酸循环主要运送碳，不承担肌肉氮运输主轴。"
+      }
+    ],
+    "common_failure_node": "把肌肉“脱氨基”理解成必须直接释放游离氨，忽略丙氨酸转运。"
   },
   {
     "question_id": "xizong-official-2021-n021",
@@ -520,14 +772,23 @@
       "dAMP、dGMP、dCMP的形成不走这一直接甲基化步骤。"
     ],
     "transfer_rule": "dUMP→dTMP要叶酸一碳单位。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "C.dTMP。dUMP→dTMP需要N⁵,N¹⁰-亚甲基THF直接提供一碳单位。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "dAMP形成不经过这一直接THF甲基转移步骤。"
+      }
+    ],
+    "common_failure_node": "知道一碳单位参与嘌呤和胸苷酸，却不会识别“直接生成”dTMP。"
   },
   {
     "question_id": "xizong-official-2021-n022",
@@ -546,14 +807,27 @@
       "DNA聚合酶δ是常规DNA复制酶，RNA聚合酶Ⅱ负责转录，光复活酶属于DNA修复。"
     ],
     "transfer_rule": "端粒酶本质含RNA模板+逆转录酶。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "C.端粒酶。端粒酶携带自身RNA模板并具有逆转录酶活性，可延长染色体端粒DNA。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "RNA聚合酶Ⅱ以DNA为模板合成RNA，不是逆转录酶。"
+      },
+      {
+        "option": "B",
+        "reason": "DNA聚合酶δ是DNA依赖的DNA聚合酶。"
+      }
+    ],
+    "common_failure_node": "见到“聚合酶”就忽略模板类型，混淆DNA复制、转录与逆转录。"
   },
   {
     "question_id": "xizong-official-2021-n023",
@@ -572,14 +846,23 @@
       "它描述的是mRNA与蛋白产物的对应关系，不是‘一个DNA只产生一个mRNA’。"
     ],
     "transfer_rule": "真核多为monocistronic；原核操纵子常polycistronic。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "B.一个mRNA编码一条多肽链。真核成熟mRNA典型为单顺反子。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "同一DNA可含多个基因并产生多个RNA，单顺反子不是DNA:mRNA的一对一关系。"
+      }
+    ],
+    "common_failure_node": "把“顺反子”误解成DNA分子数量。"
   },
   {
     "question_id": "xizong-official-2021-n024",
@@ -598,14 +881,27 @@
       "其余几个选项都是蛋白质酶。"
     ],
     "transfer_rule": "肽键形成的催化核心是rRNA。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "D.肽酰转移酶。核糖体大亚基rRNA承担肽键形成的催化核心，因此属于核酶。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "氨基酰-tRNA合成酶是蛋白质酶。"
+      },
+      {
+        "option": "C",
+        "reason": "二硫键异构酶也是蛋白质酶。"
+      }
+    ],
+    "common_failure_node": "把“核糖体参与翻译”与“哪一步真正由RNA催化”混淆。"
   },
   {
     "question_id": "xizong-official-2021-n025",
@@ -624,13 +920,26 @@
       "操作子和CAP位点是经典原核调控语言，阻遏蛋白基因本身也不是这道题所问的调控DNA元件。"
     ],
     "transfer_rule": "enhancer=顺式DNA元件，方向/距离相对灵活。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "A.增强子。增强子是真核顺式调控DNA元件，可在距启动子较远处增强转录。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "操作子属于经典原核操纵子调控语言。"
+      },
+      {
+        "option": "C",
+        "reason": "CAP结合位点也是原核乳糖操纵子等调控元件。"
+      }
+    ],
+    "common_failure_node": "把原核和真核转录调控元件混用。"
   }
 ]

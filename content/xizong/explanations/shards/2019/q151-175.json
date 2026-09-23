@@ -16,14 +16,27 @@
       "十二指肠升部和胃大弯侧都不是这道题的典型高发位置。"
     ],
     "transfer_rule": "DU先想球部，GU先想胃小弯侧。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "A、C正确。消化性溃疡经典好发于十二指肠球部以及胃窦/胃小弯侧。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "十二指肠升部不是消化性溃疡的经典高发部位。"
+      },
+      {
+        "option": "D",
+        "reason": "胃窦大弯侧也不是题源/Current Study的典型高发位置。"
+      }
+    ],
+    "common_failure_node": "把“胃窦附近”扩大成胃窦任何一侧，或把十二指肠各段都等价处理。"
   },
   {
     "question_id": "xizong-official-2019-n152",
@@ -42,14 +55,27 @@
       "HAV通常为急性自限，HEV也通常不慢性化；Current Study只保留免疫抑制等特殊例外，不能据此把D当作常规答案。"
     ],
     "transfer_rule": "慢性病毒性肝炎重点掌握HBV、HCV。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "B、C正确。HBV和HCV都可形成持续感染并导致慢性肝炎；HAV通常急性自限，HEV慢性化只见于特殊免疫抑制等少数场景。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "HAV通常不形成慢性肝炎。"
+      },
+      {
+        "option": "D",
+        "reason": "HEV在免疫抑制者可有慢性化例外，但不是本题常规考试答案。"
+      }
+    ],
+    "common_failure_node": "因为Current存在HEV慢性化特殊例外，就把D升级成一般人群常规慢性肝炎病原。"
   },
   {
     "question_id": "xizong-official-2019-n153",
@@ -63,17 +89,28 @@
     "exam_target": "肉芽组织特点",
     "decision_axis": "肉芽组织是修复过程中的幼稚结缔组织，含丰富新生毛细血管、成纤维细胞及炎细胞；随成熟血管逐渐减少并纤维化。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "肉芽组织是修复过程中的幼稚结缔组织，含丰富新生毛细血管、成纤维细胞及炎细胞；随成熟血管逐渐减少并纤维化。",
+      "A、C、D正确。肉芽组织是修复中的幼稚结缔组织，含新生毛细血管、成纤维细胞和数量不等的炎症细胞；随成熟血管减少、胶原增加。"
     ],
     "transfer_rule": "肉芽组织=新生毛细血管+成纤维细胞+炎细胞。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "A、C、D正确。肉芽组织是修复中的幼稚结缔组织，含新生毛细血管、成纤维细胞和数量不等的炎症细胞；随成熟血管减少、胶原增加。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "肉芽组织老化时血管应逐渐减少而不是明显增加，胶原纤维则增加并趋向瘢痕。"
+      }
+    ],
+    "common_failure_node": "在疾病Block里看到“肉芽组织长入”就反向把通用修复学知识硬归给该疾病Block。",
+    "source_gap_note": "肉芽组织共同修复学目前仅由P0/System Guide及各疾病Block Recall，尚无可投影的通用最小Current KP；不把某一疾病Block反向升级为修复学owner。"
   },
   {
     "question_id": "xizong-official-2019-n154",
@@ -87,7 +124,8 @@
     "exam_target": "ARDS机械通气旧阈值",
     "decision_axis": "题源把PEEP和平台压30～35 cmH2O列为ARDS通气原则；Current肺保护通气通常强调限制平台压约≤30 cmH2O，固定30～35不宜升级。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对现行机械通气阈值 fail-closed。"
+      "题源把PEEP和平台压30～35 cmH2O列为ARDS通气原则；Current肺保护通气通常强调限制平台压约≤30 cmH2O，固定30～35不宜升级。",
+      "B、D为2019题源答案：适当PEEP可复张萎陷肺泡；题源还把平台压控制在30～35 cmH₂O以下列为肺保护原则。但Current R12明确平台压≤30 cmH₂O、小潮气量4–8 mL/kg，不能把30～35升级为Current阈值。"
     ],
     "transfer_rule": "仅保留题源/Study边界；Current ARDS通气以低潮气量和限制平台压为核心。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -96,8 +134,23 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "B、D为2019题源答案：适当PEEP可复张萎陷肺泡；题源还把平台压控制在30～35 cmH₂O以下列为肺保护原则。但Current R12明确平台压≤30 cmH₂O、小潮气量4–8 mL/kg，不能把30～35升级为Current阈值。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "ARDS肺保护通气采用小潮气量，并允许一定高碳酸血症，不能为追求正常PaCO₂使用大潮气量。"
+      },
+      {
+        "option": "C",
+        "reason": "PEEP应逐步、个体化调节，不能一上机就固定高PEEP只为快速把PaO₂推到某阈值。"
+      }
+    ],
+    "common_failure_node": "为了保留旧答案D，把Current平台压≤30静默放宽成≤35。",
+    "source_conflict_note": "2019题源D把吸气平台压控制在30～35 cmH₂O以下列为正确；Current R12明确肺保护通气平台压≤30 cmH₂O、小潮气量4–8 mL/kg。保留历史BD答案，不把≤35升级为Current阈值。",
+    "source_boundary_note": "PEEP用于肺泡复张的方向仍Current有效；题源平台压数值是冲突点，Current学习使用R12的≤30 cmH₂O。"
   },
   {
     "question_id": "xizong-official-2019-n155",
@@ -111,17 +164,28 @@
     "exam_target": "青年猝死相关疾病",
     "decision_axis": "Brugada综合征、肥厚型心肌病和长QT综合征均可因恶性室性心律失常导致年轻人猝死。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "Brugada综合征、肥厚型心肌病和长QT综合征均可因恶性室性心律失常导致年轻人猝死。",
+      "A、B、C正确。Brugada综合征、肥厚型梗阻性心肌病和长QT综合征均可通过恶性室性心律失常导致年轻人猝死；X综合征不属于这组经典青年猝死病因。"
     ],
     "transfer_rule": "年轻猝死要想到遗传性心律失常和HCM。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "A、B、C正确。Brugada综合征、肥厚型梗阻性心肌病和长QT综合征均可通过恶性室性心律失常导致年轻人猝死；X综合征不属于这组经典青年猝死病因。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "心脏X综合征/微血管性心绞痛不是35岁前心源性猝死的经典遗传/结构性病因。"
+      }
+    ],
+    "common_failure_node": "找到Brugada/LQTS或HCM各自的Current owner后，就跨多个Block拼成一条并不存在的统一青年猝死relation。",
+    "source_gap_note": "三个正确病因分属离子通道病与肥厚型心肌病多个Current owner，没有单一最小KP完整承担“35岁前猝死病因集合”，不跨Block拼relation。"
   },
   {
     "question_id": "xizong-official-2019-n156",
@@ -140,14 +204,23 @@
       "幽门螺杆菌检测更偏B型/多灶萎缩性胃炎，不是A型自身免疫性胃炎的核心实验室证据。"
     ],
     "transfer_rule": "自身免疫胃炎→壁细胞/内因子受损→B12缺乏。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "A、C、D正确。自身免疫性胃炎破坏壁细胞并产生抗壁细胞/抗内因子抗体，内因子不足会造成维生素B₁₂吸收障碍。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "Hp检测更偏感染相关胃炎证据，不是自身免疫性胃炎的核心实验室标志。"
+      }
+    ],
+    "common_failure_node": "把萎缩性胃炎所有病因的检查混成一套，不分自身免疫和Hp相关。"
   },
   {
     "question_id": "xizong-official-2019-n157",
@@ -166,14 +239,27 @@
       "肾病综合征的定义主轴是大量蛋白尿、低白蛋白血症和水肿；慢性肾衰竭也不是靠这四联来定义。"
     ],
     "transfer_rule": "nephritic框架先抓血尿、高血压和肾小球炎症。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "A、C正确。急性和慢性肾炎综合征都可由肾小球屏障损伤与GFR下降形成血尿、蛋白尿、水肿和高血压的肾炎框架。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "肾病综合征的定义主轴是大量蛋白尿、低白蛋白血症和水肿，不以血尿+高血压四联为核心。"
+      },
+      {
+        "option": "B",
+        "reason": "慢性肾衰竭是功能阶段诊断，不由这组肾炎表现四联定义。"
+      }
+    ],
+    "common_failure_node": "把“肾脏疾病都可能水肿高血压”误当成综合征定义。"
   },
   {
     "question_id": "xizong-official-2019-n158",
@@ -192,14 +278,23 @@
       "PC、PS属于天然抗凝系统检测，不是纤溶检测，C不选。"
     ],
     "transfer_rule": "纤溶激活重点看FDP和D-二聚体；3P属经典旧教材指标。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "A、B、D正确。3P、D-二聚体和FDP都位于纤维蛋白形成/降解与纤溶活化的证据层；PC、PS属于天然抗凝系统。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "PC、PS测定评估天然抗凝系统，不是纤溶检测。"
+      }
+    ],
+    "common_failure_node": "把抗凝、凝血和纤溶三套实验室指标混成同一层。"
   },
   {
     "question_id": "xizong-official-2019-n159",
@@ -218,14 +313,23 @@
       "“多数青少年起病隐匿”并不是经典概率方向，A错误。"
     ],
     "transfer_rule": "1A型核心是自身免疫β细胞破坏→绝对胰岛素缺乏。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "B、C、D正确。1A型糖尿病由β细胞自身免疫破坏导致内源性胰岛素不足，临床表现可变，多数起病后需要胰岛素治疗且基础胰岛素偏低。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "青少年T1DM经典起病常较急，不能说多数青少年起病隐匿。"
+      }
+    ],
+    "common_failure_node": "把成人LADA的缓慢起病特点泛化到多数青少年T1DM。"
   },
   {
     "question_id": "xizong-official-2019-n160",
@@ -244,14 +348,23 @@
       "再喂养综合征更典型是低磷而不是高磷，所以B不选。"
     ],
     "transfer_rule": "能用肠内营养时优先肠内，是为了维持肠屏障等生理功能。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "A、C、D正确。长期PN可引起肝胆功能异常；缺少肠腔营养刺激会导致肠黏膜萎缩、屏障减弱并增加细菌移位。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "再喂养和长期营养支持更需警惕低磷等电解质异常，高磷不是本题典型PN并发症。"
+      }
+    ],
+    "common_failure_node": "只盯静脉导管并发症，漏掉长期“不用肠道”本身造成的肠屏障问题。"
   },
   {
     "question_id": "xizong-official-2019-n161",
@@ -270,14 +383,23 @@
       "D把丹毒和化脓性蜂窝织炎/脓肿的源控制方式混在了一起。"
     ],
     "transfer_rule": "丹毒抓链球菌、界清红斑、浅表淋巴管炎。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "A、B、C正确。丹毒多由β溶血性链球菌引起，可由皮肤黏膜破损诱发，属于浅表淋巴管网非化脓性炎，通常很少组织坏死。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "丹毒通常不形成需切开引流的脓腔；切开引流属于脓肿/化脓性源控制思路。"
+      }
+    ],
+    "common_failure_node": "把所有软组织感染都按“化脓就切开”处理，忽略丹毒的非化脓性身份。"
   },
   {
     "question_id": "xizong-official-2019-n162",
@@ -291,7 +413,8 @@
     "exam_target": "甲状腺素治疗适应证旧集合",
     "decision_axis": "题源把多种甲状腺疾病统一列为可用甲状腺素治疗，但单纯性甲状腺肿、亚急性甲状腺炎及术后甲癌的用药目标和适应证并不相同，不能作为Current统一规则。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对现行治疗边界 fail-closed。"
+      "题源把多种甲状腺疾病统一列为可用甲状腺素治疗，但单纯性甲状腺肿、亚急性甲状腺炎及术后甲癌的用药目标和适应证并不相同，不能作为Current统一规则。",
+      "A、B、C、D为题源官方答案，但四种疾病使用甲状腺素的目的与适应证完全不同：桥本甲减可替代，分化型甲癌术后可TSH抑制；Current亚急性甲状腺炎主治为NSAIDs/GC，只有出现持续甲减等特定情境才可能补L-T4；单纯性甲状腺肿也不能脱离时代/病因背景泛化。"
     ],
     "transfer_rule": "仅保留题源/Study边界；甲状腺素使用需按具体疾病和治疗目标判断。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -300,8 +423,14 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "A、B、C、D为题源官方答案，但四种疾病使用甲状腺素的目的与适应证完全不同：桥本甲减可替代，分化型甲癌术后可TSH抑制；Current亚急性甲状腺炎主治为NSAIDs/GC，只有出现持续甲减等特定情境才可能补L-T4；单纯性甲状腺肿也不能脱离时代/病因背景泛化。",
+    "valuable_distractors": [],
+    "common_failure_node": "把“某病在某阶段可能用L-T4”偷换成“该病统一可用甲状腺素治疗”的无条件规则。",
+    "source_conflict_note": "题源把四种甲状腺病统一列为“可用甲状腺素治疗”；Current D21对桥本、亚急性甲状腺炎、分化型甲癌术后和单纯性甲状腺肿的L-T4目的/适应证不同，尤其亚甲炎Current主治为NSAIDs/GC，不能保留无条件ABCD治疗集合。",
+    "source_boundary_note": "桥本合并甲减的L-T4替代、分化型甲癌术后TSH抑制等仍可分别学习；本题不建立统一跨疾病治疗relation。"
   },
   {
     "question_id": "xizong-official-2019-n163",
@@ -320,14 +449,18 @@
       "这题考的是并发症网络，不是某个并发症的发生率排序。"
     ],
     "transfer_rule": "胆石并发症沿梗阻、感染、胰腺炎、瘘/肠梗阻和肿瘤风险理解。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "A、B、C、D均可发生。胆囊结石可移行致胆总管梗阻黄疸和胆源性胰腺炎，也可经胆肠瘘形成胆石性肠梗阻；长期炎症与胆囊癌风险相关。",
+    "valuable_distractors": [],
+    "common_failure_node": "全选题为了格式强行制造假干扰项。"
   },
   {
     "question_id": "xizong-official-2019-n164",
@@ -346,14 +479,23 @@
       "Marfan综合征相关侧凸更偏结构性骨骼异常，B不选。"
     ],
     "transfer_rule": "非结构性侧凸先找可逆的姿势、疼痛或下肢长度原因。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "A、C、D正确。腰椎间盘突出疼痛、下肢不等长和姿势不良都可产生可逆的功能性/代偿性侧凸；Marfan相关侧凸更偏结构性。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "Marfan综合征相关脊柱侧凸属于结构性骨骼异常范畴。"
+      }
+    ],
+    "common_failure_node": "把“有脊柱侧凸外观”直接等同于结构性侧凸，不看诱因去除后是否可纠正。"
   },
   {
     "question_id": "xizong-official-2019-n165",
@@ -372,13 +514,26 @@
       "转移瘤常可累及椎体/椎弓根，但椎间隙通常相对保存。"
     ],
     "transfer_rule": "脊柱结核影像抓相邻椎体+椎间盘受累+椎旁脓肿。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "B、D正确。成人脊柱结核常破坏相邻椎体和椎间盘，使椎间隙狭窄/消失，并形成椎旁冷脓肿软组织影；肿瘤往往相对保留椎间隙。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "椎体骨质破坏在结核和肿瘤都可见，鉴别力不足。"
+      },
+      {
+        "option": "C",
+        "reason": "后凸/侧弯畸形也可由多种结构破坏引起，不如椎间隙和冷脓肿特异。"
+      }
+    ],
+    "common_failure_node": "只看到“椎体破坏/畸形”就诊断结核，漏掉椎间隙受累和椎旁冷脓肿这两个高价值鉴别轴。"
   }
 ]

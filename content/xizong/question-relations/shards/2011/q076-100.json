@@ -1,1 +1,384 @@
-[{"question_id":"xizong-official-2011-n078","system_id":"digestive_metabolism_endocrine","block_id":"digestive-d19","primary_kp_id":"digestive-d19-kp06","supporting_kp_ids":[],"review_status":"REVIEWED","provenance":{"question_truth_path":"content/xizong/questions/shards/2011/q076-100.json","question_truth_blob_sha":"fde707b93589e49fd0ddb4b71d34e4562dd794bd","knowledge_path":"content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/消化系统_D19_胆汁黄疸胆石胆道感染与肝脓肿_学习阅读版_v1_最终执行版.md","knowledge_blob_sha":"a9e56098ee8fb4f7a2cb067edf63ecb160e37ffd"},"review":{"semantic_owner":"Chat","basis":"D19 KP06 explicitly states premature/unsafe T-tube removal can cause bile leakage into the peritoneal cavity.","old_mapping_inherited":false}},{"question_id":"xizong-official-2011-n081","system_id":"digestive_metabolism_endocrine","block_id":"digestive-d20","primary_kp_id":"digestive-d20-kp07","supporting_kp_ids":[],"review_status":"REVIEWED","provenance":{"question_truth_path":"content/xizong/questions/shards/2011/q076-100.json","question_truth_blob_sha":"fde707b93589e49fd0ddb4b71d34e4562dd794bd","knowledge_path":"content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/消化系统_D20_急性胰腺炎与胰腺肿瘤_学习阅读版_v1_最终执行版.md","knowledge_blob_sha":"8ddaf080125b58f84cc843686b2171205f11f8dd"},"review":{"semantic_owner":"Chat","basis":"D20 KP07 explicitly defines delayed pancreatic pseudocyst as a fluid collection with a mature fibrous/granulation wall and no epithelial lining.","old_mapping_inherited":false}},{"question_id":"xizong-official-2011-n082","system_id":"digestive_metabolic_endocrine","block_id":"D23","primary_kp_id":"dme-d23-kp03","supporting_kp_ids":[],"review_status":"REVIEWED","provenance":{"question_truth_path":"content/xizong/questions/shards/2011/q076-100.json","question_truth_blob_sha":"fde707b93589e49fd0ddb4b71d34e4562dd794bd","knowledge_path":"content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/内分泌_D23_钙调节甲状旁腺与生长激素_学习阅读版_v1_最终执行版.md","knowledge_blob_sha":"36f52334f986f648b49bd4c4e3081466e7da7e3a"},"review":{"semantic_owner":"Chat","basis":"D23 KP03 explicitly states PTH secretion is primarily regulated by direct blood-calcium feedback, not pituitary control.","old_mapping_inherited":false}},{"question_id":"xizong-official-2011-n086","system_id":"digestive_metabolic_endocrine","block_id":"D14","primary_kp_id":"digestive-d14-kp08","supporting_kp_ids":[],"review_status":"REVIEWED","provenance":{"question_truth_path":"content/xizong/questions/shards/2011/q076-100.json","question_truth_blob_sha":"fde707b93589e49fd0ddb4b71d34e4562dd794bd","knowledge_path":"content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/消化系统_D14_肠梗阻阑尾炎与腹外疝_学习阅读版_v1_最终执行版.md","knowledge_blob_sha":"bcf9efb78a54aa86f4dd41b11f873ceeecc3807c"},"review":{"semantic_owner":"Chat","basis":"D14 KP08 explicitly lists persistent pain, fixed tenderness, bloody contents and early shock as strangulation signals.","old_mapping_inherited":false}}]
+[
+  {
+    "question_id": "xizong-official-2011-n076",
+    "system_id": "hematology_immunity_infection",
+    "block_id": "hematology-h16",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2011/q076-100.json",
+      "question_truth_blob_sha": "fcc054fcc6b985effa3b9dbcd3acbe9bb847b4e8",
+      "knowledge_path": "content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H16_SLE与抗磷脂综合征APS_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "c3959eb5637c6181387e7a570e7de696e17f420a"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "basis": "Final unified owner review: Current Block hematology-h16 is the smallest safe owner for 'SLE继发APS的临床身份'. Block-level relation retained rather than guessing a narrower KP.",
+      "old_mapping_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2011-n077",
+    "system_id": "remaining_independent_clinical_modules",
+    "block_id": "F8",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2011/q076-100.json",
+      "question_truth_blob_sha": "fcc054fcc6b985effa3b9dbcd3acbe9bb847b4e8",
+      "knowledge_path": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F8_局部区域与椎管内麻醉_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "22295713f2a18a2adb2a1c7b014bc1487157149f"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "basis": "Final unified owner review: Current Block F8 is the smallest safe owner for '腰麻绝对禁忌证'. Block-level relation retained rather than guessing a narrower KP.",
+      "old_mapping_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2011-n078",
+    "system_id": "digestive-metabolic-endocrine-tumor",
+    "block_id": "D19",
+    "primary_kp_id": "digestive-d19-kp06",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2011/q076-100.json",
+      "question_truth_blob_sha": "fcc054fcc6b985effa3b9dbcd3acbe9bb847b4e8",
+      "knowledge_path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/消化系统_D19_胆汁黄疸胆石胆道感染与肝脓肿_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "a9e56098ee8fb4f7a2cb067edf63ecb160e37ffd"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "basis": "D19 KP06 explicitly states premature/unsafe T-tube removal can cause bile leakage into the peritoneal cavity. Final integration revalidated against current Question Truth and Current Knowledge owner.",
+      "old_mapping_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2011-n081",
+    "system_id": "digestive-metabolic-endocrine-tumor",
+    "block_id": "D20",
+    "primary_kp_id": "digestive-d20-kp07",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2011/q076-100.json",
+      "question_truth_blob_sha": "fcc054fcc6b985effa3b9dbcd3acbe9bb847b4e8",
+      "knowledge_path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/消化系统_D20_急性胰腺炎与胰腺肿瘤_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "8ddaf080125b58f84cc843686b2171205f11f8dd"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "basis": "D20 KP07 explicitly defines delayed pancreatic pseudocyst as a fluid collection with a mature fibrous/granulation wall and no epithelial lining. Final integration revalidated against current Question Truth and Current Knowledge owner.",
+      "old_mapping_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2011-n082",
+    "system_id": "digestive-metabolic-endocrine-tumor",
+    "block_id": "D23",
+    "primary_kp_id": "dme-d23-kp03",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2011/q076-100.json",
+      "question_truth_blob_sha": "fcc054fcc6b985effa3b9dbcd3acbe9bb847b4e8",
+      "knowledge_path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/内分泌_D23_钙调节甲状旁腺与生长激素_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "36f52334f986f648b49bd4c4e3081466e7da7e3a"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "basis": "D23 KP03 explicitly states PTH secretion is primarily regulated by direct blood-calcium feedback, not pituitary control. Final integration revalidated against current Question Truth and Current Knowledge owner.",
+      "old_mapping_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2011-n084",
+    "system_id": "remaining-clinical",
+    "block_id": "F6",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2011/q076-100.json",
+      "question_truth_blob_sha": "fcc054fcc6b985effa3b9dbcd3acbe9bb847b4e8",
+      "knowledge_path": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F6_围术期术后恢复切口与并发症_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "8d1ae8acc480b3bcdd27db6da1f4748bc5a579bc"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "basis": "Final unified owner review: Current Block F6 is the smallest safe owner for '术后第1天突发寒战高热的原因'. Block-level relation retained rather than guessing a narrower KP.",
+      "old_mapping_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2011-n085",
+    "system_id": "digestive-metabolic-endocrine-tumor",
+    "block_id": "D13",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2011/q076-100.json",
+      "question_truth_blob_sha": "fcc054fcc6b985effa3b9dbcd3acbe9bb847b4e8",
+      "knowledge_path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/消化系统_D13_腹膜感染与腹部损伤_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "bd3b216837318c2e422c0e4aabfa948f862eae71"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "basis": "Final unified owner review: Current Block D13 is the smallest safe owner for '不同腹腔内容物对腹膜刺激的强弱'. Block-level relation retained rather than guessing a narrower KP.",
+      "old_mapping_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2011-n086",
+    "system_id": "digestive-metabolic-endocrine-tumor",
+    "block_id": "D14",
+    "primary_kp_id": "digestive-d14-kp08",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2011/q076-100.json",
+      "question_truth_blob_sha": "fcc054fcc6b985effa3b9dbcd3acbe9bb847b4e8",
+      "knowledge_path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/消化系统_D14_肠梗阻阑尾炎与腹外疝_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "bcf9efb78a54aa86f4dd41b11f873ceeecc3807c"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "basis": "D14 KP08 explicitly lists persistent pain, fixed tenderness, bloody contents and early shock as strangulation signals. Final integration revalidated against current Question Truth and Current Knowledge owner.",
+      "old_mapping_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2011-n088",
+    "system_id": "neuro_sensory_motor_orthopedics",
+    "block_id": "orthopedics-o07",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2011/q076-100.json",
+      "question_truth_blob_sha": "fcc054fcc6b985effa3b9dbcd3acbe9bb847b4e8",
+      "knowledge_path": "content/xizong/knowledge/systems/d-neuro-sensory-motor-orthopedics/o-o1-o16/骨科系统_O7_下肢骨折与脱位_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "28a78246331e97aaef6e3d454e4d90467562eb42"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "basis": "Final unified owner review: Current Block orthopedics-o07 is the smallest safe owner for '股骨颈骨折缺血坏死风险'. Block-level relation retained rather than guessing a narrower KP.",
+      "old_mapping_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2011-n089",
+    "system_id": "neuro_sensory_motor_orthopedics",
+    "block_id": "orthopedics-o13",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2011/q076-100.json",
+      "question_truth_blob_sha": "fcc054fcc6b985effa3b9dbcd3acbe9bb847b4e8",
+      "knowledge_path": "content/xizong/knowledge/systems/d-neuro-sensory-motor-orthopedics/o-o1-o16/骨科系统_O13_化脓性骨与关节感染_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "5e692e3069a717a60879ef57e69b84517ac8fa16"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "basis": "Final unified owner review: Current Block orthopedics-o13 is the smallest safe owner for '急性血源性骨髓炎的好发部位'. Block-level relation retained rather than guessing a narrower KP.",
+      "old_mapping_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2011-n090",
+    "system_id": "neuro_sensory_motor_orthopedics",
+    "block_id": "orthopedics-o16",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2011/q076-100.json",
+      "question_truth_blob_sha": "fcc054fcc6b985effa3b9dbcd3acbe9bb847b4e8",
+      "knowledge_path": "content/xizong/knowledge/systems/d-neuro-sensory-motor-orthopedics/o-o1-o16/骨科系统_O16_骨肿瘤_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "8cec3f9acd45b749b406a578ead354717ced1b35"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "basis": "Final unified owner review: Current Block orthopedics-o16 is the smallest safe owner for '骨巨细胞瘤的生物学行为'. Block-level relation retained rather than guessing a narrower KP.",
+      "old_mapping_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2011-n091",
+    "system_id": "circulation",
+    "block_id": "circulation-b06",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2011/q076-100.json",
+      "question_truth_blob_sha": "fcc054fcc6b985effa3b9dbcd3acbe9bb847b4e8",
+      "knowledge_path": "content/xizong/knowledge/systems/a1-circulation/blocks/Block6_冠心病与心肌梗死_学习阅读版_v1_Batch3冻结版.md",
+      "knowledge_blob_sha": "01744dd81d0a39fd39b1a227e7ce28aa83d2c46e"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "basis": "Final unified owner review: Current Block circulation-b06 is the smallest safe owner for '心肌梗死后新发杂音的乳头肌功能不全'. Block-level relation retained rather than guessing a narrower KP.",
+      "old_mapping_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2011-n092",
+    "system_id": "circulation",
+    "block_id": "circulation-b06",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2011/q076-100.json",
+      "question_truth_blob_sha": "fcc054fcc6b985effa3b9dbcd3acbe9bb847b4e8",
+      "knowledge_path": "content/xizong/knowledge/systems/a1-circulation/blocks/Block6_冠心病与心肌梗死_学习阅读版_v1_Batch3冻结版.md",
+      "knowledge_blob_sha": "01744dd81d0a39fd39b1a227e7ce28aa83d2c46e"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "basis": "Final unified owner review: Current Block circulation-b06 is the smallest safe owner for '再梗死生物标志物的历史与Current差异'. Block-level relation retained rather than guessing a narrower KP.",
+      "old_mapping_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2011-n093",
+    "system_id": "respiratory",
+    "block_id": "respiratory-r10",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2011/q076-100.json",
+      "question_truth_blob_sha": "fcc054fcc6b985effa3b9dbcd3acbe9bb847b4e8",
+      "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "69546cda7aed75e8efbbb7322ea3d5749cdad607"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "basis": "Final unified owner review: Current Block respiratory-r10 is the smallest safe owner for '胸腔积液的体征诊断'. Block-level relation retained rather than guessing a narrower KP.",
+      "old_mapping_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2011-n094",
+    "system_id": "respiratory",
+    "block_id": "respiratory-r10",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2011/q076-100.json",
+      "question_truth_blob_sha": "fcc054fcc6b985effa3b9dbcd3acbe9bb847b4e8",
+      "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "69546cda7aed75e8efbbb7322ea3d5749cdad607"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "basis": "Final unified owner review: Current Block respiratory-r10 is the smallest safe owner for '大量胸腔积液的纵隔移位体征'. Block-level relation retained rather than guessing a narrower KP.",
+      "old_mapping_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2011-n095",
+    "system_id": "respiratory",
+    "block_id": "respiratory-r10",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2011/q076-100.json",
+      "question_truth_blob_sha": "fcc054fcc6b985effa3b9dbcd3acbe9bb847b4e8",
+      "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "69546cda7aed75e8efbbb7322ea3d5749cdad607"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "basis": "Final unified owner review: Current Block respiratory-r10 is the smallest safe owner for '胸腔积液病因诊断的胸腔穿刺'. Block-level relation retained rather than guessing a narrower KP.",
+      "old_mapping_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2011-n096",
+    "system_id": "circulation",
+    "block_id": "circulation-b07",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2011/q076-100.json",
+      "question_truth_blob_sha": "fcc054fcc6b985effa3b9dbcd3acbe9bb847b4e8",
+      "knowledge_path": "content/xizong/knowledge/systems/a1-circulation/blocks/Block7_风湿_IE与四瓣膜病_学习阅读版_v1_Batch4冻结版.md",
+      "knowledge_blob_sha": "4b8fc8938e415d5840c55bb6e331161afc353399"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "basis": "Final unified owner review: Current Block circulation-b07 is the smallest safe owner for '感染性心内膜炎病例识别'. Block-level relation retained rather than guessing a narrower KP.",
+      "old_mapping_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2011-n097",
+    "system_id": "circulation",
+    "block_id": "circulation-b07",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2011/q076-100.json",
+      "question_truth_blob_sha": "fcc054fcc6b985effa3b9dbcd3acbe9bb847b4e8",
+      "knowledge_path": "content/xizong/knowledge/systems/a1-circulation/blocks/Block7_风湿_IE与四瓣膜病_学习阅读版_v1_Batch4冻结版.md",
+      "knowledge_blob_sha": "4b8fc8938e415d5840c55bb6e331161afc353399"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "basis": "Final unified owner review: Current Block circulation-b07 is the smallest safe owner for '感染性心内膜炎的病原学确证'. Block-level relation retained rather than guessing a narrower KP.",
+      "old_mapping_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2011-n098",
+    "system_id": "circulation",
+    "block_id": "circulation-b07",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2011/q076-100.json",
+      "question_truth_blob_sha": "fcc054fcc6b985effa3b9dbcd3acbe9bb847b4e8",
+      "knowledge_path": "content/xizong/knowledge/systems/a1-circulation/blocks/Block7_风湿_IE与四瓣膜病_学习阅读版_v1_Batch4冻结版.md",
+      "knowledge_blob_sha": "4b8fc8938e415d5840c55bb6e331161afc353399"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "basis": "Final unified owner review: Current Block circulation-b07 is the smallest safe owner for '主动脉瓣关闭不全杂音定位'. Block-level relation retained rather than guessing a narrower KP.",
+      "old_mapping_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2011-n099",
+    "system_id": "digestive-metabolic-endocrine-tumor",
+    "block_id": "D10",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2011/q076-100.json",
+      "question_truth_blob_sha": "fcc054fcc6b985effa3b9dbcd3acbe9bb847b4e8",
+      "knowledge_path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/D10_胃炎HP消化性溃疡与上消化道出血_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "3124b960adaca04335ce5f3385bc79676d7e7a58"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "basis": "Final unified owner review: Current Block D10 is the smallest safe owner for '十二指肠溃疡的经典症状模式'. Block-level relation retained rather than guessing a narrower KP.",
+      "old_mapping_inherited": false
+    }
+  },
+  {
+    "question_id": "xizong-official-2011-n100",
+    "system_id": "digestive-metabolic-endocrine-tumor",
+    "block_id": "D10",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2011/q076-100.json",
+      "question_truth_blob_sha": "fcc054fcc6b985effa3b9dbcd3acbe9bb847b4e8",
+      "knowledge_path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/D10_胃炎HP消化性溃疡与上消化道出血_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "3124b960adaca04335ce5f3385bc79676d7e7a58"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "basis": "Final unified owner review: Current Block D10 is the smallest safe owner for '消化性溃疡确诊的胃镜'. Block-level relation retained rather than guessing a narrower KP.",
+      "old_mapping_inherited": false
+    }
+  }
+]

@@ -16,14 +16,27 @@
       "影像学可提供门脉高压背景，但不能像内镜一样直接完成出血源确认和治疗。"
     ],
     "transfer_rule": "静脉曲张出血诊治一体化关键检查=内镜。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "D.胃镜。怀疑食管胃底静脉曲张出血时，上消化道内镜能直接确认出血源并可同时实施内镜止血。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "腹部B超能评价肝硬化/门脉高压背景，但不能直接确认当前上消化道出血点。"
+      },
+      {
+        "option": "C",
+        "reason": "上消化道造影在急性出血时既不能直接治疗，也不是优先确诊手段。"
+      }
+    ],
+    "common_failure_node": "只从“肝硬化背景”选影像，不进入真正能确认并处理出血源的内镜证据层。"
   },
   {
     "question_id": "xizong-official-2021-n102",
@@ -37,7 +50,9 @@
     "exam_target": "门脉高压出血共享治疗子问缺失",
     "decision_axis": "正式答案为“手术治疗”，但当前记录缺少具体问法；现代静脉曲张急性出血治疗层级也已明显改变，无法据此生成安全治疗规则。",
     "reasoning_chain": [
-      "共享题干不足以独立恢复子问语义，按题源答案保留并 fail-closed。"
+      "病例提示门脉高压相关上消化道出血。",
+      "但具体子问没有保存在Question Truth。",
+      "因此只保留题源D，不建立Current治疗relation。"
     ],
     "transfer_rule": "仅保留题源/Study边界；Current曲张静脉出血按复苏、药物、内镜、TIPS等分层处理。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -46,8 +61,18 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "D.手术治疗为题源官方答案；但共享病例缺失具体子问，无法判断是在问“哪项不宜首先做”“失败后的下一步”还是其他治疗层级。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "现代急性静脉曲张出血通常以内镜治疗等为核心，不能仅凭选项推断原题为何选D。"
+      }
+    ],
+    "common_failure_node": "从官方D反推一个不存在的治疗顺序问题。",
+    "source_gap_note": "共享病例具体子问缺失，且现代静脉曲张出血治疗层级与旧外科路径差异明显；不从答案反推规则。"
   },
   {
     "question_id": "xizong-official-2021-n103",
@@ -66,14 +91,27 @@
       "转子间骨折也可外旋，但通常局部肿胀瘀斑更明显、外旋角度可更大。"
     ],
     "transfer_rule": "股骨颈骨折常短缩外旋但肿胀不明显。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "B.右股骨颈骨折。老年低能量摔伤后髋痛、短缩、约50°外旋且局部肿胀不显著，是典型股骨颈骨折。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "转子间骨折往往外旋更明显，可达接近90°，局部肿胀瘀斑也更突出。"
+      },
+      {
+        "option": "C",
+        "reason": "髋后脱位更常明显屈曲、内收、内旋畸形。"
+      }
+    ],
+    "common_failure_node": "只看“髋部外伤+短缩”而不利用外旋角度和局部肿胀差异。"
   },
   {
     "question_id": "xizong-official-2021-n104",
@@ -87,17 +125,29 @@
     "exam_target": "髋部骨折首选影像",
     "decision_axis": "怀疑股骨颈骨折时首先行髋部X线检查；若X线阴性但临床高度怀疑，再考虑MRI/CT等进一步检查。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "题干已经高度提示股骨颈骨折。",
+      "临床通常先做常规X线，再对隐匿骨折补充MRI/CT。",
+      "Current O7冻结了股骨颈临床身份和治疗，但未明确冻结这套影像顺序，因此不建立relation。"
     ],
     "transfer_rule": "骨折初筛多先X线，隐匿骨折再升级影像。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "A.X线片。怀疑股骨颈骨折时常以髋部X线作为首轮影像；若X线阴性但临床高度怀疑，再考虑MRI/CT。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "MRI对隐匿性股骨颈骨折很敏感，但通常用于首轮X线阴性而临床仍高度怀疑时。"
+      }
+    ],
+    "common_failure_node": "因为MRI更敏感，就把它机械当成所有疑似股骨颈骨折的首项检查。",
+    "source_gap_note": "Current O7未明确冻结“股骨颈骨折首查X线、阴性再MRI/CT”的检查顺序。"
   },
   {
     "question_id": "xizong-official-2021-n105",
@@ -116,14 +166,23 @@
       "这是囊内股骨颈骨折与转子间骨折的重要风险差异。"
     ],
     "transfer_rule": "股骨颈骨折经典并发症=股骨头缺血坏死/骨不连。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "D.股骨头坏死。股骨颈骨折尤其移位型可破坏股骨头血供，导致缺血性股骨头坏死。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "脂肪栓塞可见于长骨骨折，但股骨颈骨折更具特征性的远期并发症是股骨头坏死。"
+      }
+    ],
+    "common_failure_node": "把所有股骨骨折并发症都按同一套排序，不区分囊内血供风险。"
   },
   {
     "question_id": "xizong-official-2021-n106",
@@ -142,14 +201,23 @@
       "本质是肌腱在狭窄腱鞘内通过受阻。"
     ],
     "transfer_rule": "弹响指/扳机指=狭窄性腱鞘炎。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "D.狭窄性腱鞘炎。屈伸手指时出现弹响、卡顿和明显疼痛，是典型扳机指。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "RA通常为多关节对称性滑膜炎，不以单指活动时机械性弹响为主。"
+      }
+    ],
+    "common_failure_node": "看到晨僵就先入为主选RA，忽略机械性弹响/卡顿这一高特异线索。"
   },
   {
     "question_id": "xizong-official-2021-n107",
@@ -168,14 +236,27 @@
       "治疗强度由症状严重度和保守治疗反应决定。"
     ],
     "transfer_rule": "扳机指治疗先看严重度：轻者保守，顽固者进一步干预。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "B.限制中指运动。症状较轻时先减少诱发活动、休息及保守处理，持续卡锁或保守失败再考虑注射/手术。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "腱鞘切开减压更适合持续卡锁或保守治疗失败者，不是轻症第一步。"
+      },
+      {
+        "option": "C",
+        "reason": "口服系统糖皮质激素不是扳机指常规首选。"
+      }
+    ],
+    "common_failure_node": "一确诊就直接跳到手术，忽略治疗强度应按症状和保守反应升级。"
   },
   {
     "question_id": "xizong-official-2021-n108",
@@ -189,17 +270,33 @@
     "exam_target": "医学专业特征",
     "decision_axis": "医学专业具有明确的社会职业目标、系统训练、患者利益优先和专业共同体自律等特征，因此“没有既定职业目标”错误。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "医学专业具有明确的社会职业目标、系统训练、患者利益优先和专业共同体自律等特征，因此“没有既定职业目标”错误。",
+      "按题源伦理轴选择B。",
+      "Current Xizong Knowledge没有独立医学人文/伦理最小owner，因此只精修Explanation，不制造Crosswalk。"
     ],
     "transfer_rule": "profession区别普通职业在于公共承诺、专业训练和自律。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "B.医学专业没有既定的职业目标。医学专业具有明确社会目标、系统训练、患者利益优先和共同体自律，因此“没有既定职业目标”错误。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "系统化训练是专业形成的基础特征。"
+      },
+      {
+        "option": "D",
+        "reason": "专业共同体自律是职业专业化的重要组成。"
+      }
+    ],
+    "common_failure_node": "把稳定的人文/伦理原则硬映到当前没有独立人文Knowledge owner的临床KP。",
+    "source_gap_note": "Current Xizong Knowledge尚无独立医学人文/伦理最小owner；Explanation保留，但不为覆盖率制造临床KP映射。"
   },
   {
     "question_id": "xizong-official-2021-n109",
@@ -213,17 +310,33 @@
     "exam_target": "恰当医患沟通用语",
     "decision_axis": "“请按医嘱服药，病情有变化随时就诊”清楚、尊重且提供可执行后续安排；其他选项带威胁、轻蔑或推卸责任。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "“请按医嘱服药，病情有变化随时就诊”清楚、尊重且提供可执行后续安排；其他选项带威胁、轻蔑或推卸责任。",
+      "按题源伦理轴选择D。",
+      "Current Xizong Knowledge没有独立医学人文/伦理最小owner，因此只精修Explanation，不制造Crosswalk。"
     ],
     "transfer_rule": "沟通应尊重、清楚、可执行并保留复诊通道。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "D.请按医嘱服药，病情有变化随时就诊。该表达清楚、尊重、可执行，并提供了后续就医安排；其余选项带威胁、轻蔑或推卸责任。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "以“后果自负”威胁患者不利于共同决策。"
+      },
+      {
+        "option": "B",
+        "reason": "贬低患者理解能力，破坏尊重。"
+      }
+    ],
+    "common_failure_node": "把稳定的人文/伦理原则硬映到当前没有独立人文Knowledge owner的临床KP。",
+    "source_gap_note": "Current Xizong Knowledge尚无独立医学人文/伦理最小owner；Explanation保留，但不为覆盖率制造临床KP映射。"
   },
   {
     "question_id": "xizong-official-2021-n110",
@@ -237,17 +350,29 @@
     "exam_target": "生物-心理-社会医学模式沟通",
     "decision_axis": "患者月经异常同时担心海外生活适应，最佳沟通应兼顾生理问题、心理状态和社会适应，而非只处理单一器官症状。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "患者月经异常同时担心海外生活适应，最佳沟通应兼顾生理问题、心理状态和社会适应，而非只处理单一器官症状。",
+      "按题源伦理轴选择D。",
+      "Current Xizong Knowledge没有独立医学人文/伦理最小owner，因此只精修Explanation，不制造Crosswalk。"
     ],
     "transfer_rule": "生物-心理-社会模式要求同时看疾病、情绪和生活情境。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "D.关注月经情况，同时了解心理和社会适应并给予诊治和安慰。患者既有月经问题，也表达了对海外环境适应的担忧，最佳沟通应采用生物—心理—社会整体视角。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "只处理月经症状会遗漏患者明确表达的适应性担忧。"
+      }
+    ],
+    "common_failure_node": "把稳定的人文/伦理原则硬映到当前没有独立人文Knowledge owner的临床KP。",
+    "source_gap_note": "Current Xizong Knowledge尚无独立医学人文/伦理最小owner；Explanation保留，但不为覆盖率制造临床KP映射。"
   },
   {
     "question_id": "xizong-official-2021-n111",
@@ -261,17 +386,33 @@
     "exam_target": "白血病患者沟通不当方式",
     "decision_axis": "对情绪低落、治疗抵触患者应支持、解释和建立信任，以“否则转院”威胁依从性会破坏治疗联盟。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "对情绪低落、治疗抵触患者应支持、解释和建立信任，以“否则转院”威胁依从性会破坏治疗联盟。",
+      "按题源伦理轴选择B。",
+      "Current Xizong Knowledge没有独立医学人文/伦理最小owner，因此只精修Explanation，不制造Crosswalk。"
     ],
     "transfer_rule": "提高依从性靠理解障碍和共同决策，不靠威胁。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "B.强调依从性，否则建议转院。以转院作威胁会破坏信任和治疗联盟；更合适的是支持、解释和处理恐惧。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "同情支持和鼓励可帮助建立治疗联盟。"
+      },
+      {
+        "option": "D",
+        "reason": "耐心解释有助于降低恐惧和提升共同决策。"
+      }
+    ],
+    "common_failure_node": "把稳定的人文/伦理原则硬映到当前没有独立人文Knowledge owner的临床KP。",
+    "source_gap_note": "Current Xizong Knowledge尚无独立医学人文/伦理最小owner；Explanation保留，但不为覆盖率制造临床KP映射。"
   },
   {
     "question_id": "xizong-official-2021-n112",
@@ -285,17 +426,33 @@
     "exam_target": "辅助生殖技术伦理边界",
     "decision_axis": "题源伦理框架强调辅助生殖技术应服务于治疗/弥补生殖功能障碍，而不用于非医疗性性别或“增强”目的。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "题源伦理框架强调辅助生殖技术应服务于治疗/弥补生殖功能障碍，而不用于非医疗性性别或“增强”目的。",
+      "按题源伦理轴选择D。",
+      "Current Xizong Knowledge没有独立医学人文/伦理最小owner，因此只精修Explanation，不制造Crosswalk。"
     ],
     "transfer_rule": "该题按治疗性目的与非治疗性增强目的的伦理边界判断。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "D.为不育夫妇提供与弥补正常功能障碍直接相关的辅助生殖服务。题源伦理框架把辅助生殖定位于治疗/弥补生殖功能障碍，而非非医疗性性别选择或“增强”。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "仅基于个人偏好的性别选择不属于弥补生殖功能障碍。"
+      },
+      {
+        "option": "B",
+        "reason": "以提升智力为目的属于增强而非治疗。"
+      }
+    ],
+    "common_failure_node": "把稳定的人文/伦理原则硬映到当前没有独立人文Knowledge owner的临床KP。",
+    "source_gap_note": "Current Xizong Knowledge尚无独立医学人文/伦理最小owner；Explanation保留，但不为覆盖率制造临床KP映射。"
   },
   {
     "question_id": "xizong-official-2021-n113",
@@ -309,17 +466,33 @@
     "exam_target": "遗传咨询非指令性原则",
     "decision_axis": "遗传咨询应提供准确风险和选择信息，但避免替患者作价值决定，核心是非指令性并以患者价值和自主选择为中心。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "遗传咨询应提供准确风险和选择信息，但避免替患者作价值决定，核心是非指令性并以患者价值和自主选择为中心。",
+      "按题源伦理轴选择C。",
+      "Current Xizong Knowledge没有独立医学人文/伦理最小owner，因此只精修Explanation，不制造Crosswalk。"
     ],
     "transfer_rule": "genetic counseling=inform, not command。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "C.非指令性，并以患者价值为中心。遗传咨询应提供准确风险与选择信息，但避免替患者做价值决定，尊重其自主选择。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "专业意见不等于医师可以替患者作价值性决定。"
+      },
+      {
+        "option": "D",
+        "reason": "非指令性并不意味着以医师价值为中心。"
+      }
+    ],
+    "common_failure_node": "把稳定的人文/伦理原则硬映到当前没有独立人文Knowledge owner的临床KP。",
+    "source_gap_note": "Current Xizong Knowledge尚无独立医学人文/伦理最小owner；Explanation保留，但不为覆盖率制造临床KP映射。"
   },
   {
     "question_id": "xizong-official-2021-n114",
@@ -333,17 +506,29 @@
     "exam_target": "临床试验目的",
     "decision_axis": "临床试验的科学目的在于产生可推广、可普遍化的医学知识，而不是保证每名受试者直接获益或服务研究者个人发展。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "临床试验的科学目的在于产生可推广、可普遍化的医学知识，而不是保证每名受试者直接获益或服务研究者个人发展。",
+      "按题源伦理轴选择D。",
+      "Current Xizong Knowledge没有独立医学人文/伦理最小owner，因此只精修Explanation，不制造Crosswalk。"
     ],
     "transfer_rule": "研究目的=产生一般化知识；临床治疗目的=个体患者获益。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "D.发展和促进可被普遍化的知识。临床试验的科学目的在于产生可推广的医学知识，而不是保证每名受试者直接获益或服务研究者个人发展。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "受试者可能获益，但这不是临床试验作为研究活动的根本科学目的。"
+      }
+    ],
+    "common_failure_node": "把稳定的人文/伦理原则硬映到当前没有独立人文Knowledge owner的临床KP。",
+    "source_gap_note": "Current Xizong Knowledge尚无独立医学人文/伦理最小owner；Explanation保留，但不为覆盖率制造临床KP映射。"
   },
   {
     "question_id": "xizong-official-2021-n115",
@@ -357,7 +542,9 @@
     "exam_target": "紧急手术无家属时审批旧法规流程",
     "decision_axis": "题源规定无法取得近亲属意见且需立即救命手术时由医院负责人或授权负责人批准；具体法定程序属于法规性内容，应以现行法律和机构制度为准。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对法规程序更新 fail-closed。"
+      "题源依据当时法律程序选择C。",
+      "现实紧急救治授权和知情同意例外受现行法律、机构制度和具体情境约束。",
+      "因此只保留历史答案，不建立Current法规relation。"
     ],
     "transfer_rule": "仅保留题源/法规时代边界；现实紧急医疗授权按现行法律和医院流程。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -366,8 +553,22 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "C.经医院负责人或被授权的负责人批准后实施手术治疗为题源法规口径。紧急救命、无法联系近亲属时的具体授权程序应以现行法律与机构制度为准。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "题源不支持经治医师在该法律场景下完全自行决定。"
+      },
+      {
+        "option": "D",
+        "reason": "题源也不要求等待上级医疗机构主管部门批准。"
+      }
+    ],
+    "common_failure_node": "把历史法规程序当成永远不变的医疗法律规则。",
+    "source_boundary_note": "该题属于法规程序题；具体紧急手术授权流程需以现行法律与机构制度为准，不将历史条文升级为Current规则。"
   },
   {
     "question_id": "xizong-official-2021-n116",
@@ -386,14 +587,23 @@
       "左移的核心后果是‘抓得更紧、放得更难’。"
     ],
     "transfer_rule": "2,3-DPG↓→左移→抓氧紧、放氧难。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "D.2,3-DPG减少。2,3-DPG下降使Hb-O₂亲和力增加、曲线左移，肺部结合不受阻但组织放氧变差。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "CO中毒既占据Hb结合位点，又使剩余Hb左移，因此不仅影响放氧，也减少有效携氧能力。"
+      }
+    ],
+    "common_failure_node": "只背“左移=不容易放氧”，却不会区分是否同时阻碍结合。"
   },
   {
     "question_id": "xizong-official-2021-n117",
@@ -412,14 +622,23 @@
       "PaO₂仍可接近正常，所以不能只看溶解氧判断组织氧合。"
     ],
     "transfer_rule": "CO中毒=占位+左移，携氧少且放氧难。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "A.CO中毒。CO高亲和结合Hb，减少可用结合位点，同时使剩余Hb氧解离曲线左移，因此既降低携氧容量又妨碍组织放氧。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "2,3-DPG减少主要造成亲和力升高、放氧困难，不会像CO那样占据Hb结合位点。"
+      }
+    ],
+    "common_failure_node": "只看PaO₂，忽略CO中毒主要破坏的是Hb携氧而非溶解氧。"
   },
   {
     "question_id": "xizong-official-2021-n118",
@@ -438,14 +657,23 @@
       "促胰液素才更偏向胰管HCO₃⁻和水分泌。"
     ],
     "transfer_rule": "CCK抓酶；secretin抓水和HCO₃⁻。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "C.缩胆囊素。CCK主要促进胰腺腺泡细胞分泌消化酶，并促进胆囊收缩。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "促胰液素更偏向胰管细胞分泌HCO₃⁻和水。"
+      }
+    ],
+    "common_failure_node": "把CCK和促胰液素两个经典互补作用记反。"
   },
   {
     "question_id": "xizong-official-2021-n119",
@@ -464,14 +692,23 @@
       "它和CCK形成经典对照：一个偏‘冲水中和’，一个偏‘放酶挤胆囊’。"
     ],
     "transfer_rule": "secretin=胰液水+碳酸氢盐。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "B.促胰液素。促胰液素主要促进富含HCO₃⁻和水的胰液分泌，胰酶作用相对弱。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "CCK主要促进胰酶分泌和胆囊收缩。"
+      }
+    ],
+    "common_failure_node": "不会把“放酶”和“冲水中和”两个胰液调节轴拆开。"
   },
   {
     "question_id": "xizong-official-2021-n120",
@@ -490,14 +727,27 @@
       "这是TCA循环唯一直接生成GTP/ATP的底物水平磷酸化步骤。"
     ],
     "transfer_rule": "TCA唯一底物水平磷酸化点=琥珀酰CoA合成酶。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "A.琥珀酰CoA合成酶。它参与TCA循环，并催化循环中底物水平磷酸化步骤。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "HMG-CoA还原酶属于胆固醇合成。"
+      },
+      {
+        "option": "C",
+        "reason": "乙酰CoA羧化酶属于脂肪酸合成。"
+      }
+    ],
+    "common_failure_node": "看到CoA就混淆不同代谢通路的酶。"
   },
   {
     "question_id": "xizong-official-2021-n121",
@@ -516,14 +766,23 @@
       "不要与胆固醇合成中的HMG-CoA还原酶混淆。"
     ],
     "transfer_rule": "HMG-CoA裂解酶→乙酰乙酸→酮体。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "D.HMG-CoA裂解酶。线粒体HMG-CoA裂解生成乙酰乙酸，是酮体生成关键步骤之一。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "HMG-CoA还原酶走胆固醇合成，不生成酮体。"
+      }
+    ],
+    "common_failure_node": "把同一个HMG-CoA中间体在胆固醇合成和酮体生成两条通路的酶混淆。"
   },
   {
     "question_id": "xizong-official-2021-n122",
@@ -537,17 +796,32 @@
     "exam_target": "lncRNA定义",
     "decision_axis": "长链非编码RNA通常按长度大于200nt定义；miRNA等小RNA通常明显更短。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "lncRNA的定义性识别点之一就是长度>200 nt。",
+      "Current G4 KP10明确冻结这一接口。",
+      "因此选B。"
     ],
     "transfer_rule": "lncRNA长度门槛记200nt。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "B.lncRNA。Current G4 KP10明确把lncRNA作为长度>200 nt的长链非编码RNA识别接口。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "tRNA通常远短于200 nt。"
+      },
+      {
+        "option": "D",
+        "reason": "miRNA通常仅约20余nt。"
+      }
+    ],
+    "common_failure_node": "只记“非编码RNA”大类，不会按长度区分lncRNA和小RNA。"
   },
   {
     "question_id": "xizong-official-2021-n123",
@@ -566,14 +840,23 @@
       "它属于转录后调控，不是改变DNA本身。"
     ],
     "transfer_rule": "miRNA→3'UTR→翻译抑制/降解。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "D.miRNA。miRNA通常与靶mRNA 3′UTR不完全互补结合，抑制翻译并可促进mRNA降解。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "lncRNA功能多样，不是本题经典3′UTR-RISC抑制翻译机制。"
+      }
+    ],
+    "common_failure_node": "把所有非编码RNA都当成同一种转录后调控机制。"
   },
   {
     "question_id": "xizong-official-2021-n124",
@@ -592,14 +875,23 @@
       "这和小叶性肺炎以细支气管为中心的化脓性炎形成经典对照。"
     ],
     "transfer_rule": "大叶性肺炎经典病理类型=纤维素性炎。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "A.大叶性肺炎。典型病理为肺泡腔内大量纤维蛋白性渗出，属于经典纤维素性炎。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "小叶性肺炎以细支气管为中心的中性粒细胞化脓性炎为主。"
+      }
+    ],
+    "common_failure_node": "只按“肺炎都有渗出”作答，不区分纤维素性与化脓性。"
   },
   {
     "question_id": "xizong-official-2021-n125",
@@ -618,13 +910,22 @@
       "它与大叶性肺炎的纤维素性肺泡实变不是同一形态。"
     ],
     "transfer_rule": "小叶性肺炎=化脓性炎；大叶性肺炎=纤维素性炎。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2021"
+    },
+    "correct_option_reason": "B.小叶性肺炎。它以细支气管及周围肺泡的中性粒细胞和脓性渗出为主，属于化脓性炎。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "大叶性肺炎更典型属于纤维素性炎。"
+      }
+    ],
+    "common_failure_node": "把大叶和小叶肺炎的病理类型对调。"
   }
 ]

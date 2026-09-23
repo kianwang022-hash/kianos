@@ -11,17 +11,33 @@
     "exam_target": "稳态概念边界",
     "decision_axis": "稳态是机体各层次功能活动的相对稳定状态，内环境稳态只是其中一类；理化指标允许在窄范围内动态波动，并依靠自我调节维持。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "稳态不是“完全不变”，而是在调节下围绕工作点动态波动。",
+      "内环境理化性质的稳定只是稳态的重要组成，但稳态概念并不限于这一层。",
+      "因此“限于内环境理化性质的稳定状态”把概念缩窄了，A错误。"
     ],
     "transfer_rule": "稳态≠静止，也不限于细胞外液理化性质。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "A.限于内环境理化性质的稳定状态。稳态是更广义的动态相对稳定，不能只限定为内环境理化性质。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "稳态允许变量在一定生理范围内波动，这正是动态平衡。"
+      },
+      {
+        "option": "C",
+        "reason": "稳态依赖神经、体液和自身调节等自我调节机制维持。"
+      }
+    ],
+    "common_failure_node": "把“稳态”背成固定不变或只等于内环境理化指标。",
+    "source_gap_note": "稳态定义在当前仓库仅由P0/System Guide层承接，尚无可投影的最小Current KP；Explanation完整保留，但不制造正向relation。"
   },
   {
     "question_id": "xizong-official-2019-n002",
@@ -40,14 +56,27 @@
       "RyR开放是Ca²⁺升高的上游步骤；轻链磷酸化属于平滑肌逻辑，骨骼肌L型通道主要作电压感受器而不是靠T型Ca通道触发。"
     ],
     "transfer_rule": "骨骼肌收缩开关抓胞质Ca2+瞬时升高。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "C.胞质内Ca²⁺浓度的瞬时增高。它是把膜兴奋真正转换成横桥循环的决定性胞内信号。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "RyR开放是促使Ca²⁺从肌质网释放的上游步骤；真正触发肌钙蛋白的是胞质Ca²⁺升高。"
+      },
+      {
+        "option": "A",
+        "reason": "肌球蛋白轻链磷酸化主要属于平滑肌收缩调节逻辑。"
+      }
+    ],
+    "common_failure_node": "把“上游通道打开”与“最终决定收缩启动的胞内Ca²⁺信号”混为一谈。"
   },
   {
     "question_id": "xizong-official-2019-n003",
@@ -61,17 +90,32 @@
     "exam_target": "体内外抗凝物质",
     "decision_axis": "肝素通过增强抗凝血酶作用可在体内抗凝，也可加入采血管用于体外抗凝；华法林只用于体内，草酸盐只用于体外。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "体外抗凝要求药物在离体血液中即可抑制凝血，体内抗凝则要求在机体内也能有效作用。",
+      "肝素通过增强抗凝血酶活性，体内和体外都能发挥抗凝作用。",
+      "华法林依赖体内抑制维生素K相关因子合成，草酸盐主要用于体外螯合Ca²⁺，所以选A。"
     ],
     "transfer_rule": "体内+体外都可用：肝素。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "A.肝素。肝素增强抗凝血酶活性，既可用于临床体内抗凝，也可用于离体血液抗凝。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "草酸钾通过沉淀/结合Ca²⁺主要用于体外抗凝，不用于体内治疗。"
+      },
+      {
+        "option": "C",
+        "reason": "华法林通过抑制维生素K循环减少凝血因子合成，只能在体内起效。"
+      }
+    ],
+    "common_failure_node": "混淆“体内/体外抗凝”与“内源/外源凝血途径”。"
   },
   {
     "question_id": "xizong-official-2019-n004",
@@ -90,14 +134,27 @@
       "因此错误项是B；关键是区分“强化交感”与“直接刺激髓质”。"
     ],
     "transfer_rule": "AngⅡ升压抓直接缩血管+交感增强+醛固酮/容量。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "B.刺激肾上腺髓质激素分泌。Current B2保留AngⅡ直接收缩、增强交感中枢和促交感末梢NA释放；其经典直接肾上腺作用是促醛固酮而非本项。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "促交感末梢释放去甲肾上腺素是Current B2明确保留的AngⅡ交感强化机制。"
+      },
+      {
+        "option": "A",
+        "reason": "AngⅡ直接收缩微动脉、提高TPR，是经典升压机制。"
+      }
+    ],
+    "common_failure_node": "把“AngⅡ强化交感”误写成“直接刺激肾上腺髓质”这一不同层级。"
   },
   {
     "question_id": "xizong-official-2019-n005",
@@ -116,14 +173,27 @@
       "要分清“血中运输总量最多”与“肺部释放效率/比例最高”不是同一个问题。"
     ],
     "transfer_rule": "总量最大是HCO3-；蛋白结合中以Hb最重要。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "C.氨基甲酰血红蛋白。题目限定在所列非HCO₃⁻形式中，HbCO₂在肺部受霍尔丹效应促进解离，释放比例最高。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "物理溶解CO₂虽可直接扩散，但在血液运输中的占比较小。"
+      },
+      {
+        "option": "D",
+        "reason": "血浆蛋白也可形成氨基甲酰化合物，但其量和肺部释放贡献低于HbCO₂。"
+      }
+    ],
+    "common_failure_node": "把“血中CO₂总运输形式最多”与“肺部释放比率最高”当成同一个问题。"
   },
   {
     "question_id": "xizong-official-2019-n006",
@@ -142,14 +212,27 @@
       "食物通过后张力重新升高恢复屏障，因此B、C、D符合生理。"
     ],
     "transfer_rule": "LES是“功能性高压区”，不是明显解剖环。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "A.存在明显的解剖学结构。LES主要是功能性高压区，并不是一个边界清晰的独立解剖括约肌。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "吞咽蠕动到达时LES应松弛，便于食团通过。"
+      },
+      {
+        "option": "D",
+        "reason": "食物通过后LES张力恢复，以重建抗反流屏障。"
+      }
+    ],
+    "common_failure_node": "把“功能性高压区”误认为一定存在清晰独立的环形解剖括约肌。"
   },
   {
     "question_id": "xizong-official-2019-n007",
@@ -168,14 +251,27 @@
       "HCO₃⁻主要负责中和酸，肠肝循环保证胆盐重复利用，但都不是本题问的“主要原因”。"
     ],
     "transfer_rule": "胆汁帮脂肪靠胆盐乳化/微胶粒，不靠消化酶。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "D.胆盐对脂肪的乳化作用。胆盐乳化脂肪并参与微胶粒形成，增加脂肪酶作用界面并促进脂质吸收。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "胆汁本身不含负责脂肪消化的主要脂肪酶，胰脂肪酶才是关键酶。"
+      },
+      {
+        "option": "B",
+        "reason": "HCO₃⁻主要用于中和酸性食糜，不是胆汁促脂肪消化吸收的主要机制。"
+      }
+    ],
+    "common_failure_node": "把胆汁的“乳化/微胶粒”作用误记成自身含有脂肪酶。"
   },
   {
     "question_id": "xizong-official-2019-n008",
@@ -194,14 +290,27 @@
       "关键不是“肌肉不产热”，而是区分能量留在机体内还是被机械功带到外界。"
     ],
     "transfer_rule": "对外机械功是机体能量暂不转为体热的例外。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "B.肌肉收缩对外界物体做功。对外机械功把一部分能量转移到外界，因此不全部转化为机体自身的体热。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "蛋白质合成储存化学能，但这些物质最终代谢时能量仍可转为热。"
+      },
+      {
+        "option": "A",
+        "reason": "神经传导等体内耗能过程最终主要以热形式散失。"
+      }
+    ],
+    "common_failure_node": "把“当前暂存为化学能”和“最终不能转化为机体体热”混淆。"
   },
   {
     "question_id": "xizong-official-2019-n009",
@@ -220,14 +329,27 @@
       "升高血浆胶体渗透压会降低GFR；滤过平衡向入球端移动意味着更早停止滤过，也不会增加GFR。"
     ],
     "transfer_rule": "GFR看推动压减阻力压。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "C.肾小囊内静水压降低。滤过阻力下降会提高有效滤过压，从而增加GFR。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "血浆胶体渗透压升高会增强对滤过的阻力，使GFR下降。"
+      },
+      {
+        "option": "D",
+        "reason": "滤过平衡更靠近入球端意味着有效滤过更早停止，不会增加总滤过量。"
+      }
+    ],
+    "common_failure_node": "不写有效滤过压方向，凭“压力变大/变小”直觉判断。"
   },
   {
     "question_id": "xizong-official-2019-n010",
@@ -241,17 +363,32 @@
     "exam_target": "髓袢各段通透性",
     "decision_axis": "髓袢降支细段对水高度通透而对NaCl相对不易通透；升支尤其粗段则相反，对水不通透并主动/被动重吸收NaCl。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "髓袢降支细段表达AQP1，对水高度通透。",
+      "这一段对NaCl相对不易通透，水沿髓质渗透梯度外流，小管液逐渐浓缩。",
+      "升支尤其粗段则与之相反，对水不通透而重吸收NaCl，因此选A。"
     ],
     "transfer_rule": "降支走水，升支走盐。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "A.髓袢降支细段。它是“高水通透、NaCl相对低通透”的典型髓袢段。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "髓袢升支粗段对水几乎不通透，并通过NKCC2主动重吸收NaCl。"
+      },
+      {
+        "option": "B",
+        "reason": "升支细段以NaCl被动外流为主，对水通透性低。"
+      }
+    ],
+    "common_failure_node": "把降支“出水”和升支“出盐”两个相反方向记反。"
   },
   {
     "question_id": "xizong-official-2019-n011",
@@ -270,14 +407,27 @@
       "耳蜗负责听觉，不负责这种运动刺激，所以选D。"
     ],
     "transfer_rule": "眼震+旋转加速度先想半规管。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "D.半规管。半规管壶腹嵴感受角加速度，并通过前庭-眼反射产生眼震。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "球囊主要感受直线加速度和重力方向。"
+      },
+      {
+        "option": "C",
+        "reason": "椭圆囊同属耳石器官，更偏直线加速度而非旋转角加速度。"
+      }
+    ],
+    "common_failure_node": "把所有前庭器官都当成同一种运动感受器。"
   },
   {
     "question_id": "xizong-official-2019-n012",
@@ -296,14 +446,27 @@
       "轴突末梢是输出端，不是通常的动作电位起始点。"
     ],
     "transfer_rule": "神经元AP触发区=轴丘/轴突始段。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "C.轴突始段。这里电压门控Na⁺通道密度高、阈值低，是胞体/树突输入汇总后最先触发动作电位的部位。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "树突主要接收突触输入并形成局部电位。"
+      },
+      {
+        "option": "D",
+        "reason": "轴突末梢负责递质释放，不是通常的动作电位起始点。"
+      }
+    ],
+    "common_failure_node": "把最先接收刺激的树突误认为最先产生动作电位的部位。"
   },
   {
     "question_id": "xizong-official-2019-n013",
@@ -322,14 +485,27 @@
       "陷阱是把“胆碱能”误等同于“副交感”。"
     ],
     "transfer_rule": "副交感=消化储能，交感=应急动员。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "D.胰岛素分泌。副交感兴奋偏向进食、消化与能量储存，可促进胰岛素释放。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "汗腺虽然使用ACh，但其节后纤维属于交感胆碱能，不是副交感。"
+      },
+      {
+        "option": "A",
+        "reason": "瞳孔散大主要由交感α₁作用于瞳孔开大肌。"
+      }
+    ],
+    "common_failure_node": "把“胆碱能”直接等同于“副交感”。"
   },
   {
     "question_id": "xizong-official-2019-n014",
@@ -348,14 +524,27 @@
       "GH不是靠低钙或高胆固醇作为主要代谢异常；蛋白合成方向反而偏正氮平衡。"
     ],
     "transfer_rule": "GH过多：蛋白合成↑、脂解↑、血糖↑。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "C.垂体性糖尿。GH过多产生明显抗胰岛素效应，可致高血糖、糖尿并出现垂体性糖尿病。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "GH确实有促蛋白合成、正氮平衡方向，但本题问的是过多导致的代谢异常，病理性糖代谢异常更符合C。"
+      },
+      {
+        "option": "D",
+        "reason": "高胆固醇并不是GH过多的经典主要代谢异常。"
+      }
+    ],
+    "common_failure_node": "看到GH促合成就选“富氮平衡”，忽略题干问的是过多后的病理性代谢异常。"
   },
   {
     "question_id": "xizong-official-2019-n015",
@@ -374,14 +563,27 @@
       "GH和性激素对后续生长发育重要，但不能替代TH在早期神经发育窗口中的作用。"
     ],
     "transfer_rule": "甲状腺激素抓“脑+骨成熟”。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "D.甲状腺激素。TH对胎儿和新生儿中枢神经系统分化、髓鞘和突触发育至关重要，早期缺乏可造成不可逆神经发育损害。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "GH对生长重要，但不能替代TH在早期脑发育关键窗口中的作用。"
+      },
+      {
+        "option": "A",
+        "reason": "性激素参与性分化和青春期发育，不是胚胎脑发育的最关键激素。"
+      }
+    ],
+    "common_failure_node": "把“促进全身生长”误等于“对胚胎脑发育最关键”。"
   },
   {
     "question_id": "xizong-official-2019-n016",
@@ -400,14 +602,27 @@
       "交感-肾上腺髓质系统更偏快速应急反应；其余两个轴并不是本题定义下的主要应激轴。"
     ],
     "transfer_rule": "应激=HPA轴/GC；应急=交感-肾上腺髓质/儿茶酚胺。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "D.下丘脑-腺垂体-肾上腺皮质系统。经典持续应激反应以CRH→ACTH→糖皮质激素的HPA轴为主。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "交感-肾上腺髓质系统更偏快速“应急反应”，不是本题经典“应激反应主要系统”的答案。"
+      },
+      {
+        "option": "B",
+        "reason": "下丘脑-神经垂体系统参与水盐调节，不是应激主轴。"
+      }
+    ],
+    "common_failure_node": "把“应急反应”和“应激反应”两个教材术语混用。"
   },
   {
     "question_id": "xizong-official-2019-n017",
@@ -421,17 +636,32 @@
     "exam_target": "分子伴侣",
     "decision_axis": "分子伴侣可结合新生或部分折叠多肽，防止错误聚集并帮助形成正确空间构象，但不决定氨基酸一级序列。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "新生多肽离开核糖体后还要折叠成正确空间构象。",
+      "分子伴侣可与新生或部分折叠多肽结合，防止错误聚集并帮助其正确折叠。",
+      "受体、细胞骨架和组蛋白没有这一通用折叠辅助职责，因此选B。"
     ],
     "transfer_rule": "蛋白折叠辅助=伴侣蛋白/HSP。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "B.伴侣蛋白。分子伴侣/Hsp等帮助新生或错误折叠多肽获得正确构象并防止异常聚集。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "组蛋白负责DNA包装和染色质结构，不是一般蛋白折叠伴侣。"
+      },
+      {
+        "option": "C",
+        "reason": "细胞骨架蛋白承担结构与运输功能，不负责普遍帮助其他蛋白折叠。"
+      }
+    ],
+    "common_failure_node": "把“与蛋白质结构有关的蛋白”都误当成分子伴侣。"
   },
   {
     "question_id": "xizong-official-2019-n018",
@@ -450,14 +680,27 @@
       "“特定离子键的底物”不是标准的底物特异性分类，离子键是相互作用方式，不是这一分类轴，所以D不包括。"
     ],
     "transfer_rule": "底物特异性看分子/基团/立体构型，不按“离子键”分类。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "D.特定离子键的底物。“绝对/相对（基团）/立体异构”是底物特异性分类；特定离子键不是标准底物类别。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "酶可具有立体异构特异性，只催化特定立体异构体。"
+      },
+      {
+        "option": "A",
+        "reason": "相对/基团特异性可识别一类结构相近底物。"
+      }
+    ],
+    "common_failure_node": "把酶与底物结合时的“离子作用力”误当成底物特异性的分类名称。"
   },
   {
     "question_id": "xizong-official-2019-n019",
@@ -476,14 +719,27 @@
       "A-DNA和Z-DNA的螺旋参数、旋向都不同，不能只凭“都是DNA双螺旋”混为一类。"
     ],
     "transfer_rule": "B-DNA：右手、约10.5 bp/turn。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "B.B-DNA。生理条件下常见B-DNA为右手双螺旋，每圈约10.5个碱基对。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "Z-DNA是左手螺旋，螺旋参数与B-DNA不同。"
+      },
+      {
+        "option": "A",
+        "reason": "A-DNA虽为右手螺旋，但每圈碱基对数和几何参数不同。"
+      }
+    ],
+    "common_failure_node": "只记DNA有多种构型，不把10.5 bp/turn这一特征与B-DNA绑定。"
   },
   {
     "question_id": "xizong-official-2019-n020",
@@ -502,14 +758,27 @@
       "草酰乙酸、柠檬酸和延胡索酸都属于后续TCA相关中间体，不是这一步氧化脱羧的直接产物。"
     ],
     "transfer_rule": "丙酮酸→乙酰CoA是糖酵解连接TCA的桥。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "C.乙酰CoA。丙酮酸在线粒体经PDH复合体氧化脱羧直接生成乙酰CoA、CO₂和NADH。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "柠檬酸是乙酰CoA进入TCA后与草酰乙酸缩合形成的下一步产物。"
+      },
+      {
+        "option": "A",
+        "reason": "草酰乙酸是TCA中间体并参与与乙酰CoA缩合，不是PDH直接产物。"
+      }
+    ],
+    "common_failure_node": "把PDH连接反应与进入TCA后的第一步缩合混成一步。"
   },
   {
     "question_id": "xizong-official-2019-n021",
@@ -528,14 +797,27 @@
       "复合体Ⅰ、Ⅱ负责不同入口，复合体Ⅳ负责把电子最终交给O₂，它们都不是经典Q循环所在。"
     ],
     "transfer_rule": "Q循环=复合体Ⅲ。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "C.复合体Ⅲ。Q循环是细胞色素bc₁复合体/复合体Ⅲ的标志机制。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "复合体Ⅰ把NADH电子交给CoQ并泵H⁺，但不进行经典Q循环。"
+      },
+      {
+        "option": "D",
+        "reason": "复合体Ⅳ把电子最终交给O₂生成水，不是Q循环所在。"
+      }
+    ],
+    "common_failure_node": "看到“Q/泛醌”就把所有与CoQ接触的复合体都当成Q循环。"
   },
   {
     "question_id": "xizong-official-2019-n022",
@@ -554,14 +836,27 @@
       "CPSⅡ、PRPP合成酶和尿苷激酶位于不同核苷酸代谢环节，不是5-FU的经典关键靶酶。"
     ],
     "transfer_rule": "5-FU→FdUMP→抑制胸苷酸合酶。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "A.胸苷酸合酶。5-FU形成FdUMP后抑制胸苷酸合酶，阻断dUMP→dTMP并限制DNA合成。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "CPSⅡ位于嘧啶从头合成早期，并非5-FU经典靶酶。"
+      },
+      {
+        "option": "D",
+        "reason": "PRPP合成酶提供核糖磷酸活化底物，也不是5-FU关键靶点。"
+      }
+    ],
+    "common_failure_node": "把“参与嘧啶合成的酶”都误当成5-FU靶点。"
   },
   {
     "question_id": "xizong-official-2019-n023",
@@ -580,14 +875,27 @@
       "两条亲代链都能作模板属于模板使用事实，不是“双向复制”这个术语的定义。"
     ],
     "transfer_rule": "双向复制=一个origin向两边各一个fork。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "B.一个复制起始点，形成两个复制叉。DNA复制“双向”指复制叉从同一起点向相反方向推进，而新链始终5′→3′合成。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "DNA聚合酶不能3′→5′合成新链；双向说的是复制叉推进方向。"
+      },
+      {
+        "option": "C",
+        "reason": "两条亲代链都作模板是半保留复制的模板事实，不是“双向性”的定义。"
+      }
+    ],
+    "common_failure_node": "把“复制叉双向推进”误解成“DNA链可双向合成”。"
   },
   {
     "question_id": "xizong-official-2019-n024",
@@ -606,14 +914,27 @@
       "题目问的是“剪接体本体用哪类RNA”，不要被其他小RNA名称干扰。"
     ],
     "transfer_rule": "splicing=snRNA。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "B.snRNA。剪接体由多种snRNP组成，其RNA核心成分是snRNA。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "miRNA主要参与转录后基因沉默。"
+      },
+      {
+        "option": "D",
+        "reason": "snoRNA主要参与rRNA加工和修饰。"
+      }
+    ],
+    "common_failure_node": "把各种“小RNA”只按名字相似记忆，不按细胞功能分类。"
   },
   {
     "question_id": "xizong-official-2019-n025",
@@ -632,13 +953,26 @@
       "操纵序列主要结合阻遏蛋白；A基因是结构基因，启动子本身则是RNA聚合酶结合/起始区域。"
     ],
     "transfer_rule": "CAP位点在启动子上游，负责正调控。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "B.启动子上游。低葡萄糖时cAMP-CAP结合启动子上游CAP位点，促进RNA聚合酶转录乳糖操纵子。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "操纵序列主要是阻遏蛋白结合位点。"
+      },
+      {
+        "option": "A",
+        "reason": "RNA聚合酶结合启动子，而CAP结合其上游调控位点。"
+      }
+    ],
+    "common_failure_node": "把启动子、操纵序列和CAP位点三个相邻调控元件混为一处。"
   }
 ]

@@ -16,14 +16,23 @@
       "同一感染还可进一步连接消化性溃疡和部分胃肿瘤风险。"
     ],
     "transfer_rule": "慢性胃窦炎优先联想H. pylori。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "A.幽门螺杆菌感染。H. pylori是慢性胃炎尤其胃窦为主胃炎的重要病因，并与消化性溃疡及部分胃肿瘤风险相连。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "自身免疫性胃炎更偏胃体/胃底壁细胞损伤，不是慢性胃窦胃炎最常见病因。"
+      }
+    ],
+    "common_failure_node": "把所有慢性胃炎都视为同一种病因谱。"
   },
   {
     "question_id": "xizong-official-2022-n052",
@@ -42,14 +51,23 @@
       "它并不特异到只能见于肝病，但放在慢性肝病背景中高度支持肝性脑病。"
     ],
     "transfer_rule": "肝病+意识改变+扑翼样震颤→高度提示肝性脑病。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "C.扑翼样震颤。慢性肝病背景下出现意识障碍时，扑翼样震颤是肝性脑病高价值体征。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "Babinski征阳性更提示锥体束病变，不是HE特异体征。"
+      }
+    ],
+    "common_failure_node": "看到意识障碍只做神经定位，忽略肝病背景和代谢性脑病体征。"
   },
   {
     "question_id": "xizong-official-2022-n053",
@@ -68,14 +86,27 @@
       "新月体反映肾小球毛细血管严重损伤后壁层上皮细胞等快速增生。"
     ],
     "transfer_rule": "肾炎综合征+肾功能快速下降→RPGN。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "B.急进性肾小球肾炎。肾炎综合征基础上短期肾功能快速恶化并双肾增大，符合RPGN。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "普通急性肾炎可有血尿蛋白尿，但通常不以如此迅速的肾功能恶化为主轴。"
+      },
+      {
+        "option": "D",
+        "reason": "慢性肾炎更常病程迁延，双肾可缩小而非急性增大。"
+      }
+    ],
+    "common_failure_node": "只按感染后血尿选急性肾炎，不看肾功能恶化速度。"
   },
   {
     "question_id": "xizong-official-2022-n054",
@@ -94,14 +125,27 @@
       "ITP主轴是免疫介导血小板破坏增多并伴生成受抑，而不是凝血因子缺乏。"
     ],
     "transfer_rule": "ITP抓孤立血小板减少+皮肤黏膜出血。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "B.原发免疫性血小板减少症。孤立血小板显著减少、黏膜皮肤出血，骨髓巨核细胞不低但产板型减少，符合ITP。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "再障常为多系细胞减少且骨髓低增生。"
+      },
+      {
+        "option": "C",
+        "reason": "过敏性紫癜多为血管炎，血小板计数通常正常。"
+      }
+    ],
+    "common_failure_node": "把“紫癜”三个字直接等同于过敏性紫癜，不看血小板和骨髓。"
   },
   {
     "question_id": "xizong-official-2022-n055",
@@ -124,8 +168,22 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "D.大剂量地塞米松抑制试验为题源旧病因鉴别答案；现代Cushing病因诊断更依赖ACTH、影像和动态试验组合，不把单一大剂量试验固化为Current路径。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "24h尿游离皮质醇主要用于证实高皮质醇状态，不是本题病因分型的旧答案。"
+      },
+      {
+        "option": "C",
+        "reason": "小剂量地塞米松更偏筛查/证实高皮质醇。"
+      }
+    ],
+    "common_failure_node": "把旧动态试验算法当成现代唯一病因诊断顺序。",
+    "source_boundary_note": "题源以大剂量地塞米松抑制试验作为Cushing病因鉴别关键步骤；Current病因诊断需结合ACTH、影像及多种动态试验，不冻结单一旧试验路径。"
   },
   {
     "question_id": "xizong-official-2022-n056",
@@ -139,17 +197,32 @@
     "exam_target": "抗磷脂综合征识别",
     "decision_axis": "反复血栓、妊娠不良结局和血小板减少等组合提示抗磷脂综合征，需结合持续阳性的抗磷脂抗体实验室证据。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "抗磷脂综合征的核心临床轴是血栓形成和妊娠不良结局，血小板减少也可伴随出现。",
+      "面颊部红斑更指向SLE表型，并不是APS本身的典型临床特征，因此选C。",
+      "遇到SLE背景题要把“狼疮表型”和“APS血栓/妊娠表型”分开。"
     ],
     "transfer_rule": "APS三联想：血栓+妊娠并发症+抗磷脂抗体。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "C.面颊部红斑。APS核心临床轴是血栓与妊娠不良结局，血小板减少可伴随；面颊红斑更属于SLE表型。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "动/静脉血栓是APS核心临床事件。"
+      },
+      {
+        "option": "B",
+        "reason": "反复流产属于APS经典产科表现。"
+      }
+    ],
+    "common_failure_node": "SLE与APS常并存时，把狼疮皮肤表现误归APS本体。"
   },
   {
     "question_id": "xizong-official-2022-n057",
@@ -163,17 +236,32 @@
     "exam_target": "高渗性脱水细胞内液变化",
     "decision_axis": "高渗性脱水使细胞外液渗透压升高，水由细胞内移向细胞外，因此细胞内液量减少。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "高渗性脱水=失水多于失钠，细胞外液量减少而渗透压升高。",
+      "ECF变高渗后水从细胞内移向细胞外，所以ICF应减少而不是增加，B错误。",
+      "高渗和容量不足还会促进ADH，容量不足可激活RAAS/醛固酮；判断此类题先分容量再分渗透压。"
     ],
     "transfer_rule": "ECF高渗→水出细胞→ICF减少。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "B.细胞内液增加是错误项。高渗性脱水使ECF渗透压升高，水从细胞内移向细胞外，ICF应减少。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "高渗刺激会增强ADH分泌。"
+      },
+      {
+        "option": "D",
+        "reason": "容量不足可激活RAAS/醛固酮。"
+      }
+    ],
+    "common_failure_node": "只看脱水“总水少”，不会判断细胞内外水移动方向。"
   },
   {
     "question_id": "xizong-official-2022-n058",
@@ -187,17 +275,32 @@
     "exam_target": "休克代偿期交感反应",
     "decision_axis": "休克早期通过交感神经兴奋、儿茶酚胺释放和外周血管收缩来维持重要器官灌注。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "休克代偿期有效循环血量下降，交感兴奋使心率加快并收缩外周小动脉，以暂时维持血压。",
+      "外周阻力增加使舒张压相对维持或升高，而每搏量下降使收缩压优势减弱，因此脉压缩小，选C。",
+      "进入失代偿后才更典型地出现进行性低血压，不能把后期表现前移。"
     ],
     "transfer_rule": "休克早期代偿核心=交感兴奋。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "C.血压正常或稍高、心率快、脉压缩小。休克代偿期交感兴奋维持血压并加快心率，外周收缩使舒张压相对维持，脉压变窄。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "代偿期心率通常增快，不是正常。"
+      },
+      {
+        "option": "D",
+        "reason": "脉压一般缩小而不是增大。"
+      }
+    ],
+    "common_failure_node": "把失代偿期明显低血压提前套到代偿期。"
   },
   {
     "question_id": "xizong-official-2022-n059",
@@ -220,8 +323,18 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "C.1∶150～1∶200为题源旧PN非蛋白热量/氮比口径；现代营养支持更强调疾病状态、能量消耗与蛋白目标个体化。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "1∶250～1∶300高于题源经典范围。"
+      }
+    ],
+    "common_failure_node": "把旧固定营养比值当成所有患者Current统一处方。",
+    "source_boundary_note": "题源固定非蛋白热量/氮比150–200:1；Current营养支持更强调个体化能量消耗和蛋白目标，不冻结为所有PN患者统一阈值。"
   },
   {
     "question_id": "xizong-official-2022-n060",
@@ -244,8 +357,18 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "D.术前使基础代谢率降至正常范围为题源旧术前准备口径；Current甲亢围术期更强调临床甲功控制而非基础代谢率测算。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "糖皮质激素可用于甲状腺危象等场景，但不是预防术后危象的最关键术前准备。"
+      }
+    ],
+    "common_failure_node": "把历史基础代谢率计算指标当成现代术前核心标准。",
+    "source_boundary_note": "题源用“基础代谢率降至正常”作为甲亢术前准备核心指标；Current不以该旧测算作为统一围术期门槛。"
   },
   {
     "question_id": "xizong-official-2022-n061",
@@ -264,14 +387,27 @@
       "固定、进行性增大的单发无痛肿块应进入另一条肿物鉴别路径。"
     ],
     "transfer_rule": "周期性乳房胀痛常提示良性纤维囊性改变。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "C.乳腺囊性增生病。双侧周期性胀痛和包块随月经变化，是纤维囊性改变的典型模式。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "乳腺癌更常为进行性、固定/不规则的非周期性肿块。"
+      },
+      {
+        "option": "D",
+        "reason": "乳管内乳头状瘤更偏单孔血性/浆液性溢液。"
+      }
+    ],
+    "common_failure_node": "看到不规则包块就忽略周期性疼痛和体积变化。"
   },
   {
     "question_id": "xizong-official-2022-n062",
@@ -290,14 +426,27 @@
       "本质是胸内压冲击静脉回流，而不是气道异物阻塞。"
     ],
     "transfer_rule": "胸部挤压+胸内压骤升→头颈静脉逆流。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "B.小支气管和肺泡破裂是错误项。创伤性窒息核心是胸部强力挤压+声门关闭导致胸内压骤升和上腔静脉系统血逆流。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "声门关闭是胸内压骤升的重要条件。"
+      },
+      {
+        "option": "D",
+        "reason": "上腔静脉系统血液逆流造成头颈胸上部瘀血/出血表现。"
+      }
+    ],
+    "common_failure_node": "把创伤性窒息误理解成肺组织爆裂损伤。"
   },
   {
     "question_id": "xizong-official-2022-n063",
@@ -316,14 +465,27 @@
       "这也是它与许多可切除NSCLC在初始治疗策略上的重要差异。"
     ],
     "transfer_rule": "SCLC抓早播散+放化疗敏感。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "D.小细胞癌对放、化疗都敏感。SCLC增殖快、早期播散，但通常对化疗和放疗较敏感。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "鳞癌更常中央型而非周围型。"
+      },
+      {
+        "option": "B",
+        "reason": "鳞癌并非典型“首先血行转移”的组织学类型。"
+      }
+    ],
+    "common_failure_node": "把所有肺癌的转移和治疗生物学统一处理。"
   },
   {
     "question_id": "xizong-official-2022-n064",
@@ -337,17 +499,32 @@
     "exam_target": "前列腺癌诊断与CEA",
     "decision_axis": "前列腺癌诊断评估主要围绕PSA、直肠指检、影像和组织学，CEA并不是前列腺癌的基础特异性诊断指标。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "前列腺癌的基础评估从直肠指检和PSA进入，怀疑后以穿刺活检获得组织学确诊。",
+      "CEA不是前列腺癌的基础诊断标志物，所以D是“不属于”。",
+      "肿瘤标志物题先分器官特异/常用入口，不要把广谱肿瘤指标套到所有癌种。"
     ],
     "transfer_rule": "前列腺癌标志物优先PSA，不把CEA当核心。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "D.血清癌胚抗原。前列腺癌基础评估围绕DRE、PSA、MRI/活检；CEA不是基本特异诊断指标。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "DRE是前列腺癌风险入口之一。"
+      },
+      {
+        "option": "C",
+        "reason": "穿刺活检用于组织学确证。"
+      }
+    ],
+    "common_failure_node": "把广谱肿瘤标志物套到所有癌种。"
   },
   {
     "question_id": "xizong-official-2022-n065",
@@ -366,14 +543,27 @@
       "它与血管源性跛行要结合脉搏、皮温和姿势影响来区分。"
     ],
     "transfer_rule": "走多加重、屈腰坐下缓解→腰椎管狭窄。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "D.神经源性间歇跛行。腰椎管狭窄典型为行走/站立诱发下肢痛麻、坐下或屈腰缓解。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "腰痛可见于多种腰椎疾病，鉴别力低。"
+      },
+      {
+        "option": "B",
+        "reason": "坐骨神经痛也可见于腰椎间盘突出。"
+      }
+    ],
+    "common_failure_node": "只看疼痛部位，不抓姿势/行走依赖的跛行模式。"
   },
   {
     "question_id": "xizong-official-2022-n066",
@@ -392,14 +582,27 @@
       "越高位的颈髓损伤，越要把呼吸危险放在最前面。"
     ],
     "transfer_rule": "高颈髓损伤首先担心呼吸与循环自主调节。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "C.心力衰竭不属于高位颈髓损伤的典型直接并发症。高位损伤更直接威胁呼吸、自主神经和泌尿/体温调节。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "高位截瘫呼吸肌无力和排痰差可增加呼吸道感染风险。"
+      },
+      {
+        "option": "D",
+        "reason": "自主神经损害可造成体温调节异常。"
+      }
+    ],
+    "common_failure_node": "把长期卧床所有系统问题都列成“高位截瘫直接并发症”。"
   },
   {
     "question_id": "xizong-official-2022-n067",
@@ -418,14 +621,27 @@
       "前脱位则更偏外展、外旋，方向正好相反。"
     ],
     "transfer_rule": "后脱位=屈曲+内收+内旋。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "C.髋关节后脱位。典型姿势是屈曲、内收、内旋并伴患肢短缩。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "髋前脱位更偏外展、外旋。"
+      },
+      {
+        "option": "A",
+        "reason": "股骨颈骨折常外旋45–60°而非内旋。"
+      }
+    ],
+    "common_failure_node": "把髋脱位与股骨颈骨折的旋转方向记反。"
   },
   {
     "question_id": "xizong-official-2022-n068",
@@ -442,14 +658,28 @@
       "按题干与选项，依据上述判断轴确定题源答案。"
     ],
     "transfer_rule": "妊娠循环改变以容量负荷增加为主，明显病理性心脏扩大需另找原因。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "C.心脏扩大为题源“不属于正常妊娠生理改变”的答案；妊娠可心率加快和容量负荷增加，但Current仓库未冻结这组妊娠心血管体征比较。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "妊娠期心率可生理性增加。"
+      },
+      {
+        "option": "D",
+        "reason": "妊娠容量负荷增加可出现生理性第三心音。"
+      }
+    ],
+    "common_failure_node": "拿一般妊娠生理常识直接制造一个仓库中不存在的Current owner。",
+    "source_gap_note": "Current Xizong Knowledge未冻结妊娠期“心率增加/第三心音/心脏扩大”完整心血管生理比较轴，不为覆盖率硬映。"
   },
   {
     "question_id": "xizong-official-2022-n069",
@@ -466,14 +696,24 @@
       "按题干与选项，依据上述判断轴确定题源答案。"
     ],
     "transfer_rule": "年轻/高容量状态下S3可为生理性。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "A.心室舒张期负荷过重为题源答案。妊娠期血容量增加、静脉回流和快速舒张充盈增强，可出现生理性第三心音；但Current仓库未冻结该具体机制轴。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "出现第三心音不必然等于病理性心力衰竭，需结合整体证据。"
+      }
+    ],
+    "common_failure_node": "把妊娠期生理S3直接诊断为心衰，或反过来用模型常识硬映Current。",
+    "source_gap_note": "Current Xizong Knowledge未冻结妊娠容量负荷导致生理性第三心音的最小可投影owner。"
   },
   {
     "question_id": "xizong-official-2022-n070",
@@ -492,14 +732,27 @@
       "胸腔积液通常叩诊浊音，不会出现这种‘有气但隔音’的组合。"
     ],
     "transfer_rule": "突发胸痛+鼓音+呼吸音低=气胸。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "B.气胸。突发单侧胸痛气短、患侧叩诊鼓音和呼吸音减低是经典组合。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "胸腔积液通常叩诊浊音。"
+      },
+      {
+        "option": "A",
+        "reason": "肺栓塞不会典型造成患侧鼓音和呼吸音明显减低。"
+      }
+    ],
+    "common_failure_node": "只按突发胸痛想到肺栓塞/心梗，不利用肺部体征定位。"
   },
   {
     "question_id": "xizong-official-2022-n071",
@@ -518,14 +771,23 @@
       "这一点与呼吸音减弱同源，都是传导被胸膜腔气体削弱。"
     ],
     "transfer_rule": "胸腔里隔着气/液都会使语颤传导下降。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "D.左胸语音震颤消失。胸膜腔气体隔断肺组织到胸壁的振动传导，语颤和呼吸音均减弱。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "胸膜摩擦音需要两层胸膜仍能互相摩擦，明显气胸时不典型。"
+      }
+    ],
+    "common_failure_node": "不会把胸膜腔气体对声音/振动传导的影响统一解释。"
   },
   {
     "question_id": "xizong-official-2022-n072",
@@ -548,8 +810,18 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "C.心界叩诊向左扩大为题源官方答案；气胸对纵隔/心浊音界的影响依气胸量和压力而变，不能冻结为统一Current体征。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "窦性心动过速可由疼痛/焦虑/呼吸困难引起，缺乏特异性。"
+      }
+    ],
+    "common_failure_node": "把某一旧体征排序当成所有左侧气胸固定表现。",
+    "source_boundary_note": "题源固定左侧气胸“心界叩诊向左扩大”；Current体征受气胸量、压力和纵隔移位影响，不冻结为普遍规则。"
   },
   {
     "question_id": "xizong-official-2022-n073",
@@ -568,14 +840,27 @@
       "关键是严重全身炎症事件后短期出现非心源性氧合失败。"
     ],
     "transfer_rule": "重症胰腺炎可触发全身炎症反应→ARDS。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "C.急性呼吸窘迫综合征。急性胰腺炎后数日出现进行性低氧和双肺弥漫浸润，符合ARDS。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "医院获得性肺炎需更明确感染背景，且影像/低氧模式不如ARDS吻合。"
+      },
+      {
+        "option": "D",
+        "reason": "心衰缺少既往心脏病和明显心源性证据。"
+      }
+    ],
+    "common_failure_node": "看到湿啰音和双肺影就先报心衰，不看严重炎症诱因和时间窗。"
   },
   {
     "question_id": "xizong-official-2022-n074",
@@ -594,14 +879,27 @@
       "解释时还要结合PEEP等通气条件。"
     ],
     "transfer_rule": "ARDS分级先看氧合指数。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "C.动脉血气分析。ARDS严重度核心看氧合障碍，PaO₂/FiO₂等指标需要ABG。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "CT可评价肺部结构，但不能替代氧合严重度分层。"
+      },
+      {
+        "option": "D",
+        "reason": "超声可帮助排除心源性肺水肿，但不是ARDS严重度核心指标。"
+      }
+    ],
+    "common_failure_node": "用影像范围替代氧合指数分级。"
   },
   {
     "question_id": "xizong-official-2022-n075",
@@ -620,13 +918,26 @@
       "目标不是把肺吹到最大，而是保护仍可工作的‘baby lung’。"
     ],
     "transfer_rule": "ARDS通气抓低潮气量+限平台压+适当PEEP。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "A.氧疗、机械通气。重症ARDS呼吸支持核心是肺保护性机械通气、适当PEEP和氧合支持。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "强心利尿并非非心源性ARDS的通用核心治疗。"
+      },
+      {
+        "option": "D",
+        "reason": "气管镜吸痰只在特定气道问题下使用。"
+      }
+    ],
+    "common_failure_node": "把ARDS双肺阴影当成心源性肺水肿治疗。"
   }
 ]

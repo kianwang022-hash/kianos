@@ -64,7 +64,8 @@
     "qa:skills": "npm run validate:skills && npm run build",
     "test:current-static-slots": "node scripts/test-current-static-slots.mjs",
     "build:lexical": "python3 ../tools/lexical_build_final_learner_objects.py",
-    "test:content-fast-path": "python3 -m unittest discover -s ../tools -p test_lexical_incremental_projection.py && node scripts/test-current-static-impact.mjs && node scripts/test-current-build-recovery.mjs"
+    "test:content-fast-path": "python3 -m unittest discover -s ../tools -p test_lexical_incremental_projection.py && node scripts/test-current-static-impact.mjs && node scripts/test-current-build-recovery.mjs",
+    "build:astro": "astro build"
   },
   "dependencies": {
     "astro": "^5.0.0",
