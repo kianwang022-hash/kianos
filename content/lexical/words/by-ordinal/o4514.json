@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "a78dd5b55c19339daba80060511a3e2d3f1ddf6f0631658b1dc42c30ae1eac0b",
+    "content_hash": "e6c6dda9dee3aa8827687706aeb40fc48ecbc67aac58fe8dc99997ad04939169",
     "core_concept": {
       "core_clusters": [
         {
@@ -15,14 +15,13 @@
           "label_en": "to move goods or people secretly or illegally across or within a boundary; customs evasion is one subtype; engage in smuggling",
           "pos": "verb",
           "sense_ids": [
-            "sense:smuggle:1c88f9bd58825be2",
-            "sense:smuggle:dfef89d0da175134"
+            "sense:smuggle:1c88f9bd58825be2"
           ]
         }
       ],
-      "core_meaning_cn": "走私；秘密或非法地运送货物或人员越过或穿过某种边界；从事走私活动",
-      "core_meaning_en": "to move goods or people secretly or illegally across or within a boundary; customs evasion is one subtype; engage in smuggling",
-      "mental_model_cn": "走私；秘密或非法地运送货物或人员越过或穿过某种边界；从事走私活动",
+      "core_meaning_cn": "走私；秘密或非法运送货物或人员",
+      "core_meaning_en": "to move goods or people secretly or illegally across or within a boundary",
+      "mental_model_cn": "走私；秘密或非法运送货物或人员",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -52,12 +51,30 @@
             ],
             "meaning_cn": "把某物偷运进某地",
             "phrase": "smuggle sth into + place"
+          },
+          {
+            "collocation_id": "collocation:82a96ad158726e3ad086",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:smuggle:1c88f9bd58825be2:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "把某物秘密/非法偷运进某地",
+            "phrase": "smuggle sth in/into + place"
+          },
+          {
+            "collocation_id": "collocation:4411949afe06f0c62320",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:smuggle:1c88f9bd58825be2:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "把某物秘密/非法偷运出某地",
+            "phrase": "smuggle sth out/out of + place"
           }
         ],
         "confidence": "medium",
         "definition_cn": "走私；秘密或非法地运送货物或人员越过或穿过某种边界",
         "definition_en": "to move goods or people secretly or illegally across or within a boundary; customs evasion is one subtype",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "vt.: smuggle sb/sth across/into/out of + place",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
@@ -65,39 +82,6 @@
         "sense_label_en": "to move goods or people secretly or illegally across or within a boundary; customs evasion is one subtype",
         "sort_order": 0,
         "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:e9a5899bde58c833c7b6",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:smuggle:dfef89d0da175134:collocation:0"
-            ],
-            "meaning_cn": "偷运某物入境",
-            "phrase": "smuggle in + sth"
-          },
-          {
-            "collocation_id": "collocation:8d3ddc650322451fda15",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:smuggle:dfef89d0da175134:collocation:1"
-            ],
-            "meaning_cn": "偷运某物出境",
-            "phrase": "smuggle out + sth"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "从事走私活动",
-        "definition_en": "engage in smuggling",
-        "governing_pattern": "vi. + in/out",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:smuggle:dfef89d0da175134",
-        "sense_label_en": "engage in smuggling",
-        "sort_order": 1,
-        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -120,7 +104,31 @@
     "word_id": "word:smuggle"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:smuggle:dfef89d0da175134",
+      "status": "merged",
+      "merged_into_sense_id": "sense:smuggle:1c88f9bd58825be2",
+      "pos": "verb",
+      "definition_cn": "从事走私活动",
+      "definition_en": "engage in smuggling",
+      "semantic_key": "3446743ce5b5dcaf453d5c7a7ed6726cf7359ef45d5c03a88c315c2d5c0e57c0",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "smuggle:l2:2"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "smuggle:l2:2",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-08-13T21:08:34+00:00",
+      "source_row": 12774,
+      "source_path": "content/lexical/canonical/senses/shards/o4513-4544.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -132,17 +140,17 @@
       },
       {
         "sense_id": "sense:smuggle:dfef89d0da175134",
-        "status": "active",
-        "merged_into_sense_id": null,
+        "status": "merged",
+        "merged_into_sense_id": "sense:smuggle:1c88f9bd58825be2",
         "source_row": 12774,
         "source_path": "content/lexical/canonical/senses/shards/o4513-4544.json"
       }
     ],
     "active_collocations": [
       "collocation:22f6f46267f1b3c4bd52",
-      "collocation:8d3ddc650322451fda15",
-      "collocation:b760c22c1d0815276d16",
-      "collocation:e9a5899bde58c833c7b6"
+      "collocation:4411949afe06f0c62320",
+      "collocation:82a96ad158726e3ad086",
+      "collocation:b760c22c1d0815276d16"
     ],
     "facts": [],
     "collocations": [
@@ -164,6 +172,16 @@
       {
         "id": "collocation:e9a5899bde58c833c7b6",
         "source_row": 19794,
+        "source_path": "content/lexical/canonical/collocations/shards/o4513-4544.json"
+      },
+      {
+        "id": "collocation:4411949afe06f0c62320",
+        "source_row": 21504,
+        "source_path": "content/lexical/canonical/collocations/shards/o4513-4544.json"
+      },
+      {
+        "id": "collocation:82a96ad158726e3ad086",
+        "source_row": 21507,
         "source_path": "content/lexical/canonical/collocations/shards/o4513-4544.json"
       }
     ],
@@ -198,7 +216,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4513-4520.json",
-    "source_content_hash": "a78dd5b55c19339daba80060511a3e2d3f1ddf6f0631658b1dc42c30ae1eac0b",
+    "source_content_hash": "e6c6dda9dee3aa8827687706aeb40fc48ecbc67aac58fe8dc99997ad04939169",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

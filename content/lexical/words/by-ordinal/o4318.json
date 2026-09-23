@@ -7,7 +7,7 @@
     "card_version": "v3",
     "confusables": [],
     "constructions": [],
-    "content_hash": "d6dd8d90477f3d04cd1811678899d50ac7e56be16167a2e43598f81cb3302055",
+    "content_hash": "f643812c05a6ae39720afed399749f35d2cfb45a33247816ebaadbf1e302903c",
     "core_concept": {
       "core_clusters": [
         {
@@ -184,10 +184,21 @@
         "transitivity": "vt"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:bb9dce7b2e83a9e764fe",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:secure:92d3f561c0e0540b:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "把某物牢固固定在/用……固定",
+            "phrase": "secure sth to/with sth"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "固定；系牢；扣紧",
         "definition_en": "to fasten or attach something firmly so that it cannot move or come loose",
+        "governing_pattern": "secure sth to/with sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
@@ -203,7 +214,8 @@
             "source_operation_sha256": "18c720da4cf00a654761e33b23aa41b24f1c9e738b9297dc3017942c93ea4eb1",
             "verification_status": "auditor_verified"
           }
-        ]
+        ],
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -304,6 +316,7 @@
       "collocation:56ce7db7ed7e401616aa",
       "collocation:5ddd61156a64d7a18d5f",
       "collocation:88f04b6c7f2d021abef5",
+      "collocation:bb9dce7b2e83a9e764fe",
       "collocation:fc3cd574f9bf5e918756"
     ],
     "facts": [
@@ -348,6 +361,11 @@
         "id": "collocation:fc3cd574f9bf5e918756",
         "source_row": 21339,
         "source_path": "content/lexical/canonical/collocations/shards/o4289-4320.json"
+      },
+      {
+        "id": "collocation:bb9dce7b2e83a9e764fe",
+        "source_row": 21632,
+        "source_path": "content/lexical/canonical/collocations/shards/o4289-4320.json"
       }
     ],
     "exam-mappings": [],
@@ -391,7 +409,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4313-4320.json",
-    "source_content_hash": "d6dd8d90477f3d04cd1811678899d50ac7e56be16167a2e43598f81cb3302055",
+    "source_content_hash": "f643812c05a6ae39720afed399749f35d2cfb45a33247816ebaadbf1e302903c",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

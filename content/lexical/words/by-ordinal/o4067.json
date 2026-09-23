@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "3eb1dcc3444bc25cc2c978ca1bacc605d005b6af6ec75487cfaa81ca3ae3456d",
+    "content_hash": "737fe7d034e0632d71e4c0f68b6fc87fbb6ba0b98dd4c5da2704717614512026",
     "core_concept": {
       "core_clusters": [
         {
@@ -27,6 +27,14 @@
           "pos": "noun",
           "sense_ids": [
             "sense:remote:0082ee7ca37a5ef4"
+          ]
+        },
+        {
+          "label_cn": "远程的；通过网络/远距离进行的",
+          "label_en": "done or accessed from a distance using digital/telecommunications technology",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:remote:96473b0001f35963"
           ]
         }
       ],
@@ -152,6 +160,57 @@
         "sense_label_en": "a device for controlling something from a distance",
         "sort_order": 4,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:7d0627ad35606ab8a0aa",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:remote:96473b0001f35963:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "远程工作",
+            "phrase": "remote work/working"
+          },
+          {
+            "collocation_id": "collocation:4c1cb2f311292d4187c3",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:remote:96473b0001f35963:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "远程学习",
+            "phrase": "remote learning"
+          },
+          {
+            "collocation_id": "collocation:7f34116d003f675257e4",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:remote:96473b0001f35963:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "远程访问",
+            "phrase": "remote access"
+          },
+          {
+            "collocation_id": "collocation:185beb3b63a5dc9e029f",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:remote:96473b0001f35963:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "远程会议",
+            "phrase": "remote meeting"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "远程的；通过网络或远距离进行的",
+        "definition_en": "done, accessed, taught, worked, or controlled from a distance, especially using telecommunications or the internet",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:remote:96473b0001f35963",
+        "sense_label_en": "done, accessed, taught, worked, or controlled from a distance, especially using telecommunications or the internet",
+        "sort_order": 5,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -211,11 +270,22 @@
         "merged_into_sense_id": null,
         "source_row": 11362,
         "source_path": "content/lexical/canonical/senses/shards/o4065-4096.json"
+      },
+      {
+        "sense_id": "sense:remote:96473b0001f35963",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 11443,
+        "source_path": "content/lexical/canonical/senses/shards/o4065-4096.json"
       }
     ],
     "active_collocations": [
+      "collocation:185beb3b63a5dc9e029f",
       "collocation:266f03edb65660540b59",
+      "collocation:4c1cb2f311292d4187c3",
       "collocation:5a2195aebc8b25d02b0f",
+      "collocation:7d0627ad35606ab8a0aa",
+      "collocation:7f34116d003f675257e4",
       "collocation:8251209c0ea299b503fe",
       "collocation:daa78fc76379ae27e540"
     ],
@@ -239,6 +309,26 @@
       {
         "id": "collocation:daa78fc76379ae27e540",
         "source_row": 18501,
+        "source_path": "content/lexical/canonical/collocations/shards/o4065-4096.json"
+      },
+      {
+        "id": "collocation:185beb3b63a5dc9e029f",
+        "source_row": 21601,
+        "source_path": "content/lexical/canonical/collocations/shards/o4065-4096.json"
+      },
+      {
+        "id": "collocation:4c1cb2f311292d4187c3",
+        "source_row": 21603,
+        "source_path": "content/lexical/canonical/collocations/shards/o4065-4096.json"
+      },
+      {
+        "id": "collocation:7d0627ad35606ab8a0aa",
+        "source_row": 21604,
+        "source_path": "content/lexical/canonical/collocations/shards/o4065-4096.json"
+      },
+      {
+        "id": "collocation:7f34116d003f675257e4",
+        "source_row": 21605,
         "source_path": "content/lexical/canonical/collocations/shards/o4065-4096.json"
       }
     ],
@@ -283,7 +373,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4065-4072.json",
-    "source_content_hash": "3eb1dcc3444bc25cc2c978ca1bacc605d005b6af6ec75487cfaa81ca3ae3456d",
+    "source_content_hash": "737fe7d034e0632d71e4c0f68b6fc87fbb6ba0b98dd4c5da2704717614512026",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

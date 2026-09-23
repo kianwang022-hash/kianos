@@ -6,8 +6,18 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "d2b60ac9d3a028c662f2cbeaf63b7b8c2c83f92ab3450b36da80954171d24743",
+    "constructions": [
+      {
+        "boundary": "responsible for managing/doing X selects duty/control; responsible for an accident/damage selects causal/blame",
+        "construction_id": "construction:a5296962e7f7889f2036",
+        "definition_en": "context selects duty/control versus causal responsibility",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "负责某事/做某事；或对某结果负有因果责任",
+        "pattern": "be responsible for sth/doing sth"
+      }
+    ],
+    "content_hash": "a8fd327f5aff64050281e902ade7d2ba6fddddde7cd5ddaa99eeda7603886d4f",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "负责的；有责任的",
@@ -142,14 +152,7 @@
     "word_family": [],
     "word_id": "word:responsible"
   },
-  "relation_refs": [
-    {
-      "relation_id": "relation:horizontal:4fb7188b63e95616119d",
-      "owner_path": "content/lexical/relations/by-id/7e/7e49621941ca3403a8e8a9149d0a2d71d4b7454bca991b19909d8b223c5738cf.json",
-      "field": "semantic_neighbors",
-      "index": 0
-    }
-  ],
+  "relation_refs": [],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -262,8 +265,8 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4121-4128.json",
-    "source_content_hash": "d2b60ac9d3a028c662f2cbeaf63b7b8c2c83f92ab3450b36da80954171d24743",
-    "semantic_delta": 1,
+    "source_content_hash": "a8fd327f5aff64050281e902ade7d2ba6fddddde7cd5ddaa99eeda7603886d4f",
+    "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

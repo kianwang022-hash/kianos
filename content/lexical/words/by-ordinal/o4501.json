@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "7c22bab62b75e0b718b2a20f194ecb2453fbd39f56e6ab79de33d4e830f46ddb",
+    "content_hash": "c979f2228025d20653bbbc65eac34b5cf60b0809d2dc788a5af656e12d6af4a7",
     "core_concept": {
       "core_clusters": [
         {
@@ -80,15 +80,6 @@
       },
       {
         "collocations": [
-          {
-            "collocation_id": "collocation:6893a77e91849e1d7a4d",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:slot:61efabd555735a26:collocation:0"
-            ],
-            "meaning_cn": "时间段",
-            "phrase": "time slot"
-          },
           {
             "collocation_id": "collocation:ee6fdf0a4d6962d64163",
             "exam_value": "usage_example",
@@ -164,10 +155,21 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:6893a77e91849e1d7a4d",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:slot:61efabd555735a26:collocation:0"
+            ],
+            "meaning_cn": "时间段",
+            "phrase": "time slot"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "时间段；时段",
         "definition_en": "an assigned or available time in a schedule",
+        "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
@@ -191,7 +193,8 @@
             "source_operation_sha256": "1e7c2e61bf3c7258453899e45eb5eec750b30603724d64c8c80ecd8eb5608dc6",
             "verification_status": "auditor_verified"
           }
-        ]
+        ],
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -326,7 +329,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4497-4504.json",
-    "source_content_hash": "7c22bab62b75e0b718b2a20f194ecb2453fbd39f56e6ab79de33d4e830f46ddb",
+    "source_content_hash": "c979f2228025d20653bbbc65eac34b5cf60b0809d2dc788a5af656e12d6af4a7",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

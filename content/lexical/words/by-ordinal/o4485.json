@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "c03ccb5f5d978d3a7905f884ba485016403f7ed5bb4b4586657a429912c29472",
+    "content_hash": "18dfefbaa401dba4f6754f1d11c3e83c171777d4166f1c75a235de173897a2b3",
     "core_concept": {
       "core_clusters": [
         {
@@ -52,19 +52,37 @@
             ],
             "meaning_cn": "砰地关上门",
             "phrase": "slam the door"
+          },
+          {
+            "collocation_id": "collocation:7a4333ffb58446e37ea9",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:slam:4c7f3d0f1de05abe:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "门砰地关上",
+            "phrase": "the door slammed shut"
+          },
+          {
+            "collocation_id": "collocation:797d55cf4241b2aa45da",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:slam:4c7f3d0f1de05abe:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "猛撞到某物上",
+            "phrase": "slam into/against sth"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "砰地关上",
-        "definition_en": "to close violently",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "砰地关上；猛地移动/撞击并发出巨响",
+        "definition_en": "to close or move with great force and a loud noise; to strike or collide forcefully",
+        "governing_pattern": "I/T: slam the door; the door slammed shut; slam into/against sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:slam:4c7f3d0f1de05abe",
         "sense_label_en": "to close violently",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       },
       {
         "collocations": [
@@ -195,6 +213,8 @@
       "collocation:23dd91e429230dba2049",
       "collocation:33299b41e2ae7cba0c94",
       "collocation:5ffb0e949a356d87d487",
+      "collocation:797d55cf4241b2aa45da",
+      "collocation:7a4333ffb58446e37ea9",
       "collocation:8e49888c7459d1a1b643"
     ],
     "facts": [],
@@ -217,6 +237,16 @@
       {
         "id": "collocation:8e49888c7459d1a1b643",
         "source_row": 12067,
+        "source_path": "content/lexical/canonical/collocations/shards/o4481-4512.json"
+      },
+      {
+        "id": "collocation:797d55cf4241b2aa45da",
+        "source_row": 21576,
+        "source_path": "content/lexical/canonical/collocations/shards/o4481-4512.json"
+      },
+      {
+        "id": "collocation:7a4333ffb58446e37ea9",
+        "source_row": 21577,
         "source_path": "content/lexical/canonical/collocations/shards/o4481-4512.json"
       }
     ],
@@ -251,7 +281,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4481-4488.json",
-    "source_content_hash": "c03ccb5f5d978d3a7905f884ba485016403f7ed5bb4b4586657a429912c29472",
+    "source_content_hash": "18dfefbaa401dba4f6754f1d11c3e83c171777d4166f1c75a235de173897a2b3",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

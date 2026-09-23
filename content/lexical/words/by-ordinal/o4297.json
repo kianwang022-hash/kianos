@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "da1e8fd5164e75bc221a8880402d09828cbed7840f7f958cdc63653fdd817713",
+    "content_hash": "b0b1ff7487e60dfb3bac56e78d8b8c2d9da0ebeeb75a53e56ba3504cb89d50ef",
     "core_concept": {
       "core_clusters": [
         {
@@ -112,6 +112,39 @@
         "sense_label_en": "to fight or quarrel",
         "sort_order": 2,
         "transitivity": "vi"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:c98d8955674c604fd085",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:scrap:cb1e675a566bfd84:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "废金属",
+            "phrase": "scrap metal"
+          },
+          {
+            "collocation_id": "collocation:95336a075b81af502ac9",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:scrap:cb1e675a566bfd84:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "把某物当废料卖掉",
+            "phrase": "sell sth for scrap"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "废旧材料；废料（尤指可回收金属）",
+        "definition_en": "old or used material, especially metal, collected for reuse or recycling",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:scrap:cb1e675a566bfd84",
+        "sense_label_en": "old or used material, especially metal, collected for reuse or recycling",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -157,11 +190,20 @@
         "merged_into_sense_id": null,
         "source_row": 12056,
         "source_path": "content/lexical/canonical/senses/shards/o4289-4320.json"
+      },
+      {
+        "sense_id": "sense:scrap:cb1e675a566bfd84",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 12145,
+        "source_path": "content/lexical/canonical/senses/shards/o4289-4320.json"
       }
     ],
     "active_collocations": [
       "collocation:1e743d3c89bf99ba188b",
       "collocation:8476c6cc3d2d50c841bb",
+      "collocation:95336a075b81af502ac9",
+      "collocation:c98d8955674c604fd085",
       "collocation:c9f27309330c560bb25b"
     ],
     "facts": [],
@@ -179,6 +221,16 @@
       {
         "id": "collocation:c9f27309330c560bb25b",
         "source_row": 17062,
+        "source_path": "content/lexical/canonical/collocations/shards/o4289-4320.json"
+      },
+      {
+        "id": "collocation:95336a075b81af502ac9",
+        "source_row": 21630,
+        "source_path": "content/lexical/canonical/collocations/shards/o4289-4320.json"
+      },
+      {
+        "id": "collocation:c98d8955674c604fd085",
+        "source_row": 21633,
         "source_path": "content/lexical/canonical/collocations/shards/o4289-4320.json"
       }
     ],
@@ -213,7 +265,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4297-4304.json",
-    "source_content_hash": "da1e8fd5164e75bc221a8880402d09828cbed7840f7f958cdc63653fdd817713",
+    "source_content_hash": "b0b1ff7487e60dfb3bac56e78d8b8c2d9da0ebeeb75a53e56ba3504cb89d50ef",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

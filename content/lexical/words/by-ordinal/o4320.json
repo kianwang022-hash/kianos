@@ -111,9 +111,19 @@
         "level": "L1",
         "meaning_cn": "看看是否…；查明是否…",
         "pattern": "see if/whether + clause"
+      },
+      {
+        "boundary": "viewpoint expression",
+        "construction_id": "construction:aae174bc9926f9f7a2de",
+        "definition_en": "in my view; as I understand or regard the situation",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "依我看；在我看来",
+        "pattern": "as I see it",
+        "source_sense_id": "sense:see:301ce679766b508c"
       }
     ],
-    "content_hash": "f8727939ad7401718712ef46464c9fe8cc357e90be0bfc80c9295711c8615e8d",
+    "content_hash": "3dcb5bf57d8e415cfcca40a1d1d0eaf5b5615e8ad4633e6327c02e06fae9cf04",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "看见；理解；会见/看望；经历/见证",
@@ -157,6 +167,13 @@
         "definition_en": "to perceive with the eyes",
         "governing_pattern": "",
         "level": "L1",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "inflection_paradigm",
+          "note": "see (base/present) → saw (simple past) → seen (past participle); cutting-tool saw is a separate lexical identity",
+          "paired_form": "saw / seen",
+          "surface_lemma": "see"
+        },
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:see:b9a85402585450f8",
@@ -233,6 +250,39 @@
         "sense_label_en": "the seat or office of a bishop",
         "sort_order": 5,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:3053054d7e7cbb222294",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:see:301ce679766b508c:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "把某人/某事视为……",
+            "phrase": "see sb/sth as sth"
+          },
+          {
+            "collocation_id": "collocation:6cb39dfb70b694016c62",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:see:301ce679766b508c:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "把自己看作……",
+            "phrase": "see yourself as ..."
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "认为；看待；视为",
+        "definition_en": "to consider or regard someone or something in a particular way",
+        "governing_pattern": "vt.: see sb/sth as sth",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:see:301ce679766b508c",
+        "sense_label_en": "to consider or regard someone or something in a particular way",
+        "sort_order": 999,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -262,33 +312,7 @@
       "index": 0
     }
   ],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:see:301ce679766b508c",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "认为；看待",
-      "definition_en": "to consider or regard in a particular way",
-      "semantic_key": "b60a99a1a600ed03b625e7cfb992672ca07ba5171602f736b0ec6b3f663ea542",
-      "semantic_key_history": [
-        "f43903b5bd75d93e245bb5b514a630f6259970778a0d4f79424bc73083050df2"
-      ],
-      "legacy_aliases": [
-        "see:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "see:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 12136,
-      "source_path": "content/lexical/canonical/senses/shards/o4289-4320.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -300,7 +324,7 @@
       },
       {
         "sense_id": "sense:see:301ce679766b508c",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 12136,
         "source_path": "content/lexical/canonical/senses/shards/o4289-4320.json"
@@ -341,7 +365,10 @@
         "source_path": "content/lexical/canonical/senses/shards/o4289-4320.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:3053054d7e7cbb222294",
+      "collocation:6cb39dfb70b694016c62"
+    ],
     "facts": [
       {
         "id": "deep:confusables:see:ecb1e25ca7f38aa6",
@@ -404,6 +431,16 @@
         "id": "collocation:f839d30c07b576269262",
         "source_row": 21025,
         "source_path": "content/lexical/canonical/collocations/shards/o4289-4320.json"
+      },
+      {
+        "id": "collocation:3053054d7e7cbb222294",
+        "source_row": 21627,
+        "source_path": "content/lexical/canonical/collocations/shards/o4289-4320.json"
+      },
+      {
+        "id": "collocation:6cb39dfb70b694016c62",
+        "source_row": 21629,
+        "source_path": "content/lexical/canonical/collocations/shards/o4289-4320.json"
       }
     ],
     "exam-mappings": [],
@@ -432,7 +469,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4313-4320.json",
-    "source_content_hash": "f8727939ad7401718712ef46464c9fe8cc357e90be0bfc80c9295711c8615e8d",
+    "source_content_hash": "3dcb5bf57d8e415cfcca40a1d1d0eaf5b5615e8ad4633e6327c02e06fae9cf04",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -7,29 +7,31 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "6a2621ee19f3f68ddeefdb9b3264356816e5031c2a476b01a65fac2cca1258af",
+    "content_hash": "d54048f4509815677c189abfb3e8ddc8ded688a9d1ee5e4674ef5f238149228e",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "共和主义者；共和党人",
-          "label_en": "a person who supports a republican form of government, or a member of the Republican Party (US)",
-          "pos": "noun",
+          "label_cn": "共和主义者；共和国/共和政体的",
+          "label_en": "supporting or relating to republican government/a republic",
+          "pos": "noun/adjective",
           "sense_ids": [
-            "sense:republican:a5f9a74dc5c352ed"
+            "sense:republican:a5f9a74dc5c352ed",
+            "sense:republican:bf5b0a372033537b"
           ]
         },
         {
-          "label_cn": "共和国的；共和政体的；共和党的",
-          "label_en": "relating to or characteristic of a republic or the Republican Party",
-          "pos": "adjective",
+          "label_cn": "Republican：美国共和党人/共和党的",
+          "label_en": "Republican: a US Republican Party member/supporter or relating to that party",
+          "pos": "noun/adjective",
           "sense_ids": [
-            "sense:republican:bf5b0a372033537b"
+            "sense:republican:2a1be94b58575f0e",
+            "sense:republican:5fc93ff190f75bb7"
           ]
         }
       ],
-      "core_meaning_cn": "共和的；共和党人",
-      "core_meaning_en": "relating to or supporting a republic, or a member of a republican party",
-      "mental_model_cn": "共和的；共和党人",
+      "core_meaning_cn": "共和主义/共和国相关；Republican=美国共和党相关",
+      "core_meaning_en": "lowercase republican relates to republican government; capitalized Republican denotes US Republican Party identity",
+      "mental_model_cn": "共和主义/共和国相关；Republican=美国共和党相关",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -61,6 +63,13 @@
         "governing_pattern": "",
         "lemma": "republican",
         "level": "L1",
+        "lexical_identity_overlay": {
+          "case_sensitive": true,
+          "identity_type": "capitalization_political_identity_boundary",
+          "note": "lowercase republican = supporting/relating to republican government or a republic; capitalized Republican = US Republican Party identity",
+          "paired_form": "Republican",
+          "surface_lemma": "republican"
+        },
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:republican:a5f9a74dc5c352ed",
@@ -86,6 +95,13 @@
         "governing_pattern": "",
         "lemma": "republican",
         "level": "L1",
+        "lexical_identity_overlay": {
+          "case_sensitive": true,
+          "identity_type": "capitalization_political_identity_boundary",
+          "note": "lowercase republican = supporting/relating to republican government or a republic; capitalized Republican = US Republican Party identity",
+          "paired_form": "Republican",
+          "surface_lemma": "republican"
+        },
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:republican:bf5b0a372033537b",
@@ -102,6 +118,13 @@
         "governing_pattern": "",
         "lemma": "Republican",
         "level": "L1",
+        "lexical_identity_overlay": {
+          "case_sensitive": true,
+          "identity_type": "capitalization_political_identity_boundary",
+          "note": "capitalized Republican = member/supporter of, or relating to, the Republican Party in the United States; lowercase republican is the general government-form term",
+          "paired_form": "republican",
+          "surface_lemma": "Republican"
+        },
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:republican:2a1be94b58575f0e",
@@ -128,6 +151,13 @@
         "governing_pattern": "",
         "lemma": "Republican",
         "level": "L1",
+        "lexical_identity_overlay": {
+          "case_sensitive": true,
+          "identity_type": "capitalization_political_identity_boundary",
+          "note": "capitalized Republican = member/supporter of, or relating to, the Republican Party in the United States; lowercase republican is the general government-form term",
+          "paired_form": "republican",
+          "surface_lemma": "Republican"
+        },
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:republican:5fc93ff190f75bb7",
@@ -242,7 +272,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4089-4096.json",
-    "source_content_hash": "6a2621ee19f3f68ddeefdb9b3264356816e5031c2a476b01a65fac2cca1258af",
+    "source_content_hash": "d54048f4509815677c189abfb3e8ddc8ded688a9d1ee5e4674ef5f238149228e",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

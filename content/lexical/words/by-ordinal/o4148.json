@@ -7,12 +7,45 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "872c6c300717fc7bd511b149f0829e23eb3fbc222ed423e3d633c377c1a4be0f",
+    "content_hash": "3e36134488bc8c16e3b51e414f3586ea218e663507fb1f0e1910ed94671c3aca",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "复习、审查；评论或评审",
-      "core_meaning_en": "to examine/study again; a critical evaluation or review",
-      "mental_model_cn": "复习、审查；评论或评审",
+      "core_clusters": [
+        {
+          "label_cn": "复习；回顾",
+          "label_en": "to look over or study again",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:review:365d75f0a0ba5060"
+          ]
+        },
+        {
+          "label_cn": "审查；检查；评估",
+          "label_en": "to examine or assess systematically",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:review:6dfa890be5e4d5c1"
+          ]
+        },
+        {
+          "label_cn": "审查；评估；复盘",
+          "label_en": "a formal or careful examination/assessment",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:review:cee67748eca962d0"
+          ]
+        },
+        {
+          "label_cn": "评论文章；评审",
+          "label_en": "a critical evaluation, such as of a book or play",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:review:60f9ab7863fd5f18"
+          ]
+        }
+      ],
+      "core_meaning_cn": "复习/回顾；审查/评估；评论",
+      "core_meaning_en": "study/examine again; systematic assessment; a critical review",
+      "mental_model_cn": "复习/回顾；审查/评估；评论",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -49,6 +82,81 @@
         "sense_id": "sense:review:60f9ab7863fd5f18",
         "sense_label_en": "a critical evaluation, as of a book or play",
         "sort_order": 1,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:22bfb732d774dc5d387b",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:review:6dfa890be5e4d5c1:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "审查/评估政策、案件或表现",
+            "phrase": "review a policy/case/performance"
+          },
+          {
+            "collocation_id": "collocation:a02d3f5c8b24474e2afd",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:review:6dfa890be5e4d5c1:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "审查该系统",
+            "phrase": "review the system"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "审查；检查；评估；回顾",
+        "definition_en": "to examine or assess something systematically, often in order to decide whether changes are needed",
+        "governing_pattern": "vt. + object",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:review:6dfa890be5e4d5c1",
+        "sense_label_en": "to examine or assess something systematically, often in order to decide whether changes are needed",
+        "sort_order": 2,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:702c005d0b0866aaa2b7",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:review:cee67748eca962d0:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "进行审查/评估",
+            "phrase": "conduct a review"
+          },
+          {
+            "collocation_id": "collocation:59ea2f6d15d93d1a9a3c",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:review:cee67748eca962d0:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "对该政策的审查",
+            "phrase": "a review of the policy"
+          },
+          {
+            "collocation_id": "collocation:653a7f26fb611754cfce",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:review:cee67748eca962d0:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "正在审查中",
+            "phrase": "under review"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "审查；评估；复盘",
+        "definition_en": "a formal or careful examination or assessment of a situation, policy, performance, case, or system",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:review:cee67748eca962d0",
+        "sense_label_en": "a formal or careful examination or assessment of a situation, policy, performance, case, or system",
+        "sort_order": 3,
         "transitivity": "nonverb"
       }
     ],
@@ -217,9 +325,29 @@
         "merged_into_sense_id": null,
         "source_row": 11593,
         "source_path": "content/lexical/canonical/senses/shards/o4129-4160.json"
+      },
+      {
+        "sense_id": "sense:review:6dfa890be5e4d5c1",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 11633,
+        "source_path": "content/lexical/canonical/senses/shards/o4129-4160.json"
+      },
+      {
+        "sense_id": "sense:review:cee67748eca962d0",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 11634,
+        "source_path": "content/lexical/canonical/senses/shards/o4129-4160.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:22bfb732d774dc5d387b",
+      "collocation:59ea2f6d15d93d1a9a3c",
+      "collocation:653a7f26fb611754cfce",
+      "collocation:702c005d0b0866aaa2b7",
+      "collocation:a02d3f5c8b24474e2afd"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -266,6 +394,31 @@
         "id": "collocation:fdf69370104b99ba609e",
         "source_row": 21479,
         "source_path": "content/lexical/canonical/collocations/shards/o4129-4160.json"
+      },
+      {
+        "id": "collocation:22bfb732d774dc5d387b",
+        "source_row": 21588,
+        "source_path": "content/lexical/canonical/collocations/shards/o4129-4160.json"
+      },
+      {
+        "id": "collocation:59ea2f6d15d93d1a9a3c",
+        "source_row": 21590,
+        "source_path": "content/lexical/canonical/collocations/shards/o4129-4160.json"
+      },
+      {
+        "id": "collocation:653a7f26fb611754cfce",
+        "source_row": 21591,
+        "source_path": "content/lexical/canonical/collocations/shards/o4129-4160.json"
+      },
+      {
+        "id": "collocation:702c005d0b0866aaa2b7",
+        "source_row": 21592,
+        "source_path": "content/lexical/canonical/collocations/shards/o4129-4160.json"
+      },
+      {
+        "id": "collocation:a02d3f5c8b24474e2afd",
+        "source_row": 21593,
+        "source_path": "content/lexical/canonical/collocations/shards/o4129-4160.json"
       }
     ],
     "exam-mappings": [],
@@ -304,7 +457,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4145-4152.json",
-    "source_content_hash": "872c6c300717fc7bd511b149f0829e23eb3fbc222ed423e3d633c377c1a4be0f",
+    "source_content_hash": "3e36134488bc8c16e3b51e414f3586ea218e663507fb1f0e1910ed94671c3aca",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

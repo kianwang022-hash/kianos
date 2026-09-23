@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "394e3ae9f1b1061b01a22a7cea107514a3dd320c96708b5dd877e20122c229b6",
+    "content_hash": "fcbc32917b8092fc124b1895520976fa81faf1e9b0ae6536cb5513ebfee9e4de",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "第二；秒；次要的；支持/附议",
@@ -66,11 +66,30 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:b5de87dd6faee8ac384b",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:second:ff9d42a02dde5c79:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "附议动议/提案",
+            "phrase": "second a motion/proposal"
+          },
+          {
+            "collocation_id": "collocation:1b7dfdff271bceba5e46",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:second:ff9d42a02dde5c79:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "我赞同/支持这一点",
+            "phrase": "I'll second that"
+          }
+        ],
         "confidence": "medium",
-        "definition_cn": "支持；当助手",
-        "definition_en": "to support or assist someone, especially in a duel or debate",
-        "governing_pattern": "",
+        "definition_cn": "支持；附议；协助",
+        "definition_en": "to formally support a motion or proposal so it can be discussed or voted on; more generally to support or assist someone",
+        "governing_pattern": "vt.: second a motion/proposal; second sb; I’ll second that",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
@@ -132,7 +151,10 @@
         "source_path": "content/lexical/canonical/senses/shards/o4289-4320.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:1b7dfdff271bceba5e46",
+      "collocation:b5de87dd6faee8ac384b"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -153,6 +175,16 @@
       {
         "id": "collocation:b61979da8bad9a32a6ab",
         "source_row": 15437,
+        "source_path": "content/lexical/canonical/collocations/shards/o4289-4320.json"
+      },
+      {
+        "id": "collocation:1b7dfdff271bceba5e46",
+        "source_row": 21626,
+        "source_path": "content/lexical/canonical/collocations/shards/o4289-4320.json"
+      },
+      {
+        "id": "collocation:b5de87dd6faee8ac384b",
+        "source_row": 21631,
         "source_path": "content/lexical/canonical/collocations/shards/o4289-4320.json"
       }
     ],
@@ -192,7 +224,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4305-4312.json",
-    "source_content_hash": "394e3ae9f1b1061b01a22a7cea107514a3dd320c96708b5dd877e20122c229b6",
+    "source_content_hash": "fcbc32917b8092fc124b1895520976fa81faf1e9b0ae6536cb5513ebfee9e4de",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

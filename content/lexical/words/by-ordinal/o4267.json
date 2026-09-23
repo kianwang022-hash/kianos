@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "ea8fc89529c57f1b6a4c8aaee7ab28ca2da8122af0f59403396efd222e776f57",
+    "content_hash": "93d440546ab43455ebc824717fc6a98d1d09da56a6128091e7623d813520f0fe",
     "core_concept": {
       "core_clusters": [
         {
@@ -167,10 +167,39 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:7c119cdfad9b2a8a977d",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:say:82a0d956fa2a5d0d:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "标牌上写着……",
+            "phrase": "the sign says ..."
+          },
+          {
+            "collocation_id": "collocation:33df00e1aa222d36e137",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:say:82a0d956fa2a5d0d:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "这里写着/显示……",
+            "phrase": "it says here that ..."
+          },
+          {
+            "collocation_id": "collocation:ba720fef4438b92a62b8",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:say:82a0d956fa2a5d0d:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "报告指出……",
+            "phrase": "the report says that ..."
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "写着；显示；表明",
         "definition_en": "for writing, signs, data, or other information to state or indicate something",
+        "governing_pattern": "the sign/report/data says + clause; it says here that + clause",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
@@ -186,7 +215,8 @@
             "source_operation_sha256": "46217ea58a4cf4e206c399fb1f243047e6e05b23733d6fc7e9102b276d32d501",
             "verification_status": "semantic_auditor_verified"
           }
-        ]
+        ],
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -287,13 +317,16 @@
     ],
     "active_collocations": [
       "collocation:28f4cd98f59de1183d82",
+      "collocation:33df00e1aa222d36e137",
       "collocation:57dcbe7e88a4d5ac7254",
       "collocation:62173ad6c4f6118729f4",
       "collocation:6d7957df3e03b7d071c7",
       "collocation:726df11132b53a1f7641",
+      "collocation:7c119cdfad9b2a8a977d",
       "collocation:81d16b11b15d82384352",
       "collocation:880bb03255de9e123cd9",
-      "collocation:b2a0ba07f83749903095"
+      "collocation:b2a0ba07f83749903095",
+      "collocation:ba720fef4438b92a62b8"
     ],
     "facts": [
       {
@@ -347,6 +380,21 @@
         "id": "collocation:b2a0ba07f83749903095",
         "source_row": 15143,
         "source_path": "content/lexical/canonical/collocations/shards/o4257-4288.json"
+      },
+      {
+        "id": "collocation:33df00e1aa222d36e137",
+        "source_row": 21631,
+        "source_path": "content/lexical/canonical/collocations/shards/o4257-4288.json"
+      },
+      {
+        "id": "collocation:7c119cdfad9b2a8a977d",
+        "source_row": 21633,
+        "source_path": "content/lexical/canonical/collocations/shards/o4257-4288.json"
+      },
+      {
+        "id": "collocation:ba720fef4438b92a62b8",
+        "source_row": 21634,
+        "source_path": "content/lexical/canonical/collocations/shards/o4257-4288.json"
       }
     ],
     "exam-mappings": [],
@@ -375,8 +423,8 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4265-4272.json",
-    "source_content_hash": "ea8fc89529c57f1b6a4c8aaee7ab28ca2da8122af0f59403396efd222e776f57",
-    "semantic_delta": 1,
+    "source_content_hash": "93d440546ab43455ebc824717fc6a98d1d09da56a6128091e7623d813520f0fe",
+    "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

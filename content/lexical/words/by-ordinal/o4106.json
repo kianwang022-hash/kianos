@@ -7,12 +7,12 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "63aa4dfdb406cf8f5f130c6acbb2f68cd185b6a8dd7277f9a885ef64e8805ada",
+    "content_hash": "296f882985eabdd2b60a90e6dc3d5ff7b6b68ad8f876a06379dc4eac96a1e3f0",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "居住的地方；居住的行为或期间",
-      "core_meaning_en": "a place where one lives; the act or period of living somewhere",
-      "mental_model_cn": "居住的地方；居住的行为或期间",
+      "core_meaning_cn": "住所；居住/居留",
+      "core_meaning_en": "a place of residence; the state or period of living somewhere",
+      "mental_model_cn": "住所；居住/居留",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -52,6 +52,48 @@
         "sense_label_en": "the official house or establishment of an important person",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:14110b8c47443c7f5a5b",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:residence:a74978d6e26c2635:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "在某国/城市居住",
+            "phrase": "residence in a country/city"
+          },
+          {
+            "collocation_id": "collocation:31a8b63b21f87cb3fef9",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:residence:a74978d6e26c2635:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "居住期间",
+            "phrase": "period of residence"
+          },
+          {
+            "collocation_id": "collocation:639de2da6a5be3519dbd",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:residence:a74978d6e26c2635:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "永久居留",
+            "phrase": "permanent residence"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "居住；居留；居住期间",
+        "definition_en": "the state or period of living in a particular place or country",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:residence:a74978d6e26c2635",
+        "sense_label_en": "the state or period of living in a particular place or country",
+        "sort_order": 2,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -90,9 +132,20 @@
         "merged_into_sense_id": null,
         "source_row": 11464,
         "source_path": "content/lexical/canonical/senses/shards/o4097-4128.json"
+      },
+      {
+        "sense_id": "sense:residence:a74978d6e26c2635",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 11531,
+        "source_path": "content/lexical/canonical/senses/shards/o4097-4128.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:14110b8c47443c7f5a5b",
+      "collocation:31a8b63b21f87cb3fef9",
+      "collocation:639de2da6a5be3519dbd"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -108,6 +161,21 @@
       {
         "id": "collocation:d8978e4f80c7db55591c",
         "source_row": 18312,
+        "source_path": "content/lexical/canonical/collocations/shards/o4097-4128.json"
+      },
+      {
+        "id": "collocation:14110b8c47443c7f5a5b",
+        "source_row": 21571,
+        "source_path": "content/lexical/canonical/collocations/shards/o4097-4128.json"
+      },
+      {
+        "id": "collocation:31a8b63b21f87cb3fef9",
+        "source_row": 21572,
+        "source_path": "content/lexical/canonical/collocations/shards/o4097-4128.json"
+      },
+      {
+        "id": "collocation:639de2da6a5be3519dbd",
+        "source_row": 21573,
         "source_path": "content/lexical/canonical/collocations/shards/o4097-4128.json"
       }
     ],
@@ -147,7 +215,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4105-4112.json",
-    "source_content_hash": "2c5249baba62e237be52873d6035f3d6c85ffc0e29efe362652f16806e07bcba",
+    "source_content_hash": "296f882985eabdd2b60a90e6dc3d5ff7b6b68ad8f876a06379dc4eac96a1e3f0",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

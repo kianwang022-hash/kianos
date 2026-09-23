@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "7dba87ea7d227d22a48a693649b8b2802ec97bc493e45c82f88e039de4fdcc3c",
+    "content_hash": "ee5dcd31581909985b54909904236356f266a03dbd91d71ecd37e721df95e140",
     "core_concept": {
       "core_clusters": [
         {
@@ -32,6 +32,14 @@
           "pos": "adverb",
           "sense_ids": [
             "sense:since:661ac5b76e3c548b"
+          ]
+        },
+        {
+          "label_cn": "自从……以来（接从句）",
+          "label_en": "from the time when a past event happened until later/the present",
+          "pos": "conjunction",
+          "sense_ids": [
+            "sense:since:3487db1afdd88fdc"
           ]
         }
       ],
@@ -146,6 +154,30 @@
         "sense_label_en": "since then; from a reference time onward to a later point or the present",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:cf823584c4a55c668691",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:since:3487db1afdd88fdc:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "自从我们还是孩子时起我就认识她。",
+            "phrase": "I've known her since we were children."
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "自从……以来；从过去某事件发生时起一直到后来/现在",
+        "definition_en": "from the time when a past event happened until a later reference time or the present",
+        "governing_pattern": "conj. + clause",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "conjunction",
+        "sense_id": "sense:since:3487db1afdd88fdc",
+        "sense_label_en": "from the time when a past event happened until a later reference time or the present",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -191,6 +223,13 @@
         "merged_into_sense_id": null,
         "source_row": 12568,
         "source_path": "content/lexical/canonical/senses/shards/o4449-4480.json"
+      },
+      {
+        "sense_id": "sense:since:3487db1afdd88fdc",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 12653,
+        "source_path": "content/lexical/canonical/senses/shards/o4449-4480.json"
       }
     ],
     "active_collocations": [
@@ -199,7 +238,8 @@
       "collocation:70f7337b8bb37169a49c",
       "collocation:7bbd2ea2f503ae02a3fe",
       "collocation:9c4f459cc6cfc5be2be3",
-      "collocation:a30665618180903d3e72"
+      "collocation:a30665618180903d3e72",
+      "collocation:cf823584c4a55c668691"
     ],
     "facts": [],
     "collocations": [
@@ -232,6 +272,11 @@
         "id": "collocation:a30665618180903d3e72",
         "source_row": 13842,
         "source_path": "content/lexical/canonical/collocations/shards/o4449-4480.json"
+      },
+      {
+        "id": "collocation:cf823584c4a55c668691",
+        "source_row": 21205,
+        "source_path": "content/lexical/canonical/collocations/shards/o4449-4480.json"
       }
     ],
     "exam-mappings": [],
@@ -260,7 +305,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4449-4456.json",
-    "source_content_hash": "7dba87ea7d227d22a48a693649b8b2802ec97bc493e45c82f88e039de4fdcc3c",
+    "source_content_hash": "ee5dcd31581909985b54909904236356f266a03dbd91d71ecd37e721df95e140",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

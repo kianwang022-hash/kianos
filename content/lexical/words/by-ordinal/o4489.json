@@ -15,7 +15,7 @@
         "pattern": "sleep with sb / sleep together"
       }
     ],
-    "content_hash": "78f58f622c9ed7b864dccf5d4385ad355d1246540bb374698cffb26752e7f3cd",
+    "content_hash": "3c2d87867aba4a28ced64f67f4e5ea6cac010774c1fc8008ebf5494cb6c47d1d",
     "core_concept": {
       "core_clusters": [
         {
@@ -144,26 +144,27 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:f702fd265e9c587ced3c",
-            "exam_value": "usage_example",
+            "collocation_id": "collocation:252e9444d6689a998c78",
+            "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
-              "sense:sleep:feb3be15b9915220:collocation:0"
+              "sense:sleep:feb3be15b9915220:collocation:streaming-c-checkpoint-o2851-o3050"
             ],
-            "meaning_cn": "让孩子睡觉",
-            "phrase": "sleep a child"
+            "meaning_cn": "这间小屋/房间可住六人",
+            "phrase": "the cottage/room sleeps six"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "可供…睡觉；睡（某种状态）",
-        "definition_en": "to provide sleeping accommodation for",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "可供……人住宿/睡觉",
+        "definition_en": "to provide sleeping accommodation for a stated number of people",
+        "governing_pattern": "place/room/vehicle + sleeps + number",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:sleep:feb3be15b9915220",
         "sense_label_en": "to provide sleeping accommodation for",
         "sort_order": 4,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "This is accommodation capacity, not causative “make a child sleep”; use put/get a child to sleep for causing sleep"
       },
       {
         "collocations": [
@@ -250,12 +251,12 @@
       }
     ],
     "active_collocations": [
+      "collocation:252e9444d6689a998c78",
       "collocation:3fd9274d6e9aa632dd8a",
       "collocation:546b87f895a0f62882eb",
       "collocation:71d0be5b008d00a89368",
       "collocation:c1f1f779b3b3ca6108db",
       "collocation:ee6fad50de283e509164",
-      "collocation:f702fd265e9c587ced3c",
       "collocation:fc525c852f0232b3d465"
     ],
     "facts": [],
@@ -293,6 +294,11 @@
       {
         "id": "collocation:fc525c852f0232b3d465",
         "source_row": 21348,
+        "source_path": "content/lexical/canonical/collocations/shards/o4481-4512.json"
+      },
+      {
+        "id": "collocation:252e9444d6689a998c78",
+        "source_row": 21575,
         "source_path": "content/lexical/canonical/collocations/shards/o4481-4512.json"
       }
     ],
@@ -332,7 +338,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4489-4496.json",
-    "source_content_hash": "78f58f622c9ed7b864dccf5d4385ad355d1246540bb374698cffb26752e7f3cd",
+    "source_content_hash": "3c2d87867aba4a28ced64f67f4e5ea6cac010774c1fc8008ebf5494cb6c47d1d",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

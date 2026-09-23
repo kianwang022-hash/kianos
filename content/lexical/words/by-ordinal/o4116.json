@@ -9,20 +9,30 @@
     "constructions": [
       {
         "construction_id": "construction:1950609c290c999b36d0",
+        "definition_en": "to turn to something, often as a last option",
         "direction": "R+P",
         "level": "L1",
         "meaning_cn": "诉诸；求助于某事",
         "pattern": "resort to sth",
-        "definition_en": "to turn to something, often as a last option",
         "source_sense_id": "sense:resort:b7b95371e8575ee7"
+      },
+      {
+        "boundary": "noun last-resort construction; distinct from the verb resort to sth",
+        "construction_id": "construction:c85509dd7ba3072b1124",
+        "definition_en": "as a final course of action when other options have failed or are unavailable",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "作为最后手段；万不得已时",
+        "pattern": "as a last resort",
+        "source_sense_id": "sense:resort:4440ec16f5015ea4"
       }
     ],
-    "content_hash": "26faee01466d6323a4e5cac484a909bd3c7e482ec40e87ef92b08cbcaa6f5d90",
+    "content_hash": "d1f8451b3f0f5d546e6140b31a00556f2f5cfec12688200fde78feafddab6ef0",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "求助或休闲的场所或手段",
+      "core_meaning_cn": "度假胜地；诉诸；最后手段",
       "core_meaning_en": "a place or action used for help or relaxation",
-      "mental_model_cn": "求助或休闲的场所或手段",
+      "mental_model_cn": "度假胜地；诉诸；最后手段",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -101,6 +111,30 @@
         "sense_label_en": "to turn to something for help or as a last option",
         "sort_order": 1,
         "transitivity": "vi"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:cd66424edb7f7a3b4e33",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:resort:4440ec16f5015ea4:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "最后手段",
+            "phrase": "last resort"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "最后手段；不得已的办法",
+        "definition_en": "a course of action or means used when other options have failed or are unavailable",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:resort:4440ec16f5015ea4",
+        "sense_label_en": "a course of action or means used when other options have failed or are unavailable",
+        "sort_order": 999,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -124,31 +158,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:resort:4440ec16f5015ea4",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "凭借，手段",
-      "definition_en": "a person or thing that is used for help or support",
-      "semantic_key": "5e37ea7b4495c75a80ce9142e6ca1058c60abc8387e496b78fb2a278a3a4e441",
-      "semantic_key_history": [
-        "3507c64f047fe495c4c598b1568057a49fae1c4ec5712ce519a6a541199af3c4"
-      ],
-      "legacy_aliases": [
-        "resort:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "resort:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 11495,
-      "source_path": "content/lexical/canonical/senses/shards/o4097-4128.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:resort:dfdafd8172a155cf",
       "status": "deprecated",
@@ -186,7 +195,7 @@
       },
       {
         "sense_id": "sense:resort:4440ec16f5015ea4",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 11495,
         "source_path": "content/lexical/canonical/senses/shards/o4097-4128.json"
@@ -206,7 +215,9 @@
         "source_path": "content/lexical/canonical/senses/shards/o4097-4128.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:cd66424edb7f7a3b4e33"
+    ],
     "facts": [
       {
         "id": "deep:secondary_senses:resort:f22ac0b06b5afb97",
@@ -238,6 +249,11 @@
       {
         "id": "collocation:f3b13d7f348577e8d8dc",
         "source_row": 20638,
+        "source_path": "content/lexical/canonical/collocations/shards/o4097-4128.json"
+      },
+      {
+        "id": "collocation:cd66424edb7f7a3b4e33",
+        "source_row": 21574,
         "source_path": "content/lexical/canonical/collocations/shards/o4097-4128.json"
       }
     ],
@@ -282,7 +298,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4113-4120.json",
-    "source_content_hash": "e5ae8f55e543be637f79a7844957e7e070039a9c921c9d8c05cf05e7b4794114",
+    "source_content_hash": "d1f8451b3f0f5d546e6140b31a00556f2f5cfec12688200fde78feafddab6ef0",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
