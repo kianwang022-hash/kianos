@@ -7,16 +7,24 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "1f3427c0251c0ce540e8c85a9c3b604f26b07dda6beeddce27ba6d611d1108ac",
+    "content_hash": "ec00cd11c5965bbdb348e289b2f1717edecc3738ffe5b3353928207c7010497b",
     "contrast_note": "Keep the literal stone/fossilization branch distinct from the figurative terror/paralysis-with-fear branch.",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "使石化；（比喻）使吓呆、吓得动弹不得",
-          "label_en": "to turn into stone or stonelike material; figuratively to terrify someone so much that they feel unable to move or react",
+          "label_cn": "石化；变成石质；使石化",
+          "label_en": "to become stone or stonelike material, or to turn something into stone or stonelike material",
           "pos": "verb",
           "sense_ids": [
             "sense:petrify:01679985758959f9"
+          ]
+        },
+        {
+          "label_cn": "使吓呆；使惊恐得动弹不得",
+          "label_en": "to terrify someone so much that they feel unable to move or react",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:petrify:45e95aac9322d806"
           ]
         }
       ],
@@ -36,11 +44,12 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "使石化；（比喻）使吓呆、吓得动弹不得",
-        "definition_en": "to turn into stone or stonelike material; figuratively to terrify someone so much that they feel unable to move or react",
+        "definition_cn": "石化；变成石质；使石化",
+        "definition_en": "to become stone or stonelike material, or to turn something into stone or stonelike material",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
+        "governing_pattern": "I/T: sth petrifies; petrify sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
@@ -55,7 +64,22 @@
             "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
             "source_type": "learner_dictionary"
           }
-        ]
+        ],
+        "transitivity": "I/T"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "使吓呆；使惊恐得动弹不得",
+        "definition_en": "to terrify someone so much that they feel unable to move or react",
+        "governing_pattern": "vt.: petrify sb",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:petrify:45e95aac9322d806",
+        "sense_label_en": "to terrify someone so much that they feel unable to move or react",
+        "sort_order": 2,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -80,6 +104,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 18534,
+        "source_path": "content/lexical/canonical/senses/shards/o7265-7296.json"
+      },
+      {
+        "sense_id": "sense:petrify:45e95aac9322d806",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 18604,
         "source_path": "content/lexical/canonical/senses/shards/o7265-7296.json"
       }
     ],
@@ -107,7 +138,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7265-7272.json",
-    "source_content_hash": "1f3427c0251c0ce540e8c85a9c3b604f26b07dda6beeddce27ba6d611d1108ac",
+    "source_content_hash": "ec00cd11c5965bbdb348e289b2f1717edecc3738ffe5b3353928207c7010497b",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
