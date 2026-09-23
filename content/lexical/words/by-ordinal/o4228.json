@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "0e4c911edc5669dc0b8db855371b0d2979ec9203bfa459825accdd76cc073aa1",
+    "content_hash": "a9433e9412d9476ae49bebf2b394c8cc4233282aca67cc925c255ce2fc0ee6f4",
     "core_concept": {
       "core_clusters": [
         {
@@ -110,6 +110,54 @@
         "sense_label_en": "the act of giving up something valuable for a higher purpose",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:3829151ae4b11bca26db",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:sacrifice:a09c19320593a34a:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "献祭；献上祭品",
+            "phrase": "offer/make a sacrifice"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "献祭；祭品（尤指献给神祇的动物或其他供物）",
+        "definition_en": "an offering, especially an animal or other valuable thing, made to a deity in a religious rite",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:sacrifice:a09c19320593a34a",
+        "sense_label_en": "an offering, especially an animal or other valuable thing, made to a deity in a religious rite",
+        "sort_order": 2,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:f18b95e681d21d2d8500",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:sacrifice:2d323ab6f7d14d53:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "献祭动物",
+            "phrase": "sacrifice an animal"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "献祭；把动物或其他供物献给神祇",
+        "definition_en": "to offer or kill an animal or other offering as a religious sacrifice",
+        "governing_pattern": "vt. + object",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:sacrifice:2d323ab6f7d14d53",
+        "sense_label_en": "to offer or kill an animal or other offering as a religious sacrifice",
+        "sort_order": 3,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -148,12 +196,28 @@
         "merged_into_sense_id": null,
         "source_row": 11871,
         "source_path": "content/lexical/canonical/senses/shards/o4225-4256.json"
+      },
+      {
+        "sense_id": "sense:sacrifice:2d323ab6f7d14d53",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 11938,
+        "source_path": "content/lexical/canonical/senses/shards/o4225-4256.json"
+      },
+      {
+        "sense_id": "sense:sacrifice:a09c19320593a34a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 11939,
+        "source_path": "content/lexical/canonical/senses/shards/o4225-4256.json"
       }
     ],
     "active_collocations": [
+      "collocation:3829151ae4b11bca26db",
       "collocation:91a4c07337dcc9257c12",
       "collocation:c1111f55b04609924ca8",
       "collocation:d67b1504774dd023b500",
+      "collocation:f18b95e681d21d2d8500",
       "collocation:fe2dc73f1d6d31e8a681"
     ],
     "facts": [
@@ -188,6 +252,16 @@
         "id": "collocation:fe2dc73f1d6d31e8a681",
         "source_row": 21493,
         "source_path": "content/lexical/canonical/collocations/shards/o4225-4256.json"
+      },
+      {
+        "id": "collocation:3829151ae4b11bca26db",
+        "source_row": 21614,
+        "source_path": "content/lexical/canonical/collocations/shards/o4225-4256.json"
+      },
+      {
+        "id": "collocation:f18b95e681d21d2d8500",
+        "source_row": 21616,
+        "source_path": "content/lexical/canonical/collocations/shards/o4225-4256.json"
       }
     ],
     "exam-mappings": [],
@@ -221,8 +295,8 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4225-4232.json",
-    "source_content_hash": "0e4c911edc5669dc0b8db855371b0d2979ec9203bfa459825accdd76cc073aa1",
-    "semantic_delta": 1,
+    "source_content_hash": "a9433e9412d9476ae49bebf2b394c8cc4233282aca67cc925c255ce2fc0ee6f4",
+    "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }
