@@ -12,6 +12,12 @@ The managed macOS Current mirror, private checkpoint path, Daily Learning Packet
 
 Content production remains independent: vocabulary, Xizong explanations/relations/visual assets, English sources, Politics sources, and Skills continue only through their exact content owners.
 
+## Approved next surface integration — requirements only
+
+Kian approved a Mac-landscape Home / Steward / Radar / global Dock upgrade on 2026-09-24. UI discussion is next; no new surface or command is claimed shipped. [Surface split](https://github.com/kianwang022-hash/kian-personal-os/blob/main/HOME_PROJECTION.md), [execution contract](https://github.com/kianwang022-hash/kian-personal-os/blob/main/exam/STEWARD_CONSOLE_CONTRACT.md), and [Radar / mail semantics](https://github.com/kianwang022-hash/kian-personal-os/blob/main/exam/roles/INTAKE.md) are the exact product owners. Reuse native learning, Timer, Resume, private control/checkpoint and Packet interfaces; do not create parallel state owners.
+
+This is an explicit bounded new need, not a reopening of unrelated subject production or all UI. Preserve existing valid routes/data until tested replacement. Full Steward plan/reality and Radar delivery require registered validators/consumers and isolated plus browser acceptance; a Markdown change is not implementation. Do not send proposed operation names to existing production validators.
+
 ## Route from the reported symptom
 
 | Need | Exact first owner | Read further only if needed |

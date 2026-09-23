@@ -1,13 +1,15 @@
 # Exam Total Home Direct Workspace — CURRENT
 
-Status: **MERGED / CURRENT**  
-Updated: 2026-09-20 (Asia/Shanghai)
+Status: EXISTING DIRECT-ROUTE IMPLEMENTATION + APPROVED NEXT PRODUCT SCOPE
+Updated: 2026-09-24
 
 ## Current-first rule
 
-New Chat must start from this file + current PR #559 head/status.
+For current implementation read `static-web/CURRENT.md` and exact native code. PR #559 below is historical provenance, not a required fresh-entry lookup or a live worker cursor.
 
-Do **not** inherit old Chat oral state when GitHub differs.
+The explicit 2026-09-24 Home/Steward/Radar upgrade supersedes older restrictions against considering a Home layout change. Follow [the current surface owner](https://github.com/kianwang022-hash/kian-personal-os/blob/main/HOME_PROJECTION.md) and [execution contract](https://github.com/kianwang022-hash/kian-personal-os/blob/main/exam/STEWARD_CONSOLE_CONTRACT.md); this does not authorize a new learner ledger or repurposing native Resume semantics. UI is awaiting discussion and no new runtime has been accepted.
+
+The remaining dated sections record the existing integration and its historical proof. They do not certify today's runtime health, reopen old failing tests or constrain the new product back to the old screenshot. Current machine payload rules remain authoritative until explicitly migrated.
 
 ## Product contract fixed by Kian
 

@@ -177,6 +177,16 @@ The machine owners are [plan validation](static-web/src/lib/examChatPlan.mjs) an
 
 This packet is private learner/control state. It must not be committed to public canonical Content.
 
+### Approved integrated surface extension — not current wire capability
+
+The 2026-09-24 product direction separates strategic Home, detailed Steward (Today/Week/Month/Review plus life execution), filtered Radar and shared quick-capture Dock. Exact requirements stay in [Personal surface projection](https://github.com/kianwang022-hash/kian-personal-os/blob/main/HOME_PROJECTION.md) and [execution contract](https://github.com/kianwang022-hash/kian-personal-os/blob/main/exam/STEWARD_CONSOLE_CONTRACT.md); [INTAKE](https://github.com/kianwang022-hash/kian-personal-os/blob/main/exam/roles/INTAKE.md) owns mail/Radar filtering and obligation closure.
+
+The `presentation` shape and UI-only checklist boundaries above remain the CURRENT machine contract. Week/month Steward data, life actuals, exact per-block native task links and proposed Steward/Radar command kinds require an explicit versioned adapter/validator/consumer/checkpoint extension; they cannot be smuggled into old fields or treated as implemented. Keep future reference plans distinct from today's basis-bound executable plan.
+
+Internal Steward time placement is not a Calendar write and is not restricted to categories authorized for Calendar mirroring. Calendar native commitments retain their source and action permissions. Schedule occupancy is not a net study target; recorded timer time is not mastery. Preserve whole-day `target_minutes` accounting and exact native learner basis.
+
+A same resolved day's coupled exam/execution projections must apply consistently, with immutable command ID/hash, latest-base reconciliation and verified applied effect. Radar and native mail/Calendar actions are independently acknowledged, never fabricated as part of a universal transaction. Runtime reality is private and semantically separate from subject evidence; public content/builds must never contain personal payloads. UI geometry remains pending Kian discussion.
+
 ### Legacy scheduling text below
 
 The phase/capacity/score-gap/recoverability rules below remain valuable **planning priors for Chat** and historical rationale.
