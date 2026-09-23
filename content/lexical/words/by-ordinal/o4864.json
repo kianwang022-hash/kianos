@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "2fb6897d26fc5ced722ce58a3211ea06dbe2118b2c4bd1a54e4ccce857010545",
+    "content_hash": "dc656638195220a9dc40f18f618c584c628ae091ce4513286a9c13cc65f8be8e",
     "core_concept": {
       "core_clusters": [
         {
@@ -23,8 +23,7 @@
           "label_en": "to change from one thing to another; to change from one state or activity to another",
           "pos": "verb",
           "sense_ids": [
-            "sense:switch:09618a95fa3c5b45",
-            "sense:switch:7805fa495bbb5bbd"
+            "sense:switch:09618a95fa3c5b45"
           ]
         }
       ],
@@ -77,30 +76,16 @@
       {
         "collocations": [],
         "confidence": "medium",
-        "definition_cn": "转变；切换",
-        "definition_en": "to change from one thing to another",
-        "governing_pattern": "",
+        "definition_cn": "转变；切换；转换",
+        "definition_en": "to change from one thing, state, activity, job, channel, or system to another, or to change an object/choice in this way",
+        "governing_pattern": "I/T: switch to/from sth; switch jobs/channels; switch sth from A to B; switch A and B",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:switch:09618a95fa3c5b45",
         "sense_label_en": "to change from one thing to another",
         "sort_order": 999,
-        "transitivity": "vt"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "转换；变换",
-        "definition_en": "to change from one state or activity to another",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:switch:7805fa495bbb5bbd",
-        "sense_label_en": "to change from one state or activity to another",
-        "sort_order": 999,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       }
     ],
     "verification_summary": {
@@ -150,6 +135,31 @@
       "reference_only": true
     },
     {
+      "stable_sense_id": "sense:switch:7805fa495bbb5bbd",
+      "status": "merged",
+      "merged_into_sense_id": "sense:switch:09618a95fa3c5b45",
+      "pos": "verb",
+      "definition_cn": "转换；变换",
+      "definition_en": "to change from one state or activity to another",
+      "semantic_key": "e2a85ae98a933834329f1a693e453ab5a003ad363b6dbf336bca659d1206ea68",
+      "semantic_key_history": [
+        "158a51f6f306a2ef08442c17ad470a035cc01fdd025bc3ef3de33ce18396a01b"
+      ],
+      "legacy_aliases": [
+        "switch:l2:3"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "switch:l2:3",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 13834,
+      "source_path": "content/lexical/canonical/senses/shards/o4833-4864.json",
+      "reference_only": true
+    },
+    {
       "stable_sense_id": "sense:switch:98c4221b3af85428",
       "status": "merged",
       "merged_into_sense_id": "sense:switch:c60efabd57955168",
@@ -193,8 +203,8 @@
       },
       {
         "sense_id": "sense:switch:7805fa495bbb5bbd",
-        "status": "active",
-        "merged_into_sense_id": null,
+        "status": "merged",
+        "merged_into_sense_id": "sense:switch:09618a95fa3c5b45",
         "source_row": 13834,
         "source_path": "content/lexical/canonical/senses/shards/o4833-4864.json"
       },
@@ -286,7 +296,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4857-4864.json",
-    "source_content_hash": "2fb6897d26fc5ced722ce58a3211ea06dbe2118b2c4bd1a54e4ccce857010545",
+    "source_content_hash": "dc656638195220a9dc40f18f618c584c628ae091ce4513286a9c13cc65f8be8e",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

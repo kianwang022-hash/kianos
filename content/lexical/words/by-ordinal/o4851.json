@@ -8,14 +8,17 @@
     "confusables": [],
     "constructions": [
       {
+        "boundary": "figurative overload branch, not literal flooding",
         "construction_id": "construction:39dec4bfc4e419bf9a27",
+        "definition_en": "to be overwhelmed by more work, demand, information, or other things than can be handled easily",
         "direction": "R+P",
         "level": "L2",
         "meaning_cn": "被大量…压得应接不暇；被…淹没",
-        "pattern": "be swamped with/by sth"
+        "pattern": "be swamped with/by sth",
+        "source_sense_id": "sense:swamp:639caf8cdca05d94"
       }
     ],
-    "content_hash": "02871d01028cbef5cb53f831de0653fa356de47b9a9fdc7f3934ec35539f82dd",
+    "content_hash": "c206f0c857b57c459d39248486f56c68cc20ea17f43f0cbbb60b88c0196ffb0f",
     "core_concept": {
       "core_clusters": [
         {
@@ -86,15 +89,6 @@
             ],
             "meaning_cn": "淹没某物",
             "phrase": "swamp + sth"
-          },
-          {
-            "collocation_id": "collocation:e0dec3d7fc0390e0bfd1",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:swamp:aa002ae2d3c855b9:collocation:1"
-            ],
-            "meaning_cn": "被某物淹没（如工作、请求）",
-            "phrase": "be swamped with + sth"
           }
         ],
         "confidence": "medium",
@@ -110,17 +104,7 @@
         "transitivity": "vt"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:b74787c77617935a586e",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:swamp:db322f2380e35854:collocation:0"
-            ],
-            "meaning_cn": "被工作淹没",
-            "phrase": "be swamped with work"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "困境，进退两难的局面",
         "definition_en": "a situation fraught with difficulties and imponderables",
@@ -134,10 +118,21 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:6e824099db762879cd18",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:swamp:639caf8cdca05d94:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "被工作/请求压得应接不暇",
+            "phrase": "be swamped with work/requests"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "使不堪重负；使应接不暇；大量涌入",
         "definition_en": "to overwhelm a person, system, or place with more work, demand, information, or other things than can be dealt with easily",
+        "governing_pattern": "vt.: swamp sb/system/place with/by sth; be swamped with/by sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
@@ -162,7 +157,8 @@
             "source_operation_sha256": "f58a150ae3888bea650721fda5e19682366e75f60ef189560e3403f9f6126031",
             "verification_status": "auditor_verified"
           }
-        ]
+        ],
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -219,9 +215,8 @@
     ],
     "active_collocations": [
       "collocation:3576d83783c7f027c9cb",
-      "collocation:8d936d53eea3810e208b",
-      "collocation:b74787c77617935a586e",
-      "collocation:e0dec3d7fc0390e0bfd1"
+      "collocation:6e824099db762879cd18",
+      "collocation:8d936d53eea3810e208b"
     ],
     "facts": [],
     "collocations": [
@@ -243,6 +238,11 @@
       {
         "id": "collocation:e0dec3d7fc0390e0bfd1",
         "source_row": 19017,
+        "source_path": "content/lexical/canonical/collocations/shards/o4833-4864.json"
+      },
+      {
+        "id": "collocation:6e824099db762879cd18",
+        "source_row": 21588,
         "source_path": "content/lexical/canonical/collocations/shards/o4833-4864.json"
       }
     ],
@@ -282,7 +282,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4849-4856.json",
-    "source_content_hash": "02871d01028cbef5cb53f831de0653fa356de47b9a9fdc7f3934ec35539f82dd",
+    "source_content_hash": "c206f0c857b57c459d39248486f56c68cc20ea17f43f0cbbb60b88c0196ffb0f",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

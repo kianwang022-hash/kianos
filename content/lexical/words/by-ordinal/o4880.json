@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "ced602cfd0c20661a4363ce0a0c190e9b8b701ff3865d072f05df97e5080e1a8",
+    "content_hash": "90275fcf61075ae07c5a22ae8dbdd7a49c98bd0f5b632fab34c0f75ece6e6bfd",
     "core_concept": {
       "core_clusters": [
         {
@@ -16,6 +16,14 @@
           "pos": "noun",
           "sense_ids": [
             "sense:taboo:8fa4ad6e2d3b5e2d"
+          ]
+        },
+        {
+          "label_cn": "禁忌的；忌讳的",
+          "label_en": "prohibited or strongly avoided by social, religious, or customary convention",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:taboo:fa5510a53c4b5c63"
           ]
         }
       ],
@@ -43,6 +51,30 @@
         "pos": "noun",
         "sense_id": "sense:taboo:8fa4ad6e2d3b5e2d",
         "sense_label_en": "a social, religious, or customary prohibition or strong convention against doing or discussing something",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:a0422d9f48320da613da",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:taboo:fa5510a53c4b5c63:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "禁忌话题/做法",
+            "phrase": "taboo subject/topic/practice"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "禁忌的；忌讳的；被社会、宗教或习俗强烈禁止/回避的",
+        "definition_en": "prohibited or strongly avoided by social, religious, or customary convention",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:taboo:fa5510a53c4b5c63",
+        "sense_label_en": "prohibited or strongly avoided by social, religious, or customary convention",
         "sort_order": 999,
         "transitivity": "nonverb"
       }
@@ -92,31 +124,6 @@
       "source_row": 13867,
       "source_path": "content/lexical/canonical/senses/shards/o4865-4896.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:taboo:fa5510a53c4b5c63",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "adjective",
-      "definition_cn": "禁忌的；忌讳的",
-      "definition_en": "forbidden to profane use especially in South Pacific islands",
-      "semantic_key": "546804c420b54035ebd622a3d769dc6b6e14e100c1c6ca3d84ebac753b1a2732",
-      "semantic_key_history": [
-        "f2babc0f03158d65ab894d63dc7f3f2cf1e4a09569a1c18c42013f77c590ab1f"
-      ],
-      "legacy_aliases": [
-        "taboo:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "taboo:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 13869,
-      "source_path": "content/lexical/canonical/senses/shards/o4865-4896.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -137,13 +144,15 @@
       },
       {
         "sense_id": "sense:taboo:fa5510a53c4b5c63",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 13869,
         "source_path": "content/lexical/canonical/senses/shards/o4865-4896.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:a0422d9f48320da613da"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -159,6 +168,11 @@
       {
         "id": "collocation:ad524c89d4ac5a430fd7",
         "source_row": 14682,
+        "source_path": "content/lexical/canonical/collocations/shards/o4865-4896.json"
+      },
+      {
+        "id": "collocation:a0422d9f48320da613da",
+        "source_row": 21545,
         "source_path": "content/lexical/canonical/collocations/shards/o4865-4896.json"
       }
     ],
@@ -188,7 +202,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4873-4880.json",
-    "source_content_hash": "ced602cfd0c20661a4363ce0a0c190e9b8b701ff3865d072f05df97e5080e1a8",
+    "source_content_hash": "90275fcf61075ae07c5a22ae8dbdd7a49c98bd0f5b632fab34c0f75ece6e6bfd",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

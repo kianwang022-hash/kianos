@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "98c9923c89759f333097de4ffe690d5efa9293e07af3d413618f5f911e56c0c9",
+    "content_hash": "ed407674516cda86361a0324ba4b6f9f5e33c9e5d3bff544a4492307490b9286",
     "core_concept": {
       "core_clusters": [
         {
@@ -44,13 +44,22 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:63eeee32cfc9d7b21039",
-            "exam_value": "usage_example",
+            "collocation_id": "collocation:4e2bcce5066450d00647",
+            "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
-              "sense:telegraph:8793736e86df5347:collocation:0"
+              "sense:telegraph:8793736e86df5347:collocation:streaming-c-checkpoint-o2851-o3050"
             ],
-            "meaning_cn": "发电报",
-            "phrase": "send a telegraph"
+            "meaning_cn": "使用电报系统/电报机",
+            "phrase": "use the telegraph"
+          },
+          {
+            "collocation_id": "collocation:c38a7caed00a6a14eedf",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:telegraph:8793736e86df5347:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "通过电报发送消息",
+            "phrase": "send a message by telegraph"
           }
         ],
         "confidence": "medium",
@@ -176,10 +185,11 @@
       }
     ],
     "active_collocations": [
-      "collocation:63eeee32cfc9d7b21039",
+      "collocation:4e2bcce5066450d00647",
       "collocation:710231d50d41399db5f3",
       "collocation:877a3b5ffaab793edd90",
-      "collocation:c0dd0463943da20f670b"
+      "collocation:c0dd0463943da20f670b",
+      "collocation:c38a7caed00a6a14eedf"
     ],
     "facts": [],
     "collocations": [
@@ -201,6 +211,16 @@
       {
         "id": "collocation:c0dd0463943da20f670b",
         "source_row": 16299,
+        "source_path": "content/lexical/canonical/collocations/shards/o4897-4928.json"
+      },
+      {
+        "id": "collocation:4e2bcce5066450d00647",
+        "source_row": 21493,
+        "source_path": "content/lexical/canonical/collocations/shards/o4897-4928.json"
+      },
+      {
+        "id": "collocation:c38a7caed00a6a14eedf",
+        "source_row": 21496,
         "source_path": "content/lexical/canonical/collocations/shards/o4897-4928.json"
       }
     ],
@@ -235,7 +255,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4913-4920.json",
-    "source_content_hash": "98c9923c89759f333097de4ffe690d5efa9293e07af3d413618f5f911e56c0c9",
+    "source_content_hash": "ed407674516cda86361a0324ba4b6f9f5e33c9e5d3bff544a4492307490b9286",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

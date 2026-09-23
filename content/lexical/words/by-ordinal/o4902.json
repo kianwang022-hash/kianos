@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "962cffad16c355431b2893c1207d6fe237d3351859024db61721a61d958fcf49",
+    "content_hash": "c1ea3c29d60774e021b5e8ae55d566c8d281b71a36db6f7f30bc3d96262e23e4",
     "core_concept": {
       "core_clusters": [
         {
@@ -29,6 +29,14 @@
             "sense:taste:8f938f3aafe05d46",
             "sense:taste:06e3ccc43de05937"
           ]
+        },
+        {
+          "label_cn": "爱好；喜好；兴趣",
+          "label_en": "a liking, preference, or interest",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:taste:c9f176400a7758f9"
+          ]
         }
       ],
       "core_meaning_cn": "味道；品味",
@@ -49,15 +57,6 @@
     "senses": [
       {
         "collocations": [
-          {
-            "collocation_id": "collocation:99d3cb1415e5fca270d7",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:taste:b5788c059d415517:collocation:0"
-            ],
-            "meaning_cn": "对某物有爱好",
-            "phrase": "have a taste for sth"
-          },
           {
             "collocation_id": "collocation:01f866a0d5a9a2247cf0",
             "exam_value": "usage_example",
@@ -217,6 +216,39 @@
         "sense_label_en": "to have a particular flavor",
         "sort_order": 5,
         "transitivity": "vi"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:9e548d409191bfbfae15",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:taste:c9f176400a7758f9:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "爱好/喜欢某事物",
+            "phrase": "have a taste for sth"
+          },
+          {
+            "collocation_id": "collocation:8ca2549d05fe3950957d",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:taste:c9f176400a7758f9:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "逐渐喜欢爵士乐/辛辣食物/奢华事物",
+            "phrase": "develop a taste for jazz/spicy food/luxury"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "爱好；喜好；兴趣",
+        "definition_en": "a liking, preference, or developed interest in something",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:taste:c9f176400a7758f9",
+        "sense_label_en": "a liking, preference, or developed interest in something",
+        "sort_order": 6,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -283,6 +315,13 @@
         "merged_into_sense_id": null,
         "source_row": 13952,
         "source_path": "content/lexical/canonical/senses/shards/o4897-4928.json"
+      },
+      {
+        "sense_id": "sense:taste:c9f176400a7758f9",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14027,
+        "source_path": "content/lexical/canonical/senses/shards/o4897-4928.json"
       }
     ],
     "active_collocations": [
@@ -291,7 +330,8 @@
       "collocation:3a784ff4663d72ddb28d",
       "collocation:4f964a0fd8b754b9dd4f",
       "collocation:5a555d97d16d1a4fdaf0",
-      "collocation:99d3cb1415e5fca270d7",
+      "collocation:8ca2549d05fe3950957d",
+      "collocation:9e548d409191bfbfae15",
       "collocation:c311a15e4a2bcee5d553",
       "collocation:c8657207c63c26277af7",
       "collocation:f6aaea7160a960007ddc"
@@ -348,6 +388,16 @@
         "id": "collocation:f6aaea7160a960007ddc",
         "source_row": 20899,
         "source_path": "content/lexical/canonical/collocations/shards/o4897-4928.json"
+      },
+      {
+        "id": "collocation:8ca2549d05fe3950957d",
+        "source_row": 21494,
+        "source_path": "content/lexical/canonical/collocations/shards/o4897-4928.json"
+      },
+      {
+        "id": "collocation:9e548d409191bfbfae15",
+        "source_row": 21495,
+        "source_path": "content/lexical/canonical/collocations/shards/o4897-4928.json"
       }
     ],
     "exam-mappings": [],
@@ -391,8 +441,8 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4897-4904.json",
-    "source_content_hash": "962cffad16c355431b2893c1207d6fe237d3351859024db61721a61d958fcf49",
-    "semantic_delta": 1,
+    "source_content_hash": "c1ea3c29d60774e021b5e8ae55d566c8d281b71a36db6f7f30bc3d96262e23e4",
+    "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }
