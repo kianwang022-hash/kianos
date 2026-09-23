@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "66629aa504f50d52e382601fdc8ef15ebb5b014890e5f9e661877c4bfa5126f3",
+    "content_hash": "54df787fb36f267b3ec13b58649cb23aa9c1cc0c82a304d8953dcb0cf431daa5",
     "core_concept": {
       "core_clusters": [
         {
@@ -26,6 +26,22 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "C semantic reconciliation o6951-o7050",
+      "boundaries": [
+        {
+          "condition": "proper historical name",
+          "note": "capitalized for the Nazi genocide of European Jews and persecution/murder of millions of other victims during WWII",
+          "surface": "the Holocaust"
+        },
+        {
+          "condition": "generic common noun",
+          "note": "lowercase for generic large-scale destruction/slaughter",
+          "surface": "holocaust"
+        }
+      ],
+      "type": "capitalization_sense_boundary"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -42,6 +58,13 @@
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
         "level": "L2",
+        "lexical_identity_overlay": {
+          "case_sensitive": true,
+          "identity_type": "common_vs_proper_boundary",
+          "note": "lowercase generic destruction/slaughter use",
+          "paired_form": "the Holocaust",
+          "surface_lemma": "holocaust"
+        },
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:holocaust:7b8ae7d0933f56f7",
@@ -67,6 +90,13 @@
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
         "level": "L1",
+        "lexical_identity_overlay": {
+          "case_sensitive": true,
+          "identity_type": "proper_historical_name",
+          "note": "capitalized proper historical name",
+          "paired_form": "holocaust",
+          "surface_lemma": "the Holocaust"
+        },
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:holocaust:44761c87de865a0a",
@@ -140,7 +170,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6953-6960.json",
-    "source_content_hash": "66629aa504f50d52e382601fdc8ef15ebb5b014890e5f9e661877c4bfa5126f3",
+    "source_content_hash": "54df787fb36f267b3ec13b58649cb23aa9c1cc0c82a304d8953dcb0cf431daa5",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
