@@ -24,7 +24,7 @@
         "source_sense_id": "sense:spare:f4017cfb9e3e5a75"
       }
     ],
-    "content_hash": "d3487e1dbaa46b127d13f1fed2a0a43f23b8ed55b54b462c6c78581fc5e97f69",
+    "content_hash": "298a581864be0f42d673710ea56362255fb9e9e9e02e4d4cc3bc14511cf51510",
     "core_concept": {
       "core_clusters": [
         {
@@ -89,6 +89,15 @@
             ],
             "meaning_cn": "备用零件",
             "phrase": "spare part"
+          },
+          {
+            "collocation_id": "collocation:87b9cc000e9db0e59b98",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:spare:619355df497958fe:collocation:0"
+            ],
+            "meaning_cn": "备用轮胎",
+            "phrase": "spare tire"
           }
         ],
         "confidence": "medium",
@@ -196,13 +205,13 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:87b9cc000e9db0e59b98",
-            "exam_value": "usage_example",
+            "collocation_id": "collocation:66ac167280e367cefc51",
+            "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
-              "sense:spare:619355df497958fe:collocation:0"
+              "sense:spare:619355df497958fe:collocation:streaming-c-checkpoint-o2851-o3050"
             ],
-            "meaning_cn": "备用轮胎",
-            "phrase": "spare tire"
+            "meaning_cn": "留/带一个备用品",
+            "phrase": "keep/carry a spare"
           }
         ],
         "confidence": "medium",
@@ -280,6 +289,7 @@
     "active_collocations": [
       "collocation:033bd1279c34bfdc86ab",
       "collocation:0ed95449875ee4531fb4",
+      "collocation:66ac167280e367cefc51",
       "collocation:87b9cc000e9db0e59b98",
       "collocation:caed89e6145ae42a24c3",
       "collocation:dce2655d65008a683365",
@@ -334,6 +344,11 @@
         "id": "collocation:fbe2845f1b4b41c1cbb4",
         "source_row": 21309,
         "source_path": "content/lexical/canonical/collocations/shards/o4577-4608.json"
+      },
+      {
+        "id": "collocation:66ac167280e367cefc51",
+        "source_row": 21583,
+        "source_path": "content/lexical/canonical/collocations/shards/o4577-4608.json"
       }
     ],
     "exam-mappings": [],
@@ -362,8 +377,8 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4585-4592.json",
-    "source_content_hash": "d3487e1dbaa46b127d13f1fed2a0a43f23b8ed55b54b462c6c78581fc5e97f69",
-    "semantic_delta": 1,
+    "source_content_hash": "298a581864be0f42d673710ea56362255fb9e9e9e02e4d4cc3bc14511cf51510",
+    "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

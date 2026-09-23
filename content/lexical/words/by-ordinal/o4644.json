@@ -8,14 +8,17 @@
     "confusables": [],
     "constructions": [
       {
+        "boundary": "consistency branch only, not make-square/square-a-number",
         "construction_id": "construction:c7ce5fa7d0c02838553f",
+        "definition_en": "to be consistent, compatible, or in agreement with something",
         "direction": "R+P",
         "level": "L2",
         "meaning_cn": "与事实、证据或另一说法一致/相符",
-        "pattern": "square with sth"
+        "pattern": "square with sth",
+        "source_sense_id": "sense:square:6807d0f396f01eaa"
       }
     ],
-    "content_hash": "fa3277fbd1fd2db1524832b301b4c6bc5829fb5b18711a628205b93d15e85574",
+    "content_hash": "8d3db98946d8b81e338ce9b1429328cdcca32ed299f96e558d46cc6c483f309e",
     "core_concept": {
       "core_clusters": [
         {
@@ -189,15 +192,6 @@
             ],
             "meaning_cn": "将这个数平方",
             "phrase": "square the number"
-          },
-          {
-            "collocation_id": "collocation:49b3602fc7d903cfedef",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:square:063dc4756b4a5c38:collocation:1"
-            ],
-            "meaning_cn": "与……一致",
-            "phrase": "square with + sth"
           }
         ],
         "confidence": "medium",
@@ -213,18 +207,28 @@
         "transitivity": "vt"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:49b3602fc7d903cfedef",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:square:063dc4756b4a5c38:collocation:1"
+            ],
+            "meaning_cn": "与……一致",
+            "phrase": "square with + sth"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "与……一致、相符或相容",
         "definition_en": "to be consistent, compatible, or in agreement with something",
-        "governing_pattern": "vi. + with",
+        "governing_pattern": "vi. + with: square with sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:square:6807d0f396f01eaa",
         "sense_label_en": "to be consistent, compatible, or in agreement with something",
         "sort_order": 6,
-        "transitivity": "vt"
+        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -383,7 +387,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4641-4648.json",
-    "source_content_hash": "fa3277fbd1fd2db1524832b301b4c6bc5829fb5b18711a628205b93d15e85574",
+    "source_content_hash": "8d3db98946d8b81e338ce9b1429328cdcca32ed299f96e558d46cc6c483f309e",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

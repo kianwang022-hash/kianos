@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "07e50a926ba7683f998d804f159d3fee43cf5b02d1a5d8fbf4dd996feae814e0",
+    "content_hash": "9b5ef682bab6ab154280e1728be5ee91d5e76e46d14833af4630cf535cf9d342",
     "core_concept": {
       "core_clusters": [
         {
@@ -34,6 +34,14 @@
           "pos": "adjective",
           "sense_ids": [
             "sense:sound:6f08c235a6825b79"
+          ]
+        },
+        {
+          "label_cn": "深沉安稳的（睡眠）",
+          "label_en": "deep, peaceful, and undisturbed, especially of sleep",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:sound:a615c5b80236f23d"
           ]
         }
       ],
@@ -126,15 +134,6 @@
             ],
             "meaning_cn": "合理的建议",
             "phrase": "sound advice"
-          },
-          {
-            "collocation_id": "collocation:6d83378958ad4167bd58",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:sound:6f08c235a6825b79:collocation:1"
-            ],
-            "meaning_cn": "熟睡；安稳、深沉且不受打扰的睡眠",
-            "phrase": "a sound sleep"
           }
         ],
         "confidence": "medium",
@@ -200,6 +199,30 @@
         "sense_label_en": "to make or produce a sound, or cause something to sound",
         "sort_order": 5,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:b0f98c5a45077812e6e9",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:sound:a615c5b80236f23d:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "酣睡；深沉安稳的睡眠",
+            "phrase": "a sound sleep"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "深沉而安稳的；酣睡的（尤指睡眠）",
+        "definition_en": "deep, peaceful, and undisturbed, especially of sleep",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:sound:a615c5b80236f23d",
+        "sense_label_en": "deep, peaceful, and undisturbed, especially of sleep",
+        "sort_order": 6,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -266,15 +289,22 @@
         "merged_into_sense_id": null,
         "source_row": 12943,
         "source_path": "content/lexical/canonical/senses/shards/o4545-4576.json"
+      },
+      {
+        "sense_id": "sense:sound:a615c5b80236f23d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 12944,
+        "source_path": "content/lexical/canonical/senses/shards/o4545-4576.json"
       }
     ],
     "active_collocations": [
       "collocation:1b6fb6af26d06d315b56",
       "collocation:5d23714b1c51885562d9",
-      "collocation:6d83378958ad4167bd58",
       "collocation:73e39f890d1121af95b7",
       "collocation:84ca66440d65335fb01c",
       "collocation:8bb7ff245fcfdc0ee2d9",
+      "collocation:b0f98c5a45077812e6e9",
       "collocation:c99a748cef12060bf0e8"
     ],
     "facts": [],
@@ -313,6 +343,11 @@
         "id": "collocation:c99a748cef12060bf0e8",
         "source_row": 17035,
         "source_path": "content/lexical/canonical/collocations/shards/o4545-4576.json"
+      },
+      {
+        "id": "collocation:b0f98c5a45077812e6e9",
+        "source_row": 21576,
+        "source_path": "content/lexical/canonical/collocations/shards/o4545-4576.json"
       }
     ],
     "exam-mappings": [],
@@ -346,7 +381,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4569-4576.json",
-    "source_content_hash": "07e50a926ba7683f998d804f159d3fee43cf5b02d1a5d8fbf4dd996feae814e0",
+    "source_content_hash": "9b5ef682bab6ab154280e1728be5ee91d5e76e46d14833af4630cf535cf9d342",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
