@@ -8,22 +8,34 @@
       "blob_sha": "3ab52c2f3d770988594dba3e58c7836949344b03",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "重组DNA质粒载体功能",
-    "decision_axis": "质粒作为载体的核心作用是携带外源DNA进入受体细胞，并依靠复制元件在宿主内维持或扩增。",
+    "exam_target": "乳糖操纵子阻遏蛋白结合位点",
+    "decision_axis": "乳糖操纵子的负调控由阻遏蛋白结合操纵序列O完成，从空间上阻碍RNA聚合酶有效转录结构基因。",
     "reasoning_chain": [
-      "乳糖操纵子的负调控看阻遏蛋白是否占据操纵序列O。",
-      "无乳糖时阻遏蛋白结合O，阻止RNA聚合酶有效通过，因此选B。",
-      "启动子是RNA聚合酶结合/起始区域，CAP位点承担正调控，Z基因是结构基因，三者都不是阻遏蛋白的直接结合位点。"
+      "无乳糖时阻遏蛋白处于可结合DNA状态。",
+      "它结合操纵序列O并阻断转录推进。",
+      "启动子是RNA聚合酶结合区域，CAP位点服务正调控，因此选B。"
     ],
-    "transfer_rule": "载体首先解决“把目的DNA带进去并维持”。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "乳糖操纵子：repressor→operator；RNApol→promoter；cAMP-CAP→promoter上游CAP site。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.操纵序列。阻遏蛋白与operator结合，执行乳糖操纵子的负性调控。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "启动子主要是RNA聚合酶结合/起始区域。"
+      },
+      {
+        "option": "C",
+        "reason": "CAP位点结合cAMP-CAP复合物，属于葡萄糖效应的正调控层。"
+      }
+    ],
+    "common_failure_node": "把启动子、操纵序列和CAP位点三个相邻DNA元件混为一谈。"
   },
   {
     "question_id": "xizong-official-2020-n027",
@@ -34,20 +46,39 @@
       "blob_sha": "3ab52c2f3d770988594dba3e58c7836949344b03",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "糖原代谢cAMP-PKA通路",
-    "decision_axis": "胰高血糖素/肾上腺素可经Gs-腺苷酸环化酶-cAMP-PKA级联，通过磷酸化协调糖原分解增强和糖原合成抑制。",
+    "exam_target": "酶偶联型/细胞因子受体配体识别",
+    "decision_axis": "γ干扰素通过细胞因子受体家族激活受体相关JAK并进入STAT通路，属于酶偶联型受体范畴；ACh和肾上腺素主要走GPCR/离子通道，甲状腺素走核受体。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "γ干扰素受体本身不需要作为典型GPCR，而是依赖受体相关酪氨酸激酶JAK。",
+      "JAK激活STAT并调节转录，因此在给定配体中γ干扰素符合酶偶联型受体。",
+      "其余选项分别属于胆碱能/肾上腺素能膜受体或胞内核受体轴。"
     ],
-    "transfer_rule": "糖原动员经典信号=Gs-cAMP-PKA。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "受体分类先看执行层：离子通道；GPCR；酶偶联/细胞因子受体；胞内核受体。",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.γ干扰素。IFN-γ使用细胞因子受体—JAK/STAT通路，属于酶偶联型受体范畴。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "乙酰胆碱可作用配体门控离子通道或GPCR，不是本题答案。"
+      },
+      {
+        "option": "C",
+        "reason": "肾上腺素经典作用于α/β GPCR。"
+      },
+      {
+        "option": "D",
+        "reason": "甲状腺激素主要通过胞内核受体调控转录。"
+      }
+    ],
+    "common_failure_node": "看到“激酶”就只想受体自身酪氨酸激酶，漏掉受体相关JAK的细胞因子受体。",
+    "source_gap_note": "Current Knowledge仅在特定GH/免疫场景出现JAK-STAT接口，未冻结IFN-γ作为酶偶联受体配体的最小可投影owner。"
   },
   {
     "question_id": "xizong-official-2020-n028",
@@ -58,22 +89,34 @@
       "blob_sha": "3ab52c2f3d770988594dba3e58c7836949344b03",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "肝非营养物一相氧化",
-    "decision_axis": "肝微粒体混合功能氧化酶以细胞色素P450单加氧酶/羟化酶为核心，负责大量药物和非营养物的一相氧化。",
+    "exam_target": "蛋白质表达量检测技术",
+    "decision_axis": "Western blot以抗体检测特定蛋白，可用于比较蛋白表达量；Southern检测DNA，Northern检测RNA，PCR扩增核酸。",
     "reasoning_chain": [
-      "Southern主要看DNA，Northern主要看RNA，而Western直接检测蛋白质。",
-      "因此分析蛋白质表达量应选Western blotting，B正确。",
-      "PCR扩增核酸，不能直接替代蛋白层面的表达检测。"
+      "题目对象是蛋白质而非DNA/RNA。",
+      "Western将蛋白分离转膜后用抗体特异识别。",
+      "因此选B。"
     ],
-    "transfer_rule": "非营养物一相氧化先想P450羟化。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "分子实验对象映射：Southern=DNA；Northern=RNA；Western=protein；PCR=核酸扩增。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.Western blotting。它直接检测特定蛋白及相对表达量。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "Southern blot检测DNA。"
+      },
+      {
+        "option": "C",
+        "reason": "Northern blot检测RNA。"
+      }
+    ],
+    "common_failure_node": "只记blot名称，不先问检测对象是DNA、RNA还是蛋白。"
   },
   {
     "question_id": "xizong-official-2020-n029",
@@ -84,20 +127,35 @@
       "blob_sha": "3ab52c2f3d770988594dba3e58c7836949344b03",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "不可逆细胞损伤形态",
-    "decision_axis": "核固缩、核碎裂、核溶解属于细胞死亡阶段不可逆核改变；线粒体肿胀、内质网扩张等可见于可逆性损伤。",
+    "exam_target": "骨折固定后的失用性萎缩",
+    "decision_axis": "长期固定使骨骼肌机械负荷与收缩活动显著减少，蛋白合成下降/分解占优，导致肌纤维体积缩小，属于失用性萎缩。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "股骨骨折后下肢被固定6周，肌肉缺乏正常负荷与活动。",
+      "无神经损伤证据，也不是外界持续压迫造成组织缺血。",
+      "因此是失用性萎缩，选B。"
     ],
-    "transfer_rule": "不可逆损伤抓核固缩/碎裂/溶解和膜严重破坏。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "萎缩先找原因：不用→失用；神经断→去神经；受压缺血→压迫；内分泌/营养另分。",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.失用性萎缩。长期制动导致肌肉缺乏负荷和收缩活动，肌纤维逐渐变细。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "去神经性萎缩需要明确运动神经损害。"
+      },
+      {
+        "option": "A",
+        "reason": "压迫性萎缩要求持续外压/局部缺血等机制。"
+      }
+    ],
+    "common_failure_node": "看到“骨折损伤”就选损伤性萎缩，而不抓真正持续6周的制动/不用机制。",
+    "source_gap_note": "Current骨科只将“合理活动防止肌萎缩”作为接口，未建立一般病理“失用性萎缩”最小Current owner。"
   },
   {
     "question_id": "xizong-official-2020-n030",
@@ -108,22 +166,34 @@
       "blob_sha": "3ab52c2f3d770988594dba3e58c7836949344b03",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "心脏萎缩肉眼依据",
-    "decision_axis": "心肌萎缩后实质体积减少，表面原有冠状血管相对冗长迂曲，因此血管弯曲是重要肉眼线索。",
+    "exam_target": "血栓定义",
+    "decision_axis": "血栓是活体心血管系统内血液成分在不应凝固处形成的固体质块；体腔/组织间血凝块不属于严格血栓定义。",
     "reasoning_chain": [
-      "血栓的定义首先限定发生在活体心血管系统内，是异常凝血形成的固体质块。",
-      "因此“活体中血管内的血凝块”符合血栓定义，选A。",
-      "关节腔、组织间或腹膜腔内的血凝块虽然也是凝血产物，但不属于心血管内血栓。"
+      "关键限定词是“活体 + 心血管内”。",
+      "关节腔、组织间或腹膜腔内形成的血凝块不满足血栓的解剖位置定义。",
+      "因此选A。"
     ],
-    "transfer_rule": "萎缩器官常见表面血管相对冗长迂曲。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "血栓≠任何血凝块：必须发生在活体心血管腔内。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.活体中血管内的血凝块。它符合血栓的严格定义。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "关节腔内血凝块不属于心血管腔内血栓。"
+      },
+      {
+        "option": "D",
+        "reason": "腹膜腔内凝血同样不是血栓。"
+      }
+    ],
+    "common_failure_node": "只看到“活体中的血凝块”就忽略必须位于心血管内。"
   },
   {
     "question_id": "xizong-official-2020-n031",
@@ -134,20 +204,35 @@
       "blob_sha": "3ab52c2f3d770988594dba3e58c7836949344b03",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "DIC透明血栓",
-    "decision_axis": "严重休克可伴弥散性微血管内凝血，小血管内形成以纤维蛋白为主的透明血栓。",
+    "exam_target": "肾贫血性梗死的坏死类型",
+    "decision_axis": "肾属于实质性器官，动脉闭塞形成贫血性梗死时典型发生凝固性坏死；脑梗死是缺血后液化性坏死的重要例外。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "肾动脉分支阻断造成局灶缺血。",
+      "多数实质器官缺血性梗死保留组织轮廓一段时间，属于凝固性坏死。",
+      "因此选A。"
     ],
-    "transfer_rule": "微循环/DIC中的小血管血栓先想透明血栓。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "缺血性梗死坏死类型：除脑外多数实质器官→凝固性；脑→液化性。",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.凝固性坏死。肾贫血性梗死属于典型实质器官缺血性凝固坏死。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "液化性坏死更典型见于脑梗死和脓肿。"
+      },
+      {
+        "option": "D",
+        "reason": "纤维素样坏死主要见于血管壁/免疫性或恶性高血压等场景。"
+      }
+    ],
+    "common_failure_node": "把“梗死=坏死”记住后不再区分器官决定的坏死类型。",
+    "source_gap_note": "Current B4只拥有梗死定义及病理循环链，并明确把梗死类型细节留在P0/MI-D；没有肾贫血性梗死→凝固性坏死的最小Current KP。"
   },
   {
     "question_id": "xizong-official-2020-n032",
@@ -158,20 +243,34 @@
       "blob_sha": "3ab52c2f3d770988594dba3e58c7836949344b03",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "良性肿瘤识别",
-    "decision_axis": "软骨母细胞瘤通常为良性骨肿瘤；白血病、黑色素瘤和肾母细胞瘤均属于恶性肿瘤。",
+    "exam_target": "肿瘤分期与分级",
+    "decision_axis": "肿瘤分期关注解剖扩展范围，包括原发灶大小/浸润深度、区域淋巴结和远处转移；分化程度和核分裂主要属于分级。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "题目问“分期”而非组织学恶性度。",
+      "浸润深度直接描述原发灶局部扩展程度，是T轴的重要依据。",
+      "因此D与分期有关。"
     ],
-    "transfer_rule": "肿瘤良恶性不能只看名称后缀，要记特殊命名。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "分级看显微镜恶性度；分期看肿瘤占多大、走多远。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.癌细胞浸润的深度。它直接参与多种器官肿瘤的T分期。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "分化程度差主要属于组织学分级。"
+      },
+      {
+        "option": "C",
+        "reason": "核分裂象多也是恶性度/分级线索。"
+      }
+    ],
+    "common_failure_node": "把“越恶性”笼统等同于“分期越晚”。"
   },
   {
     "question_id": "xizong-official-2020-n033",
@@ -182,22 +281,34 @@
       "blob_sha": "3ab52c2f3d770988594dba3e58c7836949344b03",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "早期胃癌定义",
-    "decision_axis": "早期胃癌可侵及黏膜下层，定义核心是浸润深度不超过黏膜下层，可伴区域淋巴结转移。",
+    "exam_target": "急性细胞型移植排斥的效应细胞",
+    "decision_axis": "急性细胞型排斥主要由受者T细胞识别移植物抗原并介导组织损伤；CD3是成熟T细胞谱系标志。",
     "reasoning_chain": [
-      "急性细胞型排斥反应的主角是受者T细胞，组织内以CD4/CD8 T细胞浸润为典型。",
-      "CD3是T细胞共同标志，因此四个选项中CD3⁺细胞最符合，选A。",
-      "CD20偏B细胞，CD30常用于特定活化/淋巴瘤表型，CD68偏单核-巨噬细胞。"
+      "“细胞型排斥”首先定位T细胞免疫。",
+      "CD3⁺标记T细胞，符合CD4/CD8效应细胞来源。",
+      "CD20是B细胞，CD68偏单核/巨噬细胞，因此选A。"
     ],
-    "transfer_rule": "早期胃癌看深度，不用2 cm或淋巴结阴性作定义。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "移植排斥：细胞型先想T细胞/CD3；抗体介导另走B细胞—抗体—补体轴。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.CD3⁺细胞。急性细胞型排斥的核心效应群是T淋巴细胞。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "CD20是B细胞标志，更偏抗体介导免疫轴。"
+      },
+      {
+        "option": "D",
+        "reason": "CD68常用于单核/巨噬细胞谱系。"
+      }
+    ],
+    "common_failure_node": "只看到“排斥反应有炎细胞”就不区分T细胞型与抗体介导型。"
   },
   {
     "question_id": "xizong-official-2020-n034",
@@ -208,22 +319,34 @@
       "blob_sha": "3ab52c2f3d770988594dba3e58c7836949344b03",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "细胞性新月体来源",
-    "decision_axis": "严重肾小球损伤后壁层上皮细胞增生，并与渗入Bowman囊的单核细胞共同形成新月体，其中壁层上皮细胞是主要成分。",
+    "exam_target": "心肌梗死3周病理演变",
+    "decision_axis": "心肌梗死后坏死组织被炎症细胞清除，约1–2周肉芽组织从边缘长入，至约3周仍处于机化/瘢痕形成过程中，尚非成熟大片瘢痕。",
     "reasoning_chain": [
-      "心肌梗死修复按时间从凝固性坏死、炎细胞清除逐步走向肉芽组织和瘢痕。",
-      "Current Study在约3周把病灶定位为肉芽组织机化、瘢痕开始形成，因此主要发现应是梗死灶周围肉芽组织，选C。",
-      "核固缩/碎裂属于更早期坏死形态；大片成熟纤维瘢痕通常要到更晚的6～8周。"
+      "3周已经超过早期核固缩/碎裂阶段。",
+      "此时坏死组织已被清除并由肉芽组织机化。",
+      "成熟致密纤维瘢痕需要更长时间，因此选C。"
     ],
-    "transfer_rule": "新月体抓壁层上皮增生。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "MI病理时间轴：坏死→中性粒→巨噬清除→肉芽组织→纤维瘢痕。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.梗死灶周围肉芽组织形成。3周处于机化向瘢痕过渡阶段。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "核固缩是较早期不可逆损伤形态。"
+      },
+      {
+        "option": "D",
+        "reason": "大片成熟纤维瘢痕通常需要更长修复时间。"
+      }
+    ],
+    "common_failure_node": "不看时间点，看到“心肌梗死”就固定选择凝固坏死或瘢痕。"
   },
   {
     "question_id": "xizong-official-2020-n035",
@@ -234,22 +357,34 @@
       "blob_sha": "3ab52c2f3d770988594dba3e58c7836949344b03",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "原发性肺结核组成",
-    "decision_axis": "原发综合征包括肺原发病灶、淋巴管炎和肺门淋巴结结核；浸润性肺结核和结核球更偏继发性表现。",
+    "exam_target": "亚急性感染性心内膜炎常见病原",
+    "decision_axis": "已有风湿性瓣膜损害提供异常内膜基底，亚急性IE经典病原为草绿色链球菌；金葡菌更常见于急性、破坏性更强的IE。",
     "reasoning_chain": [
-      "亚急性感染性心内膜炎通常发生在已有病变的瓣膜上，致病菌毒力相对较弱。",
-      "Current Study的经典配对是病变瓣膜 + 草绿色链球菌，因此选B。",
-      "金黄色葡萄球菌更偏急性IE并可侵正常瓣；A群溶血性链球菌与风湿热相关，不能与IE病原身份混淆。"
+      "题干强调慢性瓣膜病基础+亚急性过程。",
+      "该组合经典对应低毒力草绿色链球菌。",
+      "因此选B。"
     ],
-    "transfer_rule": "原发TB抓原发灶+淋巴管+肺门淋巴结。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "IE病原要结合宿主瓣膜背景和急/亚急病程，不只背一张菌表。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.草绿色链球菌。异常瓣膜基础上的亚急性IE是经典配对。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "金黄色葡萄球菌更典型于急性、侵袭性强的IE，也可侵正常瓣膜。"
+      },
+      {
+        "option": "A",
+        "reason": "A群溶血性链球菌不是此经典亚急性IE答案。"
+      }
+    ],
+    "common_failure_node": "看到“心内膜炎”就一律选金葡菌，忽略亚急性+既往瓣膜病。"
   },
   {
     "question_id": "xizong-official-2020-n036",
@@ -260,20 +395,34 @@
       "blob_sha": "3ab52c2f3d770988594dba3e58c7836949344b03",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "NLPHL免疫表型",
-    "decision_axis": "结节性淋巴细胞为主型霍奇金淋巴瘤的LP细胞保留B细胞表型，典型CD20阳性；经典HL更常见CD15/CD30阳性。",
+    "exam_target": "EBV相关肿瘤",
+    "decision_axis": "EBV与鼻咽癌、Burkitt淋巴瘤、部分经典霍奇金和NK/T淋巴瘤密切相关；本组选项中鼻咽癌最典型。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "四个选项中只有鼻咽癌属于Current明确EBV相关肿瘤集合。",
+      "宫颈鳞癌主要关联高危HPV。",
+      "因此选D。"
     ],
-    "transfer_rule": "NLPHL=CD20+；classic HL=CD15/CD30更典型。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "病毒—肿瘤高频配对：EBV→鼻咽/Burkitt/NK-T/部分HL；HPV→宫颈等；HBV/HCV→HCC。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.鼻咽癌。Current Study明确将鼻咽癌列入EBV相关肿瘤。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "宫颈鳞癌主要与高危HPV持续感染相关。"
+      },
+      {
+        "option": "A",
+        "reason": "肺鳞癌并非EBV经典相关肿瘤。"
+      }
+    ],
+    "common_failure_node": "把所有病毒相关癌症混成“EBV相关”。"
   },
   {
     "question_id": "xizong-official-2020-n037",
@@ -284,20 +433,35 @@
       "blob_sha": "3ab52c2f3d770988594dba3e58c7836949344b03",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "脑动脉粥样硬化常见累及区",
-    "decision_axis": "题源病理口径把相关缺血/梗死好发部位指向大脑基底核等深部区域，按该经典解剖供血框架作答。",
+    "exam_target": "慢性肾盂肾炎病理改变",
+    "decision_axis": "慢性肾盂肾炎以肾盂-肾间质反复感染、瘢痕和小管萎缩/甲状腺化为主，晚期可累及肾小球并出现囊壁纤维化。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "小脓肿和大量中性粒细胞更偏急性化脓性肾盂肾炎。",
+      "慢性期以纤维化、瘢痕、小管萎缩和继发肾小球改变为主。",
+      "因此题源选C。"
     ],
-    "transfer_rule": "该题按病理教材的常见累及部位口径掌握。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "慢性肾盂肾炎先记“小管-间质瘢痕/甲状腺化”，再理解晚期继发肾小球硬化。",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.肾小球囊壁纤维化为题源答案，符合慢性瘢痕化后继发肾小球损害方向。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "肾间质较多小脓肿更偏急性肾盂肾炎。"
+      },
+      {
+        "option": "A",
+        "reason": "新月体是急进性肾小球肾炎的高价值形态。"
+      }
+    ],
+    "common_failure_node": "把急性化脓性改变与慢性瘢痕化病理混用。",
+    "source_gap_note": "Current K8 KP14–15只明确冻结慢性肾盂肾炎的瘢痕/不对称、小管功能损害与甲状腺化，未明确冻结“肾小球囊壁纤维化”这一精确选项。"
   },
   {
     "question_id": "xizong-official-2020-n038",
@@ -308,22 +472,34 @@
       "blob_sha": "3ab52c2f3d770988594dba3e58c7836949344b03",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "最常见甲状腺恶性肿瘤",
-    "decision_axis": "甲状腺恶性肿瘤中乳头状癌最常见，典型具有特征性核改变并倾向淋巴结转移。",
+    "exam_target": "宫颈癌微小/早期浸润深度",
+    "decision_axis": "异型上皮累及全层且已突破基底膜说明不再是原位癌；向下浸润3 mm处于Current Study微小/早期浸润癌深度范围。",
     "reasoning_chain": [
-      "异型上皮细胞已突破基底膜，说明不再是原位癌；接下来要看浸润深度。",
-      "Current Study把基底膜下浸润≤5 mm归入早期/微小浸润癌，题干3 mm因此选C。",
-      "“累及全层”本身仍可属于原位阶段，真正跨过分界线的是是否突破基底膜。"
+      "“突破基底膜”先把原位癌排除。",
+      "浸润深度仅3 mm，仍属于微小/早期浸润范围。",
+      "因此选C。"
     ],
-    "transfer_rule": "甲癌最常见=乳头状癌。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "宫颈上皮病变先问是否突破基底膜，再按浸润深度分微小/早期浸润与更广泛浸润。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.子宫颈早期浸润癌。已突破基底膜3 mm，符合Current Study早期/微小浸润边界。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "原位癌不能突破基底膜。"
+      },
+      {
+        "option": "D",
+        "reason": "一般浸润癌范围更大；3 mm属于题源早期浸润范畴。"
+      }
+    ],
+    "common_failure_node": "只看“全层异型”就报原位癌，忽略已经突破基底膜。"
   },
   {
     "question_id": "xizong-official-2020-n039",
@@ -334,22 +510,34 @@
       "blob_sha": "3ab52c2f3d770988594dba3e58c7836949344b03",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "宫颈癌Ⅰ期边界",
-    "decision_axis": "宫颈癌Ⅰ期表示浸润癌仍局限于宫颈；未突破基底膜属于原位病变，超出宫颈则进入更高分期。",
+    "exam_target": "急性血吸虫病虫卵早期病理反应",
+    "decision_axis": "虫卵沉积早期可引起明显嗜酸性粒细胞反应并形成嗜酸性脓肿；随后才逐步进入肉芽肿/假结核结节等阶段。",
     "reasoning_chain": [
-      "血吸虫最主要损害来自虫卵；急性虫卵反应早期以大量嗜酸性粒细胞围绕虫卵为主。",
-      "这会形成嗜酸性脓肿，因此选A。",
-      "假结核结节属于慢性虫卵肉芽肿阶段，钙化和肝纤维化则更偏更晚的慢性改变。"
+      "虫卵首先引发强烈嗜酸性炎症反应。",
+      "早期病灶可形成嗜酸性脓肿。",
+      "钙化和纤维化属于更晚阶段，因此选A。"
     ],
-    "transfer_rule": "Ⅰ期抓“已浸润但仍局限宫颈”。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "血吸虫虫卵病变看时相：早期嗜酸反应/脓肿→肉芽肿→纤维化/钙化。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.嗜酸性脓肿。它是急性血吸虫虫卵引起的早期经典病理改变。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "假结核结节属于后续肉芽肿性反应。"
+      },
+      {
+        "option": "C",
+        "reason": "虫卵钙化属于较晚期改变。"
+      }
+    ],
+    "common_failure_node": "不看“早期”二字，把血吸虫病所有病理阶段混在一起。"
   },
   {
     "question_id": "xizong-official-2020-n040",
@@ -360,22 +548,34 @@
       "blob_sha": "3ab52c2f3d770988594dba3e58c7836949344b03",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "肾细胞癌最常见类型",
-    "decision_axis": "透明细胞性肾细胞癌是成人肾细胞癌最常见组织学类型，经典与VHL通路异常相关。",
+    "exam_target": "乳头状甲状腺癌核特征识别",
+    "decision_axis": "乳头状甲状腺癌的身份主要由毛玻璃样核、核沟、核重叠/假包涵体等核特征决定，即使结构呈滤泡状也仍可诊断乳头状癌。",
     "reasoning_chain": [
-      "甲状腺乳头状癌即使呈滤泡状排列，只要出现典型毛玻璃核、核沟、核重叠等核特征，身份仍由这些核特征决定。",
-      "因此本题诊断乳头状癌，选D。",
-      "滤泡癌和滤泡腺瘤更依赖包膜/血管侵犯来鉴别，不具这组典型乳头癌核特征。"
+      "题干最有价值的是毛玻璃核、核沟和核重叠。",
+      "这些是乳头状癌的经典核身份。",
+      "滤泡样排列不能压过特征性核改变，因此选D。"
     ],
-    "transfer_rule": "RCC最常见=clear cell。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "甲状腺滤泡样肿瘤：乳头癌看核，滤泡癌看包膜/血管侵犯。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.乳头状癌。典型毛玻璃核、核沟与核重叠锁定乳头状癌。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "滤泡癌的关键是包膜/血管侵犯，而不是乳头癌样核特征。"
+      },
+      {
+        "option": "A",
+        "reason": "滤泡腺瘤也不应出现典型乳头癌核改变。"
+      }
+    ],
+    "common_failure_node": "只按“滤泡状生长”命名，忽略乳头癌的核特征具有更高身份权重。"
   },
   {
     "question_id": "xizong-official-2020-n041",
@@ -386,20 +586,35 @@
       "blob_sha": "3ab52c2f3d770988594dba3e58c7836949344b03",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "网织红细胞临床意义",
-    "decision_axis": "网织红细胞反映近期骨髓红系生成反应，治疗缺铁或巨幼贫后可较早升高，因此可用于监测部分贫血疗效。",
+    "exam_target": "旅行后间歇性寒战高热的疟疾识别",
+    "decision_axis": "东南亚旅行后出现周期性寒战—高热—大汗—退热，间歇期相对正常，并伴脾大、白细胞减少，构成疟疾的高价值最低识别接口。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "发热呈明显阵发/间歇模式，发作后大汗退热。",
+      "旅行暴露和脾大进一步提高疟疾可能。",
+      "败血症、伤寒通常不呈这种高度重复的寒战高热退热周期，因此选C。"
     ],
-    "transfer_rule": "网织红=骨髓近期红系反应/疗效早期指标。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "疟疾最低识别：流行区暴露 + 间歇热/寒战大汗 + 脾大，可伴WBC下降；病原学与完整治疗另回Source。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.疟疾。旅行史、间歇性寒战高热伴大汗退热和脾大共同支持。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "伤寒更典型持续发热等模式，不是这种短时高热后完全退热的周期。"
+      },
+      {
+        "option": "A",
+        "reason": "败血症可寒战高热，但缺少这种规律间歇热和流行区暴露组合。"
+      }
+    ],
+    "common_failure_node": "只看到高热+白细胞低就选伤寒/败血症，忽略发热节律与旅行史。",
+    "source_boundary_note": "Current H23只建立疟疾最低识别接口，不支持完整分期、病原学检查或治疗；relation仅承接本题疾病识别。"
   },
   {
     "question_id": "xizong-official-2020-n042",
@@ -410,22 +625,34 @@
       "blob_sha": "3ab52c2f3d770988594dba3e58c7836949344b03",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "胸膜与心包摩擦音鉴别",
-    "decision_axis": "胸膜摩擦音随呼吸运动出现并在屏气后消失；心包摩擦音与心动同步，屏气仍可存在。",
+    "exam_target": "慢性心衰胸片间质性肺水肿",
+    "decision_axis": "慢性左心衰肺静脉压升高可造成肺间质水肿，胸片出现Kerley B线；蝴蝶翼样影更偏急性肺泡性水肿。",
     "reasoning_chain": [
-      "慢性心衰的肺淤血可先表现为间质性肺水肿，X线典型线索之一就是Kerley B线。",
-      "因此选D。",
-      "肺门蝴蝶征更典型于急性肺泡性肺水肿；其余纹理或片絮影不如Kerley B线对慢性间质性淤血有代表性。"
+      "题目强调慢性心衰胸片。",
+      "Kerley B线反映小叶间隔增厚/间质性肺水肿。",
+      "因此D最符合。"
     ],
-    "transfer_rule": "屏气试验：胸膜音消失，心包音仍在。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "心衰胸片：慢性间质水肿→Kerley B；急性肺泡水肿→双肺门蝴蝶翼。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.呈现Kerley B线。它是慢性心衰间质性肺水肿的经典影像征。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "肺门蝴蝶状阴影更典型于急性肺泡性肺水肿。"
+      },
+      {
+        "option": "B",
+        "reason": "双上肺片絮状影并非慢性心衰最特异表述。"
+      }
+    ],
+    "common_failure_node": "把急性肺泡水肿与慢性间质性肺淤血影像混为一谈。"
   },
   {
     "question_id": "xizong-official-2020-n043",
@@ -436,22 +663,34 @@
       "blob_sha": "3ab52c2f3d770988594dba3e58c7836949344b03",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "COPD稳定期旧起始治疗",
-    "decision_axis": "题源按当年COPD分组把长效抗胆碱能药单药列为首选；Current GOLD起始治疗策略已有更新，不能把旧LAMA单药首选升级为统一Current规则。",
+    "exam_target": "COPD肺动脉高压机制",
+    "decision_axis": "COPD慢性低氧导致肺小动脉收缩，长期进一步引起中膜肥厚、肌化和血管重构，使肺血管阻力持续升高。",
     "reasoning_chain": [
-      "COPD长期低氧会使肺小动脉张力升高，同时推动小动脉肌化、中膜增厚等慢性重构。",
-      "这两条链共同使肺血管阻力持续升高，是COPD发展肺动脉高压的主轴，因此选D。",
-      "红细胞增多和血黏度升高可以加重阻力，但不是最重要的首发机制；肺小静脉增厚也不是Current模型的核心。"
+      "慢性低氧先造成肺小动脉收缩。",
+      "反复/持续低氧促血管重构，固定肺血管阻力升高。",
+      "这条链比血液黏稠或小静脉改变更核心，因此选D。"
     ],
-    "transfer_rule": "仅保留题源/Study时代边界；Current COPD治疗按现行分组与指南。",
-    "mapping_decision": "NO_SAFE_MATCH",
+    "transfer_rule": "慢性肺病肺高压：低氧性肺血管收缩 + 小动脉重构。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.缺氧致肺小动脉收缩，肺血管重构。它是COPD肺高压的主机制。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "红细胞增多和血黏度升高可加重负荷，但不是最重要主机制。"
+      },
+      {
+        "option": "C",
+        "reason": "主要重构对象是肺小动脉而非小静脉。"
+      }
+    ],
+    "common_failure_node": "把继发红细胞增多当成肺高压第一故障层。"
   },
   {
     "question_id": "xizong-official-2020-n044",
@@ -462,22 +701,34 @@
       "blob_sha": "3ab52c2f3d770988594dba3e58c7836949344b03",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "血流动力学稳定肺栓塞治疗",
-    "decision_axis": "肺栓塞有右室受累但血压稳定、无休克时，初始治疗以抗凝为主；溶栓主要保留给高危血流动力学不稳定患者或恶化情形。",
+    "exam_target": "急性哮喘发作期禁忌检查",
+    "decision_axis": "支气管激发试验用于无明显气流受限时证实气道高反应性，急性哮喘发作时本已支气管痉挛，再激发有诱发严重气道阻塞风险。",
     "reasoning_chain": [
-      "支气管激发试验的目的，是在非发作期通过诱发气道高反应性来帮助诊断。",
-      "患者当前已经喘息6小时、双肺有哮鸣音，处于急性发作期，因此不宜再做激发试验，选B。",
-      "Current Study明确把急性发作期列为激发试验不适用场景；舒张试验则用于判断当前气流受限能否逆转。"
+      "患者当前正在喘息并有哮鸣音，属于急性发作期。",
+      "激发试验会进一步诱发支气管收缩，应避免。",
+      "支气管舒张试验可用于可逆性评价，血嗜酸及胸片可按场景辅助，因此选B。"
     ],
-    "transfer_rule": "PE先按血流动力学分风险：稳定者抗凝，不稳定者评估再灌注。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "哮喘检查先问是否正在发作：急性发作不要做支气管激发试验。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.支气管激发试验。急性喘息发作时不应进一步诱发支气管收缩。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "支气管舒张试验用于评价可逆性气流受限，在合适条件下可做。"
+      },
+      {
+        "option": "D",
+        "reason": "胸片可用于排除其他急性胸肺疾病，并非本题禁忌。"
+      }
+    ],
+    "common_failure_node": "把“激发试验能诊断哮喘”背成任何时点都能做。"
   },
   {
     "question_id": "xizong-official-2020-n045",
@@ -488,22 +739,34 @@
       "blob_sha": "3ab52c2f3d770988594dba3e58c7836949344b03",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "肺癌恶性胸腔积液分期",
-    "decision_axis": "胸水中找到肺腺癌细胞说明恶性胸腔积液，属于转移性M1a病变，整体进入Ⅳ期。",
+    "exam_target": "肺结核典型亚急性病例识别",
+    "decision_axis": "低热、咳嗽、少量咯血持续数周，加上上肺斑点状阴影，符合肺结核的慢性/亚急性全身症状与上叶影像偏好。",
     "reasoning_chain": [
-      "持续数周低热、咳嗽、少量痰中带血，再加右上肺斑点状阴影，符合肺结核常见的症状—部位—影像组合。",
-      "因此选B。",
-      "普通肺炎通常更急；肺脓肿偏高热大量脓臭痰和脓腔；肺癌虽可咯血，但这个年龄和亚急性结核样表现更支持结核。"
+      "病程3周、低热与血痰提示慢性特异感染。",
+      "上肺斑点状病灶与肺结核高发位置一致。",
+      "急性细菌肺炎/肺脓肿通常病程和炎症反应更急，肺癌年龄也不典型，因此选B。"
     ],
-    "transfer_rule": "恶性胸水会显著升级肺癌分期，不能只看原发瘤大小。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "肺结核病例入口：亚急性低热消耗 + 咳嗽/咯血 + 上肺多形性影像。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.肺结核。亚急性低热、血痰和右上肺斑点影构成典型组合。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "普通肺炎更常急性起病、高热和实变表现。"
+      },
+      {
+        "option": "C",
+        "reason": "肺脓肿常有高热、大量脓臭痰和脓腔/液平。"
+      }
+    ],
+    "common_failure_node": "看到血痰就直接想肺癌，忽略年龄、病程和上肺结核影像模式。"
   },
   {
     "question_id": "xizong-official-2020-n046",
@@ -514,22 +777,34 @@
       "blob_sha": "3ab52c2f3d770988594dba3e58c7836949344b03",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "过敏性肺炎识别",
-    "decision_axis": "鸽子暴露结合双肺磨玻璃/小结节及BAL淋巴细胞增多，构成过敏性肺炎的典型暴露-影像-炎症组合。",
+    "exam_target": "金黄色葡萄球菌肺炎识别",
+    "decision_axis": "金葡菌肺炎可呈高热寒战、显著中性粒细胞增多、脓血痰和双肺多发实变，且易坏死形成多发空洞。",
     "reasoning_chain": [
-      "高热寒战、明显中性粒细胞增高和脓性血痰提示急性细菌性肺炎；影像又出现双肺多发实变并多发空洞。",
-      "金黄色葡萄球菌肺炎最典型的影像身份就是多发、易变空洞，因此选D。",
-      "肺炎链球菌多为实变而非多发空洞；支原体和军团菌也不符合这组典型坏死性空洞模式。"
+      "高热寒战+WBC 23×10⁹/L提示重细菌感染。",
+      "双肺多发实变伴部分空洞提示坏死性肺炎。",
+      "金葡菌最符合这一脓毒性、易空洞表型，因此选D。"
     ],
-    "transfer_rule": "鸟类抗原暴露+间质影+BAL淋巴细胞↑先想HP。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "肺炎病原识别：多发坏死/空洞 + 脓毒性高热，优先金葡菌。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.金黄色葡萄球菌肺炎。多发实变伴空洞是关键辨识线索。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "支原体肺炎通常全身症状与影像可不一致，但不典型形成多发坏死空洞。"
+      },
+      {
+        "option": "C",
+        "reason": "肺炎链球菌典型为大叶性实变，不以多发空洞为主。"
+      }
+    ],
+    "common_failure_node": "只按“社区获得性肺炎最常见菌”选肺炎链球菌，忽略坏死空洞表型。"
   },
   {
     "question_id": "xizong-official-2020-n047",
@@ -540,20 +815,39 @@
       "blob_sha": "3ab52c2f3d770988594dba3e58c7836949344b03",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "急性心肌梗死IABP旧适应证",
-    "decision_axis": "题源按旧教材/时代口径使用IABP处理心梗相关循环问题；Current机械循环支持的适应证、证据和器械选择已改变，不能据此生成统一Current规则。",
+    "exam_target": "AMI合并心源性休克的IABP Study接口",
+    "decision_axis": "广泛前壁STEMI伴BP 80/50、四肢湿冷提示心源性休克；强扩血管硝酸酯会进一步降压，常规利多卡因也不处理偶发房早。Current Study保留IABP作为AMI休克的过渡机械支持接口，同时强调再灌注是根本。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对现行治疗边界 fail-closed。"
+      "持续压榨痛+广泛ST抬高定位急性大面积MI。",
+      "低血压和冷皮肤提示低灌注/心源性休克，且双肺无啰音不能据此大量补液。",
+      "在给定选项中题源选择IABP，Current B12也保留其作为过渡接口，因此选D。"
     ],
-    "transfer_rule": "仅保留题源/Study时代边界；Current机械循环支持按休克表型和现行证据选择。",
-    "mapping_decision": "NO_SAFE_MATCH",
+    "transfer_rule": "AMI休克：根本=尽快再灌注；机械支持仅作桥接/选择性接口，不把IABP写成所有病例常规首选。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.置入主动脉内球囊反搏。题源与Current Study均保留IABP作为AMI合并休克的过渡机械支持接口。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "SBP 80 mmHg时静脉硝酸甘油可能进一步降低血压。"
+      },
+      {
+        "option": "B",
+        "reason": "偶发房性早搏不是预防性静脉利多卡因的适应证。"
+      },
+      {
+        "option": "A",
+        "reason": "左心源性休克不能无条件积极扩容；右室MI等特殊场景才可能谨慎补液。"
+      }
+    ],
+    "common_failure_node": "看到低血压就大量补液，或把IABP误学成替代急诊再灌注的根本治疗。",
+    "source_boundary_note": "Current B12明确“AMI合并休克：再灌注是根本，IABP为过渡接口”；本题relation只承接这一Study角色，不表示现代所有AMI休克常规使用IABP。"
   },
   {
     "question_id": "xizong-official-2020-n048",
@@ -564,20 +858,35 @@
       "blob_sha": "3ab52c2f3d770988594dba3e58c7836949344b03",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "高血压固定目标值旧口径",
-    "decision_axis": "题源采用固定血压控制目标作答，但Current降压目标需结合年龄、合并症、耐受性和现行指南分层，不能把旧固定阈值直接写入Current。",
+    "exam_target": "高血压合并糖尿病/肾病/心衰的Study目标血压",
+    "decision_axis": "Current B5 Study目标：一般<140/90；合并糖尿病、肾病、心衰或冠心病时采用更严格的<130/80 mmHg目标，并强调老年患者需结合耐受性。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对现行指南阈值 fail-closed。"
+      "患者同时有糖尿病、eGFR下降和慢性心衰证据。",
+      "这些合并症进入Current B5的<130/80 Study目标组。",
+      "因此按当前仓库学习口径选择D。"
     ],
-    "transfer_rule": "仅保留题源/Study时代边界；Current血压目标按现行指南和个体风险判断。",
-    "mapping_decision": "NO_SAFE_MATCH",
+    "transfer_rule": "血压目标先分一般 vs 高危合并症，再保留年龄、耐受性和专科指南边界。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.<130/80 mmHg。该患者合并糖尿病、CKD与心衰，命中Current B5 Study的高危目标组。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "<140/90是Current B5的一般高血压Study目标，不是这组高危合并症的目标。"
+      },
+      {
+        "option": "A",
+        "reason": "<150/90过于宽松，不能承接本题多重高危背景。"
+      }
+    ],
+    "common_failure_node": "看到72岁就只按年龄放宽目标，忽略糖尿病/肾病/心衰等高危合并症。",
+    "source_boundary_note": "该relation承接Current B5明确写入的Study目标值；现实个体治疗仍需结合老年耐受性、CKD专科目标及现行指南，不把数字脱离场景绝对化。"
   },
   {
     "question_id": "xizong-official-2020-n049",
@@ -588,22 +897,34 @@
       "blob_sha": "3ab52c2f3d770988594dba3e58c7836949344b03",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "成人心肺复苏顺序",
-    "decision_axis": "成人基础生命支持优先高质量胸外按压，再开放气道并人工呼吸，即C-A-B。",
+    "exam_target": "二尖瓣狭窄与房颤",
+    "decision_axis": "二尖瓣狭窄造成长期左房压力负荷和左房扩大，最容易形成房颤；其他瓣膜病也可房颤，但经典关联不如MS强。",
     "reasoning_chain": [
-      "二尖瓣狭窄长期抬高左房压力并造成左房扩大，为房颤提供最典型的结构底物。",
-      "在四种慢性瓣膜病中，Current Study把MS与房颤/血栓的联系最突出，因此选B。",
-      "其他瓣膜病也可并发房颤，但没有MS这种长期左房压力负荷和显著左房扩大的经典关系。"
+      "MS长期使左房压升高并扩大。",
+      "扩大与纤维化提供房颤电结构基础。",
+      "因此在慢性瓣膜病比较中选B。"
     ],
-    "transfer_rule": "成人BLS=C-A-B。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "瓣膜病—房颤：先找谁最直接造成长期左房压力负荷/扩大，经典答案MS。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.二尖瓣狭窄。它与左房扩大及房颤的经典关联最强。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "二尖瓣关闭不全也可扩大左房，但本题经典比较中MS与房颤关联更强。"
+      },
+      {
+        "option": "D",
+        "reason": "主动脉瓣狭窄主要先造成左室压力负荷。"
+      }
+    ],
+    "common_failure_node": "只按“二尖瓣病都累及左房”判断，不区分经典高频关联。"
   },
   {
     "question_id": "xizong-official-2020-n050",
@@ -614,21 +935,33 @@
       "blob_sha": "3ab52c2f3d770988594dba3e58c7836949344b03",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "GERD抗反流屏障异常",
-    "decision_axis": "LES功能异常、腹压增加或胃扩张可削弱抗反流屏障/增加反流驱动力；干燥综合征主要影响唾液清除和黏膜防御。",
+    "exam_target": "GERD食管外表现",
+    "decision_axis": "GERD除烧心、反酸、胸痛、吞咽不适等食管症状外，还可通过反流/微误吸或反射引起慢性咳嗽、喉部症状和哮喘样表现。",
     "reasoning_chain": [
-      "GERD除了反流、烧心、胸痛和吞咽困难等食管内表现，还可让反流物损伤咽喉和气道。",
-      "慢性咳嗽属于典型食管外表现，因此选B。",
-      "胸痛、吞咽困难和烧心都属于食管症状，不是题目所问的食管外表现。"
+      "题目问“食管外”而不是GERD常见症状。",
+      "咳嗽属于呼吸道/喉气道方向的食管外表现。",
+      "烧心、胸痛、吞咽困难仍属于食管相关表现，因此选B。"
     ],
-    "transfer_rule": "GERD机制要区分屏障、清除、黏膜防御和胃排空。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "GERD症状先分食管内 vs 食管外：咳嗽/喉炎/哮喘样表现属于食管外。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.咳嗽。慢性咳嗽是GERD经典食管外表现。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "烧心是典型食管症状。"
+      },
+      {
+        "option": "C",
+        "reason": "吞咽困难属于食管症状并需警惕结构性病变。"
+      }
+    ],
+    "common_failure_node": "把“胸部症状”都当成食管外；食管外是器官系统位置，不是主观部位。"
   }
 ]

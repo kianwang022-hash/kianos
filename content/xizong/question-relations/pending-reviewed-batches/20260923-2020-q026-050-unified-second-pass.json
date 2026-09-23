@@ -1,0 +1,102 @@
+[
+  {
+    "question_id": "xizong-official-2020-n032",
+    "system_id": "global_oncology_overlay",
+    "block_id": "pathology-u019-tumor-gate",
+    "primary_kp_id": "path-u019-kp05",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2020/q026-050.json",
+      "question_truth_blob_sha": "3ab52c2f3d770988594dba3e58c7836949344b03",
+      "knowledge_path": "content/xizong/knowledge/overlays/o9-tumor-general/O9_病理U019肿瘤总论_Gate_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "96987d49eed33fb02dbcd5e52bcc68688a5e5ab4"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent SECOND_PASS solve: tumor staging tracks anatomic extent/depth, nodes and metastasis, whereas differentiation and mitoses are grading features. O9 KP05 explicitly owns this distinction."
+    }
+  },
+  {
+    "question_id": "xizong-official-2020-n036",
+    "system_id": "respiratory",
+    "block_id": "respiratory-r11",
+    "primary_kp_id": "respiratory-r11-kp08",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2020/q026-050.json",
+      "question_truth_blob_sha": "3ab52c2f3d770988594dba3e58c7836949344b03",
+      "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "a0a2ee65d44057dddb3207b461025ec480afa48f"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent SECOND_PASS solve: nasopharyngeal carcinoma is explicitly included in the Current EBV-associated tumor set. R11 KP08 owns this Source-bound nasopharyngeal-carcinoma tail."
+    }
+  },
+  {
+    "question_id": "xizong-official-2020-n041",
+    "system_id": "hematology_immunity_infection",
+    "block_id": "hematology-h23",
+    "primary_kp_id": "hematology-h23-kp11",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2020/q026-050.json",
+      "question_truth_blob_sha": "3ab52c2f3d770988594dba3e58c7836949344b03",
+      "knowledge_path": "content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H23_伤寒菌痢与感染性肠溃疡_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "d5499e299f75eb988f959ee70603480625409a90"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent SECOND_PASS solve: travel exposure plus intermittent chill-fever-sweat episodes, splenomegaly and leukopenia match the Current Source-bound malaria minimum interface. H23 KP11 explicitly owns only this recognition layer."
+    }
+  },
+  {
+    "question_id": "xizong-official-2020-n047",
+    "system_id": "circulation",
+    "block_id": "circulation-b12",
+    "primary_kp_id": "circulation-b12-kp12",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2020/q026-050.json",
+      "question_truth_blob_sha": "3ab52c2f3d770988594dba3e58c7836949344b03",
+      "knowledge_path": "content/xizong/knowledge/systems/a1-circulation/blocks/Block12_休克与心脏骤停_学习阅读版_v2_最终执行版.md",
+      "knowledge_blob_sha": "b546de11e2945c745bafc3a48b705a46ad98009d"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent SECOND_PASS solve: extensive STEMI with hypotension and cold extremities indicates cardiogenic shock; Current B12 KP12 states reperfusion is fundamental and retains IABP as a bridging interface for AMI shock."
+    }
+  },
+  {
+    "question_id": "xizong-official-2020-n048",
+    "system_id": "circulation",
+    "block_id": "circulation-b05",
+    "primary_kp_id": "circulation-b05-kp16",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2020/q026-050.json",
+      "question_truth_blob_sha": "3ab52c2f3d770988594dba3e58c7836949344b03",
+      "knowledge_path": "content/xizong/knowledge/systems/a1-circulation/blocks/Block5_高血压与动脉粥样硬化_学习阅读版_v2_最终执行版.md",
+      "knowledge_blob_sha": "6d3ea9aa5df2e7520da402f579fdb2722cd16259"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent SECOND_PASS solve: diabetes plus renal disease/heart failure places this patient in the Current Study high-risk target group <130/80 mmHg. B5 KP16 explicitly owns this target while preserving individual-tolerance boundaries."
+    }
+  }
+]
