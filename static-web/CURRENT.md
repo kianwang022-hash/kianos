@@ -12,11 +12,42 @@ The managed macOS Current mirror, private checkpoint path, Daily Learning Packet
 
 Content production remains independent: vocabulary, Xizong explanations/relations/visual assets, English sources, Politics sources, and Skills continue only through their exact content owners.
 
-## Approved next surface integration — requirements only
+## Active Home / Steward / Radar UI preview — not shipped
 
-Kian approved a Mac-landscape Home / Steward / Radar / global Dock upgrade on 2026-09-24. UI discussion is next; no new surface or command is claimed shipped. [Surface split](https://github.com/kianwang022-hash/kian-personal-os/blob/main/HOME_PROJECTION.md), [execution contract](https://github.com/kianwang022-hash/kian-personal-os/blob/main/exam/STEWARD_CONSOLE_CONTRACT.md), and [Radar / mail semantics](https://github.com/kianwang022-hash/kian-personal-os/blob/main/exam/roles/INTAKE.md) are the exact product owners. Reuse native learning, Timer, Resume, private control/checkpoint and Packet interfaces; do not create parallel state owners.
+Kian approved the Mac-landscape Home / Steward / Radar / global Dock upgrade on 2026-09-24 and UI work has moved from discussion into an isolated interactive preview.
 
-This is an explicit bounded new need, not a reopening of unrelated subject production or all UI. Preserve existing valid routes/data until tested replacement. Full Steward plan/reality and Radar delivery require registered validators/consumers and isolated plus browser acceptance; a Markdown change is not implementation. Do not send proposed operation names to existing production validators.
+Current implementation cursor:
+- branch: `work/steward-ui-vnext-20260924`
+- current remote head at this cursor update: `d0687912c295ae739de7afb2b9f737687cd0c0f7`
+- preview: `static-web/ui-preview/steward-vnext.html`
+- `main`: **no integrated replacement UI from this preview**
+- preview data: **sample only**, never learner/mail/Health truth
+
+Current preview coverage:
+- Home strategic three-subject view;
+- Steward Today timeline;
+- Nutrition combination + single-item + grams + deterministic macro arithmetic;
+- Training actuals + future Apple Watch/Health display slot;
+- Radar `需要处理 / 值得知道`;
+- floating draggable Dock and dense record/break popovers.
+
+Still incomplete:
+- Week;
+- Month;
+- Review;
+- final unified Mac-wide visual/interaction pass across Home / Today / Radar / Dock;
+- exact native return/runtime integration and real data delivery.
+
+Important Human-Gate decisions already made during preview:
+- UI is high-density and clear; do not create density by shrinking ordinary visible text.
+- Do not expose backend terms/field names when the user only needs the result.
+- A local visual request changes only the named element; preserve unaffected typography/geometry unless Kian explicitly asks otherwise.
+- Dock remains a floating/movable overlay and must not reserve a blank bottom row.
+- Quick record/break surfaces stay compact; optional notes are one-line by default, not large forms.
+
+[Surface split](https://github.com/kianwang022-hash/kian-personal-os/blob/main/HOME_PROJECTION.md), [execution contract](https://github.com/kianwang022-hash/kian-personal-os/blob/main/exam/STEWARD_CONSOLE_CONTRACT.md), and [Radar / mail semantics](https://github.com/kianwang022-hash/kian-personal-os/blob/main/exam/roles/INTAKE.md) remain the product owners. Reuse native learning, Timer, Resume, private control/checkpoint and Packet interfaces; do not create parallel state owners.
+
+**Next:** finish the UI preview and obtain explicit Kian UI approval before runtime integration or merge to `main`. Full Steward plan/reality and Radar delivery still require registered validators/consumers and real browser/runtime acceptance; preview HTML does not make those capabilities shipped.
 
 ## Route from the reported symptom
 
