@@ -5,6 +5,7 @@ import { spawn, execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { fileURLToPath } from 'node:url';
 
+import { classifyStaticBuild } from './currentStaticImpact.mjs';
 import {
   adoptLegacyDist,
   isAtomicServingLink,
@@ -224,6 +225,21 @@ async function reloadSite() {
   if (!stopping && !site) startSite();
 }
 
+function reuseStaticBuild(sha, extra = {}) {
+  if (skipAstro) return false;
+  recoverStaticDirectories();
+  ensureAtomicServingLayout(sha);
+  const activeRoot = resolveServedRoot(distPath);
+  if (!activeRoot) return false;
+  const prior = readBuiltStatus(activeRoot);
+  writeBuiltStatus(activeRoot, sha, {
+    ...extra,
+    reused_static_build: true,
+    reused_from_sha: String(prior?.sha || '')
+  });
+  return true;
+}
+
 async function ensureStaticBuild(sha, extra = {}) {
   if (skipAstro) return false;
   recoverStaticDirectories();
@@ -276,8 +292,10 @@ async function syncOnce({ initial = false } = {}) {
     const fetched = await git(['rev-parse', 'origin/main']);
     const changed = await git(['diff', '--name-only', local, fetched]);
     const changedPaths = changed ? changed.split('\n').filter(Boolean) : [];
+    const buildDecision = classifyStaticBuild(changedPaths);
     const syncRuntimeChanged = changedPaths.some((file) => [
       'static-web/scripts/kianos-current-sync.mjs',
+      'static-web/scripts/currentStaticImpact.mjs',
       'static-web/scripts/currentStaticSlots.mjs',
       'static-web/package.json',
       'static-web/package-lock.json',
@@ -301,10 +319,41 @@ async function syncOnce({ initial = false } = {}) {
       await npmInstall();
     }
 
-    await ensureStaticBuild(fetched, { changed_paths: changedPaths.length });
+    let staticBuild = 'rebuilt';
+    if (!skipAstro && !buildDecision.required) {
+      const reused = reuseStaticBuild(fetched, {
+        changed_paths: changedPaths.length,
+        build_impact_paths: 0
+      });
+      if (reused) {
+        staticBuild = 'reused';
+        log(
+          `reused current static build for ${fetched.slice(0, 8)}; `
+          + `${changedPaths.length} changed path(s) are runtime/control-only`
+        );
+      } else {
+        await ensureStaticBuild(fetched, {
+          changed_paths: changedPaths.length,
+          build_impact_paths: 0
+        });
+      }
+    } else {
+      await ensureStaticBuild(fetched, {
+        changed_paths: changedPaths.length,
+        build_impact_paths: buildDecision.build_paths.length
+      });
+    }
+
     lastSyncHealthy = true;
-    writeStatus('synced', fetched, { changed_paths: changedPaths.length });
-    log(`synced ${changedPaths.length} changed path(s); static Current is ${fetched.slice(0, 8)}`);
+    writeStatus('synced', fetched, {
+      changed_paths: changedPaths.length,
+      static_build: skipAstro ? 'skipped' : staticBuild,
+      build_impact_paths: buildDecision.build_paths.length
+    });
+    log(
+      `synced ${changedPaths.length} changed path(s); static Current is ${fetched.slice(0, 8)} `
+      + `(${skipAstro ? 'skipped' : staticBuild})`
+    );
 
     if (!oneShot && syncRuntimeChanged) {
       log('Current sync runtime changed; restarting the LaunchAgent-managed process after successful handoff');
