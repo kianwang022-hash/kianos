@@ -81,11 +81,17 @@ class IncrementalProjectionTest(unittest.TestCase):
                 word = json.loads((words / "o0003.json").read_text())
                 word["record"]["core_concept"]["core_meaning_cn"] = "edited"
                 write(words / "o0003.json", word)
+                git("add", "content")
+                git("commit", "-m", "one word plus unrelated Xizong")
+                self.assertEqual(builder.validate_changed("HEAD^", expected_count=3)["validated_words"], 1)
                 result = run()
                 self.assertEqual((result["compiled_words"], result["changed_shards"]), (1, 1))
                 # Shared relation edit invalidates both dependants.
                 relation["word_views"][0]["payload"]["boundary"] = "new"
                 write(root / relation_path, relation)
+                git("add", "content")
+                git("commit", "-m", "shared relation")
+                self.assertEqual(builder.validate_changed("HEAD^", expected_count=3)["validated_words"], 2)
                 self.assertEqual(run()["compiled_words"], 2)
                 # Sparse decision invalidates only its owner.
                 write(decisions, {"words": {"word:w3": {"word_feel": {"x": "new"}}}})

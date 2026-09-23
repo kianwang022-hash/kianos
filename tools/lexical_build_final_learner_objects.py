@@ -432,11 +432,23 @@ def build(output_root: Path, cache_root: Path, expected_count: int = 7946) -> di
         if (input_signature and proof["inputs"] == input_signature
                 and proof["output_root"] == str(output_root.resolve())
                 and proof["result"]["object_count"] == expected_count
-                and proof["files"]
-                and all(hashlib.sha256((output_root / name).read_bytes()).hexdigest() == digest
-                        for name, digest in proof["files"].items())):
+                and proof["files"]):
+            restore = {}
+            for name, digest in proof["files"].items():
+                file = output_root / name
+                if file.is_file() and hashlib.sha256(file.read_bytes()).hexdigest() == digest:
+                    continue
+                # Current checkout/reset may replace tracked projections with
+                # older checked-in bytes even when semantic inputs are unchanged.
+                payload = (cache_root / "outputs" / name).read_bytes()
+                if hashlib.sha256(payload).hexdigest() != digest:
+                    raise ValueError("LEXICAL_CACHED_OUTPUT_HASH_MISMATCH")
+                restore[name] = json.loads(payload)
+            for name, value in restore.items():
+                dump(output_root / name, value)
             return {**proof["result"], "compiled_words": 0, "reused_words": expected_count,
-                    "changed_shards": 0, "removed_shards": 0, "manifest_changed": False,
+                    "changed_shards": sum(name.startswith("shards/") for name in restore),
+                    "removed_shards": 0, "manifest_changed": "manifest.json" in restore,
                     "input_tree_reused": True}
     except (OSError, ValueError, KeyError, TypeError):
         pass
@@ -504,6 +516,7 @@ def build(output_root: Path, cache_root: Path, expected_count: int = 7946) -> di
         shard_path = shards_dir / name
         if dump(shard_path, chunk):
             changed_shards += 1
+        dump(cache_root / "outputs/shards" / name, chunk)
         shard_rows.append({
             "start": first,
             "end": last,
@@ -530,6 +543,7 @@ def build(output_root: Path, cache_root: Path, expected_count: int = 7946) -> di
         "shards": shard_rows,
     }
     manifest_changed = dump(output_root / "manifest.json", manifest)
+    dump(cache_root / "outputs/manifest.json", manifest)
     for name, rows in pending_caches.items():
         dump(cache_root / name, rows)
     result = {
@@ -551,18 +565,28 @@ def build(output_root: Path, cache_root: Path, expected_count: int = 7946) -> di
         })
     return result
 
-def validate_changed(base: str) -> dict[str, Any]:
+def validate_changed(base: str, expected_count: int = 7946) -> dict[str, Any]:
     changed = set(subprocess.check_output(
         ["git", "diff", "--name-only", base, "HEAD"], cwd=ROOT, text=True).splitlines())
     full = bool(changed & {"tools/lexical_build_final_learner_objects.py",
                           "content/lexical/final-learner-object-decisions.json"})
     decisions = load(DECISIONS) if DECISIONS.exists() else {"words": {}}
     count = 0
+    paths = sorted(WORDS.glob("o*.json"))
+    if len(paths) != expected_count:
+        raise RuntimeError(f"FINAL_LEARNER_OBJECT_COUNT:{len(paths)}")
     # Relations can be shared by several Word owners: validate reverse
     # dependants too, including when a relation is removed.
-    for path in sorted(WORDS.glob("o*.json")):
+    for offset, path in enumerate(paths):
         owner = load(path)
-        inputs = {path.relative_to(ROOT).as_posix()}
+        relative = path.relative_to(ROOT).as_posix()
+        if owner.get("ordinal") != offset + 1:
+            raise RuntimeError(f"FINAL_LEARNER_ORDINAL_MISMATCH:{relative}")
+        if relative in changed:
+            old = json.loads(subprocess.check_output(["git", "show", f"{base}:{relative}"], cwd=ROOT))
+            if (old.get("ordinal"), old.get("word_id")) != (owner.get("ordinal"), owner.get("word_id")):
+                raise RuntimeError(f"FINAL_LEARNER_IDENTITY_CHANGED:{relative}")
+        inputs = {relative}
         inputs.update(ref.get("owner_path") for ref in owner.get("relation_refs") or [])
         if full or inputs & changed:
             compile_word(owner, decisions)
