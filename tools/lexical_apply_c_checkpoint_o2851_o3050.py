@@ -114,7 +114,7 @@ def apply(s):
     manv="sense:man:7d4b8ad5d26f589f";put(s,2940,manv,cn="给……配备人员；值守/操作（岗位、设备等）",en="to staff, crew, or operate a post, station, or piece of equipment",pos="verb",level="L2");addc(s,2940,manv,"man the desk/phones","值守服务台/接听电话","usage_example")
     generic="sense:man:bcf5c751a2c05b7b"
     if any(z.get("sense_id")==generic for z in s.record(2940).get("senses",[])):g=active(s,2940,generic);g["register"]="traditional generic";g["usage_note"]="For current neutral/inclusive production, humanity, humankind, human beings, or people is often safer.";s.mark(2940)
-    mk="sense:mankind:8912256f09d15941";x=active(s,2947,mk);x["register"]="traditional collective term";x["usage_note"]="In current neutral/inclusive prose, humankind, humanity, or human beings is often preferred.";s.mark(2947);fact("deep:semantic_contrast:humanity:7a332d44d115bcb9",lambda r:r.update({"boundary":"humanity and mankind overlap in the human-race sense; humanity also has humaneness/human-nature senses, while mankind is the more traditional collective term"}))
+    mk="sense:mankind:8912256f09d15941";x=active(s,2947,mk);x["register"]="traditional collective term";x["usage_note"]="In current neutral/inclusive prose, humankind, humanity, or human beings is often preferred.";s.mark(2947)
     cons(s,2953,"many a + singular count noun (+ singular verb)","许多；很多（正式/书面；形式上接单数名词和单数谓语）","sense:many:f06d08b000af5a35","L2","compare many students are vs many a student is")
     coreadd(s,2956,"sense:marble:b435b52935b257bc","noun","大理石；玻璃弹珠；大理石雕刻","marble rock; a glass marble; marble sculpture")
     overlay(s,2957,"sense:march:6e90504485f052cf",{"identity_type":"case_sensitive_sense","canonical_surface":"March","note":"month is capitalized"})
@@ -153,10 +153,8 @@ def main():
     s.finalize();natural,relations,report=no.build()
     if report["status"]!="PASS":raise RuntimeError("NATURAL_OWNER_AUDIT_FAILED:"+json.dumps(report,ensure_ascii=False))
     for o in sorted(touched):no.dump_json(no.WORDS_OUT/f"o{o:04d}.json",natural[o])
-    tr={"deep:semantic_contrast:humanity:7a332d44d115bcb9"}
-    for o in touched:
-        for ref in natural[o].get("relation_refs",[]):tr.add(ref["relation_id"])
-    for rid in sorted(tr):
-        if rid in relations:no.dump_json(no.relation_owner_path(rid),relations[rid])
+    # Relation owners are not rewritten merely because a touched Word references them.
+    # C writes a Relation owner only when that Relation is itself an explicit C mutation.
+    # This checkpoint has no non-deferred shared Relation mutation.
     print(json.dumps({"status":"PASS","scope":[2851,3050],"decision_count":len(dec),"apply_count":len(APPLY),"deferred_count":len(DEFER),"changed_word_ordinals":sorted(touched),"changed_count":len(touched),"idempotent_noop_expected_ordinals":sorted(APPLY-touched),"natural_owner_audit":report["status"]},ensure_ascii=False,indent=2))
 if __name__=="__main__":main()
