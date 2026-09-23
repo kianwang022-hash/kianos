@@ -6,6 +6,8 @@ on:
       - "static-web/scripts/kianos-current-sync.mjs"
       - "static-web/scripts/install-current-macos.sh"
       - "static-web/scripts/privateLearnerBridge.mjs"
+      - "static-web/scripts/privateDailyLearningPacketRelayWorker.mjs"
+      - "static-web/scripts/test-private-daily-learning-packet-worker.mjs"
       - "static-web/scripts/privateExternalReadingBridge.mjs"
       - "static-web/scripts/privateControlBridge.mjs"
       - "static-web/scripts/kianos-static-server.mjs"
@@ -35,6 +37,8 @@ jobs:
           node --check scripts/currentStaticSlots.mjs
           node --check scripts/test-current-static-slots.mjs
           node --check scripts/privateLearnerBridge.mjs
+          node --check scripts/privateDailyLearningPacketRelayWorker.mjs
+          node --check scripts/test-private-daily-learning-packet-worker.mjs
           node --check scripts/privateExternalReadingBridge.mjs
           node --check scripts/privateControlBridge.mjs
           node --check scripts/test-current-static-runtime.mjs

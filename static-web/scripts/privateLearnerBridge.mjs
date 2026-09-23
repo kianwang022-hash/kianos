@@ -1,10 +1,19 @@
+import path from 'node:path';
+import { execFile } from 'node:child_process';
+import { promisify } from 'node:util';
+import { fileURLToPath } from 'node:url';
+
 import {
   PRIVATE_CHECKPOINT_SCHEMA,
   readPrivateLearnerCheckpoint,
   resolvePrivateLearnerDir,
   writePrivateLearnerCheckpoint
 } from './privateLearnerStore.mjs';
-import { syncPrivateDailyLearningPacketOnce } from './privateDailyLearningPacketRelay.mjs';
+
+const execFileAsync = promisify(execFile);
+const scriptDir = path.dirname(fileURLToPath(import.meta.url));
+const webRoot = path.resolve(scriptDir, '..');
+const workerPath = path.join(scriptDir, 'privateDailyLearningPacketRelayWorker.mjs');
 
 const ROUTE = '/__kianos-private/checkpoint';
 const STATUS_ROUTE = ROUTE + '/status';
@@ -22,6 +31,33 @@ const json = (res, status, value) => {
   res.end(JSON.stringify(value));
 };
 
+export async function runPrivateDailyLearningPacketRelayWorker({
+  privateDir = resolvePrivateLearnerDir(),
+  env = process.env
+} = {}) {
+  const timeoutMs = Math.max(
+    5_000,
+    Math.min(300_000, Number(env.KIANOS_PACKET_RELAY_WORKER_TIMEOUT_MS || 120_000))
+  );
+  const { stdout } = await execFileAsync(process.execPath, [
+    workerPath,
+    '--private-dir', privateDir
+  ], {
+    cwd: webRoot,
+    env: { ...env, KIANOS_PRIVATE_DIR: privateDir },
+    maxBuffer: 2 * 1024 * 1024,
+    timeout: timeoutMs,
+    killSignal: 'SIGTERM'
+  });
+  const raw = String(stdout || '').trim();
+  if (!raw) throw new Error('PRIVATE_PACKET_RELAY_WORKER_EMPTY_RESULT');
+  try {
+    return JSON.parse(raw);
+  } catch {
+    throw new Error('PRIVATE_PACKET_RELAY_WORKER_INVALID_RESULT');
+  }
+}
+
 async function readBody(req) {
   let size = 0;
   const chunks = [];
@@ -35,7 +71,7 @@ async function readBody(req) {
   return JSON.parse(raw);
 }
 
-export function privateLearnerBridge({ privateDir = resolvePrivateLearnerDir(), packetSync = syncPrivateDailyLearningPacketOnce } = {}) {
+export function privateLearnerBridge({ privateDir = resolvePrivateLearnerDir(), packetSync = runPrivateDailyLearningPacketRelayWorker } = {}) {
   return {
     name: 'kianos-private-learner-bridge',
     apply: 'serve',
