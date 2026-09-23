@@ -9,76 +9,172 @@ export function getStaticPaths() {
 const base = import.meta.env.BASE_URL;
 const skillId = Astro.params.skill;
 const skill = loadSkill(skillId);
-const current = skill.assets.find((asset) => asset.id === skill.manifest.current_asset) || skill.assets[0];
+const assetMap = Object.fromEntries(skill.assets.map((asset) => [asset.id, asset]));
+const guide = skill.assets.find((asset) => asset.stage === 'orientation' || asset.kind === 'guide');
+const referenceAssets = skill.assets.filter((asset) => asset.stage === 'reference');
+const unitRows = (skill.units || []).map((unit, index) => {
+  const learn = assetMap[unit.assets?.learn];
+  return { unit, index, learn };
+}).filter((row) => row.learn);
+const defaultAsset = guide || unitRows[0]?.learn || skill.assets[0];
+
+const stateLabel = skill.portfolioState === 'CORE'
+  ? '核心能力'
+  : skill.portfolioState === 'CORE_SUPPORT'
+    ? '长期支撑'
+    : skill.portfolioState === 'CORE_OPTION'
+      ? '可选方向'
+      : '能力';
+
+const configJson = JSON.stringify({
+  skill_id: skill.id,
+  default_asset: defaultAsset?.id || '',
+  assets: skill.assets.map((asset) => ({
+    id: asset.id,
+    title: asset.title,
+    label: asset.label,
+    unit_id: asset.unit_id,
+    href: skillAssetHref(base, skill.id, asset.id)
+  }))
+}).replace(/</g, '\u003c');
 ---
 <SkillsBase title={skill.title} kicker={skill.manifest.kicker || 'Skill'} description={skill.manifest.description || skill.subtitle}>
-  <header class="skillHero">
-    <div class="skillHeroMain">
-      <p class="skillEyebrow">{skill.portfolioState} · {skill.status}</p>
-      <h2>{skill.title}</h2>
+  <nav class="skillBreadcrumb skillBreadcrumbTop" aria-label="Skill navigation">
+    <a href={base + 'skills/'}>Skills</a>
+    <span>›</span>
+    <strong>{skill.title}</strong>
+  </nav>
+
+  <header class="skillHomeHero">
+    <div class="skillHomeHeroCopy">
+      <p class="skillEyebrow">{stateLabel} · {unitRows.length} 个单元</p>
+      <h1>{skill.title}</h1>
       <p>{skill.manifest.demand}</p>
-      {current && (
+    </div>
+
+    {defaultAsset && (
+      <aside class="skillHomeResume" data-skill-resume>
+        <span data-resume-kicker>推荐入口</span>
+        <strong data-resume-title>{defaultAsset.title}</strong>
+        <p data-resume-label>{defaultAsset.label}</p>
         <a
           class="skillPrimaryAction"
-          href={skillAssetHref(base, skill.id, current.id)}
+          href={skillAssetHref(base, skill.id, defaultAsset.id)}
           data-skill-continue={skill.id}
-          data-default-asset={current.id}
-        >继续当前学习</a>
-      )}
-    </div>
-    <aside class="skillCapabilityMap" aria-label="能力地图">
-      <span>Capability Map</span>
-      <ol>
-        {(skill.manifest.capability_map || []).map((item) => <li>{item}</li>)}
-      </ol>
-    </aside>
+        >开始阅读 <span aria-hidden="true">→</span></a>
+      </aside>
+    )}
   </header>
 
-  <section class="skillSection">
+  <section class="skillCognitionRoute">
     <header class="skillSectionHead">
-      <div><span>Current route</span><h3>学习资产</h3></div>
-      <p>正文和 Verify 分开；完成阅读不等于掌握。</p>
+      <div>
+        <span>Learning Map</span>
+        <h2>从整张地图到 {unitRows.length} 个能力单元</h2>
+      </div>
+      <p>先看总览，再按真实需求进入 Unit；网站只保存阅读位置，不把阅读完成冒充能力掌握。</p>
     </header>
-    <div class="skillAssetList">
-      {skill.assets.map((asset) => (
-        <a class={'skillAssetRow skillAssetRow-' + asset.kind} href={skillAssetHref(base, skill.id, asset.id)} data-skill-asset-row={asset.id}>
-          <div>
-            <span>{asset.kind.toUpperCase()}</span>
-            <strong>{asset.title}</strong>
-            <p>{asset.label}</p>
+
+    <div class="skillUnitStack">
+      {guide && (
+        <article class="skillUnitCard skillUnitCardGuide" data-guide-card>
+          <div class="skillUnitIdentity">
+            <span>00</span>
+            <div><strong>总览</strong><small>先建立整张地图</small></div>
+            <em data-unit-progress-label hidden>上次停在这里</em>
           </div>
-          <b aria-hidden="true">→</b>
-        </a>
+          <div class="skillStageTrack">
+            <a href={skillAssetHref(base, skill.id, guide.id)}>
+              <span>阅读</span><small>{guide.label}</small>
+            </a>
+          </div>
+        </article>
+      )}
+
+      {unitRows.map(({unit,index,learn}) => (
+        <article class="skillUnitCard" data-unit-id={unit.id}>
+          <div class="skillUnitIdentity">
+            <span>U{index + 1}</span>
+            <div>
+              <strong>{unit.title.replace(/^U\d+\s*·\s*/, '')}</strong>
+              <small>{unit.capability.replace(/^C\d+\s*/, '')}</small>
+            </div>
+            <em data-unit-progress-label hidden>上次停在这里</em>
+          </div>
+          <div class="skillStageTrack">
+            <a href={skillAssetHref(base, skill.id, learn.id)}>
+              <span>学习</span><small>{learn.label}</small>
+            </a>
+          </div>
+        </article>
       ))}
     </div>
   </section>
 
-  {(skill.manifest.next_planned || []).length > 0 && (
-    <section class="skillSection skillPlanned">
-      <header class="skillSectionHead"><div><span>Next</span><h3>后续能力</h3></div></header>
-      <div class="skillPlannedGrid">
-        {skill.manifest.next_planned.map((item) => <div><span>{item.status}</span><strong>{item.title}</strong></div>)}
+  {referenceAssets.length > 0 && (
+    <section class="skillCrossCut">
+      <header><span>Reference</span><h2>需要时再看</h2></header>
+      <div>
+        {referenceAssets.map((asset) => (
+          <a href={skillAssetHref(base, skill.id, asset.id)}>
+            <strong>{asset.title}</strong>
+            <p>{asset.label}</p>
+          </a>
+        ))}
       </div>
     </section>
   )}
+
+  <aside class="skillDiscussionNote">
+    <span>Chat 是深入学习入口</span>
+    <p>看到不懂、想联系现实、需要验证或想继续升级时，直接回 Chat；网站本身不要求你完成任何互动流程。</p>
+  </aside>
+
+  <script type="application/json" id="skill-reading-config" set:html={configJson}></script>
 </SkillsBase>
 
 <script>
+  import { learnerWriterReady } from '../../../lib/browserLearnerWriter.mjs';
   import { skillProgressFor } from '../../../lib/skillRuntimeClient.mjs';
-  const base = import.meta.env.BASE_URL;
-  const link = document.querySelector('[data-skill-continue]');
-  if (link instanceof HTMLAnchorElement) {
-    const skillId = link.dataset.skillContinue || '';
-    const state = skillProgressFor(skillId);
-    if (state.last_asset) {
-      link.href = base + 'skills/' + encodeURIComponent(skillId) + '/' + encodeURIComponent(state.last_asset) + '/';
-      link.textContent = '继续上次位置';
+
+  void learnerWriterReady.then(() => {
+    const raw = document.getElementById('skill-reading-config')?.textContent || '{}';
+    const config = JSON.parse(raw);
+    const progress = skillProgressFor(config.skill_id || '');
+    const assets = config.assets || [];
+    const defaultAsset = assets.find((asset) => asset.id === config.default_asset);
+    const lastAsset = assets.find((asset) => asset.id === progress.last_asset);
+    const target = lastAsset || defaultAsset;
+
+    const link = document.querySelector('[data-skill-continue]');
+    if (link instanceof HTMLAnchorElement && target?.href) {
+      link.href = target.href;
+      if (lastAsset) link.firstChild && (link.firstChild.textContent = '继续上次位置 ');
     }
-    for (const row of document.querySelectorAll('[data-skill-asset-row]')) {
-      if (!(row instanceof HTMLElement)) continue;
-      const assetId = row.dataset.skillAssetRow || '';
-      if (state.completed.includes(assetId)) row.dataset.completed = 'true';
-      else if (state.visited.includes(assetId)) row.dataset.visited = 'true';
+
+    const kicker = document.querySelector('[data-resume-kicker]');
+    const title = document.querySelector('[data-resume-title]');
+    const label = document.querySelector('[data-resume-label]');
+    if (lastAsset) {
+      if (kicker instanceof HTMLElement) kicker.textContent = '最近阅读';
+      if (title instanceof HTMLElement) title.textContent = lastAsset.title || '上次阅读位置';
+      if (label instanceof HTMLElement) label.textContent = lastAsset.label || '从上次停下的位置继续';
     }
-  }
+
+    if (lastAsset?.unit_id) {
+      const unitCard = document.querySelector('[data-unit-id="' + CSS.escape(lastAsset.unit_id) + '"]');
+      if (unitCard instanceof HTMLElement) {
+        unitCard.dataset.current = 'true';
+        const progressLabel = unitCard.querySelector('[data-unit-progress-label]');
+        if (progressLabel instanceof HTMLElement) progressLabel.hidden = false;
+      }
+    } else if (lastAsset && lastAsset.id === config.default_asset) {
+      const guideCard = document.querySelector('[data-guide-card]');
+      if (guideCard instanceof HTMLElement) {
+        guideCard.dataset.current = 'true';
+        const progressLabel = guideCard.querySelector('[data-unit-progress-label]');
+        if (progressLabel instanceof HTMLElement) progressLabel.hidden = false;
+      }
+    }
+  });
 </script>

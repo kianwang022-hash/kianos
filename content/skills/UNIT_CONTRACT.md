@@ -1,41 +1,141 @@
 # Skill Unit Contract
 
-Status: CURRENT
-Role: minimum design contract for a material learner unit.
+Status: CURRENT  
+Role: minimum design contract for one material Skill Unit.
 
-A unit is not a chapter. It is the smallest coherent capability slice that can be learned, demonstrated and either exited or repaired.
+A Unit is not a chapter.
 
-## Required design questions
+It is the smallest coherent capability slice that can be formed, reconstructed, demonstrated, compressed, transferred/used and independently repaired.
 
-Before learner content is considered ready, resolve:
+## 1｜Required design questions
+
+Before a Unit is learner-ready, resolve:
 
 ```text
 Target capability:
 Why now:
 Prerequisites:
-Baseline gate: CLEAN | SOFT | SKIP
-Learner asset:
+
+Baseline gate:
+  CLEAN | SOFT | SKIP
+
+Expanded learner model:
+  what must be understood before performance is meaningful?
+
+Learner-language transform:
+  how will Source/technical language become precise plain language?
+
+Attention budget:
+  what is foregrounded now, what is delayed/folded, and what representation minimizes rereading?
+
+Reconstruction action:
+  what must Kian regenerate without rereading?
+
 Practice geometry:
-Allowed assistance: NATIVE | TOOL_ALLOWED | AI_ASSISTED | EXPERT_GATED
-Verification mode:
-Exit evidence:
-Changed-context transfer target:
+  what action resembles the real capability?
+
+Allowed assistance:
+  NATIVE | TOOL_ALLOWED | AI_ASSISTED | EXPERT_GATED
+
+Direct demonstration:
+  what clean performance would count?
+
+Smallest repair objects:
+  what can fail independently?
+
+Compression target:
+  what is the smallest callable structure after evidence?
+
+Changed-context transfer:
+  how will surface cues differ?
+
 Real-use manifestation:
-Maintenance need: YES | NO | EVIDENCE_GATED
+  what does this capability look like in reality?
+
+Maintenance need:
+  YES | NO | EVIDENCE_GATED
 ```
 
-## Rules
+## 2｜Pre-release authoring closure
 
-- Do not create a unit merely because a topic deserves a heading.
-- Prefer one real performance family over broad topical coverage.
-- Guide / Framework may orient, but it cannot satisfy Exit evidence.
-- Verification should look less like the teaching material as evidence strength rises.
-- Same-item correction triggers Repair, not promotion.
-- When stable evidence already exists, skip redundant practice.
-- When the bottleneck becomes real practice, stop improving the learner asset.
-- High-consequence units may require EXPERT_GATED real use.
+Before Kian receives a new/materially changed Unit learner asset:
 
-## Difficulty routing
+```text
+Source / Knowledge owner
+→ learner asset draft
+→ bounded adversarial attack
+→ concrete defects
+→ smallest repair
+→ fresh Source + Learning re-check
+→ release
+```
+
+Attack at least:
+- unsupported / stale claim;
+- missing decisive boundary;
+- overgeneralization;
+- confusable case collapse;
+- answer leakage;
+- bad practice geometry;
+- avoidable jargon / source-language leakage;
+- information density too low to justify the surface or too high to support focused study;
+- unnecessary learner burden;
+- premature / lossy Compression;
+- missing high-consequence escalation boundary.
+
+Do not ask Kian to perform this QA.
+
+Do not repeat the audit once the responsible defects are closed unless new evidence reopens the Unit.
+
+## 3｜Default cognition route
+
+A material Unit normally has:
+
+```text
+Orientation when useful
+→ Expanded Learn
+→ Reconstruction
+→ Application / Discrimination
+→ Direct Demonstration
+→ Unit Compression
+→ Changed-context Transfer
+→ Real Use
+→ Personal Calibration when evidence supports it
+```
+
+But this is not a ritual.
+
+Skip any step that cannot change the evidence or future action.
+
+Repair branches from the first meaningful failure and returns to the interrupted route.
+
+## 4｜Compression contract
+
+Compression exists to remove future learner operations.
+
+A Unit Compression must reduce at least one of:
+- rereading;
+- rebuilding the same model;
+- locating the same distinction;
+- deciding the same branch;
+- repeated confusion;
+- action-selection latency.
+
+Compression may be:
+- one-screen operating model;
+- decision tree;
+- causal skeleton;
+- contrast matrix;
+- compact protocol;
+- branch checklist.
+
+Hard rules:
+- shorter prose alone is not Compression;
+- a beautiful framework that becomes another course is negative Compression;
+- do not freeze final Compression before enough evidence exists;
+- transfer/real-use failure may reopen and modify only the affected compressed relation.
+
+## 5｜Difficulty routing
 
 ```text
 too easy
@@ -49,23 +149,26 @@ mostly guessing
 → narrow task / restore prerequisite
 
 unsafe
-→ simulation / source / expert gate
+→ simulation / stronger Source / expert gate
 ```
 
-## Completion semantics
+## 6｜Completion semantics
 
-A learner may mark a page "read" for Resume convenience.
+A learner may mark a page “read” for Resume convenience.
 
-That is Runtime navigation evidence only.
+That is navigation evidence only.
 
-Capability promotion belongs to Evidence / Chat judgment and follows:
+Capability evidence remains:
 
 ```text
 ORIENTED
+< RECONSTRUCTED
 < DIRECTLY_DEMONSTRATED
 < CHANGED_CONTEXT_TRANSFER
 < REAL_USE
 < STABLE
 ```
 
-The success condition decides how high the ladder must go.
+Compression state is tracked separately from promotion state.
+
+The success condition determines the required promotion level.

@@ -1,0 +1,55 @@
+{
+  "schema": "kianos.skill.manifest.v1",
+  "id": "career-navigation",
+  "title": "职业与机会导航",
+  "kicker": "Career & Opportunity Navigation",
+  "description": "把职业搜索、岗位任务、技能与凭证价值、机构与导师尽调、职业资本、可逆实验、路径依赖和机会谈判连成一套持续导航能力。",
+  "status": "READY",
+  "portfolio_state": "CORE",
+  "demand": "建立反复可用的职业导航能力：能发现并扩展真实选项，用任务和技能而不是 title 理解岗位，用直接证据评价导师与机构，判断 credential 和 career capital 的边际价值，识别 path dependency 与 option value，并通过小规模真实暴露降低重大承诺前的不确定性。",
+  "guide": "framework.md",
+  "current_asset": "framework",
+  "units": [
+    {"id":"u1","title":"U1 · 职业地图与机会发现","capability":"C1 从角色、任务、技能、制度和机会来源构建搜索空间，不把已知职业当成全部世界","order":10,"next_unit":"u2","assets":{"learn":"u1-option-map"}},
+    {"id":"u2","title":"U2 · 岗位、技能与凭证价值","capability":"C2 用真实工作任务、技能门槛、许可证 / 学历要求和可迁移性判断 credential 是否值得投入","order":20,"next_unit":"u3","assets":{"learn":"u2-role-skill-credential"}},
+    {"id":"u3","title":"U3 · 机构、平台与导师尽调","capability":"C3 从资源、文化、训练、产出、学生去向和 mentor behavior 评价平台，而不是只看名气与头衔","order":30,"next_unit":"u4","assets":{"learn":"u3-institution-mentor"}},
+    {"id":"u4","title":"U4 · 职业资本与可迁移能力","capability":"C4 识别 skill / network / reputation / credential / ownership 等 career capital，并判断哪些能跨机构和行业迁移","order":40,"next_unit":"u5","assets":{"learn":"u4-career-capital"}},
+    {"id":"u5","title":"U5 · Option Value、路径依赖与承诺时机","capability":"C5 判断一个选择会打开 / 关闭哪些未来路径，用可逆性、学习速度和锁定成本管理职业路径依赖","order":50,"next_unit":"u6","assets":{"learn":"u5-option-path"}},
+    {"id":"u6","title":"U6 · 真实暴露与小规模职业实验","capability":"C6 用 shadowing、project、internship、conversation、trial task 等低成本方式验证日常工作和个人匹配","order":60,"next_unit":"u7","assets":{"learn":"u6-career-experiments"}},
+    {"id":"u7","title":"U7 · 机会选择、定位与转型执行","capability":"C7 把机会证据交给 Decision，再处理申请、谈判、进入、声誉、转型与退出的执行问题","order":70,"next_unit":null,"assets":{"learn":"u7-opportunity-execution"}}
+  ],
+  "assets": [
+    {"id":"framework","kind":"guide","stage":"orientation","title":"总框架","label":"先建立从发现选项到验证、承诺和转型的整张职业地图","path":"framework.md","order":0,"learner_visible":true,"completable":false},
+    {"id":"u1-option-map","unit_id":"u1","kind":"learn","stage":"learn","title":"U1 · 职业地图与机会发现","label":"先扩大真实选项，不要只在自己已经听过的职业里选","path":"units/u1-option-map.md","order":10,"learner_visible":true,"completable":false},
+    {"id":"u2-role-skill-credential","unit_id":"u2","kind":"learn","stage":"learn","title":"U2 · 岗位、技能与凭证价值","label":"先看每天做什么和进入门槛，再判断学历、证书和技能投入","path":"units/u2-role-skill-credential.md","order":20,"learner_visible":true,"completable":false},
+    {"id":"u3-institution-mentor","unit_id":"u3","kind":"learn","stage":"learn","title":"U3 · 机构、平台与导师尽调","label":"机构名气和导师论文只是信号，真正看资源、行为、训练和学生去向","path":"units/u3-institution-mentor.md","order":30,"learner_visible":true,"completable":false},
+    {"id":"u4-career-capital","unit_id":"u4","kind":"learn","stage":"learn","title":"U4 · 职业资本与可迁移能力","label":"积累能带走的能力、证明、关系和决策权，而不只积累年限","path":"units/u4-career-capital.md","order":40,"learner_visible":true,"completable":false},
+    {"id":"u5-option-path","unit_id":"u5","kind":"learn","stage":"learn","title":"U5 · Option Value、路径依赖与承诺时机","label":"重要选择不仅看当前收益，也看未来还能不能转向","path":"units/u5-option-path.md","order":50,"learner_visible":true,"completable":false},
+    {"id":"u6-career-experiments","unit_id":"u6","kind":"learn","stage":"learn","title":"U6 · 真实暴露与小规模职业实验","label":"在做出高锁定承诺前，用真实体验替代想象","path":"units/u6-career-experiments.md","order":60,"learner_visible":true,"completable":false},
+    {"id":"u7-opportunity-execution","unit_id":"u7","kind":"learn","stage":"learn","title":"U7 · 机会选择、定位与转型执行","label":"Decision 决定去哪，Career Skill 负责让机会真正拿到并保留退出能力","path":"units/u7-opportunity-execution.md","order":70,"learner_visible":true,"completable":false}
+  ],
+  "capability_map": [
+    "C1 搜索：career map / adjacent roles / institution / geography / weak ties / information sources",
+    "C2 岗位：tasks / skills / work context / credential / license / entry route / portability",
+    "C3 平台：mentor / institution / resources / culture / incentives / student outcomes / due diligence",
+    "C4 职业资本：skills / proof / reputation / network / ownership / portable assets",
+    "C5 路径：option value / path dependence / reversibility / switching cost / timing",
+    "C6 实验：informational interview / shadowing / internship / project / trial task / fresh evidence",
+    "C7 执行：positioning / application / negotiation / onboarding / transition / exit / reputation"
+  ],
+  "source_reviews":[
+    {"id":"whole-book-source-review","title":"Career / Opportunity Navigation Source Review","path":"source-review.md"}
+  ],
+  "related_skill_candidates":[
+    {"id":"decision-quality","relation":"Decision 负责最终 career choice 和跨目标 trade-off；本 Skill 负责生成、验证、更新 career options"},
+    {"id":"information-research","relation":"Research 负责学校、导师、岗位、市场和机构事实的来源质量；本 Skill 决定哪些事实真正改变职业路径判断"},
+    {"id":"communication-negotiation","relation":"Communication 负责 networking、mentor interaction、机会谈判和 difficult conversations 的人际执行"},
+    {"id":"adaptive-learning","relation":"Learning 负责填补 skill gap；Career Skill 负责判断哪个 skill / credential 值得学"},
+    {"id":"healthcare-industry","relation":"Industry Skill 解释医疗产业岗位系统；Career Skill 负责个人是否进入、何时进入以及如何验证匹配"}
+  ],
+  "next_planned":[
+    "Framework + U1–U7 + whole-book Source Review 已完成并通过 bounded self-attack",
+    "title fantasy / prestige proxy / salary-only / credential inflation / mentor-star / survivorship / option-value fetish / endless exploration / networking-as-access / experiment overclaim 已完成最小修复",
+    "READY and registered；以后只因真实 learner question、material content defect、durable Source change 或 real school / mentor / role / transition evidence reopen；不把本 Skill 变成固定排名器"
+  ]
+}

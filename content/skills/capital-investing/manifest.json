@@ -1,0 +1,54 @@
+{
+  "schema": "kianos.skill.manifest.v1",
+  "id": "capital-investing",
+  "title": "资本、金融与财富管理",
+  "kicker": "Capital, Finance & Wealth Management",
+  "description": "从资产负债表、流动性和目标开始，理解主要资产与风险来源，构建可执行组合，并用规则、再平衡和治理保护长期资本。",
+  "status": "READY",
+  "portfolio_state": "CORE",
+  "demand": "建立足以管理重要个人 / 家庭资本的自主判断能力：先守住流动性和负债，再把目标、时间尺度、风险承受能力、资产配置、成本与行为纪律连成可长期执行的资本系统。",
+  "guide": "framework.md",
+  "current_asset": "framework",
+  "units": [
+    {"id":"u1","title":"U1 · 资产负债表、现金流与安全垫","capability":"C1 看清资产 / 负债 / 现金流 / 流动性，并先保护短期生存与选择权","order":10,"next_unit":"u2","assets":{"learn":"u1-financial-base"}},
+    {"id":"u2","title":"U2 · 目标、时间尺度与风险能力","capability":"C2 把目标、期限、流动性需求、风险意愿与风险承受能力写成投资约束","order":20,"next_unit":"u3","assets":{"learn":"u2-goals-risk"}},
+    {"id":"u3","title":"U3 · 资产类别与风险来源","capability":"C3 理解现金、债券、股票、基金、房地产等资产如何产生收益与风险","order":30,"next_unit":"u4","assets":{"learn":"u3-asset-classes"}},
+    {"id":"u4","title":"U4 · 分散、相关性与组合构建","capability":"C4 用资产配置、分散和仓位控制管理组合层面的风险，而不是只挑单个资产","order":40,"next_unit":"u5","assets":{"learn":"u4-portfolio-construction"}},
+    {"id":"u5","title":"U5 · 投资评估、预期收益与成本","capability":"C5 判断一个投资的收益从哪里来、估值意味着什么、成本和税费如何侵蚀结果，并识别不可验证叙事","order":50,"next_unit":"u6","assets":{"learn":"u5-evaluation-costs"}},
+    {"id":"u6","title":"U6 · 实施、再平衡与流动性匹配","capability":"C6 把目标组合变成可执行规则，处理再平衡、现金需求、期限匹配、集中风险与交易摩擦","order":60,"next_unit":"u7","assets":{"learn":"u6-implementation-rebalance"}},
+    {"id":"u7","title":"U7 · 行为、治理与专业建议","capability":"C7 用 IPS、行为护栏、监控与专业顾问尽调保护长期资本，并知道什么时候不行动","order":70,"next_unit":null,"assets":{"learn":"u7-governance-advice"}}
+  ],
+  "assets": [
+    {"id":"framework","kind":"guide","stage":"orientation","title":"总框架","label":"先建立从资本安全到底层组合治理的整张地图","path":"framework.md","order":0,"learner_visible":true,"completable":false},
+    {"id":"u1-financial-base","unit_id":"u1","kind":"learn","stage":"learn","title":"U1 · 资产负债表、现金流与安全垫","label":"先知道自己拥有什么、欠什么、什么时候必须有现金","path":"units/u1-financial-base.md","order":10,"learner_visible":true,"completable":false},
+    {"id":"u2-goals-risk","unit_id":"u2","kind":"learn","stage":"learn","title":"U2 · 目标、时间尺度与风险能力","label":"先定义钱什么时候要用、能承受什么损失，再谈组合","path":"units/u2-goals-risk.md","order":20,"learner_visible":true,"completable":false},
+    {"id":"u3-asset-classes","unit_id":"u3","kind":"learn","stage":"learn","title":"U3 · 资产类别与风险来源","label":"理解每类资产为什么可能赚钱，也为什么可能亏","path":"units/u3-asset-classes.md","order":30,"learner_visible":true,"completable":false},
+    {"id":"u4-portfolio-construction","unit_id":"u4","kind":"learn","stage":"learn","title":"U4 · 分散、相关性与组合构建","label":"从挑资产升级到管理整个组合","path":"units/u4-portfolio-construction.md","order":40,"learner_visible":true,"completable":false},
+    {"id":"u5-evaluation-costs","unit_id":"u5","kind":"learn","stage":"learn","title":"U5 · 投资评估、预期收益与成本","label":"不要把好故事、过去涨幅或高毛收益当成好投资","path":"units/u5-evaluation-costs.md","order":50,"learner_visible":true,"completable":false},
+    {"id":"u6-implementation-rebalance","unit_id":"u6","kind":"learn","stage":"learn","title":"U6 · 实施、再平衡与流动性匹配","label":"把组合从纸面比例变成能长期执行的规则","path":"units/u6-implementation-rebalance.md","order":60,"learner_visible":true,"completable":false},
+    {"id":"u7-governance-advice","unit_id":"u7","kind":"learn","stage":"learn","title":"U7 · 行为、治理与专业建议","label":"用规则和独立验证防止资本被情绪、销售和复杂度拖走","path":"units/u7-governance-advice.md","order":70,"learner_visible":true,"completable":false}
+  ],
+  "capability_map": [
+    "C1 财务底盘：资产 / 负债 / 现金流 / 流动性 / 应急储备",
+    "C2 投资约束：目标 / 时间尺度 / 风险意愿 / 风险承受能力 / 流动性",
+    "C3 资产机制：现金 / 债券 / 股票 / 基金 ETF / 房地产 / 其他资产",
+    "C4 组合：资产配置 / 分散 / 相关性 / 集中风险 / 仓位",
+    "C5 评估：预期收益 / 估值 / 费用 / 税费 / 信息质量 / 尽调",
+    "C6 实施：再平衡 / 期限匹配 / 现金需求 / 交易摩擦 / 货币暴露",
+    "C7 治理：IPS / 行为偏差 / 监控 / 顾问尽调 / 不行动规则"
+  ],
+  "source_reviews":[
+    {"id":"whole-book-source-review","title":"Capital / Investing Source Review","path":"source-review.md"}
+  ],
+  "related_skill_candidates":[
+    {"id":"decision-quality","relation":"Decision 负责具体重大资本选择的目标、机会成本与提交边界；本 Skill 提供资本结构、组合和投资约束模型"},
+    {"id":"information-research","relation":"Research 负责公司、基金、产品、市场与法规事实的来源 / 证据判断；本 Skill 决定哪些金融事实真正改变组合判断"},
+    {"id":"adaptive-learning","relation":"Learning 负责形成投资 Native Floor 并用 fresh cases 验证，而不是靠真实资金交学费"},
+    {"id":"business-product","relation":"Business 负责经营资产如何创造现金流与价值；本 Skill 从资本拥有者角度判断风险、配置和治理"}
+  ],
+  "next_planned":[
+    "Framework + U1–U7 + whole-book Source Review 已完成并通过 bounded self-attack",
+    "return chasing / risk-number illusion / diversification theater / valuation certainty / fee-tax blindness / leverage / market-timing / adviser-sales bias 已完成最小修复",
+    "READY and registered；以后只因真实 learner question、material content defect、durable Source change 或 real capital-use evidence reopen；不把当前市场观点或具体证券推荐写进永久 Skill"
+  ]
+}

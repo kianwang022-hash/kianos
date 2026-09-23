@@ -1,0 +1,55 @@
+{
+  "schema": "kianos.skill.manifest.v1",
+  "id": "healthcare-industry",
+  "title": "医疗、药企与产业",
+  "kicker": "Healthcare, Pharma & Industry",
+  "description": "把医疗系统、药物研发、监管、上市后证据、药物警戒、卫生经济、准入支付、医学事务与商业模式连成一张产品全生命周期产业地图。",
+  "status": "READY",
+  "portfolio_state": "CORE_OPTION",
+  "demand": "建立足以理解并比较医疗产业职业与商业机会的系统能力：知道创新如何从疾病需求进入研发、临床、监管、上市后与支付体系，理解 evidence、benefit-risk、RWE、HEOR、Market Access、Medical Affairs 与商业激励各自解决什么问题，同时能识别不同司法辖区规则和组织边界。",
+  "guide": "framework.md",
+  "current_asset": "framework",
+  "units": [
+    {"id":"u1","title":"U1 · 医疗系统、价值链与利益相关方","capability":"C1 看清患者、医生、医院、研发者、监管者、支付方与资本如何共同决定医疗产品价值和使用","order":10,"next_unit":"u2","assets":{"learn":"u1-system-value-chain"}},
+    {"id":"u2","title":"U2 · 转化医学与药物开发","capability":"C2 理解从 biological rationale、candidate、preclinical 到临床开发的证据升级逻辑，而不是背 Phase 1–3 名字","order":20,"next_unit":"u3","assets":{"learn":"u2-drug-development"}},
+    {"id":"u3","title":"U3 · 监管、获批与全生命周期管理","capability":"C3 理解监管如何评价 quality / safety / efficacy / benefit-risk，以及 label、变更、风险管理和上市后义务","order":30,"next_unit":"u4","assets":{"learn":"u3-regulatory-lifecycle"}},
+    {"id":"u4","title":"U4 · RWE、药物警戒与上市后证据","capability":"C4 区分 RWD、RWE、pharmacovigilance、PASS / PAES 与上市后有效性研究，理解它们怎样补充上市前证据","order":40,"next_unit":"u5","assets":{"learn":"u4-rwe-pharmacovigilance"}},
+    {"id":"u5","title":"U5 · HEOR、HTA、准入与支付","capability":"C5 把 clinical value、resource use、cost effectiveness、budget impact、coverage 和 reimbursement 连成准入逻辑","order":50,"next_unit":"u6","assets":{"learn":"u5-heor-market-access"}},
+    {"id":"u6","title":"U6 · Medical Affairs、科学交流与合规","capability":"C6 理解科学交流、证据生成、外部专家互动与 promotion 的边界，并根据当地法规和公司治理保持科学独立性","order":60,"next_unit":"u7","assets":{"learn":"u6-medical-affairs"}},
+    {"id":"u7","title":"U7 · 产业分析、商业模式与职业接口","capability":"C7 从 unmet need、evidence、regulatory、access、competition、economics 和 execution 分析 biotech / pharma 机会与岗位","order":70,"next_unit":null,"assets":{"learn":"u7-industry-analysis"}}
+  ],
+  "assets": [
+    {"id":"framework","kind":"guide","stage":"orientation","title":"总框架","label":"先建立从患者需求到产品研发、监管、支付和长期使用的整张产业地图","path":"framework.md","order":0,"learner_visible":true,"completable":false},
+    {"id":"u1-system-value-chain","unit_id":"u1","kind":"learn","stage":"learn","title":"U1 · 医疗系统、价值链与利益相关方","label":"先知道谁决定价值、谁承担风险、谁付钱、谁真正使用","path":"units/u1-system-value-chain.md","order":10,"learner_visible":true,"completable":false},
+    {"id":"u2-drug-development","unit_id":"u2","kind":"learn","stage":"learn","title":"U2 · 转化医学与药物开发","label":"从机制假设走到患者获益，每一阶段都在淘汰不同的不确定性","path":"units/u2-drug-development.md","order":20,"learner_visible":true,"completable":false},
+    {"id":"u3-regulatory-lifecycle","unit_id":"u3","kind":"learn","stage":"learn","title":"U3 · 监管、获批与全生命周期管理","label":"获批是阶段性 benefit-risk 决策，不是产品证据链终点","path":"units/u3-regulatory-lifecycle.md","order":30,"learner_visible":true,"completable":false},
+    {"id":"u4-rwe-pharmacovigilance","unit_id":"u4","kind":"learn","stage":"learn","title":"U4 · RWE、药物警戒与上市后证据","label":"真实世界数据只有经过合适设计和分析才会变成可用证据","path":"units/u4-rwe-pharmacovigilance.md","order":40,"learner_visible":true,"completable":false},
+    {"id":"u5-heor-market-access","unit_id":"u5","kind":"learn","stage":"learn","title":"U5 · HEOR、HTA、准入与支付","label":"产品有效并不自动意味着系统愿意支付或患者能获得","path":"units/u5-heor-market-access.md","order":50,"learner_visible":true,"completable":false},
+    {"id":"u6-medical-affairs","unit_id":"u6","kind":"learn","stage":"learn","title":"U6 · Medical Affairs、科学交流与合规","label":"让科学交流保持准确、平衡、可验证，并知道何时已经进入 promotion / regulatory 边界","path":"units/u6-medical-affairs.md","order":60,"learner_visible":true,"completable":false},
+    {"id":"u7-industry-analysis","unit_id":"u7","kind":"learn","stage":"learn","title":"U7 · 产业分析、商业模式与职业接口","label":"从产品与系统约束分析公司和岗位，而不是只看 title、赛道故事或融资热度","path":"units/u7-industry-analysis.md","order":70,"learner_visible":true,"completable":false}
+  ],
+  "capability_map": [
+    "C1 系统：patient / provider / institution / regulator / payer / manufacturer / investor / incentives",
+    "C2 研发：target / translation / preclinical / clinical development / endpoint / program decision",
+    "C3 监管：quality / safety / efficacy / benefit-risk / label / lifecycle / jurisdiction",
+    "C4 上市后：RWD / RWE / pharmacovigilance / signal / PASS / PAES / risk management",
+    "C5 准入：HEOR / HTA / QALY / ICER / budget impact / coverage / reimbursement / formulary",
+    "C6 医学事务：scientific exchange / evidence gap / external engagement / promotion boundary / compliance",
+    "C7 产业：unmet need / competition / market structure / economics / portfolio / company-role analysis"
+  ],
+  "source_reviews":[
+    {"id":"whole-book-source-review","title":"Healthcare / Pharma / Industry Source Review","path":"source-review.md"}
+  ],
+  "related_skill_candidates":[
+    {"id":"medicine-clinical","relation":"Clinical Judgment 负责患者层使用价值和临床决策；本 Skill 负责产品、组织、监管和支付系统"},
+    {"id":"medical-research","relation":"Medical Research 负责科学证据生产；本 Skill 负责证据如何进入开发项目、监管、上市后和准入决策"},
+    {"id":"business-product","relation":"Business 提供通用产品 / 商业 / 分发逻辑；本 Skill 处理医疗行业特有的监管、支付、证据和伦理约束"},
+    {"id":"capital-investing","relation":"Capital Skill 负责资本配置；本 Skill 提供 biotech / pharma 公司与产品的产业事实和风险结构"},
+    {"id":"career-navigation","relation":"Career Skill 负责个人岗位选择；本 Skill 解释 Medical Affairs / Clinical Development / RWE / HEOR / Regulatory / Market Access 等岗位实际所处系统"}
+  ],
+  "next_planned":[
+    "Framework + U1–U7 + whole-book Source Review 已完成并通过 bounded self-attack",
+    "phase-label / approval=success / regulator universalism / RWE big-data / PV inbox / HTA price-only / QALY absolutism / Medical Affairs identity / market-size storytelling / title judgment 已完成最小修复",
+    "READY and registered；以后只因真实 learner question、material content defect、durable Source change、real industry evidence 或 jurisdiction-specific current need reopen"
+  ]
+}

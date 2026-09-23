@@ -1,0 +1,54 @@
+{
+  "schema": "kianos.skill.manifest.v1",
+  "id": "health-physical",
+  "title": "健康、恢复、身体能力与外形维护",
+  "kicker": "Health, Recovery, Physical Capability & Appearance",
+  "description": "把睡眠、营养、恢复、体成分、体能、预防保健、牙齿视力、皮肤与基础外形维护连成长期身体基础，同时保留医疗评估边界。",
+  "status": "READY",
+  "portfolio_state": "CORE_SUPPORT",
+  "demand": "建立不可外包的身体基础：能管理睡眠和恢复，理解健康饮食与可持续体重管理，发展力量、心肺和活动能力，使用合适训练剂量与工作环境，保持当前预防保健、牙齿、视力与皮肤维护，并知道哪些问题已经超出自我管理应进入专业评估。",
+  "guide": "framework.md",
+  "current_asset": "framework",
+  "units": [
+    {"id":"u1","title":"U1 · 健康基础、风险与自我管理边界","capability":"C1 区分健康基础、风险因素、症状和需要专业评估的情境，建立长期可维护的健康底盘","order":10,"next_unit":"u2","assets":{"learn":"u1-health-foundation"}},
+    {"id":"u2","title":"U2 · 睡眠、恢复与压力负荷","capability":"C2 用睡眠时长 / 质量 / 规律、恢复需求和压力负荷管理可用身体状态，并和 high-energy 状态调节正确分工","order":20,"next_unit":"u3","assets":{"learn":"u2-sleep-recovery"}},
+    {"id":"u3","title":"U3 · 营养、体成分与可持续体重管理","capability":"C3 用健康饮食结构、能量平衡、蛋白质 / 食物质量和行为设计支持体重、肌肉与长期健康","order":30,"next_unit":"u4","assets":{"learn":"u3-nutrition-body-composition"}},
+    {"id":"u4","title":"U4 · 力量、心肺、活动能力与运动技能","capability":"C4 用渐进训练发展力量、心肺、移动能力与需要的运动技能，并把功能和健康优先于单一指标","order":40,"next_unit":"u5","assets":{"learn":"u4-physical-performance"}},
+    {"id":"u5","title":"U5 · 训练剂量、恢复、损伤边界与人体工学","capability":"C5 调整训练负荷、恢复、疼痛信号、姿势变化和工作站环境，避免把硬扛或完美姿势当健康策略","order":50,"next_unit":"u6","assets":{"learn":"u5-training-ergonomics"}},
+    {"id":"u6","title":"U6 · 预防保健、健康数据、牙齿与视力","capability":"C6 用当前年龄 / 风险 / 地区规则管理疫苗、筛查、基础健康数据、口腔与视力维护，而不自行诊断异常","order":60,"next_unit":"u7","assets":{"learn":"u6-prevention-health-data"}},
+    {"id":"u7","title":"U7 · 皮肤、头发、姿态、穿着与外形维护","capability":"C7 把防晒、基础皮肤 / 头发 / 牙齿 / 仪容、姿态和合身判断作为长期维护，不把外貌焦虑升级成过度干预","order":70,"next_unit":null,"assets":{"learn":"u7-appearance-maintenance"}}
+  ],
+  "assets": [
+    {"id":"framework","kind":"guide","stage":"orientation","title":"总框架","label":"先建立从健康基础到身体能力和低摩擦外形维护的整张地图","path":"framework.md","order":0,"learner_visible":true,"completable":false},
+    {"id":"u1-health-foundation","unit_id":"u1","kind":"learn","stage":"learn","title":"U1 · 健康基础、风险与自我管理边界","label":"先知道什么适合长期自我管理，什么已经需要专业评估","path":"units/u1-health-foundation.md","order":10,"learner_visible":true,"completable":false},
+    {"id":"u2-sleep-recovery","unit_id":"u2","kind":"learn","stage":"learn","title":"U2 · 睡眠、恢复与压力负荷","label":"恢复首先是长期健康基础，不是额外竞争注意力的一套系统","path":"units/u2-sleep-recovery.md","order":20,"learner_visible":true,"completable":false},
+    {"id":"u3-nutrition-body-composition","unit_id":"u3","kind":"learn","stage":"learn","title":"U3 · 营养、体成分与可持续体重管理","label":"用能长期执行的饮食和训练支持健康、减脂或增肌，不追极端方案","path":"units/u3-nutrition-body-composition.md","order":30,"learner_visible":true,"completable":false},
+    {"id":"u4-physical-performance","unit_id":"u4","kind":"learn","stage":"learn","title":"U4 · 力量、心肺、活动能力与运动技能","label":"把身体能力当长期可训练资产，而不是偶尔爆发的健身项目","path":"units/u4-physical-performance.md","order":40,"learner_visible":true,"completable":false},
+    {"id":"u5-training-ergonomics","unit_id":"u5","kind":"learn","stage":"learn","title":"U5 · 训练剂量、恢复、损伤边界与人体工学","label":"管理负荷和环境，让训练与学习工作长期可持续","path":"units/u5-training-ergonomics.md","order":50,"learner_visible":true,"completable":false},
+    {"id":"u6-prevention-health-data","unit_id":"u6","kind":"learn","stage":"learn","title":"U6 · 预防保健、健康数据、牙齿与视力","label":"用 current-first 的预防和基础监测减少可避免的长期损失","path":"units/u6-prevention-health-data.md","order":60,"learner_visible":true,"completable":false},
+    {"id":"u7-appearance-maintenance","unit_id":"u7","kind":"learn","stage":"learn","title":"U7 · 皮肤、头发、姿态、穿着与外形维护","label":"优先健康、整洁、合身和低维护成本，不把外形优化做成无限项目","path":"units/u7-appearance-maintenance.md","order":70,"learner_visible":true,"completable":false}
+  ],
+  "capability_map": [
+    "C1 健康底盘：risk / symptoms / self-care / professional escalation / sustainable habits",
+    "C2 恢复：sleep duration-quality-regularity / stress load / recovery selection / high-energy interface",
+    "C3 营养体成分：healthy diet / energy balance / protein / weight trend / fat loss / muscle gain",
+    "C4 体能：aerobic / strength / mobility / movement / sport skill / progressive overload",
+    "C5 训练环境：dose / fatigue / pain / injury boundary / ergonomics / posture variation / recovery",
+    "C6 预防：vaccination / screening / dental / vision / basic health data / current-first schedules",
+    "C7 外形：sun protection / skin / hair / teeth / posture / grooming / clothing fit / maintenance"
+  ],
+  "source_reviews":[
+    {"id":"whole-book-source-review","title":"Health / Physical Capability Source Review","path":"source-review.md"}
+  ],
+  "related_skill_candidates":[
+    {"id":"high-energy","relation":"High Energy 负责短期状态识别、恢复选择和可用精力调节；本 Skill 负责长期健康底盘、睡眠、营养、训练和预防，不重复日内能量调度"},
+    {"id":"adaptive-learning","relation":"Learning 负责训练动作 / 技能如何形成；本 Skill 定义身体训练目标、剂量和真实功能证据"},
+    {"id":"medicine-clinical","relation":"Clinical Judgment 负责疾病、症状和临床问题的专业评估；本 Skill 只保留一般健康教育、自我维护和何时升级的边界"},
+    {"id":"design-aesthetic","relation":"未来 Design / Aesthetic Skill 负责更深的风格和视觉判断；本 Skill 只保留基础、健康导向、低摩擦的外形维护"}
+  ],
+  "next_planned":[
+    "Framework + U1–U7 + whole-book Source Review 已完成并通过 bounded self-attack",
+    "wearable-score / sleep-number / gadgetism / diet tribalism / calorie absolutism / body-composition obsession / guideline-to-personal collapse / pain-through-it / perfect-posture / screening-more-is-better / appearance anxiety 已完成最小修复",
+    "READY and registered；以后只因真实 learner question、material content defect、durable Source change 或 real health / training / preventive-care evidence reopen；个人症状与医疗计划保持 current-first / professional-boundary"
+  ]
+}

@@ -1,0 +1,221 @@
+{
+  "schema": "kianos.skill.manifest.v1",
+  "id": "information-research",
+  "title": "信息研究与证据判断",
+  "kicker": "Research Intelligence",
+  "description": "把真实问题变成高质量搜索，判断来源、证据、时效与适用性，并在 AI 参与时保留验证能力。",
+  "status": "READY",
+  "portfolio_state": "CORE",
+  "demand": "建立跨科研、医学、投资、职业与日常决策可复用的研究能力：少消耗注意力，但不牺牲来源与证据判断。",
+  "guide": "framework.md",
+  "current_asset": "framework",
+  "units": [
+    {
+      "id": "u1",
+      "title": "U1 · 问题与信息任务",
+      "capability": "C1 问题类型 / 信息需求 / research depth",
+      "order": 10,
+      "next_unit": "u2",
+      "assets": {
+        "learn": "u1-question-task"
+      }
+    },
+    {
+      "id": "u2",
+      "title": "U2 · 搜索策略与覆盖",
+      "capability": "C2 query expansion / coverage / stopping",
+      "order": 20,
+      "next_unit": "u3",
+      "assets": {
+        "learn": "u2-search-strategy"
+      }
+    },
+    {
+      "id": "u3",
+      "title": "U3 · 来源身份与溯源",
+      "capability": "C3 provenance / lateral reading / publication status",
+      "order": 30,
+      "next_unit": "u4",
+      "assets": {
+        "learn": "u3-provenance"
+      }
+    },
+    {
+      "id": "u4",
+      "title": "U4 · 证据强度与偏倚",
+      "capability": "C4 design fit / bias / precision / effect size",
+      "order": 40,
+      "next_unit": "u5",
+      "assets": {
+        "learn": "u4-evidence-bias"
+      }
+    },
+    {
+      "id": "u5",
+      "title": "U5 · 时效性与适用性",
+      "capability": "C5 recency / population / context / local evidence",
+      "order": 50,
+      "next_unit": "u6",
+      "assets": {
+        "learn": "u5-recency-applicability"
+      }
+    },
+    {
+      "id": "u6",
+      "title": "U6 · 冲突证据与综合",
+      "capability": "C6 body of evidence / heterogeneity / replication",
+      "order": 60,
+      "next_unit": "u7",
+      "assets": {
+        "learn": "u6-synthesis-conflict"
+      }
+    },
+    {
+      "id": "u7",
+      "title": "U7 · AI 辅助研究与验证",
+      "capability": "C7 AI triage / verification boundary / native floor",
+      "order": 70,
+      "next_unit": null,
+      "assets": {
+        "learn": "u7-ai-validation"
+      }
+    }
+  ],
+  "assets": [
+    {
+      "id": "framework",
+      "kind": "guide",
+      "stage": "orientation",
+      "title": "总框架",
+      "label": "先建立从问题到可用证据的整张地图",
+      "path": "framework.md",
+      "order": 0,
+      "learner_visible": true,
+      "completable": false
+    },
+    {
+      "id": "u1-question-task",
+      "unit_id": "u1",
+      "kind": "learn",
+      "stage": "learn",
+      "title": "U1 · 问题与信息任务",
+      "label": "先弄清到底需要知道什么",
+      "path": "units/u1-question-task.md",
+      "order": 10,
+      "learner_visible": true,
+      "completable": false
+    },
+    {
+      "id": "u2-search-strategy",
+      "unit_id": "u2",
+      "kind": "learn",
+      "stage": "learn",
+      "title": "U2 · 搜索策略与覆盖",
+      "label": "不是会搜，而是知道怎么搜够",
+      "path": "units/u2-search-strategy.md",
+      "order": 20,
+      "learner_visible": true,
+      "completable": false
+    },
+    {
+      "id": "u3-provenance",
+      "unit_id": "u3",
+      "kind": "learn",
+      "stage": "learn",
+      "title": "U3 · 来源身份与溯源",
+      "label": "追到这句话真正从哪里来",
+      "path": "units/u3-provenance.md",
+      "order": 30,
+      "learner_visible": true,
+      "completable": false
+    },
+    {
+      "id": "u4-evidence-bias",
+      "unit_id": "u4",
+      "kind": "learn",
+      "stage": "learn",
+      "title": "U4 · 证据强度与偏倚",
+      "label": "不要只看论文等级",
+      "path": "units/u4-evidence-bias.md",
+      "order": 40,
+      "learner_visible": true,
+      "completable": false
+    },
+    {
+      "id": "u5-recency-applicability",
+      "unit_id": "u5",
+      "kind": "learn",
+      "stage": "learn",
+      "title": "U5 · 时效性与适用性",
+      "label": "可靠证据也可能不适合现在的问题",
+      "path": "units/u5-recency-applicability.md",
+      "order": 50,
+      "learner_visible": true,
+      "completable": false
+    },
+    {
+      "id": "u6-synthesis-conflict",
+      "unit_id": "u6",
+      "kind": "learn",
+      "stage": "learn",
+      "title": "U6 · 冲突证据与综合",
+      "label": "一篇论文不是整个知识状态",
+      "path": "units/u6-synthesis-conflict.md",
+      "order": 60,
+      "learner_visible": true,
+      "completable": false
+    },
+    {
+      "id": "u7-ai-validation",
+      "unit_id": "u7",
+      "kind": "learn",
+      "stage": "learn",
+      "title": "U7 · AI 辅助研究与验证",
+      "label": "让 AI 降低成本，但不替代证据判断",
+      "path": "units/u7-ai-validation.md",
+      "order": 70,
+      "learner_visible": true,
+      "completable": false
+    }
+  ],
+  "capability_map": [
+    "C1 问题与信息任务：事实 / 概率 / 因果 / 预测 / 机制 / 体验",
+    "C2 搜索策略与覆盖：领域语言 / 扩展 / 反证 / 停止线",
+    "C3 来源身份与溯源：横向阅读 / 原始出处 / 发表状态",
+    "C4 证据强度与偏倚：设计适配 / 偏倚 / 精确度 / 效果大小",
+    "C5 时效性与适用性：人群 / 场景 / 时间 / 本地证据",
+    "C6 冲突证据与综合：整体证据 / 异质性 / 重复研究",
+    "C7 AI 辅助研究与验证：初筛 / 引用核验 / 验证边界"
+  ],
+  "source_reviews": [
+    {
+      "id": "whole-book-source-review",
+      "title": "Information Research Source Review",
+      "path": "source-review.md"
+    }
+  ],
+  "related_skill_candidates": [
+    {
+      "id": "decision-quality",
+      "relation": "Decision 判断信息值不值得获取；Research 负责既然要获取，怎样搜、验、综合到足够可信"
+    },
+    {
+      "id": "medical-research",
+      "relation": "把通用来源与证据判断推进到正式科学研究、EBM 与研究设计"
+    },
+    {
+      "id": "capital-investing",
+      "relation": "把时效、来源链、冲突证据综合用于市场与公司研究"
+    },
+    {
+      "id": "ai-native",
+      "relation": "AI 承担搜索扩展、初筛与综合；本 Skill 定义关键结论的验证边界"
+    }
+  ],
+  "next_planned": [
+    "已完成 whole-book bounded self-attack / Source→Unit re-check / learner-language repair",
+    "已完成 Decision ↔ Research 双向接口收敛",
+    "已达到 learner-ready；后续仅由真实 learner question、具体内容缺陷或 Source 变化重新打开",
+    "首轮跨 Skill 共性已收敛到 CORE_INTERFACES.md；以后只在更多成熟 Skills 暴露真实重复时再扩展"
+  ]
+}

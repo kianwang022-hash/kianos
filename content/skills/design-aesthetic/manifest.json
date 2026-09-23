@@ -1,0 +1,54 @@
+{
+  "schema": "kianos.skill.manifest.v1",
+  "id": "design-aesthetic",
+  "title": "设计、审美与创造判断",
+  "kicker": "Design, Aesthetic & Creative Judgment",
+  "description": "把视觉层级、构图、排版、色彩、UI/UX、空间与产品审美、策展、图像叙事和创意方向连成可训练的判断能力，并让 AI / 工具承担大量执行。",
+  "status": "READY",
+  "portfolio_state": "CORE_SUPPORT",
+  "demand": "建立支持产品、空间、内容与生活质量的设计判断：能从真实用户和目标出发识别好坏，解释层级、构图、排版、色彩、交互与空间为什么成立，比较多个方案、给出方向、策展和迭代；不以手工软件熟练度替代审美和设计判断。",
+  "guide": "framework.md",
+  "current_asset": "framework",
+  "units": [
+    {"id":"u1","title":"U1 · 设计问题、受众与批评语言","capability":"C1 把模糊的好看 / 不好看转成目标、受众、约束、层级、可用性与情绪效果的可讨论判断","order":10,"next_unit":"u2","assets":{"learn":"u1-problem-critique"}},
+    {"id":"u2","title":"U2 · 视觉层级、构图、空间与节奏","capability":"C2 用对齐、接近、尺度、留白、密度、重复和视觉重量组织注意力与空间","order":20,"next_unit":"u3","assets":{"learn":"u2-hierarchy-composition"}},
+    {"id":"u3","title":"U3 · 字体、排版、色彩与可读性","capability":"C3 让字体、字号、行距、行长、对比和色彩服务阅读、信息层级、品牌与无障碍","order":30,"next_unit":"u4","assets":{"learn":"u3-typography-color"}},
+    {"id":"u4","title":"U4 · UI/UX、可用性与无障碍","capability":"C4 从用户任务、反馈、状态、错误、导航、交互目标和 accessibility 判断界面，而不只看截图是否漂亮","order":40,"next_unit":"u5","assets":{"learn":"u4-ui-ux-accessibility"}},
+    {"id":"u5","title":"U5 · 产品品味、策展与比较判断","capability":"C5 通过 reference set、对比、删减、取舍与一致性形成产品 / 空间 / 内容的 taste，而不是追趋势","order":50,"next_unit":"u6","assets":{"learn":"u5-taste-curation"}},
+    {"id":"u6","title":"U6 · 图像、摄影、叙事与创意方向","capability":"C6 用画面选择、构图、顺序、节奏、文本与视觉关系组织故事，并能给出清楚 creative direction","order":60,"next_unit":"u7","assets":{"learn":"u6-story-creative-direction"}},
+    {"id":"u7","title":"U7 · 输出、迭代与 AI-assisted Design","capability":"C7 通过真实产出、用户反馈与比较训练判断，让 AI / 工具做执行而保留选择、批评、验证与最终方向","order":70,"next_unit":null,"assets":{"learn":"u7-output-ai"}}
+  ],
+  "assets": [
+    {"id":"framework","kind":"guide","stage":"orientation","title":"总框架","label":"先建立从需求、视觉判断到真实输出和迭代的整张地图","path":"framework.md","order":0,"learner_visible":true,"completable":false},
+    {"id":"u1-problem-critique","unit_id":"u1","kind":"learn","stage":"learn","title":"U1 · 设计问题、受众与批评语言","label":"先知道设计在为谁解决什么，再讨论好不好看","path":"units/u1-problem-critique.md","order":10,"learner_visible":true,"completable":false},
+    {"id":"u2-hierarchy-composition","unit_id":"u2","kind":"learn","stage":"learn","title":"U2 · 视觉层级、构图、空间与节奏","label":"让眼睛知道先看哪里、再看哪里，以及哪些东西属于一起","path":"units/u2-hierarchy-composition.md","order":20,"learner_visible":true,"completable":false},
+    {"id":"u3-typography-color","unit_id":"u3","kind":"learn","stage":"learn","title":"U3 · 字体、排版、色彩与可读性","label":"先保证清楚可读，再用字体和色彩建立语气与识别","path":"units/u3-typography-color.md","order":30,"learner_visible":true,"completable":false},
+    {"id":"u4-ui-ux-accessibility","unit_id":"u4","kind":"learn","stage":"learn","title":"U4 · UI/UX、可用性与无障碍","label":"真正好的界面不仅好看，还让不同用户能完成任务、看见状态并从错误中恢复","path":"units/u4-ui-ux-accessibility.md","order":40,"learner_visible":true,"completable":false},
+    {"id":"u5-taste-curation","unit_id":"u5","kind":"learn","stage":"learn","title":"U5 · 产品品味、策展与比较判断","label":"用高质量 reference、对比、删减和一致性训练 taste，不追模板和潮流","path":"units/u5-taste-curation.md","order":50,"learner_visible":true,"completable":false},
+    {"id":"u6-story-creative-direction","unit_id":"u6","kind":"learn","stage":"learn","title":"U6 · 图像、摄影、叙事与创意方向","label":"让画面、顺序、文字与视觉语气共同服务故事和意图","path":"units/u6-story-creative-direction.md","order":60,"learner_visible":true,"completable":false},
+    {"id":"u7-output-ai","unit_id":"u7","kind":"learn","stage":"learn","title":"U7 · 输出、迭代与 AI-assisted Design","label":"让 AI 快速生成执行候选，你负责判断、选择、批评、验证和最终方向","path":"units/u7-output-ai.md","order":70,"learner_visible":true,"completable":false}
+  ],
+  "capability_map": [
+    "C1 问题：user / purpose / context / constraints / critique language / success conditions",
+    "C2 视觉：hierarchy / composition / alignment / proximity / scale / whitespace / rhythm / density",
+    "C3 排版色彩：type scale / line length / spacing / contrast / color role / readability / brand tone",
+    "C4 交互：user task / system status / navigation / error prevention / recovery / accessibility / testing",
+    "C5 品味：reference set / comparison / curation / coherence / restraint / product taste / spatial taste",
+    "C6 叙事：image / photography / sequence / visual storytelling / creative brief / creative direction",
+    "C7 迭代：prototype / critique / user feedback / output comparison / AI execution / human judgment"
+  ],
+  "source_reviews":[
+    {"id":"whole-book-source-review","title":"Design / Aesthetic Source Review","path":"source-review.md"}
+  ],
+  "related_skill_candidates":[
+    {"id":"business-product","relation":"Business / Product 负责为什么做、为谁创造价值和产品取舍；本 Skill 负责形式、感知、交互和视觉 / 空间质量判断"},
+    {"id":"communication-negotiation","relation":"Communication 负责信息与叙事逻辑；本 Skill 负责视觉层级、图像和创意表达"},
+    {"id":"ai-native","relation":"AI-native 负责生成 / 工具 workflow；本 Skill 定义什么结果值得选、哪里需要人工审美与 usability 验证"},
+    {"id":"health-physical","relation":"Health 只保留健康 / 整洁 / 合身的基础 appearance maintenance；本 Skill 负责更深的风格、空间、视觉和审美判断"}
+  ],
+  "next_planned":[
+    "Framework + U1–U7 + whole-book Source Review 已完成并通过 bounded self-attack",
+    "pretty=good / minimalism dogma / trend copying / typeface-palette fetish / accessibility afterthought / heuristic-as-law / design-by-vote / design-system=judgment / AI-output worship / taste-as-innate 已完成最小修复",
+    "READY and registered；以后只因真实 learner question、material content defect、durable Source change 或 real design output / user evidence reopen；平台 UI 标准和品牌组件 current-first"
+  ]
+}

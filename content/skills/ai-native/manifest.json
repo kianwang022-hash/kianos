@@ -1,0 +1,220 @@
+{
+  "schema": "kianos.skill.manifest.v1",
+  "id": "ai-native",
+  "title": "AI 原生构建与自动化",
+  "kicker": "AI-native Building & Automation",
+  "description": "把 AI 当作可编排、可验证、可约束的能力放大器；既能高效协作，也保留足够的技术控制、验证与安全边界。",
+  "status": "READY",
+  "portfolio_state": "CORE",
+  "demand": "成为有技术控制力的 AI-native builder：能定义问题、管理上下文、选择模型与工具、完成真实构建、验证结果、设计自动化与 agent workflow，并知道哪些判断和技术能力必须由自己保留。",
+  "guide": "framework.md",
+  "current_asset": "framework",
+  "units": [
+    {
+      "id": "u1",
+      "title": "U1 · 问题定义与任务拆解",
+      "capability": "C1 定义结果、约束、完成条件，并把任务拆到可验证",
+      "order": 10,
+      "next_unit": "u2",
+      "assets": {
+        "learn": "u1-problem-decomposition"
+      }
+    },
+    {
+      "id": "u2",
+      "title": "U2 · 上下文与指令设计",
+      "capability": "C2 组织当前权威事实、约束、示例、状态与不可信输入边界",
+      "order": 20,
+      "next_unit": "u3",
+      "assets": {
+        "learn": "u2-context-instructions"
+      }
+    },
+    {
+      "id": "u3",
+      "title": "U3 · 模型、工具与人机分工",
+      "capability": "C3 按质量、成本、延迟、权限与人工批准点分配模型、工具和人",
+      "order": 30,
+      "next_unit": "u4",
+      "assets": {
+        "learn": "u3-model-tool-division"
+      }
+    },
+    {
+      "id": "u4",
+      "title": "U4 · AI 原生技术构建",
+      "capability": "C4 能看结构、diff、运行、测试、调试、API 与部署，不依赖盲改",
+      "order": 40,
+      "next_unit": "u5",
+      "assets": {
+        "learn": "u4-technical-building"
+      }
+    },
+    {
+      "id": "u5",
+      "title": "U5 · 验证、Evals 与调试",
+      "capability": "C5 把完成条件转成测试 / 评测，定位失败并防止回归",
+      "order": 50,
+      "next_unit": "u6",
+      "assets": {
+        "learn": "u5-evals-debugging"
+      }
+    },
+    {
+      "id": "u6",
+      "title": "U6 · Workflow、Agent 与自动化",
+      "capability": "C6 在 workflow / agent / multi-agent 之间选择最低必要复杂度，并保留可观察与停止条件",
+      "order": 60,
+      "next_unit": "u7",
+      "assets": {
+        "learn": "u6-agents-automation"
+      }
+    },
+    {
+      "id": "u7",
+      "title": "U7 · 依赖控制、安全与长期维护",
+      "capability": "C7 保留最低自主能力，以最小权限、敏感数据边界、可逆性和可替换性控制依赖",
+      "order": 70,
+      "next_unit": null,
+      "assets": {
+        "learn": "u7-dependency-security"
+      }
+    }
+  ],
+  "assets": [
+    {
+      "id": "framework",
+      "kind": "guide",
+      "stage": "orientation",
+      "title": "总框架",
+      "label": "先建立从问题到可靠 AI 系统的整张地图",
+      "path": "framework.md",
+      "order": 0,
+      "learner_visible": true,
+      "completable": false
+    },
+    {
+      "id": "u1-problem-decomposition",
+      "unit_id": "u1",
+      "kind": "learn",
+      "stage": "learn",
+      "title": "U1 · 问题定义与任务拆解",
+      "label": "先把 AI 要完成的真实结果说清楚",
+      "path": "units/u1-problem-decomposition.md",
+      "order": 10,
+      "learner_visible": true,
+      "completable": false
+    },
+    {
+      "id": "u2-context-instructions",
+      "unit_id": "u2",
+      "kind": "learn",
+      "stage": "learn",
+      "title": "U2 · 上下文与指令设计",
+      "label": "让模型拿到真正需要的事实、规则和状态",
+      "path": "units/u2-context-instructions.md",
+      "order": 20,
+      "learner_visible": true,
+      "completable": false
+    },
+    {
+      "id": "u3-model-tool-division",
+      "unit_id": "u3",
+      "kind": "learn",
+      "stage": "learn",
+      "title": "U3 · 模型、工具与人机分工",
+      "label": "让模型、工具和人的责任边界清楚",
+      "path": "units/u3-model-tool-division.md",
+      "order": 30,
+      "learner_visible": true,
+      "completable": false
+    },
+    {
+      "id": "u4-technical-building",
+      "unit_id": "u4",
+      "kind": "learn",
+      "stage": "learn",
+      "title": "U4 · AI 原生技术构建",
+      "label": "不必手写一切，但必须能控制真实系统",
+      "path": "units/u4-technical-building.md",
+      "order": 40,
+      "learner_visible": true,
+      "completable": false
+    },
+    {
+      "id": "u5-evals-debugging",
+      "unit_id": "u5",
+      "kind": "learn",
+      "stage": "learn",
+      "title": "U5 · 验证、评测与调试",
+      "label": "把“看起来不错”变成可验证结果",
+      "path": "units/u5-evals-debugging.md",
+      "order": 50,
+      "learner_visible": true,
+      "completable": false
+    },
+    {
+      "id": "u6-agents-automation",
+      "unit_id": "u6",
+      "kind": "learn",
+      "stage": "learn",
+      "title": "U6 · Workflow、Agent 与自动化",
+      "label": "复杂度只在真正带来收益时增加",
+      "path": "units/u6-agents-automation.md",
+      "order": 60,
+      "learner_visible": true,
+      "completable": false
+    },
+    {
+      "id": "u7-dependency-security",
+      "unit_id": "u7",
+      "kind": "learn",
+      "stage": "learn",
+      "title": "U7 · 依赖控制、安全与长期维护",
+      "label": "把权限、失败与供应商变化一起纳入设计",
+      "path": "units/u7-dependency-security.md",
+      "order": 70,
+      "learner_visible": true,
+      "completable": false
+    }
+  ],
+  "capability_map": [
+    "C1 问题定义：结果 / 约束 / 完成条件 / 可验证拆解",
+    "C2 上下文与指令：当前权威事实 / 规则 / 示例 / 状态 / 不可信输入",
+    "C3 人机分工：模型 / 工具 / 人 / 权限 / 人工批准点",
+    "C4 技术构建：代码结构 / terminal / Git / API / 数据 / 调试 / 部署",
+    "C5 验证与调试：acceptance / tests / evals / regression / failure owner",
+    "C6 Agent 与自动化：workflow / routing / orchestration / 可观察性 / 停止条件",
+    "C7 依赖与安全：最低自主能力 / 最小权限 / 数据边界 / 可替换性 / 维护"
+  ],
+  "source_reviews": [
+    {
+      "id": "whole-book-source-review",
+      "title": "AI-native Source Review",
+      "path": "source-review.md"
+    }
+  ],
+  "related_skill_candidates": [
+    {
+      "id": "decision-quality",
+      "relation": "Decision 负责高层目标、取舍和是否值得继续投入；本 Skill 负责把选定任务变成可工作的 AI-native 系统"
+    },
+    {
+      "id": "information-research",
+      "relation": "Research 负责外部事实和来源可信度；本 Skill 负责工具调用、上下文组织与系统级验证"
+    },
+    {
+      "id": "adaptive-learning",
+      "relation": "Learning 负责能力形成与最低自主能力；本 Skill 是其中一个高杠杆真实能力域"
+    },
+    {
+      "id": "business-product",
+      "relation": "产品与商业定义真实价值；本 Skill 负责把需求快速转成可测试构建与自动化"
+    }
+  ],
+  "next_planned": [
+    "Framework + U1–U7 + whole-book Source Review 已完成并通过 bounded self-attack",
+    "prompt overfit / agent overengineering / vendor lock-in / eval theater / human-gate / security / owner boundary 已完成最小修复",
+    "READY and registered；以后只因真实 learner question、material content defect、durable Source change 或 real-use evidence reopen；不为本书新建专属 UI"
+  ]
+}

@@ -1,212 +1,586 @@
 # Skill Library Learning Contract
 
 Status: CURRENT  
-Role: shared learner-facing rule for promoted non-exam Skills.
+Role: shared cognition / learning rule for promoted non-exam Skills.
 
-## 0｜Purpose
+Parent standards:
+- root `LEARNING_ASSET_STANDARD.md`;
+- root `LEARNING_ACCEPTANCE.md`;
+- root `ARCHITECTURE.md`.
 
-A Skill is not a folder of notes. It exists to make a real capability appear with low learner friction.
+This contract adds only the Skill-specific cognition model. It does not create a second Acceptance system.
 
-Default loop:
+---
+
+## 0｜One integrated learning chain
+
+A Skill is not a folder of notes and not a mini-course.
+
+The durable chain is:
 
 ```text
-Personal demand discovery
-→ success condition
-→ capability / logic map
-→ Source Truth / Source Review
-→ Guide / Framework
-→ domain-appropriate Learn / Practice
-→ protected Verify or real task
+real demand / success condition
+→ reliable Source
+→ AI Knowledge reconstruction
+→ Learning Logic
+→ learner Content
+→ bounded self-attack / Content closure
+→ Projection / Runtime
+→ learner cognition
 → Evidence
-→ smallest Repair
-→ changed-context Transfer / Real Use
-→ next loop
+→ progressive Compression
+→ real use / calibration
+→ evidence-based revision
 ```
 
-The outer loop is shared. The cognition inside it is domain-specific.
+This is **one causal chain**.
 
-## 1｜Ownership
+The self-attack before release and the learner's later use are different evidence moments inside the same chain, not two separate products.
 
-**Personal OS owns**
-- whether the capability deserves attention;
-- demand discovery and personal constraints;
-- cross-domain trade-offs;
-- the reusable New Domain Learning meta-skill.
+Hard rule:
 
-**KianOS Skill Content owns**
-- learner-facing Guide / Framework / Unit content;
-- content-local source bindings / Source Review;
-- verification assets;
-- current learner route.
+> Kian is the learner, not the QA department.
 
-**Runtime owns**
-- only execution facts needed for Resume, such as last asset / visited / explicit read completion.
+Kian may notice a defect, but the system must not depend on Kian discovering basic content errors, missing boundaries, answer leakage, broken routing or bad learning geometry.
 
-**Chat owns**
-- interpretation;
-- source curation;
-- evidence judgment;
-- Repair;
-- next-step adaptation;
-- optional discussion when Kian has a real question.
+---
 
-No layer may infer mastery from page existence or page completion.
+## 1｜Source → Knowledge → Content
 
-## 2｜Reuse check — conditional, not ritual
+Raw papers, documentation, courses, standards, expert material, repositories and prior internal assets are Source / evidence, not finished Knowledge.
 
-Before building original material or machinery, check existing courses, standards, tools, plugins, open-source projects or internal KianOS patterns **only when a mature external capability could materially change the design**.
+AI must reconstruct learner-worthy Knowledge.
 
-Use `ECOSYSTEM_SCAN.md` for that bounded case.
+Good Skill Knowledge should, when material:
 
-Do not run a broad ecosystem scan by default. Stop as soon as further search would not change build-vs-reuse or learner design.
+- translate Source into **learner language before learner display**: use the plainest wording that preserves the decision-relevant truth;
+- introduce unavoidable technical terms only when they earn their cognitive cost, and pair them with an immediately understandable meaning;
+- expose the causal / decision / execution model;
+- identify decisive distinctions, boundaries and failure modes;
+- preserve exact high-value facts without burying the model;
+- show confusable near-neighbors and counterexamples;
+- state uncertainty and escalation boundaries;
+- use a representation suited to the domain;
+- demote low-value detail without silently deleting truth;
+- remain coherent if the current webpage disappears.
 
-## 3｜Content / Visual / Runtime
+### Learner-language rule
 
-### Content
+K is not finished when the facts are merely correct. Before a learner-facing asset is realized, the reconstructed Knowledge must also be cognitively usable:
 
-Each active Skill lives under:
+```text
+source wording
+≠ learner wording
 
-`content/skills/<skill>/`
+precision
+≠ jargon density
 
-with one manifest and only the assets it actually needs.
+plain language
+≠ loss of truth
+```
 
-A Guide is explanatory orientation, not a second encyclopedia.
+Default transformation:
 
-Source Review records:
-- source;
-- admitted claim;
-- learner use;
-- boundary / what the source does not prove.
+```text
+accurate source claim
+→ causal / decision meaning
+→ plain learner explanation
+→ exact term / boundary where needed
+```
 
-### Visual
+Do not make Kian decode paper language, guideline language, repository language or model-internal abstractions unless that vocabulary itself is part of the capability.
 
-One generic Astro renderer projects ordinary Skills.
+Hard distinctions:
 
-A new ordinary Skill should normally be a Content-only addition.
+```text
+source order ≠ knowledge order
+topic heading ≠ Unit boundary
+page layout ≠ cognition
+question taxonomy ≠ knowledge ontology
+file existence ≠ readiness
+```
 
-Skill-specific Visual code requires a real domain geometry need, not branding preference.
+---
 
-### Runtime
+## 2｜Pre-release content closure is mandatory
 
-V1 may remember:
-- last opened Skill / asset;
-- visited assets;
-- explicit learner-marked read completion.
+Before new or materially changed learner Content is released to Kian, AI performs one bounded adversarial closure pass at the earliest responsible owner.
 
-These are navigation / execution facts only.
+The attack asks, as applicable:
 
-Runtime must not infer:
-- mastery;
-- transfer;
-- verified performance;
-- health / readiness scores;
-- scheduling debt.
+- Is any claim unsupported, overstated or stale?
+- Is a decisive distinction missing?
+- Is a confusable case collapsed into the wrong rule?
+- Does the content overgeneralize from one example?
+- Is exact detail mixed into mechanism in a way that hides the model?
+- Is there answer leakage into a protected Verify?
+- Is the learner being asked to infer a relation the asset should teach?
+- Does the representation fit the real task, or is it merely prose?
+- Does Compression delete information needed for a real decision?
+- Is a high-consequence boundary missing?
+- Is the asset duplicating another owner or creating future review debt without evidence?
 
-All learner-state writes use the existing shared learner-writer ownership boundary.
+Default closure shape:
 
-## 4｜Unit learning
+```text
+Draft
+→ adversarial attack
+→ concrete defect list only
+→ smallest repair
+→ fresh re-read against Source + Learning Logic
+→ release or remain blocked
+```
 
-A material Unit is the smallest coherent capability slice that can be demonstrated, exited or repaired.
+Do not run endless audits.
 
-Detailed design semantics live once in `UNIT_CONTRACT.md`.
+One bounded closure is enough unless:
+- the repair materially changes the model;
+- a new contradiction appears;
+- downstream testing exposes a new responsible defect;
+- or real learner evidence reopens the owner.
 
-The unit must resolve, when material:
-- target capability and why now;
-- prerequisites;
-- whether a clean baseline is informative;
-- learner asset;
-- domain-appropriate practice geometry;
-- allowed assistance;
-- verification mode;
-- exit evidence;
-- changed-context transfer / real-use target.
+This pre-release closure contributes to S/K/L/P/R/E readiness. It never creates U.
+
+---
+
+## 3｜Learning Logic includes attention design
+
+L owns not only the order of cognitive actions, but also **what deserves Kian's attention at each moment**.
+
+For every learner-facing step, decide:
+
+- what must be foregrounded now;
+- what can be delayed, folded or omitted;
+- the useful information density for focused study;
+- whether a table / contrast / diagram / protocol is cheaper than prose;
+- whether an example adds discrimination or only length;
+- what should disappear after the model is compressed;
+- whether switching to Chat / another surface is worth the attention cost.
+
+Hard rule:
+
+> Kian's attention is a constrained learning resource. Content that is true but poorly timed, poorly structured or unnecessarily difficult to parse is an L defect, not merely a styling issue.
+
+The learner-facing target is:
+
+```text
+maximum decision-relevant understanding
+---------------------------------------
+attention + switching + rereading cost
+```
+
+Projection may control spacing, layout, disclosure and interaction, but P must not be forced to rescue dense jargon or a badly sequenced learner model that should have been solved in K/L.
+
+---
+
+## 4｜Cognition hierarchy: expanded → demonstrated → compressed → used
+
+A mature Skill deliberately moves through different cognitive resolutions.
+
+### C0 · Orientation
+
+**Guide / Framework**
+
+Answers:
+- What capability is this?
+- Why is it structured this way?
+- What model should I expect?
+
+Orientation is small and skippable when unnecessary.
+
+It is not capability evidence.
+
+### C1 · Expanded Model
+
+**Learn**
+
+The richest learner representation of the decision-relevant model:
+- relations;
+- distinctions;
+- boundaries;
+- examples;
+- exact facts;
+- source-grounded support.
+
+This is where complexity is allowed when it reduces later confusion.
+
+### C2 · Reconstruction
+
+**Recall / explain / rebuild / reproduce**
+
+Kian must actively regenerate the important structure instead of only recognizing it.
+
+The exact action follows the domain:
+- explain a mechanism;
+- redraw a process;
+- reconstruct a decision tree;
+- reproduce a workflow;
+- perform a native step;
+- retrieve decisive distinctions.
+
+### C3 · Application / Discrimination
+
+The model is used on cases, tasks, builds, comparisons or decisions.
+
+Practice geometry follows the real capability:
+
+```text
+mental model  → retrieve / explain / reconstruct
+judgment      → contrasted cases / decisive cues / uncertainty
+software      → build / debug / ship
+communication → live production / real interaction
+physical      → embodied practice / external feedback
+decision      → scenarios / real decisions / later outcome review
+```
 
 Do not default every Skill to reading + quiz.
 
-Examples:
-- mental model → retrieve / explain / reconstruct;
-- judgment → contrasted cases / decisive cues / uncertainty;
-- software → build / debug / ship;
-- communication → live production / real interaction;
-- physical skill → embodied practice / external feedback;
-- decision skill → scenarios / real decisions / later outcome review.
+### C4 · Direct Demonstration
 
-## 5｜Evidence and promotion
+**Protected Verify or equivalent clean performance**
 
-Useful evidence usually strengthens as answer leakage and familiarity fall:
+The learner demonstrates the target capability with minimized answer leakage.
+
+Comfortable discussion, rereading, page completion and same-item correction do not satisfy this layer.
+
+### Repair branch
+
+Failure at C2–C4 does not create a new mandatory stage.
+
+Use:
 
 ```text
-orientation / understood explanation
-< direct clean demonstration
-< changed-context transfer
-< real use
-< repeated stable real use
+first meaningful failure
+→ diagnose only if causes imply different actions
+→ repair smallest failed object
+→ reconstruct / re-execute
+→ return to interrupted layer
 ```
 
-Not every Skill needs the top rung. The original success condition and consequence of failure determine how much evidence is enough.
+Repair evidence is not mastery evidence.
+
+### C5 · Unit Compression
+
+Once the model has survived enough reconstruction / application / direct demonstration, the expanded representation is compressed into a **callable operating object**.
+
+Compression is not a shorter summary.
+
+It should preserve the smallest structure that still supports correct action, for example:
+- causal skeleton;
+- contrast matrix;
+- decision tree;
+- branch checklist;
+- action protocol;
+- one-screen operating model.
+
+Hard rule:
+
+> Do not freeze final Compression before learner evidence reveals which distinctions are actually decisive.
+
+A prebuilt compression candidate may exist, but it remains provisional until evidence supports it.
+
+### C6 · Changed-context Transfer
+
+The compressed model is tested under changed surface cues:
+- different wording;
+- different context;
+- incomplete information;
+- competing cues;
+- delayed retrieval;
+- realistic tools / constraints.
+
+Fresh changed-context success is stronger evidence than same-item correction.
+
+If Transfer fails:
+
+```text
+reopen smallest failed relation
+→ repair
+→ update Compression only if needed
+→ transfer again
+```
+
+### C7 · Real Use
+
+Use the capability in the environment it actually exists for.
+
+Tool use is allowed when the real capability is tool-mediated.
+
+### C8 · Personal Calibration
+
+Repeated real use may produce Kian-specific priors, triggers, boundaries or exceptions.
+
+```text
+generic model
++ repeated personal evidence
+→ calibrated personal rule
+```
+
+Do not promote one anecdote into a personal law.
+
+### C9 · Skill Compression
+
+After multiple Units mature, the Skill itself compresses into one higher-order operating model.
+
+The final Skill model should reduce future operations:
+- less rereading;
+- less reconstruction from scratch;
+- faster diagnosis;
+- faster action selection;
+- less repeated confusion.
+
+Shorter text alone is not Compression.
+
+---
+
+## 5｜Progressive compression, not permanent expansion
+
+Skills follow the same mature direction as the exam systems:
+
+```text
+first learning
+= expanded model
+
+after reconstruction / demonstration
+= Unit Compression
+
+after transfer / real use
+= calibrated Compression
+
+after multiple Units
+= Skill Operating Model
+```
+
+Later use should normally become thinner.
+
+New contradictory evidence reopens only the smallest affected object.
+
+Do not force the learner back through the full expanded model when the failure is local.
+
+---
+
+## 6｜Unit semantics
+
+A Unit is the smallest coherent capability slice that can be:
+
+- formed;
+- reconstructed;
+- applied;
+- demonstrated;
+- compressed;
+- transferred or used;
+- and independently repaired when it fails.
+
+A Unit is not a chapter heading.
+
+Detailed minimum design lives in `UNIT_CONTRACT.md`.
+
+---
+
+## 7｜Baseline gate
+
+A clean baseline is useful only when an uninstructed attempt contains real information about current capability.
+
+Use:
+
+```text
+CLEAN
+→ prior attempt is genuinely diagnostic
+
+SOFT
+→ quick probe may help but is not worth consuming protected material
+
+SKIP
+→ novice guessing / unsafe task / sufficient existing evidence / no decision impact
+```
+
+Do not manufacture a pre-test ritual for every Skill.
+
+---
+
+## 8｜Assistance mode
+
+Each material performance should make assistance semantics explicit when they affect what the evidence means:
+
+```text
+NATIVE
+TOOL_ALLOWED
+AI_ASSISTED
+EXPERT_GATED
+```
+
+The purpose is not to ban AI.
+
+It is to prevent:
+
+```text
+AI produced a good result
+≠
+Kian demonstrated the native capability
+```
+
+The real-world ceiling may legitimately include tools while the native floor remains separately visible.
+
+---
+
+## 9｜Surface ownership: Website reads, Chat thinks with Kian
+
+For the generic Skill Library, the learner-facing website is primarily a **reading / reference surface**.
+
+### Website owns
+
+- Guide / Framework;
+- expanded learner Content;
+- stable reference material;
+- stable Compression only when it is genuinely ready for learner display;
+- navigation and lightweight Resume of the last opened reading asset.
+
+The website should feel like a high-quality handbook, not a workflow engine.
+
+### Chat owns
+
+- deeper explanation and discussion;
+- learner Reconstruction;
+- Verify / clean demonstration;
+- Repair;
+- changed-context Transfer;
+- Evidence judgment;
+- personal Calibration;
+- deciding when a provisional Compression is mature enough to become learner-facing;
+- upgrading canonical Content when discussion or evidence reveals a real defect.
+
+Hard rule:
+
+> **Do not move an interaction into Astro merely because Runtime can implement it.**
+
+For ordinary Skills:
+
+```text
+Website
+= read / scan / reference / resume
+
+Chat
+= reconstruct / verify / repair / transfer / calibrate / upgrade
+```
+
+A protected Verify / Transfer asset may exist in GitHub as Chat-readable Current content without being a learner-visible webpage.
+
+Do not require Kian to:
+- type learner answers into the website;
+- import/export Chat Return payloads;
+- operate evidence state;
+- click through cognition stages;
+- manage repair workflows;
+- understand internal stage names.
+
+If a domain genuinely requires a native interactive surface (for example code execution, speech, embodied feedback, or another real task geometry), that is a separate L decision for that Skill. It is not the generic default.
+
+---
+
+## 10｜Discussion channel
+
+After learner Content, Kian may return to Chat with:
+
+- questions;
+- objections;
+- personal examples;
+- alternative interpretations;
+- real-use friction.
+
+Discussion may:
+- resolve conceptual friction;
+- improve canonical Content;
+- form a Repair hypothesis;
+- reveal a missing distinction;
+- help calibrate the model.
+
+Discussion itself is not Verify and must not silently leak a protected answer before clean performance.
+
+---
+
+## 11｜Evidence / promotion
+
+Capability evidence generally strengthens as cue support and familiarity fall:
+
+```text
+ORIENTED
+< RECONSTRUCTED
+< DIRECTLY_DEMONSTRATED
+< CHANGED_CONTEXT_TRANSFER
+< REAL_USE
+< STABLE
+```
+
+Compression is a representation state, not an evidence label.
 
 Never promote capability from:
 - file existence;
 - page completion;
+- “I understand”;
 - comfortable discussion;
-- same-item correction alone.
+- same-item correction alone;
+- AI-assisted output when native performance is the target.
 
-Stable evidence exits cheaply.
+The success condition decides how high the ladder must go.
 
-Wrong / Uncertain should trigger only the smallest responsible Repair. A later transfer check exists only when it can change a real future decision.
+---
 
-## 6｜Discussion channel
+## 12｜Maintenance
 
-After learner content, Kian may bring questions, objections, personal examples or alternative interpretations back to Chat.
-
-This is optional.
-
-Use discussion to:
-- resolve genuine conceptual friction;
-- test whether the model fits Kian's reality;
-- discover a missing distinction;
-- improve learner Content;
-- form a Repair hypothesis.
-
-Do not:
-- force Socratic conversation after every page;
-- treat discussion itself as verification;
-- leak protected Verify answers through hints;
-- turn curiosity into review debt.
-
-## 7｜Maintenance
-
-Do not automatically create spaced review for every Skill.
+Do not automatically create spaced review debt.
 
 Add maintenance only when:
 - the capability decays without use;
-- future failure is costly;
-- real use is too infrequent to maintain it naturally;
+- failure is costly;
+- real use is too rare to maintain it naturally;
 - or evidence shows regression.
 
 If ordinary real use maintains the capability, real use is the maintenance plan.
 
-## 8｜Resume
+---
 
-A fresh learner entry should answer cheaply:
+## 13｜Resume / learner surface
+
+A fresh learner entry should cheaply answer:
 - what this Skill is for;
-- what the current learner asset is;
-- what has been visited / explicitly read;
-- what to do next.
+- what reading asset was opened most recently;
+- where the learner can continue reading;
+- when deeper work should return to Chat.
 
-Do not require repo knowledge.
+Generic Website Resume is a navigation convenience only:
 
-## 9｜Stop rule
+```text
+last opened learner-visible reading asset
+→ continue reading
+```
+
+It does not expose or ask Kian to operate reconstruction, verification, repair, transfer or evidence state.
+
+Projection remains derived. It does not become a second Knowledge owner.
+
+---
+
+## 14｜Change / stop rule
+
+Revise the system from:
+- concrete Source/Knowledge defects;
+- failed adversarial closure;
+- learner friction;
+- failed reconstruction;
+- failed transfer;
+- repeated real-use evidence.
+
+Do not revise merely because another elegant framework can be imagined.
 
 FAIL when the Skill becomes:
 - a second textbook without learner value;
 - a status dashboard;
 - an engagement feed;
-- a mandatory logging ritual;
 - a universal quiz engine;
+- a mandatory logging ritual;
 - a Skill-specific frontend without a real geometry need;
-- a reason to keep engineering after the bottleneck is actual practice.
+- a permanent expansion that never compresses.
 
-The intended product shape is:
+Durable direction:
 
-> prepared Content → clear Visual → appropriate Practice / Verify → Evidence-guided Repair → Real Use.
+> **reliable Source → excellent AI Knowledge → correct Learning Logic → self-attacked learner Content → reconstruction/application → clean demonstration → progressive Compression → transfer/real use → calibrated revision.**

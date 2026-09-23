@@ -1,58 +1,237 @@
 ---
 import SkillsBase from '../../layouts/SkillsBase.astro';
-import { listSkills, skillAssetHref } from '../../lib/skills.mjs';
+import { listSkills, loadSkill, skillAssetHref } from '../../lib/skills.mjs';
 
 const base = import.meta.env.BASE_URL;
 const skills = listSkills();
+const enriched = skills.map((skill) => ({ ...skill, detail: loadSkill(skill.id) }));
+const totalUnits = enriched.reduce((sum, skill) => sum + skill.units.length, 0);
+
+const groupDefs = [
+  {
+    id: 'CORE',
+    label: '核心能力',
+    description: '会反复参与重要学习、工作、判断与职业发展的主干能力。'
+  },
+  {
+    id: 'CORE_SUPPORT',
+    label: '长期支撑',
+    description: '精力、健康、审美、环境与生活系统：需要时调用，不制造默认学习债。'
+  },
+  {
+    id: 'CORE_OPTION',
+    label: '可选方向',
+    description: '只有真实路径需要时再深入，不因为“可能有用”提前启动。'
+  }
+];
+
+const groups = groupDefs
+  .map((group) => ({ ...group, skills: enriched.filter((skill) => skill.portfolioState === group.id) }))
+  .filter((group) => group.skills.length > 0);
+
+const clientSkills = enriched.map((skill) => ({
+  id: skill.id,
+  title: skill.title,
+  subtitle: skill.subtitle,
+  home: base + 'skills/' + skill.id + '/',
+  assets: skill.assets.map((asset) => ({
+    id: asset.id,
+    title: asset.title,
+    label: asset.label,
+    href: skillAssetHref(base, skill.id, asset.id)
+  }))
+}));
+const clientSkillsJson = JSON.stringify(clientSkills).replace(/</g, '\u003c');
+
+const stateLabel = (value) => value === 'CORE'
+  ? '核心能力'
+  : value === 'CORE_SUPPORT'
+    ? '长期支撑'
+    : value === 'CORE_OPTION'
+      ? '可选方向'
+      : '能力';
 ---
-<SkillsBase title="Skills" kicker="KianOS · Skill Library" description="把值得学习的能力变成可阅读、可验证、可继续的学习产品。">
-  <section class="skillLibraryIntro">
-    <div>
-      <p class="skillEyebrow">Skill Library</p>
-      <h2>能力不是清单，进入以后就是学习空间。</h2>
+<SkillsBase title="Skills" kicker="KianOS · Skill Library" description="17 项成熟能力按真实需求调用；没有需求时保持安静。">
+  <header class="skillLibraryHeader">
+    <p class="skillEyebrow">KianOS · Skill Library</p>
+    <h1>17 项能力，按需调用</h1>
+    <p>这里不是待办清单。先从现实问题进入对应 Skill；没有真实需求时，不需要为了“学完能力库”而学习。</p>
+  </header>
+
+  <section class="skillLibraryOverview" aria-label="Skill Library 概览">
+    <div class="skillLibraryOverviewCopy">
+      <div class="skillLibraryStats" aria-label="能力库统计">
+        <div><strong>{enriched.length}</strong><span>项成熟能力</span></div>
+        <div><strong>{totalUnits}</strong><span>个能力单元</span></div>
+        <div><strong>0</strong><span>项默认学习债</span></div>
+      </div>
+      <div class="skillLibraryUseFlow">
+        <span>使用方式</span>
+        <strong>现实问题 → 对应 Skill → 阅读 / Chat 深入 → 回到真实使用</strong>
+        <p>网站负责清楚展示和继续阅读；讨论、验证、迁移和真正的能力升级继续交给 Chat。</p>
+      </div>
     </div>
-    <p>Guide / Framework / Unit / Verify 由 Content 决定；页面只负责清楚呈现。新增普通 Skill 不需要重新开发一套 Astro。</p>
+
+    <aside class="skillLibraryResume" data-library-resume data-empty="true">
+      <span data-library-resume-kicker>最近阅读</span>
+      <strong data-library-resume-title>还没有阅读记录</strong>
+      <p data-library-resume-label>从眼前真正需要解决的问题开始；系统不会替你指定默认主线。</p>
+      <a class="skillPrimaryAction" href="#skill-library-groups" data-library-resume-link>浏览能力库 <span aria-hidden="true">→</span></a>
+    </aside>
   </section>
 
-  <section class="skillLibraryGrid" aria-label="技能库">
-    {skills.map((skill) => {
-      const current = skill.assets.find((asset) => asset.id === skill.currentAsset) || skill.assets[0];
-      return (
-        <article class="skillLibraryCard" data-skill-card={skill.id}>
+  <section class="skillLibraryBrowse" id="skill-library-groups">
+    <header class="skillLibraryBrowseHead">
+      <div>
+        <span>Capability Portfolio</span>
+        <h2>能力库</h2>
+        <p>先按角色分层，再进入具体 Skill。状态词已经收起，只保留对使用有意义的信息。</p>
+      </div>
+      <label class="skillLibrarySearch">
+        <span>查找能力</span>
+        <input type="search" placeholder="例如：英语、科研、健康、设计…" autocomplete="off" data-skill-search />
+        <small data-skill-search-count>{enriched.length} 项能力</small>
+      </label>
+    </header>
+
+    <div class="skillLibraryGroups">
+      {groups.map((group) => (
+        <section class="skillLibraryGroup" data-skill-group={group.id}>
           <header>
-            <span>{skill.portfolioState || 'ACTIVE'}</span>
-            <strong>{skill.title}</strong>
+            <div>
+              <span>{group.label}</span>
+              <h3>{group.skills.length} 项</h3>
+            </div>
+            <p>{group.description}</p>
           </header>
-          <p>{skill.subtitle}</p>
-          <div class="skillLibraryCardMeta">
-            <span>{skill.assets.length} 个当前学习资产</span>
-            <span>{skill.status}</span>
+
+          <div class="skillLibraryGrid">
+            {group.skills.map((skill) => {
+              const guide = skill.assets.find((asset) => asset.stage === 'orientation' || asset.kind === 'guide') || skill.assets[0];
+              return (
+                <article
+                  class="skillLibraryCard"
+                  data-skill-card={skill.id}
+                  data-skill-search-text={(skill.title + ' ' + skill.subtitle + ' ' + skill.detail.manifest.kicker).toLowerCase()}
+                >
+                  <header>
+                    <span>{stateLabel(skill.portfolioState)}</span>
+                    <strong>{skill.title}</strong>
+                  </header>
+                  <p>{skill.subtitle}</p>
+                  <div class="skillLibraryCardMeta">
+                    <span>{skill.units.length} 个单元</span>
+                    <span data-skill-card-progress hidden>有阅读记录</span>
+                  </div>
+                  <div class="skillLibraryCardActions">
+                    <a
+                      class="skillPrimaryAction"
+                      href={base + 'skills/' + skill.id + '/'}
+                      data-skill-continue={skill.id}
+                    >进入 Skill</a>
+                    {guide && <a class="skillSecondaryAction" href={skillAssetHref(base, skill.id, guide.id)}>从总览开始</a>}
+                  </div>
+                </article>
+              );
+            })}
           </div>
-          <a
-            class="skillPrimaryAction"
-            href={current ? skillAssetHref(base, skill.id, current.id) : base + 'skills/' + skill.id + '/'}
-            data-skill-continue={skill.id}
-            data-default-asset={current?.id || ''}
-          >
-            继续学习
-          </a>
-          <a class="skillSecondaryAction" href={base + 'skills/' + skill.id + '/'}>查看学习地图</a>
-        </article>
-      );
-    })}
+        </section>
+      ))}
+    </div>
+
+    <div class="skillLibraryNoResults" data-skill-no-results hidden>
+      <strong>没有匹配的 Skill。</strong>
+      <p>换一个更接近真实问题的词；也可以直接回 Chat 描述你现在要做什么。</p>
+    </div>
   </section>
+
+  <script type="application/json" id="skill-library-client-config" set:html={clientSkillsJson}></script>
 </SkillsBase>
 
 <script>
-  import { skillProgressFor } from '../../lib/skillRuntimeClient.mjs';
-  const base = import.meta.env.BASE_URL;
-  for (const link of document.querySelectorAll('[data-skill-continue]')) {
-    if (!(link instanceof HTMLAnchorElement)) continue;
-    const skillId = link.dataset.skillContinue || '';
-    const state = skillProgressFor(skillId);
-    if (state.last_asset) {
-      link.href = base + 'skills/' + encodeURIComponent(skillId) + '/' + encodeURIComponent(state.last_asset) + '/';
-      link.textContent = '继续上次位置';
+  import { learnerWriterReady } from '../../lib/browserLearnerWriter.mjs';
+  import { readSkillProgress } from '../../lib/skillRuntimeClient.mjs';
+
+  const configs = JSON.parse(document.getElementById('skill-library-client-config')?.textContent || '[]');
+
+  const updateResume = (rootProgress) => {
+    const resume = document.querySelector('[data-library-resume]');
+    if (!(resume instanceof HTMLElement)) return;
+
+    const recent = Object.entries(rootProgress?.skills || {})
+      .map(([id, state]) => ({ id, state }))
+      .filter(({ state }) => state && state.updated_at)
+      .sort((a, b) => String(b.state.updated_at).localeCompare(String(a.state.updated_at)))[0];
+
+    if (!recent) return;
+    const config = configs.find((row) => row.id === recent.id);
+    const asset = config?.assets?.find((row) => row.id === recent.state.last_asset);
+    if (!config || !asset) return;
+
+    resume.dataset.empty = 'false';
+    const kicker = resume.querySelector('[data-library-resume-kicker]');
+    const title = resume.querySelector('[data-library-resume-title]');
+    const label = resume.querySelector('[data-library-resume-label]');
+    const link = resume.querySelector('[data-library-resume-link]');
+
+    if (kicker instanceof HTMLElement) kicker.textContent = '最近阅读';
+    if (title instanceof HTMLElement) title.textContent = config.title;
+    if (label instanceof HTMLElement) label.textContent = asset.title + (asset.label ? ' · ' + asset.label : '');
+    if (link instanceof HTMLAnchorElement) {
+      link.href = asset.href;
+      link.firstChild && (link.firstChild.textContent = '继续上次位置 ');
     }
-  }
+  };
+
+  const updateCards = (rootProgress) => {
+    for (const link of document.querySelectorAll('[data-skill-continue]')) {
+      if (!(link instanceof HTMLAnchorElement)) continue;
+      const skillId = link.dataset.skillContinue || '';
+      const config = configs.find((row) => row.id === skillId);
+      const state = rootProgress?.skills?.[skillId];
+      const asset = config?.assets?.find((row) => row.id === state?.last_asset);
+      if (!asset) continue;
+
+      link.href = asset.href;
+      link.textContent = '继续上次位置';
+      const card = link.closest('[data-skill-card]');
+      card?.classList.add('has-progress');
+      const meta = card?.querySelector('[data-skill-card-progress]');
+      if (meta instanceof HTMLElement) { meta.hidden = false; meta.textContent = '有阅读记录'; }
+    }
+  };
+
+  const setupSearch = () => {
+    const input = document.querySelector('[data-skill-search]');
+    const count = document.querySelector('[data-skill-search-count]');
+    const empty = document.querySelector('[data-skill-no-results]');
+    const cards = [...document.querySelectorAll('[data-skill-card]')].filter((node) => node instanceof HTMLElement);
+    const groups = [...document.querySelectorAll('[data-skill-group]')].filter((node) => node instanceof HTMLElement);
+    if (!(input instanceof HTMLInputElement)) return;
+
+    const apply = () => {
+      const query = input.value.trim().toLowerCase();
+      let visible = 0;
+      for (const card of cards) {
+        const haystack = card.dataset.skillSearchText || '';
+        const show = !query || haystack.includes(query);
+        card.hidden = !show;
+        if (show) visible += 1;
+      }
+      for (const group of groups) {
+        group.hidden = ![...group.querySelectorAll('[data-skill-card]')].some((card) => card instanceof HTMLElement && !card.hidden);
+      }
+      if (count instanceof HTMLElement) count.textContent = query ? visible + ' / ' + cards.length + ' 项能力' : cards.length + ' 项能力';
+      if (empty instanceof HTMLElement) empty.hidden = visible !== 0;
+    };
+
+    input.addEventListener('input', apply);
+    apply();
+  };
+
+  await learnerWriterReady;
+  const progress = readSkillProgress();
+  updateResume(progress);
+  updateCards(progress);
+  setupSearch();
 </script>

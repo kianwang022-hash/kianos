@@ -1,0 +1,55 @@
+{
+  "schema": "kianos.skill.manifest.v1",
+  "id": "medicine-clinical",
+  "title": "医学与临床判断",
+  "kicker": "Medicine & Clinical Judgment",
+  "description": "把医学知识、病理生理、诊断推理、检查解释、治疗推理、临床不确定性、患者沟通和团队工作连成一套可持续升级的临床判断框架。",
+  "status": "READY",
+  "portfolio_state": "CORE",
+  "demand": "建立真正可迁移的医学专业判断能力：能从病史、查体和检查中构建问题表征，形成有优先级的鉴别诊断，理解检验和影像如何改变概率，把证据、指南、患者价值与现实约束连成治疗决策，并在不确定性和团队协作中维持安全。",
+  "guide": "framework.md",
+  "current_asset": "framework",
+  "units": [
+    {"id":"u1","title":"U1 · 医学知识结构与问题表征","capability":"C1 把零散知识组织成机制、时间轴、表型和问题表征，而不是只按疾病背清单","order":10,"next_unit":"u2","assets":{"learn":"u1-knowledge-problem-representation"}},
+    {"id":"u2","title":"U2 · 鉴别诊断与概率推理","capability":"C2 用基线概率、机制、危险性和可解释性形成有优先级的 differential，而不是穷举病名","order":20,"next_unit":"u3","assets":{"learn":"u2-differential-probability"}},
+    {"id":"u3","title":"U3 · 检查选择与结果解释","capability":"C3 从 pretest probability、test characteristics、benefit-harm 和 post-test probability 理解检查价值","order":30,"next_unit":"u4","assets":{"learn":"u3-testing-interpretation"}},
+    {"id":"u4","title":"U4 · 治疗推理与循证决策","capability":"C4 把治疗目标、证据确定性、获益伤害、患者价值、资源和可行性连成透明决策","order":40,"next_unit":"u5","assets":{"learn":"u4-treatment-evidence"}},
+    {"id":"u5","title":"U5 · 临床不确定性、安全与升级","capability":"C5 在诊断未定时识别高后果风险、设置复评与 safety-net，并知道何时升级照护或求助","order":50,"next_unit":"u6","assets":{"learn":"u5-uncertainty-safety"}},
+    {"id":"u6","title":"U6 · 患者沟通、团队与交接","capability":"C6 用共享决策、结构化沟通、handoff 和 closed-loop communication 保持患者与团队的共同理解","order":60,"next_unit":"u7","assets":{"learn":"u6-communication-teamwork"}},
+    {"id":"u7","title":"U7 · 专业主义、反馈与长期临床成长","capability":"C7 用反馈、校准、错误学习、workflow awareness 和 scope / escalation 边界持续升级临床能力","order":70,"next_unit":null,"assets":{"learn":"u7-professional-growth"}}
+  ],
+  "assets": [
+    {"id":"framework","kind":"guide","stage":"orientation","title":"总框架","label":"先建立从医学知识到安全临床决策的整张地图","path":"framework.md","order":0,"learner_visible":true,"completable":false},
+    {"id":"u1-knowledge-problem-representation","unit_id":"u1","kind":"learn","stage":"learn","title":"U1 · 医学知识结构与问题表征","label":"先把病例压成可推理的问题，而不是先搜索病名","path":"units/u1-knowledge-problem-representation.md","order":10,"learner_visible":true,"completable":false},
+    {"id":"u2-differential-probability","unit_id":"u2","kind":"learn","stage":"learn","title":"U2 · 鉴别诊断与概率推理","label":"把常见、危险、可解释和可行动的可能性排出优先级","path":"units/u2-differential-probability.md","order":20,"learner_visible":true,"completable":false},
+    {"id":"u3-testing-interpretation","unit_id":"u3","kind":"learn","stage":"learn","title":"U3 · 检查选择与结果解释","label":"先问检查会怎样改变概率和行动，再决定是否值得做","path":"units/u3-testing-interpretation.md","order":30,"learner_visible":true,"completable":false},
+    {"id":"u4-treatment-evidence","unit_id":"u4","kind":"learn","stage":"learn","title":"U4 · 治疗推理与循证决策","label":"证据、指南、患者价值和现实条件一起决定治疗，不让单一层级替代临床判断","path":"units/u4-treatment-evidence.md","order":40,"learner_visible":true,"completable":false},
+    {"id":"u5-uncertainty-safety","unit_id":"u5","kind":"learn","stage":"learn","title":"U5 · 临床不确定性、安全与升级","label":"诊断没定也必须有安全计划、复评触发点和升级路径","path":"units/u5-uncertainty-safety.md","order":50,"learner_visible":true,"completable":false},
+    {"id":"u6-communication-teamwork","unit_id":"u6","kind":"learn","stage":"learn","title":"U6 · 患者沟通、团队与交接","label":"让不确定性、计划、责任和患者偏好在团队里不丢失","path":"units/u6-communication-teamwork.md","order":60,"learner_visible":true,"completable":false},
+    {"id":"u7-professional-growth","unit_id":"u7","kind":"learn","stage":"learn","title":"U7 · 专业主义、反馈与长期临床成长","label":"用真实反馈和工作系统持续校准，而不是靠病例数量制造经验幻觉","path":"units/u7-professional-growth.md","order":70,"learner_visible":true,"completable":false}
+  ],
+  "capability_map": [
+    "C1 知识结构：pathophysiology / time course / syndrome / problem representation / data quality",
+    "C2 诊断推理：base rate / illness scripts / differential / must-not-miss / calibration",
+    "C3 检查：pretest probability / sensitivity-specificity / likelihood ratios / post-test probability / test utility",
+    "C4 治疗：goals / evidence certainty / benefits-harms / guideline / patient values / feasibility",
+    "C5 安全：uncertainty / deterioration / reassessment / safety-net / escalation / scope",
+    "C6 沟通：shared decision making / SBAR / handoff / closed-loop / patient-centered communication",
+    "C7 成长：feedback / cognitive + system factors / professionalism / workflow / specialty-specific extension"
+  ],
+  "source_reviews":[
+    {"id":"whole-book-source-review","title":"Medicine / Clinical Judgment Source Review","path":"source-review.md"}
+  ],
+  "related_skill_candidates":[
+    {"id":"decision-quality","relation":"Decision 提供通用不确定性与价值取舍结构；本 Skill 负责临床情境里的专业概率、风险与行动阈值"},
+    {"id":"information-research","relation":"Research 负责外部医学来源、指南和证据真实性；本 Skill 负责把可靠证据应用到具体临床问题"},
+    {"id":"adaptive-learning","relation":"Learning 负责能力形成与迁移；本 Skill 定义临床 reasoning、test interpretation、treatment reasoning 的真实任务结构"},
+    {"id":"communication-negotiation","relation":"Communication 提供通用倾听 / repair / 冲突结构；本 Skill 负责患者沟通、shared decision making、handoff 和团队安全接口"},
+    {"id":"medical-research","relation":"Medical Research 负责产生和评价医学科学知识；本 Skill 使用研究证据服务患者层决策"}
+  ],
+  "next_planned":[
+    "Framework + U1–U7 + whole-book Source Review 已完成并通过 bounded self-attack",
+    "differential-list / Bayesian-math / test-as-truth / guideline obedience / evidence-recommendation collapse / bias blame / hindsight / safety-net / handoff theater 已完成最小修复",
+    "READY and registered；以后只因真实 learner question、material content defect、durable Source change、supervised clinical-use evidence 或真实 specialty-training demand reopen；不预建假想专科树"
+  ]
+}
