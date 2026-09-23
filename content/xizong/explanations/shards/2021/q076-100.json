@@ -16,14 +16,26 @@
       "肥厚型更偏壁厚和流出道问题，限制型则更偏舒张受限而心室不显著扩大。"
     ],
     "transfer_rule": "DCM抓心腔扩张+弥漫收缩减弱。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.扩张型心肌病。左房、左室扩大，左室壁弥漫性运动障碍且LVEF下降，构成“心腔扩大 + 弥漫收缩功能下降”的典型DCM模式。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "瓣膜性心脏病需有能解释心腔重构的原发瓣膜结构病变；题干超声核心是弥漫性心肌收缩障碍。"
+      },
+      {
+        "option": "D",
+        "reason": "冠心病更常出现节段性室壁运动异常，而非单纯弥漫性低动力。"
+      }
+    ],
+    "common_failure_node": "看到心尖部收缩期杂音就锚定瓣膜病，忽略超声的弥漫心肌病证据。"
   },
   {
     "question_id": "xizong-official-2021-n077",
@@ -37,7 +49,9 @@
     "exam_target": "失代偿心衰共享药物子问缺失",
     "decision_axis": "病例处于明显充血失代偿并合并房颤，但当前Question只保留药物选项和共享病例，缺失具体问法，正式答案β受体拮抗剂无法安全确定是在问禁忌、延后还是其他选择。",
     "reasoning_chain": [
-      "共享题干不足以独立恢复子问语义，按题源答案保留并 fail-closed。"
+      "病例同时有失代偿性心衰、房颤和感染诱因。",
+      "四个药物各自可能对应不同治疗层级。",
+      "原子问缺失，不能确定官方B对应的判断轴，因此保留答案而Crosswalk fail-closed。"
     ],
     "transfer_rule": "仅保留题源边界；急性失代偿期β受体阻滞剂的启动/调整需结合既往用药和稳定性。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -47,7 +61,16 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.β受体拮抗剂为题源官方答案；但共享病例未保留具体问法，无法确认是在问失代偿期不宜立即启用、房颤控率、长期预后治疗还是其他比较。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "利尿剂对明显充血可有作用，但缺失子问时不能据此判断题目是在问“首选”还是“不宜使用”。"
+      }
+    ],
+    "common_failure_node": "用官方答案B反向猜原子问，把“β阻滞剂”解释成任意一个可能的问题。",
+    "source_gap_note": "共享病例具体子问缺失，无法安全恢复β受体拮抗剂在原题中对应“应选/不应选/何时选”的语义。"
   },
   {
     "question_id": "xizong-official-2021-n078",
@@ -61,7 +84,9 @@
     "exam_target": "HFrEF共享长期用药子问缺失",
     "decision_axis": "正式答案指向钙通道阻滞剂，但当前记录缺少具体子问；HFrEF长期用药选择又取决于具体药物类别和适应证，不能凭选项反推规则。",
     "reasoning_chain": [
-      "共享题干不足以独立恢复子问语义，按题源答案保留并 fail-closed。"
+      "病例是HFrEF合并房颤和急性失代偿。",
+      "ACEI/ARB、β阻滞剂、MRA和CCB分别处于不同治疗层级。",
+      "具体问法缺失，官方D只能作为历史答案保存。"
     ],
     "transfer_rule": "仅保留题源/Question Truth边界；HFrEF用药按具体药物与现行指南判断。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -71,7 +96,20 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.钙通道阻滞剂为题源官方答案；当前共享病例缺失具体子问，且HFrEF中不同CCB药物作用并不相同，不能把D直接升级为统一治疗规则。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "ACEI/ARB在HFrEF长期治疗中有明确角色，但缺失子问时不能判断它为何不是题源答案。"
+      },
+      {
+        "option": "B",
+        "reason": "β受体拮抗剂同样具有长期预后角色，需区分急性失代偿与稳定期。"
+      }
+    ],
+    "common_failure_node": "看到答案D就猜题目一定在问“哪类药不改善预后”或“禁用什么”，而原题并未保存。",
+    "source_gap_note": "共享病例具体子问缺失；不能从选项和答案反向制造HFrEF药物选择规则。"
   },
   {
     "question_id": "xizong-official-2021-n079",
@@ -90,14 +128,26 @@
       "这类题要先建立肝硬化背景，再把诱因与神经精神改变串起来。"
     ],
     "transfer_rule": "肝硬化背景+诱因+意识改变→先想HE。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.肝性脑病。慢性肝病/门脉高压体征叠加感染、呕吐腹泻诱因后出现急性意识障碍，最符合HE。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "DKA通常需明显高血糖、酮症和代谢性酸中毒证据；题干反而给出明显慢性肝病背景。"
+      },
+      {
+        "option": "D",
+        "reason": "尿毒症需有显著肾功能衰竭证据。"
+      }
+    ],
+    "common_failure_node": "只看到意识障碍就从神经系统疾病开始猜，不先识别肝硬化背景和诱因。"
   },
   {
     "question_id": "xizong-official-2021-n080",
@@ -111,7 +161,9 @@
     "exam_target": "肝性脑病共享检查子问缺失",
     "decision_axis": "正式答案为血氨，但当前记录缺少具体问法；且血氨可支持但不能单独确诊或反映肝性脑病严重度，因此不安全生成“最重要检查”规则。",
     "reasoning_chain": [
-      "共享题干不足以独立恢复子问语义，按题源答案保留并 fail-closed。"
+      "同一病例临床首先考虑肝性脑病。",
+      "血氨可以提供机制性支持，但诊断仍是临床综合判断并需排除其他原因。",
+      "原子问缺失，不能把题源B升级成Current固定检查优先级。"
     ],
     "transfer_rule": "仅保留题源边界；HE诊断以临床和诱因排查为主，血氨不是单独判定标准。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -121,7 +173,16 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.血氨为题源官方答案；血氨可支持肝性脑病机制判断，但其水平与临床严重度并非严格对应，也不能单独确诊。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "头颅CT用于排除结构性神经病变，是否应优先取决于具体临床疑点。"
+      }
+    ],
+    "common_failure_node": "把“HE与氨有关”偷换成“血氨是诊断HE的唯一/最重要检查”。",
+    "source_gap_note": "共享病例具体子问缺失；且血氨不能单独确诊或可靠分级肝性脑病，不建立“最重要检查”Current规则。"
   },
   {
     "question_id": "xizong-official-2021-n081",
@@ -135,7 +196,9 @@
     "exam_target": "肝性脑病镇静药旧子问",
     "decision_axis": "题源答案为异丙嗪，但当前Question缺失具体问法，且肝性脑病患者镇静药选择需谨慎避免加重意识抑制，不能据此形成Current用药规则。",
     "reasoning_chain": [
-      "共享题干不足以独立恢复子问语义，按题源答案保留并 fail-closed。"
+      "肝性脑病患者应尽量避免不必要的中枢抑制药。",
+      "题源官方答案为异丙嗪，但当前记录没有保留原子问。",
+      "因此不把该药物选择写成Current规则。"
     ],
     "transfer_rule": "仅保留题源/Study边界；HE患者镇静用药需按现行安全原则个体化。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -145,7 +208,16 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.异丙嗪为题源官方答案；但肝性脑病患者镇静药可能加重意识抑制，选药需结合具体目的、呼吸循环状态和药代学，当前原子问又缺失。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "地西泮等苯二氮䓬类可加重中枢抑制，通常需高度谨慎。"
+      }
+    ],
+    "common_failure_node": "从四个镇静药里硬猜“哪一个最安全”，忽略题目问法缺失和HE对镇静药的特殊敏感性。",
+    "source_gap_note": "共享病例具体子问缺失；HE镇静用药高度情境化，题源D不升级为统一Current推荐。"
   },
   {
     "question_id": "xizong-official-2021-n082",
@@ -164,14 +236,26 @@
       "单纯膀胱炎通常缺少明显发热和肾区体征。"
     ],
     "transfer_rule": "膀胱刺激征+发热/肾区叩痛→pyelonephritis。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.急性肾盂肾炎。发热、尿频尿急尿痛并有肾区叩击痛，说明感染已累及上尿路/肾实质。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "单纯急性膀胱炎通常以尿路刺激征为主，不应有明显发热和肾区叩痛。"
+      },
+      {
+        "option": "D",
+        "reason": "肾结核多为慢性、病程迁延，和2天急性高热尿路刺激征不符。"
+      }
+    ],
+    "common_failure_node": "把“尿频尿急尿痛”一律归为膀胱炎，不利用发热和CVA叩痛定位上尿路。"
   },
   {
     "question_id": "xizong-official-2021-n083",
@@ -190,14 +274,22 @@
       "它是高价值支持证据，但并非每例急性肾盂肾炎都必须出现。"
     ],
     "transfer_rule": "WBC casts→renal parenchymal inflammation。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.白细胞管型。管型在肾小管内形成，白细胞管型提示炎症已进入肾实质/上尿路，较单纯脓尿更有定位价值。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "尿白细胞增多可见于上下尿路感染，定位能力不如白细胞管型。"
+      }
+    ],
+    "common_failure_node": "把所有脓尿证据当成同等定位价值。"
   },
   {
     "question_id": "xizong-official-2021-n084",
@@ -211,7 +303,9 @@
     "exam_target": "急性肾盂肾炎旧抗菌疗程",
     "decision_axis": "题源选择10～14天喹诺酮治疗；Current抗菌药选择和疗程受耐药率、病情、药物种类和指南影响，许多方案可更短，不能固化。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对抗菌方案时代边界 fail-closed。"
+      "病例已确诊急性肾盂肾炎，需要系统抗菌治疗。",
+      "题源按当时口径选择10～14天喹诺酮。",
+      "Current抗菌方案已场景化，不冻结该固定疗程。"
     ],
     "transfer_rule": "仅保留题源/Study边界；Current UTI治疗按感染部位、耐药和具体药物决定。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -221,7 +315,16 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.10～14天喹诺酮类疗法为题源官方答案；Current急性肾盂肾炎抗菌药选择和疗程受病情、耐药率、培养结果和具体药物影响，许多方案可短于该旧固定时长。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "3天SMZ-TMP更偏简单下尿路感染短疗程，不适合直接套到发热伴肾区叩痛的上尿路感染。"
+      }
+    ],
+    "common_failure_node": "把旧教材固定“药物+天数”背成不随耐药和药物方案变化的永久规则。",
+    "source_boundary_note": "题源10～14天喹诺酮属于旧抗菌治疗口径；Current疗程和药物需结合耐药、严重度、培养及具体制剂。"
   },
   {
     "question_id": "xizong-official-2021-n085",
@@ -240,14 +343,26 @@
       "类白血病反应更常NAP升高，急性白血病则以原始细胞占比高为主。"
     ],
     "transfer_rule": "CML抓白细胞极高+全阶段粒系+Basophil↑+脾大。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.慢性髓系白血病。极高白细胞、粒系各成熟阶段并存、嗜碱/嗜酸增多、脾大和NAP低是CML经典组合。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "AML通常以原始细胞显著增加为主，不呈这样完整成熟粒系谱。"
+      },
+      {
+        "option": "A",
+        "reason": "原发性骨髓纤维化也可脾大，但外周血和NAP模式不同。"
+      }
+    ],
+    "common_failure_node": "只看WBC极高就选急性白血病，不看成熟谱和嗜碱细胞。"
   },
   {
     "question_id": "xizong-official-2021-n086",
@@ -266,14 +381,26 @@
       "后续Ph/BCR-ABL1用于分子定性，但题目问的是下一步形态学检查。"
     ],
     "transfer_rule": "白血病评估通常要整合外周血、骨髓和分子遗传。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.骨髓细胞学检查。CML形态学评估需要观察骨髓粒系显著增生及完整成熟谱；随后再以Ph/BCR-ABL1完成分子定性。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "Ret主要评价红系生成反应，不能确认CML形态。"
+      },
+      {
+        "option": "B",
+        "reason": "腹部B超只能评价脾脏等结构，不解决造血细胞身份。"
+      }
+    ],
+    "common_failure_node": "已经高度怀疑血液肿瘤却仍优先做一般影像，而不进入骨髓证据层。"
   },
   {
     "question_id": "xizong-official-2021-n087",
@@ -292,14 +419,26 @@
       "这是疾病身份和靶向治疗共同依赖的分子锚点。"
     ],
     "transfer_rule": "CML=BCR-ABL1。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.BCR-ABL融合基因。t(9;22)形成BCR-ABL1持续酪氨酸激酶活化，是CML定义性分子事件。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "JAK2V617F更常见于PV/ET/PMF等BCR-ABL1阴性MPN。"
+      },
+      {
+        "option": "D",
+        "reason": "PML-RARA是APL/M3标志。"
+      }
+    ],
+    "common_failure_node": "把MPN几种经典驱动突变互相串错。"
   },
   {
     "question_id": "xizong-official-2021-n088",
@@ -318,14 +457,26 @@
       "单纯毒性结节或甲状腺炎不能解释这种弥漫性自身免疫受体抗体模式。"
     ],
     "transfer_rule": "Graves=弥漫性甲亢+TRAb。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.Graves病。弥漫性甲状腺肿、高代谢甲亢表型和TRAb阳性共同锁定Graves。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "毒性结节性甲状腺肿更偏结节性而非弥漫性自身免疫受体抗体模式。"
+      },
+      {
+        "option": "C",
+        "reason": "桥本更多指向甲减或破坏性甲状腺炎背景。"
+      }
+    ],
+    "common_failure_node": "只看甲亢症状，不利用弥漫性肿大和TRAb完成病因分类。"
   },
   {
     "question_id": "xizong-official-2021-n089",
@@ -344,14 +495,26 @@
       "TPOAb/TGAb可见于自身免疫甲状腺病，但对Graves病因轴不如TRAb直接。"
     ],
     "transfer_rule": "Graves最直接联想TRAb。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.TRAb阳性。TRAb直接针对TSH受体，是Graves病病因学与诊断支持最直接的抗体。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "TgAb可见于多种自身免疫甲状腺病，且本题为阴性。"
+      },
+      {
+        "option": "C",
+        "reason": "TPOAb也可见于Graves，但不如TRAb直指TSH受体病因轴。"
+      }
+    ],
+    "common_failure_node": "把所有甲状腺自身抗体当成同等特异。"
   },
   {
     "question_id": "xizong-official-2021-n090",
@@ -365,7 +528,9 @@
     "exam_target": "Graves首选PTU旧治疗口径",
     "decision_axis": "题源对非妊娠成人Graves病固定首选丙硫氧嘧啶；Current多数普通成人更常优先甲巯咪唑，PTU主要用于特定场景，旧首选不宜升级。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对现行抗甲状腺药选择 fail-closed。"
+      "病例明确为Graves甲亢。",
+      "题源按旧教材选择PTU首选。",
+      "Current普通成人用药首选已变化，因此保留C但Crosswalk fail-closed。"
     ],
     "transfer_rule": "仅保留题源/Study时代边界；Current MMI/PTU选择看妊娠、甲状腺危象等情境。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -375,7 +540,20 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.丙硫氧嘧啶为题源官方答案；Current普通非妊娠成人Graves病通常优先甲巯咪唑，PTU主要保留于特定场景，不能把旧“首选PTU”升级。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "β受体阻滞剂可缓解心悸震颤等症状，但不能单独抑制甲状腺激素合成。"
+      },
+      {
+        "option": "D",
+        "reason": "左甲状腺素用于甲减替代，不是未治疗Graves甲亢首选。"
+      }
+    ],
+    "common_failure_node": "把旧抗甲状腺药首选顺序当成不随安全性证据变化的固定规则。",
+    "source_boundary_note": "题源固定首选PTU；Current普通非妊娠成人通常优先甲巯咪唑，PTU用于特定场景，不升级旧首选。"
   },
   {
     "question_id": "xizong-official-2021-n091",
@@ -394,14 +572,26 @@
       "关键不是一般‘口渴’，而是唾液腺功能受损造成的持续口干和口腔并发症。"
     ],
     "transfer_rule": "Sjögren抓干燥症状+SSA。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.干燥综合征。持续口干、舌面干裂、多发龋齿及anti-SSA阳性形成典型外分泌腺自身免疫损伤组合。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "SLE可SSA阳性，但持续显著口干和龋齿更直接指向Sjogren。"
+      },
+      {
+        "option": "D",
+        "reason": "Behçet核心是复发性口腔/生殖器溃疡、眼炎等，而非唾液腺功能衰退。"
+      }
+    ],
+    "common_failure_node": "看到ANA/SSA阳性就直接报SLE，不结合腺体表型。"
   },
   {
     "question_id": "xizong-official-2021-n092",
@@ -420,14 +610,22 @@
       "这和肾小球免疫复合物型疾病的主轴不同。"
     ],
     "transfer_rule": "Sjögren肾损害经典=间质性肾炎/远端RTA。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.肾小管酸中毒。Sjogren可累及肾间质和远端肾小管，导致远端RTA并可伴低钾。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "典型Sjogren肾损害更偏小管间质，而不是以肾小球病变为主。"
+      }
+    ],
+    "common_failure_node": "只把自身免疫病肾损害理解成肾小球免疫复合物病。"
   },
   {
     "question_id": "xizong-official-2021-n093",
@@ -446,14 +644,26 @@
       "‘延迟一段时间后突发出血’是迟发性脾破裂的关键线索。"
     ],
     "transfer_rule": "左上腹外伤后延迟休克要想到迟发性脾破裂。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.脾破裂。左下胸/左上腹外伤后一周突发失血性休克和腹腔积血，典型为脾包膜下血肿迟发破裂。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "肝破裂更符合右上腹/右下胸损伤背景。"
+      },
+      {
+        "option": "D",
+        "reason": "肠系膜撕裂可出血，但左侧外伤+迟发破裂模式更典型指向脾。"
+      }
+    ],
+    "common_failure_node": "只看当前休克，不利用一周前左侧外伤这一时间和部位线索。"
   },
   {
     "question_id": "xizong-official-2021-n094",
@@ -467,7 +677,9 @@
     "exam_target": "失血性休克腹部CT旧检查优先级",
     "decision_axis": "题源在BP 80/60 mmHg的腹腔出血病例选择腹部CT；Current明显血流动力学不稳定创伤患者通常优先床旁FAST与即时复苏/手术决策，不能等待常规CT。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对现代创伤流程 fail-closed。"
+      "病例已有失血性休克和腹腔出血证据。",
+      "题源选择腹部CT。",
+      "Current不稳定创伤流程强调即时复苏、床旁评估和手术/介入源控制，因此历史B不升级。"
     ],
     "transfer_rule": "仅保留题源/Study边界；不稳定腹部创伤优先复苏和快速床旁决策。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -477,7 +689,16 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.腹部CT为题源官方答案；但本例BP 80/60 mmHg、心动过速且有腹腔积血表现，Current明显不稳定创伤路径通常优先复苏、床旁FAST和迅速源控制，而非等待常规CT。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "血管造影也通常要求相对稳定或明确介入条件，并非此类休克患者第一步。"
+      }
+    ],
+    "common_failure_node": "把“CT是腹部创伤最佳影像”机械套到血流动力学不稳定患者。",
+    "source_conflict_note": "题源在明显血流动力学不稳定腹部创伤中选择CT；Current流程通常优先FAST/复苏及即时源控制，存在时代/流程冲突。"
   },
   {
     "question_id": "xizong-official-2021-n095",
@@ -491,17 +712,31 @@
     "exam_target": "腹部创伤探查顺序",
     "decision_axis": "开腹探查腹腔大出血时应先快速控制最可能的大出血实质脏器如肝脾，再系统探查胃肠、肠系膜和其他部位。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "急诊开腹探查需要系统而快速，避免漏伤。",
+      "Current D13 KP15明确顺序首先肝、脾，再依次胃和肠道等。",
+      "因此题源C与Current一致。"
     ],
     "transfer_rule": "创伤开腹先控制致命出血，再完成系统探查。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.先探查肝脾，后探查胃肠及其他。Current D13 KP15明确剖腹探查顺序从肝、脾开始，再到胃、十二指肠、小肠、结肠等。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "先探胰腺会跳过更常见且可造成大出血的肝脾实质脏器。"
+      },
+      {
+        "option": "B",
+        "reason": "先胃肠同样不符合Current冻结的系统探查顺序。"
+      }
+    ],
+    "common_failure_node": "把“最可能受伤脏器”与“标准系统探查顺序”混为一谈。"
   },
   {
     "question_id": "xizong-official-2021-n096",
@@ -520,14 +755,22 @@
       "诊断先抓胰腺炎本体，再判断病因。"
     ],
     "transfer_rule": "胆石+胰腺炎影像/酶学→先想胆源性胰腺炎。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.急性胰腺炎。持续上腹痛、胰腺肿大伴周围积液和淀粉酶升高建立胰腺炎；胆囊结石和胆总管扩张提示胆源性。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "急性胆管炎需更典型胆道感染/梗阻三联证据；题干核心影像和酶学都在胰腺。"
+      }
+    ],
+    "common_failure_node": "看到胆总管扩张就停在胆管炎，不继续识别胰腺本体损伤。"
   },
   {
     "question_id": "xizong-official-2021-n097",
@@ -541,7 +784,9 @@
     "exam_target": "急性胰腺炎常规抗生素旧口径",
     "decision_axis": "题源把禁食、补液和抗生素作为急性胰腺炎初治组合；Current无感染证据时不推荐常规预防性抗生素，故该组合不能升级。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对现行胰腺炎治疗 fail-closed。"
+      "病例为胆源性急性胰腺炎。",
+      "题源把禁食、补液和抗生素作为初治组合。",
+      "其中常规预防性抗生素与Current不一致，因此整项只保留历史答案，不建立relation。"
     ],
     "transfer_rule": "仅保留题源/Study时代边界；Current AP核心是复苏、镇痛、早期营养，抗菌药看感染指征。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -551,7 +796,16 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.禁食、补液，应用抗生素为题源官方答案；Current急性胰腺炎支持治疗包括液体复苏与早期营养策略，但无感染证据时不推荐常规预防性抗生素。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "ERCP/EST仅在明确胆管炎或持续胆道梗阻等特定胆源性场景考虑，不是所有胆源性胰腺炎都立即做。"
+      }
+    ],
+    "common_failure_node": "把旧“胰腺炎常规抗生素”口径写成Current标准治疗。",
+    "source_conflict_note": "题源初治组合包含常规抗生素；Current无感染证据时不推荐急性胰腺炎预防性抗生素，存在治疗口径冲突。"
   },
   {
     "question_id": "xizong-official-2021-n098",
@@ -570,14 +824,26 @@
       "这类病例最大的后续风险是血栓脱落造成肺栓塞。"
     ],
     "transfer_rule": "术后/肿瘤+单侧腿肿痛→先排DVT。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.左下肢深静脉血栓形成。肿瘤手术后卧床/高凝背景叠加单侧小腿肿胀疼痛和腓肠肌压痛，符合DVT。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "浅静脉炎更常沿浅表静脉出现条索、红痛，和深部小腿肿胀模式不同。"
+      },
+      {
+        "option": "B",
+        "reason": "丹毒通常有明显皮肤红热、边界清楚等浅表感染表现。"
+      }
+    ],
+    "common_failure_node": "术后发热就优先想感染，而忽略肿瘤+手术+制动的Virchow高危背景。"
   },
   {
     "question_id": "xizong-official-2021-n099",
@@ -591,7 +857,9 @@
     "exam_target": "DVT共享治疗子问缺失",
     "decision_axis": "当前Question缺少具体问法，正式答案“多做下肢运动”可能是在问不恰当措施；急性DVT活动与抗凝管理又需结合稳定性，不能凭答案反推。",
     "reasoning_chain": [
-      "共享题干不足以独立恢复子问语义，按题源答案保留并 fail-closed。"
+      "病例已确诊急性DVT。",
+      "现代早期活动通常需结合有效抗凝和病情稳定性，并非简单“完全不动”或“多运动”。",
+      "原子问缺失，因此官方B保留但不建立Current规则。"
     ],
     "transfer_rule": "仅保留题源/Question Truth边界；急性DVT治疗按抗凝和个体活动安全性管理。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -601,7 +869,20 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.多做下肢运动为题源官方答案；当前Question未保留具体问法，B可能是在问急性DVT“不恰当措施”，也可能涉及活动时机，无法安全恢复判断轴。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "抗凝是急性DVT核心治疗之一，但缺失子问时不能用它反推题意。"
+      },
+      {
+        "option": "C",
+        "reason": "抬高患肢可用于减轻肿胀，但也不能证明原题具体问法。"
+      }
+    ],
+    "common_failure_node": "看到B明显可疑就自作主张把原题改写成“哪项错误”。",
+    "source_gap_note": "共享病例具体子问缺失；“多做下肢运动”在急性DVT中的适宜性取决于抗凝和稳定性，不能从答案反推原题。"
   },
   {
     "question_id": "xizong-official-2021-n100",
@@ -620,13 +901,25 @@
       "这里先识别‘门脉高压 + 曲张静脉出血背景’，再进入止血和二级预防。"
     ],
     "transfer_rule": "肝硬化+脾大/腹水+呕血黑便→门脉高压曲张静脉出血。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.门静脉高压症。慢性乙肝背景、脾大、腹水、低白蛋白和呕血黑便共同提示肝硬化门脉高压及曲张静脉出血背景。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "十二指肠溃疡可出血，但不能解释脾大、腹水和明显低白蛋白的门脉高压体征。"
+      },
+      {
+        "option": "D",
+        "reason": "胆管结石不会形成这组脾大腹水和上消化道大出血组合。"
+      }
+    ],
+    "common_failure_node": "只盯呕血黑便做局部胃肠鉴别，不先识别肝硬化门脉高压全身背景。"
   }
 ]
