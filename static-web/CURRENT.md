@@ -18,27 +18,23 @@ Kian approved the Mac-landscape Home / Steward / Radar / global Dock upgrade on 
 
 Current implementation cursor:
 - branch: `work/steward-ui-vnext-20260924`
-- current remote head at this cursor update: `6aa84c9848ac436bdc828794c5eaa32207821367`
+- experimental preview branch currently exists; its exact HEAD is implementation-only and **not an accepted UI baseline**
 - preview: `static-web/ui-preview/steward-vnext.html`
 - `main`: **no integrated replacement UI from this preview**
 - preview data: **sample only**, never learner/mail/Health truth
 
-Current preview coverage:
-- Home strategic three-subject view;
-- Steward Today timeline;
-- Nutrition combination + single-item + grams + deterministic macro arithmetic;
-- Training actuals + future Apple Watch/Health display slot;
-- Steward Week compact subject-time + day-by-day view;
-- Steward Month compact phase/checkpoint/meaningful-date view;
-- Review removed as a persistent tab; it remains an on-demand judgment output only when useful;
-- Radar `需要处理 / 值得知道`;
-- floating draggable Dock and dense record/break popovers.
+Current product/UI handoff:
+- Home strategic three-subject view remains approved.
+- Steward Today must default to the vertical schedule timeline; Nutrition and Training are Today subviews.
+- Steward Week must use the old Steward interaction model: **one shared time axis + seven full day timetable columns**.
+- Steward Month must be a **real 7-column month calendar** with paging and clickable day details.
+- Review is on-demand, not a persistent tab.
+- Radar remains `需要处理 / 值得知道`.
+- Dock remains floating/draggable with compact pause/record/Today-return interactions.
+- Nutrition retains combination + single-item + gram editing + deterministic macro arithmetic.
+- Training retains actual load/reps/RPE + post-training note and a future Apple Watch/Health projection surface.
 
-Current UI state:
-- Day-view exclusivity browser probe PASS: `今日 → 周 → 月 → 今日` shows exactly one view at a time; persistent Review tab/content count is zero; record/break compact popovers and Today/return state also passed the interaction probe.
-- first unified Mac-wide visual/interaction pass completed across all preview surfaces at 1512×820;
-- current candidate is waiting on explicit Kian UI Human Gate;
-- exact native return/runtime integration and real data delivery remain intentionally unstarted for this candidate.
+The existing preview branch is exploratory and contains abandoned intermediate Week/Month layouts. **Do not treat its latest markup or prior browser-PASS notes as authoritative.** Codex should use the Personal product contract and the earlier Steward Console interaction model as the implementation basis, then produce a newly tested Human Gate candidate.
 
 Important Human-Gate decisions already made during preview:
 - UI is high-density and clear; do not create density by shrinking ordinary visible text.
@@ -49,7 +45,7 @@ Important Human-Gate decisions already made during preview:
 
 [Surface split](https://github.com/kianwang022-hash/kian-personal-os/blob/main/HOME_PROJECTION.md), [execution contract](https://github.com/kianwang022-hash/kian-personal-os/blob/main/exam/STEWARD_CONSOLE_CONTRACT.md), and [Radar / mail semantics](https://github.com/kianwang022-hash/kian-personal-os/blob/main/exam/roles/INTAKE.md) remain the product owners. Reuse native learning, Timer, Resume, private control/checkpoint and Packet interfaces; do not create parallel state owners.
 
-**Next:** Kian reviews the simplified preview and names any remaining visual/interaction corrections. Foreground only what is useful; keep backend analysis details backstage. Only explicit UI approval advances this branch toward runtime integration or eventual merge to `main`. Full Steward plan/reality and Radar delivery still require registered validators/consumers and real browser/runtime acceptance; preview HTML does not make those capabilities shipped.
+**Next:** Codex implements/refactors the UI from the canonical contract, preserving the old Steward Week x7 timetable and Month calendar interaction shape, then runs browser + Mac visual regression before returning a Human Gate candidate. Foreground only what is useful; keep backend analysis details backstage. Only explicit Kian approval advances toward runtime integration or merge to `main`.
 
 ## Route from the reported symptom
 
