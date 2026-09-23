@@ -1,9 +1,9 @@
 {
   "schema": "kianos.lexical.dual_review_lane.v1",
   "lane": "C",
-  "status": "CHECKPOINT_DECISIONS_READY_FOR_BATCH_APPLY",
-  "next_ordinal": 2851,
-  "completed_through": 2850,
+  "status": "CHECKPOINT_READY_TO_MERGE",
+  "next_ordinal": 3051,
+  "completed_through": 3050,
   "campaign": "content/lexical/execution/dual-review.json",
   "source_branches": {
     "A": "work/lexical-dual-review-A-20260923",
@@ -21,8 +21,8 @@
   "checkpoint": {
     "start_ordinal": 2551,
     "target_end_ordinal": 3050,
-    "semantic_completed_through": 2850,
-    "pending_full_7946_flob_rebuild": true,
+    "semantic_completed_through": 3050,
+    "pending_full_7946_flob_rebuild": false,
     "windows": [
       {
         "range": [
@@ -56,12 +56,13 @@
       }
     ],
     "semantic_decided_through": 3050,
-    "canonical_applied_through": 2850,
-    "pending_batch_apply": true,
+    "canonical_applied_through": 3050,
+    "pending_batch_apply": false,
     "decision_manifests": [
       "content/lexical/semantic-review/dual/C/o2851-o2950.decision.json",
       "content/lexical/semantic-review/dual/C/o2951-o3050.decision.json"
-    ]
+    ],
+    "final_mutation_commit": "092a5c1fdb9a1566fa1f6d035e6885ddd9d8f136"
   },
   "deferred_cross_watermark": [
     {
@@ -109,20 +110,17 @@
   "checkpoint_start_ordinal": 2551,
   "checkpoint_target_through": 3050,
   "checkpoint_staged_through": 3050,
-  "checkpoint_full_rebuild_pending": true,
+  "checkpoint_full_rebuild_pending": false,
   "window_receipts": [
     "content/lexical/execution/mutation-receipts/dual-review-c-o2551-o2650.json",
     "content/lexical/execution/mutation-receipts/dual-review-c-o2651-o2750.json",
     "content/lexical/execution/mutation-receipts/dual-review-c-o2751-o2850.json"
   ],
   "semantic_decided_through": 3050,
-  "canonical_applied_through": 2850,
+  "canonical_applied_through": 3050,
   "next_semantic_ordinal": 3051,
-  "checkpoint_batch_apply_pending": true,
-  "pending_decision_manifests": [
-    "content/lexical/semantic-review/dual/C/o2851-o2950.decision.json",
-    "content/lexical/semantic-review/dual/C/o2951-o3050.decision.json"
-  ],
+  "checkpoint_batch_apply_pending": false,
+  "pending_decision_manifests": [],
   "deferred_beyond_c_frontier": [
     {
       "source_ordinal": 2935,
@@ -130,5 +128,8 @@
       "owner": "majority/minority sense-bound relation",
       "reason": "remote owner within shared watermark but beyond current C checkpoint/frontier"
     }
+  ],
+  "checkpoint_receipts": [
+    "content/lexical/execution/mutation-receipts/dual-review-c-checkpoint-o2551-o3050.json"
   ]
 }
