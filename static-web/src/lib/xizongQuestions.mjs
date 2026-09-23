@@ -514,6 +514,6 @@ export function loadXizongSystemQuestionSweep(system) {
     questionSemanticRevisions: xizongQuestionSemanticRevisions(questions),
     questions,
     years: Object.keys(scope?.year_counts || {}).map(Number).sort((a, b) => a - b),
-    holdoutRequired: true
+    holdoutRequired: false
   };
 }
