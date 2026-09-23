@@ -7,7 +7,7 @@ Updated: 2026-09-24
 
 For current implementation read `static-web/CURRENT.md` and exact native code. PR #559 below is historical provenance, not a required fresh-entry lookup or a live worker cursor.
 
-The explicit 2026-09-24 Home/Steward/Radar upgrade supersedes older restrictions against considering a Home layout change. Follow [the current surface owner](https://github.com/kianwang022-hash/kian-personal-os/blob/main/HOME_PROJECTION.md) and [execution contract](https://github.com/kianwang022-hash/kian-personal-os/blob/main/exam/STEWARD_CONSOLE_CONTRACT.md); this does not authorize a new learner ledger or repurposing native Resume semantics. UI is awaiting discussion and no new runtime has been accepted.
+The explicit 2026-09-24 Home/Steward/Radar upgrade supersedes older restrictions against considering a Home layout change. Follow [the current surface owner](https://github.com/kianwang022-hash/kian-personal-os/blob/main/HOME_PROJECTION.md) and [execution contract](https://github.com/kianwang022-hash/kian-personal-os/blob/main/exam/STEWARD_CONSOLE_CONTRACT.md); this does not authorize a new learner ledger or repurposing native Resume semantics. UI work is now active in the isolated preview branch named by `static-web/CURRENT.md`; it is not complete, merged, or runtime-accepted.
 
 The remaining dated sections record the existing integration and its historical proof. They do not certify today's runtime health, reopen old failing tests or constrain the new product back to the old screenshot. Current machine payload rules remain authoritative until explicitly migrated.
 
