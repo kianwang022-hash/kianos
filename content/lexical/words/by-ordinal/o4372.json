@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "daa89183bc7b9815cd1b2eeba2fde369d564b27e075cb1baea130c775832b75d",
+    "content_hash": "b5f7612ebdf534141a8337c4360a5780543cd38df98e8e9e59173c78cadfe780",
     "core_concept": {
       "core_clusters": [
         {
@@ -168,6 +168,30 @@
         "sense_label_en": "informal/slang: to treat someone unfairly or cheat them",
         "sort_order": 5,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:4ac5662e3cb172b72e0b",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:shaft:b3a39c22eb4e24a7:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "一道阳光/光束",
+            "phrase": "a shaft of sunlight/light"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "一道光；狭长光束",
+        "definition_en": "a narrow beam or ray of light",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:shaft:b3a39c22eb4e24a7",
+        "sense_label_en": "a narrow beam or ray of light",
+        "sort_order": 6,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -212,12 +236,7 @@
       "updated_at": "2026-09-14T00:00:00Z",
       "source_row": 12300,
       "source_path": "content/lexical/canonical/senses/shards/o4353-4384.json",
-      "reference_only": true,
-      "split_into_sense_ids": [
-        "sense:shaft:01f384e2a347c835",
-        "sense:shaft:5949b02f004424f7"
-      ],
-      "split_authority": "content/lexical/semantic-reconciliation/o4125-o4374.md"
+      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -270,10 +289,18 @@
         "merged_into_sense_id": null,
         "source_row": 12354,
         "source_path": "content/lexical/canonical/senses/shards/o4353-4384.json"
+      },
+      {
+        "sense_id": "sense:shaft:b3a39c22eb4e24a7",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 12356,
+        "source_path": "content/lexical/canonical/senses/shards/o4353-4384.json"
       }
     ],
     "active_collocations": [
       "collocation:4a60f84dcd0c8969e907",
+      "collocation:4ac5662e3cb172b72e0b",
       "collocation:501ec99d3400aea15311",
       "collocation:60f2c855ac37057f58b5",
       "collocation:a30d1e009012f009df39",
@@ -304,6 +331,11 @@
       {
         "id": "collocation:e6b9fb7212dea761c906",
         "source_row": 21427,
+        "source_path": "content/lexical/canonical/collocations/shards/o4353-4384.json"
+      },
+      {
+        "id": "collocation:4ac5662e3cb172b72e0b",
+        "source_row": 21430,
         "source_path": "content/lexical/canonical/collocations/shards/o4353-4384.json"
       }
     ],
@@ -338,7 +370,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4369-4376.json",
-    "source_content_hash": "daa89183bc7b9815cd1b2eeba2fde369d564b27e075cb1baea130c775832b75d",
+    "source_content_hash": "b5f7612ebdf534141a8337c4360a5780543cd38df98e8e9e59173c78cadfe780",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

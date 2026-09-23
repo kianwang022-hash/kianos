@@ -15,7 +15,7 @@
         "pattern": "be sick of sth/doing sth"
       }
     ],
-    "content_hash": "7cfef474d0d2bf19a9d7cd112b217fab86ce938880d2fc1c1099da6a82c6a5e1",
+    "content_hash": "c3764be44677b580e57e7786d8875c26aab1149e6d270f803c62ebfbcfa06942",
     "core_concept": {
       "core_clusters": [
         {
@@ -52,15 +52,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:4f06a7521bf73a57443f",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:sick:e37cc9e804115f75:collocation:0"
-            ],
-            "meaning_cn": "感到恶心",
-            "phrase": "feel sick"
-          },
-          {
             "collocation_id": "collocation:d701292dffd024e8d4bd",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -92,6 +83,15 @@
             ],
             "meaning_cn": "呕吐",
             "phrase": "be sick"
+          },
+          {
+            "collocation_id": "collocation:fdf42447a536b8397671",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:sick:edd987a0a0725abf:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "感到恶心；想吐",
+            "phrase": "feel sick"
           }
         ],
         "confidence": "medium",
@@ -104,7 +104,8 @@
         "sense_id": "sense:sick:edd987a0a0725abf",
         "sense_label_en": "feeling nauseous or wanting to vomit",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "BrE commonly uses feel sick for nausea; in broader/AmE contexts sick can also mean generally ill"
       },
       {
         "collocations": [
@@ -178,9 +179,9 @@
     ],
     "active_collocations": [
       "collocation:0fb2e9b0595aca0bdf55",
-      "collocation:4f06a7521bf73a57443f",
       "collocation:d701292dffd024e8d4bd",
-      "collocation:f074588762e2792c4302"
+      "collocation:f074588762e2792c4302",
+      "collocation:fdf42447a536b8397671"
     ],
     "facts": [],
     "collocations": [
@@ -202,6 +203,11 @@
       {
         "id": "collocation:f074588762e2792c4302",
         "source_row": 20374,
+        "source_path": "content/lexical/canonical/collocations/shards/o4417-4448.json"
+      },
+      {
+        "id": "collocation:fdf42447a536b8397671",
+        "source_row": 21529,
         "source_path": "content/lexical/canonical/collocations/shards/o4417-4448.json"
       }
     ],
@@ -241,7 +247,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4425-4432.json",
-    "source_content_hash": "7cfef474d0d2bf19a9d7cd112b217fab86ce938880d2fc1c1099da6a82c6a5e1",
+    "source_content_hash": "c3764be44677b580e57e7786d8875c26aab1149e6d270f803c62ebfbcfa06942",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

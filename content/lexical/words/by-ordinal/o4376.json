@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "9f158c80c5197576b0e8210e03ad0151e35bcfe63ea7bdd6600a90b7f6a54d55",
+    "content_hash": "c3dd21361156cc57838f24b50535965b4901f9125a6b3e8f9dc42eaebd99299b",
     "core_concept": {
       "core_clusters": [
         {
@@ -20,12 +20,11 @@
           ]
         },
         {
-          "label_cn": "使羞愧；使羞愧而迫使",
-          "label_en": "to cause someone to feel ashamed; to compel through a sense of shame",
+          "label_cn": "使羞愧；使因羞愧而行动",
+          "label_en": "to make someone ashamed, including pressuring them to act through shame",
           "pos": "verb",
           "sense_ids": [
-            "sense:shame:8a7741009436557d",
-            "sense:shame:8f26b60fb9b154d2"
+            "sense:shame:8a7741009436557d"
           ]
         }
       ],
@@ -105,49 +104,25 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:a4c7c08b67df0286b693",
+            "collocation_id": "collocation:663cbb3a144eeaa4b28b",
             "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
-              "sense:shame:8a7741009436557d:collocation:0"
+              "sense:shame:8a7741009436557d:collocation:streaming-c-checkpoint-o2851-o3050"
             ],
-            "meaning_cn": "使某人羞愧而做某事",
+            "meaning_cn": "使某人因羞耻/压力而做某事",
             "phrase": "shame sb into doing sth"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "使羞愧",
-        "definition_en": "to cause someone to feel ashamed",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "使羞愧；使某人因羞愧而做某事",
+        "definition_en": "to make someone feel ashamed, including causing or pressuring them to act through shame",
+        "governing_pattern": "vt.: shame sb; shame sb into doing sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:shame:8a7741009436557d",
         "sense_label_en": "to cause someone to feel ashamed",
         "sort_order": 2,
-        "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:1c6fa65ff2f3dc8d5474",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:shame:8f26b60fb9b154d2:collocation:0"
-            ],
-            "meaning_cn": "使某人羞愧而做某事",
-            "phrase": "shame sb into + doing sth"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "使羞愧而迫使",
-        "definition_en": "to compel through a sense of shame",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:shame:8f26b60fb9b154d2",
-        "sense_label_en": "to compel through a sense of shame",
-        "sort_order": 3,
         "transitivity": "vt"
       }
     ],
@@ -171,7 +146,31 @@
     "word_id": "word:shame"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:shame:8f26b60fb9b154d2",
+      "status": "merged",
+      "merged_into_sense_id": "sense:shame:8a7741009436557d",
+      "pos": "verb",
+      "definition_cn": "使羞愧而迫使",
+      "definition_en": "to compel through a sense of shame",
+      "semantic_key": "7a9b969186dd559f5b4453fa238a7b5420f0d2627116fb2561c6b1c0fdcc2bd3",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "shame:l3:4"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "shame:l3:4",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-08-13T21:08:34+00:00",
+      "source_row": 12318,
+      "source_path": "content/lexical/canonical/senses/shards/o4353-4384.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -197,18 +196,17 @@
       },
       {
         "sense_id": "sense:shame:8f26b60fb9b154d2",
-        "status": "active",
-        "merged_into_sense_id": null,
+        "status": "merged",
+        "merged_into_sense_id": "sense:shame:8a7741009436557d",
         "source_row": 12318,
         "source_path": "content/lexical/canonical/senses/shards/o4353-4384.json"
       }
     ],
     "active_collocations": [
       "collocation:01df5aad6f877a88ec5d",
-      "collocation:1c6fa65ff2f3dc8d5474",
       "collocation:4d85124c4b3fca71be18",
-      "collocation:73d9695797d55be57a95",
-      "collocation:a4c7c08b67df0286b693"
+      "collocation:663cbb3a144eeaa4b28b",
+      "collocation:73d9695797d55be57a95"
     ],
     "facts": [
       {
@@ -241,6 +239,11 @@
       {
         "id": "collocation:a4c7c08b67df0286b693",
         "source_row": 13988,
+        "source_path": "content/lexical/canonical/collocations/shards/o4353-4384.json"
+      },
+      {
+        "id": "collocation:663cbb3a144eeaa4b28b",
+        "source_row": 21431,
         "source_path": "content/lexical/canonical/collocations/shards/o4353-4384.json"
       }
     ],
@@ -275,8 +278,8 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4369-4376.json",
-    "source_content_hash": "9f158c80c5197576b0e8210e03ad0151e35bcfe63ea7bdd6600a90b7f6a54d55",
-    "semantic_delta": 1,
+    "source_content_hash": "c3dd21361156cc57838f24b50535965b4901f9125a6b3e8f9dc42eaebd99299b",
+    "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }
