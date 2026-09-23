@@ -15,28 +15,59 @@ const NO_BUILD_ROOT_FILES = new Set([
   'static-web/CURRENT.md'
 ]);
 
+const LEXICAL_PROJECTION_FILES = new Set([
+  'content/lexical/final-learner-object-decisions.json',
+  'tools/lexical_build_final_learner_objects.py'
+]);
+
+const LEXICAL_PROJECTION_PREFIXES = [
+  'content/lexical/words/',
+  'content/lexical/relations/'
+];
+
 function normalizePath(value) {
   return String(value || '').trim().replace(/^\.\//, '');
 }
 
+function requiresLexicalProjection(file) {
+  return LEXICAL_PROJECTION_FILES.has(file)
+    || LEXICAL_PROJECTION_PREFIXES.some((prefix) => file.startsWith(prefix));
+}
+
 export function staticBuildPathImpact(value) {
   const file = normalizePath(value);
-  if (!file) return { file, requires_build: false, reason: 'empty' };
+  if (!file) {
+    return { file, requires_build: false, requires_lexical_projection: false, reason: 'empty' };
+  }
 
+  const lexicalProjection = requiresLexicalProjection(file);
+  if (file === 'tools/lexical_build_final_learner_objects.py') {
+    return {
+      file,
+      requires_build: true,
+      requires_lexical_projection: true,
+      reason: 'lexical-projection-builder'
+    };
+  }
   if (file.startsWith('.github/')) {
-    return { file, requires_build: false, reason: 'github-control-only' };
+    return { file, requires_build: false, requires_lexical_projection: false, reason: 'github-control-only' };
   }
   if (file.startsWith('tools/')) {
-    return { file, requires_build: false, reason: 'repository-tool-only' };
+    return { file, requires_build: false, requires_lexical_projection: false, reason: 'repository-tool-only' };
   }
   if (file.startsWith('static-web/scripts/')) {
-    return { file, requires_build: false, reason: 'local-runtime-script-only' };
+    return { file, requires_build: false, requires_lexical_projection: false, reason: 'local-runtime-script-only' };
   }
   if (NO_BUILD_ROOT_FILES.has(file)) {
-    return { file, requires_build: false, reason: 'engineering-doc-or-control-only' };
+    return { file, requires_build: false, requires_lexical_projection: false, reason: 'engineering-doc-or-control-only' };
   }
 
-  return { file, requires_build: true, reason: 'unknown-or-static-input' };
+  return {
+    file,
+    requires_build: true,
+    requires_lexical_projection: lexicalProjection,
+    reason: lexicalProjection ? 'lexical-static-input' : 'unknown-or-static-input'
+  };
 }
 
 export function staticBuildCanReuseFromBase(priorStatus, baseSha) {
@@ -57,11 +88,16 @@ export function classifyStaticBuild(changedPaths = []) {
 
   const buildPaths = rows.filter((row) => row.requires_build).map((row) => row.file);
   const reusablePaths = rows.filter((row) => !row.requires_build).map((row) => row.file);
+  const lexicalProjectionPaths = rows
+    .filter((row) => row.requires_lexical_projection)
+    .map((row) => row.file);
 
   return {
     required: buildPaths.length > 0,
     changed_paths: rows.length,
     build_paths: buildPaths,
-    reusable_paths: reusablePaths
+    reusable_paths: reusablePaths,
+    lexical_projection_required: lexicalProjectionPaths.length > 0,
+    lexical_projection_paths: lexicalProjectionPaths
   };
 }

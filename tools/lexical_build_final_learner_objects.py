@@ -4,7 +4,6 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import shutil
 from pathlib import Path
 from typing import Any
 
@@ -18,9 +17,13 @@ SHARD_SIZE = 64
 def load(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
 
-def dump(path: Path, value: Any) -> None:
+def dump(path: Path, value: Any) -> bool:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    payload = json.dumps(value, ensure_ascii=False, indent=2) + "\n"
+    if path.exists() and path.read_text(encoding="utf-8") == payload:
+        return False
+    path.write_text(payload, encoding="utf-8")
+    return True
 
 def stable(value: Any) -> str:
     return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
@@ -401,8 +404,6 @@ def main() -> int:
     output_root = args.output_root
     decisions = load(DECISIONS) if DECISIONS.exists() else {"words": {}}
     shards_dir = output_root / "shards"
-    if shards_dir.exists():
-        shutil.rmtree(shards_dir)
     shards_dir.mkdir(parents=True, exist_ok=True)
 
     objects = []
@@ -414,19 +415,29 @@ def main() -> int:
         raise RuntimeError(f"FINAL_LEARNER_OBJECT_COUNT:{len(objects)}")
 
     shard_rows = []
+    expected_shards = set()
+    changed_shards = 0
     for start in range(0, len(objects), SHARD_SIZE):
         chunk = objects[start:start + SHARD_SIZE]
         first = chunk[0]["ordinal"]
         last = chunk[-1]["ordinal"]
         name = f"o{first:04d}-{last:04d}.json"
+        expected_shards.add(name)
         shard_path = shards_dir / name
-        dump(shard_path, chunk)
+        if dump(shard_path, chunk):
+            changed_shards += 1
         shard_rows.append({
             "start": first,
             "end": last,
             "path": shard_path.relative_to(ROOT).as_posix(),
             "sha256": hashlib.sha256(shard_path.read_bytes()).hexdigest(),
         })
+
+    removed_shards = 0
+    for stale in shards_dir.glob("*.json"):
+        if stale.name not in expected_shards:
+            stale.unlink()
+            removed_shards += 1
 
     manifest = {
         "schema": "kianos.lexical.final_learner_manifest.v1",
@@ -440,10 +451,13 @@ def main() -> int:
         "shard_size": SHARD_SIZE,
         "shards": shard_rows,
     }
-    dump(output_root / "manifest.json", manifest)
+    manifest_changed = dump(output_root / "manifest.json", manifest)
     print(json.dumps({
         "object_count": len(objects),
         "shard_count": len(shard_rows),
+        "changed_shards": changed_shards,
+        "removed_shards": removed_shards,
+        "manifest_changed": manifest_changed,
         "first": objects[0]["word"],
         "last": objects[-1]["word"],
     }, ensure_ascii=False))

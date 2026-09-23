@@ -140,11 +140,13 @@ function ensureAtomicServingLayout(sha) {
 async function buildStatic(sha, extra = {}) {
   fs.rmSync(stagePath, { recursive: true, force: true });
   writeStatus('building', sha, extra);
+  const buildScript = extra.lexical_projection_required === false ? 'build:astro' : 'build';
   log(
     'building static Current ' + String(sha).slice(0, 8)
     + ' at background priority while the previous site remains available'
+    + (buildScript === 'build:astro' ? '; lexical projection unchanged' : '; refreshing lexical projection')
   );
-  const args = [npmBin, 'run', 'build', '--', '--outDir', stagePath];
+  const args = [npmBin, 'run', buildScript, '--', '--outDir', stagePath];
   if (buildNice > 0 && process.platform !== 'win32' && fs.existsSync('/usr/bin/nice')) {
     await runChild('/usr/bin/nice', ['-n', String(buildNice), ...args], { label: 'Astro static build' });
   } else {
@@ -345,13 +347,17 @@ async function syncOnce({ initial = false } = {}) {
       } else {
         await ensureStaticBuild(fetched, {
           changed_paths: changedPaths.length,
-          build_impact_paths: 0
+          build_impact_paths: 0,
+          lexical_projection_required: false,
+          lexical_projection_paths: 0
         });
       }
     } else {
       await ensureStaticBuild(fetched, {
         changed_paths: changedPaths.length,
-        build_impact_paths: buildDecision.build_paths.length
+        build_impact_paths: buildDecision.build_paths.length,
+        lexical_projection_required: buildDecision.lexical_projection_required,
+        lexical_projection_paths: buildDecision.lexical_projection_paths.length
       });
     }
 

@@ -1,0 +1,43 @@
+name: Xizong Explanations Fast QA
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'content/xizong/explanations/**'
+      - 'static-web/scripts/validate-xizong-explanations-fast.mjs'
+      - '.github/workflows/xizong-explanations-fast-qa.yml'
+  pull_request:
+    paths:
+      - 'content/xizong/explanations/**'
+      - 'static-web/scripts/validate-xizong-explanations-fast.mjs'
+      - '.github/workflows/xizong-explanations-fast-qa.yml'
+
+concurrency:
+  group: xizong-explanations-fast-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  explanations-fast-qa:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: static-web
+    steps:
+      - name: Checkout Current
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Validate explanation store against Question Truth
+        run: node scripts/validate-xizong-explanations-fast.mjs
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Build Astro without unrelated Lexical projection
+        run: npm run build:astro

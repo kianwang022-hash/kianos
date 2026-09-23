@@ -8,6 +8,7 @@ on:
       - 'LEARNING_ACCEPTANCE.md'
       - 'content/xizong/**'
       - '!content/xizong/question-relations/**'
+      - '!content/xizong/explanations/**'
       - 'static-web/package.json'
       - 'static-web/astro.config.mjs'
       - 'static-web/src/layouts/**'
@@ -27,6 +28,7 @@ on:
       - 'LEARNING_ACCEPTANCE.md'
       - 'content/xizong/**'
       - '!content/xizong/question-relations/**'
+      - '!content/xizong/explanations/**'
       - 'static-web/package.json'
       - 'static-web/astro.config.mjs'
       - 'static-web/src/layouts/**'
@@ -162,7 +164,7 @@ jobs:
       - name: Validate Source Visual content packs
         run: node scripts/validate-xizong-source-visuals.mjs
       - name: Build Astro
-        run: npm run build
+        run: npm run build:astro
       - name: Install isolated browser acceptance tool
         run: |
           npm install --no-save --no-audit --no-fund playwright@1.56.1

@@ -48,6 +48,18 @@ A mature explanation should answer, as compactly as the question allows:
 
 Simple questions should stay short. Do not turn explanations into mini-textbooks.
 
+## SECOND_PASS transport discipline
+
+SECOND_PASS is semantic review, not a reason to accumulate repository history.
+
+- Start each newly assigned year / bounded year-group from the latest accepted `main@HEAD`; do not create the next year's branch from the previous year's unmerged SECOND_PASS branch.
+- Keep the write-set to the exact explanation shards, explanation manifest synchronization, and explicit pending reviewed-relation transport produced by that review. Do not carry unrelated earlier-year deltas forward.
+- Several 25-question semantic chunks may be reviewed inside one bounded year checkpoint. Expensive materialization / integration QA should run once at that checkpoint when possible, not after every tiny semantic write.
+- After an accepted merge, the next year / year-group starts again from fresh `main`.
+- Existing concurrent branches are not force-rebased merely to satisfy this rule; apply it at the next safe checkpoint and never overwrite another worker's live write-set.
+
+The website and CI must treat explanation-only changes as Xizong content deltas. They do not require rebuilding Lexical Final Learner Objects.
+
 ## Truth boundary
 
 Explanations must not mutate:
