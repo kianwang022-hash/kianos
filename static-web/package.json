@@ -50,7 +50,7 @@
     "current:backup": "node scripts/kianos-current-backup.mjs",
     "current:restore": "node scripts/kianos-current-restore.mjs",
     "test:css-ownership": "node scripts/test-ui-css-ownership.mjs",
-    "test:current-static-runtime": "node scripts/test-current-static-runtime.mjs",
+    "test:current-static-runtime": "npm run test:current-static-slots && node scripts/test-current-static-runtime.mjs",
     "static:serve": "node scripts/kianos-static-server.mjs",
     "test:external-source-hash-gate": "node scripts/test-external-reading-source-hash-gate.mjs",
     "codex:hygiene": "node scripts/codex-local-hygiene.mjs",
@@ -61,7 +61,8 @@
     "codex:watcher:install": "bash scripts/install-codex-issue-watcher-macos.sh",
     "test:codex-watcher": "node scripts/test-codex-issue-watcher.mjs && node scripts/test-codex-execution-policy.mjs",
     "validate:skills": "node scripts/validate-skill-library.mjs",
-    "qa:skills": "npm run validate:skills && npm run build"
+    "qa:skills": "npm run validate:skills && npm run build",
+    "test:current-static-slots": "node scripts/test-current-static-slots.mjs"
   },
   "dependencies": {
     "astro": "^5.0.0",

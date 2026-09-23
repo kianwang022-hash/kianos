@@ -7,6 +7,7 @@ import { spawn } from 'node:child_process';
 
 import { buildPoliticsPracticeCatalogCurrent } from '../src/lib/politicsPractice.mjs';
 import { practiceReady } from '../src/lib/politicsPracticeView.mjs';
+import { atomicReplaceSymlink } from './currentStaticSlots.mjs';
 
 const PORT = Number(process.env.KIANOS_STATIC_RUNTIME_TEST_PORT || 4491);
 const BASE = `http://127.0.0.1:${PORT}`;
@@ -15,6 +16,8 @@ const staticServer = path.join(webRoot, 'scripts', 'kianos-static-server.mjs');
 const distRoot = path.join(webRoot, 'dist');
 const budgetMs = Number(process.env.KIANOS_STATIC_RUNTIME_WARM_BUDGET_MS || 250);
 const scratch = fs.mkdtempSync(path.join(os.tmpdir(), 'kianos-static-runtime-'));
+const liveRoot = path.join(scratch, 'live');
+const fallbackRoot = path.join(scratch, 'previous');
 const privateDir = path.join(scratch, 'learner-state');
 const controlDir = path.join(scratch, 'control');
 const currentStatusFile = path.join(webRoot, 'public', '__kianos-current.json');
@@ -30,10 +33,18 @@ fs.writeFileSync(currentStatusFile, JSON.stringify({
 
 assert.equal(fs.existsSync(path.join(distRoot, 'index.html')), true, 'STATIC_RUNTIME_DIST_MISSING');
 assert.equal(fs.existsSync(staticServer), true, 'STATIC_RUNTIME_SERVER_MISSING');
+atomicReplaceSymlink(distRoot, liveRoot);
+atomicReplaceSymlink(distRoot, fallbackRoot);
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 let output = '';
-const server = spawn(process.execPath, [staticServer, '--host', '127.0.0.1', '--port', String(PORT), '--root', distRoot], {
+const server = spawn(process.execPath, [
+  staticServer,
+  '--host', '127.0.0.1',
+  '--port', String(PORT),
+  '--root', liveRoot,
+  '--fallback-root', fallbackRoot
+], {
   cwd: webRoot,
   env: {
     ...process.env,
@@ -131,6 +142,45 @@ try {
   assert.ok([200, 404, 409, 503].includes(external.status), 'PRIVATE_EXTERNAL_READING_STATUS_HTTP_INVALID');
   const externalPayload = JSON.parse(external.text);
   assert.ok(['ready', 'missing_source', 'stale_source', 'error'].includes(externalPayload.status), 'PRIVATE_EXTERNAL_READING_RESPONSE_INVALID');
+
+  const alternateRoot = path.join(scratch, 'alternate');
+  fs.mkdirSync(path.join(alternateRoot, '_astro'), { recursive: true });
+  fs.writeFileSync(path.join(alternateRoot, 'index.html'), '<html>ATOMIC_SLOT_B</html>');
+  fs.writeFileSync(path.join(alternateRoot, '_astro', 'new-probe.js'), 'slot-b');
+
+  const continuity = [];
+  const poller = (async () => {
+    for (let i = 0; i < 80; i += 1) {
+      try {
+        const row = await timed('/');
+        continuity.push(row.status);
+      } catch {
+        continuity.push(0);
+      }
+      await sleep(5);
+    }
+  })();
+
+  for (let i = 0; i < 30; i += 1) {
+    atomicReplaceSymlink(i % 2 ? distRoot : alternateRoot, liveRoot);
+    await sleep(7);
+  }
+  atomicReplaceSymlink(alternateRoot, liveRoot);
+  await poller;
+
+  assert.equal(continuity.every((status) => status === 200), true, 'ATOMIC_SLOT_CONTINUITY_FAILED');
+  assert.equal(server.exitCode, null, 'STATIC_RUNTIME_RESTARTED_DURING_SLOT_FLIP');
+
+  const switched = await timed('/');
+  assert.equal(switched.status, 200, 'ATOMIC_SLOT_SWITCH_HTTP');
+  assert.match(switched.text, /ATOMIC_SLOT_B/);
+
+  const oldAssetName = fs.readdirSync(path.join(distRoot, '_astro')).find((name) => {
+    try { return fs.statSync(path.join(distRoot, '_astro', name)).isFile(); } catch { return false; }
+  });
+  assert.ok(oldAssetName, 'PREVIOUS_SLOT_ASSET_FIXTURE_MISSING');
+  const oldAsset = await timed('/_astro/' + encodeURIComponent(oldAssetName));
+  assert.equal(oldAsset.status, 200, 'PREVIOUS_SLOT_ASSET_FALLBACK_FAILED');
 
   console.log(
     'STATIC_CURRENT_RUNTIME PASS'

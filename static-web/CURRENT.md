@@ -49,7 +49,7 @@ Chat owns interpretation and plans. GitHub owns canonical content and durable ru
 
 ## Runtime and background boundaries
 
-The managed local site builds a staging projection before replacing the served site. Its live SHA and health come from `/__kianos-current.json` and the doctor, never a copied value here. Source code being merged is distinct from the local site actually serving it.
+The managed local site builds into an immutable staging slot at background priority while the previous slot remains live, then atomically switches the `dist` link without restarting the static server for ordinary repository/content updates. One previous slot is retained for old hashed `/_astro/` assets. Exact Current runtime-owner code changes may perform one controlled process/server reload so new runtime code actually takes effect. Its live SHA and health come from `/__kianos-current.json` and the doctor, never a copied value here. Source code being merged is distinct from the local site actually serving it.
 
 There is one Daily Learning Packet path. Private Personal transport uses `runtime/kianos-learning/current.json` and bounded daily snapshots; relay failure must not roll back local saving. Receipt means instruction applied, not learning completed. Manual export remains a recovery option, not the normal daily ritual.
 
@@ -59,7 +59,7 @@ The installed watcher is an on-demand executor: idle checks spend no model call;
 
 - Kian approved direct display of accepted whole-paper reference-score ranges and one-click entry into an available new Source version with old records preserved. Only substantive strategy/plan changes require Chat judgment; these interactions remain with the native owners routed above.
 - Project instruction installation truth lives only in Personal `PROJECT_PROMPT_DEPLOYMENT.md`. Actual fresh-Chat teaching, natural archive and later recovery must be observed in use; text tests do not prove model behavior.
-- Existing main failures in old A1/A2 source-text assertions, Politics locator expectations, Lexical projection checks and oversized subject Current documents are classified in the integration receipt. They are not silently marked green, and are not permission to rewrite content.
+- Existing main failures in old A1/A2 source-text assertions, Politics locator expectations and Lexical projection checks are classified in the integration receipt. They are not silently marked green, and are not permission to rewrite content.
 - Real-U, missing/unpublished Source and authentic-modality limits remain with their native owners. No generated score, fixture or engineering receipt replaces them.
 
 ## Stop / reopen
