@@ -1,0 +1,783 @@
+{
+  "schema": "kianos.xizong.biochemistry-source-map.v1",
+  "status": "CURRENT_MAPPING_SKELETON_DEEP_REVIEW_IN_PROGRESS",
+  "role": "Single machine owner for mapping the current 27 Biochemistry continuous Source lane onto stable canonical M1-M10/G1-G5 Knowledge without forcing learner switching.",
+  "source": {
+    "cycle": "27考研",
+    "visible_name": "27生化跟课版合集【不带导图】.pdf",
+    "sha256": "17d991896f0edea0b2e1274fdee76862998a1f3bd0c4bad03155bf9e4b27ce1c",
+    "pages": 170,
+    "markdown_snapshot": "content/xizong/source-snapshots/27/生物化学讲义_AI阅读版_27跟课_UnifiedSource_v1.md"
+  },
+  "authority_boundary": {
+    "current_source_truth": "27 follow-along Source",
+    "explanatory_substrate": "26 refined Biochemistry Source / prior AI-readable reconstruction",
+    "canonical_medical_truth": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/** canonical Block owners + system.json",
+    "learning_owner": "content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json",
+    "question_relation_owner": "content/xizong/question-relations/",
+    "rule": "This map owns Source→canonical routing only. It does not become a second medical Core, question-relation owner, learner-state owner or official-question membership owner."
+  },
+  "learner_execution": {
+    "first_pass": "FOLLOW_27_SOURCE_ORDER_END_TO_END",
+    "block_switching": "DO_NOT_SWITCH_COURSES_FOR_CANONICAL_BLOCK_ORDER",
+    "source_shadow_mapping": true,
+    "lecture_attached_questions": "Remain with the original 27 Source flow; they do not become the official System question sweep.",
+    "official_questions": "Revalidate affected reviewed relations/explanations during the rebase, but learner-facing official System sweep timing remains owned by the B learning contract."
+  },
+  "binding_status_rule": {
+    "source_pages": "VERIFIED_FROM_27_MARKDOWN_PAGE_ANCHORS",
+    "block_lg_binding": "CURRENT_SKELETON; must be confirmed/adjusted during each deep semantic batch",
+    "kp_binding": "DO_NOT_INFER_EXACT_PAGE_TO_KP_FROM_THIS_SKELETON; exact KP bindings are admitted only by the deep review",
+    "cross_system": "Connection/Recall only unless a formal Current target owner is reviewed"
+  },
+  "source_units": [
+    {
+      "id": "BIO27-S01",
+      "label": "1.1 糖无氧氧化 & 糖有氧氧化",
+      "pdf": [
+        3,
+        8
+      ],
+      "primary": [
+        [
+          "M2",
+          "b-m02-lg01"
+        ],
+        [
+          "M2",
+          "b-m02-lg02"
+        ]
+      ],
+      "support": [
+        [
+          "M1",
+          "b-m01-lg03"
+        ]
+      ],
+      "connections": [
+        "D7/D8 metabolic-state and diabetes drug interface"
+      ],
+      "notes": "M1 support here is JIT enzyme/control language, not M1 completion."
+    },
+    {
+      "id": "BIO27-S02",
+      "label": "串·红细胞代谢 & 高能化合物",
+      "pdf": [
+        9,
+        12
+      ],
+      "primary": [
+        [
+          "M3",
+          "b-m03-lg01"
+        ]
+      ],
+      "support": [
+        [
+          "M3",
+          "b-m03-lg02"
+        ],
+        [
+          "M2",
+          "b-m02-lg02"
+        ]
+      ],
+      "connections": [
+        "hematology RBC interface"
+      ],
+      "notes": "Introduces PPP/NADPH only as RBC interface; full PPP ownership closes in S03."
+    },
+    {
+      "id": "BIO27-S03",
+      "label": "1.2 磷酸戊糖途径、糖原、糖异生 + 糖代谢小结",
+      "pdf": [
+        13,
+        18
+      ],
+      "primary": [
+        [
+          "M3",
+          "b-m03-lg02"
+        ],
+        [
+          "M4",
+          "b-m04-lg01"
+        ],
+        [
+          "M4",
+          "b-m04-lg02"
+        ],
+        [
+          "M4",
+          "b-m04-lg03"
+        ]
+      ],
+      "support": [
+        [
+          "M1",
+          "b-m01-lg03"
+        ],
+        [
+          "M1",
+          "b-m01-lg05"
+        ],
+        [
+          "M2",
+          "b-m02-lg01"
+        ]
+      ],
+      "connections": [
+        "D7/D8 fed-fasting and diabetes interface"
+      ],
+      "notes": "Contains the current M3 NADPH wording conflict; keep fail-closed during semantic review."
+    },
+    {
+      "id": "BIO27-S04",
+      "label": "1.3 氧化磷酸化 + 葡萄糖有氧氧化能量计算",
+      "pdf": [
+        19,
+        26
+      ],
+      "primary": [
+        [
+          "M2",
+          "b-m02-lg02"
+        ],
+        [
+          "M2",
+          "b-m02-lg03"
+        ]
+      ],
+      "support": [
+        [
+          "M1",
+          "b-m01-lg05"
+        ]
+      ],
+      "connections": [
+        "thyroid/thermogenesis and poisoning interfaces"
+      ],
+      "notes": "Completes the current Source contact needed for the M2 energy model."
+    },
+    {
+      "id": "BIO27-S05",
+      "label": "1.4 血浆脂蛋白",
+      "pdf": [
+        27,
+        30
+      ],
+      "primary": [
+        [
+          "M5",
+          "b-m05-lg01"
+        ],
+        [
+          "M5",
+          "b-m05-lg02"
+        ],
+        [
+          "M5",
+          "b-m05-lg03"
+        ]
+      ],
+      "support": [],
+      "connections": [
+        "D3/D4 absorption; atherosclerosis; fatty-liver interface"
+      ]
+    },
+    {
+      "id": "BIO27-S06",
+      "label": "1.5 磷脂代谢、胆固醇代谢和胆汁酸",
+      "pdf": [
+        31,
+        35
+      ],
+      "primary": [
+        [
+          "M6",
+          "b-m06-lg01"
+        ],
+        [
+          "M6",
+          "b-m06-lg02"
+        ],
+        [
+          "M6",
+          "b-m06-lg03"
+        ]
+      ],
+      "support": [
+        [
+          "M5",
+          "b-m05-lg03"
+        ]
+      ],
+      "connections": [
+        "D19 bile-acid/gallstone; D22 steroid; D23 VitD interfaces"
+      ]
+    },
+    {
+      "id": "BIO27-S07",
+      "label": "1.6 脂肪代谢 + 脂代谢小结",
+      "pdf": [
+        36,
+        44
+      ],
+      "primary": [
+        [
+          "M7",
+          "b-m07-lg01"
+        ],
+        [
+          "M7",
+          "b-m07-lg02"
+        ],
+        [
+          "M7",
+          "b-m07-lg03"
+        ],
+        [
+          "M7",
+          "b-m07-lg04"
+        ]
+      ],
+      "support": [
+        [
+          "M2",
+          "b-m02-lg02"
+        ],
+        [
+          "M4",
+          "b-m04-lg03"
+        ],
+        [
+          "M6",
+          "b-m06-lg01"
+        ]
+      ],
+      "connections": [
+        "D7/D8 fasting/diabetes; D20 nutrition interface"
+      ]
+    },
+    {
+      "id": "BIO27-S08",
+      "label": "1.7 氨基酸代谢 + 氨基酸串联/插图",
+      "pdf": [
+        45,
+        58
+      ],
+      "primary": [
+        [
+          "M8",
+          "b-m08-lg01"
+        ],
+        [
+          "M8",
+          "b-m08-lg02"
+        ],
+        [
+          "M8",
+          "b-m08-lg03"
+        ],
+        [
+          "M8",
+          "b-m08-lg04"
+        ],
+        [
+          "M8",
+          "b-m08-lg05"
+        ]
+      ],
+      "support": [
+        [
+          "M10",
+          "b-m10-lg01"
+        ],
+        [
+          "M1",
+          "b-m01-lg05"
+        ]
+      ],
+      "connections": [
+        "hematology megaloblastic; liver ammonia; endocrine/catecholamine interfaces"
+      ],
+      "notes": "Contains ALA-synthase/heme and vitamin-cofactor bridges; those remain M10/M1 support, not duplicate Primary."
+    },
+    {
+      "id": "BIO27-S09",
+      "label": "1.8 蛋白质（含前置思维导图）",
+      "pdf": [
+        59,
+        65
+      ],
+      "primary": [
+        [
+          "M1",
+          "b-m01-lg01"
+        ],
+        [
+          "M1",
+          "b-m01-lg02"
+        ]
+      ],
+      "support": [],
+      "connections": [
+        "D4 protein absorption; renal proteinuria interface"
+      ],
+      "notes": "P059-P060 are Source-inserted protein maps before the explicit 1.8 header and are part of this natural unit."
+    },
+    {
+      "id": "BIO27-S10",
+      "label": "1.9 核苷酸代谢 + 抗代谢物串联",
+      "pdf": [
+        66,
+        74
+      ],
+      "primary": [
+        [
+          "M9",
+          "b-m09-lg01"
+        ],
+        [
+          "M9",
+          "b-m09-lg02"
+        ],
+        [
+          "M9",
+          "b-m09-lg03"
+        ]
+      ],
+      "support": [
+        [
+          "M8",
+          "b-m08-lg05"
+        ]
+      ],
+      "connections": [
+        "G1/G5 information and antimetabolite bridge"
+      ]
+    },
+    {
+      "id": "BIO27-S11",
+      "label": "1.10 胆色素代谢（含血红素合成与生物转化前置图）",
+      "pdf": [
+        75,
+        79
+      ],
+      "primary": [
+        [
+          "M10",
+          "b-m10-lg01"
+        ],
+        [
+          "M10",
+          "b-m10-lg02"
+        ]
+      ],
+      "support": [
+        [
+          "M10",
+          "b-m10-lg03"
+        ],
+        [
+          "M1",
+          "b-m01-lg05"
+        ]
+      ],
+      "connections": [
+        "hematology hemolysis; hepatobiliary jaundice"
+      ],
+      "notes": "P079 is an explicit Source bridge into biotransformation."
+    },
+    {
+      "id": "BIO27-S12",
+      "label": "1.11 生物转化",
+      "pdf": [
+        80,
+        80
+      ],
+      "primary": [
+        [
+          "M10",
+          "b-m10-lg03"
+        ]
+      ],
+      "support": [],
+      "connections": [
+        "hepatic drug/hormone handling interface"
+      ]
+    },
+    {
+      "id": "BIO27-S13",
+      "label": "1.12 酶 + 酶在医学上的作用",
+      "pdf": [
+        81,
+        90
+      ],
+      "primary": [
+        [
+          "M1",
+          "b-m01-lg03"
+        ],
+        [
+          "M1",
+          "b-m01-lg04"
+        ]
+      ],
+      "support": [
+        [
+          "M1",
+          "b-m01-lg05"
+        ]
+      ],
+      "connections": [
+        "multiple disease/diagnostic enzyme interfaces"
+      ],
+      "notes": "P090 is a Source-inserted vitamin/cofactor map and bridges into S14."
+    },
+    {
+      "id": "BIO27-S14",
+      "label": "1.13 维生素",
+      "pdf": [
+        91,
+        92
+      ],
+      "primary": [
+        [
+          "M1",
+          "b-m01-lg05"
+        ]
+      ],
+      "support": [],
+      "connections": [
+        "D23 VitD; coagulation VitK; multiple metabolism cofactor interfaces"
+      ]
+    },
+    {
+      "id": "BIO27-S15",
+      "label": "2.1 原癌基因&抑癌基因、基因重组、分子生物学技术（含前置思维导图）",
+      "pdf": [
+        93,
+        104
+      ],
+      "primary": [
+        [
+          "G5",
+          "b-g05-lg01"
+        ],
+        [
+          "G5",
+          "b-g05-lg03"
+        ]
+      ],
+      "support": [
+        [
+          "G4",
+          "b-g04-lg01"
+        ],
+        [
+          "G2",
+          "b-g02-lg02"
+        ]
+      ],
+      "connections": [
+        "O9 tumor-general; hematology/organ tumor interfaces"
+      ],
+      "notes": "P093-P096 are Source-inserted maps before the explicit 2.1 header."
+    },
+    {
+      "id": "BIO27-S16",
+      "label": "2.2 核酸",
+      "pdf": [
+        105,
+        114
+      ],
+      "primary": [
+        [
+          "G1",
+          "b-g01-lg01"
+        ],
+        [
+          "G1",
+          "b-g01-lg02"
+        ],
+        [
+          "G1",
+          "b-g01-lg03"
+        ]
+      ],
+      "support": [],
+      "connections": [
+        "G2/G3 entry language"
+      ]
+    },
+    {
+      "id": "BIO27-S17",
+      "label": "2.3 DNA的合成",
+      "pdf": [
+        115,
+        127
+      ],
+      "primary": [
+        [
+          "G2",
+          "b-g02-lg01"
+        ],
+        [
+          "G2",
+          "b-g02-lg02"
+        ],
+        [
+          "G2",
+          "b-g02-lg03"
+        ]
+      ],
+      "support": [
+        [
+          "G5",
+          "b-g05-lg02"
+        ]
+      ],
+      "connections": [
+        "G5 repair boundary"
+      ],
+      "notes": "Replication fidelity/repair references are support until the dedicated DNA-damage unit."
+    },
+    {
+      "id": "BIO27-S18",
+      "label": "2.4 转录 + DNA复制VS转录",
+      "pdf": [
+        128,
+        138
+      ],
+      "primary": [
+        [
+          "G3",
+          "b-g03-lg01"
+        ],
+        [
+          "G3",
+          "b-g03-lg02"
+        ]
+      ],
+      "support": [
+        [
+          "G2",
+          "b-g02-lg03"
+        ]
+      ],
+      "connections": [
+        "G4 regulation entry"
+      ]
+    },
+    {
+      "id": "BIO27-S19",
+      "label": "2.5 翻译（蛋白质的合成）",
+      "pdf": [
+        139,
+        150
+      ],
+      "primary": [
+        [
+          "G3",
+          "b-g03-lg03"
+        ],
+        [
+          "G3",
+          "b-g03-lg04"
+        ],
+        [
+          "G3",
+          "b-g03-lg05"
+        ]
+      ],
+      "support": [
+        [
+          "G1",
+          "b-g01-lg03"
+        ]
+      ],
+      "connections": [
+        "protein maturation/targeting; antimicrobial/toxin interfaces"
+      ]
+    },
+    {
+      "id": "BIO27-S20",
+      "label": "2.6 基因表达的调控",
+      "pdf": [
+        151,
+        165
+      ],
+      "primary": [
+        [
+          "G4",
+          "b-g04-lg01"
+        ],
+        [
+          "G4",
+          "b-g04-lg02"
+        ],
+        [
+          "G4",
+          "b-g04-lg03"
+        ]
+      ],
+      "support": [
+        [
+          "G1",
+          "b-g01-lg04"
+        ]
+      ],
+      "connections": [
+        "endocrine nuclear-receptor and hypoxia/HIF interfaces"
+      ],
+      "notes": "Includes the verified 27 HIF–VHL→EPO enhancer update."
+    },
+    {
+      "id": "BIO27-S21",
+      "label": "2.7 真核基因",
+      "pdf": [
+        166,
+        168
+      ],
+      "primary": [
+        [
+          "G1",
+          "b-g01-lg04"
+        ]
+      ],
+      "support": [
+        [
+          "G4",
+          "b-g04-lg03"
+        ]
+      ],
+      "connections": [
+        "G3/G4 expression-organization boundary"
+      ]
+    },
+    {
+      "id": "BIO27-S22",
+      "label": "2.8 DNA损伤",
+      "pdf": [
+        169,
+        170
+      ],
+      "primary": [
+        [
+          "G5",
+          "b-g05-lg02"
+        ]
+      ],
+      "support": [
+        [
+          "G2",
+          "b-g02-lg01"
+        ]
+      ],
+      "connections": [
+        "tumor/genome-stability interface"
+      ],
+      "notes": "Exact first Greek low-fidelity polymerase glyph remains visual-source-bound until resolved."
+    }
+  ],
+  "block_source_closure_checkpoints": {
+    "M2": {
+      "after_unit": "BIO27-S04",
+      "after_pdf": 26,
+      "status": "SOURCE_CONTACT_COMPLETE_BY_MAP"
+    },
+    "M3": {
+      "after_unit": "BIO27-S03",
+      "after_pdf": 18,
+      "status": "SOURCE_CONTACT_COMPLETE_BY_MAP"
+    },
+    "M4": {
+      "after_unit": "BIO27-S03",
+      "after_pdf": 18,
+      "status": "SOURCE_CONTACT_COMPLETE_BY_MAP"
+    },
+    "M5": {
+      "after_unit": "BIO27-S05",
+      "after_pdf": 30,
+      "status": "SOURCE_CONTACT_COMPLETE_BY_MAP"
+    },
+    "M6": {
+      "after_unit": "BIO27-S06",
+      "after_pdf": 35,
+      "status": "SOURCE_CONTACT_COMPLETE_BY_MAP"
+    },
+    "M7": {
+      "after_unit": "BIO27-S07",
+      "after_pdf": 44,
+      "status": "SOURCE_CONTACT_COMPLETE_BY_MAP"
+    },
+    "M8": {
+      "after_unit": "BIO27-S08",
+      "after_pdf": 58,
+      "status": "SOURCE_CONTACT_COMPLETE_BY_MAP"
+    },
+    "M9": {
+      "after_unit": "BIO27-S10",
+      "after_pdf": 74,
+      "status": "SOURCE_CONTACT_COMPLETE_BY_MAP"
+    },
+    "M10": {
+      "after_unit": "BIO27-S12",
+      "after_pdf": 80,
+      "status": "SOURCE_CONTACT_COMPLETE_BY_MAP"
+    },
+    "M1": {
+      "after_unit": "BIO27-S14",
+      "after_pdf": 92,
+      "status": "SOURCE_CONTACT_COMPLETE_BY_MAP"
+    },
+    "G2": {
+      "after_unit": "BIO27-S17",
+      "after_pdf": 127,
+      "status": "SOURCE_CONTACT_COMPLETE_BY_MAP"
+    },
+    "G3": {
+      "after_unit": "BIO27-S19",
+      "after_pdf": 150,
+      "status": "SOURCE_CONTACT_COMPLETE_BY_MAP"
+    },
+    "G4": {
+      "after_unit": "BIO27-S20",
+      "after_pdf": 165,
+      "status": "SOURCE_CONTACT_COMPLETE_BY_MAP"
+    },
+    "G1": {
+      "after_unit": "BIO27-S21",
+      "after_pdf": 168,
+      "status": "SOURCE_CONTACT_COMPLETE_BY_MAP"
+    },
+    "G5": {
+      "after_unit": "BIO27-S22",
+      "after_pdf": 170,
+      "status": "SOURCE_CONTACT_COMPLETE_BY_MAP"
+    }
+  },
+  "route_conflicts_to_resolve_during_deep_review": [
+    {
+      "id": "BIO27-RC01",
+      "issue": "Current B readiness says M2 requires full M1, but the 27 Source teaches core metabolism before formal protein/enzyme/vitamin chapters.",
+      "current_safe_execution": "Allow continuous Source contact with the minimal JIT prelude; do not force a jump to M1. Decide during K/L revalidation whether source-local Recall can count before full M1 closure and how Block Complete should be gated."
+    },
+    {
+      "id": "BIO27-RC02",
+      "issue": "G5 Source begins before G1-G4, then DNA-damage material returns at the very end.",
+      "current_safe_execution": "Treat S15 as early Source exposure/partial formation only; do not close G5 until S22 and required information-flow language is available."
+    }
+  ],
+  "next_review_batches": [
+    "S01-S04 carbohydrate/energy against M2-M4",
+    "S05-S07 lipid against M5-M7",
+    "S08 amino acid against M8",
+    "S09 + S13-S14 distributed M1",
+    "S10 nucleotide against M9",
+    "S11-S12 heme/bilirubin/biotransformation against M10",
+    "S15-S22 molecular branch against G1-G5",
+    "system/cross-system + learning + question/explanation/evidence reconciliation"
+  ]
+}
